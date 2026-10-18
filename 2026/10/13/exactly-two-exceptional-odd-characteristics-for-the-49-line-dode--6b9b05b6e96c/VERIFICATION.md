@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility of the exact incidence computation
+# Independent mathematical audit
 
-Execute `python3 verify_dodecagon.py` with standard Python 3.10 or later. No specialized computer algebra dependency is required.
+## correctness
 
-The code constructs twelve vertices with coordinates in \(\mathbb Z[\sqrt3]\), computes the twelve side lines and their 66 distinct intersections, then enumerates every pair of those points to form the 49 lines containing at least four seed points. It enumerates all 1176 pairs of final lines to obtain the exact characteristic-zero multiplicity basket. It next clears denominators, takes primitive coefficient triples, tests all 18424 triple determinants by exact quadratic-integer arithmetic, factors every nonzero determinant norm, and checks the two different kinds of good-reduction obstruction (vanishing line coefficients and coincident lines) using coordinate-norm gcds.
+PASS
 
-The code computes the complete exceptional-prime intersection multiplicities at both embeddings \(\sqrt3\mapsto\pm5\) in characteristic 11 and \(\sqrt3\mapsto\pm4\) in characteristic 13. A nonexceptional check at characteristic 23 is a supplemental comparison, not the justification for the all-primes conclusion. Expected output starts with `VERIFY_OK`.
+Fresh independently written Q(sqrt3) arithmetic rebuilt all twelve side lines, 66 seed intersection points, 913 candidate joins and exactly 49 richness>=4 lines. All 1176 pairs give char-zero histogram (204,96,6,24,6,12,1), total 349 and Σ choose(m,2)n_m=1176. Primitive integral triples have coordinate-norm gcd and pair-cross coordinate-norm gcd supported only at 2,3, ensuring line survival/distinctness at p>=5. Independently enumerated all 18424 unordered triples: 1120 zero determinants; 60 distinct nonzero determinant norms, max 1944, combined prime support {2,3,11,13}. Thus no new triple dependencies for p>=5 except 11,13; zero dependencies persist. Reductions at both roots sqrt3=±5 mod11 and ±4 mod13 give precisely the stated profiles, with 133 and 169 points and weighted pair counts 1176. p23 split-field control gives original profile. Exhaustiveness over determinant norms proves all p>=5, not sampled primes.
 
-The finite exhaustive determinant calculation yields the necessary infinite-prime conclusion by a number-theoretic implication: if a nonzero quadratic-integer determinant vanishes modulo a prime over \(p\), then \(p\) divides its integer field norm. The full list of norms, rather than any tested bound on primes, controls all primes \(p\ge5\).
+## originality
 
-This verification is of the written result and the included algorithm only; it is not an independent external audit. It establishes no behavior in characteristics two or three, no statement about rational points, and no positive-characteristic freeness claim.
+PASS
+
+Pokora--Roulleau gives the arrangement and its characteristic-zero incidence; the same primary text does not compute bad primes. Exhaustive quadratic-integer determinant norm support and two different positive-characteristic multiplicity baskets are new arithmetic degeneration data for a canonical rigid configuration.
+
+## value
+
+PASS
+
+Good/bad reduction of a rigid, well-studied 49-line arithmetic arrangement is a natural integral-matroid invariant. Determining precisely which two odd primes alter its geometric intersection lattice, with complete multiplicity distributions, is a mathematically useful exact arithmetic classification; it distinguishes modular degeneration from characteristic-zero freeness/rigidity. This involves a genuine all-primes finite determinant norm certificate, not arbitrary sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

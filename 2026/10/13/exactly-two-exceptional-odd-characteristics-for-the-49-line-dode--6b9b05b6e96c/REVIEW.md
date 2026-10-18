@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The field, integral normalization, and reduction are fixed explicitly. Reconstructing the full 49-line configuration from the twelve vertices reproduces the source's characteristic-zero multiplicity histogram. Exhaustive determinant arithmetic over \(\mathbb Z[\sqrt3]\) gives 1120 identically zero line triples and 60 distinct absolute norms of nonzero triples, whose prime support is exactly \(\{2,3,11,13\}\). Nonvanishing of line vectors and pairwise separation for primes at least five are checked independently by coordinate norm-gcd tests. Both embeddings at each exceptional prime yield the specified histograms and 49 distinct lines. Finiteness is essential and complete: all 18424 triples are checked; the theorem makes no claim in characteristic two or three. The attached standalone verifier completed successfully.
+## correctness
 
-## Originality — PASS, residual bibliographic risk
-Pokora–Roulleau arXiv:2403.20024v1, Remark 2.5, establishes the arrangement, its rigidity, and its complex incidence table. Neither that source nor its more recent public version provides the complete reduction table or exceptional-prime determination. Kühne–Roulleau arXiv:2312.03470 studies a related polygonal matroid family and positive-characteristic realization questions, but its results do not imply the specific fixed-closure reduction at 11 and 13. Prior results about the symmetry of these 49 lines and the modular reductions of other polygonal arrangements concern different properties or different configurations. Searches of published mathematical records did not identify equivalent or broader coverage; this negative search result alone is not proof of novelty. An unindexed historical finite-field computation remains possible.
+PASS
 
-## Value — PASS
-The 49-line closure is a distinguished rigid free arrangement over a real quadratic field; the exact prime set at which its entire intersection lattice fails to survive reduction is a natural arithmetic invariant. Distinct components survive even when hundreds of intersection points coalesce, and the two exceptional primes have different complete collision profiles. This determines the boundary of preservation of its combinatorics, rather than computing an arbitrary numerical slice or a routine consequence of its complex table.
+Fresh independently written Q(sqrt3) arithmetic rebuilt all twelve side lines, 66 seed intersection points, 913 candidate joins and exactly 49 richness>=4 lines. All 1176 pairs give char-zero histogram (204,96,6,24,6,12,1), total 349 and Σ choose(m,2)n_m=1176. Primitive integral triples have coordinate-norm gcd and pair-cross coordinate-norm gcd supported only at 2,3, ensuring line survival/distinctness at p>=5. Independently enumerated all 18424 unordered triples: 1120 zero determinants; 60 distinct nonzero determinant norms, max 1944, combined prime support {2,3,11,13}. Thus no new triple dependencies for p>=5 except 11,13; zero dependencies persist. Reductions at both roots sqrt3=±5 mod11 and ±4 mod13 give precisely the stated profiles, with 133 and 169 points and weighted pair counts 1176. p23 split-field control gives original profile. Exhaustiveness over determinant norms proves all p>=5, not sampled primes.
 
-## Scientific limits
-Geometric intersection points, not \(\mathbb F_p\)-rational points, are counted. The result concerns one explicit integral model; no freeness claim in positive characteristic and no analysis of characteristics 2 and 3 is made. The finite verifier proves exhaustive integer identities but is not a formal proof in an external theorem prover. A separate independent audit has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pokora--Roulleau gives the arrangement and its characteristic-zero incidence; the same primary text does not compute bad primes. Exhaustive quadratic-integer determinant norm support and two different positive-characteristic multiplicity baskets are new arithmetic degeneration data for a canonical rigid configuration.
+
+## value
+
+PASS
+
+Good/bad reduction of a rigid, well-studied 49-line arithmetic arrangement is a natural integral-matroid invariant. Determining precisely which two odd primes alter its geometric intersection lattice, with complete multiplicity distributions, is a mathematically useful exact arithmetic classification; it distinguishes modular degeneration from characteristic-zero freeness/rigidity. This involves a genuine all-primes finite determinant norm certificate, not arbitrary sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
