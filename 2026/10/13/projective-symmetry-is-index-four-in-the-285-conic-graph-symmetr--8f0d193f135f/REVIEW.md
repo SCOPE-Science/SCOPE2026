@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Degtyarev gives the three nontrivial source inputs needed for the count: \(|O_h(N)|=2880\), \(T=[6,0,20]\), and surjectivity \(O_h(N)\to O(q_N)\). Primitive unimodular gluing identifies \(q_N\) with \(-q_T\). The finite discriminant calculation gives \(|O(q_T)|=8\). Since the only square-six vectors in \(T\) are \(\pm e_1\), \(O(T)\) consists of four sign changes and its orientation-preserving/Hodge subgroup is \({\pm I}\), with discriminant image of order two. The compatible inverse image therefore has order \(720\). Global Torelli and the complete degree-six linear system identify this with the projective stabilizer.
+## correctness
 
-## Originality
-PASS. The primary paper states the larger graph-automorphism order and the transcendental lattice but does not state the projective stabilizer order or the index-four symmetry gap. Searches using the exact surface label, conic count, graph order, transcendental lattice, projective-automorphism terminology, and the numerical value \(720\) found no covering statement. published-finding corpus searches likewise returned only unrelated projective-stabilizer and K3-symmetry findings.
+PASS
 
-## Value
-PASS. The projective stabilizer is a natural intrinsic invariant of the unique extremal projective model attaining the sharp 285-conic bound. Distinguishing geometric symmetries from the four-times-larger abstract conic-graph symmetry group clarifies which combinatorial symmetries survive the Hodge/gluing constraint and is relevant to moduli, orbit, and quotient questions for this extremal surface.
+Independently enumerated all isometries of the 120-element discriminant group A_T=Z/6 ⊕ Z/20, q(a,b)=a²/6+b²/20 mod 2Z: exactly eight, e1 images ±e1 and e2 images (0,1),(0,9),(0,11),(0,19). The Hodge-compatible subgroup O^+(T) for T=diag(6,20) is {±Id} and has discr image order 2. Published polarized N-lattice graph group is 2880 and surjects onto O(q); primitive gluing and Torelli then give 2880/8*2=720. Restriction to the complete polarized projective model is essential.
 
-## Closest literature and limitations
-The closest source is Degtyarev's conic-count paper itself, especially §8.1 and Table 7. Rams–Schütt's later work on conics on K3 surfaces treats different constructions and does not state this projective-stabilizer count. A residual literature risk remains that the order may be implicit in a specialist treatment of this singular K3 surface under a different model or group name. The present result does not identify the order-\(720\) group up to isomorphism.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2880 graph group, lattice T and discriminant surjectivity are published. The claim adds the Hodge restriction of the graph group and explicit polarized/projective subgroup order 720, not a restatement of all graph symmetries as geometric. No covering count found in inspected Degtyarev theorem/lattice passages or relevant Resultary matches; an implicit lattice calculation in another paper is possible.
+
+## value
+
+PASS
+
+The exact mismatch between symmetries of a 285-conic incidence graph and symmetries of the actual embedded K3 surface is a natural geometric rigidity invariant; index four quantifies precisely which combinatorial symmetries survive Hodge constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

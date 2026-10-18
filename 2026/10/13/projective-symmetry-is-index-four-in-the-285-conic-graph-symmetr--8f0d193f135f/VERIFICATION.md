@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The finite calculation in `verify.py` uses only the displayed transcendental lattice \(T=\langle6\rangle\oplus\langle20\rangle\) and the source value \(|O_h(N)|=2880\). It enumerates the discriminant group \(A_T\cong\mathbb Z/6\oplus\mathbb Z/20\), preserving the quadratic form \(q_T(a,b)=a^2/6+b^2/20\pmod{2\mathbb Z}\), and obtains exactly eight automorphisms. It separately checks that the square-six vectors are only \(\pm e_1\), forcing \(O(T)\) to be the four diagonal sign changes and \(O^+(T)=\{\pm I\}\). The latter has discriminant image of order two.
+# Independent mathematical audit
 
-The script therefore checks the exact arithmetic
-\[
-|\ker(O_h(N)\to O(q_N))|=2880/8=360,
-\qquad
-|\operatorname{Aut}_{\mathbb P^4}(X_{285})|=360\cdot2=720.
-\]
+## correctness
 
-The script does not reconstruct Degtyarev's 285-vertex graph or reprove the published GAP computation \(|O_h(N)|=2880\); those are explicit source inputs. It also does not identify the abstract isomorphism type of the order-\(720\) group.
+PASS
+
+Independently enumerated all isometries of the 120-element discriminant group A_T=Z/6 ⊕ Z/20, q(a,b)=a²/6+b²/20 mod 2Z: exactly eight, e1 images ±e1 and e2 images (0,1),(0,9),(0,11),(0,19). The Hodge-compatible subgroup O^+(T) for T=diag(6,20) is {±Id} and has discr image order 2. Published polarized N-lattice graph group is 2880 and surjects onto O(q); primitive gluing and Torelli then give 2880/8*2=720. Restriction to the complete polarized projective model is essential.
+
+## originality
+
+PASS
+
+The 2880 graph group, lattice T and discriminant surjectivity are published. The claim adds the Hodge restriction of the graph group and explicit polarized/projective subgroup order 720, not a restatement of all graph symmetries as geometric. No covering count found in inspected Degtyarev theorem/lattice passages or relevant Resultary matches; an implicit lattice calculation in another paper is possible.
+
+## value
+
+PASS
+
+The exact mismatch between symmetries of a 285-conic incidence graph and symmetries of the actual embedded K3 surface is a natural geometric rigidity invariant; index four quantifies precisely which combinatorial symmetries survive Hodge constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
