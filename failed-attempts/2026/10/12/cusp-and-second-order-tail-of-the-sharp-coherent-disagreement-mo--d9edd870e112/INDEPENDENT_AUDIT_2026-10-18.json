@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T11:55:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/cusp-and-second-order-tail-of-the-sharp-coherent-disagreement-mo--d9edd870e112/RESULT.md",
+        "https://arxiv.org/abs/2405.04375",
+        "https://arxiv.org/abs/2305.09547",
+        "https://arxiv.org/abs/2307.07672"
+      ],
+      "rationale": "Use the already published exact piecewise Kravchenko formula: M=2^-alpha left and M=2 a_alpha d_alpha^alpha right with a=(alpha+3-sqrt(alpha²+6alpha+1))/4, d=(3alpha+1-sqrt(...))/(2alpha). Stationarity of log(2a)+alpha log[(1-2a)/(1-a)] removes da/dalpha in differentiation, giving right log derivative log d and left -log 2; alpha0>2 implies d0>1/2, so nonzero positive jump. Exact formal expansion in t=1/alpha yields log[M/(2t/e)]=-3t/2+13t²/6-21t³/4+O(t^4), hence relative -3/2 and 79/24. Independent SymPy rational-series calculation and numeric alpha0 root/slope checks agree. Relies entirely on published exact optimizer formula and does not reprove its global validity.",
+      "residual_risks": [
+        "This is a correctness PASS and an originality/value FAIL by implication from an already known stronger exact theorem; do not force an artificial repair."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kravchenko Theorem 1.3 is a strictly stronger all-alpha piecewise exact optimizer theorem; its stationary formula yields cusp and tail algebraically."
+        ],
+        "reasoning": "The exact value formula logically determines every derivative/expansion in submitted claim, regardless of whether constants separately listed.",
+        "searches": [
+          "Resultary search: coherent distributions sharp moment alpha prior half Kravchenko crossover cusp",
+          "Resultary search: Kravchenko coherent distributions power moment alpha crossover derivative 79/24",
+          "Kravchenko arXiv:2405.04375 Theorem 1.3 Lemma 3.9"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/cusp-and-second-order-tail-of-the-sharp-coherent-disagreement-mo--d9edd870e112/RESULT.md",
+        "https://arxiv.org/abs/2405.04375",
+        "https://arxiv.org/abs/2305.09547",
+        "https://arxiv.org/abs/2307.07672"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying envelope theorem once gives log-slope jump log(2d0), and binomial/Taylor expansion gives -3/2 and 79/24 exactly."
+        ],
+        "reasoning": "Explicit proof of prior-claim implication: formula + routine calculus suffices; scientific O FAIL and V FAIL despite C PASS.",
+        "searches": [
+          "Resultary search: coherent distributions sharp moment alpha prior half Kravchenko crossover cusp",
+          "Resultary search: Kravchenko coherent distributions power moment alpha crossover derivative 79/24",
+          "Kravchenko arXiv:2405.04375 Theorem 1.3 Lemma 3.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted M(alpha) and the Kravchenko exact sharp M(alpha) are the same function under fixed prior 1/2."
+        ],
+        "reasoning": "Compared exact same normalization and prior, not merely a similar phase-transition title.",
+        "searches": [
+          "Resultary search: coherent distributions sharp moment alpha prior half Kravchenko crossover cusp",
+          "Resultary search: Kravchenko coherent distributions power moment alpha crossover derivative 79/24",
+          "Kravchenko arXiv:2405.04375 Theorem 1.3 Lemma 3.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kravchenko closed form is an exact all-alpha function table; evaluating or expanding it is not a new exact database."
+        ],
+        "reasoning": "No independent optimization, classification or invariant beyond derivatives of the full prior formula.",
+        "searches": [
+          "Resultary search: coherent distributions sharp moment alpha prior half Kravchenko crossover cusp",
+          "Resultary search: Kravchenko coherent distributions power moment alpha crossover derivative 79/24",
+          "Kravchenko arXiv:2405.04375 Theorem 1.3 Lemma 3.9"
+        ]
+      },
+      "rationale": "Scientific rejection by prior implication: Kravchenko 2024 Theorem 1.3 already gives M(alpha) exactly for every alpha>0 including crossover; Lemma 3.9 supplies stationary branch. One elementary envelope derivative and binomial/Taylor expansion of those published expressions yield every claimed new number and the cusp without further analytic classification. Although coefficients/jump may not be printed verbatim, they are mechanically implied by an exact all-parameter stronger theorem; wording/search nonmatch is not novelty.",
+      "residual_risks": [
+        "Relies on Kravchenko exact fixed-prior optimizer theorem as a prior premise.",
+        "No claim about changing the prior, optimizing over all priors or new coherent law extremizers.",
+        "An earlier printed coefficient is unnecessary for rejection because the exact governing formula already dominates the claimed consequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FULL PRIOR COVERAGE by exact function M(alpha); differentiating and series expanding immediately produces submitted cusp/jump and coefficients",
+          "evidence": "Theorem 1.3: sharp piecewise M(alpha) and crossover; Lemma 3.9: stationary branch.",
+          "identifier_or_url": "arXiv:2405.04375",
+          "material_read": "Full 30-page primary preprint; Theorem 1.3 and stationary optimizer Lemma 3.9, surrounding sections",
+          "method": "Read primary PDF, inspect precise optimizer formula and derivative condition and compare implications",
+          "title": "Kravchenko, Coherent distributions: Hilbert space approach and duality",
+          "trigger": "Exact same fixed-prior maximum, crossover, and optimizer"
+        },
+        {
+          "assessment": "Already gives limiting constant 2/e; does not itself give second-order coefficient",
+          "evidence": "alpha M(alpha)->2/e, weaker than exact Kravchenko formula.",
+          "identifier_or_url": "arXiv:2305.09547",
+          "material_read": "Published arXiv abstract and quoted asymptotic statement, not represented as full-document inspection",
+          "method": "Compared 2/e first-order coefficient with submitted expansion",
+          "title": "Cichomski and Osękowski, Coherent distributions on the square—extreme points and asymptotics",
+          "trigger": "Published first-order high-alpha moment law"
+        },
+        {
+          "assessment": "Lower-branch background is already subsumed by exact Kravchenko theorem",
+          "evidence": "No independent new branch theorem is asserted.",
+          "identifier_or_url": "arXiv:2307.07672",
+          "material_read": "Published abstract and relationship described in Kravchenko primary",
+          "method": "Compared scope of lower branch",
+          "title": "Arieli, Babichenko and Sandomirskiy, Persuasion as Transportation",
+          "trigger": "Potential lower-alpha optimizer constraints"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/cusp-and-second-order-tail-of-the-sharp-coherent-disagreement-mo--d9edd870e112/RESULT.md",
+        "https://arxiv.org/abs/2405.04375",
+        "https://arxiv.org/abs/2305.09547",
+        "https://arxiv.org/abs/2307.07672"
+      ],
+      "rationale": "The crossover smoothness and refined high-alpha tail are mathematically natural descriptive features, but in this package they are routine differentiations and Taylor coefficients of a fully established closed formula, without an independent structural lemma or additional barrier. Under the shared value bar, such immediate textbook consequences do not constitute a separate substantive contribution. The correctness finding is preserved; scientific rejection is based on full-text prior implication, not limited access.",
+      "residual_risks": [
+        "Relies on Kravchenko exact fixed-prior optimizer theorem as a prior premise.",
+        "No claim about changing the prior, optimizing over all priors or new coherent law extremizers.",
+        "An earlier printed coefficient is unnecessary for rejection because the exact governing formula already dominates the claimed consequences."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Relies on Kravchenko exact fixed-prior optimizer theorem as a prior premise.",
+    "No claim about changing the prior, optimizing over all priors or new coherent law extremizers.",
+    "An earlier printed coefficient is unnecessary for rejection because the exact governing formula already dominates the claimed consequences.",
+    "Existing public metadata contain confidential operational provenance; publication transport not ready."
+  ],
+  "schema_version": 1
+}
