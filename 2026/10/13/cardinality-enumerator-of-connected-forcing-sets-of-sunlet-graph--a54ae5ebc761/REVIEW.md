@@ -1,13 +1,21 @@
-# Review
-## Correctness
-PASS. The proof gives an exhaustive structural classification. Connectivity forces every selected leaf to bring its support and forces the selected cycle vertices to form either the whole cycle or one consecutive path. If the complementary cycle block has length one, at least one boundary leaf is necessary and sufficient; if it has length two, two boundary leaves are necessary and sufficient except for the degenerate three-cycle case; if it has length at least three, the process stalls after at most one inward force from each end. The three disjoint families then give the stated generating functions by direct counting. Exhaustive replay through \(n=9\) agrees with the criterion for every subset and with every coefficient.
+# Independent mathematical audit
 
-## Originality
-PASS, with a disclosed residual access risk. The closest 2016 unicyclic result gives the minimum connected forcing number and a method for producing a minimum set, together with segment restrictions, but it does not enumerate connected forcing sets of every size. The 2025 connected-forcing-density paper explicitly defines \(z_c(G;i)\), gives complete enumerations for trees, and identifies unicyclic families as a future direction; its corona theorems exclude the \(K_1\) attachment used by sunlets. A 2026 dissertation indexed passage gives the scalar sunlet value \(Z_c(L_n)=n\), so that scalar is treated as prior work. Indexed dissertation material did not reveal the all-size enumerator, but the full thesis was not retrievable through the available access path; this remains the principal residual risk.
+## correctness
 
-## Value
-PASS. The size distribution \(z_c(L_n;i)\) is a natural enumerative refinement of the connected forcing number, and the 2025 literature explicitly elevates these cardinalities to objects of study. Sunlets are a canonical unicyclic family at the boundary of corona constructions with a trivial attached graph. The theorem gives a compact exact classification, all coefficients at once, the minimum-basis count, and the total count. These are reusable data for connected-forcing density, reconfiguration, and probabilistic questions, rather than a single routine scalar evaluation.
+PASS
 
-The closest published framework supplies useful necessary structure but not the all-size leaf-sensitive count. The theorem remains limited to standard sunlets and does not assert a general unicyclic enumerator.
+For the standard sunlet L_n=C_n⊙K1, n≥3, connectivity forces each initially blue leaf to have its blue cycle support. The blue cycle vertices form one consecutive path unless all cycle vertices are selected, because any separated blocks disconnect the blue induced subgraph. The omitted cycle block has length t≥1. For t=1 the remaining vertex is forced iff at least one neighbouring boundary leaf is initially selected. For t=2 (n≥4), both boundary leaves must be initially selected to force both inner omitted cycle vertices before their leaves. For t≥3, after potential first boundary forces every newly blue end has two white neighbours (its pendant and next omitted cycle vertex), so progress stalls. These cases are disjoint and exhaust all connected forcing sets; the all-n polynomial is x^n(1+x)^n+n x^(n-1)((1+x)^2-1)(1+x)^(n-3)+n x^n(1+x)^(n-4) for n≥4, with the final term omitted at n=3. The minimal size is n; the number of minimum sets is 7 at n3 and 3n+1 for n≥4; totals are 17 and 2^(n-4)(7n+16). Independent graph-based connectivity/BFS and simultaneous colour-change simulation exhaustively checked every labelled vertex subset of L_n for 3≤n≤7 against all polynomial coefficients. Finite tests support, but do not establish, the uniform structural argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Brimkov (2016) treats unicyclic connected forcing MINIMUM sizes, not all-size sunlet enumeration. Brimkov–Davila–Schuerger (2025) introduces z_c(G;i), provides exact general results for trees, minimum sets and corona claims requiring a nontrivial/isolate-free attached H; the 25-page full preprint contains no sunlet and excludes H=K1 from its corona theorems. The scalar sunlet identity Zc=n is already known and not claimed new. The natural all-size sunlet polynomial and boundary-leaf classification are the retained work. A plausible 2026 Rice thesis with qualitative statements was not inspected in full; this is a residual priority risk.
+
+## value
+
+PASS
+
+Counting every connected sensor/forcing seed set at each cardinality, not only the minimum number, is a natural refinement of connected zero forcing. The explicit three-class characterization and full generating polynomial for the baseline unicyclic family give directly usable exact counts and coverage of all sizes, not a renamed minimum-size deduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
