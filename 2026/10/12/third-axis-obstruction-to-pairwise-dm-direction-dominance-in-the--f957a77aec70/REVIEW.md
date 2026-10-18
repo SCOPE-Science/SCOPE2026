@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Direct substitution into the primary source formulas gives two duplicated Boltzmann/Wootters weights for the \(D_x\) family, forcing \(C_x=0\) for every \(T>0\). For \(D_y\), the numerator reduces to the stated exponential polynomial. Positive rescaling gives a function with strictly positive derivative, so the threshold is unique and the temperature interval is exact. `verify.py` replays the formulas and root bracket.
+## correctness
 
-## Originality
-**PASS.** Li and Cao state the pairwise directional dominance that the family disproves, but do not identify the inconsistency with their formulas. Park's later full analytic treatment covers mixed-sign single-axis threshold structure and cites the Li--Cao work, but the inspected sections do not state or repair the \(D_x\)-versus-\(D_y\) ordering. Published-finding, alias, parameter, and web searches found no prior statement of the exact correction. The principal residual risk is that the family is derivable from known formulas and may have been noticed elsewhere under different terminology.
+PASS
 
-## Value
-**PASS.** The claim supplies a structural boundary to a published control heuristic: comparing only \(J_x\) and \(J_y\) is insufficient because \(J_z\) can enforce a degeneracy that kills concurrence in one direction. The reversal persists on an open neighborhood, so it is not a numerically tuned isolated accident.
+Substitute Jx=0,Jy=-a,Jz=a and equal one-axis DM strengths a>0 into Li–Cao Wootters weights. Dx has duplicated eigenweights exp(2x),exp(-2x),exp(-2x),exp(2x), x=a/T, and zero concurrence for all T>0. Dy has weights 1,exp(2x),exp((sqrt5-1)x),exp(-(sqrt5+1)x); its concurrence is max(0,N(x))/sum(weights). After positive scaling, N has sign of H(x)=exp((3-sqrt5)x)-exp((1-sqrt5)x)-1-exp(-2sqrt5 x), with H(0)=-2, H(+infty)>0, H'(x)>0 for x>0. Hence unique x*=0.58258195... and Cy>0 iff 0<T<a/x*. Independently diagonalized spin-1/2 Hamiltonians and computed Wootters concurrence at T=a: Cx=0,Cy≈0.244952; checked root and open-neighborhood continuity. The source claim is the pairwise Jx>Jy heuristic, not the restrictive maximum-of-all-three claim.
 
-## Closest literature and limitations
-The closest primary source is Li--Cao 2009, which provides the formulas and the overbroad pairwise comparison. Park 2019 provides broader critical-temperature analysis but no inspected statement of this pairwise correction. The finding does not classify the globally optimal DM direction for arbitrary parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2009 Li–Cao primary paper supplies general formulas and expressly states pairwise Dx-over-Dy dominance when Jx>Jy; the exhibited family contradicts that specific implication. Park 2019 includes general mixed-sign thermal thresholds but no inspected statement of this exact directional comparison/correction. Formula novelty is disclaimed; novelty is the concrete robust correction and unique interval, with explicit risk of an unlocated later correction.
+
+## value
+
+PASS
+
+A mathematically explicit open set of parameter counterexamples to a directional entanglement control heuristic, exhibiting the structural role of third exchange coupling and a rigorous full temperature window, rather than an isolated numeric case. Does not overclaim all-parameter phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
