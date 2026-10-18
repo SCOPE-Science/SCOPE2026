@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The formulas used are the published Laakso–Taagepera quadratic effective number and Golosov's alternative effective number. Converting shares to integer counts yields exact rational expressions. Two independent generators enumerate all positive integer partitions through total ten, and all comparisons are restricted to profiles sharing \((N,k,x_1)\). Exact arithmetic gives no weak disagreement through \(N=9\) and exactly one total-ten disagreement, \((4,4,2)\) versus \((4,3,3)\), with opposite strict signs. The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the theorem is a finite-resolution statement and says nothing about empirical frequency.
+PASS
 
-## Originality
-**PASS.** Laakso–Taagepera establish the quadratic effective-number measure. Golosov explicitly criticizes that measure, derives his alternative, and compares their numerical behavior on hypothetical and empirical constellations, so generic numerical disagreement is prior art. The checked literature and database searches did not state the fixed-party-count, fixed-leading-share sharp resolution \(N=10\), the exact reversal pair, or completeness of its first layer.
+The LT and Golosov indices reduce exactly to N²/Σx_i² and Σ x_i N/(x_iN+x1²−x_i²) on positive integer profiles. Independently enumerated partitions in weakly decreasing order for each N=2,...,10, grouped by exact (k,x1), and compared both formulas as fractions: no weak-order disagreement through N=9; at N=10 exactly one comparable pair reverses, (4,4,2) vs (4,3,3). Computed LT values 25/9<50/17 and Golosov 21/8>97/37 with exact difference 1/296; common count scaling preserves shares. Complete finite exhaustion rather than isolated numerics proves least N and uniqueness under the stated controls.
 
-Risk: an unindexed teaching note or software test could contain the same small numerical pair without identifying its minimality.
+## originality
 
-## Value
-**PASS.** The leading-party share is precisely the feature Golosov's redesign emphasizes, so holding it fixed makes the comparison diagnostically meaningful rather than arbitrary. The theorem shows that the two indices can reverse solely because the remaining party shares are redistributed, and it identifies the smallest common integer resolution where this happens. The exact witness is therefore a compact boundary case for interpreting effective-party comparisons and validating implementations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge original exact first integer resolution and unique fixed-total, fixed-k, fixed-leader ordinal reversal layer. Earlier authors established both indices and their general divergent behavior; the specific sharp constrained partition classification is not covered by the accessible statements and requires exhaustive exact finite work.
+
+## value
+
+PASS
+
+Controlling common integer size, represented-party count and leading-party share isolates a mathematically meaningful ordinal distinction between two well-used fragmentation functionals. The exact minimum ten-unit resolution and unique optimizer pair form a natural complete finite classification, not an arbitrary table entry, even though the numerical Golosov gap is small. It does not claim that real electoral datasets typically have ten votes or that either index is preferable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

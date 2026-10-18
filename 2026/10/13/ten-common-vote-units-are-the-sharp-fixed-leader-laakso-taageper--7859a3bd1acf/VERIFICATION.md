@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,57 +18,25 @@
   "schema_version": 1
 }
 ---
-For a positive-integer party profile
-\[
-x_1\ge\cdots\ge x_k>0,
-\qquad
-N=\sum_i x_i,
-\]
-the two indices are evaluated exactly as
-\[
-N_{LT}=\frac{N^2}{\sum_i x_i^2}
-\]
-and
-\[
-N_G=\sum_i\frac{x_iN}{x_iN+x_1^2-x_i^2}.
-\]
 
-The embedded `verify_effective_party_boundary.py` independently generates every integer partition through total ten by two algorithms and asserts that their profile sets agree.
+# Independent mathematical audit
 
-It then compares only profile pairs with common total, common party count, and common leading-party count. The verifier checks that there is no weak-order disagreement through
-\[
-N=9,
-\]
-and exactly one strict disagreement at
-\[
-N=10,
-\]
-namely
-\[
-(4,4,2)
-\quad\text{versus}\quad
-(4,3,3).
-\]
+## correctness
 
-It verifies the exact values
-\[
-\frac{25}{9}<\frac{50}{17}
-\]
-for Laakso–Taagepera and
-\[
-\frac{21}{8}>\frac{97}{37}
-\]
-for Golosov, together with the exact Golosov gap
-\[
-\frac1{296}.
-\]
+PASS
 
-Run:
+The LT and Golosov indices reduce exactly to N²/Σx_i² and Σ x_i N/(x_iN+x1²−x_i²) on positive integer profiles. Independently enumerated partitions in weakly decreasing order for each N=2,...,10, grouped by exact (k,x1), and compared both formulas as fractions: no weak-order disagreement through N=9; at N=10 exactly one comparable pair reverses, (4,4,2) vs (4,3,3). Computed LT values 25/9<50/17 and Golosov 21/8>97/37 with exact difference 1/296; common count scaling preserves shares. Complete finite exhaustion rather than isolated numerics proves least N and uniqueness under the stated controls.
 
-`python3 verify_effective_party_boundary.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+Best-of-knowledge original exact first integer resolution and unique fixed-total, fixed-k, fixed-leader ordinal reversal layer. Earlier authors established both indices and their general divergent behavior; the specific sharp constrained partition classification is not covered by the accessible statements and requires exhaustive exact finite work.
 
-No floating-point comparisons are used.
+## value
+
+PASS
+
+Controlling common integer size, represented-party count and leading-party share isolates a mathematically meaningful ordinal distinction between two well-used fragmentation functionals. The exact minimum ten-unit resolution and unique optimizer pair form a natural complete finite classification, not an arbitrary table entry, even though the numerical Golosov gap is small. It does not claim that real electoral datasets typically have ten votes or that either index is preferable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
