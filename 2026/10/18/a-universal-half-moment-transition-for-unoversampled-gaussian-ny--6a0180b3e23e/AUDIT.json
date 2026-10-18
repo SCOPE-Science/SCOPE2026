@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Exact Haar left-nullspace normal on the rank-r support yields a rank-one PSD residual whose trace is an inverse spherical quadratic form. Haar last-coordinate density and bounded positive anisotropic q(u) give dominated-convergence subcritical moments, logarithmic critical integration, and integrable t/sqrt(eps) scaling above order 1/2. Direct conditional threshold inversion proves the rare-error coefficient. The planar mean follows from an angular Cauchy integral. A standalone script passed 140 matrix identities, 16 exact planar integrals, four rank-dependent constants, tested moment orders and anisotropic and rare-event checks. The analytic proof, not finite tests, establishes generality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Persson et al. Theorem 2.1 assumes at least four extra sketch columns; Theorem 2.4 at least two and Theorem 2.6 at least four.",
+        "Tropp et al. Theorem A.1 uses a comparison index strictly below the sketch size for real sketches, so cannot yield expected error relative to the full rank of the sketch.",
+        "Carson–Daužickaitė quote an expectation formula requiring nonzero oversampling, Eq. (2.4)."
+      ],
+      "reasoning": "These broader-looking estimates omit the exact zero-oversampling boundary in the theorem and therefore do not logically dominate the ε-dependent moment coefficients and half-order transition.",
+      "searches": [
+        "Nyström approximation without oversampling Gaussian rank k expected error square root spectral gap",
+        "randomized Nystrom \"square root\" \"smallest eigenvalue\" approximation expected trace",
+        "Gaussian Nyström no oversampling rank k for nearly rank k plus one matrix rare event probability square root lambda suboptimal expected error",
+        "Persson–Boullé–Kressner arXiv:2404.00960 Theorems 2.1, 2.4, 2.6",
+        "Tropp et al. 2017 supplement Theorem A.1",
+        "Carson–Daužickaitė DOI 10.1137/22M154079X §2"
+      ]
+    },
+    "checked_sources": [
+      "Persson–Boullé–Kressner, arXiv:2404.00960, complete relevant §§1–2.2",
+      "Tropp–Yurtsever–Udell–Cevher, 2017 supplement, Theorem A.1",
+      "Gittens–Mahoney, JMLR 17 (2016), §4 and Gaussian appendix",
+      "Carson–Daužickaitė, SIAM 2024 full text §2",
+      "Tropp–Webber, arXiv:2306.12418, §§2–3",
+      "Published mathematical-record searches for Nyström, Gaussian half-moment, zero oversampling, Rayleigh quotient, rare-event asymptotic",
+      "Accessible related historical mathematical claims on Nyström and Gaussian sketching"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Persson et al. prove bounds with extra sketches, not exact ε→0 constants when the number of columns equals target rank.",
+        "Gittens–Mahoney include a deterministic bound involving an inverse Gaussian sketch block, whose expectation need not be finite without oversampling; a vacuous expectation upper bound cannot imply a finite √ε leading constant.",
+        "Tropp–Webber analyze projected RSVD/RSI/Krylov approximations rather than the same Nyström matrix."
+      ],
+      "reasoning": "The deterministic Nyström projector identity and spherical law are prior mathematical tools. They do not alone assert the precise uniform-rank, anisotropic, zero-oversampling moment limit, the crossover at moment 1/2, or the √ε probability coefficient; none of the specifically inspected primary theorems implies that conjunction.",
+      "searches": [
+        "Gaussian Nyström rank one error inverse quadratic form uniform sphere under sampling expected error one tiny eigenvalue",
+        "Nyström approximation without oversampling Gaussian rank k expected error square root spectral gap",
+        "Gaussian Nyström no oversampling rank k for nearly rank k plus one matrix rare event probability square root lambda suboptimal expected error",
+        "Persson–Boullé–Kressner §2.2",
+        "Tropp et al. 2017 supplementary Appendix A",
+        "Gittens–Mahoney 2016 §4 and Gaussian appendix",
+        "Tropp–Webber 2023 §§2–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A rank-one Gaussian Nyström residual is an inverse Haar-sphere Rayleigh quotient; this reduction follows from standard orthogonal-projector identities and is not asserted independently novel.",
+        "Hillier (2001), Econometric Theory 17:1–28, describes general quadratic-form density for sphere-uniform vectors; abstract examined only.",
+        "Gittens–Mahoney and Tropp et al. use the projection representation but do not state the full near-singular moment phase."
+      ],
+      "reasoning": "The new mathematical assertion is a three-regime ε→0 moment asymptotic, with anisotropic constants and an explicit event tail, for the actual Gaussian Nyström approximation. Distributional spherical-quotient formulas may supply ingredients but are not the same stated limit or implication without asymptotic analysis. Residual risk of older equivalent formulas is documented.",
+      "searches": [
+        "Gaussian Nyström rank one error inverse quadratic form uniform sphere under sampling expected error one tiny eigenvalue",
+        "Nyström Gaussian sketch rank one deficit spectral trace residual harmonic mean eigenvalues exact spherical quadratic form moments critical half exponent logarithmic crossover",
+        "geometric mean law 2 by 2 Gaussian Nystrom trace residual expected square root determinant",
+        "Nystrom Gaussian rank one error inverse Rayleigh quotient expectation small eigenvalue crossover singular Beta distribution",
+        "Gittens–Mahoney (2016) §4 and Appendix; Tropp et al. (2017), supplement Proposition A.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-result searches surfaced multistage adaptive randomized pivoting and Cholesky pivot distributions, with different sampling objects, not an identical numerical table or three-regime Gaussian Nyström law.",
+        "A preexisting matrix-function Nyström theorem studies pointwise trace inequalities for operator-monotone maps, not a distribution or moment limit.",
+        "A previous diagonal-weighted Cholesky result studies one-pivot expected progress, not a Gaussian subspace sketch."
+      ],
+      "reasoning": "Neither the actual database searches nor the accessible historical claims matched the exact normalized expected errors or the spherical-moment constants. Index coverage is not assumed complete and cannot prove uniqueness.",
+      "searches": [
+        "Gaussian Nystrom rank r minus one sketch nearly singular PSD trace error square-root eigenvalue asymptotic constant optimal rank error gap",
+        "randomized Nyström Gaussian rank deficient near low rank slow convergence no oversampling failure",
+        "randomized Nystrom Gaussian sketch rank k no oversampling smallest eigenvalue exact expected trace error beta hypergeometric",
+        "Published mathematical-result semantic query: Nyström Gaussian sketch rank one deficit spectral trace residual harmonic mean eigenvalues exact spherical quadratic form moments critical half exponent logarithmic crossover",
+        "Published mathematical-result semantic query: Gaussian Nyström no oversampling rank k for nearly rank k plus one matrix rare event probability square root lambda suboptimal expected error",
+        "Accessible historical claims searched for Nyström / Gaussian sketches / rank-one residuals"
+      ]
+    },
+    "rationale": "Primary full-text comparisons and targeted semantic searches identify no covering mathematical implication for the complete sharp one-weak-eigenvalue, real-Gaussian, zero-oversampling moment transition. Standard projector/sphere facts are expressly credited, and possible older Rayleigh-quotient density equivalences and indexing gaps remain material residual risks.",
+    "residual_risks": [
+      "Earlier spherical quadratic-form density work (such as Hillier, Econometric Theory 2001, abstract examined but full paper not read) could contain equivalent general formulas or enable a short independent derivation.",
+      "Published-index semantic retrieval has finite coverage and does not establish global uniqueness.",
+      "Some Gaussian projector papers not indexed under Nyström may contain an equivalent near-singular coefficient."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No zero-oversampling sharp singular-eigenvalue three-regime moment limit in analyzed theorem sections",
+        "evidence": "Equation (1), Theorems 2.1,2.4,2.6; Theorem 2.4 assumption p>=2, and first preprint date April 1 2024 / primary MSC 65F30.",
+        "identifier_or_url": "https://arxiv.org/abs/2404.00960",
+        "material_read": "Full arXiv-rendered paper introduction, §2.1–2.2.3, Theorems 2.1,2.4,2.6",
+        "method": "Read freely accessible arXiv full-text HTML, including assumptions and proof sections",
+        "title": "Randomized Nyström approximation of non-negative self-adjoint operators",
+        "trigger": "Same Gaussian Nyström map and motivating expected-error estimates"
+      },
+      {
+        "assessment": "Comparison index restriction excludes direct full-sketch-rank expected-error guarantee",
+        "evidence": "Theorem A.1 minimization requires comparison ell<k-alpha for alpha(real)=1; standard projector formula Proposition A.2.",
+        "identifier_or_url": "https://www.tropp.caltech.edu/conf/TYUC17-Fixed-Rank-Approximation-supp.pdf",
+        "material_read": "Open-access PDF supplement: Gaussian/orthonormal sketch description pp. 2–3; Proposition A.2 and Theorem A.1 pp. 8–9",
+        "method": "Parsed full primary supplementary PDF text and inspected identified theorem statements",
+        "title": "Fixed-Rank Approximation of a Positive-Semidefinite Matrix from Streaming Data",
+        "trigger": "Directly related Gaussian Nyström residual and expected Schatten-one guarantees"
+      },
+      {
+        "assessment": "Deterministic projection bounds and oversampled Gaussian estimates; no exact mean or three-regime moment limit for one weak positive eigenvalue",
+        "evidence": "Theorem 4 and Appendix A sampling lemmas; use of inverse Gaussian sketch block.",
+        "identifier_or_url": "https://www.jmlr.org/papers/volume17/gittens16a/gittens16a.pdf",
+        "material_read": "PDF sections 2 and 4, §4.1.3 trace-norm Theorem 4, and Appendix Gaussian sampling bounds",
+        "method": "Open-access full JMLR PDF examined in text with relevant pages visually checked",
+        "title": "Revisiting the Nyström Method for Improved Large-Scale Machine Learning",
+        "trigger": "Classical Nyström Gaussian bounds possibly covering the zero-oversampling claim"
+      },
+      {
+        "assessment": "Mixed-precision numerical analysis with separate oversampled expectation references, not current singular expectation",
+        "evidence": "Equation (2.4) optimizes over oversampling parameter at least two; finite precision dominates the analysis.",
+        "identifier_or_url": "https://epubs.siam.org/doi/full/10.1137/22M154079X",
+        "material_read": "Publisher full text introduction, §2 exact-error discussion (1.1), (2.1)–(2.4), and §2.1",
+        "method": "Full-content publisher HTML read, rather than abstract alone",
+        "title": "Single-Pass Nyström Approximation in Mixed Precision",
+        "trigger": "Same algorithm and nearby probability/error hypotheses"
+      },
+      {
+        "assessment": "RSVD, randomized subspace iteration and block Krylov use distinct projected approximations; do not directly cover this Nyström residual",
+        "evidence": "Section 2.2 defines projected RSVD, RSI and RBKI; no matching exact Nyström moment theorem.",
+        "identifier_or_url": "https://arxiv.org/pdf/2306.12418",
+        "material_read": "Full PDF survey introduction and algorithm definitions §§2–3",
+        "method": "Lawful arXiv PDF; extracted technical sections and visually read its title page",
+        "title": "Randomized algorithms for low-rank matrix approximation: Design, analysis, and applications",
+        "trigger": "General randomized low-rank methods might subsume a Gaussian projection claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a0180b3-e23e-40dd-8b04-157ed42e6c07",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Zero oversampling is the mathematically natural boundary excluded by common Nyström expected-error theorems. For exactly one weak eigenvalue, typical error is order ε while mean error is order sqrt(ε), and the ratio to optimal error diverges; the exact half-moment phase transition, anisotropic leading constants and √ε probability coefficient explain the nontrivial rare-event mechanism across every fixed rank.",
+    "status": "PASS"
+  }
+}
