@@ -1,0 +1,11 @@
+# Review of Barba-tight determinant rigidity
+
+**Correctness — PASS.** Ostrovskii's duality between upper and lower Auerbach bases and his regular-hexagonal criterion are explicitly applied. The Barba equality theorem gives simultaneous normalized Gram matrices, their inverse has no zero entry, and multilinearity excludes fractional-coordinate cube maximizers. Pair-incidence counting yields the exact all-parameter norm. Three dual zonotope determinants \(1/4,1/4,1/(4q)\) exclude affine regularity. The dimension-five exact-rational checker and symbolic coefficient identities corroborate, but do not replace, the proof. The infinity of the family relies on the published Brouwer--Whiteman construction.
+
+**Originality — PASS (best-knowledge).** Ostrovskii's 2011 paper, §4.1, treated Hadamard dimensions and the three-dimensional exception and explicitly raised the general \(\ell_1^n\) dimension question. The 2021 determinant survey proves Barba equality rigidity and exhibits infinitely many corresponding odd orders but contains no MVSE or Auerbach classification. Available mathematical-record comparisons, with alternatives for Barba-optimal determinants, regular hexagonal lower Auerbach spans, and all-parallelepipedal MVSEs, produced no direct or stronger covering statement. The main bibliographic risk is a possible earlier cross-application of those two established theorems in less readily indexed literature; a failed search cannot prove absolute novelty.
+
+**Value — PASS.** The exact two-vector norm profile holds for **all** lower Auerbach bases and every distinct pair, giving a structural rigidity theorem. Its direct consequence decides the MVSE shape in an explicit infinite family of odd dimensions beyond the classical Hadamard case, making substantive progress on a question identified in the archival functional-analysis literature. This is not merely an isolated numerical improvement.
+
+Primary literature: M. I. Ostrovskii, arXiv:1103.0997v1, Proposition 2.4, Theorem 3.1, §4.1; Browne--Egan--Hegarty--Ó Catháin, arXiv:2104.06756v4, Corollary 10, Theorems 12 and 16. Independent mathematical and bibliographic checking remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
