@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T04:15:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every prime p, m=p+1 satisfies r_p(m)=2 (p<m<p²). Every admissible row N=(p+1)q with 2≤q<p fails attainment: the particular selected k=p+1 adds to its complement (q−1)(p+1) without base-p carries in either occupied column, so v_p G=0. At q=p, selected k=d(p+1), d=1,...,p−1, has base-p digits (d,d), while its complement has (p−d,p−d), hence exactly two carries for every selected binomial. Kummer gives v_p G=2, proving first attaining row N=p(p+1); p=2 recovers the established 6. Independently recomputed Kummer and Legendre valuations at 1035 pretarget rows, symbolic proof independent of finite p cutoff.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7.2 is restricted to a≥2; Remark 8.3 expressly excludes a=1.",
+          "Earlier congruence p=m−1 implies valuation attainment at the proposed row but no minimizer-in-row determination."
+        ],
+        "reasoning": "General upper bound and attainment results do not specify LEAST attainment for m=p+1; computing no-carry witnesses for smaller q supplies needed strict lower-row component.",
+        "searches": [
+          "arXiv:2610.01328v1 Theorem 7.2, Remarks 8.3–8.4",
+          "arXiv:2609.37754v1",
+          "restricted binomial gcd least extremal rows T_p(m) p+1 Kummer carry Fairfax-Ball"
+        ]
+      },
+      "checked_sources": [
+        "GitHub assigned RESULT.md exact blob 6a78de352602b4170d7c58af4231d8bd099956ab",
+        "https://arxiv.org/html/2610.01328v1",
+        "arXiv:2609.37754v1 abstract/targeted result",
+        "Resultary semantic query: restricted binomial gcd least extremal rows T_p(m) p+1 Kummer carry Fairfax-Ball"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The preceding congruence theorem already yields v_p G(p(p+1);p+1)=2, which proves attainment only.",
+          "The current claim excludes all N=(p+1)q for 2≤q<p by an independent zero-carry certificate."
+        ],
+        "reasoning": "Attainment alone cannot imply leastness. The lower-row non-attainment proof is the original mathematical portion; clear attribution to known target valuation is essential.",
+        "searches": [
+          "arXiv:2609.37754v1 targeted-row valuation",
+          "arXiv:2610.01328v1 Remarks 8.3–8.4",
+          "restricted binomial gcd least extremal rows T_p(m) p+1 Kummer carry Fairfax-Ball"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The least extremal row is the minimum q with min over 1≤d<q of Kummer carry-count for (p+1)d into (p+1)q equal to r_p=2.",
+          "The a=1 row translates to q_min=p."
+        ],
+        "reasoning": "Carry-count and restricted-binomial GCD formulations are equivalent; earlier least-row theorem explicitly omits this case.",
+        "searches": [
+          "restricted binomial gcd least extremal rows T_p(m) p+1 Kummer carry Fairfax-Ball",
+          "arXiv:2610.01328v1 §§5–8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit p=2 case T_2(3)=6 is credited as earlier McTague work.",
+          "No accessible table/theorem in the latest article states the uniform odd-prime T_p(p+1) law."
+        ],
+        "reasoning": "The small known case is not claimed new; the uniform infinite boundary extension is the object of the claim.",
+        "searches": [
+          "arXiv:2610.01328v1 Remark 8.4",
+          "restricted binomial gcd least extremal rows T_p(m) p+1 Kummer carry Fairfax-Ball"
+        ]
+      },
+      "rationale": "Fairfax-Ball October 2026 proves the least-row law T_p(p^a+1)=p^(3a)+1 ONLY for a≥2 and expressly excludes a=1 (Remark 8.3), mentioning prior T_2(3)=6. The September predecessor covers the target-row valuation for p=m−1, but the fact that p(p+1) is the least attaining row for EVERY odd prime requires excluding all smaller multipliers; this is the new all-prime boundary. Kummer itself supplies carries, not the first-row classification without special argument.",
+      "residual_risks": [
+        "The earlier preprint 2609.37754 was not independently read in full; an implicit least-row corollary hidden therein remains a possible coverage risk despite its stated focus on valuations.",
+        "Prior Kummer carry theory makes the proof short; value rests on the explicitly omitted natural boundary, not an unmotivated arithmetic curiosity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICITLY_EXCLUDED_BOUNDARY",
+          "evidence": "Theorem 7.2 requires a≥2; notes a=1 omitted and p=2,T2(3)=6 prior art.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01328v1",
+          "material_read": "Primary full-text HTML: definitions, Theorems 3.1 and 7.2, Sections 6–8, especially Remarks 8.3–8.4 lines 577–586",
+          "method": "Open preprint full text with theorem/remark comparison",
+          "title": "Sharp p-adic Extrema and Least Extremal Rows for Restricted Binomial GCDs",
+          "trigger": "Same G(N;m), T_p(m), and missing a=1 boundary"
+        },
+        {
+          "assessment": "PRIOR_TARGET_VALUATION_NOT_LEASTNESS",
+          "evidence": "Predecessor implies v_pG at target; it does not visibly decide first extremal row, which is the claimed new part.",
+          "identifier_or_url": "arXiv:2609.37754v1",
+          "material_read": "Accessible preprint abstract/theorem description plus attribution in the newer primary article; complete earlier text not independently read here",
+          "method": "Abstract/statement-level comparison only",
+          "title": "Restricted Binomial GCDs at Primes Congruent to -1",
+          "trigger": "Same p=m−1 valuation at candidate row"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact omitted a=1 case is singled out in the motivating theorem, not an arbitrary parameter slice: its minimal row law p(p+1) is qualitatively different from the a≥2 formula p^(3a)+1. One clean universal Kummer carry dichotomy completes the boundary of a natural sharp-extremal family and can be quoted independently. The narrow result is motivated by explicit outstanding scope in the primary article.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub assigned RESULT.md exact blob 6a78de352602b4170d7c58af4231d8bd099956ab",
+    "https://arxiv.org/html/2610.01328v1",
+    "arXiv:2609.37754v1 abstract/targeted result",
+    "Resultary semantic query: restricted binomial gcd least extremal rows T_p(m) p+1 Kummer carry Fairfax-Ball"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The earlier preprint 2609.37754 was not independently read in full; an implicit least-row corollary hidden therein remains a possible coverage risk despite its stated focus on valuations.",
+    "Prior Kummer carry theory makes the proof short; value rests on the explicitly omitted natural boundary, not an unmotivated arithmetic curiosity.",
+    "Exact Git tree/blob snapshot and all scientific files were inspected. Independent finite arithmetic is corroborative, not infinite certification.",
+    "Publication not ready while operational provenance remains in public source metadata or potentially derived artifacts."
+  ],
+  "schema_version": 1
+}

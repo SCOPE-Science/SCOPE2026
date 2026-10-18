@@ -1,15 +1,21 @@
-# Self-review of The omitted \(a=1\) boundary: \(T_p(p+1)=p(p+1)\)
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof exhausts every smaller admissible multiplier \(2\le q<p\) using the selected coefficient \(k=p+1\), whose addition with its complement has zero carries. At \(q=p\), every selected coefficient is parametrized by \(1\le d\le p-1\) and has exactly two carries. Kummer's theorem and the source's sharp maximum \(r_p(p+1)=2\) give the exact result. The finite verifier corroborates, but does not replace, the infinite proof.
+## correctness
 
-## Originality
-PASS. The September predecessor already implies target-row attainment but not leastness. The October source defines least extremal rows, proves the \(p^a+1\) formula only for \(a\ge2\), explicitly excludes \(a=1\), and identifies only \(T_2(3)=6\) as known at that boundary. Targeted semantic, prior-claim, exact-phrase, alias, and implication searches found no odd-prime least-row theorem.
+PASS
 
-## Value
-PASS. This is the exact missing boundary of a freshly established natural family and changes the least-row law qualitatively. It supplies a reusable two-column carry argument and a complete classification for the omitted case rather than a routine isolated computation.
+For every prime p, m=p+1 satisfies r_p(m)=2 (p<m<p²). Every admissible row N=(p+1)q with 2≤q<p fails attainment: the particular selected k=p+1 adds to its complement (q−1)(p+1) without base-p carries in either occupied column, so v_p G=0. At q=p, selected k=d(p+1), d=1,...,p−1, has base-p digits (d,d), while its complement has (p−d,p−d), hence exactly two carries for every selected binomial. Kummer gives v_p G=2, proving first attaining row N=p(p+1); p=2 recovers the established 6. Independently recomputed Kummer and Legendre valuations at 1035 pretarget rows, symbolic proof independent of finite p cutoff.
 
-## Closest literature and limitations
-The closest sources are arXiv:2609.37754v1 and arXiv:2610.01328v1. The former covers the target valuation; the latter provides the extremal framework and explicitly omits the boundary. The result does not determine \(T_p(m)\) for general height-two moduli, and unindexed prior work remains a bibliographic risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fairfax-Ball October 2026 proves the least-row law T_p(p^a+1)=p^(3a)+1 ONLY for a≥2 and expressly excludes a=1 (Remark 8.3), mentioning prior T_2(3)=6. The September predecessor covers the target-row valuation for p=m−1, but the fact that p(p+1) is the least attaining row for EVERY odd prime requires excluding all smaller multipliers; this is the new all-prime boundary. Kummer itself supplies carries, not the first-row classification without special argument.
+
+## value
+
+PASS
+
+The exact omitted a=1 case is singled out in the motivating theorem, not an arbitrary parameter slice: its minimal row law p(p+1) is qualitatively different from the a≥2 formula p^(3a)+1. One clean universal Kummer carry dichotomy completes the boundary of a natural sharp-extremal family and can be quoted independently. The narrow result is motivated by explicit outstanding scope in the primary article.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
