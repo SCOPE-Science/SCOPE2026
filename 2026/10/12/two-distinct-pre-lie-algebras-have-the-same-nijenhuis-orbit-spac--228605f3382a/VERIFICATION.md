@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is symbolic and characteristic-free.
 
-The packaged checker `artifacts/verify.py` exhaustively treats
-\[
-q\in\{2,3,5,7\}.
-\]
+# Independent mathematical audit
 
-For both \(A_2\) and \(A_3\), it:
-1. enumerates all \(q^4\) linear endomorphisms;
-2. checks the Nijenhuis identity directly on all four ordered basis pairs;
-3. verifies that the solutions are exactly
-\[
-c=0,\qquad b(a-d)=0;
-\]
-4. enumerates all invertible product-preserving linear maps and recovers
-\[
-\operatorname{Aut}(A_i)=\{\operatorname{diag}(1,s):s\ne0\};
-\]
-5. constructs every conjugacy orbit and verifies the unique representative set
-\[
-\{D_{a,d}\}\sqcup\{J_a\}.
-\]
+## correctness
 
-For \(q=5\), each algebra has \(45\) Nijenhuis operators in \(30\) orbits: \(25\) singleton diagonal orbits and \(5\) shear orbits of size \(4\).
+PASS
 
-The checker also verifies that there are exactly \(q\) square-zero Nijenhuis operators in two orbits and exactly four idempotent Nijenhuis operators.
+Starting with a general 2x2 map N(e1)=a e1+b e2, N(e2)=c e1+d e2, expansion of the Nijenhuis identity on four ordered basis pairs of EACH actual multiplication table reduces in either case to c^2=0,bc=0,b(a-d)=0. Over any field c=0. Product-preserving invertible maps are exactly diag(1,s), s != 0; conjugation scales b, leaving singleton D(a,d) and one orbit J(a) per a. Count q^2 diagonal points and q(q-1) shear points; square-zero iff a=d=0 for shears plus zero diagonal; idempotence of shear requires a^2=a and 2a=1, impossible in every field including characteristic 2. Independent evaluator enumerated all endomorphism identities for q=2,3,5 for both algebras and obtained 2q^2-q (6,15,45) in each case. Finite enumeration corroborates, but unrestricted statement follows symbolic proof.
 
-The checker returns `VERIFY_OK`.
+## originality
 
-Finite enumeration is not used to prove the arbitrary-field theorem.
+PASS
+
+The current original source classifies all Nijenhuis endomorphism families over C, then explicitly declines a full conjugacy-orbit classification (Introduction, page 4, and Conclusions). It does not supply A2/A3 automorphism-orbit representatives, finite-field orbit sizes or arbitrary-characteristic claim. Aut=A2=A3=Gm is elementary, but the simultaneous classification is a genuinely missing explicit equivariant comparison. The inspected general Nijenhuis framework predates the parametric family, not this explicit two-algebra orbit census.
+
+## value
+
+PASS
+
+The source identifies automorphism-conjugacy reduction as a remaining classification task. Completing it for the two natural nonisomorphic dimension-two algebras reveals the shared quotient despite one being unital and the other not, with exact finite-field stabilizer stratification. This is a small but motivated classification, not a claim to all pre-Lie algebras.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

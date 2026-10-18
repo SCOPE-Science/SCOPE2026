@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Direct substitution into the Nijenhuis identity gives the same equations for \(A_2\) and \(A_3\): \(c=0\) and \(b(a-d)=0\). Both automorphism groups are exactly the one-dimensional torus scaling \(e_2\). Its conjugation action fixes \(a,d\) and scales \(b\), so the two normal-form strata \(D_{a,d}\) and \(J_a\) are complete and unique. The finite-field orbit, square-zero, and idempotent counts follow exactly and are independently checked by exhaustive enumeration.
+PASS
 
-## Originality
+Starting with a general 2x2 map N(e1)=a e1+b e2, N(e2)=c e1+d e2, expansion of the Nijenhuis identity on four ordered basis pairs of EACH actual multiplication table reduces in either case to c^2=0,bc=0,b(a-d)=0. Over any field c=0. Product-preserving invertible maps are exactly diag(1,s), s != 0; conjugation scales b, leaving singleton D(a,d) and one orbit J(a) per a. Count q^2 diagonal points and q(q-1) shear points; square-zero iff a=d=0 for shears plus zero diagonal; idempotence of shear requires a^2=a and 2a=1, impossible in every field including characteristic 2. Independent evaluator enumerated all endomorphism identities for q=2,3,5 for both algebras and obtained 2q^2-q (6,15,45) in each case. Finite enumeration corroborates, but unrestricted statement follows symbolic proof.
 
-PASS. The primary source parametrizes the \(A_2\) and \(A_3\) Nijenhuis operators but explicitly says full automorphism-orbit analysis is beyond scope; it illustrates only \(A_5\). Focused semantic and web searches found no \(A_2/A_3\) orbit classification. The closest database result concerns averaging operators on \(A_5\), a different operator problem. The arbitrary-field extension and finite-field orbit census are not stated in the inspected source.
+## originality
 
-## Value
+PASS
 
-PASS. The result completes an explicitly deferred conjugacy problem for two natural low-dimensional algebras and shows that a unital algebra and a nonunital algebra have identical Nijenhuis moduli. The exact finite-field orbit and stabilizer data make the coincidence concrete and reusable.
+The current original source classifies all Nijenhuis endomorphism families over C, then explicitly declines a full conjugacy-orbit classification (Introduction, page 4, and Conclusions). It does not supply A2/A3 automorphism-orbit representatives, finite-field orbit sizes or arbitrary-characteristic claim. Aut=A2=A3=Gm is elementary, but the simultaneous classification is a genuinely missing explicit equivariant comparison. The inspected general Nijenhuis framework predates the parametric family, not this explicit two-algebra orbit census.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The source identifies automorphism-conjugacy reduction as a remaining classification task. Completing it for the two natural nonisomorphic dimension-two algebras reveals the shared quotient despite one being unital and the other not, with exact finite-field stabilizer stratification. This is a small but motivated classification, not a claim to all pre-Lie algebras.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
