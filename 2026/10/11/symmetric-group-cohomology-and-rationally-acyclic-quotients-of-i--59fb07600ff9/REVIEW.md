@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The simplicial-poset cellular model identifies a cell by an injective word and a disjoint set of one-dimensional circle cells (Lü--Panov, Construction 3.4). Its multidegree support survives the differential, and the Hochster formula plus injective-word shellability leaves exactly degree \(2k\) in each support of cardinality \(k\). For a support fixed by a permutation, a word of length \(j\) is fixed exactly when all of its letters are fixed. The odd-dimensional circle factors, and only those factors, contribute the sign of the permutation on the complement. Alternating traces therefore yield the stated character. The same Euler calculation on injective-word cells identifies the top homology character, giving the sign-twisted induced representation. Sign averaging for fixed ordered tuples proves the absence of invariants, and finite-group rational transfer identifies orbit cohomology. The precise \(n=2\) transposition trace is \(-1\), not \(+1\). The embedded standard-library checker corroborates 4,166 character instances; it is not treated as an infinite proof.
+PASS
 
-## Originality — PASS
+For the simplicial-poset moment-angle cellular cochains, support A is preserved by the differential and Hochster identifies the support-|A|=k summand with reduced cohomology of injective words shifted by k+1. Shellability concentrates it in degree 2k, with dimension d_k. For a permutation stabilizing A, each fixed length-j word must use j individually fixed labels and its odd-dimensional T-coordinate factors contribute sign(g|A). The Euler-Poincare signed cochain trace is (-1)^k sign(g|A) sum_j (-1)^j (f_A)_j. Comparing with the injective-word top-homology character yields sign_k tensor D_k and induction over supports. The S_n-invariant multiplicity equals the sign multiplicity of D_k: for j<=k-2, the sign average of fixed ordered j-tuples vanishes; for j=k-1,k the averages are both 1 and coefficients cancel. Thus reduced rational cohomology of the orbit quotient vanishes, with finite-group rational transfer. Independently summed the derived character over S_n for 2<=n<=5; all positive-degree invariant sums were zero and n=2 transposition has trace -1. The finite check corroborates, but does not prove, the all-n argument.
 
-Conceição's 2026 source establishes the nonequivariant wedge decomposition and Betti numbers, without this permutation character or quotient conclusion. Lü--Panov supply the general simplicial-poset Hochster calculation and its cellular model, while Athanasiadis presents the earlier Reiner--Webb representation for the injective-word building block. The new statement is the complete representation of the associated moment-angle space, including the orientation twist and rational cohomology of its finite permutation quotient. Published invariant-ring and toral-quotient results (D'Alì--Delucchi and Li Yu) have different objects or quotient groups. Searches of indexed published mathematical records and primary sources did not locate equivalent or stronger exact results. Residual risk: a specialization in unindexed or uninspected material could be equivalent; absence of a database hit does not certify novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The full \(S_n\)-character is mathematically more informative than the pre-existing wedge multiplicities, and its sign twist cannot be read from dimensions. The uniform result that a natural quotient is rationally acyclic despite nonzero original cohomology in many degrees gives a precise global symmetry phenomenon, valid for all \(n\ge2\). This is a naturally motivated quotient and representation invariant rather than an arbitrary finite parameter slice. The result does not require a larger conjecture to be useful.
+Conceição computes the nonequivariant wedge decomposition/derangement Betti ranks of the same moment-angle complex. The audited claim additionally gives the complete signed S_n-character and shows rational acyclicity of the coordinate-permutation quotient, not consequences of ranks without action. Lü–Panov provide the general poset Hochster input, and injective-word homology literature describes D_k; neither of the inspected sources supplies this sign twist and orbit quotient. A best-of-knowledge result with standard representation ingredients, not a categorical assertion that unpublished equivalent work is absent.
 
-## Scope and residual risk
+## value
 
-The statement concerns rational cohomology under coordinate relabeling, not integral torsion, quotient contractibility, or equivariant homotopy type. Reiner--Webb's sign constituent information and the general equivariant cellular framework are antecedents; the new topological specialization and vanishing are credited accordingly. A broad thesis on symmetries in toric topology could not be inspected in full, so it remains a non-decisive possible source of general representation tools, not evidence of an identical result.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The natural symmetric-group relabeling on a shellable injective-word construction has an intrinsic equivariant invariant, and the unexpected zero rational cohomology of the finite permutation quotient distinguishes a strongly nontrivial space from its orbit space. The explicit character enables character restrictions and quotient calculations, a substantive equivariant conclusion rather than a mere re-expression of Betti ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
