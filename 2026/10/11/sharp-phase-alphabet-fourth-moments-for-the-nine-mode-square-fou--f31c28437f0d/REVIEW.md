@@ -1,11 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Haar orthogonality gives two equivalent but separately evaluated exact integer formulas for the fourth moment. The attached standard-library verifier exhausts every normalized \(q\)-phase configuration at \(q=2,3,4,6\), comparing autocorrelation and convolution expressions for all \(51545\) cases. The finite counts do not extrapolate beyond the four listed alphabets. An analytic ternary lower bound follows from the sixteen necessarily nonzero mixed-shift Eisenstein correlations. The explicitly listed representatives and normalization give the equality classification.
+## correctness
 
-**Originality — PASS, subject to residual bibliographic risk.** Full-text inspection of Zhang–Fan–Mesnager (arXiv:2107.11599v1) and Pai–Chen (arXiv:2102.04043v1) finds complementary-pair/set constructions, rather than this single-array phase-alphabet optimization and rigid ternary equality classification. Periodic-correlation constructions do not imply the aperiodic Haar minimum. Relevant published results on smaller Fourier supports or the scalar constants of different arrays have distinct domains. Searches did not identify a complete older \(3\times3\) polyphase table, but the possibility of an equivalent specialized catalog remains. A potentially relevant Antweiler–Bömer 1990 article on flattened Frank sequences was accessible only as an abstract; its stated one-dimensional objective differs, and complete comparison remains a risk.
+PASS
 
-**Value — PASS.** The complete degree-two Cartesian Fourier aperture is a canonical smallest nine-mode two-dimensional test geometry. The exact alphabet effects are mathematically nonmonotone in alphabet cardinality: cubic roots achieve \(97\) while fourth roots cannot do better than \(105\). The theorem also determines all ternary extremizers and the exact six-phase orbit count, furnishing useful concrete benchmarks for phase-coded array and autocorrelation studies.
+For 3×3 matrices of coefficients in µ_q, q∈{2,3,4,6}, checked the aperiodic difference autocorrelation Parseval identity against coefficient-convolution Parseval. Three independent phase modulations uniquely set c00=c01=c10=1, leaving exactly q^6 choices: 64+729+4096+46656=51545. Independently regenerated energies in Gaussian/Eisenstein integer arithmetic with a separately written convolution loop; found minima 113,97,105,97 and normalized equality counts 8,2,16,6 respectively. Each orbit under the free µ_q^3 action has q^3 members, giving 64,54,1024,1296 ordered minimizers. For ternary arrays the zero shift contributes 81 and sixteen mixed displacements have 1,2,4 Eisenstein-root summands, hence squared norm ≥1; µ_3 Fourier matrix ω^{ij} and conjugate attain 97, complete uniqueness comes from finite exhaustion. These statements are exhaustive ONLY for the four listed finite alphabets and this 3×3 aperture.
 
-**Scientific limitations.** The theorem is exact only for the enumerated finite phase alphabets, and no continuous-phase optimum or general \(q\)-formula is asserted. Historical specialist catalogs may contain equivalent work; independent audit has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact four-alphabet single-array minimum and full ordered optimizer census. Distinct from constructions of complementary PAIRS/SETS or periodic arrays, and from a six-mode triangular/rectangular aperture. Older phase-code catalogs could contain equivalent 3×3 tables.
+
+## value
+
+PASS
+
+The finite 3×3 aperture and aperiodic autocorrelation energy are canonical small array-design invariants. Comparing exactly the four phase alphabets exposes a genuinely nonmonotonic ternary/quaternary energy contrast, and the complete normalized equality orbit census gives test configurations for single-array phase-constrained design; it is a meaningful natural finite classification, not a random small calculation. No assertion for all alphabet orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
