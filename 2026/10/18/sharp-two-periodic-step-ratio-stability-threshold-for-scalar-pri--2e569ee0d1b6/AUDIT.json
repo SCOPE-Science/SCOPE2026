@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The update matrix is reconstructed explicitly from the primal-first recurrence. Each individual phase has a conjugate pair of modulus sqrt(1-r)<1. Exact symbolic multiplication proves tr(P)=2-4r+4r^2-r(q+q^{-1}) and det(P)=(1-r)^2; both other degree-two Jury inequalities are strictly positive. The remaining flip inequality is the quadratic 5r^2-(q+q^{-1}+6)r+4. A complete discriminant and admissible-boundary analysis proves every strict, marginal, and divergent regime. A rational witness confirms P(-1)=-4/15. The packaged checker passes 1941 exact comparisons; proofs of universal quantifiers do not use finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goldstein et al. 2013/2015 explicitly warn that nonconstant safe-product steps may fail and require summable relative changes for convergence.",
+        "Wang–Lan–Ye Theorem 2.1 assumes summable primal-step changes and ratio-dependent theta; the period-two schedule violates the summability assumption.",
+        "Lorenz–Tran-Dinh 2018 proves convergence of nonstationary splitting under summable parameter changes."
+      ],
+      "reasoning": "Qualitative nonconvergence is covered but does not imply the quantitative sharp ratio threshold or exact unstable-product interval. The source convergence hypotheses are intentionally not satisfied, avoiding contradiction.",
+      "searches": [
+        "adaptive primal dual splitting alternating stepsizes period two divergent even individually stable nonstationary Douglas Rachford splitting",
+        "2024 tuning-free primal-dual splitting semidefinite programming Wang Lan Ye",
+        "period two variable metric PDHG two-step monodromy fixed product ratio divergence local eigenvalue negative one",
+        "Goldstein Li Yuan Esser Baraniuk Algorithm 1 2013 varying steps convergence",
+        "Wang Lan Ye 2024 Theorem 2.1 summable alpha variation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2402.00311v1 (algorithm and convergence hypotheses)",
+      "arXiv:1305.0546v2 (primal-first PDHG; prior qualitative variable-step failure)",
+      "arXiv:1801.03765 (nonstationary splitting convergence)",
+      "published fixed-product scalar PDHG result 788191221208",
+      "published scalar PDAL critical-damping result f8268fe426bc",
+      "accessible same-slot ledger: 92 claim texts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 source explicitly specializes its generic primal-first update to unit extrapolation but its convergence theorem has additional regularity and changed extrapolation.",
+        "The 2013 paper does not give a universal jump ratio or two-parameter exact spectral boundary in its inspected main algorithm and convergence discussion.",
+        "The published fixed-product rate phase diagram gives a stable constant-step scalar strongly convex-concave iteration, a different model from the bilinear alternating product."
+      ],
+      "reasoning": "The prior variable-step warning implies that some varying sequences may fail, but does not determine whether all alternating ratios below 2.552498... converge or locate the complete unstable r interval. The candidate is a quantitative structural classification, not a claim that the qualitative phenomenon was discovered here.",
+      "searches": [
+        "arXiv:2402.00311v1 Algorithm 1 Theorem 2.1",
+        "arXiv:1305.0546v2 Section II Section VI",
+        "2026/10/4/SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208",
+        "2026/10/4/SCOPE-critical-damping-ratio-for-scalar-least-squares-primal-dual-line--f8268fe426bc"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The candidate reduces to the Schur stability of a product of two explicit, noncommuting 2-by-2 matrices, equivalently a period-two discrete Floquet multiplier condition.",
+        "arXiv:1305.0546v2 Section II gives basic primal-first PDHG and acknowledges possible failure under varying steps.",
+        "Published constant-step scalar PDHG result analyzes a single constant iteration matrix, not alternating products."
+      ],
+      "reasoning": "Equivalence was tested against switched iteration, periodic Floquet, adaptive PDHG, and fixed-product rate formulations; the exact threshold is not obtained from the inspected statements.",
+      "searches": [
+        "nonstationary primal dual hybrid gradient PDHG alternating primal dual step sizes stable individual iterations divergent two-cycle quadratic bilinear saddle point parameter resonance",
+        "adaptive primal dual splitting alternating stepsizes period two divergent even individually stable nonstationary Douglas Rachford splitting",
+        "exact divergence alternating primal dual hybrid gradient bilinear game equal product tau sigma periodic ratio q trace 4 minus 6r plus 5r squared",
+        "\"alternating\" \"primal\" \"dual\" \"stepsizes\" \"Schur\" divergence",
+        "\"PDHG\" \"two-periodic\" steps"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The targeted published-record results identify constant-step scalar PDHG rate and a constrained resonant PDHG counterexample, not a two-period switching stability table.",
+        "The accessible local ledger has 92 claims, searched by claim text and relevant synonyms; no same-object threshold was found."
+      ],
+      "reasoning": "No exact periodic-step stability table or equivalent parameterized formula was identified. Failure of lookup is not itself evidence of universal novelty.",
+      "searches": [
+        "nonstationary primal dual hybrid gradient PDHG alternating primal dual step sizes stable individual iterations divergent two-cycle quadratic bilinear saddle point parameter resonance",
+        "exact divergence alternating primal dual hybrid gradient bilinear game equal product tau sigma periodic ratio q trace 4 minus 6r plus 5r squared",
+        "period two variable metric PDHG two-step monodromy fixed product ratio divergence local eigenvalue negative one",
+        "\"PDHG\" \"alternating\" \"converge\" stepsizes",
+        "\"PDHG\" \"two-periodic\" steps"
+      ]
+    },
+    "rationale": "Goldstein et al. already describe failure of varying-step PDHG despite individually safe step products, so qualitative failure is explicitly prior art. Wang–Lan–Ye give a convergence theorem with summable parameter variation and a ratio-dependent extrapolation rule, unlike the declared unit-extrapolation periodic update. Two published scalar PDHG findings inspect constant-step matrices, not products of alternating noncommuting matrices. The exact universal jump threshold, complete product-dependent phase diagram, and rational simultaneous phase-Schur-stable but periodically unstable example were not found in the inspected work. Unindexed equivalent switched-system results remain a genuine priority risk.",
+    "residual_risks": [
+      "Unindexed older periodic linear-iteration, switched-systems, or adaptive PDHG analysis might state an equivalent closed threshold.",
+      "The theorem is for prescribed period-two steps and fixed unit extrapolation, not for the tuning-free feedback mechanism or the ratio-dependent extrapolation used in the 2024 sufficient convergence theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related framework; the proposed example is its unit-extrapolation generic update on a scalar mode, but violates conditions of the convergence theorem",
+        "evidence": [
+          "Algorithm 1 specializes at theta=1 to a primal-first PDHG update.",
+          "Theorem 2.1 assumes summable alpha changes and theta=alpha_k/alpha_(k-1)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2402.00311v1",
+        "material_read": "Introduction, Algorithm 1, Theorem 2.1 and stepsize assumptions in Section 2",
+        "method": "HTML full-text section inspection",
+        "title": "A Tuning-Free Primal-Dual Splitting Algorithm for Large-Scale Semidefinite Programming",
+        "trigger": "Motivating 2024 method and fixed-product time-varying steps"
+      },
+      {
+        "assessment": "Qualitative nonconstant-step instability already known; no exact two-period ratio threshold identified",
+        "evidence": [
+          "Basic PDHG uses primal-first theta=1 update.",
+          "After Algorithm 1 the authors note variable steps can fail despite the usual product condition; a summability control is required."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1305.0546v2",
+        "material_read": "Algorithm 1 and Section II discussion, Sections V-VI step-change convergence conditions",
+        "method": "HTML full-text section inspection",
+        "title": "Adaptive Primal-Dual Hybrid Gradient Methods for Saddle-Point Problems",
+        "trigger": "Potentially dominating earlier variable-step instability and original method"
+      },
+      {
+        "assessment": "Summable-change convergence regime; periodic nonvanishing steps are outside it",
+        "evidence": [
+          "Nonstationary convergence conditions include controlled summable variation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.03765",
+        "material_read": "Accessible arXiv full-text theorem 3.1 and assumptions",
+        "method": "HTML primary text inspection",
+        "title": "Non-stationary Douglas-Rachford and ADMM: adaptive stepsizes and convergence",
+        "trigger": "General convergence with varying splitting parameters"
+      },
+      {
+        "assessment": "Fixed-step strongly convex-concave asymptotic rate; no noncommuting periodic switching",
+        "evidence": [
+          "Optimizes a single fixed iteration matrix M(tau,sigma) over ratios at fixed tau sigma."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208",
+        "material_read": "Complete RESULT.md including statements, proof, limitations and references",
+        "method": "Repository primary record text read",
+        "title": "Exact fixed-product rate phase diagram for scalar PDHG",
+        "trigger": "Closest scalar PDHG spectral analysis"
+      },
+      {
+        "assessment": "Fixed-step least-squares case, no alternating product",
+        "evidence": [
+          "Concerns optimization of one constant-step iteration matrix for a scalar least-squares mode."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-critical-damping-ratio-for-scalar-least-squares-primal-dual-line--f8268fe426bc",
+        "material_read": "Complete RESULT.md including proof and limitations",
+        "method": "Repository primary record text read",
+        "title": "Critical-damping ratio for scalar least-squares primal-dual linesearch",
+        "trigger": "Potential scalar ratio-stability coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2e569ee0-d1b6-4bc3-ae4f-b3a2a924496b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The nontrivial unknown is a universal safe amplitude of periodic reciprocal step-ratio oscillation, which is natural when adaptive primal/dual step products are held fixed. Complete two-parameter stability classification and a sharp algebraic threshold are more informative than the known qualitative warning. It isolates a concrete design boundary for guarding against aggressive nonstationary parameter changes and distinguishes individual phase contraction spectra from the Floquet stability of the composite iteration.",
+    "status": "PASS"
+  }
+}
