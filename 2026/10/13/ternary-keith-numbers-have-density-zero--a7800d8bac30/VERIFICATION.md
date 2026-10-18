@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the fixed choice
-\[
-\alpha=\frac7{20}.
-\]
-The two strict numerical conditions are exact:
-\[
-\frac13<\frac7{20}
-\]
-and
-\[
-3^{7/20}<\frac32
-\quad\Longleftrightarrow\quad
-2^{20}<3^{13}.
-\]
+# Independent mathematical audit
 
-The many-zero class is controlled by the binomial tail for zero probability \(1/3\). Because \(7/20>1/3\), its exponential rate is strictly below \(3^n\).
+## correctness
 
-For the remaining strings, the recurrence comparison and asymptotic inspected in the primary source give
-\[
-2^{m-n}n\asymp3^n.
-\]
-After fixing the recurrence index and a prefix of length \((1-\alpha)n+O(1)\), any two coordinatewise comparable suffixes would produce a difference simultaneously smaller than \(3^{\alpha n+O(1)}\) and larger than a constant multiple of \((3/2)^n\), which is impossible because \(3^\alpha<3/2\).
+PASS
 
-The packaged checker confirms the exact alpha inequalities, evaluates finite binomial tails, and exhaustively enumerates ternary Keith numbers through ten ternary digits. Those computations are corroborative only and are not used to justify the infinite bound.
+The published Klazar–Luca recurrence comparisons and product-poset antichain bound extend to base 3; verified the missing parameter window by choosing α=7/20 with α>1/3 and 3^α<3/2 (equivalent 2^20<3^13). Exact binomial Chernoff/entropy upper tail shows strings with ≥αn zero digits are ≤3^n e^(−cn). With fewer zeros, at least r≈(1−α)n nonzeros and known recurrence estimates force n·2^{m−n}≈3^n and only O(1) possible recurrence indices m per n. For a common r-digit prefix and fixed m, comparable distinct suffixes in {0,1,2}^{n−r} produce nonzero Keith-sequence difference M both ≳(3/2)^n and <3^{αn+1}, impossible. Hence suffixes form antichain of size O(3^{n−r}/√n); counting prefixes gives O(3^n/√n) n-digit Keith numbers and K_3(x)≪x/√log x. Finite examples are not infinite proof.
+
+## originality
+
+PASS
+
+Klazar and Luca prove the density upper bound for decimal/general base≥4 and expressly flag base3 as unavailable to their parameter inequalities. The new zero-rich binomial large-deviation threshold rather than their crude estimate makes a feasible window at base3 and preserves the rest of their proof. The extension is therefore not literally established by the older published base range and is a motivated genuine missing case.
+
+## value
+
+PASS
+
+Settles the first excluded ternary base of a known Keith-number asymptotic counting theorem with a quantitative density-zero bound, answering a conspicuous gap named in the primary source.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

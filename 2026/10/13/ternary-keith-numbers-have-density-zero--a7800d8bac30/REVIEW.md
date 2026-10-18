@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the base-\(3\) specialization of the Klazar--Luca recurrence comparison. Choosing \(\alpha=7/20\) gives two strict, independently checked inequalities: \(\alpha>1/3\), which makes the class with at least \(\alpha n\) zeros exponentially sparse by a binomial large-deviation bound, and \(3^\alpha<3/2\), which makes the suffix-comparability contradiction work. For zero-poor strings, the published recurrence asymptotic forces \(2^{m-n}n\asymp3^n\), hence only \(O(1)\) possible recurrence indices. Fixing such an index and a long prefix leaves an antichain of suffixes, giving \(O(3^n/\sqrt n)\) candidates per digit length and therefore \(O(x/\sqrt{\log x})\) globally. No finite search is used to prove the infinite statement.
+## correctness
 
-## Originality
-PASS. The closest primary paper explicitly proves the density estimate for decimal Keith numbers and notes that its modifications cover bases \(b\ge4\), while stating that base \(3\) is not covered because its two crude parameter inequalities are incompatible. The present proof changes exactly that bottleneck using the sharp zero-frequency threshold \(1/3\). Targeted searches for “ternary Keith numbers”, “base 3 Keith numbers”, and density formulations found no later theorem covering the case. The inspected exact databases likewise do not state it.
+PASS
 
-The residual originality risk is an unindexed recreational or unpublished note on ternary Keith numbers.
+The published Klazar–Luca recurrence comparisons and product-poset antichain bound extend to base 3; verified the missing parameter window by choosing α=7/20 with α>1/3 and 3^α<3/2 (equivalent 2^20<3^13). Exact binomial Chernoff/entropy upper tail shows strings with ≥αn zero digits are ≤3^n e^(−cn). With fewer zeros, at least r≈(1−α)n nonzeros and known recurrence estimates force n·2^{m−n}≈3^n and only O(1) possible recurrence indices m per n. For a common r-digit prefix and fixed m, comparable distinct suffixes in {0,1,2}^{n−r} produce nonzero Keith-sequence difference M both ≳(3/2)^n and <3^{αn+1}, impossible. Hence suffixes form antichain of size O(3^{n−r}/√n); counting prefixes gives O(3^n/√n) n-digit Keith numbers and K_3(x)≪x/√log x. Finite examples are not infinite proof.
 
-## Value
-PASS. This resolves a concrete base case explicitly isolated in the foundational density paper, with the same quantitative upper bound as in the already-settled bases. The repair is structural rather than computational: it identifies that the failure comes from a crude combinatorial estimate and replaces it by the correct binomial large-deviation threshold. The method also explains sharply why base \(3\), unlike base \(2\), still lies on the density-zero side of this argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Klazar and Luca prove the density upper bound for decimal/general base≥4 and expressly flag base3 as unavailable to their parameter inequalities. The new zero-rich binomial large-deviation threshold rather than their crude estimate makes a feasible window at base3 and preserves the rest of their proof. The extension is therefore not literally established by the older published base range and is a motivated genuine missing case.
+
+## value
+
+PASS
+
+Settles the first excluded ternary base of a known Keith-number asymptotic counting theorem with a quantitative density-zero bound, answering a conspicuous gap named in the primary source.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
