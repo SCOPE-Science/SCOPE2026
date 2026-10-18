@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact published facet-orbit representatives and group generators were reconstructed independently in `verify.py`. They give the published face vector and a one-dimensional \(H_4(K;\mathbf F_2)\). Every one of the \(490\) missing six-set boundaries is tested to be nonzero modulo \(5\)-boundaries. The support lower bound is a complete simplicial-chain argument, not an experimental extrapolation. Exhaustive incidence counts establish the design parameter, the entire triple spectrum, and the five-triple orbit.
+## correctness
 
-Risk: the computation is label-specific, so the printed source data and permutation convention are critical. The verifier checks the published orbit sizes and f-vector before any new count.
+PASS
 
-## Originality
-PASS. Exact-object and alias searches covered complementarity, tightness, missing six-sets, minimum-support middle homology, design language, the numerical triple spectrum, and the A5 block-system formulation. Köhler--Lutz provide the exact complex and orbit data; Balagopalan provides a detailed 490-block construction; later work identifies and classifies fifteen-vertex \(\mathbb H P^2\) triangulations. The inspected statements do not give the complete triple-incidence spectrum or the unique five-triple minimum stratum.
+From the fourteen actual package facet-orbit representatives and two explicit 15-point A5 permutations, an independently written verifier generated exactly 60 group elements, all fourteen expected orbit sizes summing to 490 facets, and the exact face vector (15,105,455,1365,3003,4515,4230,2205,490). Every 5-set is a 4-face; exactly 490 of 5005 6-sets are missing and they match all 490 facet complements. A separate GF(2) bitset boundary computation yields rank ∂4=1001 on 3003 4-chains and rank ∂5=2001, hence dim H4=1. All 490 missing 6-set boundaries ∂Δ5 were checked outside im ∂5, while a nonzero 4-cycle on at most 5 vertices is impossible and on exactly 6 vertices must be the entire ∂Δ5. Thus these are all minimum-support homologically essential 4-cycles. Independent exhaustive block incidence calculation gives 196 carriers/vertex, 70 per unordered pair, and λ triple spectrum 4:5, 13:30, 16:60, 19:150, 22:60, 25:60, 28:10, 31:80. Its five λ=4 triples {1,6,8},{2,4,9},{3,7,11},{5,10,15},{12,13,14} are pairwise disjoint, partition all 15 vertices and form one A5 orbit. A finite exact calculation proves only this frozen labeled complex, not all HP² triangulations.
 
-Residual risk: the 1992 article was not available for a line-by-line reading, so an unindexed earlier observation cannot be ruled out absolutely.
+## originality
 
-## Value
-PASS. The result studies the complete set of shortest vertex-supported representatives of the unique nonzero middle-dimensional mod-two homology class. The first two incidence levels are uniform, while the first nonuniform level recovers an invariant five-block partition. This gives a structural bridge between homology carriers and the symmetry of the triangulation rather than an arbitrary finite statistic.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The known 490-block family and A5 symmetry are explicitly acknowledged; the new theorem determines an unreported full three-point incidence distribution and the unique minimum stratum/partition.
+
+## value
+
+PASS
+
+PASS. The complete set of minimal vertex-supported nonzero middle mod-two cycles of a canonical exceptional eight-manifold is a mathematically natural finite invariant. Its 3-point incidence spectrum and recovered invariant five-block partition are far more informative than the known f-vector, complementarity and 2-design pair counts, and could aid isomorphism, symmetry and coding-theoretic investigations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
