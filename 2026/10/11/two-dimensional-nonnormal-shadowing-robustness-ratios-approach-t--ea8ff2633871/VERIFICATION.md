@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-Use the standard Euclidean norm on \(\mathbb C^2\), the bi-infinite supremum norm on the forcing and orbit sequence spaces, and the definitions in `RESULT.md`. To reproduce the finite rational coefficient checks, execute `python3 verify_bounds.py` with Python 3. The script prints `RATIONAL_BOUNDS_OK` after verifying the concavity sign, both endpoint products, the exact \(56/39\) finite lower bound and its strict squared comparison with \(2\). That execution succeeded on the included script.
+# Independent mathematical audit
 
-The following assertions are proved analytically, not certified by this finite checker: absolute convergence and uniqueness of the Green inverse, the two-sided bound on its operator norm, the unit-circle resolvent bound for all \(K>0\), and the asymptotic ratio \(2-\varepsilon\) for fixed \(\varepsilon\). The bounds and proof steps are reproduced in `RESULT.md` without external dependencies. An exact finite-\(K\) shadowability value is neither computed nor required; universal optimality among nonnormal operators is not claimed. The publisher preview for one earlier quantitative-shadowing source did not provide its complete body, which remains a specific literature risk.
+## correctness
+
+PASS
+
+Spectral projections P_s=[[1,K/2],[0,0]], P_u=[[0,−K/2],[0,1]] yield an absolutely convergent unique bi-infinite Green inverse since 0<1−epsilon<1 and −1−epsilon<−1. An explicit unit forcing gives Shad≥K/epsilon, while componentwise geometric sums give Shad≤(K+2)/epsilon. For |z|=1 the resolvent off-diagonal denominator |z−(1−epsilon)||z+(1+epsilon)| has squared value concave in Re z, minimized at z=−1 and equal to epsilon(2−epsilon). Resolvent maximum is K/[epsilon(2−epsilon)]+O(1/epsilon); thus product limit 2−epsilon. At epsilon=1/4 K=8 exact lower bound 56/39 exceeds sqrt(2). Independent rational arithmetic corroborated endpoint comparison, signs and finite witness; limiting theorem is analytic.
+
+## originality
+
+PASS
+
+Yuan 2026 full primary HTML text states sharp sqrt(2) upper bound for NORMAL hyperbolic operators and asks about quantitative nonnormal behavior; this nonnormal two-dimensional upper triangular counterexample is outside that theorem. General Green inverse and stability radius identities are known, but do not alone imply this explicit sharp family ratio or finite violation. Scalar higher-order Ulam papers use a different norm/one-sided setting. Morales–Nguyen 2023 general shadowing paper was accessible at abstract/preview only, so its possible similar nonnormal example is a genuine residual risk, not grounds for automatic O failure.
+
+## value
+
+PASS
+
+This explicit 2×2 diagonalizable nonnormal family supplies a natural sharp boundary to the cited normal-only sqrt(2) theorem and quantifies the role of nonorthogonal stable/unstable projections. Limit 2−epsilon and a certified finite strict violation resolve a motivated minimal-dimensional question without claiming an unproved universal upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

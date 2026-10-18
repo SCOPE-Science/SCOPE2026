@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definitions use the Euclidean norm on \(\mathbb C^2\) and the two-sided \(\ell^\infty\) inverse of the difference operator, not a one-sided pseudotrajectory convention. The eigenvalues \(1-\varepsilon\) and \(-1-\varepsilon\) lie strictly on opposite sides of the unit circle for \(0<\varepsilon<1\); they are nonzero and distinct. The displayed projections are idempotent and commute correctly with the matrix, so the Green sums converge absolutely. The explicitly signed unit forcing evaluates to \((K/\varepsilon,-1/\varepsilon)\), establishing the asymptotically sharp lower bound on the shadowability norm. The upper estimate follows componentwise. The resolvent denominator reduces to a concave quadratic in the real part of a unit-circle point, with minimum \(\varepsilon(2-\varepsilon)\). Direct norm inequalities bound the full resolvent. Combining the two squeezes proves the fixed-\(\varepsilon\) limit, and the finite rational witness exceeds \(\sqrt2\). The exact-arithmetic checker verifies the critical finite coefficients; it is not treated as an infinite proof. There is no claim of an exact finite-\(K\) shadowability formula or a universal upper bound across all nonnormal operators.
+PASS
 
-## Originality — PASS, with specified residual risk
+Spectral projections P_s=[[1,K/2],[0,0]], P_u=[[0,−K/2],[0,1]] yield an absolutely convergent unique bi-infinite Green inverse since 0<1−epsilon<1 and −1−epsilon<−1. An explicit unit forcing gives Shad≥K/epsilon, while componentwise geometric sums give Shad≤(K+2)/epsilon. For |z|=1 the resolvent off-diagonal denominator |z−(1−epsilon)||z+(1+epsilon)| has squared value concave in Re z, minimized at z=−1 and equal to epsilon(2−epsilon). Resolvent maximum is K/[epsilon(2−epsilon)]+O(1/epsilon); thus product limit 2−epsilon. At epsilon=1/4 K=8 exact lower bound 56/39 exceeds sqrt(2). Independent rational arithmetic corroborated endpoint comparison, signs and finite witness; limiting theorem is analytic.
 
-Z. Yuan, doi:10.20944/preprints202609.1610.v1, establishes \(\sqrt2\) only under normality and explicitly leaves the quantitative nonnormal upper behavior open in its concluding discussion. This result constructs an oblique stable/unstable splitting on a nonnormal \(2\times2\) matrix and computes a ratio limit and strict finite violation; the normal theorem cannot cover such a matrix. The older general Green inverse and resolvent distance identities are background and do not by themselves state or compute the new family ratio. Yuan, Xu and Brzdęk, doi:10.1007/s00208-025-03280-w, chiefly analyze scalar one-sided recurrences with roots exterior to the circle, a different domain. Database queries did not identify the same family limit or a dominating theorem. Morales and Nguyen, doi:10.1007/s10884-023-10317-8, introduces quantitative shadowability and treats hyperbolic operators, but only publisher-provided abstract and introduction were accessible; its potentially overlapping further examples constitute the principal unresolved literature risk. The retrieved preview alone is insufficient to assert that the rest of this article does not contain an equivalent example.
+## originality
 
-## Value — PASS
+PASS
 
-The explicit primary source raises the question of quantitative upper bounds beyond normal hyperbolicity. A minimal-dimensional, diagonalizable, strict counterexample to extending its sharp \(\sqrt2\) estimate is a substantive boundary rather than a change of notation. The asymptotic value \(2-\varepsilon\) is a natural parameter law relating spectral gap, nonorthogonal projections and robustness. The example distinguishes operator geometry from eigenvalue location while retaining the same Hilbert norm. The result does not purport to settle optimal nonnormal universal constants.
+Yuan 2026 full primary HTML text states sharp sqrt(2) upper bound for NORMAL hyperbolic operators and asks about quantitative nonnormal behavior; this nonnormal two-dimensional upper triangular counterexample is outside that theorem. General Green inverse and stability radius identities are known, but do not alone imply this explicit sharp family ratio or finite violation. Scalar higher-order Ulam papers use a different norm/one-sided setting. Morales–Nguyen 2023 general shadowing paper was accessible at abstract/preview only, so its possible similar nonnormal example is a genuine residual risk, not grounds for automatic O failure.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This explicit 2×2 diagonalizable nonnormal family supplies a natural sharp boundary to the cited normal-only sqrt(2) theorem and quantifies the role of nonorthogonal stable/unstable projections. Limit 2−epsilon and a certified finite strict violation resolve a motivated minimal-dimensional question without claiming an unproved universal upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
