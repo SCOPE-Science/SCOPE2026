@@ -1,0 +1,11 @@
+# Review of the squarefree-product energy asymptotic
+
+**Correctness — PASS.** The precise bijection between common-product-squarefree collisions and four pairwise-coprime squarefree components is established by the unique polynomial-gcd factorization. The coefficient extraction gives an exact identity for every degree. The holomorphic Euler-product correction has cancellation of all linear prime-local terms, permitting four-variable Cauchy estimates and the stated exponentially small remainder. Separate direct finite-field enumeration and irreducible-assignment dynamic programming agree on 15 finite cases.
+
+**Originality — PASS (subject to residual risk).** Afifurrahman's published unrestricted energy formulas do not impose squarefreeness on the product, nor yield the new two-term constant. Lieb's pairwise-coprime polynomial counts do not impose squarefreeness on each component and focus on different asymptotic regimes. Related earlier work on individually squarefree factors holds the degree fixed and sends field size to infinity, whereas the present **product-squarefree, fixed-field, increasing-degree** theorem has a separate arithmetic constant and exponentially accurate secondary term. The conclusion is a best-knowledge comparison, not proof of uniqueness: a general unexamined Euler-product theorem might imply this case.
+
+**Mathematical value — PASS.** The recent exact unrestricted collision counts invite a natural refined question: how many degree-balanced multiplicative collisions have *squarefree common product*? Unlike a bare qualitative density or a routine small-degree extension, this result obtains both main and boundary-order constants with effective exponentially decaying normalized error for every field size. It also supplies an exact degree-balance coefficient identity that can support other prescribed local product restrictions. These quantities are natural multiplicative-energy invariants, not an arbitrary sliced finite table.
+
+Limits: this is not an independently audited theorem, and the secondary constant is a convergent analytic expression rather than an elementary number. The finite checks are not infinite proofs.
+
+Self-review: passed. Independent audit: not yet performed.
