@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For each fixed b>=3, every maximum-run start has form b²c by the inspected Gohn et al. boundary classification. The neighboring offsets force product of nonzero digits of c to equal 1, and divisibility at offsets 1,...,b-1 imposes exactly M_b|c. The remaining offsets are guaranteed by definition of the first nondivisor of b. Prime-power splitting M_b=M0*M1 gives precisely r forced trailing zeros and a coprime modulus. Fourier inversion on M1 and uniform nontrivial character bounds prove effective shell equidistribution and all boundary cases M1=1 and zero shells. Fixed leading-digit cylinders give weak Cantor convergence; two nested cutoffs expose genuinely distinct constants for cumulative growth. The stdlib finite checker independently compares digit enumeration, actual membership, and exhaustive detected runs for 10 small bases, 80 shells; finite tests do not prove infinite claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Banks & Shparlinski, Acta Arith. 112 (2004), full text §§1–2 discusses digit-restricted sequences and modular distribution; the modular Fourier estimate is not asserted to be new.",
+        "He & Sanna (2024), arXiv:2403.14812v1, counts numbers divisible by product of all digits, a different digit product."
+      ],
+      "reasoning": "A general restricted-digit equidistribution theorem may cover the Fourier sublemma, but does not identify the arithmetic extremal blocks, the special modulus with prime factors shared by b, the exact count of runs, or absence of a global count constant. A direct known general theorem about maximal-run starts would be covering; none inspected states one.",
+      "searches": [
+        "Asymptotic distribution, digit-restricted congruence classes of integers with base-b digits only 0 and 1; counts modulo lcm of digits and maximal prodigious runs",
+        "leading asymptotic for longest consecutive Zuckerman or prodigious runs, starting point distribution logarithmic growth",
+        "Banks Shparlinski arithmetic properties numbers restricted digits residue distribution theorem 2004",
+        "\"product of nonzero digits\" \"longest runs\" asymptotic count"
+      ]
+    },
+    "checked_sources": [
+      "Gohn et al. JIS 25 (2022) Article 22.8.7 full text",
+      "Banks and Shparlinski Acta Arith. 112 (2004) full text",
+      "He and Sanna arXiv:2403.14812v1 full HTML",
+      "OEIS A055471 sequence and references",
+      "Targeted semantic mathematical-record searches for maximal prodigious intervals, restricted binary-digit modular counts, and equivalent Cantor scaling forms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gohn et al. (2022), main maximum-run theorem and edge classification imply only *possible* start classes and maximum length, not all eligible starts and quantitative frequency.",
+        "Banks & Shparlinski 2004 may imply the residue asymptotic for any fixed binary-digit class after work, but not that such classes exactly correspond to maximum prodigious blocks."
+      ],
+      "reasoning": "New assertion logically strengthens the original edge classification by proving a necessary-and-sufficient arithmetic criterion and then counts the resulting set. The general modular digit-count component is acknowledged; the entire main claim is not a corollary of the compared number-theory paper without the new run equivalence and accumulation-scale analysis.",
+      "searches": [
+        "Arithmetic progressions of b-prodigious numbers, length b+ell and enumeration of all maximal interval starting points",
+        "\"prodigious\" \"length\" \"intervals\" \"density\" b 2023 2024",
+        "\"Arithmetic Progressions of b-Prodigious Numbers\" Theorem 9 Lemma 8 maximum consecutive"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gohn et al. (2022), Lemmas 7-8 and Theorem 9, show eligible positional forms but neither sharp complete start criterion nor count.",
+        "Closest public research-index hit: 2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6 concerns closed-rich words; different combinatorial object."
+      ],
+      "reasoning": "The precise equivalent would count positions of blocks of length b+ell_b with p_b(n)|n and yield digit-shell asymptotics. Word-run and digital-string results involving different predicates do not imply these arithmetic statements.",
+      "searches": [
+        "Number of maximal runs or blocks of consecutive b-prodigious integers of maximal length b+ell; starting positions cb^2 with base-b 0/1 digits and c divisible by LCM(1,...,b-1), asymptotic count density 2^m/L",
+        "b-prodigious integers maximal consecutive runs, enumeration of starts and leading asymptotic for fixed digit length, Cantor measure",
+        "\"b-prodigious\" \"maximal\" \"number\" \"asymptotic\" blocks",
+        "\"prodigious numbers\" \"consecutive\" \"count\" \"runs\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A055471 enumerates base-ten prodigious numbers, not an explicit formula for all maximum consecutive-run starts or limit law.",
+        "Research-index record 2026/9/7/SCOPE012 is a covering-system optimization, not the same integer sequence."
+      ],
+      "reasoning": "A database of individual prodigious values or finite prefixes does not entail a full per-base extremal-start criterion nor infinitely many shell counts.",
+      "searches": [
+        "OEIS A055471 prodigious integers longest runs",
+        "\"prodigious numbers\" \"counting\" \"consecutive\"",
+        "count blocks of b+ell consecutive prodigious numbers digits 0 1 congruence classes"
+      ]
+    },
+    "rationale": "The full inspected JIS 2022 paper obtains extremal run length and a boundary classification, but not the exact set of all starts, any quantitative count by digit length, the limiting Cantor law, or nonexistence of a global scaling constant. Restricted-digit residue equidistribution is an existing method (Banks--Shparlinski, 2004) and not claimed as new. A later Zuckerman-counting paper addresses a different product convention. No covering result was found among actual targeted mathematical queries. Residual priority uncertainty, especially general digit restrictions, explicitly retained.",
+    "residual_risks": [
+      "An unindexed or unpublished result may already enumerate maximal b-prodigious run starts.",
+      "Broader digit-restricted number-theory results cover the modular Fourier ingredient, which is acknowledged, and could be combined with the original boundary result.",
+      "Limited indexed published-finding corpus retrieval and older inaccessible local histories cannot prove priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides maximal length and locates boundary starts, but no exact census, Cantor distribution or global scaling statement.",
+        "evidence": [
+          "Lemma 8 and Theorem 9 classify starts of long blocks; Corollary 4 gives maximum b+ell; later results treat allowable lengths."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL25/Wong/wong42.pdf",
+        "material_read": "Complete 10-page PDF including definitions, Lemmas 6-8, Theorems 9, 11 and 13, Corollary 4 and references.",
+        "method": "Primary open PDF, text and page inspection",
+        "title": "Arithmetic Progressions of b-Prodigious Numbers",
+        "trigger": "Identical extremal runs and original length theorem"
+      },
+      {
+        "assessment": "Broad modular counting method is existing; no maximal prodigious interval object or exact extremal start formula.",
+        "evidence": [
+          "Acta Arithmetica 112 (2004), 313-332, DOI 10.4064/aa112-4-1."
+        ],
+        "identifier_or_url": "https://www.impan.pl/shop/publication/transaction/download/product/83200",
+        "material_read": "Full open paper accessed; inspected introduction and §§1-2 including modular restricted-digit estimates.",
+        "method": "Authorized freely accessible primary PDF text",
+        "title": "Arithmetic properties of numbers with restricted digits",
+        "trigger": "Potential dominating restricted-digit residue theorem"
+      },
+      {
+        "assessment": "Counts Zuckerman integers for product of all digits, not product of nonzero digits nor consecutive longest blocks.",
+        "evidence": [
+          "arXiv:2403.14812v1, first posted March 21, 2024."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.14812v1",
+        "material_read": "Full accessible arXiv HTML v1, statement and problem definitions.",
+        "method": "Open full HTML primary article",
+        "title": "Counting numbers that are divisible by the product of their digits",
+        "trigger": "Plausible broader theorem about digit products"
+      },
+      {
+        "assessment": "Lists base-ten prodigious integers, not maximum-block shell asymptotics or Cantor law.",
+        "evidence": [
+          "A055471 definition and sequence terms."
+        ],
+        "identifier_or_url": "https://oeis.org/A055471",
+        "material_read": "Public sequence definition and linked references.",
+        "method": "Public database entry",
+        "title": "OEIS A055471",
+        "trigger": "Exact tabular sequence overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a61d2a92-d903-4f1c-a7b9-3515ed67b8ee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For an explicit extremal phenomenon whose attainable maximal length was singled out by prior research, the theorem determines the entire starting set and its infinite sharp digit-shell census, with all noncoprime factors handled. Its nontrivial Cantor positional law and two distinct cumulative normalization limits are meaningful structural density data; not merely restatement of a generic modular counting lemma, nor a finite numerical table.",
+    "status": "PASS"
+  }
+}
