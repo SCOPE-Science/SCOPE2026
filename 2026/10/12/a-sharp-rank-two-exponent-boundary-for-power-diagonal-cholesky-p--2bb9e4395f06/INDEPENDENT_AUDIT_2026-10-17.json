@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T04:50:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write r_i=(A²)_ii and d_i=A_ii. Expanding the PSD rank-one downdate and spectral Cauchy yields S−||B_i||²=2(A³)_ii/d_i−r_i²/d_i² ≥r_i²/d_i². Weighted Cauchy yields expected gain ≥S²/[∑d_i^β∑d_i^(2−β)]. For 0≤β≤2, AM–GM pairwise gives denominator≤n∑d_i²≤nS. Scalar identity attains equality. For A_{m,t}=diag(t,J_m), exact gain Gβ=(t^(β+2)+m³)/(t^β+m), S=t²+m². β=4 gap is m[y³−my²−y+m³]/[(m+1)(y²+m)]>0 for y=t² by case y≥m and 0≤y≤m; monotonic in β depending on t/m reduces every β∈[0,4] to endpoint 0 or 4. For β>4 choose 2/β<a<1/2 and t=m^a giving Gβ=o(m)<S/(m+1)~m. Continuity gives SPD examples. Independently reproduced β=5,m=100,t=8 expected residual 9102400/913, target 1006400/101, excess 499200/92213; tested polynomial positivity rationally for 336 m,y cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. provide multi-pivot trace guarantees; Steinerberger one-step Frobenius β=2. Neither theorem implies the sharp rank-two β4 endpoint."
+        ],
+        "reasoning": "Trace and Frobenius norms and different pivot-weight exponents are not logically interchangeable.",
+        "searches": [
+          "randomly pivoted Cholesky Gibbs diagonal exponent power beta Frobenius one step contraction rank two block sharp threshold",
+          "https://arxiv.org/abs/2207.06503",
+          "https://arxiv.org/pdf/2404.11487"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2404.11487",
+        "https://arxiv.org/abs/2207.06503",
+        "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+        "Resultary semantic published-results search: randomly pivoted Cholesky Gibbs diagonal exponent power beta Frobenius one step contraction rank two block sharp threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A β2 sufficiency bound does not entail β4 sufficiency for all rank-two t,m or failure for every β>4. These require polynomial positivity and asymptotic construction."
+        ],
+        "reasoning": "Current precise theorem has both a sharper modeled regime and a genuinely explicit β>4 obstruction, not a routine citation to β2.",
+        "searches": [
+          "randomly pivoted Cholesky Gibbs diagonal exponent power beta Frobenius one step contraction rank two block sharp threshold",
+          "https://arxiv.org/pdf/2404.11487"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Steinerberger proves the β=2 point; its Gibbs β notation and one-step gain identity are common starting points, but no all-β≤4 block iff in its inspected theorem statements."
+        ],
+        "reasoning": "Novelty is not a new name for β=2, but a parameter-uniform and family-sharp threshold.",
+        "searches": [
+          "randomly pivoted Cholesky Gibbs diagonal exponent power beta Frobenius one step contraction rank two block sharp threshold",
+          "https://arxiv.org/pdf/2404.11487"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed adaptive-cross-approximation result concerns complete-pivot ACA and worst-case growth, not positive-semidefinite sampled Cholesky."
+        ],
+        "reasoning": "No known table supplies a β4 exponent boundary for these exact blocks; lack of match is not priority proof.",
+        "searches": [
+          "randomly pivoted Cholesky Gibbs diagonal exponent power beta Frobenius one step contraction rank two block sharp threshold",
+          "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659"
+        ]
+      },
+      "rationale": "Steinerberger (2024) already establishes β=2 one-step Frobenius contraction and uses Gibbs/diagonal-power pivot distributions; Chen–Epperly–Tropp–Webber (2022) covers the β=1 randomized Cholesky and trace bounds. The new differentiated claims are the full β∈[0,2] sufficient interval and sharp rank-two cluster phase β=4, not the sampler, pivot identity or known β2 theorem.",
+      "residual_risks": [
+        "Specialized pivoting literature could contain equivalent diagonal-power interpolation or a stronger threshold theorem.",
+        "No universally sharp exponent for arbitrary PSD matrices on 2<β≤4, and no multistep convergence assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly covers β=2 Frobenius contraction and general pivot identity; does not state this rank-two β4 iff family boundary in inspected source",
+          "evidence": "Published source establishes a β2 bound, while the current family’s β4 claim compares all m,t.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.11487",
+          "material_read": "Read 10-page primary paper, definition of Gibbs power β, Frobenius one-step theorem and proofs/discussion of greediness",
+          "method": "Read primary PDF/HTML mathematical text and compared relevant definitions, theorem statements, and formulas",
+          "title": "Randomly Pivoted Partial Cholesky: Random How?",
+          "trigger": "Original Gibbs power rule and potential exact Frobenius theorem"
+        },
+        {
+          "assessment": "Covers sampling motivation and β=1-type choice, not observed β4 rank-two result",
+          "evidence": "Trace-norm sampling guarantees do not imply sharp Frobenius-square threshold at exponent4.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.06503",
+          "material_read": "Read available original algorithm/abstract and accessible relevant mathematics on dynamic diagonal weighting and trace-error bounds",
+          "method": "Read primary PDF/HTML mathematical text and compared relevant definitions, theorem statements, and formulas",
+          "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+          "trigger": "Earlier randomized diagonal pivoting and approximation theory"
+        },
+        {
+          "assessment": "Different objective and pivot rule (complete-pivot ACA); whole-document noncoverage not claimed",
+          "evidence": "Indexed theorem bounds a nonsymmetric residual amplification, not PSD Gibbs-power expectation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+          "material_read": "Published-record semantic title and scientific summary only; linked full text not read",
+          "method": "Read published-result index/summary; not a whole-document inspection",
+          "title": "Sharp one-step Frobenius growth under complete-pivot ACA",
+          "trigger": "Closest indexed adaptive cross approximation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Choosing power β trades information exploitation against redundant-cluster blindness in randomized PSD approximation. The naturally motivated isolated coordinate plus repeated-column rank-two model has a sharp actual exponent threshold and witnesses strict over-greedy failure for every β>4. This is a substantive boundary despite general β∈(2,4] remaining open.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2404.11487",
+    "https://arxiv.org/abs/2207.06503",
+    "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+    "Resultary semantic published-results search: randomly pivoted Cholesky Gibbs diagonal exponent power beta Frobenius one step contraction rank two block sharp threshold"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Specialized pivoting literature could contain equivalent diagonal-power interpolation or a stronger threshold theorem.",
+    "No universally sharp exponent for arbitrary PSD matrices on 2<β≤4, and no multistep convergence assertion."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "Explicitly covers β=2 Frobenius contraction and general pivot identity; does not state this rank-two β4 iff family boundary in inspected source",
+      "evidence": "Published source establishes a β2 bound, while the current family’s β4 claim compares all m,t.",
+      "identifier_or_url": "https://arxiv.org/pdf/2404.11487",
+      "material_read": "Read 10-page primary paper, definition of Gibbs power β, Frobenius one-step theorem and proofs/discussion of greediness",
+      "method": "Read primary PDF/HTML mathematical text and compared relevant definitions, theorem statements, and formulas",
+      "title": "Randomly Pivoted Partial Cholesky: Random How?",
+      "trigger": "Original Gibbs power rule and potential exact Frobenius theorem"
+    },
+    {
+      "assessment": "Covers sampling motivation and β=1-type choice, not observed β4 rank-two result",
+      "evidence": "Trace-norm sampling guarantees do not imply sharp Frobenius-square threshold at exponent4.",
+      "identifier_or_url": "https://arxiv.org/abs/2207.06503",
+      "material_read": "Read available original algorithm/abstract and accessible relevant mathematics on dynamic diagonal weighting and trace-error bounds",
+      "method": "Read primary PDF/HTML mathematical text and compared relevant definitions, theorem statements, and formulas",
+      "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+      "trigger": "Earlier randomized diagonal pivoting and approximation theory"
+    },
+    {
+      "assessment": "Different objective and pivot rule (complete-pivot ACA); whole-document noncoverage not claimed",
+      "evidence": "Indexed theorem bounds a nonsymmetric residual amplification, not PSD Gibbs-power expectation.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+      "material_read": "Published-record semantic title and scientific summary only; linked full text not read",
+      "method": "Read published-result index/summary; not a whole-document inspection",
+      "title": "Sharp one-step Frobenius growth under complete-pivot ACA",
+      "trigger": "Closest indexed adaptive cross approximation result"
+    }
+  ]
+}

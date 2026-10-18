@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rank-one trace expansion and spectral Cauchy–Schwarz lemma prove a universal decrease bound. Weighted Cauchy–Schwarz and arithmetic–geometric mean cover all real exponents in the claimed interval. The two-block law is obtained from the two possible exact residuals; its polynomial endpoint inequality is strictly positive for all real scaling parameters and integers \(m\ge2\), and the dimension asymptotics rigorously force failure for every \(\beta>4\). Exact rational package checks reproduce the stated finite witness and support algebraic bookkeeping; they are not an infinite proof.
+## correctness
 
-**Originality — PASS, subject to residual priority risk.** Chen et al. analyze diagonal-proportional pivots, mainly for trace approximation; Steinerberger proves the \(\beta=2\) Frobenius guarantee and provides the pivot identity. Neither inspected full text states the exact rank-two cluster threshold at \(\beta=4\), and the continuum safe interval is not a quoted theorem there. published-finding corpus search also retrieved related adaptive randomized pivoting and ACA results, but none of their returned statements implies the one-step power-diagonal criterion. Unindexed specialized work and inaccessible relevant full texts remain plausible.
+PASS
 
-**Value — PASS.** The power parameter is an actual design choice in published partial-Cholesky sampling, and the problem distinguishes reasonable adaptive pivoting from over-greedy concentration. A sharp exponent cutoff, even on a rank-two family, identifies a structural failure mode for a dimension-dependent approximation guarantee. The general interval \(2<\beta\le4\) is deliberately not asserted. No multi-step claim is made.
+Write r_i=(A²)_ii and d_i=A_ii. Expanding the PSD rank-one downdate and spectral Cauchy yields S−||B_i||²=2(A³)_ii/d_i−r_i²/d_i² ≥r_i²/d_i². Weighted Cauchy yields expected gain ≥S²/[∑d_i^β∑d_i^(2−β)]. For 0≤β≤2, AM–GM pairwise gives denominator≤n∑d_i²≤nS. Scalar identity attains equality. For A_{m,t}=diag(t,J_m), exact gain Gβ=(t^(β+2)+m³)/(t^β+m), S=t²+m². β=4 gap is m[y³−my²−y+m³]/[(m+1)(y²+m)]>0 for y=t² by case y≥m and 0≤y≤m; monotonic in β depending on t/m reduces every β∈[0,4] to endpoint 0 or 4. For β>4 choose 2/β<a<1/2 and t=m^a giving Gβ=o(m)<S/(m+1)~m. Continuity gives SPD examples. Independently reproduced β=5,m=100,t=8 expected residual 9102400/913, target 1006400/101, excess 499200/92213; tested polynomial positivity rationally for 336 m,y cases.
 
-Closest sources: arXiv:2207.06503 (algorithm and trace bounds), arXiv:2404.11487 (known \(\beta=2\) Frobenius bound, power-rule question, greedy fragility). Scientific limits: one step, one rank-two block threshold, exact arithmetic, no independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Steinerberger (2024) already establishes β=2 one-step Frobenius contraction and uses Gibbs/diagonal-power pivot distributions; Chen–Epperly–Tropp–Webber (2022) covers the β=1 randomized Cholesky and trace bounds. The new differentiated claims are the full β∈[0,2] sufficient interval and sharp rank-two cluster phase β=4, not the sampler, pivot identity or known β2 theorem.
+
+## value
+
+PASS
+
+Choosing power β trades information exploitation against redundant-cluster blindness in randomized PSD approximation. The naturally motivated isolated coordinate plus repeated-column rank-two model has a sharp actual exponent threshold and witnesses strict over-greedy failure for every β>4. This is a substantive boundary despite general β∈(2,4] remaining open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
