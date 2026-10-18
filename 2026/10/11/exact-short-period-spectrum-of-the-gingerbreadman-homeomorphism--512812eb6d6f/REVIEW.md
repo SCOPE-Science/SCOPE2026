@@ -1,15 +1,21 @@
-# Review of exact gingerbreadman short-period spectrum
+# Independent mathematical audit
 
-## Correctness (C): PASS
-For each period \(p\le11\), the map's periodicity condition reduces on each of its \(2^p\) closed sign cells to a finite rational linear system plus exactly the appropriate sign inequalities. Rational elimination and exact Fourier–Motzkin projection decide every case; both choices at a zero coordinate prevent boundary omissions. The checker, `verify_periods.py`, returns exact feasible-branch and isolated-orbit counts for all eleven lengths. Explicit five-, six-, and eleven-cycle witnesses are checked by direct iteration. Products of exact \(2\)-by-\(2\) branch matrices yield the stated return traces. The claim asserts neither an unproved infinite classification nor uniqueness at period six.
+## correctness
 
-## Originality (O): PASS with specified residual risk
-The 2009 Abu-Saris–Al-Jubouri paper, inspected in full, identifies the gingerbreadman slice and derives general periodicity criteria and periods two and three, but does not count the two five-cycles or the two eleven-cycles or eliminate the intervening primitive lengths. MathWorld's listed outer five-cycle is only one of the two global five-orbits; the second has a different exact Jacobian type and is not a relabeling. The modern Cima–Gasull–Mañosa–Mañosas family has a second absolute-value term absent here, so its stronger general-map theorems do not cover this exact conservative map. The complete text of Devaney's 1984 founding article was not accessible; a full comparison with that original and unindexed sources remains a residual originality risk. Searches do not establish uniqueness on their own.
+PASS
 
-## Value (V): PASS
-The finite cutoff at \(11\) is dictated by the first primitive period after the familiar five- and six-cycle regions; no new primitive length appears at \(7,8,9,10\). Exact global enumeration reveals a second five-cycle with hyperbolic, rather than elliptic, local geometry and two further hyperbolic eleven-cycles, supplying a natural finite invariant of the well-studied map rather than an arbitrary numerical slice. The no-gap and exact-class counts provide an independently reproducible benchmark for symbolic-dynamics and orbit-counting arguments.
+Periodic recurrence x_{k+1}+x_{k-1}=1+|x_k| is equivalent for each of all 2^p sign words to an affine rational system with closed sign inequalities, including zero coordinates. Exact Gaussian elimination handles regular and singular systems; rational Fourier–Motzkin elimination decides every affine feasible cell. The script actually enumerates all p<=11 and classifies feasible singular cells; independently written linear solving plus LP feasibility reproduced all 11 feasible word counts and all primitive isolated orbit counts. Strict nonzero coordinates of enumerated 5-/11-cycles allow exact derivative products with stated traces. No claim is made beyond period 11 or that all period-six cycles are isolated.
 
-## Evidence boundaries
-The finite calculation is exact only because the complementary proof reduces real periodicity to finitely many rational linear-feasibility systems. The 1984 publication year predates the first separately verified day-stamped public artifact; no unverified day of first publication has been supplied. No independent review has occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2009 Abu-Saris–Al-Jubouri primary 9-page paper treats this exact α=1,β=-1,γ=1 special case but proves generic periodicity conditions, minimal periods 2/3 and global-all-orbit conditions; it does not enumerate p=5..11. MathWorld presents one period-five orbit in five outer hexagonal regions; the independently verified second hyperbolic five-orbit lies outside that restricted picture. The original Devaney 1984 article could not be materially read; the possibility of historical exact short-period data remains a residual risk. Best-of-knowledge original for the complete global <=11 rational sign-word census.
+
+## value
+
+PASS
+
+Determining exactly which short least periods and how many isolated prime-five and -eleven cycles occur in an iconic piecewise-affine planar map is a natural complete finite classification. The elliptic/hyperbolic return derivatives distinguish genuine dynamical structures, and exact sign-boundary feasibility makes the finite result meaningful rather than a partial experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,28 +19,24 @@
 }
 ---
 
-# Reproducibility and exact scope
+# Independent mathematical audit
 
-Run `python3 verify_periods.py` from the directory containing the file. Standard-library `fractions.Fraction` represents every coefficient, intermediate row operation, polyhedral inequality and orbit coordinate exactly.
+## correctness
 
-For proposed lengths \(1\) through \(11\), enumerate every binary sign word; solve the affine periodicity equations over rationals. Empty systems are discarded. For singular systems, apply exact Fourier–Motzkin elimination to the non-strict sign inequalities in the free rational variables, proving existence or absence of **real** solutions. Zero coordinates are allowed for either sign. For nonsingular systems, the unique rational point is checked directly and deduplicated under cyclic orbit rotation. Minimal periods are computed by divisibility and direct state equality, not inferred from word lengths. At length \(6\), feasible singular sign words are detected, but an exhaustive classification of their solution components is **not** asserted.
+PASS
 
-Checker summaries (length, feasible words, feasible singular words, isolated primitive cycles):
+Periodic recurrence x_{k+1}+x_{k-1}=1+|x_k| is equivalent for each of all 2^p sign words to an affine rational system with closed sign inequalities, including zero coordinates. Exact Gaussian elimination handles regular and singular systems; rational Fourier–Motzkin elimination decides every affine feasible cell. The script actually enumerates all p<=11 and classifies feasible singular cells; independently written linear solving plus LP feasibility reproduced all 11 feasible word counts and all primitive isolated orbit counts. Strict nonzero coordinates of enumerated 5-/11-cycles allow exact derivative products with stated traces. No claim is made beyond period 11 or that all period-six cycles are isolated.
 
-```
-1: 1,0,1
-2: 1,0,0
-3: 1,0,0
-4: 1,0,0
-5: 11,0,2
-6: 13,7,1
-7: 1,0,0
-8: 1,0,0
-9: 1,0,0
-10: 11,0,0
-11: 23,0,2
-```
+## originality
 
-Actual output is archived in `certificate_output.txt`. The four isolated length-five/eleven representatives were independently iterated as rational states, and the Jacobian product uses the ordinary smooth derivative only on their nonzero branches. The checker verifies the least-period-six explicit witness.
+PASS
 
-**Proof limits:** The exhaustive result ends at proposed period \(11\). It neither certifies longer-period absence nor resolves properties of infinite orbits. The original 1984 source was not available in complete form for literature comparison; this is an originality-access caveat, not a mathematical gap in the finite exhaustive deduction.
+The 2009 Abu-Saris–Al-Jubouri primary 9-page paper treats this exact α=1,β=-1,γ=1 special case but proves generic periodicity conditions, minimal periods 2/3 and global-all-orbit conditions; it does not enumerate p=5..11. MathWorld presents one period-five orbit in five outer hexagonal regions; the independently verified second hyperbolic five-orbit lies outside that restricted picture. The original Devaney 1984 article could not be materially read; the possibility of historical exact short-period data remains a residual risk. Best-of-knowledge original for the complete global <=11 rational sign-word census.
+
+## value
+
+PASS
+
+Determining exactly which short least periods and how many isolated prime-five and -eleven cycles occur in an iconic piecewise-affine planar map is a natural complete finite classification. The elliptic/hyperbolic return derivatives distinguish genuine dynamical structures, and exact sign-boundary feasibility makes the finite result meaningful rather than a partial experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

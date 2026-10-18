@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T08:49:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Periodic recurrence x_{k+1}+x_{k-1}=1+|x_k| is equivalent for each of all 2^p sign words to an affine rational system with closed sign inequalities, including zero coordinates. Exact Gaussian elimination handles regular and singular systems; rational Fourier–Motzkin elimination decides every affine feasible cell. The script actually enumerates all p<=11 and classifies feasible singular cells; independently written linear solving plus LP feasibility reproduced all 11 feasible word counts and all primitive isolated orbit counts. Strict nonzero coordinates of enumerated 5-/11-cycles allow exact derivative products with stated traces. No claim is made beyond period 11 or that all period-six cycles are isolated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abu-Saris/Al-Jubouri characterize p=2/3 and global common-period phenomena; general necessary-sufficient periodicity criteria do not already enumerate each p through 11 with exact isolated orbit counts and multipliers."
+        ],
+        "reasoning": "The cited existing conditional criteria would permit computing the result, but do not directly state or entail its sharp numerical census without additional exhaustive feasibility work.",
+        "searches": [
+          "Abu-Saris Al-Jubouri full 9-page Theorems 2.2, 2.3, 2.4, 3.2",
+          "Devaney 1984 founding model DOI",
+          "Resultary gingerbreadman short period theorem"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1016/0167-2789(84)90187-8",
+        "https://www.acadsol.eu/en/articles/13/1/6.pdf",
+        "https://mathworld.wolfram.com/GingerbreadmanMap.html",
+        "doi:10.1007/s12346-025-01221-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2009 source has general sign recurrence criteria and exact p=2 and p=3 results, but not global p=5,11 counts and trace±5; MathWorld omits interior additional five-orbit."
+        ],
+        "reasoning": "Existing results are compatible, not logically dominating; original 1984 proof not seen means a historical exact census cannot be ruled out.",
+        "searches": [
+          "Abu-Saris–Al-Jubouri 2009 whole article; MathWorld map",
+          "Devaney Physica D 10(1984) bibliographic existence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld explicitly restricts its single five-orbit assertion to circulation through five outer hexagonal regions; the audited second five-cycle (-1,1,3,3,1) is a separate global rational orbit."
+        ],
+        "reasoning": "The region-specific five-orbit statement is not a global two-orbit classification and does not contradict the new all-real-plane census.",
+        "searches": [
+          "MathWorld gingerbreadman map unique period 5 hexagonal regions",
+          "Abu-Saris Al-Jubouri Lozi periodicity alpha=1 beta=-1 gamma=1",
+          "Resultary exact short-period census searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld supplies one outer 5-orbit and known period-six hexagon; no complete table of all real-plane primitive orbits for every p<=11 was found."
+        ],
+        "reasoning": "The classification is complete across 4094 sign words, not a finite sample of iterates or a recomputation of known period-five diagram.",
+        "searches": [
+          "Gingerbreadman integer rational orbit period 5 6 11 census database",
+          "MathWorld periodic outer hexagons and finite plot"
+        ]
+      },
+      "rationale": "The 2009 Abu-Saris–Al-Jubouri primary 9-page paper treats this exact α=1,β=-1,γ=1 special case but proves generic periodicity conditions, minimal periods 2/3 and global-all-orbit conditions; it does not enumerate p=5..11. MathWorld presents one period-five orbit in five outer hexagonal regions; the independently verified second hyperbolic five-orbit lies outside that restricted picture. The original Devaney 1984 article could not be materially read; the possibility of historical exact short-period data remains a residual risk. Best-of-knowledge original for the complete global <=11 rational sign-word census.",
+      "residual_risks": [
+        "Devaney 1984 primary full text was inaccessible; its initial exact period counts might overlap, despite no indexed evidence of identical full census.",
+        "The reported census is limited to least periods ≤11; no global period spectrum or complete period-six-family classification is proved.",
+        "Independent LP feasibility of singular sign cells was floating-point corroboration; proof-level exactness depends on the inspected rational Fourier–Motzkin algorithm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: periodicity criteria, prime-2/3 and global-all-orbit theorem, no complete period-through-eleven orbit census",
+          "evidence": [
+            "Pages 1–6 focus p2/p3, pp6–9 ask when every solution shares one period, not two 11-cycles."
+          ],
+          "identifier_or_url": "https://www.acadsol.eu/en/articles/13/1/6.pdf",
+          "material_read": "Complete 9-page lawful open-access primary PDF with Sections 1–3, Theorem 2.2, Lemmas 2.3/2.4 and Theorem 3.2",
+          "method": "Read whole extracted primary text and visually checked pages 1,6,9",
+          "title": "On the Periodicity of Lozi’s Equation",
+          "trigger": "Same recurrence at alpha=1 beta=-1 gamma=1"
+        },
+        {
+          "assessment": "REGIONAL_PRIOR only: unique five-cycle among five outer hexagons, period-six central hexagon",
+          "evidence": [
+            "The second global five-itinerary is (-1,1,3,3,1), not a rotation of listed outer orbit."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/GingerbreadmanMap.html",
+          "material_read": "Entire short MathWorld entry including region-qualified period statements",
+          "method": "Read live mathematical encyclopedia description",
+          "title": "Gingerbreadman Map",
+          "trigger": "Well-known period-five count might contradict new finding"
+        },
+        {
+          "assessment": "MATERIAL_LIMITATION: historical priority risk remains",
+          "evidence": [
+            "No claim that 1984 work lacks eleven-cycle classification absent material inspection."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0167-2789(84)90187-8",
+          "material_read": "Identified 1984 publication, citation and title; complete primary full text not accessible",
+          "method": "Indexed bibliographic search; did not claim full inspection",
+          "title": "A Piecewise Linear Model for the Zones of Instability of an Area Preserving Map",
+          "trigger": "Founding Gingerbreadman primary may contain precise low-period counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining exactly which short least periods and how many isolated prime-five and -eleven cycles occur in an iconic piecewise-affine planar map is a natural complete finite classification. The elliptic/hyperbolic return derivatives distinguish genuine dynamical structures, and exact sign-boundary feasibility makes the finite result meaningful rather than a partial experiment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Devaney 1984 primary full text was inaccessible; its initial exact period counts might overlap, despite no indexed evidence of identical full census.",
+    "The reported census is limited to least periods ≤11; no global period spectrum or complete period-six-family classification is proved.",
+    "Independent LP feasibility of singular sign cells was floating-point corroboration; proof-level exactness depends on the inspected rational Fourier–Motzkin algorithm.",
+    "Scientific PASS is not evidence of public audit, signed certification, external independence, or permission for a public repository mutation."
+  ],
+  "schema_version": 1
+}
