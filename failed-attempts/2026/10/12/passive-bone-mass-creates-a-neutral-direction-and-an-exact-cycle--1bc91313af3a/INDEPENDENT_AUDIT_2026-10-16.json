@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:57:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git blob RESULT.md:dde9ad37c654a36b540e5777ccf310b9e7b89f99",
+        "Chaiya et al AIMS Mathematics 10 (2025), Eqs 2.1-2.3 and Section 3, DOI:10.3934/math.20251218"
+      ],
+      "rationale": "With Cdot=f(C,B), Bdot=g(C,B), zdot=H(C,B) independent of z, vertical translations commute with the flow. An equilibrium of (f,g) with H=0 lifts to a one-dimensional equilibrium set, excluding attractivity of an individual point by perturbing z(0). For a T-periodic (C,B) orbit, integrate z(t+T)-z(t)=integral_t^{t+T} H(C(s),B(s))ds=Delta independent of t. Thus full T-periodicity iff Delta=0, and otherwise drift nDelta. Existence is conditional on cell equilibria and flux balance; no full-state equilibrium is asserted when H not zero. This is a direct rigorous calculus proof and needs no numerical proxy.",
+      "residual_risks": [
+        "Does not establish signs of Delta for particular simulated orbits; z coordinate may be physically restricted to an interval, so only local interior translations are allowed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chaiya explicitly isolates Eq.(2.3) and performs only planar Jacobian stability; Komarova family already models bone mass as an integral of cell flux."
+        ],
+        "reasoning": "The general theorem that zprime=H(x(t)) yields translation invariance and integral periodic increment strictly dominates this particular model; published model supplies all hypotheses.",
+        "searches": [
+          "Chaiya 2025 Section 3",
+          "Komarova et al Bone 33 (2003) DOI:10.1016/S8756-3282(03)00157-1",
+          "passive scalar integrator periodic forcing"
+        ]
+      },
+      "checked_sources": [
+        "Chaiya et al DOI:10.3934/math.20251218 (Eqs 2.1-2.3, sec3)",
+        "Komarova et al 2003 DOI:10.1016/S8756-3282(03)00157-1",
+        "Resultary query passive bone remodeling mass equilibrium line neutral stability periodic cycles integrated resorption formation drift"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "AIMS 2025 Section 3 says explicitly that stability of (2.1),(2.2) is analyzed by isolating Eq.(2.3); integrating published Eq.(2.3) over a period yields precisely Delta=0 iff closure; nonisolated full equilibria follow by z-translation."
+        ],
+        "reasoning": "All conclusions are direct, routine implications of the source equations and of its explicit planar-vs-mass separation; no material gap or mistaken full-state stability theorem is shown.",
+        "searches": [
+          "Chaiya AIMS Mathematics 2025 equations 2.1-2.3, sec3 pp27699-27701",
+          "Komarova et al 2003 passive mass equation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Eq.(2.3) is zdot=H(C,B), with no z in its RHS or active cell equations. Identical to a forced scalar integrator driven by an autonomous planar system."
+        ],
+        "reasoning": "The translation symmetry and mean-zero periodicity condition are exact equivalent reformulations of solving the source-provided scalar quadrature, not mathematically independent facts.",
+        "searches": [
+          "passive bone remodeling mass equilibrium line neutral stability periodic cycles integrated resorption formation drift",
+          "Chaiya DOI:10.3934/math.20251218 Eqs 2.1-2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No natural discrete value/table is claimed; the integral Delta is a functional of a periodic solution, not a new exact tabulated invariant."
+        ],
+        "reasoning": "Exact-database search is inapplicable to an analytic ode identity. Resultary query was still performed and returned no specific bone-mass record.",
+        "searches": [
+          "passive bone remodeling mass equilibrium line neutral stability periodic cycles integrated resorption formation drift",
+          "Resultary search passive bone mass neutral direction and cycle-integral"
+        ]
+      },
+      "rationale": "The primary Chaiya et al source already explicitly gives a passive z equation and says in Section 3 that Eq(2.3) is isolated from the 2D cell stability analysis. The allegedly new neutral direction is an immediate symmetry of these published equations, and the iff cycle-flux law is exactly the fundamental theorem of calculus for the same passive coordinate. This is mathematical coverage by a known general integrator principle and its previously stated application, not a newly developed nonstandard lemma; source did not claim 3D point stability that would require correction.",
+      "residual_risks": [
+        "Full original Komarova and Ramtani manuscripts not newly read; this does not change decisive coverage from the full Chaiya model equations and elementary integration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive: paper explicitly analyzes stability in just C,B while setting aside z; elementary passive integral law and vertical invariance are already entailed by its published equations.",
+          "evidence": "Section 3: analysis of stability of Eqs (2.1),(2.2) by isolating Eq.(2.3); Eq.(2.3) has no z feedback.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2025/11/PDF/math-10-11-1218.pdf",
+          "material_read": "22-page primary PDF: model equations pp. 3-5, Section 3 pp. 5 onward (esp. pp. 5-6), and discussion of simulated bone-mass plots",
+          "method": "Downloaded lawful OA PDF; parsed and page-image inspected",
+          "title": "Mathematical modeling of alcohol-induced effects on bone remodeling dynamics",
+          "trigger": "Exact motivating alcohol model, potential erroneous full-state stability claim"
+        },
+        {
+          "assessment": "Supports older passive-integrator modeling; lack of original full text noted.",
+          "evidence": "Passive z variable is an integrated mass/formation minus resorption observable in Komarova-derived models.",
+          "identifier_or_url": "DOI:10.1016/S8756-3282(03)00157-1",
+          "material_read": "Article identification, published passive bone-mass equation as discussed in Chaiya article and package references",
+          "method": "Cited source metadata and downstream article equation discussion; full original not independently obtained in this run",
+          "title": "Mathematical model predicts a critical role for osteoclast autocrine regulation",
+          "trigger": "Original Komarova passive-bone model precursor"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Chaiya et al 2025 Section 3 explicit separation",
+        "Git blob RESULT.md:dde9ad37c654a36b540e5777ccf310b9e7b89f99"
+      ],
+      "rationale": "The asserted conclusions are routine structural properties of any passive scalar integrator xdot=F(x), zdot=H(x): translation in z, no isolated point attractor, period integral closure. Chaiya et al already explicitly restrict their stability theorem to the 2D active subsystem, so no consequential mathematical error is corrected. No parameter-dependent flux sign, model-specific periodicity existence, quantitative balance boundary or new invariant is obtained. An accessible, potentially helpful explanatory caveat is not by itself a motivated new mathematical gap at the shared value bar.",
+      "residual_risks": [
+        "A model-specific computed flux-balance boundary or demonstrated wrong full-state theorem could support a different, substantively expanded claim, but is not present; no repair attempted."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection for originality and value (not for correctness or unavailable literature); published source already frames stability as 2D. No corrected package or substantive different claim produced."
+  ],
+  "schema_version": 1
+}
