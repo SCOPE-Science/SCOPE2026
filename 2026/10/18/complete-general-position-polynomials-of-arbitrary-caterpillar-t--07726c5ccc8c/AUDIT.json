@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Every subset has zero, one or at least two occupied backbone branches. With one branch the star classification yields \\(A_i+z+a_i z^2\\). With extremes \\(i<j\\) selected spine centers are allowed only alone at the extremes, and the internal branches allow only selected leaves, yielding \\(E_iE_j\\prod A_k\\). Unique shortest paths show necessity and sufficiency. Disjoint decomposition proves the generating polynomial; straightforward inductive coefficient recurrence follows. Boundaries \\(r=1\\) and \\(a_i=0\\) are valid. Independent BFS triple testing verified 992 profiles, covering 2,806,538 vertex subsets, plus 111 known-family cases; these finite tests do not prove the unrestricted identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Iršič et al. (arXiv:2401.05696), Proposition 2.2, supply a generic inclusion–exclusion identity in terms of maximal general-position sets; no arbitrary-caterpillar maximal-set classification follows without new enumeration.",
+        "Rather (arXiv:2603.06930), §§3, 5–7, covers complete multipartite graphs, brooms, combs and single-leaf coronas, not all heterogeneously branched caterpillars.",
+        "An indexed result titled General position polynomials of spiders and the smallest nonunimodal spider covers trees with a single branching vertex, unlike profiles with at least two separated branch vertices."
+      ],
+      "reasoning": "The general arbitrary-graph identity requires unknown maximal-set data; the prior special families are strict subfamilies of caterpillars. Neither a formula on spiders nor the uniform comb case implies exact coefficients for arbitrary sequences with multiple positive entries.",
+      "searches": [
+        "general position polynomial of arbitrary trees parameterized by spine and pendant branches, a recurrence computing all coefficients",
+        "general position polynomial tree branch decomposition dynamic programming enumerating all sets 2024",
+        "general position polynomial of arbitrary caterpillar trees with arbitrary leaf multiplicities"
+      ]
+    },
+    "checked_sources": [
+      "Iršič–Klavžar–Rus–Tuite, General Position Polynomials (arXiv:2401.05696; full journal HTML)",
+      "Rather, Explicit Formulas and Unimodality Phenomena for General Position Polynomials (arXiv:2603.06930; full accessible HTML)",
+      "Anand et al., Characterization of general position sets and its applications to cographs and bipartite graphs (arXiv:1812.08460; abstract)",
+      "General position polynomials of spiders and the smallest nonunimodal spider (public abstract record only)",
+      "Targeted scientific literature searches for caterpillar, hairy path, and generalized comb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The specialization \\(a_i=1\\) for each i recovers the published formula with higher coefficients \\(4\\binom{r}{k}\\); choosing \\((q,0,\\ldots,0)\\) recovers the published broom coefficients \\(s\\binom{q}{k-1}+\\binom{q}{k}\\).",
+        "An arbitrary vector such as (1,1,2) cannot be recovered by substituting a scalar into either earlier one-parameter special-family identity.",
+        "The seven-vertex matched-degree example requires information about which branches carry leaves, rather than only the degree multiset."
+      ],
+      "reasoning": "The new statement implies the specific broom and comb formulas; the converse does not follow. The classification and recurrence require accounting for disjoint extreme occupied branches and the leaf choices between them. A general graph-polynomial definition and its generic inclusion–exclusion expansion are not explicit covering results.",
+      "searches": [
+        "\"general position polynomial\" \"caterpillar\" formula",
+        "generalized comb graph with heterogeneous numbers of teeth general position polynomial",
+        "general position polynomial of arbitrary trees parameterized by spine and pendant branches, a recurrence computing all coefficients"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Iršič et al. (arXiv:2401.05696), §4, enumerate combs and brooms through particular formulas, rather than arbitrary pendant-leaf vectors.",
+        "The exact geodesic set description for trees is equivalent to forbidding chosen internal vertices on unique selected-pair paths; the endpoint-constrained branch decomposition is what enumerates these configurations."
+      ],
+      "reasoning": "Potential aliases included hairy paths, generalized combs, rooted caterpillars and arbitrary spine-leaf profiles. The assessed theorem gives a multivariate parameter-family enumeration and a polynomial recurrence, not merely the known scalar general-position number or the cases with all leaf counts equal to one. No searched record provided an equivalent full-profile expression.",
+      "searches": [
+        "\"general position polynomial\" \"caterpillar\" formula",
+        "\"hairy path\" \"general position\" polynomial graph",
+        "general position polynomial of hairy path caterpillars multiple leaves attached to each vertex, arbitrary leaf weights a_i, exact generating function",
+        "\"general position polynomials\" \"caterpillar\" \"spine\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published broom and comb coefficient formulas agree with the present expression when specialized; those are covered, not new.",
+        "For profiles \\((1,1,2)\\) and \\((2,0,2)\\), independent enumeration gives different polynomials on two degree-sequence-matched seven-vertex caterpillars."
+      ],
+      "reasoning": "Searches looked for direct tabulations, polynomial identities and generalized-comb formulas. Neither inspected article supplies an arbitrary-profile coefficient table or enumerator. Failure to find a table is not a proof of novelty.",
+      "searches": [
+        "\"general position polynomial\" \"caterpillar\" formula",
+        "\"general position polynomial\" \"caterpillar\" 2026 2025",
+        "\"general position sets\" caterpillar tree enumeration polynomial"
+      ]
+    },
+    "rationale": "Targeted research-record and literature queries using caterpillar, hairy-path, generalized-comb, and weighted spine-profile aliases found no full-profile polynomial or dominated formulation. Full relevant HTML of the 2024 foundational paper and the 2026 extension confirms that the published broom/comb and corona statements are special subfamilies. The indexed spider result concerns a single branching vertex. Priority remains subject to unindexed literature.",
+    "residual_risks": [
+      "Novelty is a best-knowledge priority assessment, not a guarantee against unindexed or inaccessible equivalent results.",
+      "The publicly indexed spider-family result was accessible as a research summary, not a complete full-text inspection; it concerns the narrower one-branch tree class.",
+      "The 2018 general-position characterization was inspected only at the abstract/scope level, so the result is cited as background rather than certified as non-covering from complete document comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS only the broom and comb specializations, not arbitrary nonnegative leaf profiles on caterpillar backbones.",
+        "evidence": "Broom formula in §4 counts one multiply-leafed endpoint; comb Theorem 4.1 assumes exactly one leaf per backbone vertex.",
+        "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+        "material_read": "Full accessible journal HTML; definitions, Proposition 2.2, Section 4 broom coefficients, comb Theorem 4.1 and cited context.",
+        "method": "Read publisher full-text HTML and compared parameter families and explicit formulas.",
+        "title": "General Position Polynomials",
+        "trigger": "Introduces the invariant and gives directly comparable comb/broom enumerators."
+      },
+      {
+        "assessment": "COVERS specific comb/corona cases but not arbitrary caterpillar profiles.",
+        "evidence": "§5 Theorem 5.2 gives coefficients for the uniform comb; §§6–7 treat coronas with one new leaf per original vertex.",
+        "identifier_or_url": "https://arxiv.org/abs/2603.06930",
+        "material_read": "Accessible full HTML: introduction, complete multipartite results, §5 comb theorem, §6 corona, §7 log-concavity.",
+        "method": "Read full searchable HTML and checked for caterpillar, arbitrary multiple leaves and corresponding formulas.",
+        "title": "Explicit Formulas and Unimodality Phenomena for General Position Polynomials",
+        "trigger": "A recent potentially stronger general position polynomial treatment."
+      },
+      {
+        "assessment": "GENERAL BACKGROUND; does not itself report a caterpillar coefficient formula in the available material.",
+        "evidence": "Abstract states structural criterion and applications to cographs and bipartite complements; not a complete caterpillar counting enumerator.",
+        "identifier_or_url": "https://arxiv.org/abs/1812.08460",
+        "material_read": "Abstract and described generic component/distance criterion only; no full-text priority exclusion asserted.",
+        "method": "Inspected publicly available abstract and scope.",
+        "title": "Characterization of general position sets and its applications to cographs and bipartite graphs",
+        "trigger": "Potentially broad equivalent formulation through arbitrary graph general-position characterization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "07726c5c-cc8c-4f5a-a97c-46b76d2725a2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2024 polynomial program explicitly counts brooms and uniform combs but lacks heterogeneous caterpillar counts. A complete all-set classification and \\(O(N^2)\\) coefficient recurrence for arbitrary pendant profiles is a natural and useful extension, not a scalar parameter substitution. It preserves exact cardinality distributions across many branching positions, and exposes nonisomorphic seven-vertex caterpillars with identical degree multisets but different polynomials. No assertion of downstream universal theorem or unimodality is needed.",
+    "status": "PASS"
+  }
+}
