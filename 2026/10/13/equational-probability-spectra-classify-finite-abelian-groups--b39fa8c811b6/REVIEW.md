@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** In an abelian group every equation becomes an integral linear word, and Bézout's identity identifies its image as the common-divisor subgroup. Uniform homomorphism fibers prove the exact probability formula. The prime-primary torsion-count profiles have strict, weakly concave logarithmic increments that are the conjugate partitions of the cyclic exponents. This gives both necessity and constructive sufficiency for the inverse criteria, with the trivial group separately covered. The exact finite enumeration independently corroborates but does not prove the general assertion.
+## correctness
 
-**Originality — PASS, with residual risk.** Cardó's arXiv:2603.19487v1, Proposition 2.4, Remark 2.5, Lemma 4.12 and Theorem 4.13 contain general product inclusions, the cyclic prime-power case, and the minimal-spectrum semigroup classification. The complementary arXiv:2604.08446v1 concerns direct-product inclusions and primality. Neither inspected paper supplies the full primary-profile coupling, the recognition of all realizable probability sets or reconstruction of every finite abelian group. Searches of published mathematical records for word equations, kernel-size spectra and finite-abelian isomorphism rigidity produced semantically different closest claims. Classical subgroup-torsion counting literature might contain an equivalent inverse result under another name.
+PASS
 
-**Value — PASS.** This is a natural complete inverse classification for an emerging 2026 invariant, not merely a new value in a short table. It both describes all possible spectra and proves that their exact rational values classify every finite abelian group. The contrast with the nonrigid spectrum cardinality and the strictness of naive direct-product spectrum inclusion explains the need for the full conditions. Applications outside finite abelian groups are not asserted.
+In an abelian group G of exponent m, a term equation is a linear word with integer coefficients c_i. Its image G^k->G is dG for d=gcd(m,c_1,...,c_k) by Bezout, so its satisfaction probability is 1/|dG|=|G[d]|/|G|; every divisor d|m occurs as dx=0, and multiplication-only terms realize the same equation spectrum. Under primary cyclic decomposition, |G[p^j]|=p^{f_p(j)} with increments f_p(j)-f_p(j-1)=number of elementary cyclic factors of length >=j, a positive weakly decreasing sequence. The normalized spectrum separates prime-power exponents and the independent CRT combinations, so differences reconstruct each conjugate partition and conversely characterize realizable rational sets. The identity group N=1 is handled separately. Independent exact test reconstructed sample distinct abelian groups and subgroup-kernel sizes, not relied on as unrestricted proof.
 
-**Source comparison.** See arXiv:2603.19487v1, Sections 2 and 4, and arXiv:2604.08446v1, Sections 3 and 5. The proof uses the standard finite abelian group classification and a new explicit unlabelled-spectrum inversion; no claim of exhaustive coverage of all earlier literature is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cardó arXiv:2603.19487 introduces equational probability spectra, proves general direct-product INCLUSION, cyclic prime-power examples, and classifies minimal-spectrum semigroups; arXiv:2604.08446 studies general product/primality questions. Neither article supplies full inverse realizability of all finite abelian spectra or group isomorphism rigidity. A primary-profile inverse theorem may be implicitly classical under torsion-size distribution; this is retained as residual risk. Resultary semantic searches returned unrelated Fourier spectra and finite-group probabilistic work.
+
+## value
+
+PASS
+
+An exact realizability criterion and inverse isomorphism classification for a natural newly studied probability spectrum is a complete theorem across all finite abelian groups, substantially stronger than a few numerical examples or cyclic cases. It explains why product-spectrum inclusions cannot simply be reversed for common-prime factors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
