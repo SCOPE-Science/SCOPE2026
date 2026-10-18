@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "For f indexed from 1, f(2t)=f(t) and odd-index bits alternate. No four-letter factor of f alternates. Every factor of even length at least eight has exactly one alternating parity track, so its occurrence start parity is intrinsic. If n is divisible by four, rotation by r shifts that parity by r modulo two. Interleaving an n-factor w beginning at t with f(2(t+j)+1) gives an actual 2n-factor; every 2n-factor is conjugate to such a lift, including those starting at odd positions. The lift respects source conjugacy. Conversely, uniqueness of the alternating track forces any conjugating shift of two lifts to be even, and the decimated source factors must be conjugate. Thus the orbit map is a bijection, including all n>=8 divisible by four; n=4 is a verified exception. The independently executable verifier checks both digit definitions, completeness of tested finite factor sets, and 20 exact doubling pairs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cassaigne et al., Section 5.2, Proposition 12: c(4*2^j)=4 for j>=1.",
+        "Allouche, Section 5 theorem: ordinary factor complexity p(n)=4n for n>=7."
+      ],
+      "reasoning": "An ordinary factor-count statement cannot imply orbit-count equality without an additional class-structure argument. The published cyclic formula concerns n=4*2^j and does not include the independent ray n=12*2^j or every multiple-of-four doubling. The present bijection proves strictly broader scope, while acknowledging the known specialized ray.",
+      "searches": [
+        "regular paperfolding sequence cyclic complexity at 4m, 8m comparison; parity decoding alternating positions",
+        "Cyclic Complexity of Words Proposition 12 paperfolding arbitrary n",
+        "The Number of Factors in a Paperfolding Sequence 1992 theorem factor count 4n"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1402.5843",
+      "https://doi.org/10.1017/S0004972700011655",
+      "https://oeis.org/A337120",
+      "Search terms: paperfolding cyclic complexity doubling invariance c(2n)=c(n) for n divisible by four at least eight; necklace factor bijection",
+      "Search terms: paperfolding conjugacy classes length 3 times powers of two equal sixteen, length 5 times powers equal twenty eight",
+      "Search terms: regular paperfolding sequence cyclic complexity at 4m, 8m comparison; parity decoding alternating positions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full-text Cassaigne et al. Proposition 12 establishes the power-of-two ray only.",
+        "Full-text Allouche Lemma 2 establishes unique parity of occurrences for length>=7; Section 5 gives total factor complexity."
+      ],
+      "reasoning": "Neither the known parity-location lemma alone nor the isolated 4*2^j count entails the arbitrary-multiplier cyclic-orbit correspondence. The additional cyclic parity-track argument, its even-length wrap condition, and the injective/surjective lift are proved explicitly in RESULT.md. One can use the older lemma in place of a step, but it does not subsume the conclusion.",
+      "searches": [
+        "paperfolding cyclic complexity doubling invariance c(2n)=c(n) for n divisible by four at least eight; necklace factor bijection",
+        "regular paperfolding sequence cyclic complexity at 4m, 8m comparison; parity decoding alternating positions",
+        "Cassaigne Fici Sciortino Zamboni 2014 paperfolding Section 5.2 4 2^n",
+        "Allouche 1992 O-factors E-factors lemma 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cassaigne et al., arXiv:1402.5843, Section 5.2, prove c(4*2^j)=4 but not the general doubling bijection.",
+        "Allouche, Bull. Austral. Math. Soc. 46 (1992), Lemma 2 distinguishes even/odd occurrence of factors, not their conjugacy-orbit transfer."
+      ],
+      "reasoning": "A necklace-class bijection for all multiples of four would imply both the published sparse dyadic ray and the new arbitrary-multiplier rays. The inspected full primary paper states only the former and does not prove the claim, even under factor conjugacy and parity-track terminology. Discovered related result is a special case, not a dominating theorem.",
+      "searches": [
+        "paperfolding cyclic complexity doubling invariance c(2n)=c(n) for n divisible by four at least eight; necklace factor bijection",
+        "paperfolding conjugacy classes length 3 times powers of two equal sixteen, length 5 times powers equal twenty eight"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A337120 tabulates ordinary paperfolding factor complexity, not cyclic class counts.",
+        "Finite factor-set enumeration of the regular paperfolding word gives c(12)=16 and c(20)=28 and c(4)=3, independently reproduced by attached verifier."
+      ],
+      "reasoning": "A finite table for ordinary factor complexity does not contain the all-length cyclic-doubling theorem. The present exact numerical values are not used to assert uniqueness; the infinite bijection is the main new statement.",
+      "searches": [
+        "paperfolding conjugacy classes length 3 times powers of two equal sixteen, length 5 times powers equal twenty eight",
+        "\"paperfolding\" \"cyclic complexity\" 4",
+        "OEIS paperfolding factor complexity A337120",
+        "paperfolding cyclic complexity 12 24 16 20 40 28"
+      ]
+    },
+    "rationale": "Against full-text inspection of Cassaigne et al. 2014/2016 (cyclic complexity at 4*2^j, not all 4|n) and Allouche 1992 (ordinary factor counts and parity recognition, not cyclic doubling), plus targeted academic and mathematical-record searches, the class-by-class doubling invariance for every multiple of four at least eight is not implied or found. Accessible historical claims concern paperfolding other invariants or cyclic complexity of other words. Priority beyond inspected evidence is not absolutely assured.",
+    "residual_risks": [
+      "An equivalent all-multiples result could exist in other unindexed or inaccessible work under a conjugacy/Toeplitz factor-lifting formulation.",
+      "The new theorem is for a fixed regular folding-instruction sequence; generalized paperfolding families require separate investigation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers c_w(4*2^j)=4 for all paperfolding words but does not provide arbitrary-multiplier doubling invariance or a lift bijection.",
+        "evidence": "Section 1 introduction and Section 5.2, Proposition 12: only 4*2^j lengths claimed.",
+        "identifier_or_url": "https://arxiv.org/abs/1402.5843",
+        "material_read": "Full arXiv HTML exposition: introduction, definitions, Section 5.1, Section 5.2 including Proposition 12 proof and its stated scope.",
+        "method": "Inspected original open-access complete HTML rendering, compared theorem statements and proof implications",
+        "title": "Cyclic Complexity of Words",
+        "trigger": "Primary cyclic-complexity statement and a plausible stronger prior result"
+      },
+      {
+        "assessment": "Shows p(n)=4n for n>=7 and length>=7 parity-of-start uniqueness, but does not discuss cyclic orbit doubling or classify conjugacy classes.",
+        "evidence": "Section 3 Lemma 2, Section 5 theorem.",
+        "identifier_or_url": "https://doi.org/10.1017/S0004972700011655",
+        "material_read": "Original complete open-access PDF pages 23-32, especially pages 25-27 Lemma 2 and Section 5 theorem; page images 26 and 27 checked.",
+        "method": "Read original PDF text and inspected page images for parity lemma and factor count",
+        "title": "The Number of Factors in a Paperfolding Sequence",
+        "trigger": "Exact factor counts and phase-recognition lemma could imply cyclic orbit classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "376fa657-e5cf-4c33-9d57-a8fdc324b8c9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2014 cyclic-complexity theorem isolates a single power-of-two ray. The new structural parity-track bijection makes cyclic factor complexity exactly invariant under doubling on all multiples of four from eight onward, yields distinct infinite families with c(12*2^j)=16, c(20*2^j)=28, c(28*2^j)=40, and identifies the sharp obstruction at n=4. This is a motivated infinite structural classification, not a routine numerical increment or factor-count restatement.",
+    "status": "PASS"
+  }
+}
