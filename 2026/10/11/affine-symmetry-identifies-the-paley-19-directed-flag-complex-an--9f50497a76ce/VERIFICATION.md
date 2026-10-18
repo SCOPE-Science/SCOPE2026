@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` in the same directory. The verifier uses only the Python standard library and exact integer/modular arithmetic.
+# Independent mathematical audit
 
-It checks the quadratic-residue definition of \(P_{19}\), verifies the doubly regular parameters, enumerates every transitive face, reproduces face vector \((19,171,684,1026,342)\) and Euler characteristic \(-152\), and computes the four simplicial boundary ranks over \(\mathbb F_2,\mathbb F_3,\mathbb F_5,\mathbb F_7,\mathbb F_{19}\). In every field the ranks are \((18,153,531,341)\) and the Betti vector is \((1,0,0,154,1)\).
+## correctness
 
-It then constructs all \(171\) affine maps \(x\mapsto ax+b\) with quadratic-residue multiplier, verifies each map preserves every tournament edge, enumerates all setwise fixed transitive faces with orientation signs, and computes the signed simplicial Lefschetz number. The resulting classes are: identity, one element with \((L,\chi_3)=(-152,154)\); nonidentity translations, eighteen elements with \((0,2)\); and nontranslation affine elements, 152 elements with \((1,1)\). It finally solves the rational \(C_{19}\)-character equations to obtain trivial multiplicity \(10\) and cyclotomic multiplicity \(8\).
+PASS
 
-The supplied checked output in `verification_output.json` ends with `"status":"VERIFY_OK"`.
+Independently enumerated ALL 524287 nonempty vertex subsets, without the verifier's a priori cardinality <=5 restriction, and obtained the exhaustive transitive-subtournament face counts 19,171,684,1026,342, none of higher cardinality; Euler characteristic is -152. Every vertex has outdegree 9 and every pair has 4 common out-neighbors, establishing doubly regularity. Govc Proposition 3.4 gives only two homotopy types at 19, with Euler characteristics -152 and -134, so this is the former. For all 171 affine Paley automorphisms an independent fixed-face signed orientation count gives Lefschetz L=-152 (identity), L=0 (18 translations), L=1 (152 nontranslations). Rational H4 one-dimensional and odd-order action forces triviality, hence chi3=2-L. Solving u+18v=154, u-v=2 gives u=10,v=8. Frozen verifier also computes boundary ranks [18,153,531,341] over five fields; finite-field ranks alone would not prove the homotopy wedge, so the Govc theorem is explicitly used.
 
-The homotopy equivalence itself uses the published exhaustive two-type classification for 19-vertex doubly regular tournaments; the verifier supplies the exact Paley-specific invariant that chooses the correct type and independently corroborates the Betti numbers over five fields.
+## originality
+
+PASS
+
+Govc's primary Proposition 3.4 classifies the two order-19 doubly regular tournament homotopy types without labeling the Paley tournament in that theorem and without computing the affine subgroup action or rational character. The canonical Paley identification is a precise new assignment of the known type, but the substantive added character computation is not implied by nonequivariant homotopy classification. The nearby published Paley-31 nonequivariant computation is at a different order and supplies no order-19 action.
+
+## value
+
+PASS
+
+Identifies the canonical tournament at the first doubly regular order where two distinct directed-flag homotopy types occur and computes the full rational character for its natural 171-element affine symmetry. The equivariant information is mathematically nonredundant with a Betti table or with a title-only named identification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

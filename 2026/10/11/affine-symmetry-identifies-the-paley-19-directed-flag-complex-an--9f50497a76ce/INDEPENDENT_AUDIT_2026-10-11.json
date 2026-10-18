@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T18:14:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently enumerated ALL 524287 nonempty vertex subsets, without the verifier's a priori cardinality <=5 restriction, and obtained the exhaustive transitive-subtournament face counts 19,171,684,1026,342, none of higher cardinality; Euler characteristic is -152. Every vertex has outdegree 9 and every pair has 4 common out-neighbors, establishing doubly regularity. Govc Proposition 3.4 gives only two homotopy types at 19, with Euler characteristics -152 and -134, so this is the former. For all 171 affine Paley automorphisms an independent fixed-face signed orientation count gives Lefschetz L=-152 (identity), L=0 (18 translations), L=1 (152 nontranslations). Rational H4 one-dimensional and odd-order action forces triviality, hence chi3=2-L. Solving u+18v=154, u-v=2 gives u=10,v=8. Frozen verifier also computes boundary ranks [18,153,531,341] over five fields; finite-field ranks alone would not prove the homotopy wedge, so the Govc theorem is explicitly used.",
+      "risk": "Finite-field boundary ranks are corroborative; the homotopy wedge is deduced using the published classification, not from matching Betti numbers alone.",
+      "sources": [
+        "Assigned RESULT.md and verify.py at frozen source tree",
+        "Govc arXiv:2006.05333v1",
+        "Independent exhaustive transitive-face and signed Lefschetz calculations"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Govc establishes nonequivariant homotopy classification of all order-19 doubly regular tournaments, enabling identification by Euler characteristic.",
+          "Nothing inspected computes all 171 affine Lefschetz traces or the rational C19-module decomposition."
+        ],
+        "reasoning": "The prior full-class classification covers the abstract choice of homotopy type collectively, but does not dominate the new canonical-object identification plus equivariant representation calculation.",
+        "searches": [
+          "Govc arXiv:2006.05333 Proposition 3.4 full paper",
+          "Nearby published Paley-31 directed flag computation",
+          "Govc linked computational classification notes as described in prior literature"
+        ]
+      },
+      "checked_sources": [
+        "Govc arXiv:2006.05333v1 Proposition 3.4",
+        "Published Paley-31 computation noted in frozen REVIEW.md",
+        "Full exhaustive independent 19-vertex face enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Govc does not distinguish which of the two tournament types is Paley by name.",
+          "Knowing H3 and H4 dimensions does not determine character values at nontrivial affine elements.",
+          "The full fixed-face signed Lefschetz enumeration supplies the extra nontrivial character data, not a straightforward parameter specialization."
+        ],
+        "reasoning": "The classification is an essential input, while the affine character is an independently verified extra invariant.",
+        "searches": [
+          "Govc Proposition 3.4",
+          "Lefschetz fixed-simplex formula",
+          "Rational irreducibles of the order-19 cyclic group"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Paley quadratic residues identify the canonical doubly regular tournament, and the directed flag complex is the transitive subtournament complex.",
+          "Govc enumerates two order-19 homotopy types but no natural-affine-action character in Proposition 3.4."
+        ],
+        "reasoning": "Aliases quadratically oriented circulant tournament, Paley 19, doubly regular tournament and transitive tournament complex were compared; index service was unavailable and not treated as an absence result.",
+        "searches": [
+          "Query: Paley tournament 19 directed flag affine symmetry homology character Lefschetz",
+          "Govc arXiv:2006.05333 Proposition 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Govc table states two order-19 isomorphism types and two homotopy types, not an affine-character table.",
+          "Computed character histogram 154/2/1 and rational decomposition 10+8*18 dimension exactly 154."
+        ],
+        "reasoning": "The homotopy types themselves are prior; novelty is not claimed for the two-type table, only identifying Paley and its representation.",
+        "searches": [
+          "Govc 2020 n=19 table of isomorphism and homotopy types",
+          "Independent full transitive-face and character histogram recomputation"
+        ]
+      },
+      "rationale": "Govc's primary Proposition 3.4 classifies the two order-19 doubly regular tournament homotopy types without labeling the Paley tournament in that theorem and without computing the affine subgroup action or rational character. The canonical Paley identification is a precise new assignment of the known type, but the substantive added character computation is not implied by nonequivariant homotopy classification. The nearby published Paley-31 nonequivariant computation is at a different order and supplies no order-19 action.",
+      "residual_risks": [
+        "The mathematical research index was temporarily unavailable; an unindexed equivariant calculation could overlap.",
+        "Integral representation lattices and equivariant homotopy maps were not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_NONEQUIVARIANT_TWO_TYPE_CLASSIFICATION",
+          "evidence": "Prop. 3.4 lists a wedge of 154 three-spheres plus one four-sphere and a separate wedge of 135 three-spheres for the two 19-vertex types; it does not state this natural affine character.",
+          "identifier_or_url": "arXiv:2006.05333v1",
+          "material_read": "Complete open 28-page primary PDF scanned for Paley and read in detail at Proposition 3.4 and its proof, especially pages 13-15 listing the two types.",
+          "method": "Open arXiv primary PDF with visual page inspection",
+          "title": "Computing Homotopy Types of Directed Flag Complexes",
+          "trigger": "Exact general classification of doubly regular tournaments at order 19"
+        },
+        {
+          "assessment": "DIFFERENT_ORDER_NOT_A_COVERING_RESULT",
+          "evidence": "An order-31 nonequivariant computation does not determine Paley-19 homology characters.",
+          "identifier_or_url": "Published repository result referenced by the source review",
+          "material_read": "Scientific result summary/closest comparison inspected in the assigned REVIEW.md; full separate primary proof was not established in this run.",
+          "method": "Read-only repository source review",
+          "title": "Paley tournament order-31 directed-flag calculation",
+          "trigger": "Same Paley family at another order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies the canonical tournament at the first doubly regular order where two distinct directed-flag homotopy types occur and computes the full rational character for its natural 171-element affine symmetry. The equivariant information is mathematically nonredundant with a Betti table or with a title-only named identification.",
+      "risk": "The canonical-object and equivariant data could be present in a little-indexed supplementary calculation, which a temporary index outage prevents excluding.",
+      "sources": [
+        "Govc arXiv:2006.05333v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The directed flag complex of the quadratic-residue Paley tournament \\(P_{19}\\) has homotopy type \\(\\bigvee^{154}S^3\\vee S^4\\). The affine subgroup \\(C_{19}\\rtimes C_9\\) acts trivially on rational \\(H_4\\), and its rational \\(H_3\\)-character is 154 at the identity, 2 at nonidentity translations and 1 at nontranslations; restriction to \\(C_{19}\\) equals ten trivials plus eight 18-dimensional cyclotomic rational modules.",
+  "limitations": [
+    "The homotopy identification depends on Govc's rigorously published two-type classification.",
+    "Character is for specified 171-element affine subgroup, not an asserted full automorphism classification.",
+    "Only rational homology representations, not integral lattices."
+  ],
+  "schema_version": 1
+}

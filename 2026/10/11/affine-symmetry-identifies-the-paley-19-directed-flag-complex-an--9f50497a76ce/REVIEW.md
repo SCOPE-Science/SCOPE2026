@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Paley object and the complete transitive-face set are reconstructed from first principles. The exact face vector gives Euler characteristic \(-152\), selecting the published \(\bigvee^{154}S^3\vee S^4\) type. Five independent field calculations reproduce Betti vector \((1,0,0,154,1)\). All affine automorphisms and signed fixed-face Lefschetz traces are replayed exactly, and the representation calculation follows from the Lefschetz formula and the rational character table of \(C_{19}\).
+## correctness
 
-## Originality
-PASS. Govc's primary source gives the two order-19 doubly regular homotopy types without naming the Paley tournament and without equivariant homology. Targeted published-finding corpus searches, exact-alias searches, the source full text, its linked supplementary repository, and the cumulative prior ledger did not reveal the accepted named/equivariant statement. The closest own result is a Paley-31 nonequivariant directed-flag computation, which does not imply the order-19 action.
+PASS
 
-## Value
-PASS. Order \(19\) is the first doubly regular order in the cited classification where two different homotopy types occur. Resolving the canonical Paley member and computing the natural affine action supplies structural, symmetry-sensitive information not present in the published classification; it is not a parameter-only recomputation.
+Independently enumerated ALL 524287 nonempty vertex subsets, without the verifier's a priori cardinality <=5 restriction, and obtained the exhaustive transitive-subtournament face counts 19,171,684,1026,342, none of higher cardinality; Euler characteristic is -152. Every vertex has outdegree 9 and every pair has 4 common out-neighbors, establishing doubly regularity. Govc Proposition 3.4 gives only two homotopy types at 19, with Euler characteristics -152 and -134, so this is the former. For all 171 affine Paley automorphisms an independent fixed-face signed orientation count gives Lefschetz L=-152 (identity), L=0 (18 translations), L=1 (152 nontranslations). Rational H4 one-dimensional and odd-order action forces triviality, hence chi3=2-L. Solving u+18v=154, u-v=2 gives u=10,v=8. Frozen verifier also computes boundary ranks [18,153,531,341] over five fields; finite-field ranks alone would not prove the homotopy wedge, so the Govc theorem is explicitly used.
 
-## Closest literature and limitations
-The closest literature is Govc, arXiv:2006.05333v1, Proposition 3.4. The result relies on that exhaustive two-type homotopy classification but independently identifies the Paley entry and computes the affine homology character. It does not claim an integral representation lattice, an equivariant homotopy classification, or results for other orders.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Govc's primary Proposition 3.4 classifies the two order-19 doubly regular tournament homotopy types without labeling the Paley tournament in that theorem and without computing the affine subgroup action or rational character. The canonical Paley identification is a precise new assignment of the known type, but the substantive added character computation is not implied by nonequivariant homotopy classification. The nearby published Paley-31 nonequivariant computation is at a different order and supplies no order-19 action.
+
+## value
+
+PASS
+
+Identifies the canonical tournament at the first doubly regular order where two distinct directed-flag homotopy types occur and computes the full rational character for its natural 171-element affine symmetry. The equivariant information is mathematically nonredundant with a Betti table or with a title-only named identification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
