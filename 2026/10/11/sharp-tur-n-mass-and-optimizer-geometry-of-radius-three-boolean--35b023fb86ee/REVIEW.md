@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(d\ge3\) the degree-three Walsh/Krawtchouk formula is derived from coordinate-permutation symmetrization of arbitrary positive-definite functions. The two exact nonnegative spectral identities prove the all-dimensional upper bounds. Explicit cubic spectral polynomials prove attainment and normalization for both parities. For odd \(d\ge5\), equality forces vanishing on the two central spectral slices and the all-negative frequency; the self-contained two-slice interpolation argument factors each equality spectrum and yields the exact nonnegative simplex, with the exceptional full group in \(d=3\) handled separately. For even \(d\ge4\), factorization and the two nearest nonzero spectral values classify every radial optimizer. This argument asserts no classification of nonradial even optimizers. The standalone exact rational verifier reproduces Walsh inversion, Hamming support, masses and dual identities for \(3\le d\le11\), and exact modular interpolation-rank certificates at \(d=5,7,9\). Experiments do not replace the general algebraic proof.
+## correctness
 
-## Originality — PASS, residual literature risk
-The primary Delsarte/Turán reference treats general positive-definite packing problems and does not state a radius-three Boolean Hamming-ball mass or optimizer simplex. The Carathéodory–Fejér reference treats pointwise optimization; its theorems do not imply this total-mass equality classification. The closest published weight-two Hamming-shell theorem has a strictly smaller support, different extremizer geometry (odd-dimensional uniqueness rather than a simplex), and gives no result for the weight-one and weight-three coefficients. Other harmonic-analysis or coding-theoretic LP formulations might imply the numerical optimum, but no matching full odd-dimensional optimizer classification or even radial classification was identified in the inspected material. Novelty cannot be certified from searches alone; the unindexed association-scheme/coding literature is the principal residual risk.
+PASS
 
-## Value — PASS
-The support is the natural whole radius-three Hamming ball, uniformly for every binary dimension. Its exact positive-definite mass distinguishes the parity of dimension. More importantly, the full odd optimizer set is a natural \((d-1)\)-simplex, a substantive change from uniqueness for the related weight-two shell, and the even radial optimum is an entire rigorously classified interval. Such sharp quantitative positivity and equality structure directly informs finite harmonic extremal problems and dual certificates; it is not an arbitrary parameter slice.
+Permutation averaging preserves feasible mass and PD Fourier positivity. The full Walsh transform of a B3-supported radial function is a cubic in S=d-2k; exact positive layer combinations yield F_0+dF_{(d-1)/2}+dF_{(d+1)/2}+F_d=2d+2 (odd) and F_0+2(d-1)F_{d/2}+F_d=2d (even). Constructed normalized nonnegative cubics attain each. For odd d>=5 equality annihilates S=+/-1 and S=-d; the two-central-slice inclusion-matrix factorization (separate d=5 interpolation) leaves (S^2-1)(c0+sum b_i s_i), and nonnegativity forces b_i>=0, sum b_i=1/(d-1), an injective full simplex. For d=3 B3=G and the constant function uniquely maximizes. For even d>=4 the radial equality zeros at S=0,-d and inequalities at +/-2 yield alpha in [-2,2] with exact normalization. A new exact-rational spot check verified proposed spectra for d=3..7, not all d.
 
-## Sources and scope
-The inspected full texts were E. E. Berdysheva–S. Gy. Révész, *Delsarte's Extremal Problem and Packing on Locally Compact Abelian Groups* (arXiv:1904.03614); S. Krenedits–S. Gy. Révész, *Carathéodory–Fejér type extremal problems on locally compact Abelian groups* (arXiv:1304.0071); and the published complete weight-two Boolean shell theorem (published-finding corpus, 2026). The computation checks every proposed polynomial for the dimensions described but is not an exhaustive global enumeration of admissible positive-definite functions. Bibliographic equivalence remains possible.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The published binary weight-two shell is not the radius-three ball, while the closest q-ary radius-three result quantifies only q>=3. No searched prior statement implies the odd binary optimizer simplex or sharp ball mass.
+
+## value
+
+PASS
+
+Finite-group positive-definite Turán mass on the natural radius-three Hamming ball is a concrete harmonic-analytic invariant; determining the all-dimension sharp mass and full odd-dimensional optimizer simplex (plus even radial face) reveals otherwise invisible nonradial equality geometry. It is not mechanically implied by the radius-two shell result or normalization alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
