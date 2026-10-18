@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Alexander dual has complete one-skeleton, one triangle per connected triple, and exactly one tetrahedron per square. Unique nonedge diagonals collapse nonsquare path triangles, while disjoint square edges permit three more free-face collapses per tetrahedron. The resulting connected graph has first Betti number equal to the asserted multiplicity; integral Alexander duality and the full two-skeleton of the three-cut complex yield the sphere-wedge homotopy type. Four independently reconstructed finite examples pass complete mod-two boundary-rank checks, but those examples are not used as an infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest primary works [1,2] cover forests, individual cycles, disjoint unions, squared paths, and grids, and the earlier square-free formula corresponds only to the special case of no four-cycles. The new generality includes arbitrary (even disconnected) triangle-free graphs with multiple pairwise edge-disjoint squares and makes a structural claim not obtained by merely changing parameters in those statements. The closest potentially stronger comparison is [1], Section 6, whose complete codimension-one-skeleton criterion is inapplicable in the presence of a square. The literature inspection does not exclude unknown results using Alexander-dual hypergraph terminology.
+PASS
 
-**Value — PASS.** The exact homotopy type on a broad natural girth-four boundary class and its additive square correction supply a meaningful extension beyond the large-girth regime. The elementary collapse identifies precisely why isolated square interactions preserve the single-degree sphere-wedge phenomenon, while the edge-sharing case lies outside the proof. Both the homotopy type and its integral multiplicity are determined, not merely checked numerically.
+For n≥8 triangle-free simple G with pairwise edge-disjoint four-cycles, dual K of ordinary Δ3 has complete one-skeleton, triangles exactly 2-edge paths (T=Σ_v binom(d(v),2)), tetrahedra exactly the q square vertex sets, and no 4-simplices (all 10 triples in 5-set connected would give at least 7 edges on a triangle-free 5-set, contradicting Turán extremum 6). Every path triangle outside a square has unique common neighbor endpoint and a private free nonedge. For a cyclic square a,b,c,d, collapse tetrahedron along abd, bcd along bd, abc along bc, acd along ac; the square-edge and diagonal freedom survives across distinct squares because 4-cycles are edge-disjoint. The resulting connected graph deletes T−q one-skeleton edges and has cycle rank B=binom(n−1,2)−T+q≥0. Integral Alexander duality gives sole top free homology; complete (n−6)-skeleton plus Hurewicz/Whitehead upgrades to wedge B S^{n−4}; disconnected components allowed. Four-cycle count counts edge-sets once, not orientations.
 
-The result is limited to the explicit graph class and does not claim a general characterization for graphs with overlapping four-cycles.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The quantified graph-wide edge-disjoint-square correction and integral wedge do not follow from earlier forest/cycle/grid examples or general Euler/skeleton results. The 4-cycle-free theorem is a strict q=0 subclass, whereas the Resultary C4-free-with-triangles theorem allows triangles but forbids every square, so neither dominates the q>0 case.
+
+## value
+
+PASS
+
+The additive +1 effect of each isolated square on the integral top homotopy type identifies a meaningful boundary of the C4-free theorem, with a concrete local collapse accounting for interactions between graph cycles. This is a graph-wide classification, not a one-off small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
