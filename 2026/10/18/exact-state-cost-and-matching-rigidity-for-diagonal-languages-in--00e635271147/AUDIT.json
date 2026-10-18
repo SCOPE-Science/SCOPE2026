@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Every trim accepted path has exactly two edges, giving three disjoint layers; private intermediate states are forced by mixed-letter exclusion. In any cactus three private middle states cannot share one accepting end vertex, since the resulting \\(K_{2,3}\\) violates edge-unique cycles. Pair-grouped four-cycles attain the lower bound. Trees forbid any shared accepting end, and planar K_{2,n} gives the unrestricted optimum. Equality forces one end per middle; for odd n, an attempted duplication would produce two 4-cycles sharing one start-edge. Exact isomorphism counts are perfect/near-perfect matching counts. Code enumerates canonical possibilities through n=5 and checks acceptance and the cactus criterion, but does not substitute for the infinite graph proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grobler--Koziel--Siebertz Theorem 1.1: each regular language has some epsilon-free bipartite cactus NFA; conclusion explicitly says sharp state complexity bounds are not established.",
+        "Book--Chandra 1976: planar representation for all NFAs; planar \\(K_{2,n}\\) exists but this does not force the optimal cactus size.",
+        "Kutrib--Malcher--Schneider requires reversal of each labelled transition, not merely an undirected graph after forgetting direction."
+      ],
+      "reasoning": "A general existential cactus realization does not give exact minimal-state counts, necessity, rigidity or the count of optima. A planar existence theorem is weaker topologically. Results on symmetric transition relations are not stronger coverage, because the diagonal language with only length-two words would not be accepted by nontrivial symmetric-edge automata in the same manner.",
+      "searches": [
+        "Every Regular Language Has a Bipartite Cactus Automaton Grobler Koziel Siebertz quantitative lower bounds state blowup",
+        "Grobler Koziel Siebertz 2026 every regular language bipartite cactus automaton optimize number of states",
+        "arXiv:2610.11717v1 full 13-page text (theorem 1.1, Figure 1, conclusion)",
+        "doi:10.1007/BF00263745",
+        "doi:10.1007/s00236-021-00402-0"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.11717v1 pp.117--129",
+      "Book and Chandra (1976) institutional abstract",
+      "Kutrib--Malcher--Schneider Springer open-access model description",
+      "Targeted searches of published research records and relevant primary literature"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Our inequality for every terminal state is proved using the forbidden \\(K_{2,3}\\) subgraph; 2026 Fig. 1 shows \\(K_{2,3}\\) is not a cactus but supplies no matching-capacity theorem or 6-state example.",
+        "The 2026 conclusion specifically leaves the smallest possible blow-up as an open problem."
+      ],
+      "reasoning": "Figure 1 already covers the \\(n=3\\) comparison between the naive NFA and a tree; that qualitative special case is not claimed as new. The new assertion concerns exact graph-class minima for every n, state-optimal cactus rigidity, and enumerated isomorphism classes. Earlier mere existence or illustrative constructions do not imply these bounds without additional nontrivial minimization.",
+      "searches": [
+        "Minimal number of states of epsilon-free bipartite cactus nondeterministic automata for finite diagonal language {a_i a_i : 1<=i<=n}; exact n+ceil(n/2)+1, K_2,3 obstruction, two-path packing and planar versus cactus blowup",
+        "State complexity topological restrictions cactus NFAs for finite languages consisting of repeated letters length two, minimal states versus unrestricted NFA",
+        "Every Regular Language Has a Bipartite Cactus Automaton Grobler Koziel Siebertz quantitative lower bounds state blowup",
+        "arXiv:2610.11717v1 Figure 1 and conclusion",
+        "Book--Chandra 1976 abstract",
+        "Kutrib--Malcher--Schneider 2021 full OA web introduction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary source arXiv:2610.11717v1 pp.117--118 Figure 1 explicitly uses {aa,bb,cc}; its noncactus \\(K_{2,3}\\) and 7-state tree diagram do not state the 6-state optimum.",
+        "The graph reformulation asks for bipartite cacti assembled from at most two 2-edge paths per terminal; selected research-result abstracts did not present this optimization."
+      ],
+      "reasoning": "Equivalent graph formulations would be maximum disjoint pairing of paths in a cactus with a common origin, biclique-packing of diagonal two-letter relations, or state minimization of finite diagonal languages. The complete sharp formula, classes, and count were compared rather than matching a title only. A differently named historical packing result cannot be ruled out.",
+      "searches": [
+        "Minimal number of states of epsilon-free bipartite cactus nondeterministic automata for finite diagonal language {a_i a_i : 1<=i<=n}; exact n+ceil(n/2)+1, K_2,3 obstruction, two-path packing and planar versus cactus blowup",
+        "bipartite cactus NFA language a_1a_1 union a_2a_2 ... state complexity optimal n+ceil(n/2)+1 and pairing classification tree NFA 2n+1",
+        "minimal epsilon free NFA state complexity finite diagonal language {aa,bb,cc} cactus K_{2,n}, n+ceil(n/2)+1",
+        "web: \"cactus automata\" \"state complexity\" \"finite\" NFA",
+        "web: \"cactus\" \"diagonal language\" nondeterministic finite automaton minimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Fig. 1 example and the 2026 paper conclusion contain no tabulation of minimal cactus-state counts for \\(D_n\\).",
+        "Indexed research results nearest in semantic similarity concern synchronization and other automaton models, not a table of cactus-state minima."
+      ],
+      "reasoning": "Exact finite counts and a matching-classification over all n were searched in the primary paper and targeted indexed materials. No covering database/table was identified; absence from an index is not proof of priority.",
+      "searches": [
+        "State complexity topological restrictions cactus NFAs for finite languages consisting of repeated letters length two, minimal states versus unrestricted NFA",
+        "minimal epsilon free NFA state complexity finite diagonal language {aa,bb,cc} cactus K_{2,n}, n+ceil(n/2)+1",
+        "web: \"finite language\" \"aa\" \"bb\" \"cc\" \"cactus\" NFA minimum",
+        "web: \"Every Regular Language Has a Bipartite Cactus Automaton\" \"state complexity\" lower bound construction"
+      ]
+    },
+    "rationale": "arXiv:2610.11717v1 establishes general bipartite-cactus NFA existence, and Figure 1 displays the \\(n=3\\) diagonal language with a tree construction, but its Section 4 explicitly leaves quantitative minimization open. The exact all-n planar/cactus/tree state-cost trichotomy and pair-partition rigidity are not stated or implied by that existence theorem. Book--Chandra prove planar existence, not cactus sharpness. Kutrib--Malcher--Schneider study the different model of symmetric transitions. Targeted published research-index queries returned predominantly unrelated automata compression claims; accessible earlier mathematical claims were compared for semantic overlap. No directly implying prior claim identified, but historical equivalences remain possible.",
+    "residual_risks": [
+      "A differently phrased pre-2026 finite-language graph-optimality or biclique-packing theorem may already imply the matching count.",
+      "The Book--Chandra 1976 full article was not obtained; an exact unrelated example might be present.",
+      "Only targeted semantic/indexed results and accessible own ledgers were compared; index absence does not prove uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS general existence and qualitative example; NOT a covering exact all-n state-minimum and matching classification",
+        "evidence": "Theorem 1.1 p.118, Figure 1 p.118, Section 4 p.128 says optimized state bounds remain open.",
+        "identifier_or_url": "https://arxiv.org/pdf/2610.11717",
+        "material_read": "13-page PDF theorem, definitions Section 2, Figure 1, constructions and conclusion Section 4",
+        "method": "full-text page inspection, targeted searches for minimal, blow-up and state, Figure 1 visual inspection, conclusion visually inspected",
+        "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+        "trigger": "same graph model and the literal n=3 diagonal example"
+      },
+      {
+        "assessment": "Gives general planar NFA existence and deterministic obstruction; accessible material does not cover cactus exact minimum",
+        "evidence": "IBM abstract, March 1976; original full article not inspected, priority risk noted.",
+        "identifier_or_url": "https://research.ibm.com/publications/inherently-nonplanar-automata",
+        "material_read": "public institutional abstract and publication metadata; full text not read",
+        "method": "publisher/institutional abstract inspection",
+        "title": "Inherently Nonplanar Automata",
+        "trigger": "prior planar NFA representability cited by 2026 source"
+      },
+      {
+        "assessment": "Different model: bidirectional same-labelled transitions, not forgetting orientation for cactus graph. Not a direct implication.",
+        "evidence": "Abstract explicitly requires reverse transition with identical label for every transition.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00236-021-00402-0",
+        "material_read": "open-access abstract, introduction and model description; remaining proofs not read",
+        "method": "full-text Springer HTML inspection of introductory definitions",
+        "title": "Finite automata with undirected state graphs",
+        "trigger": "possibly similar use of the adjective undirected for state graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "00e63527-1147-4c18-8877-d77153668ab5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 general representation theorem explicitly leaves the minimum state blow-up open. This provides a natural fully resolved growing-alphabet witness with strict exact separation of planar, cactus, and tree NFAs and rigidity/counting of every extremal cactus representation. It quantifies the tradeoff in the canonical \\(K_{2,n}\\) example; the exact \\(n!/(2^k k!)\\) optimum count reflects structural matching constraints rather than an arbitrary finite table. Scope limited to a natural language family, not an arbitrary-language conversion theorem.",
+    "status": "PASS"
+  }
+}
