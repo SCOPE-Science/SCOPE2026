@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:02:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the real Day--James hexagon N(u,v)=max(|u|,|v|,|u-v|), 0<r<=rho and p=4, separate convexity reduces fixed-scale maximization to 36 ordered vertices. The exact envelope is max(1+(r+t)^4,(1+rt)^4+max(r,t)^4). Independently enumerated all 36 vertex pairs over multiple r,t checks (diagnostic, not continuum proof) and differentiated both scalar branches symbolically. The RESULT.md proof: A_r(t) increases through t=1 for r<=rho; B_{0,r}(t) increases on [0,r] because its derivative E_r>0 using (1+t²)^3(1-t²)>=1 for t<=rho<.84; B_r(t) on [r,1] has exactly one maximum because t³[1-(1+rt)^(-3)] strictly increases. Its t=1 critical derivative is r(r³+2r²-2). Thus t_r in (r,1], (t_r³-r)(1+rt_r)^3=t_r³, and quotient is ((1+rt_r)^4+t_r^4)/(4(1+r^4)(1+t_r^4)). At r=rho t_r=1. Finite sampling does not prove the vertex envelope, but algebraic case checking and continuum convexity do; the analytic derivative argument covers all r.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ni published Example 2.6 imposes (1-r)(1+r)^3<1, hence r>rho",
+          "Yang-Wang 2017 treats balanced regular octagon rather than skew Day--James hexagon"
+        ],
+        "reasoning": "The closest prior theorem excludes r<=rho, and the purported broader p-profile uses a different normalization/invariant; no stronger implication found.",
+        "searches": [
+          "Day James hexagon skew generalized von Neumann Jordan constant p=4 Ni Liu Zhou extremizers weights complementary regime cubic threshold",
+          "doi:10.15672/hujms.1451136",
+          "doi:10.7153/mia-20-32"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen RESULT.md, SLOGAN.txt, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md, verify.py",
+        "Ni, Liu and Zhou, Hacettepe J Math Stat 54 (2025), 436-444, DOI 10.15672/hujms.1451136",
+        "Yang and Wang, Mathematical Inequalities & Applications 20 (2017), 483-490, DOI 10.7153/mia-20-32",
+        "Resultary semantic search Day James hexagon skew generalized von Neumann Jordan constant p=4 Ni Liu Zhou extremizers weights complementary regime cubic threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For ζ=1 η=r, prior inequality (1-r)(1+r)^3<1 iff r>rho",
+          "Current t_r interior for r<rho and t_r=1 at rho"
+        ],
+        "reasoning": "A prior result with a strictly disjoint hypothesis cannot imply this missing-branch formula without new optimization; r>rho prior branch not claimed as new.",
+        "searches": [
+          "Day James hexagon skew generalized von Neumann Jordan constant p=4 Ni Liu Zhou extremizers weights complementary regime cubic threshold",
+          "doi:10.15672/hujms.1451136"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ni et al DOI 10.15672/hujms.1451136 Example 2.6 defines two-weight skew constant",
+          "The Resultary general exponent-p profile has no unequal weight r"
+        ],
+        "reasoning": "Weight rescaling reduces ζ,η to 1,r; Day--James coordinate norm may also appear max(|u|,|v|,|u-v|). Neither equal-weight p-profile nor a four-term Jordan invariant determines the skew 1,r supremum.",
+        "searches": [
+          "Day James hexagon skew generalized von Neumann Jordan constant p=4 Ni Liu Zhou extremizers weights complementary regime cubic threshold",
+          "Resultary:2026/10/11/SCOPE-exact-generalized-von-neumann-jordan-profile-of-the-day-james-he--f84aa4a74a83"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only exact Resultary formula match is the focal record itself",
+          "Ni Example 2.6 supplies a conditional formula on r>rho"
+        ],
+        "reasoning": "Self-indexing is not independent coverage. No other exact table with both threshold and t_r equation was identified in these actual searches.",
+        "searches": [
+          "Day James hexagon skew generalized von Neumann Jordan constant p=4 Ni Liu Zhou extremizers weights complementary regime cubic threshold",
+          "Resultary:2026/10/11/SCOPE-strongly-skew-quartic-von-neumann-jordan-profile-on-the-day-jame--5b2871dd891b"
+        ]
+      },
+      "rationale": "Ni--Liu--Zhou 2025 Example 2.6 assumes (1-r)(1+r)^3<1 at p=4, algebraically r>rho; the complementary 0<r<=rho has a distinct adjacent-vertex maximizing branch not obtained by substituting into their hypothesis. The older balanced Yang--Wang hexagon/octet constants do not imply unequal-weight optimization. Resultary returned the focal record plus other generalized/Jordan/James invariants, no found implication. This is a best-of-knowledge comparison, not proof of exhaustive literature coverage.",
+      "residual_risks": [
+        "Nonstandard equivalence of hexagon normalizations and alternate unpublished branch may elude indexed queries",
+        "Full discrete vertex envelope asserted via finite orbit classification; independent dense tests supplement algebraic case reasoning but are not proof"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING complementary range",
+          "evidence": "Example 2.6 condition (ζ−η)(ζ+η)^(p−1)<ζ^p becomes r>rho at p=4",
+          "identifier_or_url": "https://dergipark.org.tr/en/download/article-file/3787454",
+          "material_read": "Example 2.6 definition, parameter hypothesis and neighboring proof (pp. 2-4); not entire unrelated article",
+          "method": "Published PDF text and proof-page inspection",
+          "title": "Skew generalized von Neumann-Jordan constant in Banach spaces",
+          "trigger": "Same invariant and hexagon; possible direct coverage"
+        },
+        {
+          "assessment": "NOT_COVERING asymmetric Day--James quartic branch",
+          "evidence": "No unequal-weight skew parameter",
+          "identifier_or_url": "https://files.ele-math.com/articles/mia-20-32.pdf",
+          "material_read": "Complete theorem, formulas and proof for non-skew octagon regular norm",
+          "method": "Full published 8-page PDF inspected",
+          "title": "Generalized von Neumann-Jordan constant for the regular octagon space",
+          "trigger": "Closely related Banach-plane invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fills the exact omitted parameter half of a published named invariant on a natural six-vertex benchmark, identifies an interior extremal scale and exact phase boundary; not a mere reparameterization because the maximizing vertex orbit switches. This finite polygon computation solves a mathematically motivated hole, not an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only real p=4, 0<r<=rho. No higher p or all extremizers.",
+    "Unindexed equivalent norm conventions cannot be ruled out absolutely."
+  ],
+  "schema_version": 1
+}

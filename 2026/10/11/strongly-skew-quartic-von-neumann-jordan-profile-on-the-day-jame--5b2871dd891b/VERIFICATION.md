@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-For \(0<r\le\rho\), the six-vertex reduction gives
-\[
-M_r(t)
-=
-\max\left\{
-1+(r+t)^4,\,
-(1+rt)^4+\max\{r,t\}^4
-\right\}.
-\]
 
-The first scalar branch has derivative sign
-\[
-1-r t^3-\left(\frac{t}{r+t}\right)^3.
-\]
-Its value at \(t=1\) changes sign exactly at
-\[
-r^3+2r^2-2=0.
-\]
+# Independent mathematical audit
 
-For the competing branch on \(t\ge r\), the derivative sign is
-\[
-t^3+(r-t^3)(1+rt)^3.
-\]
-The zero equation is equivalent to
-\[
-t^3\left(1-(1+rt)^{-3}\right)=r.
-\]
-The left side is strictly increasing, so the critical point is unique.
+## correctness
 
-On \(0\le t\le r\), differentiation gives
-\[
-(1+rt)^3(r-t^3)-r^4t^3>0
-\]
-throughout the accepted parameter range, so no earlier maximum is missed.
+PASS
 
-The bundled `verify.py` enumerates all vertex pairs and replays the scalar phase transition numerically on dense grids. These finite checks are supplementary only; the continuum proof is analytic.
+For the real Day--James hexagon N(u,v)=max(|u|,|v|,|u-v|), 0<r<=rho and p=4, separate convexity reduces fixed-scale maximization to 36 ordered vertices. The exact envelope is max(1+(r+t)^4,(1+rt)^4+max(r,t)^4). Independently enumerated all 36 vertex pairs over multiple r,t checks (diagnostic, not continuum proof) and differentiated both scalar branches symbolically. The RESULT.md proof: A_r(t) increases through t=1 for r<=rho; B_{0,r}(t) increases on [0,r] because its derivative E_r>0 using (1+t²)^3(1-t²)>=1 for t<=rho<.84; B_r(t) on [r,1] has exactly one maximum because t³[1-(1+rt)^(-3)] strictly increases. Its t=1 critical derivative is r(r³+2r²-2). Thus t_r in (r,1], (t_r³-r)(1+rt_r)^3=t_r³, and quotient is ((1+rt_r)^4+t_r^4)/(4(1+r^4)(1+t_r^4)). At r=rho t_r=1. Finite sampling does not prove the vertex envelope, but algebraic case checking and continuum convexity do; the analytic derivative argument covers all r.
 
-No independent audit or independent validation has been performed.
+## originality
+
+PASS
+
+Ni--Liu--Zhou 2025 Example 2.6 assumes (1-r)(1+r)^3<1 at p=4, algebraically r>rho; the complementary 0<r<=rho has a distinct adjacent-vertex maximizing branch not obtained by substituting into their hypothesis. The older balanced Yang--Wang hexagon/octet constants do not imply unequal-weight optimization. Resultary returned the focal record plus other generalized/Jordan/James invariants, no found implication. This is a best-of-knowledge comparison, not proof of exhaustive literature coverage.
+
+## value
+
+PASS
+
+Fills the exact omitted parameter half of a published named invariant on a natural six-vertex benchmark, identifies an interior extremal scale and exact phase boundary; not a mere reparameterization because the maximizing vertex orbit switches. This finite polygon computation solves a mathematically motivated hole, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

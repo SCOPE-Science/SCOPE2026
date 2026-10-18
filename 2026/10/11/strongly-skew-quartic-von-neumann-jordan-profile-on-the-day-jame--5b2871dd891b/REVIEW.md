@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The defining quotient is reduced to the unit sphere exactly as in the primary source. Convexity reduces the quartic numerator to the six vertices of the Day--James hexagon, and direct orbit evaluation gives two exact candidate branches. For \(0<r\le\rho\), derivative signs show the published branch is maximized at \(t=1\), while the adjacent-vertex branch has a unique maximizer \(t_r\), determined by \((t_r^3-r)(1+rt_r)^3=t_r^3\). The two mechanisms meet exactly at \(r=\rho\).
+## correctness
 
-## Originality
-PASS. The defining full text was inspected, especially Example 2.6 and its proof. At \(p=4\), that example assumes \((1-r)(1+r)^3<1\), exactly \(r>\rho\). The accepted claim treats the complementary interval \(0<r\le\rho\) and changes the maximizing vertex orbit. The balanced 2017 generalized constant does not imply an unequal-weight skew result. published-finding corpus and the current/prior ledgers were searched using the invariant name, space aliases, threshold polynomial, critical equation, and implication-equivalent formulation; no covering claim was found.
+PASS
 
-## Value
-PASS. This is a natural completion of a published conditional benchmark, not an arbitrary parameter choice. It identifies the exact transition point and the new extremal mechanism on the missing side of that transition. The formula reduces the previously uncovered skew regime to one uniquely solvable scalar equation.
+For the real Day--James hexagon N(u,v)=max(|u|,|v|,|u-v|), 0<r<=rho and p=4, separate convexity reduces fixed-scale maximization to 36 ordered vertices. The exact envelope is max(1+(r+t)^4,(1+rt)^4+max(r,t)^4). Independently enumerated all 36 vertex pairs over multiple r,t checks (diagnostic, not continuum proof) and differentiated both scalar branches symbolically. The RESULT.md proof: A_r(t) increases through t=1 for r<=rho; B_{0,r}(t) increases on [0,r] because its derivative E_r>0 using (1+t²)^3(1-t²)>=1 for t<=rho<.84; B_r(t) on [r,1] has exactly one maximum because t³[1-(1+rt)^(-3)] strictly increases. Its t=1 critical derivative is r(r³+2r²-2). Thus t_r in (r,1], (t_r³-r)(1+rt_r)^3=t_r³, and quotient is ((1+rt_r)^4+t_r^4)/(4(1+r^4)(1+t_r^4)). At r=rho t_r=1. Finite sampling does not prove the vertex envelope, but algebraic case checking and continuum convexity do; the analytic derivative argument covers all r.
 
-## Closest literature and limitations
-Ni, Liu and Zhou define the skew constant and compute the Day--James example only under the complementary parameter condition. Yang and Wang treat the balanced generalized constant in a different regular-octagonal setting. The result here is restricted to \(p=4\) and does not claim a new formula in the already-covered \(r>\rho\) regime.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ni--Liu--Zhou 2025 Example 2.6 assumes (1-r)(1+r)^3<1 at p=4, algebraically r>rho; the complementary 0<r<=rho has a distinct adjacent-vertex maximizing branch not obtained by substituting into their hypothesis. The older balanced Yang--Wang hexagon/octet constants do not imply unequal-weight optimization. Resultary returned the focal record plus other generalized/Jordan/James invariants, no found implication. This is a best-of-knowledge comparison, not proof of exhaustive literature coverage.
+
+## value
+
+PASS
+
+Fills the exact omitted parameter half of a published named invariant on a natural six-vertex benchmark, identifies an interior extremal scale and exact phase boundary; not a mere reparameterization because the maximizing vertex orbit switches. This finite polygon computation solves a mathematically motivated hole, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
