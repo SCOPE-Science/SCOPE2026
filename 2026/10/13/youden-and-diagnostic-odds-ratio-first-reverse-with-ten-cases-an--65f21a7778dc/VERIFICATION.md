@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,73 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem is checked in exact arithmetic.
 
-For balanced case and control counts \(m\), an admissible table is represented by
-\[
-(TP,TN)=(a,d)
-\]
-with
-\[
-1\le a,d\le m-1,
-\qquad
-a+d>m.
-\]
+# Independent mathematical audit
 
-The embedded `verify_youden_dor_minimal_reversal.py` computes
-\[
-J=\frac{a+d-m}{m}
-\]
-and
-\[
-\mathrm{DOR}
-=
-\frac{ad}{(m-a)(m-d)}
-\]
-directly from the confusion matrix.
+## correctness
 
-It verifies admissible-table counts
-\[
-0,1,3,6,10,15,21,28,36
-\]
-for
-\[
-m=2,\ldots,10
-\]
-and strict-reversal counts
-\[
-0,0,0,0,0,0,0,0,6.
-\]
+PASS
 
-The first-layer witness is
-\[
-(3,7,9,1)
-\]
-versus
-\[
-(6,4,7,3),
-\]
-with
-\[
-J=\frac15,\frac3{10}
-\]
-and
-\[
-\mathrm{DOR}=\frac{27}{7},\frac72.
-\]
+Writing a=TP,d=TN and s=a+d, J=(s-m)/m and DOR=ad/[m^2-ms+ad]. With s>m, fixed-s DOR decreases in p=ad. Independent exact rational enumeration of all ordered pairs 1<=a,d<=m-1 and a+d>m for m=2..10 gave counts 0,1,3,6,10,15,21,28,36 and opposite-strict-ranking pair counts 0,0,0,0,0,0,0,0,6; this is exhaustive for the finite minimality boundary. At m=10 J_X=1/5<J_Y=3/10, but DOR_X=27/7>7/2=DOR_Y. For all m>=10, X=(3,m-1),Y=(6,m-3) give J_X=2/m<J_Y=3/m, DOR_X=3(m-1)/(m-3)>2(m-3)/(m-6)=DOR_Y exactly when m(m-9)>0; proves infinite persistence independently of any finite cutoff.
 
-The verifier also checks the fixed-Youden DOR extrema used in the proof and replays the structural family through \(m=500\).
+## originality
 
-Run:
+PASS
 
-`python3 verify_youden_dor_minimal_reversal.py`
+Best-of-knowledge comparison to exact-object foundational sources, stronger possible general theorems, and Resultary mathematical records finds no decisive implication-equivalent published theorem; the four explicit scientific comparisons and source-reading limitations below retain uncertainty. An equivalent phrasing ranks TP+TN versus TP*TN/(FN*FP); sources checked under both clinical and integer-table terminology. Ranking/tie discussions are not the complete sharp finite cutoff.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The all-\(m\) persistence statement is proved by the exact inequality
-\[
-m(m-9)>0,
-\]
-not inferred from the finite replay.
+The two competing standard summaries aggregate sensitivity and specificity differently. Finding the first balanced, strictly positive, genuinely discriminating integer study where their rankings conflict provides a mathematically natural exact boundary, interpretable example and test benchmark; it is not offered as a real-world sample-size recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

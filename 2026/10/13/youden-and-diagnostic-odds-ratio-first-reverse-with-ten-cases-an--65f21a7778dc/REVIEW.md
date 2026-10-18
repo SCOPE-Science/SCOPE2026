@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** In a balanced study with \(m\) cases and \(m\) controls, Youden's index is exactly \((TP+TN-m)/m\), while the diagnostic odds ratio is \(TP\cdot TN/(FP\cdot FN)\). At fixed \(TP+TN=s>m\), the latter equals \(p/[p-m(s-m)]\) with \(p=TP\cdot TN\), so it strictly decreases as the sensitivity-specificity split becomes more balanced. Complete exact enumeration gives zero strict reversals through \(m=9\) and six at \(m=10\). The displayed witness and the all-\(m\) family are verified algebraically and by the packaged replay.
+## correctness
 
-Risk: the minimum is a balanced finite-count boundary and should not be generalized to unequal case-control designs without a new analysis.
+PASS
 
-## Originality
-**PASS.** Youden's original paper defines the index and its case-control-size invariance. Glas and coauthors explicitly present the diagnostic odds ratio as a separate prevalence-independent single indicator and list Youden's index in the same comparison framework. A later diagnostic-accuracy review discusses both measures and notes Youden's insensitivity to how sensitivity and specificity are split. Those sources motivate the comparison but do not state the sharp balanced finite-sample reversal threshold, first-layer count, or continuation family. Published-result, alias, exact-table, and implication searches did not locate equivalent coverage.
+Writing a=TP,d=TN and s=a+d, J=(s-m)/m and DOR=ad/[m^2-ms+ad]. With s>m, fixed-s DOR decreases in p=ad. Independent exact rational enumeration of all ordered pairs 1<=a,d<=m-1 and a+d>m for m=2..10 gave counts 0,1,3,6,10,15,21,28,36 and opposite-strict-ranking pair counts 0,0,0,0,0,0,0,0,6; this is exhaustive for the finite minimality boundary. At m=10 J_X=1/5<J_Y=3/10, but DOR_X=27/7>7/2=DOR_Y. For all m>=10, X=(3,m-1),Y=(6,m-3) give J_X=2/m<J_Y=3/m, DOR_X=3(m-1)/(m-3)>2(m-3)/(m-6)=DOR_Y exactly when m(m-9)>0; proves infinite persistence independently of any finite cutoff.
 
-Risk: the formulas are classical and the finite problem is elementary enough that an unindexed teaching exercise or software test could contain the witness. Search failure is not a proof of bibliographic uniqueness.
+## originality
 
-## Value
-**PASS.** Both measures are used as single prevalence-independent summaries of diagnostic discrimination, and the literature explicitly presents them as tools for comparing tests. The sharp boundary shows that even after balancing cases and controls and excluding zero-cell pathologies, the two summaries can make opposite comparative judgments because one is linear in sensitivity and specificity while the other multiplies their odds. The exact witness is a compact benchmark for interpretation and diagnostic-software validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge comparison to exact-object foundational sources, stronger possible general theorems, and Resultary mathematical records finds no decisive implication-equivalent published theorem; the four explicit scientific comparisons and source-reading limitations below retain uncertainty. An equivalent phrasing ranks TP+TN versus TP*TN/(FN*FP); sources checked under both clinical and integer-table terminology. Ranking/tie discussions are not the complete sharp finite cutoff.
+
+## value
+
+PASS
+
+The two competing standard summaries aggregate sensitivity and specificity differently. Finding the first balanced, strictly positive, genuinely discriminating integer study where their rankings conflict provides a mathematically natural exact boundary, interpretable example and test benchmark; it is not offered as a real-world sample-size recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
