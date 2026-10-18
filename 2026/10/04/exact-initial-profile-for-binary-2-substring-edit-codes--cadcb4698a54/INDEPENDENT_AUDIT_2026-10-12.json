@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T02:16:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-initial-profile-for-binary-2-substring-edit-codes--cadcb4698a54/RESULT.md",
+        "Git blob RESULT.md 5ee5ac3f759324c0fa54a42b12f028244e300475",
+        "Git blob verifier b681b0e0a9e1d17961106c446e41693b0cd753d0",
+        "Independent bitmask BFS and/or compatibility-graph exact clique computations, /tmp/scope10_check_results.json"
+      ],
+      "rationale": "An at-most-one 2-substring edit is exactly replacement of a contiguous removed block of size 0..2 by inserted binary block of size 0..2, including unchanged output. Reconstructed finite output balls independently and took compatibility edges iff balls are disjoint. Coloring bound produces independent classes, hence any clique extending a branch uses ≤ number of classes; all other candidates branch, establishing exhaustive upper bounds. An independent bitmask clique search over all 2^n vertices gave maxima 1,1,1,1,2,3,5,8 for n=1..8 (largest n=8 256 vertices, 24,196 visited recursion nodes), and witness size 8. The package verify.py directly enumerates two ball constructions and exhaustively uses the same valid color bound; its full source was inspected.",
+      "residual_risks": [
+        "Exact only for binary n=1..8 and one 2-substring replacement/insertion/deletion; no extrapolation of Fibonacci-like tail, no asymptotic optimality claim.",
+        "Finite exhaustive correctness does not imply any values beyond the enumerated n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li et al. asymptotic optimal redundancy ≈ log n plus lower-order terms; 2026 accessible abstract reports code constructions, not a finite exhaustive table."
+        ],
+        "reasoning": "Asymptotic existence and lower bounds for sufficiently long blocks leave exact n≤8 undetermined; any stronger fully read paper containing a finite table would cover it, but is not evidenced.",
+        "searches": [
+          "https://arxiv.org/pdf/2507.13808",
+          "https://doi.org/10.1109/TCOMM.2024.3420721",
+          "https://arxiv.org/abs/2610.05696",
+          "2026 abstract: substring edit correcting codes and single burst deletion"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/exact-initial-profile-for-binary-2-substring-edit-codes--cadcb4698a54#RESULT.md",
+        "Git blob RESULT.md 5ee5ac3f759324c0fa54a42b12f028244e300475",
+        "https://arxiv.org/pdf/2507.13808",
+        "https://doi.org/10.1109/TCOMM.2024.3420721",
+        "https://arxiv.org/abs/2610.05696"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li asymptotic construction does not state or entail matching n=8 upper bound of 8; Tang description concerns n-dependent redundancy bounds without a verified finite exact table."
+        ],
+        "reasoning": "Upper/lower asymptotic inequalities could be true for many finite profiles, so claim is not a corollary. The unread Tang body is an explicit unresolved bibliographic risk, not a mathematically established implication.",
+        "searches": [
+          "https://arxiv.org/pdf/2507.13808",
+          "https://doi.org/10.1109/TCOMM.2024.3420721"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li et al. define k-substring edits in the accessible full text; Tang journal title/abstract match the model."
+        ],
+        "reasoning": "The channel equivalence covers adjacent burst insertion/deletion and replacement; these constructions do not state the eight exact maxima on accessible material; two plausible full texts remain unread.",
+        "searches": [
+          "one k=2 substring edit correction, one bounded block insertion/deletion/substitution, replacement error, Levenshtein burst",
+          "Resultary: binary single k=2 substring edit correcting codes exact sizes small n 1..8 1 1 1 1 2 3 5 8 [temporarily_unavailable]",
+          "GitHub SCOPE2026 code search: 2-substring edit code finite [0 hits]",
+          "https://arxiv.org/pdf/2507.13808",
+          "https://doi.org/10.1109/TCOMM.2024.3420721"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table found in the inspected Li full text; GitHub search 0 hits; Resultary did not complete."
+        ],
+        "reasoning": "The object is an exact graph clique/coding table, so an existing database row would cover all or some entries; searches are bounded and do not prove absence.",
+        "searches": [
+          "GitHub SCOPE2026 code search: 2-substring edit code finite [0 hits]",
+          "Resultary: binary single k=2 substring edit correcting codes exact sizes small n 1..8 1 1 1 1 2 3 5 8 [temporarily_unavailable]",
+          "web: binary substring edit k 2 code size A n 8 code 8",
+          "web: exact tuple 1 1 1 1 2 3 5 8 burst edit code"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS on finite exact profile: accessible full Li et al. source gives asymptotic constructions and the original Tang paper is a channel/long-length construction; none actually read establishes optimality for n=1..8. Two plausible papers (Tang full text and Oct 2026 Ye/Ge) were not fully accessible and remain explicit risk. A temporarily unavailable semantic index is not evidence of novelty.",
+      "residual_risks": [
+        "Resultary semantic search returned temporarily_unavailable/search_internal_error, search_completed:false; it was not a negative finding.",
+        "An unindexed finite table, older subset-synchronization source, or different phrase may duplicate an assessed exact result; unsuccessful keyword searches cannot establish novelty.",
+        "The full 2025 Tang et al. journal paper and 2026 Ye/Ge paper could include short-block appendices; only abstract/metadata read after access failures. Oxford returned vpn_disconnected.",
+        "An unpublished finite clique table for the same channel might contain the tuple."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Controls asymptotic redundancy of substring-edit correcting codes, not the exact optimal cardinality table for k=2 and 1<=n<=8. Its constructive length bounds do not imply a matching finite extremal table.",
+          "evidence": "Theorems establishing logarithmic redundancy plus smaller corrections for fixed substring length; no explicit 1,1,1,1,2,3,5,8 optimality.",
+          "identifier_or_url": "arXiv:2507.13808; https://arxiv.org/pdf/2507.13808",
+          "material_read": "Accessible 6-page arXiv PDF, including channel definition, main construction and asymptotic redundancy theorem.",
+          "method": "arXiv primary full-text read with visual page inspection.",
+          "title": "Asymptotically Optimal Codes Correcting One Substring Edit",
+          "trigger": "Exact same one bounded substring replacement/insertion/deletion family, broad constructions could subsume short-code values."
+        },
+        {
+          "assessment": "Possible unexamined exact finite table; neither asserting not-covering for the entire article nor treating failure as a negative search.",
+          "evidence": "Public description concerns constructive asymptotic redundancy, but complete finite contents unavailable.",
+          "identifier_or_url": "DOI 10.1109/TCOMM.2024.3420721; https://doi.org/10.1109/TCOMM.2024.3420721",
+          "material_read": "Accessible title, author abstract, bibliographic/citation information only; full body NOT READ.",
+          "method": "arXiv search and lawful OA attempted without usable full paper, then authorized Oxford retrieval returned vpn_disconnected (job b8f22b3bfbf327ae5b3db7589fe3d9e1).",
+          "title": "Correcting a Substring Edit Error of Bounded Length",
+          "trigger": "Foundational identical 2-substring-edit channel and possible short-blocklength appendix."
+        },
+        {
+          "assessment": "Abstract addresses constructions and asymptotic optimality; full document uninspected, genuine residual risk of a finite optimum result.",
+          "evidence": "2026 abstract/metadata only; no full-text noncoverage claim.",
+          "identifier_or_url": "arXiv:2610.05696; https://arxiv.org/abs/2610.05696",
+          "material_read": "Abstract and bibliographic description, not full PDF.",
+          "method": "arXiv primary URL and open-access mirror attempts failed to provide full text.",
+          "title": "Substring Edit Correcting Codes and Optimal Single Burst-Deletion Correcting Codes",
+          "trigger": "Extremely recent paper with same substring-edit phrase; could include appendix finite table."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git blob RESULT.md 5ee5ac3f759324c0fa54a42b12f028244e300475",
+        "https://arxiv.org/pdf/2507.13808",
+        "https://doi.org/10.1109/TCOMM.2024.3420721",
+        "https://arxiv.org/abs/2610.05696"
+      ],
+      "rationale": "A natural exact code-capacity invariant under the well-studied one-2-substring-edit channel: first nontrivial short-block transitions at n=5..8 and a sharp optimum at n=8. Exact finite optima distinguish constructions whose asymptotic redundancy results alone cannot answer short-block design. Finite exhaustive search is motivated, not inherently a landmark theorem.",
+      "residual_risks": [
+        "Value scoped exactly to the stated natural invariant/domain; no downstream theorem or global census claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact only for binary n=1..8 and one 2-substring replacement/insertion/deletion; no extrapolation of Fibonacci-like tail, no asymptotic optimality claim.",
+    "Resultary semantic search returned temporarily_unavailable/search_internal_error, search_completed:false; it was not a negative finding.",
+    "An unindexed finite table, older subset-synchronization source, or different phrase may duplicate an assessed exact result; unsuccessful keyword searches cannot establish novelty.",
+    "The full 2025 Tang et al. journal paper and 2026 Ye/Ge paper could include short-block appendices; only abstract/metadata read after access failures. Oxford returned vpn_disconnected.",
+    "An unpublished finite clique table for the same channel might contain the tuple."
+  ],
+  "schema_version": 1
+}
