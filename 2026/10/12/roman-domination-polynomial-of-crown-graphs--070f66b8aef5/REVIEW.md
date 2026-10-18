@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces the Roman condition to an exact sidewise rule determined by the number and indices of vertices labeled \(2\). The seven regimes for \((p,q)\) are disjoint and exhaustive. Each polynomial term is derived from those rules, and the minimum-weight conclusion follows from the same partition. The packaged direct checker exhaustively verifies all labelings for \(3\le n\le6\) and matches every coefficient. The finite replay supports the proof but is not used to infer the theorem for arbitrary order.
+## correctness
 
-## Originality
-**PASS.** The closest same-invariant source introduces the Roman domination polynomial and gives a complete-bipartite formula, but a crown graph deletes a perfect matching and therefore has index-sensitive exceptional nonneighbors absent from \(K_{n,m}\). Full-text inspection found no crown treatment in that source. Searches using crown, deleted-perfect-matching, one-factor-deleted, and \(K_{n,n}-M_n\) formulations located no equivalent ordinary Roman-domination polynomial. The closest crown-graph record found concerns restrained domination, which neither states nor implies the all-weight Roman-function formula. Residual risk remains for poorly indexed literature under another graph-family name.
+PASS
 
-## Value
-**PASS.** Crown graphs are a standard structured bipartite family, and the theorem gives the complete weight distribution rather than only a minimum parameter. The formula isolates exactly how one deleted perfect matching changes Roman feasibility from complete bipartite graphs: a unique opposite-side defender creates one exceptional matched vertex. The result supplies both a natural benchmark polynomial and the exact multiplicity of minimum functions.
+On Cr_n=K_{n,n} minus matching for n≥3, a zero on side A is permissible exactly when side B has at least two 2-labels, or one 2-label at a different matching index; if no 2-label on B, all A must be nonzero. Symmetric rule governs B. Disjoint exhaustive seven regimes indexed by sidewise numbers p,q of 2-labels give the exact displayed polynomial with H_n=(1+x+x²)^n−(1+x)^n−nx²(1+x)^{n−1} and Q_n=(x+x²)(1+x+x²)^{n−1}−(x+x²)(1+x)^{n−1}−(n−1)x³(1+x)^{n−2}. Same-index p=q=1 gives nx⁴(1+x)^{2n−2}, showing Roman minimum 4 with coefficient n; no other regime has weight 4 for n≥3. Independently enumerated all labelings for n=3,4,5 (3^(2n) possibilities) and reproduced all polynomial coefficients and minimum. Infinite n follows from exact case partition, not finite tests.
 
-## Closest literature and limitations
-The foundational Roman-domination paper supplies the invariant. The Roman-domination-polynomial paper supplies the polynomial framework and the complete-bipartite comparison. The result here is limited to connected crown graphs and does not assert literature-wide uniqueness; synonym and indexing risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gangabylaiah et al. (2021) full primary paper supplies ordinary Roman polynomial for complete bipartite K_{m,n} but not matching-deleted crown graphs; deleting a perfect matching creates index-sensitive special vertices and changes all coefficients. Resultary earlier “Perfect Roman domination of crown graphs” already covers the min=4, n minimum functions corollary, and this part is NOT independently novel; it treats perfect Roman domination, not the entire ordinary Roman weight enumerator. Other Resultary complete multipartite / chain or restrained Roman results are different graph classes/conditions and do not imply the complete crown polynomial. Main graded polynomial survives best-of-knowledge originality with synonyms risk.
+
+## value
+
+PASS
+
+Crown graphs are a canonical family, and a full ordinary Roman weight enumerator captures how one missing matching alters feasibility and the entire distribution, beyond a previously known Roman minimum. The seven-regime closed all-n expression is a useful exact benchmark for domination-polynomial methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

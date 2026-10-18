@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is an exact case analysis, not an extrapolation from computation. For a crown graph, each \(a_i\) is adjacent to all vertices of \(B\) except \(b_i\), so the Roman condition on \(A\) is determined exactly by whether \(B\) contains zero, one, or at least two labels equal to \(2\). The symmetric statement handles \(B\). Partitioning by these two counts produces the seven terms in the claimed polynomial.
+# Independent mathematical audit
 
-The packaged `verify.py` independently reconstructs the graph adjacency and Roman condition. For every \(n\) from \(3\) through \(6\), it enumerates all \(3^{2n}\) labelings, accumulates their exact weight histogram, constructs the closed formula using integer polynomial arithmetic, and compares every coefficient. It separately checks that the least nonzero degree is \(4\) with coefficient \(n\).
+## correctness
 
-Expected successful replay:
+PASS
 
-`VERIFY_OK n_range=3..6 labelings=597780 coefficient_checks=76 minimum_checks=4 max_order=12`
+On Cr_n=K_{n,n} minus matching for n≥3, a zero on side A is permissible exactly when side B has at least two 2-labels, or one 2-label at a different matching index; if no 2-label on B, all A must be nonzero. Symmetric rule governs B. Disjoint exhaustive seven regimes indexed by sidewise numbers p,q of 2-labels give the exact displayed polynomial with H_n=(1+x+x²)^n−(1+x)^n−nx²(1+x)^{n−1} and Q_n=(x+x²)(1+x+x²)^{n−1}−(x+x²)(1+x)^{n−1}−(n−1)x³(1+x)^{n−2}. Same-index p=q=1 gives nx⁴(1+x)^{2n−2}, showing Roman minimum 4 with coefficient n; no other regime has weight 4 for n≥3. Independently enumerated all labelings for n=3,4,5 (3^(2n) possibilities) and reproduced all polynomial coefficients and minimum. Infinite n follows from exact case partition, not finite tests.
 
-The computation does not certify arbitrary \(n\); that scope is supplied by the proof. The disconnected case \(n=2\) is not part of the theorem.
+## originality
+
+PASS
+
+Gangabylaiah et al. (2021) full primary paper supplies ordinary Roman polynomial for complete bipartite K_{m,n} but not matching-deleted crown graphs; deleting a perfect matching creates index-sensitive special vertices and changes all coefficients. Resultary earlier “Perfect Roman domination of crown graphs” already covers the min=4, n minimum functions corollary, and this part is NOT independently novel; it treats perfect Roman domination, not the entire ordinary Roman weight enumerator. Other Resultary complete multipartite / chain or restrained Roman results are different graph classes/conditions and do not imply the complete crown polynomial. Main graded polynomial survives best-of-knowledge originality with synonyms risk.
+
+## value
+
+PASS
+
+Crown graphs are a canonical family, and a full ordinary Roman weight enumerator captures how one missing matching alters feasibility and the entire distribution, beyond a previously known Roman minimum. The seven-regime closed all-n expression is a useful exact benchmark for domination-polynomial methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
