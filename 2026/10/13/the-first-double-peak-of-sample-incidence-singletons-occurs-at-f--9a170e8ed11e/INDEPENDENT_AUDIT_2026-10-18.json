@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T05:45:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a species with occupancy d, exactly d*C(N−d,k−1) of C(N,k) k-site samples contain it once, giving g_d(k). Linearity yields u_k=g_a(k)+g_b(k) even when species supports overlap. The ratio g_d(k+1)/g_d(k) has sign of difference controlled by N+1−d(k+1), proving single-species unimodality. Independently enumerated every N=2..15 and every 1<=a<=b<=N, exactly 679 occupancy triples, with exact rational fractions and strict interior peak tests; exactly one double-peak case N15 (2,9) with peaks at k=2,7. Rechecked witness fractions and distinct neighboring comparisons. Separately inspected full Git verify.py that additionally enumerates all 2^15 site subsets for both disjoint/nested representations. The finite census is exhaustive for the stated finite parameter domain, not a numerical extrapolation. u_k/k nonincreasing is separately justified via hypergeometric avoidance probability and is not claimed novel.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hypergeometric linear relation holds for arbitrary occupancies, but no reported general unimodality classification entails the exact two-species first counterexample."
+        ],
+        "reasoning": "The source general formula is an input, not a stronger theorem determining all strict maxima; overlap of species supports cancels by linearity.",
+        "searches": [
+          "Patil–Taillie 2001 full text",
+          "Ugland–Gray–Ellingsen 2003",
+          "Hui–McGeoch 2014",
+          "Resultary semantic search: Expected incidence sample singleton count two peaks hypergeometric 15 sites 2 species 2 9"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1556/ComEc.2.2001.2.8 full PDF",
+        "doi:10.1046/j.1365-2656.2003.00748.x secondary contextual",
+        "doi:10.1086/678125 partial",
+        "Resultary query Expected incidence sample singleton count two peaks hypergeometric 15 sites 2 species 2 9",
+        "Git RESULT.md, exact rational verify.py and tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known formula g_a+g_b does not itself state the 679-case inequality outcome; the first positive nonunimodality witness needs strict adjacent-value comparisons."
+        ],
+        "reasoning": "The assertion is not a trivial rename of the known expectation formula, and is sharply confined to exactly two species.",
+        "searches": [
+          "Patil–Taillie 2001 Eq. for singleton frequencies",
+          "Expected incidence sample singleton count two peaks hypergeometric 15 sites 2 species 2 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known sample frequency-one expectation is u_k, but zeta-diversity / novelty rate commonly studies F_{1,k}/k; normalization removes the double peak."
+        ],
+        "reasoning": "Differentiate raw expected singletons from normalized novelty rate and species-accumulation richness, so conflicting monotonicity statements concern different invariants.",
+        "searches": [
+          "Expected incidence sample singleton count two peaks hypergeometric 15 sites 2 species 2 9",
+          "doi:10.1556/ComEc.2.2001.2.8",
+          "doi:10.1086/678125"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete 679-triple exact census yields the sole witness (15,2,9) at k=2,7, not present in inspected primary tables."
+        ],
+        "reasoning": "Since every occupancy triple <=15 is checked with exact rational arithmetic, the finite cutoff is an exact classification; an unindexed old table could nevertheless overlap it.",
+        "searches": [
+          "Resultary semantic search: Expected incidence sample singleton count two peaks hypergeometric 15 sites 2 species 2 9",
+          "Patil–Taillie 2001 equations/tables",
+          "Git verify.py c67431f0db8572e4c2f73fd2e3cda0d635c1995e"
+        ]
+      },
+      "rationale": "The 2001 hypergeometric expectation formula and later normalized incidence novelty rate are prior results. The new object is a sharp complete finite first-bimodality/unique-witness classification for the raw unnormalized expected singleton curve; neither the original formula nor monotonicity of u_k/k supplies this threshold without genuinely exhaustive parameter comparison.",
+      "residual_risks": [
+        "An unindexed ecological accumulation or species-incidence numerical table could have this exact two-peak occupancy pair.",
+        "The second peak is small and may be empirically undetectable; result concerns exact raw expectations, not noisy surveys."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives hypergeometric expectation identity but no first two-strict-peak threshold",
+          "evidence": [
+            "Eq.(2) hypergeometric linear formula for singleton sample frequency."
+          ],
+          "identifier_or_url": "doi:10.1556/ComEc.2.2001.2.8",
+          "material_read": "Complete 3-page lawful open-access paper; Eq.2 for expected sample incidence frequencies and surrounding context",
+          "method": "Full PDF text/visual inspection",
+          "title": "Estimation of species richness based on species range",
+          "trigger": "Direct original derivation of incidence singleton expectation"
+        },
+        {
+          "assessment": "Normalization distinction supported, but exact full-paper absence of threshold cannot be asserted",
+          "evidence": [
+            "Source associates singleton incidences and normalized novelty rate."
+          ],
+          "identifier_or_url": "doi:10.1086/678125",
+          "material_read": "Bibliographic record and available summary; full text not inspected",
+          "method": "Search/abstract only",
+          "title": "Zeta diversity as a concept and metric that unifies incidence-based biodiversity patterns",
+          "trigger": "Prior normalized singleton novelty-rate interpretation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest possible double peak in the expected singleton-frequency curve is a natural strict-unimodality boundary in incidence rarefaction, identifying the first resource size and a unique occupancy obstruction. The effect need not be empirically large to be an exact useful structural boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1556/ComEc.2.2001.2.8 full PDF",
+    "doi:10.1046/j.1365-2656.2003.00748.x secondary contextual",
+    "doi:10.1086/678125 partial",
+    "Resultary query Expected incidence sample singleton count two peaks hypergeometric 15 sites 2 species 2 9",
+    "Git RESULT.md, exact rational verify.py and tree"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An unindexed ecological accumulation or species-incidence numerical table could have this exact two-peak occupancy pair.",
+    "The second peak is small and may be empirically undetectable; result concerns exact raw expectations, not noisy surveys."
+  ],
+  "schema_version": 1
+}

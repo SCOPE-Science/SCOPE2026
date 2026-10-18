@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible exact checks
+# Independent mathematical audit
 
-Run `python3 verify.py` from a directory containing that standalone file. Only the Python standard library is used (`fractions.Fraction`, `math.comb`); there is no network or external data dependency.
+## correctness
 
-The executable reconstructs the species-frequency-one profile for each \(2\le N\le15\) and for all \(1\le a\le b\le N\). It tests every strict interior maximum using exact comparisons. The per-site normalized monotonicity condition is also tested on each profile. The expected exhaustive summary is:
+PASS
 
-`VERIFY_OK census_pairs=679 scaled_profiles=679 direct_subsets=65536 sole_two_peak_profile=(15,2,9) peaks=(2,7)`
+For a species with occupancy d, exactly d*C(N−d,k−1) of C(N,k) k-site samples contain it once, giving g_d(k). Linearity yields u_k=g_a(k)+g_b(k) even when species supports overlap. The ratio g_d(k+1)/g_d(k) has sign of difference controlled by N+1−d(k+1), proving single-species unimodality. Independently enumerated every N=2..15 and every 1<=a<=b<=N, exactly 679 occupancy triples, with exact rational fractions and strict interior peak tests; exactly one double-peak case N15 (2,9) with peaks at k=2,7. Rechecked witness fractions and distinct neighboring comparisons. Separately inspected full Git verify.py that additionally enumerates all 2^15 site subsets for both disjoint/nested representations. The finite census is exhaustive for the stated finite parameter domain, not a numerical extrapolation. u_k/k nonincreasing is separately justified via hypergeometric avoidance probability and is not claimed novel.
 
-The executable additionally enumerates all \(32{,}768\) site subsets for each of two concrete fifteen-site communities, one with disjoint species occupancy sets and the other with nested occupancy sets, checking every depth's direct empirical average against the hypergeometric formula. This is logically distinct from iterating possible occupancy sizes.
+## originality
 
-The finite enumeration is exhaustive only over the stated bounded integer domain. It neither establishes any infinite-domain pattern nor addresses statistical estimation under imperfect detection. The source documents and public literature comparisons are described in `RESULT.md` and `REVIEW.md`; exact arithmetic verifies the finite claims but cannot certify originality.
+PASS
+
+The 2001 hypergeometric expectation formula and later normalized incidence novelty rate are prior results. The new object is a sharp complete finite first-bimodality/unique-witness classification for the raw unnormalized expected singleton curve; neither the original formula nor monotonicity of u_k/k supplies this threshold without genuinely exhaustive parameter comparison.
+
+## value
+
+PASS
+
+The smallest possible double peak in the expected singleton-frequency curve is a natural strict-unimodality boundary in incidence rarefaction, identifying the first resource size and a unique occupancy obstruction. The effect need not be empirically large to be an exact useful structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
