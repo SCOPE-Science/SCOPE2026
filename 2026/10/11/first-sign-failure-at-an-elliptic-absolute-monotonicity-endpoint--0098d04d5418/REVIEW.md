@@ -1,11 +1,21 @@
-# Review: First sign failure at an elliptic absolute-monotonicity endpoint
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reconstructs the normalizations and quantifiers, differentiates the parameter-dependent quotient in a fixed zero-free neighborhood, identifies the first nonconstant term of the elliptic logarithmic expansion, and derives uniform cut-integral estimates. These yield both \(\pi n^2\log^2(n)a_n(\log4)\to-1\) and \(\pi n\log^2(n)\partial_pa_n(p)/4\to1\) uniformly near the endpoint. A mean-value argument and the established fixed-index endpoint signs prove the sharp first-positive-index law. The standalone code independently checks the coefficient recurrence and representative finite roots; it is not used as an infinite proof.
+## correctness
 
-**Originality — PASS, with residual literature risk.** The 2026 motivating preprint, materially read through its theorem and proof sections, establishes signs at a fixed endpoint rather than the joint parameter-degree transition. The 2022 same-quotient work provides absolute-monotonicity criteria but the accessible preview does not establish a first-failure index. A previously recorded endpoint coefficient asymptotic covers the fixed-parameter lemma and is expressly excluded from the new claim. Published mathematical database searches for aliases, equivalences and stronger statements found no identified coverage. The full 2022 article and unindexed accounts of degree-dependent crossings remain risks.
+PASS
 
-**Value — PASS.** When the parameter moves above the critical endpoint, eventual sign reversal is qualitatively suggested by known parameter criteria; the theorem determines the exact degree scale at which the first reversal occurs and its sharp constant. This is a natural stability invariant for an established endpoint absolute-monotonicity problem, not an arbitrary coefficient or cosmetic parameter substitution.
+For F_p(z)=(2/pi)K(sqrt(z))/(p-(1/2)Log(1-z)), the elliptic ODE and the Frobenius expansion K=C0+t(C0-1)/4+O(t²log t) yield at p0=log 4 a cut-jump -u/[4D_p0(u)] and derivative jump 1/D_p(u)+lower order, D_p(u)=(p-(1/2)log u)²+pi²/4. The pole 1-e^(2p) stays outside the unit disk uniformly in p near p0. Laplace substitution u=v/n gives a_n(p0)~ -1/[pi n²(log n)²] and derivative ~4/[pi n(log n)²] uniformly on J. FTC at p0+lambda/n proves the 4lambda-1 transition, strict increasing local degree-n curves, zero p_n=p0+1/(4n)+o(1/n), and N(delta)~1/(4delta), using Deng-Kou-Zhong endpoint negativity for finitely many indices. I independently implemented the exact Taylor recurrence and derivative at 75-digit precision: degree 30/60/120/240 roots yield n*(p_n-p0)=0.3142083,0.3096062,0.3055894,0.3020333. The finite tests are not proof of the uniform contour estimates.
 
-The asymptotic theorem makes no assertion about exact finite-degree crossings outside the local interval, nor does it establish global monotonicity in the parameter. The mathematical review is not independent validation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Endpoint sign at p0 and endpoint coefficient decay are pre-existing. The parameter derivative uniformity and first-positive-degree scaling jointly quantify the onset beyond endpoint monotonicity; Tian-Yang parameter-range criteria do not state the critical degree. Full Deng preprint and 2022 paper bodies were inaccessible, so only their inspected abstracts/preview support the limited comparison.
+
+## value
+
+PASS
+
+The first failed Taylor coefficient is a natural sharp quantitative refinement of an established absolute-monotonicity endpoint. The reciprocal perturbation cutoff and universal linear boundary-layer transition supply a nontrivial stability scale needed to understand finite Taylor truncations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

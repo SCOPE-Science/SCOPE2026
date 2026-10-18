@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the elliptic sign-transition law
 
-The proof rests on the elliptic differential equation, the first Frobenius logarithmic correction, the Cauchy coefficient cut formula, and the uniform Laplace estimates for two kernels. In particular, the theorem is not an inference from finite degree testing. The exterior pole of the quotient is uniformly farther from the origin than one for parameters in the stated interval, so its coefficient contribution is exponentially negligible.
+# Independent mathematical audit
 
-Run the standalone standard-library checker as `python3 verify_elliptic_transition.py`. It calculates the normalized coefficients from the defining quotient, differentiates the recurrence with respect to the parameter, verifies the first three closed forms at the critical value, and estimates the first local crossing degrees for indices \(30,60,120,240\). All these checks passed in the actual package. The slow numerical convergence is compatible with the logarithmic corrections to the asymptotic limit.
+## correctness
 
-Limits: finite computations do not establish the uniform asymptotic theorem. The proof establishes only the local sign crossing and small-positive-perturbation first-positive-index asymptotic, not exact roots for every finite degree or global uniqueness across every positive parameter.
+PASS
+
+For F_p(z)=(2/pi)K(sqrt(z))/(p-(1/2)Log(1-z)), the elliptic ODE and the Frobenius expansion K=C0+t(C0-1)/4+O(t²log t) yield at p0=log 4 a cut-jump -u/[4D_p0(u)] and derivative jump 1/D_p(u)+lower order, D_p(u)=(p-(1/2)log u)²+pi²/4. The pole 1-e^(2p) stays outside the unit disk uniformly in p near p0. Laplace substitution u=v/n gives a_n(p0)~ -1/[pi n²(log n)²] and derivative ~4/[pi n(log n)²] uniformly on J. FTC at p0+lambda/n proves the 4lambda-1 transition, strict increasing local degree-n curves, zero p_n=p0+1/(4n)+o(1/n), and N(delta)~1/(4delta), using Deng-Kou-Zhong endpoint negativity for finitely many indices. I independently implemented the exact Taylor recurrence and derivative at 75-digit precision: degree 30/60/120/240 roots yield n*(p_n-p0)=0.3142083,0.3096062,0.3055894,0.3020333. The finite tests are not proof of the uniform contour estimates.
+
+## originality
+
+PASS
+
+Endpoint sign at p0 and endpoint coefficient decay are pre-existing. The parameter derivative uniformity and first-positive-degree scaling jointly quantify the onset beyond endpoint monotonicity; Tian-Yang parameter-range criteria do not state the critical degree. Full Deng preprint and 2022 paper bodies were inaccessible, so only their inspected abstracts/preview support the limited comparison.
+
+## value
+
+PASS
+
+The first failed Taylor coefficient is a natural sharp quantitative refinement of an established absolute-monotonicity endpoint. The reciprocal perturbation cutoff and universal linear boundary-layer transition supply a nontrivial stability scale needed to understand finite Taylor truncations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
