@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof establishes the exact scale profile
-\[
-d_8(\lambda)=\max\left\{1,\sqrt2-1+\frac{\lambda}{\sqrt2},\lambda-(\sqrt2-1)\right\}.
-\]
-The fixed pair
-\[
-x=(-(\sqrt2-1),1),
-\qquad
-y=(1,0)
-\]
-is unit, Birkhoff--James orthogonal, and attains this value for every \(\lambda\ge0\).
 
-The lower bound is checked analytically in the only support types, up to dihedral symmetry: a facet endpoint and an interior normal cone exposing a vertex. In the interior case, the three lower bounds are Birkhoff monotonicity, a coordinate estimate from \(u\ge1/\sqrt2\), and a norming-functional estimate giving \(\lambda-(\sqrt2-1)\).
+# Independent mathematical audit
 
-For the generalized rectangular quotient, the three denominator intervals have no interior maximum: the middle logarithmic derivative has the sign of
-\[
-(2-\sqrt2)\lambda^{p-1}-1,
-\]
-so it can only change from negative to positive, while the final interval derivative is strictly negative. Therefore only the two switch scales contribute to the maximum.
+## correctness
 
-`verify.py` reconstructs the octagonal norm, checks the equality pair and sampled support families against the denominator profile, verifies the switch scales, and compares the closed formula with a dense one-variable scan for representative exponents. These computations are supplementary only.
+PASS
 
-No independent audit or independent validation has been performed.
+For octagonal norm N(s,t)=max{|s|,|t|,(|s|+|t|)/sqrt2}, Birkhoff orthogonality has a witnessing supporting functional. Under dihedral symmetry the witness lies between vertical and northeast-diagonal supporting functionals. Boundary witnesses x=(s,1), |s|≤a=√2−1, force horizontal y=±(1,0) and yield d(λ)≥max{1,a+λ/√2,λ−a}, with equality simultaneously for x=(-a,1), y=(1,0). Interior witnesses force x=(a,1), kernel y=(u,-v), u≥v≥0, with u≥1/√2; orthogonality, coordinate, and norming functional of y yield the same three bounds. Hence the continuum identity d8(λ)=max{1,a+λ/√2,λ−a}. Split at 2a and 2√2: on first interval numerator rises; middle derivative has sign (2−√2)λ^(p−1)−1, allowing no interior maximum; last interval derivative negative. Thus μp is max of the two claimed endpoint expressions for all real p≥1, including p=1 and p→∞ limits. Separately computed selected exact λ points and inspected bundled verifier as finite corroboration only.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution survives statement-level comparison with current published findings and the accessible primary literature: Neither the μ1 endpoint nor unrelated G_L and von Neumann–Jordan invariants establish the continuum denominator profile or its two λ switch points.
+
+## value
+
+PASS
+
+The full generalized rectangular profile of a canonical polygonal Banach plane, plus stronger all-λ orthogonal denominator envelope, is a natural sharp boundary calculation. It extends beyond its previously known ordinary rectangular endpoint, identifies two competing scales and provides a reusable exact orthogonality envelope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
