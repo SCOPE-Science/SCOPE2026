@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proved analytically for arbitrary finite part sizes. The key reduced inequalities were re-derived directly from the definition: for a zero vertex in part \(V_i\), cancellation of one unit for each active neighbor gives \(E-E_i\ge3\); for a positive vertex of label below \(3\), it gives \(f(v)+E-E_i\ge3\). These reductions are the only nonstandard algebraic step in the lower bound.
+# Independent mathematical audit
 
-The cited premises from the initiating paper were checked in accessible full text: the invariant definition, the general lower bound \(\gamma_t(G)+3\le\gamma_{[t3R]}(G)\), the characterization of value \(5\) by a universal vertex, and the nonexistence of value \(6\). The peer-reviewed article and the earlier public preprint agree on these points.
+## correctness
 
-The bundled `verify_t3r.py` independently implements the definition. It exhaustively computes the minimum over all \(5^N\) labelings for each nondecreasing complete-multipartite profile with all parts at least two and \(4\le N\le8\), and checks the two general constructions on additional profiles. Passing these checks is supporting evidence only; the finite enumeration is not used to infer the infinite theorem.
+PASS
 
-Unproved limits: no claim is made about optimizer counts, part-size-one cases beyond the cited universal-vertex result, disconnected graphs, or other Roman-domination variants.
+For s=min_i n_i=2, choose one 2-part with 3,2 and one vertex in another part with 2, giving feasible weight 7; published Propositions 11/12 exclude minima 5 and 6 and standard total lower bound excludes smaller. For s>=3, a 4-4 pair across distinct parts gives 8. Put q=#positive, E=sum_P(f-1), E_i in part i. For every zero in part i, cancellation converts required f(N[v])>=|AN(v)|+3 to E-E_i>=3; for supported f(x)<3, f(x)+E-E_i>=3. A fully positive part forces weight>=8 after the case split; otherwise for two supported parts E_i,E_j>=3 gives q+E>=8, and for at least three parts sum of three zero inequalities gives E>=5 and q>=3. Independently exhaustive definition-level search of bounded labelings confirmed minima 7 for (2,2),(2,3),(2,2,2),(2,3,3) and 8 for (3,3),(3,3,3); 10,988 candidate labelings through first solution in (3,3,3). The proof is universal, not finite extrapolation.
+
+## originality
+
+PASS
+
+Structured searches compared exact claims and implications; see named checks and inspection evidence. Best-of-knowledge only; residual literature-priority risks remain.
+
+## value
+
+PASS
+
+Complete connected multipartite family (without singleton parts) has an exact sharp one-unit structural threshold at smallest part size 2, refining initiating total-triple Roman invariants. It is a natural infinite graph class and motivated domination invariant; the excess argument and boundary distinction are not just a reparametrized known total Roman formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
