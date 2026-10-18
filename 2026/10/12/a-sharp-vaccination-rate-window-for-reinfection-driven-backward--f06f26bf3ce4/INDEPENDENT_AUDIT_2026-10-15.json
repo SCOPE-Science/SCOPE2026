@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T09:20:56.728286Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source threshold beta2* is exactly B0[1−(1−sigma)x/(1+x)^2], x=alpha*sigma/mu, B0>0, 0<sigma<1. Differentiation yields ((1−sigma)(x−1))/(1+x)^3 with unique minimum B0(3+sigma)/4 at x=1, limits B0 as x→0+,∞. Solving (1−r)(1+x)^2=(1−sigma)x produces two positive reciprocal quadratic roots iff (3+sigma)/4<r<1; the inequality beta2>beta2* holds precisely between the roots. At r≤ minimum no strict backward inequality; r≥1 holds for every finite x>0. Independently checked derivative/quadratic rational identities. The original theorem concerns local bifurcation *at R0=1* while varying alpha with appropriate critical transmission parameter; no fixed-transmission global prevalence conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published SCOPE finding uses same beta2* as global exclusion criterion when R0≤1, rather than classifying beta2* as alpha varies.",
+          "Song treats reinfection thresholds generally in different systems."
+        ],
+        "reasoning": "Neither a general reinfection criterion nor global equilibrium exclusion yields the unique vaccination-rate minimizer and explicit reciprocal window without additional alpha analysis.",
+        "searches": [
+          "Resultary SCOPE reinfection threshold globally excludes subcritical endemic equilibria",
+          "Song 2021 basic reinfection number backward bifurcation",
+          "2026 Khan Wang Liu Xiong SEIRV"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1080/17513758.2026.2713881",
+        "https://doi.org/10.3934/mbe.2021400",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-reinfection-threshold-globally-excludes-subcritical-endemic--0527ee88c063",
+        "RESULT.md and verify.py record #2 snapshot"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A derivative and quadratic inversion of the printed source formula produce the complete result.",
+          "Source has monotonic R0(alpha), a different derivative statement."
+        ],
+        "reasoning": "This is indeed an elementary corollary of a stronger source formula, an originality risk under the corollary standard. However, the published source does not articulate the classification; the mathematical contribution is the fully stated exact parameter-window theorem. Its value is contextual and narrow, not a general bifurcation result.",
+        "searches": [
+          "doi:10.1080/17513758.2026.2713881 Appendix B",
+          "Resultary SCOPE-the-reinfection-threshold-globally-excludes-subcritical-endemic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source Appendix B threshold beta2*=B0*(mu²+alpha²sigma²+alpha*mu*sigma*(1+sigma))/(mu+alpha*sigma)^2.",
+          "Normalizing gives 1−(1−sigma)x/(1+x)^2, symmetric under x↔1/x."
+        ],
+        "reasoning": "A reformulation of the source local bifurcation threshold, not a claim that beta2* itself is new; the sharp rate interval and minimization are mathematically specific additions.",
+        "searches": [
+          "doi:10.1080/17513758.2026.2713881",
+          "SEIRV reinfection backward bifurcation vaccination rate exact threshold alpha unique minimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original paper contains threshold formula but not the exact alpha double-endpoint classification in its inspected argument."
+        ],
+        "reasoning": "No checked table reported the exact x−x+=1 law; a search miss cannot establish novelty.",
+        "searches": [
+          "SEIRV vaccination bifurcation alpha rate threshold plotted table minimum reciprocal endpoints",
+          "Resultary SEIRV reinfection backward bifurcation vaccination rate"
+        ]
+      },
+      "rationale": "The original 2026 Khan–Wang–Liu–Xiong paper gives the beta2*(alpha) formula and backward-versus-forward criterion; the new contribution is its exact nonmonotone vaccination-rate geometry, universal minimum, bounded double-endpoint window and reciprocal α−α+ law. The closest published Resultary record from the same model proves a global nonexistence bound beta2≤beta2*, not the alpha-window classification. Algebra is elementary but the competing dependence on alpha is not supplied as a conclusion in inspected primary source; confidence is limited to best-of-knowledge and source interpretation.",
+      "residual_risks": [
+        "Since the entire result is an elementary analytic corollary of the printed beta2* formula, close attention to the prior-results implication standard is important.",
+        "Bifurcation direction is a local criterion along R0=1; it does not predict realized endemic cases at a fixed transmission parameter."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_THRESHOLD_PRESENT_NEW_ALPHA_CLASSIFICATION_NOT_FOUND",
+          "evidence": [
+            "Theorem 5.2 uses beta2>beta2* for backward branch.",
+            "Source beta2* numerator mu²+alpha² sigma²+alpha mu sigma(1+sigma), denominator (mu+alpha sigma)² times positive B0."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/17513758.2026.2713881",
+          "material_read": "Inspected source main theorem on direction at R0=1 and Appendix B notation P,Q,beta1*,xi plus published closed beta2* expression; compared vaccination alpha dependence",
+          "method": "primary full-text HTML/available publisher content and algebraic substitution",
+          "title": "Dynamics of an SEIRV endemic model: effects of reinfection",
+          "trigger": "Exactly identical model and formula"
+        },
+        {
+          "assessment": "DIFFERENT_IMPLICATION_REVIEW_LIMITED",
+          "evidence": [
+            "Describes global absence of subcritical endemic equilibria for beta2≤beta2*."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-reinfection-threshold-globally-excludes-subcritical-endemic--0527ee88c063",
+          "material_read": "Published Resultary entry full title/summary and implications of beta2* at R0≤1",
+          "method": "Resultary primary-index summary, not whole document",
+          "title": "The reinfection threshold globally excludes subcritical endemic equilibria",
+          "trigger": "Same model earlier published SCOPE"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A closed-form sharp vaccination-rate window identifies a nontrivial counterintuitive consequence of the model: the strength of reinfection needed for backward bifurcation first decreases then increases even as R0 monotonically improves. Critical rates, symmetry of endpoints and explicit limits permit parameter analysis of a natural bifurcation quantity; value rests on interpreting and classifying a meaningful model threshold rather than claiming algebra alone as new epidemiology.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1080/17513758.2026.2713881",
+    "https://doi.org/10.3934/mbe.2021400",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-reinfection-threshold-globally-excludes-subcritical-endemic--0527ee88c063",
+    "RESULT.md and verify.py record #2 snapshot"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Since the entire result is an elementary analytic corollary of the printed beta2* formula, close attention to the prior-results implication standard is important.",
+    "Bifurcation direction is a local criterion along R0=1; it does not predict realized endemic cases at a fixed transmission parameter."
+  ],
+  "schema_version": 1
+}

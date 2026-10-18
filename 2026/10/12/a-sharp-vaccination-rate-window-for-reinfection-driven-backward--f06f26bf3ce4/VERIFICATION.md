@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-These checks verify the stated vaccination-rate classification of the reinfection-driven backward-bifurcation threshold.
+# Independent mathematical audit
 
-The claim is proved algebraically from the published reinfection-threshold formula. The essential checks are:
+## correctness
 
-1. Substituting \(x=\alpha\sigma/\mu\) transforms the source ratio into \(1-(1-\sigma)x/(1+x)^2\).
-2. Differentiation gives \((1-\sigma)(x-1)/(1+x)^3\), so for \(0<\sigma<1\) there is exactly one interior minimizer, \(x=1\).
-3. The fixed-reinfection boundary \(r=f(x)\) reduces to \(qx^2+(2q-c)x+q=0\), with discriminant \(c(c-4q)\) and root product one.
-4. The strict sign of \(r-f(x)\) follows from the unique minimum and the two limits \(f(x)\to1\).
+PASS
 
-`verify.py` uses exact rational arithmetic to replay the normalization and a nontrivial example \(\sigma=1/2\), \(r=8/9\), where the two boundary roots are \(1/2\) and \(2\). It prints `VERIFY_OK` only if all exact checks pass. This finite replay is a consistency check, not evidence for the general quantifiers.
+The source threshold beta2* is exactly B0[1−(1−sigma)x/(1+x)^2], x=alpha*sigma/mu, B0>0, 0<sigma<1. Differentiation yields ((1−sigma)(x−1))/(1+x)^3 with unique minimum B0(3+sigma)/4 at x=1, limits B0 as x→0+,∞. Solving (1−r)(1+x)^2=(1−sigma)x produces two positive reciprocal quadratic roots iff (3+sigma)/4<r<1; the inequality beta2>beta2* holds precisely between the roots. At r≤ minimum no strict backward inequality; r≥1 holds for every finite x>0. Independently checked derivative/quadratic rational identities. The original theorem concerns local bifurcation *at R0=1* while varying alpha with appropriate critical transmission parameter; no fixed-transmission global prevalence conclusion.
 
-The verification does not test global dynamics, compute \(R_0^C\), or establish any claim outside the stated local bifurcation threshold.
+## originality
+
+PASS
+
+The original 2026 Khan–Wang–Liu–Xiong paper gives the beta2*(alpha) formula and backward-versus-forward criterion; the new contribution is its exact nonmonotone vaccination-rate geometry, universal minimum, bounded double-endpoint window and reciprocal α−α+ law. The closest published Resultary record from the same model proves a global nonexistence bound beta2≤beta2*, not the alpha-window classification. Algebra is elementary but the competing dependence on alpha is not supplied as a conclusion in inspected primary source; confidence is limited to best-of-knowledge and source interpretation.
+
+## value
+
+PASS
+
+A closed-form sharp vaccination-rate window identifies a nontrivial counterintuitive consequence of the model: the strength of reinfection needed for backward bifurcation first decreases then increases even as R0 monotonically improves. Critical rates, symmetry of endpoints and explicit limits permit parameter analysis of a natural bifurcation quantity; value rests on interpreting and classifying a meaningful model threshold rather than claiming algebra alone as new epidemiology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
