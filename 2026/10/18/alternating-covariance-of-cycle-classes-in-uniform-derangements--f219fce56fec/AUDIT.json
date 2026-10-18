@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Counting marked cycles gives the exact two factorial moments under a uniform derangement. The alternating-series lemma is proved for all integer shifts, with careful handling of the zero a_1; it yields strict sign for every n>=r+s. Alternating Taylor estimates give the factorial leading constant e. Independent exact enumeration through n=8 and 27,237 assertions in verify.py corroborate the finite identities but are not used as an infinite proof. Cases r+s>n, n=r, n-1 boundaries are separately specified.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "da Silva–Jamshidpey–Tavaré (2020), equation (6), covers factorial moments for all Ewens parameters, a broader setting than uniform derangements.",
+        "Tavaré (2021) §4.4.1 describes asymptotic independent Poisson cycle counts under the unconditioned Ewens law."
+      ],
+      "reasoning": "Broad prior moment and conditional-distribution formulas are explicitly acknowledged and not re-claimed. They do not state a strict finite-size alternating sign or its asymptotic nonzero coefficient; the key result is the proof of that uniform inequality, rather than a restatement of a parameter slice.",
+      "searches": [
+        "Random derangements and the Ewens Sampling Formula arxiv 2006.04840 factorial moments cycle counts",
+        "Ewens distribution 0<theta<1 positive covariance cycles of different sizes",
+        "cycle counts random derangements covariance sign alternating n"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2006.04840 (2020), equations (6)-(7), sections 2 and appendix",
+      "https://doi.org/10.1112/blms.12537 (2021), sections 2.1 and 4.2-4.4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eq. (6) at arXiv:2006.04840v1 provides E(C_r C_s), and Eq. (7) gives E C_r; specialization produces the displayed covariance determinant immediately.",
+        "The new inequality controls the sign of that determinant for every shift; its full shifted form and exact factorial leading coefficient are proved separately.",
+        "The 2021 survey explains the Ewens conditioning relation and limit laws but no finite parity-alternating covariance theorem was located."
+      ],
+      "reasoning": "The exact covariance expression is algebraically implied by prior published moments, so it is intentionally not counted as original. What is not a quoted assertion of those sources is strict alternating sign for all integer shifts and a nonzero sharp factorial coefficient. This is a modest analytic refinement with an explicit dominance proof, not a claim of a new Ewens moment identity.",
+      "searches": [
+        "arxiv:2006.04840v1 equation (6) conditional Ewens factorial moments",
+        "doi:10.1112/blms.12537 sections 2.1, 4.3, 4.4.1",
+        "derangements covariance numbers of cycles length r s sign parity factorial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The covariance sign is equivalent to (-1)^m(a_m a_{m+r+s}-a_{m+r}a_{m+s})>0 for all m>=0 and distinct r,s>=2.",
+        "No matching general alternating determinant theorem was identified in the inspected searches; the closest primary equation is arXiv:2006.04840v1, (6)."
+      ],
+      "reasoning": "Searched both cycle-count language and the alternating-Turán determinant reformulation. Known factorial moments compute its value; a separate strict inequality for all shifts is required to decide its sign.",
+      "searches": [
+        "uniform random derangements counts of two different cycle lengths covariance alternates sign with residual parity n-r-s factorial scale",
+        "random derangement pairwise cycles covariance positive negative parity n minus sum sizes",
+        "partial sums e^-1 alternating Turan determinant sign derangement probabilities"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2020 paper lists derangement cycle factorial moments and univariate distributions, not a table classifying signs for all two-length pairs.",
+        "Indexed published nearest items concern different statistics such as cycle/inversion covariance, fixed-point/descent covariance, and restricted permutation enumerations."
+      ],
+      "reasoning": "The existing exact moment expressions determine numerical examples, but no matching all-shifts sign table or classification was identified. This is evidence of a residual gap, not proof of global uniqueness.",
+      "searches": [
+        "derangements cycle count covariance sign alternating factorial decay",
+        "derangement probabilities alternating log convex log concave D_n/n! determinant",
+        "uniform random derangements counts of two different cycle lengths covariance alternates sign with residual parity n-r-s factorial scale"
+      ]
+    },
+    "rationale": "The 2020 derangement paper already contains general factorial moments; those exact moment formulas are not new. The distinct claim is the strict sign pattern of the two-length covariance for every admissible finite size, including a universal alternating-sign determinant inequality and the sharp first nonzero factorial term. Inspected relevant primary sections and targeted literature/index searches have not found this strict sign-and-rate theorem. Although an older implicit proof remains possible, the explicit joint moment formula alone is not a strict-sign classification without the alternating-determinant argument.",
+    "residual_risks": [
+      "2020 factorial-moment identity explicitly covers the exact covariance values; the originality claim is only the previously unidentified strict global sign classification and sharp coefficient.",
+      "Another source might already establish the same alternating determinant inequality under an analytic-sequence name.",
+      "A broad all-purpose formula can make the present sign rule a derived corollary; independent priority review remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly establishes first and mixed moments; no identified theorem resolving their strict alternating covariance signs or the factorial coefficient",
+        "evidence": [
+          "Eq. (6) gives conditional factorial moments for arbitrary cycle-size selections",
+          "Eq. (7) gives individual expectations",
+          "Section 2.4 states asymptotic independent-Poisson limit"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2006.04840",
+        "material_read": "PDF Sections 1, 2.1–2.4, 4.3 and Appendix, including equations (3)–(12) and appendix inequalities; text searched for covariance",
+        "method": "Accessible arXiv full-text search and close reading of mathematical formulas, theorem statements and relevant appendix",
+        "title": "Random derangements and the Ewens Sampling Formula",
+        "trigger": "Exact same distribution, all-size cycle-count factorial moments"
+      },
+      {
+        "assessment": "Gives joint Ewens law, conditioning and Poisson limit but no fixed-point-free two-length sign alternation identified",
+        "evidence": [
+          "Ewens formula (1) and conditioning relation (11)",
+          "Section 4.4.1 on asymptotic independent-Poisson cycle counts"
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/blms.12537",
+        "material_read": "Accessible full-text HTML Sections 2.1–2.3 and 4.1–4.4, with focus on conditioning relation and cycle counts",
+        "method": "Read relevant section text and formulas in accessible published full-text HTML; searched page for covariance",
+        "title": "The magical Ewens sampling formula",
+        "trigger": "Authoritative broader overview of Ewens cycle-count conditioning and limit theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f219fce5-6fec-40f3-9b1f-fca609f2e085",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two cycle-size counts are uncorrelated in unconditioned uniform permutations when they can coexist, but fixed-point exclusion induces covariance with an exact parity flip at every increment of the residual sample size. The theorem resolves a natural finite-sample dependence question uniformly over all two cycle lengths and quantifies its sharp factorial disappearance. This is more than a single finite table entry or numerical correction.",
+    "status": "PASS"
+  }
+}
