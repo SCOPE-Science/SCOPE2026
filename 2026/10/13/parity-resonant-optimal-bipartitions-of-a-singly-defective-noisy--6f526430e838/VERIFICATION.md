@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and NumPy. The program constructs the noisy states by applying the local channel separately to the four input matrix-unit tensors and diagonalizes the partially transposed matrices directly, independently of the paper's cut-spectrum argument. It checks 20 small channel systems and 228 bipartitions, the limiting formula along 12 critical-window sequences, and four exact resonance cases with perturbations on each side.
+## correctness
 
-Expected output on successful completion: `VERIFY_OK channel_states=20 partial_transposes=228 critical_parities=2 critical_sequences=12 resonance_cases=4`.
+PASS
 
-The tests do not establish all-dimensional claims. The proof of the exact formula is algebraic, the lattice-optimality proof is deterministic, the asymptotic limit uses a differentiable scalar expansion, and the full-separability characterization imports the explicitly cited Dür--Cirac theorem for a canonical GHZ-diagonal subfamily. Neither originality nor an independent audit is established by the verifier.
+Exact channel action gives diagonal GHZ paired probabilities and sole corner coherence s^(n-1)d/2. Each partial transpose moves coherence into exactly one 2x2 block with paired diagonal P cosh(((n-1-2k)L(s)-L(d))/2). Thus negativity is P/2 positive part of [exp((n-1)g(s)+g(d)) - 2 cosh(delta/2)], and optimizing every oriented cut is nearest parity-lattice discrepancy; signs and tie conditions checked. Dür–Cirac Proposition C(ii) justifies all-PPT iff full separability for this canonical GHZ-diagonal family. g(s*)=0, g′(s*)=5sqrt5/4 for s*=1/sqrt5; bounded parity nearest-site corrections justify 1/n scaling and strict phase claims (not equality). Actual Git RESULT.md and verify.py paths identified; independently constructed n=2..6 density matrices checked all cuts (45 checks).
+
+## originality
+
+PASS
+
+The general GHZ-diagonal PPT and full-separability criterion and homogeneous depolarization threshold 1/sqrt5 are known. The accepted remaining claim is exact defect-specific all-cut optimizer, parity resonance switch surfaces and critical finite-size scaling. No matching published explicit defect-strength staircase was located; the broad GHZ-diagonal framework may allow a relatively direct specialization, so originality remains best-of-knowledge rather than priority certification.
+
+## value
+
+PASS
+
+A single exceptional noisy qubit is natural imperfect-channel heterogeneity. Identifying all maximizing bipartitions, exact tie multiplicities and parity-dependent finite-size threshold supplies useful behavior not resolved by homogeneous-noise calculations; it is not merely asserting the already-known bulk 1/sqrt5.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
