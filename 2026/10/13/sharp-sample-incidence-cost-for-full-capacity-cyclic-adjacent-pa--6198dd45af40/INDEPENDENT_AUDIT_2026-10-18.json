@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T01:50:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=2,n=2^m-1, m binary tests must map the n adjacent-pair defect sets bijectively to all nonzero m-bit masks (zero reserved for empty). Thus each bit is 1 in 2^(m-1) edge outcomes. Each selected vertex hits at most two cyclic edges, forcing pool cardinality >=2^(m-2). Equality forces no two selected vertices adjacent and all m pools have that cardinality. Explicit item masks a_i=i at even indices; 1 for i==1 mod4; 0 for i==3 mod4, yield edge OR labels 1..n exactly, independent pools of size 2^(m-2), so Wmin=m*2^(m-2). Independent integer reimplementation verified m=2..12, but universal proof is symbolic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bousquet/2023 coloring theory allows uniqueness of nonzero vertex labels at minimum number of palette colors, but does not optimize total edge-subset sizes.",
+          "2CPD and constant-weight pooling impose stronger distinctions or fixed item weights; the optimal current construction has zero/repeated item masks."
+        ],
+        "reasoning": "Stronger admissibility or broad palette formulas are not enough to imply a cost optimum for a larger variable-weight feasible class; no direct domination by the inspected prior statements.",
+        "searches": [
+          "Bousquet et al arXiv:1605.02588 published color upper and lower bounds for cycles",
+          "Kittipassorn and Sanyatit arXiv:2303.02757 Theorem 1 union vertex-distinguishing edge chromatic index",
+          "He et al Bioinformatics 2025 balanced constant-weight Gray codes for consecutive positives",
+          "Müller-Jimbo 2004 Consecutive Positive Detectable matrices"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 9eeda27dce5ff82eaf86fe0ffd477057fd898ac2 and verify.py ef712d3dd0e2e6322a3829a8f642de2a5688c3af",
+        "Bousquet et al arXiv:1605.02588 abstract (2016)",
+        "Kittipassorn and Sanyatit arXiv:2303.02757 primary HTML (2023)",
+        "Thao and Vu DOI:10.1109/ISIT62367.2026.11653620 abstract",
+        "Müller–Jimbo DOI:10.1016/S0012-365X(03)00282-6 abstract/overview",
+        "Resultary 2026-10-18 targeted query top 12 unrelated matches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A minimal-palette cycle labeling does not itself bound the total number of incidences in an optimal labeling.",
+          "The item-level uniqueness conditions of 2CPD and constant-weight Gray codes exclude the exhibited repeated/zero masks, so their constructions do not directly achieve this resource optimum."
+        ],
+        "reasoning": "Our incidence bound exploits exactly 2^m-1 distinct nonzero edge outcome masks and degree-two coverage. That extra argument and balanced construction are not stated in the inspected published abstracts/theorems. Hidden implication in inaccessible texts is retained as risk.",
+        "searches": [
+          "arXiv:1605.02588 primary abstract and 2023 follow-up full theorem",
+          "doi:10.1109/ISIT62367.2026.11653620 2026 conference abstract",
+          "DOI:10.1016/S0012-365X(03)00282-6 consecutive positive matrices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bousquet et al., abstract defines unions of incident-edge color subsets as vertex labels and minimizes colors.",
+          "Kittipassorn–Sanyatit 2023 states a palette-size theorem, not incidence cost; same OR operation under graph-dual labeling.",
+          "Resultary hit list returned unrelated sparse cyclic permutation/cover-free and matrix records, not matching this exact cost."
+        ],
+        "reasoning": "Exact OR-label equivalence was checked at model level, rather than dismissed for different terminology. Different objective W=total membership and allowance of zero item masks distinguishes the current result from the inspected palette theorems; unseen primary full text may contain a specialized bound.",
+        "searches": [
+          "Resultary semantic query: Optimize minimum sum of binary matrix entries for nonadaptive cyclic consecutive-positive pair detection with 2^m-1 edges and m OR tests",
+          "arXiv:1605.02588 union vertex distinguishing edge coloring cycles",
+          "arXiv:2303.02757 strong royal coloring vertex labeling",
+          "search group testing consecutive positives minimum incidence pool size"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top matches did not report exact sum-incidence optimum.",
+          "ISIT 2026 low-weight Gray-code abstract is directly relevant but does not state this precise model/value in accessible abstract."
+        ],
+        "reasoning": "No standard table or database seems directly applicable: optimizing a sum over variable-weight incidence masks is not the same as cataloguing minimal test count. No absence claim about the uninspected conference paper.",
+        "searches": [
+          "Resultary semantic search on cyclic consecutive pair incidence W=m 2^(m-2), 2026-10-18",
+          "published 2023 union vertex-distinguishing coloring cycle bounds",
+          "Thao and Vu ISIT 2026 Low-Weight Gray Codes for Limited Resources Group Testing of Consecutive Positives abstract"
+        ]
+      },
+      "rationale": "The incidence lower bound and equality structure address sum of label-cardinalities beyond optimal number of colors/pools. Under cycle edge/vertex duality, union vertex-distinguishing edge coloring matches OR decoding; Bousquet et al and Kittipassorn–Sanyatit optimize palette size, not total edge-subset cardinality, and typically require nonempty edge subsets. Constant-weight consecutive-positive matrices demand stronger item-label assumptions. The related 2026 low-weight Gray-code conference paper could overlap and was not read in full.",
+      "residual_risks": [
+        "Bousquet original complete primary manuscript inaccessible through arXiv/HAL this run; institutional attempt returned vpn_disconnected, not evidence of absence.",
+        "Thao and Vu 2026 low-weight conference full text unavailable; could contain exactly this cost as an unstated special case.",
+        "Strict defective-state restriction (empty or exactly one cyclic edge); item masks may be zero/repeated; no other models covered.",
+        "Original source metadata has private scope_run_id; no publication-safe edits prepared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Palette size, not sum-of-incidences, explicit in accessible statements; no full-document NOT_COVERING claim.",
+          "evidence": [
+            "Bousquet abstract: minimum number of colors for unique vertex unions, exact cycle palette value; Kittipassorn–Sanyatit 2023 Theorem 1 bounds chromatic index."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.02588",
+          "material_read": "Read full arXiv abstract, 2023 successor primary full HTML introduction and Theorem 1; original full PDF attempted via arXiv and lawful HAL, both unavailable in this run; institutional retrieval reported disconnected VPN.",
+          "method": "Original primary abstract and full-text of subsequent related 2023 primary article; full 2016/17 text NOT read.",
+          "title": "A Vizing-like theorem for union vertex-distinguishing edge coloring",
+          "trigger": "Same cycle OR-label mechanism under edge–item duality"
+        },
+        {
+          "assessment": "Strong global theorem controls number of colors, not membership-weight objective.",
+          "evidence": [
+            "Theorem 1 χ′_cup(G) ∈ {ceil(log2(n+1)), ceil(log2(n+1))+1}."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2303.02757v1",
+          "material_read": "Read introduction and Theorem 1 in lawful full HTML primary source.",
+          "method": "Primary HTML full-text section inspection.",
+          "title": "Union vertex-distinguishing edge colorings",
+          "trigger": "Strong known graph palette generalization"
+        },
+        {
+          "assessment": "No decisive exclusion of cost-minimizing construction in unread full text; serious residual originality risk.",
+          "evidence": [
+            "Abstract describes low-weight Gray codes for resource-limited consecutive-positive testing."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/ISIT62367.2026.11653620",
+          "material_read": "Conference abstract and bibliographic metadata only; original complete manuscript not obtained.",
+          "method": "Index and conference abstract search.",
+          "title": "Low-Weight Gray Codes for Limited Resources Group Testing of Consecutive Positives",
+          "trigger": "Most plausible nearby low-weight incidence paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At full information-theoretic test capacity, total item-to-pool incidences is a natural resource burden (sample uses, assay load) independent of the number of tests. Exact minimum, per-pool perfect balance, equality characterization and a construction at every capacity give a reusable extremal design benchmark, despite excluding singleton/noisy decoding.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 9eeda27dce5ff82eaf86fe0ffd477057fd898ac2 and verify.py ef712d3dd0e2e6322a3829a8f642de2a5688c3af",
+    "Bousquet et al arXiv:1605.02588 abstract (2016)",
+    "Kittipassorn and Sanyatit arXiv:2303.02757 primary HTML (2023)",
+    "Thao and Vu DOI:10.1109/ISIT62367.2026.11653620 abstract",
+    "Müller–Jimbo DOI:10.1016/S0012-365X(03)00282-6 abstract/overview",
+    "Resultary 2026-10-18 targeted query top 12 unrelated matches"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Bousquet original complete primary manuscript inaccessible through arXiv/HAL this run; institutional attempt returned vpn_disconnected, not evidence of absence.",
+    "Thao and Vu 2026 low-weight conference full text unavailable; could contain exactly this cost as an unstated special case.",
+    "Strict defective-state restriction (empty or exactly one cyclic edge); item masks may be zero/repeated; no other models covered.",
+    "Original source metadata has private scope_run_id; no publication-safe edits prepared."
+  ],
+  "schema_version": 1
+}

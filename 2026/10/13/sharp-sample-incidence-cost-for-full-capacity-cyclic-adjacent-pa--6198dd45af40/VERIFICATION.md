@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-Execute `python verify.py` in an environment with Python 3.8+ and no third-party dependencies. It enumerates the explicit \(m\)-bit item masks, computes every cyclic adjacent-pair Boolean OR, compares their multiset against the complete nonzero output set, and checks the fixed pool cardinality, absence of adjacent pooled items, and exact total incidence for every \(2\le m\le13\). The expected last line is `VERIFY_OK`.
+## correctness
 
-For a symbolic reconstruction, count the \(2^{m-1}\) output vectors carrying each fixed bit; each selected vertex is incident to exactly two tested edges, forcing \(|P_j|\ge2^{m-2}\). Equality requires that a pool contain no neighboring vertices. Inspect the four-step OR sequence from the explicit masks and the final wraparound edge to verify all outputs are unique and nonzero. Count the low bit's indices modulo four and higher bits' even indices to see every pool attain the lower bound.
+PASS
 
-The finite verifier is a reproducibility check for the explicit formulas, not exhaustive enumeration of arbitrary matrices and not a proof of the all-parameter theorem. The written covering lower bound and constructive identity provide that proof. No independent audit has been performed.
+For m>=2,n=2^m-1, m binary tests must map the n adjacent-pair defect sets bijectively to all nonzero m-bit masks (zero reserved for empty). Thus each bit is 1 in 2^(m-1) edge outcomes. Each selected vertex hits at most two cyclic edges, forcing pool cardinality >=2^(m-2). Equality forces no two selected vertices adjacent and all m pools have that cardinality. Explicit item masks a_i=i at even indices; 1 for i==1 mod4; 0 for i==3 mod4, yield edge OR labels 1..n exactly, independent pools of size 2^(m-2), so Wmin=m*2^(m-2). Independent integer reimplementation verified m=2..12, but universal proof is symbolic.
+
+## originality
+
+PASS
+
+The incidence lower bound and equality structure address sum of label-cardinalities beyond optimal number of colors/pools. Under cycle edge/vertex duality, union vertex-distinguishing edge coloring matches OR decoding; Bousquet et al and Kittipassorn–Sanyatit optimize palette size, not total edge-subset cardinality, and typically require nonempty edge subsets. Constant-weight consecutive-positive matrices demand stronger item-label assumptions. The related 2026 low-weight Gray-code conference paper could overlap and was not read in full.
+
+## value
+
+PASS
+
+At full information-theoretic test capacity, total item-to-pool incidences is a natural resource burden (sample uses, assay load) independent of the number of tests. Exact minimum, per-pool perfect balance, equality characterization and a construction at every capacity give a reusable extremal design benchmark, despite excluding singleton/noisy decoding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
