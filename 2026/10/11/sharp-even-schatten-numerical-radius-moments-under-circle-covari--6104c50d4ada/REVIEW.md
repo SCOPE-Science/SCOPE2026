@@ -1,14 +1,21 @@
-# Scientific review: sharp even Schatten numerical-radius moments under circle covariance
+# Independent mathematical audit
 
-## Correctness — PASS
-For the exact domain of circle-covariant Schatten-class operators and integer moment order, the proof expands the trace-class product \((R^*R)^m\), annihilates unbalanced words by unitary trace invariance, and bounds each balanced word by noncommutative Schatten Hölder. The total nonnegative weight of these words is the displayed binomial-square constant. Positivity of the coefficient of \(\operatorname{Tr}((T^*T)^{m-1}TT^*)\), strict Hölder equality, and the impossibility of nonzero compact normal circle-covariant operators yield the equality classification. Long nilpotent shifts establish optimality via interior-vs-boundary trace counting. The separate fourth-order calculation yields the claimed exact self-commutator deficit. The embedded exact-rational checks were executed successfully; the infinite-dimensional conclusion rests on the analytic proof, not finite enumeration.
+## correctness
 
-## Originality — PASS, subject to the stated priority risk
-Kittaneh–Sahoo–Stanković, arXiv:2503.24015, Section 4 (first posted 2025-03-31), gives general Schatten numerical-radius inequalities, but the inspected results do not establish the exact binomial-square coefficient for circle-covariant operators at every even order or the strict Schatten equality classification. Zamani, arXiv:2111.14222, studies weighted Hilbert–Schmidt radius and therefore covers the lowest-order setting, not the higher even moments. Pal–Chandok, arXiv:2610.11336, studies general bounds through generalized Aluthge transforms rather than the present exact symmetry-dependent result. A related quartic trace identity for commuting tuples concerns a different commutator functional. An existing exact fourth-order *scalar finite-shift* optimization covers a specialized lower-dimensional class; it neither implies the full all-even hierarchy for arbitrary graded block shifts nor addresses the nonattainment/compact-normality mechanism.
+PASS
 
-Mathematical-record queries included phrases about central binomial coefficients, graded Schatten moment inequalities, weighted numerical radii, and quartic commutator defects. None of the located results is known to dominate the present statement, but negative searches cannot establish historical uniqueness. Residual risk: an older noncommutative trace-moment theorem may yield an equivalent formulation, and one 2022 generalized-numerical-radius text could not be fully inspected.
+Circle covariance kills every nonbalanced trace word in (R*R)^m by invariance, and Schatten Hölder bounds each remaining balanced trace by ||T||_{2m}^{2m}. Direct binomial counting yields C_m(t). For m>=2, one weighted balanced term Tr((T*T)^(m-1)TT*) is strictly below its Hölder upper bound unless T is normal; a nonzero compact normal circle-covariant operator cannot exist because its nonzero eigenvalue would have an uncountable rotational spectrum. Long nilpotent shifts have all interior diagonal trace coefficients equal to C_m and O(m) endpoint correction, proving uniform sharpness without attainment. At m=2 expansion gives exact 2t²(1-t)²||T*T-TT*||_2². Independently checked finite shift moments (N=3,5,11,41, m=1..4) and quartic identity; no claim this finite test proves infinite Hilbert-space case.
 
-## Value — PASS
-This is a closed-form **uniformly sharp inequality for every even Schatten moment**, not a numerical sample, an arbitrary finite slice, or a restatement of a p-fourth scalar-shift calculation. Circle covariance is a natural structural hypothesis shared by nilpotent shifts and graded multi-level block operators. The result determines all parameters, gives the exact sharp constant, distinguishes asymptotic sharpness from actual compact attainment, and identifies the complete fourth-order deviation from optimality by a self-commutator energy. Higher-order noncommutator formulas and non-even exponents are explicitly outside the claim.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full Kittaneh–Sahoo–Stanković 2025 paper establishes general Schatten numerical-radius estimates, and Zamani handles exponent two; neither reviewed result supplies C_m(t) for all circle-covariant compact operators, strict nonattainment and quartic commutator identity. The entire published Resultary sharp m=2 finite one-step weighted-shift result was read: it covers the specialized scalar shift quartic formula, finite-dimensional sine extremizers and an infinite-shift limit, but not arbitrary multi-level graded operators or every even Schatten exponent. A later Pal–Chandok work has only abstract-level accessible comparison, so full-text priority remains a named risk. Best-of-knowledge PASS on broader all-even graded theorem, with known m=2 shift subclaims excluded from novelty.
+
+## value
+
+PASS
+
+The circle grading is natural for nilpotent and multi-level weighted shifts; an all-even sharp operator-ideal norm inequality, precise asymptotic unattainment, and exact fourth-order defect have direct mathematical significance beyond standard nonsharp weighted-radius estimates and isolated finite-matrix experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
