@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every burning sequence on a star is exhausted by two structural cases. A centre-first sequence finishes at the next spread with natural colour-class sizes \(p+1\) and \(q\). A leaf-first sequence forces the centre at the next spread; all remaining leaves then have only the centre as a burned neighbour, while exactly one second ignition may override one leaf's natural colour. This proves the upper bound and simultaneously gives constructions attaining \(p+2\) or \(q+1\) when both edge signs occur. The all-negative and all-positive endpoints are treated separately. Direct exhaustive simulation of all \(504\) star signatures with three through eight leaves agrees with the formula and with the switching-class minimum.
+## correctness
 
-## Originality
-**PASS.** The primary full text arXiv:2610.02506v1 was inspected at the process definition, plurality definition, switching/code relation, signed-path results, introduction, and conclusion. It gives exact results for signed paths, states that more complex graph classes remain open, and explicitly points toward classes of signed trees; it contains no star or \(K_{1,m}\) result. Targeted semantic-index and public-web searches under plurality-number, signed-burning, signed-star, \(K_{1,m}\), and covering-radius formulations located no equivalent or stronger statement. The closest indexed items use different burning processes or different invariants on stars. The residual risk is the recency of the invariant: an equivalent result may exist in material not yet indexed.
+PASS
 
-## Value
-**PASS.** Stars are the canonical nonpath tree family, while the initiating paper's exact structural theory is concentrated on signed paths and explicitly identifies signed-tree classes as a direction for further work. The theorem gives the full dependence on the signature, not merely a bound or a special signing, and it also resolves the switching-class minimum and associated covering radius. This supplies an exact, reusable benchmark for the new parameter and its coding-theoretic formulation.
+Apply Definition 2.1 of Fallat et al. with spread before ignition and majority influence at each unburned vertex. If the centre ignites first, the next spread burns all leaves, with colour populations p+1 and q. If a leaf ignites first, the centre necessarily burns in the next spread, and for m>=3 exactly one additional leaf can be ignited before propagation of all remaining leaves. That ignition flips at most one natural leaf colour: for 1<=p<=m-1 optimal class size max(p+2,q+1); the endpoints p=0 and p=m separately give m and m+1. Every signing of the star is switching equivalent, so minimizing gives ceil((m+3)/2); the published coding identity gives covering radius floor((m-1)/2). Independently implemented spread/ignite recursion and exhaustively checked all 504 signings over m=3..8, without using the author verifier, confirming boundary cases. The two-leaf path is excluded explicitly.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality comparison by actual statement and implication, with historical and unavailable-material risks recorded; no priority certification. Inspected closest prior statements use different scopes/estimands or do not directly entail this final exact claim.
+
+## value
+
+PASS
+
+The signed-graph burning plurality number is recently defined and the initiating paper computes signed paths but poses tree classes as open. A complete first non-path branching family, including all sign patterns and an exact reachable-colouring-code covering radius, fills a motivated extremal/classification gap. The simple two-ignition structure is an explanation of the exact result, not a basis to dismiss a new natural graph-family formula as valueless.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

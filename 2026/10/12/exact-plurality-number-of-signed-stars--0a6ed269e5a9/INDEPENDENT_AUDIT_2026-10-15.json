@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:19:47.520982Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Apply Definition 2.1 of Fallat et al. with spread before ignition and majority influence at each unburned vertex. If the centre ignites first, the next spread burns all leaves, with colour populations p+1 and q. If a leaf ignites first, the centre necessarily burns in the next spread, and for m>=3 exactly one additional leaf can be ignited before propagation of all remaining leaves. That ignition flips at most one natural leaf colour: for 1<=p<=m-1 optimal class size max(p+2,q+1); the endpoints p=0 and p=m separately give m and m+1. Every signing of the star is switching equivalent, so minimizing gives ceil((m+3)/2); the published coding identity gives covering radius floor((m-1)/2). Independently implemented spread/ignite recursion and exhaustively checked all 504 signings over m=3..8, without using the author verifier, confirming boundary cases. The two-leaf path is excluded explicitly.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary work proves signed-path special cases and general hardness, not signed stars",
+          "m>=3 signed stars are not paths except m=2, excluded from claim"
+        ],
+        "reasoning": "Signed-path formulas and switching lemmas neither determine all star signings' plurality nor the code radius. The general coding identity is used as a premise and not claimed new.",
+        "searches": [
+          "arXiv:2610.02506 full source Section 3 signed paths",
+          "Resultary query signed tree burning plurality number"
+        ]
+      },
+      "checked_sources": [
+        "Fallat–Gupta–Khodamoradi–Zilles arXiv:2610.02506 full primary HTML",
+        "Resultary published-findings search signed graph burning plurality stars"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Initial paper explicitly identifies trees as directions for further investigation; code result relates optimized switching class to radius but leaves Y-values unspecified"
+        ],
+        "reasoning": "One cannot infer formula max(p+2,m-p+1) solely from a code-radius identity, nor from path values. The two-ignition branching classification supplies an additional theorem. Priority risk remains given recent publication.",
+        "searches": [
+          "arXiv:2610.02506 Definition 2.1 process ordering, Definition 2.5 plurality, coding identity",
+          "arXiv:2610.02506 Section 3 paths and conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Y(Gamma) maximizes single-colour burning count; switching-equivalent stars are all balanced trees, covering radius is |V|-min Y"
+        ],
+        "reasoning": "Converted sign counts p,q into the invariant's original burn-process definition and the coding-equivalent covering radius. The source defines these but does not derive the star profile or radius value.",
+        "searches": [
+          "arXiv:2610.02506 Definition 2.5, Proposition 2.9, Remark 2.10",
+          "Resultary semantic signed burning stars plurality switching covering radius"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source full HTML has no star theorem / K_{1,m} statement; independent enumeration covers 504 labelled star signatures m3..8"
+        ],
+        "reasoning": "Neither the original paper nor semantic retrieved statements contain a matching signed star exact-value table. Finite enumerations only corroborate an all-m proof.",
+        "searches": [
+          "Primary signed graph burning article star search",
+          "Resultary published archive semantic star search"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality comparison by actual statement and implication, with historical and unavailable-material risks recorded; no priority certification. Inspected closest prior statements use different scopes/estimands or do not directly entail this final exact claim.",
+      "residual_risks": [
+        "Invariants introduced 2026-10-01; parallel unpublished calculations of stars might exist",
+        "Formula is a short direct consequence of signed-star geometry but not shown in inspected general theorem"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not state exact signed-star result",
+          "evidence": "Section 3 explicitly treats signed paths; Section 2 yields general code radius equivalence",
+          "identifier_or_url": "https://arxiv.org/abs/2610.02506",
+          "material_read": "Full arXiv HTML (~631 lines): Definition 2.1 spread-then-ignite, Definition 2.5, Corollary 2.4, Proposition 2.9 and Remark 2.10, Section 3, conclusions",
+          "method": "Direct full source reading, find \"star\" (none), compare dynamics and results",
+          "title": "Burning Signed Graphs",
+          "trigger": "Defines exact signed burning and plurality objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The signed-graph burning plurality number is recently defined and the initiating paper computes signed paths but poses tree classes as open. A complete first non-path branching family, including all sign patterns and an exact reachable-colouring-code covering radius, fills a motivated extremal/classification gap. The simple two-ignition structure is an explanation of the exact result, not a basis to dismiss a new natural graph-family formula as valueless.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fallat–Gupta–Khodamoradi–Zilles arXiv:2610.02506 full primary HTML",
+    "Resultary published-findings search signed graph burning plurality stars"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Invariants introduced 2026-10-01; parallel unpublished calculations of stars might exist",
+    "Formula is a short direct consequence of signed-star geometry but not shown in inspected general theorem",
+    "No public edit is authorized: METADATA.json has a scope_run_id provenance field and derived public audit/certificate/file contents have not passed complete owner-authorized confidentiality sanitization and semantic review; withholding avoids disclosure of operational metadata."
+  ],
+  "schema_version": 1
+}
