@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The published product-of-three-fields decomposition gives six independent false-twin classes whose quotient is the triangular prism. For \\(q\\ge3\\), any zero forcing set can leave at most one white vertex per class, and each class retains a blue representative. The forcing process therefore reduces exactly to a six-label peeling rule. Complete analysis of all label subsets gives maximum white size \\(4\\), exactly twelve forcing four-label profiles, and all profiles through size \\(3\\). Weighting by the two class sizes yields every polynomial coefficient. The triangular-prism adjacency matrix has real rank \\(4\\); its false-twin blow-up preserves that rank, while \\(M\\le Z\\) gives the matching lower bound. The \\(q=2\\) case is separately proved and has a rank-three Gram witness.
+PASS
 
-The packaged checker reconstructs the ring and its annihilators directly for \\(q=2,3\\), exhaustively enumerates all forcing sets there, and checks larger class-level instances and exact rational ranks.
+For q>=3, the six support/annihilator classes have multiplicities a=(q-1)^2, b=q-1 and triangular-prism quotient, all independent false-twin classes. Two white vertices in one class are a permanent fort; with at most one, a blue representative is guaranteed in every class and forcing is exactly the quotient label-peeling process. Complete quotient census: all twenty 3-label subsets force, exactly twelve of fifteen 4-label subsets force, and no 5-label subset; the 4-label class-weight distribution (3,6,3) gives 3ab(a+b)^2 leading coefficient and the full five-term enumerator. The prism quotient adjacency has rational rank 4; its blow-up is a real symmetric graph-pattern rank-4 matrix, and M<=Z proves matching lower bound. The singleton q=2 boundary is the triangular prism with 14u^3+15u^4+6u^5+u^6 and an explicit rank-3 Gram witness. Direct independent exact graph/census checks for q=2,3 reproduced coefficients; rank of six-type quotient checked independently. These finite checks are corroboration, not the all-q proof.
 
-## Originality
+## originality
 
-PASS. Badawi's original annihilator-graph paper contains no zero-forcing or minimum-rank result. The closest exact-object full text, Afkhami--Khashyarmanesh--Rajabi, supplies the six-class adjacency and studies clique/chromatic structure, not forcing or inverse eigenvalues. The general zero-forcing-polynomial paper has no prism or blow-up specialization in its inspected full text. Searches under the exact ring family, annihilator graph, triangular-prism blow-up, false twins, maximum nullity, minimum rank, and zero forcing polynomial did not locate the accepted formula.
+PASS
 
-Residual risk: a purely graph-theoretic paper on false-twin blow-ups of a triangular prism could imply the same polynomial without ring terminology. No such theorem was located in the targeted searches.
+The same-ring six-type graph and the general M<=Z bound are credited. The inspected source gives quotient structure, not weighted zero-forcing counts nor constant real minimum rank. Boyer et al. give graph-family zero forcing polynomials but not the prism false-twin blow-ups, and no stronger published theorem found in actual searches implies the complete result.
 
-## Value
+## value
 
-PASS. The result gives the complete forcing polynomial and all minimum forcing sets for a natural reduced annihilator-graph family, and shows a sharp inverse-eigenvalue phenomenon: graph order grows with \\(q\\) while real minimum rank stays \\(4\\). The weighted twelve-profile classification is structural and explains the formula rather than merely tabulating small cases.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural infinite semisimple-ring family has a full forcing-set enumeration and exact inverse-eigenvalue invariant: order 3q(q-1) grows without bound while real minimum rank stays 4. Twelve weighted structural profiles explain all minimizers; this is more than a scalar reformulation of an existing graph decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
