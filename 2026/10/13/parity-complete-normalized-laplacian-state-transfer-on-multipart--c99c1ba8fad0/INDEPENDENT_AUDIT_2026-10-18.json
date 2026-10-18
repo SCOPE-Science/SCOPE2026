@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T14:14:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed symmetric normalized adjacency S=D^{-1/2}AD^{-1/2} on K_{2,...,2,m} with r>=2. Orthogonal decomposition has within-cell zero-sum eigenvalue 0 (dimension r+m-1), small-cell transverse eigenvalue -2/d (dimension r-1), and remaining quotient eigenvalues 1,-m/d, d=m+2r-2. All non-Perron signs for transfer between twin vertices require e^{-it}=-1, e^{-it(1+2/d)}=e^{-it(1+m/d)}=1. Setting t=h*pi with h odd yields 2h/d,mh/d odd integers iff d/2 odd and m=2 mod4, equivalent r odd, m=2 mod4. All t=(2j+1)d*pi/2 follow; only size-two twin pairs qualify because projected within-cell zero-sum components of other vertex pairs are nonparallel or disjoint. At first t, U=I-2P_Z gives direct sum r swaps and 2J_m/m-I_m. Handles m=1 singleton and m=2 eigenvalue degeneracy, and excludes r=1. Independent symbolic eigenmultisets for (r,m)=(2,1),(3,2),(3,6),(4,2),(5,10) match predicted multiplicities; finite checks corroborate, do not prove full parameter range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coutinho–Baptista applies to all connected graphs under normalized Laplacian, but leaves graph-specific signed support to compute.",
+          "Sun–Das covers spectra of all complete multipartite graphs, a strictly broader spectral result without unitary sign structure."
+        ],
+        "reasoning": "Broader abstract machinery is credited; spectrum alone does not force the parity congruence or all transfer times. No directly covering published specialization found.",
+        "searches": [
+          "arXiv:2209.04668 Theorem 5",
+          "arXiv:2111.01265",
+          "DOI:10.1016/j.dam.2020.03.041 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md Git blob 586ed01f1aa9d6c6f8e57711abb4bbf6a4547491",
+        "Pinned verify.py blob 3fe8515f376be9dcf56ae7a9de6f3b784e104083",
+        "arXiv:2209.04668 full pdf Theorem 5",
+        "arXiv:2111.01265 full pdf Sec.6",
+        "doi:10.1016/j.dam.2020.03.041 (limited)",
+        "Resultary query 1 and 12 retrieved results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5 states a rational-support/gcd parity criterion; it does not instantiate K_{2^r,m}, solve d parity or give U=I-2P_Z."
+        ],
+        "reasoning": "The prior theorem can be specialized using new exact graph calculations; doing that specialization is the mathematical content. No source shown whose theorem implies the complete classification without these computations.",
+        "searches": [
+          "arXiv:2209.04668 Theorem 5, p.8",
+          "arXiv:2111.01265 Sec.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General normalized-Laplacian PST uses strong-cospectral projector signs and rational eigenvalue support; specified family has eigenvalues 0,1,1+2/d,1+m/d.",
+          "Monterde Sec.6 covers weighted complete multipartite false twins."
+        ],
+        "reasoning": "PST as synchronized twin-swaps is equivalent to all four spectral phases matching the sign of each eigenspace projection; general phase criteria are antecedent but do not already state the claimed exact two-parameter congruence and block propagator.",
+        "searches": [
+          "Resultary query: normalized Laplacian perfect state transfer complete multipartite graph parts size two parity times simultaneous pair swaps",
+          "arXiv:2209.04668 Theorem 5",
+          "arXiv:2111.01265 Sec. 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit concerns combinatorial Laplacian apex double-cone fidelity, not normalized Laplacian multi-pair irregular complete multipartite timing."
+        ],
+        "reasoning": "PST is not solely an integer sequence lookup; no matching parameterized transfer-time table was located. Regular m=2 known separately.",
+        "searches": [
+          "Resultary query: normalized Laplacian perfect state transfer complete multipartite graph parts size two parity times simultaneous pair swaps",
+          "Resultary: 2026/10/4/SCOPE-exact-optimal-apex-transfer-fidelity-for-every-laplacian-double--881da7cbcca7"
+        ]
+      },
+      "rationale": "Best-of-knowledge original complete two-parameter irregular-multipartite normalized-Laplacian PST classification. Coutinho–Ferreira Baptista Theorem 5 provides a general strong-cospectral phase criterion and minimum-time formula; Monterde analyzes twins and multipartite joins; general Sun–Das spectrum is credited. Applying those tools still requires the explicit quotient/projector decomposition, parity arithmetic, global propagator and exclusion of other transfer pairs. Known regular cocktail-party m=2 boundary is not claimed new; irregular m>2 family and full simultaneous operator are the surviving contribution.",
+      "residual_risks": [
+        "A general prior normalized-Laplacian PST theorem and complete multipartite spectrum jointly give a route to derive the result; no matched graph-specific derivation was read.",
+        "Only primary abstracts for Sun–Das, not full article; possible overlapping special treatment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general criterion, not explicit assigned family.",
+          "evidence": [
+            "Theorem 5: strong cospectrality, rational supported eigenvalues, signed parity and gcd all transfer times; section 4 treats trees."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.04668",
+          "material_read": "Sections 2–4 of the 14-page preprint, especially the full statement of Theorem 5 on PDF p.8; bibliography and main results surveyed.",
+          "method": "Open arXiv PDF text and visual page inspection.",
+          "title": "Quantum Walks in the Normalized Laplacian",
+          "trigger": "Same Hamiltonian and perfect transfer"
+        },
+        {
+          "assessment": "Broad twin theory; no complete present parity/time formula.",
+          "evidence": [
+            "Sec.6 describes weighted multipartite joins of independent false-twin cells and their spectral structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.01265",
+          "material_read": "Relevant twin-cospectrality theory and Section 6 weighted multipartite join discussion in accessible 25-page PDF; other sections searched.",
+          "method": "Open arXiv PDF full text with search of multipartite and Sec.6.",
+          "title": "Strong Cospectrality and Twin Vertices in Weighted Graphs",
+          "trigger": "False twins and weighted complete multipartite joins"
+        },
+        {
+          "assessment": "Broader spectral antecedent credited, whole-document noncoverage not asserted.",
+          "evidence": [
+            "Theorem 3.1 identified as arbitrary complete multipartite normalized spectrum; priority overlap risk remains."
+          ],
+          "identifier_or_url": "doi:10.1016/j.dam.2020.03.041",
+          "material_read": "Available bibliographic theorem description, not independently read full article.",
+          "method": "Citation/abstract-level comparison.",
+          "title": "Normalized Laplacian spectrum of complete multipartite graphs",
+          "trigger": "Same graph class and general spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural architecture of repeated twin pairs with one tunable exceptional cell has a sharp arithmetic all-parameter criterion, complete timing and a global simultaneous-swap/reflection operator. The irregular K_{2,2,2,6} example separates the result from uniform regular cocktail-party graphs and gives a reusable exact quantum-walk test architecture; not a generic strong-cospectrality theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md Git blob 586ed01f1aa9d6c6f8e57711abb4bbf6a4547491",
+    "Pinned verify.py blob 3fe8515f376be9dcf56ae7a9de6f3b784e104083",
+    "arXiv:2209.04668 full pdf Theorem 5",
+    "arXiv:2111.01265 full pdf Sec.6",
+    "doi:10.1016/j.dam.2020.03.041 (limited)",
+    "Resultary query 1 and 12 retrieved results"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only symmetric normalized Laplacian for unweighted K_{2,...,2,m}, r>=2,m>=1; excludes r=1, arbitrary part sizes and potentials.",
+    "An earlier special-case graph calculation could be unindexed; existing general PST and spectrum results are credited."
+  ],
+  "schema_version": 1
+}

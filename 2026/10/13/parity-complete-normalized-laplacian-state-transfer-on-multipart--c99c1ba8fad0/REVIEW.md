@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The full orthogonal decomposition is derived directly from the graph's edge structure. Each within-part zero-sum vector has normalized-adjacency eigenvalue zero; differences of normalized size-two cell vectors have eigenvalue \(-2/d\); the remaining symmetric two-dimensional block has eigenvalues \(1\) and \(-m/d\), with \(d=m+2r-2\). These subspaces have the correct total dimension for all \(r\ge2,m\ge1\), including the collision \(m=2\). Only size-two twin pairs can be strongly cospectral. For an original small-cell pair, both non-Perron quotient sectors are supported; for the last cell when \(m=2\), the transverse component vanishes but its eigenvalue coincides with the nonzero-supported second-plane eigenvalue. The common phase requirements remain necessary and sufficient. Elementary odd-integer divisibility proves the claimed parity criterion, the complete time set, and the exact block propagator. The standalone exact-rational checker passes all 84 prescribed parameter pairs. The proof, rather than finite sampling, supplies the universal quantifiers.
+## correctness
 
-## Originality — PASS, with risks
-The general normalized-Laplacian spectral phase criterion was established by Coutinho and Ferreira Baptista (arXiv:2209.04668v1, Theorem 5). Sun and Das (DOI:10.1016/j.dam.2020.03.041, Theorem 3.1) give a general complete-multipartite spectrum, and Monterde (arXiv:2111.01265v2, Sections 3 and 6) treats twins and joins under strong cospectrality. These are credited. None of the inspected materials explicitly determines the new iff congruences for the two-parameter irregular family, the complete time list, and the simultaneous all-cell propagator. The previously studied regular two-vertex-apex graph is not this family when \(m>2\), as the remaining base is then nonregular. The complete spectral theorem and the general phase criterion could be combined to derive the result, so the novelty is a motivated exact specialization with a derived all-parameter arithmetic classification and global unitary, not a new universal phase theorem. Residual risk: an equivalent specialized calculation may be weakly indexed.
+PASS
 
-## Value — PASS
-The family is the smallest natural one-part deformation of equal-size independent twin pairs and includes a genuinely irregular normalized-Laplacian quantum network. The result decides PST or its impossibility for every pair of integers, identifies all successful pairs and earliest/all transfer times, and computes the entire unitary as a parallel-swap-plus-reflection gate. The concrete \(12\)-vertex \(K_{2,2,2,6}\) witness shows exact quantum routing not inferred from the regular double-cone classification. The parameter restriction \(r\ge2\) reflects a genuine missing eigenmode at the bipartite boundary.
+Reconstructed symmetric normalized adjacency S=D^{-1/2}AD^{-1/2} on K_{2,...,2,m} with r>=2. Orthogonal decomposition has within-cell zero-sum eigenvalue 0 (dimension r+m-1), small-cell transverse eigenvalue -2/d (dimension r-1), and remaining quotient eigenvalues 1,-m/d, d=m+2r-2. All non-Perron signs for transfer between twin vertices require e^{-it}=-1, e^{-it(1+2/d)}=e^{-it(1+m/d)}=1. Setting t=h*pi with h odd yields 2h/d,mh/d odd integers iff d/2 odd and m=2 mod4, equivalent r odd, m=2 mod4. All t=(2j+1)d*pi/2 follow; only size-two twin pairs qualify because projected within-cell zero-sum components of other vertex pairs are nonparallel or disjoint. At first t, U=I-2P_Z gives direct sum r swaps and 2J_m/m-I_m. Handles m=1 singleton and m=2 eigenvalue degeneracy, and excludes r=1. Independent symbolic eigenmultisets for (r,m)=(2,1),(3,2),(3,6),(4,2),(5,10) match predicted multiplicities; finite checks corroborate, do not prove full parameter range.
 
-## Closest literature and limitations
-Coutinho–Ferreira Baptista (2022), Monterde (2021/2022), Sun–Das (2020), and Alvir et al. (2014/2016) provide the closest general spectral, twin, or transfer results. No classification is asserted for arbitrary multipartite sizes or for adjacency/combinatorial-Laplacian dynamics; the finite checker is not an exhaustive test for all parameters. Weakly indexed equivalent formulas remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original complete two-parameter irregular-multipartite normalized-Laplacian PST classification. Coutinho–Ferreira Baptista Theorem 5 provides a general strong-cospectral phase criterion and minimum-time formula; Monterde analyzes twins and multipartite joins; general Sun–Das spectrum is credited. Applying those tools still requires the explicit quotient/projector decomposition, parity arithmetic, global propagator and exclusion of other transfer pairs. Known regular cocktail-party m=2 boundary is not claimed new; irregular m>2 family and full simultaneous operator are the surviving contribution.
+
+## value
+
+PASS
+
+A natural architecture of repeated twin pairs with one tunable exceptional cell has a sharp arithmetic all-parameter criterion, complete timing and a global simultaneous-swap/reflection operator. The irregular K_{2,2,2,6} example separates the result from uniform regular cocktail-party graphs and gives a reusable exact quantum-walk test architecture; not a generic strong-cospectrality theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
