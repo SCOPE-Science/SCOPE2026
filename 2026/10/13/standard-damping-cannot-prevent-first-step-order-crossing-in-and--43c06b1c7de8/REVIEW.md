@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The least-squares problem is a strictly convex scalar quadratic. Its unique minimizer is reconstructed explicitly, and substitution yields the exact factorization
-\[
-x_{2,i}^{(\omega)}-x_i^\star=(1-\omega a_i)e_i\left(1-\frac{a_i}\tau\right).
-\]
-Because \(\tau\) is a strict weighted mean of the active gaps whenever more than one gap occurs, the coordinatewise sign split follows analytically. The exact-rational replay checks the explicit witness and a family of rational instances; those computations are corroborative and are not used as an infinite proof.
+## correctness
 
-## Originality — PASS
-The closest full-text source is Potra--Engler, arXiv:1102.0796, which gives a broad characterization of Anderson acceleration on linear problems and its relation to GMRES. The inspected text treats Krylov spaces, residual minimization, stagnation, and convergence, but contains no positivity, coordinatewise order, diagonal sign-splitting, or damping-invariance statement. Walker--Ni provides the standard residual least-squares formulation and primary MSC 65H10. The Anderson--Jacobi application is a plausible same-object source, but only metadata and abstract were readable here; those materials discuss convergence speed and scaling rather than order preservation.
+PASS
 
-Published-database searches using diagonal contraction, two-rate crossing, weighted-gap coefficient, Anderson--Jacobi positivity, and GMRES sign-change formulations returned norm-transient and scalar-acceleration results, not an implication-equivalent theorem. Current and immediately prior own ledgers were checked for claim/ID overlap and contain no Anderson-acceleration result.
+PASS: Minimize Q(β)=Σ a_i²e_i²(1−β a_i)². Second derivative 2Σa_i⁴e_i²>0 for nonempty active set, so unique minimizer as claimed. Weighted-average identity τ=Σ(a_i³e_i²)a_i/Σa_i³e_i² gives strict min<τ<max when distinct gaps, and (1−ωa_i)>0 for 0≤ω≤1. In exact two-rate example Λ=(1/2,3/4), x*=1, x0=(36,36), β=36/17, τ=17/36, first output 1−(35/17)(1−ω/2) equals −18/17 at ω0 and −1/34 at ω1, negative on interval. One active dimension reaches exact fixed point, hence two is minimal. Reconstructed full algebra and source Fraction checker; statements concern first damped Anderson step, not later iterations.
 
-Residual risk remains that older DIIS, Pulay mixing, or vector-extrapolation literature may contain the same sign law under different language, and the inaccessible body of the Anderson--Jacobi paper could contain a related observation.
+## originality
 
-## Value — PASS
-The theorem separates two stabilization issues that are often conflated: reducing the final fixed-point correction by a scalar mixing parameter does not repair a coordinatewise crossing that has already occurred in the Anderson least-squares prediction. This is established exactly on a natural positive-contraction model, in every dimension, with dimension two minimal and with a positive two-dimensional witness that loses positivity for the entire standard mixing interval. The result gives a concrete mathematical reason to use coefficient constraints or explicit safeguards when positivity or order intervals are invariants of the base fixed-point method.
+PASS
 
-## Closest literature and limitations
-The main scientific comparison is Potra--Engler's general linear Anderson/GMRES characterization. It supplies algorithmic structure but not the new sign classification. Walker--Ni supplies the canonical Anderson formulation. The Jacobi-acceleration paper is close in application but was only partly accessible. The claim is limited to the first depth-one step for diagonal affine contractions in exact arithmetic and does not cover nonlinear maps, later steps, finite precision, or coefficient-constrained/safeguarded variants.
+PASS but narrowly assessed: Walker–Ni 2011 already defines Anderson residual minimization and notes possible negative matrix entries, while a published Resultary Oct4 record gives a two-dimensional positive diagonal contraction with a sign failure at SIXTH iterate and no all-damping claim. Thus the general possibility of loss of positivity and minimal dimension are covered; the retained new precise assertion is mandatory coordinate-side split on the FIRST prediction for arbitrary active diagonal rates, exact weighted-gap classification and damping invariance ∀ω∈[0,1]. This follows by new specialization/weighted-mean analysis rather than a directly stated earlier theorem; residual risk for vector-extrapolation literature and routine-derivation value.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS narrowly for the sharp first-step order-invariance obstruction: there is a substantive question whether underrelaxation can preserve positive orthants and monotone coordinate bounds after acceleration. The theorem proves that ordinary post-prediction damping alone cannot repair ANY multi-rate sign split and gives an exact all-damping two-dimensional counterexample; this is more operationally precise than the already-known possibility of later negativity. Does not claim originality of Anderson, least-squares coefficient per se, or generic positivity loss.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

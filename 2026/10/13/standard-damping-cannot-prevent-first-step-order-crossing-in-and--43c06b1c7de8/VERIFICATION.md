@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was reconstructed symbolically from the standard depth-one Anderson least-squares definition. With \(A=I-\Lambda\), the residual pair is \(f_0=-Ae\) and \(f_1=\Lambda f_0\). The scalar least-squares objective is therefore \(\sum_i a_i^2e_i^2(1-\beta a_i)^2\), whose strictly positive second derivative gives the unique coefficient \(\beta=(\sum_i a_i^3e_i^2)/(\sum_i a_i^4e_i^2)\). Direct substitution yields the coordinate factorization used in the result.
+# Independent mathematical audit
 
-The bundled `verify.py` uses only Python standard-library exact rational arithmetic. It checks the coefficient formula against an independently expanded quadratic, checks the prediction and mixed-output identities on many rational diagonal contractions, verifies the strict weighted-mean ordering whenever two active gaps differ, and exactly replays the two-dimensional witness. For that witness it verifies that the affine map sends nonnegative inputs to nonnegative outputs, that the first two Picard images are positive, and that the first accelerated coordinate is negative at both \(\omega=0\) and \(\omega=1\). Since that coordinate is affine in \(\omega\), it is negative on the entire interval.
+## correctness
 
-The computation does not certify nonlinear maps, later Anderson steps, floating-point behavior, or literature novelty. Those are outside the mathematical claim. The universal claim is analytic; the finite replay is not treated as exhaustive evidence.
+PASS
+
+PASS: Minimize Q(β)=Σ a_i²e_i²(1−β a_i)². Second derivative 2Σa_i⁴e_i²>0 for nonempty active set, so unique minimizer as claimed. Weighted-average identity τ=Σ(a_i³e_i²)a_i/Σa_i³e_i² gives strict min<τ<max when distinct gaps, and (1−ωa_i)>0 for 0≤ω≤1. In exact two-rate example Λ=(1/2,3/4), x*=1, x0=(36,36), β=36/17, τ=17/36, first output 1−(35/17)(1−ω/2) equals −18/17 at ω0 and −1/34 at ω1, negative on interval. One active dimension reaches exact fixed point, hence two is minimal. Reconstructed full algebra and source Fraction checker; statements concern first damped Anderson step, not later iterations.
+
+## originality
+
+PASS
+
+PASS but narrowly assessed: Walker–Ni 2011 already defines Anderson residual minimization and notes possible negative matrix entries, while a published Resultary Oct4 record gives a two-dimensional positive diagonal contraction with a sign failure at SIXTH iterate and no all-damping claim. Thus the general possibility of loss of positivity and minimal dimension are covered; the retained new precise assertion is mandatory coordinate-side split on the FIRST prediction for arbitrary active diagonal rates, exact weighted-gap classification and damping invariance ∀ω∈[0,1]. This follows by new specialization/weighted-mean analysis rather than a directly stated earlier theorem; residual risk for vector-extrapolation literature and routine-derivation value.
+
+## value
+
+PASS
+
+PASS narrowly for the sharp first-step order-invariance obstruction: there is a substantive question whether underrelaxation can preserve positive orthants and monotone coordinate bounds after acceleration. The theorem proves that ordinary post-prediction damping alone cannot repair ANY multi-rate sign split and gives an exact all-damping two-dimensional counterexample; this is more operationally precise than the already-known possibility of later negativity. Does not claim originality of Anderson, least-squares coefficient per se, or generic positivity loss.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
