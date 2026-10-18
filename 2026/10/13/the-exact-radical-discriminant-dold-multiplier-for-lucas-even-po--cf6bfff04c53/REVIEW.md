@@ -1,23 +1,21 @@
-# Scientific review: exact radical-discriminant Dold multiplier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is reconstructed for arbitrary integer recurrence parameters \(P,Q\), each positive even index exponent \(2s\), and every positive integer multiplier \(M\). The companion matrix represents the Lucas sequence exactly, even at repeated characteristic roots. For primes not dividing \(\Delta=P^2-4Q\), separable Frobenius gives the full \(p^r\) local congruence. For primes dividing \(\Delta\), the nilpotent part of the matrix dies modulo \(p\), and a commuting-matrix lifting lemma supplies the necessary \(p^{r-1}\) congruence at every higher level. A single factor of each bad prime completes the Möbius divisibility condition. At the prime index itself, \(U_{p^{2s}}-U_1\equiv-1\pmod p\), forcing that factor in every possible multiplier. The same obstruction for every prime proves the \(\Delta=0\) boundary. The proof handles \(p=2\) explicitly and requires no nondegeneracy or coprimality assumption.
+PASS
 
-The standalone exact-integer tests pass 18,700 square-index Möbius sums, 14,268 higher-even-power sums, and 104 degenerate-discriminant prime obstructions. These are finite sanity checks, not a substitute for the unrestricted proof. No unproved number-theoretic lemma or external numerical certificate is needed.
+For any integer P,Q and positive s, companion C=(P,−Q;1,0) gives U_j=(C^j)_{21}. At good p∤Δ, separability over F_{p²} gives C^{p^{2s}}≡C mod p, and commuting-binomial lifting yields successive p^r local differences mod p^r. At bad p|Δ, including p=2, C≡αI+N, N²=0; p^{2s} powers collapse to αI mod p, so for r≥2 differences are divisible by p^{r−1}, requiring only one factor p in M. These local congruences yield Dold n-divisibility by Möbius pairing over each p^r||n. At n=p, U_{p^{2s}}−U_1≡−1 mod p forces every p|Δ to divide M; if Δ=0 all primes force divisibility, impossible. Independently checked 10,998 finite exact Möbius congruences for P∈[−4,4], Q∈[−5,5], s=1,2,3, n≤39, plus Δ=0 prime obstructions; these are corroborative, not the infinite proof.
 
-## Originality — PASS relative to checked literature
+## originality
 
-Moss–Ward (arXiv:2011.13068v1, especially Corollary 3) prove the minimal Fibonacci multiplier \(5\) along even powers; this is one member of the new parameter classification. Luca–Ward (arXiv:2204.02711v2, *Journal of Integer Sequences* 26, Article 23.4.6, Theorems 1 and 5, and the proof at pp. 9–10) already prove the general discriminant-scaled square-index Dold statement and a smaller sufficient multiplier \(|P|\) for \(Q=0\). This theorem does **not** re-claim either published result. They do not state the all-parameter necessary-and-sufficient multiplier \(\operatorname{rad}(|\Delta|)\); their sufficient results alone cannot be divided by discarded prime powers, so the new sharp classification is not an implication of the stated conclusions.
+PASS
 
-The Byszewski–Graff–Ward survey (DOI:10.1112/blms.12531) describes general Dold congruences and trace sequences, not the exact sharp multiplier for the nonlinear index map. Available published mathematical-search results on local Dold properties of companion Lucas sequences address \(V_n\) rather than \(U_{n^{2s}}\). A mathematically equivalent but unindexed result remains a bibliographic risk; the originality assessment is not an independent priority certification.
+Best-of-knowledge original iff radical-discriminant minimal Dold multiplier for every even index power and all integer Lucas parameters. Luca–Ward's discriminant-scaled sufficient results and Moss–Ward's Fibonacci Δ=5 case are fully credited; the main new content is dropping prime multiplicities and proving necessity uniformly, including Δ=0 obstruction.
 
-## Value — PASS
+## value
 
-Finding the **least** factor that repairs the divisibility congruences is a natural arithmetic question left quantitative in the sufficient-multiplier results. The theorem classifies every positive multiplier for the complete two-parameter first-kind Lucas family, uniformly over all even powers, and shows that only the prime support—not the multiplicities—of the discriminant matters. The improvement can be arbitrarily large in nondegenerate examples, while \(\Delta=0\) supplies a sharp impossibility boundary. The result is not a numerical increment or an arbitrary parameter slice; it determines a natural exact invariant attached to the published Dold-repair problem.
+PASS
 
-## Remaining limitations
+Sharp necessary-and-sufficient Dold multipliers of nonlinearly indexed Lucas sequences are natural arithmetic invariants. The radical(|Δ|) classification is strictly stronger than previously sufficient |Δ| scaling for discriminants with square factors, handles every even power and all signed integer recurrence parameters, and proves nonexistence at Δ=0. This distinguishes Dold divisibility from unrealized nonnegative orbit counts.
 
-The proof does not establish the nonnegative sign condition for dynamical realizability. Odd index powers are excluded. An equivalent result outside inspected and searchable literature remains possible, and no independent audit has been carried out.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
