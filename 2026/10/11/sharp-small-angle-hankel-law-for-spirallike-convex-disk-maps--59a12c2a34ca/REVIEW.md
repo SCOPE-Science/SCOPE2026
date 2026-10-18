@@ -1,21 +1,21 @@
-# Review of Sharp small-angle Hankel law for spirallike convex disk maps
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The positive-real-part substitution follows exactly from the normalized half-plane constraint for \( |\beta|<\pi/2 \). Integrating the logarithmic derivative produces a nonvanishing derivative, so every Carathéodory coefficient choice represents an admissible locally biholomorphic map. Direct Taylor expansion gives the stated \(H_{2,2}\) polynomial, while the classical two-step Schur parametrization includes all possible first three Carathéodory coefficients.
+PASS
 
-At zero angle the full three-parameter compact body has a unique extremum, up to rotational symmetry, at \(r=1/2\), \(x=-1\). The radial derivative there is uniformly at least \(3/32\) for all remaining Schur choices, forcing every sufficiently small-angle optimizer onto \(|x|=1\). The exact negative-definite Hessian on this boundary yields an analytic unique optimizer branch, leading coefficient \(-59/432\), and an even fourth-order error. The explicit degree-two Blaschke witness realizes the same quadratic term and beats the quoted comparison by \(41\beta^2/864+O(\beta^4)\). The accompanying code recomputes all needed exact derivative and coefficient identities.
+The Carathéodory parametrization is exact for the locally biholomorphic positive-real-part class: tβ=cosβ exp(-iβ), the integral logarithmic derivative yields f′ nonvanishing, and H=tβ²[6c1c3−4c2²+tβ c1²c2−tβ² c1⁴]/144 follows from Taylor coefficients. The two-step Schur parametrization exhausts c1,c2,c3. At β=0 the global compact bound 1/8 has the unique normalized maximizer r=1/2,x=-1; the outward radial derivative of |H| at ρ=1 equals 7/32+Re(y)/8≥3/32, uniformly in |y|≤1, so all nearby optimizers remain on |x|=1. Independently reconstructed the exact Hessian Frr=−1/9, Fφφ=−3/512, Fφβ=−5/768, Fββ=−29/384 for F=|H|². The negative definite boundary Hessian and implicit function theorem give φ′=−10/9 and M=1/8−59β²/432+O(β⁴); conjugation makes M even. The explicit Blaschke witness satisfies the class and yields the positive gap M−B=41β²/864+O(β⁴). Numerical β=.1 is illustrative only.
 
-## Originality
+## originality
 
-PASS with an explicitly limited source-access risk. The full available author-uploaded text of Ahamed–Sarkar–Das (2026) was read across its definitions, theorems, proof, and references. It states the quoted upper-bound expression and asks for sharp nonzero-angle behavior, but gives neither the small-angle optimal second variation nor the Schur-parameter angular drift; its displayed formula is contradicted by the explicit admissible example under its local hypotheses.
+PASS
 
-The earlier Krishna–Reddy (2015) article is cited in that manuscript for the same bound, but its complete text was not accessible despite open-access and authorized institutional attempts. Its exact assumptions are therefore not asserted here. Third-Hankel Banach-space estimates and Fekete–Szegö estimates concern different functionals. Targeted search for the exact coefficients, small-angle aliases, extremizer parameterization, and inequivalent wider theorems located no dominating claim. Results on Hankel operators instead concern a different use of the term Hankel.
+The Ahamed–Sarkar–Das 2026 full author-uploaded manuscript Definition 1.3/Remark 1.1 includes the locally biholomorphic disk condition, Theorems 2.1/2.2 state B(β), and later text explicitly leaves exact β≠0 extremal behavior open. It neither supplies the -59/432 second variation nor -10/9 Schur phase drift; the current explicit admissible witness mathematically contradicts its displayed bound for the stated disk class. Sarkar–Das 2026 treats spirallike maps rather than spirallike-convex and Alexander transformation changes H to 8a2a4−9a3², so not dominating. 2015 Krishna–Reddy paper full text inaccessible; its exact assumptions and validity are NOT represented as having been checked. Best-of-knowledge originality PASS with stated access risk.
 
-## Value
+## value
 
-PASS. Determining sharp nonzero-angle second Hankel behavior is an explicitly motivated coefficient-extremal problem. The result not only supplies the sharp local invariant and all local extremizer structure, but also rigorously identifies a mismatch between an all-angle bound and the admissible class in the same new paper. The precise \(-10/9\) angular drift is necessary to obtain the true \(-59/432\) quadratic coefficient; freezing the zero-angle extremizer does not determine the optimum. This is an analytically substantive boundary-stability result, not a minor numerical recalculation.
+PASS
 
-The comparison is restricted to the locally biholomorphic disk class and the displayed 2026 formula. No claim is made about globally univalent restrictions or the inaccessible original 2015 full text.
+Determines a sharp, previously open small-angle second-Hankel invariant and complete local extremizer structure in a naturally specified analytic class, and gives an explicit valid family exposing failure of an asserted all-angle bound under that exact class definition. Boundary Schur rigidity and nontrivial optimizing phase drift make it a substantive mathematical classification, not a bare numerical disagreement or a cheap negative test.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
