@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of finite and analytic checks
+# Independent mathematical audit
 
-The analytic proof begins from an explicit first-return decomposition and derives exact bivariate generating-function identities. Elementary formal coefficient extraction and the Narayana peak moments yield the displayed formula for every integer \(n\ge1\). The central-binomial-product inequality verifies the strict sign for \(n\ge2\), and Stirling's formula yields the sharp regression scale. These universal arguments are independent of numerical testing.
+## correctness
 
-Execute `python3 verify_dyck.py` using Python's standard library. The verifier exhaustively generates every Dyck word for \(1\le n\le12\) and reconstructs heights and peaks directly. It checks exact rational counts, peak mean and variance, area mean, mixed first moment, negative covariance and all semilength boundary cases: a total of \(290{,}511\) distinct excursions. A successful completion emits `EXACT_DYCK_VERIFICATION_PASS enumerated_paths=290511`.
+PASS
 
-Finite checking does not establish general n by itself. No independent audit, priority certification, or nonlinear-regression proof is claimed.
+For uniform Catalan Dyck excursions of semilength n, P_n counts adjacent UD peaks and S_n is sum of 2n step-start heights (unscaled). Under first return UVDX, Q=S−n satisfies Q(W)=Q(V)+Q(X)+2|V|_U and P(W)=P(V)+P(X)+1_{V empty}; the generating system F=1+zF(F+t−1), G=z[G(2F+t−1)+2zF_zF] yields exact mixed peak-area coefficient via differentiation at t=1. Combining with Narayana E[P]=(n+1)/2 and Var(P)=(n²−1)/(4(2n−1)), derives Cov(P,S)=(n+1)/2−(n+1)4^(n−1)/binom(2n,n) (zero n=1, strictly negative n≥2); affine regression β=((2n−1)/(n−1))(2−4^n/binom(2n,n)) ~ −2√(πn). Independently enumerated 23713 excursions n1..10 and checked exact covariance rationally. Infinite statement rests on formal generating functions plus Stirling, not finite enumeration.
+
+## originality
+
+PASS
+
+Blanco–Petersen 2012 analyze area jointly with a noncrossing-partition rank explicitly NOT identical to the number of peaks under their area-preserving bijection (their Remark 1.3). Classical Narayana and Carlitz–Riordan statistics are individual marginals. Mansour 2002 counts peak heights, not a displayed all-peak unscaled area covariance in material inspected. The exact cross covariance and sign may be obtainable from known joint peak-area q-Narayana generating functions; earlier broad Deutsch 1999 is incompletely inspected and remains high priority risk. Not claiming the general first-return mechanism as new.
+
+## value
+
+PASS
+
+A precise negative correlation between path local complexity (peaks) and global geometry (area) across every nontrivial Catalan size, with a natural least-squares prediction slope scaling as √n, is a meaningful exact mixed-statistic invariant of uniform excursions; scope explicitly excludes nonlinear conditional distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

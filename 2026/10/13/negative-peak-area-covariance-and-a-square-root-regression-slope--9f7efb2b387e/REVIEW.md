@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The first-return decomposition of Dyck excursions, after removing the deterministic height-area baseline, gives exact formal-power-series recurrences for the peak-generating series and the area-weighted peak series. Explicit differentiation, coefficient identities and the classical Narayana moments prove the exact covariance, strict sign for every admissible semilength, and the regression asymptotic. A separate finite verifier exhausts all paths through semilength \(12\), including exact peak–area products; those tests are not treated as an infinite proof.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** Mansour's fixed-height peak work and later local-pattern counts do not include area moments. Blanco–Petersen (2012) studies area with a different noncrossing-partition rank, explicitly distinguishing that rank from ordinary peaks. Flórez et al. (2021) treats restricted valley classes and separate peak and area counts. A distinct earlier area–return result does not imply the present peak–area covariance. The general 1999 Deutsch Dyck-path enumeration was not available in full for a decisive comparison; indirect classical derivability remains a risk, so no assertion of historical priority is certified.
+PASS
 
-**Value — PASS.** The local number of peaks and global step-height area are natural complementary shape observables. Their strict finite-sample negative covariance and \(\sqrt n\)-scale least-squares coefficient provide quantitative prediction baselines, not a mere re-labeling of a Narayana marginal.
+For uniform Catalan Dyck excursions of semilength n, P_n counts adjacent UD peaks and S_n is sum of 2n step-start heights (unscaled). Under first return UVDX, Q=S−n satisfies Q(W)=Q(V)+Q(X)+2|V|_U and P(W)=P(V)+P(X)+1_{V empty}; the generating system F=1+zF(F+t−1), G=z[G(2F+t−1)+2zF_zF] yields exact mixed peak-area coefficient via differentiation at t=1. Combining with Narayana E[P]=(n+1)/2 and Var(P)=(n²−1)/(4(2n−1)), derives Cov(P,S)=(n+1)/2−(n+1)4^(n−1)/binom(2n,n) (zero n=1, strictly negative n≥2); affine regression β=((2n−1)/(n−1))(2−4^n/binom(2n,n)) ~ −2√(πn). Independently enumerated 23713 excursions n1..10 and checked exact covariance rationally. Infinite statement rests on formal generating functions plus Stirling, not finite enumeration.
 
-**Scientific limits.** Only uniform Dyck excursions, the unscaled height area, and affine prediction are covered; nonlinear prediction and complete conditional distribution remain unproved. No independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Blanco–Petersen 2012 analyze area jointly with a noncrossing-partition rank explicitly NOT identical to the number of peaks under their area-preserving bijection (their Remark 1.3). Classical Narayana and Carlitz–Riordan statistics are individual marginals. Mansour 2002 counts peak heights, not a displayed all-peak unscaled area covariance in material inspected. The exact cross covariance and sign may be obtainable from known joint peak-area q-Narayana generating functions; earlier broad Deutsch 1999 is incompletely inspected and remains high priority risk. Not claiming the general first-return mechanism as new.
+
+## value
+
+PASS
+
+A precise negative correlation between path local complexity (peaks) and global geometry (area) across every nontrivial Catalan size, with a natural least-squares prediction slope scaling as √n, is a meaningful exact mixed-statistic invariant of uniform excursions; scope explicitly excludes nonlinear conditional distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
