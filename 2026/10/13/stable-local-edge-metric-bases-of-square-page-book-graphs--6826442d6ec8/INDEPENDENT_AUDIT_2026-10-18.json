@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:12:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The computed vertex-to-edge distinction sets for adjacent edge pairs are P_i union P_j for two page-spoke edges of matching type, and {y,a_i} union {b_j:j != i} or its symmetric {x,b_i} union {a_j:j != i} for common-spine or within-page pairs. These are all adjacent-edge pair types. Hitting every P_i union P_j requires selected non-spine vertices on all but at most one page, so at least r-1. At equality no spine vertices occur, exactly one page is empty and one non-spine vertex chosen on every other page. Orientation witnesses force counts A>=2,B>=2; these are also sufficient for hitting both oriented families. This is realizable precisely r>=5, and binary strings with at least two of each orientation give 2^(r-1)-2r choices per omitted page, hence r(2^(r-1)-2r). Independent exact breadth-first distance and edge-pair enumeration verified all candidate sets through size r-1 for r=5,6,7, yielding 30,120,350 bases. This does not replace the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 title/abstract states corona and edge-corona graph products, with ILP techniques.",
+          "B_r is a Cartesian product K_{1,r} square K_2, which is not a corona product of the studied kind."
+        ],
+        "reasoning": "A theorem for more general graph operations would cover the claim only if it actually included this Cartesian instance; available abstract does not, inaccessible full body remains a risk.",
+        "searches": [
+          "Amini Henning Tavakoli 2024 DOI 10.1007/s40314-024-02879-0",
+          "Adawiyah et al 2020 DOI 10.1088/1742-6596/1543/1/012009"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: local edge metric dimension square-page book graph K1r Cartesian K2 minimum bases",
+        "Adawiyah et al local edge metric dimension of graph 2020 DOI 10.1088/1742-6596/1543/1/012009",
+        "Amini Henning Tavakoli 2024 local edge metric dimensions via corona products",
+        "square page book local edge resolving sets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior 2020 listed families exclude quadrilateral books.",
+          "The r−1 bound and r(2^(r−1)−2r) result require resolving-neighborhood families with both A,B>=2."
+        ],
+        "reasoning": "No reviewed prior result supplies all these neighborhoods or the extremal basis count; no claim of exhaustive literature search.",
+        "searches": [
+          "Adawiyah et al 2020 DOI 10.1088/1742-6596/1543/1/012009",
+          "Amini Henning Tavakoli 2024 DOI 10.1007/s40314-024-02879-0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2020 paper defines d(v,e) and distinguishing only incident/adjacent edge pairs.",
+          "Resultary related results use global edge metric dimension of crown graphs or other position invariants on book graphs."
+        ],
+        "reasoning": "Definitions are prior; global edge resolving and local edge resolving are different constraints, so cited analogous formulas do not imply this all-set characterization.",
+        "searches": [
+          "Adawiyah et al 2020 DOI 10.1088/1742-6596/1543/1/012009",
+          "Resultary: local edge metric dimension square-page book graph K1r Cartesian K2 minimum bases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published-record search located edge metric crown/half graph bases and dual general position book sets, all different invariants."
+        ],
+        "reasoning": "No exact lookup table is material to the unbounded r formula; distinct parameters cannot be substituted.",
+        "searches": [
+          "Resultary: local edge metric dimension square-page book graph K1r Cartesian K2 minimum bases"
+        ]
+      },
+      "rationale": "Best-of-knowledge complete basis classification for local EDGE metric dimension of quadrilateral book K_{1,r} square K_2. The 2020 defining paper gives this invariant for paths, ladders, stars, cycles and wheels but does not prove book graph classification. The 2024 Amini-Henning-Tavakoli paper describes corona and edge-corona operations, not the Cartesian product book; only its abstract/metadata was accessible, so this remains a named bibliographic risk. Resultary related book/crown work computes different invariants.",
+      "residual_risks": [
+        "2024 same-parameter article was not inspected in full: corona scope suggests inapplicability but hidden lemmas could overlap.",
+        "No classification for r<5 or longer pages; verifier enumerated small r only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_SAME_FAMILY",
+          "evidence": "Local edge metric condition defined; worked families paths, ladders, stars, cycles, wheels, not K_{1,r} square K_2.",
+          "identifier_or_url": "https://doi.org/10.1088/1742-6596/1543/1/012009",
+          "material_read": "Accessible complete primary paper text: definition, exact graph family examples, theorem statements",
+          "method": "Read complete public paper text",
+          "title": "The local edge metric dimension of graph",
+          "trigger": "Foundational paper of same invariant"
+        },
+        {
+          "assessment": "POSSIBLE_RESIDUAL_RISK",
+          "evidence": "Stated results concern corona/edge-corona, and the full paper was not inspected, so no whole-document NOT_COVERING claim.",
+          "identifier_or_url": "https://doi.org/10.1007/s40314-024-02879-0",
+          "material_read": "Abstract and indexed bibliographic scope only; full primary text was not obtained",
+          "method": "Read abstract/metadata, not whole paper",
+          "title": "Local edge metric dimensions via corona products and integer linear programming",
+          "trigger": "Highly relevant later same-parameter paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact minimum, all extremal configurations and a closed enumerator for a natural well-studied graph family, with a structural threshold at five pages. The full optimizer classification is useful for combinatorial design and contrasts with the already-studied global edge metric parameter. This is not a numerical convenience example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Claim only r>=5 and quadrilateral pages; does not assert general book-graph or ordinary edge-metric basis classification."
+  ]
+}
