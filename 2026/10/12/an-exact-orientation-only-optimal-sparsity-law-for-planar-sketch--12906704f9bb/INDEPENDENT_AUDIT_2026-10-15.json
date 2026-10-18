@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:10:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/777b2b21e054cb68d855230883c60b5f35c9209a/2026/10/12/an-exact-orientation-only-optimal-sparsity-law-for-planar-sketch--12906704f9bb/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/777b2b21e054cb68d855230883c60b5f35c9209a/2026/10/12/an-exact-orientation-only-optimal-sparsity-law-for-planar-sketch--12906704f9bb/verify.py",
+        "https://arxiv.org/abs/1506.03296",
+        "https://arxiv.org/abs/2006.10653"
+      ],
+      "rationale": "One-step error is e+ = (I−P_s)e with P_s=(As)(As)^T/||As||²; hence the largest uniform expected squared-error contraction is λmin(E P_s), sharp by choosing the min-eigenvector at step 1. Two orthogonal sketch-pairs (coordinates and dense signs) yield trace-one 2×2 average projectors. In singular coordinates their traceless vector squared norm equals r²/D[u²v²+(1−r²)(t−u²)²]; for κ>1, 0<r<1, unique maximum λmin occurs at t=u²=sin²2θ, independent of κ. Bernoulli occupancy p=2t/(1+t) follows by conditioning on nonempty support. Independently recomputed 2×2 matrices for θ=π/8,0.31,0.11 and κ=2,4.7,1.3; projector values matched formula and interior values beat both endpoints. At κ=1 all t tie, as explicitly excluded.",
+      "residual_risks": [
+        "Bounds concern uniform per-step conditional expected squared error, not computational cost or long-horizon instance-specific spectral rates.",
+        "Finite numeric matrices supplement the full all-angle algebra, do not replace it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gower–Richtárik Thm4.6 bounds error by min eigenvalue; Derezinski–Rebrova analyzes generic sparse/full sketches and expected spectral bounds, not conditional 2D mixture optimum."
+        ],
+        "reasoning": "A general SDP containing the case permits computation but does not establish this exact symbolic optimizing law or its orientation-only cancellation.",
+        "searches": [
+          "optimal sparse dense sketches projector contraction two dimensional",
+          "https://arxiv.org/abs/1506.03296",
+          "https://arxiv.org/abs/2208.09585"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1506.03296",
+        "https://arxiv.org/abs/2006.10653",
+        "https://arxiv.org/abs/2208.09585"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four sign vectors split into two orthogonal pairs; writing their mean projectors then completing a quadratic square yields the new explicit optimum independent of the condition number."
+        ],
+        "reasoning": "Prior expected-projector SDP does not directly imply the nonobvious t*=sin²(2θ) until the previously unstated constrained-geometry calculation is carried out.",
+        "searches": [
+          "optimal sparse dense sketches projector contraction two dimensional",
+          "Gower Richtarik section 5.1 optimal sampling SDP 2015",
+          "https://arxiv.org/abs/2006.10653"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gower–Richtárik Section 5.1 optimizes discrete sketch probabilities via semidefinite programming; present conditioned Bernoulli distribution is a one-parameter constraint on four sign sketch directions."
+        ],
+        "reasoning": "Equivalent expected-projector formalism was credited; no closed expression t*=sin²2θ or κ-independence in inspected general results.",
+        "searches": [
+          "optimal sparse dense sketches projector contraction two dimensional",
+          "\"planar\" \"sketch-and-project\" Bernoulli sparsity sampling optimal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hits on projections include unrelated rank-one operator radii and Haar descent; no equal-support sign-mixture optimum or tabulated 2D probabilities."
+        ],
+        "reasoning": "No matching exact table located, but novelty is assessed through actual implications of sketch theory, not unsuccessful search.",
+        "searches": [
+          "optimal sparse dense sketches projector contraction two dimensional",
+          "Resultary sketch project sparse density optimal sign mixtures",
+          "\"sin^2(2theta)\" \"sketch\" probability optimal"
+        ]
+      },
+      "rationale": "Gower–Richtárik establishes sharp contraction via expected projector and an SDP over generic discrete sampling, but its inspected Section 5.1 does not produce the exact closed-form minimax parameter for this conditioned Bernoulli-sign coordinate/full-support mixture. Recent sparse-sketch spectral bounds examine different families and typically provide estimates rather than the exact planar orientation-only optimum.",
+      "residual_risks": [
+        "An elementary independently known 2D design formula may be unindexed.",
+        "Parameter θ may be expensive to estimate and optimal iteration bound does not imply optimal wall time."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General expectation/projector framework already known, orientation-only constrained Bernoulli-sign solution not present in inspected content",
+          "evidence": "Table1 min-eigenvalue rate; Section5.1 provides general optimal probability SDP.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+          "material_read": "Accessible 33-page primary arXiv paper, Theorems 4.6 and Section 5.1, including the general sampling SDP and objective; visually inspected formula pages",
+          "method": "Primary full PDF text, direct formula and page-image comparisons",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Original expected-projector rate and optimized sampling theorem"
+        },
+        {
+          "assessment": "No basis to assert full-document noncoverage, but the accessible theorems address nonexact large-dimensional bounds rather than the exact 2D mixture optimum",
+          "evidence": "General spectrum and sparse-subgaussian/LESS sketch bounds; no cited two-support-size orientation-only exact law.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.09585",
+          "material_read": "Primary abstract, statement and relevant sparse/full-sign discussion; complete proof not exhaustively read in this run",
+          "method": "ArXiv text sections comparing sparse sketch families and general spectral bounds",
+          "title": "Sharp Analysis of Sketch-and-Project Methods via a Connection to Randomized Singular Value Decomposition",
+          "trigger": "Plausible broader treatment of sign sparsity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1506.03296",
+        "https://arxiv.org/abs/2006.10653"
+      ],
+      "rationale": "A fully explicit sharp probability for balancing one-sparse and dense-sign sketches on the smallest nontrivial linear solver is a natural constrained design invariant; the unexpected dependence only on singular-vector angle and strict interior gain provide concrete benchmark information not mechanically available from a generic SDP statement.",
+      "residual_risks": [
+        "Only planar one-equation Euclidean projection and specified sampling law, no claimed higher-dimensional consequence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Bounds concern uniform per-step conditional expected squared error, not computational cost or long-horizon instance-specific spectral rates.",
+    "Finite numeric matrices supplement the full all-angle algebra, do not replace it.",
+    "An elementary independently known 2D design formula may be unindexed.",
+    "Parameter θ may be expensive to estimate and optimal iteration bound does not imply optimal wall time.",
+    "Only planar one-equation Euclidean projection and specified sampling law, no claimed higher-dimensional consequence."
+  ]
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The update is exactly a Euclidean orthogonal projection for the linear system \(A^\top x=b\). In singular coordinates the two input support patterns each produce a pair of orthogonal sketch directions; the normalized image projectors have an explicit trace-one two-component representation. Direct algebra completes a square in the mixture probability, giving the exact projector minimum eigenvalue and a unique optimum when the singular values are unequal. The independent standard-library checker verifies 1,152 exact rational identities on representative matrices. The checker does not replace the all-real algebraic proof.
+PASS
 
-## Originality — PASS with residual priority risk
+One-step error is e+ = (I−P_s)e with P_s=(As)(As)^T/||As||²; hence the largest uniform expected squared-error contraction is λmin(E P_s), sharp by choosing the min-eigenvector at step 1. Two orthogonal sketch-pairs (coordinates and dense signs) yield trace-one 2×2 average projectors. In singular coordinates their traceless vector squared norm equals r²/D[u²v²+(1−r²)(t−u²)²]; for κ>1, 0<r<1, unique maximum λmin occurs at t=u²=sin²2θ, independent of κ. Bernoulli occupancy p=2t/(1+t) follows by conditioning on nonempty support. Independently recomputed 2×2 matrices for θ=π/8,0.31,0.11 and κ=2,4.7,1.3; projector values matched formula and interior values beat both endpoints. At κ=1 all t tie, as explicitly excluded.
 
-The original generalized sketch-and-project framework already characterizes uniform expected contraction using the smallest eigenvalue of an expected projector **and supplies a semidefinite program for optimal discrete sampling probabilities (Section 5.1)**. The new contribution is a closed-form optimizer for a natural constrained Bernoulli-sign density, not the generic discrete optimization formulation. The most relevant sparse-sketch analysis treats leverage-score sparsified sketches and general nonasymptotic projector bounds; it does not give the exact optimum over conditioned Bernoulli–Rademacher densities in dimension two. A separate expected-projection paper gives large-stable-rank surrogate formulas rather than this finite-dimensional optimization. Related published results optimizing coordinate-only sampling probabilities and Haar sparse subspace descent do not imply optimization over a coordinate-versus-dense-sign sketch mixture. Search cannot rule out every equivalent unindexed calculation.
+## originality
 
-## Value — PASS
+PASS
 
-The finding completely solves a natural one-parameter sampling-design question for the smallest nontrivial invertible sketch-and-project problem. It exhibits a strict interior sparsity optimum for generic eigenvector orientations and an unexpected independence of the optimizer from the condition number. This gives a sharp benchmark for balancing sparse and dense sign sketches. It does not claim that acquiring the optimal orientation, implementing it, or extending it to higher dimensions is cost-free.
+Gower–Richtárik establishes sharp contraction via expected projector and an SDP over generic discrete sampling, but its inspected Section 5.1 does not produce the exact closed-form minimax parameter for this conditioned Bernoulli-sign coordinate/full-support mixture. Recent sparse-sketch spectral bounds examine different families and typically provide estimates rather than the exact planar orientation-only optimum.
 
-## Scientific boundaries
+## value
 
-The claim concerns a two-dimensional, fixed-distribution, independently sampled, one-equation Euclidean projection algorithm. It does not optimize wall time, all sketch distributions, higher-dimensional rates, or instance-specific long-horizon errors. An independently repeated audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fully explicit sharp probability for balancing one-sparse and dense-sign sketches on the smallest nontrivial linear solver is a natural constrained design invariant; the unexpected dependence only on singular-vector angle and strict interior gain provide concrete benchmark information not mechanically available from a generic SDP statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

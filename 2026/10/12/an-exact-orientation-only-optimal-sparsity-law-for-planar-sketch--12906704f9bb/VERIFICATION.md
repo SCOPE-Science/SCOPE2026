@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction of checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library. The checker constructs \(A=\operatorname{diag}(\kappa,1)R_\theta^\top\) for twelve rational rotations and four positive distinct rational singular-value ratios. For eight rational mixture values per configuration, it evaluates projectors for the coordinate and all-sign supports and confirms the exact discriminant identity
-\[
-(M_{11}-M_{22})^2+4M_{12}^2
-=\frac{r^2}{(1-r^2v^2)(1-r^2u^2)}
-\left[u^2v^2+(1-r^2)(t-u^2)^2\right],
-\]
-with \(r=(\kappa^2-1)/(\kappa^2+1)\), \(u=\sin(2\theta)\), and \(v=\cos(2\theta)\). It separately checks trace one, the exact completed-square comparison against \(t_*=u^2\), and the Bernoulli/mixture parameter transformation. Expected output: `PASS: 1152 exact-rational matrix/projector/polarization identities`.
+## correctness
 
-These finite tests diagnose normalization and algebra; the universal claim follows from the closed-form projector calculation and completed-square proof in `RESULT.md`. No infinite property is asserted on the basis of enumeration. Neither independent audit nor empirical runtime performance is claimed.
+PASS
+
+One-step error is e+ = (I−P_s)e with P_s=(As)(As)^T/||As||²; hence the largest uniform expected squared-error contraction is λmin(E P_s), sharp by choosing the min-eigenvector at step 1. Two orthogonal sketch-pairs (coordinates and dense signs) yield trace-one 2×2 average projectors. In singular coordinates their traceless vector squared norm equals r²/D[u²v²+(1−r²)(t−u²)²]; for κ>1, 0<r<1, unique maximum λmin occurs at t=u²=sin²2θ, independent of κ. Bernoulli occupancy p=2t/(1+t) follows by conditioning on nonempty support. Independently recomputed 2×2 matrices for θ=π/8,0.31,0.11 and κ=2,4.7,1.3; projector values matched formula and interior values beat both endpoints. At κ=1 all t tie, as explicitly excluded.
+
+## originality
+
+PASS
+
+Gower–Richtárik establishes sharp contraction via expected projector and an SDP over generic discrete sampling, but its inspected Section 5.1 does not produce the exact closed-form minimax parameter for this conditioned Bernoulli-sign coordinate/full-support mixture. Recent sparse-sketch spectral bounds examine different families and typically provide estimates rather than the exact planar orientation-only optimum.
+
+## value
+
+PASS
+
+A fully explicit sharp probability for balancing one-sparse and dense-sign sketches on the smallest nontrivial linear solver is a natural constrained design invariant; the unexpected dependence only on singular-vector angle and strict interior gain provide concrete benchmark information not mechanically available from a generic SDP statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
