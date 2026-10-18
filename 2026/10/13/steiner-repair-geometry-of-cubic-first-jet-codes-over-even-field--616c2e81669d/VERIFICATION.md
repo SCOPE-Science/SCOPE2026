@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The proof is algebraic for all \(q=2^m\), \(m\ge2\). The standalone script `artifacts/verify.py` is a finite sanity check and **not** an infinite-parameter certificate.
+## correctness
 
-`python3 artifacts/verify.py` requires only the Python 3 standard library. It implements polynomial-basis field arithmetic for the irreducible moduli `0b111`, `0b1011`, and `0b10011`, constructs the columns directly, and uses Gaussian elimination to search all subsets of sizes two, three, and four. It tests **minimality** of each identified dependency and equality of the complete observed set to the predicted explicit set. It also checks projective-line Steiner incidence, cardinalities of all minimal three-helper sets for every value position, and an explicit family of pairwise disjoint recoveries for each value position.
+PASS
 
-A completed invocation returned these scientific results:
+For q=2^m >=4, generator columns E_a=(1,a,a^2,a^3)^T and T_a=(0,1,0,a^2)^T have rank four. Projecting to first/third rows excludes <=2 circuits and all 3-/4-circuits involving fewer than three evaluation columns except derivative triples. Three distinct value columns and T_d have determinant zero iff d^2=ab+ac+bc; Hasse derivative of P(X)=(X-a)(X-b)(X-c) gives this unique d distinct from a,b,c, and proper subtriples are independent. Fix d and substitute u=(a-d)^(-1): u+v+w=0 proves PG(m-1,2) Steiner lines, (q-1)(q-2)/6 pure-value 3-helper repairs of D_d, binom(q-1,2) two-helper D_d repairs and same number of 3-helper V_a repairs. For any V_a, projection forces >=2 other V coordinates in every arbitrarily large helper set, giving <=(q-2)/2 disjoint sets; explicit primitive-power disjoint pairs and d_i=a+sqrt(g^(4i+1)) attain it since gcd(4,q-1)=1. Nonzero column multipliers do not change circuits. Finite q=4,8,16 checks are supporting tests, not an all-field proof.
 
-```
-GF(4) VERIFY_OK: rank=4, circuits_3=4, circuits_4=4, derivative_STS_blocks=1, value_disjoint=1
-GF(8) VERIFY_OK: rank=4, circuits_3=56, circuits_4=56, derivative_STS_blocks=7, value_disjoint=3
-GF(16) VERIFY_OK: rank=4, circuits_3=560, circuits_4=560, derivative_STS_blocks=35, value_disjoint=7
-VERIFY_OK
-```
+## originality
 
-The checks enumerate only fields with at most sixteen elements, and the code uses unit column multipliers. The all-field statement and invariance under arbitrary nonzero multipliers are proved symbolically in `RESULT.md`. Independent audit has not been performed.
+PASS
+
+The code construction and Hasse-jet interpretation are not new; inspected NRT MDS/duality results and a general univariate multiplicity dual description do not state the exact ordinary-Hamming small-circuit supports, projective Steiner line incidences, or sharp unrestricted disjoint value-coordinate availability. An older finite-geometry equivalence is a real priority risk.
+
+## value
+
+PASS
+
+Complete small-circuit classification, explicit locality/availability and a geometric Steiner design interpretation are natural structural invariants relevant to local repair; disjoint-availability optimum for arbitrary (not merely minimal) helper sets is nontrivial and not a parameter relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces to four explicit generator-column entries, uses the rank-two derivative subspace and Vandermonde independence to exhaust all small dependency types, and derives the unique fourth point of every three-evaluation circuit from the Hasse derivative of its vanishing cubic. The inverse-translation bijection proves the projective Steiner-triple incidence, while a two-evaluation lower bound and primitive-element construction match to give exact unrestricted disjoint availability. No inference for arbitrary dimensions is drawn solely from enumeration. The standalone verifier exhaustively checks all subsets of sizes two through four for \(q=4,8,16\), as well as the disjoint-repair construction.
+PASS
 
-## Originality — PASS, with residual risk
+For q=2^m >=4, generator columns E_a=(1,a,a^2,a^3)^T and T_a=(0,1,0,a^2)^T have rank four. Projecting to first/third rows excludes <=2 circuits and all 3-/4-circuits involving fewer than three evaluation columns except derivative triples. Three distinct value columns and T_d have determinant zero iff d^2=ab+ac+bc; Hasse derivative of P(X)=(X-a)(X-b)(X-c) gives this unique d distinct from a,b,c, and proper subtriples are independent. Fix d and substitute u=(a-d)^(-1): u+v+w=0 proves PG(m-1,2) Steiner lines, (q-1)(q-2)/6 pure-value 3-helper repairs of D_d, binom(q-1,2) two-helper D_d repairs and same number of 3-helper V_a repairs. For any V_a, projection forces >=2 other V coordinates in every arbitrarily large helper set, giving <=(q-2)/2 disjoint sets; explicit primitive-power disjoint pairs and d_i=a+sqrt(g^(4i+1)) attain it since gcd(4,q-1)=1. Nonzero column multipliers do not change circuits. Finite q=4,8,16 checks are supporting tests, not an all-field proof.
 
-The first public GHRS paper establishes NRT-MDS/duality/LDPC/quasi-cyclic properties and publishes the construction, but not the stated ordinary-coordinate circuit classification or recovery optimum. The closely equivalent older univariate multiplicity code is acknowledged, rather than treated as novel. The detailed univariate dual formulas in Camps Moreno et al. do not give the enumerated minimal support sets or Steiner repair matching. Li–Wootters address lifted multivariate multiplicity codes and asymptotic disjoint recovery, not this low-degree univariate incidence theorem. Published-result searches using cubic-jet, Hermite, Steiner, value-repair, and equivalent terminology did not identify an implication that subsumes the result. An overlooked projective-geometric tangent configuration or unindexed exact dual-support calculation is an explicit residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result extracts a concrete operational invariant—exact minimal repair choices and sharp maximum disjoint availability across arbitrarily large fields—from a natural family used to study derivative-evaluation codes. The derivative-level projective Steiner-system structure explains the combinatorics and supplies an explicit optimal recovery packing for value coordinates. It is more than a finite table or restatement of the NRT-MDS theorem and does not require downstream theorems to be a useful complete local classification.
+The code construction and Hasse-jet interpretation are not new; inspected NRT MDS/duality results and a general univariate multiplicity dual description do not state the exact ordinary-Hamming small-circuit supports, projective Steiner line incidences, or sharp unrestricted disjoint value-coordinate availability. An older finite-geometry equivalence is a real priority risk.
 
-## Scope and limitations
+## value
 
-These conclusions cover every \(m\ge2\) with field characteristic two, polynomial degree at most three, all field evaluation points, and all nonzero coordinate multipliers. Only circuits up to size four and exact disjoint availability for value coordinates are established. Nothing is claimed about odd characteristic, higher derivative orders, or an independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete small-circuit classification, explicit locality/availability and a geometric Steiner design interpretation are natural structural invariants relevant to local repair; disjoint-availability optimum for arbitrary (not merely minimal) helper sets is nontrivial and not a parameter relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
