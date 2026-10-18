@@ -22,7 +22,7 @@ e^{s_0x}K_\tau(x)=P(x)+O(e^{-(b-s_0)x}),
 \]
 the same is true for the sign of \(K_\tau\) for sufficiently large selected points.
 
-Given \(N\geq1\), choose \(0<x_0<\cdots<x_N\) so that the signs of \(K_\tau(x_j)\) alternate. The focal paper's Theorem 4.6 gives uniform convergence \(K_h(x,0)\to K_\tau(x)\) on compact real intervals, so one sufficiently small \(h\) preserves all \(N+1\) signs. For this fixed \(h\), its Lemma 5.2 gives \(K_{h,M}(x_j,0)\to K_h(x_j,0)\) for the finite truncation kernels. One sufficiently large \(M\) therefore preserves all signs simultaneously. Conjugation invariance makes \(K_{h,M}(x,0)\) real on the real axis, so continuity gives at least one zero in each disjoint interval \((x_{j-1},x_j)\).
+Given \(N\geq1\), choose \(0<x_0<\cdots<x_N\) so that the signs of \(K_\tau(x_j)\) alternate. The focal paper's Theorem 3.5 gives uniform convergence \(K_h(x,0)\to K_\tau(x)\) on compact real intervals, so one sufficiently small \(h\) preserves all \(N+1\) signs. For this fixed \(h\), its Lemma 5.2 gives \(K_{h,M}(x_j,0)\to K_h(x_j,0)\) for the finite truncation kernels. One sufficiently large \(M\) therefore preserves all signs simultaneously. Conjugation invariance makes \(K_{h,M}(x,0)\) real on the real axis, so continuity gives at least one zero in each disjoint interval \((x_{j-1},x_j)\).
 
 Set \(A=\psi(\Lambda_{h,M})\), with \(\psi(x)=\tanh(x/2)\) on the real axis. The focal paper proves that \(A\) is finite, conjugation-invariant and disjoint from \(\mathbb R\), and that
 \[
