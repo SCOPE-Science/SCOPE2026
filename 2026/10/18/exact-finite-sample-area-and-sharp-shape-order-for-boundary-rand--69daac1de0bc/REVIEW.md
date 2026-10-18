@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For arbitrary \(N\ge3\), the proof checks each possible occupancy count on the three sides and integrates the exact conditional mean, including empty-side events. A third forward-difference identity yields the exact uniform-cube integral. Strict convexity of powers and pairwise averaging establish global strict Schur ordering, while the feasible normalized side-length region gives both sharp endpoints. The included checker passes 75 exact rational triple comparisons, four independent direct-geometry sampling tests, and 22 exact endpoint evaluations. Finite checks are supplementary; the algebraic derivation proves the infinite family.
+
+**Originality — PASS, with limited bibliographic risk.** The most relevant fully accessible primary sources were read at their pertinent theorems and calculations. Reitzner–Schütt–Werner (arXiv:1911.05917) derive general boundary-polytope asymptotics rather than this finite-\(N\) exact triangle law. Maesumi (arXiv:1804.11007) studies exactly one point independently on each side: its mean area ratio \(1/4\) is a known conditional ingredient here, not the unrestricted iid perimeter-sampling theorem. Triangle Point Picking tables concern area-uniform *interior* points. Additional searches for equivalent boundary-hull laws and shape extremizers did not identify stronger coverage. An unindexed equivalent derivation is still possible.
+
+**Mathematical value — PASS.** The exact finite-sample normalized expected area and strict shape order cover every nondegenerate Euclidean triangle and every number \(N\ge3\) of perimeter-uniform samples. The simple three-uniform representation explains both the equilateral maximizer and the sharp, unattained degenerate limit, and refines the usual leading asymptotics for boundary random polytopes without claiming a general polygon result.
+
+**Scope and limitations.** Only expected area fraction, not its full distribution or unnormalized fixed-perimeter area, is classified. The degenerating endpoint lies outside the nondegenerate triangle family; possible unindexed earlier publications remain a risk. No independent mathematical validation has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
