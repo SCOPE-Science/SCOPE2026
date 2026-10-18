@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Proof from the exact circulant Gram inverse, sign-change structure of successive inverse rows, exact integrals of affine crossings, and an absolutely convergent infinite-grid periodization proves all n>=3 statements. The infinite integral simplifies exactly to (9-sqrt(3))/2. Strictness follows from opposed signs of two periodized copies on a positive-length interval. Tail integrability gives an O((2-sqrt3)^(n/2)) deficit. Finite rational calculations are corroboration, not a substitute.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Passenbrunner 2016 Thm 1.4: mesh-independent bound for projector L∞ norm",
+        "Passenbrunner 2011 Thm 2.1/2.2: undifferentiated interval norm",
+        "Oswald 2012 abstract: L∞ stability of linear splines, multidimensional mesh conditions"
+      ],
+      "reasoning": "General boundedness of a projector is not a sharp derivative norm at inverse-mesh scale; general finite-element inverse inequalities lack the optimized signed-kernel integral.",
+      "searches": [
+        "B-spline uniform Galerkin mass matrix circulant inverse finite element derivative operator sharp bound",
+        "orthogonal projection linear splines derivative sharp norm",
+        "L2 projection piecewise linear W1 infinity sharp constant periodic"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1103.1949",
+      "https://arxiv.org/abs/1608.06720",
+      "https://www.researchgate.net/publication/268663827_L_-Bounds_for_the_L_2-Projection_onto_Linear_Spline_Spaces",
+      "https://geodesic.mathdoc.fr/item/TIMM_2011_17_3_a4/",
+      "https://mathoverflow.net/questions/342371/the-l-infty-norm-of-the-derivative-of-the-l-2-spline-projector"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2016 paper: Thm 1.4 establishes L∞ operator boundedness, not derivative bounds",
+        "2011 paper: Eq (2.1) is an interval inverse Gram formula, and end results concern interval Lebesgue monotonicity",
+        "The current theorem obtains derivative kernel by row differences and exact crossing integrals"
+      ],
+      "reasoning": "Known Gram recurrences provide input machinery, but reported prior conclusions do not imply this sharp functional norm by numerical or parameter substitution; calculating derivative-row total variation and global periodization comparison is additional analysis.",
+      "searches": [
+        "Passenbrunner periodic orthogonal spline inverse Gram tridiagonal derivative gain",
+        "sharp finite element L2 orthogonal projector rough input Lipschitz seminorm periodic uniform mesh"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Passenbrunner 2016 §§1–3 treats projector values rather than slopes",
+        "Full Passenbrunner 2011 text proves interval undifferentiated Lebesgue norm"
+      ],
+      "reasoning": "Total variation of a signed derivative evaluation kernel is a different operator norm from the undifferentiated Lebesgue norm; no equivalent stated formula was found.",
+      "searches": [
+        "periodic hat spline orthoprojector derivative kernel L infinity to W1 infinity exactly (9-square-root-3)/2",
+        "periodic linear spline Galerkin projection exact derivative kernel total variation and mesh-dependent Lebesgue constant",
+        "3.633974596 spline projection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Independently computed rational values: 3, 27/8, 192/55 for three to five cells",
+        "No matching exact coefficient in searched published mathematical records or accessible previous claims"
+      ],
+      "reasoning": "Finite rational checks confirm the new formula but are not themselves novelty evidence; no exact published table or equivalent constant was located.",
+      "searches": [
+        "periodic linear spline sharp derivative 3.633974 finite element projector",
+        "9 minus sqrt3 over 2 spline derivative projection",
+        "uniform periodic piecewise-linear spline L2 orthogonal projection, sharp operator norm from L-infinity to Lipschitz and derivative growth constant (9 - square root 3)/2"
+      ]
+    },
+    "rationale": "Full available texts of Passenbrunner 2011 and 2016 prove undifferentiated spline projection stability rather than the exact periodic rough-input-to-derivative norm. Relevant search queries, previous accessible claim statements and published mathematical records reveal no theorem whose statement implies the exact finite-cycle formula, sharp limiting constant, and exponential defect together. No priority uniqueness is claimed; abstract-only closely related older articles remain a residual risk.",
+    "residual_risks": [
+      "Historical equivalent terminology in finite-element inverse inequalities or cardinal-spline gradient estimates may be missed.",
+      "Oswald 2012 and de Boor 2011 full papers were not inspected; relevant assertions hidden beyond abstracts cannot be excluded.",
+      "Scientific review is not an independent mathematical or priority audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves undifferentiated interval L1/L∞ projection norms and monotonicity, not periodic derivative evaluation norm.",
+        "evidence": [
+          "Section 2 formula (2.1) for inverse Gram on interval",
+          "Theorem 2.1 strictly increasing interval projector norm",
+          "Theorem 2.2 boundary optimizer for undifferentiated interval projector"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1103.1949",
+        "material_read": "Full HTML text, Sections 1 and 2, including inverse Gram formula (2.1), Theorems 2.1 and 2.2 and final norm bound.",
+        "method": "Direct full-text theorem, definitions and proof inspection",
+        "title": "Monotonicity of the Lebesgue constant for equally spaced knots",
+        "trigger": "same linear B-spline mass inverse and classical Lebesgue norm"
+      },
+      {
+        "assessment": "NOT_COVERING: bounds L∞ norm of projector and proves almost-everywhere convergence, without differentiation or the sharp inverse-mesh gain.",
+        "evidence": [
+          "Theorem 1.4 qualitative L∞ uniform bound",
+          "Section 3 uses inverse Gram decay to bound projected values, not slopes",
+          "Theorem 1.3 almost-everywhere convergence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1608.06720",
+        "material_read": "Full HTML text, introduction, Theorems 1.3 and 1.4, Sections 2 and 3 and proof of Theorem 1.4.",
+        "method": "Direct full-text statement, proof and kernel comparison inspection",
+        "title": "Orthogonal projectors onto spaces of periodic splines",
+        "trigger": "exact same class of periodic orthogonal spline projectors"
+      },
+      {
+        "assessment": "INCOMPLETE_COMPARISON: abstract treats undifferentiated L∞ projector norm and two-dimensional meshes, not an explicit derivative coefficient, but full text might contain related estimates.",
+        "evidence": [
+          "Abstract describes L∞-to-L∞ projector stability and mesh conditions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-1-4614-4565-4_24",
+        "material_read": "Abstract and bibliographic description only; full paper not accessed.",
+        "method": "Abstract and citation comparison",
+        "title": "L∞-Bounds for the L2-Projection onto Linear Spline Spaces",
+        "trigger": "potentially broader sharp linear-spline stability result"
+      },
+      {
+        "assessment": "INCOMPLETE_COMPARISON: focus on original projector norm; exact derivative-kernel consequence not ruled out from full text.",
+        "evidence": [
+          "Abstract describes completion of Shadrin L∞-boundedness theorem"
+        ],
+        "identifier_or_url": "https://geodesic.mathdoc.fr/item/TIMM_2011_17_3_a4/",
+        "material_read": "Bibliographic record and abstract only.",
+        "method": "Bibliographic and abstract comparison",
+        "title": "On the (bi)infinite case of Shadrin’s theorem concerning the L∞-boundedness of the L2-spline projector",
+        "trigger": "infinite-line kernel comparison may appear in original result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce52dee0-9ef7-4bf6-a658-9cf2f010dbc3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp dimensionless L-infinity to Lipschitz inverse-mesh norm is an intrinsic stability coefficient for rough-data periodic linear-spline Galerkin reconstruction. An exact finite-mesh formula and the universal sharp algebraic limit with exponentially small finite-size defect provide a precise quantitative benchmark, not a routine unweighted Lebesgue projector norm or a contrived small-instance invariant.",
+    "status": "PASS"
+  }
+}
