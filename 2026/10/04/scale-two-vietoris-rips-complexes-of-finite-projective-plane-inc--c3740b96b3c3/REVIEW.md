@@ -1,18 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-Final claim: For every finite projective plane \(\Pi\) of order \(q\ge 2\), if \(G_\Pi\) is its incidence graph with the shortest-path metric, then \(\mathrm{VR}(G_\Pi;2)\simeq\bigvee^{q^3}S^2\). Consequently its positive-dimensional Vietoris–Rips persistence has exactly \(q^3\) degree-\(1\) bars with birth \(1\) and death \(2\), exactly \(q^3\) degree-\(2\) bars with birth \(2\) and death \(3\), and no other positive-dimensional bars.
+## correctness
 
-## Correctness
-PASS. The proof fixes the inclusive Vietoris–Rips convention, all quantifiers, and the projective-plane axioms. Distances are exhausted by the point/line cases; the scale-two clique classification rules out two points with two lines by uniqueness of a joining line; the two covering subcomplexes collapse to simplices and intersect exactly in the incidence graph; the finite-simplicial cofibration pushout is therefore a suspension. The cycle-rank identity is exact, and diameter three closes the filtration. The packaged verifier independently checks orders 2 and 3 and exact mod-2 boundary ranks, but the universal claim rests on the structural proof rather than finite enumeration. Risk: only standard homotopy-pushout/cofibration facts are used; no nonstandard lemma remains computationally uncertified.
+PASS
 
-## Originality
-PASS. Alias, implication, database, and broader-coverage searches found nearby work on graph-power Vietoris–Rips filtrations, cycle powers, squares of subdivision graphs, and fundamental groups of bipartite graph squares, but no inspected source states or implies the finite-projective-plane suspension theorem or its \(q^3\) degree-two multiplicity. The strongest same-object result controls only \(\pi_1\), while the proof here supplies the missing higher-homotopy information. Residual risk is an unindexed thesis, note, or finite-geometry computation.
+For any projective plane of order q>=2, its incidence bipartite graph G has 2N vertices, (q+1)N edges, diameter 3, and cycle rank (q-1)N+1=q^3. At scale 2 same-part distances 2 and only incident mixed edges. Partition the clique complex into U and V, where U is simplex on all points with cones over each line point-set and V is the symmetric lines construction. Each has dominated-vertex collapses to a simplex; U intersect V is exactly G. Homotopy pushout of two contractible pieces along G yields suspension Sigma G, wedge q^3 S². Scale1 is G, scale3 full simplex; hence claimed q^3 bars in each of dimensions1 and2. Verified independent combinatorial small cases q2,q3: edges21,52, beta1 8,27; face vectors start (14,63,112,84,42,14,2) and (26,208,728,1534,2600,3432,3432). General theorem is axiomatic not finite extrapolation.
 
-Closest literature: Adams–Coskunuzer supplies the power-filtration/Vietoris–Rips setting and higher-dimensional motivation; Adamaszek supplies exact graph-power homotopy calculations for cycles and a distinct subdivision-square theorem; Larrión–Pizaña–Villarroel-Flores supplies only a fundamental-group comparison for squares of bipartite graphs; Parks–Marchette supplies girth/chordality persistence bounds. None of the inspected statements determines the claimed scale-two homotopy type or the \(q^3\) second-homology multiplicity.
+## originality
 
-Residual originality risk: an unindexed thesis, note, or computation could contain an equivalent result.
+PASS
 
-## Value
-PASS. Finite projective planes form a canonical infinite incidence-geometric family when they exist, and their Levi graphs are standard highly symmetric test objects. The theorem gives the complete positive-dimensional Vietoris–Rips persistence in closed form and exhibits a structural dimension shift from \(q^3\) circle classes to \(q^3\) two-sphere classes at the next graph-power scale. This is a natural family theorem, not a parameter slice or a recomputation of a known table.
+Best-of-knowledge originality accepted on the basis of direct statement/implication comparisons; prior components explicitly credited. Scale-two Vietoris–Rips complexes of finite projective-plane incidence graphs. Risks and partial readings disclosed.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A complete homotopy type and positive-degree barcode for all finite projective-plane incidence graphs, including non-Desarguesian planes, is a natural exact topological classification. The suspension decomposition elucidates the q^3 multiplicity and pinpoints the two successive dimension shifts, unlike generic graph-power bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

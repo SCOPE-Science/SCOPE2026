@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The structural proof, not finite experimentation, establishes the universal statement. It uses only the finite-projective-plane incidence axioms, the exhaustive graph-distance classification, an explicit maximal-clique classification at scale \(2\), dominated-vertex collapses of two subcomplexes, and the standard homotopy-pushout identification of the union with a suspension.
+# Independent mathematical audit
 
-`verify_projective_plane_vr.py` is a standalone Python standard-library stress test. It constructs the Desarguesian planes \(\mathrm{PG}(2,2)\) and \(\mathrm{PG}(2,3)\), checks unique joins/intersections and all incidence degrees, reconstructs the shortest-path metric, finds all maximal scale-two cliques by Bron–Kerbosch search, and independently checks them against the facets predicted by the proof. It then enumerates every simplex, computes exact mod-\(2\) boundary ranks by bitset Gaussian elimination, and verifies that the proof subcomplexes meet exactly in the incidence graph.
+## correctness
 
-For \(q=2\), the checker obtains \(331\) nonempty simplices and Betti vector \((1,0,8,0,0,0,0)\). For \(q=3\), it obtains \(16720\) nonempty simplices and Betti vector \((1,0,27,0,0,0,0,0,0,0,0,0,0)\). The replay ends with `VERIFY_OK`.
+PASS
 
-Limits: these computations verify only two Desarguesian examples. They do not certify the universal quantifier and are not presented as doing so. The theorem does not address weighted metrics or incidence structures without the projective-plane uniqueness axioms.
+For any projective plane of order q>=2, its incidence bipartite graph G has 2N vertices, (q+1)N edges, diameter 3, and cycle rank (q-1)N+1=q^3. At scale 2 same-part distances 2 and only incident mixed edges. Partition the clique complex into U and V, where U is simplex on all points with cones over each line point-set and V is the symmetric lines construction. Each has dominated-vertex collapses to a simplex; U intersect V is exactly G. Homotopy pushout of two contractible pieces along G yields suspension Sigma G, wedge q^3 S². Scale1 is G, scale3 full simplex; hence claimed q^3 bars in each of dimensions1 and2. Verified independent combinatorial small cases q2,q3: edges21,52, beta1 8,27; face vectors start (14,63,112,84,42,14,2) and (26,208,728,1534,2600,3432,3432). General theorem is axiomatic not finite extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality accepted on the basis of direct statement/implication comparisons; prior components explicitly credited. Scale-two Vietoris–Rips complexes of finite projective-plane incidence graphs. Risks and partial readings disclosed.
+
+## value
+
+PASS
+
+A complete homotopy type and positive-degree barcode for all finite projective-plane incidence graphs, including non-Desarguesian planes, is a natural exact topological classification. The suspension decomposition elucidates the q^3 multiplicity and pinpoints the two successive dimension shifts, unlike generic graph-power bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
