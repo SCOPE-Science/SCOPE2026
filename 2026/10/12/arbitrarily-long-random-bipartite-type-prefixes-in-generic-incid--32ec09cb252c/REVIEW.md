@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. If an r-tuple has r<min(m,n), its set of distinct entries contains neither m distinct points nor n distinct lines, so the I-closure rule cannot fire. Proposition 2.14 therefore gives acl(a)=a as a set of distinct entries, and Corollary 2.15 reduces complete type to the marked finite incidence pattern. Every such pattern is K_{m,n}-free and is realized by the generic extension property. The injective formula is then the direct count of side assignments and cross-edge subsets, while repeated coordinates are exactly a Stirling transform. The source separately gives uncountability in arity m+n, hence continuum cardinality in the countable language.
+## correctness
 
-## Originality
-PASS with residual folklore risk. The primary source supplies all model-theoretic premises but does not state the exact low-arity formulas or stabilization phenomenon. OEIS A047863 and random-bipartite orbit enumeration are explicit prior art and are excluded from novelty. Targeted semantic, exact-formula, alias, and same-source overlap searches found no statement identifying the stabilized prefix for T_{m,n} or combining it with the later continuum explosion.
+PASS
 
-## Value
-PASS. The result gives a sharp, reusable local-to-global contrast across a canonical NSOP1 family: arbitrarily many initial finite type spaces are indistinguishable in cardinality from the random bipartite graph, even though each theory eventually has continuum many finite-arity types. The formulas also provide exact benchmark values for low-arity calculations in T_{m,n}.
+For r<min(m,n), any r-tuple contains fewer than m points and fewer than n lines, so its support is vacuously I-closed. Conant–Kruckman Proposition 2.14 identifies acl with I-closure and Corollary 2.15 characterizes complete types by marked closure; every finite bipartite pattern of this small size embeds into the existentially closed universal class, so all patterns occur. Choosing point coordinates p and their p(r-p) cross incidences gives a_r=Σ_p C(r,p)2^{p(r-p)}; equality partitions contribute Stirling transform b_r=Σ_k S(r,k)a_k. Verified independent exact integer sequences through r=7 and direct enumeration through r=5. Source Remark 3.4 gives uncountably many types in arity m+n; countable-language upper bound makes it continuum. No extension of the formula beyond r<min(m,n).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The OA-style bipartite labeled graph sequence A047863, random-bipartite orbit profiles, the algebraic-closure theorem, and the later-arity non-smallness fact are expressly prior. The combined exact stabilization range and all-m,n type-spectrum formula is not located verbatim in the inspected primary source or Resultary. The result is a straightforward implication of the published criteria plus enumeration, with explicit folklore risk.
+
+## value
+
+PASS
+
+An arbitrarily long exact finite initial type-count profile hiding continuum many higher-arity types is a mathematically motivated boundary phenomenon in oligomorphic/non-small theory. The exact stabilized type counts are natural invariants usable for comparing generic incidence theories; not an arbitrary reindexing of A047863 because the model-theoretic identification and sharp closure boundary matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
