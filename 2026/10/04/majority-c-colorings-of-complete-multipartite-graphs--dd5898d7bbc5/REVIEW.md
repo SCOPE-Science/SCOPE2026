@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. For a fixed used color, if \(a_i\) vertices of that color lie in part \(V_i\) and the class has total size \(A\), every such vertex has \(A-a_i\) same-colored neighbors among \(N-n_i\) neighbors. Summing the majority inequalities over the support of the color gives \(A\ge N/2\). Hence at most two colors can occur. With exactly two colors, equality forces every color to meet every part and to occupy exactly half of each part. The converse half-splitting construction meets the majority threshold with equality. The counting formula follows by independent half-set choices in the parts. The standalone verifier checks the original neighborhood definition for all complete-multipartite types through order \(8\).
+# Independent mathematical audit
 
-## Originality
-PASS. The closest primary source, arXiv:2604.20752, proves only the complete-bipartite specialization in Observation 2(v), while its general upper bound does not imply the value \(1\) or \(2\) for arbitrary complete multipartite graphs. Its full text connects the invariant to satisfactory and sum-satisfactory partitions but contains no occurrence of “multipartite.” The inspected older satisfactory-partition source of Shafique and Dutton likewise records the complete-bipartite parity obstruction, not an arbitrary complete-multipartite theorem. Targeted searches under the majority-C, satisfactory-partition, sum-satisfactory, complete-multipartite, parity, and half-neighborhood formulations did not locate a stronger covering statement. Residual risk remains from older literature indexed under different terminology.
+## correctness
 
-## Value
-PASS. Complete multipartite graphs are a broad classical family, and the initiating majority-C paper itself singles out complete bipartite graphs as a basic exact class. The result gives a sharp all-parts parity criterion, a global obstruction to three or more colors, and a complete structural and enumerative description of optimal colorings. This is a natural extension of a stated basic-family result rather than an arbitrary parameter slice.
+PASS
 
-## Closest literature and limitations
-The initiating source is Csilla Bujtás, Magda Dettlaff, Hanna Furmańczyk, and Aleksandra Laskowska, *Majority C-coloring of graphs*, arXiv:2604.20752. The older comparison source is Khurram H. Shafique and Ronald D. Dutton, *On Satisfactory Partitioning of Graphs*, Congressus Numerantium 154 (2002), 183–194. The claim is limited to finite simple complete multipartite graphs with at least two parts and the one-half threshold. An unindexed equivalent in older satisfactory-partition language remains possible.
+PASS. For any color class A of size A meeting parts I, a vertex in part i has A−a_i same-colored neighbors and N−n_i total, so 2(A−a_i)>=N−n_i. A color cannot appear only within one part since degrees >0; summing over |I|>=2 gives (|I|−1)A >= (|I|N−sum_{i in I}n_i)/2 >= (|I|−1)N/2. Every used color uses at least N/2 vertices; thus no three colors. With two colors, both classes N/2, equality forces full part support and 2a_i=n_i for every part. Therefore all n_i even; conversely balanced half-splitting gives equality at each vertex. Independent half choices give prod binomial(n_i,n_i/2), color swap acts freely giving half that count. r>=2, all n_i>=1 guard all degrees positive; finite all parts.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, bounded best-of-knowledge. Bujtás–Dettlaff–Furmańczyk–Laskowska Observation 2(v) has the exact complete-bipartite parity case only and relates majority-C coloring to satisfactory partitions; the inspected full primary HTML does not list an arbitrary complete multipartite characterization or the class-count formula. Older satisfactory/friendly partition literature supplies balanced constructions (including Edmonds thesis Theorem 20 sufficiency for multipartite equal divisible parts) but no prior necessity for all parts, no cap of two arbitrary-color majority-C classes, or complete optimizer counts in the inspected material.
+
+## value
+
+PASS
+
+PASS. This is a natural complete-class exact classification in an established graph-coloring variant, simultaneously characterizing feasible palettes and enumerating every optimal two-coloring. The half-splitting rigidity handles all numbers and unequal sizes of parts; despite an elementary proof, a reusable exact family classification is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

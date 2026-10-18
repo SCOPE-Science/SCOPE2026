@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T00:17:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For any color class A of size A meeting parts I, a vertex in part i has A−a_i same-colored neighbors and N−n_i total, so 2(A−a_i)>=N−n_i. A color cannot appear only within one part since degrees >0; summing over |I|>=2 gives (|I|−1)A >= (|I|N−sum_{i in I}n_i)/2 >= (|I|−1)N/2. Every used color uses at least N/2 vertices; thus no three colors. With two colors, both classes N/2, equality forces full part support and 2a_i=n_i for every part. Therefore all n_i even; conversely balanced half-splitting gives equality at each vertex. Independent half choices give prod binomial(n_i,n_i/2), color swap acts freely giving half that count. r>=2, all n_i>=1 guard all degrees positive; finite all parts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general upper bounds in Bujtás et al are not exact on all multipartite graphs. Edmonds’s divisible-part theorem supplies a balanced feasible construction, not necessity under the aggregate majority criterion."
+        ],
+        "reasoning": "Prior positive constructions explain the if direction, but neither dominates the exact iff, <=2 palette rigidity and labeled optimizer count.",
+        "searches": [
+          "Bujtás et al 2026 §§2–7 general graph bounds and exact families",
+          "Resultary semantic: majority C-coloring complete multipartite graphs all part sizes even satisfactory partition at most two colors",
+          "Edmonds 2015 Theorem 20 ginsu multipartite"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.20752v1 full HTML",
+        "R. W. Edmonds 2015 thesis Section 2.4 Theorem 20",
+        "Shafique–Dutton 2002 bibliographic/satisfactory partition discussion",
+        "Resultary semantic: majority C-coloring complete multipartite graphs all part sizes even satisfactory partition at most two colors"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior bipartite iff parity and multipartite half-split sufficient construction. New proof uses |I|−1 times color size bound to exclude >=3 colors and force every a_i=n_i/2, then counts all solutions."
+        ],
+        "reasoning": "Arbitrary complete multipartite necessity, rigidity and count do not formally follow from prior sufficiency or the two-part theorem; they require the uniform color-support inequality used here.",
+        "searches": [
+          "arXiv:2604.20752 Observation 2(v), section 1 satisfactory relation",
+          "Shafique–Dutton 2002 satisfactory partitions",
+          "Edmonds 2015 Theorem 20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bujtás et al Observation 2(v) gives K_{m,n}, not K_{n1,...,nr} general."
+        ],
+        "reasoning": "For two colors, majority-C is satisfactory partition, while for >=3 its condition compares the same color to the union of others (not each other class separately). This exact equivalence was considered; classical bipartite criteria do not yield all multipartite necessity/counts.",
+        "searches": [
+          "Resultary semantic: majority C-coloring complete multipartite graphs all part sizes even satisfactory partition at most two colors",
+          "arXiv:2604.20752 majority C-coloring",
+          "satisfactory partition",
+          "friendly partitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest complete-bipartite parity formula and equal divisibility sufficiency are known. No exact enumeration across arbitrary r multipartite parts appears in inspected sources."
+        ],
+        "reasoning": "The new exact count prod binom(n_i,n_i/2), including palette-swap quotient, is not a recomputation of the complete-bipartite result for r>2.",
+        "searches": [
+          "arXiv:2604.20752 Observation 2(v) table of graph families",
+          "Resultary semantic: majority C-coloring complete multipartite graphs all part sizes even satisfactory partition at most two colors",
+          "Edmonds 2015 thesis §2.4"
+        ]
+      },
+      "rationale": "PASS, bounded best-of-knowledge. Bujtás–Dettlaff–Furmańczyk–Laskowska Observation 2(v) has the exact complete-bipartite parity case only and relates majority-C coloring to satisfactory partitions; the inspected full primary HTML does not list an arbitrary complete multipartite characterization or the class-count formula. Older satisfactory/friendly partition literature supplies balanced constructions (including Edmonds thesis Theorem 20 sufficiency for multipartite equal divisible parts) but no prior necessity for all parts, no cap of two arbitrary-color majority-C classes, or complete optimizer counts in the inspected material.",
+      "residual_risks": [
+        "A differently named earlier satisfactory-partition or alliance theorem could contain the exact arbitrary-multipartite rigidity; checked primary work did not show it.",
+        "The 2015 thesis establishes half-split sufficiency, so novelty must not be attributed to this construction alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers r=2 parity iff and 2-color satisfactory equivalence, but does not explicitly give r>=3 full classification or optimizer enumeration",
+          "evidence": [
+            "Observation 2(v) K_{m,n}: two iff m,n both even; exact-family list lacks arbitrary K_{n1,...,nr}"
+          ],
+          "identifier_or_url": "arXiv:2604.20752v1, 22 April 2026",
+          "material_read": "Full public primary arXiv HTML §§1–7, Observation 2(v), general bounds, class discussion, related satisfactory partitions and references",
+          "method": "Direct full arXiv HTML reading and search of complete multipartite/bipartite terms",
+          "title": "Majority C-coloring of graphs",
+          "trigger": "Introduces exact invariant and known complete-bipartite edge case"
+        },
+        {
+          "assessment": "Provides sufficient balanced partwise splitting for divisible part sizes, in particular d=2, but not complete arbitrary multipartite majority-C necessity, <=2 aggregate class cap or optimizer count",
+          "evidence": [
+            "Thesis Theorem 20: complete multipartite graph admits friendly equal divided construction when each part order divisible by d"
+          ],
+          "identifier_or_url": "R. W. Edmonds 2015 thesis, §2.4 Theorem 20",
+          "material_read": "Theorem 20 and surrounding full primary PDF pages 15–16 with complete multipartite divisible-part construction; definition distinguishes per-other-class from aggregate-majority k>2",
+          "method": "Primary thesis PDF section read and page images inspected",
+          "title": "Friendly and Unfriendly Partitions",
+          "trigger": "Plausible older coverage under multi-class neighborhood partition terminology"
+        },
+        {
+          "assessment": "Known satisfactory partition framework and complete-bipartite parity do not alone settle arbitrary multipartite counts",
+          "evidence": [
+            "Two-color neighborhood majority = satisfactory partition"
+          ],
+          "identifier_or_url": "Shafique–Dutton, Congressus Numerantium 154 (2002), 183–194",
+          "material_read": "Bibliographic and scope discussion plus connection in Bujtás source; not full paper reading",
+          "method": "Literature citation comparison",
+          "title": "On Satisfactory Partitioning of Graphs",
+          "trigger": "Older 2-color terminology and complete bipartite parity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. This is a natural complete-class exact classification in an established graph-coloring variant, simultaneously characterizing feasible palettes and enumerating every optimal two-coloring. The half-splitting rigidity handles all numbers and unequal sizes of parts; despite an elementary proof, a reusable exact family classification is mathematically motivated.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "r>=2 nonempty parts, finite simple graph, exactly half of open neighbors; no r=1 edgeless case.",
+    "No extension to general graphs, weighted neighborhoods or other thresholds."
+  ],
+  "schema_version": 1
+}
