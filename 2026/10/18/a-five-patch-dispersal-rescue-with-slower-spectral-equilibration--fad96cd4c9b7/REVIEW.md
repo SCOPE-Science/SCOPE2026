@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness
+PASS. The population matrix is a positive scalar multiple of \(qI+A\), so the characteristic-polynomial factorizations determine both Perron growth and the subdominant eigenvalue modulus without approximation. Three disjoint rational root intervals locate all cubic roots of the five-patch example. The cross-multiplied damping comparison is affine in \(q\) with two strictly positive coefficients. An independent characterization of every connected nonbipartite graph on three or four vertices reduces minimality to paw, diamond and complete graphs; rational polynomial-root intervals prove the required comparisons throughout the parameter interval. The exact-arithmetic program replays matrix identities, signs and the exhaustive small-graph classification.
+
+## Originality
+PASS, with stated residual risk. Artzy-Randrup and Stone (2010) give spectral-radius persistence criteria and discuss cyclic components, but the inspected full text does not present a theorem about damping-ratio reduction under the explicit link or the sharp five-patch cutoff. Stott et al. (2011) define damping ratios and caution against equating them with every finite-time convergence time; that general framework does not imply this particular pair or minimality without the new spectral comparison. Existing graph-synchronization edge paradoxes use Laplacian eigenvalues and thus cannot be substituted for this adjacency-based population statement. The Shima–Noonburg–Phillips (2010) paper directly motivates damping-ratio connectivity, but its full text remained inaccessible, leaving a material risk of an overlooked equivalent claim. Searches of research records, mathematical terminology and accessible prior local claims did not identify such a claim; nonmatches are not uniqueness proofs.
+
+## Mathematical value
+PASS. This gives an exact structural boundary for a natural ecological planning tradeoff, rather than an isolated rounded-eigenvalue example: every self-recruitment ratio in a nontrivial interval exhibits improved long-run invasion prospects but diminished relative spectral equilibration, and a whole open range of local fecundities crosses the invasion threshold. It proves that five is the smallest already-cycling network where this opposition can occur, distinguishing it from a trivial transition in which a first cycle is created. The model is simplified and does not justify intervention decisions in stochastic or heterogeneous landscapes.
+
+Self-review: passed. Independent audit: not yet performed.
