@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed feedback bijection and Hessian exactly, checked scalar derivative and interval clipping, proved unique half-angle minimax by monotonicity of sine-square on both sides of its peak, and realized sharpness with a three-eigenvalue diagonal matrix. The domain includes the singular A endpoint because every positive feedback shift is invertible. A standalone script passed 7,146 symbolic and finite tests; no infinite conclusion rests on a finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Preuster et al., arXiv:2607.11835v1, §§3 and 4.2: generic feedback Hessian and conditioning estimates; elliptic optimization of bound (16) rather than an exact spectral-interval minimax.",
+        "Pearson, Stoll and Wathen, DOI 10.1137/110847949, §2.2: fixed matched-square Schur factor with spectral interval [1/2,1] and parameter-independent bound."
+      ],
+      "reasoning": "The known dimension-uniform factor-two bound applies without finite spectral endpoints, but it cannot determine which feedback shift is uniquely minimax for each bounded interval. The 2026 general feedback estimate holds in broader operator settings but is not an exact spectral-interval condition number or optimizing theorem. No inspected broad theorem implies the complete finite-band optimizer and matching sharp witness as a stated special case.",
+      "searches": [
+        "optimal parameter squared shift preconditioner Schur complement minimax condition number",
+        "arctan eigenvalue interval half angle secant squared minimax scalar feedback shift for positive semidefinite inverse Hessian quadratic control",
+        "Preuster Schiela Schaller Stoll 2607.11835 shift delta spectral minimax Hessian"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.11835v1",
+      "doi:10.1137/110847949",
+      "doi:10.3390/math11122599"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Preuster et al., arXiv:2607.11835v1, §§3 and 4.2: generic feedback Hessian and conditioning estimates; elliptic optimization of bound (16) rather than an exact spectral-interval minimax.",
+        "Pearson, Stoll and Wathen, DOI 10.1137/110847949, §2.2: fixed matched-square Schur factor with spectral interval [1/2,1] and parameter-independent bound.",
+        "Wang, Chen and Sun, DOI 10.3390/math11122599, §§2.2 and 3.2: fixed matching strategy and rational eigenvalue formula, but not optimization over scalar shifts."
+      ],
+      "reasoning": "The older factor-two inequality and displayed spectral rational function cover a precursor, and the 2026 feedback framework covers transformation legitimacy. Neither fixed-shift bounds nor the 2026 elliptic norm estimate give the finite-band optimum with a unique shift, sharp three-eigenvalue failure and two-endpoint exact collapse. The new analytic interval minimax optimization is the noncovered step. A different earlier shifted-factor optimal-parameter theorem remains a residual risk.",
+      "searches": [
+        "arXiv:2607.11835v1 feedback Proposition 3.3 Section 4.2",
+        "Pearson 2012 Schur complement matching 1/2 1",
+        "Wang Chen Sun 2023 Proposition 1 eigenvalue"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Preuster et al., arXiv:2607.11835v1, §§3 and 4.2: generic feedback Hessian and conditioning estimates; elliptic optimization of bound (16) rather than an exact spectral-interval minimax.",
+        "Pearson, Stoll and Wathen, DOI 10.1137/110847949, §2.2: fixed matched-square Schur factor with spectral interval [1/2,1] and parameter-independent bound.",
+        "Wang, Chen and Sun, DOI 10.3390/math11122599, §§2.2 and 3.2: fixed matching strategy and rational eigenvalue formula, but not optimization over scalar shifts."
+      ],
+      "reasoning": "The rational scalar eigenvalue map is algebraically equivalent to the classical matched-square Schur preconditioning map after scaling and is NOT presented as new. The final claim instead optimizes its parameter over a specified finite spectral band and proves uniqueness plus exact extremizers. The inspected older sources use the fixed matching shift or nonsharp norm bounds and do not supply that full parameter optimization.",
+      "searches": [
+        "stabilize then optimize scalar feedback elliptic reduced Hessian exact minimax condition number delta equalize spectral endpoints",
+        "optimal parameter squared shift preconditioner Schur complement minimax condition number",
+        "arXiv:2607.11835v1 §3 feedbacked reduced Hessian, Pearson 2012 §2.2 matching Schur square"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The three inspected full-text sources display the fixed-matching parameter or generic bound, not a table or formula of exact finite-band minimizers."
+      ],
+      "reasoning": "No exact table or parameterized theorem covering the half-angle optimizer or three-mode witness was identified in the checked primary literature. This is a bounded literature conclusion, not proof of universal absence.",
+      "searches": [
+        "\"optimal shift\" \"matching strategy\" \"Schur complement\" eigenvalues",
+        "\"condition number\" \"shifted square\" preconditioner spectral endpoints optimal"
+      ]
+    },
+    "rationale": "Known matched-square spectral ratio and factor-two bound are specifically credited to Pearson et al. and Wang et al.; the 2026 source proves general feedback bounds but not this uniquely optimal finite spectral-interval shift. Searches and full-text comparisons did not reveal the complete minimax formula and sharp three-mode witness. Unindexed equivalent spectral optimization is an explicit residual risk.",
+    "residual_risks": [
+      "Equivalent finite-interval parameter optimization may be present under alternate matching-preconditioner nomenclature in literature not surfaced by the searches.",
+      "The derived result applies to Euclidean commuting self-adjoint data, and must not be confused with the differently normed elliptic estimate optimized in the motivating 2026 paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "A different abstract norm bound is optimized; the unique finite Euclidean spectral-band minimax value and three-mode witness are not stated in inspected relevant sections.",
+        "evidence": "arXiv:2607.11835v1; full-text §3 and §4.2, specifically the elliptic optimization reporting bound 9.",
+        "identifier_or_url": "https://www.researchgate.net/publication/409442943_Stabilize-then-optimize_Feedback_transformations_as_preconditioners_in_optimal_control",
+        "material_read": "Public full-text mathematical definitions of feedback, reduced Hessian equation (15), Proposition 3.3 and its proof, Section 4.2 exact discussion of the elliptic example and optimized bound (16).",
+        "method": "Read primary full-text passage, not merely title or abstract.",
+        "title": "Stabilize-then-optimize: Feedback transformations as preconditioners in optimal control",
+        "trigger": "Direct new-source overlap: feedback transformed reduced Hessian and reported optimal tuning."
+      },
+      {
+        "assessment": "The universal factor-two bound and conventional fixed shift are prior work. No finite endpoint-dependent shift minimax was identified in the relevant derivation.",
+        "evidence": "DOI 10.1137/110847949, §2.2, approximation of S by (K+beta^-1/2 M)M^-1(K+beta^-1/2 M).",
+        "identifier_or_url": "https://www.researchgate.net/publication/265493777_Regularization-Robust_Preconditioners_for_Time-Dependent_PDE-Constrained_Optimization_Problems",
+        "material_read": "Author-provided full text, introduction and §2.2 deriving matching Schur factor and its [1/2,1] eigenvalue bound.",
+        "method": "Read primary full-text derivation and comparison of factors.",
+        "title": "Regularization-Robust Preconditioners for Time-Dependent PDE-Constrained Optimization Problems",
+        "trigger": "Strongest precursor: identical shifted-square rational spectral shape."
+      },
+      {
+        "assessment": "Known [1/2,1] spectral bound and fixed matching factor, not the unique sharp spectral-band shift optimization.",
+        "evidence": "DOI 10.3390/math11122599, §3.2, equation (14) and Proposition 1.",
+        "identifier_or_url": "https://www.researchgate.net/publication/371387435_A_Matching-Strategy-Inspired_Preconditioning_for_Elliptic_Optimal_Control_Problems",
+        "material_read": "Full open-access text, §§2.2, 3.1 and 3.2 including Proposition 1 and rational eigenvalue formula.",
+        "method": "Read primary full-text mathematical spectral derivation.",
+        "title": "A Matching-Strategy-Inspired Preconditioning for Elliptic Optimal Control Problems",
+        "trigger": "Potential exact coverage of spectral ratios for regularized Schur matching."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6b0e4149-853c-490b-9cb3-72c49a949c77",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural spectral endpoints determine a unique complete minimax tuning rule for a known and useful matching-square/feedback Hessian. At alpha=1 and spectral interval [0,1], sharp conditioning improves from 2 at the conventional shift to 4-2sqrt(2) at the derived shift. The extremal three-mode realization and exact collapse of two-endpoint systems characterize why and when the guarantee is tight. The result is a complete structural classification, not a small arbitrary parameter slice or just another factor-two inequality.",
+    "status": "PASS"
+  }
+}
