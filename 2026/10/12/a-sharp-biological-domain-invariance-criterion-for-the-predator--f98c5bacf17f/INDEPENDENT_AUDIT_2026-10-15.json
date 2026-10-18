@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:56:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The printed denominators are >=K and >=c on N>=0,0<=P<=1/delta, so the ODE is regular there. At P=1/delta, the exact boundary flow is (delta*r2-r2*e/K-q2*E)/delta²; it points inward/tangent for all N precisely when delta<=e/K+q2 E/r2; local uniqueness and invariant coordinate axes give necessity and sufficiency of strip invariance. Predator P bounded in strip, N has logistic upper control (for biological 0<=m<=1, upper r1; otherwise max(1,m) suffices). Outside, positive denominator zeros N=K/(delta P-1) and (c+eP)/(delta P-1) refute whole-quadrant regularity. Independent symbolic rational check gives witness delta=1/5>3/50, Pdot(1,5)=7/2; source baseline delta=.05<=.25.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier refuge literature explicitly constrains 0<1-my<1, but uses a different refuge function.",
+          "The later discrete map does not give the exact sharp continuous-time threshold for the 2022 Leslie–Gower field."
+        ],
+        "reasoning": "Generic positive-invariance or biological-fraction restrictions do not imply the concrete delta<=e/K+q2 E/r2 condition without the printed vector-field boundary calculation.",
+        "searches": [
+          "DOI:10.1155/2021/9963031 earlier nonlinear refuge",
+          "DOI:10.1155/2024/9185585 discrete fear/refuge",
+          "Resultary query: predator prey model positive biological domain invariance sharp criterion"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/math10162857 indexed primary text/model",
+        "DOI:10.1155/2021/9963031 related indexed material",
+        "DOI:10.1155/2024/9185585 related indexed material"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original model supplies equations but asserts whole-quadrant positivity without checking poles or P=1/delta boundary.",
+          "The new theorem identifies exact rational singular curves and inward/tangent/outward trichotomy for all admissible parameter choices."
+        ],
+        "reasoning": "Although the boundary sign calculation is elementary, the source did not state the necessary-and-sufficient global viability criterion; neither generic restriction implies it as a stated or already demonstrated result.",
+        "searches": [
+          "DOI:10.3390/math10162857 model/refuge paragraph and Theorem 1 reference",
+          "DOI:10.1155/2021/9963031 refuge-fraction restriction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jamil–Naji explicitly require 0<=1-delta P<=1 for realistic refuge, yet source proves nonnegative-quadrant positivity.",
+          "The printed predator denominator K+N(1-delta P) has real positive zeros for P>1/delta."
+        ],
+        "reasoning": "Checked the same statement via regularity, existence of denominator singularities, viability of the prey-refuge strip and boundary vector field; no source-specific threshold was located.",
+        "searches": [
+          "Resultary: Jamil Naji 2022 modified Leslie Gower nonlinear prey refuge 1-delta P invariant strip correction singularity",
+          "Resultary: predator prey model positive biological domain invariance sharp criterion",
+          "Web: 10.3390/math10162857 pdf full text refuge delta invariance",
+          "DOI:10.3390/math10162857 indexed full source formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The printed system has exactly the two rational denominators and the refuge restriction; original baseline delta=0.05, e/K+q2 E/r2=0.25.",
+          "No retrieved erratum records the boundary Pdot formula or the explicit outward witness."
+        ],
+        "reasoning": "The correction is a source-specific analytic state-space theorem, not a numerical table recomputation.",
+        "searches": [
+          "Web primary indexed: DOI 10.3390/math10162857 model (2), refuge assumption, Dataset (24)",
+          "Resultary: Jamil Naji 2022 modified Leslie Gower nonlinear prey refuge 1-delta P invariant strip correction singularity"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): Although the boundary sign calculation is elementary, the source did not state the necessary-and-sufficient global viability criterion; neither generic restriction implies it as a stated or already demonstrated result. Generic positive-invariance or biological-fraction restrictions do not imply the concrete delta<=e/K+q2 E/r2 condition without the printed vector-field boundary calculation. Residual literature/access risks are explicitly recorded.",
+      "residual_risks": [
+        "Original Theorem 1 proof and any author erratum were not freshly inspected in complete publisher full text; direct endpoint was rate-limited despite indexed access.",
+        "Global post-exit behavior and later equilibrium/bifurcation claims are not assessed.",
+        "The N logistic bound in the package uses natural refuge coefficient m<=1; for m>1 global comparison needs max(m,1), but the invariant-strip claim still follows from the boundary sign."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_SPECIFIC_GAP",
+          "evidence": "The exact displayed denominators are singular at positive N when P>1/delta; indexed source states biological strip restriction; later all-quadrant theorem appears in the assigned source comparison but full original theorem proof was not independently reread.",
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/10/16/2857",
+          "material_read": "Publisher indexed source Introduction, explicit refuge condition 0<=1-delta P<=1, full printed System (2), Dataset context and numerical captions; direct publisher full-text fetch intermittently 429 and Theorem 1 not freshly read verbatim",
+          "method": "Primary open-access indexed full-text portions and model equation; attempted direct publisher opening",
+          "title": "Modeling and Analysis of the Influence of Fear on the Harvested Modified Leslie–Gower Model Involving Nonlinear Prey Refuge",
+          "trigger": "Exact original model to be corrected"
+        },
+        {
+          "assessment": "NOT_SHOWN_TO_COVER",
+          "evidence": "Contains generic refuge fraction restriction, not exact Jamil–Naji rational boundary criterion.",
+          "identifier_or_url": "https://doi.org/10.1155/2021/9963031",
+          "material_read": "Relevant public indexed discussion of biological positivity restriction; entire paper not freshly read",
+          "method": "Index/DOI statement comparison",
+          "title": "Dynamics of a Predator-Prey Population in the Presence of Resource Subsidy under the Influence of Nonlinear Prey Refuge and Fear Effect",
+          "trigger": "Earlier predator-dependent refuge admissibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Corrects the admissible state space underlying a published nonlinear refuge population model with a sharp parameter inequality and explicit counterexample to unconditional invariance. Generic feasibility restrictions were previously understood, but the model-specific necessary-and-sufficient criterion and singular-curve error have meaningful analytical and biological implications.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3390/math10162857 indexed primary text/model",
+    "DOI:10.1155/2021/9963031 related indexed material",
+    "DOI:10.1155/2024/9185585 related indexed material",
+    "assigned source tree 07cd623f034f5a59b71aab56dc0cd43f06de712d"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only state-space regularity and positivity corrected, not source later equilibrium or bifurcation calculations.",
+    "Loss of strip invariance does not prove trajectories later hit a pole.",
+    "Original theorem full text could not be freshly extracted through rate-limited publisher access; model equation and biological restriction read in publisher indexed source."
+  ],
+  "residual_risks": [
+    "Original Theorem 1 proof and any author erratum were not freshly inspected in complete publisher full text; direct endpoint was rate-limited despite indexed access.",
+    "Global post-exit behavior and later equilibrium/bifurcation claims are not assessed.",
+    "The N logistic bound in the package uses natural refuge coefficient m<=1; for m>1 global comparison needs max(m,1), but the invariant-strip claim still follows from the boundary sign."
+  ],
+  "schema_version": 1
+}

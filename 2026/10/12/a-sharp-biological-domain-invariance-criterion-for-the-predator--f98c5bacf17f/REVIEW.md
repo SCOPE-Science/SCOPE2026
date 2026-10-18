@@ -1,31 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. On the refuge-valid strip, the denominators are bounded below by \(K\) and \(c\). The axes are invariant and the only nontrivial boundary calculation gives
-\[
-P'\bigg|_{P=1/\delta}
-=
-\frac{\delta r_2-r_2e/K-q_2E}{\delta^2}.
-\]
-Therefore
-\[
-\delta\le \frac eK+\frac{q_2E}{r_2}
-\]
-is necessary and sufficient for forward invariance. Outside the strip, the two printed denominators vanish on explicit positive curves. Exact rational replay verifies both the failing witness and the source's safe baseline parameters.
+PASS
 
-## Originality
+PASS: The printed denominators are >=K and >=c on N>=0,0<=P<=1/delta, so the ODE is regular there. At P=1/delta, the exact boundary flow is (delta*r2-r2*e/K-q2*E)/delta²; it points inward/tangent for all N precisely when delta<=e/K+q2 E/r2; local uniqueness and invariant coordinate axes give necessity and sufficiency of strip invariance. Predator P bounded in strip, N has logistic upper control (for biological 0<=m<=1, upper r1; otherwise max(1,m) suffices). Outside, positive denominator zeros N=K/(delta P-1) and (c+eP)/(delta P-1) refute whole-quadrant regularity. Independent symbolic rational check gives witness delta=1/5>3/50, Pdot(1,5)=7/2; source baseline delta=.05<=.25.
 
-PASS. Predator-dependent refuge admissibility and feasible-region invariance are prior concepts. The accepted contribution is restricted to the 2022 source: its exact positive singular curves, the sharp refuge-strip invariance threshold, and a source-admissible counterexample to unconditional invariance. Source-specific searches, related full-text literature, and a later citing paper did not locate a statement implying this repair.
+## originality
 
-## Value
+PASS
 
-PASS. The refuge law is only biologically meaningful when the vulnerable-prey fraction remains nonnegative, while the paper's later analysis presupposes a regular state space. The sharp criterion distinguishes parameter sets for which the intended refuge domain is dynamically self-consistent from those for which it is not, and confirms that the source's principal numerical data satisfy the repair.
+PASS (best of knowledge): Although the boundary sign calculation is elementary, the source did not state the necessary-and-sufficient global viability criterion; neither generic restriction implies it as a stated or already demonstrated result. Generic positive-invariance or biological-fraction restrictions do not imply the concrete delta<=e/K+q2 E/r2 condition without the printed vector-field boundary calculation. Residual literature/access risks are explicitly recorded.
 
-## Closest literature and limitations
+## value
 
-Earlier nonlinear-refuge literature explicitly restricts predator-dependent refuge fractions so that available prey remain positive, but uses different refuge functions and does not yield this Leslie-Gower threshold. Later discrete fear-and-refuge work cites the source without providing the continuous-time repair.
+PASS
 
-The result does not determine what happens after a solution leaves the refuge-valid strip and does not re-evaluate later source theorems individually.
+PASS: Corrects the admissible state space underlying a published nonlinear refuge population model with a sharp parameter inequality and explicit counterexample to unconditional invariance. Generic feasibility restrictions were previously understood, but the model-specific necessary-and-sufficient criterion and singular-curve error have meaningful analytical and biological implications.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
