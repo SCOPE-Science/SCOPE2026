@@ -1,19 +1,21 @@
-# Scientific review: largest-triangle reflected mixed-area identity
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof begins with a precise bilinear normalization of planar mixed area and reduces every genuine quadrilateral, by diagonal normalization and vertex relabeling, to parameters \(0<a\le b\le1/2\). It proves that the largest inscribed triangle uses three vertices; enumerates the full finite set of differences; proves the eight-point candidate is convex by nonnegative consecutive determinants; shows omitted differences lie in the diamond already present; then uses the shoelace formula and polarization. This proves all parameters, not merely sampled points. The four algebraic endpoint statements follow without singular affine maps. A standalone exact rational hull implementation independently reproduced all claimed area equalities on 642 test polygons, but supplies only regression evidence.
+PASS
 
-## Originality: PASS, with residual risk
+For a strictly convex planar quadrilateral Q, maximizing the absolute affine determinant separately in each triangle vertex reduces T(Q) to four vertex triangles. The affine diagonal-intersection normal form A=(a,0),B=(0,b),C=(a−1,0),D=(0,b−1), 0<a≤b≤1/2, gives S=1/2 and largest vertex-triangle area T=(1−a)/2. All 16 vertex differences are contained in the octagon spanned by (−1,0),(a−1,−b),(0,−1),(1−a,b−1),(1,0),(1−a,b),(0,1),(a−1,1−b); unused differences are in the coordinate diamond. Consecutive turning determinants b−a, 1−a, 1−a−b, a (repeated) are nonnegative. Independent symbolic shoelace evaluation gives area(Q−Q)=3−2a. Area(Q−Q)=2S+2V2(Q,−Q) gives V2=1−a=2T, hence full reflection polynomial and deficit 2(S−T); affine scaling restores arbitrary Q. Independently checked exact Fraction monotone-chain difference hulls for 296 rational (a,b) pairs and Sympy exact determinants; those finite tests corroborate rather than replace the universal proof. Degenerate triangular limit by continuity only.
 
-The originating October 2026 full text proves equality in Godbersen's sharp mixed-volume inequality is attained only by simplices, without a nonzero quadrilateral deficit formula. The July/September 2026 predecessor proves the inequality and the polytope equality condition; Bianchini--Colesanti's planar generalized difference-body paper handles optimal upper constants through shadow systems. None of their inspected statements or pertinent proofs yields \(V_2(Q,-Q)=2T(Q)\). Semantic published-result searches included both mixed-area and equivalent difference-body / maximum-triangle formulations; the closest related findings concern other shape invariants or broad equality rigidity. Since an explicit low-vertex polygon identity is potentially classical, publication-level novelty remains unverified, and older hard-to-index sources may contain the same identity.
+## originality
 
-## Value: PASS
+PASS
 
-The minimal nonsimplicial polytope class is the first place where Godbersen's equality breaks. An exact affine-invariant deficit expressed through the intrinsic best three-vertex approximation is structurally more informative than mere strictness: it yields the *entire* one-parameter reflection-volume polynomial, a sharp quantitative area-loss law, and exact extremal endpoints (triangle degeneration and parallelogram). It gives a natural calibrated example for quantitative convex-body stability without claiming a general theorem.
+Best-of-knowledge comparison of exact statements, applicable conditions, reductions and primary literature; documented specific residual source risks rather than treating negative searches as novelty proof.
 
-## Scope and limitations
+## value
 
-Only planar convex quadrilaterals and triangular limits are covered. General convex bodies do not satisfy this precise maximal-triangle identity. Independent assessment has not been performed; neither publication originality nor general stability outside this class has been certified.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Convex quadrilaterals are the minimal nonsimplex polytopes where Godbersen equality fails. Identifying the EXACT affine-invariant deficiency by the intrinsic best inscribed triangle is a motivated sharp quantitative stability refinement: it determines the complete area(Q+t(−Q)) polynomial and exact degeneration/parallelogram endpoints rather than merely strictness. The exact ratio is not a fixed trivial parameter substitution from the known general inequality, and would be a useful model for higher-vertex quantitative stability. No general convex-body statement is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

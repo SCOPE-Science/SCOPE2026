@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T14:59:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a strictly convex planar quadrilateral Q, maximizing the absolute affine determinant separately in each triangle vertex reduces T(Q) to four vertex triangles. The affine diagonal-intersection normal form A=(a,0),B=(0,b),C=(a−1,0),D=(0,b−1), 0<a≤b≤1/2, gives S=1/2 and largest vertex-triangle area T=(1−a)/2. All 16 vertex differences are contained in the octagon spanned by (−1,0),(a−1,−b),(0,−1),(1−a,b−1),(1,0),(1−a,b),(0,1),(a−1,1−b); unused differences are in the coordinate diamond. Consecutive turning determinants b−a, 1−a, 1−a−b, a (repeated) are nonnegative. Independent symbolic shoelace evaluation gives area(Q−Q)=3−2a. Area(Q−Q)=2S+2V2(Q,−Q) gives V2=1−a=2T, hence full reflection polynomial and deficit 2(S−T); affine scaling restores arbitrary Q. Independently checked exact Fraction monotone-chain difference hulls for 296 rational (a,b) pairs and Sympy exact determinants; those finite tests corroborate rather than replace the universal proof. Degenerate triangular limit by continuity only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two give V2(K,−K)≤2 area(K) with equality only for a triangle in the planar case; last addresses a more general p-difference-body upper bound.",
+          "Theorem 2 of arXiv:2610.04527 provides only an equality case, not a quadrilateral sharp deficit identity."
+        ],
+        "reasoning": "The general inequality 0<2S−V2 and simplex-only equality do not entail the numerical value 2(S−T), even with Q constrained to four vertices. The reflection polynomial is also not provided by those prior statements.",
+        "searches": [
+          "Kotrbatý Mouamine arXiv:2607.20387v2",
+          "Friedland Putterman Szusterman arXiv:2610.04527v1 Theorem 2",
+          "Bianchini Colesanti arXiv:math/0702102"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md and independent verify.py at 026b884693e594bc52ea00eb4cefced8d8e1df95",
+        "Resultary semantic search: mixed area convex quadrilateral reflected difference body largest area inscribed triangle exact formula (25 hits)",
+        "https://arxiv.org/abs/2610.04527",
+        "https://arxiv.org/abs/2607.20387",
+        "https://arxiv.org/abs/math/0702102"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sharp inequality V2≤2S cannot determine a varying exact quadrilateral deficit; explicit diagonal parameter a and max-triangle relation are extra information"
+        ],
+        "reasoning": "A theorem giving an inequality and identifying equality triangles is strictly weaker than determining the exact affine-invariant deficit on every quadrilateral. The prior theorems cannot be specialized algebraically to the displayed identity.",
+        "searches": [
+          "arXiv:2610.04527 Theorem 2 and inspected proof",
+          "arXiv:2607.20387 Godbersen inequality",
+          "arXiv:math/0702102 main statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent identity area(Q−Q)=2 area(Q)+4 max_triangle_area(Q); deficit 6S−area(Q−Q)=4(S−T)"
+        ],
+        "reasoning": "Checked statement in mixed-area, difference-body and maximal-triangle terms. No independently located full theorem matches this quadrilateral-specific exact formula; related convex-body inequalities do not determine the finite-class area loss.",
+        "searches": [
+          "Resultary semantic search: mixed area convex quadrilateral reflected difference body largest area inscribed triangle exact formula (25 hits)",
+          "queries difference body quadrilateral area maximal inscribed triangle; affine normalized diagonal ratios",
+          "Rogers Shephard difference body quadrilateral explicit area"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact matching Resultary hit is the same record, not an independent previously published source",
+          "Makai polar volume product and cyclic/tangential quadrilateral bounds use different invariants"
+        ],
+        "reasoning": "Checked related exact shape-invariant entries; no prior table or formula at the same reflected mixed-area invariant was located. This search is not a universal novelty certification.",
+        "searches": [
+          "Resultary semantic search: mixed area convex quadrilateral reflected difference body largest area inscribed triangle exact formula (25 hits)",
+          "Resultary exact Makai volume-product profile of convex quadrilaterals",
+          "Resultary quadrilateral area stability/reverse inequality related records"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of exact statements, applicable conditions, reductions and primary literature; documented specific residual source risks rather than treating negative searches as novelty proof.",
+      "residual_risks": [
+        "Because this formula is elementary in four vertices, it may have a classical nonindexed equivalent statement in older difference-body literature.",
+        "Full Kotrbatý–Mouamine and Bianchini–Colesanti primary texts were not read materially here, so do not assert entire documents omit it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "General sharp inequality and equality characterization, not a formula via maximal inscribed triangle for all quadrilaterals.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.04527",
+          "material_read": "Full primary PDF, theorem statements and proof of planar mixed-volume equality characterization; searched for quadrilateral-specific calculation",
+          "method": "Open arXiv PDF inspected in this execution",
+          "title": "The equality case in Godbersen’s inequality and its generalizations",
+          "trigger": "same reflected mixed-volume function and simplex equality"
+        },
+        {
+          "assessment": "LIMITED_ACCESS",
+          "evidence": "Broad inequality alone does not imply identity; uninspected details may contain a quadrilateral computation.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.20387",
+          "material_read": "Accessible abstract/theorem bibliographic summary; full text failed to load; no full-paper noncoverage asserted",
+          "method": "arXiv listing and published-source summary",
+          "title": "Godbersen’s conjecture and the L_p-Rogers–Shephard inequality",
+          "trigger": "prior general sharp inequality for same mixed volume"
+        },
+        {
+          "assessment": "LIMITED_ACCESS",
+          "evidence": "Generalized inequality does not in its stated form give exact largest-triangle identity; retain residual risk for unpublished/less prominent calculations.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0702102",
+          "material_read": "Accessible bibliographic scope and statements; full source not materially inspected in this execution",
+          "method": "Open-access bibliographic comparison",
+          "title": "A sharp Rogers & Shephard type inequality for the p-difference body of planar convex bodies",
+          "trigger": "generalized planar difference bodies and shadow systems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Convex quadrilaterals are the minimal nonsimplex polytopes where Godbersen equality fails. Identifying the EXACT affine-invariant deficiency by the intrinsic best inscribed triangle is a motivated sharp quantitative stability refinement: it determines the complete area(Q+t(−Q)) polynomial and exact degeneration/parallelogram endpoints rather than merely strictness. The exact ratio is not a fixed trivial parameter substitution from the known general inequality, and would be a useful model for higher-vertex quantitative stability. No general convex-body statement is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only strict four-vertex planar quadrilaterals; triangular limits via continuity. Unit disk violates formula.",
+    "Potential unindexed classical overlap remains, though primary general theorems read do not supply direct identity."
+  ],
+  "schema_version": 1
+}
