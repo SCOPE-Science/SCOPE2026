@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs each square-page book graph, computes all-pairs shortest-path distances, and reconstructs every resolving neighborhood from the defining distance inequality.
+# Independent mathematical audit
 
-For every \(4\le r\le10\), it verifies the complete resolving-neighborhood table and confirms \(\kappa(B_r)=4\). It checks the page-pair incidence certificate showing that summing all two-page constraints yields the lower bound \(rk/2\).
+## correctness
 
-For seven rational values of \(k\) spanning \([1,4]\), it verifies the uniform candidate exactly with rational arithmetic. It also replays the \(r=4\) uniqueness algebra and checks explicit asymmetric minimum functions for \(r\ge6\) and \(1\le k\le2\).
+PASS
 
-Recorded output:
+For r>=4 the only nonfull resolving neighborhoods are the four-vertex sets from comparing a_i,a_j or b_i,b_j and the x,b_i / y,a_i cross-families; distances confirm kappa=4. Each pair of page sums p_i+p_j>=k; adding all yields total page weight>=rk/2. Uniform internal weight k/4 and zero on spine is feasible. At optimality every pair inequality is tight and g(x)=g(y)=0, forcing p_i=k/2; the only remaining nonautomatic constraints are the two cross inequalities in the claim. For r=4 they collapse to equality forcing alpha_i=beta_i=k/4. For k=4 the page sum=2 forces all internals weight one, and for r>=6, k<=2 two page classes of size at least three give explicit asymmetric optima.
 
-```text
-VERIFY_OK
-book_parameters_checked = 7
-parameters r = 4..10
-resolving_neighborhood_pairs_checked = 896
-uniform_candidate_checks = 49
-dual_certificate_parameters_checked = 7
-asymmetric_optimum_examples_checked = 15
-all resolving-neighborhood tables matched the theorem
-all kappa values equal 4
-all dual certificates give lower bound r*k/2
-all uniform candidates attain r*k/2 for sampled rational k in [1,4]
-r=4 uniqueness algebra replayed exactly
-asymmetric minima verified for r>=6 and k<=2
-```
+## originality
 
-The finite checks corroborate the symbolic proof. They do not replace the argument for arbitrary real \(k\in[1,4]\) or arbitrary \(r\ge4\).
+PASS
+
+Kang–Yero–Yi establishes the general fractional k resolving definitions, lower bound and proportionality criteria; Feng–Lv–Wang supplies Cartesian-product bounds, which with uniform witnesses account for the scalar r*k/2. The claimed new contribution is the COMPLETE optimizer polytope and uniqueness/nonuniqueness classifications for square-page book graphs B_r=K_{1,r} square K_2. The closest full primary paper covers bouquets of cycles sharing one vertex, not books sharing an edge; no equivalent all-minimizer theorem was found.
+
+## value
+
+PASS
+
+A linear program optimum alone does not describe all equality cases. The explicit necessary-and-sufficient page-weight inequalities classify the geometry of every minimum resolving function at every real k in [1,4], identify a unique four-page exception and exhibit genuinely asymmetric optimizers in large books. These are natural data for robust sensor-placement designs and a complete family classification, not arbitrary finite tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
