@@ -1,0 +1,196 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T11:10:58.107561Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked exact window/lattice normalization: Q2=(1−|t|)_+, b=2+1/(2q)+delta, a=1/(qb), fixed integer q>=2, Zak b^(-1/2)sum Q2((x−k)/b)e^(2pi i k gamma), and optimal lower A_q=min_(x,gamma) sum_{j=0}^{q−1}|Z_b(x+j/q,gamma)|² (source Zibulski–Zeevi Theorem 4). Direct finite support gives b^(3/2)Z_b(y,1/2)=(epsilon−y)_+−(y−1+epsilon)_+ for epsilon=b−2; source global zero theorem excludes other simultaneous q-sample zero phases at critical b=c_q. Thus all minimizers localize near gamma=1/2 and q-grid endpoints at epsilon0=1/(2q). Verified uniform first phase derivative is 4pi i epsilon0/c_q^(3/2), yielding O(delta) transverse phase displacement, while two edge hinges force O(delta) spatial displacement. Normalized leading energy is c_q^(−3)[(delta−h)_+²+(delta+h)_+²+(4pi²/q)tau²]+o(delta²) and its minimum is 2delta²/c_q³. Exact trial achieves upper 2delta²/(c_q+delta)^3. Independent numerical finite minimizations for q=2,3,5 and delta=0.008,0.003 attain predicted trial to floating precision and ratios approach 2/c_q³. These checks corroborate but do not replace compactness and source zero classification. No assertion uniform in q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source is all q but frame membership only",
+          "Published half-density result derives q=2 optimal bound on 1.5<=b<=1.75, not 2.25+delta",
+          "Same-object Hasannasab paper full text is inaccessible despite lawful attempts"
+        ],
+        "reasoning": "Broader all-q qualitative theorem neither states nor implies exact q-dependent rate. Different q=2 domain not a stronger bound at audited threshold. Priority of inaccessible paper cannot be resolved affirmatively from abstract.",
+        "searches": [
+          "Stangl Frederick arXiv:2609.00481",
+          "Hasannasab Lemvig arXiv:2609.13116",
+          "Resultary published half-density hat spline bound q=2"
+        ]
+      },
+      "checked_sources": [
+        "Assigned Git RESULT/VERIFICATION/metadata/AUDIT and verify_zak_endpoint.py",
+        "Stangl–Frederick arXiv:2609.00481v2 primary PDF Theorems 2–4",
+        "Resultary/2026 published c8f151d17e5c full RESULT.md",
+        "Hasannasab–Lemvig arXiv:2609.13116 abstract only; OA PDF/HTML unavailable",
+        "Oxford paper job acb12b38c72b6bd3e71b74cb711104b8 status vpn_disconnected (private)",
+        "Independent q2/3/5 local minimizations /mnt/data/run106/independent_checks.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frame membership says A_q>0 but supplies no vanishing rate near boundary",
+          "Other exact q2 result pertains critical b=7/4, while here q2 critical 9/4"
+        ],
+        "reasoning": "Published zero classification is necessary proof ingredient yet does not entail 2/c_q^3 without new uniform phase derivative and hinge minimization. Separate q2 formula at different wall is logically inapplicable; inaccessible plausible full paper leaves priority risk.",
+        "searches": [
+          "Stangl Frederick arXiv:2609.00481 Theorems 2–4",
+          "Resultary c8f151d17e5c exact interval 3/2..7/4",
+          "Hasannasab Lemvig arXiv:2609.13116"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zibulski–Zeevi gives A_q as minimum fiber energy, not asymptotic evaluation",
+          "Other q=2 published exact bound near b=7/4 is opposite-side, different boundary; this claim near 2+1/(2q)"
+        ],
+        "reasoning": "The correct equivalents use explicit window normalization and lattice ab=1/q. Qualitative zero-set and half-density different-wall result do not imply coefficient 2/c_q^3; uninspected Hasannasab full text remains a material risk.",
+        "searches": [
+          "Resultary: tent B spline optimal lower Gabor frame bound Zak zero",
+          "arXiv:2609.00481 Theorems 2–4",
+          "arXiv:2609.13116 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest same record plus distinct q=2 half-density collapse; no exact right-onset table returned",
+          "Source qualitative frame-set diagrams have no leading-order lower-bound table in inspected theorem sections"
+        ],
+        "reasoning": "No actual prior exact right-onset formula located; numerical samples are diagnostic and not evidence of novelty. The source abstract-only paper could still include a table.",
+        "searches": [
+          "Resultary: tent B spline optimal lower Gabor frame bound Zak zero",
+          "Gabor Q2 optimal frame bound critical obstruction quadratic rate table"
+        ]
+      },
+      "rationale": "Earlier Stangl–Frederick zero/frame set theorem is qualitative and supplies necessary common-zero classification, not exact leading lower-frame coefficient. Separately published Resultary half-density theorem concerns q=2 at b approaching 7/4 from LEFT and a different critical obstruction, not present b=2+1/(2q) approached from RIGHT, so no implication. Hasannasab–Lemvig same-object 2026 text inaccessible even after lawful OA and authorized Oxford request; cannot claim that full paper does not cover this. Best-of-knowledge passes with high explicit residual priority risk.",
+      "residual_risks": [
+        "Hasannasab–Lemvig arXiv:2609.13116 is a highly relevant same-object primary manuscript, full text inaccessible from both arXiv and OA; Oxford institutional service returned vpn_disconnected, so no whole-document originality conclusion can be made.",
+        "Source global Zak-zero theorem and precise fiber normalization are essential premises; proof does not establish them from scratch, but read at primary theorem sections.",
+        "Only fixed q and delta tending positive to zero, not uniform in q, other rational densities or finite-delta exact A_q."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact assigned claim, normalization and scope identified; prior self-review is not accepted as independent evidence.",
+          "evidence": [
+            "RESULT.md/Verification.md via GitHub commit 026b884693e594bc52ea00eb4cefced8d8e1df95",
+            "assigned source tree eab7181b5449f8a5dbb6cce70d77e6f01910011b"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-quadratic-onset-of-the-tent-spline-gabor-lower-frame-bound--9587a4647148",
+          "material_read": "Complete final RESULT.md and VERIFICATION.md and complete metadata/slogan; consulted relevant portions of source audit as evidence, not as authority for a verdict.",
+          "method": "GitHub read-only file retrieval pinned to assigned commit; rebuilt argument separately.",
+          "title": "Assigned final RESULT.md, VERIFICATION.md, AUDIT.json, METADATA.json and SLOGAN.txt",
+          "trigger": "Complete frozen original theorem and exact source scope, scientific and privacy metadata"
+        },
+        {
+          "assessment": "Source supplies global critical-zero premise and frame membership, but inspected theorem does not determine the sharp quadratic coefficient.",
+          "evidence": [
+            "arXiv:2609.00481v2, Theorems 2–4"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.00481",
+          "material_read": "Primary 13-page PDF inspected Theorem 2 zero classification, Theorem 3 frame iff, Theorem 4 precise normalized Zak fiber formula, with PDF page screenshots including page 3.",
+          "method": "Read actual primary arXiv PDF source theorem sections",
+          "title": "The frameset of the second-order B-spline along ab=1/q (Stangl–Frederick)",
+          "trigger": "Primary same spline and integer oversampling; exact inherited zero/frame theorems"
+        },
+        {
+          "assessment": "Its q=2 lower bound collapses as b increases LEFT to 7/4, whereas audited onset is b=9/4+delta from RIGHT, so its exact formula does not imply the audited limit.",
+          "evidence": [
+            "Resultary/2026 RESULT.md frozen blob df53546055365e7ff27f7b8dc632c309376302c3"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-gabor-frame-bounds-and-quadratic-collapse-for-the-hat-spli--c8f151d17e5c/RESULT.md",
+          "material_read": "Read complete 7798-character RESULT.md via exact GitHub file read, including proof and 3/2<=b<=7/4 domain.",
+          "method": "Primary mathematical finding full text via GitHub",
+          "title": "Sharp Gabor frame bounds and quadratic collapse for the hat spline at half-density (separate published Resultary finding)",
+          "trigger": "Potential stronger prior coverage: same window, q=2, quadratic vanishing"
+        },
+        {
+          "assessment": "Undecidable full-text overlap: not counted as not covering; explicit priority risk and access blocker.",
+          "evidence": [
+            "arXiv:2609.13116; abstract",
+            "Oxford access status vpn_disconnected, job_id retained privately"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.13116",
+          "material_read": "Title, abstract and arXiv metadata; full text could not be acquired from arXiv or lawful OA; authorized Oxford returned vpn_disconnected.",
+          "method": "Abstract only; full document uninspected, no bypass",
+          "title": "The zero set of the Zak transform of B-splines with applications to Gabor frames (Hasannasab–Lemvig)",
+          "trigger": "Highly relevant same spline Zak zero primary study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp transition exponent and exact coefficient for a natural frame-set threshold (all fixed q>=2) identifies how frame stability deteriorates near a published obstruction, beyond binary frame membership; grounded in an exact Zak derivative and two-edge boundary-layer mechanism. Meaningful quantitative invariant, not mere restatement of qualitative zero set.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned Git RESULT/VERIFICATION/metadata/AUDIT and verify_zak_endpoint.py",
+    "Stangl–Frederick arXiv:2609.00481v2 primary PDF Theorems 2–4",
+    "Resultary/2026 published c8f151d17e5c full RESULT.md",
+    "Hasannasab–Lemvig arXiv:2609.13116 abstract only; OA PDF/HTML unavailable",
+    "Oxford paper job acb12b38c72b6bd3e71b74cb711104b8 status vpn_disconnected (private)",
+    "Independent q2/3/5 local minimizations /mnt/data/run106/independent_checks.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "C/O/V are independent bounded assessments, not external human certification; verify previous same-model conclusions only through actual proof and primary source.",
+    "Hasannasab–Lemvig arXiv:2609.13116 is a highly relevant same-object primary manuscript, full text inaccessible from both arXiv and OA; Oxford institutional service returned vpn_disconnected, so no whole-document originality conclusion can be made.",
+    "Source global Zak-zero theorem and precise fiber normalization are essential premises; proof does not establish them from scratch, but read at primary theorem sections.",
+    "Only fixed q and delta tending positive to zero, not uniform in q, other rational densities or finite-delta exact A_q."
+  ],
+  "residual_risks": [
+    "Hasannasab–Lemvig arXiv:2609.13116 is a highly relevant same-object primary manuscript, full text inaccessible from both arXiv and OA; Oxford institutional service returned vpn_disconnected, so no whole-document originality conclusion can be made.",
+    "Source global Zak-zero theorem and precise fiber normalization are essential premises; proof does not establish them from scratch, but read at primary theorem sections.",
+    "Only fixed q and delta tending positive to zero, not uniform in q, other rational densities or finite-delta exact A_q."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Exact assigned claim, normalization and scope identified; prior self-review is not accepted as independent evidence.",
+      "evidence": [
+        "RESULT.md/Verification.md via GitHub commit 026b884693e594bc52ea00eb4cefced8d8e1df95",
+        "assigned source tree eab7181b5449f8a5dbb6cce70d77e6f01910011b"
+      ],
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-quadratic-onset-of-the-tent-spline-gabor-lower-frame-bound--9587a4647148",
+      "material_read": "Complete final RESULT.md and VERIFICATION.md and complete metadata/slogan; consulted relevant portions of source audit as evidence, not as authority for a verdict.",
+      "method": "GitHub read-only file retrieval pinned to assigned commit; rebuilt argument separately.",
+      "title": "Assigned final RESULT.md, VERIFICATION.md, AUDIT.json, METADATA.json and SLOGAN.txt",
+      "trigger": "Complete frozen original theorem and exact source scope, scientific and privacy metadata"
+    },
+    {
+      "assessment": "Source supplies global critical-zero premise and frame membership, but inspected theorem does not determine the sharp quadratic coefficient.",
+      "evidence": [
+        "arXiv:2609.00481v2, Theorems 2–4"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2609.00481",
+      "material_read": "Primary 13-page PDF inspected Theorem 2 zero classification, Theorem 3 frame iff, Theorem 4 precise normalized Zak fiber formula, with PDF page screenshots including page 3.",
+      "method": "Read actual primary arXiv PDF source theorem sections",
+      "title": "The frameset of the second-order B-spline along ab=1/q (Stangl–Frederick)",
+      "trigger": "Primary same spline and integer oversampling; exact inherited zero/frame theorems"
+    },
+    {
+      "assessment": "Its q=2 lower bound collapses as b increases LEFT to 7/4, whereas audited onset is b=9/4+delta from RIGHT, so its exact formula does not imply the audited limit.",
+      "evidence": [
+        "Resultary/2026 RESULT.md frozen blob df53546055365e7ff27f7b8dc632c309376302c3"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-gabor-frame-bounds-and-quadratic-collapse-for-the-hat-spli--c8f151d17e5c/RESULT.md",
+      "material_read": "Read complete 7798-character RESULT.md via exact GitHub file read, including proof and 3/2<=b<=7/4 domain.",
+      "method": "Primary mathematical finding full text via GitHub",
+      "title": "Sharp Gabor frame bounds and quadratic collapse for the hat spline at half-density (separate published Resultary finding)",
+      "trigger": "Potential stronger prior coverage: same window, q=2, quadratic vanishing"
+    },
+    {
+      "assessment": "Undecidable full-text overlap: not counted as not covering; explicit priority risk and access blocker.",
+      "evidence": [
+        "arXiv:2609.13116; abstract",
+        "Oxford access status vpn_disconnected, job_id retained privately"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2609.13116",
+      "material_read": "Title, abstract and arXiv metadata; full text could not be acquired from arXiv or lawful OA; authorized Oxford returned vpn_disconnected.",
+      "method": "Abstract only; full document uninspected, no bypass",
+      "title": "The zero set of the Zak transform of B-splines with applications to Gabor frames (Hasannasab–Lemvig)",
+      "trigger": "Highly relevant same spline Zak zero primary study"
+    }
+  ]
+}
