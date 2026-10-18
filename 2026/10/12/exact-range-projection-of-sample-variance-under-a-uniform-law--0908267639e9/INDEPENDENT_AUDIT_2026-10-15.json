@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:19:47.520996Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2 iid continuous uniform U[a,b], condition on the sample extreme endpoints: interior observations are iid uniform between them as unordered symmetric statistics, hence S^2 scales as R^2 times the variance of 0,1 and n-2 independent U[0,1] values. Evaluating E sum Z_i^2=1+(n-2)/3 and E(sum Z_i)^2=(n-2)/12+n^2/4 gives c_n=(n+1)(n+2)/(12n(n-1)) in E[S^2|R]=c_n R^2. With R/(b-a)~Beta(n-1,2) exact moments yield unbiasedness, Var(c_nR^2), Cov(R,S^2) and Corr(R,S^2)^2. The standard fourth central moment formula gives Var(S^2)=(b-a)^4(2n+3)/(360n(n-1)); the relative variance is 10(2n^2+6n+1)/[(n+3)(n+4)(2n+3)], equals one at n=2 and <1 for all n>=3, with asymptotic 10/n. Independently reconstructed all rational calculations for n=2..150, rather than trusting CHECKER_OUTPUT.txt. The conditional endpoint derivation establishes all n, and no UMVU or other-distribution claim is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sajeevkumar: linear scale estimates; Galili–Meilijson: mean estimator in scale-uniform family; Resultary: exponential sampling covariance not uniform"
+        ],
+        "reasoning": "These general-looking papers are for different estimands (scale, mean) or sampling law (exponential), and their stated formulas do not imply E[S²|R]=c_nR² and the requested exact uniform-law variance comparison.",
+        "searches": [
+          "Sajeevkumar 2011 quasi ranges DOI:10.1080/03610921003666438",
+          "Galili–Meilijson 2016 full HTML PMC4960505",
+          "Resultary 2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8"
+        ]
+      },
+      "checked_sources": [
+        "Galili and Meilijson (2016) full OA HTML",
+        "Sajeevkumar (2011) title/abstract plus related theorem summary",
+        "Rao (1981) bibliographic description",
+        "Tate (1959) bibliographic but not full math",
+        "Resultary range/variance semantic result list"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2016 paper treats improved mean estimation; 2011 theorem best linear estimators for scale; Tate broad historical location-scale work not fully accessible"
+        ],
+        "reasoning": "Conditional uniform interior-point self-similarity plus elementary Beta moments are sufficient to prove the formula, but a generic Rao–Blackwell theorem alone does not specify the constant, exact covariance or finite n efficiency. Tate could contain equivalent classical result; retain explicit priority risk rather than calling an unread whole work NOT_COVERING.",
+        "searches": [
+          "Sajeevkumar 2011 abstract Theorem 3.1 scope",
+          "Galili–Meilijson 2016 entire text",
+          "Tate 1959 source metadata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditional E[S²|R] is a Rao–Blackwell L2 projection onto squared range, not a UMVU assertion; normalized sample range is Beta(n-1,2)"
+        ],
+        "reasoning": "Compared exact conditional projection, squared-range unbiased variance estimator, relative efficiency and mixed covariance separately against classical endpoint/order-statistic formulas. Standard Beta moments provide ingredients but not automatically a published statement of this mixed relation.",
+        "searches": [
+          "Resultary variance conditional range uniform order statistics Rao Blackwell",
+          "Tate 1959 unbiased location-scale estimators DOI:10.1214/aoms/1177706256",
+          "Galili–Meilijson 2016 Rao Blackwell range statistics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical Beta(n-1,2) range law, Hozo approximate range/4 or /6 heuristic"
+        ],
+        "reasoning": "Moment tables for the range alone do not give its exact conditional relation with unbiased S²; the sample variance distribution and asymptotic ratio are independently derived. No exact matching estimator comparison table found.",
+        "searches": [
+          "Rao 1981 normalized range Beta law",
+          "Hozo et al 2005 empirical reconstruction from median and range",
+          "Resultary range and variance semantic search"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality comparison by actual statement and implication, with historical and unavailable-material risks recorded; no priority certification. Inspected closest prior statements use different scopes/estimands or do not directly entail this final exact claim.",
+      "residual_risks": [
+        "Older Tate (1959) complete mathematical text not read; known-equivalent quadratic estimator may appear historically",
+        "Exact projection follows from elementary conditional distribution, so stronger originality skepticism than for structurally new theorems is warranted; explicit exact regression/efficiency comparison is the claimed remainder"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies estimation of theta (mean/scale), not conditional sample variance",
+          "evidence": "Article Sec.2 sets X1|T uniform between extremes and improves mean estimators",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4960505/",
+          "material_read": "Entire open-access HTML (281 lines), formulas for U((1-k)theta,(1+k)theta), Sections 2–5",
+          "method": "Primary full-text mathematical/theorem comparison",
+          "title": "An Example of an Improvable Rao–Blackwell Improvement, Inefficient Maximum Likelihood Estimator, and Unbiased Generalized Bayes Estimator",
+          "trigger": "Closest directly accessible complete uniform-family Rao–Blackwell study"
+        },
+        {
+          "assessment": "Linear scale estimation; no whole-document noncoverage claim",
+          "evidence": "Title/abstract and theorem characterization describe quasi-range BLUE/BLIE scale estimation",
+          "identifier_or_url": "https://doi.org/10.1080/03610921003666438",
+          "material_read": "Abstract, relevant source-supplied Theorem 3.1 description; full article not obtained in this run",
+          "method": "Abstract and bibliographic review",
+          "title": "Use of Quasi-Ranges in the Estimation of Scale Parameter of a Symmetric Distribution",
+          "trigger": "Range-based estimator for location-scale family"
+        },
+        {
+          "assessment": "Known exact Beta range moments are prior and credited",
+          "evidence": "Classical order-statistic background",
+          "identifier_or_url": "https://doi.org/10.1007/BF01902899",
+          "material_read": "Bibliographic metadata and source description of normalized Beta range law; full mathematical body not inspected",
+          "method": "Secondary scope comparison",
+          "title": "Estimation Problems for Rectangular Distributions (Or the Taxi Problem Revisited)",
+          "trigger": "Classical uniform range distribution"
+        },
+        {
+          "assessment": "Material access limitation and priority risk",
+          "evidence": "1959 Ann. Math. Stat. broad unbiased estimation of location/scale functions",
+          "identifier_or_url": "https://doi.org/10.1214/aoms/1177706256",
+          "material_read": "Bibliographic record; machine-readable full mathematical body not available",
+          "method": "Historical source identification, not whole-paper negative claim",
+          "title": "Unbiased Estimation: Functions of Location and Scale Parameters",
+          "trigger": "Highly plausible older dominating theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact conditional L2 projection and unbiased range-only estimator for an unknown-width uniform distribution is a natural finite-sample statistical invariant, and the strict n>=3 variance improvement together with O(1/n) relative efficiency quantify a meaningful inferential gain. While conditional extrema and Beta range moments are classical, their explicit estimator-to-sample-variance efficiency and mixed covariance/correlation comparison are substantive reusable facts rather than arbitrary arithmetic, without claiming general optimality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Galili and Meilijson (2016) full OA HTML",
+    "Sajeevkumar (2011) title/abstract plus related theorem summary",
+    "Rao (1981) bibliographic description",
+    "Tate (1959) bibliographic but not full math",
+    "Resultary range/variance semantic result list"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Older Tate (1959) complete mathematical text not read; known-equivalent quadratic estimator may appear historically",
+    "Exact projection follows from elementary conditional distribution, so stronger originality skepticism than for structurally new theorems is warranted; explicit exact regression/efficiency comparison is the claimed remainder",
+    "No public edit is authorized: METADATA.json has a scope_run_id provenance field and derived public audit/certificate/file contents have not passed complete owner-authorized confidentiality sanitization and semantic review; withholding avoids disclosure of operational metadata."
+  ],
+  "schema_version": 1
+}
