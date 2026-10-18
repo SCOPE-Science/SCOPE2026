@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Every layer has occupancy 0, 1, or q, with a necessary-and-sufficient local domination condition. The unique run/full-piece decomposition gives exact length and weight formulas. For a full-piece word, the potential 3w-2n is at least 5 in all nonexceptional cases, whereas the constructed singleton optimum has potential at most 4. The only possible boundary exception E,F,E is optimum precisely at n=q=3. Weak compositions and adjacent-distinct run colors count the remaining minimizers exactly; for q=2 the graph is two disjoint paths, whose minimum maximal independent set gap count is binomial. The standalone graph-constructed brute-force checker examined every set of cardinality at most predicted minimum in 27 small cases; a separately implemented row DP agreed in 553 further cases. Numerical evidence supplements, not replaces, the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kuenzel--Rall 2019/2022 On well-covered direct products: accessible abstract discusses when all maximal independent sets have equal sizes, not their minimum-set multiplicity. A full-text fetch was unsuccessful.",
+        "Hedetniemi 2016 dissertation abstract discusses uniqueness of minimum independent dominating sets in trees and unspecified direct products; the dissertation PDF fetch returned 403.",
+        "Kuenzel--Rall 2022 Proposition 6(d) gives the independent domination number of P_m times K_n."
+      ],
+      "reasoning": "Well-coveredness and numerical independent domination are distinct from a count of every minimum realization. The accessible broader papers give neither an explicit path--clique enumeration nor a mathematical theorem that by itself evaluates this coefficient. Unavailable full texts are recorded as risks rather than treated as negative full-document results.",
+      "searches": [
+        "Mathematical-record search: On independent domination in direct products Kuenzel Rall 2022 independent domination number of P_m times K_n",
+        "Mathematical-record search: enumeration of minimum independent dominating sets tensor product path complete graph, optimal labelings full K_m layers and colored runs",
+        "web: \"On well-covered direct products\" Kuenzel Rall 2022 arxiv",
+        "web: \"Problems in Domination and Graph Products\" \"direct product\" \"path\" independent"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2203.12397v1 full text, March 2022",
+      "arXiv:1901.03218v1 accessible abstract",
+      "Hedetniemi 2016 dissertation repository record and abstract",
+      "Brešar--Klavžar--Rall 2007 accessible HTML sections",
+      "Public mathematical-record semantic searches for direct/tensor/categorical, minimum maximal independent set, optimum labeling, polynomial coefficients and graph-product aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior Proposition 6(d) states i(P_m × K_n)=ceil((2m+2)/3) for n>=3; that is exactly the size component already known.",
+        "Prior Lemma 4 characterizes allowable occupancies and provides no theorem that full fibers cannot occur in a true optimum except by non-increasing replacements; the single exceptional full-fiber optimum also requires strictness analysis.",
+        "Present proof establishes strict inequalities, all-run structure and binomial times proper-run-color multiplicities."
+      ],
+      "reasoning": "The present statement includes the known size only as context; its new mathematical assertion is an exact count and complete classification of minimizing sets. The prior general occupancy lemma is an input but not an implication of the enumerative count without the strict full-fiber and gap-count arguments. The q=2 path count is a simple baseline, not the main original contribution.",
+      "searches": [
+        "arXiv:2203.12397v1 Lemma 4, conditions 1--4, Proposition 6 and proof",
+        "arXiv:1901.03218 abstract and title",
+        "web: \"minimum independent dominating sets\" \"direct product\" \"path\" \"complete graph\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2203.12397v1 Section 3 explicitly identifies independent domination with smallest maximal independent sets and writes a weak-partition labeling; its Lemma 4 restricts layer sizes to 0, 1, q.",
+        "The public record index returned generic independence polynomials and unrelated complete multipartite extremal enumerators, not a path--clique direct-product minimum-set count."
+      ],
+      "reasoning": "The same theorem could appear under minimum maximal independent set multiplicity, lowest nonzero coefficient of a maximal-independent-set generating function, or count of optimum weak-partition labelings; searches covered these equivalences. The foundation describes the general labeling language but not its optimal-word count.",
+      "searches": [
+        "Mathematical-record search: exact count number of minimum maximal independent sets of the direct categorical Kronecker product of a path P_n and complete graph K_m, independent domination polynomial leading coefficient",
+        "Mathematical-record search: independent domination generating function coefficient i(G) of P_n tensor K_q, unlabeled maximal independent sets",
+        "web: \"direct product\" \"paths\" \"complete graphs\" \"independent domination polynomial\" enumeration",
+        "web: \"P_n × K_m\" \"minimum maximal independent sets\" count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2203.12397v1 p. 5 Table 1 tabulates only numerical minimum independent domination numbers and p. 7 Table 2 lists one optimal pattern by residue class.",
+        "The paper conclusion (p. 13) says it determines exact independent domination values for paths and cycles, and does not report counts.",
+        "No semantically close record item supplied a table of minimum path--clique direct-product sets."
+      ],
+      "reasoning": "A tabulated minimum cardinality does not determine the number of distinct minimum sets. Explicit sample patterns do not enumerate all optimal configurations. The new formulas count labeled extremizers for every pair of parameters.",
+      "searches": [
+        "Mathematical-record search: counting minimum maximal independent sets of graphs path n direct product clique q including K2",
+        "Mathematical-record search: minimum maximal independent sets direct product path and complete graph enumeration # minimum sets chromatic labels 2022 Kuenzel",
+        "full PDF scan: arXiv:2203.12397v1 Table 1, Table 2, Proposition 6, Conclusion"
+      ]
+    },
+    "rationale": "Full-text inspection of the foundation arXiv:2203.12397v1 establishes that Proposition 6 gives only minimum sizes, Lemma 4 supplies possible fiber sizes, and Table 2 supplies examples; it does not enumerate all optima or prove the strict absence of full fibers. Our count and complete run bijection are stronger data than the size alone and require new strict extremality and composition arguments. Mathematical-record searches of aliases, coefficients, optimal words, and product reductions found no relevant covering item. Bibliographic uncertainty remains for inaccessible earlier texts.",
+    "residual_risks": [
+      "Full text of Hedetniemi (2016) dissertation could not be inspected; it might contain a related structural result in an unspecified direct-product family.",
+      "The full text of Kuenzel--Rall (2019) On well-covered direct products was inaccessible at the attempted arXiv/journal mirrors; its known Lemma 4 is accounted for via the full 2022 paper.",
+      "Unindexed literature or a source using unexpected terminology could contain equivalent extremal coefficient formulas; database non-retrieval alone cannot prove uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIOR_NUMERICAL_SIZE_NOT_EXTREMIZER_COUNT",
+        "evidence": "Proposition 6(d) states the cardinality, and the proof replaces full layers without claiming all optima are full-free; neither exact multiplicities nor full classification are stated.",
+        "identifier_or_url": "arXiv:2203.12397v1 https://arxiv.org/pdf/2203.12397",
+        "material_read": "Full 14-page arXiv v1, especially Section 3 pp. 3-7; remaining Sections 4-6 and references pp. 8-14 screened for additional results",
+        "method": "Read mathematical definitions, Lemma 4, optimum labeling conditions 1-4, Table 1, Table 2, Proposition 6 and its proof, subsequent bounds and conclusion",
+        "title": "On independent domination in direct products",
+        "trigger": "Exact same graph product and invariant; first public paper and strongest direct comparator"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_INSUFFICIENT_FOR_FULL_NONCOVERAGE",
+        "evidence": "Available abstracts concern well-coveredness, while original 2022 paper cites this work for layer-size Lemma 4.",
+        "identifier_or_url": "arXiv:1901.03218v1 https://arxiv.org/abs/1901.03218",
+        "material_read": "ArXiv abstract and journal abstract; full text not available at attempted endpoints",
+        "method": "Searched for open arXiv and lawful hosted PDF, attempted full-text opening; only abstract/title accessible",
+        "title": "On well-covered direct products",
+        "trigger": "Direct-product maximal independent set general theory referenced by founding paper"
+      },
+      {
+        "assessment": "UNRESOLVED_BIBLIOGRAPHIC_RISK",
+        "evidence": "The 2016 abstract mentions unique minimum independent dominating sets in trees and some direct products but provides no graph-family-specific statement or exact count.",
+        "identifier_or_url": "https://open.clemson.edu/all_dissertations/1640/",
+        "material_read": "Dissertation title, abstract, bibliography record; full PDF inaccessible",
+        "method": "Accessed repository record and attempted PDF download, which returned HTTP 403",
+        "title": "Problems in Domination and Graph Products",
+        "trigger": "Potential prior study of uniqueness of minimum independent dominating sets of direct products"
+      },
+      {
+        "assessment": "AVAILABLE_MATERIAL_BOUNDS_OTHER_PARAMETERS",
+        "evidence": "The inspected material concerns domination and upper domination, not counting smallest maximal independent sets of path by clique.",
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2006.09.013",
+        "material_read": "Accessible sections Preliminaries and Upper domination, not full article",
+        "method": "Inspected primary HTML text for parameter definitions and bounds",
+        "title": "Dominating direct products of graphs",
+        "trigger": "Earlier broader direct-product domination results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "766d4449-f421-4012-a02d-fe4ed6d66b02",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source paper made independent domination of path--clique direct products a specifically studied graph-product problem, but left the number and classification of optimizers unresolved in its statements. The new theorem gives every optimal set, separates the q=2 disconnected case, explains an isolated full-layer exceptional optimum, and exhibits exponential dependence on clique size and path length at fixed minimum cardinality. The infinite-family structural rigidity and closed enumerator are natural, useful mathematical data rather than a small numerical improvement.",
+    "status": "PASS"
+  }
+}
