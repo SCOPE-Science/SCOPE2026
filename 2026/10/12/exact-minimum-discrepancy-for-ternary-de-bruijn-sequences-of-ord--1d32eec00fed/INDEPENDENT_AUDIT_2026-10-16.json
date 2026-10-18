@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T17:58:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every ternary order-five de Bruijn cycle contains 00000, which has symbol-pair discrepancy five and gives an unconditional lower bound. Pinned witness.txt has exactly 243 symbols, 81 per symbol and 243 distinct cyclic five-windows; those exhaust all ternary five-words. Its prefix-height extrema for pairs (0,1),(0,2),(1,2) are respectively (−4,1),(−4,1),(−2,3), width five each. Equality of global symbol frequencies makes every wrapping interval's imbalance the negative of its complementary interval, so all 243² circular factors have pair discrepancy ≤5. The independent exhaustive direct scanner confirms every cyclic interval. The matching lower and upper bounds prove the exact finite optimum; no assumption of an unsearched optimization routine is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary paper gives general nonbinary upper ≤n+1 and conjectures ≤n except q=3 and order2 exception.",
+          "In inspected July 2025 expanded Table 2, ternary order-five entry is blank while prior smaller order cells are filled."
+        ],
+        "reasoning": "General n+1 upper bound yields only discrepancy ≤6 here, not the needed sharp ≤5; binary results do not transfer to ternary order5.",
+        "searches": [
+          "Álvarez Becher Mereb Pajor Soto Theorem nonbinary discrepancy n+1",
+          "Gabric Sawada discrepancy de Bruijn binary 2022",
+          "authors optimal.pdf Table 2 ternary order 5"
+        ]
+      },
+      "checked_sources": [
+        "Álvarez et al., arXiv:2407.17367 full scholarly HTML",
+        "Álvarez et al., expanded July 2025 author manuscript 25-page PDF, Table 2",
+        "Gabric and Sawada, DOI:10.1016/j.disc.2021.112780 accessible overview",
+        "Resultary ternary de Bruijn discrepancy search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q=3,n=5 the prior known bound lower=5, upper=6 is not equality; its conjecture is not a proof.",
+          "Order-two exceptional cases show the sharpness statement depends on actual alphabet/order."
+        ],
+        "reasoning": "The new exact witness supplies the missing ≤5; the trivial 00000 lower bound finishes the result. Neither prior upper bound nor binary case implies it.",
+        "searches": [
+          "arXiv:2407.17367v1 Section 5.1-5.2",
+          "2025 expanded author PDF optimal.pdf Table2",
+          "Gabric Sawada Discrete Mathematics 345 (2022) 112780"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Álvarez–Becher–Mereb–Pajor–Soto define the same maximum pairwise symbol count imbalance on cyclic substrings.",
+          "Their binary q=2 results and order-two exceptional ternary table cells are different parameters."
+        ],
+        "reasoning": "The exact optimization under an identical discrepancy definition is compared, rather than confusing distinct linear vs cyclic conventions.",
+        "searches": [
+          "arXiv:2407.17367 de Bruijn minimum discrepancy q3 n5",
+          "ternary circular interval symbol imbalance debruijn optimal five",
+          "Resultary ternary de Bruijn order five discrepancy five minimum uniform"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete 2025 author PDF Table 2 has an empty q=3,n=5 cell and reports other known small instances.",
+          "Our pinned explicit witness is a complete finite certificate (243 order-five windows, all pair-height widths ≤5)."
+        ],
+        "reasoning": "The claim fills an actually documented missing natural table cell, not a recomputation of that cited table. An unknown subsequent witness outside the inspected sources remains possible.",
+        "searches": [
+          "https://staff.dc.uba.ar/becher/papers/optimal.pdf Table 2 q=3 n=5",
+          "ternary de Bruijn discrepancy order 5=5 certificate",
+          "Resultary search ternary de Bruijn order five discrepancy five"
+        ]
+      },
+      "rationale": "The precise quantified final claim was compared against primary sources, semantic published-result searches, equivalent mathematical formulations and stronger possible implications. No decisive coverage was found on the actually read material; sources not fully read remain recorded as risks, not represented as full-text negatives.",
+      "residual_risks": [
+        "Subsequent or unindexed equivalent q=3,n=5 witnesses may exist after publication of the inspected table.",
+        "This establishes one parameter, not an optimal construction for all alphabets/orders."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING; provides n+1 upper bound and states anticipated n but no witness for this case.",
+          "evidence": "Nonbinary bound and unresolved sharp conjecture for relevant parameters.",
+          "identifier_or_url": "arXiv:2407.17367",
+          "material_read": "Full scholarly HTML article including construction theorem, conjecture and small-parameter discussion.",
+          "method": "Compared quantifiers on all cyclic factors and all different-symbol pairs; checked ternary n=5 claims.",
+          "title": "De Bruijn Sequences with Minimum Discrepancy",
+          "trigger": "Defines precisely the metric and presents the relevant conjecture."
+        },
+        {
+          "assessment": "NOT_COVERING; ternary n=5 table cell remains empty.",
+          "evidence": "Table 2 gives ternary values through n=4 but no entry at n=5.",
+          "identifier_or_url": "https://staff.dc.uba.ar/becher/papers/optimal.pdf",
+          "material_read": "Complete 25-page lawful author-hosted PDF; sections 5.1,5.2 and page-20 Table 2 inspected visually.",
+          "method": "Read full extracted text and page screenshot of original table.",
+          "title": "De Bruijn Sequences with Minimum Discrepancy, expanded author-hosted manuscript",
+          "trigger": "Highly relevant purported exact-values table could render the finite claim known."
+        },
+        {
+          "assessment": "No covering ternary n5 sharpness implication established.",
+          "evidence": "Study emphasizes binary sequences and does not supply this missing ternary table entry.",
+          "identifier_or_url": "DOI:10.1016/j.disc.2021.112780",
+          "material_read": "Accessible abstract/summary and cited parameter scope, not full text independently read in this run.",
+          "method": "Checked primarily binary construction coverage against ternary q3 n5.",
+          "title": "Investigating the discrepancy property of de Bruijn sequences",
+          "trigger": "Earlier discrepancy paper and possible dominating general theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The authors' published conjecture and exact-value table singled out the ternary order-five parameter as a natural missing case, with a general n+1 upper bound and trivial n lower bound. A complete 243-symbol certificate closing this one-unit gap resolves a concrete unfilled natural invariant that can serve as a sharp benchmark for future low-discrepancy de Bruijn constructions. No general new theorem is asserted or required for this finite exact answer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite exact certificate only for q=3 order n=5.",
+    "No all-orders existence theorem or general algorithm is inferred."
+  ],
+  "schema_version": 1
+}

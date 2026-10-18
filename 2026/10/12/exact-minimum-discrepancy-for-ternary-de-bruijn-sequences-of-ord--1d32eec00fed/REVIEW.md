@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The object and discrepancy convention are fully quantified for all circular factors. Every ternary order-five de Bruijn word contains the factor \(00000\), forcing discrepancy at least \(5\). The explicit length-\(243\) word has \(243\) pairwise distinct cyclic five-windows, proving the de Bruijn property. Independent checks of its pairwise prefix heights give ranges \([-4,1]\), \([-4,1]\), and \([-2,3]\); all have width \(5\). Equal letter totals imply every circular factor difference is bounded by these widths. A separate direct check covers all \(243^2\) circular intervals. Scientific limit: all-order results do not follow from this certificate.
+## correctness
 
-## Originality: PASS
-Álvarez et al. (arXiv:2407.17367v1) prove a nonbinary bound \(n+1\) and state the expected sharp value \(n\), but not this specific value. Their fuller author-hosted July \(2025\) text explicitly leaves the \((q,n)=(3,5)\) entry empty in Table \(2\), while giving the nearby \((3,3)\) and \((3,4)\) cases. The Gabric–Sawada primary paper (\(2022\)) is about binary discrepancy and cannot supply this ternary extremum. Targeted literature searches yielded no equivalent or stronger published result. Residual risk: an unindexed or later source may cover the parameter; the later final journal rendering has not been inspected in its entirety.
+PASS
 
-## Value: PASS
-This is the first blank cell in the cited table of ternary finite order, a natural exact extremal invariant, and resolves the smallest explicitly uncomputed ternary order in the primary conjecture. It sharpens the established general upper bound from \(6\) to \(5\) at this parameter, with a compact independently replayable certificate. No larger or asymptotic result is claimed.
+Every ternary order-five de Bruijn cycle contains 00000, which has symbol-pair discrepancy five and gives an unconditional lower bound. Pinned witness.txt has exactly 243 symbols, 81 per symbol and 243 distinct cyclic five-windows; those exhaust all ternary five-words. Its prefix-height extrema for pairs (0,1),(0,2),(1,2) are respectively (−4,1),(−4,1),(−2,3), width five each. Equality of global symbol frequencies makes every wrapping interval's imbalance the negative of its complementary interval, so all 243² circular factors have pair discrepancy ≤5. The independent exhaustive direct scanner confirms every cyclic interval. The matching lower and upper bounds prove the exact finite optimum; no assumption of an unsearched optimization routine is needed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The precise quantified final claim was compared against primary sources, semantic published-result searches, equivalent mathematical formulations and stronger possible implications. No decisive coverage was found on the actually read material; sources not fully read remain recorded as risks, not represented as full-text negatives.
+
+## value
+
+PASS
+
+The authors' published conjecture and exact-value table singled out the ternary order-five parameter as a natural missing case, with a general n+1 upper bound and trivial n lower bound. A complete 243-symbol certificate closing this one-unit gap resolves a concrete unfilled natural invariant that can serve as a sharp benchmark for future low-discrepancy de Bruijn constructions. No general new theorem is asserted or required for this finite exact answer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
