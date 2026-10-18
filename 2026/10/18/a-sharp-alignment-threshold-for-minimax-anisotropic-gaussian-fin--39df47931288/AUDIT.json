@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Exact central difference and Wick fourth moments imply Q_{k+1}=cQ_k+eta^2 tr(Sigma Q_k)Sigma^{-1}; trace-Sigma closure yields equation (1) for all integer k>=0. Convex inversion plus averaging under O(r)xO(d-r) proves reduction over every SPD covariance; elementary minimization of affine t plus reciprocal t yields all band regimes. The strictly positive leading L^k coefficient and explicit Lambda<1 condition prove the rate result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ryabchenko–Qian–Mou arXiv:2609.08277 publicly available abstract describes directional-hint control variates; complete theorem text unavailable.",
+        "Starnes et al. arXiv:2411.11747 full text covers anisotropic smoothing of objectives and optimization, rather than all-SPD minimax of inverse-precision Gaussian gradient moments."
+      ],
+      "reasoning": "Broader zeroth-order methods might subsume a quadratic finite-horizon result, but inspected full sources impose different estimator conventions and do not state an all-covariance minimax. The uninspected recent abstract alone cannot settle coverage; this remains a risk.",
+      "searches": [
+        "Adaptively Incorporating Directional Hints into Zeroth-Order Optimization Ryabchenko Qian Mou Gaussian control variate variance optimal reference vector directional subspace",
+        "mean square stochastic gradient descent quadratic anisotropic gaussian inverse covariance random search direction exact finite time trace Sigma inverse",
+        "Revisiting Zeroth-Order Optimization Minimum-Variance Two-Point Estimators Directionally Aligned Perturbations Ma Huang 2510.19975 covariance design"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2510.19975 (full PDF)",
+      "arxiv:2411.11747 (full available text)",
+      "arxiv:2609.08277 (abstract only)",
+      "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 (indexed statement)",
+      "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 (indexed statement)",
+      "2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73 (indexed statement)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ma–Huang arXiv:2510.19975 sections on minimum-variance two-point estimator and appendix A analyzed from full text.",
+        "Starnes et al. arXiv:2411.11747 full research text, methodology/conclusion examined.",
+        "published-finding corpus 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 summary and 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 summary compared mathematically."
+      ],
+      "reasoning": "The present estimator is Sigma^{-1}zz^T x with arbitrary Sigma>0; replacing it by a vv^T x estimator under isotropic moment normalization would not yield the same law. Convex symmetrization over all SPD precision matrices and a rank-fraction robust-alignment threshold do not follow as corollaries from the inspected, differently constrained claims.",
+      "searches": [
+        "Revisiting Zeroth-Order Optimization Minimum-Variance Two-Point Estimators Directionally Aligned Perturbations Ma Huang 2510.19975 covariance design",
+        "Anisotropic Gaussian Smoothing for Gradient-based Optimization Starnes Zhang Reshniak Webster 2411.11747 exact iteration covariance",
+        "finite horizon worst-case directional hint alignment uncertainty isotropic quadratic Gaussian inverse covariance estimator rank-one mean square r/d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ma–Huang arXiv:2510.19975: minimum-variance two-point estimators assume isotropic perturbation second moments, differing from non-isotropic inverse-covariance correction.",
+        "published-finding corpus 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248: Haar sparse stochastic subspaces and different estimator."
+      ],
+      "reasoning": "An equivalent representation would optimize a trace-inverse precision correction under uncertain starting alignment and identify the all-horizon second-moment exponent. Inspected isotropic-moment and Haar results lack these assumptions and claims.",
+      "searches": [
+        "anisotropic Gaussian two point zeroth order gradient estimator inverse covariance unbiased fixed directional hint subspace minimax worst-case mean squared error alignment interval",
+        "optimal anisotropic random perturbation covariance Gaussian rank-one gradient estimator expected Euclidean error trace inverse covariance sqrt subspace alignment threshold",
+        "finite horizon worst-case directional hint alignment uncertainty isotropic quadratic Gaussian inverse covariance estimator rank-one mean square r/d"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding corpus matches include 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 and 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73; neither has the stated object and exact table of minimax values."
+      ],
+      "reasoning": "The claim is an exact continuous minimax optimization law, not a tabulated finite-sample constant. No exact record matching its covariance-normalized risk function, alignment threshold, or moment exponent was found in actual queries.",
+      "searches": [
+        "optimal anisotropic random perturbation covariance Gaussian rank-one gradient estimator expected Euclidean error trace inverse covariance sqrt subspace alignment threshold",
+        "mean square stochastic gradient descent quadratic anisotropic gaussian inverse covariance random search direction exact finite time trace Sigma inverse",
+        "Anisotropic Gaussian Smoothing for Gradient-based Optimization Starnes Zhang Reshniak Webster 2411.11747 exact iteration covariance"
+      ]
+    },
+    "rationale": "Relevant full Ma–Huang and Starnes texts and multiple actual published-finding corpus searches were compared by implication, including aliases and broader covariance designs. No inspected claim implies the exact all-SPD robust alignment threshold with simultaneous all-finite-horizon optimality and covariance-independent second-moment exponent. Unexamined full text of the motivating paper and unindexed work remain explicit bibliographic risks.",
+    "residual_risks": [
+      "Complete manuscript arxiv:2609.08277 could not be inspected; theorem-level overlap remains possible.",
+      "Earlier unindexed literature may provide equivalent minimax covariance optimization or stronger implication; unsuccessful searches do not prove novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING of the exact inverse-precision corrected all-SPD minimax and all-horizon moment theorem; substantial adjacent estimator theory.",
+        "evidence": [
+          "Isotropic perturbation moment constraint E[vv^T]=delta I and estimator vv^T g.",
+          "The theorem optimizes variance under these different constraints, without the uncertain-alignment full SPD precision minimax."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.19975",
+        "material_read": "Full publicly accessible PDF, including estimator setup and Theorem 2.2, section 4, appendix A and proof appendix.",
+        "method": "Direct reading and comparison of normalization, covariance assumptions, objective and theorem quantifiers.",
+        "title": "Revisiting Zeroth-Order Optimization: Minimum-Variance Two-Point Estimators and Directionally Aligned Perturbations",
+        "trigger": "Minimum-variance and directionally aligned two-point estimators could subsume covariance selection."
+      },
+      {
+        "assessment": "NOT_COVERING of the exact inverse-covariance Gaussian moment theorem; focuses on objective smoothing and optimization framework.",
+        "evidence": [
+          "Develops anisotropic Gaussian smoothing rather than the fixed probe estimator Sigma^{-1}zz^T x and robust alignment threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.11747",
+        "material_read": "Full publicly available research text, including setup, optimization results and appendices.",
+        "method": "Direct comparison of smoothing convolution estimator and second-moment recursion/minimax statement.",
+        "title": "Anisotropic Gaussian Smoothing for Gradient-based Optimization",
+        "trigger": "Anisotropic Gaussian covariance probes could yield stronger existing coverage."
+      },
+      {
+        "assessment": "RISK_UNRESOLVED for unseen full text; no unsupported whole-document noncoverage inference.",
+        "evidence": [
+          "Public abstract presents a control-variate framework with directional hints; a direct equivalence to the stated all-SPD covariance minimax cannot be evaluated from the abstract alone."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.08277",
+        "material_read": "Public abstract and bibliographic metadata only; complete manuscript not accessible.",
+        "method": "Compare the available abstract description of directional-hint control variates and report limitations.",
+        "title": "Adaptively Incorporating Directional Hints into Zeroth-Order Optimization",
+        "trigger": "Earliest verified recent motivating directional-hint work; possible overlapping variance analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "39df4793-1288-4616-9126-f73941b937e0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Globally solves a natural uncertainty-aware covariance-design problem for every dimension, subspace rank and nondegenerate alignment band, and for every positive finite iteration horizon. The sharp threshold r/d determines when hints improve worst-case moment prefactors, while an invariant leading exponent rules out a claimed rate gain. Provides an interpretable, motivated benchmark for directional-hint zeroth-order methods rather than an arbitrary sample calculation.",
+    "status": "PASS"
+  }
+}
