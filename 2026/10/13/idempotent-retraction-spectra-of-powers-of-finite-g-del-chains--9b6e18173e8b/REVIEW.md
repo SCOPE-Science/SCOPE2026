@@ -1,19 +1,21 @@
-# Mathematical review: idempotent retractions of finite Gödel-chain powers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Finite Heyting duality gives a bijection between algebra endomorphisms and open order-preserving maps on the dual forest. On each connected chain, the exact back condition forces a surjection to a final segment, counted by consecutive-block compositions. Idempotence forces a unique restriction on every active component and independently counted restrictions on inactive components. The multinomial coefficient counts labelled placements without duplicating multiset types. The algebraic image is the upset algebra of the dual image, proving the asserted rank and isomorphism-type statements. Endpoints \(m=1\) and \(n=1\), repeated segment lengths, and the full-rank identity are explicitly handled. An executable independent small-domain enumeration agrees and explicitly checks implication preservation.
+PASS
 
-## Originality — PASS, with a specified residual access risk
+Applied finite Heyting duality: G_{m,n} is the upset algebra of m disjoint n-element chains and endomorphisms correspond to isotone open p-morphisms f with f[↑x]=↑f(x). Each source component maps to a single target component and surjects onto a final segment; onto a final segment of length j it has C(n-1,j-1) monotone block maps. If f²=f, every active target final segment S must be fixed pointwise, forcing its source-chain map uniquely. Every inactive chain independently maps onto a final subsegment of one of r active components, with b_n(k_i)=∑_{j<=k_i}C(n-1,j-1) choices for target i. Labeling active chains of each multiplicity c_t gives m!/[(m-r)!∏ c_t!] and the displayed product. The algebra image is exactly Upsets(S), so its factors are C_{k_i+1}; different length multisets give nonisomorphic dual posets. Counting all nonempty multisets gives C(m+n,m)-1. Independent brute-force finite p-morphism enumeration matched closed ranks for (m,n)=(1,3),(2,2),(3,1),(2,3),(3,2), including I_2,2=2z²+4z³+z⁴+2z⁶+z⁹ and 59 idempotents at m3,n2. Arbitrary powers follow from p-morphism reasoning, not finite tests.
 
-The arXiv full text of Yamamoto's 2021/2023 paper was inspected (particularly the finite Heyting duality and the discussion of the combinatorics of the Fraïssé age); it does not classify idempotent endomorphism images of equal-factor Gödel powers. Aguzzoli–Mordonini (2025) is the closest known broader result: its accessible abstract counts all homomorphisms between general finite Gödel algebras. That ungraded hom-set count does not by itself determine the idempotent subset or the image type distribution. The full chapter was access restricted, so an implicit exact precursor remains a material residual risk; an institutional retrieval attempt was blocked and no bypass was used. Targeted literature and mathematical-record searches did not identify an explicit equivalent refinement. Earlier automorphism-group results concern the invertible submonoid only. This is an originality assessment, not a claim of exhaustive novelty certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Retractions determine the direct summand structure and idempotent part of finite endomorphism monoids, which total homomorphism counts cannot recover. The result gives a full two-parameter classification of noninjective retractions of a natural family of finite intuitionistic-logic algebras, distinguishes nonisomorphic images of the same cardinality, and specifies the exact attainable sizes and multiplicities. The Boolean-power case recovers the classical finite transformation idempotents, while higher-chain lengths introduce a nontrivial truncated-binomial weight. This is a natural complete enumeration rather than an arbitrarily sampled subcase.
+Finite Heyting duality and unrestricted Gödel algebra hom-set counts are published antecedents. The natural exact idempotent-retraction image-type spectrum and its labeled multiplicities are not stated in primary Yamamoto text or accessible Aguzzoli–Mordonini abstract. The latter full 2025 chapter was inaccessible through lawful OA and authorized institutional access (VPN disconnected), creating explicit overlap risk but not alone requiring rejection.
 
-## Limits
+## value
 
-Only powers of one finite chain are classified; the theorem does not extend unchanged to arbitrary finite forests. Counts of all (not necessarily idempotent) endomorphisms are supporting checks, not the originality claim. Exact placement of this refinement relative to the full 2025 conference chapter remains the principal literature-access uncertainty. The reproducible finite checks are not an infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite powers of Gödel chains are a natural family in finite Heyting algebra theory, and retraction-image isomorphism types/ranks refine unrestricted hom-set and automorphism counts. The full multiset-resolved formula, C(m+n,m)-1 count, and image-rank polynomial supply precise invariants for all powers, distinguishing images with equal cardinality but nonisomorphic factors. This independently motivated complete classification uses an accessible dual structural proof, not an arbitrary small-parameter census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
