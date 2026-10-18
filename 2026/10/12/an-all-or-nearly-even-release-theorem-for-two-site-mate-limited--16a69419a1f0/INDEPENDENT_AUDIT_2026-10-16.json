@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T16:00:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The event complement is the product of two independent site failures 1-r(1-t^m)(1-t^f) and 1-r(1-t^(n-m))(1-t^(n-f)). At fixed m+f, strict convexity of t^x (0<t<1) uniquely favors |m-f|≤1 simultaneously at both habitats. Any odd habitat total gives failure L_odd=(1-r sqrt(ab))(1-r sqrt(cd)) with L_odd>sqrt(L_j L_(j+1))≥min(L_j,L_(j+1)), since (1-r sqrt(uv))²−(1-ru)(1-rv)=r(sqrt u−sqrt v)². Thus all optima are paired (m=f=j). For paired allocations, failure F(t^j)F(t^(n-j)) is a strict concave quadratic in S=t^j+t^(n-j) for 0<r<1; global minima on discrete monotonic S_j occur only at j=0 or floor(n/2). At r=1 the failure is strictly decreasing in S and concentration wins. Sign Δ_n=r(a+b-c-rab) gives exact comparison and ties; for n=2k the reduced quadratic bracket has one root z*(r) in (0,1), p*=1-z*^(1/k) and p*~-log(z*)/k. Exact independent Fraction checks across n=1..8 and nine (p,r) pairs confirmed extremizers. Excludes p=0,1/r=0 extra ties; viability is one-step survivor mate feasibility, not demographic persistence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grevstad analyzes environmental variability and Allee effects with potentially intermediate optimal releases; its setup is not independently suitable Bernoulli sites with fixed male/female numbers.",
+          "Jerde uses sex probability, fertilization and demographic growth/next-generation distributions rather than optimizing assignment of fixed known-sex individuals to two distinct sites in the accessible abstract."
+        ],
+        "reasoning": "Broader ecological modeling does not imply the constrained one-step optimization theorem without a reduction; full Jerde text access limitation prevents an exhaustive negative statement.",
+        "searches": [
+          "Grevstad 2011 revisited release strategy models",
+          "Jerde et al 2009 hierarchical next-generation stochastic establishment"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1890/1051-0761(1999)009[1439:FITCOP]2.0.CO;2",
+        "https://doi.org/10.1016/j.biocontrol.2011.02.005",
+        "https://doi.org/10.1086/598496"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Allee-effect heuristics imply neither the exclusion of intermediate j nor uniqueness of the even-budget root.",
+          "Jerde hierarchical model contains more biological details and does not explicitly address a two-site independent-suitability assignment policy in inspected abstract; the full paper remains unreviewed."
+        ],
+        "reasoning": "The mathematical implication requires strict convexity, geometric-mean exclusion and an exact concave two-endpoint reduction specific to the assumed independence, not just a qualitative population-establishment observation.",
+        "searches": [
+          "Grevstad original release strategy tradeoff",
+          "Jerde et al 2009 probability of fertilized female and extinction abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior work describes number/size of releases and mate-limited establishment in model-dependent contexts, but inspected texts do not give a theorem requiring all sex-balanced maximizers to be concentration or floor(n/2) paired division."
+        ],
+        "reasoning": "A two-site Bernoulli insurance allocation may be named propagule pressure, introduction effort or mating-pair release. The exact quantified argmax and tie description was not recovered; inaccessible full text remains a specific concern.",
+        "searches": [
+          "Grevstad 1999 establishment vs release size and number",
+          "Jerde Bampfylde Lewis 2009 sexual semelparous species abstract",
+          "Resultary: two release locations balanced male female founders mate limitation environmental suitability optimal allocation concentrated split theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior ecological simulation tables are finite model scenarios; the new claim covers every integer n and continuum 0<p<1,0<r≤1 with precise tie cases."
+        ],
+        "reasoning": "A database of particular allocations could illustrate but cannot dominate the universal concavity proof; no exact complete table was located.",
+        "searches": [
+          "Grevstad 1999/2011 numerical release comparisons",
+          "Resultary semantic two-habitat sex-balanced founder allocation"
+        ]
+      },
+      "rationale": "Grevstad (1999; later 2011 analysis) formulates an aggregation-versus-release-number tradeoff under stochastic environmental and Allee effects, but not this exact two-site independent Bernoulli suitability/sex-count one-step optimization. Jerde–Bampfylde–Lewis (2009) studies hierarchical sexual-establishment probability, fertilization and later dynamics rather than complete two-site known-sex allocation. Their abstract was read, but full paper could not be retrieved (author-hosted PDF 403, institutional access disconnected). The inaccessible plausible source is explicitly a risk, not a reason to assert noncoverage. No stronger inspected theorem implies the exact all-or-nearly-even global optimality or threshold; best-of-knowledge PASS.",
+      "residual_risks": [
+        "The original Jerde–Bampfylde–Lewis full text and original Grevstad 1999 complete article could not be read; uninspected detailed models might contain stronger allocation theorems.",
+        "The claimed model is only immediate survival of one male and female at a suitable site, not reproduction/persistence or general ecological policy.",
+        "The odd founder-budget policy is a sign comparison, not a claimed unique threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related model and qualitative tradeoff; complete text not accessible, residual exact-coverage risk",
+          "evidence": "Abstract reports regimes favoring one large, many small, or intermediate releases under environment and Allee limitation.",
+          "identifier_or_url": "https://doi.org/10.1890/1051-0761(1999)009[1439:FITCOP]2.0.CO;2",
+          "material_read": "Publisher-indexed abstract and bibliographic description, not complete 1999 full article",
+          "method": "Read indexed article abstract and compared release strategy assumptions",
+          "title": "Factors influencing the chance of population establishment: implications for release strategies in biocontrol",
+          "trigger": "Closest early model of large vs split release strategy"
+        },
+        {
+          "assessment": "Broader release strategy framework, not proof of two-site known-sex one-step global optimizer classification",
+          "evidence": "Main model includes Allee effects and stochastic environments in release strategies; does not identify the stated (m,f)-objective.",
+          "identifier_or_url": "https://doi.org/10.1016/j.biocontrol.2011.02.005",
+          "material_read": "Open-access text/PDF sections describing demographic and environmental risk and release-number tradeoffs; not every appendix inspected",
+          "method": "Read lawful available PDF main model and discussion sections",
+          "title": "Revisiting release strategies: the effects of environmental and demographic stochasticity and Allee effects on establishment",
+          "trigger": "Potential broader optimal-release theorem"
+        },
+        {
+          "assessment": "Plausible topic overlap but whole-document comparison INCOMPLETE; cannot assert full article lacks analogous allocation theorem",
+          "evidence": "Abstract models sex probability, fertilization, expected fecundity and next-generation extinction; it does not state a two-site release allocation result.",
+          "identifier_or_url": "https://doi.org/10.1086/598496",
+          "material_read": "Publisher abstract, bibliographic metadata and supplement descriptions only; author-hosted full PDF returned 403. Authorized institutional request returned VPN disconnected.",
+          "method": "Read publisher full abstract, checked public preprint/OA routes and attempted authorized institutional access without bypass",
+          "title": "Chance Establishment for Sexual, Semelparous Species: Overcoming the Allee Effect",
+          "trigger": "Directly studies sexual mate availability and survival during establishment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model captures a real competing mathematical mechanism: same-site two-sex survival favors co-location while independent site suitability rewards redundancy. A proof that all uneven partitions lose and a unique sharp even-budget transition gives a complete and reusable finite optimization classification; practical field efficacy is not asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The original Jerde–Bampfylde–Lewis full text and original Grevstad 1999 complete article could not be read; uninspected detailed models might contain stronger allocation theorems.",
+    "The claimed model is only immediate survival of one male and female at a suitable site, not reproduction/persistence or general ecological policy.",
+    "The odd founder-budget policy is a sign comparison, not a claimed unique threshold.",
+    "The frozen potentially public AUDIT.json and METADATA.json each contain a scope_run_id operational provenance identifier. Public versions cannot be published or synchronized without verified complete sanitization. The unchanged private original blobs and all mathematical evidence are preserved."
+  ],
+  "schema_version": 1
+}
