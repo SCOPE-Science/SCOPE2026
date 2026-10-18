@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,46 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_egalitarian_minregret_boundary.py` provides an exact finite replay.
 
-It uses two independently written stability tests. One precomputes rank maps and searches for blocking pairs by rank comparison. The other performs direct preference-list index comparisons. Their complete stable-matching sets must agree for every tested instance.
+# Independent mathematical audit
 
-The replay exhausts:
-- all \(16\) strict \(2\times2\) profiles;
-- all \(46656\) strict \(3\times3\) profiles and all six perfect matchings of each;
-- all \(24\) perfect matchings of the displayed \(4\times4\) witness.
+## correctness
 
-For \(3\times3\), it verifies the exact objective-set relation counts:
-- \(40056\) profiles with \(E(I)=R(I)\);
-- \(5400\) profiles with \(E(I)\subsetneq R(I)\);
-- \(1200\) profiles with \(R(I)\subsetneq E(I)\);
-- zero profiles with nonnested overlap;
-- zero profiles with disjoint optimum sets.
+PASS
 
-It independently reproduces the stable-count marginal \(34080,11484,1092\) for one, two, and three stable matchings.
+Independently enumerated all 6^6=46656 strictly complete labeled 3x3 preference profiles, all six perfect matchings each, with blocking-pair test and exact one-based rank sum/max. Reproduced E=R 40056, proper E subset R 5400, proper R subset E 1200, no nonnested/disjoint cases, and stable-match multiplicities 34080/11484/1092. Reconstructed stated 4x4 profile separately over all 24 matchings; only (B,A,C,D) with (sum,max)=(15,3) and (C,A,B,D) with (13,4) stable, proving conflict. The assigned verifier covers n=2; n=1 immediate. Finite exhaustiveness is legitimate because 6^6 is all of n=3 domain, not a general-n claim.
 
-For the \(4\times4\) witness, it verifies that exactly two perfect matchings are stable. Their participant-rank vectors are
-\[
-(1,1,3,2,1,3,3,1)
-\]
-and
-\[
-(2,1,4,2,1,1,1,1),
-\]
-with objective pairs
-\[
-(15,3)
-\quad\text{and}\quad
-(13,4)
-\]
-for total rank and regret. Thus the unique egalitarian and minimum-regret optima are different.
+## originality
 
-Run:
+PASS
 
-`python3 verify_egalitarian_minregret_boundary.py`
+Egalitarian cost and regret are standard objectives, and earlier sources study them and larger conflict examples. The exact complete argmin-set nesting theorem through n=3, complete 46656-table, and 4x4 sharp witness were not located in searched published records. Related SCOPE minimal conflicts with sex equality or rank-maximality compare different objectives and cannot imply this particular pair's nesting boundary.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The computation proves only the stated finite boundary and does not infer a larger-market classification.
+The first possible incompatibility size between two standard fairness criteria is a natural and useful finite cutoff, not an arbitrary recomputation. The exact exhaustive distribution distinguishes equality and strict containment and supplies a reproducible minimum counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

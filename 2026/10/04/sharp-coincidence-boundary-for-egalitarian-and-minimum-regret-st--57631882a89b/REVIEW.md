@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The statement through \(3\times3\) is exhaustive: every labeled strict preference profile is enumerated, every perfect matching is checked for stability, and both objective argmin sets are computed exactly. Two independently coded stability tests agree profile by profile. The \(4\times4\) sharpness witness is checked over all \(24\) perfect matchings and has exactly the two stated stable matchings with directly recomputable rank vectors and objective values.
+## correctness
 
-Risk: the universal \(3\times3\) statement is computational rather than a symbolic case theorem. Exact integer arithmetic, complete enumeration, independent stability implementations, and reproduction of the stable-count marginal materially reduce implementation risk.
+PASS
 
-## Originality
-**PASS.** The literature establishes the egalitarian and minimum-regret criteria, algorithms for them, and qualitative examples in which the criteria prefer different stable matchings. The inspected full texts and targeted searches did not state the universal nesting of complete argmin sets through \(3\times3\), the exact \(40056/5400/1200\) census, or a sharp \(4\times4\) disjoint-optimum witness. A recent five-pair conflict example does not imply the smaller sharp boundary.
+Independently enumerated all 6^6=46656 strictly complete labeled 3x3 preference profiles, all six perfect matchings each, with blocking-pair test and exact one-based rank sum/max. Reproduced E=R 40056, proper E subset R 5400, proper R subset E 1200, no nonnested/disjoint cases, and stable-match multiplicities 34080/11484/1092. Reconstructed stated 4x4 profile separately over all 24 matchings; only (B,A,C,D) with (sum,max)=(15,3) and (C,A,B,D) with (13,4) stable, proving conflict. The assigned verifier covers n=2; n=1 immediate. Finite exhaustiveness is legitimate because 6^6 is all of n=3 domain, not a general-n claim.
 
-Risk: failed search is not proof of novelty. An unindexed thesis, exercise, code base, or supplementary enumeration could contain an equivalent small-market classification.
+## originality
 
-## Value
-**PASS.** Egalitarian and minimum-regret stable matchings are standard fairness objectives with different social interpretations: total rank cost versus worst individual rank. Determining the first market size where they can force incompatible stable choices is a natural structural boundary. The result also quantifies exactly how their full optimum sets relate throughout the complete \(3\times3\) domain, rather than merely giving another isolated example.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Egalitarian cost and regret are standard objectives, and earlier sources study them and larger conflict examples. The exact complete argmin-set nesting theorem through n=3, complete 46656-table, and 4x4 sharp witness were not located in searched published records. Related SCOPE minimal conflicts with sex equality or rank-maximality compare different objectives and cannot imply this particular pair's nesting boundary.
+
+## value
+
+PASS
+
+The first possible incompatibility size between two standard fairness criteria is a natural and useful finite cutoff, not an arbitrary recomputation. The exact exhaustive distribution distinguishes equality and strict containment and supplies a reproducible minimum counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
