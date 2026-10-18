@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:01:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 42e75b4b6442e0f320663e8c2e3c41e2502cfc80",
+        "Published Resultary 2026/10/4/SCOPE-sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada--aa4bf1ea51f1/RESULT.md, full text read"
+      ],
+      "rationale": "Substitution gives gamma_k=gamma_{k-1}+lambda²x_k² and exact ratio f(x_{k+1})/f(x_k)=(1-eta*lambda/sqrt(gamma_k))². Since gamma is nondecreasing from varsigma, c≤2 is sufficient; if c>2, first-step increase holds exactly in the stated punctured interval. For any fixed N, gamma_k=varsigma+O(x0²) by finite induction and x_j/x0→(1-c)^j, proving arbitrarily long but finite ascent transients without claiming divergence. Independently evaluated c=3 with x0=10^-2,10^-4,10^-6, reproducing six consecutive squared ratios tending to 4.",
+      "residual_risks": [
+        "No claim concerning stochastic noise or convergence failure is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier result determines that startup noncontractive updates occur only when b_{t+1}≤eta lambda/2 and derives explicit M upper bound."
+        ],
+        "reasoning": "The prior same-model startup characterization already covers the universal descent boundary and contextualizes all finite ascents as pre-terminal behavior.",
+        "searches": [
+          "2026/10/4/SCOPE-sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada--aa4bf1ea51f1/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md Git blob 42e75b4b6442e0f320663e8c2e3c41e2502cfc80",
+        "Published Resultary 2026/10/4/SCOPE-sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada--aa4bf1ea51f1/RESULT.md, full text read",
+        "Gratton–Toint AdaNorm recurrence arXiv:2604.17423v3",
+        "Ward–Wu–Bottou AdaGrad Stepsizes arXiv:1806.01811",
+        "Resultary semantic query: AdaGrad Norm AdaNorm scalar quadratic monotonicity initial accumulator stepsize two arbitrarily long ascent"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior characterizes current effective step threshold 2 and accumulator startup; submitted universal frontier is equivalent to absence of those indices for all x0."
+        ],
+        "reasoning": "A short continuity induction proves the remaining finite-N limit using prior exact recurrence. Thus the package is correct but dominated mathematically; FAIL originality and value.",
+        "searches": [
+          "published October4 scalar AdaGrad-Norm theorem full RESULT.md",
+          "original submitted scalar RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both recurrences have b_t²=gamma_{t-1}, b_{t+1}²=b_t²+lambda² x_t² and x_{t+1}=x_t(1-eta lambda/b_{t+1})."
+        ],
+        "reasoning": "Not a related but different optimizer: prior and submitted maps coincide exactly after the normalization b=sqrt(gamma).",
+        "searches": [
+          "Resultary: AdaGrad Norm AdaNorm scalar quadratic monotonicity initial accumulator stepsize two arbitrarily long ascent",
+          "Resultary 2026/10/4 sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No natural exact database is involved; local multiplier (1-c) and first ascent interval are direct substitutions into the published iteration."
+        ],
+        "reasoning": "No new finite census or unexplored table entry could rescue this unchanged claim.",
+        "searches": [
+          "Resultary AdaGrad-Norm scalar stability search",
+          "published October4 terminal-step theorem"
+        ]
+      },
+      "rationale": "This case is mathematically covered in essence by the already published October 4 scalar AdaGrad-Norm theorem for exactly the same recurrence: it identifies all startup indices with normalized effective step >=2, gives a finite upper bound in terms of initial accumulator and x0, and establishes terminal stabilization within the strict open step interval. Universal monotonicity iff eta*lambda/sqrt(varsigma)≤2 follows immediately from that startup condition. The remaining near-zero finite-horizon amplification is a routine continuity linearization of that same scalar update; it does not create a substantive uncovered theorem in this package.",
+      "residual_risks": [
+        "Scientific rejection is based on direct same-update mathematical implication, not an access failure or a theorem of divergent trajectories.",
+        "The published terminal-step source does not verbatim state arbitrary-N ascent, but for each fixed N the submitted limit is the basic continuous linearization of its update and has no nontrivial extra invariant.",
+        "No claim concerning stochastic noise or convergence failure is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same recurrence and stronger startup characterization; decisive coverage of threshold",
+          "evidence": [
+            "Prior formula M≤floor(((eta²lambda²/4-b0²)_+)/(lambda² x0²)); normalized steps <2 after startup."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada--aa4bf1ea51f1/RESULT.md",
+          "material_read": "complete primary RESULT.md including hypotheses, startup bound, terminal stability proof, and limitations",
+          "method": "GitHub connected repository full file fetch",
+          "title": "Sharp terminal-step window and rate nonuniformity for scalar AdaGrad-Norm",
+          "trigger": "Same scalar optimization algorithm and all-step threshold; possible direct coverage"
+        },
+        {
+          "assessment": "underlying convergence framework prior, but specific direct rejection driven by closer Oct4 full result",
+          "evidence": [
+            "Prior convergence theorem not confused with monotonicity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1806.01811",
+          "material_read": "abstract and related citation, not complete proof",
+          "method": "web arXiv",
+          "title": "AdaGrad stepsizes: Sharp convergence over nonconvex landscapes",
+          "trigger": "Underlying scalar adaptive step model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Published Resultary 2026/10/4/SCOPE-sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada--aa4bf1ea51f1/RESULT.md, full text read",
+        "Gratton–Toint AdaNorm recurrence arXiv:2604.17423v3",
+        "Ward–Wu–Bottou AdaGrad Stepsizes arXiv:1806.01811"
+      ],
+      "rationale": "Although transient monotonicity is a motivated diagnostic, after the same-recurrence published startup characterization is taken into account, the threshold and finite-horizon local multiplier add only elementary consequences of an established phase portrait; the unchanged package has no independently worthwhile surviving claim.",
+      "residual_risks": [
+        "Scientific rejection is based on direct same-update mathematical implication, not an access failure or a theorem of divergent trajectories.",
+        "The published terminal-step source does not verbatim state arbitrary-N ascent, but for each fixed N the submitted limit is the basic continuous linearization of its update and has no nontrivial extra invariant.",
+        "No claim concerning stochastic noise or convergence failure is established."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is based on direct same-update mathematical implication, not an access failure or a theorem of divergent trajectories.",
+    "The published terminal-step source does not verbatim state arbitrary-N ascent, but for each fixed N the submitted limit is the basic continuous linearization of its update and has no nontrivial extra invariant.",
+    "No claim concerning stochastic noise or convergence failure is established."
+  ],
+  "schema_version": 1
+}
