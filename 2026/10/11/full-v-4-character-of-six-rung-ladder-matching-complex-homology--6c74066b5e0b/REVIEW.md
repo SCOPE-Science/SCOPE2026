@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reconstructed from definitions. The bundled verifier exhaustively enumerates the matching complex, checks the complete Hasse-diagram Morse certificate, enumerates the full graph automorphism group, computes signed chain traces, and verifies the rational character decomposition. Independent finite-field homology calculations agree with the Morse conclusion. The proof uses the Hopf trace formula only after homology concentration has been established.
+## correctness
 
-## Originality
-PASS. Matsushita's small-grid theorem covers the ordinary homotopy type, and that part is explicitly treated as prior work. The strongest nearby equivariant source, Li's theorem, concerns permutation representations on matching sets and points to matching-complex homology as a distinct related object. Searches under the exact graph, grid, reflection, automorphism, character, and homology formulations found no statement of \((5,-1,1,3)\) or stronger result fixing it. Residual risk is an unindexed explicit table.
+PASS
 
-## Value
-PASS. The six-rung ladder belongs to a standard topology literature family, and the automorphism action is the natural refinement of its known wedge-of-spheres type. The calculation reveals information the Betti number cannot: the two canonical reflections act with different traces. This supplies a concrete exact benchmark at the interface of graph-matching symmetry and matching-complex homology.
+Independently generated all 16 edges of P6 square K2 and exhaustively enumerated its 732 nonempty matching faces, f-vector (16,92,234,263,114,13). Replayed the natural staged greedy Hasse matching: exactly 363 matched covers and one critical vertex plus five critical 3-faces, with topological-sort acyclicity on all 2,586 directed face-cover incidences. Forman gives wedge^5 S^3. Independently enumerated all fixed oriented simplices under row flip h, column reversal v and hv; signed chain traces yielded Lefschetz (-4,2,0,-2), hence H3 character (5,-1,1,3), irreducible multiplicities (2,0,1,2). Graph corners force exactly four automorphisms. These are complete finite exhaustions, not extrapolation beyond six rungs.
 
-## Closest literature and limitations
-The closest ordinary topology source is Matsushita, DOI:10.37236/8480; the closest equivariant representation source is Li, DOI:10.5802/alco.284. The result is rational and finite-length: it does not determine the integral lattice or a formula for all ladders.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Matsushita covers the nonequivariant six-rung wedge homotopy type as a specialization of the two-row grid recursion; it cannot determine how the two reflections act on homology. Li studies graded permutation representations ON MATCHINGS and its equivariant log-concavity, not the homology representation. The full V4 character is an additional exact natural invariant computed by signed orientation traces. Resultary exact-object query returned the current record as self and nearby graph invariants but no earlier table. The finding does not claim original homotopy theory or a ladder-length family theorem.
+
+## value
+
+PASS
+
+The six-rung ladder is a canonical finite grid whose two independent reflection symmetries already exhibit distinct homological traces. Its exact V4-equivariant H3 module provides a concrete base case for equivariant matching-complex recursions and detects representation information erased by known homotopy type. The complete automorphism character, not the known wedge count or certificate alone, is the motivated finite scientific fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

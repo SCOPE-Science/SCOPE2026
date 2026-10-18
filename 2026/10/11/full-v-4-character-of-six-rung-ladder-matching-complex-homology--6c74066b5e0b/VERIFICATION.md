@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` is a standard-library replay of every finite component used by the claim. It reconstructs the six-rung ladder, enumerates all matching-complex faces, checks every Hasse cover and every directed edge of the Morse orientation, enumerates all graph automorphisms, computes signed simplicial-chain traces for the four automorphisms, and checks the character decomposition.
+# Independent mathematical audit
 
-The expected exact outputs are 732 nonempty faces, 2586 Hasse covers, 363 Morse pairs, one critical 0-cell, five critical 3-cells, automorphism-group order 4, chain-trace rows `(16,92,234,263,114,13)`, `(6,10,0,-9,-2,1)`, `(2,-6,-10,7,8,-1)`, and `(0,-8,0,15,0,-5)`, followed by the homology character `(5,-1,1,3)` and multiplicities `(2,0,1,2)`.
+## correctness
 
-As a separate cross-check, the script builds the simplicial boundary matrices and computes ranks modulo 2, 3, and 5; each field gives Betti vector `(1,0,0,5,0,0)`. These finite-field checks do not by themselves prove the rational representation; the discrete-Morse certificate and exact signed traces provide the required proof.
+PASS
 
-The replay does not assess claims outside the stated six-rung graph and does not classify the integral group-ring lattice.
+Independently generated all 16 edges of P6 square K2 and exhaustively enumerated its 732 nonempty matching faces, f-vector (16,92,234,263,114,13). Replayed the natural staged greedy Hasse matching: exactly 363 matched covers and one critical vertex plus five critical 3-faces, with topological-sort acyclicity on all 2,586 directed face-cover incidences. Forman gives wedge^5 S^3. Independently enumerated all fixed oriented simplices under row flip h, column reversal v and hv; signed chain traces yielded Lefschetz (-4,2,0,-2), hence H3 character (5,-1,1,3), irreducible multiplicities (2,0,1,2). Graph corners force exactly four automorphisms. These are complete finite exhaustions, not extrapolation beyond six rungs.
+
+## originality
+
+PASS
+
+Matsushita covers the nonequivariant six-rung wedge homotopy type as a specialization of the two-row grid recursion; it cannot determine how the two reflections act on homology. Li studies graded permutation representations ON MATCHINGS and its equivariant log-concavity, not the homology representation. The full V4 character is an additional exact natural invariant computed by signed orientation traces. Resultary exact-object query returned the current record as self and nearby graph invariants but no earlier table. The finding does not claim original homotopy theory or a ladder-length family theorem.
+
+## value
+
+PASS
+
+The six-rung ladder is a canonical finite grid whose two independent reflection symmetries already exhibit distinct homological traces. Its exact V4-equivariant H3 module provides a concrete base case for equivariant matching-complex recursions and detects representation information erased by known homotopy type. The complete automorphism character, not the known wedge count or certificate alone, is the motivated finite scientific fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
