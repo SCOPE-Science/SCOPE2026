@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "An explicit integer Smith-normal-form calculation gives 2 and 4 fixed states at exponents one and two. The identity A^4-I=4C_2 with det(C_2)=-2 and C_(j+1)=C_j(I+2^(j-1)C_j), whose right factor has odd determinant for all j>=2, establishes Smith 2-adic exponents (j,j+1) for A^(2^j)-I. This proves the fixed-state formula for all k,j. Since A^(2^k)=I modulo 2^k, all cycles have power-of-two periods and subtraction of fixed-point counts gives each exact multiplicity and total. Boundary k=1 and 2 are computed separately. The packaged brute-force checker exhausts all residue pairs at k=1,...,9 and verifies integer matrix certificates through j=14; this is finite support, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brent, On the periods of generalized Fibonacci recurrences, arXiv:1004.5439 (2010 accessible version), Lemma 2 and Theorem 2",
+        "Deveci, Akdeniz and Karaduman, The Generalized Pell p-Sequences in Groups, Ars Combinatoria 120 (2015), Section 2",
+        "Brent assumes irreducibility of the polynomial modulo two in his principal-period theorem. The present Pell polynomial reduces to (t+1)^2 and is outside that hypothesis.",
+        "General period-lifting for Pell matrices governs the order of a matrix but does not by itself fix the distribution of different state stabilizers."
+      ],
+      "reasoning": "The leading broad period theorems were checked at the level of hypotheses and conclusions. They do not assert this all-state spectrum: Brent’s relevant irreducibility fails, while the Pell group papers address selected sequences or group generating tuples. The generic Smith kernel identity is acknowledged as background; the exact Pell-specific invariant factors, fixed-point counts and complete orbit distribution are proved here.",
+      "searches": [
+        "2-adic Smith normal form for Pell companion matrix [[0,1],[1,2]] powers minus identity; fixed point counts 2^{min(k,j)+min(k,j+1)} and complete state orbit census",
+        "Fibonacci generalized recurrence distribution of least periods modulo powers 2 Pell",
+        "Pell numbers modulo powers of two periods cycles periodic points matrix"
+      ]
+    },
+    "checked_sources": [
+      "Deveci & Karaduman (2015), The Pell Sequences in Finite Groups, Theorems 2.1-2.6",
+      "Deveci, Akdeniz & Karaduman (2015), Generalized Pell p-Sequences in Groups, relevant visual PDF pages",
+      "Brent (1994 / arXiv 2010), On the periods of generalized Fibonacci recurrences, relevant conditions",
+      "Pisano period, Pell generalization table",
+      "Exact-formula and equivalent-wording searches of mathematical research records and the public web"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Deveci and Karaduman, The Pell Sequences in Finite Groups, Utilitas Mathematica 96 (2015), Theorem 2.2",
+        "Deveci, Akdeniz and Karaduman, The Generalized Pell p-Sequences in Groups, Ars Combinatoria 120 (2015), Section 2",
+        "Brent, On the periods of generalized Fibonacci recurrences, arXiv:1004.5439 (2010 accessible version), Lemma 2 and Theorem 2",
+        "Knowing that (0,1) has least period 2^k and that A has order 2^k does not determine how many other orbits have smaller periods. The newly proved Smith-exponent formula determines every fixed-point count, and therefore every multiplicity."
+      ],
+      "reasoning": "Implication was checked using the actual quantified conclusions, not titles: the earlier Pell-period formula gives a bound on all orbit lengths and a witness to maximal length, but permits many distinct cycle-distributions. Only the explicit kernels of A^(2^j)-I determine the stated all-state census. No compared source supplies that stronger assertion.",
+      "searches": [
+        "\"The Pell Sequences in Finite Groups\" Deveci Karaduman",
+        "\"Pell\" \"modulo 2^n\" \"period\" \"cycles\" recurrence",
+        "Pell recurrence modulo 2^n orbit structure cycles all initial states matrix 0 1 1 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Deveci and Karaduman, The Pell Sequences in Finite Groups, Utilitas Mathematica 96 (2015), Theorem 2.2",
+        "Theorem 2.2 measures the standard seed only; its period does not determine cycle counts of arbitrary states.",
+        "Mathematical research records returned nearby Lucas-period comparisons but no full Pell state-census statement."
+      ],
+      "reasoning": "Equivalent objects include the matrix companion action, pairs of consecutive terms for arbitrary Pell initial data, primitive periodic-point counts, and the all-seed modular dynamics. The checked precise keywords and semantic searches did not recover a statement implying the full theorem.",
+      "searches": [
+        "Full orbit decomposition of the Pell recurrence modulo powers of two; number of disjoint cycles exactly 2^(k+1)-2; lengths 1,2,4,8,...,2^k with exceptional seven 4-cycles and multiplicities",
+        "Counting periodic points and primitive cycles for generalized Pell sequence with arbitrary seeds modulo 2^k, comparison with known Pell Pisano period 2^k",
+        "Pell recurrence modulo 2^n orbit structure cycles all initial states matrix 0 1 1 2",
+        "\"Pell\" \"all initial conditions\" \"period\" modulo"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The online Pisano-period table includes Pell sequence periods but not the count of all cycles.",
+        "OEIS has a general sequence 2^n-2 for other unrelated interpretations; numerical overlap alone is not a prior identification with Pell state dynamics."
+      ],
+      "reasoning": "The Pell-period data record only one orbit. Searches for the Pell-specific exact total and the initial terms of its cycle-count sequence found no claimed equality for this dynamical object. A generic numerical sequence with the same values would not, without the relevant interpretation, cover this statement.",
+      "searches": [
+        "site:oeis.org \"Pell\" \"number of cycles\" \"2^\"",
+        "site:oeis.org \"3, 6, 14, 30, 62, 126\" Pell cycles",
+        "Pell recurrence state cycles number of cycles modulo 2^n 3 6 14 30 62"
+      ]
+    },
+    "rationale": "The relevant ordinary Pell theorem gives the maximal period for the seed (0,1), and closely related work studies companion-matrix order and prime-power lifting. None of the relevant inspected assertions classifies the full state set by least periods. The new exact fixed-point formula and orbit multiplicities require a separate two-adic invariant-factor analysis. Checks of equivalent words, other initial seeds, stronger period statements, and online tables found no coverage; this is a scoped best-knowledge originality judgment, not a universal negative literature certificate.",
+    "residual_risks": [
+      "An unindexed or inaccessible prior result may have computed the same all-state cycle spectrum.",
+      "A more specialized general theorem not located by search may imply the Pell-specific invariant-factor distribution as an immediate corollary.",
+      "The 2015 group paper was read at selected relevant full-text pages, not exhaustively cover to cover; the accessible 2015 ordinary Pell HTML had garbled mathematical glyphs in some proofs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its Theorem 2.2 gives the period of one standard-seed Pell sequence modulo 2^u, not numbers of cycles and least periods over every initial pair.",
+        "evidence": [
+          "Theorem 2.2 states the standard period formula.",
+          "Theorem 2.6 concerns prime-power growth of the period.",
+          "Table 1 lists periods for prime moduli and does not tabulate all-state orbit multiplicities."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/295591003_The_Pell_Sequences_in_Finite_Groups",
+        "material_read": "Accessible paper full-text HTML: introductory Pell definition; Section 2, especially Theorems 2.1-2.3 and 2.5-2.6 and its Pell period table; related group discussion. Some mathematical glyphs were garbled in extraction.",
+        "method": "Read relevant complete theorem paragraphs and surrounding proof ranges in the accessible author-supplied full-text rendition.",
+        "title": "The Pell Sequences in Finite Groups",
+        "trigger": "Same classical Pell recurrence, powers-of-two modulus, potentially stronger period theorem"
+      },
+      {
+        "assessment": "Section 2 treats generalized Pell p-sequence periods, and Sections 3-4 treat finite-group generator periods. It does not give a full orbit census for every pair under the ordinary Pell matrix modulo powers of two.",
+        "evidence": [
+          "Page 386 Theorem 2.2 is a prime-power lifting statement for generalized Pell period.",
+          "Page 391 enters finite group-orbit periods, and page 395 states particular binary polyhedral group results."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20120/volume-120-paper-34.pdf",
+        "material_read": "Full-length lawful open PDF material, including displayed pages 383-387, 391, 395, and 398-399, with abstract and definitions; not a cover-to-cover reading of all pages.",
+        "method": "Visually inspected full-text PDF page images and period-lifting theorem.",
+        "title": "The Generalized Pell p-Sequences in Groups",
+        "trigger": "Pell matrix periods modulo prime powers and related finite group orbits"
+      },
+      {
+        "assessment": "Relevant principal-period theorem assumes irreducibility modulo two, which the present polynomial fails. Its purpose is maximal periods, not full all-seed orbit counts.",
+        "evidence": [
+          "Lemma 2 at open HTML lines 83-96 explicitly assumes an irreducible characteristic polynomial modulo two.",
+          "The Pell polynomial t^2-2t-1 becomes (t+1)^2 modulo two."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1004.5439",
+        "material_read": "Accessible HTML full paper introduction, definitions and relevant Lemma 2/Section 2 period statements and principal hypotheses; remaining sections not exhaustively read.",
+        "method": "Read primary open text and compare irreducibility hypothesis to the Pell characteristic polynomial.",
+        "title": "On the periods of generalized Fibonacci recurrences",
+        "trigger": "Potential broad recurrence theorem implying Pell periods and all-seed orbit counts"
+      },
+      {
+        "assessment": "Lists periods of standard-seed Pell numbers, not the complete set of all-state Pell cycles.",
+        "evidence": [
+          "The Pell-period table records powers-of-two standard-seed periods 2,4,8,16,...; no Pell all-state cycle-count formula is given."
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Pisano_period",
+        "material_read": "Relevant Pell generalization and integer-sequences modulo n sections in the displayed page.",
+        "method": "Read tabulated classical Pell/Pisano periods and compared the statistical object counted.",
+        "title": "Pisano period — table and generalizations",
+        "trigger": "Exact known Pell sequence periods and potential orbit-count table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c46e4178-0d2b-4537-85f7-ecc9a3f88e38",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The chosen initial seed has long-studied modular Pell period, but the full permutation on all 2^(2k) possible seeds is a distinct natural invariant. The infinite complete cycle census classifies every least period, multiplicity and fixed-point count and exposes the stable exceptional multiplicity at period four arising from the 2-adic Smith defect. This is a motivated exact classification rather than a single numerical computation or a relabeling of the standard maximal Pell period.",
+    "status": "PASS"
+  }
+}
