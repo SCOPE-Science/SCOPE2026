@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility of algebraic and finite checks
+# Independent mathematical audit
 
-The algebraic proof works with the ordinary associative algebra \(K[X]/(X^p-1)\) and the nonassociative quandle multiplication separately. A verifier with the standard Python library is included as `verify.py`. Run `python verify.py`.
+## correctness
 
-The verifier exhaustively checked all \(3^3\) elements for quandle order \(3\) and all \(5^5\) elements for quandle order \(5\). It found exactly four and six idempotents respectively. It generated and directly multiplied further solutions for primes \(7,11,17,31\), using fixed random seeds, and checked additional random elements for the augmentation constraint. It printed `VERIFY_OK` on the packaged execution.
+PASS
 
-The general proof is analytic and finite-algebraic: nilpotence of the augmentation ideal excludes its nonzero idempotents, truncated exponential/logarithm identify the augmentation-one part with a linear eigenspace, and the multiplicative order of \(2\) determines the dimension. Random tests do not establish exhaustive classification at larger primes.
+With quandle e_i e_j=e_(2j−i), the vector-space identification with B=K[X]/(X^p−1) gives star(F,G)=σ_(-1)(F)σ_2(G) in associative B. J=(X−1) is nilpotent of degree p; augmentation-zero idempotents recursively lie in J^(2^k), hence vanish. For augmentation-one units, truncated log/exp are inverse group homomorphisms because all surviving total degrees are <p; log transforms idempotency into h=σ_(-1)(h)+σ_2(h). For t=log X, automorphisms act t↦at, giving scalar condition (1−(−1)^j−2^j)c_j=0. Even j are excluded; odd j are allowed iff ord_p(2) divides j−1, yielding exactly m_p affine free coordinates, q^m_p+1 elements over F_q. Exhaustive independent direct-product checks p=3,5 agree; exact truncated-log/exp identity checks at p=7,17,31 corroborate the higher-dimensional phenomenon. Scope strictly odd p with coefficient characteristic p.
 
-No independent audit or external verification has been performed.
+## originality
+
+PASS
+
+The p=3 characteristic-three idempotent line was already published and is expressly not new. The new contribution is a uniform all-odd-primes modular parameter locus, with dimension jumps controlled by multiplicative order of 2, even for nonfinite fields. The inspected 2026 primary modular-neighbor literature treats integral/complex coefficients or the core of a nonabelian dihedral group, not an all-prime coefficient-char-p classification. One September preprint remains inaccessible and is an explicit novelty risk rather than automatic rejection.
+
+## value
+
+PASS
+
+Classifying all idempotents is a standard algebraic invariant of a naturally defined nonassociative quandle algebra. The unexpected affine dimension determined by ord_p(2), rather than just a finite count, distinguishes prime regimes and gives complete new families such as p=17,31.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
