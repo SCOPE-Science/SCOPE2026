@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For each edge uv, a forbidden pair of selected edges separated by that third edge is exactly the condition (d_B(u)-epsilon_uv)(d_B(v)-epsilon_uv)>0. The five parent-edge/selected-child-count boundary states partition all choices, and each recurrence follows from the local condition; induction over rooted subtrees proves exactness including leaf, singleton-tree and root boundaries. Incremental polynomial products cost O(n²) coefficient-arithmetic operations by charging pairs to their unique lowest common ancestor. Independent brute-force conflict checks, not relying on the local lemma, matched all 1,119,263 subsets across 18,249 labeled trees through seven vertices; further 860 larger generated trees passed sanity checks. The finite tests are not a proof of all cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "B. Brešar, B. Samadi, Edge open packing: complexity, algorithmic aspects, and bounds, arXiv:2403.00750v1 (2024).",
+        "B. Brešar, T. Dravec, J. Hedžet, B. Samadi, Induced matching vs edge open packing: trees and product graphs, arXiv:2406.04020 (2024).",
+        "A. Pandey, K. Santra, Edge open packing: further characterizations, arXiv:2508.01935 (2025).",
+        "General bounded-treewidth weighted counting and finite-state tree automata may imply abstract tractability of local tree constraints."
+      ],
+      "reasoning": "General finite-state or MSO counting frameworks could imply some polynomial-time method, so that broad existence claim is not asserted as novel. No inspected source provides a dominating explicit recurrence with as few as five disjoint states and the stated precise O(n²) coefficient-arithmetic bound. The known linear-time optimization theorem outputs the maximum size only, not all coefficients.",
+      "searches": [
+        "complete size distribution of edge-open-packing sets on arbitrary trees with polynomial-time dynamic programming",
+        "induced star forest enumeration polynomial for arbitrary trees",
+        "counting induced star forests of trees with polynomial time recursive formula",
+        "\"edge open packing\" \"dynamic programming\" polynomial"
+      ]
+    },
+    "checked_sources": [
+      "G. Chelladurai, K. Kalimuthu, S. Soundararajan, Edge open packing sets in graphs, RAIRO Operations Research 56 (2022), doi:10.1051/ro/2022171.",
+      "B. Brešar, B. Samadi, Edge open packing: complexity, algorithmic aspects, and bounds, arXiv:2403.00750v1 (2024).",
+      "B. Brešar, T. Dravec, J. Hedžet, B. Samadi, Induced matching vs edge open packing: trees and product graphs, arXiv:2406.04020 (2024).",
+      "A. Pandey, K. Santra, Edge open packing: further characterizations, arXiv:2508.01935 (2025).",
+      "All edge general-position sets of spider trees, public mathematical record 2026/10/4/SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123.",
+      "Sharp upper-lower open-packing spread at fixed order, public mathematical record 2026/9/20/SCOPE-sharp-upper-lower-open-packing-spread--d14b87c012d6.",
+      "No exactly overlapping result among the actual semantic mathematical-record searches for edge-open-packing polynomial, complete size distribution, independent-set conflict graph and induced star forests.",
+      "Accessible related earlier edge-open-packing descriptions: squared paths, ladders, rook graphs, subdivided star; these are narrower object families."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "B. Brešar, B. Samadi, Edge open packing: complexity, algorithmic aspects, and bounds, arXiv:2403.00750v1 (2024).",
+        "B. Brešar, T. Dravec, J. Hedžet, B. Samadi, Induced matching vs edge open packing: trees and product graphs, arXiv:2406.04020 (2024).",
+        "G. Chelladurai, K. Kalimuthu, S. Soundararajan, Edge open packing sets in graphs, RAIRO Operations Research 56 (2022), doi:10.1051/ro/2022171.",
+        "A. Pandey, K. Santra, Edge open packing: further characterizations, arXiv:2508.01935 (2025)."
+      ],
+      "reasoning": "The previously established maximum EOP number is a functional of this polynomial (degree); the converse fails as a statement of logical implication because degree does not specify intermediate coefficients or leading coefficient. The 2024 auxiliary optimum-value recurrence therefore does not entail the new all-size polynomial recurrence without additional counting arguments. The 2022 and 2025 characterizations similarly do not imply the explicit factorization. Individual special cases are explicitly excluded as novelty claims.",
+      "searches": [
+        "\"edge-open-packing polynomial\" tree",
+        "\"edge open packing polynomial\" trees enumeration",
+        "complete size distribution of edge-open-packing sets on arbitrary trees with polynomial-time dynamic programming"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "G. Chelladurai, K. Kalimuthu, S. Soundararajan, Edge open packing sets in graphs, RAIRO Operations Research 56 (2022), doi:10.1051/ro/2022171.",
+        "B. Brešar, B. Samadi, Edge open packing: complexity, algorithmic aspects, and bounds, arXiv:2403.00750v1 (2024).",
+        "An edge-open packing can be expressed as an independent set in its edge-conflict graph or as a locally constrained chosen-edge subset of a tree."
+      ],
+      "reasoning": "Conflict-graph independent-set enumeration and injective-edge-coloring color-class enumeration are equivalent perspectives, so absence of the phrase edge-open-packing polynomial alone is not sufficient. The primary tree source optimizes one scalar, whereas the present explicit recurrence resolves the weighted independence polynomial of the conflict graph for every tree. No equivalent explicitly enumerative unrestricted-tree result was identified in the inspected sources or actual searches.",
+      "searches": [
+        "edge open packing polynomial all trees dynamic programming complete enumerator",
+        "independence polynomial of edge open packing conflict graph tree",
+        "injective edge-coloring color-class size enumerator of trees edge open packing generating polynomial",
+        "\"edge-open-packing polynomial\" tree",
+        "\"number of edge open packing sets\" tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "All edge general-position sets of spider trees, public mathematical record 2026/10/4/SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123.",
+        "Sharp upper-lower open-packing spread at fixed order, public mathematical record 2026/9/20/SCOPE-sharp-upper-lower-open-packing-spread--d14b87c012d6.",
+        "Own accessible earlier descriptions include edge-open-packing polynomials for squared paths, rook graphs and ladders, plus a broom-family real-rootedness threshold. None claims an unrestricted-tree five-state counting recurrence."
+      ],
+      "reasoning": "Special-family tables and scalar open-packing extremal results cannot recover an arbitrary-tree coefficient vector. Similar results concern different invariants (edge general position, vertex open packing), not an existing exact tree EOP enumerator.",
+      "searches": [
+        "edge open packing polynomial all trees dynamic programming complete enumerator",
+        "edge open packing maximal sets tree count polynomial",
+        "complete size distribution of edge-open-packing sets on arbitrary trees with polynomial-time dynamic programming",
+        "injective edge-coloring color-class size enumerator of trees edge open packing generating polynomial"
+      ]
+    },
+    "rationale": "An explicit five-state generating-function recurrence for every finite tree, together with all cardinality coefficients and quadratic arithmetic complexity, was compared by implication to the original invariant paper and the primary 2024 tree maximum-algorithm paper. These establish definitions and scalar optimization results but do not entail the complete size distribution. Later relevant tree-comparison and characterization sources and semantically related public mathematical findings were also compared. The claimed novelty is the explicit recurrence and exact multiplicities, not the possibility of polynomial-time computation abstractly; unindexed equivalent algorithms remain a disclosed risk.",
+    "residual_risks": [
+      "The full literature is not exhaustively indexed or inspected; independently published equivalent all-tree state recurrences may exist under independent-set, injective-coloring or tree-automata terminology.",
+      "Generic finite-state tree counting frameworks may already imply algorithmic tractability, which is explicitly not claimed as new.",
+      "Source inspections covered relevant sections of accessible primary full texts, not every page of every related work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces and studies edge-open-packing cardinalities and extremal families, but no explicit five-state all-tree coefficient recurrence found in the inspected material.",
+        "evidence": [
+          "G. Chelladurai, K. Kalimuthu, S. Soundararajan, Edge open packing sets in graphs, RAIRO Operations Research 56 (2022), doi:10.1051/ro/2022171.",
+          "Original pairwise-conflict definition is the same as the present claim."
+        ],
+        "identifier_or_url": "https://doi.org/10.1051/ro/2022171",
+        "material_read": "Accessible publisher/open PDF: title, definition, principal bounds and family results, and concluding discussion, including pages 1–3, 6, and 10 of 12.",
+        "method": "PDF full-text search for polynomial and targeted reading of definitions, statements and conclusions",
+        "title": "Edge open packing sets in graphs",
+        "trigger": "Original definition of edge-open packing and possible enumeration results"
+      },
+      {
+        "assessment": "Computes maximum edge-open-packing cardinality on trees, not the complete coefficient enumerator. The maximum can be recovered as the degree of the polynomial here, but its scalar recurrence does not logically return multiplicities at all cardinalities.",
+        "evidence": [
+          "B. Brešar, B. Samadi, Edge open packing: complexity, algorithmic aspects, and bounds, arXiv:2403.00750v1 (2024).",
+          "Tree theorem computes a scalar optimum through auxiliary maximum-size parameters, rather than a disjoint-state generating polynomial."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.00750",
+        "material_read": "Accessible full arXiv PDF: abstract, definitions, algorithmic theorems, Section 3 tree dynamic program and associated recurrence/discussion, including printed pages 1, 6–8.",
+        "method": "PDF search for algorithm/polynomial; inspection of four optimization states and recurrence",
+        "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+        "trigger": "Highly relevant primary paper with a linear-time algorithm on unrestricted trees"
+      },
+      {
+        "assessment": "Compares maximum invariants and classifies extremal tree situations; an all-cardinality tree enumerator was not located in the inspected sections.",
+        "evidence": [
+          "B. Brešar, T. Dravec, J. Hedžet, B. Samadi, Induced matching vs edge open packing: trees and product graphs, arXiv:2406.04020 (2024)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.04020",
+        "material_read": "Accessible full arXiv PDF: abstract, introduction, definitions, statements concerning trees and graph products, and proof outlines in early sections, including printed pages 1–5.",
+        "method": "PDF search and targeted reading of primary theorems",
+        "title": "Induced matching vs edge open packing: trees and product graphs",
+        "trigger": "Later primary work explicitly mentioning trees and edge-open packings"
+      },
+      {
+        "assessment": "Structural characterization of maximum edge-open-packing parameters; no five-state coefficient-counting theorem identified in inspected opening results.",
+        "evidence": [
+          "A. Pandey, K. Santra, Edge open packing: further characterizations, arXiv:2508.01935 (2025)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2508.01935",
+        "material_read": "Accessible full arXiv PDF: title, abstract, introduction and characterizations in the opening pages, including printed pages 1–3.",
+        "method": "PDF inspection of definitions, claims and theorem scope",
+        "title": "Edge open packing: further characterizations",
+        "trigger": "Subsequent characterization potentially implying the present formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7200af45-dfcb-45cd-b392-559167591df4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Edge-open packing is a motivated graph invariant with previously published tree maximum algorithms. Knowing only the scalar optimum leaves all feasible cardinality counts and the number of optimal configurations undetermined; the five-state recurrence computes this entire natural invariant for every finite tree with an explicit O(n²) arithmetic bound and yields the complete maximum-set multiplicity. It is a structural counting theorem rather than a single tiny instance or mechanical restatement of an existing formula. The computation is reproducible and the output has concrete uses in the distribution of injective edge-coloring classes. The result does not claim an asymptotically optimal algorithm or a complexity separation.",
+    "status": "PASS"
+  }
+}
