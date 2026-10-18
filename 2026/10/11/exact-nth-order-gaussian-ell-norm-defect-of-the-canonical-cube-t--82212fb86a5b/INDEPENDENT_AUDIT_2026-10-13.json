@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T02:59:27.846114Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md gauge/half-normal exact integral and dominated-convergence proof",
+        "verify.py numerical quadrature code inspected, not used as asymptotic proof",
+        "arXiv:2410.11460v1 canonical truncation"
+      ],
+      "rationale": "Every ±1 sign halfspace reduces exactly to ||x||_1≤n(1−ε), so gauge=max(||x||∞,||x||_1/[n(1−ε)]). For half-normal Y_i=|X_i|, M=maxY_i, S=sumY_i, defect E[(S/[n(1−ε)]−M)_+]. Condition on the unique a.s. maximizing coordinate m, use gaps z_j=m−Y_j for other n−1 coordinates and exact support Σz<nεm. For ε<1/n upper bound z_j<m automatically, so no missed boundary. Change variables z_j=εm w_j gives ε^n m^n times fixed simplex domain; dominated convergence for each fixed n is justified by bounded f and integrable m^n f(m). Simplex integral n^n/n!, half-normal moment (2/π)^(n/2)·(1/2)·(2/n)^((n+1)/2) Γ((n+1)/2), giving c_n=2^(n−1/2)n^((n−1)/2)Γ((n+1)/2)/(n!π^(n/2)), positive. The support geometry, normalization including maximizing-index factor n and gauge denominator n, and fixed-dimension limits were independently checked. Packaged `verify.py` checks moment arithmetic only, not an infinite proof.",
+      "residual_risks": [
+        "No uniform remainder as n→∞ and no statement on optimal global near-cube perturbations or stability constant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary strengthened mean-width/ell-norm stability theorem is broader in all symmetric bodies but only supplies a dimension-dependent O(ε^n) bound on this particular example, not an explicit limit; stronger scope does not imply sharper local coefficient."
+        ],
+        "reasoning": "The primary strengthened mean-width/ell-norm stability theorem is broader in all symmetric bodies but only supplies a dimension-dependent O(ε^n) bound on this particular example, not an explicit limit; stronger scope does not imply sharper local coefficient.",
+        "searches": [
+          {
+            "query": "Gaussian ell norm all corners truncated cube epsilon n leading coefficient gamma Boroczky Fodor Hug",
+            "service": "Resultary published findings"
+          },
+          {
+            "source_identifier": "arXiv:2410.11460v1 primary full-text sharpness section and published DOI"
+          },
+          {
+            "source_identifier": "arXiv:2001.10706v1 earlier nonsymmetric source"
+          }
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.11460v1 primary full-text sharpness section and published DOI",
+        "arXiv:2001.10706v1 earlier nonsymmetric source",
+        "Resultary query Gaussian ell norm all corners truncated cube epsilon n leading coefficient gamma Boroczky Fodor Hug"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published ell(K_ε)≤(1+γ2 ε^n)ell(cube) yields only an upper coefficient; no positive lower or exact coefficient. Conditioning on the almost-sure maximum supplies the missing limit. The old source does motivate order n sharpness but does not determine c_n."
+        ],
+        "reasoning": "Published ell(K_ε)≤(1+γ2 ε^n)ell(cube) yields only an upper coefficient; no positive lower or exact coefficient. Conditioning on the almost-sure maximum supplies the missing limit. The old source does motivate order n sharpness but does not determine c_n.",
+        "searches": [
+          {
+            "query": "Gaussian ell norm all corners truncated cube epsilon n leading coefficient gamma Boroczky Fodor Hug",
+            "service": "Resultary published findings"
+          },
+          {
+            "source_identifier": "arXiv:2410.11460v1 primary full-text sharpness section and published DOI"
+          },
+          {
+            "source_identifier": "arXiv:2001.10706v1 earlier nonsymmetric source"
+          }
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Gaussian norm defect is equivalently an expected excess of average half-normal magnitudes over their sample maximum near equal coordinates. This order-statistics formulation was considered; the same integral could conceivably appear in older probabilistic literature, but no identified prior exact limit for this cube truncation was found."
+        ],
+        "reasoning": "The Gaussian norm defect is equivalently an expected excess of average half-normal magnitudes over their sample maximum near equal coordinates. This order-statistics formulation was considered; the same integral could conceivably appear in older probabilistic literature, but no identified prior exact limit for this cube truncation was found.",
+        "searches": [
+          {
+            "query": "Gaussian ell norm all corners truncated cube epsilon n leading coefficient gamma Boroczky Fodor Hug",
+            "service": "Resultary published findings"
+          },
+          {
+            "source_identifier": "arXiv:2410.11460v1 primary full-text sharpness section and published DOI"
+          }
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Not a discrete geometric census: c_n for all fixed n≥2 is a closed Gamma-form family, rather than a known coefficient table. The half-normal moment and simplex factor were independently derived; standard Gaussian moment tables alone do not assert its interpretation as the cube truncation sharpness response."
+        ],
+        "reasoning": "Not a discrete geometric census: c_n for all fixed n≥2 is a closed Gamma-form family, rather than a known coefficient table. The half-normal moment and simplex factor were independently derived; standard Gaussian moment tables alone do not assert its interpretation as the cube truncation sharpness response.",
+        "searches": [
+          {
+            "query": "Gaussian ell norm all corners truncated cube epsilon n leading coefficient gamma Boroczky Fodor Hug",
+            "service": "Resultary published findings"
+          },
+          {
+            "source_identifier": "arXiv:2001.10706v1 earlier nonsymmetric source"
+          },
+          {
+            "source_identifier": "Resultary query Gaussian ell norm all corners truncated cube epsilon n leading coefficient gamma Boroczky Fodor Hug"
+          }
+        ]
+      },
+      "rationale": "Böröczky–Fodor–Hug use exactly the same all-sign-vertex truncation as a sharpness witness and prove only upper-order O(ε^n) for the Gaussian ell-norm defect. Their full available treatment does not give an asymptotic equality, positive exact leading coefficient or its Gamma expression. Earlier nonsymmetric simplex stability is a different extremizer. The present exact first response is best-of-knowledge not entailed by a one-sided upper bound.",
+      "residual_risks": [
+        "Identical half-normal near-tie asymptotic might be indexed only in probability/order-statistics literature without convex-body terminology.",
+        "No uniform n→∞ coefficient claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: same body and order, not positive exact c_n",
+          "evidence": "All 2^n vertex cuts are the specified Kε; discussion gives γ2 ε^n upper correction, no limit constant.",
+          "identifier_or_url": "arXiv:2410.11460v1; https://arxiv.org/html/2410.11460v1; DOI:10.1007/s00208-025-03228-0",
+          "material_read": "Accessible primary HTML: definitions, theorems, optimality construction and the all-corner cut with the O(ε^n) upper estimate, compared against claimed coefficient",
+          "method": "Primary full-text HTML relevant results and sharpness discussion",
+          "title": "Strengthened inequalities for the mean width and the ell-norm of origin symmetric convex bodies",
+          "trigger": "Exact all-vertex cube truncation and Gaussian ell-norm sharpness"
+        },
+        {
+          "assessment": "DIFFERENT_SETTING: simplex/nonsymmetric extremizers rather than symmetric all-vertex cube",
+          "evidence": "No claimed specific cube-corner half-normal coefficient in inspected setting.",
+          "identifier_or_url": "arXiv:2001.10706v1",
+          "material_read": "Primary statement and geometric extremizers from abstract/intro",
+          "method": "Open-access primary contextual comparison",
+          "title": "Strengthened inequalities for the mean width and the ell-norm",
+          "trigger": "Possible earlier stronger Gaussian sharpness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2410.11460v1 primary full-text sharpness section and published DOI",
+        "arXiv:2001.10706v1 earlier nonsymmetric source",
+        "Resultary query Gaussian ell norm all corners truncated cube epsilon n leading coefficient gamma Boroczky Fodor Hug"
+      ],
+      "rationale": "A canonical truncation is the motivating explicit witness for sharpness of the stability exponent n in a recent origin-symmetric cube theorem. A positive exact dimension-dependent first variation refines one-sided upper-order behavior into the sharp contact asymptotic and supplies a precise benchmark for comparing other perturbations. The object and invariant are mathematically preselected by the source theorem, not arbitrary small numerical refinement.",
+      "residual_risks": [
+        "The exact coefficient is a relatively short direct integral once the correct gauge and order statistic are written down; value is specific to the canonical witness, not a general stability theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No uniform remainder as n→∞ and no statement on optimal global near-cube perturbations or stability constant.",
+    "Identical half-normal near-tie asymptotic might be indexed only in probability/order-statistics literature without convex-body terminology.",
+    "No uniform n→∞ coefficient claim.",
+    "Publication intentionally withheld pending guarded confidentiality-safe sanitization; scientific PASS is not a claim of imported/public accepted result."
+  ],
+  "schema_version": 1
+}

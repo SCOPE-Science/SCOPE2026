@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The all-sign halfspaces are exactly the single constraint \(\|x\|_1\le n(1-\varepsilon)\), so the gauge is the maximum of \(\|x\|_\infty\) and \(\|x\|_1/[n(1-\varepsilon)]\). Conditioning on the almost surely unique largest half-normal coordinate and using deficits \(z_i=M-Y_i\) gives an exact integral over \(\sum z_i<n\varepsilon M\). After \(z_i=\varepsilon M w_i\), dominated convergence is valid on a fixed simplex and yields the factor \(n^n/n!\). The remaining half-normal moment evaluates to the displayed Gamma expression. No finite experiment is used to promote a finite observation to an infinite claim; `verify.py` checks only arithmetic.
+## correctness
 
-## Originality
-PASS. The closest primary source is Böröczky--Fodor--Hug, arXiv:2410.11460, which defines precisely the same truncation but states only an \(O(\varepsilon^n)\) upper estimate for the \(\ell\)-norm defect. It does not state a positive leading coefficient or an asymptotic equality. published-finding corpus and web searches using geometric, gauge, half-normal, and leading-coefficient formulations found no equivalent statement. The earlier arXiv:2001.10706 concerns simplex rather than cube extremizers. Residual risk remains for differently indexed literature.
+PASS
 
-## Value
-PASS. The family is not an arbitrary slice: it is the canonical witness used by the recent sharp stability theorem to show that the cube exponent cannot drop below \(n\). Determining its exact first nonzero Gaussian response shows that the witness has genuine \(n\)-th order contact rather than merely satisfying a one-sided \(O(\varepsilon^n)\) estimate, and supplies a dimension-explicit constant that can be compared across dimensions or against future sharpenings. This is a motivated structural refinement of the source's sharpness mechanism.
+Every ±1 sign halfspace reduces exactly to ||x||_1≤n(1−ε), so gauge=max(||x||∞,||x||_1/[n(1−ε)]). For half-normal Y_i=|X_i|, M=maxY_i, S=sumY_i, defect E[(S/[n(1−ε)]−M)_+]. Condition on the unique a.s. maximizing coordinate m, use gaps z_j=m−Y_j for other n−1 coordinates and exact support Σz<nεm. For ε<1/n upper bound z_j<m automatically, so no missed boundary. Change variables z_j=εm w_j gives ε^n m^n times fixed simplex domain; dominated convergence for each fixed n is justified by bounded f and integrable m^n f(m). Simplex integral n^n/n!, half-normal moment (2/π)^(n/2)·(1/2)·(2/n)^((n+1)/2) Γ((n+1)/2), giving c_n=2^(n−1/2)n^((n−1)/2)Γ((n+1)/2)/(n!π^(n/2)), positive. The support geometry, normalization including maximizing-index factor n and gauge denominator n, and fixed-dimension limits were independently checked. Packaged `verify.py` checks moment arithmetic only, not an infinite proof.
 
-## Closest literature and limitations
-The directly relevant paper is arXiv:2410.11460v1 / DOI:10.1007/s00208-025-03228-0, first public 2024-10-15, primary MSC 52A40. The result is fixed-dimensional and canonical-family specific; it gives no uniform remainder and no global optimization over perturbations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Böröczky–Fodor–Hug use exactly the same all-sign-vertex truncation as a sharpness witness and prove only upper-order O(ε^n) for the Gaussian ell-norm defect. Their full available treatment does not give an asymptotic equality, positive exact leading coefficient or its Gamma expression. Earlier nonsymmetric simplex stability is a different extremizer. The present exact first response is best-of-knowledge not entailed by a one-sided upper bound.
+
+## value
+
+PASS
+
+A canonical truncation is the motivating explicit witness for sharpness of the stability exponent n in a recent origin-symmetric cube theorem. A positive exact dimension-dependent first variation refines one-sided upper-order behavior into the sharp contact asymptotic and supplies a precise benchmark for comparing other perturbations. The object and invariant are mathematically preselected by the source theorem, not arbitrary small numerical refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The proof is analytic and valid for every fixed integer \(n\ge2\). The key exact identities are
-\[
-K_\varepsilon=\{x:\|x\|_\infty\le1,\ \|x\|_1\le n(1-\varepsilon)\}
-\]
-and
-\[
-\|x\|_{K_\varepsilon}=\max\left\{\|x\|_\infty,\frac{\|x\|_1}{n(1-\varepsilon)}\right\}.
-\]
-For \(0<\varepsilon<1/n\), the positive Gaussian excess is supported exactly where the deficits from the largest half-normal coordinate have total less than \(n\varepsilon M\). Scaling those \(n-1\) deficits by \(\varepsilon M\) produces a fixed simplex and the factor \(\varepsilon^n\). Dominated convergence then proves the limit.
 
-The coefficient uses
-\[
-\int_{\substack{w_i\ge0\\\sum w_i<n}}\left(n-\sum w_i\right)dw=\frac{n^n}{n!}
-\]
-and
-\[
-\int_0^\infty m^n\left(\sqrt{2/\pi}e^{-m^2/2}\right)^n dm
-=\left(\frac2\pi\right)^{n/2}\frac12\left(\frac2n\right)^{(n+1)/2}\Gamma\left(\frac{n+1}{2}\right).
-\]
-`verify.py` checks the second identity numerically in dimensions \(2\) through \(8\), and checks the final coefficient obtained by multiplication. This is a finite arithmetic replay only; it does not replace the proof of the all-dimensional limit.
+# Independent mathematical audit
 
-The source was inspected at its definition of \(\ell\), Theorem 1.3, and the optimality paragraph defining \(K_\varepsilon\). It supplies the same family and an \(O(\varepsilon^n)\) upper estimate, but no asymptotic equality or leading coefficient. Independent validation has not been performed.
+## correctness
+
+PASS
+
+Every ±1 sign halfspace reduces exactly to ||x||_1≤n(1−ε), so gauge=max(||x||∞,||x||_1/[n(1−ε)]). For half-normal Y_i=|X_i|, M=maxY_i, S=sumY_i, defect E[(S/[n(1−ε)]−M)_+]. Condition on the unique a.s. maximizing coordinate m, use gaps z_j=m−Y_j for other n−1 coordinates and exact support Σz<nεm. For ε<1/n upper bound z_j<m automatically, so no missed boundary. Change variables z_j=εm w_j gives ε^n m^n times fixed simplex domain; dominated convergence for each fixed n is justified by bounded f and integrable m^n f(m). Simplex integral n^n/n!, half-normal moment (2/π)^(n/2)·(1/2)·(2/n)^((n+1)/2) Γ((n+1)/2), giving c_n=2^(n−1/2)n^((n−1)/2)Γ((n+1)/2)/(n!π^(n/2)), positive. The support geometry, normalization including maximizing-index factor n and gauge denominator n, and fixed-dimension limits were independently checked. Packaged `verify.py` checks moment arithmetic only, not an infinite proof.
+
+## originality
+
+PASS
+
+Böröczky–Fodor–Hug use exactly the same all-sign-vertex truncation as a sharpness witness and prove only upper-order O(ε^n) for the Gaussian ell-norm defect. Their full available treatment does not give an asymptotic equality, positive exact leading coefficient or its Gamma expression. Earlier nonsymmetric simplex stability is a different extremizer. The present exact first response is best-of-knowledge not entailed by a one-sided upper bound.
+
+## value
+
+PASS
+
+A canonical truncation is the motivating explicit witness for sharpness of the stability exponent n in a recent origin-symmetric cube theorem. A positive exact dimension-dependent first variation refines one-sided upper-order behavior into the sharp contact asymptotic and supplies a precise benchmark for comparing other perturbations. The object and invariant are mathematically preselected by the source theorem, not arbitrary small numerical refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
