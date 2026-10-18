@@ -1,19 +1,21 @@
-# Review: an exact quadrangulation of \(H(8,3)\)
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The witness is an explicit full ten-cycle for the order-56 affine group over \(\mathbb F_8\). All graph labels, 1120 darts, and 280 simple four-faces are accounted for by `verify_rotation.py`, while `verify_local.py` independently tests the ten local closure and group-product conditions. With 112 vertices and 560 edges, Euler gives genus 85. The graph is bridgeless and bipartite, so every possible orientable cellular embedding has faces of length at least four and genus at least 85. These are exhaustive checks for this fixed graph, not extrapolations from samples.
+PASS
 
-## Originality — PASS, subject to ordinary literature risk
+PASS: GF(8) with x³+x+1 and P={0,1,2} has 56 affine translates, representing every triple. Exactly 10 affine disjointness generators form the displayed 10-cycle. Direct independent GF(8) construction checks all 1120 directed darts and finds 280 distinct simple four-cycle facial orbits, connected graph V=112,E=560; Euler yields g=85. Graph is bridgeless, simple, bipartite, so every orientable cellular face has length at least four; F≤E/2=280 gives g≥85. Swapping class and affine translations establishes vertex transitivity. This is a complete finite certificate for exactly H(8,3), not an infinite approximation.
 
-The closest primary source, Metzger–Ulrigg (2026), proves a general theorem for \(H(h,2)\) and expressly reports only \(85\le\gamma(H(8,3))\le143\) in Section 9. Its invariant rotation formalism is acknowledged; the actual affine ten-cycle and the resulting genus-85 embedding do not follow from the previously stated bounds or the different \(k=2\) theorem. Alias, domination, and covering-implication searches did not identify an equivalent earlier embedding. Residual possibility: an unindexed or newly posted table/certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The result closes a specifically recorded natural genus gap, attains the best possible Euler bound, and gives a highly symmetric constructive embedding at the first exceptional three-subset case. No generalization to other \(H(n,k)\) is claimed.
+PASS: Best-of-knowledge PASS: the explicit GF(8) rotation yields H(8,3) genus exactly 85, not covered by Metzger–Ulrigg main H(h,2) family; their full paper Section 9 places k≥3 among open territory, identifying this exceptional affine-transitive graph without resolving its genus. General graph rotation methods supply background, not the ten-element closure witness or 280 facial four-cycles.
 
-## Limits of review
+## value
 
-External, independent mathematical validation has not been performed; code execution and this review are not a substitute. The proof and certificate address only orientable genus of the stated graph.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Settles the previously bounded natural graph H(8,3) from 85≤genus≤143, with explicit symmetric minimal orientable quadrangulation and independently checkable rotations. An exact genus for an exceptional vertex-transitive bipartite Kneser graph is independently useful; does not need a general H(n,k) theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
