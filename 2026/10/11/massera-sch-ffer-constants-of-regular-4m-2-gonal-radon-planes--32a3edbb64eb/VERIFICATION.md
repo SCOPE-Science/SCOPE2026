@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-For \(N=4m+2\) and \(\alpha=\pi/N\), the proof first uses the exact Radon-plane reduction
-\[
-MS_B(X_N)
-=
-\max\{\|x-y\|:x,y\in\operatorname{ext}(B_{X_N}),\ x\perp_B y\}.
-\]
-At a fixed vertex \(v_0\), the two adjacent norming facets show that, modulo sign, the only Birkhoff-orthogonal vertices are \(v_m\) and \(v_{m+1}\).
 
-Their two possible chord norms are
-\[
-D_-
-=
-\begin{cases}
-2\sec\alpha\,\sin(\pi/4-\alpha/2),&m\text{ even},\\
-2\sin(\pi/4-\alpha/2),&m\text{ odd},
-\end{cases}
-\]
-and
-\[
-D_+
-=
-\begin{cases}
-2\sin(\pi/4+\alpha/2),&m\text{ even},\\
-2\sec\alpha\,\sin(\pi/4+\alpha/2),&m\text{ odd}.
-\end{cases}
-\]
-The proof shows \(D_+>D_-\). Hence the displayed branch of \(D_+\) is the exact value of \(MS_B\).
+# Independent mathematical audit
 
-`verify.py` reconstructs the regular polygon from its supporting normals, enumerates every ordered vertex pair for \(1\le m\le100\), detects Birkhoff orthogonality by the adjacent-facet sign criterion, and verifies that the largest distance matches the formula. It also checks the regular hexagon and decagon closed forms.
+## correctness
 
-The finite enumeration is a reproducibility check only; the proof establishes the infinite family analytically.
+PASS
 
-No independent audit or independent validation has been performed.
+Reconstructed planar gauge as max over N facet normals, verified polar quarter-turn yields the Radon relation, and checked Birkhoff norming functionals at v0 have only orthogonal vertex indices m,m+1 (and their negatives). Applied Fu–Li Theorem 4.4 to reduce the full supremum to vertex pairs; independently calculated D_- and D_+ using chord angle and normal-ray distance, established D_+>D_- in both parity classes and the N mod 8 labels. Independently enumerated all orthogonal vertex pairs for N=6,10,14,18,22 and obtained exactly 4N pairs and sharp values 2,phi,1.60387547161,1.53208888624,1.52704223687. The finite check is not the proof for all m.
+
+## originality
+
+PASS
+
+Checked Fu–Li same invariant full text and relevant Radon/antinorm and polygon aliases: the published general extreme-vertex theorem is a reduction, not the all-N angular parity calculation. Indexed exact decagon orthogonal James/Schäffer and related norms concern distinct constants; no earlier full-family MS_B formula was identified. Best-of-knowledge only, not proof of global novelty.
+
+## value
+
+PASS
+
+The full infinite regular Radon polygon family, alternating modulo-eight sharp branches, golden-ratio decagonal value and Hilbert limit are a natural exact evaluation of a Birkhoff-orthogonality invariant; they go beyond a lone small-polygon table and explain parity geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
