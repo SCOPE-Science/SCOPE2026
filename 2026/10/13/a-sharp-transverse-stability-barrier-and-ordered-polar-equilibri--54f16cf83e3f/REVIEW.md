@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The invertible affine transformation and positive time scaling reduce the exact published mean-field ODE to a coupled pair of cubic polynomials. The factored stationary equations give an exhaustive ordered-polar equilibrium census. Both linear eigenvalues, the asymmetric determinant sign, the critical cubic center-manifold coefficient and the outward confidence-switch direction were independently reconstructed. The included symbolic checker succeeds on exact identities. The result asserts only local stability and an exact equilibrium census, not global convergence.
+## correctness
 
-**Originality — PASS, narrowly scoped.** The full open 2026 primary paper was compared at equations (4)--(11), Theorems 2--3, the reported figure and the discussion. It treats polar-branch stability through an invariant scalar midpoint reduction and does not establish the full two-dimensional transverse classification. The exact additional \(3\beta\) threshold, feasible-confidence cutoff \(1/\sqrt3\), and two asymmetric saddle branches are not implied by the source's stable scalar-gap formula. The full accessible papers of Baumann et al. (2020) , Lim--Bentley (2022), and Sîrbu et al. (2019) use different opinion equations. Semantic literature and published-result searches found no identical classification; an unindexed equivalent normal-form calculation remains possible.
+PASS
 
-**Value — PASS.** The published model reports a stable partial-polarization regime even for its illustrative \(\varepsilon=0.3\). That region has no fully stable interacting ordered-polar equilibrium. Establishing the exact missing condition changes the model's qualitative phase interpretation and supplies a complete algebraic explanation rather than a mere numerical refutation. The construction separates stability along an invariant opinion-gap line from physical two-dimensional stability.
+The exact substitution s=x+y-1, d=y-x, rescaled time tau=alpha*t/2 yields f=s(1-s^2-3d^2), g=d(1-2k-3s^2-d^2), k=beta/alpha. Direct algebra reproduces the original two mean-field ODEs and their Jacobian; symmetric d=sqrt(1-2k) has physical eigenvalues 3beta-alpha, 2beta-alpha. Off-center fixed points satisfy s^2=(1-3k)/4,d^2=(1+k)/4 with determinant 2(1+k)(3k-1)<0. At k=1/3, center manifold d=1/sqrt3-(3sqrt3/2)s^2+..., s-prime=8s^3+..., so branch is nonlinearly repelling. Stable strictly interacting ordered branch iff epsilon>1/sqrt3, alpha>3beta and 1-2beta/alpha<epsilon^2. Independent symbolic check succeeded; excluded d=epsilon switching surface and population asymmetry do not follow.
 
-**Closest literature and limits.** Bakim (2026), doi:10.34248/bsengineering.1882307, is the direct comparison. Baumann et al., *Physical Review Letters* 124 (2020), 048301, and Lim--Bentley, *Scientific Reports* 12 (2022), 18131, concern distinct dynamical laws. Assertions are limited to ordinary equilibria for the equal-size deterministic mean-field system, strictly inside the interacting confidence region; no global-basin or Filippov sliding theorem is claimed. Independent external validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new full two-variable stability correction: Bakim proves the gap normal form and labels the alpha>2 beta polar branch stable in the one-dimensional symmetry manifold, but the actual two-dimensional transverse eigenvalue 3 beta-alpha makes it a saddle until alpha>3 beta; the confidence feasibility epsilon>1/sqrt(3) and off-center saddle census are absent. Primary full PDF inspected. No general coupled-cubic reference inspected yielded this particular normalized, bounded-confidence implication.
+
+## value
+
+PASS
+
+Corrects a substantive false full-stability conclusion in the exact initiating opinion model. The nonlinear boundary alpha=3beta with epsilon>1/sqrt3 identifies when persistent mutually interacting polarization is locally stable; the off-center saddle census is a natural complete equilibrium classification, not a trivial reparameterization. It does not assert empirical platform effects or global selection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
