@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The operator kernel is exactly an intertwiner space of two two-dimensional modules over a polynomial ring. The cyclic-primary Hom formula follows by evaluating the annihilator of one generator, and the exhaustive four-type rational canonical classification supplies every possible kernel dimension. The class weights are determined by explicit invertible centralizers. The five disjoint positive-nullity situations are counted without duplication; the residual count is the complement in the sample space of size \(q^8\). Exact symbolic polynomial identities were checked, and full matrix enumeration over fields of orders \(2,3,4,5\) agreed. The general proof does not depend on finite enumeration.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** Charkani–Bouarga (2015) give the coprimality criterion and a polynomial inverse, not the joint random-input nullity frequencies; Ran–Rodman (2010) study fixed-input Sylvester ranges and minimal-rank perturbations; Britnell–Wildon (arXiv:1001.0811) study pairs of commuting similarity classes and primary types, not all intertwiner dimensions. Relevant full texts were read at the theorem, setup, and comparison sections. Published searches under Sylvester operator, intertwiners, Kronecker difference, resultant, and random matrix rank found no directly matching four-count theorem. Existing canonical-form and module-Hom facts are credited. An equivalent earlier tabulation remains a genuine possibility, and no claim of exhaustive priority is made.
+PASS
 
-**Value — PASS.** This determines the exact rank/nullity distribution of a natural matrix-equation operator, not just its generic invertibility or a single fiber count. The first nontrivial matrix size has four distinct strata with a forbidden intermediate nullity, and the formulas work uniformly in characteristic and for extension fields. The result gives exact benchmarks for unique solvability and for prescribed-right-hand-side fiber sizes. It is a natural complete invariant of the smallest nontrivial Sylvester family rather than an arbitrary subfamily.
+The kernel of L_A,B is Hom_{Fq[t]}(Fq^2_B,Fq^2_A). Primary cyclic modules have intertwiner dimension deg(f)min(a,b) for matching f and zero otherwise. Scalar, nonscalar Jordan, split distinct-root and irreducible-quadratic 2x2 similarity types have respectively q, q, binom(q,2), (q²−q)/2 classes of sizes 1, q²−1, q(q+1), q(q−1). Weighted matching-eigenvalue cases give N1 and N2 as stated; identical scalar pairs yield N4=q and no possible primary-type pair gives dimension 3. All other ordered pairs are nullity zero by complement to q^8. Direct independent linear ranks for all ordered pairs q=2,3 matched vectors (88,72,94,2) and (3618,2016,924,3). The algebraic type exhaustion covers all prime powers; finite fields merely corroborate.
 
-**Closest antecedents and limitations.** The invertibility criterion is classical and is not asserted to be original. An unlocated equivalent frequency formula is the main residual originality risk. The result is limited to matrices of order two; finite verification is not an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Sylvester unique solvability is exactly coprimality of characteristic polynomials; Charkani–Bouarga Proposition 4.1/Theorem 4.12 prove existence of inverse, not the full weighted 2x2 nullity distribution. Britnell–Wildon supply finite-field matrix similarity background but focus on commuting-type classification, not ordered pair intertwiner rank strata. No checked source or Resultary result states the four closed N_j(q) polynomials, though general rational-canonical counting machinery could derive them.
+
+## value
+
+PASS
+
+Nullity is a natural invariant of the Sylvester linear map governing solvability and number of compatible right-hand sides; the exact distribution across all random ordered matrix pairs is a complete finite-field invariant. The absence of nullity 3 and explicit probability of invertibility are meaningful consequences. This is not a novel Sylvester criterion but a closed distribution law useful for random linear matrix equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

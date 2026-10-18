@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing that standalone file. The standard-library-only program enumerates all ordered pairs of \(2\times2\) matrices, constructs the corresponding \(4\times4\) Sylvester operator, computes its finite-field rank, and compares the four resulting nullity counts with the displayed polynomials.
+## correctness
 
-The checker exhaustively covers \(q=2,3,4,5\), including the extension field \(\mathbb F_4=\mathbb F_2[u]/(u^2+u+1)\). The expected four strata \((N_0,N_1,N_2,N_4)\) are \((88,72,94,2)\), \((3618,2016,924,3)\), \((43968,16800,4764,4)\), and \((290500,82800,17320,5)\). The execution success token is `VERIFY_OK`. The checker performs exhaustive **finite** tests, not a proof for all prime powers; the all-field proof is the module-Hom and similarity-class argument in `RESULT.md`. The software requires no external package or online service.
+PASS
 
-Independent audit: not performed.
+The kernel of L_A,B is Hom_{Fq[t]}(Fq^2_B,Fq^2_A). Primary cyclic modules have intertwiner dimension deg(f)min(a,b) for matching f and zero otherwise. Scalar, nonscalar Jordan, split distinct-root and irreducible-quadratic 2x2 similarity types have respectively q, q, binom(q,2), (q²−q)/2 classes of sizes 1, q²−1, q(q+1), q(q−1). Weighted matching-eigenvalue cases give N1 and N2 as stated; identical scalar pairs yield N4=q and no possible primary-type pair gives dimension 3. All other ordered pairs are nullity zero by complement to q^8. Direct independent linear ranks for all ordered pairs q=2,3 matched vectors (88,72,94,2) and (3618,2016,924,3). The algebraic type exhaustion covers all prime powers; finite fields merely corroborate.
+
+## originality
+
+PASS
+
+Classical Sylvester unique solvability is exactly coprimality of characteristic polynomials; Charkani–Bouarga Proposition 4.1/Theorem 4.12 prove existence of inverse, not the full weighted 2x2 nullity distribution. Britnell–Wildon supply finite-field matrix similarity background but focus on commuting-type classification, not ordered pair intertwiner rank strata. No checked source or Resultary result states the four closed N_j(q) polynomials, though general rational-canonical counting machinery could derive them.
+
+## value
+
+PASS
+
+Nullity is a natural invariant of the Sylvester linear map governing solvability and number of compatible right-hand sides; the exact distribution across all random ordered matrix pairs is a complete finite-field invariant. The absence of nullity 3 and explicit probability of invertibility are meaningful consequences. This is not a novel Sylvester criterion but a closed distribution law useful for random linear matrix equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
