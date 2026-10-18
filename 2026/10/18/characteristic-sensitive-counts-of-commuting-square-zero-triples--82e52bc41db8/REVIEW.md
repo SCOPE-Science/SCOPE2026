@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For each \(m\ge1\) and finite field \(\mathbb F_q\), the incidence matrix-unit product reduces the three square-zero conditions and three commutation conditions to a hollow symmetric \(3\times3\) matrix \(M=AB^{\mathsf T}\). Its rank distribution follows from nonzero principal minors and determinant \(2uvw\), including characteristic two. Counting factorizations by the image rank of \(A\) gives the specified Gaussian sum. Exhaustive computations over prime fields and \(\mathbb F_4\) agree. The general result is proved symbolically rather than extrapolated from tests.
+
+**Originality — PASS, with qualified search coverage.** The checked incidence-algebra source by Quinn provides multiplication and Gröbner/shellability but not such a triple enumeration. Britnell–Wildon analyzes commuting matrix similarity classes rather than exact square-zero radical triples. Searches of published mathematical records for diamond/rhombus incidence-algebra triple counts and equivalent hollow-symmetric matrix-factorization statements did not reveal a stronger result; the closest ranked records concern other fixed algebras and other matrix problems. The 2019 involution paper is topically close, but involutions are not square-zero elements and only its abstract was accessible, so possible hidden relevant arguments remain an acknowledged risk. Standard rank-factorization and hollow-matrix computations are constituents of the proof and not claimed as independently original.
+
+**Value — PASS.** Simultaneous square-zero and commutativity constraints arise naturally from representations of a commutative three-generator square-zero algebra inside a finite-dimensional incidence ring. Diamond posets give the smallest full family with nonzero radical products. The exact whole-family count, uniform in both width and field order, and the distinction between even and odd characteristic reflect a genuine structural rank-three obstruction. It is a natural point-count invariant, not an arbitrary chosen matrix slice.
+
+No independent external mathematical validation has been performed. The statement does not generalize to arbitrary posets or all elements of the incidence algebra.
+
+Self-review: passed. Independent audit: not yet performed.
