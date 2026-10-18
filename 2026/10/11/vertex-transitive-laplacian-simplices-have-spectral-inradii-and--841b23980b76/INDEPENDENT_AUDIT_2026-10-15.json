@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T02:14:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Connected L has kernel span(1), so its n columns are affinely independent in 1^⊥, centroid 0. Vertex transitivity implies degree k and equal squared column norms k(k+1). Averaged squared distances give unique circumcenter and R. Barycentric coordinates α_i(x)=1/n+⟨L⁺e_i,x⟩, so facet clearance at origin is 1/(n||L⁺e_i||). Automorphism transitivity equalizes norms and Frobenius trace gives q=||L⁺e_i||²=(1/n)Σ_{j≥2}λ_j⁻². Summing constraints α_i(x)≥ρ√q gives sharp unique inradius 1/(n√q), all facets tangent. Independent exact rational SymPy tested K2,K5,C6,Q3, including barycentric normals and spectral traces; cycle fourth-cosecant identity numerically tested n=3..14. Euclidean full-Laplacian metric is essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A generic simplex with equal-length facet normals has incenter at centroid; but the spectral trace identity and equal lengths from graph automorphism symmetry are further specific hypotheses.",
+          "Matrix–Tree controls product λ2⋯λn rather than Σ λ_j^-2."
+        ],
+        "reasoning": "Generic simplex geometry explains methods but was not found to explicitly dominate the combined graph-spectral theorem or its natural full-Laplacian normalization.",
+        "searches": [
+          "vertex transitive graph Laplacian simplex Euclidean inradius circumradius pseudoinverse spectrum",
+          "simplex barycentric facet normal pseudoinverse inradius graph Laplacian transitive"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1706.07085",
+        "arXiv:1809.02960",
+        "DOI:10.1016/j.ejc.2013.01.010",
+        "Resultary query: vertex transitive graph Laplacian simplex Euclidean inradius circumradius pseudoinverse spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Braun–Meyer 1706.07085 primary construction and origin-interior result; no radii relation.",
+          "Manjunath–Sturmfels simplicial distance is not Euclidean; lattice invariants survive unimodular transformations but Euclidean radii do not."
+        ],
+        "reasoning": "Braun–Meyer gives canonical vertices and centroid, but its Ehrhart/volume facts do not imply exact incenter formula without new pseudoinverse facet clearance and graph-symmetry spectral trace calculation.",
+        "searches": [
+          "vertex transitive graph Laplacian simplex Euclidean inradius circumradius pseudoinverse spectrum",
+          "Braun Meyer Laplacian Simplices volume reflexivity coding trees Ehrhart reciprocal Laplacian spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Braun–Meyer arXiv:1706.07085 defines Laplacian simplex with graph columns, but insphere / circumsphere / pseudoinverse metric theorem not found in materially read sections.",
+          "Meyer–Pllaha arXiv:1809.02960 focuses coding/lattice equivalence rather than canonical Euclidean radii."
+        ],
+        "reasoning": "Checked barycentric inverse/facet-offset and graph Green-function aliases as well as named Laplacian simplex; no matching original formula found.",
+        "searches": [
+          "vertex transitive graph Laplacian simplex Euclidean inradius circumradius pseudoinverse spectrum",
+          "Laplacian simplex pseudoinverse Euclidean facet normals Chebyshev incenter reciprocal square spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Examples K_n, C_n are derivable from known graph spectra; computed exact rational K2,K5,C6,Q3 results in independent diagnostics.",
+          "No cited table gives the universal formula for every connected vertex-transitive graph."
+        ],
+        "reasoning": "Simple exact examples alone are prior-known spectral arithmetic, but the reusable graph-class formula and exact center/facet relation are the assessed claim.",
+        "searches": [
+          "vertex transitive graph Laplacian simplex Euclidean inradius circumradius pseudoinverse spectrum",
+          "inradius Laplacian simplex complete graph cycle tabulation eigenvalues"
+        ]
+      },
+      "rationale": "Comparison of actual geometric objects, metrics and formulas found no checked pre-existing spectral inradius/circumradius identity for the canonical Euclidean Laplacian simplex of a connected vertex-transitive graph. Braun–Meyer and Meyer–Pllaha study the associated integral/lattice and Ehrhart invariants; Manjunath–Sturmfels use a non-Euclidean simplicial metric on a lattice. Neither a spanning-tree product of eigenvalues nor lattice unimodular equivalence fixes the Euclidean inball formula involving the sum of inverse squares. General simplex barycentric identities are known, but the vertex-transitive spectral specialization is not found as an exact result. Best-of-knowledge PASS with explicit priority risk.",
+      "residual_risks": [
+        "Older general simplex-pseudoinverse incenter formulas may imply pieces using different language; only best-of-knowledge novelty claimed.",
+        "Metric is the standard full-Laplacian embedding in 1^⊥; not a unimodularly invariant Euclidean radius."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines object but does not provide checked claim’s metric formulas; no global guarantee against unsearched aliases",
+          "evidence": [
+            "arXiv:1706.07085 construction and Ehrhart/reflexivity results"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.07085",
+          "material_read": "Actual primary arXiv PDF inspected at construction, origin-interior result, objectives and graph examples; targeted full-text search for radius and Euclidean sphere terms.",
+          "method": "Lawful open arXiv PDF text and page visual inspection",
+          "title": "Laplacian Simplices",
+          "trigger": "Same graph-Laplacian simplex and construction"
+        },
+        {
+          "assessment": "Object and lattice duality, not same Euclidean inball or circumradius result",
+          "evidence": [
+            "arXiv:1809.02960 introduction and coding theorem context"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1809.02960",
+          "material_read": "Actual arXiv PDF inspected in introduction and coding/lattice construction; no radial theorem in examined parts.",
+          "method": "Lawful open arXiv PDF text and page visual inspection",
+          "title": "Laplacian Simplices II: A Coding Theoretic Approach",
+          "trigger": "Same named object and plausible code/duality aliases"
+        },
+        {
+          "assessment": "Non-Euclidean simplicial-distance lattice, not canonical simplex Euclidean inradius; no document-wide noncoverage asserted",
+          "evidence": [
+            "Manjunath–Sturmfels (2013), simplicial metric and lattice formulation"
+          ],
+          "identifier_or_url": "DOI:10.1016/j.ejc.2013.01.010",
+          "material_read": "Available title/abstract scope and object/metric distinctions; complete primary full text not materially read",
+          "method": "Bibliographic/title and abstract-level comparison",
+          "title": "The Laplacian lattice of a graph under a simplicial distance function",
+          "trigger": "Possible broader metric theorem on graph Laplacians"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical Euclidean metric of a natural graph-associated simplex has two independent computable geometric invariants: a universal degree-based outer radius and a pseudoinverse/spectral-moment inner radius, with exact centers and supporting facets. This is a broad structural relation across connected vertex-transitive graphs, not a numerical one-off or routine known-table substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older general simplex-pseudoinverse incenter formulas may imply pieces using different language; only best-of-knowledge novelty claimed.",
+    "Metric is the standard full-Laplacian embedding in 1^⊥; not a unimodularly invariant Euclidean radius."
+  ]
+}
