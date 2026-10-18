@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The precise kick-drift-kick phase-space map has determinant one. Exact multiplication yields two factorizations of the trace relative to both parabolic edges. The two-dimensional determinant-one eigenvalue/Jordan criterion proves necessary and sufficient stability over all positive parameter pairs, including the unique \(-I\) exception. The checker tests the displayed identities independently on exact rational pairs and reproduces the rational examples. No finite sampling is used to infer the universal theorem.
+## correctness
 
-## Originality
-**PASS with historical risk.** Richardson–Finn (arXiv:1108.0322v1), §§1–2, explain parametric resonances from smoothly periodic prescribed timesteps by perturbative modified equations, rather than the exact all-contrast alternating velocity-Verlet Floquet classification and the separate stable-with-unstable-stage region. Skeel (1993) gives a prior qualitative counterexample for varying steps; the available original abstract does not establish the exact bidirectional full two-parameter classification. Its entire original text was inaccessible, so equivalence remains a named residual risk. These sources establish that periodic-step resonance is not new by itself; only the stated quantitative classification and exceptional boundary are assessed.
+PASS
 
-## Value
-**PASS.** A natural safety question for geometric time integrators is whether stability of individual steps implies stability of their composition and whether a bad individual step always spoils a periodically repeated schedule. Both implications fail, with explicit exact witnesses and a complete sharp phase diagram. The isolated parabolic stability point further prevents an incorrect closed-inequality criterion, and the full result is applicable directly to harmonic normal modes.
+Pinned RESULT.md contains full dimensional reduction: M(s)=[[1-s^2/2,s],[-s(1-s^2/4),1-s^2/2]] with determinant 1. Independent symbolic SymPy multiplication verified trace(F)-2=(x+y)^2(xy-4)/4 and trace(F)+2=(x(x+y)-4)(y(x+y)-4)/4 for F=M(y)M(x). For a real determinant-one 2x2 matrix, |trace|<2 is power bounded; |trace|>2 yields hyperbolicity. At trace=2 xy=4, F12=-(x+y) nonzero, hence defective. At trace=-2, F=-I only if y=x and x^2=2 by upper-right/diagonal entries, otherwise defective. Therefore sole parabolic stable point is x=y=sqrt(2). Computed exact witness traces: (6/5,8/5) gives -1298/625 despite both steps stable, and (3,6/5) gives 59/250 despite first step hyperbolic. All positive x,y domain only; no implication to nonlinear/adaptive problems.
 
-## Limitations and sources
-Linear harmonic oscillators only, strictly two-periodic physical steps, power boundedness rather than arbitrary-grid or nonlinear stability. Sources: Richardson–Finn (2011), arXiv:1108.0322v1; Skeel (1993), DOI 10.1007/BF01990352; Skeel–Gear (1992), DOI 10.1016/0167-2789(92)90247-K.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Skeel 1993 already proves variable timesteps may destabilize leapfrog/Verlet and Richardson–Finn 2011 analyze periodic parametric-resonance mechanisms, so general warning is NOT new. Inspected literature does not give exact global velocity-Verlet strictly alternating two-step 2-parameter power-bounded region, the exceptional -I point, and reciprocal hyperbolic-step rescue. Skeel primary original full paper remained inaccessible after lawful OA/arXiv attempts and Oxford authorized tool returned vpn_disconnected; record this explicit equivalence risk, not automatic FAIL. Published Resultary query on alternating Verlet/oscillator phase diagram retrieved other oscillators/integrators, not this exact map.
+
+## value
+
+PASS
+
+Alternating-step stability matters in symplectic integration where each step may be individually stable or not; exact spectral inequalities and parabolic Jordan exceptions offer actionable sharp boundaries and a counterintuitive stable product of individually unstable stages. This is more than a routine formula substitution because it classifies every positive two-step pair including boundary behavior and demonstrates two opposite regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

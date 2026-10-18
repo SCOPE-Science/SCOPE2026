@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T02:54:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pinned RESULT.md contains full dimensional reduction: M(s)=[[1-s^2/2,s],[-s(1-s^2/4),1-s^2/2]] with determinant 1. Independent symbolic SymPy multiplication verified trace(F)-2=(x+y)^2(xy-4)/4 and trace(F)+2=(x(x+y)-4)(y(x+y)-4)/4 for F=M(y)M(x). For a real determinant-one 2x2 matrix, |trace|<2 is power bounded; |trace|>2 yields hyperbolicity. At trace=2 xy=4, F12=-(x+y) nonzero, hence defective. At trace=-2, F=-I only if y=x and x^2=2 by upper-right/diagonal entries, otherwise defective. Therefore sole parabolic stable point is x=y=sqrt(2). Computed exact witness traces: (6/5,8/5) gives -1298/625 despite both steps stable, and (3,6/5) gives 59/250 despite first step hyperbolic. All positive x,y domain only; no implication to nonlinear/adaptive problems.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior articles already cover broad phenomenon of varying-step instability and resonance."
+        ],
+        "reasoning": "Broader qualitative phenomenon does not logically imply exact power-bounded region including defective parabolics, but inaccessible Skeel full text is significant uncertainty.",
+        "searches": [
+          "Skeel 1993 DOI:10.1007/BF01990352",
+          "Richardson Finn arxiv:1108.0322"
+        ]
+      },
+      "checked_sources": [
+        "Richardson–Finn arxiv:1108.0322 (accessible abstract and summary)",
+        "Skeel 1993 DOI:10.1007/BF01990352 (abstract only)",
+        "Skeel–Gear 1992 DOI:10.1016/0167-2789(92)90247-K (bibliographic reference)",
+        "Resultary semantic query: alternating velocity Verlet harmonic oscillator two step stable unstable step rescue parametric resonance trace phase diagram"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Symbolic trace-factorization and -I parabolic analysis give explicit necessary and sufficient inequalities; generic instability example cannot imply rescue."
+        ],
+        "reasoning": "Published qualitative claims are weaker; exact theorem is independently reconstructed, though equivalent 1993 special-case calculations remain residual risk.",
+        "searches": [
+          "Richardson Finn 2011 abstract resonance",
+          "Skeel 1993 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Velocity-Verlet is kick–drift–kick Störmer/Verlet; one-period monodromy F has SL2 trace discriminant."
+        ],
+        "reasoning": "Compared exact SL2 classification to harmonic Floquet/parametric resonance formulations, not only title terminology.",
+        "searches": [
+          "Resultary: alternating velocity Verlet harmonic oscillator two step stable unstable step rescue parametric resonance trace phase diagram",
+          "arxiv:1108.0322"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected chart/table enumerating all positive (x,y) with rescue/boundary; Skeel full text inaccessible."
+        ],
+        "reasoning": "Comparison addresses global two-parameter exact region and exception rather than generic plotted instability tongues; negative evidence bounded to inspected pages.",
+        "searches": [
+          "Resultary: alternating velocity Verlet harmonic oscillator two step stable unstable step rescue parametric resonance trace phase diagram",
+          "Skeel 1993 DOI"
+        ]
+      },
+      "rationale": "Skeel 1993 already proves variable timesteps may destabilize leapfrog/Verlet and Richardson–Finn 2011 analyze periodic parametric-resonance mechanisms, so general warning is NOT new. Inspected literature does not give exact global velocity-Verlet strictly alternating two-step 2-parameter power-bounded region, the exceptional -I point, and reciprocal hyperbolic-step rescue. Skeel primary original full paper remained inaccessible after lawful OA/arXiv attempts and Oxford authorized tool returned vpn_disconnected; record this explicit equivalence risk, not automatic FAIL. Published Resultary query on alternating Verlet/oscillator phase diagram retrieved other oscillators/integrators, not this exact map.",
+      "residual_risks": [
+        "Full Skeel 1993 proof inaccessible; could contain exact two-step discriminant and rescue, not ruled out.",
+        "Oxford authorized downloader reported vpn_disconnected for Skeel 1993; no authentication bypass or full-paper claim.",
+        "Only indefinite repetition of two fixed steps for scalar linear harmonic oscillator is proven; mixed start phase shares eigenvalues but no nonlinear guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative/modified-equation parametric instability described, not exact pair classification in inspected material",
+          "evidence": [
+            "Explicit discussion of resonance under time-varying steps; cannot infer lack of formula from abstract alone."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1108.0322",
+          "material_read": "Abstract and available summary, not every section of manuscript",
+          "method": "Accessible preprint abstract; material limited",
+          "title": "Symplectic integrators with adaptive time steps",
+          "trigger": "Periodic timestep symplectic-resonance overlap"
+        },
+        {
+          "assessment": "Not asserted NOT_COVERING; unresolved possible exact calculation",
+          "evidence": [
+            "Oxford authorized full-text retrieval returned vpn_disconnected and provided job ID; no full primary reading."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01990352",
+          "material_read": "Only accessible published bibliographic abstract; original full text unavailable",
+          "method": "Publisher abstract; OA/arXiv attempts unsuccessful; authorized Oxford blocked",
+          "title": "Variable step size destabilizes the Störmer/leapfrog/Verlet method",
+          "trigger": "Closest historical same integrator stability result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Alternating-step stability matters in symplectic integration where each step may be individually stable or not; exact spectral inequalities and parabolic Jordan exceptions offer actionable sharp boundaries and a counterintuitive stable product of individually unstable stages. This is more than a routine formula substitution because it classifies every positive two-step pair including boundary behavior and demonstrates two opposite regimes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Skeel 1993 proof inaccessible; could contain exact two-step discriminant and rescue, not ruled out.",
+    "Oxford authorized downloader reported vpn_disconnected for Skeel 1993; no authentication bypass or full-paper claim.",
+    "Only indefinite repetition of two fixed steps for scalar linear harmonic oscillator is proven; mixed start phase shares eigenvalues but no nonlinear guarantee.",
+    "Public METADATA.json/AUDIT.json contain scope_run_id operational provenance. Publication not_ready pending actual guarded privacy-safe public file replacements. No GitHub changes, publications, external attestation, or formal verification claimed."
+  ],
+  "schema_version": 1
+}
