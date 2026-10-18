@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T06:17:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding D=muY-2muX+A where A=int_a^b x p²/q, differentiating p=f/ΔF and q=g/ΔG under endpoint changes and using Leibniz gives dD/da=(2h1X-h1Y)D+2(h1X-h1Y)(muX-muY)-a(h1X-h1Y)²/h1Y; upper gives (h2Y-2h2X)D+2(h2Y-h2X)(muX-muY)+b(h2X-h2Y)²/h2Y. These have the correct equal-density zero-derivative limit unlike the published formulas. Symbolic cancellation and representative exponential numerical check corroborate, but the displayed unrestricted calculus proves the result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic Leibniz differentiation and f-divergence calculus are standard.",
+          "Earlier weighted KL has a different divergence and earlier Pearson paper is unweighted."
+        ],
+        "reasoning": "These general techniques make correctness provable but do not supply the explicit corrected published weight-x Pearson formulas or source counterexample by simple restatement.",
+        "searches": [
+          "doi:10.57805/revstat.v17i3.269 weighted KL divergence",
+          "general conditional f-divergence truncation endpoint derivative",
+          "doi:10.1109/ACCESS.2025.3571188"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/jdg.2026044",
+        "doi:10.1109/ACCESS.2025.3571188",
+        "doi:10.57805/revstat.v17i3.269"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weighted source formulas fail the X=Y identity; prior unweighted Pearson and weighted KL do not contain the weight-x Pearson boundary terms."
+        ],
+        "reasoning": "Standard differentiation is the mathematical derivation, but no examined prior printed theorem states these two corrected source-specific identities or the scope of affected downstream proof chains.",
+        "searches": [
+          "doi:10.3934/jdg.2026044 Eqs14-15",
+          "doi:10.1109/ACCESS.2025.3571188",
+          "doi:10.57805/revstat.v17i3.269"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D=muY-2muX+A, A=int x p²/q; endpoint derivative includes 2(hX-hY)(muX-muY), absent from printed paper.",
+          "When p=q, D identically zero yet printed source derivative generally nonzero."
+        ],
+        "reasoning": "The corrected weighted identities are not the previous unweighted formulas: x-dependent conditional moments survive; the source own equations are falsified by equal-density normalization.",
+        "searches": [
+          "weighted interval Pearson chi square divergence Akila Moharana corrected endpoint derivative generalized failure rate",
+          "10.3934/jdg.2026044 equations 14 15",
+          "doi:10.1109/ACCESS.2025.3571188"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted published-finding searches surfaced no source-specific weighted Pearson correction; source article remains identified by its DOI."
+        ],
+        "reasoning": "Absence in results is a residual risk rather than novelty proof; the decisive comparison is against the actual printed equations and distinct prior divergence definitions.",
+        "searches": [
+          "weighted interval Pearson chi square divergence Akila Moharana corrected endpoint derivative generalized failure rate",
+          "weighted interval Pearson 2026 corrigendum Akila Moharana derivatives",
+          "Pearson chi-squared weighted interval endpoint h1x h1y"
+        ]
+      },
+      "rationale": "Earlier unweighted Pearson and weighted KL truncation results concern different weighted integrals. The checked primary paper itself prints contradicting derivatives; no relevant correction was found, although basic Leibniz differentiation is known mathematics.",
+      "residual_risks": [
+        "A less-indexed corrigendum could already publish the same formulas.",
+        "The differentiations demand regular positive endpoint conditional q values and nonzero truncation masses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_FORMULA_INCONSISTENCY",
+          "evidence": "Original formulas leave residual h1(1-a),h2(b-1) when X=Y and D identically vanishes; corrected endpoint derivatives vanish.",
+          "identifier_or_url": "doi:10.3934/jdg.2026044",
+          "material_read": "Relevant original full-text sections defining weighted divergence Eq5, endpoint rates Eqs9-13, printed Eqs14-15, and downstream proofs Theorems2.4-2.7 and3.1",
+          "method": "Publisher metadata and accessible complete document rendering",
+          "title": "On weighted interval Pearson χ²-divergence measure",
+          "trigger": "Exact source mathematical definition and erroneous endpoint formulas"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_WEIGHT",
+          "evidence": "Unweighted endpoints omit the x-weighted moment difference present in the repaired weighted formulas; they do not imply the source-specific stated derivatives.",
+          "identifier_or_url": "doi:10.1109/ACCESS.2025.3571188",
+          "material_read": "Relevant unweighted endpoint identities and stated scope from cited review and bibliographic full-text context; complete prior document not newly reread",
+          "method": "Prior reference comparison and algebraic specialization",
+          "title": "The Pearson χ²-Divergence Measure for Doubly Truncated Random Variables",
+          "trigger": "Same authors prior unweighted doubly truncated Pearson work"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_DIVERGENCE",
+          "evidence": "Weighted KL has a logarithmic integrand rather than quadratic p²/q, so the corrected Pearson formula is not the same identity.",
+          "identifier_or_url": "doi:10.57805/revstat.v17i3.269",
+          "material_read": "Relevant weighted KL endpoint setup and contrast with Pearson divergence; full text not claimed newly read",
+          "method": "Published equations and reported prior-source discussion",
+          "title": "On Weighted Kullback-Leibler Divergence for Doubly Truncated Random Variables",
+          "trigger": "Earlier weighted endpoint differentiation with moment terms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Correctly computing both moving truncation-boundary derivatives is necessary for monotonicity and inequalities used in source Theorems 2.4–2.7 and 3.1; a simple exact equal-law stress test exposes the error. This is a useful source-specific analytic repair, not a claim that all theorems relying on the wrong formula are false.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.3934/jdg.2026044",
+    "doi:10.1109/ACCESS.2025.3571188",
+    "doi:10.57805/revstat.v17i3.269"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Positive q at endpoints and adequate differentiation regularity needed.",
+    "Later theorems using the false identities need individual re-proofs; conclusions are not automatically disproved."
+  ],
+  "residual_risks": [
+    "A less-indexed corrigendum could already publish the same formulas.",
+    "The differentiations demand regular positive endpoint conditional q values and nonzero truncation masses."
+  ],
+  "schema_version": 1
+}

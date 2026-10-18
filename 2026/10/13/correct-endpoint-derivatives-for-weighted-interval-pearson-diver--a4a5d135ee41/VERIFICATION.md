@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked directly from the defining integral. With \(p=f/\Delta_F\) and \(q=g/\Delta_G\), write
-\[
-D=\mu_Y-2\mu_X+A,\qquad A=\int_a^b x\frac{p^2}{q}\,dx.
-\]
-For a moving lower endpoint, the normalization derivatives are \(\partial_a p=h_{1X}p\) and \(\partial_a q=h_{1Y}q\); for a moving upper endpoint they are \(\partial_b p=-h_{2X}p\) and \(\partial_b q=-h_{2Y}q\). Applying Leibniz's rule to \(\mu_X\), \(\mu_Y\), and \(A\), then substituting \(A=D-\mu_Y+2\mu_X\), reproduces the two claimed formulas term by term.
+# Independent mathematical audit
 
-The null-model check is exact: if \(X=Y\), then \(D\equiv0\) for every admissible interval. The corrected identities reduce to zero. The published equations (14) and (15) instead reduce to \(h_1(1-a)\) and \(h_2(b-1)\), which are generally nonzero.
+## correctness
 
-The included `verify_endpoint_derivatives.py` is a supplementary replay. For exponential rates \(1.3\) and \(0.7\) on \((0.5,2)\), the analytic derivatives match centered finite differences to better than \(10^{-10}\). The checker does not certify the general theorem; the symbolic derivation does.
+PASS
 
-Limits: the verification assumes positive truncation masses, positive reference endpoint densities, and sufficient regularity for endpoint differentiation. It does not assess the truth of every later theorem in the source; it establishes that proofs relying on the printed endpoint identities require replacement.
+Expanding D=muY-2muX+A where A=int_a^b x p²/q, differentiating p=f/ΔF and q=g/ΔG under endpoint changes and using Leibniz gives dD/da=(2h1X-h1Y)D+2(h1X-h1Y)(muX-muY)-a(h1X-h1Y)²/h1Y; upper gives (h2Y-2h2X)D+2(h2Y-h2X)(muX-muY)+b(h2X-h2Y)²/h2Y. These have the correct equal-density zero-derivative limit unlike the published formulas. Symbolic cancellation and representative exponential numerical check corroborate, but the displayed unrestricted calculus proves the result.
+
+## originality
+
+PASS
+
+Earlier unweighted Pearson and weighted KL truncation results concern different weighted integrals. The checked primary paper itself prints contradicting derivatives; no relevant correction was found, although basic Leibniz differentiation is known mathematics.
+
+## value
+
+PASS
+
+Correctly computing both moving truncation-boundary derivatives is necessary for monotonicity and inequalities used in source Theorems 2.4–2.7 and 3.1; a simple exact equal-law stress test exposes the error. This is a useful source-specific analytic repair, not a claim that all theorems relying on the wrong formula are false.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
