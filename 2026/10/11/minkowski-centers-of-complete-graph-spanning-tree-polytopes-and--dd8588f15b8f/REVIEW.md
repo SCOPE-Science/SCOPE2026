@@ -1,15 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full domain is all integers \(n\ge3\), complete undirected simple graphs, and the affine spanning-tree base polytope. The argument first proves a biconditional relating reflection containment and the exact coordinate/induced-subset inequalities. Summed co-singleton inequalities establish the sharp lower bound \(n-1\), while the uniform center meets the upper bound. Equality determines all vertex degrees; exact double-counting gives the residual cut polynomial \(F_n(s)=s^2-ns+2n-2\). The convex endpoint bound leaves precisely an additional three-vertex cut requirement when \(n=6\). A concrete violated spanning-tree inequality demonstrates essentiality. Full relative interior of the center domain and row rank of unsigned incidence establish dimension \(n(n-3)/2\). The executable finite verification supports but does not replace the general proof.
+## correctness
 
-## Originality — PASS, qualified
-Pineda-Villavicencio and Schröter (arXiv:2010.10227v2) give basis-exchange and graph-reconstruction statements for matroid polytopes; Chaourar (arXiv:1903.07292v4) treats spanning-tree facets. Their statements supply objects and valid background inequalities but do not imply the minimizing-center locus or exceptional six-vertex cut as stated. Mathematical-record searches used graph-base-polytope/Minkowski-asymmetry synonyms and checked full relevant primary texts. No identical or stronger covering result was identified. An earlier synonymous geometric or optimization formulation remains possible; a negative search is not mathematical proof of priority.
+PASS
 
-## Value — PASS
-The exact asymmetry, full optimizer set and dimension describe a canonical family for arbitrarily large size. The six-vertex triple-cut obstruction, together with its sharp disappearance from seven vertices onward, is a motivated structural boundary rather than an arbitrary numerical slice. The result is independent of the separate Euclidean ellipsoid/inradius problems.
+At r≥1, the Edmonds inequalities x(E)=n−1, x_e≥0 and x(E(S))≤|S|−1 turn reflection membership for every spanning tree x into (r+1)c_e≥1 and (r+1)c(E(S))≤r(|S|−1): max_T x_e=1, min_T x(E(S))=0 by an outside-rooted star. Summing n co-singleton inequalities forces r≥n−1; c_e=2/n attains equality. At equality all co-singletons are tight and yield vertex degree c(δ(v))=2(n−1)/n. The exact z_e=nc_e−1 transform enforces z≥0, degree n−1 and cut lower bound F_n(s)=s²−ns+2n−2. The s=2,n−2 cases give edge cap z_e≤n−2; at n=6 s=3 gives z(δ(S))≥1; all interior s at n≥7 have F_n(s)≤7−n≤0 by convexity. A split of K6 into internally 5/2-weighted triangles violates the triple cut, with reflected star violating the original induced-edge inequality by 21/10>2. A K7 3+4 split, internal weights 3 and 2, is allowed despite a zero crossing cut. Triangle relations show unsigned incidence rank n and affine dimension |E|−n=n(n−3)/2. Checked the actual RESULT.md and verify.py Git blobs; finite Prüfer and rank tests are corroboration only, not all-n proof. All quantifiers and boundary n=3,4,6,7 cases are addressed.
 
-## Limitations and verification
-The theorem does not cover arbitrary graph or matroid base polytopes, nor does it establish metric ellipsoid results or any independent priority audit. The finite verifier checks \(36{,}491\) reflected spanning trees and \(4{,}151{,}797\) subset comparisons, plus two boundary constructions and incidence ranks; it does not certify all integers by enumeration.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS for the complete K_n spanning-tree/base-polytope *minimizing-center locus* and six-vertex cut exception, not for Edmonds' inequalities or Minkowski asymmetry itself. Matroid independence polytopes, rank-two bases and general facet/reconstructibility results have different hypotheses and do not imply the full rank-(n−1) complete-graph center family. Resultary self-entry is not independent priority evidence. Unindexed equivalent affine-symmetry/optimization formulations remain possible.
+
+## value
+
+PASS
+
+An all-n explicit affine center polytope in dimension n(n−3)/2, with a necessary—and uniquely exceptional—nontrivial cut at n=6, is a genuine structural convex-geometric classification for canonical graphic matroid base polytopes. The essential exception and sharp K7 contrast make the invariant mathematically motivated rather than a parameter substitution or numeric microgain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
