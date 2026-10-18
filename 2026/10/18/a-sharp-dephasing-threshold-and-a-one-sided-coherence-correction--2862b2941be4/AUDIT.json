@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The original Lindblad generator closes exactly on the four-site covariance, whose homogeneous Hermitian stationary system is coercive at both endpoint rows and propagates zero along the connected chain. The 16-by-16 stationary determinant factors into positive terms. The exact current and tridiagonal gap follow by rational elimination; the latter has a strict positive numerator for nonzero tilt. The full dephasing derivative polynomial has negative high-degree coefficients and four ordered unique positive parameter thresholds among its low-degree coefficients, giving exactly one sign change (or no positive sign) and hence complete monotone/unimodal classification. An independent 16-state Fock-space Lindblad solver corroborates five samples; symbolic checks independently reconstruct all polynomial identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jacob et al., arXiv:2407.21715, Sec. 2.2 provides exact all-size linear stationary equations; Sec. 3.1 states size-four exact expressions are too cumbersome to display and Sec. 3.2 replaces higher-range coherences by a tridiagonal approximation.",
+        "Coates–Lovett–Gauger, arXiv:2106.12567, PDF figure 2/model section uses extraction from the last site and reinjection to all sites."
+      ],
+      "reasoning": "The established general linear system is stronger in model-size applicability and already determines the current implicitly. It does not state or readily imply the sign variation of the full four-site dephasing derivative nor a universal one-sided approximation-error inequality. The new contribution deliberately excludes a claim of inventing the covariance system or dephasing-assisted transport itself.",
+      "searches": [
+        "Jacob Bettmann Lacerda 2024 dephasing assisted transport linear potential Wannier Stark boundary-driven tight-binding four sites analytic current gamma optimal critical tilt",
+        "Dephasing-assisted transport in a tight-binding chain with a linear potential exact current expression finite",
+        "Localisation determines the optimal noise rate for quantum transport model energy gradients"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.21715 / Frontiers in Physics 12 (2024) 1474018, full HTML relevant sections",
+      "arXiv:2106.12567 / New Journal of Physics 23 (2021) 123014, accessible PDF pages 2–4",
+      "arXiv:1407.0924, abstract/metadata only",
+      "public related-record searches for finite tilted-chain optimal dephasing and closure errors"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jacob et al., Sec. 3.2 notes the tridiagonal expression is exact at two/three sites and zero tilt, but approximate at nonzero tilt for larger chains.",
+        "Contreras-Pulido et al., arXiv:1407.0924, concerns a linear three-dot transport problem with drain-coupling-dependent dephasing enhancement."
+      ],
+      "reasoning": "For every four-site model, the earlier exact linear equations can in principle be solved. Doing so is a computational ingredient, not the new global sign theorem. A phase diagram derived only by optimizing the existing tridiagonal approximation is not enough: it gives different four-site coherent behavior near zero dephasing. The present 12th-degree derivative sign-variation proof and strictly positive correction are additional inequalities not stated in the compared literature.",
+      "searches": [
+        "exact four site boundary driven fermionic tight binding chain linear potential on site dephasing current noise assisted threshold unique optimal dephasing tridiagonal approximation coherent correction",
+        "noise assisted Wannier Stark boundary driven XX spin chain 4 sites four site dephasing exact current threshold monotonic vs unimodal; tridiagonal closure error always underestimates",
+        "Jacob 2024 equations 16-20 full covariance exact L=4 current approximation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jacob et al., arXiv:2407.21715, Section 2 describes the XX-chain/correlation-matrix equivalent; Section 3.1 exact calculations stop at lengths two and three.",
+        "Coates et al., arXiv:2106.12567, pp. 2–4 sets an excitation-extraction/reinjection process different from the two-reservoir boundary drive."
+      ],
+      "reasoning": "Jordan-Wigner covariance and Pauli XX-chain representations are equivalent after explicit conversion of hopping, chemical-potential bias and dephasing rate. Neither form found a complete four-site monotone/unimodal criterion together with the one-sided closure-error identity.",
+      "searches": [
+        "exact four site boundary driven fermionic tight binding chain linear potential on site dephasing current noise assisted threshold unique optimal dephasing tridiagonal approximation coherent correction",
+        "noise assisted Wannier Stark boundary driven XX spin chain 4 sites four site dephasing exact current threshold monotonic vs unimodal; tridiagonal closure error always underestimates",
+        "four site XX chain Stark tilt dephasing exact current onset optimum gamma"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed comparison concerns thermal entanglement on a periodic XX ring, rather than tilted dissipative transport.",
+        "Another indexed comparison concerns a two-site thermal Holstein dephasing witness, not a four-site driven wire.",
+        "Jacob et al. 2024 main text gives exact lengths two and three, not an exact four-site optimum or coherent-error table."
+      ],
+      "reasoning": "Searched combinations of physical and mathematical aliases, chain size, current, optimal rate, and closure bias. Returned indexed results concern different XX systems, dephasing observables, or open-system settings. Search absence is not proof of novelty; no exact four-site threshold or closure-error table was found.",
+      "searches": [
+        "exact four site boundary driven fermionic tight binding chain linear potential on site dephasing current noise assisted threshold unique optimal dephasing tridiagonal approximation coherent correction",
+        "Jacob Bettmann Lacerda 2024 dephasing assisted transport linear potential Wannier Stark boundary-driven tight-binding four sites analytic current gamma optimal critical tilt",
+        "noise assisted Wannier Stark boundary driven XX spin chain 4 sites four site dephasing exact current threshold monotonic vs unimodal; tridiagonal closure error always underestimates",
+        "\"four-site\" \"linear potential\" \"dephasing\" \"current\" \"Lindblad\" analytic",
+        "four site XX chain Stark tilt dephasing exact current onset optimum gamma",
+        "L=4 dephasing assisted transport linear tilt analytic noise threshold"
+      ]
+    },
+    "rationale": "The closest full-text primary source provides the same covariance framework and approximate rate optimization but not the four-site exact correction sign and complete unique-optimum threshold. Related energy-gradient and triple-dot transport works have different physical driving/size. Searches of available published research summaries and primary literature identified no logically dominating exact result; priority risk from a general unpublished/unlocated special-case theorem remains.",
+    "residual_risks": [
+      "Full separate supplementary file for Jacob et al. 2024 was not retrieved; an exact four-site formula or optimization not reflected in the principal text might exist there.",
+      "A generic algebraic current formula or a prior exact small-chain calculation could imply the threshold without using the same terms; no independent priority audit has been conducted.",
+      "The Coates and Contreras-Pulido comparisons were not exhaustive full-document priority audits."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the present exact four-site threshold, global unimodality theorem, or uniform sign correction; does give the general exact equations, prior transport phenomenon, and approximate optimization",
+        "evidence": [
+          "Sec. 3.1 says exact results are displayed for lengths two and three and longer expressions are too involved; Sec. 3.2 defines the tridiagonal approximation and illustrates its failure at low dephasing."
+        ],
+        "identifier_or_url": "arXiv:2407.21715; https://www.frontiersin.org/journals/physics/articles/10.3389/fphy.2024.1474018/full",
+        "material_read": "Full open-access HTML, especially model, Sections 2.2 and 3.1–3.3, conclusion and references; the linked supplement was not separately retrieved",
+        "method": "Direct examination of exact-size claims and statements about truncated coherence",
+        "title": "Dephasing-assisted transport in a tight-binding chain with a linear potential",
+        "trigger": "same physical model, exact correlation matrix, close approximate current and optimization"
+      },
+      {
+        "assessment": "Different extraction/distributed-reinjection process; no exact theorem for current under two-reservoir four-site boundary drive identified in inspected text",
+        "evidence": [
+          "PDF Fig. 2 explicitly shows extraction at final site followed by reinjection across all sites; model Eq. (1) is nearest-neighbor single-excitation Hamiltonian."
+        ],
+        "identifier_or_url": "arXiv:2106.12567; DOI:10.1088/1367-2630/ac3b2c",
+        "material_read": "Open-access PDF introduction, schematic, model and transport protocol (pp. 2–4), with research summary",
+        "method": "Compare reservoir/injection dynamics and target observable to present definition",
+        "title": "Localisation determines the optimal noise rate for quantum transport",
+        "trigger": "energy gradients and finite-size optimal dephasing potentially dominate novelty"
+      },
+      {
+        "assessment": "Known analytic dephasing enhancement in a three-dot configuration, but no direct matching four-site exact classification established by available material",
+        "evidence": [
+          "Abstract identifies three-dot model and drain-coupling threshold."
+        ],
+        "identifier_or_url": "arXiv:1407.0924",
+        "material_read": "Public abstract and bibliographic information; full paper not inspected",
+        "method": "Compare number of dots, physical setting and claimed parameter threshold",
+        "title": "Dephasing-assisted transport in linear triple quantum dots",
+        "trigger": "analytical finite-chain dephasing benefit thresholds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2862b294-1be4-49ec-b262-e5914a4202d4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first size at which longer-range coherences are discarded admits a uniform strictly one-sided approximation error: this quantifies the systematic failure of the main large-chain approximation. The sharp exact squared-tilt transition distinguishes a global absence of noise-assisted current enhancement from a unique positive optimal rate, rather than supplying a single numerical parameter case. This is a motivated finite-transport benchmark, not an arbitrary graph invariant.",
+    "status": "PASS"
+  }
+}
