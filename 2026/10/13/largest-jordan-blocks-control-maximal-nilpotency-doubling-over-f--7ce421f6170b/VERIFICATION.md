@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the exact identity
-\[
-(A+\varepsilon B)^m=A^m+\varepsilon\sum_{i=0}^{m-1}A^iBA^{m-1-i}
-\]
-in the square-zero extension. If \(A\) has index \(r\), this gives
-\[
-(A+\varepsilon B)^{2r}=0,
-\qquad
-(A+\varepsilon B)^{2r-1}=\varepsilon A^{r-1}BA^{r-1}.
-\]
-Thus the maximal-index test is exact and does not rely on computation.
+# Independent mathematical audit
 
-For \(P=A^{r-1}\) of rank \(s\), vectorization identifies the linear map \(B\mapsto PBP\) with \(P^T\otimes P\), which has rank \(s^2\). Hence the nonmaximal set has dimension \(n^2-s^2\), proving the exact finite-field count.
+## correctness
 
-`verify_dual_lift_max.py` independently checks finite cases over \(\mathbb F_2\). It exhausts every nilpotent \(3\times3\) real part and every dual part, and it exhausts every dual part for representatives of all nilpotent Jordan types in dimension four. The saved run terminates with `VERIFY_OK`.
+PASS
 
-The finite enumeration is a sanity check only. It does not prove the infinite family, and the theorem does not determine the full distribution of submaximal indices for a general multi-block nilpotent real part.
+In F_q[eps]/eps^2, (A+eps B)^m=A^m+eps*sum_{i=0}^{m-1} A^i B A^{m-1-i}. If A^r=0 and A^{r-1} nonzero, the 2r power vanishes while the (2r-1) power is eps A^{r-1} B A^{r-1}. For P=A^{r-1}, B->PBP has rank rank(P^T tensor P)=s^2, giving q^(n^2)-q^(n^2-s^2) lifts with maximal index and probability 1-q^(-s^2). Nilpotent Jordan theory identifies s with the number of blocks of size r; includes A=0, r=1. Independently exhausted six small binary Jordan-type strata and agrees.
+
+## originality
+
+PASS
+
+Şentürk--Özbay Theorem 2.5 proves nilpotence equivalence and displays the 2r upper-bound expansion, but does not classify the exact maximal-index stratum, its codimension or finite-field density. A published single Jordan block finite-dual calculation treats s=1, while the present multi-block dependence on multiplicity s gives new exact uniform coverage. Best-of-knowledge PASS with risks of a more general prior result.
+
+## value
+
+PASS
+
+The maximal nilpotency-index condition for arbitrary multi-block real part is a natural sharp stratum of all dual lifts. Its exact density depends only on the number of largest Jordan blocks; this is an independently useful structural classification beyond checking a tiny example or merely reproducing the 2r upper bound. The full lower-index distribution is explicitly outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

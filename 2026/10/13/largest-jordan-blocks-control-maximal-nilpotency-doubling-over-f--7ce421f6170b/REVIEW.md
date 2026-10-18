@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(X_B=A+\varepsilon B\), the square-zero expansion gives \(X_B^{2r}=0\) and isolates the unique possible surviving term at exponent \(2r-1\), namely \(\varepsilon A^{r-1}BA^{r-1}\). This proves the maximal-index criterion. The failure set is the kernel of \(B\mapsto A^{r-1}BA^{r-1}\); vectorization gives rank \(s^2\), hence codimension \(s^2\) and the stated finite-field count. The edge case \(A=0\) is included by taking \(r=1\). Exhaustive checks over \(\mathbb F_2\) agree with the proof.
+## correctness
 
-## Originality
-PASS. The closest published result gives the complete distribution only when the real part is one Jordan block and explicitly leaves a general nilpotent real part with several blocks unclassified. The recent dual-matrix paper supplies nilpotency equivalence and the universal \(2r\) vanishing bound but not the multi-block maximal-stratum count. Searches for the invariant criterion, the codimension \(s^2\), and the density \(1-q^{-s^2}\) found no equivalent statement. The remaining risk is older square-zero-extension literature under different terminology.
+PASS
 
-## Value
-PASS. The result resolves a natural part of the explicit multi-block gap: it shows that maximal nilpotency doubling is controlled by a canonical invariant, the multiplicity of the largest Jordan blocks, and that the exceptional set is a linear subspace of exact codimension \(s^2\). This extends the single-block probability \(1-q^{-1}\) to every nilpotent real part without attempting a routine block-by-block enumeration of all smaller indices.
+In F_q[eps]/eps^2, (A+eps B)^m=A^m+eps*sum_{i=0}^{m-1} A^i B A^{m-1-i}. If A^r=0 and A^{r-1} nonzero, the 2r power vanishes while the (2r-1) power is eps A^{r-1} B A^{r-1}. For P=A^{r-1}, B->PBP has rank rank(P^T tensor P)=s^2, giving q^(n^2)-q^(n^2-s^2) lifts with maximal index and probability 1-q^(-s^2). Nilpotent Jordan theory identifies s with the number of blocks of size r; includes A=0, r=1. Independently exhausted six small binary Jordan-type strata and agrees.
 
-## Closest literature and limitations
-Özbay's published February 2026 abstract states the qualitative index-growth phenomenon. Şentürk--Özbay give the \(2r\) upper bound in arXiv:2609.29468v1. The closest published result record, `2026/10/4/SCOPE-exact-nilpotency-index-distribution-for-jordan-lifts-over-finite--a669645ca0b7`, proves the full one-block distribution and explicitly notes that the multi-block case remains unclassified. The new claim covers only the maximal-index stratum for arbitrary nilpotent real parts, not the full multi-block distribution.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Şentürk--Özbay Theorem 2.5 proves nilpotence equivalence and displays the 2r upper-bound expansion, but does not classify the exact maximal-index stratum, its codimension or finite-field density. A published single Jordan block finite-dual calculation treats s=1, while the present multi-block dependence on multiplicity s gives new exact uniform coverage. Best-of-knowledge PASS with risks of a more general prior result.
+
+## value
+
+PASS
+
+The maximal nilpotency-index condition for arbitrary multi-block real part is a natural sharp stratum of all dual lifts. Its exact density depends only on the number of largest Jordan blocks; this is an independently useful structural classification beyond checking a tiny example or merely reproducing the 2r upper bound. The full lower-index distribution is explicitly outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
