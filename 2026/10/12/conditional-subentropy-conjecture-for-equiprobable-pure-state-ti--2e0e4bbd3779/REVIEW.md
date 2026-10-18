@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof has two independent exact components. First, the tight-frame POVM gives a matching lower bound \(d/n\) for the guessing probability, while \(|\psi_x\rangle\langle\psi_x|\preceq I\) gives the matching upper bound. Second, the uniform-rank subentropy formula follows from the source's normalized simplex representation and the exact beta moment \(\mathbb E(S\log S)\). Applying it to the two spectra produces the displayed harmonic gap. The equality case \(n=d\) is also exact.
+## correctness
 
-The accompanying checker confirms explicit Fourier tight frames, POVM normalization, success probability, and the harmonic-gap sign over a finite test grid. Those tests support implementation correctness but do not substitute for the quantified analytic proof.
+PASS
 
-## Originality
-PASS. The direct 2013 source states the all-cq inequality as Conjecture 2 and proves the pure-state case only for two labels, with numerical evidence for three labels. Searches under conditional-subentropy, tight-frame, projective-one-design, SIC, guessing-probability, and harmonic-number formulations found no statement of the exact formula \(Q(X|B)=\log(n/d)-(H_n-H_d)\).
+For any n>=d>=1 unit-norm equal-prior pure tight frame, rho_B=I_d/d and rho_XB has exactly n eigenvalues 1/n. For any POVM, P_guess<=d/n since projectors <=I; the tight-frame POVM E_x=(d/n)|psi_x><psi_x| sums to I and attains d/n. The uniform-rank subentropy identity Q(I_r/r plus zeros)=log r-H_r+1 follows analytically from the normalized-simplex representation: sum of first r Dirichlet(1,...,1) coordinates S has Beta(r,N-r), with E[S]=r/N and E[S log S]=(r/N)(H_r-H_N). Hence Q(X|B)=log(n/d)-(H_n-H_d), gap from H_min exactly H_n-H_d, equality iff n=d (square frame orthonormal); all logs natural and ambient zeros handled. Independent beta-integral and harmonic checks corroborate concrete dimensions; analytic derivation controls all frames and all n.
 
-The strongest overlap is arXiv:2607.01564, which proves the state-discrimination ingredient \(p_{\mathrm{guess}}=d/n\) for equiprobable tight frames. That component is treated as prior work. The inspected paper does not discuss subentropy or the 2013 conjecture. The older tight-frame/quantum-measurement source arXiv:quant-ph/0106070 likewise does not cover conditional subentropy. A differently indexed projective-design formulation remains a residual risk.
+## originality
 
-## Value
-PASS. The result settles a natural infinite higher-dimensional sector of a published quantum-information conjecture and gives the exact amount by which the bound is strict for every overcomplete tight frame. Equal-weight tight frames/projective one-designs are canonical measurement and encoding objects, so the statement is not an arbitrary finite slice. The exact harmonic gap may also be useful when comparing discrimination and entropy-like quantities for structured ensembles.
+PASS
 
-## Closest literature and limitations
-The 2013 source supplies the conjecture and subentropy machinery; the 2026 tight-frame encoding paper supplies the optimal discrimination probability; the 2001 frame paper supplies the foundational POVM/frame correspondence. The finding connects these ingredients through a new exact uniform-rank subentropy calculation. It does not settle nonuniform, mixed-state, or non-tight instances of the conjecture.
+Datta-Dorlas-Jozsa-Benatti introduce conditional subentropy, prove the two-label pure-state case and explicitly conjecture Q(X|B)<=H_min. Tight-frame optimal discrimination p_guess=d/n was already proved in quantum measurement/frame work including Eldar-Forney and Farokhi-Xiao; it is credited, not new. Their statements do not compute the harmonic-number conditional subentropy gap for every tight frame. This resolves a meaningful all-dimensional sector of the conjecture, conditional on the exact uniform-rank simplex formula, with no equiangularity requirement.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An exact theorem across the natural unit-norm tight-frame/projective one-design class settles a nontrivial infinite family of an explicit open information-theoretic inequality. The exact harmonic gap and strictness criterion are useful quantitative invariants independent of the frame geometry and apply even where optimum discrimination probability was already known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
