@@ -1,29 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. At the critical planar exponent \(Q=4\),
-\[
-\widetilde V_4(R_t)
-=
-2\int_{R_t}(x^2+y^2)\,dx\,dy
-=
-\frac{16}{3}(1-t^4)
-\]
-by direct polynomial integration. The source's second-variation formula gives the quadratic sign on either side of \(Q=4\). Its dimension-reduction asymptotic then gives the claimed normalized endpoint limit for \(K_{t,\varepsilon}\) in every dimension. The bundled checker replays the exact polynomial identity and the first nonzero Taylor coefficient.
+PASS
 
-## Originality
+The submitted endpoint ratio and quartic stabilization are correct but an ancillary published-prefactor quotation in the original RESULT.md and VERIFICATION.md was false: 2^q/(nQ) instead of the source’s 2q/(nQ). The replacement full RESULT.md and VERIFICATION.md correct this and derive the claim independently. Direct integration gives integral_{R_t}|y|^2 dy=(8/3)(1-t^4), so Vtilde_4=16(1-t^4)/3 and deficit =t^4/4+O(t^8). For d=n-2, the exact box moment is Vtilde_{n+2}(K)=(n+2)(2epsilon)^d/n *[(8/3)(1-t^4)+(4d/3)epsilon^2(1-t^2)]; hence the exact finite-thickness ratio is [1-t^4+(d/2)epsilon^2(1-t^2)]/[1+(d/2)epsilon^2]. Its epsilon-down-to-zero limit proves the stated all-dimensional (n+2)-root deficit. The subtle distinction is that fixed positive thickness d>0 adds a quadratic term, so quartic is the limiting law only. The repair changes no original SLOGAN and claims no universal stability theorem.
 
-PASS. The primary paper proves failure for \(q>n+2\), validity at \(q=n+2\), and identifies the rectangle second-variation threshold, but does not resolve the critical rectangle after the quadratic term vanishes. Source-text, scientific-index, and targeted literature searches found no fourth-order endpoint profile or equivalent thin-box formula.
+## originality
 
-## Value
+PASS
 
-PASS. The result identifies the critical order of the source's canonical obstruction exactly at the paper's sharp symmetric threshold. The quartic law explains how the supercritical rectangle instability meets the positive endpoint theorem and supplies a dimension-explicit benchmark for future stability work.
+The Li–Wan–Zhang primary full text §4.1–4.3 and §5 establishes the rectangular second-variation sign change and the endpoint q=n+2 inequality using Hadwiger inertia, but does not calculate the exact critical R_t profile 1-t^4 nor identify the first nonzero deficit coefficient. The corrected derivation strengthens transparency by providing an exact finite-thickness ratio, not implied directly by a second-variation sign or Hadwiger global inequality. Resultary self-hit and targeted searches revealed no prior duplicate; an unindexed elementary observation remains possible.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest result is Li--Wan--Zhang itself: Lemma 4.1 gives supercritical quadratic instability, Proposition 4.3 records the second-variation threshold, and Theorem 1.5 proves the endpoint inequality using Hadwiger's moment-of-inertia inequality. None of those results states the critical fourth-order rectangle profile.
+The degeneracy point Q=4 is the exact sharp symmetric Brunn–Minkowski threshold for the source’s canonical obstruction. Establishing fourth-order stabilization, including how a positive transverse thickness restores a quadratic term, is a motivated boundary classification, even though it uses elementary exact integration rather than a general stability theorem.
 
-The exact formula is family-specific. In dimensions above two the stated quantitative law is a thin-box limit, not an exact finite-thickness identity, and no universal endpoint stability modulus is claimed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

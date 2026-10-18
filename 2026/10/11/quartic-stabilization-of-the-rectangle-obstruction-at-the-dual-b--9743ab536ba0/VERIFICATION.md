@@ -1,69 +1,47 @@
 ---
 {
   "expert_attestation": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "not_performed",
+    "evidence": null
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "not_performed",
+    "evidence": null
   },
   "schema_version": 1
 }
 ---
-# Verification
 
-For
-\[
-R_t=[-(1+t),1+t]\times[-(1-t),1-t],
-\]
-write
-\[
-a=1+t,\qquad b=1-t.
-\]
-Exact integration gives
+# Exact endpoint calculation and verification limits
+
+Let \(a=1+t\), \(b=1-t\), and \(R_t=[-a,a]\times[-b,b]\), where \(|t|<1\). Exact Fubini integration gives
 \[
 \int_{R_t}(x^2+y^2)\,dx\,dy
-=
-\frac43ab(a^2+b^2).
+=\frac43ab(a^2+b^2)=\frac83(1-t^4).
 \]
-Using
+Consequently \(\widetilde V_4(R_t)=16(1-t^4)/3\) and the normalized deficit is
 \[
-ab=1-t^2,\qquad a^2+b^2=2(1+t^2),
+1-(1-t^4)^{1/4}=\frac14t^4+O(t^8).
 \]
-this becomes
-\[
-\frac83(1-t^4).
-\]
-Since the source's polar-coordinate identity gives
-\[
-\widetilde V_4(R_t)=2\int_{R_t}(x^2+y^2)\,dx\,dy,
-\]
-the exact endpoint formula follows.
 
-The checker reconstructs this identity with rational polynomial arithmetic and verifies the endpoint ratio at several exact rational values of \(t\). It also checks algebraically that the normalized deficit has vanishing coefficients below degree four and coefficient \(1/4\) at degree four.
+For \(n\ge2\), put \(d=n-2\) and \(K_{t,\varepsilon}=R_t\times[-\varepsilon,\varepsilon]^d\). At exponent \(q=n+2\), the exact identity \(\widetilde V_q(K)=q\int_K|x|^2dx/n\) and Fubini's theorem yield
+\[
+\widetilde V_{n+2}(K_{t,\varepsilon})=\frac{n+2}{n}(2\varepsilon)^d
+\left(\frac83(1-t^4)+\frac{4d}{3}\varepsilon^2(1-t^2)\right).
+\]
+It follows algebraically that the finite-thickness ratio is
+\[
+\frac{1-t^4+\frac d2\varepsilon^2(1-t^2)}{1+\frac d2\varepsilon^2}.
+\]
+Taking \(\varepsilon\downarrow0\) proves the stated limiting deficit in every fixed dimension. This is an identity-based proof, not an extrapolation from sampled dimensions.
 
-For the all-dimensional statement, the source proves
-\[
-\widetilde V_q(K_{t,\varepsilon})
-=
-\frac{2^q}{nQ}(2\varepsilon)^{n-2}\widetilde V_Q(R_t)
-+
-o(\varepsilon^{n-2}),
-\qquad Q=q-n+2.
-\]
-Setting
-\[
-q=n+2
-\]
-gives
-\[
-Q=4.
-\]
-Taking the ratio of the formulas for \(t\) and \(0\) removes every dimensional prefactor and yields the claimed limit.
+For cross-check against the published dimensional-reduction argument, its correct coefficient is \(2q/(nQ)\), where \(Q=q-n+2\); the coefficient \(2^q/(nQ)\) in the original source package was a transcription error and has been corrected here. The normalization constants cancel in the final ratio, but accurate quotation matters for reproducibility.
 
-No finite experiment is used to infer the dimension-uniform statement. The code checks only the exact algebraic component; the limiting step is the cited analytic asymptotic from the primary source.
+The existing standalone `verify.py` reconstructs the exact planar polynomial and leading coefficient with rational arithmetic. It does not perform the independent literature comparison or prove general endpoint stability. The modified scientific files do not assert external expert or formal certification.

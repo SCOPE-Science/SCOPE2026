@@ -2,254 +2,110 @@
 
 ## Finding
 
-Li, Wan, and Zhang study the dual quermassintegral
+Let
 \[
-\widetilde V_q(K)
-=
-\frac1n\int_{\mathbb S^{n-1}}\rho_K(u)^q\,du
-=
-\frac qn\int_K |x|^{q-n}\,dx
+R_t=[-1-t,1+t]\times[-1+t,1-t],\qquad |t|<1.
 \]
-and the Brunn--Minkowski inequality for \(\widetilde V_q\). Their symmetric counterexample mechanism is built from the planar rectangles
+For the dual quermassintegrals in the convention of Li, Wan and Zhang,
 \[
-R_t=[-1-t,1+t]\times[-1+t,1-t],
-\qquad |t|<1,
+\widetilde V_q(K)=\frac1n\int_{S^{n-1}}\rho_K(u)^q\,du
+=\frac qn\int_K|x|^{q-n}\,dx,
 \]
-which satisfy
+the critical planar exponent is \(Q=4\). There is an **exact identity**
 \[
-\frac12R_t+\frac12R_{-t}=R_0.
+\boxed{\widetilde V_4(R_t)=\frac{16}{3}(1-t^4).}
 \]
+Since \(R_{-t}\) is a quarter-turn of \(R_t\) and \((R_t+R_{-t})/2=R_0\), the normalized endpoint Brunn–Minkowski deficit of this pair is
+\[
+\boxed{1-\Bigl(\frac{\widetilde V_4(R_t)}{\widetilde V_4(R_0)}\Bigr)^{1/4}
+=1-(1-t^4)^{1/4}=\frac14t^4+O(t^8).}
+\]
+Thus the planar rectangle perturbation is quartically stabilizing, not merely second-order neutral, at the threshold where its second variation changes sign.
 
-At the critical planar exponent \(Q=4\), this family has the exact profile
+For every fixed integer \(n\ge2\), put \(d=n-2\), \(q=n+2\), and
 \[
-\boxed{
-\widetilde V_4(R_t)=\frac{16}{3}(1-t^4).
-}
+K_{t,\varepsilon}=R_t\times[-\varepsilon,\varepsilon]^d
 \]
-Consequently the normalized endpoint Brunn--Minkowski deficit along this family is
+(with the product interpreted as \(R_t\) when \(d=0\)). Then for every \(|t|<1\) and every \(\varepsilon>0\),
 \[
-\boxed{
-1-
-\left(
-\frac{\widetilde V_4(R_t)}
-{\widetilde V_4(R_0)}
-\right)^{1/4}
-=
-1-(1-t^4)^{1/4}
-=
-\frac14t^4+O(t^8).
-}
-\]
-
-The second-variation formula in the source shows that \(t=0\) is quadratically stable for \(2<Q<4\) and quadratically unstable for \(Q>4\). Thus \(Q=4\) is not merely a point where the Hessian test becomes inconclusive: the quadratic term vanishes and the first nonzero deficit is strictly stabilizing and quartic.
-
-This critical law lifts to every dimension through the same thin-box degeneration used in the source. For
-\[
-K_{t,\varepsilon}
-=
-R_t\times[-\varepsilon,\varepsilon]^{n-2},
-\qquad
-q=n+2,
-\]
-one has, for every fixed \(n\ge2\) and \(|t|<1\),
-\[
-\boxed{
-\lim_{\varepsilon\downarrow0}
-\left[
-1-
-\left(
-\frac{\widetilde V_{n+2}(K_{t,\varepsilon})}
+\boxed{\frac{\widetilde V_{n+2}(K_{t,\varepsilon})}
 {\widetilde V_{n+2}(K_{0,\varepsilon})}
-\right)^{1/(n+2)}
-\right]
-=
-1-(1-t^4)^{1/(n+2)}.
-}
+=\frac{1-t^4+\frac d2\varepsilon^2(1-t^2)}{1+\frac d2\varepsilon^2}.}
 \]
-In particular, as \(t\to0\), the limiting normalized deficit is
+In particular,
 \[
-\frac{t^4}{n+2}+O(t^8).
+\lim_{\varepsilon\downarrow0}\left[1-
+\left(\frac{\widetilde V_{n+2}(K_{t,\varepsilon})}{\widetilde V_{n+2}(K_{0,\varepsilon})}\right)^{1/(n+2)}\right]
+=1-(1-t^4)^{1/(n+2)}
+=\frac{t^4}{n+2}+O(t^8)\quad(t\to0).
 \]
+The last expansion is for the **limiting** deficit, not generally for fixed positive \(\varepsilon\) when \(n>2\).
 
 ## Assumptions and scope
 
-The parameter satisfies \(|t|<1\), so every \(R_t\) is an origin-symmetric rectangle with nonempty interior. For \(n>2\), \(\varepsilon>0\), and
-\[
-K_{t,\varepsilon}
-=
-R_t\times[-\varepsilon,\varepsilon]^{n-2},
-\]
-the bodies are origin-symmetric convex bodies containing the origin in their interiors.
+The rectangles and boxes are origin-symmetric convex bodies with nonempty interior. The planar identity holds throughout \(|t|<1\). The all-dimensional ratio is exact at exponent \(q=n+2\); its quartic limiting behavior is taken after the thickness limit \(\varepsilon\downarrow0\). No universal stability modulus is asserted for arbitrary convex bodies, nor is the quartic term asserted to lead for fixed positive transverse thickness.
 
-The statement concerns the canonical rectangle and thin-box family used in the source's proof of failure above the symmetric threshold. It does not assert a universal quantitative stability estimate for all origin-symmetric convex bodies at \(q=n+2\).
-
-For \(2<Q<4\) and \(Q>4\), only the local sign near \(t=0\) is claimed. At \(Q=4\), the formula is exact for every \(|t|<1\).
+The published rectangle second variation shows quadratic stability for \(2<Q<4\) and quadratic instability for \(Q>4\). The novel assessed question is the first surviving order at the degenerate endpoint \(Q=4\), for this canonical family.
 
 ## Proof
 
-In dimension two, the polar-coordinate identity from the source gives
-\[
-\widetilde V_4(R_t)
-=
-2\int_{R_t}(x^2+y^2)\,dx\,dy.
-\]
-Write
-\[
-a=1+t,\qquad b=1-t.
-\]
-Then
+**Planar computation.** Write \(a=1+t\), \(b=1-t\). Direct integration over the centered rectangle gives
 \[
 \int_{R_t}(x^2+y^2)\,dx\,dy
-=
-\frac{4}{3}ab(a^2+b^2).
+=\frac43ab(a^2+b^2).
 \]
-Since
+Because \(ab=1-t^2\) and \(a^2+b^2=2(1+t^2)\), the integral equals \(\frac83(1-t^4)\). In dimension two at \(q=4\), the defining moment identity yields
 \[
-ab=1-t^2
+\widetilde V_4(R_t)=2\int_{R_t}(x^2+y^2)\,dx\,dy
+=\frac{16}{3}(1-t^4).
 \]
-and
-\[
-a^2+b^2=2(1+t^2),
-\]
-we obtain
-\[
-\int_{R_t}(x^2+y^2)\,dx\,dy
-=
-\frac83(1-t^4),
-\]
-and hence
-\[
-\widetilde V_4(R_t)
-=
-\frac{16}{3}(1-t^4).
-\]
+Rotation invariance gives \(\widetilde V_4(R_t)=\widetilde V_4(R_{-t})\), and the Minkowski midpoint is \(R_0\). Dividing the two values and expanding \((1-t^4)^{1/4}\) proves the exact deficit and its coefficient.
 
-Because \(R_{-t}\) is a rotation of \(R_t\),
+**All-dimensional computation.** At \(q=n+2\) the definition gives
 \[
-\widetilde V_4(R_{-t})=\widetilde V_4(R_t).
+\widetilde V_{n+2}(K)=\frac{n+2}{n}\int_K|x|^2\,dx.
 \]
-Moreover,
+Decompose \(x=(y,z)\in\mathbb R^2\times\mathbb R^d\), use \(|x|^2=|y|^2+|z|^2\), and integrate the cube coordinates. Since
 \[
-\frac12R_t+\frac12R_{-t}=R_0.
+|R_t|=4(1-t^2),\quad
+\int_{R_t}|y|^2\,dy=\frac83(1-t^4),\quad
+\int_{[-\varepsilon,\varepsilon]^d}|z|^2\,dz=(2\varepsilon)^d\frac{d\varepsilon^2}{3},
 \]
-Therefore the endpoint inequality along this pair reduces exactly to
+we obtain the **exact** expression
 \[
-\widetilde V_4(R_0)^{1/4}
-\ge
-\widetilde V_4(R_t)^{1/4},
+\widetilde V_{n+2}(K_{t,\varepsilon})
+=\frac{n+2}{n}(2\varepsilon)^d
+\left[\frac83(1-t^4)+\frac{4d}{3}\varepsilon^2(1-t^2)\right].
 \]
-and the normalized difference is
-\[
-1-(1-t^4)^{1/4}.
-\]
-The binomial expansion gives
-\[
-1-(1-t^4)^{1/4}
-=
-\frac14t^4+O(t^8).
-\]
+Its ratio with the value at \(t=0\) is the displayed finite-thickness formula. Passing to \(\varepsilon\downarrow0\) and taking the continuous positive \((n+2)\)-nd root gives the claimed limiting profile. The final small-\(t\) expansion follows from the binomial series.
 
-For the neighboring exponents, the source defines
-\[
-P(Q)
-=
-(Q-2)
-\frac{
-\int_0^1(1-s^2)(1+s^2)^{(Q-4)/2}\,ds
-}{
-\int_0^1(1+s^2)^{(Q-2)/2}\,ds
-}
-\]
-and proves
-\[
-P(2)=0,\qquad P(4)=1,
-\]
-with strict increase on \([2,4]\). Its rectangle second-variation formula at Minkowski addition, corresponding to \(p=1\), is
-\[
-F''_{1,Q}(0)
-=
-4Q\bigl(P(Q)-1\bigr)
-\int_0^1(1+s^2)^{(Q-2)/2}\,ds.
-\]
-Hence
-\[
-F''_{1,Q}(0)<0
-\qquad(2<Q<4).
-\]
-For \(Q>4\), Lemma 4.1 of the source proves the opposite sign. Thus the rectangle changes from quadratic stability to quadratic instability at \(Q=4\), while the exact calculation above resolves the degenerate endpoint with a quartic stabilizing term.
-
-Finally, the source's dimension-reduction formula states that, with
-\[
-Q=q-n+2,
-\]
+**Consistency with the published dimensional reduction.** Li–Wan–Zhang's formula for \(Q=q-n+2\) is
 \[
 \widetilde V_q(K_{t,\varepsilon})
-=
-\frac{2^q}{nQ}
-(2\varepsilon)^{n-2}
-\widetilde V_Q(R_t)
-+
-o(\varepsilon^{n-2})
+=\frac{2q}{nQ}(2\varepsilon)^{n-2}\widetilde V_Q(R_t)
++o(\varepsilon^{n-2}),
 \]
-as \(\varepsilon\downarrow0\), uniformly for \(t\) near zero. At the symmetric endpoint
+not a prefactor containing \(2^q\). At \(q=n+2\), \(Q=4\), it agrees with the exact integral just computed. Thus the limiting ratio also follows from their formula; however, the direct exact calculation does not depend on invoking that asymptotic.
+
+**Neighboring exponents.** The source's §4.1 defines
 \[
-q=n+2,
+P(Q)=(Q-2)\frac{\int_0^1(1-s^2)(1+s^2)^{(Q-4)/2}\,ds}{\int_0^1(1+s^2)^{(Q-2)/2}\,ds}
 \]
-one has \(Q=4\). Dividing the formula for \(t\) by the formula for \(0\) yields
-\[
-\frac{\widetilde V_{n+2}(K_{t,\varepsilon})}
-{\widetilde V_{n+2}(K_{0,\varepsilon})}
-\longrightarrow
-\frac{\widetilde V_4(R_t)}
-{\widetilde V_4(R_0)}
-=
-1-t^4.
-\]
-Taking the positive \((n+2)\)-nd root proves the all-dimensional thin-box limit.
+and derives the rectangle second-variation coefficient proportional to \(P(Q)-1\). It establishes \(P(4)=1\), with negative sign when \(2<Q<4\) and positive sign when \(Q>4\). This locates the exact quartic identity precisely at the change of sign; it does not by itself imply the quartic coefficient.
 
 ## Verification
 
-The bundled checker uses exact rational polynomial arithmetic to reconstruct
-\[
-\int_{R_t}(x^2+y^2)\,dx\,dy
-=
-\frac83(1-t^4)
-\]
-from the side lengths \(1+t\) and \(1-t\). It verifies the exact ratio
-\[
-\frac{\widetilde V_4(R_t)}{\widetilde V_4(R_0)}
-=
-1-t^4
-\]
-and symbolically checks the first nonzero Taylor coefficient of the normalized root deficit.
-
-The source's full text was inspected at the definitions of \(\widetilde V_q\), Lemma 4.1, the dimension-reduction formula, the function \(P(Q)\), Proposition 4.3, and Theorem 1.5. The finite checker is supplementary; the proof above is exact and all-dimensional where claimed.
+The exact rectangle inertia identity, factorization, finite-thickness moment decomposition, and Taylor coefficients are elementary symbolic identities valid for the stated full parameter intervals. A standalone exact rational script in the unchanged source package independently checks the planar polynomial identity, ratio and leading coefficient; finite spot checks do not replace the exact proof. The present corrected text also verifies the all-dimensional limiting statement directly without relying on a finite experiment. The corrected constant in the dimensional-reduction quotation is the one printed in the cited paper.
 
 ## Relationship to prior work
 
-Li, Wan, and Zhang prove that the dual Brunn--Minkowski inequality fails for origin-symmetric bodies when
-\[
-q>n+2
-\]
-and holds at
-\[
-q=n+2.
-\]
-Their failure proof uses precisely the rectangle family \(R_t\) and a second-variation argument. They record that the relevant second derivative changes sign at the reduced exponent \(Q=4\), but do not evaluate the critical rectangle profile or identify its first nonzero stabilizing order.
+H. Li, Y. Wan and Y. Zhang, *On the Brunn–Minkowski inequality for q-th dual quermassintegrals with q>n* (arXiv:2608.03949v1, §4 and Theorem 1.5), establish the symmetric threshold and the rectangle second-variation mechanism. The article's §4.2–4.3 supplies the reduction from exponent \(q\) in dimension \(n\) to \(Q=q-n+2\) in the plane. It does not state the exact critical endpoint rectangle profile or its first nonzero quartic term. Hadwiger's established moment-of-inertia inequality proves the endpoint Brunn–Minkowski inequality for all origin-symmetric bodies, but gives neither this particular endpoint deficit nor the exact finite-thickness ratio. The preceding integral calculation supplies the local order and rate of stabilization in the already motivated counterexample family.
 
-The present calculation supplies that missing endpoint geometry: the canonical obstruction is exactly quartically stable at the threshold, and the source's own thin-box reduction transports the corresponding normalized quartic law to every dimension.
+## Limitations and residual priority risk
 
-Targeted searches by the source identifier, the rectangle family, the endpoint \(q=n+2\), and the phrases “quartic deficit” and “quartic stability” found no prior statement of this profile.
-
-## Limitations
-
-The result is a complete critical-order description of the source's rectangle mechanism, not a global stability theorem for arbitrary origin-symmetric bodies.
-
-For \(n>2\), the displayed formula is an \(\varepsilon\downarrow0\) limit along the source's thin-box family. No claim is made that the same exact finite-\(\varepsilon\) profile holds before degeneration.
-
-The main residual bibliographic risk is that the elementary endpoint rectangle integral may have been observed informally without being indexed or stated in the literature.
+No new global Brunn–Minkowski inequality is proved. The analysis concerns the particular rectangle mechanism, and the critical quartic behavior above dimension two emerges only after the thin-box limit. The finite-thickness correction generally adds a positive quadratic deficit when \(d>0\). A preexisting unpublished calculation of the elementary critical rectangle integral cannot be excluded. The final finding does not claim external certification, author independence, or a publication outcome.
 
 ## References
 
-1. Haizhong Li, Yao Wan, Yijia Zhang, *On the Brunn--Minkowski inequality for \(q\)-th dual quermassintegrals with \(q>n\)*, arXiv:2608.03949v1, 4 August 2026.
+1. H. Li, Y. Wan, Y. Zhang, *On the Brunn–Minkowski inequality for q-th dual quermassintegrals with q>n*, arXiv:2608.03949v1, 2026.
 2. H. Hadwiger, *Vorlesungen über Inhalt, Oberfläche und Isoperimetrie*, Springer, 1957.
