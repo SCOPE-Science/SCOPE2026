@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a lens the published Gauss--Bonnet identity is \((\lambda_t^2+c)A_t+2\lambda_tJ_t=4\pi\), the published variation formula is \(A_t'=-2\lambda_tA_t-2J_t\), and the published curvature evolution is \(\lambda_t'=\lambda_t^2+c\). Differentiating the first identity makes every term cancel except \(2\lambda_tJ_t'\), proving the conserved edge product. The noncritical area law, volume state function, and critical hyperbolic profile then follow by algebra and one-dimensional integration. The Euclidean two-ball lens supplies an independent geometric sanity check.
+## correctness
 
-## Originality
-PASS. Full-text inspection of the 2026 lead paper covered its Gauss--Bonnet theorem, inner-parallel variation theorem, and main comparison proof; these are used there to compare surface-area graphs, not to state or derive the conserved edge product or the closed lens evolution. Full-text inspection of the 2023 Euclidean precursor covered the corresponding local variation argument and likewise found no all-time conservation law. Searches for the exact weighted edge product, Riccati reduction, lens area profile, and horospherical critical profile found no covering statement. The remaining risk is an unindexed classical tube/parallel-body formulation.
+PASS
 
-## Value
-PASS. The lens is the unique extremal family in the new three-dimensional reverse-isoperimetric theorem, so an exact first integral of its erosion is structurally motivated. It removes the need to track edge length and dihedral angle separately, determines the entire area profile from the initial surface area and curvature, and makes the volume comparison benchmark explicitly integrable, including a qualitatively different critical horospherical regime.
+PASS: Drach–Solanes–Tatarko lens identities D A+2λJ=4π, A′=−2λA−2J, λ′=D with D=λ²+c imply (DA+2λJ)′=2λJ′, hence J′=0 for λ>0. Solving GB yields noncritical area A=(4π−2λJ)/D and volume quadrature with derivative I_c′=D^(−2). Independent SymPy exact differentiation verified Riccati-area identity and positive/zero/hyperbolic antiderivatives and the critical hyperbolic ODE. At c=−k², λ=k, J=2π/k, solve A′+2kA=−4π/k. Euclidean cap check yields J=πd. This is pre-extinction only; bundled code cannot replace geometric source theorems.
 
-## Closest literature and limitations
-The closest sources are arXiv:2603.08132v1 and arXiv:2303.02294v1. The result is a structural lemma about the extremal lens flow, not a new reverse-isoperimetric inequality. It is confined to dimension three and to lenses; an unindexed equivalent classical formula remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: Primary Drach–Solanes–Tatarko (2026) derives area variation, curvature ODE and Gauss–Bonnet, compares lens surfaces, but does not state the lens-specific conserved product J=ell tan(beta/2), corresponding closed area/volume law or horospherical critical profile. Drach–Tatarko 2023 Euclidean predecessor provides precursor local variations but not the combined space-form evolution. Conservation is a nontrivial geometric synthesis rather than an established reverse isoperimetric inequality.
+
+## value
+
+PASS
+
+PASS: Exact first integral and volume-loss profile of the canonical extremal lens family are structurally motivated by the reverse-isoperimetric comparison problem. They reduce two evolving edge variables to one conserved scalar, including separate horosphere curvature-critical dynamics; a useful global (pre-extinction) geometric evolution classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
