@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:48:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/positive-semidefinite-zero-forcing-sets-of-wheel-graphs--9632d882f161/RESULT.md",
+        "Source blob 4dbb5d1b9514802987c790dff9fa93c4dcee9693",
+        "Exact Git tree/RESULT.md and artifact subtree identities verified.",
+        "Direct white-component forcing independently run on every wheel subset for n=5..12; agreement with two-case criterion for all cases.",
+        "Transfer automaton derived from cyclic 111-avoidance; scalar n>=5 boundary checked."
+      ],
+      "rationale": "When the hub is blue, the white induced graph consists of rim path components if and only if >=2 rim vertices are blue; blue boundary rim vertices peel the white paths, while 0 or 1 blue rim vertices leave no first move (for 1, the unique blue rim vertex has two white rim neighbors and the blue hub sees >=3 whites). Without a blue hub, any remaining white rim vertex connects the entire white induced graph through the white universal hub; a blue rim vertex has exactly one white neighbor iff its two cyclic rim neighbors are blue, exactly a run of three blue consecutive rim vertices. Such a middle vertex forces the hub, reducing to the first case. Hub-contained min sets: choose 2 rims; hub-free min sets: exactly m length-three rim runs, so binom(m,2)+m=binom(n,2). Standard 4-state 00,01,10,11 de Bruijn transfer with forbidden 11->11 and 1-transition weight x has tr(T^m) equal the cyclic 111-avoiding polynomial. Independent direct PSD-component forcing on all subsets of W_5..W_12 exactly reproduced structural criterion, across 8,160 possible subsets, with orderwise successful totals 16,37,82,177,372,773,1594,3269; finite checks corroborate proof.",
+      "residual_risks": [
+        "The wheel convention here uses n total vertices, rim length n-1, and n>=5; W_4=K_4 uses different small-case convention.",
+        "Positive semidefinite component forcing is distinct from ordinary zero forcing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peters establishes the minimum for wheels.",
+          "Resultary returns a complete-multipartite PSD forcing-set polynomial and ordinary fan forcing sets, not a theorem encompassing all PSD wheel seeds."
+        ],
+        "reasoning": "Neither graph family nor force rule of nearby broader reports subsumes the whole wheel PSD classification.",
+        "searches": [
+          "Peters DOI:10.13001/1081-3810.1559 Prop 3.10",
+          "Resultary search: Positive semidefinite zero forcing sets wheel graphs classification minimum sets counting polynomial"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.13001/1081-3810.1559",
+        "arXiv:1003.2028",
+        "SCOPE frozen wheel RESULT.md and code artifact"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the structural theorem one can derive Peters’s Z+=3; the inverse implication is false because the scalar optimum has no information on all feasible initial sets.",
+          "The complete PSD component rule plus wheel structure yields the additional two-case criterion."
+        ],
+        "reasoning": "A known lower bound/attainability for size three does not imply classification of every size-three witness, much less full coefficients.",
+        "searches": [
+          "Peters 2012 Proposition 3.10",
+          "Barioli et al., arXiv:1003.2028",
+          "Resultary search of PSD wheel bases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Peters proves scalar Z+(W_n)=3, not a structural all-set criterion.",
+          "Resultary search returned nearby forcing polynomials of multipartite graphs and ordinary fan graphs rather than PSD wheel all-set theorem."
+        ],
+        "reasoning": "PSD forcing bases, successful seed sets and the polynomial are equivalent enumerative views of the submitted criterion; an ordinary forcing or different graph invariant is not equivalent.",
+        "searches": [
+          "Resultary search: Positive semidefinite zero forcing sets wheel graphs classification minimum sets counting polynomial",
+          "Peters 2012 Positive semidefinite maximum nullity and zero forcing number, Proposition 3.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published wheel table records Z+=3 but no coefficient table for cardinality enumerator or binom(n,2) bases."
+        ],
+        "reasoning": "A single minimum scalar does not determine counts of all successful larger sets, and no matching exact table was located.",
+        "searches": [
+          "Resultary search: Positive semidefinite zero forcing sets wheel graphs classification minimum sets counting polynomial",
+          "Peters 2012 wheel scalar parameter table"
+        ]
+      },
+      "rationale": "Statement/implication comparison, not mere title search. Closest inspected antecedents give related machinery or narrower/scalar/qualitative statements, but not the full asserted theorem; coverage and inaccessible-source limitations are explicit.",
+      "residual_risks": [
+        "A thesis or poorly indexed combinatorial bases enumeration may contain an equivalent wheel all-set theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Z+(W_n)=3 but not exact all-set characterization or polynomial",
+          "evidence": "Proposition 3.10 proves M+(W_n)=Z+(W_n)=3 by minor/forcing bounds.",
+          "identifier_or_url": "DOI:10.13001/1081-3810.1559",
+          "material_read": "Lawful full PDF accessible; Section 3 and Proposition 3.10 including wheel scalar proof examined, with page image",
+          "method": "Primary PDF theorem-level text and page image inspection",
+          "title": "Positive semidefinite maximum nullity and zero forcing number",
+          "trigger": "Direct same-wheel same-parameter source"
+        },
+        {
+          "assessment": "No wheel all-set formula in inspected material; whole-document noncoverage not certified",
+          "evidence": "General PSD zero forcing/nullity framework, not an enumerative wheel theorem.",
+          "identifier_or_url": "arXiv:1003.2028",
+          "material_read": "ArXiv public abstract and bibliographic material plus definitions as used by Peters; full article not re-read",
+          "method": "Foundational scope comparison",
+          "title": "Zero forcing parameters and minimum rank problems",
+          "trigger": "Introduces foundational positive semidefinite forcing rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.13001/1081-3810.1559",
+        "arXiv:1003.2028",
+        "SCOPE frozen wheel RESULT.md and code artifact"
+      ],
+      "rationale": "The complete characterization of every successful initial set, basis multiplicity and size distribution for an archetypal wheel graph is a motivated structural/enumerative refinement of a scalar forcing number; the polynomial answers questions that the known minimum alone cannot.",
+      "residual_risks": [
+        "The theorem is specialized to wheels; extension to wheel variants or all fans not implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For wheel W_n with n>=5, a positive semidefinite zero forcing set S contains the hub and at least two rim vertices, or excludes the hub and contains three consecutive rim vertices. Consequently Z+=3 (known), number of minimum sets binom(n,2), and the full forcing-set cardinality enumerator is x((1+x)^m-1-mx)+(1+x)^m-tr(T(x)^m), m=n-1, T transfer matrix forbidding cyclic 111.",
+  "limitations": [
+    "The wheel convention here uses n total vertices, rim length n-1, and n>=5; W_4=K_4 uses different small-case convention.",
+    "Positive semidefinite component forcing is distinct from ordinary zero forcing.",
+    "The theorem is specialized to wheels; extension to wheel variants or all fans not implied.",
+    "A thesis or poorly indexed combinatorial bases enumeration may contain an equivalent wheel all-set theorem."
+  ],
+  "schema_version": 1
+}

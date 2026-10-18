@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. With the hub blue, the white graph is a disjoint union of rim paths; two or more initially blue rim vertices give an endpoint force in every nonempty component and permit repeated peeling, whereas zero or one blue rim vertex gives no first force. With the hub white and at least one white rim vertex, the white graph is connected, and a blue rim vertex has the hub plus its white rim neighbors as white neighbors. It therefore has a unique white neighbor exactly when both rim neighbors are blue, which is equivalent to a run of three consecutive blue rim vertices; the middle vertex then forces the hub and reduces to the first case. The two cases are exhaustive. The polynomial follows from disjoint counting, and the transfer matrix is the standard last-two-bits automaton for cyclic \(111\)-avoidance. An independent exhaustive simulation through \(W_{14}\) matches the criterion and every coefficient.
+## correctness
 
-## Originality
-PASS. The directly relevant prior source is Peters's wheel proposition, which proves only the scalar equality \(M_+(W_n)=Z_+(W_n)=3\). The retained claim does not re-claim that value: it classifies every positive semidefinite zero forcing set, identifies and counts every minimum set, and gives the full cardinality enumerator. Searches under positive semidefinite/PSD forcing, wheel, bases, reconfiguration, all subsets, propagation, and polynomial terminology did not locate equivalent or stronger coverage. The strongest same-object primary source inspected therefore does not imply the retained statement.
+PASS
 
-## Value
-PASS. Wheels are a canonical graph family for which the positive semidefinite minimum had already been determined, making the structure of all successful initial conditions a natural next question rather than an arbitrary slice. The theorem reveals a sharp hub-dependent dichotomy and turns the complete size distribution into a cyclic forbidden-word enumerator. In particular, it upgrades one scalar value to an exact basis classification, the nontrivial count \(\binom{n}{2}\), and every coefficient of the forcing polynomial.
+When the hub is blue, the white induced graph consists of rim path components if and only if >=2 rim vertices are blue; blue boundary rim vertices peel the white paths, while 0 or 1 blue rim vertices leave no first move (for 1, the unique blue rim vertex has two white rim neighbors and the blue hub sees >=3 whites). Without a blue hub, any remaining white rim vertex connects the entire white induced graph through the white universal hub; a blue rim vertex has exactly one white neighbor iff its two cyclic rim neighbors are blue, exactly a run of three blue consecutive rim vertices. Such a middle vertex forces the hub, reducing to the first case. Hub-contained min sets: choose 2 rims; hub-free min sets: exactly m length-three rim runs, so binom(m,2)+m=binom(n,2). Standard 4-state 00,01,10,11 de Bruijn transfer with forbidden 11->11 and 1-transition weight x has tr(T^m) equal the cyclic 111-avoiding polynomial. Independent direct PSD-component forcing on all subsets of W_5..W_12 exactly reproduced structural criterion, across 8,160 possible subsets, with orderwise successful totals 16,37,82,177,372,773,1594,3269; finite checks corroborate proof.
 
-## Closest literature and limitations
-The closest primary literature is Peters (2012), Proposition 3.10, on the identical wheel family and identical forcing parameter. It covers the scalar minimum but not the all-set classification or enumerator. Barioli et al. (2010) supply the foundational positive semidefinite forcing definition. The theorem here is restricted to \(n\ge5\); its finite checker is corroborative only, and poorly indexed enumerative work remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement/implication comparison, not mere title search. Closest inspected antecedents give related machinery or narrower/scalar/qualitative statements, but not the full asserted theorem; coverage and inaccessible-source limitations are explicit.
+
+## value
+
+PASS
+
+The complete characterization of every successful initial set, basis multiplicity and size distribution for an archetypal wheel graph is a motivated structural/enumerative refinement of a scalar forcing number; the polynomial answers questions that the known minimum alone cannot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

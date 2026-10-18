@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and infinite; the computation below is a finite corroboration, not a substitute for the proof.
+# Independent mathematical audit
 
-The standalone `artifacts/verify.py` independently constructs each wheel \(W_n\), simulates the positive semidefinite component color-change rule from every initial subset, and compares the result with the two-case structural criterion. It also compares the complete coefficient vector with the closed polynomial, verifies the cyclic \(111\)-avoidance transfer-matrix trace, and checks the minimum value and basis count.
+## correctness
 
-Tested range: \(5\le n\le14\).
+PASS
 
-Exact replay output:
+When the hub is blue, the white induced graph consists of rim path components if and only if >=2 rim vertices are blue; blue boundary rim vertices peel the white paths, while 0 or 1 blue rim vertices leave no first move (for 1, the unique blue rim vertex has two white rim neighbors and the blue hub sees >=3 whites). Without a blue hub, any remaining white rim vertex connects the entire white induced graph through the white universal hub; a blue rim vertex has exactly one white neighbor iff its two cyclic rim neighbors are blue, exactly a run of three blue consecutive rim vertices. Such a middle vertex forces the hub, reducing to the first case. Hub-contained min sets: choose 2 rims; hub-free min sets: exactly m length-three rim runs, so binom(m,2)+m=binom(n,2). Standard 4-state 00,01,10,11 de Bruijn transfer with forbidden 11->11 and 1-transition weight x has tr(T^m) equal the cyclic 111-avoiding polynomial. Independent direct PSD-component forcing on all subsets of W_5..W_12 exactly reproduced structural criterion, across 8,160 possible subsets, with orderwise successful totals 16,37,82,177,372,773,1594,3269; finite checks corroborate proof.
 
-`VERIFY_OK n_range=5..14 subset_checks=32736 criterion_checks=32736 coefficient_checks=200 basis_checks=20 max_order=14`
+## originality
 
-The finite range checks all \(32736\) initial subsets across those wheels. The theorem for arbitrary \(n\ge5\) rests on the component-structure proof in `RESULT.md`.
+PASS
+
+Statement/implication comparison, not mere title search. Closest inspected antecedents give related machinery or narrower/scalar/qualitative statements, but not the full asserted theorem; coverage and inaccessible-source limitations are explicit.
+
+## value
+
+PASS
+
+The complete characterization of every successful initial set, basis multiplicity and size distribution for an archetypal wheel graph is a motivated structural/enumerative refinement of a scalar forcing number; the polynomial answers questions that the known minimum alone cannot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
