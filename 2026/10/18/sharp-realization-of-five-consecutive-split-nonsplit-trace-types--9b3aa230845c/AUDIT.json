@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For p>8 the five quadratic polynomials have exactly nine distinct branch roots, with the sole duplicated root shared by j=0 and j=4. Expanding the 32-normalized sign indicator and applying Weil to squarefree subsets gives coefficient 129, reduced to 113 over eight double-root subsets, with correction 8+144=152. Hence 32N>=p-113sqrt(p)-152, positive above 14000. The exact standard-library checker enumerates all 1651 odd primes below 14000 and all patterns; independent Euler-criterion checks cover the first 250 primes; at 233 only mask zero is absent. No probabilistic inference or incomplete search is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wright Theorem 2.3 gives universal eventual occurrence and asymptotics for linear supports, but not an explicit smallest prime for this quadratic-product instance.",
+        "Ordinary consecutive quadratic-residue results concern linear arguments and do not determine the product-character cutoff.",
+        "Buchaev–Tsfasman count patterns with character arguments t,t+1,...,t+4."
+      ],
+      "reasoning": "General existence methods cover large-prime eventual existence but not the exact finite optimal threshold. A length-six ordinary residue theorem cannot imply the five products involving nine linear arguments with their sharper cutoff.",
+      "searches": [
+        "arXiv:1111.2236 Theorem 2.3 general universal pattern",
+        "arXiv:2607.17418 Theorem 2 prime-residue five patterns",
+        "arXiv:2011.11054 consecutive ordinary quadratic-residue word existence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1111.2236 (primary PDF examined)",
+      "arXiv:2607.17418 (primary PDF examined)",
+      "arXiv:2402.10737 (primary PDF examined)",
+      "Public mathematical research-record results from targeted semantic and exact-claim searches (no equivalent identified)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cohen gives triples and special quadruples of consecutive squares/nonsquares of field elements.",
+        "Buchaev–Tsfasman Theorem 2 gives Frobenius-trace formulas for length-five words of consecutive field elements.",
+        "Wright Theorem 2.3 yields asymptotic universality, not an exact prime-by-prime census."
+      ],
+      "reasoning": "None of these stated conclusions implies the last exceptional prime 233 or uniqueness of the missing five-discriminant word there. Weil estimates are prior tools explicitly credited; our finite sharp classification is the assertion evaluated for novelty.",
+      "searches": [
+        "arXiv:2402.10737 Theorem 1.1",
+        "arXiv:2607.17418 Theorem 2",
+        "arXiv:1111.2236 Theorem 2.3",
+        "Quadratic residue patterns for five consecutive shifted discriminants t²−4 of SL2 matrices and branch overlap at displacement four"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The characteristic discriminant of an SL2 trace u is u²−4; thus split/non-split words are exactly quadratic characters of five quadratic polynomials.",
+        "arXiv:1111.2236 Theorem 2.3 concerns patterns of characters evaluated at linear translates; arXiv:2607.17418 Theorem 2 concerns words of five consecutive linear arguments."
+      ],
+      "reasoning": "The five-word trace problem is a product-character image of nine underlying linear residue symbols, not ordinary five-consecutive-residue signs. Neither primary theorem states the sharp 239 cutoff or the forty-prime exception set.",
+      "searches": [
+        "Sharp prime threshold for simultaneous occurrence of all 32 quadratic-character patterns of five consecutive SL2 trace discriminants χ((t+j)^2−4), split vs nonsplit semisimple conjugacy classes, last exception p=233",
+        "Quadratic character runs χ((x+j)^2−4) j=0,...,4, prescribed signs, complete occurrence prime cutoff 239 with exceptional prime 233 and shared branch root",
+        "Quadratic character pattern t^2-4 consecutive traces discriminants SL2 split nonsplit sign sequence 5 prime",
+        "arXiv:1111.2236"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted indexed searches did not identify a table with these forty exceptional primes.",
+        "OEIS A178151, an incidental retrieved result, counts quadratic residues below p/2 and does not tabulate discriminant sign words."
+      ],
+      "reasoning": "No exact source table was identified. A failed search is not evidence of absolute absence; previous special-case computations may be unindexed.",
+      "searches": [
+        "OEIS 233 trace discriminant Legendre symbol five consecutive nonsplit",
+        "Every prime p >=239 realizes all 32 words of five consecutive discriminants chi((t+j)^2-4) j=0..4 of SL2 semisimple split nonsplit trace types; p=233 all nonsplit word absent, 40 exceptional primes",
+        "Sharp prime threshold for simultaneous occurrence of all 32 quadratic-character patterns of five consecutive SL2 trace discriminants χ((t+j)^2−4), split vs nonsplit semisimple conjugacy classes, last exception p=233"
+      ]
+    },
+    "rationale": "Source and research-record comparison found no identified earlier statement or implication yielding the complete 32-word split/nonsplit trace classification with the sharp cutoff 239. This is a priority assessment with an explicit unindexed-source residual risk, not a claim of certainty.",
+    "residual_risks": [
+      "Earlier unindexed theorem may supply the same sharp prime threshold indirectly through an effective version of a general character-pattern theorem.",
+      "Indexed database searches are not exhaustive, and a specialized table of five trace-discriminant words could exist under another terminology.",
+      "No independent priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "A general linear-residue pattern theorem implies asymptotic eventual existence, not the specific finite threshold.",
+        "evidence": [
+          "Theorem 2.3 describes sets AP(b;s), linear supports and asymptotic count c_epsilon(p)~2^{-gamma}p.",
+          "Its remark states complete character-sum error estimates but no classification for products of five trace discriminants."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1111.2236",
+        "material_read": "Introduction pp.1–4 and main Theorem 2.3 with discussion pp.9–10",
+        "method": "Opened source PDF text and page image; inspected statements, hypotheses and character sums",
+        "title": "Quadratic Residues and Non-residues in Arithmetic Progression",
+        "trigger": "Closest archival character-pattern universality and bounds"
+      },
+      {
+        "assessment": "Exact patterns of consecutive linear integers, not five discriminant product characters.",
+        "evidence": [
+          "Theorem 2 defines n_p(S) by chi(t), chi(t+1),...,chi(t+4) and expresses it using Frobenius traces.",
+          "No f_j(t)=(t+j)^2-4 in the inspected definition or result."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2607.17418",
+        "material_read": "Introduction and definition pp.1–3; section 4 and Theorem 2 at pp.8–11",
+        "method": "Opened and read primary PDF text, examined page image and statement and formula tables",
+        "title": "Quadratic residue patterns of length 4 and 5",
+        "trigger": "Potential dominating exact formulas for all length-five sign words"
+      },
+      {
+        "assessment": "Counts triples and certain quadruples of square/nonsquare field elements; neither object nor cutoff matches.",
+        "evidence": [
+          "Its Theorem 1.1 enumerates square/nonsquare triples among alpha-1,alpha,alpha+1.",
+          "Its Theorem 1.2 treats quadruples for characteristic five."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2402.10737",
+        "material_read": "Abstract and pp.1–4, including Theorem 1.1, Theorem 1.2 and character-sum expansion",
+        "method": "Opened primary PDF text and page image; compared variables, length and conditions",
+        "title": "Triples and quadruples of consecutive squares or non-squares in a finite field",
+        "trigger": "Related exact finite-field sign-count precedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b3aa230-845c-48d0-9d42-1c23f66eb2f7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A canonical natural invariant of SL2(F_p) is split vs nonsplit regular semisimple type as a function of trace discriminant. Five consecutive traces are the first window with shared branch roots, so the simultaneous 32-word realization cutoff is structurally motivated rather than an arbitrary finite slice. The theorem gives an exact best threshold and complete exceptional primes, with the one-word obstruction at the sharp boundary.",
+    "status": "PASS"
+  }
+}
