@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and uniform. Its critical checks are:
+# Independent mathematical audit
 
-1. before the shortest cycle wraps, ordered-pair 2-WL colors are universal truncated-distance colors with threshold doubling each round;
-2. at round \(s-1\), where \(s=\lceil\log_2 m\rceil\), a vertex in the shortest \(m\)-cycle has exactly \(n-m\) far entries, while the corresponding row in \(C_n\) has \(n-1-2^s\);
-3. Pikhurko--Verbitsky Lemma 4.3 converts first diagonal inequality at round \(s\) to exact three-variable counting depth \(s+1\).
+## correctness
 
-The accompanying `artifacts/verify.py` runs standard ordered-pair 2-WL jointly on a cycle and a disjoint union of cycles. It exhaustively checks all 223 nontrivial cycle partitions for orders \(6\) through \(20\), verifies the exact full-pair and diagonal first-difference rounds, and checks balanced extremal witnesses through order \(40\).
+PASS
 
-Expected terminal line:
+PASS. Joint ordered-pair 2-WL starts at equality/edge/nonedge and separates distance classes through 2^r after r rounds on cycles sufficiently longer than the interaction radius. For a rival union of cycles with shortest component m, s=ceil(log2 m), round s-1 diagonal profiles still match the connected C_n; at round s, a shortest-component vertex has far-color count n-m whereas a C_n vertex has n-1-2^s, differing by 1+2^s-m>0. The Pikhurko–Verbitsky exact diagonal 2-WL/counting-game bridge shifts first distinct diagonal round s to counting-quantifier depth s+1. Non-2-regular same-order rival graphs are separated by vertex-degree counting, and n=3,4,5 have depth 2. Independent implementation of canonical simultaneous 2-WL checked all 137 disjoint-cycle partitions for n=6..18 against s+1; finite enumeration supports, not establishes, the all-n proof.
 
-`VERIFY_OK partitions=223 exhaustive_n=6..20 balanced_n=6..40 formula_small=3..5`
+## originality
 
-This finite computation is a regression check rather than a proof of the infinite theorem.
+PASS
+
+PASS, best of knowledge. Existing 2-WL cycle stabilization and general WL iteration-depth bounds do not imply a lower bound against all same-order graphs or identify balanced disconnected cycles as worst rivals. Pikhurko–Verbitsky supplies the proof technology and game bridge, not the exact cycle-specific all-n characterization. A separately published finite-cycle stabilization-depth result is distinct from global definition depth. An unindexed C^3 cycle folklore theorem remains possible.
+
+## value
+
+PASS
+
+PASS. Exact C^3 definability depth of C_n is a canonical finite-model-theoretic graph invariant. The precise logarithmic threshold, extremal disconnected rivals and round-index correction supply a structural and potentially reusable classification beyond a routine restatement of WL correspondence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

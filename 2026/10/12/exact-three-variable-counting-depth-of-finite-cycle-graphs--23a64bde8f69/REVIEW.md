@@ -1,9 +1,21 @@
-# Review
+# Independent mathematical audit
 
-Correctness: **PASS.** The proof reduces hardest same-order rivals to disjoint unions of cycles, establishes a truncated-distance doubling law for ordered-pair 2-WL before the shortest component wraps, and compares the far-color row multiplicities exactly at the first boundary round. Pikhurko--Verbitsky Lemma 4.3 then converts the first diagonal 2-WL difference into exact three-variable counting depth. The small cases \(n=3,4,5\) are handled separately. A direct implementation exhaustively agrees on every cycle partition through \(n=20\) and balanced witnesses through \(n=40\).
+## correctness
 
-Originality: **PASS.** Targeted searches of arXiv/web results, general 2-WL iteration papers, published SCOPE semantic results, the current ledger, and the previous-week ledger did not locate the exact formula \(D^3_{\#}(C_n)=1+\lceil\log_2\lfloor n/2\rfloor\rceil\) or the sharper shortest-component law. The current ledger's earlier cycle theorem gives single-graph 2-WL stabilization and counting width, not exact global defining depth against all nonisomorphic rivals. Residual priority risk remains for an unindexed thesis, exercise, or folklore statement.
+PASS
 
-Value: **PASS.** The result gives an exact logarithmic logical-depth law for a basic graph family, identifies the unique extremal mechanism (balanced cycle decomposition), and cleanly separates single-graph stabilization from graph identification.
+PASS. Joint ordered-pair 2-WL starts at equality/edge/nonedge and separates distance classes through 2^r after r rounds on cycles sufficiently longer than the interaction radius. For a rival union of cycles with shortest component m, s=ceil(log2 m), round s-1 diagonal profiles still match the connected C_n; at round s, a shortest-component vertex has far-color count n-m whereas a C_n vertex has n-1-2^s, differing by 1+2^s-m>0. The Pikhurko–Verbitsky exact diagonal 2-WL/counting-game bridge shifts first distinct diagonal round s to counting-quantifier depth s+1. Non-2-regular same-order rival graphs are separated by vertex-degree counting, and n=3,4,5 have depth 2. Independent implementation of canonical simultaneous 2-WL checked all 137 disjoint-cycle partitions for n=6..18 against s+1; finite enumeration supports, not establishes, the all-n proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, best of knowledge. Existing 2-WL cycle stabilization and general WL iteration-depth bounds do not imply a lower bound against all same-order graphs or identify balanced disconnected cycles as worst rivals. Pikhurko–Verbitsky supplies the proof technology and game bridge, not the exact cycle-specific all-n characterization. A separately published finite-cycle stabilization-depth result is distinct from global definition depth. An unindexed C^3 cycle folklore theorem remains possible.
+
+## value
+
+PASS
+
+PASS. Exact C^3 definability depth of C_n is a canonical finite-model-theoretic graph invariant. The precise logarithmic threshold, extremal disconnected rivals and round-index correction supply a structural and potentially reusable classification beyond a routine restatement of WL correspondence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
