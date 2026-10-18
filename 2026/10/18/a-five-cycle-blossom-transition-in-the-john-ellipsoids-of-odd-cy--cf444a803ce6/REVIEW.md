@@ -1,0 +1,11 @@
+# Scientific review: odd-cycle matching-polytope John ellipsoids
+
+**Correctness — PASS.** The cycle matching-polytope inequalities follow from the standard matching facet theorem; the proposed positive-definite matrices have exactly the asserted support values. In all higher odd dimensions, the resolvent-root equation has a unique positive solution, and the explicit nonnegative contact weights satisfy both John identities. A Poisson-kernel bound proves the blossom facet is strictly outside the fractional John ellipsoid for every odd length at least seven. For the pentagon, exact radical support equalities and strictly positive weights for all three facet orbits prove global optimality and uniqueness. The analytical argument is all-dimensional; numerical tests only corroborate it.
+
+**Originality — PASS, qualified.** The closest indexed work gives the John ellipsoid of the *fractional* odd-cycle stable-set polytope. Its indexed summary has no integral odd-blossom screening or rank-one pentagon correction, and it does not logically imply those results without a new comparison of the global blossom support. The accessible primary full texts on matching-polytope Gorensteinness and circuit diameter cover different invariants. Searches for the exact integral matching-polytope John theorem, blossom tangencies, and odd-hole ellipsoids found no covering source. Because one highly relevant prior full text was inaccessible, bibliographic uncertainty remains and search absence is not absolute uniqueness.
+
+**Mathematical value — PASS.** For every odd cycle, the blossom inequality is essential to the integral matching-polytope facet structure. Yet it changes the canonical maximum-volume ellipsoid *only at the pentagon*, where it contributes an explicit positive rank-one component to the inverse shape and adds one entire contact orbit. This exact integrality-versus-relaxation screening classification is an intrinsically motivated geometric invariant, not merely a small numerical improvement or parameter substitution.
+
+The classification is confined to odd cycles in standard edge coordinates; no arbitrary-graph or affine-metric theorem is asserted. Independent mathematical validation is not available.
+
+Self-review: passed. Independent audit: not yet performed.
