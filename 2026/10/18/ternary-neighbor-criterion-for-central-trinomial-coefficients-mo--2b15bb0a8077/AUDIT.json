@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "The identity (x^-1+1+x)^3=(x^-3+1+x^3)+3h(x) with h=x^-2+2x^-1+2+2x+x^2 is exact. Raising to successive ternary powers modulo nine yields a first-order correction in adjacent digits. Support bounds below 3^(i+1) separate the two-digit local block; the six exact constant terms J_{a,b} form [[2,2],[6,8],[16,24]]. The only surviving corrections with one digit two are at that digit and its immediate higher neighbor; with at least two digits two they vanish modulo nine. Exhaustive ternary-word counting then yields the two formulas for all L>=2. The packaged verifier independently checks the identity, local constants and 19,683 coefficients up to 3^9 against exact recurrence; those finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rowland–Zeilberger (2013) provides a general computability construction for constant-term residues modulo prime powers",
+        "Mikić (2023), Theorem 8, requires its trinomial coefficient parameter b different from 0 and ±1"
+      ],
+      "reasoning": "The general automaton method gives existence of a mechanical route to determining modulo-nine residues, not the specific closed neighbor formula or all-length census without specializing, computing and proving the simplification. The later valuation theorem does not apply to the ordinary parameter b=1. This is a meaningful residual implicit-coverage risk.",
+      "searches": [
+        "3-adic valuations of generalized central trinomial coefficients T_n(b,c) all n and roots modulo 3",
+        "Mod p^2 digit automata for generalized central trinomial numbers and prime-adic valuation density",
+        "\"central trinomial\" \"mod 9\" automaton",
+        "arxiv:1311.4776v1",
+        "arxiv:2311.14623v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/math/0407326",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+      "https://arxiv.org/pdf/1311.4776",
+      "https://arxiv.org/pdf/2110.06244",
+      "https://arxiv.org/pdf/2311.14623",
+      "https://oeis.org/A002426/internal"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Deutsch–Sagan, Theorem 4.7, proves T_n≡1 or 0 mod 3 based on digits",
+        "Noe Theorem 8.5 generalizes prime divisibility and not prime-power valuations",
+        "Direct Laurent correction f^3-f(x^3)=3h yields a nontrivial local-neighbor term governing n with one digit two"
+      ],
+      "reasoning": "The prior p-divisibility result is necessary background; it leaves every term with a two digit at unknown valuation >=1. The new condition distinguishes valuation exactly one from valuation >=2, not derivable merely by reducing the mod-three theorem. Explicit general computational algorithms do not already assert the closed exact density layers.",
+      "searches": [
+        "3-adic valuations of generalized central trinomial coefficients T_n(b,c) all n and roots modulo 3",
+        "Exact mod 9 ternary-digit criterion for central trinomial coefficients (constant terms of (x+1+x^-1)^n), 3-adic valuation exactly one, one digit 2 with adjacent higher digit zero",
+        "arxiv:math/0407326v1",
+        "JIS:2006:06.2.7",
+        "arxiv:2110.06244"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Deutsch–Sagan Theorem 4.7 says T_n modulo three, not modulo nine",
+        "Noe Theorem 8.5 is a prime-divisibility iff-digit criterion",
+        "Rampersad–Shallit Theorems 6–9 address residues modulo primes three and five"
+      ],
+      "reasoning": "The proposed valuation-one criterion is equivalent to a modulo-nine vanishing test conditioned on exactly one digit two and its more-significant neighbor. The cited mod-three statement does not distinguish multiples of three from multiples of nine; no inspected explicit equivalent condition was found.",
+      "searches": [
+        "Exact mod 9 ternary-digit criterion for central trinomial coefficients (constant terms of (x+1+x^-1)^n), 3-adic valuation exactly one, one digit 2 with adjacent higher digit zero",
+        "Count of indices n<3^L for which 9 does not divide central trinomial coefficient T_n = (L+6)2^(L-2)",
+        "central trinomial coefficients mod 9 ternary digits rowland zeilberger congruence automata",
+        "central trinomial coefficients \"mod 9\" \"digits\"",
+        "\"trinomial coefficients\" \"modulo 9\" \"ternary\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002426 states nondivisibility by three for ternary strings avoiding two and provides finite coefficient tables",
+        "The record search found no explicit mod-nine, valuation-one, or closed 3^L count formula"
+      ],
+      "reasoning": "A finite sequence table could be used to infer the pattern but does not certify all L. The newly claimed infinite closed formula is not an indexed entry in the inspected A002426 material.",
+      "searches": [
+        "Count of indices n<3^L for which 9 does not divide central trinomial coefficient T_n = (L+6)2^(L-2)",
+        "central trinomial coefficients mod 9 ternary digits rowland zeilberger congruence automata",
+        "OEIS A002426 internal",
+        "OEIS A005836 central trinomial digits"
+      ]
+    },
+    "rationale": "The new conclusion is an explicit if-and-only-if ternary-neighbor classification of valuation one for ordinary central trinomial coefficients, with closed counts for every ternary length. Primary sources establish only the no-digit-two criterion modulo three (Deutsch–Sagan and Noe), while algorithms that can compute prime-power congruences (Rowland–Zeilberger) do not state or simplify to the exact claimed classification in inspected text. Direct central trinomial treatment by Rampersad–Shallit addresses moduli three and five; Mikić 2023 excludes the ordinary coefficient in its valuation theorem. No published-finding corpus match or OEIS exact-table coverage was found after actual stated queries, but priority cannot be certified from searches.",
+    "residual_risks": [
+      "Rowland–Zeilberger and related general automata may yield the classification after an unrecorded specialization; priority is not established by failure of keyword search.",
+      "Further papers on residues of the ordinary central trinomial sequence modulo nine or stronger digit-carry classification might be unindexed or inaccessible.",
+      "The same-model proof and computational checks are not independent mathematical auditing."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 4.7 gives a digit exclusion test modulo three; does not determine the first three-adic valuation layer modulo nine or its exact word counts.",
+        "evidence": [
+          "https://arxiv.org/pdf/math/0407326, Theorem 4.7, PDF page 13"
+        ],
+        "identifier_or_url": "arxiv:math/0407326v1",
+        "material_read": "Section 4 including central-trinomial Theorem 4.7 and proof, and related applications in Section 5",
+        "method": "Inspected full-text PDF text and relevant theorem section",
+        "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+        "trigger": "Primary classical central trinomial modulo-three digit rule"
+      },
+      {
+        "assessment": "Theorem 8.5 equates divisibility modulo a prime to the digit-level criterion; its hypotheses and conclusion do not give higher prime-power divisibility or the new neighbor criterion.",
+        "evidence": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf, pages 5–7; published 2006-07-05"
+        ],
+        "identifier_or_url": "JIS:2006:06.2.7",
+        "material_read": "Sections 8 and 9, Theorems 8.1–8.9, including full Theorem 8.5 proof",
+        "method": "Inspected publicly available complete PDF and the publisher date page",
+        "title": "On the Divisibility of Generalized Central Trinomial Coefficients",
+        "trigger": "Most directly related generalized sequence and prime-divisibility work"
+      },
+      {
+        "assessment": "General machinery would allow computing residues modulo nine, but the source does not explicitly supply the stated digit-neighbor condition or closed finite censuses. This leaves the risk of implicit computable coverage.",
+        "evidence": [
+          "https://arxiv.org/pdf/1311.4776, abstract and pages 3–4; no exact central-trinomial occurrence found in PDF text"
+        ],
+        "identifier_or_url": "arxiv:1311.4776v1",
+        "material_read": "Abstract, constant-term formalism and general algorithm sections; full-document exact text search for central trinomial",
+        "method": "Read PDF text and inspected page 4 visual; inspected overall paper for explicit central trinomial mention",
+        "title": "A Case Study in Meta-AUTOMATION: Automatic Generation of Congruence Automata for Combinatorial Sequences",
+        "trigger": "General prime-power constant-term automata could dominate explicit result"
+      },
+      {
+        "assessment": "Direct statements are modulo three digit criterion and modulo five automaton/repetition results; no modulo nine neighbor rule or layer census in inspected section.",
+        "evidence": [
+          "https://arxiv.org/pdf/2110.06244, pages 6–8, Theorems 6–9"
+        ],
+        "identifier_or_url": "arxiv:2110.06244",
+        "material_read": "Section 3, Theorems 6–9 and surrounding proofs, central trinomial modulo three and five",
+        "method": "Read primary PDF text and inspected Section 3 PDF visuals",
+        "title": "Congruence Properties of Combinatorial Sequences via Walnut and the Rowland–Yassawi–Zeilberger Automaton",
+        "trigger": "Direct automaton treatment of central trinomial coefficients"
+      },
+      {
+        "assessment": "Theorem 8 imposes central coefficient parameter different from plus or minus one and studies divisibility by that coefficient, so excludes ordinary T_n(1,1); its complete three-adic valuations concern Delannoy and Schröder sequences.",
+        "evidence": [
+          "https://arxiv.org/pdf/2311.14623, pages 5–6, Theorems 5–8"
+        ],
+        "identifier_or_url": "arxiv:2311.14623v1",
+        "material_read": "Abstract and Theorems 5–9 in full PDF, especially Theorem 8 hypotheses",
+        "method": "Read parsed PDF and checked Theorems 5–8 and underlying sequence definitions",
+        "title": "On new divisibility properties of generalized central trinomial coefficients and Legendre polynomials",
+        "trigger": "Plausible later exact prime-adic valuation result with overlapping title"
+      },
+      {
+        "assessment": "Comments record the modulo-three digit criterion and tabulations of the sequence, but no modulo-nine neighbor classification or exact first-layer count was located in the inspected entry; finite tabulation is not an infinite theorem.",
+        "evidence": [
+          "https://oeis.org/A002426/internal, comment on base-three representations and A005836"
+        ],
+        "identifier_or_url": "https://oeis.org/A002426/internal",
+        "material_read": "Internal record comments, references and formula field; searched for modulo nine and three-adic",
+        "method": "Inspected publicly accessible OEIS entry and full-entry text search",
+        "title": "OEIS A002426, Central trinomial coefficients",
+        "trigger": "Exact table and sequence-comment coverage check"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b15bb0a-8077-4c74-8738-4a2653ea5306",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classical trinomial modulo-three zero set has an exact Cantor-digit description; its first higher-prime-power layer is a motivated, genuinely distinct divisibility invariant. The theorem classifies exactly the valuation-one indices for every nonnegative n, identifies a previously non-obvious immediate-neighbor restriction, and gives closed census formulas for every 3^L, including their L times 2^L growth. This is a complete natural classification, not a small numerical improvement or arbitrary slice; higher valuations deliberately remain open.",
+    "status": "PASS"
+  }
+}
