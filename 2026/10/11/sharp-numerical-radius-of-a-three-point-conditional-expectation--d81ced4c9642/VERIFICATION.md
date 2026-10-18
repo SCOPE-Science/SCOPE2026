@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The stand-alone `verification.py` uses the Python standard library only. From exact rational polynomial arithmetic it confirms both the full quartic Vandermonde numerator identity and the zero-sum cubic discriminant identity. Its root reconstruction verifies the displayed maximizing orbit to floating-point tolerance; a fixed-seed 60,000-trial stress test gave no counterexample. Expected lines are `EXACT_POLYNOMIAL_IDENTITIES_OK` and `NUMERICAL_SPOT_CHECKS_OK`.
+# Independent mathematical audit
 
-The universal upper bound does **not** rest on numerical sampling. It is the analytic consequence of centering, the exact cubic discriminant feasible interval, the strict one-dimensional maximum in the cubic invariant, and a unique stationary point for the remaining positive parameter. This script is a reproducibility aid and a check of critical algebraic identities, not an infinite-domain certificate or independent audit.
+## correctness
 
-The source date 2010-11-22 comes from the version-1 public arXiv record of the foundational paper. Later journal publication or revisions are not substituted for this date. Independent verification remains unperformed.
+PASS
+
+The real ℓ4 duality map is x↦(x_i³)/∑x_i⁴; matrix multiplication gives K=¼[[0,−1,1],[1,0,−1],[−1,1,0]]. Independently verified the exact alternating quartic identity with symbolic polynomials. Center x=t1+y, ∑y=0, ∑y²=1, q=∑y³, Δ²=½−3q² so every |q|≤1/√6 is feasible by the real cubic roots. Optimizing first over q, then r=t², derivative changes sign only at r=(√6−2)/6; independent exact substitution gives maximal squared radius 3√6/256. All nonzero norming vectors follow from equality at the two unique maxima and all permutations; no complex/unweighted/general commutator claim. 60,000 random tests in source checker are merely diagnostics.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exactly specified real three-point conditional-expectation commutator: Martín–Merí–Popov covers two-coordinate skew rotation numerical radius and broad Lp estimates but no three-coordinate cyclic matrix sharp extremizer orbit. Rank-one numerical-radius literature is restricted to operators of rank1 whereas K has rank2. A specialized finite operator example could be buried unindexed; search nonproof is not certification.
+
+## value
+
+PASS
+
+PASS. Exact sharp numerical radius and complete optimizer orbit for a canonical pair of distinct conditional expectations on the smallest nontrivial overlapping three-atom L4 space quantify a genuine Hilbert-versus-non-Hilbert change, and are a motivated concrete operator invariant rather than a normalization tautology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
