@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source survival functions force a factor \(\alpha^4/(1+\alpha)^2\) for every observed failure and every progressively withdrawn survivor. Counting these factors proves that Eq. (3.1) differs from the stated model likelihood by \(\alpha^{-4R}(1+\alpha)^{-2m}\). Eq. (3.2) independently expands to the correct model likelihood. Since Eq. (4.2) explicitly inherits Eq. (3.1), its posterior needs the reciprocal factor. The packaged checker verifies all three kernels and the score correction.
+## correctness
 
-## Originality
-PASS. Targeted source, equation-number, survival-normalizer, posterior-kernel, and Metropolis–Hastings searches found no published repair. The primary full text was inspected at all relevant formulas. A later paper using the same Gompertz–Lindley competing-risks setting focuses on bootstrap calibration of classical MLEs and does not cover the posterior correction.
+PASS
 
-Residual risk remains that an unindexed correction exists or that unavailable implementation code already used the corrected log-likelihood.
+From the source's GL density and survival, each factor has α²/(1+α). Every observed competing-risk failure has a density times the other cause survival, and each withdrawn unit supplies both survivals, so the MODEL likelihood has normalizer α^(4(m+R))/(1+α)^(2(m+R)). Counting source Eq. (3.1)'s factors gives α^(4m)/(1+α)^(4m+2R). Therefore L_3.1/L_model=α^(-4R)(1+α)^(-2m), parameter dependent. Expanded source Eq. (3.2) instead retains model-correct normalizers. Its Bayesian Eq. (4.2) explicitly uses the misfactored product, so the correct posterior kernel is π_4.2 * α^(4R)(1+α)^(2m), with log score difference 4R/α+2m/(1+α). The independent exact-rational normalization check verifies the identity for multiple m,R,α. No inference is made about inaccessible simulation software or classical likelihood results based on Eq. (3.2).
 
-## Value
-PASS. Bayesian estimation, loss-specific posterior summaries, credible intervals, Laplace approximation, and MCMC are central outputs of the source. The missing factor varies sharply with \(\alpha\) and censoring amount, so the displayed posterior describes a genuinely different Bayesian model. The correction is exact and directly reproducible while not overclaiming about unseen software.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original narrow result after comparing actual mathematical implications with primary source and adjacent literature: The underlying probability-model survival and ordinary censored-likelihood product are standard and source-established; the new fact is their exact mismatch with THIS printed specialized formula and Bayesian posterior. Subsequent MLE/bootstrap work does not mathematically imply a correction to that posterior.
+
+## value
+
+PASS
+
+The absent factor alters an explicitly printed posterior for a substantive progressive Type-II competing-risks model and can shift posterior shape and inference. Pointing out the exact censoring term, parameter dependence, and distinction from correctly printed MLE log-likelihood is an important source-specific reproducibility correction, not simply spotting a typo with no statistical consequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
