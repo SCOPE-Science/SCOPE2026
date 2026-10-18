@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T08:05:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=p², gcd(p²+p+1,p)=1 would force p²+p+1|p−1, impossible. For n=2q distinct primes, (q+1)|2q(q−1) gives q+1|4, hence q=3, and n=6 works. For odd p<q write A=(p+1)/2, B=(q+1)/2. Exact divisibility is AB|pq(A−1)(B−1). Since gcd(B,q(B−1))=1, B|p(A−1); and gcd(A,p(A−1))=1, A|q(B−1). Since q>A prime, A|B−1. With B>A>A−1 and gcd(p,A−1)=1, B=pd for d|A−1. Because p≡−1 mod A, A|d+1 forces d=A−1. Thus q=p(p−1)−1. Conversely B=p(A−1), gcd(A,B)=1, B|p(A−1), A|B−1, and exact original condition follows. This covers all n with Ω(n)=2 and makes no claim about infinitely many such prime pairs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A001599 substitutes τ(n), and nearest Resultary semiprime results concern gcd(n,σ(n)) or iterated divisor sums."
+        ],
+        "reasoning": "Neither a different divisor function nor coprimality implies the q=p(p−1)−1 iff.",
+        "searches": [
+          "OEIS A001599",
+          "Resultary: sigma(n) divides n phi(n) semiprime pq q=p(p-1)-1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: sigma(n) divides n phi(n) semiprime pq q=p(p-1)-1",
+        "OEIS A066995 Numbers n such that sigma(n) divides n phi(n)",
+        "OEIS A001599 Harmonic numbers sigma divides n tau",
+        "OEIS A011775 n divides phi(n) sigma(n)",
+        "SCOPE2026 frozen complete-omega-le2-classification-for-varphi-n-mid-n-sigma-n--529eee2b19a9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "OEIS examples and σ(pq),φ(pq) formulas are necessary inputs; the nontrivial modular restriction A|B−1 and B=pd supplies the iff."
+        ],
+        "reasoning": "No inspected prior statement explicitly contains the same all-prime-pair implication, although it is an elementary deduction and priority is necessarily qualified.",
+        "searches": [
+          "OEIS A066995",
+          "SCOPE frozen complete-omega-le2-classification-for-varphi-n-mid-n-sigma-n--529eee2b19a9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen SCOPE result φ(n)|nσ(n) has finite n list; OEIS A011775 uses n|φ(n)σ(n)."
+        ],
+        "reasoning": "Direction changes divisibility completely; these are not algebraic reformulations of σ(n)|nφ(n).",
+        "searches": [
+          "SCOPE frozen complete-omega-le2-classification-for-varphi-n-mid-n-sigma-n--529eee2b19a9",
+          "OEIS A011775"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Correct sequence and examples already recorded since 2002."
+        ],
+        "reasoning": "The claim explicitly does not assert discovering numbers such as 6 or 15, only proves their complete semiprime parametrization.",
+        "searches": [
+          "OEIS A066995"
+        ]
+      },
+      "rationale": "OEIS A066995 defines exactly σ(n)|nφ(n) and lists examples including 6,15,95,287, but its inspected entry does not give the semiprime iff criterion q=p(p−1)−1. Other OEIS entries and frozen SCOPE records address reversed divisibility φ(n)|nσ(n), τ(n), or π(σ(n)), not the same predicate. The explicit all-semiprime criterion remains a best-of-knowledge separate classification.",
+      "residual_risks": [
+        "An elementary prime-pair characterization might have appeared in older unindexed arithmetic literature; OEIS silence is not a novelty proof.",
+        "Infinitely many p such that p(p−1)−1 prime is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_SEQUENCE_NOT_EXPLICIT_ALL_SEMIPRIME_CLASSIFICATION",
+          "evidence": [
+            "Defines precisely σ(n)|nφ(n) and includes 6,15,95,287; no stated iff polynomial-prime family for semiprimes in inspected entry."
+          ],
+          "identifier_or_url": "https://oeis.org/A066995",
+          "material_read": "Full short OEIS entry, listed terms and its available comments/formulae/references",
+          "method": "Public OEIS entry read directly",
+          "title": "OEIS A066995: Numbers n such that sigma(n) divides n phi(n)",
+          "trigger": "Exact predicate with same arithmetic objects; oldest direct numerical database"
+        },
+        {
+          "assessment": "DISTINCT_REVERSE_DIVISIBILITY",
+          "evidence": [
+            "Uses φ(n)|nσ(n), not σ(n)|nφ(n); its explicit list is finite, while the claimed family is polynomial-prime conditional."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/complete-omega-le2-classification-for-varphi-n-mid-n-sigma-n--529eee2b19a9/RESULT.md",
+          "material_read": "Actual source RESULT.md opening theorem and exact reversed divisibility checked",
+          "method": "GitHub frozen commit source text",
+          "title": "Complete Ω≤2 classification for φ(n)|nσ(n)",
+          "trigger": "Potentially dominating two-prime SCOPE classification"
+        },
+        {
+          "assessment": "DIFFERENT_DIVISOR_FUNCTION",
+          "evidence": [
+            "σ(n)|nτ(n) is not the totient condition."
+          ],
+          "identifier_or_url": "https://oeis.org/A001599",
+          "material_read": "Entry identification and brief description from public search, not full text",
+          "method": "Indexed public source",
+          "title": "OEIS A001599 Harmonic/Ore numbers",
+          "trigger": "Similar divisor-sum divisibility"
+        },
+        {
+          "assessment": "DIFFERENT_DIVISIBILITY_DIRECTION",
+          "evidence": [
+            "n|φ(n)σ(n) is neither the same as σ(n)|nφ(n) nor an evidently dominating result."
+          ],
+          "identifier_or_url": "https://oeis.org/A011775",
+          "material_read": "Entry identification/summary only",
+          "method": "Indexed public source",
+          "title": "OEIS A011775",
+          "trigger": "Nearby divisibility direction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural semiprime layer of an established divisor-sum/totient divisibility sequence receives an exact arithmetic characterization in terms of simultaneous polynomial prime values. This supplies a structural necessary-and-sufficient test, not merely additional OEIS terms, and sharply excludes all prime squares. The prime-pair infinitude problem remains open and is not claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: sigma(n) divides n phi(n) semiprime pq q=p(p-1)-1",
+    "OEIS A066995 Numbers n such that sigma(n) divides n phi(n)",
+    "OEIS A001599 Harmonic numbers sigma divides n tau",
+    "OEIS A011775 n divides phi(n) sigma(n)",
+    "SCOPE2026 frozen complete-omega-le2-classification-for-varphi-n-mid-n-sigma-n--529eee2b19a9"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An elementary prime-pair characterization might have appeared in older unindexed arithmetic literature; OEIS silence is not a novelty proof.",
+    "Infinitely many p such that p(p−1)−1 prime is not established.",
+    "No GitHub write, dispatcher closeout or certificate publication was attempted; accepted C/O/V is best-of-knowledge scientific judgment, not formal or expert certification."
+  ],
+  "residual_risks": [
+    "An elementary prime-pair characterization might have appeared in older unindexed arithmetic literature; OEIS silence is not a novelty proof.",
+    "Infinitely many p such that p(p−1)−1 prime is not established."
+  ],
+  "schema_version": 1
+}
