@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs every complete split graph
-\[
-S_{m,n}=K_m\vee\overline{K_n}
-\]
-with
-\[
-1\le m,n\le6.
-\]
+# Independent mathematical audit
 
-For each graph it computes all-pairs shortest-path distances by breadth-first search. It then enumerates every vertex subset and, for every adjacent pair of edges, compares the two edge-distance vectors directly from
-\[
-d(s,uv)=\min\{d(s,u),d(s,v)\}.
-\]
+## correctness
 
-The direct local-edge test is compared with the structural theorem. Minimum dimensions and minimum-basis counts are checked independently.
+PASS
 
-Recorded output:
+For adjacent edges xy,yz, the local edge distinguishing landmarks in K_m join independent_n are exactly the nonshared endpoints {x,z}: all other vertices are either incident to the common vertex y or at equal distance 1 from both edge sets (check all clique/independent edge-type cases). With m>=2 any unordered vertex pair can be realized as the nonshared endpoints of such edges (including two clique vertices by using an independent common neighbor when m=2), hence R resolves iff |V-R|<=1. With m=1 only leaf pairs occur; R must choose >=n-1 leaves while center optional. For K2 there are no adjacent distinct edges; nonempty-generator convention gives 2z+z^2. Consequently polynomial for m>=2 is z^N+N z^(N-1), and for star n>=2 is z^(n-1)(n+z)(1+z). An independent BFS distance/adjacent edge test of every subset for all 1<=m,n<=4 confirms each branch. Universal claim follows from pair-realization lemma, not finite sampling.
 
-```text
-VERIFY_OK
-parameter_pairs_checked = 36
-m,n ranges = 1..6
-vertex_subsets_checked = 15876
-minimum_bases_checked = 247
-all direct adjacent-edge tests matched the classification
-all minimum dimensions and basis counts matched
-```
+## originality
 
-The finite enumeration is corroborative only. The all-parameter theorem follows from the exact description of the local edge resolving neighborhood of an adjacent edge pair.
+PASS
+
+Based on source-level and current-literature comparison, the complete surviving claim is not established by the named prior results. This is a best-of-knowledge priority judgment, not a guarantee of global novelty.
+
+## value
+
+PASS
+
+The local edge metric generator family is computed completely, not just its cardinality optimum, on a natural split-graph join family; its transition when introducing a second clique vertex and exact basis counts reveal a sharp combinatorial constraint. The distinguished K2 convention is properly handled. This is an explicit structural classification beyond the known star scalar result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Review of All local edge resolving sets of complete split graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. For two adjacent edges with common endpoint \(y\), a direct case analysis in a complete split graph shows that the only landmarks distinguishing them are their two nonshared endpoints. When the clique has at least two vertices, every unordered pair of vertices can be realized as such a nonshared-endpoint pair, so a local edge metric generator must meet every two-element vertex subset and therefore omit at most one vertex. In the star boundary, only leaf pairs occur, so at most one leaf may be omitted and the center is unrestricted. The enumerators and basis counts follow directly. Exhaustive breadth-first-search verification for all \(1\le m,n\le6\) matches the classification.
+## correctness
 
-## Originality
-PASS. The 2020 introducing paper was inspected in searchable full text. It treats paths, ladders, cycles, stars, and wheels and contains no split-graph occurrence. The 2024 local-edge-metric paper treats corona and edge-corona products and supplies the MSC \(05C12\) classification, but no complete-split formula appears in its inspected abstract and metadata. Targeted semantic and exact searches under complete split, split graph, join of a clique and an independent set, and local edge resolving terminology found no equivalent theorem. The known star theorem is retained as the \(m=1\) boundary rather than claimed as new.
+PASS
 
-## Value
-PASS. The theorem gives every feasible local edge resolving set, not only a minimum value, and reveals a sharp structural transition caused by adding a second universal clique vertex: the allowable complement collapses from an arbitrary center choice plus one possible missing leaf to a single missing vertex anywhere. This is a natural benchmark family for a relatively recent local resolvability invariant and is stronger than the previously known star scalar case.
+For adjacent edges xy,yz, the local edge distinguishing landmarks in K_m join independent_n are exactly the nonshared endpoints {x,z}: all other vertices are either incident to the common vertex y or at equal distance 1 from both edge sets (check all clique/independent edge-type cases). With m>=2 any unordered vertex pair can be realized as the nonshared endpoints of such edges (including two clique vertices by using an independent common neighbor when m=2), hence R resolves iff |V-R|<=1. With m=1 only leaf pairs occur; R must choose >=n-1 leaves while center optional. For K2 there are no adjacent distinct edges; nonempty-generator convention gives 2z+z^2. Consequently polynomial for m>=2 is z^N+N z^(N-1), and for star n>=2 is z^(n-1)(n+z)(1+z). An independent BFS distance/adjacent edge test of every subset for all 1<=m,n<=4 confirms each branch. Universal claim follows from pair-realization lemma, not finite sampling.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Based on source-level and current-literature comparison, the complete surviving claim is not established by the named prior results. This is a best-of-knowledge priority judgment, not a guarantee of global novelty.
+
+## value
+
+PASS
+
+The local edge metric generator family is computed completely, not just its cardinality optimum, on a natural split-graph join family; its transition when introducing a second clique vertex and exact basis counts reveal a sharp combinatorial constraint. The distinguished K2 convention is properly handled. This is an explicit structural classification beyond the known star scalar result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
