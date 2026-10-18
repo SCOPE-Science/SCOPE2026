@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verify_cusp.py` with SymPy installed (versions specified in `requirements.txt`). The actual standalone checker was executed on the packaged path and returned `CHECK_OK`.
+# Independent mathematical audit
 
-It recomputes the double-zero characteristic polynomial, the non-quasistatic center tangent, the negative-coordinate weighted blow-up, both hyperbolic saddle fixed points, and the rational algebraic coefficients of the stated limits. These are exact symbolic identities with positive symbolic parameters; no numerical samples are used to prove universality.
+## correctness
 
-The existence of the invariant center manifold and the incoming/outgoing separatrix germs relies on the standard smooth center-manifold and hyperbolic stable-manifold theorems together with the explicitly stated desingularized vector field. Code does not independently verify these infinite-dimensional local existence conclusions. The result makes no full-neighborhood stability claim. Original-paper PDF acquisition was incomplete; only relevant indexed article text and previously published same-model theorem full text could be compared.
+PASS
+
+PASS: For a,b,c,d>0 with ad=bc, shifting E=(b,0,a) gives u̇=−vw, v̇=(a+w)u, ẇ=cu+bv+uv−dw. Independent symbolic expansion yields charpoly λ²(λ+d), nonsemisimple double zero, and center-tangent H=(cd−ab)u/d²+(b/d)v+O(2). Negative-v blowup v=−r²,u=r³q gives dr/ds=−(a/2)rq+O(r³) and dq/ds=(3a/2)q²−b/d+O(r) for ds/dt=r. q=±sqrt(2b/(3ad)) are hyperbolic saddles. The stable incoming positive-q germ satisfies tr→2/(aQ), yielding exact original-time limits t²y=−6d/(ab), t³(x−b)=12d/(a²b), t²(z−a)=−6/a. Independent SymPy checks confirmed linear, blowup and coefficients. Standard smooth center/stable-manifold theorems supply existence, not code.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: source gives the exact system, equilibrium collision and linearizations, not the nonlinear nilpotent cusp separatrix or three universal algebraic coefficients; a related published weak-focus record addresses the disjoint nonzero imaginary eigenvalue region.
+
+## value
+
+PASS
+
+PASS: Natural equilibrium-collision bifurcation of the published scroll flow has a nilpotent degeneracy; cuspidal sectors and exact physical-time relaxation rates distinguish its behavior from exponential stable eigenmode and correct local dynamical understanding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
