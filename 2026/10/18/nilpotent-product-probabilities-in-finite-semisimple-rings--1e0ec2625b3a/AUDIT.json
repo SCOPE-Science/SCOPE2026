@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed all quantifiers and field/ring hypotheses. Fitting decomposition proves N_r=q^{r²-r}; fixed-rank matrix normal form gives conditional nilpotency probability q^{-r}; a uniform random vector has vanishing probability q^{-r} for a fixed rank-r map; its m-step survival probability is (1-q^{-n})^m. Wedderburn–Artin and coordinate independence yield the finite semisimple product. Weighted exhaustive product counts over F2 dimensions 1,2,3 and F3 dimension 2 at lengths through 4 reproduce the exact formulas. The checker uses actual nth matrix powers, not the proof identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sarma–Subedi Thm. 2.24: T_n(R) and S_n(R) triangular subrings only; Proposition 2.2 concerns direct products for two factors.",
+        "Fine–Herstein nilpotent matrix census, as re-proved in Leinster Theorem 5, lacks any unrestricted multi-factor product law.",
+        "Published idempotent–nilpotent factorization result treats restricted E,N pairs in M_2; published t-fine result treats sums rather than products."
+      ],
+      "reasoning": "The general bounds in the source do not imply the candidate equality for noncommutative full matrix rings; its triangular formulas apply to a proper subring. Matrix-census and constrained-factor statements do not dominate the all-length unrestricted semisimple probability.",
+      "searches": [
+        "Nilpotent Product Probability of Finite Rings Sarma Subedi arXiv 2610.07892 full matrix semisimple matrix algebra random matrix products",
+        "finite rings nilpotent product probability full matrix algebras arbitrary dimension length two or greater exact formula",
+        "web: random matrices finite field product nilpotent probability independent uniform probability"
+      ]
+    },
+    "checked_sources": [
+      "Sarma–Subedi, arXiv:2610.07892v1, complete PDF, abstract and Thm. 2.24, Table 1.",
+      "Leinster, arXiv:1912.12562v2, complete PDF, Thm. 5.",
+      "Exact fibers of idempotent–nilpotent factorizations in two dimensions, complete RESULT.md.",
+      "Exact t-fine decomposition multiplicities for two-by-two finite-field matrices, complete RESULT.md.",
+      "Cooper (2000), On the distribution of rank of a random matrix over a finite field, abstract and scope (rank distribution rather than nilpotent products).",
+      "Fulman–Goldstein (2015), Stein’s method and the rank distribution of random matrices over finite fields, abstract and scope."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Leinster 2020 identifies only the nilpotency probability of a single uniform random linear operator.",
+        "Sarma–Subedi treats products of two ring elements abstractly; direct product property, commutative classification, and triangular subrings, but lacks the conditional-rank bridge and noncommutative matrix formula.",
+        "The Finding defines counts of pairs (E,N) satisfying E²=E, N nilpotent, EN=A; Proof stratifies individual target fibers; it never chooses two unrestricted uniform factors.",
+        "The Finding counts A=T+N with T invertible and N nilpotent; a sum-convolution representation number, not a product probability."
+      ],
+      "reasoning": "The crucial new inference is a uniform right-factor nilpotency probability depending only on rank; this is converted to an absorbing random-vector chain for any m. Existing single-matrix counts and triangular/commutative formulas alone do not state or logically entail the unrestricted full-matrix law without additional argument.",
+      "searches": [
+        "product of several iid uniform matrices in M_n(F_q) is nilpotent with probability 1-(1-q^{-n})^m independent zero vector survival",
+        "Fitting decomposition random product nilpotence conditional rank finite matrices exactly q^{-rank}",
+        "matrix nilpotent probability same as field zero product probability F_{q^n} finite semisimple rings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sarma–Subedi arXiv:2610.07892v1, §§2.2–2.3: same numerical expression appears for field probabilities and triangular subrings, not unrestricted full matrix products.",
+        "Leinster arXiv:1912.12562v2, Thm. 5: m=1 probability q^{-n} only.",
+        "The new conditional-rank identity P(CB nilpotent|C)=q^{-rank C} gives a separately proved bridge from products to vanishing random vector trajectories."
+      ],
+      "reasoning": "Matching scalar outputs in the field case is not a derivation of a matrix-ring statement: two rings need not share their nilpotent-product law. Neither inspected source provides the length-m full-matrix or all-block semisimple theorem.",
+      "searches": [
+        "matrix nilpotent probability same as field zero product probability F_{q^n} finite semisimple rings",
+        "nilpotent probability of product of k random square matrices equals zero product probability of k field elements, 1-(1-q^-n)^k",
+        "web: \"probability\" \"product of matrices\" \"nilpotent\" finite fields"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sarma–Subedi Table 1 (p.8) lists values such as 7/16 associated with commutative residue-field classes; no unrestricted full-matrix M_2(F_2) row or all-m formula is stated.",
+        "Direct weighted exhaustive multiplication gives for M_2(F_2) m=2: 112/256=7/16; m=4: 44800/65536=175/256, which are not an asserted table of unrestricted products in [1]."
+      ],
+      "reasoning": "A table entry of an identical rational value for a different ring is not an exact classification of the matrix-ring object. The candidate describes a full infinite family of objects and all factor lengths, not reconstruction of a cited matrix product table.",
+      "searches": [
+        "Nilpotent Product Probability of Finite Rings Sarma Subedi arXiv 2610.07892 full matrix semisimple matrix algebra random matrix products",
+        "Nilpotent product probability P_nil(M_2(F_q)) = (2 q^2 - 1)/q^4 same as P_nil(F_{q^2}); counting pairs of 2x2 matrices whose product is nilpotent, rank stratification",
+        "web: \"nilpotent product probability\" \"M_n\" \"finite fields\""
+      ]
+    },
+    "rationale": "Compared exact statements and implications with the full 10-page motivating preprint, the complete 5-page nilpotent-matrix census proof, the full texts of two closest published finite-matrix findings, and multiple targeted published-finding and scholarly searches. No inspected source states or entails the all-length unrestricted full-matrix law. Coinciding field probabilities do not imply ring-level equality, and constrained factorization and triangular-subring results do not cover it. Residual risk of unindexed literature is explicitly recognized; searches alone do not establish universal uniqueness.",
+    "residual_risks": [
+      "The exact formula could be implicit in unindexed earlier random finite-matrix-product studies or inaccessible enumeration tables; neither failed nor successful searches alone prove uniqueness.",
+      "Only the cited complete PDF/repository primary materials were used for full-document coverage assessments; rank-distribution citations were checked only at abstract level and not treated as exhaustively NOT_COVERING."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its Theorem 2.24 covers triangular and scalar-upper-triangular subrings, Proposition 2.2 products of rings for m=2, and its commutative residue-field results supply numerical coincidences but not the unrestricted full matrix ring product law.",
+        "evidence": "arXiv:2610.07892v1, abstract, pp.1–9, especially Proposition 2.2 p.2, Theorem 2.24 p.8, Table 1 p.8.",
+        "identifier_or_url": "arXiv:2610.07892v1; https://arxiv.org/pdf/2610.07892",
+        "material_read": "Full 10-page preprint, including introduction, §2.1, §§2.2–2.3, Table 1, theorem statements and proofs, and references.",
+        "method": "Read searchable full PDF text and visually checked theorem and table pages.",
+        "title": "Nilpotent Product Probability of Finite Rings",
+        "trigger": "Original recent paper defines the exact invariant, with a closely related matrix-subring section and an equality table."
+      },
+      {
+        "assessment": "Validates the single-factor nilpotent count; does not discuss nilpotence of products of multiple independent operators.",
+        "evidence": "arXiv:1912.12562v2, p.1 theorem background and pp.3–4, Theorem 5.",
+        "identifier_or_url": "arXiv:1912.12562v2; https://arxiv.org/pdf/1912.12562",
+        "material_read": "Full five-page preprint; Fitting decomposition and Theorem 5 in §§2–3 checked.",
+        "method": "Read full PDF text and visual page with Fitting decomposition.",
+        "title": "The probability that an operator is nilpotent",
+        "trigger": "Sharp baseline count of nilpotent square matrices, a nontrivial premise of the new proof."
+      },
+      {
+        "assessment": "Distinct restricted factorization problem; constrains E²=E and N nilpotent and counts fibers of EN, not unrestricted uniform AB or arbitrary m.",
+        "evidence": "The Finding defines counts of pairs (E,N) satisfying E²=E, N nilpotent, EN=A; Proof stratifies individual target fibers; it never chooses two unrestricted uniform factors.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-fibers-of-idempotent-nilpotent-factorizations-in-two-dimen--376b6f723a17",
+        "material_read": "Full RESULT.md, including finding, scope, proof, verification, prior comparison and limitations.",
+        "method": "Read complete published result text from original repository.",
+        "title": "Exact fibers of idempotent–nilpotent factorizations in two dimensions",
+        "trigger": "High-similarity published matrix result for rank-two products involving nilpotent factors."
+      },
+      {
+        "assessment": "Counts T+N additive decompositions, so the result is neither equivalent nor covering the claimed probability of unrestricted matrix products.",
+        "evidence": "The Finding counts A=T+N with T invertible and N nilpotent; a sum-convolution representation number, not a product probability.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-t-fine-decomposition-multiplicities-for-two-by-two-finite--7b7188752131",
+        "material_read": "Full RESULT.md, including finding, scope, proof, verification, prior comparison and limitations.",
+        "method": "Read complete published result text from original repository.",
+        "title": "Exact t-fine decomposition multiplicities for two-by-two finite-field matrices",
+        "trigger": "High-similarity published M_2 finite-field result with nilpotent components."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1e0ec262-5b3a-4514-8b4b-5b9982e62eb2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 NPP paper resolves commutative and special triangular situations but gives no exact probability on full matrix algebras. The new law settles that natural noncommutative class in every dimension and for every product length; its unexpected equality with zero-product probability over an extension field is a structural collapse not visible from a single nilpotent count. The semisimple formula completes the invariant for every finite semisimple ring. This is a motivated exact classification, not an arbitrary finite slice or a renaming of field arithmetic.",
+    "status": "PASS"
+  }
+}
