@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem concerns *all* real \(s\geq0\). Its proof uses exact slicing of coordinate three-faces, the coarea formula for uniform sums, algebraic substitutions and explicit derivative inequalities. No exhaustive computational sampling of an interval is claimed.
+## correctness
 
-The accompanying dependency-free `verify.py` uses only Python's standard library and exact rational arithmetic. At each of eighteen rational parameter values, including \(s=0,2,4\), it enumerates the intersections of every 5-cube three-face with the hyperplane, constructs each rational polygon hull by orientation tests, computes its projected shoelace area, and verifies that the coefficients of \(\sqrt{s^2+2}\) and \(\sqrt3\) match the closed formula. It also tests the endpoint coefficient table. Run: `python3 verify.py`; expected output:
+PASS
 
-```
-EXACT_RIDGE_FACE_SLICES_OK 18
-EXACT_ENDPOINTS_OK
-```
+A four-dimensional section face has exactly two saturated ambient cube coordinates and is counted via one of forty three-faces, including degenerate transition parameters. Six coordinate pairs leave weights (1,1,s), levels 0,0,2,-2; four pairs involving x5 leave weights (1,1,1), levels abs(1+-s). Coarea for convolution of three uniform variables gives A_w=8||w||_2 f_w and the piecewise triangular slice integrals. Summing yields exactly the three stated expressions at s=2,4 with matching boundaries. Derivative factor after squaring is -3(s-1)(s^3+25s^2-21s+3), with spurious small root rejected by the unsquared sign condition, and strict lower bound >96 for finite s and limit 96 at infinity. Independently symbolically checked factorization and endpoint values. The exact-rational 18-point cube-face verifier was inspected but does not prove all s.
 
-The analytic proof is required for correctness for all real parameters; the script is only a finite reproducibility and transcription check. Prior work already determines the endpoint \(s=0\) via an octahedral skeletal polynomial. The older Burton 1980 paper was not fully available for comparison, and independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete continuous ridge-area law, not its s=0 endpoint alone. Zwierzynski establishes a broader conjecture and known special families; the octahedral-product identity already implies the s=0 endpoint. This implication does not give the intermediate combinatorial transition formulas, strict infimum and derivative extrema, according to the accessible description. Full primary Section5 and older Burton text were inaccessible this execution, so priority for an exact family profile is residual risk, not wrongly excluded by an abstract.
+
+## value
+
+PASS
+
+The first nontrivial four-dimensional ridge-skeleton conjecture motivates testing an infinite natural S4-symmetric path of central five-cube sections that interpolates a product at s=0 toward a coordinate four-cube at large s. The exact pointwise profile proves the target sharp lower bound in this whole family and reveals an interior dip and change-of-combinatorics at s=2,4. Neither finite enumeration nor known s=0 area alone establishes these features.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
