@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "An Euler-trail equivalence proves the exact graph/profile weight \\(|S|\\) for zero odd-degree vertices and one for exactly two; the vertex count identity \\(2v_i=d_i+t_i\\) separates profile endpoints. Complete support-size decomposition yields the displayed ternary rational function, verified by independent symbolic simplification. For fixed q, degree parity is uniformly distributed to leading order by explicit nontrivial cut-character generating functions, and disconnected/missing-edge cases contribute \\(O_q(n^{E-2})\\); summing q+binom(q,2) weights proves the leading coefficient. Reproducibility checks independently enumerate literal ternary words (lengths 1..11), ternary multigraph vectors (1..28), and q=4 words and graphs (1..7). Finite checks do not prove the universal result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ye–Elishco arXiv:2208.14963 §VIII and conclusion",
+        "Gabrys–Milenkovic arXiv:1804.04548, definitions and general reconstruction constructions"
+      ],
+      "reasoning": "The length-limited model permits arbitrary alphabet size but the source provides code constructions rather than an exact quotient count for q=3 at limit two. Ordered multispectra have strictly richer data; a bound or construction for those data does not yield the quotient count after adjacent-pair orientation is discarded.",
+      "searches": [
+        "finite alphabet q-ary r=2 substring composition reconstruction optimal code number distinct read profiles 3 letters",
+        "Ye Elishco r=2 ternary alphabet 3 composition reconstruction exact finite generating function asymptotics"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.14963v1 (first public 2022-08-31)",
+      "arXiv:1804.04548 (2018)",
+      "DOI:10.46298/dmtcs.2768 (2010)",
+      "Public exact binary r=2 length-limited composition reconstruction result (2026)",
+      "Public exact binary ordered adjacent-pair multispectrum result (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The binary exact result explicitly limits its alphabet to {0,1}",
+        "Jacquet et al. count directed balanced cyclic matrices with fixed-alphabet exponent q²−q, whereas the present ternary result has exponent 5",
+        "Ye–Elishco §VIII treats partial compositions and Lyndon constructions, without ternary length-two enumeration"
+      ],
+      "reasoning": "A binary theorem does not imply the ternary coefficient, and directed cyclic Markov-type enumeration uses different observables and a different exponent. The present graph reduction is a genuine additional derivation rather than a changed notation for an existing formula.",
+      "searches": [
+        "ternary q=3 length-limited substring composition multiset lengths one two exact reconstruction code maximum size rational generating function Eulerian multigraph",
+        "finite alphabet q-ary r=2 substring composition reconstruction optimal code number distinct read profiles 3 letters",
+        "q-ary length two unordered adjacent pair composition multiset reconstruction ternary generating function n^5 /80"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ye–Elishco arXiv:2208.14963v1 §VIII",
+        "Jacquet–Knessl–Szpankowski DOI:10.46298/dmtcs.2768 pp. 387–390"
+      ],
+      "reasoning": "An unordered adjacent composition profile is a connected looped undirected multigraph together with compatible endpoint counts. An oriented Markov type stores ij and ji separately, whereas the present observation identifies them. The exact Euler-trail equivalence and parity-dependent count were compared, and no matching enumeration was located.",
+      "searches": [
+        "ternary q=3 length-limited substring composition multiset lengths one two exact reconstruction code maximum size rational generating function Eulerian multigraph",
+        "count unlabeled directed Euler trails from ternary unordered adjacent pair multispectrum with symbol counts",
+        "count connected undirected looped multigraph edge multiplicity Euler trail vertex visit counts ternary profile"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The public binary-only length-two composition profile count gives quadratic, not ternary quintic, growth",
+        "Literal independent enumerations and generating-function coefficients agree for ternary lengths 1 through 11"
+      ],
+      "reasoning": "No table or sequence in the inspected sources states P_3(n) for all n or lists the exact rational series. A failed search is not itself evidence of uniqueness; the source texts and different definitions support the comparison.",
+      "searches": [
+        "ternary q=3 length-limited substring composition multiset lengths one two exact reconstruction code maximum size rational generating function Eulerian multigraph",
+        "q-ary length two unordered adjacent pair composition multiset reconstruction ternary generating function n^5 /80",
+        "Ye Elishco r=2 ternary alphabet 3 composition reconstruction exact finite generating function asymptotics"
+      ]
+    },
+    "rationale": "Compared the mathematical observation, full-profile count, and limiting coefficient against the primary length-limited-composition paper, ordered substring-spectrum work, directed cyclic Markov-type enumerations, and the published binary-only classification. None states or implies the ternary unordered length-two generating function or the general finite-alphabet leading coefficient. The full source comparisons and residual risks are recorded below. This is a best-knowledge scientific novelty assessment, not a claim of a complete literature census.",
+    "residual_risks": [
+      "An unindexed equivalent enumeration under Eulerian multigraphs, undirected Markov types, or substring-composition reconstruction may exist.",
+      "The leading asymptotic may be separately derivable from standard lattice-point methods, although no covering formula was found in the inspected material.",
+      "No independent research audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the observation model but does not determine the ternary limit-two quotient generating function or fixed-q leading coefficient",
+        "evidence": [
+          "arXiv:2208.14963, Section VIII, Corollary VIII.3 and Lyndon-word construction"
+        ],
+        "identifier_or_url": "arXiv:2208.14963",
+        "material_read": "Full-text portions including abstract, model definitions, Section VIII and conclusion; inspected rendered pages",
+        "method": "Read and compared exact observation definitions, Section VIII corollary and construction, and stated scope",
+        "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+        "trigger": "Defines the exact length-limited composition observable for arbitrary alphabets"
+      },
+      {
+        "assessment": "Retains pair orientation, so does not supply the count of unordered ternary composition profiles",
+        "evidence": [
+          "arXiv:1804.04548, problem setup and definitions"
+        ],
+        "identifier_or_url": "arXiv:1804.04548",
+        "material_read": "Primary PDF introduction and ordered-spectrum definitions; inspected full relevant discussion",
+        "method": "Compared exact tuple of observed adjacent pair counts with unordered compositions",
+        "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+        "trigger": "Possible stronger reconstruction model at substring length two"
+      },
+      {
+        "assessment": "Counts directed cyclic Markov types (for q=3 exponent 6), not unordered length-two composition profiles (exponent 5)",
+        "evidence": [
+          "DMTCS Proceedings AM 2010 pp. 387–390, model equations (1)–(3) and statement of asymptotic"
+        ],
+        "identifier_or_url": "DOI:10.46298/dmtcs.2768",
+        "material_read": "Primary 14-page PDF, abstract, Sections 1 and 2, including the cyclic balancing conditions and q=3 example; inspected rendered first page",
+        "method": "Compared directed balanced matrices, cyclic endpoints and exponent with the present connected undirected graph weights",
+        "title": "Counting Markov Types",
+        "trigger": "Closest classical multigraph/type enumeration with arbitrary alphabet"
+      },
+      {
+        "assessment": "Binary only, with degree-two polynomial profile counts; does not state or imply the ternary generating function or general leading coefficient",
+        "evidence": [
+          "Published binary-only result: full statement and explicit nonbinary exclusion"
+        ],
+        "identifier_or_url": "Exact binary r=2 length-limited composition reconstruction (public 2026 result)",
+        "material_read": "Entire public finding statement, definitions, proof, relationship to prior work and limitations",
+        "method": "Compared domain, theorem implications, run methods, and stated nonbinary limitation",
+        "title": "Exact binary r=2 length-limited composition reconstruction",
+        "trigger": "Strongest same-observable earlier result for q=2"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "08e655a2-9220-48f1-b1b9-8eb05ba612ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The length-two composition profile is a natural minimum-nontrivial read model for zero-error string reconstruction. Determining every ternary blocklength optimum and the exact all-fixed-alphabet entropy exponent and coefficient answers a motivated finite-alphabet extension of a binary-only count; the connected Euler-trail interpretation exposes endpoint ambiguity absent from simple graph edge counting. This supplies a usable exact benchmark and a structural generalization, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
