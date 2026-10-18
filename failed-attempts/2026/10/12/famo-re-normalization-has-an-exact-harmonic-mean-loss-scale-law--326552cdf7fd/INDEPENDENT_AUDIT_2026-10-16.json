@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:57:54.779721Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned 2026/10/12/famo-re-normalization-has-an-exact-harmonic-mean-loss-scale-law--326552cdf7fd/RESULT.md and checker/verify.py read, actual source-tree Git SHA 4a7f5e942e7f89170a53a94652c78008233a68c1",
+        "Original FAMO full primary Eq(11) directly implies statement; exact-rational independent sample L=(2,5,3), z=(1/4,1/2,1/4) and scales=(3,2,1/5) corroborates harmonic multiplier 37/61."
+      ],
+      "rationale": "From FAMO Eq. (11), c=(sum z_i/l_i)^(-1), d=c sum_i(z_i/l_i)grad l_i. Under l_i->s_i l_i and g_i->s_i g_i at matched state, log-gradient summands z_i*g_i/l_i remain invariant; w_i=c z_i/l_i define positive simplex weights and c_new/c=(sum_i w_i/s_i)^(-1), so d_new=H_w(s)d. Min/max scale bounds and equal weights (s,1) ->2s/(1+s) follow. Common s gives d_new=s d, hence α_new=α/s and unchanged log-loss differences imply entire same-state model/logit trajectories coincide by induction, if positive adjusted objectives rescale as whole and other hyperparameters match. Direct exact-rational independent worked case and primary verifier formulas corroborate.",
+      "residual_risks": [
+        "Pointwise H_w(s) should not be confused with trajectory equivalence for independently scaled tasks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original exact normalization specifies d for arbitrary current positive losses and gradients and therefore all rescaled variants as special substitutions."
+        ],
+        "reasoning": "This pre-existing formula dominates the pointwise rescaling law without new hypotheses or proof method.",
+        "searches": [
+          "Liu et al NeurIPS2023 FAMO full defining algorithm and practical normalization",
+          "Official FAMO methods/weight_methods.py source revision"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: FAMO fast adaptive multitask optimization renormalization harmonic mean loss scale invariance gradients learning rate",
+        "Resultary: FAMO normalization scaling re-normalization harmonic mean",
+        "FAMO Liu Feng Stone Liu NeurIPS 2023 arXiv:2306.03792 Eq(11)",
+        "Official FAMO implementation Cranial-XIX/FAMO commit 26ecb954dceb25d68dbfdf93a209e5c9ad13967a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original d=c Σ z g/l directly yields d′/d=c′/c and sum w_i/s_i; log-loss differences clearly cancel fixed log s."
+        ],
+        "reasoning": "FAMO original formulas already algebraically imply every submitted conclusion by replacement and normalization, with no independent nonstandard mathematics.",
+        "searches": [
+          "FAMO NeurIPS2023 Eq(11) log-gradient and re-normalized convex combination",
+          "Original log-loss difference log(s l(θ))-log(s l(θ′))"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Eq(11) d=(sum z_i/l_i)^(-1) sum(z_i/l_i)g_i; insertion l_i->s_i l_i makes H_w(s) scalar automatic."
+        ],
+        "reasoning": "A change-of-units calculation of the exact original equation is equivalent to the asserted law; absence of harmonic-mean label does not confer originality.",
+        "searches": [
+          "Liu et al arXiv:2306.03792 FAMO Eq(11) full open manuscript",
+          "Resultary search FAMO loss-scale harmonic re-normalization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source experiments already manipulate improperly scaled task losses; no new exhaustive algorithmic phase/table or hard parameter case is classified."
+        ],
+        "reasoning": "No distinct exact database or table matters; the two-task harmonic mean special case is just evaluation of the source scalar c.",
+        "searches": [
+          "FAMO 2023 log-objective robustness discussion and scaled-task toy comparison",
+          "Official FAMO normalization implementation"
+        ]
+      },
+      "rationale": "REJECT. The defining NeurIPS 2023 FAMO paper ALREADY gives the stronger exact source direction as its Eq. (11) with both numerator and scalar denominator explicit. The claimed weighted harmonic scaling is the immediate quotient of that published normalizer under multiplication l_i->s_i l_i: the exact equation determines the transformed direction without an extra nonstandard lemma, model-specific invariant, or new parameter boundary. By the required stronger-coverage/implication bar, an unstated one-line corollary from published defining formula is covered. No novelty granted merely because source omits the words harmonic mean.",
+      "residual_risks": [
+        "The formal law assumes entire positive adjusted objective rescales; fixed unscaled floors change law.",
+        "A genuinely new dynamical consequence of the sensitivity could be valuable, but none is established here; no repair provided.",
+        "Pointwise H_w(s) should not be confused with trajectory equivalence for independently scaled tasks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published Eq(11) fully determines submitted rescaling law as elementary direct consequence; strong prior implication decisive.",
+          "evidence": "c=(Σ z_i/l_i)^(-1), d=c Σ(z_i/l_i)grad l_i is exact original algorithm.",
+          "identifier_or_url": "arXiv:2306.03792; https://ar5iv.labs.arxiv.org/html/2306.03792",
+          "material_read": "Full open manuscript HTML, focusing Eq(11) normalization, log-gradient derivation, logit update and loss-scale experiments; equation and surrounding motivation inspected.",
+          "method": "Opened ar5iv complete lawful primary text and equation",
+          "title": "FAMO: Fast Adaptive Multitask Optimization",
+          "trigger": "Exact earlier formula for harmonic-scale candidate"
+        },
+        {
+          "assessment": "Consistency background only; scientific rejection derives from primary full published Eq(11), not unseen source code.",
+          "evidence": "Rescaling only raw loss while retaining fixed additive floor invalidates simple transformation assumptions.",
+          "identifier_or_url": "https://github.com/Cranial-XIX/FAMO/blob/26ecb954dceb25d68dbfdf93a209e5c9ad13967a/methods/weight_methods.py",
+          "material_read": "Source-linked implementation normalization mechanism discussed in manuscript/record; connector source-code text not independently refetched line-by-line in this run.",
+          "method": "Followed documented source revision reference and compared to primary formula",
+          "title": "Official FAMO source implementation",
+          "trigger": "Implementation consistency and adjusted-objective caveat"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary: FAMO fast adaptive multitask optimization renormalization harmonic mean loss scale invariance gradients learning rate",
+        "Resultary: FAMO normalization scaling re-normalization harmonic mean",
+        "FAMO Liu Feng Stone Liu NeurIPS 2023 arXiv:2306.03792 Eq(11)"
+      ],
+      "rationale": "REJECT as standalone mathematical value: the exact scale law repackages an elementary substitution into the published normalization formula, with common s learning-rate compensation and min/max harmonic inequalities automatic. It does not identify an algorithmic failure, nontrivial sharp stability threshold, convergence implication or intrinsic new exact invariant beyond Eq. (11). The unit-sensitivity observation is an understandable implementation note, but not a substantively motivated new mathematical gap separate from routine algebra; correctness and numerical demonstration alone do not confer value.",
+      "residual_risks": [
+        "The formal law assumes entire positive adjusted objective rescales; fixed unscaled floors change law.",
+        "A genuinely new dynamical consequence of the sensitivity could be valuable, but none is established here; no repair provided."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The formal law assumes entire positive adjusted objective rescales; fixed unscaled floors change law.",
+    "A genuinely new dynamical consequence of the sensitivity could be valuable, but none is established here; no repair provided.",
+    "Pointwise H_w(s) should not be confused with trajectory equivalence for independently scaled tasks."
+  ],
+  "schema_version": 1
+}
