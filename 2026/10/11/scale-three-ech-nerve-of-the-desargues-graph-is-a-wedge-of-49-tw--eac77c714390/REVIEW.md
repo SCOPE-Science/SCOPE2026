@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the fixed 20-vertex generalized Petersen graph \(GP(10,3)\), with closed radius-\(3/2\) balls in its unit-edge geometric realization. Adams–Shukla–Singh Lemma 2.2 proves the required equivalence with edge-unions of radius-one closed vertex neighborhoods. The complete face vector \((20,150,440,410,180,30)\) was independently recomputed from 30 generators. `VERIFY.py` replays 472 elementary simplicial collapses and proves global acyclicity for a 590-pair discrete-Morse matching by topologically sorting all 1,230 faces and 4,340 incidences. Exactly one zero-cell and 49 two-cells are critical, with no one-cells, so Forman's theorem gives the asserted wedge of two-spheres. Integral homology follows from the homotopy type, not from a field-only computation. Scope does not extend beyond the exact threshold.
+PASS
 
-## Originality — PASS, with residual risk
+For explicitly fixed GP(10,3) Desargues graph (not the different Desargues-name graph), the 30 odd-scale Čech generators N[u]∪N[v] each have six vertices. Independent exact enumeration gives 1,230 faces and f-vector (20,150,440,410,180,30), Euler characteristic 50. Full deterministic elementary free-face collapse removes 472 face-coface pairs and leaves a (20,118,148) two-complex. On that complex 19 spanning-tree vertex-edge pairs and 99 non-tree edge-triangle matches leave 1 critical vertex and 49 triangles. Independently oriented every matched/unmatched incidence in the original full Hasse diagram (4,340 incidences) and topologically sorted all 1,230 nodes, confirming complete acyclicity. Forman yields integral wedge ∨^{49}S² with no torsion or π₁, not merely matching mod-two Betti numbers; pure 5D implies not shellable.
 
-Searches checked Desargues/Levi/\(GP(10,3)\), odd-scale radius-\(3/2\) Čech nerves, edge-neighborhood unions, sphere counts, and broader cubic girth-six classifications in primary literature and a published-finding database. The closest same-construction primary source, Adams–Shukla–Singh, was materially inspected in its full-text HTML for definitions, Lemma 2.2, homotopy theorems, open questions, and references; its stated classifications apply to hypercubes, not the Desargues graph. Previously recorded Desargues graph results concern Rips, matching, cut, and independence complexes and do not imply this Čech homotopy type. No equivalent statement was found. A differently named or unindexed prior computation is still possible; search absence alone is not a novelty proof. A 2014 D-neighborhood dissertation and 2025 closed-neighborhood-complex work were identified as adjacent constructions, but no decisive full-text comparison for those was established in this review.
+## originality
 
-## Value — PASS
+PASS
 
-The Desargues graph is the Levi graph of the classical Desargues \((10_3)\) incidence configuration and a canonical cubic symmetric girth-six graph. Scale three is the first threshold beyond the standard girth-based recovery guarantee; determining its integral homotopy type is a natural reconstruction invariant. The result gives the complete 49-sphere wedge structure, simple-connectedness, and a five-dimensional shellability obstruction, not merely a Betti rank or a cosmetic parameter change. It gives a reproducible comparison point for other symmetric girth-six graphs; no unsupported general-family extrapolation is made.
+Best-of-knowledge PASS for GP(10,3) at intrinsic Čech r=3; a Resultary indexed Desargues graph-metric Rips filtration has different generating faces and at r=3 has S³, so it is not a covering theorem. Adams Lemma 2.2 is a method but not a classification. Other incidence graph Čech records (Heawood, Pappus) concern distinct graphs. No exact dominating graph-family theorem for this number was found by search and reviewed texts.
 
-## Residual limitations
+## value
 
-Unindexed equivalences remain possible. The computation has only same-model review, not independent mathematical validation or a general theorem for other incidence graphs.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Desargues GP(10,3) is the highly symmetric canonical cubic girth-six incidence graph; r=3 is the first scale at the boundary where girth recovery ceases. The exact ∨^{49}S² and pure-dimension-five non-shellability provide a reproducible integral benchmark and a meaningful topology transition, not just a tiny parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

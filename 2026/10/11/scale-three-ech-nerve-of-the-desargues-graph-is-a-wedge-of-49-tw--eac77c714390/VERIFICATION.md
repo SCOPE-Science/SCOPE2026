@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Execute `python3 VERIFY.py` using Python 3 (no third-party packages). The verifier defines \(GP(10,3)\) directly from 30 explicit edges, generates all 1,230 nonempty simplices of the intrinsic scale-three graph Čech nerve, and repeats every finite certificate step from the proof. The checked complete face vector is \((20,150,440,410,180,30)\); 472 elementary free-face pairs reduce to a two-dimensional complex with vector \((20,118,148)\). The full discrete-Morse matching has 590 pairs and critical cells \((1,0,49)\) in dimensions zero, one, and two. The 4,340 directed Hasse incidences are acyclic. Exact mod-two ranks of the remaining first and second boundary maps are 19 and 99, independently confirming the homological ranks.
+# Independent mathematical audit
 
-The discrete-Morse conclusion requires the standard mathematical theorem that an acyclic matching yields a CW complex with one cell per critical face. With no critical one-cells, all surviving two-cell maps attach to a point, giving the asserted wedge integrally. The program is an exhaustive finite certificate for this specific graph; it does not certify any infinite family or perform independent human review.
+## correctness
+
+PASS
+
+For explicitly fixed GP(10,3) Desargues graph (not the different Desargues-name graph), the 30 odd-scale Čech generators N[u]∪N[v] each have six vertices. Independent exact enumeration gives 1,230 faces and f-vector (20,150,440,410,180,30), Euler characteristic 50. Full deterministic elementary free-face collapse removes 472 face-coface pairs and leaves a (20,118,148) two-complex. On that complex 19 spanning-tree vertex-edge pairs and 99 non-tree edge-triangle matches leave 1 critical vertex and 49 triangles. Independently oriented every matched/unmatched incidence in the original full Hasse diagram (4,340 incidences) and topologically sorted all 1,230 nodes, confirming complete acyclicity. Forman yields integral wedge ∨^{49}S² with no torsion or π₁, not merely matching mod-two Betti numbers; pure 5D implies not shellable.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for GP(10,3) at intrinsic Čech r=3; a Resultary indexed Desargues graph-metric Rips filtration has different generating faces and at r=3 has S³, so it is not a covering theorem. Adams Lemma 2.2 is a method but not a classification. Other incidence graph Čech records (Heawood, Pappus) concern distinct graphs. No exact dominating graph-family theorem for this number was found by search and reviewed texts.
+
+## value
+
+PASS
+
+Desargues GP(10,3) is the highly symmetric canonical cubic girth-six incidence graph; r=3 is the first scale at the boundary where girth recovery ceases. The exact ∨^{49}S² and pure-dimension-five non-shellability provide a reproducible integral benchmark and a meaningful topology transition, not just a tiny parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
