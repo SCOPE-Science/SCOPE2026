@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The practical ASGD source equations reduce exactly to a two-state scalar matrix. Its trace and determinant give three second-order Jury inequalities; two are automatically positive on the stated source domain, while the third gives the exact stability ceiling. Direct algebra proves the SGD crossover and the sharp global lower envelope.
+PASS
 
-Risk: this is deterministic modal stability rather than stochastic mean-square stability.
+Independently expanded the actual two-state matrix from source RESULT.md: Jury conditions are (100κs−49ξs+119ξ)/(10(10κ+7ξ))>0, 49sξ(ξ+1)/(10(10κ+7ξ))>0, and (400κ+42ξ−s(200κ+49ξ²−49ξ))/(10(10κ+7ξ))>0. Under κ≥1,0<ξ≤√κ,s>0 the first two are positive, so the third gives the exact iff. The boundary characteristic polynomial vanishes at −1. Direct symbolic subtraction yields the sign factor 14ξ(10−7ξ)/positive denominator; subtracting 400/249 gives a strictly positive term proportional to 1400(κ−ξ²)+2147ξ, while ξ=√κ,κ→∞ attains the infimum asymptotically. Source verify.py was inspected, but the independent SymPy matrix reduction rather than verifier exit code supports the formulas.
 
-## Originality
+## originality
 
-PASS. The 2017 ASGD paper gives stochastic least-squares acceleration and the 2018 paper gives the practical short-step/long-step form and its deterministic Nesterov equivalence. The deterministic endpoint is treated as prior context. The inspected sources and focused published-record searches do not state the full statistical-advantage-dependent Schur frontier, the \(\xi=10/7\) crossover, or the \(400/249\) lower envelope.
+PASS
 
-Residual risk: an equivalent two-state calculation may exist in control literature without ASGD terminology.
+Independent best-of-knowledge originality assessment of the precise final claim. The Nesterov endpoint and ASGD stochastic convergence estimates overlap parts of the model but do not by themselves assert the free-statistical-advantage crossover. The matched recurrence and its implication, not the algorithm title, were compared. Ordinary two-state matrix stability machinery is standard, but neither defining paper provides a theorem logically implying both the 10/7 comparison and the global 400/249 envelope. Residual risks and genuine material inspected are explicitly recorded.
 
-## Value
+## value
 
-PASS. The result directly characterizes the three central practical ASGD tuning quantities. It separates stability of the coupled mechanism from stability of its constituent short and long steps and gives a sharp criterion for when the statistical-advantage setting enlarges or narrows the ordinary SGD large-step margin.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp stability map for the actual short-step/long-step accelerated stochastic-optimization update is motivated by practical tuning and distinguishes coupled-system stability from instability of its isolated long step. The full admissible interpolation and 10/7 crossover are nontrivial quantitative algorithmic facts, not an arbitrary single-point experiment or a stochastic-risk guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

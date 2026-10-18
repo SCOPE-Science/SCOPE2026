@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:57:37.827132Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently expanded the actual two-state matrix from source RESULT.md: Jury conditions are (100κs−49ξs+119ξ)/(10(10κ+7ξ))>0, 49sξ(ξ+1)/(10(10κ+7ξ))>0, and (400κ+42ξ−s(200κ+49ξ²−49ξ))/(10(10κ+7ξ))>0. Under κ≥1,0<ξ≤√κ,s>0 the first two are positive, so the third gives the exact iff. The boundary characteristic polynomial vanishes at −1. Direct symbolic subtraction yields the sign factor 14ξ(10−7ξ)/positive denominator; subtracting 400/249 gives a strictly positive term proportional to 1400(κ−ξ²)+2147ξ, while ξ=√κ,κ→∞ attains the infimum asymptotically. Source verify.py was inspected, but the independent SymPy matrix reduction rather than verifier exit code supports the formulas.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2018 source relates the practical form to Nesterov only on the deterministic xi=sqrt(kappa) slice.",
+          "The 2017 source proves stochastic least-squares rates under prescribed algorithm settings, not necessity of the full Jury region across arbitrary xi."
+        ],
+        "reasoning": "Neither a rate guarantee on selected parameters nor Nesterov-endpoint stability dominates an iff Schur classification over the full 2-parameter admissible source family.",
+        "searches": [
+          "arXiv:1803.05591 practical accelerated gradient convergence and Nesterov deterministic equivalence",
+          "arXiv:1704.08227 accelerated stochastic least-squares theorem",
+          "ASGD two-state accelerated stochastic gradient descent exact scalar quadratic Schur stability step size boundary statistical advantage parameter xi and kappa"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1803.05591v1",
+        "arXiv:1704.08227v1",
+        "Resultary semantic search: ASGD two-state accelerated stochastic gradient descent exact scalar quadratic Schur stability step size boundary statistical advantage parameter xi and kappa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting the published recurrence and solving all three Jury inequalities supplies a source-independent proof of the complete parameter region.",
+          "Prior source statistical acceleration statements do not entail the negative-one Schur boundary for arbitrary xi."
+        ],
+        "reasoning": "Ordinary two-state matrix stability machinery is standard, but neither defining paper provides a theorem logically implying both the 10/7 comparison and the global 400/249 envelope.",
+        "searches": [
+          "arXiv:1803.05591 Algorithm 3 and deterministic discussion",
+          "arXiv:1704.08227 stochastic risk theorems",
+          "ASGD two-state accelerated stochastic gradient descent exact scalar quadratic Schur stability step size boundary statistical advantage parameter xi and kappa"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1803.05591 full text Algorithm 3 gives the two-state recurrence, constant 0.7, and deterministic xi=sqrt(kappa) Nesterov equivalence.",
+          "The exact Jury Schur interval concerns all 0<xi<=sqrt(kappa); inspecting the defining algorithm is not the same as finding that closed-form if-and-only-if theorem."
+        ],
+        "reasoning": "The Nesterov endpoint and ASGD stochastic convergence estimates overlap parts of the model but do not by themselves assert the free-statistical-advantage crossover. The matched recurrence and its implication, not the algorithm title, were compared.",
+        "searches": [
+          "ASGD two-state accelerated stochastic gradient descent exact scalar quadratic Schur stability step size boundary statistical advantage parameter xi and kappa",
+          "arXiv:1803.05591 Algorithm 3",
+          "arXiv:1704.08227"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic index returned near results on AdaShift, A2Grad, reflected-gradient and Nesterov-type scalar thresholds, with different update matrices and tuning parameters."
+        ],
+        "reasoning": "The claim is a global analytic parameter classification rather than a finite table; the compared indexed thresholds have different characteristic polynomials and cannot transfer their constants to this specific recurrence.",
+        "searches": [
+          "ASGD two-state accelerated stochastic gradient descent exact scalar quadratic Schur stability step size boundary statistical advantage parameter xi and kappa",
+          "Resultary published numerical scalar stability crossover stochastic momentum optimizer search"
+        ]
+      },
+      "rationale": "Independent best-of-knowledge originality assessment of the precise final claim. The Nesterov endpoint and ASGD stochastic convergence estimates overlap parts of the model but do not by themselves assert the free-statistical-advantage crossover. The matched recurrence and its implication, not the algorithm title, were compared. Ordinary two-state matrix stability machinery is standard, but neither defining paper provides a theorem logically implying both the 10/7 comparison and the global 400/249 envelope. Residual risks and genuine material inspected are explicitly recorded.",
+      "residual_risks": [
+        "Equivalent 2x2 Jury analysis may appear in general accelerated-method or control literature without ASGD terminology.",
+        "The xi=sqrt(kappa) deterministic Nesterov slice is preexisting; novelty is not claimed there in isolation.",
+        "Deterministic one-curvature-mode stability does not establish stochastic mean-square convergence or risk benefits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source defines update, does not explicitly prove the full free-parameter Schur iff/10/7 crossover.",
+          "evidence": "Algorithm 3; discussion of deterministic xi=sqrt(kappa) equivalence.",
+          "identifier_or_url": "arXiv:1803.05591v1",
+          "material_read": "Full available arXiv PDF: Algorithm 3, constant 0.7, parameter definitions, deterministic Nesterov equivalence, and main convergence discussion",
+          "method": "Read original PDF mathematical text and relevant displayed equations",
+          "title": "On the insufficiency of existing momentum schemes for Stochastic Optimization",
+          "trigger": "Same exact practical two-state ASGD recurrence and parameters"
+        },
+        {
+          "assessment": "Stochastic convergence guarantee under selected assumptions; not the all-xi deterministic practical scalar iff.",
+          "evidence": "Original algorithm and main theorems.",
+          "identifier_or_url": "arXiv:1704.08227v1",
+          "material_read": "Available arXiv PDF, algorithm setup, four-sequence tuning, accelerated stochastic-risk results",
+          "method": "Read full accessible source mathematical statements and recurrence context",
+          "title": "Accelerating Stochastic Gradient Descent For Least Squares Regression",
+          "trigger": "Earlier equivalent accelerated SGD formulation and possible broader stability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp stability map for the actual short-step/long-step accelerated stochastic-optimization update is motivated by practical tuning and distinguishes coupled-system stability from instability of its isolated long step. The full admissible interpolation and 10/7 crossover are nontrivial quantitative algorithmic facts, not an arbitrary single-point experiment or a stochastic-risk guarantee.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1803.05591v1",
+    "arXiv:1704.08227v1",
+    "Resultary semantic search: ASGD two-state accelerated stochastic gradient descent exact scalar quadratic Schur stability step size boundary statistical advantage parameter xi and kappa"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Equivalent 2x2 Jury analysis may appear in general accelerated-method or control literature without ASGD terminology.",
+    "The xi=sqrt(kappa) deterministic Nesterov slice is preexisting; novelty is not claimed there in isolation.",
+    "Deterministic one-curvature-mode stability does not establish stochastic mean-square convergence or risk benefits."
+  ]
+}
