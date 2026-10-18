@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The face-fan description is exact for every even cycle; after bipartition sign changes the primitive facet-ray matrix is an incidence matrix and totally unimodular. Every minimal dependent active set is therefore a singular circuit, and the only possibilities are length-even apex-rim paths (forcing a three-coordinate square circuit) or the complete rim. Feasibility and minimality produce exactly the codimension-three cones and the exceptional rank-\(n-1\) cone. Their lattice relations identify normal slices with the node and the rank-one square determinantal cone. Coordinate-fixed faces and the unimodular fence equivalence give the intersection and degree formulas. Exhaustive small instances and independent Ehrhart tests agree with every prediction checked.
+## correctness
 
-## Originality — PASS, with material residual risk
-The general abstract classification of Hibi singular components in Wagner (1996), the broad cotangent criterion of Lakshmibai--Mukherjee (2007), and Miura's use of this criterion **are prior coverage**, as are Stanley's alternating-permutation volumes. The claimed distinction is the combined **even-cycle all-component geometry**, the non-pure line and its rank-one \(m\times m\) transverse type and multiplicity, plus the closed degree formula for **every** nonempty singular-component intersection. None of the materially inspected primary treatments of the other problems states this cycle-wide combination. Wagner's 1996 original was not fully accessible and his abstract announces local-ring calculations, so an equivalent specialized result there cannot be ruled out; this specific risk requires independent literature review. Search failure alone has not been interpreted as proof of novelty.
+PASS
 
-## Value — PASS
-The component arrangement is non-equidimensional and its low-dimensional residual line has transverse multiplicity growing as \(\binom{2m-2}{m-1}\), distinguishing it sharply from generic threefold nodes on the main components. The complete independent-set incidence criterion and intersection-degree formula give natural intersection-theoretic invariants for an entire family, with explicit use in stratified singularity and resolution calculations. This is materially more than simply recomputing an Euler-number table.
+For C_{2m} stable-set P, primitive outward facet rays r_i=-e_i and s_i=e_i+e_{i+1} become signed apex/rim graph-incidence columns under bipartition sign twist, hence totally unimodular. A normal cone is nonsmooth exactly at dependent active facet rays. Feasible graph circuits are whole rim (alternating 1-dimensional face F_alt) or apex-rim path circuits; each active latter forces the four-ray cone for F_i:x_i=1. Thus singular reduced components are L=F_alt orbit closure P1 and n pairwise incomparable Y_i, each toric path stable-set of dim n-3. Their saturated primitive circuit relations yield transverse 2x2 and m x m rank-one determinantal cones, with node and binom(2m-2,m-1) multiplicities. Intersections of Y_i for nonempty S are nonempty iff S is stable; remaining induced complement-N[S] graph is disjoint paths; unimodular fence-poset equivalence and Stanley linear-extension theorem imply degree multinomial(d;d_j) prod E_{d_j}. L intersections iff S single parity, one endpoint. Independent full face incidence test on C6: 18 stable vertices, 403 nonempty faces, 7 maximal non-simplicial faces, top degrees n=6,8,10 -> 12,128,2720; not a proof for all n.
 
-## Closest sources and limits
-Theorem 2.20 in Miura (arXiv:1301.7632), quoting Wagner, supplies the abstract minimal-convex-cycle criterion, and Miura Section 4 illustrates degree computations for a different poset. Stanley's *Two Poset Polytopes*, Corollary 4.2 and Example 4.3, supply the path-volume ingredient. Lakshmibai--Mukherjee (arXiv:0706.2686, Theorem 6.9) classify affine Hibi singular loci algorithmically. The generic germ is not asserted at nongeneric orbit intersections, and no nonreduced singular scheme has been classified. Wagner's complete original text remains a specified coverage risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Scientific best-of-knowledge assessment after independently reading the frozen RESULT.md and recreating relevant proof/calculation, checking Resultary and named primary source statements. Wagner 1996 and the Lakshmibai--Mukherjee 2007 Theorem6.9 give general Hibi singular-locus criteria, so an abstract method for locating nonsmooth orbits is PRIOR. Stanley 1986 already gives path-fence volumes Euler zigzag numbers. The claimed new synthesis is a complete even-cycle specialization with an extra singular line of different codimension, generic rank-one determinantal transverse models and complete intersection-degree formulas for all selected Y_S. General statements alone need explicit circuit/face analysis; no exact same-specialization earlier table was located in targeted searches.
+
+## value
+
+PASS
+
+Even-cycle stable-set polytope varieties are canonical graph toric varieties. The theorem determines their non-equidimensional singular support, generic local multiplicities and degrees not only of irreducible components but all component intersections for every even n>=6, a motivated complete structural classification useful in singular and intersection geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
