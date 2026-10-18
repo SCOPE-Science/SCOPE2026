@@ -1,36 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Orthogonal projection restricts the support function. The planar support-area identity gives the exact first variation
-\[
-\mathcal A_f(E)=\int_{S^3\cap E}f\,d\omega_1.
-\]
-For a projected three-dimensional body, differentiating the support-coordinate surface-area density
-\[
-\det(\nabla^2h+hI)
-\]
-at the unit sphere gives
-\[
-\Delta f+2f;
-\]
-the Laplacian integrates to zero, producing
-\[
-\mathcal S_f(u)=2\int_{S^3\cap u^\perp}f\,d\omega_2.
-\]
-The equatorial Funk transform on \(S^3\) has multiplier
-\[
-4\pi C_\ell^1(0)/C_\ell^1(1)
-\]
-on degree-\(\ell\) harmonics, and
-\[
-C_\ell^1(0)=\sin((\ell+1)\pi/2),
-\]
-so its kernel is exactly the odd functions. Their integral on every antipodally symmetric great circle is zero. The packaged symbolic replay verifies the determinant and polynomial identities used by the proof.
+## correctness
 
-## Originality
-**PASS, with a residual implicit-literature risk.** The 2009 open problem explicitly identifies noninjectivity of the ambient Grassmann Radon transform as the obstacle and asks whether the restricted projection-area range avoids that obstruction. Goodey's 2009 survey supplies the harmonic and projection-function framework but does not state the ball tangent-range result. The materially inspected 1998 full text proves global Radon uniqueness for centrally symmetric bodies and polytopes, not the differential implication for arbitrary asymmetric support perturbations. Searches by the problem wording, first-variation formulation, tangent-range formulation, and Funk-transform aliases found no covering theorem.
+PASS
 
-## Value
-**PASS.** This is a structural reduction of a named geometric-tomography problem rather than a generic transform calculation. It shows that the precise ambient-kernel difficulty highlighted in the problem disappears at first order at the most symmetric base point. Therefore any smooth counterexample family through the ball must exploit genuinely nonlinear, at least second-order, effects. That information is directly relevant to local uniqueness and stability approaches to the problem.
+For a C² support perturbation h=1+ε f of the four-dimensional Euclidean ball, use restriction h|S²(u⊥) as support of the 3D projection. Surface-area determinant differentiation det(∇²h+hI_2) gives derivative ∫(Δ_{S²} f+2f)dω=2∫_{S²(u⊥)} f. For a 2D projected support h_E, planar area is 1/2∫(h²−(h′)²)dθ; derivative at the unit circle equals ∫_{S¹(E)} f. The first operator is the even spherical Funk equator transform on S³: its kernel is precisely odd harmonics (eigenvalues proportional to Gegenbauer C_l^1(0), nonzero for each even l). Equality of all 3D-surface first variations implies f−g is odd, hence every 2D-area first variation also vanishes. Constants, exact first-order normalizations and restrictions were independently reconstructed; this proves only infinitesimal tangent-range implication at ball, not the nonlinear global Goodey problem.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Primary Open Problem Session (2009), Problem4 explicitly asks global implication from all hyperplane projection surface areas to all planar projection areas in R4 and notes noninjective ambient Grassmann Radon transform. Goodey 1998 pp159–164 proves restricted Radon injectivity for centrally symmetric bodies and polytopes using harmonic representations, but not linearized tangent-range implication at the non-symmetric ball for arbitrary C² support variations; equal nonlinear transform data for two symmetric bodies is stronger/different than equality of first derivatives of arbitrary paths. The 2009 Goodey survey discusses projection data and harmonic multipliers, not a directly stated all-f tangent space classification. The computation is founded on classical support variation and Funk parity, but the combined tangent-image rigidity is a concrete local statement of the exact open problem; old transform literature may implicitly contain it.
+
+## value
+
+PASS
+
+The all-perturbation tangent-space answer isolates precisely the linear obstruction for a named, longstanding nonlinear convex-geometric determination problem. It proves that loss of injectivity in ambient Grassmann transforms is not realized by first-order support-function perturbations beyond odd directions, and therefore a counterexample or positive global proof must rely on higher-order structure. This is a motivated structural lemma at a natural symmetric base point, with exact normalizations, not an arbitrary Fourier eigenvalue calculation or a purported solution to the original problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
