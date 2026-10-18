@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The bigram Euler-trail uniqueness argument is direct. In the inspected 2016 Proposition 5.7 finite decomposition, at most q disjoint nonempty cyclic letter-root supports occur; equality s=q forces one-letter roots exhausting the alphabet. Corollary 5.5 excludes all external occurrences, hence all connectors. Lemma 5.10 gives finitely many types with at most s-1 length degrees of freedom, so nonchain singleton words are O_q(n^(q-2)). Verified the finite checker on exact package code; no infinite inference from enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "ArXiv 1605.03319v1 Theorem 6.1 gives O_q(n^{q-1}), not q n^{q-1}+O_q(n^{q-2}).",
+        "DLT 2016 Theorem 9 gives regularity and rationality of fixed-parameter singleton counts, not a leading constant for q>=4."
+      ],
+      "reasoning": "A generic rationality statement permits many possible leading coefficients; a generic O bound does not imply the constant or the typical-word characterization. The new argument classifies every maximum-dimensional type.",
+      "searches": [
+        "\"k-Abelian Equivalence and Rationality\" \"all\" \"leading\" \"singletons\" \"alphabet\"",
+        "\"k-abelian singleton\" \"leading coefficient\" general alphabets",
+        "https://arxiv.org/html/1605.03319v1 Section 6, Conjecture 7.8"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1605.03319v1",
+      "doi:10.1007/978-3-662-53132-7_7",
+      "https://www.utupub.fi/server/api/core/bitstreams/6c4a5f5d-c647-410d-9a5f-bf5b229bfde6/content"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2016 finite-type bounds imply O_q(n^{q-1}); the step identifying all s=q types as distinct-letter run chains is provided here.",
+        "2016 DLT small q formulas imply their own exact leading terms but make no statement for all q>=4."
+      ],
+      "reasoning": "The new conclusion requires an extremal-equality structural argument: s=q forces every periodic root to have one unique alphabet letter and corollary 5.5 suppresses the connectors. Neither cited source states that implication as an all-q enumeration theorem. Their hypotheses suffice with the additional argument given.",
+      "searches": [
+        "On cardinalities of k-abelian equivalence classes Proposition 5.7 Lemma 5.10 Theorem 6.1 Conjecture 7.8",
+        "k-Abelian Equivalence and Rationality Proposition 15 q2 q3 singleton counts",
+        "Leading Laurent pole and exact asymptotics of 2-abelian singleton word generating function for arbitrary alphabet size m"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "ArXiv 1605.03319v1 Proposition 5.7 and Corollary 5.5 supply run structure, not this sharp coefficient.",
+        "DLT 2016 Proposition 15 supplies only q=2,3 exact values."
+      ],
+      "reasoning": "Synonyms include unique bigram-count word, singleton Euler trail, first-order Markov type class of cardinality one, and fixed-k=2 abelian singleton. The proof handles all of these via equality of first letter and bigram multiplicities. No matching q>=4 all-alphabet leading coefficient was observed.",
+      "searches": [
+        "\"2-abelian\" \"singleton\" asymptotic \"m!\"",
+        "\"k-Abelian Equivalence and Rationality\" \"singletons\" \"Proposition 15\" leading",
+        "For every fixed alphabet cardinality q, the number of 2-abelian singleton words of length n equals q! binomial(n-1,q-1)+O_q(n^{q-2}); asymptotically almost every singleton is a permutation of constant-letter runs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "DLT 2016 Proposition 15 has exact formulas for (2,2) and (2,3), with no (2,4) or general q formula.",
+        "Direct finite q=4 and q=5 enumerations serve as non-priority computational checks only."
+      ],
+      "reasoning": "Known q=2 and q=3 rows agree with the proposed leading coefficient but cannot determine q>=4. Searches did not identify a table or database supplying the arbitrary-q coefficient; absence is not proof of novelty.",
+      "searches": [
+        "\"2-abelian singleton\" \"q\" polynomial enumeration",
+        "\"S_{2,m}(n)\" singleton words alphabets",
+        "published mathematical index search: unique Euler trail de Bruijn multigraph words q disjoint loops singleton k-abelian equivalence necklace cycle decomposition"
+      ]
+    },
+    "rationale": "The first 2016 source proves only big-O and formulates general sharpness as a conjecture; the second 2016 source gives exact binary and ternary examples but not the q>=4 leading constant or typical form. The new coefficient for every q>=4 is not the earlier big-O bound and is not obtained just by restating small cases. Residual risk of an independent unindexed derivation remains.",
+    "residual_risks": [
+      "This sharp coefficient may have been derived but not indexed in independent later work.",
+      "The 2017 expanded journal edition was identified via bibliographic abstract; its complete full text was not separately inspected, although the accessible 2016 version was read in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides essential premises and O upper bound, but does not give q>=4 leading coefficient",
+        "evidence": [
+          "Corollary 5.5: letters of a long root occur nowhere else",
+          "Proposition 5.7: disjoint periodic supports",
+          "Lemma 5.10: finite types",
+          "Conjecture 7.8: sharpness conjectured"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1605.03319v1",
+        "material_read": "Abstract, definitions, Sections 5-7 including proofs of Corollary 5.5, Proposition 5.7, Lemma 5.10, Proposition 6.2, Theorem 6.1, Conjecture 7.8",
+        "method": "Accessible first-version full text",
+        "title": "On cardinalities of k-abelian equivalence classes",
+        "trigger": "Directly defines singleton types and bounds their number"
+      },
+      {
+        "assessment": "Covers q2/q3 explicit formulas and all-q rationality, not the fixed k2 arbitrary-q leading coefficient",
+        "evidence": [
+          "Proposition 15 gives S_(2,2)=2n+4 and S_(2,3)=3n²+27n-63",
+          "Page 11 lists explicit generating function questions as open"
+        ],
+        "identifier_or_url": "https://www.utupub.fi/server/api/core/bitstreams/6c4a5f5d-c647-410d-9a5f-bf5b229bfde6/content",
+        "material_read": "Full 12-page DLT 2016 primary text, particularly Sections 3-6 and Proposition 15, also PDF page images",
+        "method": "Open-access author repository PDF, extracted text and page-image inspection",
+        "title": "k-Abelian Equivalence and Rationality",
+        "trigger": "Closest direct singleton-counting computations and regularity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "92efef0b-01bc-4e55-beb7-7bbedd5aef1b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem is explicitly tied to the published conjecture that the singleton exponent is attained. For all fixed alphabets q>=4, the result supplies not only the exponent but the sharp coefficient q and asymptotic classification of typical singletons, offering a motivated infinite family not resolved by the earlier q2/q3 formulas. It does not overstate higher-factor-length cases.",
+    "status": "PASS"
+  }
+}
