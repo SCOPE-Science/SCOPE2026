@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact CRT product was reconstructed from the definition, the cyclotomic root count was proved separately at the ramified prime \(\ell\) and at every \(p
-e\ell\), and the equality comparison was reduced to an integer product identity. The parity argument covers all supports, including the only potentially delicate support \(\{2,q\}\) when \(\ell\) is odd. The converse on \(n=\ell^b\) is immediate. A direct verifier checked 3,990 finite cases without mismatch; the computation is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. Targeted published-finding corpus searches used generalized/polynomial totient terminology, cyclotomic aliases, prime-power indices, and equality/coincidence formulations. The closest published-finding corpus records concern different cyclotomic or Euler-totient problems and do not imply the claim. Robu's full paper was inspected: its main result is an asymptotic lower bound and the text contains no cyclotomic specialization. Standard finite-field cyclotomic factorization supplies only the local root count, not the global equality classification.
+PASS
 
-## Value
-PASS. Equality with the classical Euler totient is a natural calibration question for Robu's generalized function. The theorem resolves that question completely on every non-linear prime-power cyclotomic polynomial and yields an infinite structural rigidity family rather than an isolated calculation.
+PASS: CRT yields phi_P(n)=n product_{p|n}(1-rho_P(p)/p) for arbitrary integer polynomial. For m=ell^a the reduction Phi_m(X) mod ell=(X-1)^phi(m) has one distinct root, whereas for p!=ell the cyclic group F_p^* has phi(m) primitive mth roots exactly if m|(p-1), else none. The global equality cancels the ell factors and becomes product_{other p}(p-rho_m(p))=product_{other p}(p-1). Since phi(m) is even, for odd p!=ell all left factors are odd; parity eliminates any extra odd p when ell=2 and when ell odd with 2 absent. When ell odd and 2 divides n, v2 forces exactly one other odd prime q, where 2(q-rho(q))=q-1; rho=0 impossible, rho=phi(m) implies q=2phi(m)-1 and m|q-1=2(phi(m)-1), contradicting m odd and 0<phi(m)-1<m. Thus no extra prime; conversely ell powers obey both local factors. Independently compared definition and predicted equality for nine indices 3,4,5,7,8,9,11,16,25 and every n=2..300 (2691 pairs). The finite cases are corroboration, not the proof.
 
-## Closest literature and limitations
-The closest source is Robu's arXiv:2211.10644v1, which introduces \(arphi_P\) and develops the local product in an asymptotic setting. Standard cyclotomic factorization over finite fields determines the local roots. The theorem is limited to prime-power cyclotomic indices \(m=\ell^a\ge3\); non-prime-power indices are not classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Robu introduced the generalized totient and proved broad asymptotic lower bounds, not the exact cyclotomic prime-power coincidence set. Standard finite-field root-of-unity facts give the local factors, while the global parity and exceptional {2,q} elimination yield a quantified classification. No published exact same equality classification appeared in targeted semantic and primary searches. An unindexed elementary special case remains possible.
+
+## value
+
+PASS
+
+PASS: The exact equality locus for a generalized totient attached to the canonical infinite family of prime-power cyclotomic polynomials is a natural arithmetic classification. The global parity/2-adic obstruction gives a nontrivial all-n theorem beyond the known local root-count formula and can serve as a precise boundary for further non-prime-power indices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T04:50:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: CRT yields phi_P(n)=n product_{p|n}(1-rho_P(p)/p) for arbitrary integer polynomial. For m=ell^a the reduction Phi_m(X) mod ell=(X-1)^phi(m) has one distinct root, whereas for p!=ell the cyclic group F_p^* has phi(m) primitive mth roots exactly if m|(p-1), else none. The global equality cancels the ell factors and becomes product_{other p}(p-rho_m(p))=product_{other p}(p-1). Since phi(m) is even, for odd p!=ell all left factors are odd; parity eliminates any extra odd p when ell=2 and when ell odd with 2 absent. When ell odd and 2 divides n, v2 forces exactly one other odd prime q, where 2(q-rho(q))=q-1; rho=0 impossible, rho=phi(m) implies q=2phi(m)-1 and m|q-1=2(phi(m)-1), contradicting m odd and 0<phi(m)-1<m. Thus no extra prime; conversely ell powers obey both local factors. Independently compared definition and predicted equality for nine indices 3,4,5,7,8,9,11,16,25 and every n=2..300 (2691 pairs). The finite cases are corroboration, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Robu 2022 main theorem supplies an asymptotic lower bound for an arbitrary irreducible integer P. Standard finite-field cyclotomic factorization gives rho(Phi_m,p) for primes p but no all-n equality set."
+        ],
+        "reasoning": "A broad polynomial family for asymptotic estimates is not a stronger result on the distinct exact equality predicate. Local cyclotomic root theorems need the global arithmetic obstruction to give the claimed iff.",
+        "searches": [
+          "Resultary semantic 2026-10-17: generalized Euler totient cyclotomic polynomial equality Euler phi prime powers root count",
+          "https://arxiv.org/abs/2211.10644",
+          "Lidl–Niederreiter, Finite Fields, cyclotomic roots"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.10644",
+        "https://bulletin.ssmr.ro/volumes/67-4/node3.html",
+        "Lidl–Niederreiter Finite Fields",
+        "Resultary semantic 2026-10-17: generalized Euler totient cyclotomic polynomial equality Euler phi prime powers root count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Robu theorem permits product formulations but does not force absence of compensating primes. Prime-power cyclotomic root counts and parity exclude compensation, including the special case of p=2 for odd ell."
+        ],
+        "reasoning": "The global implication iff n=ell^b requires a separate parity/valuation argument. It is a proper exact refinement for natural irreducible polynomials, not an automatic corollary of the generic lower-bound theorem.",
+        "searches": [
+          "Resultary semantic 2026-10-17: generalized Euler totient cyclotomic polynomial equality Euler phi prime powers root count",
+          "https://arxiv.org/abs/2211.10644",
+          "https://bulletin.ssmr.ro/volumes/67-4/node3.html"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Robu phi_P(n) is defined by a single polynomial evaluation on each residue class, and can equivalently be expressed by the CRT local root product. Equality with phi(n) asks product of local nonroot proportions to equal product(1-1/p)."
+        ],
+        "reasoning": "The source general definition and root-product framework are prior, but they do not themselves classify global cancellation across all prime divisors n for all prime-power cyclotomic indices.",
+        "searches": [
+          "Resultary semantic 2026-10-17: generalized Euler totient cyclotomic polynomial equality Euler phi prime powers root count",
+          "https://arxiv.org/abs/2211.10644",
+          "https://bulletin.ssmr.ro/volumes/67-4/node3.html"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent brute force on 2691 (index,n) pairs for nine distinct prime-power indices matches the asserted equality locus; no exhaustive infinite table can decide it. Robu paper has asymptotic estimates rather than a coincidence table."
+        ],
+        "reasoning": "The theorem classifies an infinite family of complete prime-support rays; it is not a reprint of a known finite table. Lack of search hits does not alone certify novelty.",
+        "searches": [
+          "Resultary semantic 2026-10-17: generalized Euler totient cyclotomic polynomial equality Euler phi prime powers root count",
+          "https://arxiv.org/abs/2211.10644"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Robu introduced the generalized totient and proved broad asymptotic lower bounds, not the exact cyclotomic prime-power coincidence set. Standard finite-field root-of-unity facts give the local factors, while the global parity and exceptional {2,q} elimination yield a quantified classification. No published exact same equality classification appeared in targeted semantic and primary searches. An unindexed elementary special case remains possible.",
+      "residual_risks": [
+        "An obscure classical number-theoretic note might have an equivalent elementary equality theorem not indexed in available searches.",
+        "Direct character-by-character inspection of frozen RESULT.md decoded content found 32 ASCII control characters (vertical tab, backspace, form feed) in TeX positions; VERIFICATION.md has 1 vertical tab, so unsanitized formula markup is not publication-ready.",
+        "Only indices m=ell^a>=3 considered; m=2 is linear and behaves differently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_EQUALITY_CLASSIFICATION",
+          "evidence": "Robu derives asymptotic lower bound for general irreducible P, without a classification of phi_{Phi_{ell^a}}(n)=phi(n) in the full text.",
+          "identifier_or_url": "arXiv:2211.10644 (Vlad Robu, 2022)",
+          "material_read": "Complete five-page lawful OA arXiv PDF read, including definition, CRT/product framework, lower-bound theorem and conclusion.",
+          "method": "Full arXiv PDF page-by-page inspection",
+          "title": "A Generalisation of Euler Totient Function",
+          "trigger": "Introduces exactly the generalized arithmetic function used in the claim"
+        },
+        {
+          "assessment": "PRIOR_LOCAL_LEMMA",
+          "evidence": "For p not dividing m, Phi_m roots over F_p are primitive mth roots, existing iff m|p-1; this does not settle equality of products over all prime divisors.",
+          "identifier_or_url": "Rudolf Lidl and Harald Niederreiter, Finite Fields (standard cyclotomic factorization)",
+          "material_read": "Standard theorem statement as used in the proof, not a full book inspection; the elementary multiplicative-order implication was independently reconstructed.",
+          "method": "Mathematical deduction and source-bibliographic check",
+          "title": "Finite Fields",
+          "trigger": "Classical lemma for primitive mth roots mod p"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The exact equality locus for a generalized totient attached to the canonical infinite family of prime-power cyclotomic polynomials is a natural arithmetic classification. The global parity/2-adic obstruction gives a nontrivial all-n theorem beyond the known local root-count formula and can serve as a precise boundary for further non-prime-power indices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every prime-power cyclotomic index m=ell^a>=3 and integer n>=2, Robu generalized totient counting r mod n with gcd(Phi_m(r),n)=1 equals Euler phi(n) if and only if n=ell^b (b>=1). The local root count rho_m(p) is 1 for p=ell, phi(m) for p!=ell congruent 1 mod m, and zero otherwise.",
+  "limitations": [
+    "Only prime-power cyclotomic indices m>=3 and integers n>=2; neither composite m nor proportionality constants are characterized.",
+    "Actual decoded source contains 32 control characters in RESULT.md and 1 in VERIFICATION.md; verified corrected scientific-file bytes are required before publication.",
+    "Primary generalized-totient source fully read; novelty still best-of-knowledge."
+  ],
+  "schema_version": 1
+}
