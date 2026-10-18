@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Fourier diagonalization is explicit, ordering folded phases gives the exact adjacent cosine gap families with no omitted boundary pairs, and the min of strictly increasing/decreasing branches has exactly one optimizer. Sharp constants follow by substitution, and the finite-T Cesaro estimate follows by integrating nonzero Fourier cross terms. Reproducible verifier passed 10064 checks. The spectral maximin theorem does not imply best actual mixing time.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Godsil, arXiv:1103.2578v1: general average mixing theory for standard quantum walks.",
+        "Levine et al., arXiv:2605.04414v1: chiral circulants may have uniform Cesaro mixing.",
+        "Frigerio et al., arXiv:2106.11685v1, Eq. (26): full spectral formula."
+      ],
+      "reasoning": "The known simple-spectrum-to-uniform-average result and the prior explicit chiral energies are stronger in scope for their respective statements and are credited; neither mathematically fixes the maximin energy difference over total flux, which is the only proposed novelty. No assertion of novel Fourier diagonalization, uniform mixing, or odd resonant phase is made.",
+      "searches": [
+        "uniform average mixing chiral quantum walk time averaged finite time convergence optimized flux minimum eigenenergy splitting 81Q35",
+        "quantum walk cycle magnetic flux average mixing spectral phase level spacing phi near pi thirds"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0708.2096v1 §§2,4",
+      "arxiv:1103.2578v1 average mixing sections",
+      "arxiv:2106.11685v1 §IV Eq. (26)",
+      "arxiv:2605.04414v1 chiral circulant results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Frigerio et al. 2021 Eq. (26) implies each energy as a function of flux; §IV uses a different short-time objective and highlights odd resonance.",
+        "Adamczak et al. 2007 Theorem 10 uses symmetric real circulant weights; its pair-degeneracy implication does not apply to complex chiral hopping.",
+        "Levine et al. 2026 discusses uniform chiral average mixing, not the unique maximin spectral optimizer."
+      ],
+      "reasoning": "The full prior spectrum is necessary input but does not by itself state the minimum among all n(n-1)/2 spacings, require analysis of cyclic fold ordering, or determine the global optimizing flux. The new theorem entails and proves those facts; odd resonant phase and simple-spectrum averaged uniformity are explicitly excluded from its originality claim. Risk of previously implicit optimization remains.",
+      "searches": [
+        "chiral quantum walks cycle optimal phase avoid degeneracy maximize spectral gap magnetic flux energy level spacing",
+        "chiral quantum walks cycle \"minimum eigenvalue gap\" \"phase\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Frigerio et al., arXiv:2106.11685v1, §IV Eq. (26) gives the same full eigenvalue list and the observed odd resonant phase but optimizes transport and quantum-classical distance.",
+        "Adamczak et al., arXiv:0708.2096v1, §§2,4 treats real undirected cycles and zero-flux degeneracy."
+      ],
+      "reasoning": "Tested aliases energy spacing, smallest eigenvalue gap, avoided level crossings, chiral phase, flux-threaded ring, and Cesaro dephasing. The 2021 energy formula covers spectral input, but neither it nor the inspected transport phase optimizations state the pairwise minimum, even-size unique maximizer, or parity constants. The odd optimal phase coincides with their earlier resonant phase and is not independently claimed novel.",
+      "searches": [
+        "magnetic flux quantum walk cyclic graph Hermitian adjacency maximize minimum eigenvalue spacing parity even odd optimal flux arctan tan n",
+        "chiral quantum walks cycle optimal phase avoid degeneracy maximize spectral gap magnetic flux energy level spacing",
+        "quantum walk cycle magnetic flux average mixing spectral phase level spacing phi near pi thirds",
+        "chiral quantum walks cycle \"minimum eigenvalue gap\" \"phase\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary literature supplies an analytic dispersion relation rather than an enumerated optimized min-spacing table (Frigerio et al., arXiv:2106.11685v1, §IV).",
+        "Adjacent published records on quarter-flux metric-graph band density and quantum walk Fourier spectral operators concern different objects and invariants."
+      ],
+      "reasoning": "Checked for explicit per-size eigenenergy-gap tables and parametrically equivalent formulas, not only title matches. No checked exact table fixes the unique even-cycle flux or the two asymptotic prefactors. A database search cannot establish global uniqueness; an uninspected specialized spectral table remains a residual risk.",
+      "searches": [
+        "magnetic finite cycle eigenvalue minimum separation exact optimal total flux odd even 1/3 tangent chiral quantum walk",
+        "magnetic flux quantum walk cyclic graph Hermitian adjacency maximize minimum eigenvalue spacing parity even odd optimal flux arctan tan n"
+      ]
+    },
+    "rationale": "The nearest primary text (Frigerio et al. 2021 §IV) supplies the same eigenvalues and recognizes the odd resonant phase, but does not state the all-pairs minimum, exact even-size optimizing flux, or parity-separated limiting coefficients. Prior uniform-average mixing is expressly not claimed as new. Claim-level comparisons show no directly covering result in inspected documents, with residual risk of historical spectral optimizations.",
+    "residual_risks": [
+      "Historical magnetic tight-binding ring literature may contain the same maximin optimization, despite not being identified in inspected sources.",
+      "The odd optimal phase is known as a resonant phase for another criterion; only the global gap optimization/parity classification is asserted as new.",
+      "Prior full eigenvalue formula may permit an alternative short derivation; value rests on the sharp optimized min-gap classification, not the dispersion itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers undirected real adjacency and associated degeneracies, not general magnetic-flux gap maximin",
+        "evidence": "Section 2 assumes a_j=a_{n-j}; Theorem 10 requires f(-x)=f(x), unlike complex magnetic hopping.",
+        "identifier_or_url": "https://arxiv.org/abs/0708.2096",
+        "material_read": "Sections 2 and 4, Fourier spectral equations (3), (9), average formulas (6)-(8), and Theorem 10 proof",
+        "method": "Public full text reading with direct section and equation comparison",
+        "title": "Non-uniform mixing of quantum walk on cycles",
+        "trigger": "Same cycle and average-mixing observable; potential stronger spectral coverage"
+      },
+      {
+        "assessment": "Simple-spectrum averaged-mixing machinery is credited; no optimized flux min-gap calculation identified",
+        "evidence": "Average mixing matrix and ordinary cycle spectra, without min over all pairwise chiral energy gaps.",
+        "identifier_or_url": "https://arxiv.org/abs/1103.2578",
+        "material_read": "Full-text cycle and average-mixing portions, including spectral projections and cycle examples",
+        "method": "Public arXiv PDF section reading",
+        "title": "Average mixing of continuous quantum walks",
+        "trigger": "Broad average mixing may subsume the Cesaro part"
+      },
+      {
+        "assessment": "Closest scientific predecessor. Spectrum and odd resonant phase are known; the paper optimizes transport/distance rather than smallest pairwise energy splitting; no even analytic formula of this claim in inspected text.",
+        "evidence": "Eq. (26) energies; odd θ=π/(2N) in §IV; even θ=π/N transport suppression; no pair-min gap optimized.",
+        "identifier_or_url": "https://arxiv.org/abs/2106.11685",
+        "material_read": "Section IV, equations (24)-(30), eigenvalues in Eq. (26), odd resonance description and even-size transport discussion",
+        "method": "Public full-text equation and implication comparison",
+        "title": "Quantum-classical distance as a tool to design optimal chiral quantum walk",
+        "trigger": "Exact same magnetic ring Hamiltonian and existing phase optimization"
+      },
+      {
+        "assessment": "Uniform average mixing under chiral eigenvalue conditions is prior. Does not settle min-gap optimized flux.",
+        "evidence": "Abstract explicitly announces oriented circulants with average uniform mixing; optimized pairwise eigenenergy separation is a distinct invariant.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.04414",
+        "material_read": "Abstract and theorem-level circulant/uniform average-mixing discussion",
+        "method": "Public preprint text and relevant main result inspection",
+        "title": "Uniform Mixing in Chiral Quantum Walks",
+        "trigger": "Broad chiral-circulant uniform mixing might cover the corollary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80f5956d-6e1b-44bf-8929-156658b15358",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest energy splitting is an exact worst-resonance denominator in a general finite-time Cesaro dephasing bound. Determining its global flux maximizer over all Fourier pairs is structurally motivated, and the exact parity bifurcation π/2 versus π/3 plus the leading coefficient ratio 4/3 yields a nonvacuous all-size spectral design benchmark without claiming actual mixing-time optimality.",
+    "status": "PASS"
+  }
+}
