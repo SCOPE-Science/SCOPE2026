@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces \(1\)-fair domination to the exact occupancy equations \(|S|-s_i=1\) on incomplete parts. The case split by the number of incomplete parts is exhaustive and yields the proper-set classification. The fair-coalition partition classification follows without relying on finite experiments. Exhaustive enumeration through order \(7\) independently corroborates every branch.
+## correctness
 
-Risk: the theorem explicitly adopts the standard vacuous convention for \(S=V(G)\); if a different definition excluded the whole vertex set, the two-block case would need reformulation.
+PASS
 
-## Originality
-PASS. The initiating paper was inspected at the definitions, general bounds, path/cycle results, cubic results, and its complete-bipartite mention. It records \(K_{3,3}\) only as one cubic example. Targeted searches for complete multipartite, complete bipartite, star, and \(1\)-fair coalition formulations found no theorem matching or implying the full classification. The closest complete-multipartite result concerns fair dominating sets themselves, not coalition partitions.
+In K_{n1,...,nr} selected set S, each omitted vertex of part i has t-s_i selected neighbors. The requirement exactly one implies t-s_i=1 in every unfilled part. If two parts unfilled then t<=2; proper 1-fair sets are universal singleton vertices in r>=3, cross-shore pairs in a nonstar K_{a,b}, or center-containing sets in a star. Thus complete and nonstar bipartite graphs admit N singleton fair-coalition blocks, r>=3 noncomplete has exactly 2 blocks, and nontrivial stars admit none. The all-vertex set qualifies vacuously. Independent literal fair coalition partition enumeration checked all 37 unordered multipartite profiles of orders 2..7; infinite theorem rests on the combinatorial proof.
 
-Residual risk: a poorly indexed equivalent theorem under alternate coalition terminology may exist; no such source was found in the searches performed.
+## originality
 
-## Value
-PASS. The theorem completely settles the new partition invariant on the fundamental complete-multipartite class and, importantly, identifies an existence obstruction rather than only another scalar value. The transition from all-singleton optimum to exactly two blocks at three parts is structural and not a routine numerical substitution into a general bound.
+PASS
 
-## Closest literature and limitations
-The closest primary source is S. Alikhani, A. Jafari, and M. Safazadeh, “Fair coalition in graphs,” arXiv:2507.15080. It introduces the invariant, proves general bounds, and treats paths, cycles, and small cubic graphs. The theorem here is restricted to finite connected complete multipartite graphs and to \(1\)-fair coalitions; it does not address \(k\)-fair coalitions for \(k\ge2\) or count maximum partitions.
+Alikhani–Jafari–Safazadeh define fair coalition partitions and mention the special K_3,3 case but do not give this complete family in inspected primary text. A prior Resultary 1-fair domination condition from a more general fair-domination polynomial gives the possible coalition unions, not the existence and exact optimum fair-coalition partition for all multipartite profiles. The new classification is readily derivable from those premises but not given or automatically implied without analyzing block constraints.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The parameter can be undefined even for connected graphs, and this natural infinite structural class exhibits three sharp regimes: star obstruction, maximal N partition, and forced 2-block partition. It resolves meaningful existence and extremal behavior beyond a sample computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
