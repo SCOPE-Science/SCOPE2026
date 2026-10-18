@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python verify.py` with Python 3 and NumPy (tested with 2.3.5) from the package directory. The verifier enumerates all spin configurations on paths of lengths 3 through 11 to compute the fugacity polynomial, compares its roots with the analytic circle threshold, independently compares transfer-matrix traces with the Chebyshev expression at complex fields, and checks threshold collision multiplicities. Observed output:
+# Independent mathematical audit
 
-`VERIFY_OK numerical_zero_loci= 135 transfer_identities= 135 boundary_multiplicities= 27 numpy= 2.3.5`
+## correctness
 
-The mathematical proof is in RESULT.md. Finite floating-point checks do not establish the assertion for every length and real parameter. No external or independent audit is reported, and the original Chebyshev partition expression is attributed to antecedent literature.
+PASS
+
+For n>=3 the cyclic transfer-trace Cayley–Hamilton identity reduces partition zeros to Q_n(x)=xU_(n-1)(x)+λU_(n-2)(x) with λ=(exp(-2(K+L))-1)/(1-exp(-4K)). For λ<=0 an explicit symmetric Jacobi realization gives real roots and Q_n(±1/c)≠0 inside physical range; for even n any λ>0 yields an imaginary-root pair. For odd n the positive roots interlace until λ=1/(n-1), where a triple x=0 occurs; beyond this F_m(iy) changes sign and the reciprocal negative fugacity pair leaves the circle. Verified n=3..10 direct original spin partition polynomials at both sides of thresholds (32 checks); finite tests support unrestricted root argument, not replace it.
+
+## originality
+
+PASS
+
+Classical Lee–Yang assumes all ferromagnetic bonds. Tonchev–Dantchev supply Chebyshev transfer partition identities in a defect chain, which this review does not credit as original; their inspected treatment focuses real-field observables rather than a necessary-and-sufficient mixed-sign complex-zero circle threshold. Parity-sharp boundary and collision multiplicities remain plausible original research.
+
+## value
+
+PASS
+
+A single frustrated bond is the minimal mixed-sign violation of classic Lee–Yang hypotheses. Its parity-sensitive exact circle-preservation window gives the sharp finite-size root-topology boundary, a natural quantitative object relevant to complex magnetic-field singularities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
