@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The theorem identifies each vertex as a distinct exposed incidence root and uses the centered population covariance, restricted to the orthonormal zero-sum hyperplane. A reduced cofactor equals the intrinsic determinant divided by the number of graph vertices. The exact augmented incidence determinant is evaluated by Cauchy–Binet: nonconnected edge sets have zero minors and every connected unicycle minor equals the signed cycle imbalance. Schur complementation supplies the equivalent Laplacian pseudoinverse identity. In a tournament, the complete-graph Laplacian makes covariance a scalar minus rank one; score majorization and parity rigorously identify both equality classes. A standalone pure-Python exact arithmetic check corroborates these steps on several finite families. Boundary cases of trees, semibalanced cycles, odd/even tournament order, and positive definiteness are addressed explicitly.
+
+## Originality — PASS, with residual literature risk
+The primary directed-root-polytope papers determine the object, affine rank dichotomy, facet structure, and some Ehrhart invariants. A published oriented-cycle theorem already implies the analogous *single-cycle* Euclidean simplex-volume specialization; it does not imply the all-spanning-unicycle covariance determinant or sharp tournament extrema. Known signed-graph tree-minor identities treat different signed incidence matrices; classical Cauchy–Binet and tournament score majorization are credited as methods, not claimed as inventions. Closest previously published sphere results for directed roots concern circumballs, not covariance determinants. The most material residual risk is an equivalent formula in generic augmented-incidence or experimental-design determinant literature under another name. In the checked sources and mathematical records, no statement was located that covers the combined graph-wide identity and sharp tournament classification.
+
+## Mathematical value — PASS
+The result evaluates a natural intrinsic Euclidean invariant of directed edge polytopes for *every* orientation of *every* connected simple graph, expressed entirely through graph cycles. It characterizes exactly when the invariant vanishes and relates a nontrivial weighted spanning-unicycle enumeration to a centered graph-theoretic projection. For complete graphs, orientation alone produces a sharp, completely classified spread in the covariance condition number from an isotropic regular tournament to a maximally anisotropic transitive tournament, despite identical norm and cardinality of all generating vertices. This is a structural and reproducible invariant, not an arbitrary numerical slice or a renaming of an already evaluated table.
+
+## Limits
+No claim is made about optimal enclosing ellipsoids, polytope volume, parallel edges, or multiple arrows. The computational checks are finite corroborations only. An independent review remains to be performed. Novelty is qualified by the explicitly documented literature risk.
+
+Self-review: passed. Independent audit: not yet performed.
