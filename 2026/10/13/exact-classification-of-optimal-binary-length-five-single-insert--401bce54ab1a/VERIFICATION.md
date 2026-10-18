@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Compile and run `verify.cpp` with `g++ -O2 -std=c++20 verify.cpp -o verify && ./verify`. Separately run `python3 verify.py` (Python standard library only).
+## correctness
 
-Both build the complete relation between all 32 five-bit centers and all 64 six-bit targets, check insertion balls each have 7 distinct targets, and exhaustively rule out every covering of size at most 11. They independently enumerate the six coverings of size 12 and check every received word is covered in each code. Complementing all bits and reversing all five positions partitions the six codes into three two-member orbits.
+PASS
 
-The C++ search reports `optimal_size=12 labeled_optima=6 complement_reversal_orbits=3 nodes=10955 VERIFY_OK`; the independent Python implementation reports `optimal_size=12 labeled_optima=6 complement_reversal_orbits=3 nodes= 10841 VERIFY_OK`. State counts refer to recursion calls under different exhaustive branching orders; they are **not** a certification channel or probabilistic inference. Every pruning condition is explained and justified in `RESULT.md`.
+Every five-bit candidate x produces exactly seven distinct six-bit insertion outputs, while every six-bit target must be covered by a five-bit predecessor from its six deletion positions. Branching on every possible predecessor of one uncovered target is logically exhaustive; pruning if uncovered count exceeds 7 times remaining chosen centers cannot remove an actual solution. Independently implemented a different bitset DFS on all 32 candidate centers and all 64 targets, ruled out 11 or fewer centers and enumerated six distinct size-12 codebooks; the six optima match the three displayed representatives and their complements/reversals. The independent enumeration used 13,351 nodes; the two repository verifiers use independent branching orders. This is a complete finite-domain proof, not sampled extrapolation.
 
-# Limitations
+## originality
 
-The verification is finite and exhaustive only for this exact alphabet, center length and insertion radius. No conclusions are made for larger lengths or alphabets. Independent external validation has not been performed.
+PASS
+
+Existing published work treats arbitrary-alphabet/asymptotic insertion covers and length-three small-alphabet tables. Full text of Xie–Sun–Ge 2026 was read, including insertion lower-bound theorem and conclusions; it gives I(q,n,R)>=q^n/(binom(n+R,R)-1), far weaker at q=2,n=5,R=1, and does not enumerate the exact six binary length-five optimal codebooks. Earlier unpublished small exact computations are a reasonable residual risk.
+
+## value
+
+PASS
+
+The minimum number of codewords and all optimum choices at the smallest nontrivial natural binary synchronization-code benchmark provide precise usable design data. A complete labeled census and symmetry classification adds mathematical information beyond merely constructing one code; the channel equivalence group is intrinsic, not an arbitrary partition of a small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

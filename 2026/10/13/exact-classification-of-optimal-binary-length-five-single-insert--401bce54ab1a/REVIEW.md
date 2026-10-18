@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact quantifiers are binary centers of length five and targets of length six under a one-position deletion relation. Every target-to-center predecessor is considered; the recursive search cannot miss a covering because it branches on every predecessor of an uncovered target. Pruning uses the exact seven-target insertion-ball size and is mathematically sound. Two differently implemented searches exclude every code of size at most eleven, enumerate six codes of size twelve and verify their covering property. The complement/reversal orbit computation yields three disjoint pairs.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest sources are the 2026 large-alphabet covering-bounds work of Xie–Sun–Ge, the density work of Pikhurko–Verbitsky–Zhukovskii, the general 2021 insertion/deletion covering paper, and Grozea's small-alphabet table for center length three. The exact binary center-length-five cardinality **plus all-optima classification** is not asserted in the inspected relevant results. Searches of mathematical records for the parameter and six-code classification did not identify an equivalent claim. Unindexed earlier finite enumerations are the main residual originality risk; failure to find them is not proof of priority.
+PASS
 
-**Value — PASS.** This is an exact natural finite code-design capacity, not a change of notation or a restriction picked after an arbitrary parameter sweep. In addition to the sharp cardinality, it determines all optimal designs and exhibits three genuinely inequivalent designs even under the natural channel symmetries. It extends the line of exact small-parameter calculations beyond the previously tabulated three-symbol center examples, providing a non-asymptotic benchmark for single-insertion covering constructions. The statement does not claim a general bound or asymptotic improvement.
+Every five-bit candidate x produces exactly seven distinct six-bit insertion outputs, while every six-bit target must be covered by a five-bit predecessor from its six deletion positions. Branching on every possible predecessor of one uncovered target is logically exhaustive; pruning if uncovered count exceeds 7 times remaining chosen centers cannot remove an actual solution. Independently implemented a different bitset DFS on all 32 candidate centers and all 64 targets, ruled out 11 or fewer centers and enumerated six distinct size-12 codebooks; the six optima match the three displayed representatives and their complements/reversals. The independent enumeration used 13,351 nodes; the two repository verifiers use independent branching orders. This is a complete finite-domain proof, not sampled extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Existing published work treats arbitrary-alphabet/asymptotic insertion covers and length-three small-alphabet tables. Full text of Xie–Sun–Ge 2026 was read, including insertion lower-bound theorem and conclusions; it gives I(q,n,R)>=q^n/(binom(n+R,R)-1), far weaker at q=2,n=5,R=1, and does not enumerate the exact six binary length-five optimal codebooks. Earlier unpublished small exact computations are a reasonable residual risk.
+
+## value
+
+PASS
+
+The minimum number of codewords and all optimum choices at the smallest nontrivial natural binary synchronization-code benchmark provide precise usable design data. A complete labeled census and symmetry classification adds mathematical information beyond merely constructing one code; the channel equivalence group is intrinsic, not an arbitrary partition of a small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T15:49:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every five-bit candidate x produces exactly seven distinct six-bit insertion outputs, while every six-bit target must be covered by a five-bit predecessor from its six deletion positions. Branching on every possible predecessor of one uncovered target is logically exhaustive; pruning if uncovered count exceeds 7 times remaining chosen centers cannot remove an actual solution. Independently implemented a different bitset DFS on all 32 candidate centers and all 64 targets, ruled out 11 or fewer centers and enumerated six distinct size-12 codebooks; the six optima match the three displayed representatives and their complements/reversals. The independent enumeration used 13,351 nodes; the two repository verifiers use independent branching orders. This is a complete finite-domain proof, not sampled extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie–Sun–Ge prove general lower bound I(q,n,R)>=q^n/(binom(n+R,R)-1); at q=2,n=5,R=1 this gives 32/5, thus only >=7, not 12.",
+          "Pikhurko–Verbitsky–Zhukovskii results concern limiting high-alphabet densities."
+        ],
+        "reasoning": "No inspected general stronger theorem entails 12 or counts six exact optimal codes at the tested short binary instance.",
+        "searches": [
+          "Resultary semantic query: single insertion covering code binary length five minimum size 12 enumeration optimizers",
+          "arXiv:2606.15379 Theorem IV.1",
+          "arXiv:1911.09944",
+          "arXiv:2409.06425"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.15379 (Xie–Sun–Ge full text)",
+        "arXiv:1911.09944 (Lenz et al.)",
+        "arXiv:2409.06425 (Pikhurko et al.)",
+        "Grozea public three-symbol-length insertion cover table",
+        "Resultary short binary insertion-covering query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general insertion covering lower bound I(2,5,1)>=7 is compatible with but does not imply sharp 12 or its full orbit census.",
+          "The asymptotic large-q upper/lower bounds do not determine this short-q exact benchmark."
+        ],
+        "reasoning": "A complete 32-by-64 finite set-cover classification requires and receives a separate exhaustive proof; the previous general results cannot give the claimed count.",
+        "searches": [
+          "arXiv:2606.15379 Theorem IV.1 and conclusions",
+          "arXiv:1911.09944 introduction/results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The insertion covering relation agrees with Lenz et al definitions, but the fixed binary (q=2,n=5) complete six-solution classification differs from prior general lower/upper estimates.",
+          "Grozea table has center length three, not the current length five."
+        ],
+        "reasoning": "Shared insertion metric is not a proof that earlier asymptotic covering estimates or short-length tables contain this exact optimum-and-orbit classification.",
+        "searches": [
+          "Resultary semantic query: single insertion covering code binary length five minimum size 12 enumeration optimizers",
+          "arXiv:2606.15379",
+          "arXiv:2409.06425",
+          "Grozea three-symbol-length single-insertion table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known public tabulation concerns covering by centers of length three; the exact object and ground set differ.",
+          "Resultary nearest hits concern one-deletion correction and ternary deletion/absorption, not this binary insertion-covering hypergraph."
+        ],
+        "reasoning": "No known table row found with identical q=2, center n=5, insertion t=1 and six 12-center solutions. Search absence alone is not a novelty proof; possible unpublished enumeration is noted.",
+        "searches": [
+          "Resultary semantic query: single insertion covering code binary length five minimum size 12 enumeration optimizers",
+          "Grozea combinatorial small insertion-covering tables",
+          "Resultary binary length five insertion cover search"
+        ]
+      },
+      "rationale": "Existing published work treats arbitrary-alphabet/asymptotic insertion covers and length-three small-alphabet tables. Full text of Xie–Sun–Ge 2026 was read, including insertion lower-bound theorem and conclusions; it gives I(q,n,R)>=q^n/(binom(n+R,R)-1), far weaker at q=2,n=5,R=1, and does not enumerate the exact six binary length-five optimal codebooks. Earlier unpublished small exact computations are a reasonable residual risk.",
+      "residual_risks": [
+        "Possible unindexed or unpublished 32-by-64 exact covering enumerations, especially small-alphabet code tables.",
+        "No statement for larger lengths or alphabets is implied by a complete length-five finite search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general bounds and asymptotic regimes, NOT the q=2,n=5 exact optimum and complete orbit list.",
+          "evidence": [
+            "Theorem IV.1: |C|>=q^n/(binom(n+R,R)-1).",
+            "Conclusions emphasize gaps in asymptotic insertion-covering bounds, not exact binary length-five enumeration."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.15379",
+          "material_read": "Full fourteen-page authorized lawful paper extraction read for title/abstract, Section IV theorem and proof pp7-9, concluding future directions p13, bibliography p14; other sections inspected for insertion-covering claims.",
+          "method": "First arXiv/OA public retrieval; institutional full-text extraction succeeded and was read",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "Newest directly relevant insertion-covering study"
+        },
+        {
+          "assessment": "Sets the code-theoretic context and general bounds; no inspected exact six-code classification.",
+          "evidence": [
+            "General covering definitions specify single insertion from center of length n to received length n+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.09944",
+          "material_read": "Introduction, main covering definitions, bounds and relevant table passages read from accessible PDF; first page visually inspected.",
+          "method": "Lawful arXiv PDF text and screenshot",
+          "title": "Covering Codes Using Insertions or Deletions",
+          "trigger": "Original general theory of insertion/deletion covering"
+        },
+        {
+          "assessment": "Different asymptotic alphabet-density question; no exact binary n=5 theorem found in inspected material.",
+          "evidence": [
+            "Reported main object is limiting optimal density as alphabet grows."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.06425",
+          "material_read": "Abstract, problem statement and stated high-q objective; not claimed full article examination.",
+          "method": "Public arXiv source abstract and reference comparison",
+          "title": "New bounds for the optimal density of covering single-insertion codes via the Turán density",
+          "trigger": "Potential dominating asymptotic covering theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum number of codewords and all optimum choices at the smallest nontrivial natural binary synchronization-code benchmark provide precise usable design data. A complete labeled census and symmetry classification adds mathematical information beyond merely constructing one code; the channel equivalence group is intrinsic, not an arbitrary partition of a small table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For binary length-five one-insertion covering codes (all length-six binary words covered), minimum size is 12, with exactly six labeled optima partitioned into three two-member classes under global complement and word reversal.",
+  "limitations": [
+    "Binary words of length five, exactly one insertion, no nonlinear all-length conjecture.",
+    "Exhaustive finite search proves this finite instance only; potential obscure earlier exact tabulation is unresolved as a bibliographic risk."
+  ],
+  "schema_version": 1
+}
