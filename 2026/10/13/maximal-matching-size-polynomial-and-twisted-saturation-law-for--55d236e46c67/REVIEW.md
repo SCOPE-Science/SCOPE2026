@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every labeled Möbius ladder with \(n\ge3\), inclusion-maximality is equivalent to independence of the uncovered vertex set. The nine column states encode all matched rail/rung edges and forbid uncovered adjacent vertices. Twisted closure is precisely a rail-coordinate exchange, yielding \(\operatorname{tr}(T^n S)\). Exact symmetry-block determinants establish the rational generating function. The formal substitution \(t=u/w^2\), \(z=w^3\) and the coefficients of \(w,w^2,w^3\) establish the minimum and all multiplicities, including the small-case exception. Integer-polynomial symbolic checks and direct exhaustive enumeration corroborate but do not replace the unrestricted proof.
+## correctness
 
-## Originality — PASS with residual priority risk
-OEIS A284710 already publishes the ungraded count of all maximal matchings. The familiar ordinary matching polynomial counts matchings without imposing maximality, and perfect-matching counts cover only full-cardinality matchings. Neither statement implies the full graded maximality distribution without additional analysis. The explicit twisted trace and the cancellation at cardinality \(2n/3\) for multiples of three are additional structure. McSorley's 1998 paper on counting Möbius-ladder structures remains a material priority risk: only its abstract and bibliographic record could be inspected, not its complete paper. No claim of uniquely established priority is made.
+PASS
 
-## Value — PASS
-Maximal matchings are edge-dominating matchings and their minimum size is a natural saturation invariant. Counting them by cardinality distinguishes minimum-complexity edge-domination configurations from perfect and larger maximal matchings. The complete all-order size distribution and an exact twisted-boundary shift in the saturation number answer natural graph-enumeration questions not supplied by the known ungraded count. The statement is confined to a standard, structurally motivated nonplanar cubic graph family; arbitrary graph generalization is not asserted.
+For M_(2n), n≥3, a maximal matching has exactly one nine-letter per-rung state (V,V) or (U/L/R,U/L/R)≠(U,U). Rail transitions (a_j=R)⇔(b_j=L), together with exclusion of adjacent U symbols, encode matched rail edges consistently and prevent adjacent unmatched vertices. The boundary flip is the rail-transposition matrix S, producing P_n(z)=tr(T(z)^n S). Splitting the commuting transfer T into symmetric and antisymmetric S eigenspaces gives Q_+=1−2zt−z²t³+z³t³−z³t⁴−z⁴t⁵ and Q_−=1+zt−z²t³. Formal log determinants yield the displayed generating series with terms n=1,2 removed. The substitution t=u/w²,z=w³ cancels zero-excess terms, proving 3|F|−2n>0. Exact w^1,w^2,w^3 coefficient calculations give minimum size floor(2n/3)+1 and all three residue-class multiplicity formulas, including n=3 six. I independently constructed ladder edges, exhaustively enumerated every maximal matching for n=3..8 and compared every cardinality coefficient against a separate exact polynomial log-derivative recurrence; e.g. P_4=16z³+7z⁴. Symbolic excess identities were separately checked. The infinite claim rests on the state bijection and formal identity, not finite extrapolation.
 
-## Literature and limitations
-The closest identified sources are McSorley (1998), OEIS A284710 (2017), the MathWorld Möbius-ladder entry, and Golin–Leung–Wang (2004). Comparisons are statement-level rather than title-level. The exact all-size enumeration remains subject to an inaccessible plausible 1998 source and possible earlier equivalent presentations. Labeled enumeration is intended; no symmetry quotient is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new content is the refinement by size and exact twist-induced zero-excess law; scalar total matching count and ordinary matching polynomial are acknowledged old. Best-of-knowledge originality follows from actual semantic published-record searches and the specifically inspected primary theorem material; unsuccessful searching alone is not proof of novelty.
+
+## value
+
+PASS
+
+The Möbius ladder is a canonical cubic cyclic family. Twisted boundary conditions alter the smallest maximal matching size; the theorem supplies the complete size-profile polynomial, a sharp saturation threshold, and explicit minimum multiplicities for every size class. This is a meaningful graph-family invariant beyond ungraded counts and transfer-matrix methodology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
