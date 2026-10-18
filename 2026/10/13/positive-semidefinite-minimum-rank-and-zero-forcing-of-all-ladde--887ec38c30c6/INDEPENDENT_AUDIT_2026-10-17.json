@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:48:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/positive-semidefinite-minimum-rank-and-zero-forcing-of-all-ladde--887ec38c30c6/RESULT.md",
+        "Source blob 670e90f4b98e419ead8c213198325cc073500026",
+        "Git frozen tree and RESULT.md SHA matched; verify.py inspected.",
+        "Separate implementation checked Gram edge support across 100 parameter pairs; full-rank basis argument and forcing sequence reconstructed analytically.",
+        "Oxford access blocked with vpn_disconnected; no claim of full-paper reading."
+      ],
+      "rationale": "Take the first k columns as blue. At stage t>=k, vertices (a,t-k+1) on each rail uniquely force (a,t+1), giving Z<=2k. Construct X of 2(ell-k) window rows and 2ell vertex columns using u0=(1,0), uk=(1,1), interior u=(1,3); v0=(1,-1), vk=(0,1), interior v=(3,7). Disjoint windows force zero off-diagonals at column gap>k; at gap k same-rail inner products 1 and -1 are nonzero while cross-rail inner products vanish. At gap<k exact contributions are nonzero: rail-one positive, rail-two at most one negative -4 offset pairing with +7 or +58 terms, cross-rail either positive or one -2 supplemented by nonzero +10/+24. The square submatrix restricting to two vertices per column of first ell-k columns is block triangular with 2x2 diagonal [u0,v0] determinant -1, so X full row rank. Gram A=X^T X has exact graph off-diagonal support, PSD rank 2(ell-k), nullity 2k. The universal inequalities M+<=Z+<=Z and M<=Z trap all equalities; 100 independently reconstructed finite Gram support profiles corroborate but do not replace the uniform proof.",
+      "residual_risks": [
+        "The graph power is distance-at-most-k, not strict distance-k, and ell must be at least k+1.",
+        "The PSD Gram factor is not a classification of all minimum-rank matrices; finite tests cannot prove arbitrary k and ell."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DeAlba tree-power theorems require tree base graphs, whereas L_ell has cycles when ell>=2.",
+          "Classical PSD nullity-forcing inequality gives an upper bound on M+ but no matching Gram construction."
+        ],
+        "reasoning": "The cited broader-sounding results have narrower graph families or merely upper bounds; none available demonstrates full equality for all two-row ladder powers.",
+        "searches": [
+          "arXiv:2610.03892, upper bounds for grid graph powers",
+          "DeAlba et al., DOI:10.13001/1081-3810.1511, powers of trees",
+          "Barioli et al., arXiv:1003.2028, PSD forcing inequalities"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03892v1",
+        "DOI:10.13001/1081-3810.1511",
+        "arXiv:1003.2028",
+        "SCOPE frozen source tree for exact Gram factor"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A grid upper bound bk yields <=2k for width two.",
+          "An explicit X^T X with nullity 2k provides the missing reverse inequality, including M+=2k."
+        ],
+        "reasoning": "The source upper bound and general inequality do not logically yield the new lower bound. The exact source proposition/conjecture numbering is quoted by the source package; it was not freshly verified from full primary text.",
+        "searches": [
+          "arXiv:2610.03892, grid powers upper bounds",
+          "SCOPE frozen RESULT.md comparison with Proposition 11 and Conjecture 12 of source"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 graph-powers paper abstract says it gives upper bounds for powers of grids, not exact all-parameter formulas.",
+          "PSD Gram nullity 2k supplies equality, not just equivalence of names."
+        ],
+        "reasoning": "Rephrasing the ladder as a 2-by-ell grid and minimum-rank as maximum nullity does not make the result an implication of known upper bounds.",
+        "searches": [
+          "Resultary search: Zero forcing and positive semidefinite minimum rank powers of ladder graphs P2 Cartesian Pn k, conjecture grid powers",
+          "arXiv:2610.03892, powers of grids and Conjecture 12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The initiating source reports finite computations and grid upper bounds; not an exhaustive infinite parameter table.",
+          "The current construction certifies a 2k nullity for every k and ell and was independently reproduced for 100 finite profiles."
+        ],
+        "reasoning": "A bounded table cannot imply the universal formula; no identified table provides all parameter cases.",
+        "searches": [
+          "arXiv:2610.03892 abstract, computational finite graph-power experiments",
+          "Resultary search: Zero forcing and positive semidefinite minimum rank powers of ladder graphs P2 Cartesian Pn k, conjecture grid powers"
+        ]
+      },
+      "rationale": "Statement/implication comparison, not mere title search. Closest inspected antecedents give related machinery or narrower/scalar/qualitative statements, but not the full asserted theorem; coverage and inaccessible-source limitations are explicit.",
+      "residual_risks": [
+        "Full motivating 2026 source inaccessible after lawful arXiv/OA and authorized institutional attempts (VPN disconnected); a hidden theorem/appendix might refine its abstract.",
+        "An unpublished/weakly indexed two-row special-case theorem could overlap the formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract says upper bounds for grids, not complete two-row equality; whole-document noncoverage not certified",
+          "evidence": "The abstract explicitly says upper bounds for powers of spiders and grids, while exact values are announced for paths and cycles.",
+          "identifier_or_url": "arXiv:2610.03892v1, 2026-10-02",
+          "material_read": "Full title, authors, abstract and bibliographic summary read. Full arXiv PDF/HTML failed; authorized institutional attempt returned disconnected VPN. Source package contains detailed claimed Proposition 11 and Conjecture 12 comparison, not independently verified full text.",
+          "method": "ArXiv abstract; open-access alternatives; authorized institutional access attempted",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "Same class of grid powers; most relevant likely covering manuscript"
+        },
+        {
+          "assessment": "Tree powers cannot cover cycle-containing ladders without a separately proved reduction",
+          "evidence": "A ladder with >=2 columns includes a 4-cycle and is not itself a tree.",
+          "identifier_or_url": "DOI:10.13001/1081-3810.1511",
+          "material_read": "Primary article theorem descriptions for paths and tree powers available via open bibliographic material; entire PDF not re-read in this execution",
+          "method": "Scope and theorem comparison against graph family",
+          "title": "Minimum rank of powers of trees",
+          "trigger": "Adjacent exact power-graph rank literature"
+        },
+        {
+          "assessment": "Provides M+<=Z+, not an exact ladder-power Gram certificate",
+          "evidence": "Definition and general PSD nullity comparison.",
+          "identifier_or_url": "arXiv:1003.2028",
+          "material_read": "Public abstract and bibliographic details; underlying standard inequality checked from established theory",
+          "method": "Foundational theorem context",
+          "title": "Zero forcing parameters and minimum rank problems",
+          "trigger": "PSD forcing/nullity inequality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2610.03892v1",
+        "DOI:10.13001/1081-3810.1511",
+        "arXiv:1003.2028",
+        "SCOPE frozen source tree for exact Gram factor"
+      ],
+      "rationale": "The exact two-row infinite family resolves the first nonpath width of the motivating grid-power zero forcing conjecture and supplies a simultaneous positive semidefinite minimum-rank realization, an independently useful inverse-eigenvalue certificate rather than a mere restatement of an upper bound.",
+      "residual_risks": [
+        "The construction does not resolve wider grids or arbitrary powers of Cartesian products."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every ladder graph power G=(P_2 square P_ell)^k with k>=1 and ell>=k+1, ordinary and positive semidefinite forcing numbers and maximum nullities all equal 2k, and both real-symmetric and PSD minimum ranks equal 2(ell-k).",
+  "limitations": [
+    "The graph power is distance-at-most-k, not strict distance-k, and ell must be at least k+1.",
+    "The PSD Gram factor is not a classification of all minimum-rank matrices; finite tests cannot prove arbitrary k and ell.",
+    "The construction does not resolve wider grids or arbitrary powers of Cartesian products.",
+    "Full motivating 2026 source inaccessible after lawful arXiv/OA and authorized institutional attempts (VPN disconnected); a hidden theorem/appendix might refine its abstract.",
+    "An unpublished/weakly indexed two-row special-case theorem could overlap the formula."
+  ],
+  "schema_version": 1
+}
