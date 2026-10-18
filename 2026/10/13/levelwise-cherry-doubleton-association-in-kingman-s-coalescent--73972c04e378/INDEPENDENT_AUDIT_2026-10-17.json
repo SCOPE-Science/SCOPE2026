@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T16:50:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md @ 18037a740d885bf5ac40db681819ff1171141d4b",
+        "Frozen verify.py @ 212ad8afde68f92de4712d153da043cbd1fa8302",
+        "Kingman ranked merger history count and branch-length clock independence"
+      ],
+      "rationale": "I reconstructed the full random-merger-history count: independently uniformly ordering the k coalescent blocks yields a uniform composition of n into k positive parts, with conditional independent uniform within-block merger histories. The displayed factorial moments for singleton B and doubleton D follow by selecting specified part sizes; regression E[C|partition]=(n−B+D)/3+B(B−1)/[3(k−1)] includes cherries already formed and future singleton merges. Multiplication by D and moments give the stated covariance, with k=n−1 and n deterministic boundaries. Holding times are independent of the merger chain with mean 2/[k(k−1)], and the polynomial sum gives 5/18 exactly. As an independent finite corroboration, re-enumerated all 59,602 labeled merger histories n=2..7 and obtained the full small-sample covariance and intermediate level values, plus E L_n2=1; the all-n proof is algebraic, not extrapolated. Mutation consequence follows by conditional Poisson expectation.",
+      "residual_risks": [
+        "Only pairwise unit-rate binary Kingman coalescent; mutation corollary requires independent Poisson infinite-sites process.",
+        "Conditional composition derivation is critical; finite n enumeration does not certify all sample sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SFS moment theory covers covariances among site-frequency counts but not conditioning on cherry topology.",
+          "Ranked tree cherry generating functions enumerate tree-shape events without merger-clock branch lengths."
+        ],
+        "reasoning": "The general SFS moment framework includes the doubleton marginal but does not dominate the stated cross-statistic with cherry count; a separate regression on ancestor compositions is required.",
+        "searches": [
+          "Birkner Blath Eldon arXiv:1305.6043 Theorem 4.1 Appendix S1",
+          "Fu 1995 DOI:10.1006/tpbi.1995.1025",
+          "Disanto Wiehe arXiv:1112.1295"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1112.1295 primary full preprint",
+        "arXiv:1305.6043 primary full OA HTML",
+        "DOI:10.1006/tpbi.1995.1025 bibliographic/citation context",
+        "Resultary semantic Kingman mixed-covariance search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known E C_n=n/3 and E L_n2=1 are insufficient to determine covariance.",
+          "A frequency-spectrum covariance theorem lacks dependence of cherry count on ancestral block composition; new conditional expected cherries supplies mixed moment."
+        ],
+        "reasoning": "The final claim does not follow merely from marginal facts or from the published cherry–pitchfork joint distribution; holding times and doubleton composition require a new joint calculation.",
+        "searches": [
+          "Disanto Wiehe arXiv:1112.1295 Sections 2–3",
+          "Birkner Blath Eldon arXiv:1305.6043 Theorem 4.1",
+          "François Mioland DOI:10.1016/j.mbs.2007.01.005"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C_n counts merger topology cherries, L_n2 is total size-two branch length, ξ_n2 is the corresponding infinite-sites mutation count; mutation covariance is equivalent to length covariance up to θ/2.",
+          "Neither inspected primary paper supplies a joint topology/length moment under those alternate terms."
+        ],
+        "reasoning": "Compared cherry with rooted sibling-leaf pairs and doubleton external branch length / frequency-two SFS formulations, not title matching alone.",
+        "searches": [
+          "Resultary: Kingman coalescent covariance cherries doubleton branch length frequency spectrum exact 5/18",
+          "arXiv:1112.1295 cherry pitchfork generating function",
+          "arXiv:1305.6043 site frequency spectrum second moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned nonmatching Cayley-tree and combinatorial records, not this mixed coalescent moment.",
+          "The two inspected papers tabulate cherry counts or SFS moments, not level-dependent Cov(C,D_nk) or 5/18."
+        ],
+        "reasoning": "No exact covering table found in checked sources; absence is not asserted as independent historical proof.",
+        "searches": [
+          "Resultary exact Kingman cherry doubleton covariance 5/18",
+          "arXiv:1112.1295 exact cherry enumeration tables",
+          "arXiv:1305.6043 covariances and frequency-two branch length"
+        ]
+      },
+      "rationale": "The exact topology–length mixed covariance is absent from inspected primary cherry enumeration and site-frequency moment results, which separately treat topology or descendant-frequency lengths; their statements do not imply the levelwise mixed moment without the new partition regression. Best-knowledge assessment with risk of older unindexed mixed statistics.",
+      "residual_risks": [
+        "Older coalescent cherry-height or total external-length papers may encode the same mixed moment in a generating function without calling it doubleton length.",
+        "Full original Fu (1995) and François–Mioland (2007) source texts were not independently read, so no whole-document exclusion is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CHERRY_MARGINAL_PRIOR_NOT_DOUBLETON_CLOCK_COVARIANCE",
+          "evidence": "Known E[C_n]=n/3, cherry and pitchfork distribution; the inspected analysis deliberately omits branch-length clocks and does not give Cov(C_n,D_nk) or Cov(C_n,L_n2).",
+          "identifier_or_url": "arXiv:1112.1295; Mathematical Biosciences 242 (2013),195-200",
+          "material_read": "Accessible 18-page primary preprint inspected, including opening statement that topology is studied without branch lengths and Sections 2–3 generating functions/marginal cherry means",
+          "method": "full primary preprint inspection",
+          "title": "Exact Enumeration of Cherries and Pitchforks in Ranked Trees under the Coalescent Model",
+          "trigger": "Same Kingman cherry topology and possibility of mixed branch-length moment"
+        },
+        {
+          "assessment": "SFS_LENGTH_MARGINAL_AND_WITHIN_SFS_COVARIANCES_NOT_CHERRIES",
+          "evidence": "Moment formulas for frequency spectrum and descendant-frequency branch lengths do not jointly involve realized cherry counts in their stated mixed moments.",
+          "identifier_or_url": "arXiv:1305.6043; Genetics 195 (2013),1037–1053",
+          "material_read": "Primary open-access full HTML read, emphasizing SFS moment sections, Theorem 4.1 and appendix context",
+          "method": "full primary OA HTML inspection",
+          "title": "Statistical Properties of the Site-Frequency Spectrum Associated with Lambda-Coalescents",
+          "trigger": "Possible dominating covariance theorem for doubleton branch lengths"
+        },
+        {
+          "assessment": "POSSIBLE_BROAD_SOURCE_NOT_FULLY_READ",
+          "evidence": "Fu provides segregating-site frequency moments but direct coverage of exact realized cherry–doubleton association was not verified; remain cautious.",
+          "identifier_or_url": "DOI:10.1006/tpbi.1995.1025",
+          "material_read": "Bibliographic/identified theorem context via later sources, full original not independently inspected",
+          "method": "secondary citation review",
+          "title": "Statistical Properties of Segregating Sites",
+          "trigger": "Earlier site-frequency second-moment formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Same Kingman genealogy model in Disanto–Wiehe and Birkner–Blath–Eldon",
+        "Exact n-uniform covariance formula and its proof"
+      ],
+      "rationale": "The surprising nonzero positive topology–branch-length association, constant at 5/18 for every n≥5 despite E[C_n] growing linearly, is a natural exact genealogical mixed moment. The levelwise positive formula and immediate site-frequency mutation covariance can be reused in uncertainty quantification and joint coalescent statistics. It is not a minor marginal-count restatement.",
+      "residual_risks": [
+        "Result does not give a full joint distribution, different merger rates, or demographic variation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all n≥5 and 2≤k≤n in unit-pair-rate binary Kingman coalescent, Cov(C_n,D_nk)=k(k−1)(n−k)(n−k−1)(n+k−6)/[3(n−1)(n−2)(n−3)(n−4)], giving strictly positive intermediate levels and Cov(C_n,L_n2)=5/18; n=4 gives 4/9, n=2,3 zero; E[L_n2]=1 for n≥3.",
+  "limitations": [
+    "Exact binary Kingman unit pair rates; fixed-n moment only, no full joint law or multiple mergers."
+  ],
+  "schema_version": 1
+}
