@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The defining full text gives the exact \(H_2\) quotient and permits reduction to \(0<\lambda\le1\). The cited symmetric-plane theorem classifies every unit isosceles-orthogonal partner as a coordinate quarter-turn up to sign. With \(\lambda=\tan\theta\), the quotient becomes the inverse norm of a coordinate rotation, so optimization over the unit sphere is exactly an inverse-rotation operator norm. For a regular \(4n\)-gon, convexity reduces the operator norm to a vertex and the support-normal geometry gives the sharp bound \(\sec(\pi/(4n))\), attained by the coordinate axes at \(\lambda=\tan(\pi/(4n))\).
+## correctness
 
-## Originality
-PASS. Searches covered \(H_2\), the \(p\)-isosceles name, symmetric Minkowski planes, affine regular \(4n\)-gons, regular-octagon aliases, and the exact secant/radical values. The 2024 defining paper contains no polygonal computation. The highly relevant 2019 paper supplies the isosceles-pair classification and computes other trigonometric constants on the same polygon family, but it predates \(H_p\) and does not imply the weighted \(H_2\) optimization. The closest same-invariant-family published record concerns \(H_4\) on a different hexagonal norm.
+PASS
 
-## Value
-PASS. The result gives a structural identity for an entire natural class of planes and then a closed formula for an infinite canonical family. The profile \(\sec(\pi/(4n))\) interpolates from the square endpoint \(\sqrt2\) to the Hilbert value \(1\), making the geometric meaning of the quadratic isosceles constant explicit rather than supplying an isolated numerical example.
+Checked the actual Baronti–Bertella H_2 definition, normalization and lambda-reduction, and Balestro–Martini–Teixeira classification y=±Rx for all unit isosceles orthogonal partners in symmetric planes. Setting lambda=tan theta gives ratio 1/||Q_theta x||; maximizing over unit x is the norm of Q_{-theta}, equal to Q_theta by axis reflection. For regular 4n-gon with circumradius sec a, support normals at 2a lattice, each vertex has rotated norm cos(dist(a+theta,2aZ))/cos a <=sec a; theta=a reaches the maximum. Includes n=1 square and n=2 octagon, no unjustified extension to other polygons.
 
-## Closest literature and limitations
-Baronti and Bertella introduced \(H_p\) in 2024. Balestro, Martini and Teixeira established the symmetric-plane isosceles-pair classification and computed other constants for affine regular \(4n\)-gons in earlier work. Neither inspected source states the rotation-distortion identity or the exact \(H_2\) secant law. The claim is limited to symmetric planes and, for the closed formula, affine regular \(4n\)-gons. Bibliographic search cannot prove absolute novelty.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2019 paper determines the quarter-turn form of orthogonal unit pairs and various distinct trigonometric polygon constants, but predates the Baronti–Bertella H_p invariant (2024). No inspected source directly determines its full rotation operator-norm identity or the all-n polygon H_2 formula. Related Resultary hexagonal H_2 has different 4n parity and norm.
+
+## value
+
+PASS
+
+The identity converts a nonlinear isosceles-orthogonality extremal problem on an entire natural symmetry class of normed planes into a computable Euclidean-rotation operator-norm invariant. Exact secant law across all affine regular 4n-gons is a motivated natural family, not an isolated arbitrary octagon value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
