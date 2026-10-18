@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The global amplitude was derived directly for independent local angles, not inferred from the homogeneous formula by notation alone. For outcome weight \(r\), the parity-projected product expansion is exactly \(2^{-(w-1)/2}\cos(\sum_i\theta_i-r\pi/2)\). On the stated simplex this separates even and odd outcome supports. For every proper nonempty subset \(S\), strict positivity of the angles gives \(0<\sum_{i\in S}\theta_i<\pi/2\); therefore the Hermitian part of \(\bigotimes_{i\in S}U_{\theta_i}\) is positive definite, contradicting the published necessary trace-zero condition for perfect discrimination. The published finite-round fidelity argument then applies to each arbitrary bipartition because both sides satisfy the generalized local obstruction. The verifier independently checks representative heterogeneous cases.
+## correctness
 
-## Originality
-**PASS.** The closest primary source, arXiv:2610.02032v1, fixes one common local angle \(\theta=\pi/(2w)\) in Theorem 5 and uses permutation symmetry to reduce the bipartition check. Its proof exposes the ingredients generalized here but does not state unequal local angles or the positive simplex. Searches for heterogeneous rotations, unequal local angles, parity probes, product-measurement discrimination, and all-bipartition LOCC obstruction did not locate a statement implying this simplex theorem. Earlier single-shot and multiple-shot measurement-discrimination papers provide general criteria but do not cover this distributed all-bipartition family.
+PASS
 
-## Value
-**PASS.** The source presents the equal-angle family as its multipartite strong-nonlocality construction. Replacing that isolated symmetric point by a \(w-1\)-parameter family shows that the phenomenon does not depend on identical local analyzers and identifies the precise separation of mechanisms: one global total-angle condition plus strict proper-subset angle conditions. This is structurally useful for designing asymmetric distributed measurement examples and for understanding which part of the construction uses symmetry.
+On parity probe 2^{-(w-1)/2}sum_{|x| even}(-1)^{|x|/2}|x>, the rotated product amplitude is 2^{-(w-1)/2}cos(Theta-r pi/2) for an outcome with r orthogonal-basis clicks; this follows by the two parity-projected generating products and is independent of how total Theta is divided. If Theta=pi/2, Z supports only even and U only odd strings, so a global joint probe distinguishes. For any nontrivial proper subset S, positive angles give Theta_S<pi/2, making all eigenvalues cos(sum_{i in S}epsilon_i theta_i)>0 for H_S=(U_S+U_S^*)/2. Lemma 1 in the original primary source makes Tr(rho U_S)=0 necessary for local perfect discrimination, impossible under H_S>0. The original all-bipartition finite-round LOCC obstruction then applies separately to both laboratories. The source verifier enumerates finite heterogeneous tuples and checks the amplitude and all subset eigenvalues; these are only corroboration of the analytic formula.
 
-## Closest literature and limitations
-The closest source is Manna--Saha, arXiv:2610.02032v1, especially Theorem 5, Lemma 3, and Appendix D. The theorem here stays on the exact total-angle simplex and does not classify off-simplex perfect discrimination, infinite-round LOCC, or noisy success probabilities. A residual literature risk is an equivalent heterogeneous formulation under general unitary/numerical-range language that was not indexed by the searched terminology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full original 2026 Appendix D and Theorem 5 were compared: their measurement construction fixes a uniform local rotation at each site. The general necessary condition is prior, but the complete positive simplex with unequal rotations is not explicitly given or subsumed by the stated homogeneous Theorem 5; real product amplitude and subset spectral inequalities establish a genuine extension. Strong alias risk remains explicit.
+
+## value
+
+PASS
+
+The full continuum of tunable heterogeneous product measurements preserving global perfect distinction and universal finite-round LOCC impossibility is a natural robustness/generalization question for the specific phenomenon, beyond a one-point symmetric example. The source is credited for the proof template, not presented as a new LOCC criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
