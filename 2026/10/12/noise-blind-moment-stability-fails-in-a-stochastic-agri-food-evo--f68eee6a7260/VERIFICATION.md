@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,50 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For the source's Parameter Set 1,
-\[
-Q=10,\qquad \beta=0.2,\qquad \Delta P=0.1,\qquad C_l=2,\qquad C_g=5,
-\]
-so the \(x\)-axis drift coefficient is
-\[
-a_x=\beta Q\Delta P+C_l-C_g=-2.8.
-\]
+# Independent mathematical audit
 
-On the invariant \(x\)-axis, conditions (16)-(18) reduce to
-\[
--2.8x\le-x,\qquad0\le0,\qquad0\le0,
-\]
-so the source's displayed drift test is met for every \(x>0\).
+## correctness
 
-For
-\[
-dx=a_xx\,dt+\sigma x\,dW,
-\]
-the exact solution is
-\[
-x(t)=x_0\exp\!\left[
-\left(a_x-\frac{\sigma^2}{2}\right)t+\sigma W_t
-\right].
-\]
-At \(\sigma=3\),
-\[
-2a_x+\sigma^2=3.4>0,
-\]
-hence
-\[
-\mathbb E[x(t)^2]=x_0^2e^{3.4t}.
-\]
-The pathwise exponent is instead
-\[
-a_x-\sigma^2/2=-7.3<0.
-\]
+PASS
 
-The bundled `verification/verify.py` recomputes these identities and also checks the general \(p\)-moment exponent
-\[
-pa_x+\frac{p(p-1)}2\sigma^2.
-\]
-It uses only the Python standard library and prints `VERIFY_OK` on success.
+The printed stochastic equations have drifts A(y,z)x, B(x,z)y, C(x,y)z and common multiplicative sigma x/y/z dW. Each coordinate axis is invariant by pathwise uniqueness, and restriction is geometric Brownian motion dX=a_i X dt+sigma X dW. For every p>0, exact p-moment exponent p a_i +[p(p-1)/2]sigma² makes a_i+(p-1)sigma²/2<0 necessary for p-th-moment exponential stability for all small axis states. For printed Parameter Set 1, a_x=0.2*10*0.1+2-5=-2.8 and Eq16–18 restricted to x-axis are -2.8x<=-x, 0<=0, 0<=0. With sigma=3, E[x_t²]=x0² exp(3.4t) while almost-sure log exponent -7.3, disproving a noise-independent criterion on that invariant boundary. Independently computed exact rational coefficients a_x=-14/5, a_y=-9/5, a_z=-1/2 and second-moment exponent 17/5. A qualification is that pointwise source inequalities tested on x-axis are NOT a proof they hold throughout a 3D neighborhood; counterexample precisely addresses source no-noise drift test on invariant axis, not a global verification of an alternate neighborhood-uniform premise.
 
-Unproved limits: no full nonlinear necessary-and-sufficient stochastic stability classification is asserted, and no claim is made about the source's particular simulation noise values.
+## originality
+
+PASS
+
+Geometric Brownian p-moments and the general principle that stochastic stability must account for noise are standard prior art, not claimed as novel. The genuine contribution is the direct exact invariant-axis reduction and specific violation of Wen–Mo equations (16)–(18) at the paper’s own Parameter Set 1. The source PDF was compared against its own printed stochastic model and noise-free criterion; related noise-aware Wang 2024 finance and Wang 2025 carbon-supply models do not give this specific correction.
+
+## value
+
+PASS
+
+The counterexample is specific to a published applied stochastic evolutionary-game theorem and changes what its noise-blind criteria can guarantee. It establishes an exact variance-sensitive obstruction while cleanly separating almost-sure sample-path decay from exploding second moments; substantive for mathematical interpretation of market-noise stability, not a generic textbook example alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

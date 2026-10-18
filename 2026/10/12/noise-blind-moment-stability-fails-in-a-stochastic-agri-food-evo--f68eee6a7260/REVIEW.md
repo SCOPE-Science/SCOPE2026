@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Each coordinate axis is invariant because both drift and diffusion contain the corresponding state as a factor. Restriction to an axis gives exact geometric Brownian motion, so the \(p\)-th moment exponent follows in closed form. The source's Parameter Set 1 gives \(a_x=-2.8\); with \(\sigma=3\), its drift inequalities hold on the \(x\)-axis while the exact second moment grows with exponent \(3.4\). The simultaneous almost-sure exponent is \(-7.3\), which confirms that the contradiction is specifically about moment stability.
+## correctness
 
-## Originality
-PASS. Standard geometric-Brownian moment formulas and general noise-dependent stochastic stability criteria are prior knowledge and are not claimed as new. The new content is the exact reduction of the Wen-Mo tripartite game to its invariant boundary directions, the resulting necessary noise-aware moment thresholds, and the source-parameter counterexample to the published sigma-free criterion. No equivalent source-specific correction was found in the inspected paper, its close cited stability literature, or the published-result searches.
+PASS
 
-## Value
-PASS. The stochastic stability section is intended to justify convergence under random market disturbances. Showing that its sufficient conditions can coexist with exponential second-moment growth materially changes the interpretation of that section and separates pathwise convergence from moment stability in a way that directly affects how noise intensity should enter the model's conclusions.
+The printed stochastic equations have drifts A(y,z)x, B(x,z)y, C(x,y)z and common multiplicative sigma x/y/z dW. Each coordinate axis is invariant by pathwise uniqueness, and restriction is geometric Brownian motion dX=a_i X dt+sigma X dW. For every p>0, exact p-moment exponent p a_i +[p(p-1)/2]sigma² makes a_i+(p-1)sigma²/2<0 necessary for p-th-moment exponential stability for all small axis states. For printed Parameter Set 1, a_x=0.2*10*0.1+2-5=-2.8 and Eq16–18 restricted to x-axis are -2.8x<=-x, 0<=0, 0<=0. With sigma=3, E[x_t²]=x0² exp(3.4t) while almost-sure log exponent -7.3, disproving a noise-independent criterion on that invariant boundary. Independently computed exact rational coefficients a_x=-14/5, a_y=-9/5, a_z=-1/2 and second-moment exponent 17/5. A qualification is that pointwise source inequalities tested on x-axis are NOT a proof they hold throughout a 3D neighborhood; counterexample precisely addresses source no-noise drift test on invariant axis, not a global verification of an alternate neighborhood-uniform premise.
 
-## Closest literature and limitations
-The closest stability source is Wang et al. (2024), DOI 10.3390/math12111764, which explicitly includes diffusion strength in a \(p\)-exponential mean-square criterion for a different stochastic evolutionary game. Wang et al. (2025), DOI 10.3390/app15094982, numerically studies disturbance-intensity effects in another supply-chain game. The present result is only a necessary boundary-direction test and counterexample; it does not completely classify the nonlinear three-dimensional SDE or invalidate finite-time simulations at their chosen noise levels.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Geometric Brownian p-moments and the general principle that stochastic stability must account for noise are standard prior art, not claimed as novel. The genuine contribution is the direct exact invariant-axis reduction and specific violation of Wen–Mo equations (16)–(18) at the paper’s own Parameter Set 1. The source PDF was compared against its own printed stochastic model and noise-free criterion; related noise-aware Wang 2024 finance and Wang 2025 carbon-supply models do not give this specific correction.
+
+## value
+
+PASS
+
+The counterexample is specific to a published applied stochastic evolutionary-game theorem and changes what its noise-blind criteria can guarantee. It establishes an exact variance-sensitive obstruction while cleanly separating almost-sure sample-path decay from exploding second moments; substantive for mathematical interpretation of market-noise stability, not a generic textbook example alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
