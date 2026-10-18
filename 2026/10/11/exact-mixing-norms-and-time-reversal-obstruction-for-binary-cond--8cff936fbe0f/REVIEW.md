@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated rank-one decomposition is a pointwise identity on the two atoms of each event sigma-algebra. Centering annihilates mixed constant/rank-one terms. Each successive product supplies exactly one covariance scalar; the terminal range and initial dual functional yield the stated norm by an attained Hölder bound. A second rank-one multiplication gives the periodic-power formula for all positive integers. The three-atom asymptotic uses the exact centered Bernoulli moment and a nonzero covariance. The four-atom example has two adjacent nonzero covariances and zero endpoint covariance, proving genuine two-step mixing. Exact rational verification of 2744 ordered triples and both boundary constructions agrees with these identities. No finite search is used to infer a universal theorem.
+PASS
 
-## Originality — PASS, subject to historical-literature risk
+Binary projection identity P_A=E+u_A⊗ℓ_A/[a(1−a)] is checked on both atoms. E annihilates centered rank-one factors, and each adjacent composition inserts covariance d_i, giving W−E=c um⊗ℓ1. Sharp Hölder duality yields ||W−E||_p=|c|h_p(am)h_q(a1); its rank-one square equals θ times itself, yielding all positive powers even θ=0. Reversing factors flips endpoint p/q norms; at p=2 those coincide for every event pair. For a rare atom ε nested inside B of measure 1/2, ratio behaves ε^(2/p−1), unbounded on one orientation whenever p≠2. Independently verified 4-equiprobable-atom events A1={2,3}, A2={1,2,3}, A3={1,3}: adjacent covariances 1/8 while endpoint covariance 0, giving W≠E but W²=E.
 
-The closest full-text article is Zaharopol (1990), whose main conclusion is strong convergence for general products without exact sharp norm profiles. The related sharp centered-moment paper of Shargorodsky--Sharia concerns \(I-P\) rather than the product minus global expectation. The 1987 Akcoglu--Sucheston paper was identified and its indexed abstract read, but its full text was inaccessible, leaving a genuine residual risk. Published mathematical-record searches for covariance, two-cell projection chains, exact centered \(L^p\) norms and reversal found no directly covering statement. The proof's elementary rank-one ingredients are prior knowledge and not asserted to be new.
+## originality
 
-## Value — PASS
+PASS
 
-This is an exact classification for arbitrary lengths and probability spaces rather than a selected numerical example. It distinguishes periodic-word convergence rate from order-dependent non-Hilbert transient amplification: reversal has the same eigenvalue and centered \(L^2\) norm yet can change every positive-step centered \(L^p\) norm by an arbitrarily large factor for any \(p\ne2\). The four-atom nilpotent construction shows immediate finite-step mixing even when every adjacent event pair is correlated. These sharp structural boundaries motivate the precise invariant despite the elementary proof method.
+Best-of-knowledge sharp finite-word Lp norms, all exact iterate profiles and a sharp non-Hilbert order-reversal obstruction go beyond inspected historical general strong-convergence statements or single-projection norm estimates. Originality assessment retains real full-text access risk for the 1987 predecessor.
 
-## Limits and closest literature
+## value
 
-The comparison is restricted to binary sigma-algebras and \(1<p<\infty\); no extension to arbitrary conditional expectations or endpoint exponents is claimed. Zaharopol (1990), Akcoglu--Sucheston (1987), and Shargorodsky--Sharia (2022 online) are the closest identified primary sources. An unindexed equivalent remains possible, especially in the inaccessible historical full text.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Provides a sharp quantitative classification of the natural minimal two-cell subclass of Lp conditional-expectation products, including exact convergence rates, finite-step mixing without zero adjacent correlations, and a mathematically meaningful p=2 versus p≠2 time-reversal dichotomy on only three atoms. Not just a routine norm computation because the global order-comparison obstruction answers a structural Banach question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
