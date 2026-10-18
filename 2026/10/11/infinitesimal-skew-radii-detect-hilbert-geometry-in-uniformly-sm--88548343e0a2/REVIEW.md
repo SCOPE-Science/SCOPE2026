@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Supporting-functional inequalities and the definition of the modulus of smoothness give uniform first-order expansions for both norms on the unit-sphere product; a bounded scalar Hessian for each fixed finite outer exponent gives the explicit \(2\rho_X(h)+C_th^2\) error. Interchanging unit vectors reverses the linear defect, proving the two slope identities even without extremizers. Vanishing defect gives a symmetric bilinear form generating the norm, hence a Hilbert norm. The maximum-mean boundary is explicitly excluded.
+## correctness
 
-**Originality — PASS with residual risk.** Xu–Liu (arXiv:2610.03050v1) define the infimal invariant and compute select model cases; Rao et al. (arXiv:2504.00827v1) develop the supremal invariant; Kobos–Wójcik (DOI:10.1007/s00025-023-01993-5) recount the classical semi-inner-product and norming-functional representation. Their inspected central statements do not give a universal paired first-variation formula with uniform smoothness error, exponent independence, and Hilbert detection. The older symmetric semi-inner-product characterization alone does not identify derivatives of the skew radii. No search proves complete global novelty, so implicit or unindexed coverage remains a genuine residual risk.
+PASS
 
-**Value — PASS.** The result upgrades newly introduced skew geometric radii to a sharp first-order detector of whether a norm is Hilbert, using one common quantitative defect rather than separate model computations. It explains why all finite power means have the same first variation and pinpoints a genuine failure at the maximum-mean endpoint. The statement applies to infinite-dimensional uniformly smooth spaces and gives an explicit uniform error estimate, rather than a pointwise formal expansion.
+With real uniform smoothness, the supporting norming functional inequality and definition of modulus ρ give 0≤||x+hy||−1−h j(x)y≤2ρ(h) and the counterpart at −y for ||hx−y||, uniformly for all unit pairs. M_t has uniformly bounded Hessian on [3/4,5/4]² for any fixed finite t≥1 and first differential (u+v)/2 at (1,1), yielding error ≤2ρ(h)+C_t h² uniformly. Since D(x,y)=j(x)y−j(y)x is antisymmetric in x,y, its extrema are ±2κ, so taking extrema over unit pairs preserves errors and gives right slopes −κ and κ with ρ(h)=o(h). κ=0 makes B(u,v)=||u||j(u/||u||)(v) symmetric, and hence bilinear positive definite with B(u,u)=||u||², establishing Hilbert characterization. ℓ4² unit witness x=(1,0), y=(1/2,(15/16)^1/4) gives D=3/8. The t=∞ boundary has Hilbert J∞ slope 1, so the excluded exponent is necessary. No extremizers or numerical certification assumed.
 
-**Limits.** No assertion for all nonsmooth spaces; no exact coefficient for arbitrary non-Hilbert models; no independent certification.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source developers Xu–Liu arXiv:2610.03050 defined infimal skew Schäffer type constants and computed bounds and model spaces; Rao et al. arXiv:2504.00827 defined the supremal skew James constants and prove equivalences, convexity and qualitative moduli. The latter primary full text was read in §§2–3: it does not state an all-finite-exponent simultaneous derivative at h=0 equal to the semi-inner-product antisymmetry κ or a uniform smoothness error. Classical Lumer–Giles semi-inner-product symmetry characterizes Hilbert norms but does not itself identify two skew-radius slopes. Xu–Liu 2026 primary abstract was read; its full arXiv/PDF was inaccessible, and an authorized full-text access attempt was blocked; therefore no whole-document NOT_COVERING inference is asserted and implicit coverage remains a material risk. Under best-of-knowledge without treating inaccessibility alone as failure, O passes cautiously.
+
+## value
+
+PASS
+
+Identifying both infimal and supremal skew-geometric invariants with one normalized semi-inner-product asymmetry, uniformly for all finite outer exponents, gives a sharp local test of whether a uniformly smooth norm is Hilbert. This unifies two independent prior invariants and exposes a singular t=∞ boundary. It is a structural quantitative characterization, not a mere relabeling of the classical symmetry criterion, because global inf/sup radii and uniform modulus-of-smoothness estimates must be connected.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
