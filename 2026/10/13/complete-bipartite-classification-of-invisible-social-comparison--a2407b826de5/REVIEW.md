@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof compares conditional reproducer odds, not only expected strategy drift. All-cooperation configurations force matching susceptibility among common-neighbor competitors; varying the positive cost coefficient with binary basis configurations then forces equality of their random-walk rows wherever that shared susceptibility is nonzero. The common-neighbor auxiliary graph has exactly two components on connected bipartite graphs and one on connected nonbipartite graphs. Its row-equivalence restriction yields precisely complete bipartite graphs, including stars and the two-vertex case. On those graphs, the sidewise common fitness multiplier cancels exactly from every death–birth conditional distribution. The proof applies to every state, benefit/cost pair, and positive selection strength, and covers the parameter boundaries explicitly. Exact finite checks independently support the algebra but are not extrapolated as proofs.
+PASS
 
-## Originality — PASS
+The given expected-payoff death–birth model has u=-cx+bPx, positive fitness exp(delta[u_i+lambda_i(Pu)_i]), and uniform death with proportional-neighbor reproduction. Equality of all individual replacement probabilities at each vacancy is precisely equality of lambda_i(Pu)_i for each pair of common-neighbor competitors (relative fitness ratios). Fully cooperative configuration x=1 and variable b!=c forces lambda_i=lambda_k on each common-neighbor pair. Varying c while using binary basis configurations forces P_i=P_k whenever their shared lambda is nonzero. The common-neighbor auxiliary graph is connected for connected nonbipartite G, has exactly the two bipartition parts as components for connected bipartite G. No adjacent vertices can have equal loopless stochastic rows; any nonzero invisible profile thus forces G complete bipartite. Conversely on K_{a,b} identical P rows within each side imply sidewise constant lambda cancels out of all competing fitness ratios. Includes stars and K1,1, all delta>0, b,c>0, all binary states, arbitrary real part constants; same entire transition kernel follows. Independently enumerated 771 connected labeled loopless graphs of orders 2..5 and all {-1,0,1}^V profiles and verified exact equivalence; source P4 strategy witness gives competitor log-fitness difference delta/4. The unrestricted theorem relies on analytic common-neighbor proof, not finite testing.
 
-The motivating 2026 source supplies the model equations and weak-selection formulas, not the complete characterization of its microscopic comparison-invisible parameter space under arbitrary positive selection. The full accessible preprint, including Methods and references, has no complete-bipartite classification. Peña–Rochat's complete accessible 2012 text uses interaction/group bipartiteness in multiplayer games; Szolnoki–Perc's 2021 full accessible preprint uses strategy-selective payoff averaging with imitation; and ordinary death–birth graph theory does not state the model-specific universal cancellation criterion. The sharp necessity argument depends on an auxiliary common-neighbor graph and arbitrary payoff parameters. Residual risk: the motivating paper's separately hosted supplementary information could contain an unindexed special case, and a general payoff-gauge invariance principle elsewhere may imply the elementary cancellation step; neither inspected material supplies the structural if-and-only-if result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem characterizes the *entire* nonidentifiable comparison-parameter space for a natural family of network evolutionary games. It shows that strong, heterogeneous social comparison can be completely observationally invisible, even at the level of each microscopic replacement event, on exactly one graph family. The star example contrasts with the general relevance of highly connected individuals and provides a sharp structural control case for interpreting simulations or fitting comparison parameters. Classification is not merely an enumerated small-graph curiosity; it holds for every finite connected network size and every positive selection strength.
+Xiong–Li–Kurths–Szolnoki–Feng (2026) introduce the same payoff and social-comparison fitness and derive weak-selection cooperation conditions; their abstract and methods description do not state an exact all-delta microscopic transition-kernel invariance classification. Peña–Rochat (2012), accessible full PMC text, use bipartite individual–group interaction hypergraphs in multiplayer games rather than exact cancellation in expected-payoff exponential fitness under death–birth. Szolnoki–Perc (2021) study strategy-dependent payoff averaging with imitation, not the specified fitness/update. The mathematical if-and-only-if complete-bipartite characterization and two-real-parameter nullspace are beyond the inspected prior claims, while uninspected portions of Xiong remain a material risk.
 
-## Boundaries and closest literature
+## value
 
-The converse requires the microscopic replacement probabilities for all states and positive donation benefit/cost choices; it must not be generalized to equal fixation probabilities alone. The model uses expected payoffs and undirected unweighted simple connected graphs. The motivating full preprint and the prior bipartite-structure and averaged-payoff papers have distinct mathematical conclusions. Separately hosted supplementary materials of the 2026 motivating article were not materially inspected and remain a residual comparison risk. No independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identifying every graph and nonzero susceptibility profile for which a seemingly nonlinear social-comparison perturbation leaves the entire microscopic Markov chain unchanged is a substantive structural invariance/boundary theorem. It distinguishes exact kernel invisibility for every positive selection strength from agreement of one weak-selection threshold, with direct consequences for parameter identifiability and games on stars/complete bipartite networks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
