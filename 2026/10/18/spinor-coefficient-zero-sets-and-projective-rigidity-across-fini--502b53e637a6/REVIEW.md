@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The theorem is for exactly the rank-one coefficient cone of a defining, irreducible spin representation. Schur orthogonality fixes its Fourier rank-weighted support at two. The quaternionic coefficient kernel is a real two-plane, and its intersections with a finite unit-quaternion subgroup are empty or cyclic-circle cosets. Every such plane occurs, so the necessity and sufficiency assertions are both proved. The two-ray projective fibre statement is an explicit rank-one determinant equation after diagonalizing two independent group elements. Rotation-axis counts give the incidence table. Exact rational quadratic-field computations validate the finite exceptional-group axes, and an exact group-law checker validates the dicyclic counts through twelve; all infinite-family statements have analytic proofs.
+
+## Originality — PASS, with identified partial prior coverage
+G. Alagic and A. Russell, *Uncertainty Principles for Compact Groups* (arXiv:math/0608702), give the general support-product inequality, not this stratified equality diagram. C. Bao et al., *Matroid automorphisms of the H4 root system* (arXiv:1005.5492), **already establish the root-plane cardinalities** that yield the \(2I\) counts of 450, 200 and 72. Those counts are explicitly acknowledged as covered, not independent novel claims. The full cross-family spinor coefficient statement, the exact two-ray projective rigidity for every cyclic-coset zero set, and its rank-two Fourier support interpretation are not supplied by the materially inspected statements. An equivalent theorem under root-system, spinor or Grassmannian terminology remains possible; exhaustive originality is not certified by the searches.
+
+## Value — PASS
+For nonabelian discrete spin representations, the standard uncertainty product predicts only a coarse lower bound. The result supplies a complete classification of all possible zero sets, their incidence multiplicities and the number of coefficient classes realizing each rigid set. The jump from infinite projective coefficient fibres for isolated central pairs to exactly two classes for coset zero sets is a natural structural identifiability boundary. The classification covers all binary-polyhedral families, including an infinite dicyclic family, and treats exact support constraints rather than only minima. Its value does not depend on counting the already tabulated \(H_4\) planes as new.
+
+## Limits and primary comparisons
+The theorem does not apply to arbitrary functions on the groups, other irreducible blocks, or rank-two matrices within the defining block. The full primary texts in the cited arXiv papers were examined in relevant portions, together with quaternionic group classifications; no independent mathematical audit has been performed. Prior geometric matroid work already implies the exceptional \(2I\) root-plane counts, and it may be possible to rederive additional pieces from other known finite root matroids. No claim of an exhaustive bibliographic census is made.
+
+Self-review: passed. Independent audit: not yet performed.
