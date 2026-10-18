@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The nonstandard transfer step is Liu–Din–Li Proposition 4: for \(0\le a\le2\), maximality \(C_{-\infty}(a,X)=1\) is equivalent to \(J(a,X)=2\). The new geometric step is exact. If both \(N_8(x-z)\) and \(N_8(x+y)\) equal \(2\), supporting facets through \(x\) either coincide, forcing \(N_8(y-z)\ge2\), or are adjacent. Dihedral symmetry then reduces to a vertical and a diagonal facet, where \(y=(u,\sqrt2-u)\), \(z=(-1,v)\) and \(u\ge\sqrt2-1\), so \(N_8(y-z)\ge u+1\ge\sqrt2\). Equality is explicit. The strict endpoint in the published definition is handled by an inward scaling sequence, and compactness gives necessity below \(\sqrt2\). The bundled exact checker verifies the finite facet-incidence certificate and equality configuration.
+## correctness
 
-## Originality
-PASS. Searches covered \(C_{-\infty}(a,X)\), the equivalent \(J(a,X)=2\) formulation, regular-octagon aliases, and the candidate threshold \(\sqrt2\). The defining 2021 full text was inspected through its definition, examples, generalized James comparison and saturation equivalence; it contains no regular-octagon computation. The highly relevant 2017 primary regular-octagon paper was also inspected: it computes the different two-vector exponent-generalized constant \(C_{NJ}^{(p)}\), whose statement does not contain the separation parameter \(a\). The closest public research records concern other regular-octagon constants and do not imply the claim.
+PASS
 
-## Value
-PASS. The motivating paper gives a universal saturation threshold \(2\), while the regular octagon is a canonical benchmark in Banach-space geometry. Determining the exact earlier onset \(\sqrt2\) identifies a genuine phase boundary for the newer three-vector invariant and explains it by a sharp exposed-face separation. This is a natural structural benchmark, not an arbitrary parameter slice.
+The statement is the saturation set, not the full profile: C_{-infty}(a,X8)=1 iff a>=sqrt(2), transferred by Liu–Din–Li Proposition 4 from J(a,X8)=2 for 0<=a<=2, and by Proposition 2 for a>2. For any two diameter equalities on the regular-octagon ball, expose their unit-length facets f,g at x. Identical facets give ||y-z||>=2; distinct simultaneous unit facets are adjacent. D8 symmetry reduces to f(s,t)=s, g(s,t)=(s+t)/sqrt(2), so y=(u,sqrt(2)-u) with u>=sqrt(2)-1 and z=(-1,v), giving ||y-z||>=u+1>=sqrt(2). The triple x=(1,sqrt(2)-1), y=(sqrt(2)-1,1), z=(-1,sqrt(2)-1) realizes equality. Scaling y inward ensures strict admissibility at a=sqrt(2), and compactness shows necessity if J approaches 2. Independent exact eight-facet/incident-face endpoint enumeration in sanity.py confirmed the geometric lemma. a=0 must be understood by the defining paper's endpoint convention: the literal displayed strict admissibility set is empty when a=0; no claim of a nonempty defining supremum at a=0 is made by this assessment.
 
-## Closest literature and limitations
-The defining source is Q. Liu, A. Din and Y. Li, AIMS Mathematics 6 (2021), 6309–6321, doi:10.3934/math.2021370, publicly dated 12 April 2021 and classified primarily under MSC 46B20. The closest same-space primary source is C. Yang and T. Wang, Mathematical Inequalities & Applications 20 (2017), 483–490, doi:10.7153/mia-20-32, which treats \(C_{NJ}^{(p)}\) rather than \(C_{-\infty}(a,X)\). The present result determines only the saturation set; it does not compute the full subthreshold profile.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Positive best-of-knowledge originality for the exact exposed-face separation threshold, after full primary defining-paper comparison and reading the earlier exact regular-octagon exponent-generalized invariant; Resultary service failed, so no negative database result is asserted.
+
+## value
+
+PASS
+
+The canonical regular octagonal Banach plane is a nontrivial test shape for the three-point geometric constant. Its sharp sqrt(2) cutoff improves a universal a>2 bound and gives an exactly motivated exposed-face separation invariant. The excluded subthreshold curve is not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
