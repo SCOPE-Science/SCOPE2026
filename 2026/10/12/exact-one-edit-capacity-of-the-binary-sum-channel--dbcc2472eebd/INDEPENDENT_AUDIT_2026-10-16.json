@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:57:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-one-edit-capacity-of-the-binary-sum-channel--dbcc2472eebd",
+        "Git blob RESULT.md 6c1b1f368dccc1cc1bf3ef0f654e8f0e80af4938",
+        "https://arxiv.org/html/2601.10256v2"
+      ],
+      "rationale": "The proof partitions arbitrary nonlinear codes by all but one input column; any two last columns at binary distance 1 or 2 give augmented matrices at Hamming distance 2 and confusable single-substitution balls, so each fiber ≤A_2(ℓ,3). A maximum length-ℓ distance-3 parity-row seed supplies that many matrices per prefix, while a length edit identifies its row and all other rows reconstruct it; one substitution is located by odd column parity and corrected through unique row-parity decoding. This handles no edit, parity-row edit, arbitrary nonlinear seeds and n>ℓ.",
+      "residual_risks": [
+        "Only one total output-row edit; full multiedit models not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abboud–Yaakobi Theorem 5: A_n^S(ℓ;1) ≤ floor(2^(nℓ)/(ℓ+1)); exact ℓ=2 Corollary 5."
+        ],
+        "reasoning": "The source generic upper bound is generally weaker than 2^(ℓ(n−1))A_2(ℓ,3), and the exact ℓ=2 result does not imply all ℓ; no stronger published formula identified.",
+        "searches": [
+          "Resultary: binary sum channel single substitution insertion deletion correction exact maximum code size row parity seed A_2(ell,3) Abboud Yaakobi",
+          "https://arxiv.org/html/2601.10256v2"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-one-edit-capacity-of-the-binary-sum-channel--dbcc2472eebd",
+        "https://arxiv.org/html/2601.10256v2",
+        "Resultary: binary sum channel single substitution insertion deletion correction exact maximum code size row parity seed A_2(ell,3) Abboud Yaakobi"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Construction 4 is a valid ≤1 total SID decoder; the source Theorem 5 bounds by floor(2^(ℓn)/(ℓ+1)), not exact for all ℓ."
+        ],
+        "reasoning": "From the existing construction alone one derives ≥ seed-size*2^(ℓ(n−1)), but equality requires a new upper bound. Fixing n−1 columns forces distance≥3 among last input columns because weights one/two yield augmented distance exactly two.",
+        "searches": [
+          "Resultary: binary sum channel single substitution insertion deletion correction exact maximum code size row parity seed A_2(ell,3) Abboud Yaakobi",
+          "https://arxiv.org/html/2601.10256v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abboud–Yaakobi arXiv:2601.10256v2 Sections V-A and V-B; compare parity-row lift to classical A_2(ℓ,3)."
+        ],
+        "reasoning": "The parity lift is the existing Construction 4. Its optimality for every ℓ follows from an extra disjoint-prefix fiberwise clique/independent-set upper bound, not just a renaming of the construction.",
+        "searches": [
+          "Resultary: binary sum channel single substitution insertion deletion correction exact maximum code size row parity seed A_2(ell,3) Abboud Yaakobi",
+          "https://arxiv.org/html/2601.10256v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brouwer binary-code table gives A_2(8,3)=20 (via A_2(9,4)=20)."
+        ],
+        "reasoning": "The classical seed maximum and the twenty-word seed are prior established data. The new assertion concerns the distinct sum-channel maximum, not reevaluating the classical table.",
+        "searches": [
+          "Resultary: binary sum channel single substitution insertion deletion correction exact maximum code size row parity seed A_2(ell,3) Abboud Yaakobi",
+          "https://aeb.win.tue.nl/codes/binary-1.html"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the matching arbitrary-ℓ upper bound; lower-bound construction and ℓ=2 optimality, as well as classical seed sizes, were already published.",
+      "residual_risks": [
+        "Resultary search found no identical full general-ℓ capacity formula but semantic search is not exhaustive; an uncatalogued equivalent coding bound may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The paper gives the parity-seed construction and a coarser general bound; its exact ℓ=2 result is covered, while the arbitrary-ℓ sharp A_2(ℓ,3) upper bound was not among the statements read",
+          "evidence": "Section V-B Construction 4 and Theorem 4 establish parity lower bound, Theorem 5 upper bound floor(2^(nℓ)/(ℓ+1)); Section V-A proves ℓ=2.",
+          "identifier_or_url": "https://arxiv.org/html/2601.10256v2",
+          "material_read": "Accessible arXiv HTML version 2, full model definitions and mathematical Section V including Construction 4, Theorems 4 and 5, Lemma 7 and Corollary 6",
+          "method": "Compared the displayed lower-bound construction and general sphere-packing bound against the fiberwise last-column upper bound",
+          "title": "Error-Correcting Codes for the Sum Channel (Abboud–Yaakobi)",
+          "trigger": "Same binary sum channel, same one-substitution and one-total-edit correction definitions and parity code"
+        },
+        {
+          "assessment": "Supports classical A_2(8,3)=20; codebook upper bound is prior work, not novel to assigned record",
+          "evidence": "Table row n=9,d=4 is 20; identity from table introduction transfers to A_2(8,3).",
+          "identifier_or_url": "https://aeb.win.tue.nl/codes/binary-1.html",
+          "material_read": "Full displayed table plus parity shortening identity A_2(n−1,2e−1)=A_2(n,2e)",
+          "method": "Checked row n=9,d=4 entry 20 and shortening identity for n=8,d=3",
+          "title": "Small binary codes: table of general binary codes (Brouwer)",
+          "trigger": "Numerical specialization A_2(8,3)=20"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-one-edit-capacity-of-the-binary-sum-channel--dbcc2472eebd",
+        "https://arxiv.org/html/2601.10256v2"
+      ],
+      "rationale": "An exact maximum for a natural noisy parity/sum channel closes the published non-tight cardinality interval for general ℓ, with concrete nonlinear length-eight improvement; precise code cardinality is directly used to select error-correcting codes.",
+      "residual_risks": [
+        "Resultary search found no identical full general-ℓ capacity formula but semantic search is not exhaustive; an uncatalogued equivalent coding bound may exist."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e7970a86eb52a25c6e66d1138bd9c53e740fadc0/2026/10/12/exact-one-edit-capacity-of-the-binary-sum-channel--dbcc2472eebd",
+    "https://arxiv.org/html/2601.10256v2",
+    "Resultary: binary sum channel single substitution insertion deletion correction exact maximum code size row parity seed A_2(ell,3) Abboud Yaakobi"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only one total output-row edit; full multiedit models not covered.",
+    "The value A_2(ℓ,3) is an independently established classical optimum, not evaluated anew at all ℓ.",
+    "Length-eight 25% cardinality gain need not correspond to one extra binary message bit."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "The paper gives the parity-seed construction and a coarser general bound; its exact ℓ=2 result is covered, while the arbitrary-ℓ sharp A_2(ℓ,3) upper bound was not among the statements read",
+      "evidence": "Section V-B Construction 4 and Theorem 4 establish parity lower bound, Theorem 5 upper bound floor(2^(nℓ)/(ℓ+1)); Section V-A proves ℓ=2.",
+      "identifier_or_url": "https://arxiv.org/html/2601.10256v2",
+      "material_read": "Accessible arXiv HTML version 2, full model definitions and mathematical Section V including Construction 4, Theorems 4 and 5, Lemma 7 and Corollary 6",
+      "method": "Compared the displayed lower-bound construction and general sphere-packing bound against the fiberwise last-column upper bound",
+      "title": "Error-Correcting Codes for the Sum Channel (Abboud–Yaakobi)",
+      "trigger": "Same binary sum channel, same one-substitution and one-total-edit correction definitions and parity code"
+    },
+    {
+      "assessment": "Supports classical A_2(8,3)=20; codebook upper bound is prior work, not novel to assigned record",
+      "evidence": "Table row n=9,d=4 is 20; identity from table introduction transfers to A_2(8,3).",
+      "identifier_or_url": "https://aeb.win.tue.nl/codes/binary-1.html",
+      "material_read": "Full displayed table plus parity shortening identity A_2(n−1,2e−1)=A_2(n,2e)",
+      "method": "Checked row n=9,d=4 entry 20 and shortening identity for n=8,d=3",
+      "title": "Small binary codes: table of general binary codes (Brouwer)",
+      "trigger": "Numerical specialization A_2(8,3)=20"
+    }
+  ]
+}

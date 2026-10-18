@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Extract the accompanying `verify.py` and execute `python3 verify.py` in the same directory. Python 3 standard-library facilities suffice. The observed terminal output was:
+## correctness
 
-```
-EDIT_BALLS 2 3 16 496
-EDIT_BALLS 3 4 1024 52224
-EDIT_BALLS 4 2 32 1216
-NONLINEAR_GAIN 20 versus 16
-VERIFY_OK
-```
+PASS
 
-The generated code families use classical seeds of lengths \(2\), \(3\), and \(4\), with brute-force output-ball disjointness checked for substitutions, insertions, deletions, and the no-error output. The separate column-distance test exhausts lengths from \(2\) through \(8\). Classical seed optimality is exhaustively confirmed by an independent maximum-independent-set calculation for lengths \(2\), \(3\), and \(4\). For length \(8\), the verifier checks the distinctness and pairwise minimum distance of the known twenty-word seed from Östergård–Baicheva–Kolev's electronic listing; optimality of size \(20\) is an established result cited in the mathematical references, not certified by this finite program.
+The proof partitions arbitrary nonlinear codes by all but one input column; any two last columns at binary distance 1 or 2 give augmented matrices at Hamming distance 2 and confusable single-substitution balls, so each fiber ≤A_2(ℓ,3). A maximum length-ℓ distance-3 parity-row seed supplies that many matrices per prefix, while a length edit identifies its row and all other rows reconstruct it; one substitution is located by odd column parity and corrected through unique row-parity decoding. This handles no edit, parity-row edit, arbitrary nonlinear seeds and n>ℓ.
 
-The all-parameter equality rests on the proof's fiberwise upper bound and decoder argument; the program cannot independently certify the theorem for arbitrary \(\ell,n\). Only one total edit is addressed. A published exact match in unindexed or inaccessible work is a residual originality risk. Independent external audit has not been performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge for the matching arbitrary-ℓ upper bound; lower-bound construction and ℓ=2 optimality, as well as classical seed sizes, were already published.
+
+## value
+
+PASS
+
+An exact maximum for a natural noisy parity/sum channel closes the published non-tight cardinality interval for general ℓ, with concrete nonlinear length-eight improvement; precise code cardinality is directly used to select error-correcting codes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
