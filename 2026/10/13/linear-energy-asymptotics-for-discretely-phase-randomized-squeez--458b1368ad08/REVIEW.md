@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the squeezed-vacuum photon law, derives a uniform local asymptotic on compact positive scaled-photon intervals, controls the \(x=0\) endpoint separately, and converts the sector-pair sum into the stated integral. The classical lower bound follows from the anchor theorem with \(\bar n=cM\), followed by Stirling's formula. The finite checker agrees with the asymptotic formulas but is not used as proof.
+## correctness
 
-## Originality
-PASS. The closest source is arXiv:2610.03657v1 itself. It gives the exact finite-size sector visibility and generic sample inequalities, but its stated asymptotic sample results treat \(\bar n=M/\log M\) and fixed \(\bar n\), while its asymptotic Gaussian-optimality discussion also specializes to \(M/\log M\). Focused searches found no published statement of the \(\bar n=cM\), \(0<c<1\), visibility limit or the induced exponent \(c-1-\ln c\). Earlier discrete-phase-randomization literature addresses QKD rather than this estimation problem.
+PASS
 
-## Value
-PASS. The result identifies what happens at a natural linear-energy scale left open between the anchor's sublinear construction and its statement that classical nonvanishing QFI requires at least linear energy. It gives both a positive limiting visibility for squeezed probes and an explicit exponential sample penalty for the classical family.
+For even j=2k, the exact squeezed photon law is (1+nbar)^(-1/2) binom(2k,k)4^(-k) [nbar/(1+nbar)]^k. With nbar=cM and j=xM>0, central-binomial Stirling gives M p_j→g_c(x)=sqrt[2/(pi c x)]e^(−x/(2c)). In 4 sum_even j<M of harmonic p_j,p_(j+M), even mesh 2/M yields 2 integral_0^1 g(x)g(x+1)/(g(x)+g(x+1)) dx. Near j=0, use harmonic≤p_(j+M) and uniform density x in [1,1+epsilon], then endpoint is O(epsilon). Integrand is positive and finite, so source squeezed bound proportional to B_M^(-1) stays constant. For classical source lower bound proportional to (1−c−c/M)e^(cM) M!/(cM)^M, Stirling gives sqrt(2pi M)(1−c) exp(M[c−1−ln c]); c−1−ln c>0. Numerical independent loggamma sums converge to integral for c=.25 and .6. Source finite-sample premise was taken from the quoted source formulas and could NOT be independently checked against its full primary paper; this is a material correctness/priority verification limitation on the source-level implication, not a fabricated independent validation of that premise.
 
-## Closest literature and limitations
-The closest comparison is Conlon et al., arXiv:2610.03657v1. The new statement is limited to fixed \(0<c<1\), even \(M\), the noiseless discrete-twirl model, and the classical family defined in that source. It does not prove that \(c=1\) is a sharp threshold or that the squeezed protocol is globally sample-optimal.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS as a *conditional fixed-c asymptotic deduction* in the explicit source model: Conlon et al develop the general bounds and an nbar=M/log M example; the new analysis evaluates a genuinely distinct linear-energy regime 0<c<1 and derives a positive visibility limit and classical large-deviation exponent. The originating paper full text was inaccessible; equivalence in an uninspected appendix is a live risk, explicitly not dismissed.
+
+## value
+
+PASS
+
+The concrete scaling crossover (constant squeezed samples vs exponential lower bound for the specified classical family) at every subcritical linear coefficient substantially refines the source energy/sample-complexity phase portrait, while explicitly excluding c=1 and all protocols outside its model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
