@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(1<p<2\), differentiating \(G=(x^p+y^p)^{2/p}-t x^2\) yields a positive-semidefinite Hessian precisely for \(t\le q_p(x/y)\); the computed logarithmic derivative forces the global minimum \(c_p=2^{2/p}(p-1)/p\) at the balanced pair. Continuous differentiability across the coordinate axes closes the interior-to-global convexity step. Positivity and absolute two-homogeneity then make \(\sqrt G\) an absolute norm. Coordinate monotonicity passes the plane norm to \(\mathbb K\oplus_pY\) for every nonzero Banach space \(Y\). The negative Hessian direction above the bound, the explicit \(p=1\) triangle witness, and the small-coordinate symmetric witnesses for \(p>2\) prove necessity. The \(p=2\) formula and \(\lambda=0\) boundary are direct. The complex dilation corollary depends on the published norm/dilation equivalence, not on an unprovided separate construction. Exact symbolic identities and deterministic finite tests corroborate the argument.
+PASS
 
-## Originality — PASS, with stated risk
+For K=R or C, Y nonzero arbitrary Banach and 0<=lambda<1, the defect D(a,y)=sqrt((|a|^p+||y||^p)^(2/p)-lambda²|a|²) (max norm for p=infty) is a norm precisely when lambda=0 or p=2 or (1<p<2 and lambda²<=(p-1)2^(2/p)/p). Necessity reduces by restricting to a real scalar+unit vector plane; sufficiency uses coordinatewise monotonicity of an absolute convex plane norm to lift to arbitrary Y and complex scalars. For 1<p<2, the 1/2-Hessian B of (x^p+y^p)^(2/p) has determinant (p-1)S^(4/p-2)x^(p-2)y^(p-2); the Schur complement gives t<=q_p(r), whose derivative changes sign exactly at r=1. The global minimizer c_p is attained there, including endpoint. Continuous C1 gluing across axes and convexity of the quadratic restriction to them yield global convexity of G; its square-root gauge is a norm. For t>c_p the v=(1,-(2-p)/p) direction has negative Hessian at (1,1), ruling out convex square of a norm. p=1 triangle counterexample, p>2 midpoint counterexample (because h^p=o(h²)), p=infty and p=2 explicit. Independently reproduced the exact p=3/2 Schur threshold and negative witness algebra.
 
-The closest full text, Jana–Pal–Roy (arXiv:2407.15112, Definition 1.2, Theorem 7.13 and Example 7.20), gives the qualitative norm/dilation equivalence and unrelated non-dilation examples, but does not calculate the scalar-coordinate threshold. Ricard–Xu (arXiv:1405.0431, Theorems 1–2 and proof) gives a sharp global \(p-1\) coefficient in a different convexity inequality, which does not imply the larger coordinate-specific sharp coefficient \(c_p\). Search comparisons of defect norms, coordinate contractions, dilation equivalences and local curvature did not reveal an equivalent formula. The possibility of a less indexed equivalent result in renorming literature remains a genuine residual risk; negative search evidence is not uniqueness certification.
+## originality
 
-## Value — PASS
+PASS
 
-This is an exact if-and-only-if threshold, uniformly across all nonzero Banach summands, for a natural rank-one coordinate contraction linked to the 2024 Banach dilation framework. It separates \(1<p<2\) (a nontrivial interval of dilatable strict contractions) from \(2<p\le\infty\) (no positive scalar-coordinate contraction dilates), including the endpoint coefficient and a discontinuous right-hand transition at the Hilbert exponent. The sharp coefficient exceeds the classical global \(p-1\) curvature constant, so the statement is more than a renaming of a textbook uniform convexity bound.
+Best-knowledge original exact scalar-coordinate rank-one threshold. The primary dilation iff theorem was inspected with its proof and non-Hilbert counterexample, and a full curvature inequality primary paper was inspected; neither evaluates this coordinate-specific phase threshold.
 
-## Limits
+## value
 
-No classification of arbitrary rank-one maps, nonstrict contractions, or unrelated dilation definitions. An unindexed equivalent theorem may exist. Finite computation was not used as a universal certificate.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The norm and isometric-dilation test is a natural mathematical gap for a canonical rank-one strict contraction on a decomposable Banach space. A sharp interval, included nontrivial endpoint, and transition at p=2 for arbitrary Y are structurally useful beyond mere reproducible computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

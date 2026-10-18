@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T19:11:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K=R or C, Y nonzero arbitrary Banach and 0<=lambda<1, the defect D(a,y)=sqrt((|a|^p+||y||^p)^(2/p)-lambda²|a|²) (max norm for p=infty) is a norm precisely when lambda=0 or p=2 or (1<p<2 and lambda²<=(p-1)2^(2/p)/p). Necessity reduces by restricting to a real scalar+unit vector plane; sufficiency uses coordinatewise monotonicity of an absolute convex plane norm to lift to arbitrary Y and complex scalars. For 1<p<2, the 1/2-Hessian B of (x^p+y^p)^(2/p) has determinant (p-1)S^(4/p-2)x^(p-2)y^(p-2); the Schur complement gives t<=q_p(r), whose derivative changes sign exactly at r=1. The global minimizer c_p is attained there, including endpoint. Continuous C1 gluing across axes and convexity of the quadratic restriction to them yield global convexity of G; its square-root gauge is a norm. For t>c_p the v=(1,-(2-p)/p) direction has negative Hessian at (1,1), ruling out convex square of a norm. p=1 triangle counterexample, p>2 midpoint counterexample (because h^p=o(h²)), p=infty and p=2 explicit. Independently reproduced the exact p=3/2 Schur threshold and negative witness algebra.",
+      "risks": [
+        "Finite symbolic p=3/2 corroboration is not an all-exponent proof; the analytic Schur derivative supplies all-exponent argument.",
+        "Banach dilation applies only to the precise complemented complex-space definition of the cited paper."
+      ],
+      "sources": [
+        "Frozen RESULT.md blob a938f063aacef140a37fdbf2d7755035ff0695cb, sections 1–4",
+        "Independent sympy symbolic Hessian computation for p=3/2 in sanity.py",
+        "Jana–Pal–Roy arXiv:2407.15112v2 Theorem 7.13 (dilation corollary)"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ricard–Xu proves a uniform direction-free coefficient p-1 for Lp squares, sharp globally.",
+          "For 1<p<2, the new restricted coordinate coefficient c_p=(p-1)2^(2/p)/p is strictly larger than p-1."
+        ],
+        "reasoning": "Uniform curvature with p-1 gives a sufficient but nonsharp scalar-coordinate bound. This theorem is not a corollary with its *sharp* threshold without the new Hessian minimax.",
+        "searches": [
+          "Banach scalar contraction on ell_p direct sum defect square root norm isometric dilation sharp threshold p-1 2 power",
+          "\"scalar coordinate\" \"dilation\" \"p-1\" \"2^(2/p)\"",
+          "arXiv:2407.15112v2",
+          "arXiv:1405.0431v4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.15112v2",
+        "arXiv:1405.0431v4",
+        "Frozen RESULT.md exact q_p minimax"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 7.13 has operator quantifier T arbitrary but its implication is conditional on A_T already being a norm.",
+          "Ricard–Xu covers all directions at a lower coefficient but cannot rule out or certify the larger coordinate-specific c_p boundary."
+        ],
+        "reasoning": "Neither primary result implies the full iff coefficient by plugging in the operator alone; optimizing the Schur complement over x/y is mathematically necessary.",
+        "searches": [
+          "Banach scalar contraction on ell_p direct sum defect square root norm isometric dilation sharp threshold p-1 2 power",
+          "\"scalar coordinate\" \"dilation\" \"p-1\" \"2^(2/p)\"",
+          "arXiv:2407.15112v2",
+          "arXiv:1405.0431v4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jana–Pal–Roy Theorem 7.13 iff criterion for a given strict complex contraction; their Example 7.20 uses different operators coupling two coordinates.",
+          "Our claim supplies exact lambda² admissible interval for the specific diagonal projection (lambda a,0)."
+        ],
+        "reasoning": "The dilation formulation is equivalent for complex spaces once D is a norm. The criterion alone does not calculate the coordinate threshold; it shifts the problem to the same norm test.",
+        "searches": [
+          "Banach scalar contraction on ell_p direct sum defect square root norm isometric dilation sharp threshold p-1 2 power",
+          "\"scalar coordinate\" \"dilation\" \"p-1\" \"2^(2/p)\"",
+          "arXiv:2407.15112v2",
+          "arXiv:1405.0431v4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Jana–Pal–Roy and Ricard–Xu primary theorems contain no such exact coordinate value; they instead give a general criterion and a different optimal global curvature coefficient.",
+          "Resultary semantic queries failed internally, so database absence cannot be asserted."
+        ],
+        "reasoning": "A full range of real exponents and arbitrary Banach summands is not a known finite parameter table in the checked sources; exact-value search absence has little force by itself.",
+        "searches": [
+          "Banach scalar contraction on ell_p direct sum defect square root norm isometric dilation sharp threshold p-1 2 power",
+          "\"scalar coordinate\" \"dilation\" \"p-1\" \"2^(2/p)\"",
+          "arXiv:2407.15112v2",
+          "arXiv:1405.0431v4"
+        ]
+      },
+      "rationale": "Best-knowledge original exact scalar-coordinate rank-one threshold. The primary dilation iff theorem was inspected with its proof and non-Hilbert counterexample, and a full curvature inequality primary paper was inspected; neither evaluates this coordinate-specific phase threshold.",
+      "residual_risks": [
+        "Unindexed Banach-space renorming literature might contain equivalent fixed-coordinate Hessian threshold.",
+        "No general-rank-one contraction classification follows from this special scalar-axis family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CRITERION_NOT_COMPUTED: establishes Banach isometric dilation iff A_T norm, with examples of different rank-one contractions on Lp.",
+          "evidence": [
+            "Theorem 7.13 pp. 49–50 defines A_T and provides the iff; Example 7.20 uses f,g with T(phi)=lambda(alpha_phi-beta_phi)f"
+          ],
+          "identifier_or_url": "arXiv:2407.15112v2; https://arxiv.org/pdf/2407.15112",
+          "material_read": "Primary full PDF: Definition 1.2 and surrounding discussion, Section 7 Theorem 7.13 and sufficiency proof on PDF pp. 48–49, Example 7.20 on p. 52 and its operator formulas",
+          "method": "Read full theorem, relevant proof pages, and rendered screenshots of theorem/example",
+          "title": "A dilation theoretic approach to Banach spaces",
+          "trigger": "Exact defect-norm iff isometric dilation criterion"
+        },
+        {
+          "assessment": "GENERAL_GLOBAL_CURVATURE_NOT_EXACT_COORDINATE_BOUND: coefficient p-1, distinct optimization.",
+          "evidence": [
+            "Theorem 2: ||x+y||²_p+||x-y||²_p >=2||x||²_p+2(p-1)||y||²_p for 1<p<=2"
+          ],
+          "identifier_or_url": "arXiv:1405.0431v4; https://arxiv.org/pdf/1405.0431",
+          "material_read": "Full primary PDF: Abstract, pp. 1–3, Theorems 1,2, sharp coefficient discussion, proof of Theorem 2 pp. 8–9; first/third rendered pages inspected",
+          "method": "Read primary theorem statements, proof mechanism and visual pages",
+          "title": "A noncommutative martingale convexity inequality",
+          "trigger": "Plausible stronger universal p-convexity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The norm and isometric-dilation test is a natural mathematical gap for a canonical rank-one strict contraction on a decomposable Banach space. A sharp interval, included nontrivial endpoint, and transition at p=2 for arbitrary Y are structurally useful beyond mere reproducible computation.",
+      "risks": [
+        "Unindexed Banach-space renorming literature might contain equivalent fixed-coordinate Hessian threshold.",
+        "No general-rank-one contraction classification follows from this special scalar-axis family."
+      ],
+      "sources": [
+        "arXiv:2407.15112v2",
+        "arXiv:1405.0431v4"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "T_lambda only scales and projects one scalar coordinate, lambda<1 and Y nonzero.",
+    "Complex dilation equivalence in Jana–Pal–Roy sense only.",
+    "No other rank-one maps or general Banach dilation notions are classified."
+  ]
+}
