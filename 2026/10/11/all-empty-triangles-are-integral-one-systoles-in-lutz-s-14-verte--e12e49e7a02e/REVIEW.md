@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces integral first homology to an explicit rank-71 lattice quotient obtained from the supplied tetrahedra. A nonzero 71-by-71 relation minor has determinant \(4\), bounding the homology order above by 4, while a constructed \(\mathbb Z/4\)-valued cocycle annihilates every triangular boundary and has an odd value, giving a surjection onto \(\mathbb Z/4\). The two bounds therefore identify the group exactly. Exhaustive clique enumeration then proves the 143/105/38 cycle classification. The packaged verifier reproduces each numerical assertion from `facets.txt`.
+## correctness
 
-## Originality
-PASS. The exact-object sources inspected state the triangulation, face vector, topology/homology, or broader face-number data, but not the complete empty-triangle homology spectrum. Searches used aliases and equivalent formulations including empty/missing triangles, induced three-cycles, integral one-systoles, and the exact numerical split. No located statement dominates or implies the new claim. Residual risk remains from unindexed historical computations.
+PASS
 
-## Value
-PASS. The claim determines a natural discrete systolic invariant of a torsion 3-manifold triangulation and, more strongly, classifies every minimizer by its order in \(H_1(K;\mathbb Z)\). The fact that the minimum-support cycles realize both the primitive and order-two strata of \(\mathbb Z/4\) gives structure beyond a raw face-count statistic.
+The actual 70 original tetrahedra in facets.txt produce \(f=(14,84,140,70)\) and a connected graph with 71 non-tree cycle generators. Independently forming all 140 oriented triangular boundary relations and computing the full integral Smith normal form gives one nonunit invariant \(4\), hence \(H_1\cong\mathbb Z/4\), strengthening the source verifier\'s determinant-index argument. An independent mod-four cocycle construction annihilates every face boundary and gives 143 missing-three-clique residues: \(50\) equal 1, \(38\) equal 2, \(55\) equal 3 and none zero. This exhausts all 283 3-cliques (140 face, 143 missing). Every face triangle is nullhomologous and simple cycles have at least three edges, so these are exactly the minimum-length nonzero integral cycles. All computations were performed on the actual pinned facet blob, not the verification log.
 
-## Closest literature and limitations
-Lutz's 1999 dissertation is the decisive exact-object source because it prints the facet list and records the homology. The 2003 geometric-manifolds preprint and the 2009 \(f\)-vector paper record the same face vector in broader lens-space tables. The result is only about this one triangulation; no uniqueness, vertex minimality, or statement about longer cycle representatives is asserted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact Lutz source establishes the triangulation, face vector, and ambient lens-space homology but does not supply the list of 143 induced triangles or which Z4 homology class each realizes. The integral Smith/cocycle enumeration is additional nontrivial finite information. Resultary searches found near-neighbor same-systole censuses for other lens spaces and triangulations, not an earlier implication for this exact complex.
+
+## value
+
+PASS
+
+A complete list of integral-homology shortest simple cycles and their torsion orders in a standard low-vertex lens-space triangulation is a natural invariant-level combinatorial topology fact. It distinguishes primitive from order-two 3-cycles, and the exact exhaustive spectrum is not obtained merely from knowing the ambient group \(\mathbb Z/4\) and the face vector.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
