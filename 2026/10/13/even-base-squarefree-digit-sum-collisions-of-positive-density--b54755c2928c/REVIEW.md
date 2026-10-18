@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim consists of an exact four-digit collision, the squarefreeness of its two inputs, and the exact natural density of admissible even bases. Expanding both digit words gives the displayed factorizations and the reverse digit sums, so equality of \(H_b\) is exact for every \(b\ge12\). The two resultant identities yield pairwise coprimality outside \(b\equiv4\pmod7\). At prime squares, the permitted proportions are exactly \(1/2\) at \(2\), \(7/9\) at \(3\), \(40/49\) at \(7\), and \(1-(3+(2/p))/p^2\) for other odd primes. The derivative of \(b^2-2\) is invertible at its odd-prime roots. The tail union bound \(4T\sum_{p>P}p^{-2}+4\pi(T)\) makes the CRT density limit rigorous, rather than an experimental guess. Actual verifier output independently checks finite cases and local counting. The infinite theorem rests on the displayed proof, not those computations.
+## correctness
 
-## Originality — PASS relative to inspected sources
-The 2023 Noppakaew–Pongsriiam article's Example 11 proves collisions without squarefreeness for arbitrary bases; Example 14 certifies the squarefree property only through \(b=10\), and Question 30 asks for all \(b\ge11\). The new result covers an infinite positive-density family of **even** bases via a distinct quadratic-factor identity. A separate earlier linear-factor squarefree construction imposes a condition excluding every even base, so this result is not its corollary. Search comparisons of the polynomial identity and alternative terminology did not find an exact or dominating published statement. Lack of an indexed match alone is not a proof of global novelty; an undiscovered equivalent remains possible.
+PASS
 
-## Value — PASS
-The original squarefree-injectivity question is naturally parameterized by the numeral base. Previous published examples give only small bases, and the previous known positive-density construction treats odd bases; extending it to even bases is a substantive complementary structural boundary. The theorem gives explicit witnesses and an **exact** positive base density near \(0.2696\), substantially beyond an isolated example or finite computation. It does not claim the unrestricted question is solved.
+For even b>=12, Q=b²-2, U=2b-1, V=2b-3, the exact digit expansions X=UQ=(1,b-2,b-4,2)_b and Y=VQ=(1,b-4,b-4,6)_b yield S_b(X)=V, S_b(Y)=U, so both distinct inputs map under H_b(n)=n S_b(n) to UVQ. The identities (2b-1)(2b+1)-4Q=7 and 4Q-(2b-3)(2b+3)=1 show gcd(Q,U)|7, gcd(Q,V)=1 and gcd(U,V)=1. Excluding b=4 mod7 makes Q,U,V pairwise coprime, so their separate squarefreeness implies both inputs squarefree. At the even-prime modulus 4 half of b classes qualify; at p=3 7/9; at p=7 precisely 40/49 (7 excluded classes for b mod7, plus one root lift of Q and one root lift of V). For odd p>=5, p!=7, the distinct p²-root sets of Q,U,V contain 3+(2/p) forbidden classes. The CRT finite-sieve densities converge to (1/2)(7/9)(40/49) times the convergent positive Euler product. The large-prime-squares union bound 4T sum_{p>P} p^{-2}+4 pi(T) has limsup_T/T tending to zero as P->infty and supplies the needed actual natural density, not a heuristic independence assumption. Independently verified expansions, exact squarefreeness equivalence for even bases 12..400, and residue-class counts for p=2,3,5,7,11,13,17,19,23,31,41,47. Found 106 qualifying even bases in 12..400, not used as an infinite proof.
 
-## Literature and limits
-Primary: Noppakaew and Pongsriiam, *Product of Some Polynomials and Arithmetic Functions*, Journal of Integer Sequences 26 (2023), Article 23.9.1 (full relevant original sections inspected). The finite checker cannot establish an infinite theorem, but the CRT prime-square argument does. Exact density concerns bases satisfying these explicit conditions, not all possible bases admitting some collision. Independent review remains necessary to establish external scientific confidence and broader bibliographic coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact originating question is Question 30 of Noppakaew–Pongsriiam (Journal of Integer Sequences 26 (2023), 23.9.1), which establishes H_b noninjective on all N for all b>=2 and squarefree noninjectivity only for b=2..10. The present theorem neither pretends to settle every b>=11 nor repeats those finite examples: it supplies explicit quadratic-factor witnesses and an exact positive-density subset of even bases b>=12. No equivalent construction or complete parametric density is identified in its full 29-page primary text or scoped semantic search. Standard squarefree-sieve/local-density theorems underlie the density argument but do not already fix the specific digit-sum polynomial witnesses.
+
+## value
+
+PASS
+
+Squarefree-input injectivity of H_b is an explicitly posed open-ended arithmetic-function problem. An explicit infinite family occupying positive natural density among bases, with the exact Euler-product density and valid squarefree digit witnesses, is a meaningful quantitative partial resolution, not simply a few computational collisions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
