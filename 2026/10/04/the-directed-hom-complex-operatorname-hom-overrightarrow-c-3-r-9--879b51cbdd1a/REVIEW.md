@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The directed Hom-complex definition reduces this loop-free tournament case to an exhaustive four-state assignment model. The verifier enumerates all \(4^9\) assignments, reconstructs all \(720\) cells and all \(1917\) Hasse covers, and checks the stated cell vector. The staged matching is replayed from its rule rather than loaded as a log; reversing its \(359\) matched covers yields an acyclic directed Hasse graph. One critical \(0\)-cell and one critical \(1\)-cell imply a homotopy-equivalent CW complex with exactly those cells, hence \(S^1\). A separate mod-2 boundary calculation gives ranks \((89,180,90)\) and Betti numbers \((1,1,0,0)\).
+## correctness
 
-## Originality
-**PASS.** The closest primary paper defines the same directed Hom complex, focuses its general tournament theorem on transitive tournaments, displays several small nontransitive examples, and explicitly leaves possible homotopy types for other tournaments open. Its seven-vertex Möbius-strip example does not imply the cyclic nine-vertex case. Exact searches for the regular/cyclic nine-vertex tournament, the oriented three-cycle, and directed Hom-complex aliases found no statement covering this homotopy type. Previously checked nearby tournament-complex results concern different functors such as neighborhood or directed-flag complexes and therefore do not imply this claim.
+PASS
 
-## Value
-**PASS.** The codomain is the canonical regular cyclic tournament of order nine, while \(\overrightarrow{C}_3\) is specifically motivated in the primary literature as the natural source graph for \(\mathbb Z_3\)-equivariant obstruction theory. Determining the complete homotopy type gives a compact structural benchmark in an explicitly open nontransitive-tournament landscape. The result is deliberately narrow: its value is the exact collapse certificate for a natural object, not a claimed general classification.
+Used exact directed multihomomorphism definition: triples of nonempty pairwise-disjoint subsets (A,B,C) of Z/9 with all arcs from A to B, B to C, C to A present for cyclic steps 1..4. Independently enumerated all 4^9 assignments as bitmasks: 720 valid cells, f=(90,270,270,90), 1,917 Hasse covers. A separately implemented coordinate-vertex staged matching pairs 359 covers and leaves only ({0},{1},{5}) dimension0 and ({6},{1},{2,5}) dimension1. Independently built and topologically sorted the directed Hasse graph with precisely matched edges reversed; all 720 vertices sorted without cycle. Forman discrete Morse thus yields a CW complex with one 0- and one 1-cell, necessarily S^1. Cellular mod2 Betti (1,1,0,0) follows from the source verifier but alone would not prove homotopy type.
 
-## Closest literature and limitations
-Dochtermann--Singh, arXiv:2108.10948 / European Journal of Combinatorics 110 (2023), is the closest source. It gives the definition, the discrete-Morse framework, a Möbius-strip example for a seven-vertex tournament, and the open tournament-Hom question, but no result for the regular cyclic tournament \(R_9\). The present theorem remains a single finite case, and an unindexed or very recent duplicate cannot be ruled out absolutely.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Dochtermann–Singh introduce the directed Hom functor and identify topology for nontransitive tournament targets as an open direction; their transitive-target theorem and seven-vertex Möbius example do not determine regular cyclic tournament R9. Published Resultary results regarding the path homology of cyclic tournaments and directed flag complexes treat different functors, not multihomomorphism complexes from oriented C3; self-hit did not establish earlier coverage.
+
+## value
+
+PASS
+
+Canonical smallest source oriented cycle and symmetric 9-vertex regular target form a natural benchmark for directed Hom theory. The complete homotopy type (not just homology) is a motivated finite answer to the literature’s nontransitive-target program; lack of an infinite family theorem is explicitly acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

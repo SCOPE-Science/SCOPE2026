@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The program uses no third-party packages.
+# Independent mathematical audit
 
-It constructs the regular cyclic tournament \(R_9\) directly from the modular arc rule and exhausts all \(4^9\) four-state assignments for the three coordinates of \(\operatorname{Hom}(\overrightarrow{C}_3,R_9)\). It checks exactly \(720\) valid cells, the cell vector \((90,270,270,90)\), and all \(1917\) Hasse covers.
+## correctness
 
-The program then rebuilds the deterministic staged matching, verifies \(359\) matched pairs, identifies exactly one critical cell in dimension \(0\) and one in dimension \(1\), and topologically sorts the reversed-matching Hasse orientation to certify acyclicity.
+PASS
 
-As a separate numerical check, it constructs the full cellular chain complex over \(\mathbb F_2\). The boundary ranks are \((89,180,90)\), giving Betti numbers \((1,1,0,0)\) and Euler characteristic \(0\).
+Used exact directed multihomomorphism definition: triples of nonempty pairwise-disjoint subsets (A,B,C) of Z/9 with all arcs from A to B, B to C, C to A present for cyclic steps 1..4. Independently enumerated all 4^9 assignments as bitmasks: 720 valid cells, f=(90,270,270,90), 1,917 Hasse covers. A separately implemented coordinate-vertex staged matching pairs 359 covers and leaves only ({0},{1},{5}) dimension0 and ({6},{1},{2,5}) dimension1. Independently built and topologically sorted the directed Hasse graph with precisely matched edges reversed; all 720 vertices sorted without cycle. Forman discrete Morse thus yields a CW complex with one 0- and one 1-cell, necessarily S^1. Cellular mod2 Betti (1,1,0,0) follows from the source verifier but alone would not prove homotopy type.
 
-The finite computations prove the named finite case only. No extrapolation to larger cyclic tournaments is made. Successful replay ends with `CYCLIC_R9_HOMC3_VERIFY_OK`.
+## originality
+
+PASS
+
+Dochtermann–Singh introduce the directed Hom functor and identify topology for nontransitive tournament targets as an open direction; their transitive-target theorem and seven-vertex Möbius example do not determine regular cyclic tournament R9. Published Resultary results regarding the path homology of cyclic tournaments and directed flag complexes treat different functors, not multihomomorphism complexes from oriented C3; self-hit did not establish earlier coverage.
+
+## value
+
+PASS
+
+Canonical smallest source oriented cycle and symmetric 9-vertex regular target form a natural benchmark for directed Hom theory. The complete homotopy type (not just homology) is a motivated finite answer to the literature’s nontransitive-target program; lack of an infinite family theorem is explicitly acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
