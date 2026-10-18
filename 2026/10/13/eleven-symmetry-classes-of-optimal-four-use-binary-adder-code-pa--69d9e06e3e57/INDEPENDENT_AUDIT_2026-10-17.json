@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:13:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The difference set criterion proves injectivity of (a,b)↦a+b iff no nonzero codeword difference of A equals an opposite difference of B. Fix 0∈A by translating both codebooks by the same XOR mask, equivalently complementing selected coordinates in both (output coordinate flips z↦2−z). Independent newly written C++17 exhaustive algorithm enumerated all 32768 odd A masks, computed 16-vertex conflict graphs and exact MIS recurrence to verify max |A|alpha(G_A)=36. A separate cardinality-constrained full B enumeration found 966 rooted maximum pairs: 192 of (4,9),342 of (6,6),432 of (9,4); XOR translates deduplicated to 2448 ordered labeled pairs with size groups 768,912,768. Enumerating 24 coordinate permutations×16 simultaneous XORs×two user orders partitioned them into 11 orbits of sizes 48 (1),96 (3),192 (3),384 (4). This is exhaustive on the finite 4-bit universe; output was reproduced independently and agrees with actual code, not just logs.",
+      "risk": [
+        "Symmetry group is the explicitly chosen 768-element group; other equivalence notions can change 11. Exactly four channel uses, arbitrary nonempty binary codebooks."
+      ],
+      "sources": [
+        "Actual RESULT.md 99a1c3c2d6087f9037ac79086135c7fa94c7d0d4",
+        "Actual adder4.cpp / adder4census.cpp / adder4orbits.cpp source blob identities",
+        "New compiled independent_adder4_1633.cpp exhaustive full run"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2016 paper asymptotically bounds unbalanced UD pairs, an optimization problem, not a finite equality orbit count. 2024 thesis deals with short code constructions; inaccessible full text might in principle include classifications."
+        ],
+        "reasoning": "Known upper bound 36 does not determine how many maximizers or how many symmetry types. An exhaustive previous classification in thesis could dominate; unresolved access remains material risk.",
+        "searches": [
+          "Austrin Kaski Koivisto Nederlof arXiv:1605.00462 full text",
+          "binary adder channel four uses uniquely decodable pairs size product 36 classifications 2448 11 symmetry orbits Queseth",
+          "Queseth KTH 2024 thesis abstract"
+        ]
+      },
+      "checked_sources": [
+        "Austrin et al arXiv:1605.00462 relevant full text",
+        "Queseth 2024 KTH thesis urn:nbn:se:kth:diva-360250 abstract only, full-text unavailable",
+        "Resultary semantic query binary adder channel four uses uniquely decodable pairs size product 36 classifications 2448 11 symmetry orbits Queseth"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maximum product 36 is known, so it is excluded from novelty claim; neither inspected prior theorem nor accessible abstract supplies root pair census, labeled count, or orbit stabilizers."
+        ],
+        "reasoning": "A scalar extremal cardinality alone cannot imply counts of all attaining codebooks or classification under coordinate group; the full finite census is an independent additional result given actual source evidence.",
+        "searches": [
+          "arXiv:1605.00462 introduction and coding-theoretic bound",
+          "binary adder channel four uses uniquely decodable pairs size product 36 classifications 2448 11 symmetry orbits Queseth",
+          "KTH Queseth 2024 thesis abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Austrin et al study large-length asymptotic bounds; Queseth thesis abstract discusses optimal short self-complementary code constructions including length four, but not enumerative 2448 pairs or eleven orbits in available summary."
+        ],
+        "reasoning": "Exact classification is stronger than witnessing existence/attaining known product. Overlap with short-code thesis is not resolved and is explicitly not taken as evidence of complete noncoverage.",
+        "searches": [
+          "binary adder channel four uses uniquely decodable pairs size product 36 classifications 2448 11 symmetry orbits Queseth",
+          "arXiv:1605.00462 Sharper Upper Bounds for Unbalanced Uniquely Decodable Code Pairs",
+          "Queseth 2024 Constructions of codes for binary adder channel KTH URN urn:nbn:se:kth:diva-360250"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest records concern other finite code and combinatorial classifications, not this four-use binary adder code-pair census."
+        ],
+        "reasoning": "No known exact table found for this pair-count/orbit invariant; nonfindability does not establish novelty and Queseth thesis priority risk persists.",
+        "searches": [
+          "binary adder channel four uses uniquely decodable pairs size product 36 classifications 2448 11 symmetry orbits Queseth",
+          "binary adder four uses 2448 11 orbits optimal size36",
+          "Resultary 2026/10/4/SCOPE-exact-classification-of-binary-length-five-mds-symbol-pair-codes--2810c6c286b8"
+        ]
+      },
+      "rationale": "Published binary adder-channel work already supplies optimum 36 and asymptotic bounds. This result instead classifies all optimum 4-use code pairs, including the 2448 labeled census and 11 prescribed symmetry orbits. The very relevant Queseth 2024 KTH thesis discusses length-four short optimal constructions, so priority overlap remains a substantial material risk; thesis full text was inaccessible through lawful open routes and institutional Oxford route reported vpn_disconnected. The accessible abstract does not state the whole 2448/11 equality classification, hence a qualified best-of-knowledge acceptance, not novelty certification.",
+      "residual_risks": [
+        "High-priority Queseth 2024 thesis full text inaccessible (institutional retrieval vpn_disconnected); may contain an equivalent four-use maximizing-pair census or stronger classification.",
+        "No independent whole-thesis noncoverage conclusion can be supported by the abstract; this is best-of-knowledge, not historical priority certification.",
+        "Different symmetry conventions could change the orbit count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies asymptotic upper bounds, not inspected four-use equality-pair orbit enumeration.",
+          "evidence": [
+            "Problem (a,b)↦a+b, unbalanced code-pair upper bounds."
+          ],
+          "identifier_or_url": "arXiv:1605.00462",
+          "material_read": "Lawful complete arXiv preprint text including main bound/information-theoretic setup and introductory codepair definitions.",
+          "method": "Open arXiv PDF pertinent complete sections and first-page screenshot.",
+          "title": "Sharper Upper Bounds for Unbalanced Uniquely Decodable Code Pairs",
+          "trigger": "Closest mathematical binary-adder UD pair theory"
+        },
+        {
+          "assessment": "Potential material prior overlap; DO NOT assert whole-document noncoverage or certified novelty.",
+          "evidence": [
+            "Abstract mentions best short binary adder code construction and length-four cases; no exact 2448/11 count visible."
+          ],
+          "identifier_or_url": "urn:nbn:se:kth:diva-360250",
+          "material_read": "Thesis title, public abstract and metadata only; full text inaccessible via lawful public routes and authorized Oxford access vpn_disconnected.",
+          "method": "Inspected public thesis abstract, checked open full-text route, then authorized institutional retrieval without bypass.",
+          "title": "Constructions of codes for the binary adder channel",
+          "trigger": "Very relevant 2024 thesis on optimal length-four short codes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An all-codebook classification of a known extremal four-use binary adder channel gives useful design diversity beyond merely knowing maximum product 36. The exact 2448 ordered solutions and 11 coordinate/complement/user-exchange orbits provide a complete natural isomorphism-invariant of this finite coding problem, including unequal-size and balanced optima. A finite result is warranted by the coding-theoretic optimum question.",
+      "risk": [
+        "Potential previous short-code thesis census could supersede novelty; four uses only, not general asymptotic theorem."
+      ],
+      "sources": [
+        "Austrin et al arXiv:1605.00462 adder codepair context",
+        "Independent full equality-and-orbit census"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly four uses, alphabet {0,1}, coordinatewise integer output, ordered nonempty codebook pairs.",
+    "Thesis 2024 lawfully inaccessible in full; residual priority risk, not proof of novelty."
+  ],
+  "schema_version": 1
+}
