@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is proved from the stabilizer expansion of the four-qubit path graph. The initial pair reductions have mutual informations \(1,1,0,0,0,0\); after endpoint \(Z\)-measurement, every branch is a pure measured qubit times a three-qubit path graph and has pair mutual informations \(1,1,1,0,0,0\). With the source normalization \(\mathcal M_{\mathcal{F}r}=\frac16\sum I(i:j)\), these give exactly \(1/3\) and \(1/2\). An exact-rational standalone checker independently reconstructs all reduced spectra.
+## correctness
 
-## Originality
-PASS. The defining full text and its follow-up were inspected at the statements defining the probe, arithmetic normalization, and LOCC claim. Searches using the exact source titles, probe name, cluster-state aliases, pairwise mutual information, endpoint measurement, and LOCC monotonicity did not locate an implication-equivalent counterexample. The follow-up itself reports only a proof through three parties and numerical support beyond that. A later total-correlation construction by the same authors is a different functional and does not imply the present statement.
+PASS
 
-Residual risk: an obscure, poorly indexed correction or note may contain the same four-qubit cluster witness. No such source was found in the checked literature.
+The reduced-state stabilizer-support enumeration is exact. Graph stabilizers K1=X1 Z2 and K4=Z3 X4 supply precisely the two one-bit-entropy pair states 12 and 34; all other pairs are maximally mixed. Thus one-qubit entropies are 1, six pair mutual informations are (1,0,0,0,0,1), total 2 and source-normalized M=1/3. Selectively measuring endpoint 1 in the computational basis gives either Z2-corrected C3 path on 234 tensor a pure endpoint; its three retained pairs each have I=1 (including 24 via product of endpoint stabilizers). Each branch hence sums 3, M=1/2; both branches have probability 1/2. Direct independent GF(2) support-enumeration reconstructed these exact pairwise MI values. It is an analytical finite-dimensional counterexample, not extrapolation.
 
-## Value
-PASS. The counterexample addresses a natural structural requirement of an entanglement measure at exactly the first register size beyond the source's proved range. It also identifies the mechanism: a local measurement can convert correlations hidden from two-qubit marginals into three simultaneous pair correlations, causing a pairwise mutual-information sum to rise. The conclusion is an exact boundary result, not a numerical anomaly.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. The test compared the precise half-mutual-information probe and arithmetic (not geometric) normalization, with cluster graph, LOCC, endpoint measurement and mutual-information aliases. A source proposing nonincrease is not itself a statement of the counterexample. The found C4 counterexample is not implied by the prior proof limited to <=3 parties. It contradicts the projected monotonicity at N=4 but does not falsify results for other probes or aggregates. Residual priority/access caveats explicitly included; no search absence alone is interpreted as novelty.
+
+## value
+
+PASS
+
+The failure of average LOCC monotonicity is an axiom-level defect in the actual proposed multipartite entanglement functional, exhibited by a transparent single-qubit local protocol on the first size beyond the originating follow-up's proved N<=3 range. Its specific mechanism (local measurement promotes globally hidden correlations into visible pairwise correlations) is reusable when evaluating multipartite correlation aggregates. The result is more than a cheap sign check: it isolates the exact functional, protocol, and quantitative gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

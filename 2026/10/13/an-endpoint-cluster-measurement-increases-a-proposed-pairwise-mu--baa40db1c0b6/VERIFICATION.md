@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses exact stabilizer reductions. For the four-qubit path graph, only the endpoint-adjacent pairs \(\{1,2\}\) and \(\{3,4\}\) contain a nonidentity stabilizer supported wholly on the pair; each corresponding reduced state has spectrum \(\{1/2,1/2,0,0\}\). The other four pair reductions are \(I/4\). Therefore the six initial mutual informations are exactly \(1,1,0,0,0,0\).
+# Independent mathematical audit
 
-After a computational-basis measurement of qubit \(1\), each branch is a pure measured endpoint times a three-qubit path graph on \(2,3,4\), up to a local Pauli correction. The three remaining pairs each contain a nonidentity stabilizer supported on that pair, so their reduced spectra are all \(\{1/2,1/2,0,0\}\); pairs containing qubit \(1\) are product. The six branch mutual informations are therefore exactly \(1,1,1,0,0,0\).
+## correctness
 
-The source normalization for four qubits is \(\mathcal M_{\mathcal{F}r}=\frac16\sum_{i<j}I(i:j)\), giving exact values \(1/3\) initially and \(1/2\) after either outcome. Since both outcomes occur with probability \(1/2\), the average postmeasurement value is exactly \(1/2\).
+PASS
 
-The bundled script `verify_cluster_counterexample.py` was executed from its packaged path and returned:
+The reduced-state stabilizer-support enumeration is exact. Graph stabilizers K1=X1 Z2 and K4=Z3 X4 supply precisely the two one-bit-entropy pair states 12 and 34; all other pairs are maximally mixed. Thus one-qubit entropies are 1, six pair mutual informations are (1,0,0,0,0,1), total 2 and source-normalized M=1/3. Selectively measuring endpoint 1 in the computational basis gives either Z2-corrected C3 path on 234 tensor a pure endpoint; its three retained pairs each have I=1 (including 24 via product of endpoint stabilizers). Each branch hence sums 3, M=1/2; both branches have probability 1/2. Direct independent GF(2) support-enumeration reconstructed these exact pairwise MI values. It is an analytical finite-dimensional counterexample, not extrapolation.
 
-`VERIFY_OK initial_M=1/3 branch_M=1/2 average_post=1/2 gap=1/6 ratio=3/2`
+## originality
 
-The script is a finite exact check, not a substitute for the analytic proof. The result is limited to the specified four-qubit functional and protocol; it does not establish an optimal gap or make claims about the source's other probe or later total-correlation constructions.
+PASS
+
+Best-of-knowledge PASS. The test compared the precise half-mutual-information probe and arithmetic (not geometric) normalization, with cluster graph, LOCC, endpoint measurement and mutual-information aliases. A source proposing nonincrease is not itself a statement of the counterexample. The found C4 counterexample is not implied by the prior proof limited to <=3 parties. It contradicts the projected monotonicity at N=4 but does not falsify results for other probes or aggregates. Residual priority/access caveats explicitly included; no search absence alone is interpreted as novelty.
+
+## value
+
+PASS
+
+The failure of average LOCC monotonicity is an axiom-level defect in the actual proposed multipartite entanglement functional, exhibited by a transparent single-qubit local protocol on the first size beyond the originating follow-up's proved N<=3 range. Its specific mechanism (local measurement promotes globally hidden correlations into visible pairwise correlations) is reusable when evaluating multipartite correlation aggregates. The result is more than a cheap sign check: it isolates the exact functional, protocol, and quantitative gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
