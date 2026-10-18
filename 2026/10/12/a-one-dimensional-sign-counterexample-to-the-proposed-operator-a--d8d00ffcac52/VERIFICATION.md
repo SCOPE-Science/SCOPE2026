@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The counterexample is symbolic. The source alignment condition holds because \(-2x^2\le0\) for every \(x\in[-1,1]\), while the augmented direction equals \(-x\).
+# Independent mathematical audit
 
-`artifacts/verify_alignment_sign.py` uses exact rational arithmetic to replay the source diminishing-step schedule and checks that \(x_0=\tfrac12\) reaches \(1\) after one step and stays there. It also checks an explicit late-iterate violation of the source one-step recursion using the sharp bound \(G=1\).
+## correctness
 
-The finite script is supporting evidence only. The quantified failure and the corrected implication follow from the displayed algebra. The verification does not assess later source extensions beyond those depending on the same disputed sign step.
+PASS
+
+The primary paper's Assumption4 says ⟨b_k(x),x−x*⟩≤η⟨Q(x),x−x*⟩, but its Lemma1 uses this as a lower bound to derive ≥µ(1−η)||x−x*||². With x*=0 and b=-2x, the printed condition holds (-2x²≤0) yet Q+b=-x reverses descent. The projected recursion gives x1=1 and xk=1 forever. The source's differentiability/compact convex set/strong convexity/quasi-gradient linear-growth/boundedness/zero-noise hypotheses are satisfied. Independent exact rational replay ran 20 steps, showing no rate decay. The correct sufficient sign for the specific contraction line is ⟨b,d⟩≥−η⟨Q,d⟩, coupled with a separately valid Q lower bound; no full replacement theorem is claimed.
+
+## originality
+
+PASS
+
+The concrete scalar construction directly refutes a specific published Assumption4-to-Lemma1 inference. Standard relative-gradient-error robustness results impose genuinely different magnitude/angle controls and do not supply an already printed correction to this article.
+
+## value
+
+PASS
+
+The counterexample invalidates the core deterministic contraction estimate and advertised strong-convexity rate under the paper's printed assumption. Even a one-dimensional witness is scientifically valuable because it pinpoints the exact missing direction of bias control in an apparently broad convergence claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

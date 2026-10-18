@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The counterexample uses \(\mathcal C=[-1,1]\), \(f(x)=\tfrac12x^2\), \(Q(x)=x\), \(b(x)=-2x\), zero noise, and \(\eta=0\). Every relevant source assumption is satisfied, including the printed alignment inequality. Under the source step schedule \(\alpha_k=1/(k+1)\), \(x_0=\tfrac12\) maps to \(x_1=1\) and remains at \(1\), so the claimed \(O(1/k)\) decay cannot hold.
+PASS
 
-The disputed proof step is independently checked algebraically: an upper bound on \(\langle b,d\rangle\) cannot produce the required lower bound on \(\langle Q+b,d\rangle\). Reversing the sign direction to \(\langle b,d\rangle\ge-\eta\langle Q,d\rangle\) restores precisely that implication when the base operator has its own positive lower bound.
+The primary paper's Assumption4 says ⟨b_k(x),x−x*⟩≤η⟨Q(x),x−x*⟩, but its Lemma1 uses this as a lower bound to derive ≥µ(1−η)||x−x*||². With x*=0 and b=-2x, the printed condition holds (-2x²≤0) yet Q+b=-x reverses descent. The projected recursion gives x1=1 and xk=1 forever. The source's differentiability/compact convex set/strong convexity/quasi-gradient linear-growth/boundedness/zero-noise hypotheses are satisfied. Independent exact rational replay ran 20 steps, showing no rate decay. The correct sufficient sign for the specific contraction line is ⟨b,d⟩≥−η⟨Q,d⟩, coupled with a separately valid Q lower bound; no full replacement theorem is claimed.
 
-## Originality
+## originality
 
-PASS. The primary source itself contains the wrong-sided condition. Exact-title, DOI, correction, alignment, relative-error, and counterexample searches found no published correction or equivalent source-specific result. Related relative-inexactness literature controls error magnitude or uses stronger two-sided structures and therefore does not imply the printed condition is safe.
+PASS
 
-The residual originality risk is a future or hard-to-index erratum. No such correction was located in the checked sources.
+The concrete scalar construction directly refutes a specific published Assumption4-to-Lemma1 inference. Standard relative-gradient-error robustness results impose genuinely different magnitude/angle controls and do not supply an already printed correction to this article.
 
-## Value
+## value
 
-PASS. The affected condition is central to the claimed contraction mechanism, not a peripheral notation check. The failure occurs on the simplest smooth strongly convex quadratic and invalidates the advertised diminishing-step convergence under the printed hypothesis. The corrected directional inequality is exact for the proof step and directly informs safe learned-direction design.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The counterexample invalidates the core deterministic contraction estimate and advertised strong-convexity rate under the paper's printed assumption. Even a one-dimensional witness is scientifically valuable because it pinpoints the exact missing direction of bias control in an apparently broad convergence claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

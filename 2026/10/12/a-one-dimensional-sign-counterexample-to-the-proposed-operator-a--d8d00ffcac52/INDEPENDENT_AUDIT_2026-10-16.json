@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:43:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary paper's Assumption4 says ⟨b_k(x),x−x*⟩≤η⟨Q(x),x−x*⟩, but its Lemma1 uses this as a lower bound to derive ≥µ(1−η)||x−x*||². With x*=0 and b=-2x, the printed condition holds (-2x²≤0) yet Q+b=-x reverses descent. The projected recursion gives x1=1 and xk=1 forever. The source's differentiability/compact convex set/strong convexity/quasi-gradient linear-growth/boundedness/zero-noise hypotheses are satisfied. Independent exact rational replay ran 20 steps, showing no rate decay. The correct sufficient sign for the specific contraction line is ⟨b,d⟩≥−η⟨Q,d⟩, coupled with a separately valid Q lower bound; no full replacement theorem is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Relative-error gradient works require norm-relative errors or more restrictive alignment, whereas the paper allows arbitrarily negative b·d under its printed upper-only inequality."
+        ],
+        "reasoning": "Existing inexact-gradient convergence theorems cannot rescue this source premise without adding missing lower control; their assumptions are not the same.",
+        "searches": [
+          "Resultary semantic search: Learning-Augmented Quasi-Gradient Operators Contraction Bias Variance operator alignment inequality bias negative sign counterexample",
+          "https://www.researchgate.net/publication/403534037_Learning-Augmented_Quasi-Gradient_Operators_for_Constrained_Optimization_A_Contraction-Bias-Variance_Decomposition",
+          "https://arxiv.org/abs/2503.06628"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/403534037_Learning-Augmented_Quasi-Gradient_Operators_for_Constrained_Optimization_A_Contraction-Bias-Variance_Decomposition",
+        "https://doi.org/10.3390/math14071202",
+        "https://www.mdpi.com/2227-7390/14/7/1202/notes",
+        "Resultary semantic search: Learning-Augmented Quasi-Gradient Operators Contraction Bias Variance operator alignment inequality bias negative sign counterexample"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Assumption4 holds with η=0 while ⟨Q+b,d⟩=-x²<+x²; the projected step starting x0=1/2 reaches the wrong boundary fixed point."
+        ],
+        "reasoning": "There is a decisive countermodel to the implication used in the source proof, with all exact assumptions verified. General descent error bounds cannot imply the printed conclusion.",
+        "searches": [
+          "Resultary semantic search: Learning-Augmented Quasi-Gradient Operators Contraction Bias Variance operator alignment inequality bias negative sign counterexample",
+          "https://www.researchgate.net/publication/403534037_Learning-Augmented_Quasi-Gradient_Operators_for_Constrained_Optimization_A_Contraction-Bias-Variance_Decomposition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact paper prints the one-sided upper alignment inequality in Assumption4 equation(14) and a contradictory lower bound in Lemma1 equation(17) proof."
+        ],
+        "reasoning": "The counterexample is on exactly the published operator/iteration, not a generic unrelated gradient-descent failure.",
+        "searches": [
+          "Resultary semantic search: Learning-Augmented Quasi-Gradient Operators Contraction Bias Variance operator alignment inequality bias negative sign counterexample",
+          "https://www.researchgate.net/publication/403534037_Learning-Augmented_Quasi-Gradient_Operators_for_Constrained_Optimization_A_Contraction-Bias-Variance_Decomposition",
+          "https://doi.org/10.3390/math14071202"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source Lemma1/Thm1 derives an O(1/k) rate; numerical Tables are presented as corroboration but do not check the anti-aligned deterministic case. The publisher notes a September 2026 HTML update; its current full version could not be separately re-opened."
+        ],
+        "reasoning": "No inspected erratum or displayed table supplies this source-specific x0=1/2 counterexample; publisher-version consistency is a material risk explicitly preserved.",
+        "searches": [
+          "Resultary semantic search: Learning-Augmented Quasi-Gradient Operators Contraction Bias Variance operator alignment inequality bias negative sign counterexample",
+          "https://www.researchgate.net/publication/403534037_Learning-Augmented_Quasi-Gradient_Operators_for_Constrained_Optimization_A_Contraction-Bias-Variance_Decomposition",
+          "https://www.mdpi.com/2227-7390/14/7/1202/notes"
+        ]
+      },
+      "rationale": "The concrete scalar construction directly refutes a specific published Assumption4-to-Lemma1 inference. Standard relative-gradient-error robustness results impose genuinely different magnitude/angle controls and do not supply an already printed correction to this article.",
+      "residual_risks": [
+        "Publisher's HTML was updated 2026-09-03; latest publisher-hosted full theorem text was inaccessible, so a possible later correction to the version of record has not been excluded.",
+        "The lower-bias condition fixes only this sign step and does not certify unrelated PL, nonconvex or stochastic theorems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Printed upper alignment is converted into the wrong-direction lower inequality; source Theorem1 rate fails for the constructed scalar case.",
+          "evidence": [
+            "Assumption4 Eq14 ≤; Lemma1 Eq17 and proof Eq18 infer ≥µ(1−η)||d||²; Theorem1 αk and claimed O(1/k)."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/403534037_Learning-Augmented_Quasi-Gradient_Operators_for_Constrained_Optimization_A_Contraction-Bias-Variance_Decomposition",
+          "material_read": "Author-hosted complete 33-page primary-paper text as accessible on ResearchGate; detailed §2 quasi-gradient definition, Assumptions3–6, equations14–20, Lemma1 and Theorem1, iteration and source simulation discussion.",
+          "method": "Direct reading of primary paper hosted full text, including page-embedded theorem/proof; publisher DOI cross-reference checked.",
+          "title": "Learning-Augmented Quasi-Gradient Operators for Constrained Optimization: A Contraction–Bias–Variance Decomposition",
+          "trigger": "Identical theorem and potentially incorrect alignment hypothesis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The counterexample invalidates the core deterministic contraction estimate and advertised strong-convexity rate under the paper's printed assumption. Even a one-dimensional witness is scientifically valuable because it pinpoints the exact missing direction of bias control in an apparently broad convergence claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The published one-sided upper operator-alignment condition is insufficient for its strong-convexity contraction and O(1/k) claim: with C=[−1,1], f(x)=x²/2, Q(x)=x, b_k(x)=−2x, η=0, zero noise and α_k=1/(k+1), the iterates from x0=1/2 stick at x=1. A lower directional bias bound repairs the specific sign step.",
+  "limitations": [
+    "A current publisher-side September HTML update could have revised the sign; the inspected complete author-hosted copy retains it.",
+    "Does not assess numerical experiments or all other claimed regimes; repaired inequality is a sufficient directional premise only."
+  ],
+  "schema_version": 1
+}
