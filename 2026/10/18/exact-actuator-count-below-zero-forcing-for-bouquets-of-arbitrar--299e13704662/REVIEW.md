@@ -1,0 +1,15 @@
+# Scientific review: exact cycle-bouquet actuator count
+
+## Correctness — PASS
+The lower bound is a petal-local sine Laplacian eigenvector that vanishes on all coordinates outside an untouched petal; the hub equation cancels its two boundary entries. The upper bound uses the PBH eigenvector criterion. For an eigenvector vanishing at one hub-adjacent vertex per petal, the degree-two recurrence has normalized initial data \(f_0=1,f_1=0\), giving \(f_j=-U_{j-2}((2-\lambda)/2)\). The cycle closure condition forces each final boundary value into the two-point set \(\{0,2-\lambda\}\), while the hub eigenvalue equation rules out every possible count of those values. The zero-forcing lower and upper bounds are independent constructive arguments. A standard-library checker passed 4,595 exact modular Kalman-rank and forcing assertions over 50 small bouquets. These computations check representative instances; the infinite classification follows from the proof.
+
+## Originality — PASS, with residual source-access risk
+The nearest inspected primary results give single-cycle reachability/observability [1], Cartesian-grid reachability [2], and general minimal-critical-eigenvector leader tests [3], not the exact unit-Laplacian \(k\)-input classification for bouquets of arbitrary, possibly unequal cycle lengths. The earlier all-triangle zero-forcing calculation is acknowledged as covered; novelty does not rest on that special-case invariant. Directly related 2017 path/cycle-derived controllability work [5] and 2023/2024 friendship/windmill papers [6,7] were located but their full texts were unavailable, so a specialization may remain unrecognized. The spectral junction contradiction and the strict fixed-Laplacian versus zero-forcing gap across every mixed-length bouquet are the assessed contributions. No absence-of-search-result argument is treated as proof of uniqueness.
+
+## Value — PASS
+The problem is the natural exact minimum vertex-actuation question for diffusion/consensus dynamics on a cactus with a single shared hub. For every number of cycles and every admissible collection of lengths, the result gives a closed-form minimum and explicit universally applicable locations, independent of cycle arithmetic. It also quantifies why a common graph-theoretic sufficient selection mechanism uses one unnecessary actuator for the fixed unweighted Laplacian. This is an infinite-family optimal-design classification, not a trivial restatement of a spectral lower bound: the constructive sufficiency must rule out coupling of all petal modes at the hub.
+
+## Limitations and closest sources
+Proof and checker cover only unit-edge Laplacians, independently addressable vertex inputs, and an exact single-hub bouquet. The controllability condition number, input energy, and perturbation robustness are not established. Primary references [1,2] were materially inspected; [3] was inspected through accessible full HTML sections. Related papers [5–7] could not be read in full and may contain relevant specializations. No independent review has been performed.
+
+Self-review: passed. Independent audit: not yet performed.

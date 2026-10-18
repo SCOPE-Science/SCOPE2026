@@ -1,0 +1,177 @@
+{
+  "correctness": {
+    "rationale": "Every petal has a nonzero localized antisymmetric cycle eigenvector, establishing an unavoidable separate vertex input in each petal by PBH. For the proposed k-input set, zero readout forces the common recurrence f_j=-U_{j-2}((2-lambda)/2) with f_m=1 and hence |2-lambda|<2. Trigonometric factorization gives opposite-neighbor readout either 0 or (2-lambda)h. The hub identity 2(k-1)=(s-1)(2-lambda) is inconsistent for every integer 0<=s<=k, ruling out every unobservable eigenvector. Zero forcing lower/upper bounds follow from first-activation and explicit chain forcing. The independent finite checker passed 4595 exact modular Kalman rank and forcing assertions; it is not used as proof of all parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dai et al. (2023), 10.1049/cth2.12385, §2 defines critical/perfect critical sets and §3 treats trees, rather than publishing an explicit bouquet count in inspected portions.",
+        "Liu and Ji (2017), 10.1002/rnc.3870, abstract describes unspecified additional path/cycle-derived topologies; full text unavailable.",
+        "Dong et al. (2023), DOI 10.1109/iThings-GreenCom-CPSCom-SmartData-Cybermatics60724.2023.00042, is specifically about friendship networks, an all-triangle subclass; full text unavailable.",
+        "Guo et al. (2024), DOI 10.1007/978-981-97-2275-4_16, concerns windmill networks, a related subclass; full text unavailable."
+      ],
+      "reasoning": "General necessary-and-sufficient eigenvector tests are a framework and require the new coupled-petal proof to deliver k for arbitrary unequal m_i. Titles concerning all-triangle friendship or clique-windmill graphs could cover a special case but do not establish all heterogeneous cycle lengths on their available evidence. The 2017 abstract is a genuine residual-risk source, not certified as excluding coverage.",
+      "searches": [
+        "windmill graph friendship graph controllability one leader on each triangle Laplacian PBH spectral rank",
+        "Dutch windmill friendship graphs Laplacian leader placement input cardinality k control sensors zero forcing",
+        "\"cactus graph\" \"controllability\" \"leaders\" Laplacian",
+        "web: Controllability of Windmill Networks Guo Lv Huang Liu",
+        "web: Observability of Friendship Networks Dong Lv Li Huang Liu",
+        "web: Controllability of multiagent systems based on path and cycle graphs Liu Ji"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1109.3556v1 full PDF relevant sections",
+      "arXiv:1203.0129v1 full PDF relevant sections",
+      "Dai et al. 2023 published full-text HTML §§2–3",
+      "Liu--Ji 2017 metadata and abstract only",
+      "Dong et al. 2023 conference metadata only",
+      "Guo et al. 2024 chapter metadata only",
+      "Published finding: Zero forcing polynomial of friendship graphs (2026), scientific summary",
+      "Scientific literature on torus, hypercube and triangular-bouquet optimization"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Parlangeli--Notarstefano Corollary 4.11: any isolated cycle is controllable using two adjacent vertices.",
+        "Notarstefano--Parlangeli Theorem 3.6: Cartesian products of paths satisfy grid criteria; bouquet is a one-vertex sum, not a Cartesian product.",
+        "Dai et al. 2023 general PBH/critical-set framework requires graph-specific verification.",
+        "Friendship-graph zero-forcing polynomial yields the all-triangle Z=k+1, not the general gamma=k statement."
+      ],
+      "reasoning": "A sufficient two-vertex placement on each isolated cycle would spend 2k (or at least k+1 including shared hub); it does not imply the k-input bouquet answer. Generic PBH equivalences do not give a closed-form number without the constructed contradiction. Published triangle-subclass formulas do not imply arbitrary heterogeneous lengths.",
+      "searches": [
+        "minimum number of Laplacian leaders actuators bouquet cactus all cycles share a common hub, one adjacent vertex each cycle, controllability",
+        "figure-eight bouquet cycles Laplacian controllability one actuated vertex in each petal minimum k zero forcing k+1",
+        "Zero forcing polynomial of friendship graphs exact minimum zero forcing k+1 triangle petals versus unequal cycle bouquet",
+        "arXiv:1203.0129v1, Theorem 3.6",
+        "arXiv:1109.3556v1, Corollary 4.11",
+        "Dai et al. 2023 Theorems 1-3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1109.3556v1 derives isolated-cycle sensor criteria, including two adjacent sensors on one cycle; a bouquet adds a degree-2k hub shared by k cycles.",
+        "A previously published spectral-demixing result for two sensors on a single cycle concerns Fourier frame conditioning for one cycle, not bouquet Laplacian controllability."
+      ],
+      "reasoning": "The bouquet has k petal eigenvectors causing a lower bound and a shared-hub coupling identity; no isolated-cycle statement automatically yields or contradicts the globally sharp k-input placement. A Fourier sensing frame is not a Kalman PBH classification.",
+      "searches": [
+        "minimum number of Laplacian leaders actuators bouquet cactus all cycles share a common hub, one adjacent vertex each cycle, controllability",
+        "figure eight graph wedged cycles two actuator vertices near shared articulation hub minimum sensor controllability",
+        "figure-eight bouquet cycles Laplacian controllability one actuated vertex in each petal minimum k zero forcing k+1",
+        "wedge sum of k cycles sharing hub controllable adjacent to central vertex per cycle all unequal lengths proof Chebyshev",
+        "single articulation vertex joined cycles eigenvectors zero sensors PBH controllable k petals",
+        "web: \"bouquet of cycles\" \"controllability\" Laplacian",
+        "arXiv:1109.3556v1, Section IV, Theorem 4.10 and Corollary 4.11"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published study titled Zero forcing polynomial of friendship graphs (2026) explicitly gives Z(F_k)=k+1 and the full friendship polynomial; this all-triangle zero-forcing subclaim is covered.",
+        "Published results on torus and hypercube vertex actuation and on triangular-bouquet conductance optimization do not give the present mixed-length bouquet controllability classification."
+      ],
+      "reasoning": "The exact special-case zero-forcing value cannot be claimed new. The claim assessed is simultaneous fixed-Laplacian gamma=k with explicit placement for all arbitrary unequal petals, and Z=k+1 over that wider class. Available table/record matches do not supply a stronger general theorem.",
+      "searches": [
+        "zero forcing number bouquet of cycles cactus vs minimum Laplacian controllability number",
+        "Zero forcing polynomial of friendship graphs exact minimum zero forcing k+1 triangle petals versus unequal cycle bouquet",
+        "Zero forcing polynomial of friendship graphs exact minimum zero forcing k+1 triangle petals versus unequal cycle bouquet"
+      ]
+    },
+    "rationale": "The finding is a uniform optimal-input classification for every arbitrary-length single-hub cycle bouquet, with a PBH coupling obstruction at the hub and a strict gap from ordinary zero forcing. Inspected Parlangeli--Notarstefano papers treat individual cycles/paths and Cartesian grids. Dai et al. provide general critical-eigenvector machinery but no direct mixed-length bouquet formula in inspected sections. An earlier published finding contains an all-triangle friendship zero-forcing formula, so that special case is explicitly treated as covered and not the claimed novelty. Three plausible papers lack accessible full text; an equivalent specialization remains a material risk, but no identified theorem implies the general mixed-length statement.",
+    "residual_risks": [
+      "Full text of Liu--Ji 2017 could contain the specific bouquet family under another name; its abstract mentions other path/cycle-derived topologies.",
+      "Full text of Dong et al. 2023 and Guo et al. 2024 could establish all-triangle or other windmill special cases; none was declared absent.",
+      "Unindexed control-theory or graph-spectral literature could contain a stronger general bouquet classification.",
+      "The all-triangle Z(F_k)=k+1 special case is covered in a previously published zero-forcing-polynomial result and is excluded from the novelty assertion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Main scope is single paths and cycles; no arbitrary multi-petal common-hub minimum-input classification in inspected theorem or sections.",
+        "evidence": [
+          "arXiv:1109.3556v1, pp.1–4, Theorem 4.10, Corollary 4.11"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1109.3556",
+        "material_read": "Full PDF accessible; abstract, introduction, graph model, section-IV cycle theorem 4.10 and corollary 4.11, related coverage and conclusions examined.",
+        "method": "Read searchable primary PDF text and relevant page images.",
+        "title": "On the reachability and observability of path and cycle graphs",
+        "trigger": "Earliest archival source and nearest single-cycle controllability theorem"
+      },
+      {
+        "assessment": "Cartesian grid graph results do not include the one-vertex join of cycles.",
+        "evidence": [
+          "arXiv:1203.0129v1, p.1, Theorem 3.6, Section IV"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1203.0129",
+        "material_read": "Full PDF accessible; abstract, introduction, simple-grid theorem 3.6, general grid sections and references inspected.",
+        "method": "Read searchable primary PDF text and page images.",
+        "title": "Controllability and observability of grid graphs via reduction and symmetries",
+        "trigger": "Closest spectral PBH classification for products of cycles and paths"
+      },
+      {
+        "assessment": "PBH criterion and abstract critical-set methods are general but inspected results do not state uniform arbitrary-bouquet minimum and placement.",
+        "evidence": [
+          "Dai et al. 2023, Theorems 1–3, §2.1, §3"
+        ],
+        "identifier_or_url": "https://doi.org/10.1049/cth2.12385",
+        "material_read": "Accessible full HTML §§2–3, including definitions, Theorems 1–3 and tree-specific structure.",
+        "method": "Read published full-text HTML sections.",
+        "title": "Minimum leader selection for controllability of undirected graphs with leader–follower framework",
+        "trigger": "Potential general stronger theorem based on minimal perfect critical vertex sets"
+      },
+      {
+        "assessment": "Cannot determine whether the paper addresses bouquet graphs; residual risk retained.",
+        "evidence": [
+          "Liu and Ji, first online 2017-06-30, publisher abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rnc.3870",
+        "material_read": "Title, complete available abstract, publication history and references only; full text inaccessible through available OA pages, alternative upload not same paper, and full text unavailable.",
+        "method": "Primary publisher HTML metadata, OA search, attempt to access full text.",
+        "title": "Controllability of multiagent systems based on path and cycle graphs",
+        "trigger": "Abstract says its techniques extend to path/cycle-derived topologies, possibly covering a bouquet."
+      },
+      {
+        "assessment": "Could contain equivalent all-triangle special case; no basis to assert noncoverage from snippets; mixed-length result not established by accessible source.",
+        "evidence": [
+          "Dong et al. 2023, conference pp.109–114"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/iThings-GreenCom-CPSCom-SmartData-Cybermatics60724.2023.00042",
+        "material_read": "Conference record, DOI and title only; full paper unavailable.",
+        "method": "Publisher/indexed metadata, OA search, attempt to access full text.",
+        "title": "Observability of Friendship Networks",
+        "trigger": "All-triangle subclass and observability dual to controllability."
+      },
+      {
+        "assessment": "Potential special-case coverage acknowledged; arbitrary heterogeneous cycle bouquet unverified there.",
+        "evidence": [
+          "Guo et al. 2024, chapter pp.197–212"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-981-97-2275-4_16",
+        "material_read": "Chapter bibliographic metadata and citation/reference excerpt only, not full text.",
+        "method": "OA search, author bibliographic page, attempt to access full text.",
+        "title": "Controllability of Windmill Networks",
+        "trigger": "Closest named related windmill topology."
+      },
+      {
+        "assessment": "Covers all-triangle zero-forcing value outright; only the more general non-identical petal family and its k-input controllability could be new.",
+        "evidence": [
+          "Published finding: Zero forcing polynomial of friendship graphs (2026)"
+        ],
+        "identifier_or_url": "Published finding: Zero forcing polynomial of friendship graphs (2026)",
+        "material_read": "Published record title and full returned scientific summary including explicit polynomial and Z(F_k)=k+1; full repository file not accessible.",
+        "method": "Research-record semantic query, record statement comparison.",
+        "title": "Zero forcing polynomial of friendship graphs",
+        "trigger": "Exact-database comparison for potential overlapping zero-forcing subclaim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "299e1370-4662-483b-aa31-00c08b0168af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact optimal vertex actuation on single-articulation multi-cycle networks is natural and not merely a numerical example. A uniform answer k holds over all unequal petal sizes, with explicit placement and a strict k versus k+1 separation from the standard sufficient zero-forcing certificate. This matters in networks where each independently controlled vertex has a separate actuator cost. The nonstandard coupled-eigenmode hub contradiction is required for the upper bound; neither a generic PBH test nor the localized-eigenvector lower bound alone gives it. No energy or strong-structural robustness result is claimed.",
+    "status": "PASS"
+  }
+}
