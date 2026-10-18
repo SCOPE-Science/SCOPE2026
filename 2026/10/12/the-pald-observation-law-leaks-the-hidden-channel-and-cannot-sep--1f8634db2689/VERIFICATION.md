@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-The standalone checker uses \(n=3\), \(K=1\), \(G=(1,1,1)^\top/\sqrt3\), and the orthonormal complement with columns \((1,-1,0)^\top/\sqrt2\) and \((1,1,-2)^\top/\sqrt6\). For \(\sigma_b^2=\sigma_c^2=1\), it verifies
-\[
-\operatorname{Cov}(Z\mid\eta)=2I+BB^\top,
-\]
-whose eigenvalues are \(2,3,3\), in contrast to any spherical covariance in the two nontrivial subspaces. It verifies
-\[
-\operatorname{Cov}(B^\top Z,\xi\mid\eta)=I_2
-\]
-and
-\[
-I(\xi;B^\top Z\mid\eta)=\log(3/2)=0.405465108108\ldots.
-\]
 
-It checks equality of the normalized Gaussian likelihood for pairs of error variances \((1,1)\) and \((0.5,1.5)\), holding the latent state and all other parameters fixed, and verifies the zero eigenvalue of the error-scale Fisher information. The algebraic proof establishes this observational equality for every positive allocation with the same sum and any number of survival observations governed by the latent state alone.
+# Independent mathematical audit
 
-Limit: simulation and finite linear algebra are diagnostic checks; the universal assertion is proved by Gaussian convolution and likelihood factorization, not by a finite test.
+## correctness
+
+PASS
+
+PASS: With 0<K<n and orthonormal [G B], Gaussian convolution of X=G eta+B xi (xi|eta~N(0,I)), r|X~N(X,sc²I), Z|r~N(r,sb²I) gives Z|eta~N(G eta,(sb²+sc²)I+BB^T) with eigenvalues s and s+1. The paper Eq.(2.5) instead says a scalar covariance. Since B^T Z=xi+isotropic Gaussian noise, Cov(B^T Z,xi|eta)=I and mutual information=(n-K)/2 log(1+1/s). Conditional survival likelihood depends only on X, so integrating r yields p(Z,t,delta|X)=p(t,delta|X)phi(Z;X,sI); any positive variance pair summing to s induces the same joint observed likelihood after integrating X. Boundary K=0 or K=n excluded and different observation mechanisms excluded. Independent verification checks the Gaussian covariance eigenvalues [2,3,3] and singular two-scale information; proof is analytic.
+
+## originality
+
+PASS
+
+PASS: The 2026 source already has Gaussian convolution p(Z|X)=N(X,Sigma_b+Sigma_c), a standard result; it does NOT assert that its two isotropic variance parameters are inseparable in the observed likelihood or prove the implicit-coordinate mutual information; instead it suggests orthogonality identifies representation loss. The source-specific simultaneous incompatibility of Eq. (2.5) with Eqs. (2.6)-(2.8) and continuous noise-allocation likelihood ridge is not covered by standard convolution alone. Resultary correlated-noise and identifiability hits use different models.
+
+## value
+
+PASS
+
+PASS: Distinguishing whether hidden geometric channels are actually measured and whether two process/measurement variance components are likelihood-identifiable is central to the model’s stated scientific purpose. The exact Gaussian mutual information and continuous observational equivalence class identify an information-theoretic defect with direct impact on interpretation of posterior uncertainty and requirement of external measurements or nonproportional covariance templates. This is not just a normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
