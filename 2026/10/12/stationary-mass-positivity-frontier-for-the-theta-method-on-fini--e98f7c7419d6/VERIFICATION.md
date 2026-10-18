@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Execute `python3 check_theta.py` from the directory containing this file and the included checker. It uses only Python's standard library (`fractions.Fraction`) and no external files or network access. The checker constructs 63 strongly connected integer-rate generators (orders two through eight); verifies stationary mass by independent linear algebra and regeneration; independently compares the post-departure second return moments with resolvent deviation coefficients; verifies strict monotonicity at six exact rational resolvent arguments; and checks endpoint \(\theta\)-steps on a rational grid. It separately tests the three-cycle and complete three-state process at a shared stationary distribution.
+## correctness
 
-Recorded output from the included code:
+PASS
 
-`VERIFY_OK 63 irreducible generators; 2205 stationarity/return-moment/diagonal checks; 2205 exact-rational theta matrices; two distinct cutoffs at common stationary law`
+Identity T=R(theta h)/theta−(1−theta)I/theta makes all off-diagonals positive and identifies the diagonal criterion. For each state, regenerative holding/return cycle gives R_ii(s)=[1+q_i s(1−E exp(−H_i/s))]^{-1}. Because s(1−exp(−H/s)) increases strictly for H>0, R_ii falls from 1 to π_i, remaining above π_i for finite s. Taking the minimum gives one unique crossing for 0<theta<theta_c and no crossing for theta≥theta_c. Expanding to order 1/s gives c_i=(π_i² q_i/2)E H_i²; θ_c(θ_c−θ)h_c→min_{π_i=min π} c_i. θ=0 has Euler positivity cutoff 1/max q_i. Independently derived exact 3-cycle cutoff 1+√5 and complete 3-state cutoff 2 for theta=1/2, same π=(1/3,1/3,1/3); computations do not replace general regenerative proof.
 
-The general theorem is proved analytically through the strong Markov property, renewal transforms, and strict monotonicity; the finite program is an algebraic consistency check, not an exhaustive proof over all dimensions, rates, implicitness parameters, or timesteps. No separate independent audit has been performed.
+## originality
+
+PASS
+
+The inspected closest primary statements and indexed results were compared in mathematical substance, not just titles. This independent recognition/evaluation is best-of-knowledge, not a guarantee of publication priority.
+
+## value
+
+PASS
+
+A natural sharp positivity phase diagram for an entire class of probability-conserving discretizations, including nonreversible and nonnormal finite networks, with a generator-independent criterion from minimum stationary mass and a precise geometry-dependent near-critical return-time law. Separate finite cutoffs distinguish generators with identical stationary distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
