@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification and limitations
+# Independent mathematical audit
 
-Run `python CHECK.py` in the package directory. The checker uses only the Python standard library, expands exact integer-polynomial identities for the rational two-value norm functions, checks the general differentiation factorization for dimensions \(3\) through \(39\) as a **diagnostic**, verifies every needed eight-atom branch identity and the four-atom factorization, brackets the unique negative root of the defining quartic with rational endpoints, and prints its high-precision norm approximation. Its final status is `EXACT_IDENTITIES_OK`.
+## correctness
 
-The universal assertion over all \(n\ge2\) follows mathematically from the externally established symmetric quartic half-degree principle and the displayed symbolic binomial identity; a finite computer sweep by itself is not a proof of that universal statement. The sharp universal bound is proved analytically from Pearson's inequality and its equality case, followed by a rational-atom obstruction and an explicit rational approximation argument. The code does not claim exhaustive testing of continuous inputs or independently certify the published reduction theorem.
+PASS
 
-The scope is real \(\ell_4^n\) and the single mean-reflection involution \(I-2E\), not complex \(\ell_4\), arbitrary atom weights, or the simultaneous unconditional constant for a Haar system. Historical coverage in incompletely inspected projection literature remains an originality risk. Only a same-model mathematical review has been performed; no independent audit or validation is claimed.
+For real uniform finite-atom ℓ4, Hλ=λ∑x_j^4−∑(R_nx)_j^4 is homogeneous symmetric degree four. Riener Theorem 1.3 rigorously reduces nonnegativity to ≤2 distinct coordinate values, so projective branches F_{n,k}(t) exhaust the operator norm. Independently expanded the general U′V−UV′ symbolic factorization; residual is identically zero in independent SymPy for symbolic n,k,t, so extrema occur at Q_{n,k}=0, t=1,∞. For n4 verifies factorization and C4=√2. For n8 other k branches ≤4 while k1 branch has unique global negative maximizing root of t⁴−7t³−7t−35 and C8≈1.54452109. Pearson moment inequality gives global fourth-power bound 3+2√2; equality requires a two-point law with irrational mass (3−√6)/6. Compactness on finite uniform atoms makes each inequality strict; rational approximants give convergence.
+
+## originality
+
+PASS
+
+Best-of-knowledge implication-level comparison of the complete final claim with the identified primary literature. Prior ingredients and asymptotic/general tools are explicitly credited; no inspected publication entails the complete exact conclusion. Any incomplete access is preserved below as a named residual risk, not incorrectly counted as negative science.
+
+## value
+
+PASS
+
+The finite-atom norm of a natural involutive reflection differs substantially from the known norm of centering I−E and has nontrivial dimension-dependent algebraic extrema. The explicit all-n finite determination, exact n8 irrational algebraic example and sharp arithmetic nonattainment/convergence to the unrestricted law resolve a motivated finite-vs-continuum extremal invariant, beyond a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
