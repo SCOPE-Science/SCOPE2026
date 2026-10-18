@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:13:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Al-Moisheer, Sultan, Mansour, On Unit J-Shaped Distributions: Properties and Estimation with Applications, Mathematics 14 (2026) 1021, DOI:10.3390/math14061021",
+        "frozen RESULT.md and verify_utld_information.py",
+        "Resultary 2026-10-15 model+formula search"
+      ],
+      "rationale": "For the published Type-II log likelihood l(alpha)=r log alpha+(n-r)log(1-z^alpha)+affine(alpha), direct differentiation gives l''=-r/alpha²-(n-r) z^alpha(log z)²/(1-z^alpha)²<0 when 1<=r<=n, 0<z<1 and 0<alpha<1. The printed Hessian instead uses 3 and n-3 and lacks the entire alpha^-2 factor; for r=3 H_print=alpha² l''. Thus at (n,r,alpha,xr)=(10,3,1/2,1/2) literal inverse information is four times correct. Independent SymPy differentiation, common-denominator polynomial algebra and numerical substitution confirmed the two errors and strict concavity. Concavity guarantees at most one constrained maximizer if one exists, not automatic existence on the open interval.",
+      "residual_risks": [
+        "Full numerical code behind published simulation tables not inspected; the claim is only a literal printed-information correction.",
+        "A correction or author's updated computational implementation may already exist outside indexed searches.",
+        "Concavity on open alpha interval does not prove that an interior root exists or that a boundary maximizer is attained."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General rules of likelihood differentiation and strict concavity imply the corrected formula once the log-likelihood is fixed.",
+          "The source prints the likelihood but misstates the differentiation result; it does not derive the correct general-r observed information."
+        ],
+        "reasoning": "The elementary calculus is standard and properly credited; the independent finding is a source-specific error with an explicit variance distortion and concavity consequence, not an original rule for differentiating log likelihoods.",
+        "searches": [
+          "DOI:10.3390/math14061021 Section 4 Type-II log-likelihood and score",
+          "unit Topp Leone distribution Type II censoring observed information Hessian r failures alpha squared correction"
+        ]
+      },
+      "checked_sources": [
+        "Al-Moisheer, Sultan, Mansour, On Unit J-Shaped Distributions: Properties and Estimation with Applications, Mathematics 14 (2026) 1021, DOI:10.3390/math14061021",
+        "frozen RESULT.md and verify_utld_information.py",
+        "Resultary 2026-10-15 model+formula search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Correct Hessian has factor alpha^-2 and retains r; printed H matches only alpha² times the correct Hessian at r=3.",
+          "The printed score and likelihood allow verification of the discrepancy but contain no explicit recognition of its inferential effect."
+        ],
+        "reasoning": "The corrected Hessian is mechanically deducible from prior printed likelihood; the novelty is detecting and quantifying a concrete false downstream published identity, not claiming that standard calculus is new.",
+        "searches": [
+          "DOI:10.3390/math14061021 source likelihood versus source Hessian formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Publisher article presents the Type-II score retaining r but a Hessian with numeric 3.",
+          "No returned Resultary entry, publisher corrigendum or targeted search hit supplied the missing global alpha^-2 and generalized r simultaneously."
+        ],
+        "reasoning": "Searched both named distribution variants, score/Hessian, observed/Fisher information, and error/corrigendum terminology. A formula in a correction or a later inferential text would be equivalent irrespective of title.",
+        "searches": [
+          "unit Topp Leone distribution Type II censoring observed information Hessian r failures alpha squared correction",
+          "web: \"UTLD\" \"Type-II\" \"observed information\" Hessian correction",
+          "web: \"Unit J-Shaped Distributions\" \"erratum\" \"information\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The database returned no record with both r/alpha² and (n-r) terms for this published article.",
+          "This is an analytic correction, not a naturally catalogued finite invariant; journal errata, formula indexes and corrections are the relevant exact-record analogues."
+        ],
+        "reasoning": "An exact corrigendum or independent corrected formula would be covering; none appeared in the actually retrieved indexed sources, but absence remains a risk.",
+        "searches": [
+          "unit Topp Leone distribution Type II censoring observed information Hessian r failures alpha squared correction",
+          "web: \"UTLD\" \"Type-II\" \"observed information\" Hessian correction"
+        ]
+      },
+      "rationale": "The source article gives the incorrect second derivative immediately after a general-r likelihood and score. Exact-DOI, model, erratum and information-formula searches did not surface a corrigendum or earlier explicit identification of both defects among retrieved matches. A pre-existing unindexed correction remains possible.",
+      "residual_risks": [
+        "Full numerical code behind published simulation tables not inspected; the claim is only a literal printed-information correction.",
+        "A correction or author's updated computational implementation may already exist outside indexed searches.",
+        "Concavity on open alpha interval does not prove that an interior root exists or that a boundary maximizer is attained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRINTED_HESSIAN_INCONSISTENT_WITH_PRINTED_LIKELIHOOD",
+          "evidence": "The source's score contains r but its next Hessian has constants 3 and n-3 and denominator (q-1)^2 rather than alpha²(q-1)^2.",
+          "identifier_or_url": "DOI:10.3390/math14061021 / https://www.mdpi.com/2227-7390/14/6/1021",
+          "material_read": "Publisher public indexed HTML at model definition, Section 4 Type-II likelihood, score, displayed observed-information calculation; supporting result formula matched against frozen scientific text; article entirety not independently reread",
+          "method": "Publisher indexed section read and direct symbolic recomputation",
+          "title": "On Unit J-Shaped Distributions: Properties and Estimation with Applications",
+          "trigger": "Exact primary publication whose Type-II Hessian is being corrected"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Al-Moisheer, Sultan, Mansour, On Unit J-Shaped Distributions: Properties and Estimation with Applications, Mathematics 14 (2026) 1021, DOI:10.3390/math14061021",
+        "frozen RESULT.md and verify_utld_information.py",
+        "Resultary 2026-10-15 model+formula search"
+      ],
+      "rationale": "The mistake changes inverse observed-information variance and therefore potentially nominal interval widths; at alpha=1/2 the variance differs fourfold. Fixing both the hard-coded failure count and missing scale restores general censoring inference, and strict log-likelihood concavity rules out multiple interior shape-parameter optima. This is an inferentially material correction, not a cosmetic formula revision.",
+      "residual_risks": [
+        "Full numerical code behind published simulation tables not inspected; the claim is only a literal printed-information correction.",
+        "A correction or author's updated computational implementation may already exist outside indexed searches.",
+        "Concavity on open alpha interval does not prove that an interior root exists or that a boundary maximizer is attained."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Does not determine whether every published interval/table was actually calculated using the erroneous printed expression.",
+    "Expected Fisher information is distinct from observed information and is not derived.",
+    "Open parameter interval requires a separate boundary/existence argument for a global maximizer."
+  ]
+}
