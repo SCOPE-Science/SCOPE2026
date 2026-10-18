@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness: PASS
+The statement assumes four positive integer run lengths at least two. The essential-position criterion characterizes deletion-minimality. It proves the bound by excluding disjoint unique binary embeddings, and it proves rigidity at one symbol below the sum of input lengths: both input embeddings must be unique with one common position. These alternatives give two disjoint complete word families, each enumerated by an explicit product of two binomial coefficients. An independent direct definition-based checker enumerates every candidate word for the declared small parameter region and checks all one-symbol deletions. The checker is a finite cross-check, not the infinite proof. Failure for singleton runs is demonstrated explicitly.
+
+## Originality: PASS within inspected evidence
+The closest earlier published work is the algorithmic study of minimal common supersequences by Sopp et al. (arXiv:2603.22591v1), and the general longest-minimal-supersequence algorithms of Fraser, Irving, and Middendorf (1996). The full text of the former and a relevant thesis chapter were examined; no four-independent-run maximal-length enumeration was found in inspected sections. An existing earlier result gives the entire length spectrum in the symmetric diagonal case when all four lengths are equal. Its conclusion does not logically imply the formula, disjoint extremizer families, or two independent pair-swap symmetries for unequal lengths. Targeted semantic database queries yielded no equivalent statement. However, the original 1996 article and a 1995 binary-alphabet paper could not be read in full and remain a meaningful originality risk; absence from semantic search does not establish priority.
+
+## Value: PASS
+The complete structural classification for an infinite, natural four-parameter family supplies a closed extremal count where general algorithms give an effective but non-formulaic procedure. It extends the earlier equal-run computation to asymmetric inputs in a way which is not obtained by simply changing a parameter: near-maximum MCS rigidity is proved under a nondegeneracy condition, with two different shared-symbol configurations and independent combinatorial factors. This result offers exact benchmarks and isolates where the equal-run symmetry survives and where singleton runs cause a sharp boundary. It does not purport to classify all MCS lengths or unrestricted alphabets.
+
+## Sources and risks
+Sopp, Liyanage, Gong and Zhu, *Computing and Enumerating Minimal Common Supersequences Between Two Strings*, arXiv:2603.22591v1 (2026-03-23); Fraser, Irving and Middendorf, *Maximal Common Subsequences and Minimal Common Supersequences*, Information and Computation 124 (1996) 145–153, doi:10.1006/inco.1996.0011; Fraser, *Subsequences and Supersequences of Strings* (1995), section 6.3.2. Incompletely inspected earlier 1995 literature could contain a logically equivalent special result. Nondegenerate two-run assumption is indispensable.
+
+Self-review: passed. Independent audit: not yet performed.
