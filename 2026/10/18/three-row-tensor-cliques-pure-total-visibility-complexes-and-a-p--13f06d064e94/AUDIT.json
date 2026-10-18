@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Every nonadjacent pair in K_3 tensor K_n, n>=3, has distance two. Splitting same-column and same-row pairs gives exactly |A_i|>=2 and |A_j union A_k|>=3, with no omitted cases. The four disjoint enumerator cases partition by numbers of size-two row complements; maximality follows from safe shrinking of any larger row complement, including size three. Independent common-neighbor brute tests of all 299520 subsets for n=3..6 verify coefficient and maximality formulas. The random limit follows from three independent binomial-to-Poisson limits and an O(n^-2) union bound for duplicate two-subsets; the asymptotic is proved, not inferred from tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2401.02373, Theorem 2.2: mu_t(K_m x K_n)=mn-4 for m,n>=5; neither m=3 nor a polynomial is supplied.",
+        "arXiv:2306.15818: lexicographic and Cartesian products, rather than the direct/tensor product.",
+        "arXiv:2507.01851: ordinary mutual-visibility polynomial and join families, not total visibility in direct products."
+      ],
+      "reasoning": "The closest stronger-looking paper has an excluded first factor and proves a scalar maximum only. The new classification supplies every feasible subset for m=3 and hence all coefficients and maximality; this does not follow by specializing its parameter domain.",
+      "searches": [
+        "Web: \"Mutual-visibility problems on graphs of diameter two\" arxiv",
+        "Web: \"total mutual-visibility\" \"K_3 × K_n\"",
+        "Web: \"total visibility polynomial\" \"direct product\" graphs \"K_3\"",
+        "Published mathematical-record search: total mutual visibility complete direct products width three sharp exception six removed vertices maximal sets",
+        "Published mathematical-record search: three rows complete graph direct product total visibility number 3n-6 facet count binomial(n,2) falling factorial"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2306.15818",
+      "arxiv:2401.02373",
+      "arxiv:2412.03066",
+      "arxiv:2507.01851",
+      "Published mathematical record searches for three-row direct products; closest titled Coefficientwise extremals for visibility polynomials of complete multipartite graphs",
+      "Previously accessible claim abstracts on direct-product general position, Roman domination and power domination"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2024 Theorem 2.2 proves mu_t for 5x5 and larger, not 3xn; its proof uses four omitted diagonal vertices impossible with three rows.",
+        "A prior accessible study of direct-product general position studies ordinary general-position sets (all-geodesics restricted to selected triples) of direct clique products, not total mutual visibility (some unobstructed geodesic for every pair).",
+        "Other prior records concern Roman domination and power domination of direct clique products, with different feasibility rules."
+      ],
+      "reasoning": "The prior scalar large-width theorem does not dominate the excluded narrow-width family; general characterizations of visibility provide a method but do not give the family-specific all-size enumeration or the sharp Poisson window. Existing exact polynomials for other graph parameters do not imply these counts.",
+      "searches": [
+        "arXiv:2401.02373, PDF Section 2 and Theorem 2.2",
+        "arXiv:2306.15818, full accessible article on total visibility product operations",
+        "arXiv:2412.03066, full-text sections 1,3,5",
+        "Prior published mathematical descriptions: direct clique-product general-position polynomials and Roman domination (scientifically distinct invariants)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cicerone et al., arXiv:2401.02373, Theorem 2.2 and its proof (direct/categorical product adjacency) covers only m,n>=5 and scalar maximum.",
+        "Bujtás et al., arXiv:2412.03066, sections 1,3,5 use total visibility and its polynomial framework but no three-row direct-product formula."
+      ],
+      "reasoning": "Tensor product, categorical product and direct product all mean the adjacency used in the claim. Equivalent phrasing via a 3xn zero-one matrix with specified omitted supports was searched; no matching published mathematical-record result or inspected primary theorem gave the all-size enumerator and purity law.",
+      "searches": [
+        "Published mathematical-record search: total mutual visibility polynomial direct tensor graph product K_3 times K_n 3 by n complete graph clique",
+        "Published mathematical-record search: total mutual-visibility of K3 categorical K_n every set complement two vertices in each row distinct column pairs, exact polynomial q(q-1)(q-2)",
+        "Web: \"total mutual visibility\" \"direct product\" \"complete graphs\"",
+        "Web: \"total mutual visibility polynomial\" \"tensor product\"",
+        "Published mathematical-record search: total mutual visibility polynomial for categorical product K3 x Kn row complements of size two pairwise distinct all maximal facets Poisson limit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published research-record title: Coefficientwise extremals for visibility polynomials of complete multipartite graphs; concerns ordinary visibility polynomials of complete multipartite graphs, a different graph class and visibility quantifier.",
+        "arXiv:2507.01851, full text sections 3-5: examples are ordinary visibility polynomials; no direct-product search match."
+      ],
+      "reasoning": "No exact coefficient table or stored formula matching the width-three total-visibility polynomial was encountered. The absence of a match is only a bounded database/literature check, not proof of global priority.",
+      "searches": [
+        "Published mathematical-record search: total mutual visibility polynomial direct tensor graph product K_3 times K_n 3 by n complete graph clique",
+        "Published mathematical-record search: total mutual-visibility of K3 categorical K_n every set complement two vertices in each row distinct column pairs, exact polynomial q(q-1)(q-2)",
+        "Web: \"total mutual visibility polynomial\" \"direct product\" \"complete graphs\"",
+        "Web: \"visibility polynomial\" \"K_3\" \"direct product\""
+      ]
+    },
+    "rationale": "Full text of the closest 2024 direct-product result covers only factors at least five and only the scalar maximum; the 3-by-n complete enumerator, pure facet classification and random law are not implications of that theorem. Other inspected primary sources address lexicographic/Cartesian products, general definitions or ordinary visibility, not this total-visibility family. Relevant published research-record searches and accessible earlier mathematical claims gave no statement-equivalent or stronger result. An unindexed prior result remains a genuine risk.",
+    "residual_risks": [
+      "An unindexed explicit enumeration or a synonym using other polynomial terminology may have escaped searches.",
+      "General full-graph algorithms can mechanically enumerate these sets, but the cited papers do not explicitly report the infinite closed form.",
+      "The finite checker does not establish the n-uniform infinite assertions; those rely on the proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for m=3 all-size enumerator; closest prior scalar theorem applies only m,n>=5",
+        "evidence": "Theorem 2.2 explicitly states n,m >=5 and mu_t=mn-4; its proof enumerates only four omissions, not all subsets.",
+        "identifier_or_url": "arxiv:2401.02373; https://users.fmf.uni-lj.si/klavzar/preprints/1-s2.0-S0195669824000805-main.pdf",
+        "material_read": "Full PDF section 2, pp. 3-6, Theorem 2.2 and proof; introductory scope",
+        "method": "Read original open-access article PDF text and inspected page rendering",
+        "title": "Mutual-visibility problems on graphs of diameter two",
+        "trigger": "Direct tensor products K_m x K_n potentially dominate a new result"
+      },
+      {
+        "assessment": "NOT_COVERING: different product operations; defines same total-visibility quantifier",
+        "evidence": "Article sections 4-5 address lexicographic/Cartesian products, not K_3 tensor K_n.",
+        "identifier_or_url": "arxiv:2306.15818; https://link.springer.com/article/10.1007/s40840-023-01590-3",
+        "material_read": "Original accessible HTML introduction and the relevant lexicographic and Cartesian product statements",
+        "method": "Read open-access primary paper full-text HTML and checked arXiv submission date",
+        "title": "Total mutual-visibility in graphs with emphasis on lexicographic and Cartesian products",
+        "trigger": "Foundational variant and product bounds"
+      },
+      {
+        "assessment": "NO COVERING THEOREM IDENTIFIED in inspected portions; generic characterization may require further bibliographic scrutiny",
+        "evidence": "Introduction scopes polynomial properties and generic characterizations; no direct clique product family listed.",
+        "identifier_or_url": "arxiv:2412.03066; https://arxiv.org/abs/2412.03066",
+        "material_read": "Accessible arXiv original text: title, abstract, introductory scope and relevant generic characterization and polynomial passages; exact mathematical comparison limited to those passages",
+        "method": "Inspected available open-access arXiv text and searched topic phrases; no assertion of a full-page-by-page reading",
+        "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+        "trigger": "Could supply a general theorem implying the exact polynomial"
+      },
+      {
+        "assessment": "NO COVERING RESULT IDENTIFIED: ordinary mutual-visibility polynomial and joins; not a proof of absence outside inspected passages",
+        "evidence": "Abstract and sections 3-5 state ordinary visibility and joins; no tensor/categorical/direct product occurs in the text.",
+        "identifier_or_url": "arxiv:2507.01851; https://arxiv.org/pdf/2507.01851",
+        "material_read": "Original PDF introduction, ordinary-visibility definitions and examples; full-document text search for tensor/direct/categorical products",
+        "method": "Read public full PDF text and inspect first-page rendering",
+        "title": "On the visibility polynomial of graphs",
+        "trigger": "Plausible broader counting-paper title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "13f06d06-4e94-4c07-84ff-55e3fdce5d18",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first-factor-three case is a structurally exceptional unaddressed boundary of the established direct-product theory: six omissions per optimum are needed instead of the four-omission construction available in the large-width setting. The exact polynomial describes all feasible monitoring configurations, the pure facet characterization gives all locally maximal configurations and their multiplicity, and the Poisson window measures robustness under random node selection. These are natural quantities for the specified product, not arbitrary parameter slices.",
+    "status": "PASS"
+  }
+}
