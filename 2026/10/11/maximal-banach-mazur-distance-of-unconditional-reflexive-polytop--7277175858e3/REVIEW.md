@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The argument treats an arbitrary ellipsoid sandwich, uses only valid signed clique inequalities and signed stable-set points, and closes the lower bound with the exact matrix inequality \(q_{ii}(Q^{-1})_{ii}\ge1\). The general upper bound is the standard symmetric John theorem. The exact-rational replay checks all labeled perfect graphs through five vertices against non-diagonal test ellipsoids.
+# Independent mathematical audit
 
-## Originality
-PASS. The foundational perfect-graph paper was inspected at the theorem and full-text level and contains no Banach–Mazur or John-ellipsoid result. Current equality-case literature on maximal distance to the Euclidean ball was inspected and does not mention unconditional reflexive polytopes or perfect graphs. Exact and equivalent-formulation searches found no covering statement. The closest indexed Banach–Mazur and unconditional results concern different bodies, invariants, or stability questions.
+## correctness
 
-## Value
-PASS. The claim places every unconditional reflexive lattice polytope on the sharp boundary of the symmetric Banach–Mazur compactum relative to the Euclidean ball. This is a class-wide structural theorem, with a short proof linking perfect-graph stable-set decompositions to ellipsoid geometry, and it applies immediately to major examples such as signed Birkhoff polytopes.
+PASS
 
-## Closest literature and limitations
-Kohl–Olsen–Sanyal provide the exact perfect-graph representation, inequalities and vertices. Grundbacher–Kobos provide modern context for the sharp symmetric John bound and its equality problem. Neither inspected source covers the accepted theorem. The theorem does not classify all equality bodies, does not assert uniqueness of a distance ellipsoid, and requires both unconditionality and reflexivity through the perfect-graph representation.
+Rebuilt the proof from the actual signed clique inequalities for K=unconditional stable-set polytope of a perfect graph. For an arbitrary positive definite Q with E_Q inside K, averaging signed clique support inequalities gives diagonal s=(q_ii) in P_G. By the stable-set convex decomposition, the theta-weighted average of sum_{i in T}1/s_i is exactly d, so some stable T attains >=d. For every signed 1_T in K, outer ellipsoid inclusion and sign averaging give lambda^2>=sum_{i in T}(Q^{-1})_ii>=sum1/s_i>=d via the Cauchy-Schwarz diagonal inverse inequality. Symmetric John gives lambda<=sqrt(d), including d=1. Independently checked the signed-clique reciprocal certificates with exact fractions for sample three- and four-vertex graphs and non-diagonal positive definite test matrices; the all-d proof is analytic and does not rely on finite enumeration.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kohl–Olsen–Sanyal full paper classifies the objects as perfect-graph signed stable-set polytopes but does not evaluate their Euclidean Banach–Mazur distances. Grundbacher–Kobos full current equality-case paper proves the universal bound and low-dimensional classification, not that every unconditional reflexive graph polytope is a maximizer in all d. Exact database searches found only other polytope radii/John shape, which do not imply an optimum over all ellipsoids. Best-of-knowledge class-wide assertion survives.
+
+## value
+
+PASS
+
+A full natural lattice-polytope class occupies the extremal boundary of the symmetric Banach–Mazur distance problem; the perfect-graph/stable-set reciprocal-weight witness supplies a reusable combinatorial ellipsoid obstruction and includes signed matrix polytopes of arbitrarily large dimensions. This is a structural theorem, not a single known-table value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

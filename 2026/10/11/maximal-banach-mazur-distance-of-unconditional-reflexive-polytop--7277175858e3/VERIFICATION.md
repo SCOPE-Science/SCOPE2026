@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The general proof is symbolic. Its critical checks are:
+# Independent mathematical audit
 
-1. The perfect-graph representation gives exactly the clique inequalities needed to infer \(s=(q_{11},\ldots,q_{dd})\in P_G\) from any inscribed ellipsoid.
-2. A convex decomposition of \(s\) into stable-set indicators makes the reciprocal-weight average exactly \(d\), so some stable set has reciprocal weight at least \(d\).
-3. Averaging the outer ellipsoid inequality over signs on that stable set removes off-diagonal entries of \(Q^{-1}\).
-4. Positive definiteness gives \(q_{ii}(Q^{-1})_{ii}\ge1\) coordinatewise.
-5. The symmetric John theorem supplies the matching universal upper bound \(\sqrt d\).
+## correctness
 
-The accompanying standard-library verifier exhaustively checks all labeled graphs through five vertices, directly identifies perfect graphs by testing \(\chi=\omega\) on every induced subgraph, and for each perfect graph tests two exact-rational positive-definite ellipsoid matrices, including a non-diagonal rank-one perturbation. It scales each ellipsoid by all signed clique constraints, then checks the reciprocal-diagonal lower bound and the actual maximum signed stable-set quadratic form.
+PASS
 
-Replay output:
+Rebuilt the proof from the actual signed clique inequalities for K=unconditional stable-set polytope of a perfect graph. For an arbitrary positive definite Q with E_Q inside K, averaging signed clique support inequalities gives diagonal s=(q_ii) in P_G. By the stable-set convex decomposition, the theta-weighted average of sum_{i in T}1/s_i is exactly d, so some stable T attains >=d. For every signed 1_T in K, outer ellipsoid inclusion and sign averaging give lambda^2>=sum_{i in T}(Q^{-1})_ii>=sum1/s_i>=d via the Cauchy-Schwarz diagonal inverse inequality. Symmetric John gives lambda<=sqrt(d), including d=1. Independently checked the signed-clique reciprocal certificates with exact fractions for sample three- and four-vertex graphs and non-diagonal positive definite test matrices; the all-d proof is analytic and does not rely on finite enumeration.
 
-`VERIFY_OK unconditional-reflexive BM lower bound perfect_graphs=1087 ellipsoid_cases=2174 n=1..5`
+## originality
 
-The replay is finite corroboration only. No finite enumeration is used to justify the theorem for arbitrary dimension.
+PASS
+
+Kohl–Olsen–Sanyal full paper classifies the objects as perfect-graph signed stable-set polytopes but does not evaluate their Euclidean Banach–Mazur distances. Grundbacher–Kobos full current equality-case paper proves the universal bound and low-dimensional classification, not that every unconditional reflexive graph polytope is a maximizer in all d. Exact database searches found only other polytope radii/John shape, which do not imply an optimum over all ellipsoids. Best-of-knowledge class-wide assertion survives.
+
+## value
+
+PASS
+
+A full natural lattice-polytope class occupies the extremal boundary of the symmetric Banach–Mazur distance problem; the perfect-graph/stable-set reciprocal-weight witness supplies a reusable combinatorial ellipsoid obstruction and includes signed matrix polytopes of arbitrarily large dimensions. This is a structural theorem, not a single known-table value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
