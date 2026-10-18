@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A generic intrinsic one-parameter subgroup separates all monomial coordinates. Its Grassmannian fixed points are the coordinate \((N-d-1)\)-planes, while the fixed points on the projective toric orbit closure are exactly the coordinate points indexed by vertices of the weight polytope. A coordinate plane meets the toric variety if and only if it contains one of those vertex points: the nontrivial direction follows because a nonempty closed projective invariant intersection contains a fixed point. Counting coordinate planes disjoint from all \(v\) vertex coordinates gives
-\[
-\binom{N-v}{N-d-1}.
-\]
-Euler localization gives the theorem.
+## correctness
 
-The bundled checker independently enumerates the fixed-coordinate subsets over a broad finite parameter grid and checks standard toric support families. Finite computation is regression evidence only.
+PASS
 
-## Originality
-PASS. The inspected archival Chow-polytope source defines the same Grassmannian Chow hypersurface and the same projective toric orbit closures, but targeted full-text searches found no Euler-, Poincaré-, topology-, or fixed-point calculation. Targeted semantic and web searches using the standard object names, Grassmannian formulation, toric vertices, and the proof mechanism did not locate the displayed formula or a stronger result implying it.
+A generic integral one-parameter subgroup separates all N ambient characters; the Grassmannian has binom(N,d+1) coordinate fixed planes. A coordinate plane intersects the projective toric orbit closure iff it contains a coordinate fixed point indexed by a vertex: projective intersection is nonempty closed C*-stable and hence has a fixed point, while distinct weights force coordinate fixed points and toric orbit-limit vertices. Euler localization for a possibly singular projective complex variety applies; counting vertex-free index sets gives the formula. Veronese v=d+1 and Segre v=N follow. Independently checked subsets for bounded N; this is not an infinite proof. No smoothness or normality required.
 
-The closest established results concern Chow-form degree, secondary polytopes, regular triangulations, equations, coisotropy, and tropicalization. Those do not determine the ordinary Euler characteristic.
+## originality
 
-## Value
-PASS. Chow divisors are canonical elimination-theoretic encodings of projective varieties. The result shows that for every toric embedding their Euler characteristic collapses from detailed lattice geometry to only \(N,d,v\). The Veronese family exhibits a universal one-point deficit from the Grassmannian fixed set, whereas Segre products attain the full ambient Grassmannian Euler characteristic.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Kapranov–Sturmfels–Zelevinsky give foundational toric Chow combinatorics; an exact fixed-point Euler formula for the Chow hypersurface is not identified in the material genuinely inspected. The Grassmannian Chow divisor differs from divisors inside the toric variety. Best-of-knowledge novel application of localization, not absolute priority.
+
+## value
+
+PASS
+
+A nonobvious uniform exact topological invariant of a natural Chow hypersurface, independent of toric degree/volume/singularities. Computable from only N,d,v, with useful Veronese and Segre consequences. Although proof is short and Euler is coarse, it is a motivated exact invariant not a renamed table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

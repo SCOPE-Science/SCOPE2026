@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-The checker exhaustively enumerates the coordinate fixed points of
-\[
-\operatorname{Gr}(N-d-1,N)
-\]
-for a finite parameter grid. It designates \(v\) coordinates as toric vertex coordinates and counts directly which coordinate subspaces contain at least one of them. The direct count is compared with
-\[
-\binom{N}{d+1}-\binom{N-v}{N-d-1}.
-\]
 
-It also generates finite lattice supports for rational normal curves, Veronese surfaces, and rectangle/product-simplex examples and checks their hull-vertex counts before applying the same fixed-point census.
+# Independent mathematical audit
 
-The finite computations do not prove the theorem for arbitrary toric configurations. The proof is the symbolic fixed-locus argument in `RESULT.md`.
+## correctness
+
+PASS
+
+A generic integral one-parameter subgroup separates all N ambient characters; the Grassmannian has binom(N,d+1) coordinate fixed planes. A coordinate plane intersects the projective toric orbit closure iff it contains a coordinate fixed point indexed by a vertex: projective intersection is nonempty closed C*-stable and hence has a fixed point, while distinct weights force coordinate fixed points and toric orbit-limit vertices. Euler localization for a possibly singular projective complex variety applies; counting vertex-free index sets gives the formula. Veronese v=d+1 and Segre v=N follow. Independently checked subsets for bounded N; this is not an infinite proof. No smoothness or normality required.
+
+## originality
+
+PASS
+
+Kapranov–Sturmfels–Zelevinsky give foundational toric Chow combinatorics; an exact fixed-point Euler formula for the Chow hypersurface is not identified in the material genuinely inspected. The Grassmannian Chow divisor differs from divisors inside the toric variety. Best-of-knowledge novel application of localization, not absolute priority.
+
+## value
+
+PASS
+
+A nonobvious uniform exact topological invariant of a natural Chow hypersurface, independent of toric degree/volume/singularities. Computable from only N,d,v, with useful Veronese and Segre consequences. Although proof is short and Euler is coarse, it is a motivated exact invariant not a renamed table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
