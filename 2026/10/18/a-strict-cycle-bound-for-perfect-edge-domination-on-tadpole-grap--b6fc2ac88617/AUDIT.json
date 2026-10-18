@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The local coloring correspondence is bidirectional and restores the exact edge-subset definition. The six-state transfer matrix satisfies \\(M^5=M^4+M^2\\) by exact integer multiplication, and a fixed boundary matrix counts every tadpole coloring exactly. A four-case reversible leaf-extension bijection gives the t-recurrence; complete nine-case seeds are verified by independent brute-force edge-subset enumeration. Two strong inductions prove all \\(c\\ge3,\\ t\\ge1\\) with no reliance on finite extrapolation. verify.py was run on the delivered candidate and all assertions passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.03894v1, Theorem 4.4: a linear-time PED-set counting algorithm on generalized series-parallel graphs.",
+        "arXiv:2607.03894v1, Conjecture 5.1: a cycle count bound for all connected graphs is proposed but not established.",
+        "arXiv:2509.04598v2, Section 6: a counting algorithm for P6-free graphs rather than all tadpoles."
+      ],
+      "reasoning": "Generic algorithms computing a finite graph count do not establish an inequality comparing every tadpole to a same-order cycle, let alone its exact deficit recurrences. The 2026 conjecture would strictly imply the inequality, but it is stated as unproved. The earlier P6-free hypothesis fails for sufficiently long tails.",
+      "searches": [
+        "cycle maximizes number of perfect edge dominating sets among connected generalized series-parallel graphs",
+        "perfect edge dominating set number upper bound cycle for unicyclic or cactus graphs",
+        "perfect edge dominating sets connected unicyclic graphs cycle extremal maximum number cycle conjecture Grippo Lin Moyano Vera",
+        "arXiv:2607.03894v1 Section 4 Theorem 4.4 and Section 5 Conjecture 5.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.03894v1 (direct original HTML, local three-color characterization, cycle recurrence, Conjecture 5.1 and count algorithm)",
+      "arXiv:2509.04598v2 (direct original HTML, P6-free counting algorithm and conclusions)",
+      "Cyclomatic bounds and sharp matching-induced-matching gaps (indexed publication title; different matching invariant)",
+      "Dominant edge metric bases of lollipop graphs (indexed publication title; different edge-resolution invariant)",
+      "Exact small cover-free-family numbers for paths, cycles, and wheels (indexed publication title; different family invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2607.03894v1 Proposition 2.5: a general pendant extension recurrence, reused explicitly here.",
+        "arXiv:2607.03894v1 Theorem 5.2: the cycle recurrence.",
+        "arXiv:2607.03894v1 Conjecture 5.1 gives the general cycle comparison only as an open statement.",
+        "arXiv:2509.04598v2 Sections 2 and 6: counting and decision methods without this extremal comparison."
+      ],
+      "reasoning": "The prior pendant extension and cycle recurrences supply only one-dimensional recursions; they do not compare the cycle and tadpole initial conditions for every cycle length. The new boundary transfer and nine seeds establish a positive two-dimensional deficit, which is not a restatement of the algorithm or a proved corollary of a prior inequality.",
+      "searches": [
+        "For every c>=3 and t>=1, the number of perfect edge dominating sets of the tadpole graph formed by joining a pendant path of length t to the cycle C_c is strictly less than that of the cycle C_(c+t).",
+        "cycle maximizes number of perfect edge dominating sets among connected generalized series-parallel graphs",
+        "perfect edge dominating set number upper bound cycle for unicyclic or cactus graphs",
+        "arXiv:2607.03894v1 Proposition 2.5 / Theorem 5.2 / Conjecture 5.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.03894v1, Section 5 (Conjecture 5.1); Section 2.2 for the exact PED-set definition",
+        "Public research records mentioning lollipop graphs involved dominant edge metric dimension, not counts of perfect edge dominating sets.",
+        "Searches for tadpole / lollipop / unicyclic / perfect edge dominating set counts did not surface a statement equivalent to the claimed two-parameter strict inequality."
+      ],
+      "reasoning": "Tadpole and cycle-with-one-pendant-path are the same graph family; lollipop is a plausible alternate name. Neither indexed alternate-name result nor the inspected primary text states or implies the claimed deficit. Failure to locate a match is not treated as a proof of uniqueness.",
+      "searches": [
+        "For every c>=3 and t>=1, the number of perfect edge dominating sets of the tadpole graph formed by joining a pendant path of length t to the cycle C_c is strictly less than that of the cycle C_(c+t).",
+        "PED-count extremal conjecture holds for lollipop tadpole unicyclic cycle-plus-path graphs by recurrence in girth and tail length",
+        "Tadpole graph unicyclic perfect edge domination cycles strict maximality Grippo Moyano 2026",
+        "\"perfect edge dominating\" \"lollipop\" \"cycle\" number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2607.03894v1, Section 5: explicit cycle initial values and recurrence; no two-dimensional tadpole deficit table.",
+        "The closest public research results included cyclic cover-free-family counts and matching gap bounds, which enumerate different objects.",
+        "The nine values for the tadpole family were checked independently against exact edge-subset enumeration in verify.py."
+      ],
+      "reasoning": "Known cycle counts alone do not supply the tadpole count or positive two-dimensional deficit. No exact published table or published recurrence for these tadpoles was identified. Enumerations by themselves are not presented as a novelty proof.",
+      "searches": [
+        "perfect edge dominating set counting bivariate path cycle recurrence terminal transfer matrix x^3-x^2-1",
+        "edge perfect domination number tadpole transfer recurrence cycle minus lollipop deficit",
+        "perfect edge domination polynomial of unicyclic graphs extremal cycle maximizing number",
+        "\"number of perfect edge dominating sets\" \"tadpole\"",
+        "\"counting perfect edge dominating sets\" \"unicyclic\""
+      ]
+    },
+    "rationale": "The July 2026 primary article explicitly states the connected cycle-extremality question as an open conjecture and proves trees and path/cycle recurrences, not the strict tadpole bound or exact two-axis deficit. Its general series-parallel counting algorithm does not imply the all-parameter extremal inequality without a new comparison argument. A September 2025 counting algorithm is confined to \\(P_6\\)-free graphs and misses unbounded tails. Exact and alias-oriented database/literature searches returned no covering theorem; closest identifiable records treat different invariants. Residual risk is unindexed or terminologically divergent relevant work.",
+    "residual_risks": [
+      "An unindexed specialized paper or alternative definition of perfect edge domination could contain a stronger extremal inequality.",
+      "Full comparison is bounded to obtainable primary literature and the actual completed semantic/source searches, not a claim of universal uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: conjectures a stronger general inequality rather than proving it; its established results do not include the tadpole comparison or deficit recurrence.",
+        "evidence": [
+          "Proposition 2.5 is a known pendant extension identity.",
+          "Theorem 4.4 proves countability in linear time for generalized series-parallel graphs.",
+          "Conjecture 5.1 proposes the all-connected-graphs cycle bound; Theorem 5.2 proves only the cycle recurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.03894v1",
+        "material_read": "Primary open-access HTML: abstract/introduction, the three-color characterization in Section 2.2, Proposition 2.5 and its proof in Section 2.3, counting-algorithm statement in Section 4, and Conjecture 5.1 / Theorem 5.2 in Section 5.",
+        "method": "Read the directly accessible original arXiv HTML, including mathematical statements and local relevant arguments.",
+        "title": "Counting perfect edge dominating sets: extremal results and linear-time algorithms",
+        "trigger": "Exact same invariant; stated conjecture could dominate the candidate; known cycle/path and extension recurrences."
+      },
+      {
+        "assessment": "NOT_COVERING: polynomial-time counting on P6-free graphs, not the infinite tadpole extremal comparison for arbitrary path lengths.",
+        "evidence": [
+          "Theorem/algorithm restriction to P6-free graphs is explicit.",
+          "No maximum-count comparison to cycles or bivariate deficit formula is given in the relevant sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.04598v2",
+        "material_read": "Primary open-access HTML: abstract, introduction, three-color definition and preliminary structural results in Section 2, and counting-algorithm and conclusion sections (6 and 7).",
+        "method": "Read original arXiv HTML for the restrictions and exact scope of enumerative claims.",
+        "title": "Perfect Edge Domination in P6-free Graphs and in Graphs Without Efficient Edge Dominating Sets",
+        "trigger": "Earlier counting work by overlapping authors; possible stronger algorithmic coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b6fc2ac8-8617-4b2b-bb59-04bb320885ec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Settles the cycle-maximal PED-count conjecture for all single-tail unicyclic graphs, an infinite two-parameter class beyond the proven tree case. The positive gap is determined exactly by two independent tribonacci-type recurrences and nine initial values, supplying strictness and quantitative structure. This is a motivated part of a stated contemporary open question, not an arbitrary enumeration or routine substitution. The general conjecture and branched/unicyclic extensions remain open.",
+    "status": "PASS"
+  }
+}
