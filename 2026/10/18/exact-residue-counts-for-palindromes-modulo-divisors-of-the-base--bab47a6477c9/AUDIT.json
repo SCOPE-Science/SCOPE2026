@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Canonical digit pairing reduces odd palindromes to a signed linear form. The finite Fourier transform has three exhaustively separated kinds of frequencies: zero gives \\((b-1)b^k\\), half the modulus when even gives \\((b-1)b^{k-1}\\), and all other frequencies give \\((-1)^{k+1}(\\zeta^h+\\zeta^{-h})\\). Direct orthogonality gives the exact formula; the residue-by-residue correction is strictly inside \\((-1,1)\\) including \\(q=2\\). One-digit and even lengths are independent direct counts. The original standalone verifier passed 1204 exact independent residue comparisons for bases 2–14, all dividing moduli, and lengths 1–7. Finite checks corroborate but do not prove the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Banks–Hart–Sakata, introduction and Corollary 4.5: \\(\\gcd(q,b(b^2-1))=1\\).",
+        "Col, main Theorems 1–2: same coprimality; sieve Lemma 22: selected exceptional prime factors of \\(b+1\\) under squarefree/averaging and zero residue.",
+        "Onphaeng et al., abstract, §3: exact formulas only under \\(b\\equiv0\\) or \\(b\\equiv1\\pmod q\\)."
+      ],
+      "reasoning": "For \\(q>2\\), \\(b\\equiv-1\\pmod q\\) is distinct from the 2024 branches, while the 2004 and Col main hypotheses fail. Col’s more general sieve lemma anticipates some odd-prime limiting statistics but not the complete exact all-residue fixed-length claim.",
+      "searches": [
+        "arXiv:math/0405056v1",
+        "doi:10.4064/aa137-1-1",
+        "JIS:27(2024):24.4.8",
+        "palindromes arithmetic progressions b = -1 modulo q exact count density Fourier transform"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0405056v1",
+      "doi:10.4064/aa137-1-1",
+      "JIS:27(2024):24.4.8",
+      "OEIS A002113",
+      "OEIS A077528"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2004 and 2009 equidistribution theorems have an incompatible coprimality requirement.",
+        "Col’s Lemma 22 gives averaged sieve zero-class information for some factors of \\(b+1\\), not the entire fixed-length residue vector.",
+        "The 2024 exact formulas involve only \\(b\\equiv0,1\\pmod q\\), with the \\(q=2\\) intersection acknowledged."
+      ],
+      "reasoning": "Qualitative limiting equidistribution or sieve estimates do not imply the exact integer counts, Fourier coefficients, or a universal discrepancy <1. The known even-length zero class and the modulus-two case are isolated antecedents rather than the claimed whole family.",
+      "searches": [
+        "arXiv:math/0405056v1",
+        "doi:10.4064/aa137-1-1",
+        "JIS:27(2024):24.4.8",
+        "doi:10.4064/aa137-1-1 Lemma 22",
+        "exact counts palindromes mod base + 1 odd length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2004 and 2009 texts formulate the problem through Fourier sums of palindromic digits; the 2024 paper uses \\(A_b(m,q,r)\\) exact residue counting. Neither of these formulations states the special all-residue odd-length count under \\(q\\mid b+1\\)."
+      ],
+      "reasoning": "Fourier inversion, digit-sum residues modulo a factor of the base plus one, and exact progression counts are equivalent formulations; the inspected claims do not directly give the spectrum \\(F(h)=(-1)^{k+1}(\\zeta^h+\\zeta^{-h})\\) at nonexceptional characters nor its length-independent discrepancy.",
+      "searches": [
+        "palindromes arithmetic progressions base congruent -1 mod modulus exact counting number odd length",
+        "palindromes modulo base plus one b+1 exact root of unity distribution arithmetic progression odd digit length",
+        "base b palindromes odd length residues mod divisor of b plus 1 exact Fourier coefficients and parity bias",
+        "arXiv:math/0405056v1",
+        "doi:10.4064/aa137-1-1",
+        "JIS:27(2024):24.4.8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002113 catalogs all decimal palindromes; A077528 records the least palindrome in certain residues. Both concern sequences/individual minima rather than the full exact fixed-length residue distribution for arbitrary base and modulus."
+      ],
+      "reasoning": "The inspected catalogs record related objects and finite terms, not the closed all-parameter formula, sharp unit discrepancy, or exceptional-frequency classification.",
+      "searches": [
+        "OEIS A002113",
+        "OEIS A077528",
+        "palindromes arithmetic progressions base congruent -1 mod modulus exact counting number odd length"
+      ]
+    },
+    "rationale": "The new exact count, all-residue Fourier spectrum, and strict unit discrepancy for odd digit lengths and moduli dividing the base plus one were compared to three pertinent primary full texts. The 2004 estimates and 2009 main theorems assume coprimality to the base and its square-minus-one; the 2009 sieve Lemma 22 does include some exceptional prime divisors of the base plus one in averaged zero-residue estimates, but not this exact fixed-length theorem. The 2024 exact-count work handles bases congruent to zero or one modulo the modulus. The modulus-two intersection, the known even-digit obstruction, and odd-prime qualitative equidistribution are not claimed novel. An unstated consequence or unindexed equivalent may remain.",
+    "residual_risks": [
+      "A direct specialization of published general digit-convolution identities might imply the exact formula without explicit statement.",
+      "Earlier unindexed or non-English work on exceptional palindrome moduli may contain an equivalent count.",
+      "Primary-source review was targeted to the relevant hypotheses, theorems and exceptions, not a line-by-line review of all 41 and 29 pages."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The relevant progression theorem excludes divisors of the base plus one; no equivalent exact exceptional-modulus count identified in the inspected sections.",
+        "evidence": [
+          "First public arXiv v1 on 2004-05-04; MSC 11A63, 11L07, 11N69.",
+          "Introduction explicitly restricts coprime moduli to \\(q\\) coprime with \\(b(b^2-1)\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0405056v1",
+        "material_read": "Full-text HTML: introduction, palindrome character sums, distribution hypotheses and theorem statements",
+        "method": "Read HTML sections 1, 3, and 4 with comparison of allowed moduli and implied statements",
+        "title": "Almost All Palindromes Are Composite",
+        "trigger": "Arithmetic progression estimates for base palindromes and primary MSC"
+      },
+      {
+        "assessment": "Main theorems require coprimality with \\(b(b^2-1)\\). Lemma 22 incorporates factors of \\(b+1\\) in an averaged squarefree sieve, but does not furnish exact fixed-odd-length counts for every residue.",
+        "evidence": [
+          "Theorems 1–2 on PDF pp. 3–4.",
+          "Lemmas 19–22 on pp. 30–33 distinguish middle-digit parity and divisors of \\(b+1\\)."
+        ],
+        "identifier_or_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/83451",
+        "material_read": "Full-text PDF pages 1–5 and 29–34, main theorems 1–2, Lemmas 19–22 and their hypotheses; other passages about character products",
+        "method": "Read primary source text and first-page PDF image; compared the zero-class exceptional-modulus lemma against the exact full-residue statement",
+        "title": "Palindromes dans les progressions arithmétiques",
+        "trigger": "Potential stronger distributional coverage, including exceptional factors"
+      },
+      {
+        "assessment": "Published exact formulas cover \\(b\\equiv0\\) or \\(b\\equiv1\\pmod q\\), with only the known \\(q=2\\) overlap; branch \\(b\\equiv-1\\pmod q\\) for \\(q>2\\) is not its theorem.",
+        "evidence": [
+          "Abstract explicitly names congruence branches \\(0,1\\); section 3 reiterates these and starts with \\(b\\equiv0\\)."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Phunphayap/phun7.pdf",
+        "material_read": "Full-text PDF abstract, introductory literature comparison, Lemmas 2–5, and section 3 and Theorem 7",
+        "method": "Read primary PDF text and abstract; compared congruence branch against the proposed all-residue theorem",
+        "title": "Exact Formulas for the Number of Palindromes in Certain Arithmetic Progressions",
+        "trigger": "Closest possible exact arithmetic-progression counting work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bab47a64-77c9-4140-8b50-c090bd71ad02",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Distribution of canonical palindromes over congruence classes is an established explicit counting problem. Earlier natural branches \\(b\\equiv0,1\\pmod q\\) have exact formulas while the exceptional \\(b\\equiv-1\\pmod q\\) branch was outside those results. The new statement classifies all residues and all digit lengths in that branch, has strict absolute discrepancy below one, and exposes persistent bias for even moduli via an exceptional Fourier character. Neither basic even-digit divisibility nor qualitative odd-prime uniformity is used as the claimed new value.",
+    "status": "PASS"
+  }
+}
