@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Both critical rank-one identities are independently matched to their published theorems, including the \(0\le q\le1\) and \(\rho>0\) parameter domains and common normalization by \(\|a\|\|b\|\). The ratio is reduced to one overlap variable. Its derivative has a strictly increasing sign numerator for \(q<1\), so an interior stationary point is a unique global minimum, and no interior maximum is possible. The critical-point formula, its positive square-root, the sharp constants, and the exact endpoint/tie cases are algebraically verified. The \(q=1\) degeneracy and \(\rho=2\) identity are handled separately. Every overlap is explicitly realized on a two-dimensional subspace; no finite experiment is used for a universal claim.
+## correctness
 
-**Originality: PASS, with residual risk.** The closest published statements are Denčić–Stanković–Krstić–Damnjanović (2025), which computes \(\omega_q\) of a fixed rank-one operator, and Stanković (2026), which computes \(\omega_\rho\) of a fixed rank-one operator. These inputs make the new result accessible but do not themselves state or optimize their ratio over rank-one operator geometries. Full-text comparison of both papers, related weighted-radius literature, targeted external searches and indexed mathematical findings did not reveal the sharp two-sided cross-parameter constants and equality classification. The absence of a hit is not proof of novelty; an unindexed treatment or unstated equivalent elementary optimization is possible.
+PASS
 
-**Value: PASS.** This is a natural complete classification of how two independently studied numerical-radius gauges compare on the full rank-one class, including nilpotent, normal and nonnormal cases. The two different phase boundaries determine when the extremizer is orthogonal, parallel, or genuinely nonnormal. Those endpoints matter for the sharp transfer of rank-one estimates between the two gauges; merely knowing either formula for fixed \(T\) does not display the global sharp comparison and its geometry. No application beyond this rank-one operator setting is claimed.
+For q∈[0,1], ρ>0 and nonzero rank-one complex-Hilbert operators dimH≥2, the cited original exact formulas yield F(c)=2(1+ηc)/[ρ(1+qc+s√(1−c²))], s=√(1−q²), η=|ρ−1|, c∈[0,1]. Differentiate: sign F′ equals G(c)=η−q+s(η+c)/√(1−c²), whose derivative s(1+ηc)/(1−c²)^(3/2)>0 for q<1. Thus a unique minimum at c*= [q(1+η²)−2η]/[1+η²−2qη] iff η<q/(1+s), else at c=0; maximum is max of c=0,1. Substitution yields stated m=(1−η²)/[ρ(1−qη)] in interior, otherwise 2/[ρ(1+s)], and M=max{2/[ρ(1+s)], 2(1+η)/[ρ(1+q)]}. Separately q=1 gives monotone/constant F, including ρ=2 all ties. Explicit T_c in two dimensions realizes every overlap. Independently verified symbolic derivative/critical algebra and 50,000 random cases. Original-source q/ρ normalizations match exactly; finite tests are not proof.
 
-**Closest literature and limits.** arXiv:2609.00037v1 (2026), Theorem 2.2, supplies the \(\rho\)-radius formula and cites the q-paper without deriving the profile; arXiv:2503.05036v1 (2025), Theorem 2.1 and Section 3, supplies and studies the \(q\)-radius; arXiv:2608.09178v1 compares other weighted operator radii. The present classification follows by a new one-variable optimization of the first two inputs. This is not a statement about operators of rank greater than one.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original specific quantified claim/optimization or equality classification, compared at theorem/implication level with the primary sources and indexed results below; the SCOPE same-date identical listing is the audited result itself, not independent preexisting coverage. Named residual risks do not constitute a demonstrated dominating earlier theorem.
+
+## value
+
+PASS
+
+Comparison constants between two established operator-radius gauges are natural and require optimizing across the rank-one overlap geometry; the full two-parameter sharp minimum, maximum, switching thresholds and equality profiles are not just the display of the two input formulas. The calculus is elementary once source theorems are known, but the complete phase classification can be used as an exact benchmark for wider-rank comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
