@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the published weighted orbit formula, then evaluates the relevant primitive product-one orbit counts exactly. Character orthogonality on \(\mathbb F_p^\times\) and divisor-lattice Möbius inversion give the primitive count, division by the least period gives rotation orbits, and summing over \(d\mid n\) reproduces the rank weight \(p^{v_p(d)}\). The asymptotic bound follows after isolating the unique leading divisor pair. Exact computation independently matches small orbit enumerations and every displayed source-table value.
+## correctness
 
-## Originality
-PASS. Full-text inspection of the motivating paper found the general weighted-orbit expression and the special closed formula for \(p\)-power lengths, but not the all-\(n\) divisor formula or the fixed-\(p\)-free-part density law. Searches using the exact family, Carlitz analytic rank, primitive necklaces, Möbius inversion, divisor sums, and normalized-rank density found no covering statement. General primitive-necklace inversion is classical, but that technique alone does not state the analytic-rank formula or its density consequences for this newly introduced family.
+PASS
 
-## Value
-PASS. This is a natural completion of the source's explicit family: it removes orbit enumeration for every length \(n\), recovers the source's special \(p\)-power formula and table uniformly, and exposes a structured infinite set of normalized-rank subsequential limits. The result therefore gives both a usable exact arithmetic formula and new qualitative information about how the unbounded ranks are distributed.
+For q=p^s>=3, character sums over E have uniform fibres q/p over F_p^*, so W_d(chi)=L^d for trivial chi and zero otherwise. Primitive period-d words with weight-one product are isolated by Mobius inversion and character orthogonality, with exactly gcd(e,p-1) characters of order dividing e. Dividing by d gives primitive orbits and p^{v_p(d)} weighted rank, reproducing the stated divisor formula and its p-free density. Proper divisors d<=n/2 and e>1 imply the O(tau(n)^2 L^{n/2}) bound for n>=2, hence the subsequential limit for fixed m coprime to p. Independent direct exhaustive rotation-orbit calculation agreed with arithmetic formula for q=3,4,5, n=1..5, distinct from claimed published tables; not a proof for all n. Assumes Giraudin Theorem1(iv) L-function/orbit identity.
 
-## Closest literature and limitations
-The closest source is arXiv:2610.00379v1, which supplies the orbit/rank theorem and the \(p\)-power corollary but not the general divisor evaluation. The survey arXiv:2509.16160 gives background but predates the family. A residual risk remains that a general character-weighted necklace identity elsewhere could be specialized to the same count, although no source located in the targeted searches makes the Carlitz-rank implication or density law.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Giraudin Theorem1(iv) provides the entire weighted cyclic orbit model and n=p^a special closed rank, but the new all-n divisor evaluation and exact asymptotic fixed p-free-part m require a character-weighted primitive-necklace inversion and uniform error analysis. The previously published orbit model is explicitly prior input, not rebranded as discovery; no exact all-n divisor/density statement was located in the inspected original theorem, proof, or tables. Classic Mobius inversion is not itself claimed new, and unseen later treatment could overlap.
+
+## value
+
+PASS
+
+PASS: The original analytic-rank paper supplies the orbit model for a natural family but leaves arbitrary n as a weighted orbit sum and isolated examples. A closed divisor expression and distinct asymptotic densities depending on p-free m are precise and reusable invariants for arithmetic-rank distributions; no paper-sized further theorem is demanded. Quantitative tail term is elementary and intentionally nonoptimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
