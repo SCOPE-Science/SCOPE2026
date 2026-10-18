@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T14:14:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For one-dimensional Dirichlet Poisson tridiagonal A_n=tridiag(-1,2,-1), initial x0=0 and nonnegative isolated load plus remote symmetric hat, the exact 2D Galerkin formula x2=[(m0m3-m1m2)b-(m0m2-m1²)Ab]/D, D=m1m3-m2²>0, gives the first-coordinate numerator rN_k(r)/D for a two-peak plateau. The exact polynomial is N_k(r)=2r⁴-2r³+A_kr²-B_kr-C_k with stated cubic k-coefficients. C_k>0, N_k(1)=2(k+1)(4k-5)>0, and second derivative of N_k>0 for all r≥0,k≥2; with the derivative of N_k at zero<0, this proves a UNIQUE positive zero r_k∈(0,1) and sign negative below, positive above. Uniform k^-3 expansion and Taylor at 1 establish r_k=1-2/k+O(k^-2). One-peak hat instead has lim_{r↓0} x2_1/r=k/3>0; plateau has strictly negative limit. Independently reconstructed Krylov moments and exact two-step CG for k=2,3,4,7,10,25, rational amplitudes and padding; integer b=(1,0,0,2,4,4,2,0,..) gives x2_1=-58/171. Green matrix A^-1 has strictly positive entries so exact solution remains positive. Checks are finite witnesses only; analytic moments/proof cover all n≥required and k≥2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Resultary n=3 minimal dimension, a>4 criterion; Beckermann–Kuijlaars CG rates on Poisson paths; Schmelzer abstract general constraint mismatch"
+        ],
+        "reasoning": "Neither the parametric 3x3 matrix with variable first diagonal nor a general rate bound provides the claimed signed first component formula for canonical all-2-diagonal Poisson and remote hats. Full Schmelzer text not accessible, so leave possible specialized stronger coverage as explicit risk.",
+        "searches": [
+          "conjugate gradient method second iterate negative components Poisson tridiagonal nonnegative right hand side discrete hat parity load",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5",
+          "https://etna.ricam.oeaw.ac.at/vol.14.2002/pp1-19.dir/pp1-19.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://etna.ricam.oeaw.ac.at/vol.14.2002/pp1-19.dir/pp1-19.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5",
+        "https://arxiv.org/abs/2607.22121",
+        "https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier proof establishes mere existence and separate a>4 matrix threshold; 2002 article analyzes spectral convergence for Poisson but not positivity of intermediate coordinates"
+        ],
+        "reasoning": "The logical leap from existence of one Stieltjes CG negative iterate to a sharp one-dimensional Poisson hat PARITY criterion and unique amplitude threshold is nontrivial; the new exact Galerkin moments and polynomial sign proof are necessary.",
+        "searches": [
+          "conjugate gradient method second iterate negative components Poisson tridiagonal nonnegative right hand side discrete hat parity load",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5",
+          "https://etna.ricam.oeaw.ac.at/vol.14.2002/pp1-19.dir/pp1-19.pdf",
+          "https://arxiv.org/abs/2607.22121"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical CG Ritz/Galerkin first-coordinate sign law; 3D Resultary general Stieltjes witness with a>4 but not same Poisson hat"
+        ],
+        "reasoning": "Checked positivity-preserving Krylov language, Stieltjes/M-matrix constraints, Dirichlet Poisson RHS and two-step transient negativity. General nonpositivity counterexamples are not equivalent to the all-width parity-dependent hat threshold.",
+        "searches": [
+          "conjugate gradient method second iterate negative components Poisson tridiagonal nonnegative right hand side discrete hat parity load",
+          "https://etna.ricam.oeaw.ac.at/vol.14.2002/pp1-19.dir/pp1-19.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent -58/171 witness and polynomial N_k with unique real threshold r_k, width asymptotics"
+        ],
+        "reasoning": "The exact datum is an infinite natural discrete-hat family, not a lookup table. Prior published 3x3 example and its -5/751 value are different. No database of this entire hat-width frontier located.",
+        "searches": [
+          "conjugate gradient method second iterate negative components Poisson tridiagonal nonnegative right hand side discrete hat parity load",
+          "https://etna.ricam.oeaw.ac.at/vol.14.2002/pp1-19.dir/pp1-19.pdf"
+        ]
+      },
+      "rationale": "The published general result that CG can become negative even for Stieltjes matrices, and that three dimensions suffice, is explicitly prior work. The earlier Resultary finding proves a sharp *different* 3x3 threshold at diagonal parameter a=4 for forcing b_B; it does not imply the parity-dependent remote discrete-hat profile for the canonical unmodified Poisson A_n (all diagonal 2), exact unique amplitude threshold r_k, asymptotics or opposite small-amplitude sign between one- and two-peak hats. Beckermann–Kuijlaars analyze exact same Poisson finite-difference matrix but special-RHS convergence rates, not transient component sign frontier. Schmelzer–Stoll accessible abstract states general nonnegativity loss, but complete full text remained inaccessible; this is a residual risk, not automatic O failure.",
+      "residual_risks": [
+        "Schmelzer–Stoll 2026 full text was not accessible and may contain specialized examples; abstract alone cannot establish whole-document noncoverage.",
+        "Finite exact recurrence checks do not prove arbitrary k; the all-k conclusion depends on the analytic moment and convexity calculation.",
+        "The single-peak comparison is only as isolated amplitude tends to zero, not a full all-amplitude classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies asymptotic rates, not coordinate sign of second CG iterate under isolated and remote hat loads",
+          "evidence": "ETNA 14 (2002), pp. 1–19",
+          "identifier_or_url": "https://etna.ricam.oeaw.ac.at/vol.14.2002/pp1-19.dir/pp1-19.pdf",
+          "material_read": "Full 19-page ETNA PDF; matrix/setup, special RHS and superlinear energy-norm convergence arguments",
+          "method": "Read original PDF and relevant mathematical sections",
+          "title": "Beckermann and Kuijlaars, Superlinear CG Convergence for Special Right-Hand Sides",
+          "trigger": "Shares exact tridiagonal Poisson matrix and specialized RHS"
+        },
+        {
+          "assessment": "General existence and small n are covered; particular infinite Poisson-hat sign law is not a corollary",
+          "evidence": "Theorem: a>4 criterion in A_a with variable diagonal, not the canonical A_n",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5",
+          "material_read": "Complete published RESULT.md, matrix family, polynomial certificate and limitations",
+          "method": "Read raw full text via GitHub",
+          "title": "Three dimensions are minimal for positivity loss in conjugate gradients on Stieltjes systems",
+          "trigger": "Highly relevant stronger general negative CG result"
+        },
+        {
+          "assessment": "General positivity failure is explicitly prior; possible overlapping specific Poisson hat example in unread interior remains residual risk",
+          "evidence": "arXiv:2607.22121 abstract; downloaded full article not obtained",
+          "identifier_or_url": "https://arxiv.org/abs/2607.22121",
+          "material_read": "arXiv bibliographic abstract and detailed summary; full PDF/HTML download routes unsuccessful",
+          "method": "Read abstract, attempted arXiv PDF/HTML and lawful OA routes; NOT full text",
+          "title": "Schmelzer and Stoll, Non-Negative Conjugate Gradients",
+          "trigger": "Recent paper directly on CG negativity"
+        },
+        {
+          "assessment": "Infinite family proof from Galerkin identities; finite rational checks support but cannot replace symbolic argument",
+          "evidence": "Moment table, polynomial convexity, Green inverse formula",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/bb51cd72c959a3871b26f4537e3e25ff5cb2b772/2026/10/13/a-parity-law-for-the-second-conjugate-gradient-iterate-on-discre--43379a17501b",
+          "material_read": "Full pinned RESULT.md and standard-library verify.py, including moments and original CG recurrence",
+          "method": "Read source package files and regenerated selected cases independently",
+          "title": "A parity law for the second conjugate-gradient iterate on discrete Poisson paths",
+          "trigger": "Exact candidate theorem and critical finite-check source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact transient sign frontier for a canonical inverse-positive SPD discretization is a motivated finite-element/elliptic-solver question: a simple parity change in a remote nonnegative hat flips the sign of the second CG step at another site while true A^-1 b stays positive. Unique amplitude threshold for all hat widths and asymptotic law are new natural structural facts, not merely one tiny negative witness or unmotivated exact arithmetic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Schmelzer–Stoll 2026 full text was not accessible and may contain specialized examples; abstract alone cannot establish whole-document noncoverage.",
+    "Finite exact recurrence checks do not prove arbitrary k; the all-k conclusion depends on the analytic moment and convexity calculation.",
+    "The single-peak comparison is only as isolated amplitude tends to zero, not a full all-amplitude classification."
+  ]
+}
