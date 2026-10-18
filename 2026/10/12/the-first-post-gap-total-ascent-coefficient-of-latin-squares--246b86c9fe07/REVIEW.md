@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full proof establishes the one-ascent rigidity, rules out a single exceptional boundary, classifies all three-arc partitions, forces the exceptional lengths and residue classes from exact boundary ascent counts, and proves uniqueness and row-reversal symmetry. A C++ exhaustive normalized search for orders three through six gives \((1,1,1,3)\), and an independent direct construction checker validates every divisor/class witness through order fifty. These are supplementary finite checks; the theorem does not follow by extrapolation.
+## correctness
 
-**Originality — PASS, subject to stated residual search risk.** The original *Latin Eulerian Numbers* proves the adjacent-row rigidity and the two gaps but does not derive the unrestricted all-orders post-gap coefficient. The closely related *Cyclic Latin Eulerian Numbers*, Theorem 3.4, establishes a count in its proper subfamily of reordered cyclic squares; its Section 8 also lists unrestricted values through order six (including \(2160\) at order six). The new statement is strictly broader: it counts and classifies all unrestricted order-\(n\) Latin squares for every \(n\ge3\), including divisor-dependent classes beyond the cyclic subfamily. Other indexed combinatorial searches did not establish prior full coverage. An unindexed identical classification remains a residual risk.
+PASS
 
-**Value — PASS.** The theorem determines a natural first post-gap coefficient immediately beyond a published sharp support gap, gives a closed divisor-sum formula for every order and an explicit bijection, and explains how divisibility creates additional families starting at order six. This is a substantive global extremal classification rather than repeating the previously tabulated small cases.
+Adjacent distinct permutation rows have at least one strict ascent; exactly one implies coordinatewise translation by -1 (mod n) from conservation of their symbol sum. A single exceptional adjacent-row boundary cannot close a Latin column, so total excess two over n-1 boundaries requires exactly two two-ascent boundaries. The intervening regions are three nonempty cyclic runs of lengths a,b,c. The binary choice of ordering the last two complementary arcs yields column-type set S in Z_n. The starts of the second and third row blocks are permutations iff S is invariant under translations by b,c, hence occupies t residue classes modulo g=gcd(a,b,c). Counting exact crossing locations gives two exceptional ascent numbers 1+t c/g and 1+t a/g. Each equals 2 only if t=1 and a=c=g; thus g|n and 3g<=n. Conversely these conditions make all rows/columns Latin and give exactly n+1 ascents; the two boundary positions, first row and S recover unique parameters. Reverse rows to obtain complementary coefficient. Independently rebuilt every family for n=3,4,5,6,8,9,12,18, with normalized counts 1,1,1,3,3,4,10,12, and separately exhaustively searched all normalized squares n=3,4,5, finding 1,1,1. These finite checks do not prove general n; the three-arc proof does.
 
-**Limitations.** No conclusion is made about the remaining coefficients or unimodality. The nearest companion preprint was available as a text-rendered full manuscript, and the relevant material (definitions, theorem, computational table, concluding comparison) was reviewed. Exhaustive computation verifies only finitely many orders; independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mirzavaziri–Yaqubi, Latin Eulerian Numbers (arXiv:2609.25100v1), already prove one-ascent rigidity, extremal support gap and symmetry, but do not classify the first non-gap unrestricted coefficient for all n. Their companion Cyclic Latin Eulerian Numbers (arXiv:2609.28808v1) Theorem 3.4 establishes only T_n^c(n+1)=n in its proper cyclic family; its Section 8 finite table gives T_6(7)=2160. The theorem here supplies n! times a divisor-dependent sum across all labeled Latin squares; for n divisible by d>=2, additional families occur and prior cyclic count cannot imply them.
+
+## value
+
+PASS
+
+The first attainable coefficient after a published sharp gap is mathematically canonical. Determining it at every Latin-square order and classifying all extremizers bijectively reveals genuine divisor-dependent structure beyond the already known small tables and proper cyclic subclass.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:41:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-post-gap-total-ascent-coefficient-of-latin-squares--246b86c9fe07/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-post-gap-total-ascent-coefficient-of-latin-squares--246b86c9fe07/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-post-gap-total-ascent-coefficient-of-latin-squares--246b86c9fe07/verify_construction.py"
+      ],
+      "rationale": "Adjacent distinct permutation rows have at least one strict ascent; exactly one implies coordinatewise translation by -1 (mod n) from conservation of their symbol sum. A single exceptional adjacent-row boundary cannot close a Latin column, so total excess two over n-1 boundaries requires exactly two two-ascent boundaries. The intervening regions are three nonempty cyclic runs of lengths a,b,c. The binary choice of ordering the last two complementary arcs yields column-type set S in Z_n. The starts of the second and third row blocks are permutations iff S is invariant under translations by b,c, hence occupies t residue classes modulo g=gcd(a,b,c). Counting exact crossing locations gives two exceptional ascent numbers 1+t c/g and 1+t a/g. Each equals 2 only if t=1 and a=c=g; thus g|n and 3g<=n. Conversely these conditions make all rows/columns Latin and give exactly n+1 ascents; the two boundary positions, first row and S recover unique parameters. Reverse rows to obtain complementary coefficient. Independently rebuilt every family for n=3,4,5,6,8,9,12,18, with normalized counts 1,1,1,3,3,4,10,12, and separately exhaustively searched all normalized squares n=3,4,5, finding 1,1,1. These finite checks do not prove general n; the three-arc proof does.",
+      "residual_risks": [
+        "Independent numerical checks cover only a finite range; the exact unbounded conclusion depends on its full factorization or three-arc proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Latin Eulerian Numbers proves T_n(n)=0 and unit one-ascent shift. Cyclic Latin Eulerian Numbers Theorem 3.4 gives the restricted boundary T_n^c(n+1)=n, not the all Latin T_n(n+1)=n!Σd."
+        ],
+        "reasoning": "The generic one-ascent lemma alone does not classify two exceptional boundaries, invariant residue sets, or full counts; restricted subfamily counts cannot dominate all squares.",
+        "searches": [
+          "https://arxiv.org/abs/2609.25100",
+          "https://arxiv.org/abs/2609.28808",
+          "all order Latin Eulerian distribution closed coefficient n+1"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-post-gap-total-ascent-coefficient-of-latin-squares--246b86c9fe07/RESULT.md",
+        "https://arxiv.org/abs/2609.25100",
+        "https://arxiv.org/abs/2609.28808"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First preprint gives one-boundary rigidity and absence at n; second gives n cyclic witnesses under fixed-square reorderings. Neither proof forces t=1,a=c=g across arbitrary Latin squares."
+        ],
+        "reasoning": "Identified the logical missing three-run invariant-coset argument, beyond merely extrapolating parameter n or renaming cyclic coefficients.",
+        "searches": [
+          "https://arxiv.org/abs/2609.25100",
+          "https://arxiv.org/abs/2609.28808",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-post-gap-total-ascent-coefficient-of-latin-squares--246b86c9fe07/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The statistic counts vertical adjacent-row ascents in labeled all-order Latin squares, not single-row Eulerian ascents or cyclic-square row reorders. The companion theorem treats T_n^c, a different sample space."
+        ],
+        "reasoning": "Compared order n, labeled convention, exact ascent statistic, extrema, and cyclic restricted subfamily; the superscript c changes the quantifier over objects.",
+        "searches": [
+          "Resultary: Latin Eulerian numbers total vertical ascents n+1 coefficient n factorial divisor sum three arc classification",
+          "https://arxiv.org/abs/2609.25100",
+          "https://arxiv.org/abs/2609.28808"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source tables enumerate through n=6, including 2160 at n=6; the independent formula gives 720*(1+2)=2160, but covers arbitrarily large n and a unique construction."
+        ],
+        "reasoning": "Finite table entries provide matching special cases but no all-order theorem or complete extremizer classification.",
+        "searches": [
+          "https://arxiv.org/abs/2609.28808",
+          "Latin Eulerian table T6(7)=2160",
+          "Latin Eulerian Numbers order 5 table"
+        ]
+      },
+      "rationale": "Mirzavaziri–Yaqubi, Latin Eulerian Numbers (arXiv:2609.25100v1), already prove one-ascent rigidity, extremal support gap and symmetry, but do not classify the first non-gap unrestricted coefficient for all n. Their companion Cyclic Latin Eulerian Numbers (arXiv:2609.28808v1) Theorem 3.4 establishes only T_n^c(n+1)=n in its proper cyclic family; its Section 8 finite table gives T_6(7)=2160. The theorem here supplies n! times a divisor-dependent sum across all labeled Latin squares; for n divisible by d>=2, additional families occur and prior cyclic count cannot imply them.",
+      "residual_risks": [
+        "Potential same-result preprint under alternative Latin-descent or total-ascent terminology not indexed in the bounded search.",
+        "The exhaustive checker fixes first row and covers only orders <=5 independently; symbolic proof, not finite experiments, supplies all n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING all-order first post-gap unrestricted coefficient",
+          "evidence": "Theorem 4.4 provides the gap T_n(n)=0; one-ascent boundary rigidity does not count two-exception structures.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25100",
+          "material_read": "Full arXiv text rendering, definitions, Lemma 4.3, Theorem 4.4, extremal gap, tables and conclusions",
+          "method": "Read manuscript text directly",
+          "title": "Latin Eulerian Numbers",
+          "trigger": "Origin of same statistic, sharp gaps and one-ascent lemma"
+        },
+        {
+          "assessment": "COVERING special cyclic subfamily and small-order values; NOT_COVERING general all Latin square theorem",
+          "evidence": "Theorem 3.4 explicitly T_n^c(n+1)=n for every n; T_6(7)=2160 finite table is a special numerical case.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.28808",
+          "material_read": "Full arXiv text rendering, definition of cyclic family, Theorem 3.4 and Section 8 coefficient table",
+          "method": "Read full-text HTML sections and table",
+          "title": "Cyclic Latin Eulerian Numbers",
+          "trigger": "Potential exact n+1 coefficient under related notation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-post-gap-total-ascent-coefficient-of-latin-squares--246b86c9fe07/RESULT.md",
+        "https://arxiv.org/abs/2609.25100",
+        "https://arxiv.org/abs/2609.28808"
+      ],
+      "rationale": "The first attainable coefficient after a published sharp gap is mathematically canonical. Determining it at every Latin-square order and classifying all extremizers bijectively reveals genuine divisor-dependent structure beyond the already known small tables and proper cyclic subclass.",
+      "residual_risks": [
+        "Potential same-result preprint under alternative Latin-descent or total-ascent terminology not indexed in the bounded search.",
+        "The exhaustive checker fixes first row and covers only orders <=5 independently; symbolic proof, not finite experiments, supplies all n."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n>=3 the total-vertical-ascent counts among all labeled order-n Latin squares satisfy T_n(n+1)=T_n((n-1)^2-2)=n! sum_{d|n,3d<=n}d; each lower-boundary square has a unique prescribed three-block cyclic-arc form indexed by a first row, divisor d and one residue r modulo d.",
+  "limitations": [
+    "Potential same-result preprint under alternative Latin-descent or total-ascent terminology not indexed in the bounded search.",
+    "The exhaustive checker fixes first row and covers only orders <=5 independently; symbolic proof, not finite experiments, supplies all n.",
+    "No repository write, official publication, automated external attestation or independent formal proof was performed. Original frozen source-publication privacy sanitation remains incomplete."
+  ],
+  "schema_version": 1
+}
