@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Starting from independent uniform arrival times, the graph-based recurrence and conditional min-priority calculation both yield q_j=(l+2j)/(2^k(l+2j+1)); the centre deviation is minus the sum of others. Hence TV is max of monotone positive/negative deviation masses divided by 2^k(2^k+1). Binomial pairing establishes opposite signs at l0=2^k-k and l0+1. All other l are strictly worse by monotonicity. Rational comparisons decide k=1..6, while 2^k+1>2k(k+1) decides every k>=7. The k=0 star boundary is direct. At the unique optimizer k>=4 the exact expectation and E|2J-k|~sqrt(2k/pi) prove the sharp leading constant; no finite interpolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "J. Fairfax-Ball, Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders, arXiv:2610.02276v1 (2026-10-01), Theorems 1.1-1.2 and Sections 2,3,5.",
+        "I. Kryven, R. Versendaal, M. de Vries, Unified framework for asymptotically uniform iterative construction..., arXiv:2608.07239v1.",
+        "M. Krivelevich et al., Greedy maximal independent sets via local limits, RSA 64 (2024), 986-1015, DOI 10.1002/rsa.21200."
+      ],
+      "reasoning": "Fairfax-Ball gives a uniformity obstruction on all trees and an exact law on these spiders; its general tree classification does not compare biases across different leaf counts. Kryven et al. treat 2-uniform configurations and asymptotic sampling, not the present finite family argmin. The local-limit results target densities, not exact terminal-set uniformity optimization.",
+      "searches": [
+        "greedy uniformity on trees exact mixed spiders sharp leading constant total variation sqrt(k) 4^-k",
+        "arXiv:2608.07239 Proposition 3.8 regular independent sets two-uniformity",
+        "Greedy maximal independent sets via local limits spiders output bias"
+      ]
+    },
+    "checked_sources": [
+      "J. Fairfax-Ball, Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders, arXiv:2610.02276v1 (2026-10-01), Theorems 1.1-1.2 and Sections 2,3,5.",
+      "M. Krivelevich et al., Greedy maximal independent sets via local limits, RSA 64 (2024), 986-1015, DOI 10.1002/rsa.21200.",
+      "I. Kryven, R. Versendaal, M. de Vries, Unified framework for asymptotically uniform iterative construction..., arXiv:2608.07239v1."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "J. Fairfax-Ball, Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders, arXiv:2610.02276v1 (2026-10-01), Theorems 1.1-1.2 and Sections 2,3,5.",
+        "The published q_j formula supplies the input; the new identity b=max(P,M)/(2^k(2^k+1)) plus monotone comparison solves the unperformed global optimization."
+      ],
+      "reasoning": "The published full law mathematically permits deriving the optimizer, so the new result is not independent of or stronger than that full enumeration. But the published bound at l=2^k-k does not itself establish optimality among l, and that tuning is actually not optimal for k=1,3. The new claim is the exact global argmin with exceptions and sharp constant, not a bare evaluation or corollary obtained by a substitution.",
+      "searches": [
+        "mixed spider Tk,l greedy maximal independent sets total variation optimal leaf count 2^k-k near uniform optimize bias exception k=3",
+        "\"Greedy Uniformity on Trees\" optimal \"mixed spiders\" l leaves tuning",
+        "arXiv:2610.02276 Section 5 near-uniform mixed-spider theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "J. Fairfax-Ball, Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders, arXiv:2610.02276v1 (2026-10-01), Theorems 1.1-1.2 and Sections 2,3,5.",
+        "M. Krivelevich et al., Greedy maximal independent sets via local limits, RSA 64 (2024), 986-1015, DOI 10.1002/rsa.21200."
+      ],
+      "reasoning": "Permutation-order greedy MIS is the same finite random-priority/iterative MIS process. The statement here is a unique argmin and leading constant on the mixed-spider parameters, not the earlier output-law formula. No exact equivalent argmin was located.",
+      "searches": [
+        "\"mixed spiders\" greedy \"total variation\" optimal bias",
+        "mixed spider Tk,l greedy maximal independent sets total variation optimal leaf count 2^k-k near uniform optimize bias exception k=3",
+        "random sequential adsorption exact uniformity optimal mixed-spider direct leaves"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "J. Fairfax-Ball, Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders, arXiv:2610.02276v1 (2026-10-01), Theorems 1.1-1.2 and Sections 2,3,5.",
+        "Exact-rational comparisons for k=1,..,6 in the attached proof; independent graph-recurrence checks for 12 small parameter cases."
+      ],
+      "reasoning": "The starting paper tabulates no complete argmin in the direct-leaf parameter. Exact probabilities themselves are not claimed as new; the new exact finite exceptional optimizer list and unrestricted proof do not reproduce a known database table.",
+      "searches": [
+        "\"2^k-k\" \"greedy\" \"independent\" \"spider\"",
+        "mixed spider Tk,l greedy maximal independent sets total variation optimal leaf count 2^k-k near uniform optimize bias exception k=3",
+        "mixed spider greedy distribution min total variation table k leaf tuning"
+      ]
+    },
+    "rationale": "The closest paper derives the full mixed-spider sampling law and chooses l=2^k-k to exhibit a small bias, but does not determine the minimizing l over all positive l, exceptional small values, or a matching asymptotic constant. Although its explicit law is the input to this theorem, the optimization is a separate global inequality with a new signed-deviation monotonicity argument and a nontrivial exceptional table. No searched record supplied the sharp optimization. Some risk remains because optimization is mathematically derivable from the published exact law and could appear elsewhere under another terminology.",
+    "residual_risks": [
+      "An equivalent optimization may occur in unindexed random-sequential-adsorption literature.",
+      "The published full two-parameter law contains enough information to derive the optimizer with additional analysis; novelty depends on the distinct optimization theorem, not on rediscovering that law.",
+      "Only the abstract of the Kryven–Versendaal–de Vries source was accessible; no whole-document noncoverage claim is made for it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COV-relevant primary source; establishes the exact q_j baseline and a chosen l upper bound, but does not optimize l.",
+        "evidence": [
+          "Theorem 1.2 gives q_j=(l+2j)/(2^k(l+2j+1)) and O(sqrt(k)/4^k) for l=2^k-k.",
+          "The introduction explicitly states no matching lower bound and no optimality claim."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.02276v1",
+        "material_read": "Abstract, Theorem 1.2 with exact q_j and p_c, model and first-choice formula, related-work discussion and finite tree proof portions; PDF pages 1 and 5 visually inspected, available extracted text covering those passages.",
+        "method": "Read open-access manuscript text and visually inspected PDF page images.",
+        "title": "Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders",
+        "trigger": "Same exact two-parameter tree family and random greedy output law"
+      },
+      {
+        "assessment": "Background process and asymptotic density, not sharp direct-leaf optimizer.",
+        "evidence": [
+          "Focus on asymptotic independence ratio, local convergence and tree limits; no specified mixed-spider leaf tuning in inspected material."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.21200",
+        "material_read": "Full open-access abstract and introductory framework, including random-order and arrival-time equivalent descriptions; not entire journal article.",
+        "method": "Read open-access journal HTML.",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Same uniformly random greedy independent-set process"
+      },
+      {
+        "assessment": "Appears to classify stronger 2-uniformity and asymptotic configuration sampling, not exact mixed-spider bias minimization; limited-inspection risk retained.",
+        "evidence": [
+          "Abstract discusses 2-uniform auxiliary conflict graphs and degree-constrained configurations, not the mixed-spider parameter l."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.07239",
+        "material_read": "Abstract only; open access full text request failed.",
+        "method": "Read arXiv abstract and checked topical descriptions.",
+        "title": "Unified framework for asymptotically uniform iterative construction of generalised random graphs with local constraints",
+        "trigger": "Related iterative-MIS uniformity and possibly broader coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c6418d6b-bf0a-4f8b-a9d2-71f06b163f52",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural question is how many direct leaves best flatten the greedy terminal law when the number of two-edge arms is fixed. The earlier chosen tuning was justified only by a small-bias bound. The result uniquely optimizes all positive leaf counts, explains the surprising k=1,3 exceptions, and proves a sharp asymptotic coefficient. The invariant and optimization arise from a motivated stochastic-tree sampling question; neither broad all-tree optimality nor independent certification is claimed.",
+    "status": "PASS"
+  }
+}
