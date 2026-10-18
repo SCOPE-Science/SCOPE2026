@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:07:11.972550Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/12/voronoi-only-slack-can-return-boundary-generators-in-vcg--deb933fd7d99/RESULT.md",
+        "two exact rational one-variable LPs and relative-interior intervals",
+        "primary VCG equation (5) / proposition page screenshot match",
+        "Git RESULT.md c159c906fd26548b77a107dd45deb3c677084ed5"
+      ],
+      "rationale": "The source Voronoi cell inequality in dimension 1 with X=[0,1], p1=0, p2=1 is g2(x)=x-1/2<=0, so V1=[0,1/2], relint V1=(0,1/2). The auxiliary LP min tau with x in X and g2(x)<=tau has unique minimizer x*=0,tau*=-1/2<0, yet x*=0 is NOT relatively interior. For p2, g1(x)=1/2-x gives unique x*=1 with the same negative slack, again not relative interior of [1/2,1]. The hypotheses X compact convex full-dimensional and distinct centers are satisfied; no objective or algorithmic convergence assumptions are needed. This exactly contradicts Proposition 1 in the version of Khademi whose problem (5) and proof were inspected. Negative slack certifies only strict Voronoi bisector inequalities, not a positive distance to boundary of X. Independent rational check directly replicates both LPs.",
+      "residual_risks": [
+        "Finite checks only corroborate the identified closed proof steps and do not constitute infinite verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A polyhedral Chebyshev center accounts for both Voronoi and feasible set boundary constraints; problem (5) includes only slack in bisector inequalities."
+        ],
+        "reasoning": "The general Chebyshev-center principle explains the flaw but does not already state an explicit counterexample to this VCG auxiliary optimizer or bound its restart novelty.",
+        "searches": [
+          "Resultary semantic query: Voronoi Conditional Gradient Method Proposition 1 slack relint counterexample boundary generators",
+          "Boyd Vandenberghe Chebyshev center all halfspaces",
+          "Optimization Online full Khademi 2026 paper"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md c159c906fd26548b77a107dd45deb3c677084ed5",
+        "Abbas Khademi, Voronoi Conditional Gradient Method for Constrained Nonconvex Optimization, Optimization Online ID33571 public Feb 13 2026, full https://optimization-online.org/wp-content/uploads/2026/02/Voronoi_Conditional_Gradient.pdf, problem (5), Proposition 1, Algorithm 2",
+        "Boyd-Vandenberghe, Convex Optimization §4.3.1 Chebyshev center and cvxr.com CVX example"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source assumes X full-dimensional convex compact and claims tau*<0 ⇒ x*∈relint(Vi).",
+          "The actual τ-optimum satisfies tau*=-1/2 and is on the boundary of X."
+        ],
+        "reasoning": "The submitted counterexample refutes, rather than follows from, the prior asserted implication. Strict bisector slack is insufficient to establish relative interior, regardless of source authorship or general interior lemmas.",
+        "searches": [
+          "Khademi 2026 Proposition 1 and proof",
+          "Khademi 2026 Eq.(5), Algorithm 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prop 1 says tau*<0 implies relint Vi; exact admissible x*=0 and 1 violate it.",
+          "Relative interior is taken in the affine hull of the cell, not merely interior relative to feasible X."
+        ],
+        "reasoning": "No equivalent published counterexample was identified; local strictness of bisectors within X does not imply relative interior of the full-dimensional cell.",
+        "searches": [
+          "Resultary semantic query: Voronoi Conditional Gradient Method Proposition 1 slack relint counterexample boundary generators",
+          "Khademi 2026 Problem (5), Proposition 1",
+          "Chebyshev center Voronoi boundary halfspaces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No source-specific table/example identifying both old generators as LP minimizers was located in inspected primary source."
+        ],
+        "reasoning": "This is not a numerical benchmark/database result; exact two-center endpoint LP calculations, directly checked, are the evidence.",
+        "searches": [
+          "Resultary semantic query: Voronoi Conditional Gradient Method Proposition 1 slack relint counterexample boundary generators",
+          "Khademi source title and Proposition 1 negative slack",
+          "Optimization Online ID33571 revisions search"
+        ]
+      },
+      "rationale": "Primary manuscript Proposition 1 asserts the opposite claimed geometric implication, and its proof misses the boundary constraints of X. General convex polyhedral Chebyshev-center constructions include every defining halfspace, but this standard fact does not supply the source-specific two-center counterexample until substitution into problem (5). Targeted Resultary/literature source-title and boundary/relative-interior searches found no published correction or identical example. PASS best-known, with precise version and priority risk.",
+      "residual_risks": [
+        "A later revised VCG manuscript or unindexed critique might already present this counterexample; the assessment concerns the actually inspected public version.",
+        "Counterexample only invalidates cell-restart interior claim, not every conditional-gradient trajectory or numerical performance claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirmed source proposition is false under stated full-dimensional compact convex assumptions",
+          "evidence": [
+            "Proposition 1 and immediately preceding auxiliary LP (5); Algorithm 2 uses negative slack as restart trigger"
+          ],
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/02/Voronoi_Conditional_Gradient.pdf",
+          "material_read": "Entire accessible 10-page PDF including Voronoi bisector definitions, Eq.(5), Proposition 1 proof and Algorithm 2; relevant page screenshot visually inspected",
+          "method": "Compared exact optimization inequalities and meaning of relint under boundary X",
+          "title": "Voronoi Conditional Gradient Method for Constrained Nonconvex Optimization",
+          "trigger": "Direct opposite theorem in primary method source"
+        },
+        {
+          "assessment": "Useful diagnostic, not prior publication of the source-specific VCG counterexample",
+          "evidence": [
+            "Boyd–Vandenberghe Chapter 4, Chebyshev center of polyhedra"
+          ],
+          "identifier_or_url": "https://cvxr.com/cvx/examples/cvxbook/Ch04_cvx_opt_probs/html/chebyshev_center_2D.html",
+          "material_read": "Public CVX Chebyshev-center formulation with all halfspace radius constraints",
+          "method": "Compared geometric margin constraints to omitted X constraints",
+          "title": "Convex Optimization (Chebyshev center formulation)",
+          "trigger": "Potential existing general boundary criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md c159c906fd26548b77a107dd45deb3c677084ed5",
+        "Abbas Khademi, Voronoi Conditional Gradient Method for Constrained Nonconvex Optimization, Optimization Online ID33571 public Feb 13 2026, full https://optimization-online.org/wp-content/uploads/2026/02/Voronoi_Conditional_Gradient.pdf, problem (5), Proposition 1, Algorithm 2",
+        "Boyd-Vandenberghe, Convex Optimization §4.3.1 Chebyshev center and cvxr.com CVX example"
+      ],
+      "rationale": "A precise geometric guarantee in the algorithm motivates choosing restart locations inside Voronoi cells. On an admissible, already basic two-center example, both exploration solves can reproduce existing generators even with strictly negative slack, invalidating the claimed cell-interiority justification. This is a substantive limitation of the published algorithmic construction, not an inconsequential counterexample or claim that all trajectories fail.",
+      "residual_risks": [
+        "No claim of universal algorithmic failure or a particular objective-dependent VCG trajectory is made; only exact restart LP and Proposition 1 geometry."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim of universal algorithmic failure or a particular objective-dependent VCG trajectory is made; only exact restart LP and Proposition 1 geometry.",
+    "A later revised VCG manuscript or unindexed critique might already present this counterexample; the assessment concerns the actually inspected public version.",
+    "Counterexample only invalidates cell-restart interior claim, not every conditional-gradient trajectory or numerical performance claim."
+  ],
+  "schema_version": 1
+}
