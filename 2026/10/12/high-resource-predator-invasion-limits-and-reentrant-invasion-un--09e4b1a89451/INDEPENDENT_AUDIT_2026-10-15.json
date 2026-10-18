@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T19:47:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: At predator-free prey equilibrium X=r/a>0 the predator linearization decouples at first order into a fixed-X renewal equation whose Euler–Lotka zero-growth mass is R_F(X). The positive baseline m ensures integrability; F(X)=O(X) at small X gives R_F→0. For δ<T, Hν(z)=∫0^z Jν(s)ds has positive slope Jν(0), so rescaling w=Xz and dominated convergence yields adult birth contribution k(F(X)/X)Aν(0)/(g Jν(0))→(kL/g)e^{-νT}; contributions over z≥δ and adult-supported basal births vanish exponentially in X. Continuity in X follows by domination. At witness T=1,ν=10,g=.01,k=3,m=.1,µM=.01,ρ=ζ=1, tildeB=(z-1)e^{-(z-1)}/100 for z≥1, survival on ages [1,2] exceeds 19/25 and adult weight ≥1/2, F(1)>99/100 for both birth laws. Hence R_F(1)>3/2*(99/100)*(19/25)=5643/5000>1. High-X limits are 300e^-10<1 and zero; low-X limit zero, giving two roots via IVT. Independently checked rational lower bound and Taylor e^10>300 and read numerical quadrature script as corroboration. No claim of exactly two crossings or nonlinear persistence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2502.19748v1",
+          "Suarez et al. Section 7.1 feeding-birth saturation",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-juvenile-consumption-creates-a-unique-predator-invasion-cutoff--e1bfc3bf3626"
+        ],
+        "reasoning": "Original paper develops general PDE/model/numerical phase analysis; fixed-g juvenile consumption thresholds and standard renewal stability results do not give the explicit high-X boundary coefficient or exhibit two crossings as X varies. General renewal equations are mathematical infrastructure rather than a stronger specific result.",
+        "searches": [
+          "https://arxiv.org/html/2502.19748v1",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-juvenile-consumption-creates-a-unique-predator-invasion-cutoff--e1bfc3bf3626",
+          "Perthame Transport Equations in Biology 2007"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2502.19748v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-juvenile-consumption-creates-a-unique-predator-invasion-cutoff--e1bfc3bf3626",
+        "Resultary same-model weighted-mass finite-blow-up result",
+        "Perthame general renewal background",
+        "source verify.py exact inequalities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original source dynamics and Sections 2 and 7.1",
+          "Resultary unique g-invasion cutoff",
+          "Source proof uses nonzero sigmoid Aν(0)/Jν(0)=exp(-νT)"
+        ],
+        "reasoning": "At fixed X, increasing g suppresses invasion, yet varying X simultaneously increases growth and mortality, so monotonicity in g cannot rule out or imply reentrance in X. Standard sharp-age maturation has Aν(0)=0 and different high-X limit; source smoothing is essential to the claimed coefficient.",
+        "searches": [
+          "https://arxiv.org/html/2502.19748v1",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-juvenile-consumption-creates-a-unique-predator-invasion-cutoff--e1bfc3bf3626",
+          "renewal Euler-Lotka characteristic equation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2502.19748v1",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-juvenile-consumption-creates-a-unique-predator-invasion-cutoff--e1bfc3bf3626",
+          "Source newborn-age rescaling w=Xz and formula kL e^-νT/g"
+        ],
+        "reasoning": "Equivalent language includes Malthusian parameter/renewal reproduction functional and neonatal sigmoid leakage; general Euler–Lotka formulation is known and credited. The already-published same-model cutoff is monotone in g at fixed prey abundance X, not resource X reentrance or X→∞ limit.",
+        "searches": [
+          "Resultary: age structured predator prey role reversal smooth maturation invasion reproduction number high resource limit",
+          "https://arxiv.org/html/2502.19748v1",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-juvenile-consumption-creates-a-unique-predator-invasion-cutoff--e1bfc3bf3626",
+          "renewal Euler-Lotka predator-free equilibrium smooth maturation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source explicit parameter choices and lower bound 5643/5000",
+          "Source limits 300e^-10 for linear and 0 for saturated"
+        ],
+        "reasoning": "No existing exact finite-parameter table covering both source birth laws at this resource-dependent double crossing was located. The exact witness is nontrivial because it combines analytic low/high limit with strict intermediate lower bound.",
+        "searches": [
+          "Resultary smooth maturation predator invasion high resource",
+          "web predator prey role reversal age structured sigmoid reentrant invasion double threshold",
+          "https://arxiv.org/html/2502.19748v1"
+        ]
+      },
+      "rationale": "PASS (best knowledge): Original full Suarez et al. arXiv:2502.19748v1 was inspected and supplies source sigmoid age model and saturated variant (Section 7.1), but not a proof of large-prey newborn-age Laplace boundary layer nor reentrant invadability versus resource X. Resultary prior related finding studies monotonic R(g) when varying juvenile consumption g at fixed X, compatible but logically separate; and another same-model finding studies a weighted mass bound against blow-up, also separate. Classical renewal theory yields the characteristic equation but not the concrete asymptotic coefficient and simultaneous double threshold witness for both birth laws. Residual risk: model-specific asymptotics might appear elsewhere under fecundity-leakage language; no full global bibliography claim.",
+      "residual_risks": [
+        "The exact high-resource limit requires fixed finite ν, positive baseline mortality, mild F growth, and adult-supported basal births; not a theorem for arbitrary age mortality.",
+        "Explicit strict R>1 at X=1 proves at least two roots, not uniqueness, transversality, or nonlinear persistence.",
+        "Model’s sigmoid permits biologically unrealistic newborn adult fecundity; the positive unsaturated high-X limit is a modeling artifact to interpret correctly.",
+        "Some older renewal modeling texts or related non-OA role-reversal papers may contain analogous boundary-layer asymptotics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original sets model and proposes saturation; no high-X coefficient or strict double-crossing theorem found in inspected sections",
+          "evidence": "Suarez/Cameron/Fagan/Levy arXiv:2502.19748v1 §2.6 and §7.1",
+          "identifier_or_url": "https://arxiv.org/html/2502.19748v1",
+          "material_read": "Full accessible arXiv original v1 mathematical model equations and smooth logistic maturation, renewal boundary, numerical analysis, and Section 7.1 saturation discussion",
+          "method": "Read full accessible HTML sections 2 and 7, cross-checked PDF relevant pages",
+          "title": "A predator-prey model with age-structured role reversal",
+          "trigger": "identical renewal model and both birth laws"
+        },
+        {
+          "assessment": "Unique cutoff for varying g at fixed prey versus present reentrance in prey X at fixed g; not a contradiction or coverage",
+          "evidence": "Published same-model result on monotonic R_P(g)",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-juvenile-consumption-creates-a-unique-predator-invasion-cutoff--e1bfc3bf3626",
+          "material_read": "Resultary published summary; no entire manuscript independently inspected",
+          "method": "Read indexed scientific statement and compared variable/quantifiers",
+          "title": "Juvenile consumption creates a unique predator-invasion cutoff",
+          "trigger": "same model and Euler–Lotka functional"
+        },
+        {
+          "assessment": "Generic Euler–Lotka theory is credited; no full-document noncoverage inference from bibliographic evidence",
+          "evidence": "B. Perthame (2007)",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-7643-7842-7",
+          "material_read": "Bibliographic context only; full monograph not inspected",
+          "method": "Secondary reference context",
+          "title": "Transport Equations in Biology",
+          "trigger": "general age-structured renewal machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exactly identifies a high-resource invasion mechanism hidden by smooth sigmoid maturation—finite positive newborn adult-birth weight yields k e^-νT/g for linear feeding even as juvenile mortality grows with X. Birth saturation removes the limit. The strict explicit two-transition example converts the boundary mechanism into a meaningful comparison of invasion regimes under both proposed birth choices, not merely a numerical parameter plot; scope appropriately limited to local invasion at predator-free equilibrium.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For age-structured predator renewal model of Suarez et al. with finite smooth maturation, positive constant baseline mortality and eligible F(X)/X→L, R_F(0+)=0 and R_F(∞)=(kL/g)e^{-νT}. The specified positive rational example has R_F(1)>5643/5000 and at least two predator-invasion threshold crossings for both F=X and F=100tanh(X/100).",
+  "limitations": [
+    "The exact high-resource limit requires fixed finite ν, positive baseline mortality, mild F growth, and adult-supported basal births; not a theorem for arbitrary age mortality.",
+    "Explicit strict R>1 at X=1 proves at least two roots, not uniqueness, transversality, or nonlinear persistence.",
+    "Model’s sigmoid permits biologically unrealistic newborn adult fecundity; the positive unsaturated high-X limit is a modeling artifact to interpret correctly.",
+    "Some older renewal modeling texts or related non-OA role-reversal papers may contain analogous boundary-layer asymptotics."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is restricted to continuous nonnegative birth coefficients with controlled small- and large-resource scaling and positive constant baseline mortality. The characteristic equation follows by linearizing at the predator-free density, so predator–prey feedback is triangular to first order. The proof establishes both endpoint limits by uniform exponential bounds and dominated convergence with the rescaling \(w=Xz\). Every explicit parameter is positive, the basal birth profile is nonnegative, continuous, bounded, integrable, and adult-supported, and the example forces \(\mathcal R_F(1)>5643/5000>1\) while both endpoint limits are below one. Two distinct threshold solutions follow by continuity. The supplementary numerical program does not substitute for the proof. No global stability or exact crossing count is asserted.
+PASS
 
-## Originality — PASS within the stated narrow scope
+PASS: At predator-free prey equilibrium X=r/a>0 the predator linearization decouples at first order into a fixed-X renewal equation whose Euler–Lotka zero-growth mass is R_F(X). The positive baseline m ensures integrability; F(X)=O(X) at small X gives R_F→0. For δ<T, Hν(z)=∫0^z Jν(s)ds has positive slope Jν(0), so rescaling w=Xz and dominated convergence yields adult birth contribution k(F(X)/X)Aν(0)/(g Jν(0))→(kL/g)e^{-νT}; contributions over z≥δ and adult-supported basal births vanish exponentially in X. Continuity in X follows by domination. At witness T=1,ν=10,g=.01,k=3,m=.1,µM=.01,ρ=ζ=1, tildeB=(z-1)e^{-(z-1)}/100 for z≥1, survival on ages [1,2] exceeds 19/25 and adult weight ≥1/2, F(1)>99/100 for both birth laws. Hence R_F(1)>3/2*(99/100)*(19/25)=5643/5000>1. High-X limits are 300e^-10<1 and zero; low-X limit zero, giving two roots via IVT. Independently checked rational lower bound and Taylor e^10>300 and read numerical quadrature script as corroboration. No claim of exactly two crossings or nonlinear persistence.
 
-The motivating full-text work by Suarez, Cameron, Fagan, and Levy (arXiv:2502.19748; DOI 10.1007/s00285-026-02402-5) specifies both birth laws and reports numerical phase diagrams primarily in maturation age and juvenile predation strength. An earlier model-specific renewal-threshold note already supplies the predator reproduction integral and monotonicity in juvenile consumption and reproductive coefficient at fixed prey abundance. Neither its assertion nor the motivating work gives the high-prey limit, the boundary-layer mechanism, or the simultaneous low/intermediate/high prey invasion construction for both unsaturated and saturated feeding. General renewal theory supplies mathematical tools but not this model-specific comparative limit. Closest other published age-population and stage-role-reversal sources were checked where accessible. Some relevant non-open full text could not be read, so full global priority is not asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A density-invasion paradox is resolved exactly: when juvenile attack grows with prey density, smooth neonatal adult weighting retains a finite reproduction contribution under unbounded feeding births; saturating the same feeding birth law removes it. The explicit double threshold makes this more than a limiting normalization exercise by showing distinct ecological invasion regimes under both birth choices proposed for the same age-structured model. The mechanism and sharp limit clarify the mathematical consequences of smoothing a juvenile/adult indicator. The result is local and does not predict global persistence or realistic parameter scales.
+PASS (best knowledge): Original full Suarez et al. arXiv:2502.19748v1 was inspected and supplies source sigmoid age model and saturated variant (Section 7.1), but not a proof of large-prey newborn-age Laplace boundary layer nor reentrant invadability versus resource X. Resultary prior related finding studies monotonic R(g) when varying juvenile consumption g at fixed X, compatible but logically separate; and another same-model finding studies a weighted mass bound against blow-up, also separate. Classical renewal theory yields the characteristic equation but not the concrete asymptotic coefficient and simultaneous double threshold witness for both birth laws. Residual risk: model-specific asymptotics might appear elsewhere under fecundity-leakage language; no full global bibliography claim.
 
-## Closest literature and limits
+## value
 
-Source: L. C. Suarez et al., *A predator-prey model with age-structured role reversal*, arXiv:2502.19748 (2025), *J. Math. Biol.* (2026). Other context: general age-renewal analysis (B. Perthame); the stage-based role-reversal article by Li, Liu, and Wei (2022), for which only abstracts and bibliographic text were accessible. Possible overlap with general renewal asymptotic theory cannot be categorically excluded. The independent scientific audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Exactly identifies a high-resource invasion mechanism hidden by smooth sigmoid maturation—finite positive newborn adult-birth weight yields k e^-νT/g for linear feeding even as juvenile mortality grows with X. Birth saturation removes the limit. The strict explicit two-transition example converts the boundary mechanism into a meaningful comparison of invasion regimes under both proposed birth choices, not merely a numerical parameter plot; scope appropriately limited to local invasion at predator-free equilibrium.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
