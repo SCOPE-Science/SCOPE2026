@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For each n>=3, every chosen pair of nonadjacent vertices in K_3 square K_n has exactly two possible internal geodesic vertices. Thus the only obstruction is an all-occupied 2x2 rectangle. Each column of cardinality two consumes one of three row-pair types; a column of cardinality three consumes all. Enumerating the only disjoint permissible cases yields the full visibility polynomial. By monotonicity, maximality is checked by single-vertex additions. Empty and all-singleton columns, or one double column, are extendible; with two distinct double types the singleton row must lie outside the one unused pair; three distinct types or a triple column are fully saturated. The disjoint families yield both maximal coefficients. Under S3 x Sn, singleton multiplicities are unordered triples, giving the partition count. An independent subset/geodesic script exhausts 2,396,672 subset patterns for n=3..7, with separate geodesic checks of 37,376 patterns for n=3..5. The infinite statement is proved structurally, not inferred from finite testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brešar--Yero 2023 Corollary 7 gives mu^-(K_m Cartesian K_n)=m+n-1",
+        "Cicerone et al. 2024 Theorem 3.13/Corr 3.14 concern largest size of C4-free bipartite subgraphs",
+        "Bujtás--Klavžar--Tian 2025 Proposition 3.5 is generic inclusion-exclusion over all maximal sets"
+      ],
+      "reasoning": "The general graph results cover some scalar values and offer a general expression requiring prior enumeration of maximal sets. They do not themselves give the explicit infinite-family coefficients or symmetry orbits. There is no claim that known scalar minima n+2 or maxima n+3 are novel.",
+      "searches": [
+        "arxiv:2401.02373 Theorem 3.13",
+        "arxiv:2307.02951 Corollary 7",
+        "doi:10.1007/s00010-025-01197-y Proposition 3.5",
+        "total mutual visibility rook graphs all sets enumerator"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2112.13024 complete HTML, §3.1",
+      "arxiv:2307.02951 complete HTML, §2.3 and Corollary 7",
+      "arxiv:2401.02373 complete HTML, §3 and Theorem 3.13",
+      "doi:10.1007/s00010-025-01197-y full publisher HTML, §3",
+      "Targeted mathematical-record queries for C4-saturated K3n binary matrices, rook visibility polynomials, maximal-set counts and orbit formulas"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2021 Lemma 3.5 implies only the obstruction property; applying elementary incidence counting produces the new formula but it is not supplied as a stated corollary",
+        "2023 Corollary 7 implies only least inclusion-maximal size n+2, not how many sets attain it or how other maximal sets are arranged",
+        "2025 Proposition 3.5 is an identity expressed in terms of unknown maximal sets and their intersections"
+      ],
+      "reasoning": "A known all-size enumeration would dominate this claim, but none was identified in the inspected source text. The exact new statements are the polynomial, three maximal families and counts, and the S3xSn orbit formula, not the underlying eligibility test or scalar bound.",
+      "searches": [
+        "mutual visibility lower total Cartesian complete graphs all maximal sets polynomial counting",
+        "lower mutual visibility K3 square Kn number maximal sets exact classification",
+        "three-row rook graphs exact full visibility polynomial (1+3z)^n n(3z^2+z^3) maximal",
+        "arxiv:2112.13024 Lemma 3.5",
+        "arxiv:2307.02951 Corollary 7",
+        "doi:10.1007/s00010-025-01197-y Proposition 3.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cicerone--Di Stefano--Klavžar 2021, Lemma 3.5, arxiv:2112.13024: exact equivalence of visibility to no occupied 2x2 rectangle",
+        "Three-row version becomes incidence matrices in which each of three row pairs appears in at most one column",
+        "The candidate classifies saturated configurations instead of only testing rectangle-freeness"
+      ],
+      "reasoning": "Equivalence to labelled C4-free subgraphs of K_{3,n} is explicitly recognized and searched. The cited reduction gives the eligibility condition, not the all-size enumerator or maximal-set orbit count. Other terminology could conceal an equivalent result.",
+      "searches": [
+        "maximal K2,2-free 3 by n binary matrices enumeration saturation polynomial exactly 3n(n-1)",
+        "C4 saturated subgraphs bipartite K3,n maximal rectangle-free matrices enumeration",
+        "mutual-visibility polynomial rook graph rectangles C4-free Zarankiewicz enumeration",
+        "arxiv:2112.13024 Lemma 3.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source 2021 Corollary 3.7 equates the maximum size to the classical Zarankiewicz number, not an all-coefficient table",
+        "The source 2025 Definition 3.1 supplies abstract polynomial language and sample polynomials for other graph families",
+        "No matching polynomial table or exact maximal-set count was identified by the performed searches"
+      ],
+      "reasoning": "Computed finite rows n=3,...,7 are reproducibility evidence, not proof of a missing published database. No claim of an exhaustive search of all databases is made; a less visible pre-existing enumeration remains a risk.",
+      "searches": [
+        "Three-row rook graph maximal visibility polynomial, number of orbits S3 times Sn",
+        "maximal mutual visibility sets three row rook graphs two sizes n+2 n+3 count",
+        "C4 saturated subgraphs bipartite K3,n maximal rectangle-free matrices enumeration",
+        "arxiv:2112.13024 Corollary 3.7"
+      ]
+    },
+    "rationale": "The 2021 full text proves the forbidden-rectangle characterization and reduces maximum cardinality to Zarankiewicz numbers; the 2023 full text establishes the smallest maximal cardinality. The 2024 diameter-two study provides additional scalar extremal reductions. The 2025 visibility-polynomial paper defines the invariant, gives a general inclusion-exclusion method, and computes other families. None of these inspected passages supplies a closed cardinality polynomial for all 3-by-n rook-graph visibility sets, exhaustive maximal-set trichotomy, counts of both strata, or subgroup-orbit enumeration. The new counting result is not a verbal restatement of the known scalar bounds or generic inclusion-exclusion, although it follows from the already known rectangle criterion after a nontrivial enumeration. Targeted mathematical-record and terminology searches found no direct covering statement, but absence is not a proof of global priority.",
+    "residual_risks": [
+      "Equivalent enumerations may be buried under C4-saturation or forbidden-rectangle binary-matrix terminology in nonindexed literature.",
+      "The finite tests do not prove the result for untested n; infinite scope depends on the written proof.",
+      "Independent expert comparison of the mathematical literature has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_CRITERION_NOT_COUNTS",
+        "evidence": "Lemma 3.5 gives at most three vertices in every Cartesian 4-cycle; Corollary 3.7 gives maximum via z(m,n;2,2); no enumerating maximal-set classes in Section 3.1.",
+        "identifier_or_url": "https://arxiv.org/html/2112.13024v2",
+        "material_read": "Full-text HTML, especially Section 3.1, Lemma 3.5, Definition 3.6, Corollary 3.7 and proof",
+        "method": "Read and compared explicit theorem and proof statements",
+        "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+        "trigger": "Same exact rook graph and visibility characterization"
+      },
+      {
+        "assessment": "SCALAR_MINIMUM_PRIOR_ONLY",
+        "evidence": "Corollary 7 gives mu^-(K_m Cartesian K_n)=m+n-1, which specializes to n+2. No enumerator of all maximal sets appears in the examined discussion.",
+        "identifier_or_url": "https://arxiv.org/html/2307.02951v2",
+        "material_read": "Full-text HTML, especially Section 2 and Corollary 7 with preceding argument",
+        "method": "Compared quantified statements and saturation construction",
+        "title": "Lower (total) mutual visibility in graphs",
+        "trigger": "Studies minimal sizes of maximal mutual-visibility sets on exact graph family"
+      },
+      {
+        "assessment": "MAXIMUM_AND_VARIANTS_NOT_COMPLETE_COUNTS",
+        "evidence": "Theorem 3.13 and Corollary 3.14 relate maximum size to C4-free subgraphs; Corollary 3.15 gives scalar total/dual/outer parameters.",
+        "identifier_or_url": "https://arxiv.org/html/2401.02373v1",
+        "material_read": "Full-text HTML, Section 3, especially Theorem 3.13 and Corollaries 3.14-3.15",
+        "method": "Compared largest-set statements with the proposed all-size enumerators",
+        "title": "Mutual-visibility problems on graphs of diameter two",
+        "trigger": "Line graphs of complete bipartite graphs are rook graphs"
+      },
+      {
+        "assessment": "GENERIC_METHOD_NO_THREE_ROW_FORMULA",
+        "evidence": "Proposition 3.5 expresses visibility polynomials by maximal-set inclusion-exclusion; explicit examples include complete bipartite graphs and Petersen graph, not the complete three-row rook family.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00010-025-01197-y",
+        "material_read": "Full publicly accessible publisher HTML, Sections 2-5, particularly Definition 3.1, Propositions 3.2 and 3.5",
+        "method": "Checked specific graph-family formulas and general implication",
+        "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+        "trigger": "Foundational paper defining visibility polynomial and maximal-set inclusion-exclusion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f725bbd2-5c9a-49c2-afe4-a791340bb310",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Full all-cardinality visibility polynomials and inclusion-maximal enumerators for a natural infinite Cartesian-product family extend the established extremal-size-only analyses. Width three is the first case with three competing row-pair resources, and the classified saturation types yield genuinely distinct n+2 and n+3 maximal strata and their exact symmetry-orbit counts. These data identify every optimal/minimal maximal pattern and provide concrete enumerators for further graph-polynomial and bipartite C4-saturation work, beyond recomputing the known scalar bounds.",
+    "status": "PASS"
+  }
+}
