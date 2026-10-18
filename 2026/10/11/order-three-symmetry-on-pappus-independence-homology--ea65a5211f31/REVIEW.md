@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite proof is reconstructed from the graph definition. Exhaustive independent-set enumeration gives \(2597\) nonempty faces with face vector \((18,126,438,801,756,348,90,18,2)\). The supplied toggle matching has \(1293\) pairs; every pair is checked to be a Hasse cover, and the complete Forman orientation over \(11430\) covers is acyclic. The unmatched cells are one \(0\)-cell and ten \(4\)-cells, proving \(\operatorname{Ind}(P)\simeq\bigvee^{10}S^4\). The order-three translation is checked directly on the edge set. Exact signed chain traces and the Lefschetz trace identity give \(H_4\)-character \((10,-2,-2)\), and rational character theory gives \(2\mathbf1\oplus4\mathbb Q(\zeta_3)\). Boundary-rank computations over three prime fields independently reproduce the Betti vector.
+## correctness
 
-## Originality
-PASS relative to the checked literature and databases. Exact published-finding corpus searches for the Pappus independence-complex action, its \(C_3\)-character, the rational decomposition, and the period-six translation found no equivalent claim. Berghoff's full text gives general homology machinery for independence complexes but contains no Pappus or automorphism-action computation. Tsukuda's incidence-graph theorem is structurally relevant to the Pappus Levi graph but is nonequivariant in the inspected statement and does not determine this character. The closest Pappus database result concerns its matching complex, a different simplicial complex. Residual risk remains that an unindexed computation exists under incidence-configuration terminology.
+PASS
 
-## Value
-PASS. The Pappus graph is a standard highly symmetric cubic Levi graph. The order-three translation is a natural subgroup action, and its homology character is strictly finer than the nonequivariant dimension \(10\): it shows the invariant subspace has dimension \(2\) and the remaining eight dimensions form four cyclotomic summands. This supplies a reproducible equivariant benchmark and a natural partial description of the graph's symmetry action on topology.
+The assigned verifier constructs the 18-vertex cubic LCF graph and enumerates all 2,597 nonempty independent sets (face vector 18,126,438,801,756,348,90,18,2). The complete 1,293-pair discrete-Morse matching passes full Hasse-edge acyclicity on 11,430 covers and leaves one critical vertex and ten four-cells. The automorphism i→i+6 preserves all 27 edges. Signed chain traces for either nonidentity C3 element in dimensions 0..8 are (0,0,6,0,0,9,0,0,2), whose alternating sum is -1. Since ordinary H0 trace is 1 and only H4 remains, trace_H4=-2; identity trace 10. Rational C3 character equations a+2b=10 and a-b=-2 give a=2,b=4. This is a complete finite-object certificate rather than an extrapolation.
 
-## Closest literature and limitations
-The closest structural sources are Berghoff on homology of independence complexes and Tsukuda on independence complexes of incidence graphs. Neither inspected source states the Pappus character or a theorem that forces it. Matsushita supplies a topology-primary graph-complex anchor (primary MSC 55P10) but treats polygonal line tilings. The result is limited to the subgroup \(\langle r\rangle\cong C_3\) and rational coefficients; it does not determine the full automorphism-group representation or an integral group-ring decomposition.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The nonequivariant Pappus independence complex wedge of ten 4-spheres is independently published already in at least two Resultary records and is not novel in isolation. Neither that homotopy type nor the general Pappus graph description determines the selected C3 action: a 10-dimensional rational module may have different trivial/cyclotomic multiplicities. The newly computed trace -2 and 2⊕4 decomposition are strict equivariant information, not an automatic numerical relabeling. No published matching character was retrieved, with explicit residual possibility of full-automorphism literature.
+
+## value
+
+PASS
+
+The Pappus Levi graph is a standard natural symmetric cubic graph, and rotation by six vertices is a canonical order-three automorphism of its LCF presentation. The fixed-subspace dimension 2 and four cyclotomic summands are exact equivariant invariants omitted by the prior wedge-of-ten result and may be used in full automorphism decomposition or equivariant constructions; this is a motivated finite character computation, not a random number table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

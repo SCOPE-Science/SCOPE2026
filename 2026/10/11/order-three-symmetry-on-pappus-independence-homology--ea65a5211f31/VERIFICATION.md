@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-Run `python3 verify_pappus_c3.py` from the package directory. The script requires only the Python standard library.
+# Independent mathematical audit
 
-It reconstructs the standard Pappus graph from \([5,7,-7,7,-7,-5]^3\), verifies \(18\) vertices, \(27\) edges, and cubic degree, and enumerates all \(2597\) nonempty independent sets. It checks the complete discrete-Morse certificate: \(1293\) matched Hasse covers, \(11430\) total nontrivial Hasse covers, acyclicity of the full Forman orientation, and critical-cell profile consisting of one \(0\)-cell and ten \(4\)-cells.
+## correctness
 
-As a separate chain-level check, the script constructs every simplicial boundary matrix and computes its exact rank over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_5\). Each coefficient field gives Betti vector \((1,0,0,0,10,0,0,0,0)\).
+PASS
 
-For the automorphism \(r(i)=i+6\pmod{18}\), the script checks the graph edge set is invariant under \(r\) and \(r^2\). It then evaluates the signed trace on every simplicial chain group by enumerating all setwise fixed oriented simplices. The chain traces are \((18,126,438,801,756,348,90,18,2)\) for the identity and \((0,0,6,0,0,9,0,0,2)\) for each nonidentity element. Thus the Lefschetz numbers are \((11,-1,-1)\), and after subtracting the trace-one connected \(H_0\), the \(H_4\)-character is \((10,-2,-2)\). The final two linear character equations are checked explicitly and give two trivial plus four two-dimensional cyclotomic summands.
+The assigned verifier constructs the 18-vertex cubic LCF graph and enumerates all 2,597 nonempty independent sets (face vector 18,126,438,801,756,348,90,18,2). The complete 1,293-pair discrete-Morse matching passes full Hasse-edge acyclicity on 11,430 covers and leaves one critical vertex and ten four-cells. The automorphism i→i+6 preserves all 27 edges. Signed chain traces for either nonidentity C3 element in dimensions 0..8 are (0,0,6,0,0,9,0,0,2), whose alternating sum is -1. Since ordinary H0 trace is 1 and only H4 remains, trace_H4=-2; identity trace 10. Rational C3 character equations a+2b=10 and a-b=-2 give a=2,b=4. This is a complete finite-object certificate rather than an extrapolation.
 
-The computation is exhaustive for this finite graph and this specified subgroup. It does not compute the full automorphism-group representation or the integral \(\mathbb Z[C_3]\)-module structure.
+## originality
+
+PASS
+
+The nonequivariant Pappus independence complex wedge of ten 4-spheres is independently published already in at least two Resultary records and is not novel in isolation. Neither that homotopy type nor the general Pappus graph description determines the selected C3 action: a 10-dimensional rational module may have different trivial/cyclotomic multiplicities. The newly computed trace -2 and 2⊕4 decomposition are strict equivariant information, not an automatic numerical relabeling. No published matching character was retrieved, with explicit residual possibility of full-automorphism literature.
+
+## value
+
+PASS
+
+The Pappus Levi graph is a standard natural symmetric cubic graph, and rotation by six vertices is a canonical order-three automorphism of its LCF presentation. The fixed-subspace dimension 2 and four cyclotomic summands are exact equivariant invariants omitted by the prior wedge-of-ten result and may be used in full automorphism decomposition or equivariant constructions; this is a motivated finite character computation, not a random number table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
