@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-For every binary word of lengths \(1\) through \(7\), the verifier constructs \(C_\theta(w)\) from every cut \(w=uv\) as \(\theta(v)u\). Independently, it enumerates candidate words \(v\) and retains exactly the solutions of
-\[
-qv=\theta(v)w.
-\]
-The two sets must agree for every input word.
+## correctness
 
-Ordinary palindromes are then recognized by direct reversal equality. The verified maximum counts by length are
-\[
-2,2,2,2,2,2,3.
-\]
-At length \(7\), exactly \(\mathtt{0100011}\) and \(\mathtt{1011100}\) attain three. The verifier checks their complete palindrome sets and the binary-complement relation between the two witnesses.
+PASS
 
-The computation proves only the stated finite shortest-attainment classification. Independent audit has not been performed.
+The precise defining equation uv=θ(v)w and cut formula Cθ(w)={θ(v)u:w=uv} agree. Independently generated all 2^n binary words for each n=1,...,7 and both candidate conjugate constructions. Maxima by length are 2,2,2,2,2,2,3; the n=7 distribution is 46 words with 0, 52 with 1, 28 with 2, and 2 with 3. Both witnesses and six displayed palindromes match. This is a complete finite proof for n≤7 only, not an infinite upper bound on palindrome counts.
+
+## originality
+
+PASS
+
+Shortest attainment and uniqueness are not equivalent to the known existence of three palindromes at length twelve, nor to the conjectured global maximum. Exact all-words classification at n≤7 appears new compared with the inspected primary preprint and bounded extracts of the later journal article; novelty remains a priority judgment subject to journal detail.
+
+## value
+
+PASS
+
+The source literature poses the maximum palindrome count for θ-conjugates as a natural problem, with three known examples. Determining the first permitted binary reverse-complement length, both exact extremizers and complete short-length obstruction is a meaningful canonical finite boundary, rather than an arbitrary string experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
