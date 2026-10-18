@@ -1,36 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The separate scaling action
-\[
-t\cdot[x:y]=[tx:y]
-\]
-preserves the commuting equation by bilinearity. A fixed projective point cannot have both coordinates nonzero, because projective fixedness would force the compensating scalar to be both \(t\) and \(1\). Conversely, the two coordinate projective subspaces are pointwise fixed and lie in the commuting variety.
+## correctness
 
-Thus the fixed locus is two copies of
-\[
-\mathbb P^{\,\dim\mathfrak g-1}.
-\]
-Euler localization gives
-\[
-\chi_{\mathrm{top}}\!\left(\mathbb P\mathcal C(\mathfrak g)\right)
-=
-2\dim\mathfrak g.
-\]
-The same action has no fixed points on the both-nonzero locus, so that locus has compactly supported Euler characteristic zero.
+PASS
 
-The bundled checker verifies numerical specializations over a broad finite dimension range. These computations are regression evidence only.
+For nonzero m-dimensional complex Lie algebra g, C(g)={(x,y):[x,y]=0} is bihomogeneous. The C* action [x:y] -> [tx:y] preserves bracket-zero equation. A fixed projective point with x,y both nonzero would require its rescaling factor equal both t and 1, impossible for t!=1. Both coordinate P(g) subspaces are fixed and lie in C(g) since [x,0]=0. Hence fixed locus is disjoint P^{m-1} plus P^{m-1}, Euler localization yields chi_top(P C(g))=2m=chi(P^{2m-1}); both-nonzero open has chi_c=0. No reductivity or normality premise. Independent bilinearity checks on nonabelian 2D bracket verify formal identity; result is analytic algebraic C* localization, not finite extrapolation.
 
-## Originality
-PASS. Popov's archival full text studies exactly the same commuting variety and proves structural results on singular and irregular loci and rationality, but targeted full-document searches found no occurrence of “Euler,” “fixed point,” or “projective.”
+## originality
 
-Richardson's classical result concerns irreducibility. Ginzburg's isospectral work concerns a finite cover and its normalization. Targeted semantic and web searches did not locate the projectivized ambient-Euler equality or the vanishing of the both-nonzero locus.
+PASS
 
-The closest previous result treats projectivized commuting nilpotent matrix pairs, a proper constrained subvariety with a smaller fixed locus and no implication for the full commuting variety.
+Richardson 1979 proves irreducibility in reductive/semisimple cases; Popov arXiv:0801.3074 proves singular/irregular-locus statements and rationality for reductive g, not Euler of the projective commuting variety. Ginzburg arXiv:1108.5367 concerns the isospectral cover. Search also distinguished proper nilpotent commuting-pair variety from full C(g). No assessed primary statement gives universal chi=2dim for arbitrary finite-dimensional Lie algebras. Classical fixed-locus localization fully credited; folklore/direct corollary priority risk high.
 
-Residual risk remains because the proof is short and could be folklore or implicit in equivariant-motivic literature.
+## value
 
-## Value
-PASS. The commuting variety is a standard and heavily studied singular family. The result gives its projectivization a uniform topological invariant for every finite-dimensional complex Lie algebra and identifies a canonical zero-Euler open stratum. The ambient-equality phenomenon is structural rather than a small-case computation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The commuting variety is canonical for representation and Lie theory and has complicated singularities even in reductive cases. An exact invariant for its projectivization for every (even nonreductive) finite-dimensional complex Lie algebra, with topological cancellation on both-nonzero commuting pairs, is a naturally reusable classification. The computation is short and applies general fixed-point technology, but the universal all-Lie-algebra statement is not a random unmotivated slice or mere dimension restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
