@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Each of the P plane and T affine-independent row supports is reduced by a rank-2 or rank-3 surjective character restriction. Every fiber has size u or v; the 70 local quadruples partition as 56 affine-independent det±8, two special parity planes det±16, and twelve deficient planes rank3. The occupancy counts for one, two, and three projection types are complete, with zero-binomial convention. An exact C++ enumeration confirmed all rank and determinant multiplicities at N=8 and N=16 (including 3,312,400 four-minor pairs at N=16). The Cauchy-Binet identity separately verifies the determinant-square sum: 64*count8 + 256*count16 = C(N,4)*N^4. This identity is checkable algebraically for arbitrary N from the formulas. Higher dimensions rest on the proof, not finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brent and Osborn arxiv:1208.3819 §4 Remark 5 explicitly says 4-minor zero counts depend on Hadamard equivalence classes, while reporting only matrices up to order 21; their Proposition 3 applies to 2- and 3-minors. The linearization finding gives all orthogonal four-character spectra over F2^d, not all invertible and singular minors."
+      ],
+      "reasoning": "The rank counts are specialized to Sylvester/Walsh matrices, not arbitrary Hadamard, so generic global Cauchy-Binet identities do not determine separate ranks 1,2,3. The determinant-16 subcase is already covered and is credited.",
+      "searches": [
+        "Walsh Hadamard matrix four-by-four minors exact rank determinant distribution all binary dimensions 2^d",
+        "complete four-by-four Walsh Hadamard minors rank 1 2 3 4 determinant 8 16 all dimensions Sylvester",
+        "Sylvester Hadamard matrices counting rank deficient 4x4 minors all powers of two"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0611493 §3",
+      "arxiv:1208.3819 §1, §4, Appendix order-16 tables",
+      "published Walsh simultaneous spectra RESULT.md",
+      "published four-sparse Walsh Fourier support RESULT.md",
+      "published-finding corpus search IDs 2026/9/9/SCOPE037, 2026/10/11/SCOPE-linearization-and-exact-multiplicity-of-simultaneous-four-point--171a2694aaac, 2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4, 2026/10/11/SCOPE-the-four-by-four-fourier-minor-incidence-of-the-ternary-affine-p--9f007d7c322e, 2026/10/11/SCOPE-exact-walsh-spectrum-multiplicities-for-eight-point-subsets-of-t--b981e436a3b1",
+      "2012 Brent-Osborn full-text cross-check of zero minors"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published simultaneous Walsh spectra result determines the orthogonal det=16 class; Parseval/Cauchy-Binet together with permitted det magnitudes can recover aggregate det=8 count, but these do not identify rank 1 versus 2 versus 3 among vanishing minors. Published four-sparse Walsh Fourier support classification describes attainable Fourier-zero patterns of coefficients rather than rank counts for every row/column restriction."
+      ],
+      "reasoning": "Previously implied orthogonal and aggregate determinant consequences are demoted to supporting ingredients; the new theorem directly resolves all ranks, affine-orbit conditional occupancies and singular 4-minor incidence in all dimensions. No stronger same-object result was identified in examined sources, but absence of indexing is not proof of absolute priority.",
+      "searches": [
+        "complete four-by-four Walsh Hadamard minors rank 1 2 3 4 determinant 8 16 all dimensions Sylvester",
+        "rank distribution four point Fourier interpolation on elementary abelian binary group matrices all 4x4 submatrices",
+        "Sylvester Hadamard four by four vanishing minors formula 1717520 number 16"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fourier 4-point restriction ranks and Sylvester Hadamard 4-minor ranks are exactly the same problem after reindexing; Krahmer et al. arxiv:math/0611493 §3 includes finite Fourier minors; published-finding corpus Walsh-simultaneous-spectrum finding concerns only determinant-modulus 16."
+      ],
+      "reasoning": "Search included alternate names Walsh, Sylvester, Hadamard minors, affine binary restriction and four-point interpolation; the inspected comparison covers the exact mathematical object but only orthogonal or small-order aspects, not the claimed four-rank incidence formulas for arbitrary d.",
+      "searches": [
+        "Walsh Hadamard matrix four-by-four minors exact rank determinant distribution all binary dimensions 2^d",
+        "four point Boolean Fourier submatrix minors rank and determinant 0 8 16 affine planes tetrahedron",
+        "complete four-by-four Walsh Hadamard minors rank 1 2 3 4 determinant 8 16 all dimensions Sylvester",
+        "rank distribution four point Fourier interpolation on elementary abelian binary group matrices all 4x4 submatrices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Brent-Osborn arxiv:1208.3819 §4 and Appendix order 16 HT classes report one value Z(4)=1,717,520, agreeing with the current N=16 zero count; 2026/9/9/SCOPE037 enumerates all order-eight minors; neither supplies a formula for all N=2^d and the rank-2 versus rank-3 split."
+      ],
+      "reasoning": "Known finite tables explicitly overlap at N=8 and N=16, so no novelty is claimed for isolated table entries. The infinite-dimensional rank-refined theorem is stronger in scope and different in its structural per-minor criterion.",
+      "searches": [
+        "Walsh Hadamard matrix four-by-four minors exact rank determinant distribution all binary dimensions 2^d",
+        "Sylvester Hadamard 4x4 minor incidence counts rank 3 versus 4",
+        "Sylvester Hadamard order sixteen 1717520 vanishing 4 minors explicit rank 2 3 statistics"
+      ]
+    },
+    "rationale": "Compared exact rank and determinant incidence statements, including known d=3/d=4 tables and the already-published orthogonal-basis subcase. Neither relevant full published Walsh finding supplies the complete rank 1/2/3 histogram in arbitrary dimension, and the cited 2006/2012 primary source sections do not state the all-d binary classification. The distinguishing object is the full exact occupancy-by-affine-type law, not the known order-16 zero count or orthogonal case. The unindexed Hadamard-design literature poses a real residual priority risk.",
+    "residual_risks": [
+      "Some older design-theoretic and coding-theoretic treatments of Walsh/Sylvester matrices may phrase this rank count differently and were not exhaustively accessible or indexed.",
+      "Published orthogonal determinant-16 and finite N=8/16 subcases are known; the claim of a new result is restricted to the full infinite-family rank-refined incidence and not those covered special cases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Small cyclic Fourier rank tables and general vanishing results; no binary all-dimensional 4-minor rank histogram in the relevant checked portion",
+        "evidence": [
+          "PDF p7 Table 1 displays ranks for cyclic orders five and six; Proposition 3.6 establishes existence of vanishing minors and complementary-minor criterion."
+        ],
+        "identifier_or_url": "arxiv:math/0611493 (https://arxiv.org/pdf/math/0611493)",
+        "material_read": "Introduction and selected Section 3 material, including Table 1 and Proposition 3.6; checked rendered PDF pages 1 and 7",
+        "method": "Open-access preprint text and rendered PDF pages",
+        "title": "Uncertainty in time--frequency representations on finite Abelian groups and applications",
+        "trigger": "Foundational Fourier-minor rank/uncertainty equivalence"
+      },
+      {
+        "assessment": "Documents the exact order-sixteen zero count and general 2/3-minor facts but no all-powers Sylvester 4-minor rank histogram in relevant sections",
+        "evidence": [
+          "§4 Remark 5 says four-minor zeros vary among order-16 equivalence classes, reporting 1,717,520, 1,712,912, 1,710,608 and 1,709,456; first coincides with current Sylvester count.",
+          "Proposition 3 supplies formulas for vanishing 2- and 3-minors only."
+        ],
+        "identifier_or_url": "arxiv:1208.3819 (https://arxiv.org/pdf/1208.3819)",
+        "material_read": "Abstract, §1, §4 near Proposition 3 and Remark 5, order-sixteen appendix descriptions, and algorithms section; inspected corresponding rendered pages",
+        "method": "Open-access full preprint searched and relevant pages read and rendered",
+        "title": "On minors of maximal determinant matrices",
+        "trigger": "Highly relevant primary account of small Hadamard minor counts; exact order-16 overlap"
+      },
+      {
+        "assessment": "Characterizes/counts 4-character orthogonal spectra, which coincides with the det=16 subcase, but not all nonsingular det=8 cases or singular rank strata",
+        "evidence": [
+          "Finding counts common orthogonal four-character spectra N_total=2^{d+h-2}T for families; proof uses Fourier-zero criterion and 2-plane frequency structure."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-linearization-and-exact-multiplicity-of-simultaneous-four-point--171a2694aaac",
+        "material_read": "Entire public RESULT.md",
+        "method": "GitHub public repository file read",
+        "title": "Linearization and exact multiplicity of simultaneous four-point Walsh spectra",
+        "trigger": "Closest same-group orthogonal 4-by-4 Fourier submatrix result"
+      },
+      {
+        "assessment": "Classifies attainable Fourier support sizes for arbitrary nonzero coefficients on four-point supports; it does not provide full 4-by-4 rank-incidence multiplicities",
+        "evidence": [
+          "For affine plane, local Fourier support sizes 1..4; for affine-independent, local sizes 5..8; explicit cube zero patterns are stated."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4",
+        "material_read": "Entire public RESULT.md",
+        "method": "GitHub public repository file read",
+        "title": "Four-sparse Walsh spectra are controlled by affine dimension on binary vector groups",
+        "trigger": "Same binary four-point support with potential stronger covering rank characterization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "16a955cf-cc7a-4e9f-b7c6-48e64aca6067",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete classification of four-site sampling/interpolation on the canonical binary Fourier transform includes all singular rank defects, every invertible but nonorthogonal configuration, exact multiplicities for any d and an affine-geometric local rule. The distinction between invertibility and orthogonality is structurally relevant to numerical sampling and sparse reconstruction; the count of determinant-eight minors follows in aggregate from existing orthogonal counts plus Cauchy--Binet, but the rank-1/2/3 deficit incidence and its per-row affine classification are not supplied by those ingredients. This is a natural finite complete classification rather than an arbitrary isolated parameter slice.",
+    "status": "PASS"
+  }
+}
