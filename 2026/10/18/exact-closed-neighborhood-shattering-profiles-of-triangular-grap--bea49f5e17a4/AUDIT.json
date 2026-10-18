@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Every closed-neighborhood trace equals the union of endpoint stars in the selected edge graph. Shattered empty trace forces two outside ground vertices; shattered singletons force each selected edge to meet a leaf, hence the selected graph is a star forest. Full-trace and intermediate-trace witnesses rule out more than two components, stars of degree >=4, and a degree-three star with a second component. The remaining six types realize all subsets with at most two vertex stars. Exact labelled placement counts yield all polynomial coefficients and thresholds. A standalone Python checker tests 763914 selected sets in bounded dimensions, confirming but not replacing the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bousquet et al arXiv:1407.5833 introduce closed-neighborhood VC tools for graph classes and identification, without a coefficientwise triangular-graph classification in inspected sections.",
+        "Coudert et al arXiv:2405.07588 provide algorithms and general bounds, not a formula for the rank-two Johnson graph closed-neighborhood profile in inspected introduction/method sections."
+      ],
+      "reasoning": "General bounded VC dimension and general enumeration algorithms do not logically imply the exact classification and coefficients without additional specialization. The new proof supplies that missing specialization; existence of overlooked specialized coverage remains a residual risk.",
+      "searches": [
+        "arxiv:1407.5833",
+        "arxiv:2405.07588",
+        "Vapnik Chervonenkis dimension density Johnson and Hamming graphs Adler Benediktsson Macpherson 2020 2022"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.16042 v1; relevant abstract, theorem 3.7 and Figure 4",
+      "arXiv:1407.5833 relevant introductory definitions and VC discussion",
+      "arXiv:2405.07588 introduction and method sections",
+      "published-finding corpus semantic searches of line-graph, triangular-graph and rank-two Johnson neighborhood shattering"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adler et al explicitly exhibit an open-neighborhood shattered four-set at n=7; the present closed-neighborhood proof excludes all such sets until n=8.",
+        "The current result derives all trace patterns via unions of two endpoint stars and a mandatory two-unused-ground-vertex condition.",
+        "A previously documented own finding classifies closed neighborhoods in Hamming graphs, which use different vertex and ball systems."
+      ],
+      "reasoning": "An open-neighborhood VC-dimension bound cannot supply the closed-neighborhood trace classification by renaming: the center participates in closed traces and changes essential witness constraints. Hamming cube radius-one balls likewise do not reduce to rank-two Johnson edge-intersection balls. The published general computations could recover finite examples but do not by themselves imply all-n exact structure.",
+      "searches": [
+        "arxiv:2007.16042",
+        "arxiv:1407.5833",
+        "arxiv:2405.07588",
+        "Johnson graph J(n,2) radius-one ball VC dimension closed neighborhoods 4 for n>=8, four-edge shattered patterns two disjoint cherry paths"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A radius-one closed neighborhood in L(K_n) is precisely the set of ground edges meeting a designated edge, equivalently a union of two vertex stars.",
+        "Adler–Benediktsson–Macpherson arXiv:2007.16042 Theorem 3.7 treats the open edge relation, whereas their abstract notes the closed variant without the six-type profile."
+      ],
+      "reasoning": "Line-graph, Johnson J(n,2), and two-star trace descriptions are equivalent forms of the same new claim; matching titles were not required in comparison. The inspected prior open-neighborhood theorem has different traces and a different sharp rank-two threshold (7 versus 8), so it does not directly imply the closed six-type theorem.",
+      "searches": [
+        "Exact shattering polynomial for closed neighborhoods of triangular graphs L(K_n) J(n,2), all shattered triples quadruples, VC dimension threshold n eight",
+        "Closed-neighborhood VC dimension triangular graphs T_n line graph complete graph shattering polynomial",
+        "arxiv:2007.16042"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The count 90*C(n,6) follows by partitioning six ground vertices into two unordered triples (10 choices), then choosing one center in each triple (9 choices), with the unused-vertex n>=8 boundary.",
+        "No exact previously published coefficient table was found in the conducted textual/database searches; absence from search is not evidence of uniqueness."
+      ],
+      "reasoning": "No claimed new scalar sequence is asserted solely on the basis of a database miss; the novelty target is the six-type structural characterization together with all coefficient formulas. If a previously published table implied the same formulas, that would dominate the enumeration claim; no such coverage was identified in actual checks.",
+      "searches": [
+        "Shattered quadruples of line graph complete graph neighborhoods characterization, two disjoint P3, 90 binomial n 6",
+        "Complete closed-neighborhood shattering profiles Hamming graphs, Johnson graphs, triangular graph; exact VC dimension small graphs"
+      ]
+    },
+    "rationale": "The new contribution is the six-isomorphism-type classification of all shattered edge sets under closed radius-one neighborhoods on J(n,2), exact coefficientwise shattering polynomial and exceptional VC-dimension thresholds. Relevant inspected prior primary results establish the open-neighborhood VC dimension on Johnson graphs or generic closed-neighborhood VC tools, not these closed-neighborhood statements. Alternative equivalent terminology remains an acknowledged priority risk.",
+    "residual_risks": [
+      "An equivalent six-type classification could be embedded in work indexed under alternative graph-system/VC trace terminology.",
+      "Materially relevant portions of some large prior literatures and inaccessible sources may not have been inspected.",
+      "Search-result absence by itself does not certify publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Open-neighborhood sharp dimension is established. No observed closed-neighborhood six-type/complete coefficientwise classification in the inspected material.",
+        "evidence": [
+          "arXiv:2007.16042 v1 first posted 2020-07-31",
+          "Theorem 3.7 and Figure 4 give open-neighborhood dimension four already on J(7,2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+        "material_read": "Abstract, Johnson graph theorem statements (Theorems 3.6–3.7), discussion and Figure 4 including open-neighborhood four-set example",
+        "method": "Opened accessible arXiv PDF and inspected text plus relevant page images",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Closest exact graph family and neighborhood VC topic"
+      },
+      {
+        "assessment": "General framework for closed neighborhood VC dimension, not the exact T_n shattering classification in examined sections.",
+        "evidence": [
+          "Graph shattering is defined in terms of closed neighborhoods",
+          "Results emphasize hereditary classes and identifying-code bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1407.5833",
+        "material_read": "Introduction, graph-VC setup and Section 1.2",
+        "method": "Opened arXiv PDF; read relevant sections and inspected first pages",
+        "title": "Identifying Codes in Hereditary Classes of Graphs and VC-Dimension",
+        "trigger": "Closed-neighborhood VC dimension, graph identification"
+      },
+      {
+        "assessment": "General VC-dimension computation algorithms; no directly covering exact T_n polynomial in inspected sections.",
+        "evidence": [
+          "arXiv:2405.07588 first posted 2024-05-13",
+          "Computational graph VC algorithms rather than an all-parameter coefficient classification"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2405.07588",
+        "material_read": "Introduction and methods through early sections, including pages 0–4",
+        "method": "Read accessible arXiv PDF, visually checked first page, searched for Johnson and line graph terminology",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "Potential algorithmic enumeration and published tables"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bea49f5e-17a4-4443-a87f-e573d46657c8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives an exact structural and coefficientwise shattering classification for the natural rank-two Johnson line graph family at arbitrary size. It makes a precise distinction between open and closed neighborhoods by a sharp different first dimension attaining VC dimension four, a mathematically natural boundary relevant to finite-model-theoretic graph set systems; it is neither mere normalization nor a single arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
