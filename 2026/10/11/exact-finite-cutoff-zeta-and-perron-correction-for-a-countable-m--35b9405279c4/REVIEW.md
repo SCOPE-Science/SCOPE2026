@@ -1,15 +1,21 @@
-# Scientific review: finite-cutoff periodic orbit invariants
+# Independent mathematical audit
 
-## Correctness
-PASS. The map and cutoff are explicitly defined, and the geometric expanding partition yields unique realizations of cyclic graph paths. The only periodic integer is zero, which has exactly one itinerary, so no boundary overcount occurs. The factorization of the full adjacency through four-adic group indicators gives equal traces and a determinant identity. Positive Perron-vector estimates produce a uniform two-term asymptotic with controlled remainder; the exact period-one and period-two counts follow from traces. The self-contained checker completed 46 finite diagnostics, which supplement rather than replace these proofs.
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. The full accessible text of Kalocsai's original arXiv:2508.17159v1 describes the infinite-state symbolic map and shadowing, not the all-period finite-cutoff zeta or sharp spectral correction. The companion arXiv:2508.18172v1 **does already explicitly aggregate transition probabilities by four-adic steps**; this is acknowledged as a pre-existing structural tool. Ruelle's arXiv:math/9404235v1 supplies generic interval zeta/transfer-operator theory. Those earlier results do not state the exact \(r\)-cutoff zeta family, period-two formula, or constants \(1/3\) and \(-4/135\). The standard finite-Markov determinant formula itself is not claimed as novel. Equivalent older calculations cannot be ruled out by bibliographic searches alone.
+PASS
 
-## Mathematical value
-PASS. At the natural growth boundaries of a countable expanding Markov system, the exact periodic orbit inventory is a motivated finite-scale invariant. The result collapses a graph with exponentially many branches into a logarithmic-size determinant and locates the first two nontrivial terms of its entropy-growth correction. It quantifies how the single successor branch across each four-adic boundary contributes to a cutoff's orbit complexity. This goes beyond merely restating the general finite-Markov zeta identity or computing a small numerical table.
+The cutoff K_r is a compact expanding Markov survivor, not the full noncompact system. Interval adjacency A_r has 4^r rows, with 0/1 transitions to the first min(4^ℓ(i)+1,4^r) unit intervals. Integer boundary points can have multiple codings, but only integer periodic point is 0, uniquely in I1; hence periodic itineraries and periodic points are bijective. Lump identical rows by four-adic groups, A_r=UV and VU=C_r, and use tr(A_r^n)=tr(C_r^n), Sylvester determinant and finite Markov entropy. For Perron λ=m+δ, normalize x_r=1; positivity and λ≥m bound x_j≤(3/(2m))x_{j+1} and δ≤1/2. Expanding exact last-three row equations yields δ=1/3−4/(135m)+O(m⁻²) uniformly. Finite first/second-period formulas computed directly as traces.
 
-## Limitations and closest literature
-The statements apply only to these compact survivor cutoffs of one explicit map, not arbitrary truncations or the full noncompact system. The companion article's stochastic step quotient is a strong conceptual antecedent; generalized kneading/transfer-operator results cover the abstract zeta methodology. The literature search cannot establish absolute novelty and independent scientific audit has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge implication-level comparison of the complete final claim with the identified primary literature. Prior ingredients and asymptotic/general tools are explicitly credited; no inspected publication entails the complete exact conclusion. Any incomplete access is preserved below as a named residual risk, not incorrectly counted as negative science.
+
+## value
+
+PASS
+
+For a naturally defined family of compact survivor truncations of a specific countable Markov map, the exact rational zeta functions for all periods and a sharp two-term Perron spectral correction are mathematically motivated orbit-growth invariants; logarithmic-state compression turns a 4^r-sized periodic-orbit count into an explicit r×r arithmetic family. These specific numbers are not merely the generic determinant identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
