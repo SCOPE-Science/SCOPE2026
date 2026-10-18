@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the five-point Fourier fourth-moment inequality
+# Independent mathematical audit
 
-Run the standalone `checker.py` with Python 3.9 or later. It uses only standard-library modules. Its actual successful run printed:
+## correctness
 
-```text
-PASS symbolic identities=4; pair-sum classification=1; total checks=4694; root=1.320162620401055; t=1.246542777672298; K=2.646915130955224
-```
+PASS
 
-The exact symbolic checks verify the derivative of the reduced two-variable quotient, the substitution into the one-variable rational function, the numerator identity and the factorization of its derivative. Additional independent direct-complex evaluations compare the pair-sum convolution formula with the expanded moment for 2,400 integer-complex inputs; test 2,200 general complex inputs; match 80 direct discrete Fourier averages against convolution on four finite torus shapes; and verify three extremizing phase pairs. A rational interval contains the positive root of the quartic, and Descartes' rule proves it unique. The infinite-group inequality is justified by the analytic steps in `RESULT.md`, not by experiments.
+Fifteen-character pair-sum nonaliasing makes the ordered convolution identity exact with one row-midpoint and two linked mixed-row collisions. Cauchy–Schwarz/AM–GM simultaneously sharpen complex cross terms and reduce all magnitudes to (x,rx,x,√τ x,√τ x); for u=|a|²+|c|²=0 the ratio ≤5/3. After substituting t=A(r)/B(r)>0 in H(r,t), direct independent SymPy algebra verified J=P/D and J′=−8B(r)(2r⁴+10r³−19r−4)/D². One Descartes sign change, negative constant and positive leading coefficient establish a unique positive ρ, hence global K≈2.646915 and all equality amplitudes. Phase equations give exactly two modulation phases. Applies to nonaliased compact groups, including N≥5,M≥3 finite tori.
 
-No external mathematical audit or formal proof certification was performed. Possible equivalence to unlocated older short-sequence or two-dimensional \(\Lambda(4)\) literature is an explicitly retained bibliographic limitation.
+## originality
+
+PASS
+
+Best-of-knowledge originality survives comparison with short-polynomial autocorrelation theory and neighboring exact finite Fourier records. The Ferrers (3,2) support has a coupled midpoint and two cross-row collisions; exact optimal nonuniform amplitudes and a two-torus equality family do not follow from one-defect Fourier norm, Schmidt’s unimodular long-polynomial fourth moments, or unrelated Fourier extension on the circle. No searched published exact K or dominating all-five-support classification established coverage.
+
+## value
+
+PASS
+
+The five-point Ferrers diagram is the smallest natural nonrectangular two-row Young/Ferrers support with both row-midpoint and linked mixed-row additive defects. Its full sharp Λ(4) coefficient-embedding invariant, including strict improvement K>13/5 of flat coefficients and full equality phases, is a useful precise benchmark for 2D sparse Fourier designs; not a trivial tensor product.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

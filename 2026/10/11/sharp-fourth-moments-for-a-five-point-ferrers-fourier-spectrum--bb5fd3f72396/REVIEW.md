@@ -1,15 +1,21 @@
-# Scientific review: five-point Ferrers fourth moments
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Orthogonality under the fifteen-character condition yields the exact expression (1), independently checked against full convolution. Two Cauchy reductions preserve attainability and reduce the problem to a smooth quotient on the nonnegative quadrant. Exact rational polynomial identities identify the unique optimum, while one-sign-change root counting proves global uniqueness. Equality conditions force all magnitudes and characterize both remaining phases. The special case of no horizontal endpoints is bounded by \(5/3\). The standalone verifier passed four exact identities and 4,690 additional root, collision, convolution, inequality, finite-Fourier and equality checks. The numerical checks corroborate but are not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS, with bibliographic risk.** Actual searches included five-point Ferrers fourth moments, two-dimensional \(\Lambda(4)\) constants, four-term autocorrelation inequalities, and the algebraic constant and quartic. The closest inspected full texts are the unimodular-polynomial autocorrelation work of Schmidt (arXiv:1302.2766) and the circle-extension arithmetic-restriction theorem of Ciccone and Gonçalves (arXiv:2208.09441), neither of which optimizes this nonproduct five-frequency complex-amplitude problem. Three published adjacent exact-spectrum results were inspected in their complete findings and have different optimization targets or support hypotheses. No stronger inspected theorem subsumes the result. Absence of a retrieved duplicate does not prove novelty: an older short-sequence two-dimensional \(\Lambda(4)\) or filter-bank calculation may be equivalent.
+PASS
 
-## Value
-**PASS.** The diagram is the minimal two-row Ferrers diagram supporting an internal midpoint and two distinct mixed-row collisions, so those row/column collisions cannot be reduced to either a single-variable interval or a tensor rectangle. Its exact unweighted Fourier embedding norm and full two-phase equality geometry are natural invariants, stable for all non-aliased compact groups. The nonuniform optimizer gives a strict increase over constant coefficients, from \(13/5\) to \(K=2.646915130955\ldots\), demonstrating genuinely coupled amplitude optimization rather than a direct relabeling.
+Fifteen-character pair-sum nonaliasing makes the ordered convolution identity exact with one row-midpoint and two linked mixed-row collisions. Cauchy–Schwarz/AM–GM simultaneously sharpen complex cross terms and reduce all magnitudes to (x,rx,x,√τ x,√τ x); for u=|a|²+|c|²=0 the ratio ≤5/3. After substituting t=A(r)/B(r)>0 in H(r,t), direct independent SymPy algebra verified J=P/D and J′=−8B(r)(2r⁴+10r³−19r−4)/D². One Descartes sign change, negative constant and positive leading coefficient establish a unique positive ρ, hence global K≈2.646915 and all equality amplitudes. Phase equations give exactly two modulation phases. Applies to nonaliased compact groups, including N≥5,M≥3 finite tori.
 
-## Scientific limitations
-The theorem requires no accidental pair-sum aliases, makes no claims for the low-order aliased groups, other five-point shapes or stability inequalities. The risk of equivalent older correlation-language results remains. All computations and proofs have only same-model review status.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives comparison with short-polynomial autocorrelation theory and neighboring exact finite Fourier records. The Ferrers (3,2) support has a coupled midpoint and two cross-row collisions; exact optimal nonuniform amplitudes and a two-torus equality family do not follow from one-defect Fourier norm, Schmidt’s unimodular long-polynomial fourth moments, or unrelated Fourier extension on the circle. No searched published exact K or dominating all-five-support classification established coverage.
+
+## value
+
+PASS
+
+The five-point Ferrers diagram is the smallest natural nonrectangular two-row Young/Ferrers support with both row-midpoint and linked mixed-row additive defects. Its full sharp Λ(4) coefficient-embedding invariant, including strict improvement K>13/5 of flat coefficients and full equality phases, is a useful precise benchmark for 2D sparse Fourier designs; not a trivial tensor product.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
