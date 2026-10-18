@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The regular-octagon sphere is parameterized by eight affine edges. For every cyclic gap at most \(5/2\), convexity reduces the distance bound to four finite cells, whose exact maxima are \(2(\sqrt2-1)\), \(\sqrt2\), and twice \(1+1/\sqrt2\). For gaps \(5/2+h\), an explicit edge calculation gives the exact phase criterion for exceeding \(L=1+1/\sqrt2\). Three simultaneous strict pairwise distances would force gap excesses summing to \(1/2\), while the phase recurrence summed around the three points gives the contradiction \(0=-1\). The displayed triple is unit and equilateral with side \(L\), so the upper bound is attained. The proof does not use the motivating source's disputed lower bound.
+## correctness
 
-## Originality
-PASS. The defining March 2024 preprint was inspected at the definition, Proposition 3.1 and its Dvoretzky-based proof, the Hilbert computation, and the affine-hexagonal example; no octagonal calculation was found. Searches covered \(J_T\), three-point sphere-packing aliases, regular-octagon terminology, the exact radical, and counterexample language for the claimed \(\sqrt3\) lower bound. The closest exact same-invariant public record treats real \(\ell_4\) in dimension at least three. The closest same-space records optimize other constants. The cumulative local ledger was also checked and contains no covering three-variable James octagon statement.
+PASS
 
-## Value
-PASS. This is a natural exact benchmark for a newly introduced three-point unit-sphere invariant on a canonical symmetric Banach plane. More importantly, the value is strictly below the source's stated universal lower bound, so the computation exposes a genuine dimension-sensitive failure of that claim rather than merely adding another table entry. The proof supplies a reusable cyclic-gap method for three-point maximin problems on polygonal norm spheres.
+For N8(s,t)=max(|s|,|t|,(|s|+|t|)/sqrt(2)), the unit circle is an 8-edge centrally symmetric octagon with vertices ±(1,sqrt(2)−1), ±(sqrt(2)−1,1) and counterparts. Parametrize γ(s) affinely on edges with period 8 and let D(s,g)=N8(γ(s+g)−γ(s)). For cyclic directed gaps 0≤g≤5/2, 4 convex polygonal cells in phase/g coordinates cover the domain, so exact vertex maxima 2(sqrt(2)−1), sqrt(2), L, L bound D≤L, L=1+1/sqrt(2). If g=5/2+h, 0<h<1/2, direct edge affine formulas yield D>L iff u=s mod 1<1/2, or u>1/2 and u+h>1, with u=1/2 excluded. If all three pairwise distances exceeded L, cyclic gap sum 8 forces each g_i=5/2+h_i with ∑h_i=1/2; the strict phase criterion plus u_{i+1}=(u_i+1/2+h_i) mod1 forces all phases on the same side and summation would give ∑h_i=3/2, contradiction. Witness x=(1/sqrt2,1/sqrt2), y=((sqrt2−1)/2,−1), z=(−1,(sqrt2−1)/2) are unit and pairwise distance L, giving J_T=L<sqrt3. Independent exact quadratic-field checker source inspected; independently evaluated cell extrema and thousands of strict-gap grid points; continuum bound follows from affine/phase proof, not sampling.
 
-## Closest literature and limitations
-Ni, Liu, Zhou and Xia introduced the three-variable James type constant in a public full-text preprint uploaded 24 March 2024, with primary classification 46B20. Their Proposition 3.1 states a universal \(\sqrt3\) lower bound and invokes a Dvoretzky-type almost-Euclidean subspace argument; the regular octagon shows that statement cannot hold without a dimension qualification. A later public exact result computes the same invariant for real \(\ell_4\) in dimension at least three, but it does not imply the octagonal value. The theorem here does not classify all regular polygons, all Banach planes, or every maximizing triple.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ni–Liu–Zhou–Xia 2024 introduce precisely J_T as the unrestricted three-unit-vector maximin, and assert sqrt3 universal lower bound; their full source includes Hilbert and hexagonal cases but no regular-octagon equality identified. The octagon shows the universal finite-dimensional assertion fails; published regular-polygon equilateral studies use more constrained triples, so do not directly imply an unrestricted maximin upper bound. Unindexed Minkowski packing equivalents remain a risk.
+
+## value
+
+PASS
+
+A natural exact 3-point packing invariant of the symmetric regular-octagonal Banach unit circle is classified by a complete boundary optimization, with an explicit extremal equilateral triple. Crucially L<sqrt3 supplies a concrete 2D counterexample exposing the dimension error in a prior stated universal lower bound. This is a substantive motivated correction and exact invariant, not an arbitrary slice or simple numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

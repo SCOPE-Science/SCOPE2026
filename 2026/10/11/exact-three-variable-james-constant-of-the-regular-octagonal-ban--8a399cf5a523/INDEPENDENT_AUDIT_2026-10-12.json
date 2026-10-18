@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T20:18:22.979673Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N8(s,t)=max(|s|,|t|,(|s|+|t|)/sqrt(2)), the unit circle is an 8-edge centrally symmetric octagon with vertices ±(1,sqrt(2)−1), ±(sqrt(2)−1,1) and counterparts. Parametrize γ(s) affinely on edges with period 8 and let D(s,g)=N8(γ(s+g)−γ(s)). For cyclic directed gaps 0≤g≤5/2, 4 convex polygonal cells in phase/g coordinates cover the domain, so exact vertex maxima 2(sqrt(2)−1), sqrt(2), L, L bound D≤L, L=1+1/sqrt(2). If g=5/2+h, 0<h<1/2, direct edge affine formulas yield D>L iff u=s mod 1<1/2, or u>1/2 and u+h>1, with u=1/2 excluded. If all three pairwise distances exceeded L, cyclic gap sum 8 forces each g_i=5/2+h_i with ∑h_i=1/2; the strict phase criterion plus u_{i+1}=(u_i+1/2+h_i) mod1 forces all phases on the same side and summation would give ∑h_i=3/2, contradiction. Witness x=(1/sqrt2,1/sqrt2), y=((sqrt2−1)/2,−1), z=(−1,(sqrt2−1)/2) are unit and pairwise distance L, giving J_T=L<sqrt3. Independent exact quadratic-field checker source inspected; independently evaluated cell extrema and thousands of strict-gap grid points; continuum bound follows from affine/phase proof, not sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ni source asserts J_T(X)≥sqrt3 universally and calculates Hilbert sqrt3 and a hexagonal 2; cannot imply J_T(octagon)=1.707… as a valid theorem because universal lower assertion would be false.",
+          "Even equality for an equilateral triple only gives lower bound for J_T, not a strict global upper bound excluding all non-equilateral triples."
+        ],
+        "reasoning": "Broad claimed universal bound is refuted rather than covering exact example; note source version and mathematical flaw in Dvoretzky application.",
+        "searches": [
+          "Ni et al. 2024 full public preprint",
+          "general regular-polygon equilateral perimeter vs unrestricted packing (formulation comparison only)"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md blob 9ce8fb0db6a1762b74d00d2217cadb27ce63196a",
+        "Git verify.py blob 44384e9a91396d2a8cb4077329d9ba94609642cc",
+        "Ni–Liu–Zhou–Xia 2024 ResearchGate 379237890 full text; definition and universal lower proposition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published claimed ≥sqrt3 contradicts explicit octagonal feasible upper L<sqrt3; it cannot logically imply this correct counterexample."
+        ],
+        "reasoning": "Dvoretzky almost-Euclidean plane mechanism cannot be assumed inside arbitrary two-dimensional normed space, while fresh 4-cell and cyclic strict-gap argument supplies the correct upper bound.",
+        "searches": [
+          "Ni–Liu–Zhou–Xia 2024 Definition 3.1 and universal lower bound proposition",
+          "Minkowski circle constrained equilateral triangle formulations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "J_T=max_{x,y,z∈S}min pairwise N8 distances equals a 3-point packing separation invariant on the Minkowski unit circle."
+        ],
+        "reasoning": "The equivalence is recognized explicitly; no full-text earlier octagonal packing classification was identified, but geometrical alternate terminology could conceal one.",
+        "searches": [
+          "three variable James constant regular octagon Minkowski 3 point packing 1+1/sqrt2 [Resultary, search_internal_error; not completed]",
+          "Ni Liu Zhou Xia 2024 3-variable James constants Definition 3.1",
+          "Minkowski regular octagon circle three point maximin packing radius",
+          "three point spherical code real normed plane octagon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing source tabulates Hilbert and hexagonal examples; no octagonal radical maximin table was found in inspected primary."
+        ],
+        "reasoning": "This computes an exact continuous supremum over all boundary triples, not a known finite catalog number. Finite vertices alone are insufficient without gap/phase exclusion.",
+        "searches": [
+          "Ni et al. 2024 examples tables and full-text octagon phrase check",
+          "GitHub SCOPE code index search for regular octagon James no match"
+        ]
+      },
+      "rationale": "Ni–Liu–Zhou–Xia 2024 introduce precisely J_T as the unrestricted three-unit-vector maximin, and assert sqrt3 universal lower bound; their full source includes Hilbert and hexagonal cases but no regular-octagon equality identified. The octagon shows the universal finite-dimensional assertion fails; published regular-polygon equilateral studies use more constrained triples, so do not directly imply an unrestricted maximin upper bound. Unindexed Minkowski packing equivalents remain a risk.",
+      "residual_risks": [
+        "The motivating 2024 paper is a publicly uploaded preprint; later revisions might repair the universal lower-bound scope.",
+        "Unindexed Minkowski-plane three-point packing could already give the octagonal constant under different terminology.",
+        "Resultary temporary search failure is not priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The published assertion sqrt(3)≤J_T(X) for Banach spaces is incompatible with the proved 2D octagon; the source proof uses almost Euclidean 2D subspaces, unavailable in fixed 2D norms. No octagonal value was located in inspected full source.",
+          "evidence": [
+            "Ni et al. 2024 Definition 3.1 and Proposition 3.1, and nearby Hilbert/hexagon examples"
+          ],
+          "identifier_or_url": "Q. Ni, Q. Liu, Y. Zhou, J. Xia, 2024 public preprint; ResearchGate record 379237890",
+          "material_read": "Full publicly accessible primary preprint text, definition of J_T, universal bound proposition and its Dvoretzky-based argument, Hilbert and hexagonal examples, and relevant result statements",
+          "method": "ResearchGate public full-text inspection, with targeted full-text phrase searches for octagon, regular polygon and proposed radical",
+          "title": "3-variable James type constants in Banach spaces",
+          "trigger": "Introduces exact invariant J_T and asserts a universal sqrt(3) lower bound contradicted by octagonal value"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural exact 3-point packing invariant of the symmetric regular-octagonal Banach unit circle is classified by a complete boundary optimization, with an explicit extremal equilateral triple. Crucially L<sqrt3 supplies a concrete 2D counterexample exposing the dimension error in a prior stated universal lower bound. This is a substantive motivated correction and exact invariant, not an arbitrary slice or simple numerical sample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md blob 9ce8fb0db6a1762b74d00d2217cadb27ce63196a",
+    "Git verify.py blob 44384e9a91396d2a8cb4077329d9ba94609642cc",
+    "Ni–Liu–Zhou–Xia 2024 ResearchGate 379237890 full text; definition and universal lower proposition"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the regular octagonal real Banach plane; no full regular polygon spectrum or uniqueness of extremizers.",
+    "Disputed source claim is attributed to inspected public 2024 version, not necessarily any later correction."
+  ],
+  "residual_risks": [
+    "The motivating 2024 paper is a publicly uploaded preprint; later revisions might repair the universal lower-bound scope.",
+    "Unindexed Minkowski-plane three-point packing could already give the octagonal constant under different terminology.",
+    "Resultary temporary search failure is not priority evidence."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "The published assertion sqrt(3)≤J_T(X) for Banach spaces is incompatible with the proved 2D octagon; the source proof uses almost Euclidean 2D subspaces, unavailable in fixed 2D norms. No octagonal value was located in inspected full source.",
+      "evidence": [
+        "Ni et al. 2024 Definition 3.1 and Proposition 3.1, and nearby Hilbert/hexagon examples"
+      ],
+      "identifier_or_url": "Q. Ni, Q. Liu, Y. Zhou, J. Xia, 2024 public preprint; ResearchGate record 379237890",
+      "material_read": "Full publicly accessible primary preprint text, definition of J_T, universal bound proposition and its Dvoretzky-based argument, Hilbert and hexagonal examples, and relevant result statements",
+      "method": "ResearchGate public full-text inspection, with targeted full-text phrase searches for octagon, regular polygon and proposed radical",
+      "title": "3-variable James type constants in Banach spaces",
+      "trigger": "Introduces exact invariant J_T and asserts a universal sqrt(3) lower bound contradicted by octagonal value"
+    }
+  ]
+}
