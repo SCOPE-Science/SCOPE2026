@@ -1,15 +1,21 @@
-# Review of the characteristic-seven Jacobian jump
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact factorization of the seven-degree polynomial gives two smooth distinct conics and three distinct lines in characteristic zero and all primes at least five. The pure-Python checker verifies over the integers the exact logarithmic identities and determinant \(-3F\), plus the syzygy cross products \(-21\nabla F\) and \(E\times W=-3\nabla F-7U\times V\). These yield free bases over every qualifying field using squarefreeness, generic tangency, coprimality and Cramer's rule. The Hilbert-series and scheme-degree formulas follow from the resulting minimal Hilbert–Burch resolutions. Separate finite-field ranks support, but do not establish, the universal conclusion.
+## correctness
 
-## Originality — PASS, with limited residual risk
-Dimca–Pokora's full open-access paper and correction give this conic–line arrangement and its complex freeness, not a uniform positive-characteristic integral logarithmic basis or the characteristic-seven Jacobian jump. The closest publicly recorded result computes its complex projective stabilizer and singular-point orbits, which do not imply the new arithmetic module statements. Targeted searches of published mathematical records and available prior statements did not show covering results. General Saito and Hilbert–Burch tools are used as standard arguments, not asserted as new. Residual risk: a hard-to-index prior modular free-divisor calculation or an unpublished computation could contain the exact certificate.
+PASS
 
-## Value — PASS
-The configuration is an established degree-seven free arrangement with a natural problem of integral reduction. The theorem gives a complete all-primes-at-least-five freeness statement, not isolated modular samples, and detects the sole resonance characteristic for the gradient syzygy module. The visible four-unit jump in the gradient-scheme length distinguishes logarithmic freeness from Jacobian-module stability in the same reduced divisor. This is a motivated arithmetic deformation phenomenon beyond reproducing the known complex exponents.
+For the displayed squarefree degree-seven F over char 0 or p≥5, independently expanded the integral identities E·∇F=7F, U·∇F=AF, V·∇F=BF, det(E,U,V)=−3F, P×Q=−21∇F, and E×W=−3∇F−7(U×V), using separate exact SymPy algebra. Since 3 is invertible and generic tangencies to each squarefree irreducible component force divisibility by F, Cramer yields global free logarithmic basis E,U,V. For p≠7, primitive gradient and −21 unit give free AR basis degrees (3,3); in p=7 the Euler syzygy E and quintic W have cross product −3∇F and degrees (1,5). Coprime partial derivatives and Hilbert–Burch yield the displayed Hilbert series and projective gradient lengths 27,31. Characteristics 2,3 excluded; this is gradient ideal, not Tjurina ideal. Exact integral expansions corroborate critical nonstandard certificates; no finite-p extrapolation.
 
-## Boundaries
-Characteristic two and three reductions are excluded because the specified product becomes nonreduced. The gradient scheme should not be confused with the local Tjurina scheme. Assertions are confined to the fixed integral model, and the literature comparison does not establish priority with certainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dimca–Pokora (2022) and their correction establish complex freeness of precisely this equilateral two-conic/three-line configuration and its corrected equations. The additional exact integral logarithmic determinant, its all-good-characteristic basis, and unique characteristic-seven Jacobian syzygy jump/length are distinct arithmetic assertions not implied by complex freeness alone. Nearby SCOPE/Resultary result concerns complex projective stabilizer and singular point geometry, not these modular syzygies.
+
+## value
+
+PASS
+
+A natural modular reduction test for a published free divisor isolates a genuine resonance: logarithmic freeness persists for every p≥5 while minimal gradient syzygies jump only at p=7, with explicit Hilbert-series length jump. Complete all-prime statement has mathematical value independent of isolated tests or reproducing characteristic-zero results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

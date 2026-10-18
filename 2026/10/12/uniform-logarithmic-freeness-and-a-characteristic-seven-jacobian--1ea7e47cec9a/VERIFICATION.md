@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible arithmetic verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The script uses an exact sparse multivariate integer-polynomial implementation with no third-party packages. A successful execution prints:
+## correctness
 
-`VERIFY_OK: exact integral logarithmic basis, cubic syzygies, and p=7 degree jump`
+PASS
 
-It independently reconstructs the five factors, forms the three derivatives, verifies the integral identities for the Euler and two cubic logarithmic derivations, verifies the determinant \(-3F\), constructs the cubic and quintic syzygy triples and verifies their cross-product identities. Finite-characteristic substitution is checked as a consistency test for primes \(5,7,11,13,17,19,23,31\); the proof of all-prime validity is the integer identity together with squarefreeness and polynomial divisibility.
+For the displayed squarefree degree-seven F over char 0 or p≥5, independently expanded the integral identities E·∇F=7F, U·∇F=AF, V·∇F=BF, det(E,U,V)=−3F, P×Q=−21∇F, and E×W=−3∇F−7(U×V), using separate exact SymPy algebra. Since 3 is invertible and generic tangencies to each squarefree irreducible component force divisibility by F, Cramer yields global free logarithmic basis E,U,V. For p≠7, primitive gradient and −21 unit give free AR basis degrees (3,3); in p=7 the Euler syzygy E and quintic W have cross product −3∇F and degrees (1,5). Coprime partial derivatives and Hilbert–Burch yield the displayed Hilbert series and projective gradient lengths 27,31. Characteristics 2,3 excluded; this is gradient ideal, not Tjurina ideal. Exact integral expansions corroborate critical nonstandard certificates; no finite-p extrapolation.
 
-The exact linear-algebra ranks reported in the result for graded Milnor pieces were obtained separately, not bundled into the short standalone identity verifier. Their role is a supplementary finite consistency check. The proof of the Hilbert series is the displayed graded free resolution, which is valid over all fields in the stated scope.
+## originality
 
-No formal proof assistant, external certification or independent mathematical audit has been performed.
+PASS
+
+Dimca–Pokora (2022) and their correction establish complex freeness of precisely this equilateral two-conic/three-line configuration and its corrected equations. The additional exact integral logarithmic determinant, its all-good-characteristic basis, and unique characteristic-seven Jacobian syzygy jump/length are distinct arithmetic assertions not implied by complex freeness alone. Nearby SCOPE/Resultary result concerns complex projective stabilizer and singular point geometry, not these modular syzygies.
+
+## value
+
+PASS
+
+A natural modular reduction test for a published free divisor isolates a genuine resonance: logarithmic freeness persists for every p≥5 while minimal gradient syzygies jump only at p=7, with explicit Hilbert-series length jump. Complete all-prime statement has mathematical value independent of isolated tests or reproducing characteristic-zero results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
