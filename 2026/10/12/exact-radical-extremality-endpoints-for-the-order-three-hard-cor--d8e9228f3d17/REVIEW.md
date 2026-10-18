@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The source boundary-law equation is rearranged reversibly on the stated positive domain. The function \(\Lambda(z)=8z^4/(1+z)^3\) is globally strictly increasing because its logarithmic derivative is \((z+4)/(z(1+z))>0\). The source's two strict criteria therefore translate exactly through the two algebraic boundary values \(z=\sqrt3-1\) and \(z=(\sqrt3+1)/2\). Substitution in \(\mathbb Q(\sqrt3)\) gives the claimed activities. No finite experiment is used to prove monotonicity or global coverage, and equality at either endpoint is left unclassified.
+## correctness
 
-## Originality — PASS
-The 2021 primary full text was inspected through the wand equations, transition matrix, Kesten--Stigum step, sufficient extremality step, and Theorem 3. It reports only the decimal activities and explicitly invokes Maple because the closed form of \(z\) is cumbersome. Candidate-specific searches included the source identifier, both decimals, the parameterization \(\lambda=8z^4/(1+z)^3\), and both radical aliases; no covering published record was found. The 2024 same-wand follow-up was inspected and does not cover the order-three symmetric-measure radical endpoints. The closest previously recorded self-review studies a two-periodic invariant set and is implication-incomparable.
+PASS
 
-Residual risk: an equivalent simplification may occur in weakly indexed secondary literature under another normalization.
+The order-three wand symmetric boundary-law equation z=lambda((1+z)/(2z))^3 is equivalent for z>0 to Lambda(z)=8z^4/(1+z)^3. Its logarithmic derivative (z+4)/(z(1+z)) is positive everywhere, so thresholds transfer globally without a quartic root branch choice. For z<1, 3/(1+z)^2=1 gives z_-=sqrt(3)-1; for z>1, 3(z/(1+z))^2=1 gives z_+=(sqrt(3)+1)/2. Exact independent SymPy simplification yields the displayed lower 32(7sqrt(3)-12)/9 and upper 4(3+sqrt(3))/9. The source Kesten-Stigum non-extremality and sufficient extremality criteria are STRICT; equality endpoint classification remains open. No claim of other measures or parameters is made.
 
-## Value — PASS
-The endpoints control the open interval in the source's central extremality theorem. Their exact evaluation removes a computer-dependent sign step and replaces decimal phase-boundary data by closed radical expressions with a global analytic proof. The result is intentionally narrow: it does not claim new Gibbs measures, endpoint extremality, or a classification for other tree orders.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact radical activity endpoints and a global elementary monotonicity replacement for source Maple sign analysis are absent from the inspected original Theorem 3, which uses decimals; this is narrowly original as exactification, not as a new extremality criterion.
+
+## value
+
+PASS
+
+Although narrow and algebraically short, these are precise critical activities of the central extremality interval in a natural statistical-mechanics model, previously reported only numerically; replacing computer-dependent branch/sign analysis with a monotone exact parameterization gives a reusable error-free phase-boundary statement. It does not manufacture a new phase diagram or decide endpoint equality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

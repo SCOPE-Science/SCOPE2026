@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses only the positive-domain fixed-point equation and the strict inequalities quoted in the primary source. Rearranging the fixed-point equation gives \(\lambda=8z^4/(1+z)^3\), whose logarithmic derivative is \((z+4)/(z(1+z))\); this is strictly positive for every \(z>0\). Hence no numerical root tracking is required to decide whether \(z\) is below or above any fixed positive threshold.
+# Independent mathematical audit
 
-The standalone `verify.py` file performs exact arithmetic in \(\mathbb Q(\sqrt3)\) to verify
-\[
-\Lambda(\sqrt3-1)=\frac{32(7\sqrt3-12)}9
-\]
-and
-\[
-\Lambda\!\left(\frac{\sqrt3+1}{2}\right)=\frac{4(3+\sqrt3)}9.
-\]
-It also checks high-precision decimal values. These computations replay the algebra but are not substitutes for the analytic monotonicity proof.
+## correctness
 
-The strict source criteria do not determine either equality endpoint; the claim deliberately leaves those two cases open.
+PASS
+
+The order-three wand symmetric boundary-law equation z=lambda((1+z)/(2z))^3 is equivalent for z>0 to Lambda(z)=8z^4/(1+z)^3. Its logarithmic derivative (z+4)/(z(1+z)) is positive everywhere, so thresholds transfer globally without a quartic root branch choice. For z<1, 3/(1+z)^2=1 gives z_-=sqrt(3)-1; for z>1, 3(z/(1+z))^2=1 gives z_+=(sqrt(3)+1)/2. Exact independent SymPy simplification yields the displayed lower 32(7sqrt(3)-12)/9 and upper 4(3+sqrt(3))/9. The source Kesten-Stigum non-extremality and sufficient extremality criteria are STRICT; equality endpoint classification remains open. No claim of other measures or parameters is made.
+
+## originality
+
+PASS
+
+The exact radical activity endpoints and a global elementary monotonicity replacement for source Maple sign analysis are absent from the inspected original Theorem 3, which uses decimals; this is narrowly original as exactification, not as a new extremality criterion.
+
+## value
+
+PASS
+
+Although narrow and algebraically short, these are precise critical activities of the central extremality interval in a natural statistical-mechanics model, previously reported only numerically; replacing computer-dependent branch/sign analysis with a monotone exact parameterization gives a reusable error-free phase-boundary statement. It does not manufacture a new phase diagram or decide endpoint equality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
