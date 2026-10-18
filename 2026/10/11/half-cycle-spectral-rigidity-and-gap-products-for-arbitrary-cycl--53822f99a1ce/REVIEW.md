@@ -1,11 +1,21 @@
-# Scientific review: half-cycle Fourier concentration
+# Independent mathematical audit
 
-**Correctness — PASS.** The unitary Fourier normalization gives a diagonal half-mass kernel, zero same-parity off-diagonal entries, and a rectangular Cauchy cross-parity matrix. Every maximal square Cauchy minor is nonzero, proving the exact \(1/2\)-eigenspace dimension without relying on numerics. Cauchy--Binet proves the gap product for all masks, including both degenerate boundaries. The separate finite checker passed 696 masks/cases; it is corroborative only.
+## correctness
 
-**Originality — PASS, with an explicitly retained literature risk.** Jaming addresses the cyclic Fourier transform and not finite time/frequency concentration. The inspected periodic-prolate framework in Matthysen--Huybrechs uses contiguous band masks and does not state the arbitrary-mask half-energy multiplicity or all-noncentral-gap product. Zhu and coauthors prove nonasymptotic eigenvalue distribution bounds for contiguous symmetric bands, not this exact product or parity classification. Searches of equivalent Cauchy/Toeplitz, Slepian, cyclic-concentration, and determinant language did not locate a covering statement; absence from a search is not itself a novelty proof. Xu--Chamzas (1984) is close but access-limited: its full text could not be compared. An equivalent result under historical special-function terminology remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** A half-cycle is the canonical equal-time partition of an even periodic signal. The result supplies an exact, mask-independent count of transition modes for every band layout and an explicit algebraic invariant measuring the entire collection of departures from half-energy concentration. Neither quantity requires numerical diagonalization, and the nullity is controlled only by the even/odd frequency imbalance. This is a natural structural classification, not an arbitrary finite parameter census.
+Independently reconstructed the normalized DFT on G=Z/(2N): with z_k=e^{pi ik/N}, half-window frequency Gram has diagonal 1/2, zero distinct same-parity entries, and opposite-parity centered block B_{ac}=(2/N) z_a/(z_a-z_c). Every z_k is distinct and Cauchy determinant shows every maximal r=min(e,o) square minor nonzero. Thus rank(B)=r, nullity of 2C-I is |e-o| and its other eigenvalues are paired singular values ±s_j. Cauchy–Binet gives exactly the stated positive product (2/N)^{2r} times the sum of squared Cauchy chord products. Balanced determinant sign is (-1)^r. N=1, r=0, unbalanced masks and all frequencies satisfy the stated boundary conventions. Independently built direct truncated DFT matrices for N=1..4 illustrative masks; spectral products matched chord sums to <4e-16. This finite check is not the proof.
 
-**Scope.** The theorem neither gives each individual noncentral eigenvalue nor extends to unequal time windows; it is not a claim of independent validation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge, after comparing the actual theorem and its Toeplitz/Gram formulations. Classical periodic-DPSS papers treat consecutive spectral intervals and/or asymptotic/estimated eigenvalue concentration; the exact parity-rank law for ALL gapped frequency subsets and the Cauchy–Vandermonde all-gap product do not follow from those statements. Cauchy determinant itself is classical, not claimed new. The 1984 Xu–Chamzas full text remains an acknowledged primary-source gap (the authorized institutional tool returned a verification-interrupted state; no bypass/retry). A hidden equivalent Cauchy-matrix theorem remains a serious residual risk, not silently ruled out.
+
+## value
+
+PASS
+
+An exact all-frequency-mask transition eigenspace dimension for the natural even-cycle half-window is a structural signal-concentration invariant; arbitrary gapped and multiband spectra are mathematically motivated beyond a chosen small index. The full gap product is an exact aggregate measure of noncentral spectral separation available algebraically without diagonalization. This is more than routine even/odd pairing or a numerical lookup, although classical Cauchy identities do the proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

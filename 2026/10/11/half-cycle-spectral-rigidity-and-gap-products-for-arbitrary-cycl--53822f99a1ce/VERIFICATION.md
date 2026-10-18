@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of half-cycle Fourier concentration
+# Independent mathematical audit
 
-The exact proof consists of the finite Fourier geometric-sum identity, the off-diagonal Cauchy form of the centered compression, the Cauchy determinant's nonvanishing for all distinct roots, singular-value pairing, and Cauchy--Binet. These steps prove the theorem for every integer \(N\ge1\) and every nonempty frequency mask.
+## correctness
 
-The included standalone numerical checker `verification.py` is run with `python verification.py` and requires NumPy. It reconstructs every matrix from the original Fourier sum, not from the chord-product prediction. It checks every nonempty mask for \(N=1,2,3,4\) and 120 deterministic pseudorandom masks for each of \(N=5,6,7\). Executed result:
+PASS
 
-`VERIFY_OK exhaustive_n=1..4 random_n=5..7 checks=696`
+Independently reconstructed the normalized DFT on G=Z/(2N): with z_k=e^{pi ik/N}, half-window frequency Gram has diagonal 1/2, zero distinct same-parity entries, and opposite-parity centered block B_{ac}=(2/N) z_a/(z_a-z_c). Every z_k is distinct and Cauchy determinant shows every maximal r=min(e,o) square minor nonzero. Thus rank(B)=r, nullity of 2C-I is |e-o| and its other eigenvalues are paired singular values ±s_j. Cauchy–Binet gives exactly the stated positive product (2/N)^{2r} times the sum of squared Cauchy chord products. Balanced determinant sign is (-1)^r. N=1, r=0, unbalanced masks and all frequencies satisfy the stated boundary conventions. Independently built direct truncated DFT matrices for N=1..4 illustrative masks; spectral products matched chord sums to <4e-16. This finite check is not the proof.
 
-The checker compares the exact predicted multiplicity with a numerical tolerance of \(10^{-9}\), verifies spectral pairing, and checks the product of the noncentral gaps against the independently evaluated chord products. Numerical tolerances and finite enumerations do not establish any asymptotic or all-size theorem; correctness rests on the proof in `RESULT.md`. The 1984 Xu--Chamzas source was not available in complete readable form during literature comparison, so the corresponding historical originality risk is not closed. Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge, after comparing the actual theorem and its Toeplitz/Gram formulations. Classical periodic-DPSS papers treat consecutive spectral intervals and/or asymptotic/estimated eigenvalue concentration; the exact parity-rank law for ALL gapped frequency subsets and the Cauchy–Vandermonde all-gap product do not follow from those statements. Cauchy determinant itself is classical, not claimed new. The 1984 Xu–Chamzas full text remains an acknowledged primary-source gap (the authorized institutional tool returned a verification-interrupted state; no bypass/retry). A hidden equivalent Cauchy-matrix theorem remains a serious residual risk, not silently ruled out.
+
+## value
+
+PASS
+
+An exact all-frequency-mask transition eigenspace dimension for the natural even-cycle half-window is a structural signal-concentration invariant; arbitrary gapped and multiband spectra are mathematically motivated beyond a chosen small index. The full gap product is an exact aggregate measure of noncentral spectral separation available algebraically without diagonalization. This is more than routine even/odd pairing or a numerical lookup, although classical Cauchy identities do the proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T04:03:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/half-cycle-spectral-rigidity-and-gap-products-for-arbitrary-cycl--53822f99a1ce/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/half-cycle-spectral-rigidity-and-gap-products-for-arbitrary-cycl--53822f99a1ce/verification.py",
+        "Cauchy determinant and Cauchy–Binet classical identities"
+      ],
+      "rationale": "Independently reconstructed the normalized DFT on G=Z/(2N): with z_k=e^{pi ik/N}, half-window frequency Gram has diagonal 1/2, zero distinct same-parity entries, and opposite-parity centered block B_{ac}=(2/N) z_a/(z_a-z_c). Every z_k is distinct and Cauchy determinant shows every maximal r=min(e,o) square minor nonzero. Thus rank(B)=r, nullity of 2C-I is |e-o| and its other eigenvalues are paired singular values ±s_j. Cauchy–Binet gives exactly the stated positive product (2/N)^{2r} times the sum of squared Cauchy chord products. Balanced determinant sign is (-1)^r. N=1, r=0, unbalanced masks and all frequencies satisfy the stated boundary conventions. Independently built direct truncated DFT matrices for N=1..4 illustrative masks; spectral products matched chord sums to <4e-16. This finite check is not the proof.",
+      "residual_risks": [
+        "The explicit gap factors can become ill-conditioned for large N, but the proof uses exact algebra, not floating tolerances.",
+        "This does not determine each individual off-center eigenvalue or unequal windows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu et al bound counts in an epsilon-transition interval for contiguous symmetric bands, not exact eigenvalues =1/2 for an unrestricted frequency mask.",
+          "Matthysen–Huybrechs equation (3.9) supplies P-DPSS eigenoperators and clustered eigenvalues for classical band windows."
+        ],
+        "reasoning": "A transition count bound for a special contiguous band cannot imply the exact full-rank theorem and Cauchy minor product for arbitrary masks. Xu–Chamzas might contain an equivalent generalization; unread primary text remains a residual risk, not assessed as NOT_COVERING.",
+        "searches": [
+          "Resultary semantic search: half-cycle cyclic Fourier arbitrary frequency mask parity transition eigenvalue half Cauchy minors gap determinant",
+          "Zhu–Karnik–Davenport–Romberg–Wakin arXiv:1707.05344v1 Theorem 1",
+          "Xu–Chamzas DOI:10.1137/0144086 (abstract only)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1509.00206v1 §3.3",
+        "arXiv:1707.05344v1 Theorem 1",
+        "DOI:10.1137/0144086 publisher abstract only",
+        "Resultary semantic search: half-cycle cyclic Fourier arbitrary frequency mask parity transition eigenvalue half Cauchy minors gap determinant",
+        "Resultary cross-space Hermite/hemispherical and cyclic minor IDs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both primary discrete-prolate sources specify classical spectral bands, while the proposed claim applies to all E,O masks and determines a positive product over every nonzero singular value.",
+          "Analogous parity identities for Hermite and sphere involve different kernels and do not specialize to the finite roots z_k."
+        ],
+        "reasoning": "General singular-value pairing follows from bipartite block structure and is not alone novel; the nonvanishing of every Cauchy maximal minor and the exact product are extra claims not implied by the compared theorems.",
+        "searches": [
+          "Resultary semantic search: half-cycle cyclic Fourier arbitrary frequency mask parity transition eigenvalue half Cauchy minors gap determinant",
+          "arXiv:1509.00206v1 §3.3 p9",
+          "arXiv:1707.05344v1 Theorem 1 p2",
+          "Resultary cross-space Hermite and hemispherical Slepian results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same nonzero spectrum arises in time-truncated DFT Gram and Fourier-coordinate compression; half-time symmetry makes 2C-I a rectangular Cauchy cross-parity matrix.",
+          "Matthysen–Huybrechs §3.3 p9 describes P-DPSS for supports [0,m]∪[L-m,L], not a general subset-dependent midpoint nullity."
+        ],
+        "reasoning": "A change from time to frequency representation and Toeplitz wording is included. The inspected periodic-prolate theorem statements do not quantify arbitrary gapped masks or compute all noncentral gap factors.",
+        "searches": [
+          "Resultary semantic search: half-cycle cyclic Fourier arbitrary frequency mask parity transition eigenvalue half Cauchy minors gap determinant",
+          "arXiv:1509.00206v1 §3.3, equation (3.9)",
+          "arXiv:1707.05344v1 §II–III, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The semiprime Fourier-minor result classifies a special singular-minor support problem, not eigenvalues of a half-window compression for any F.",
+          "The four-frequency determinant optimization is not the all-mask gap product for 2C-I; its matrix and invariant differ."
+        ],
+        "reasoning": "No exact external table was identified. This is an infinite-order arbitrary-mask formula rather than a finite table lookup, and negative index results do not establish global novelty.",
+        "searches": [
+          "Resultary semantic search: half-cycle cyclic Fourier arbitrary frequency mask parity transition eigenvalue half Cauchy minors gap determinant",
+          "Resultary cycle search: SCOPE singular three-by-three Fourier minors on even semiprime cycles, ID 8f025c6183d3",
+          "Resultary cycle search: exact four-frequency determinant optimum, ID bb69c4d14769"
+        ]
+      },
+      "rationale": "Best-of-knowledge, after comparing the actual theorem and its Toeplitz/Gram formulations. Classical periodic-DPSS papers treat consecutive spectral intervals and/or asymptotic/estimated eigenvalue concentration; the exact parity-rank law for ALL gapped frequency subsets and the Cauchy–Vandermonde all-gap product do not follow from those statements. Cauchy determinant itself is classical, not claimed new. The 1984 Xu–Chamzas full text remains an acknowledged primary-source gap (the authorized institutional tool returned a verification-interrupted state; no bypass/retry). A hidden equivalent Cauchy-matrix theorem remains a serious residual risk, not silently ruled out.",
+      "residual_risks": [
+        "Full 1984 Xu–Chamzas result unread; cannot exclude stronger direct coverage.",
+        "Equivalent arbitrary-mask Cauchy or discrete Toeplitz identities might predate this presentation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for arbitrary F",
+          "evidence": "§3.3 pp8–9 frequency support [0,m]∪[L-m,L]; eigenvectors/clustering rather than all-mask half-energy rank and product.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.00206",
+          "material_read": "20-page PDF abstract/introduction; §2 Fourier extension matrices; §3.3 pp8–9 equation (3.9), spectral support, references",
+          "method": "Open arXiv text and visual inspection p9",
+          "title": "Fast Algorithms for the Computation of Fourier Extensions of Arbitrary Length",
+          "trigger": "Exact periodic DPSS setting and potential broader claim"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Theorem 1 gives epsilon-transition count and eigenvalue distribution for standard contiguous Fourier band, not exact unrestricted-mask 1/2-nullity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.05344",
+          "material_read": "5-page primary preprint, setup §§I–II and Theorem 1 p2, proof overview",
+          "method": "Open arXiv full short article with page image p2",
+          "title": "The Eigenvalue Distribution of Discrete Periodic Time-Frequency Limiting Operators",
+          "trigger": "Possible all-frequency concentration theorem"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_NO_FULL_DOCUMENT_NONCOVERAGE_ASSERTION",
+          "evidence": "1984 SIAM J. Appl. Math. 44:1210–17; exact scope beyond accessible abstract unverified.",
+          "identifier_or_url": "https://doi.org/10.1137/0144086",
+          "material_read": "Publisher title, abstract and bibliographic details; no full-text paper accessible via arXiv/OA searches; authorized institutional attempt returned interrupted verification tab.",
+          "method": "arXiv and OA discovery followed by Oxford institutional tool; did not bypass authentication or attempt second resume",
+          "title": "On the Periodic Discrete Prolate Spheroidal Sequences",
+          "trigger": "Historically closest finite periodic DPSS primary paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Finite cyclic prolate operator motivation: arXiv:1509.00206 §3.3",
+        "Arbitrary mask Cauchy formula in inspected RESULT.md"
+      ],
+      "rationale": "An exact all-frequency-mask transition eigenspace dimension for the natural even-cycle half-window is a structural signal-concentration invariant; arbitrary gapped and multiband spectra are mathematically motivated beyond a chosen small index. The full gap product is an exact aggregate measure of noncentral spectral separation available algebraically without diagonalization. This is more than routine even/odd pairing or a numerical lookup, although classical Cauchy identities do the proof.",
+      "residual_risks": [
+        "No claim of sharp individual eigenvalue positions or extension beyond half-cycle windows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge scientific assessment only; neither independence certification nor publication authorization.",
+    "Publication withheld pending authorized provenance sanitization and cross-file privacy/math checks.",
+    "No GitHub write or dispatcher closeout performed."
+  ],
+  "schema_version": 1
+}
