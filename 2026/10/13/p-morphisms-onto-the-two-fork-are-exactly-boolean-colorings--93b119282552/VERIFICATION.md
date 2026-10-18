@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem was checked from the p-morphism axioms rather than inferred from enumeration.
+# Independent mathematical audit
 
-For a p-morphism \(f:\mathbf A_n\to\mathbf A_1\), maximal source points must map to maximal target points because the back condition would otherwise demand a strict source extension. Monotonicity forces every point mapped to a maximal target value to have all maximal completions of that color. Conversely, if all maximal completions have one color, the back condition excludes the root and monotonicity excludes the opposite maximal value. Mixed colors force the root. These implications prove uniqueness.
+## correctness
 
-For the converse construction, extension of partial functions replaces \(M(x)\) by a subset, which proves monotonicity. In the mixed case, maximal completions of both colors explicitly witness the two nontrivial back-condition demands. Therefore every coloring produces a p-morphism.
+PASS
 
-The standalone checker `verify_p_morphisms.py` exhaustively tests all maps for \(n=1\) and \(n=2\) from the definitions. Its recorded output is:
+In A_n, total partial-function extensions form {1,2}^n. The back condition prohibits any maximal point mapping to 0, so every p-morphism determines a 2-coloring of maxima. Monotonicity forces f(x)=1 or 2 for a monochromatic cylinder M(x); if f(x)=0 with monochromatic M(x), back condition yields a forbidden opposite-colored total extension. Mixed cylinders must map to 0 by monotonicity. Conversely the proposed coloring map is monotone because M(y)⊆M(x) for x≤y; its back condition is witnessed by a full extension of each color, or x itself. Hence all 2^{2^n} mappings correspond bijectively and exactly two constants are not onto. Direct independent exhaustive enumerations verified all 4 p-morphisms for n=1 and 16 for n=2, with 2 and 14 onto. No claim about target A_m,m>1.
 
-`n=1: total=4, surjective=2`
+## originality
 
-`n=2: total=16, surjective=14`
+PASS
 
-`all finite sanity checks passed`
+Xiao (2026) defines the exact partial-function frames A_n and their two-fork product presentation and constructs maps to other targets; accessible abstract/references did not provide a complete hom-set count to A1. Fontaine (2006) thesis develops finite p-morphic images of fork powers, with accessible relevant sections not stating all arbitrary maximal Boolean colorings or the exact 2^{2^n} count. This is best-of-knowledge only: full Xiao manuscript was inaccessible; attempted authorized institutional source retrieval was safety-blocked (no bypass). No broader p-morphism enumeration with the same target was identified in published Resultary semantic search.
 
-The finite check is not used to infer the theorem for arbitrary \(n\). No claim is made for target \(\mathbf A_m\) with \(m>1\).
+## value
+
+PASS
+
+The two-fork A1 is the canonical factor/generator of Cheq partial-function frames. Classifying every bounded morphism onto this target is a motivated complete hom-set invariant, showing that arbitrary Boolean functions on 2^n maximal assignments (not only coordinate projections) arise and giving the exact onto count. The proof is short but the natural all-n mapping classification is not an arbitrary tiny slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
