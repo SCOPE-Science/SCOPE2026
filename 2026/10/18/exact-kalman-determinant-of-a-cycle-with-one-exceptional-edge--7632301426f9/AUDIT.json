@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "A reflection block decomposition reduces the cycle to two cyclic Jacobi matrices. Their cross-spectrum resultant factors into r common-eigenvalue terms linear in (w-1) and the antisymmetric determinant 1+(n-1)w. The path at w=0 fixes the global sign. The rank at w=1 follows from Fourier eigenspace projections, and singular-value Weyl bounds combined with exact determinant order yield the two-sided small-defect singular-value rate. Exact symbolic and rational checker gives 144 corroborating assertions; it is not substituted for the unbounded proof. Real signed boundary and positive conductance cases are separated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Monshizadeh–Zhang–Camlibel, arXiv:1403.4868v1, zero-forcing structural guarantee concerns all allowed matrices of a graph rather than a fixed one-edge-weight Laplacian.",
+        "Xiang et al., DOI 10.1155/2013/405034, treats weighted/directed networks with nonidentical node dynamics, not this fixed-node single-defect determinant."
+      ],
+      "reasoning": "A strong-structural two-input cycle result cannot contradict a one-input result for a particular generic edge weighting: universal all-weights controllability has stronger quantifiers. General Kalman/PBH criteria are tools but do not themselves evaluate the determinant or its singularity orders.",
+      "searches": [
+        "weighted undirected cycle Laplacian with one edge conductance defect and single leader controllability PBH criterion for each vertex",
+        "uncontrollable eigenvectors of weighted cycle with one defect edge and gcd arithmetic",
+        "circle ring consensus network single defective conductance edge adjacent leader full controllability",
+        "arXiv:1403.4868v1 zero forcing sets and controllability of dynamical systems defined on graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1109.3556v1 (full paper, Theorem 4.10 and context)",
+      "doi:10.1155/2013/405034 (accessible HTML)",
+      "arXiv:1403.4868v1 (full paper, structural criterion)",
+      "arXiv:2205.12457v1 (full paper, same-object spectral formulas)",
+      "published-finding corpus published results matched against the eight actual query strings above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Parlangeli–Notarstefano, arXiv:1109.3556v1: uniform cycle has eigenvalue multiplicities; it matches the new theorem at w=1 but not its variation in w.",
+        "Grudsky–Maximenko–Soto-González, arXiv:2205.12457v1: one-edge-defect eigenvalues/eigenvectors for the same family; exact spectral knowledge is a possible source of an implicit corollary, carefully distinguished."
+      ],
+      "reasoning": "The new theorem gives the complete Kalman determinant including powers and its finite-Krylov singular-value scaling. Prior 2011 unweighted controllability is one specialization, and 2022 explicit eigendata, although broad on the same matrix, do not state the determinant: deriving it demands nontrivial cancellation of spectral Vandermonde/eigenvector weights. This is not a claim of logical independence from those spectral results.",
+      "searches": [
+        "weighted undirected cycle Laplacian with one edge conductance defect and single leader controllability PBH criterion for each vertex",
+        "controllability of a cycle graph with one perturbed edge weight all actuator locations exceptional weights",
+        "Kalman controllability determinant one edge defective unweighted cycle Laplacian determinant (w-1) power factor",
+        "single input weighted cycle from endpoint of exceptional edge cycle Laplacian control walk matrix determinant",
+        "finite Krylov Gram determinant weighted cycle single defective edge exact formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Parlangeli–Notarstefano, arXiv:1109.3556v1, Section IV, Theorem 4.10: controllability/unobservability for unweighted cycles and paths.",
+        "Grudsky–Maximenko–Soto-González, arXiv:2205.12457v1: explicit eigendata for cycle with one non-unit edge, but no stated one-input Krylov determinant.",
+        "published-finding corpus published record 2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818: a different two-sensor low-pass unweighted-cycle frame theorem."
+      ],
+      "reasoning": "The PBH formulation asks whether an eigenvector vanishes at the actuator; for a symmetric matrix it is equivalent to full Krylov rank, but neither unweighted-cycle PBH criteria nor two-sensor low-pass bounds imply the exact full-order, one-defect determinant. The 2022 same-object spectral formulas might imply it after additional eigenvector/Vandermonde elimination; the paper does not state it, and this equivalence remains a residual priority risk.",
+      "searches": [
+        "weighted undirected cycle Laplacian with one edge conductance defect and single leader controllability PBH criterion for each vertex",
+        "controllability of a cycle graph with one perturbed edge weight all actuator locations exceptional weights",
+        "exact Kalman rank weighted cycle graph modified edge one input",
+        "Kalman controllability determinant one edge defective unweighted cycle Laplacian determinant (w-1) power factor",
+        "single input weighted cycle from endpoint of exceptional edge cycle Laplacian control walk matrix determinant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic search results included 2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f, on a normalized path sampling Gramian.",
+        "Grudsky–Maximenko–Soto-González, arXiv:2205.12457v1, develops spectra and asymptotic eigenvalue tables rather than a table of Kalman determinants."
+      ],
+      "reasoning": "An exact determinant sequence for unweighted paths and a spectral table for defective cycles do not give the polynomial identity at every n and w; no directly covering table was identified in queried records. Lack of search hits is not a proof of absence.",
+      "searches": [
+        "Kalman controllability determinant one edge defective unweighted cycle Laplacian determinant (w-1) power factor",
+        "single input weighted cycle from endpoint of exceptional edge cycle Laplacian control walk matrix determinant",
+        "finite Krylov Gram determinant weighted cycle single defective edge exact formula"
+      ]
+    },
+    "rationale": "Distinct from the exact previously inspected unweighted reachability classification, general all-weights zero-forcing criterion, weighted-network remarks and same-object one-defect spectral data: the closed full-Krylov determinant, full algebraic weight exception set and sharp least singular-value order are not stated by inspected primary sources. Eight actual published-finding corpus semantic searches found closest but non-covering records. Same-object explicit spectral data may logically support a separate derivation, and equivalent unindexed work remains possible; confidence is conditional rather than an independence claim.",
+    "residual_risks": [
+      "The 2022 paper provides same-object complete spectral descriptions and may imply the identity as an unstated corollary by a nontrivial resultant/Vandermonde elimination; no logical independence is asserted.",
+      "An unindexed prior determinant computation or alternative control-theoretic formulation could establish the same result; no search establishes mathematical novelty conclusively.",
+      "The claim applies to one input adjacent to the defect, not every vertex."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unweighted cycle reachability/observability and number theoretic criteria; does not treat the determinant as closing-edge weight varies.",
+        "evidence": [
+          "arXiv:1109.3556v1; 2011-09-16 first posting; Theorem 4.10 on cycle reachability."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1109.3556",
+        "material_read": "Open-access full paper, abstract, cycle results and Theorem 4.10 and surrounding statements/proof.",
+        "method": "Read parsed full PDF sections containing hypotheses, cycle controllability results and supporting lemmas.",
+        "title": "On the reachability and observability of path and cycle graphs",
+        "trigger": "Same graph class and single-vertex controllability; earliest dated archive-era source."
+      },
+      {
+        "assessment": "General different-agent weighted/directed network controllability rather than exact identical-agent Laplacian single-edge cycle Krylov determinant.",
+        "evidence": [
+          "DOI:10.1155/2013/405034; 2013 primary publication."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/405034",
+        "material_read": "Open publisher HTML including abstract, introduction, theorem/claims on edge weights.",
+        "method": "Read accessible primary article text and compared its model/quantifiers.",
+        "title": "Controllability of Weighted and Directed Networks with Nonidentical Node Dynamics",
+        "trigger": "Perturbation of edge weights as a means of changing controllability."
+      },
+      {
+        "assessment": "Quantifies over every supported dynamical matrix; does not preclude generic controllability for specific edge weights with one input.",
+        "evidence": [
+          "arXiv:1403.4868v1; first posting 2014-03-19."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.4868",
+        "material_read": "Open-access full PDF, introductory definitions, graph control framework and robust criteria sections.",
+        "method": "Read PDF statements and explanatory proofs for zero forcing/strong structural controllability.",
+        "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+        "trigger": "Possible stronger structural full controllability guarantee on cycles."
+      },
+      {
+        "assessment": "Provides extensive spectral data for same family, but no stated closed single-input Kalman determinant or local finite-Krylov least singular value law. Its results may support a derivation; this remains a material prior-implication risk.",
+        "evidence": [
+          "arXiv:2205.12457v1, first posted 2022-05-25; explicit eigenvalue/eigenvector results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.12457",
+        "material_read": "Open-access full PDF, main results, characteristic polynomial, explicit eigenvectors, proof and references.",
+        "method": "Read multiple substantive sections and checked for stated controllability/Krylov determinant claims.",
+        "title": "Eigenvalues of the laplacian matrices of the cycles with one weighted edge",
+        "trigger": "Identical one-defect weighted cycle matrix; high-priority novelty-risk source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "76323014-26f9-4502-b607-38365a1b4971",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact polynomial gives a finite-dimensional all-order quantitative controllability-volume law for one-edge symmetry breaking on a natural ring. Its roots distinguish a symmetry-driven rank failure from the signed-Laplacian semidefiniteness boundary, and its root multiplicity controls how rapidly the least Krylov singular value collapses near symmetry. This resolves a motivated sensitivity/actuator configuration rather than an arbitrary small graph census. No continuous-time energy claim or general actuator-site classification is made.",
+    "status": "PASS"
+  }
+}
