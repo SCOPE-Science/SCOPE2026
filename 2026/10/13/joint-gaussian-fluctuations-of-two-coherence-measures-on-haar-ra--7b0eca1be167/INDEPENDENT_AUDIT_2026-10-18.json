@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:00:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/joint-gaussian-fluctuations-of-two-coherence-measures-on-haar-ra--7b0eca1be167/RESULT.md",
+        "Independent checks: /mnt/data/audit_run_20261018T0843/independent_checks.py; private replay source with arithmetic/rank/partition checks (not executed from repository)"
+      ],
+      "rationale": "For complex Haar states the squared basis amplitudes are exactly Dirichlet(1,...,1), represented by independent Exp(1) variables E_j divided by their sum. Rebuilt the formulas L=(sum sqrt(p))^2-1 and H=-sum p log p, Dirichlet mixed moments Gamma(d)/Gamma(d+sum s_j) prod Gamma(1+s_j), and log derivatives: E L=pi(d-1)/4 and E H=h_d-1. Fourth-moment index patterns give finite Var(L); mixed exponent derivatives give Cov(L,H)=pi(d-1)(3 log2-2)/(2(d+1)), including the d=2 no-three-distinct-index boundary. Apply multivariate i.i.d. CLT to (sqrt E,E,E log E), and delta method for f(a,b,c)=a^2/b, g=log b-c/b with gradients (sqrt pi,-pi/4,0) and (0,2-gamma,-1). Exact asymptotic Sigma entries pi-5pi^2/16, pi(3 log2-2)/2, pi^2/3-3. Independent numerical arithmetic confirms Sigma=(0.05734127824937,0.12478648186561,0.28986813369645), determinant 0.0010497432535>0, correlation ~0.96790697. Functional independence of sqrt(x), x, x log(x) under Exp density ensures strict nondegeneracy in all dimensions of limit. Random simulations are unnecessary to establish this CLT; no finite-d Gaussian law or convergence rate is claimed.",
+      "residual_risks": [
+        "No independent formal proof-assistant certification. The finite checks are corroborative and cannot establish unbounded parameter ranges."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Singh-Zhang-Pati gives concentration of relative-entropy coherence and mean; Cheng-Hall gives coherence tradeoffs across bases and average coherence of fixed states."
+        ],
+        "reasoning": "Concentration and mean bounds are not bivariate weak convergence under two distinct scalings, and do not determine the off-diagonal covariance or correlation. Both are relevant but different assertions.",
+        "searches": [
+          "Resultary semantic: Haar random pure states joint Shannon entropy l1 coherence Gaussian covariance central limit fluctuations",
+          "Singh Zhang Pati arXiv:1509.08939 typicality",
+          "Cheng Hall arXiv:1508.03240"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md full; blob 01541174211a3252edc131cc30009b73b0d7a41b",
+        "arXiv:1507.05123 Section VIII equations 61-62",
+        "arXiv:1509.08939 relative entropy typicality sections",
+        "Resultary Resultary semantic: Haar random pure states joint Shannon entropy l1 coherence Gaussian covariance central limit fluctuations",
+        "Independent checks: /mnt/data/audit_run_20261018T0843/independent_checks.py; private replay source with arithmetic/rank/partition checks (not executed from repository)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exact individual means and asymptotic typicality do not state the positive determinant of joint asymptotic covariance; the delta method gives it once empirical vector covariance is explicitly computed."
+        ],
+        "reasoning": "The result is not automatically covered by published scalar typicality theorems. The general multivariate i.i.d. CLT is acknowledged as a prerequisite, not claimed as original.",
+        "searches": [
+          "arXiv:1507.05123 Sec VIII Eq.61-62",
+          "arXiv:1509.08939 Sec III-IV",
+          "Resultary semantic: Haar random pure states joint Shannon entropy l1 coherence Gaussian covariance central limit fluctuations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The l1 coherence equals squared Renyi-1/2 amplitude norm minus one; H is Shannon entropy of Dirichlet probabilities. Existing paper provides mixed-moment formula and marginal l1 means, but the inspected sections do not report the joint Gaussian covariance matrix."
+        ],
+        "reasoning": "Aliases considered: Dirichlet Shannon/Renyi fluctuation, random pure-state coherence, normalized exponential empirical statistics. General CLT/delta-method machinery implies it after a new explicit covariance computation; no exact previously stated covariance located.",
+        "searches": [
+          "Resultary semantic: Haar random pure states joint Shannon entropy l1 coherence Gaussian covariance central limit fluctuations",
+          "Haar Dirichlet Shannon-Renyi entropy joint fluctuations CLT",
+          "Puchala Pawela Zyczkowski arXiv:1507.05123"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gamma mixed-moment identity allows derivation of exact moments; no direct indexed table with Sigma_12=pi(3 log2-2)/2 located."
+        ],
+        "reasoning": "Moment formula is prior general mathematical machinery; evaluating the special joint second derivative and delta asymptotics is required. A mathematical database can contain equivalent formulas under other entropy terminology, which remains risk.",
+        "searches": [
+          "Resultary semantic: Haar random pure states joint Shannon entropy l1 coherence Gaussian covariance central limit fluctuations",
+          "Dirichlet(1) Shannon and Renyi covariance tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after independent statement/implication comparison, published-record semantic search and relevant primary material inspection. The known premises and residual risks below are credited, not silently treated as novel.",
+      "residual_risks": [
+        "Equivalent joint Shannon–Renyi functional CLT or delta-method covariance may appear under terminology outside quantum coherence.",
+        "No quantitative convergence rate or real-coordinate analogue is established; finite Monte Carlo is corroborative only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR moment framework, no explicit joint limit in inspected material",
+          "evidence": [
+            "General mixed moment Gamma ratio and l1 mean; exact current off-diagonal CLT covariance not located in inspected sections."
+          ],
+          "identifier_or_url": "arXiv:1507.05123",
+          "material_read": "Opened lawful full PDF, examined Section VIII and formulas (61)-(62) for Dirichlet mixed moments and mean l1 coherence",
+          "method": "web PDF inspection including first-page screenshot",
+          "title": "Statistical properties of random pure states and random unitary matrices (Puchala, Pawela, Zyczkowski)",
+          "trigger": "Same complex-Haar Dirichlet model and l1 coherence"
+        },
+        {
+          "assessment": "PRIOR mean/concentration not current joint limit",
+          "evidence": [
+            "Exponential concentration and h_d-1 mean, but no displayed joint Gaussian Sigma in inspected portions."
+          ],
+          "identifier_or_url": "arXiv:1509.08939; DOI:10.1103/PhysRevA.93.032125",
+          "material_read": "Opened complete PDF resource; examined abstract and sections concerning relative entropy mean and concentration, not every line",
+          "method": "web PDF relevant sections and screenshot",
+          "title": "Average coherence and its typicality for random pure states (Singh, Zhang, Pati)",
+          "trigger": "Same Haar-random pure states and Shannon entropy coherence"
+        },
+        {
+          "assessment": "limited; not a document-wide exclusion",
+          "evidence": [
+            "Tradeoffs and basis-averaged coherence are distinct from joint Haar fluctuations."
+          ],
+          "identifier_or_url": "arXiv:1508.03240",
+          "material_read": "Read abstract and research descriptions; did not materially inspect complete full text",
+          "method": "web abstract and bibliographic",
+          "title": "Complementarity relations for quantum coherence (Cheng, Hall)",
+          "trigger": "Uses both coherence measures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md full; blob 01541174211a3252edc131cc30009b73b0d7a41b",
+        "arXiv:1507.05123 Section VIII equations 61-62",
+        "arXiv:1509.08939 relative entropy typicality sections",
+        "Resultary Resultary semantic: Haar random pure states joint Shannon entropy l1 coherence Gaussian covariance central limit fluctuations",
+        "Independent checks: /mnt/data/audit_run_20261018T0843/independent_checks.py; private replay source with arithmetic/rank/partition checks (not executed from repository)"
+      ],
+      "rationale": "Joint fluctuations determine how much one operationally standard coherence monotone predicts another on Haar-random complex pure states. Nonzero limiting determinant and residual linear-prediction entropy variance are more informative than known separate means/concentration bounds. Exact finite covariance supplies a calibrated quantitative bridge between l1 coherence and relative-entropy coherence; although the probabilistic technique is standard, this particular joint invariant has motivation independent of generic delta-method exercises.",
+      "residual_risks": [
+        "Equivalent joint Shannon–Renyi functional CLT or delta-method covariance may appear under terminology outside quantum coherence.",
+        "No quantitative convergence rate or real-coordinate analogue is established; finite Monte Carlo is corroborative only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific best-of-knowledge originality is not absolute proof of priority; unresolved specific literature risks are in originality.residual_risks.",
+    "Pinned record tree was retrieved with exact SHA and nontruncated content; complete repository-root Git ancestry was not recomputed.",
+    "Complete public-facing sanitized operational metadata replacement is not staged. No GitHub writes or formal certification."
+  ],
+  "schema_version": 1
+}

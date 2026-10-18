@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact formulas can be checked by differentiating the Dirichlet moment identity and matching the five index-multiplicity patterns in the fourth power of the sum of square roots. A self-contained executable `verify_joint_coherence.py` checks those identities numerically for 118 integer dimensions, then uses independently sampled exponentials for moment and covariance sanity checks at four dimensions. It prints a `VERIFY_OK` line if all assertions hold.
+# Independent mathematical audit
 
-Run `python3 verify_joint_coherence.py` using only Python 3.9+ standard-library modules. Random numbers use a fixed seed for reproducibility, not as an assumption in the proof.
+## correctness
 
-The bivariate Gaussian convergence is mathematical: apply the ordinary multivariate central limit theorem to the empirical means of three functions of independent exponentials, then the delta method with the gradients listed in `RESULT.md`. Simulation cannot prove convergence and no tail rate is asserted. Positive definiteness follows analytically from distinct functional growth, not finite eigenvalue tests.
+PASS
 
-A self-review assessed correctness, originality relative to inspected primary sources, and mathematical value; an independent audit has not been performed.
+For complex Haar states the squared basis amplitudes are exactly Dirichlet(1,...,1), represented by independent Exp(1) variables E_j divided by their sum. Rebuilt the formulas L=(sum sqrt(p))^2-1 and H=-sum p log p, Dirichlet mixed moments Gamma(d)/Gamma(d+sum s_j) prod Gamma(1+s_j), and log derivatives: E L=pi(d-1)/4 and E H=h_d-1. Fourth-moment index patterns give finite Var(L); mixed exponent derivatives give Cov(L,H)=pi(d-1)(3 log2-2)/(2(d+1)), including the d=2 no-three-distinct-index boundary. Apply multivariate i.i.d. CLT to (sqrt E,E,E log E), and delta method for f(a,b,c)=a^2/b, g=log b-c/b with gradients (sqrt pi,-pi/4,0) and (0,2-gamma,-1). Exact asymptotic Sigma entries pi-5pi^2/16, pi(3 log2-2)/2, pi^2/3-3. Independent numerical arithmetic confirms Sigma=(0.05734127824937,0.12478648186561,0.28986813369645), determinant 0.0010497432535>0, correlation ~0.96790697. Functional independence of sqrt(x), x, x log(x) under Exp density ensures strict nondegeneracy in all dimensions of limit. Random simulations are unnecessary to establish this CLT; no finite-d Gaussian law or convergence rate is claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after independent statement/implication comparison, published-record semantic search and relevant primary material inspection. The known premises and residual risks below are credited, not silently treated as novel.
+
+## value
+
+PASS
+
+Joint fluctuations determine how much one operationally standard coherence monotone predicts another on Haar-random complex pure states. Nonzero limiting determinant and residual linear-prediction entropy variance are more informative than known separate means/concentration bounds. Exact finite covariance supplies a calibrated quantitative bridge between l1 coherence and relative-entropy coherence; although the probabilistic technique is standard, this particular joint invariant has motivation independent of generic delta-method exercises.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
