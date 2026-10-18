@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:53:06.438813Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2 the retained body K_n^- obeys -1<=t<=0 and t+sqrt(n²-1)||y||<=n. The uniqueness of maximal inscribed ellipsoids and O(n-1) transverse invariance force axial semiaxis a, radial semiaxis b and center -s, with 0<s<1. Exact support-function containment is a<=min(s,1-s), b²<=((n+s)²-a²)/(n²-1). The logarithmic volume derivative in a is positive over the feasible domain, forcing a=min(s,1-s); along s<=1/2 the remaining volume strictly increases, and along s>=1/2 it strictly decreases, by the derivatives printed in RESULT.md. Unique optimizer s=a=1/2,b=sqrt(n/(n-1)). The volume ratio to the unit ball equals 1/2 (n/(n-1))^((n-1)/2), conditional on the original primary theorem J(K_n)=B_2^n. I rechecked the algebra and all boundary cases n=2 and s=1/2; no finite numerical maximization is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical maximal-volume ellipsoid uniqueness/symmetry theorems are general tools; older Khachiyan cone literature could already optimize these slices."
+        ],
+        "reasoning": "Generic John-ellipsoid optimality algorithms do not directly give the printed closed form without optimizing the cone; however the older exact cone analysis might imply it, and those original sources were not fully read.",
+        "searches": [
+          "Khachiyan half cone truncated maximum volume inscribed ellipsoid John ellipsoid exact central cut",
+          "Güler–Gürtuna arXiv:0709.0707",
+          "Tarasov–Khachiyan–Erlikh 1988"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.28447 original abstract and bibliographic descriptions; primary full-text attempt failed",
+        "arXiv:0709.0707 bibliographic comparison only",
+        "Tarasov–Khachiyan–Erlikh Doklady 1988 citation uninspected",
+        "Resultary semantic published corpus (target + other distinct John-ellipsoid cases)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source provides containment of E_n, J(K_n)=unit ball, and lower bound for retained volume; this does not logically prove E_n maximal among all eligible ellipsoids."
+        ],
+        "reasoning": "The additional optimization over all axial centers/semiaxes using uniqueness and support-function constraints is needed. A prior exact truncated-cone John theorem would dominate, but no such statement was found in accessible material.",
+        "searches": [
+          "Khachiyan half cone truncated maximum volume inscribed ellipsoid John ellipsoid exact central cut",
+          "Zhou–Zou–Liu arXiv:2609.28447v1",
+          "Güler–Gürtuna arXiv:0709.0707"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhou–Zou–Liu abstract says circular cones witness sharpness, and the target RESULT quotes their displayed feasible ellipsoid E_n."
+        ],
+        "reasoning": "The exhibited ellipsoid and volume are the SAME as the source; the only possible new statement is proving E_n the unique John ellipsoid of K_n^- for each n. Without primary full text, a hidden maximality argument cannot be excluded.",
+        "searches": [
+          "Khachiyan half cone truncated maximum volume inscribed ellipsoid John ellipsoid exact central cut",
+          "Zhou–Zou–Liu arXiv:2609.28447v1",
+          "Güler–Gürtuna arXiv:0709.0707"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite-dimensional ratio 1/2(n/(n-1))^((n-1)/2) already occurs as the source’s feasible E_n volume."
+        ],
+        "reasoning": "The exact numeric ratio is NOT independently novel as a table entry; only its proof of equality with w(K_n^-)/w(K_n) (global maximality) can qualify, and the audit explicitly avoids claiming the numeric expression as new.",
+        "searches": [
+          "Khachiyan half cone truncated maximum volume inscribed ellipsoid John ellipsoid exact central cut",
+          "Zhou–Zou–Liu arXiv:2609.28447v1"
+        ]
+      },
+      "rationale": "The recent Zhou–Zou–Liu paper displays exactly E_n and its volume ratio as a feasible half-cone witness, so neither object nor ratio itself is new. The narrow claim adds global maximality/uniqueness among ALL inscribed ellipsoids of the retained half-cone. This property is not established by the primary material actually accessible here, and the original package quotes a Section 4 statement that maximality is not needed; this cannot replace inspecting the full source. Best-of-knowledge PASS is restricted to maximality, with a significant unresolved historical/2026 full-text comparison risk.",
+      "residual_risks": [
+        "Important: primary 2026 Zhou–Zou–Liu full paper could not be read; authorized institutional retrieval yielded vpn_disconnected after OA full text unavailable. It might contain exactly the retained half-cone maximality theorem, which would defeat originality.",
+        "The 1988 original Tarasov–Khachiyan–Erlikh work was not inspected; later historical account may miss a relevant exact inscribed-ellipsoid claim.",
+        "The numerical ellipsoid E_n and ratio were already displayed by prior work; only maximality and uniqueness are accepted as possible new material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_CANDIDATE_ALREADY_KNOWN; full-text maximality status undetermined",
+          "evidence": "Public abstract establishes uniformly sharp circular-cone family and finite-dimensional bounds; not a statement of John maximality for retained half-cone.",
+          "identifier_or_url": "arXiv:2609.28447v1",
+          "material_read": "ArXiv original abstract, source bibliographic metadata, source-defined cone and purported Section 4 relation as reproduced in frozen RESULT.md; primary full PDF not read",
+          "method": "web abstract; OA attempts and authorized institutional retrieval returned VPN disconnected",
+          "title": "A Spectral Proof of Khachiyan’s Ellipsoid Conjecture",
+          "trigger": "Exactly same cone K_n and candidate E_n"
+        },
+        {
+          "assessment": "BACKGROUND; full text inaccessible/unread in this run",
+          "evidence": "Known uniqueness/symmetry principles underlie the first step; specific displayed retained half-cone not verified in inspected material.",
+          "identifier_or_url": "arXiv:0709.0707",
+          "material_read": "Public bibliographic summary and scope indicated by audited RESULT.md only, no primary full mathematical proof read",
+          "method": "web bibliographic comparison and package source references",
+          "title": "The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases",
+          "trigger": "General ellipsoid symmetry and truncated cone formula possibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Maximizing inside the particular half-cone is an exact intrinsic John-ellipsoid computation relevant to the canonical sharpness family for the central-cut conjecture. It clarifies whether the exhibited witness is optimal for that very body in every finite dimension, without claiming the still-open global finite-dimensional central-cut constant. Natural optimization target, not an arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only a specific central half-cone family n>=2; not general fixed-dimensional optimal central-cut ratio.",
+    "Primary full-text originality gap for exactly same object is material; best-of-knowledge conclusion must not be sold as priority certification."
+  ],
+  "schema_version": 1
+}
