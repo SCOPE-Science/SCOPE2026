@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verify_discotope.py` with Python and SymPy. The script uses exact symbolic arithmetic and prints `VERIFY_OK` on success.
+# Independent mathematical audit
 
-It verifies the compact identity \(F=(a^2+b^2+pq)^2-4(a^2b^2+pq)\), the factorization of all four first derivatives, and containment of all ten reduced line components in the Jacobian zero set. It also verifies a Hessian \(3\times3\) minor
-\[
--128t^2(t-1)^2(t+1)^2
-\]
-on a main line and a minor \(-512t^2\) on an isotropic line, proving rank three away from the five special points.
+## correctness
 
-For the origin it checks the exact identity
-\[
-F=(a^2-b^2)^2-pq(4-2(a^2+b^2)-pq),
-\]
-whose unit factor yields the completed local form \(PQ-u^2v^2\). The script differentiates this normal form, obtaining singular ideal \((P,Q,uv^2,u^2v)\), and verifies by exact Gröbner reduction that \(uv\) survives modulo \((u^2v,uv^2)\) while \(u(uv)\), \(v(uv)\), and \((uv)^2\) vanish. Thus the reduced radical is \((P,Q,uv)\) and the nilradical quotient has \(\mathbb C\)-length one.
+PASS
 
-For a triple-branch point it checks
-\[
-F=u^2((v+2)^2+pq)+pq(v(v+4)+pq),
-\]
-where the first coefficient is a unit and \(v(v+4)+pq\) is a formal coordinate, yielding \(U^2+Vpq\). Its differentiated singular ideal is \((U,pq,Vq,Vp)\), a squarefree monomial ideal.
+PASS. At the exact RESULT.md snapshot, with a=x1,b=x4,p=x2+i*x3,q=x2-i*x3, the partials of F=(a²+b²+pq)²−4(a²b²+pq) give exhaustive alternatives p=q=0,b=±a or a²=b²=1,pq=0. The former are 2 main lines, latter 8 isotropic lines. The origin change P=p(4−2(a²+b²)−pq),Q=q,u=a−b,v=a+b has invertible Jacobian and yields PQ−u²v²: Jacobian (P,Q,u²v,uv²), radical (P,Q,uv), an embedded square-zero length-one uv class. Vertex substitutions reduce to U²+Vpq with radical squarefree Jacobian (U,pq,Vp,Vq), 3 components. Nonzero Hessian 3x3 minors −128t²(t²−1)² and −512t² prove ordinary transverse A1 at every other point. Reconstructed identities using independent SymPy checks, not only saved VERIFY_OK; global exhaustiveness is the algebraic case split, not finite sampling.
 
-The script does not establish a literature-negative claim. Originality rests on primary-source inspection and targeted searches. Global exhaustiveness of the reduced singular-locus list is proved algebraically in `RESULT.md`, not inferred from finite sampling.
+## originality
+
+PASS
+
+PASS (best of knowledge). Primary Example 8.1 prints the precise 4-dimensional quartic and its four real multi-exposure points, but no ten-line complex Jacobian stratification, formal triple branches or embedded length-one origin. Distinct Example 3.2 classifies a different 3-variable surface. Resultary searches found the target and other different quartics, no dominating explicit scheme classification. An undiscovered classical coordinate-equivalent quartic remains a risk.
+
+## value
+
+PASS
+
+PASS. Singular-scheme support versus embedded nilpotent structure is a nontrivial intrinsic algebraic invariant of a natural geometric test example at the boundary of known discotope results. The exact normal forms at ten generic lines, four triple points and one embedded origin have use for resolution, deformation, and boundary singularity comparisons; this is not merely transcribing the input polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

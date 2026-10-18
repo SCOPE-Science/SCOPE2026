@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source quartic is rewritten exactly as \(F=(a^2+b^2+pq)^2-4(a^2b^2+pq)\). Factoring its four derivatives gives an exhaustive case split: \(p=q=0\) yields exactly the two main lines, while \((p,q)\ne(0,0)\) forces \(pq=0\) and \(a^2=b^2=1\), yielding exactly eight isotropic lines. At the origin the invertible coordinate change gives \(PQ-u^2v^2\); its Jacobian singular ideal is \((P,Q,uv^2,u^2v)\), whose radical is \((P,Q,uv)\), and the residual nilpotent class \(uv\) has \(\mathbb C\)-length one and square zero. At each of the four triple points the exact identity yields \(U^2+Vpq\), whose singular ideal is radical. Explicit Hessian minors prove transverse \(A_1\) type on all remaining singular strata. The embedded verifier independently reproduces these algebraic certificates. Scientific limit: no assertion is made about the projective closure or positive characteristic.
+## correctness
 
-## Originality
-PASS. The full primary source was inspected at Example 8.1 and its surrounding discussion. It supplies the quartic, irreducibility, degree, and four real points exposed by more than one vector, but not the ten-line complex singular support, the unique nonreduced point of the Jacobian singular scheme, or the local normal forms. A later related discotope paper concerns three-space and does not imply this four-dimensional calculation. Searches using the exact example, discotope aliases, local-form language, and nonreduced Jacobian terminology found no covering statement. Residual risk: an equivalent classical treatment could exist under a non-obvious coordinate transformation or unrelated quartic terminology.
+PASS
 
-## Value
-PASS. The source uses this example to expose the difficulty of higher-dimensional discs. The result gives structural information directly tied to that motivating gap: it explains the four distinguished real boundary points as triple intersections of complex singular branches and identifies a qualitatively different infinitesimal degeneration at the origin, where the singular scheme has a length-one embedded nilpotent. This is useful local geometry for normalization, deformation, and critical-locus questions and is not merely a re-expansion of the known quartic equation. Value limit: it is intentionally example-specific and does not settle the source's general conjectures.
+PASS. At the exact RESULT.md snapshot, with a=x1,b=x4,p=x2+i*x3,q=x2-i*x3, the partials of F=(a²+b²+pq)²−4(a²b²+pq) give exhaustive alternatives p=q=0,b=±a or a²=b²=1,pq=0. The former are 2 main lines, latter 8 isotropic lines. The origin change P=p(4−2(a²+b²)−pq),Q=q,u=a−b,v=a+b has invertible Jacobian and yields PQ−u²v²: Jacobian (P,Q,u²v,uv²), radical (P,Q,uv), an embedded square-zero length-one uv class. Vertex substitutions reduce to U²+Vpq with radical squarefree Jacobian (U,pq,Vp,Vq), 3 components. Nonzero Hessian 3x3 minors −128t²(t²−1)² and −512t² prove ordinary transverse A1 at every other point. Reconstructed identities using independent SymPy checks, not only saved VERIFY_OK; global exhaustiveness is the algebraic case split, not finite sampling.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (best of knowledge). Primary Example 8.1 prints the precise 4-dimensional quartic and its four real multi-exposure points, but no ten-line complex Jacobian stratification, formal triple branches or embedded length-one origin. Distinct Example 3.2 classifies a different 3-variable surface. Resultary searches found the target and other different quartics, no dominating explicit scheme classification. An undiscovered classical coordinate-equivalent quartic remains a risk.
+
+## value
+
+PASS
+
+PASS. Singular-scheme support versus embedded nilpotent structure is a nontrivial intrinsic algebraic invariant of a natural geometric test example at the boundary of known discotope results. The exact normal forms at ten generic lines, four triple points and one embedded origin have use for resolution, deformation, and boundary singularity comparisons; this is not merely transcribing the input polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
