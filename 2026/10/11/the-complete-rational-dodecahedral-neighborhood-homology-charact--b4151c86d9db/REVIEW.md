@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The complex is defined explicitly by the thirty edges of the dodecahedral graph. Twenty degree-three neighborhood triangles have sixty distinct boundary edges; removing one free edge with each triangle collapses the connected complex to a graph with twenty vertices, forty edges and first Betti number twenty-one. Every automorphism is captured by images of a root and its ordered neighbors, yielding the exhaustive 120-element group. Signed simplicial Lefschetz traces on all 120 permutations give the two antipodal eigenspace characters, and the rational character table of the rotational \(A_5\) group yields exactly the claimed decomposition. The bundled all-integer verifier reconstructs these facts independently of any external algebra package. Residual correctness risk concerns only implementation or transcription error; no infinite extrapolation is used.
+## correctness
 
-**Originality — PASS.** The already-known nonequivariant wedge-of-circles result is excluded from the novelty claim. Shukla's maximal-degree-three classification, Matsushita's graph-topological and square-free Hom-complex results, and nearby published calculations for the dodecahedral independence/matching complexes or icosahedral neighborhood complex do not specify this rational \(A_5\times C_2\)-homology character. Explicit comparison includes the stronger existing nonequivariant results. Search and full-text inspection found no equivalent dodecahedral representation theorem. Residual risk: a separately indexed or implicit equivariant result may exist, so the search does not establish absolute priority.
+PASS
 
-**Value — PASS.** The highly symmetric, canonical dodecahedral graph is a natural exact test object for equivariant graph topology. The rank \(21\) alone cannot determine the rotational irreducible constituents, the asymmetric \(11/10\) antipodal parity split, or the absence of invariant cycles. These provide a genuinely additional structural invariant rather than an arbitrary count or rephrasing of nonequivariant homology. The scope is a complete rational finite-graph result, not an unproved broader theorem.
+For explicitly given GP(10,2) dodecahedral edge list, 20 distinct neighbor triangles and 60 edges occur, every triangle has three free edges; removing 20 triangle-edge free pairs yields connected graph with 20 vertices, 40 edges and H1 rank 21. Independent reconstruction enumerated all 120 graph automorphisms from distance signatures (at most 20×3! local maps), 60 rotations of A5 and one central antipodal coset. Signed fixed-oriented-simplex traces of every element give rotation traces on element orders (1,2,3,5): (21,1,-3,1) and antipodal-twisted traces (1,-3,1,1). Projecting to central parity gives χ+=(11,-1,-1,1)=W6+V5 and χ-=(10,2,-2,0)=2V5, with no A5 trivial constituent. Full finite signed trace analysis proves the claimed rational A5×C2 representation, not an integral module classification.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+A known stronger nonequivariant neighborhood-complex theorem determines wedge-of-circles homotopy but does not determine how the full dodecahedral automorphism group acts on rational H1. Related published SCOPE icosahedral neighborhood-complex character studies a different graph and homology dimension. No checked prior source specifies both the order-class traces and the central antipodal 11/10 split of this exact D=GP(10,2) complex.
+
+## value
+
+PASS
+
+The dodecahedron is a canonical highly symmetric graph, and representation on homology is a meaningful refinement of the known 21-circle wedge homotopy. The exact full automorphism character specifies even/odd antipodal splitting (11/10), 6D versus 5D rational rotation constituents, and absence of invariant H1 cycles: none is determined by a Betti number. This motivates the precise finite invariant beyond reproducibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
