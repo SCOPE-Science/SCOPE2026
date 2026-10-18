@@ -1,19 +1,21 @@
-# Same-model mathematical review: central regular-icosahedron sections
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unit-normal sphere is partitioned by six antipodal vertex-axis great circles. For all 64 six-sign patterns, the exact arithmetic verifier tests all 30 oriented great-circle intersections. Exactly 32 chambers survive: 20 triangles with 12 sign-changing icosahedron edges and 12 pentagons with 10 sign-changing edges. No triple intersections occur, so the list exhausts generic orientations. By uniform spherical separation an icosahedron edge crosses the central plane with probability \(\theta/\pi\), where \(\theta=\arccos(1/\sqrt5)\), hence the mean is \(30\theta/\pi\). The two-point support yields \(\mathbb P(N=12)=15\theta/\pi-5\). Girard's spherical polygon formula supplies an independent area derivation. No finite simulation is used as proof of the continuum assertion.
+PASS
 
-## Originality — PASS, with residual risk
+For the specified 12 regular icosahedron vertices in six antipodal pairs, a generic central plane section has one polygon vertex for each of its 30 original edges with opposite normal signs. The six vertex axes are pairwise nonorthogonal with |cos angle|=1/sqrt5 and no three linearly dependent, hence six normal great circles have exactly 32 sign chambers. The bundled source checker makes every one of the 64 mask decisions and all 30 oriented pair-circle intersections EXACTLY in Z[sqrt5], and verifies 20 triangular chambers have 12 crossed edges and 12 pentagonal chambers have 10. I separately enumerated all 64 masks and 30 candidate crosses with geometric dot/cross operations; the category counts independently agree (the independent floating checks are corroboration; the source's symbolic sign proof establishes exhaustiveness). Each of the 30 edges is crossed by Haar normal with probability theta/pi, theta=acos(1/sqrt5); thus E[N]=30theta/pi. Since a.s. N∈{10,12}, P12=15theta/pi-5 and P10=6-15theta/pi. Independent Girard areas 20(3theta-pi)+12(2pi-5theta)=4pi agree. Nongeneric six great-circle boundaries are Haar-null; no claim about them.
 
-The most relevant primary full texts inspected are De Loera–Lopez-Campos–Torres (arXiv:2412.12419, possible polytope section counts and icosahedral gaps), Jeon (arXiv:2603.00017, a distinguished equatorial decagon), and Kabluchko–Seidel (arXiv:2006.09492, expected face numbers of other regular polytope families). None contains the complete Haar 10/12 section-type law in the sections examined. Frederick's 2023 note **does** already describe the six-great-circle 20-triangle/12-pentagon tessellation, and MathPages has already given the numerical area fractions of its triangular and pentagonal chambers. Both those facts are prior art, not new. The claim's differentiating content is the exhaustive exact incidence of chamber types with 10- and 12-vertex central sections, giving the stated law; the probabilities follow easily from earlier area fractions **once that incidence is known**. Equivalent stereological formulations could be unindexed and cannot be excluded by search alone.
+## originality
 
-## Value — PASS
+PASS
 
-The 2024 polytope-section problem identifies the regular icosahedron as a structurally distinctive test case. This result is an exact, nontrivial rotation-invariant section invariant: an almost-sure complete type classification with exact nondegenerate probabilities and expectation. Its correspondence between a spherical geodesic tessellation and the section edge-crossing statistic gives a reusable finite-dimensional benchmark. It is not asserted to cover noncentral cuts or arbitrary icosahedra.
+The six-great-circle tessellation (20 triangular/12 pentagonal spherical regions) and their spherical area fractions were previously recorded by Frederick 2023 and MathPages; both are explicitly credited. De Loera–Lopez-Campos–Torres (full arXiv HTML) study attainable slice vertex counts and the icosahedron's four-vertex gap, not Haar central-section probabilities. Jeon (full arXiv HTML) gives a distinguished equatorial decagon, not a chamber-to-polygon-type classification. Kabluchko–Seidel expected face counts are for other regular polytope families. The distinct remaining proposition is the exact incidence of every spherical sign-chamber type with 10- versus 12-gon sections and consequent complete Haar polygon-type distribution. It could be recovered quickly once incidence is known, but earlier area tables alone do not mathematically give incidence; an unindexed source might. This distinction is meaningful but narrow and priority-qualified.
 
-## Reproducibility and limits
+## value
 
-The included `verify_icosahedron.py` requires only Python's standard library and uses exact arithmetic in \(\mathbb Z[\sqrt5]\) for all chamber, edge and angle signs. It checks all candidate sign patterns and all pair-circle intersections. The continuous Haar calculation and Girard identity are proved separately. Full source comparisons reduce, but do not eliminate, historical overlap risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Generic regular-icosahedron central sections form a natural finite-dimensional polytope classification problem highlighted by the icosahedral slice-gap literature. A complete exact incidence classification of all orientation chambers and the resulting genuinely nontrivial 10/12 Haar law is a standalone exact invariant of a canonical regular solid. Although the great-circle regions and their fractional areas are previously known, their verified edge-crossing correspondence is a motivated combinatorial-geometric fact rather than unmotivated enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
