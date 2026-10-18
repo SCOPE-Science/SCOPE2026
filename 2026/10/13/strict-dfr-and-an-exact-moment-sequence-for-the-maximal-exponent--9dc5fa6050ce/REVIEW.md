@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published inverse CDF is converted exactly by \(U=1-e^{-E}\) into \(Z_\infty\stackrel d=E/(1-e^{-E})\). Differentiating the survival parametrization gives the hazard formula. The derivative sign reduces to the elementary inequality \(e^L>1+L\), proving strict hazard decrease on the entire support and the endpoint limits \(2\) and \(1\). The integer moments follow by a nonnegative binomial-series expansion and monotone convergence. Numerical checks only replay the analytic identities.
+## correctness
 
-## Originality
-PASS. The complete primary arXiv paper was inspected at its distribution theorem, remarks, applications, and proof. It contains no matches for `hazard`, `moment`, or `zeta`, and does not state the transformed-exponential representation, strict DFR classification, or all-order moment sequence. Candidate-specific published-record and indexed searches using source-id, maximal-average, DFR, hazard, transformed-exponential, and zeta aliases found no covering statement. An older unindexed reliability-theory calculation remains a residual risk.
+PASS
 
-## Value
-PASS. The source itself motivates the law through ruin probability and alarm thresholds. A strict DFR classification is therefore directly structural: it describes the full conditional tail behavior of the exact maximal-average law. The complete moment sequence gives exact quantitative summaries and exposes a simple zeta structure, including \(\mathbb E Z_\infty=\pi^2/6\). This is a motivated characterization of the full distribution, not an arbitrary parameter slice.
+For iid Exp(1) and Z∞=sup_{n>=1} (X1+...+Xn)/n, source supplies exact inverse CDF F^-1(u)=-log(1-u)/u on u in (0,1). Transform U=1-e^-E, E~Exp(1), gives Z=E/(1-e^-E). Set q=1-F(x); x(q)=-log(q)/(1-q), dx/dq=-(1-q+q log q)/(q(1-q)^2). Therefore hazard=(1-q)^2/(1-q+q log q). Differentiating gives dh/dq>0 because φ(L)=L-2+e^-L(L+2)>0 for L>0, φ(0)=0, φ′=1-e^-L(L+1)>0. Since q decreases with x, hazard strictly falls from 2 to1 on x>1. Positive binomial expansion and monotone convergence prove integer m>=1 moments m!Σ_{n>=1} binom(m+n-2,m-1)/n^(m+1), mean ζ(2), second moment 2ζ(2), exact variance π²(12-π²)/36.
 
-## Closest literature and limitations
-The closest source is Cheliotis--Papadatos, arXiv:1906.09377v1, which determines the distribution and exact inverse CDF. The new result depends on that theorem and does not claim a new derivation of the CDF. It is restricted to iid exponential parents and positive integer moments; no corresponding DFR claim is made for other parent laws or later-start maxima.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cheliotis–Papadatos entirely determine the distribution and inverse CDF; novelty cannot be claimed for the law itself. Their inspected full text focuses on sequential maxima, percentiles and ruin probability and does not give DFR classification or the all-integer-moment sequence. Both are source-specific consequences, with priority risk from reliability/special-function aliases.
+
+## value
+
+PASS
+
+A full strict reliability classification and the entire integer moment sequence give natural information for exactly the maximal risk statistic used in the prior quality-control/ruin context, despite being obtained from a known inverse CDF; neither a routine parameter renaming nor an arbitrary unmotivated finite statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

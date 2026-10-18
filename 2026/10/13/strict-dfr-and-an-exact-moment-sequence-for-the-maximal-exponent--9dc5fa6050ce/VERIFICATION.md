@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. Starting from
-\[
-F_\infty^{-1}(u)=\frac{-\log(1-u)}{u},
-\]
-the substitution \(u=1-e^{-E}\) gives the exact transformed-exponential representation.
+# Independent mathematical audit
 
-For survival \(q\in(0,1)\),
-\[
-x(q)=\frac{-\log q}{1-q},
-\qquad
-h(x(q))=\frac{(1-q)^2}{1-q+q\log q}.
-\]
-Differentiation reduces strict DFR to
-\[
-L-2+e^{-L}(L+2)>0,\qquad L>0,
-\]
-whose derivative is \(1-e^{-L}(L+1)>0\).
+## correctness
 
-For every integer \(m\ge1\),
-\[
-\mathbb E Z_\infty^m
-=
-\int_0^\infty\frac{t^m e^{-t}}{(1-e^{-t})^m}\,dt
-=
-m!\sum_{n\ge1}\binom{m+n-2}{m-1}n^{-(m+1)}.
-\]
-The bundled `verify.py` independently checks the hazard formula numerically, strict decrease on a deterministic grid, the endpoint behavior, and the first three moments by numerical quadrature and partial series.
+PASS
 
-Successful output ends with:
-`VERIFY_OK mean=1.644934066848226 variance=0.584060049418607 hazard_endpoints=(2,1)`.
+For iid Exp(1) and Z∞=sup_{n>=1} (X1+...+Xn)/n, source supplies exact inverse CDF F^-1(u)=-log(1-u)/u on u in (0,1). Transform U=1-e^-E, E~Exp(1), gives Z=E/(1-e^-E). Set q=1-F(x); x(q)=-log(q)/(1-q), dx/dq=-(1-q+q log q)/(q(1-q)^2). Therefore hazard=(1-q)^2/(1-q+q log q). Differentiating gives dh/dq>0 because φ(L)=L-2+e^-L(L+2)>0 for L>0, φ(0)=0, φ′=1-e^-L(L+1)>0. Since q decreases with x, hazard strictly falls from 2 to1 on x>1. Positive binomial expansion and monotone convergence prove integer m>=1 moments m!Σ_{n>=1} binom(m+n-2,m-1)/n^(m+1), mean ζ(2), second moment 2ζ(2), exact variance π²(12-π²)/36.
 
-Finite numerical checks are regression tests only and do not establish the all-parameter theorem.
+## originality
+
+PASS
+
+Cheliotis–Papadatos entirely determine the distribution and inverse CDF; novelty cannot be claimed for the law itself. Their inspected full text focuses on sequential maxima, percentiles and ruin probability and does not give DFR classification or the all-integer-moment sequence. Both are source-specific consequences, with priority risk from reliability/special-function aliases.
+
+## value
+
+PASS
+
+A full strict reliability classification and the entire integer moment sequence give natural information for exactly the maximal risk statistic used in the prior quality-control/ruin context, despite being obtained from a known inverse CDF; neither a routine parameter renaming nor an arbitrary unmotivated finite statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

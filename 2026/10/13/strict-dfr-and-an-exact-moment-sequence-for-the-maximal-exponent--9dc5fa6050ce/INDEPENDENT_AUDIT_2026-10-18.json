@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:50:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid Exp(1) and Z∞=sup_{n>=1} (X1+...+Xn)/n, source supplies exact inverse CDF F^-1(u)=-log(1-u)/u on u in (0,1). Transform U=1-e^-E, E~Exp(1), gives Z=E/(1-e^-E). Set q=1-F(x); x(q)=-log(q)/(1-q), dx/dq=-(1-q+q log q)/(q(1-q)^2). Therefore hazard=(1-q)^2/(1-q+q log q). Differentiating gives dh/dq>0 because φ(L)=L-2+e^-L(L+2)>0 for L>0, φ(0)=0, φ′=1-e^-L(L+1)>0. Since q decreases with x, hazard strictly falls from 2 to1 on x>1. Positive binomial expansion and monotone convergence prove integer m>=1 moments m!Σ_{n>=1} binom(m+n-2,m-1)/n^(m+1), mean ζ(2), second moment 2ζ(2), exact variance π²(12-π²)/36.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General quantile-to-hazard formula implies a computable hazard but not its strict sign and limits until derivative checked.",
+          "Monotone convergence yields explicit moments after using special E/(1-e^-E) representation."
+        ],
+        "reasoning": "The source gives enough data for calculation, but the resulting strict DFR classification and exact sequence are independently useful quantitative consequences absent from the inspected statements.",
+        "searches": [
+          "arXiv:1906.09377 Theorem 1 inverse CDF",
+          "Generic survival-transform hazard and binomial series",
+          "Resultary relevant maxima/exponential distribution matches"
+        ]
+      },
+      "checked_sources": [
+        "Tree 9a13a5031158f5befb54ae5d831c6fcadd1d34f6, RESULT blob ed13f2fc77a559abb63b17c348b9135723d0f307",
+        "Cheliotis–Papadatos primary full HTML",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source inverse-CDF theorem implies distribution; hazard derivative sign and moment series do follow by additional elementary calculations.",
+          "The finding explicitly credits the inverse distribution theorem rather than claiming an independent distribution law."
+        ],
+        "reasoning": "Mathematical implication is an immediate *computational possibility*, not an already stated result; source-specific strict hazard monotonicity and special-zeta identities need differentiation/expansion, assessed as natural value, not a new probabilistic distribution discovery.",
+        "searches": [
+          "arXiv:1906.09377 inverse-CDF theorem and ruin sections",
+          "Classical risk-theory DFR definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior inverse distribution q->x is exactly the paper result; distributional representation follows from inverse transform.",
+          "The published primary text inspected contains no hazard/DFR or all-moment theorem."
+        ],
+        "reasoning": "Known inverse law and new hazard/moment properties are logically related, but not identical statements; priority under reliability terminology remains a risk.",
+        "searches": [
+          "Resultary semantic: maximal running average exponential iid inverse distribution Cheliotis Papadatos hazard decreasing failure rate moments",
+          "Cheliotis–Papadatos arXiv:1906.09377 full text",
+          "Google-like term aliases: maximal exponential sample means hazard DFR zeta moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source quantile table is not an exact hazard classification or whole moment sequence.",
+          "No same exact sequence identified in examined nearest Resultary hits."
+        ],
+        "reasoning": "There is no claimed already-canonical exhaustive table; targeted searches provide only bounded novelty evidence.",
+        "searches": [
+          "Resultary semantic query maximal exponential average hazard moment zeta",
+          "Cheliotis–Papadatos 2019 distribution tables/percentiles"
+        ]
+      },
+      "rationale": "Cheliotis–Papadatos entirely determine the distribution and inverse CDF; novelty cannot be claimed for the law itself. Their inspected full text focuses on sequential maxima, percentiles and ruin probability and does not give DFR classification or the all-integer-moment sequence. Both are source-specific consequences, with priority risk from reliability/special-function aliases.",
+      "residual_risks": [
+        "Older reliability/queueing language might give the DFR statement or integer-moment sequence.",
+        "These are elementary functional consequences of a known CDF; value hinges on relevance as natural hazard/moment invariants, not on inventing distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING law and inverse quantile, NOT STATING inspected DFR or all-moments claims",
+          "evidence": "F^-1(u)=-log(1-u)/u is openly reused; hazard and integer moment results are derived from it.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.09377",
+          "material_read": "Full arXiv HTML: inverse distribution theorem, related remarks, application to ruin and percentiles; searched hazard/moment/zeta passages",
+          "method": "arXiv lawful HTML full reading",
+          "title": "On sequential maxima of exponential sample means, with an application to ruin probability",
+          "trigger": "Exact Z∞ distribution and possible known risk/hazard consequences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full strict reliability classification and the entire integer moment sequence give natural information for exactly the maximal risk statistic used in the prior quality-control/ruin context, despite being obtained from a known inverse CDF; neither a routine parameter renaming nor an arbitrary unmotivated finite statistic.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Tree 9a13a5031158f5befb54ae5d831c6fcadd1d34f6, RESULT blob ed13f2fc77a559abb63b17c348b9135723d0f307",
+    "Cheliotis–Papadatos primary full HTML",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Older reliability/queueing language might give the DFR statement or integer-moment sequence.",
+    "These are elementary functional consequences of a known CDF; value hinges on relevance as natural hazard/moment invariants, not on inventing distribution."
+  ],
+  "schema_version": 1
+}
