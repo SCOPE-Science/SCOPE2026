@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For b>=3, the two-step graph is a clique blow-up of an odd cycle; each q-coloring has a unique size-b color support and 2b maximum size-(b+1) supports. Maximal supports are indexed by their unique missed edge, and deficient support by its three missed edges. The spare-color criterion rigorously identifies degree as b sum max(0,g_j-3); the ordered compositions of excess 3 yield precisely 0,b,2b with exact multiplicities. Standard-library independent support enumeration for b=3..8, direct two-step graph tests at b=3,4 and separate transfer counts at b=3,4 agree. No infinite inference is based solely on finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brewster et al arxiv:1712.00200v1, Theorem 1.3 and §3",
+        "Bonamy-Bousquet-Perarnau arxiv:1811.12650v1, Theorem 1"
+      ],
+      "reasoning": "General frozen-homomorphism dichotomies do not imply counts for this growing graph+palette family. The asymptotic rare-frozen theorem is restricted to q=Delta+1, whereas here Delta=3b-1 and q=2b+1; therefore its hypothesis does not apply.",
+      "searches": [
+        "Graph Homomorphism Reconfiguration and Frozen H-Colourings arxiv 1712.00200",
+        "Frozen (Delta+1)-colourings of bounded degree graphs arxiv 1811.12650",
+        "reconfiguration b-fold coloring odd cycle frozen"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2306.01488v1",
+      "doi:10.37236/638",
+      "arxiv:1712.00200v1",
+      "arxiv:1811.12650v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Samadi et al Theorem 6 determines numerical chromatic values for cycle×cycle, not exact move counts",
+        "Dong et al Proposition 2 is a chromatic polynomial for four-clique rings, not degrees of individual q-colorings",
+        "Bonamy et al Theorem 1 applies to different palette regime"
+      ],
+      "reasoning": "The result restricts to K_b×C_{2b+3} and refines color counts by a new local-move statistic. General color counts or existence of frozen H-colorings do not imply numbers of degree-0, degree-b, degree-2b configurations; the smaller critical-palette regime is mathematically distinct.",
+      "searches": [
+        "\"ring of cliques\" \"chromatic polynomial\" Read",
+        "\"Injective coloring of product graphs\" Theorem 6",
+        "\"Frozen (Delta+1)-colourings\" theorem frozen fraction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Samadi-Soltankhah-Yero arxiv:2306.01488v1, §2 (two-step product reduction)",
+        "Dong-Royle-Wagner (2011), four-clique ring polynomial definitions"
+      ],
+      "reasoning": "The new claim is equivalently a local-recoloring degree distribution on a uniform clique-ring and on b-fold colorings of an odd cycle with one-unit capacity slack. Numerical chromatic information alone does not fix the neighbor counts at each coloring; checked sources do not give this stratification.",
+      "searches": [
+        "\"injective coloring\" \"frozen\" \"reconfiguration\"",
+        "\"K_b × C_{2b+3}\" \"injective\" recoloring",
+        "\"odd cycle\" \"b-fold\" \"frozen\" colorings",
+        "Multicoloring circular graph C_{2k+3} optimal k-fold colorings unique support"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed hits on forced 3-colorings at maximum degree 2 and recolorings of crown graphs concern other invariants",
+        "The inspected primary articles tabulate chromatic values, four-clique polynomial data, or general frozen-colouring existence; none tabulates the claimed optimal reconfiguration degree spectrum"
+      ],
+      "reasoning": "The checks looked for the explicit exact sequence, the near-optimal multicoloring alias, and a counting-table statement. Numerical count references do not provide reconfiguration degree. Absence of a hit is treated only as evidence at best-knowledge level, not as proof of novelty.",
+      "searches": [
+        "Exact numbers of minimum injective colorings for direct product K_m × C_{2m+3}, one-vertex recolorings and frozen colorings",
+        "Reconfiguration graph of injective optimal colorings of K_b × C_{2b+3} direct product, isolated frozen 2b+1 colorings",
+        "injective coloring direct product of cycles C3 × Cn chromatic polynomial ring of cliques"
+      ]
+    },
+    "rationale": "Best-knowledge check across product injective coloring, clique-ring chromatic polynomials, general frozen/reconfiguration theorems, and available indexed prior claims found no theorem entailing the three-class optimal-recoloring-degree distribution. Chromatic counts and chromatic number do not imply frozen-state stratification. One-defect support classification is compared at statement/implication level rather than terminology alone.",
+    "residual_risks": [
+      "Indexed scientific search cannot exclude all unpublished or unindexed results on frozen multicolorings of odd cycles.",
+      "A general ring-of-cliques recoloring theorem beyond the inspected primary papers could imply a special case, although none was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes injective-coloring framework and numerical results for cycles, but not the claimed exact recoloring degrees of complete-graph direct products.",
+        "evidence": [
+          "arxiv:2306.01488v1 §§1.1,2.1-2.2, Theorem 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2306.01488v1",
+        "material_read": "Open-access full text: definitions and product reduction in §§1-2 and Theorem 6 for cycle direct products; references and text searched for enumerations/recolorings.",
+        "method": "HTML text inspection, theorem and implication comparison",
+        "title": "Injective coloring of product graphs",
+        "trigger": "Primary first-public 2023-06-02, two-step graphs and direct products"
+      },
+      {
+        "assessment": "The ring concept and polynomial context overlap, but the studied four-clique polynomial does not determine local one-vertex recoloring degrees in the present n>=9 family.",
+        "evidence": [
+          "Dong-Royle-Wagner (2011), pp.1-4, propositions 1-3"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v18i1p151/pdf/",
+        "material_read": "Open-access 13-page PDF; introduction, classification of rings, and §2 chromatic polynomial of a four-clique ring.",
+        "method": "PDF text and visual page inspection",
+        "title": "Chromatic Roots of a Ring of Four Cliques",
+        "trigger": "Conflict graph here is a ring of equally sized cliques"
+      },
+      {
+        "assessment": "General existence/dichotomy and complexity for fixed H, not a count or degree distribution for optimal injective colorings of this cyclic complete-product family.",
+        "evidence": [
+          "arxiv:1712.00200v1, introduction, Theorems 1.1-1.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1712.00200",
+        "material_read": "Open-access 21-page PDF, with introduction, §§1-3 reconfiguration/frozen definitions and dichotomy inspected, plus targeted whole-document searches for ring/clique/count.",
+        "method": "PDF text and visual page inspection with theorem/implication comparison",
+        "title": "Graph Homomorphism Reconfiguration and Frozen H-Colourings",
+        "trigger": "A frozen proper coloring is an isolated vertex of a reconfiguration graph"
+      },
+      {
+        "assessment": "Concerns (maximum-degree+1)-colorings; conflict graph here has degree 3b-1 while the palette has 2b+1 colors, so the asymptotic rarity bound does not apply.",
+        "evidence": [
+          "arxiv:1811.12650v1, §1 Theorem 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1811.12650",
+        "material_read": "Open-access 16-page PDF: introduction, §1 theorem statements, and relevant adjacent background inspected in text and page image.",
+        "method": "PDF text and visual page inspection",
+        "title": "Frozen (Delta+1)-colourings of bounded degree graphs",
+        "trigger": "Closest asymptotic frozen-colouring-frequency theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "34a7c640-74bc-4ddc-87e5-5a3430c3cc6a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural extremal one-unit support slack gives a full, nontrivial degree-profile of optimal injective colorings rather than a parameter substitution. It classifies absorbing states of single-site recoloring and calculates their fraction tending to one, a sharp threshold-specific phenomenon relevant to color sampling and reconfiguration. This differs from known maximal-degree-plus-one sparse-frozen-coloring regimes; the object and exact local statistic are mathematically motivated.",
+    "status": "PASS"
+  }
+}
