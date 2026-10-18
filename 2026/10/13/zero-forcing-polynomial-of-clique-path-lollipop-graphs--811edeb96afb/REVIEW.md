@@ -1,13 +1,21 @@
-# Correctness
-The proof separates the only possible number of omitted nonattachment clique vertices. Two such omissions form an immediate permanent obstruction because every possible neighbor sees both. With no omission, the clique supplies the path start. With one omission and the attachment vertex blue, a second blue clique vertex forces the omission. With one omission and the attachment vertex white, the clique is frozen until the path forces the attachment vertex; an exact first-move analysis shows this happens precisely when the path initially contains its far endpoint or a consecutive selected pair. The three cases are disjoint, so their size enumerators add directly. The finite checker exhaustively reproduces the criterion and every coefficient through order \(14\).
+# Independent mathematical audit
 
-# Originality
-The foundational zero-forcing source supplies only the forcing rule. The same-object lollipop source arXiv:1509.01196 defines \(L(k,\ell)\) exactly as used here and studies distance-matrix determinants and inertia; its zero-forcing discussion occurs in a different section for a general distance-eigenvalue bound. The zero-forcing-polynomial source arXiv:1801.08910 contains no “lollipop” occurrence and its exact path criterion does not encode the frozen clique attachment. The later graph-operations paper arXiv:2405.01423 proves coefficient comparisons and operation lemmas rather than the exact lollipop enumerator. Semantic searches under lollipop, clique-path, generalized-barbell, and minimum-set formulations found no equivalent indexed statement. A scalar formula for the zero forcing number may be derivable from broader structural results and is not treated as the originality-bearing part.
+## correctness
 
-# Value
-Lollipop graphs are a standard named interpolation between dense clique structure and a path tail, and zero forcing polynomials record substantially more information than the minimum parameter. The exact criterion identifies the unique interaction between the clique obstruction and rooted path propagation, yields every coefficient in closed form, and classifies all minimum sets with a count independent of the tail length. The result therefore gives a natural complete profile rather than an arbitrary finite slice or a recomputation of a known scalar.
+PASS
 
-# Closest literature and limitations
-The closest same-object source is arXiv:1509.01196, but its lollipop results concern the distance matrix. The closest same-parameter counting source is arXiv:1801.08910, which gives the path nonforcing criterion and other graph-family polynomials but not lollipops. The graph-operations source arXiv:2405.01423 supplies broader coefficient-comparison methods without an exact clique-path formula. The checker is finite corroboration only, and unindexed specialized literature remains a residual originality risk.
+For k>=3, ell>=1, the k-1 nonattachment clique vertices X are pairwise true twins: leaving two white creates an unbreakable obstruction. With zero X omissions the clique supplies path propagation; with one omission and attachment initially blue, another clique vertex forces it. With one omitted X vertex and a white attachment, the clique is frozen until the path drives a force into the attachment. This happens iff the initial path blue set has its far endpoint or some adjacent blue pair; otherwise every path blue vertex is blocked. These mutually exclusive cases yield x^(k-1)(1+x)^(ell+1)+(k-1)x^(k-1)(1+x)^ell+(k-1)x^(k-2)((1+x)^ell-I_(ell-1)(x)), I an independence polynomial for P_(ell-1). The minimum coefficient gives Z=k-1 and exactly 2k-1 minimum sets. Independently exhaustively checked 24 parameter pairs k=3..6, ell=1..6, including ell=1 boundary; universal result rests on case proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Aalipour et al. define precisely the same lollipop but study distance spectral invariants; their use of forcing elsewhere does not yield the lollipop polynomial. Boyer et al. provide the path criterion but cannot resolve the attachment-clique lock without a new case split. Menon–Singh supplies operation inequalities, not this exact two-parameter all-sets classification.
+
+## value
+
+PASS
+
+Lollipop graphs are a natural named family interpolating a dense clique and a path. The theorem explicitly characterizes every forcing set and all polynomial coefficients for two unbounded parameters; the k-1 minimum and the 2k-1 minimizer count are structural consequences rather than the only object of interest.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

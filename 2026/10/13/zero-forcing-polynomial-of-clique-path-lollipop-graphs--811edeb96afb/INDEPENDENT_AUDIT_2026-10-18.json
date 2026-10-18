@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T11:12:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=3, ell>=1, the k-1 nonattachment clique vertices X are pairwise true twins: leaving two white creates an unbreakable obstruction. With zero X omissions the clique supplies path propagation; with one omission and attachment initially blue, another clique vertex forces it. With one omitted X vertex and a white attachment, the clique is frozen until the path drives a force into the attachment. This happens iff the initial path blue set has its far endpoint or some adjacent blue pair; otherwise every path blue vertex is blocked. These mutually exclusive cases yield x^(k-1)(1+x)^(ell+1)+(k-1)x^(k-1)(1+x)^ell+(k-1)x^(k-2)((1+x)^ell-I_(ell-1)(x)), I an independence polynomial for P_(ell-1). The minimum coefficient gives Z=k-1 and exactly 2k-1 minimum sets. Independently exhaustively checked 24 parameter pairs k=3..6, ell=1..6, including ell=1 boundary; universal result rests on case proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyer formulas for paths and known standard graph families",
+          "Menon/Singh polynomial coefficient inequalities"
+        ],
+        "reasoning": "Known general coefficient monotonicity and graph-operation bounds do not give an equality formula for these lollipops. This family is not itself a path or threshold graph for k>=3 ell>=2 with induced P4 plus triangle.",
+        "searches": [
+          "arxiv:1801.08910",
+          "arxiv:2405.01423",
+          "Resultary_Search:zero forcing polynomial clique path lollipop exact formula all forcing sets"
+        ]
+      },
+      "checked_sources": [
+        "Git pinned 2026/10/13/zero-forcing-polynomial-of-clique-path-lollipop-graphs--811edeb96afb/RESULT.md blob 4a4c9c1556fd4923b765ed1d9542985730abe367",
+        "Git pinned verify.py blob b36f73b70f7f5013aae8010414b039f5e6f084b4",
+        "Git pinned METADATA.json blob 10a9b9c365cdd86072fff25bcaaa97d9080a2fa1",
+        "Git pinned AUDIT.json blob fe90d4afa0189182e3fcfd7fce8cc80c18b6a3d1",
+        "Actual repository tree 336f777fa769527d7c9e8ba02ef2b4d551d9d771 verified via GitHub API; returned tree truncated=false",
+        "https://arxiv.org/pdf/1509.01196",
+        "https://arxiv.org/pdf/1801.08910",
+        "https://arxiv.org/pdf/2405.01423"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lollipop paper reports distance-matrix inertias",
+          "General zero forcing polynomial path criterion (prior)",
+          "New clique-attachment locked-state classification"
+        ],
+        "reasoning": "No cited prior theorem directly entails all three disjoint structural alternatives. Path independence counts only enter after the novel graph-specific necessity-and-sufficiency condition.",
+        "searches": [
+          "arxiv:1509.01196",
+          "arxiv:1801.08910",
+          "arxiv:2405.01423"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aalipour et al. L(k,ell) same graph definition",
+          "Boyer et al. path criterion",
+          "Menon and Singh path-operation polynomial comparisons"
+        ],
+        "reasoning": "Equivalent descriptions as a clique joined by a single bridge to a path were checked. Their known path forcing conditions do not alone decide whether a blue path subset can unlock an initially white clique attachment.",
+        "searches": [
+          "Resultary_Search:zero forcing polynomial clique path lollipop exact formula all forcing sets",
+          "arxiv:1509.01196 lollipop zero forcing polynomial",
+          "arxiv:2405.01423 graph operations zero forcing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Claimed closed polynomial involving independent-set polynomial I_(ell-1) and 2k-1 minimum sets"
+        ],
+        "reasoning": "Full two-parameter polynomial/table not found; a known scalar Z=k-1 cannot substitute for all coefficients.",
+        "searches": [
+          "Resultary_Search:zero forcing polynomial clique path lollipop exact formula all forcing sets",
+          "exact phrase zero forcing polynomial lollipop",
+          "arxiv:1509.01196 lollipop section"
+        ]
+      },
+      "rationale": "Aalipour et al. define precisely the same lollipop but study distance spectral invariants; their use of forcing elsewhere does not yield the lollipop polynomial. Boyer et al. provide the path criterion but cannot resolve the attachment-clique lock without a new case split. Menon–Singh supplies operation inequalities, not this exact two-parameter all-sets classification.",
+      "residual_risks": [
+        "Older thesis or specialized graph-operations statement may contain an equivalent clique-path lollipop polynomial not indexed by the exact phrase.",
+        "Finite enumeration only corroborates the all-parameter classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS same lollipop construction but not standard zero-forcing set counts or polynomial",
+          "evidence": "Lollipop results are distance matrices, not the graph-process enumeration",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.01196",
+          "material_read": "Full 20-page preprint, especially lollipop distance determinant/inertia section and unrelated zero forcing discussion",
+          "method": "PDF text and relevant pages",
+          "title": "On the distance spectra of graphs",
+          "trigger": "identical named lollipop family and graph definition"
+        },
+        {
+          "assessment": "COVERS path criterion but no complete clique-path lollipop special case",
+          "evidence": "Boyer et al., The zero forcing polynomial of a graph, arXiv:1801.08910, Theorems 10 and 12, pp. 8–10",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.08910",
+          "material_read": "Full 23-page PDF, family formulas and path/threshold graph sections",
+          "method": "PDF text with page screenshot",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "same graph invariant, path conditions and class formulas"
+        },
+        {
+          "assessment": "No exact lollipop polynomial; general coefficient inequalities insufficient",
+          "evidence": "Operations bounds do not determine full signed attachment-state enumeration",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.01423",
+          "material_read": "Full 17-page paper, graph-operation coefficient results and proof sections",
+          "method": "PDF text and relevant page image",
+          "title": "Exploring the Influence of Graph Operations on Zero Forcing Sets",
+          "trigger": "potential reductions under attaching a path to clique"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Lollipop graphs are a natural named family interpolating a dense clique and a path. The theorem explicitly characterizes every forcing set and all polynomial coefficients for two unbounded parameters; the k-1 minimum and the 2k-1 minimizer count are structural consequences rather than the only object of interest.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git pinned 2026/10/13/zero-forcing-polynomial-of-clique-path-lollipop-graphs--811edeb96afb/RESULT.md blob 4a4c9c1556fd4923b765ed1d9542985730abe367",
+    "Git pinned verify.py blob b36f73b70f7f5013aae8010414b039f5e6f084b4",
+    "Git pinned METADATA.json blob 10a9b9c365cdd86072fff25bcaaa97d9080a2fa1",
+    "Git pinned AUDIT.json blob fe90d4afa0189182e3fcfd7fce8cc80c18b6a3d1",
+    "Actual repository tree 336f777fa769527d7c9e8ba02ef2b4d551d9d771 verified via GitHub API; returned tree truncated=false",
+    "https://arxiv.org/pdf/1509.01196",
+    "https://arxiv.org/pdf/1801.08910",
+    "https://arxiv.org/pdf/2405.01423"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "k>=3 and ell>=1; k=2 path and ell=0 complete graph excluded.",
+    "The formula counts standard zero-forcing sets, not PSD or skew variants."
+  ],
+  "schema_version": 1
+}
