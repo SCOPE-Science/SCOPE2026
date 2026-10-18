@@ -1,19 +1,21 @@
-# Scientific review: six-season stage-specific treatment ranking
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain includes all strictly positive \(2\times2\) baseline matrices and both strictly interior stage-survival fractions. The two factored trace-gap identities were checked as symbolic polynomial identities in all six parameters, and a complete 20-word orbit partition proves there are no missing treatment orders. A common nonnegative determinant and Perron monotonicity transfer trace comparisons to annualized growth, including the rank-one equality boundary. The rational growth/decline example independently satisfies a determinant-below-one stability test. Exact symbolic identities—not finite randomized experiments—underwrite the universal assertion.
+PASS
 
-## Originality — PASS, with recorded risk
+The 20 binary length-six words with three J=L diag(u,1) and three A=L diag(1,v) split under rotation into classes of sizes 6 blocked, 6+6 mixed, 2 alternating. The mixed traces agree by two-letter 2×2 reversal trace identity. All products share determinant (ad−bc)^6(uv)^3. Independent symbolic expansion with six free variables verified TM−TB=−bc(ad−bc)(d+au)(a+dv)(1−uv)^2 and TT−TM=−bc(ad−bc)(bc(1+uv)+a²u+d²v)(1−uv)^2. All other factors are strictly positive under the full hypotheses, and for positive 2×2 products the Perron root increases strictly with trace at fixed nonnegative determinant. Independently enumerated the 20 schedules and four orbit classes and checked equality of all 20 determinants. Therefore sign(det L) determines the complete strict ranking, with equality exactly det L=0; the rational biological witness crosses unit growth. Finite parameter tests were supplemental and are not an infinite proof.
 
-Ecological order-dependence and finite crop rotation comparisons already appear in Mertens et al. (2002); they are not claimed as new. Greene (2014), Theorem 1.1, already proves two-matrix reversal trace equality and covers the mixed-class coincidence. Schneider (2015) identifies the four necklaces and studies arbitrary \(2\times2\) relative trace orders without the linked two-stage ecological control factorization. Alaifari et al. (2019), Theorem 1, establishes a positive-semidefinite operator-norm rearrangement theorem, not the opposite-sign Perron order for generally nonsymmetric shared-baseline treatment products. The new claim is the exact specialized three-level ranking and sharp sign criterion, plus a same-budget growth/decline witness. Full text of the 2002 source could not be accessed; that unexamined content is a residual originality risk, and no search alone proves novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Stage-specific timing is a natural ecological intervention question. The result offers a complete nonnumeric choice rule for all six-season three-plus-three schedules, independent of intervention intensities, and identifies the biological distinction between within-stage persistence and cross-stage recruitment as the sole ranking phase parameter. The exact example changes qualitative long-run growth versus decline with the same counts of interventions. This is more than the generic observation that matrix products do not commute; it classifies all admissible schedules and the equality boundary for a motivated fixed-budget population model.
+Greene’s trace-reversal theorem and Schneider’s four-necklace analysis cover the cyclic/reversal combinatorial ingredients; they do not, in material inspected, determine the specialized stage-treatment trace-gap sign factorization. Mertens–van den Bosch–Heesterbeek 2002 studies seasonal ordering in structured crop rotation but its complete text was inaccessible, so overlap remains material rather than dismissed. A closely related unpublished or historical model-specific computation could cover the phase law.
 
-## Limits and closest source
+## value
 
-The closest ecological source, Mertens et al. (2002), analyzes seasonal crop sequences numerically in a seed-depth model and is an acknowledged conceptual antecedent. Its full text remained inaccessible despite open-copy and publisher-access attempts. The stage-specific theorem is not an empirical treatment recommendation, does not claim optimal cost or near-term extinction probabilities, and has not undergone independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete and sharp six-season schedule classification, not a generic order-dependence observation: exact determinant-controlled reversal independent of treatment intensities, and a feasible biological example where reordering identical numbers of interventions changes extinction-vs-growth. Natural applied matrix-product gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
