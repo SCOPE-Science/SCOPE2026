@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The exhaustive binary linear-algebra sieve excludes exactly 49,515 nonzero sections using actual singular-point witnesses, and leaves exactly 16,020. All 252 orbit representatives pass four independent affine-chart unit-ideal tests for geometric smoothness by exact Gröbner arithmetic. The order-72 action preserves the survivors, partitions them exhaustively and yields reproducible stabilizers and rational-point tables. Thus finite-extension screening is not misused as a positive smoothness test.
+
+**Originality — PASS (with priority risk).** The relevant original genus-four paper by Faber and Grantham already establishes the eight-point ceiling and exhibits an extremizer, while their canonical-quadric classification explains the split surface. Neither its inspected Section 5 nor the inspected Faber–Grantham–Howe gonality paper provides the exact 16,020-section, 252-isomorphism-class census or the 25 rational-point incidence-pattern statistics. Asgarli–Ghioca addresses pencils rather than this full fixed-degree family. Research-record queries about equivalent genus-four split-quadric counts, bidegree-\((3,3)\) curves, fixed Segre embeddings, and rational-point patterns returned no covering result. Absence in a search is not proof of priority; unindexed existing enumeration/code output remains a realistic risk.
+
+**Value — PASS.** The canonical genus-four split locus is a natural, complete arithmetic-geometric moduli stratum with two rational degree-three pencils. A full isomorphism-class census with automorphism groups, nine rational-point strata, and all 25 grid-incidence types provides concrete classification data not supplied by the known extremal point bound. The result does not claim a new bound of eight rational points.
+
+**Scope and limitations.** No claim is made about the other canonical-quadric types or abstract curves outside the split locus. The primary uncertainty is priority in databases or computational supplements not covered by the inspected papers. The positive certificates use exact SymPy Gröbner bases; the finite sieve on its own is only a necessary-condition test.
+
+Self-review: passed. Independent audit: not yet performed.
