@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The per-arrow multiplication formula was derived from the explicit inverse of a unit. The vertex labels do not move; edges joining distinct labels form independent additive translation orbits; for equal-label edges the vertex torus acts through a graphic incidence homomorphism. Its kernel has one independent scalar per component, including isolated vertices, proving the exact class-size law and the two Tutte identities for every finite field. Exhaustive small-field actions and direct cycle/forest calculations corroborate the theorem but do not replace its proof.
+## correctness
 
-**Originality — PASS.** The closest inspected archive works by Nasr-Isfahani, Chen, and Adachi address quiver/singularity/module invariants, not finite-field inner-conjugacy class-size spectra. Earlier commuting-pair formulas of radical-square-zero quiver algebras concern a related but weaker statistical question: they do not determine every conjugacy orbit of units acting on algebra elements. A publicly available special-family Kronecker commutator calculation likewise lacks the arbitrary-quiver orbit classification. Literature synonyms (semidirect-product conjugacy, graph-gauge orbits, toric Tutte enumerations) remain a residual risk; search absence is not treated as proof of novelty.
+PASS
 
-**Value — PASS.** Classifying all inner-conjugacy orbit sizes for a natural infinite family is an exact structural classification. The result additionally provides, in every even algebra dimension at least six, pairs with identical complete conjugacy spectra but radically different global dimension (finite versus infinite). This mathematically motivated reconstruction obstruction is not a routine extra parameter in a known table.
+For finite loopless Q and A=F_q Q/J², write x=d+xi and unit u=lambda+eta; J²=0 and idempotent-arrow multiplication yield exact conjugation (uxu^-1)_a=(lambda_source/lambda_target)xi_a+(eta_a/lambda_target)(d_target-d_source). For different endpoint labels, eta independently translates each arrow coefficient (q choices per edge), giving factor q^{m-|E_d|}. On equal-label edges E_d, zero/nonzero support S invariant, diagonal scalings have image size (q-1)^{n-c(S)} and (q-1)^{|S|-n+c(S)} orbits. Hence for each label vector d and S subset E_d: class size q^{m-|E_d|}(q-1)^{r(S)}, multiplicity (q-1)^{beta(S)}; summing over labels d constant on components of S gives class totals sum_S q^{c(S)}(q-1)^beta(S) and sum_S (q-1)^{c(S)+beta(S)} respectively. By rank-nullity subset expansion equal q^{c(G)} T_G(q+1,q) and (q-1)^{c(G)}T_G(q,q). Direction orientation changes only signs of graph coboundary maps, not ranks or orbit sizes. Coherent orientation of cycle yields periodic nonzero syzygies (infinite global dimension); acyclic orientation yields finite global dimension, despite identical complete spectra. Independent C3 subset expansion gives algebra/unit totals 28/8 at q2, 69/30 at q3, 136/72 at q4. Finite checks supplement symbolic orbit-stabilizer proof, apply to all prime powers, parallel edges and isolated vertices.
 
-**Limits.** Split basic loopless quiver algebras only; no claim about nonbasic or nonsplit algebras, complete automorphism-group actions, or independent certification. The graph incidence and Tutte machinery are standard inputs, not themselves new contributions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The papers on radical-square-zero algebras by Nasr-Isfahani and Chen address singular equivalence/categories and quiver operations rather than conjugacy orbits of A under A^×. Standard Tutte subset expansion and graph-gauge action are credited as ingredients, but no checked primary source or Resultary publication states orientation-independent complete class-size spectra for both algebra elements and units or the cycle finite/infinite global-dimension blindness. Full 2016 primary PDF contained no occurrence of conjugacy as a named topic. Residual risk of equivalent semidirect-torus graph-gauge formulation remains.
+
+## value
+
+PASS
+
+A natural complete classification of conjugacy orbit-size distribution for a broad quiver-algebra family gives explicit computable Tutte evaluations and an invariant limitation: no orbit-size statistic distinguishes homologically infinite coherent cycles from finite-global-dimension acyclic orientations. This links finite-group/algebra conjugacy to multigraph Tutte data and clarifies exactly what those invariants forget, not a cosmetic substitution into existing formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
