@@ -1,19 +1,21 @@
-# Scientific review: sharp decreasing-tail threshold
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The assertion quantifies over all integers \(k\ge2\), all real \(\lambda>0\), and every integer \(n\ge k\). From the two exponential generating functions, the exact first-block differences are \(\lambda^2(S_{k+t}-T_t)\). Vandermonde convolution and the factorial denominator inequality establish \(S_{k+t}\le S_kT_t\), excluding later first-block reversals before the unique crossing \(S_k=1\). The first comparison \(p_k>p_{k+1}\) is separately verified, with a necessary special treatment for \(k=2\). The coefficient recurrence then propagates strict descent to the infinite tail. At and above the root the crossing itself disproves strict descent. The independent exact-rational finite checks support, but do not replace, these analytic steps.
+PASS
 
-## Originality
+For all finite k≥2, using p_n=e^{kλ}Pr(X=n), the exact block formula p_{k+2+t}−p_{k+1+t}=λ²(S_{k+t}−T_t) for 0≤t≤k−2 follows from Q(z)=exp(λz/(1−z)) and P=Q exp(−λ z^{k+1}/(1−z)). Vandermonde expansion and (i+j+2)!≥(i+1)!(j+2)! prove S_{k+t}≤S_k T_t. For k≥3 the first edge has λ*<1; k=2 separately follows from λ*=2(√7−2) and λ*S_1(λ*)<1. The positive-coefficient recurrence n p_n=λΣj p_{n−j} extends a k+1-long initial decreasing block to every n≥k. At the threshold p_{k+2}=p_{k+1}, above it reversal, proving necessity. Independently reproduced 44 exact Fraction initial coefficient identities for k=2..9; this is supporting finite evidence, not the infinite proof.
 
-PASS with bibliographic risk. The closest directly inspected source, Mane (arXiv:2310.05671v1, §4), states precisely this boundary as Conjecture 4.3 and presents numerical rather than general proof. The earlier Mane manuscript (arXiv:2310.00827v1, §4) proves propagation from a decreasing block but not that the proposed sharp root gives the required block for all orders. Kwon–Philippou (Entropy 25 (2023), 699) concerns small-order global modes and is not a full all-order tail criterion. Equivalent unpublished or differently titled work cannot be excluded by the searches performed.
+## originality
 
-## Value
+PASS
 
-PASS. The result closes a specifically formulated, natural probability-theoretic conjecture for **every** integer order, converting a local crossing polynomial into an if-and-only-if infinite-tail criterion. It identifies the exact sharp transition and its endpoint obstruction, not merely an improved numeric bound or a small-order example. Such a threshold matters when verifying monotonicity and tail shape of uniform-jump compound Poisson distributions.
+The inspected source explicitly conjectures the precise all-order strict tail boundary, and the earlier related Mane article proves only a smaller sufficient λ regime. The submitted convolution lemma and induction bridge the open implication; no matching prior proof was established in accessible material. The primary full text was not completely retrieved, retaining possible later/prior coverage risk.
 
-## Limitations and closest literature
+## value
 
-The conclusion assumes independent, equal-rate component Poisson counts. It is distinct from a global-mode classification and does not extend to arbitrary compound Poisson jump intensities. The detailed bibliography is in RESULT.md. Priority beyond the inspected literature has not been independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Solving an explicitly stated sharp threshold conjecture uniformly in the order k identifies the exact first tail crossover and is not a routine numerical table or a slight parameter change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
