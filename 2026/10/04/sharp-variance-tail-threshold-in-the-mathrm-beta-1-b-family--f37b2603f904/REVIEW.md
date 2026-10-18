@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reduced exactly to the sign of a one-variable function \(f_b(t)\). Its derivative has an explicit quadratic numerator, which gives the complete global minimum structure. The threshold function \(H(b)\) is strictly decreasing because \(H'(b)=-1/(b(b+1))-t_b^2/2<0\), and its endpoint signs force one unique root. The numerical root is not used to prove existence or uniqueness.
+## correctness
 
-## Originality
-PASS. The closest literature separates into three different statements: optimal beta MGF proxy variance, Bernstein-form beta upper bounds, and constant-factor matching beta tails. None of the inspected statements gives or implies the exact one-sided true-variance threshold \(b_\star\). Targeted searches for the defining family, one-sided variance bound, and threshold found no closer indexed statement.
+PASS
 
-## Value
-PASS. This is a sharp natural classification, not a chosen numerical slice: it determines exactly which members of \(\mathrm{Beta}(1,b)\) need more than the true variance to obtain a Gaussian-form right-tail exponent. It also exhibits a concrete gap between transform-based strict sub-Gaussianity and one-sided tail behavior.
+The exact survival function gives f_b(t)=log((b+1)/b)-log(1-t)-(b+2)t^2/2 for t in [0,1). For b<=2 derivative is nonnegative; for b>2 only interior local minimum is at t_+=(1+sqrt((b-2)/(b+2)))/2, with positive endpoint f(0) and divergence at t->1. Envelope differentiation gives H'(b)=-1/[b(b+1)]-t_+^2/2<0; H(2+)=log 3-1/2>0 and H->-infinity. Thus exactly one threshold and explicit failure above. Supports eps>=0 including endpoint outside compact support; one-sided only. Independently solved H=0 at b=3.7534772184455018261094865454351.
 
-## Closest literature and limitations
-Marchal--Arbel classify MGF sub-Gaussian proxy variance; Skorski gives variance-matched Bernstein bounds and explicitly notes room for refinement at larger deviations; Zhang--Zhou give matching-order beta tail bounds. The present theorem is only for the right tail of \(\mathrm{Beta}(1,b)\), and an equivalent unindexed formulation remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge, implication-based comparison of exact theorem and primary findings; not a guarantee of globally exhaustive prior art. Neither standard Chernoff inequalities nor the prior variance-matched Bernstein correction entails precise if-and-only-if b<=3.753477218... for exact probabilities; prior stronger MGF claim is false for asymmetric beta without ruling out this weaker one-sided tail.
+
+## value
+
+PASS
+
+Natural sharp one-sided variance-scale Gaussian tail question for a canonical asymmetric beta family: a nontrivial exact transition explains when the positive Bernstein correction can be omitted and supplies explicit failure deviations. Its exact b_star boundary is not a renaming of MGF sub-Gaussianity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

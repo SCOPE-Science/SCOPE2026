@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:18:37.350350Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/04/sharp-variance-tail-threshold-in-the-mathrm-beta-1-b-family--f37b2603f904/RESULT.md",
+        "2026/10/04/sharp-variance-tail-threshold-in-the-mathrm-beta-1-b-family--f37b2603f904/verify.py"
+      ],
+      "rationale": "The exact survival function gives f_b(t)=log((b+1)/b)-log(1-t)-(b+2)t^2/2 for t in [0,1). For b<=2 derivative is nonnegative; for b>2 only interior local minimum is at t_+=(1+sqrt((b-2)/(b+2)))/2, with positive endpoint f(0) and divergence at t->1. Envelope differentiation gives H'(b)=-1/[b(b+1)]-t_+^2/2<0; H(2+)=log 3-1/2>0 and H->-infinity. Thus exactly one threshold and explicit failure above. Supports eps>=0 including endpoint outside compact support; one-sided only. Independently solved H=0 at b=3.7534772184455018261094865454351.",
+      "residual_risks": [
+        "General Beta(alpha,beta) tail phase diagram not established; one-side only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Skorski p4 Thm1 upper-tail β≥α",
+          "Marchal–Arbel §2.3"
+        ],
+        "reasoning": "Skorski Theorem 1 controls beta right tail for beta>=alpha with denominator 2(v+c epsilon/3) and c>0, so its bound is weaker than the requested c=0 bound. Marchal–Arbel sharp MGF proxies do not imply its exact parameter transition.",
+        "searches": [
+          "Resultary: Beta(1,b) one-sided variance Gaussian tail sharp phase transition parameter tail threshold",
+          "arXiv:1705.00048 (Marchal–Arbel, Section 2 optimal MGF proxy variance)",
+          "arXiv:2101.02094 (Skorski, Theorem 1, §2, page 4)",
+          "Resultary search: Beta(1,b) one-sided variance Gaussian tail sharp phase transition parameter tail threshold"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1705.00048 (Marchal–Arbel, Section 2 optimal MGF proxy variance)",
+        "arXiv:2101.02094 (Skorski, Theorem 1, §2, page 4)",
+        "Resultary search: Beta(1,b) one-sided variance Gaussian tail sharp phase transition parameter tail threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:1705.00048 §2",
+          "arXiv:2101.02094 Thm 1–2"
+        ],
+        "reasoning": "Neither standard Chernoff inequalities nor the prior variance-matched Bernstein correction entails precise if-and-only-if b<=3.753477218... for exact probabilities; prior stronger MGF claim is false for asymmetric beta without ruling out this weaker one-sided tail.",
+        "searches": [
+          "Resultary: Beta(1,b) one-sided variance Gaussian tail sharp phase transition parameter tail threshold",
+          "arXiv:1705.00048 (Marchal–Arbel, Section 2 optimal MGF proxy variance)",
+          "arXiv:2101.02094 (Skorski, Theorem 1, §2, page 4)",
+          "Resultary search: Beta(1,b) one-sided variance Gaussian tail sharp phase transition parameter tail threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1705.00048 §2",
+          "arXiv:2101.02094 Thm1"
+        ],
+        "reasoning": "Strict sub-Gaussian / optimal variance proxy (Marchal–Arbel) and beta tail Bernstein form (Skorski) are related, but neither equals an exact one-sided direct survival-function bound at the TRUE variance. The MGF formulation applies to all lambda and both tails; current statement classifies one-tail deviations only.",
+        "searches": [
+          "Resultary: Beta(1,b) one-sided variance Gaussian tail sharp phase transition parameter tail threshold",
+          "arXiv:1705.00048 (Marchal–Arbel, Section 2 optimal MGF proxy variance)",
+          "arXiv:2101.02094 (Skorski, Theorem 1, §2, page 4)",
+          "Resultary search: Beta(1,b) one-sided variance Gaussian tail sharp phase transition parameter tail threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary beta-variance lower-tail result f275509045a1"
+        ],
+        "reasoning": "This is a continuum b threshold, not a finite enumerative invariant. Exact tail and critical equation derived in package; Resultary beta sample-variance tail profile is for three iid beta samples, hence does not tabulate b_star.",
+        "searches": [
+          "Resultary: Beta(1,b) one-sided variance Gaussian tail sharp phase transition parameter tail threshold",
+          "arXiv:1705.00048 (Marchal–Arbel, Section 2 optimal MGF proxy variance)",
+          "arXiv:2101.02094 (Skorski, Theorem 1, §2, page 4)",
+          "Resultary search: Beta(1,b) one-sided variance Gaussian tail sharp phase transition parameter tail threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge, implication-based comparison of exact theorem and primary findings; not a guarantee of globally exhaustive prior art. Neither standard Chernoff inequalities nor the prior variance-matched Bernstein correction entails precise if-and-only-if b<=3.753477218... for exact probabilities; prior stronger MGF claim is false for asymmetric beta without ruling out this weaker one-sided tail.",
+      "residual_risks": [
+        "A differently formulated exact one-sided beta tail threshold might be known but unindexed.",
+        "General Beta(alpha,beta) tail phase diagram not established; one-side only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MGF uniform proxy variance and strict sub-Gaussianity are different quantifiers from exact one-sided tail at true variance.",
+          "evidence": "Section 2 discusses optimal MGF proxy variance for beta parameters and asymmetry.",
+          "identifier_or_url": "https://arxiv.org/pdf/1705.00048",
+          "material_read": "PDF theorem and Section 2.1–2.3 text; page 3, page 4 and selected proof passages",
+          "method": "Primary PDF page image plus theorem text",
+          "title": "On the sub-Gaussianity of the Beta and Dirichlet distributions",
+          "trigger": "Same beta family, variance sub-Gaussian proxy"
+        },
+        {
+          "assessment": "Theorem 1 has positive c epsilon /3 in denominator for beta >= alpha; does not alone imply or disprove exact no-correction tail threshold.",
+          "evidence": "Theorem 1, upper-tail beta>=alpha branch and Theorem 2 Chernoff small-deviation criterion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.02094",
+          "material_read": "PDF full theorem and comparison on page 4, first page and targeted mathematical statements",
+          "method": "Primary PDF page images and theorem text",
+          "title": "Bernstein-Type Bounds for Beta Distribution",
+          "trigger": "Closest exact variance matched upper-tail source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/04/sharp-variance-tail-threshold-in-the-mathrm-beta-1-b-family--f37b2603f904/RESULT.md",
+        "arXiv:1705.00048 (Marchal–Arbel, Section 2 optimal MGF proxy variance)"
+      ],
+      "rationale": "Natural sharp one-sided variance-scale Gaussian tail question for a canonical asymmetric beta family: a nontrivial exact transition explains when the positive Bernstein correction can be omitted and supplies explicit failure deviations. Its exact b_star boundary is not a renaming of MGF sub-Gaussianity.",
+      "residual_risks": [
+        "A differently formulated exact one-sided beta tail threshold might be known but unindexed.",
+        "General Beta(alpha,beta) tail phase diagram not established; one-side only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A differently formulated exact one-sided beta tail threshold might be known but unindexed.",
+    "General Beta(alpha,beta) tail phase diagram not established; one-side only."
+  ],
+  "schema_version": 1
+}

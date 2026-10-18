@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-The analytic proof reduces the full parameter-and-deviation statement to the one-dimensional function
-\[
-f_b(t)=\log\!\frac{b+1}{b}-\log(1-t)-\frac{b+2}2t^2.
-\]
-The derivative identity
-\[
-f_b'(t)=\frac{1-(b+2)t(1-t)}{1-t}
-\]
-shows that for \(b\le2\) the function is nondecreasing, while for \(b>2\) its only interior minimum is at \(t_b=(1+\sqrt{(b-2)/(b+2)})/2\). At that point the envelope derivative of \(H(b)=f_b(t_b)\) is
-\[
-H'(b)=-\frac1{b(b+1)}-\frac{t_b^2}2<0.
-\]
-This proves the infinite classification without numerical enumeration.
+# Independent mathematical audit
 
-The bundled checker uses high-precision decimal arithmetic to verify the sign change
-\[
-H(3.75347721)>0>H(3.75347722),
-\]
-the critical-point equation, and representative finite-grid stress tests. Those computations certify the quoted decimal bracket and implementation consistency only; they are not used as a substitute for the analytic global proof.
+## correctness
+
+PASS
+
+The exact survival function gives f_b(t)=log((b+1)/b)-log(1-t)-(b+2)t^2/2 for t in [0,1). For b<=2 derivative is nonnegative; for b>2 only interior local minimum is at t_+=(1+sqrt((b-2)/(b+2)))/2, with positive endpoint f(0) and divergence at t->1. Envelope differentiation gives H'(b)=-1/[b(b+1)]-t_+^2/2<0; H(2+)=log 3-1/2>0 and H->-infinity. Thus exactly one threshold and explicit failure above. Supports eps>=0 including endpoint outside compact support; one-sided only. Independently solved H=0 at b=3.7534772184455018261094865454351.
+
+## originality
+
+PASS
+
+Best-of-knowledge, implication-based comparison of exact theorem and primary findings; not a guarantee of globally exhaustive prior art. Neither standard Chernoff inequalities nor the prior variance-matched Bernstein correction entails precise if-and-only-if b<=3.753477218... for exact probabilities; prior stronger MGF claim is false for asymmetric beta without ruling out this weaker one-sided tail.
+
+## value
+
+PASS
+
+Natural sharp one-sided variance-scale Gaussian tail question for a canonical asymmetric beta family: a nontrivial exact transition explains when the positive Bernstein correction can be omitted and supplies explicit failure deviations. Its exact b_star boundary is not a renaming of MGF sub-Gaussianity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
