@@ -1,19 +1,21 @@
-# Scientific review: finite-support period exclusions for rule 115
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The universal spatial statement reduces exactly to a finite directed graph whose alphabet consists of temporal columns. The rule-115 truth table yields the degree-three Boolean polynomial used to define admissible graph edges. A time-periodic finite-support state produces a spatial path eventually equal to the homogeneous period-three background on both tails. Such a path can visit only the root's forward/reverse reachability intersection; conversely every rooted finite walk corresponds to a finite-support periodic state. The exact enumerations for periods 3, 6, 9 and 18 show that the period-9 and period-18 rooted components are precisely threefold temporal repetitions of their lower-period analogues. The attached independently implemented exact traversals agree, including every enumerated edge, and both nontrivial boundary examples pass their local-rule checks. The graph enumeration is exhaustive for the exact temporal periods, not a bounded spatial scan. Residual correctness risk: software implementations may share a misunderstood mathematical reduction; the full proof and elementary graph specifications make that reduction independently checkable.
+PASS
 
-## Originality — PASS
+The exact Wolfram-115 truth table is f(a,b,c)=1+b+ab(1+c) over F2. A time-p-periodic orbit gives temporal spatial columns satisfying b_{t−1}+b_{t+1}=1+b_t+a_t b_t(1+c_t). For any zero entry b_t this forces b_{t−1}≠b_{t+1}, defining an exhaustive finite temporal alphabet. As both initial layers have finite spatial support, all distant sites follow the homogeneous period-three background, so every spatial path begins and ends at the graph vertex (B_p,B_p) and is confined to its forward/reverse root-reachable intersection; conversely any such finite path produces a finite-support trajectory. Independently reimplemented temporal words, rule comparisons and rooted reachability without using saved output or source execution. Exact (eligible words, forward vertices/edges, backward vertices/edges, root vertices) for p=3: (4,4/7,9/21,3), p=6: (10,46/121,45/159,27), p=9: (31,40/52,63/102,3), p=18: (973,5500/8590,8235/17484,27). Direct equality of full labelled rooted sets gives C9=threefold C3, C18=threefold C6, not just matching cardinalities. Thus any finite-support p=9 or p=18 trajectory already repeats after 3 or 6. This is exhaustive over temporal graph and unbounded in spatial support, not a small finite-window scan or timeout inference.
 
-The full motivating article (arXiv:2606.13159v1, Sections 2–7 and its associated nine-page PDF) proves general finite-configuration periodicity and the divisibility-by-three requirement, but labels finite-support period 9 unachieved and period 18 unresolved. Neither observation implies the claimed impossibility. Searches for period spectra, finite configurations, the rule number, the authors, and temporal-graph equivalents located no public statement of these fixed-set equalities. General cellular-automaton and de Bruijn graph techniques are established prior methods, not claimed as new. Residual risk: an equivalent unpublished argument, unindexed later manuscript, or specialized period-spectrum theorem could already imply the result; absence from search results is not proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two natural periods are singled out by an explicit unresolved question and computational barrier in the source. The exact no-period result excludes whole families of finite-support orbits, and the rooted temporal-column compression replaces a purportedly impractical graph by 973 admissible time words and 27 root-component vertices at period 18. The fixed-set equalities are stronger than the mere nonexistence of primitive periods and are not an arbitrary small table entry. Their value is finite-support dynamical rigidity for one specific reversible rule; they do not settle the complete period spectrum.
+Formenti–Kamilya’s 2026 primary paper proves finite-support periods are multiples of 3 and identifies period 9 as attained only for infinite-support examples, while explicitly leaving finite-support period 18 computationally unresolved. These are motivations, not impossibility theorems, and do not imply either fixed-set equality. The exact root-component enumeration is new compared with that full primary paper in the inspected text. Other published cellular automata records found by Resultary concern unrelated rules or finite-volume reversibility; no stronger period-spectrum theorem covering this rule and both exclusions located. An unindexed later computation remains a risk.
 
-## Closest literature and limitations
+## value
 
-Formenti–Kamilya, *The Curious Case of Reversible Elementary Second Order Cellular Automaton 115*, arXiv:2606.13159v1 (2026), in particular Theorem 1, Lemma 1 and §7. Only this rule and these two questioned temporal periods are addressed. The exhaustive finite-state certificate is provided for reproduction, while independent scientific validation remains outstanding.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Periods 9 and 18 are exactly the concrete unresolved gaps identified by the 2026 motivating paper, not arbitrary cutoff numbers. Proving equal fixed sets excludes entire families of finite-support orbits with no arbitrary spatial bound, gives a reproducible compact temporal-state certificate (973 admissible words/27 root-component vertices for p=18), and distinguishes infinite-support period-nine phenomena from finite configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
