@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Both inverse branches are positive contractions and their derivatives are legitimate reverse transition weights. Exact all-zero cylinders have masses lambda^n. Transforming y_{n+1}=lambda*y_n-(a/2)*y_n^2 with v_n=(1-a)/y_n yields a linear recurrence plus bounded O((1-a)log(1/(1-a))) accumulated error; the resulting reciprocal limit and monotone CDF brackets prove the universal z/(1+z) law. The proof does not require a planar density. Rational and numerical checks in verify.py returned VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A general discrete Riccati/parabolic-iteration argument can control inverse iterates, but does not itself identify the conditional symbolic cylinder masses.",
+        "2014 corrigendum removes the possibility of using a global planar-density theorem here."
+      ],
+      "reasoning": "The new result combines dynamical scaling of the inverse branch with a canonical conditional probability law. No inspected general invariant-density or parabolic-iteration assertion includes the resulting conditional CDF as a stated or immediate special case. Generic iteration scaling could subsume one technical lemma, not the full conditional-measure conclusion without an additional model-specific identification.",
+      "searches": [
+        "time reversible cusp map g0(y)=(1+a)y/2-a y²/2, renormalized limit of stationary conditional distribution as a goes to one",
+        "Cusp map inverse branches g0(x)=(1+a)x/2-a x²/2, at a up to 1; exact law conditional stable coordinate at x=0 CDF after scaling by 1-a converges z/(1+z)",
+        "\"parabolic iteration\" \"conditional measure\" \"cusp map\" \"asymptotic\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0812.1648, first public 2008-12-09, inspected full preprint section on cusp maps",
+      "DOI:10.1088/1751-8113/47/48/489501, published 2014-11-06, inspected indexed author-upload full text",
+      "Targeted public literature searches on cusp-map corner scaling, conditional measures, original and corrigendum citations",
+      "Mathematical claim index semantic searches of exact map equations, boundary CDF, Pareto/Lomax aliases, and neutral-map comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Basios–Forti–Gilbert (2008), arXiv:0812.1648, §4, inverse branches (39), nested cylinders (50)–(53), qualitative intermittent singularity (55)–(59).",
+        "Basios–Forti–Gilbert (2014), DOI:10.1088/1751-8113/47/48/489501, states that the natural 2D invariant measure in the cusp example is not absolutely continuous."
+      ],
+      "reasoning": "The original source proves or displays the exact nested-cylinder formula, but neither it nor the corrigendum implies the entire boundary-layer law without a parameter-dependent asymptotic analysis of g_0 iterates and CDF squeezing. The correction explicitly rules out treating the 2008 rho(x,y) as a planar density; the present result is stated for the genuinely available conditional distribution, so it is not a restatement of the withdrawn density claim.",
+      "searches": [
+        "\"Basios\" \"Forti\" \"Gilbert\" \"cusp\" \"density\" 2010 2025",
+        "\"antisymmetric cusp maps\" \"corner\" density \"parameter\"",
+        "\"cusp maps\" \"1/(1-a)\" \"density\" \"Gilbert\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Basios–Forti–Gilbert (2008), arXiv:0812.1648, §4, inverse branches (39), nested cylinders (50)–(53), qualitative intermittent singularity (55)–(59).",
+        "Basios–Forti–Gilbert (2014), DOI:10.1088/1751-8113/47/48/489501, states that the natural 2D invariant measure in the cusp example is not absolutely continuous."
+      ],
+      "reasoning": "The target is the conditional distribution of a rescaled stable coordinate given the expanding coordinate at its neutral endpoint. Equivalent formulations are a scaling limit of the inverse-branch backward Markov kernel, of the nested zero-cylinder probabilities at parabolic times, or of a conditional Lomax/Pareto law. The source gives exact finite cylinders but does not take the singular joint parameter-time limit.",
+      "searches": [
+        "Basios Forti Gilbert 2008 anti-symmetric cusp triangular map boundary conditional Y given X=0, scaling a→1, distribution z/(1+z) and near-parabolic inverse-branch dynamics",
+        "time reversible cusp map g0(y)=(1+a)y/2-a y²/2, renormalized limit of stationary conditional distribution as a goes to one",
+        "stationary Bernoulli past inverse-branch process cusp map last consecutive zero run, Lomax Pareto boundary layer 1/(1+z)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved indexed mathematical claims were about subprincipal intermittent invariant densities in a different LSV map and exact conditional variance for a different Kaplan–Yorke skew product; neither considers these inverse branches or the proposed conditional law."
+      ],
+      "reasoning": "Searches of the available mathematical-result index using author names, model equations, boundary coordinate, aliases for the Pareto law, and parameter scaling returned no matching exact formula, table, or stronger claim. This is finite search evidence, not a uniqueness proof.",
+      "searches": [
+        "Basios Forti Gilbert 2008 anti-symmetric cusp triangular map boundary conditional Y given X=0, scaling a→1, distribution z/(1+z) and near-parabolic inverse-branch dynamics",
+        "Cusp map inverse branches g0(x)=(1+a)x/2-a x²/2, at a up to 1; exact law conditional stable coordinate at x=0 CDF after scaling by 1-a converges z/(1+z)",
+        "\"Statistical properties of time-reversible triangular maps\" citation"
+      ]
+    },
+    "rationale": "The 2008 source supplies the family and cylinder identity and the 2014 correction fixes the measure setting, but their inspected material does not establish the singular parameter-time limit or Pareto boundary conditional distribution. Targeted text and mathematical-result searches found no equivalent/dominating statement; residual priority risks are listed.",
+    "residual_risks": [
+      "Unindexed or uncited earlier derivations of the same conditional scaling distribution may exist.",
+      "General near-parabolic-iteration theory could offer an alternate proof of the inverse-branch scaling; no inspected source gave the additional exact conditional law.",
+      "The 2014 corrected measure is singular in the plane, so the result must not be quoted as a global-density or pointwise planar-density asymptotic.",
+      "The canonical conditional at X=0 is a continuously specified version; arbitrary versions of conditional measures at a null base point need not agree."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same inverse branches and exact finite cylinders; conditional rescaled Pareto law not present. Statements of global planar absolute continuity were superseded by the 2014 corrigendum.",
+        "evidence": "The source writes g0(x)=(1+a)x/2-a x²/2, obtains r_a(0,g0^n(1))=((1+a)/2)^n, and discusses an unproved fixed-parameter corner heuristic.",
+        "identifier_or_url": "https://arxiv.org/abs/0812.1648",
+        "material_read": "Sections 1–4, especially inverse branches (39), invariant law discussion, equations (50)–(59), and stated 1/(1-a) corner expectation",
+        "method": "Readable full text of original open-access preprint",
+        "title": "Statistical properties of time-reversible triangular maps of the square",
+        "trigger": "Exact triangular cusp family, inverse maps, conditional cumulative, and intermittent endpoint"
+      },
+      {
+        "assessment": "Establishes failure of global planar absolute continuity for the example; does not give the new boundary conditional rescaling. Corrected premises incorporated.",
+        "evidence": "Corrigendum states the original claim of an absolutely continuous invariant planar measure is false, while the expanding-coordinate marginal remains smooth and the natural measure exists.",
+        "identifier_or_url": "https://doi.org/10.1088/1751-8113/47/48/489501",
+        "material_read": "Author-provided full-text extract spanning three printed pages, including corrected invariant-measure formulation, example, conclusion",
+        "method": "Publicly indexed author-upload text of corrigendum; publisher landing access unavailable",
+        "title": "Corrigendum: Statistical properties of time-reversible triangular maps of the square",
+        "trigger": "Necessary correction to the measure-theoretic premises of original paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4679d06c-ea73-4c33-9692-ddb81e584dcb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves a natural scaling question at the exact intermittent transition identified in an established reversible cusp system. The limit gives a complete nontrivial conditional probability law, explicit scale 1-a, and heavy-tail shape, rather than another qualitative singularity or finite numerical invariant; critically it remains valid under the published correction removing planar absolute continuity.",
+    "status": "PASS"
+  }
+}
