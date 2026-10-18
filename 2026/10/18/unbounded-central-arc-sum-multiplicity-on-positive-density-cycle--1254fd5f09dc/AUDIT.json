@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The prime number theorem supplies the required disjoint prime pairs; the Chinese remainder theorem yields an infinite residue class of \\(k\\). For each pair the constructed \\(u_i\\) is even, \\(v_i\\) is odd, and \\(u_iv_i=n(n+1)/2\\), yielding integral endpoints \\(a_i,b_i\\) satisfying \\(2\\le a_i\\le b_i\\le n-1\\) and exact half-total sum. The distinct lengths \\(u_i<n/2\\) and their complements of length above \\(n/2\\) give \\(2h\\) arcs. The progression modulo \\(4P\\) has positive density. Quantitative PNT supplies primes at scale \\(X=h(\\log h)^2\\), so \\(\\log n_h\\le(2+o(1))h\\log h\\), proving the limsup coefficient at least \\(1\\). The executable verifies examples and finite direct counts, not the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang--Zhang, Mathematics 14 (2026) 1252, especially fixed-window range minimization and Corollary 2 on optimal permutations (material accessible via ResearchGate).",
+        "arXiv:2610.08889v1, Sections 4-5: absence of full sumset coverage and mEC upper bound."
+      ],
+      "reasoning": "Yang--Zhang varies permutations and fixes a window length; its multiplicities are for extremal fixed-length window sums. Neither variable-window central multiplicity for the fixed consecutive arrangement nor the arithmetic-progressions and limsup conclusion follows. Incompleteness/edge-completion theorems do not imply central-sum multiplicities.",
+      "searches": [
+        "Consecutive cycle sums multiplicity central triangular half-sum; exact arc lengths and CRT prime-factor constructions",
+        "A positive-density family of integer cycles labelled 1,...,n with arbitrarily many equal-total-sum arcs (central T_n/2), constructed using prime congruence conditions",
+        "web: Optimal Range of k-Consecutive Sums on a Circle for n = 2k+1 and n=k²+1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.08889v1, full HTML",
+      "Yang and Zhang, Mathematics 14 (2026) 1252, full-text reproduction",
+      "published result-database semantic queries listed above",
+      "current-week own ledger claims, 44 records from unchanged generation g000044",
+      "classical Sylvester/odd-divisor consecutive-sum relation, distinguished by endpoint restriction"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier cycle claim proves a logarithmic chord-addition bound for sum-completeness; it does not constrain multiplicities of arc sums without chords.",
+        "Result Uniform finite-cyclic ell-one majorant reversal (published mathematical-result record) is a finite Fourier ell-one estimate for cyclic characters, not a subset-sum representation theorem."
+      ],
+      "reasoning": "Neither the earlier edge-completion bound nor the cited Fourier statement implies a lower bound on the number of unchanged-cycle arcs at one prescribed target. The current theorem has new quantifiers over any threshold h and infinitely many positive-density n, and a quantitative limsup.",
+      "searches": [
+        "Consecutive cyclic interval sums 1 through n: the central half-total triangular sum admits arbitrarily many distinct cyclic arc representations along a positive-density arithmetic progression of n; Chinese remainder theorem constructions",
+        "A positive-density family of integer cycles labelled 1,...,n with arbitrarily many equal-total-sum arcs (central T_n/2), constructed using prime congruence conditions",
+        "Uniform finite-cyclic ell-one majorant reversal (published mathematical-result record)",
+        "own current-week ledger claim abd1c81e-68d3-43e1-a351-e7627f62ce1a"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.08889v1, Sections 1-5: cycle arcs and complement symmetry, incompleteness and chord completion; no central representation count",
+        "Classical consecutive-integer representations indexed by odd divisors count unrestricted starting and ending indices."
+      ],
+      "reasoning": "The claimed positive-density unbounded multiplicity has the additional simultaneous constraints that the target equals half the triangular total and every consecutive block lies in [1,n], followed by its cyclic complement. Classical odd-divisor counting does not directly supply these constraints; the CRT factors enforce them.",
+      "searches": [
+        "Consecutive cyclic interval sums 1 through n: the central half-total triangular sum admits arbitrarily many distinct cyclic arc representations along a positive-density arithmetic progression of n; Chinese remainder theorem constructions",
+        "Unbounded representation multiplicity of half the sum of labels on a consecutive integer cycle, equal-sum bipartitions by two arcs, divisibility factor pair congruence",
+        "web: cyclic consecutive sums 1 through n central target n(n+1)/4 arbitrarily many representations arcs multiplicity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Database semantic search nearest hit Exact Zumkeller partition multiplicity in the upper two-prime strip (published mathematical-result record) concerns equal-sum **divisor** bipartitions, not consecutive-label arc half-sums.",
+        "Targeted web results included the cycle-sum paper and standard consecutive-sum counting references but no identified table establishing the exact universal statement."
+      ],
+      "reasoning": "No covering table or result was found. Failed searches cannot establish absence; the construction is justified by the explicit proof rather than a negative search. Numerical examples are not presented as evidence of novelty.",
+      "searches": [
+        "Maximum representation count for half the triangular number by consecutive blocks [a,b] within 1..n, growing at least log n/log log n",
+        "web: number of contiguous segments with sum half total on circle n numbers arithmetic progression",
+        "Exact Zumkeller partition multiplicity in the upper two-prime strip (published mathematical-result record)"
+      ]
+    },
+    "rationale": "No identified primary source or published-record result implies positive-density arbitrarily large central arc multiplicity plus the logarithmic limsup. Closest works treat incompleteness and edge completion, range optimization over permutations, or unconstrained divisor representations. Residual risk of implicit classical derivation remains.",
+    "residual_risks": [
+      "Earlier implicit consequence of unrestricted consecutive-sum/divisor distribution theorems cannot be excluded without external expert evaluation.",
+      "Prior-week historical ledgers were not accessible in this run; available current-week records were checked for relevant overlaps."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: coverage and chord completion are studied, but not central half-total representation multiplicity, positive-density classes, or the quantitative limsup.",
+        "evidence": [
+          "Sections 1-2 define standard/wrap arcs and their complementary total.",
+          "Sections 3-4 prove existence of missing arc sums.",
+          "Section 5 gives chord-completion bounds and open questions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.08889v1",
+        "material_read": "Complete accessible HTML manuscript: sections 1 through 5, including definition of arcs, complement symmetry, noncompleteness theorem, proof, and further questions",
+        "method": "Read primary HTML manuscript",
+        "title": "Consecutive Cycle Sums",
+        "trigger": "same ordered labels and cyclic arcs; principal initiating work"
+      },
+      {
+        "assessment": "NOT_COVERING: studies minimization of the range of fixed-size window sums over circular permutations, not fixed consecutive order with variable-length arcs at half the triangular sum.",
+        "evidence": [
+          "Corollary 2: multiplicities of extremal fixed-length window sums in optimized permutations.",
+          "Problem 1: multiset of fixed-length sums for optimal permutations."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math14081252",
+        "material_read": "Accessible full-text manuscript reproduction including definitions, theorems, fixed-window constructions, Corollary 2 and multiplicity example; publisher HTML endpoint separately rate-limited",
+        "method": "Read reproduced full-text portions and identify theorem scope, including Sections 3.5-3.6",
+        "title": "Optimal Range of k-Consecutive Sums on a Circle for n = 2k + 1 and n = k² + 1",
+        "trigger": "circular integer label sums, complementary windows and multiplicities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1254fd5f-09dc-4fc4-9ec0-dbbdeaffcade",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Half-total is the complement-invariant center of the arc-sum problem. The construction proves arbitrarily large representation multiplicity along full positive-density congruence classes even as global completeness fails, and extracts a quantitative lower bound for extremal central multiplicity. The constrained arc and positive-density requirements make it more than generic odd-divisor recomputation; future distribution and upper-bound questions directly concern this precise invariant.",
+    "status": "PASS"
+  }
+}

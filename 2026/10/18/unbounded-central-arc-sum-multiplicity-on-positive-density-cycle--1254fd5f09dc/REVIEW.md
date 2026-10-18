@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The prime-pair congruences and the coprimality of all selected primes give a genuine CRT progression. The factor identities show that the stated endpoints are integers and produce the exact central sum. The interval inequalities force the labels into the permitted cycle and exclude boundary/wrap confusion. Distinct length and complementary-length ranges supply \(2h\) genuinely different arcs. Quantitative prime supply follows from the PNT on two fixed-proportion intervals; the modulus bound yields the stated limsup coefficient. The standalone program confirms exact representative instances without replacing the general proof.
+
+**Originality — PASS with residual risk.** The principal 2026 cycle-sum paper establishes incompleteness and edge completion, not center-target multiplicity on arithmetic progressions. The closest circular-permutation paper studies optimization of fixed-size window sum ranges; its optimal-permutation multiplicities are not the present invariant. Classical divisor-count formulas for unrestricted consecutive blocks lack the \(b\le n\) constraint and do not immediately imply the constrained CRT theorem. Database and literature searches found no theorem covering the whole statement, though implicit derivations from classical divisor methods remain possible. The earlier cycle edge-completion result addresses chords rather than arc multiplicity.
+
+**Mathematical value — PASS.** The mid-total target is forced by complement symmetry and is therefore the natural first multiplicity statistic in the new cycle-sum problem. The theorem shows an opposing arithmetic extreme to global incompleteness: arbitrarily large central multiplicity is realized on positive-density classes, with a quantitative logarithmic lower bound along infinitely many lengths. The parameter and threshold are not arbitrary slices; both arise from the central symmetry and the divisibility of the triangular total.
+
+Limitations: no general upper bound or uniform density in the multiplicity threshold, and no expert originality audit. The primary source and the closely related circular-sum optimization paper are compared by statements and scopes; unrestricted consecutive-sum formulas leave residual originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
