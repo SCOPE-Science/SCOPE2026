@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "An exact definition-based exhaustive certificate visits every canonical ternary word of length at most eleven and all nonempty position-subsets, aggregating occurrence coverage masks for every distinct subsequence. A candidate covers iff its union mask is complete; minimizing length therefore lists every shortest s-cover. Restricted-growth representatives enumerate all alphabet-renaming orbits bijectively. The program visits 72,517,166 nonempty occurrence subsets and confirms the sole ambiguous canonical length-eleven word, its two length-six covers, and six relabelings. A separate full labeled-word algorithm based on greedy extreme embeddings finds the same result, testing all \\(3^{11}=177{,}147\\) length-eleven words and shorter hosts. Explicit two-occurrence witnesses cover all 11 positions for each claimed cover. All bounds and computations are genuinely exhaustive for the stated finite domain; no inference beyond eleven is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary papers prove general cover-membership and shortest-cover algorithms and establish the ternary s-primitivity bound gamma(3)=8.",
+        "The first paper studies unbounded shortest-cover multiplicities via new alphabet letters, starting with a four-letter example."
+      ],
+      "reasoning": "General algorithms are computationally more general but do not give the particular exact minimum ambiguity length, orbit census and cover strings without an additional global enumeration. The gamma(3) bound is used by the independent checker and is not new.",
+      "searches": [
+        "doi:10.1007/978-3-031-20643-6_1",
+        "arXiv:2509.05827",
+        "\"subsequence covers\" \"multiple shortest\" ternary"
+      ]
+    },
+    "checked_sources": [
+      "Charalampopoulos et al., SPIRE 2022, doi:10.1007/978-3-031-20643-6_1, full author-manuscript 13 pp.",
+      "Charalampopoulos et al., Theor. Comput. Sci. (2025), doi:10.1016/j.tcs.2025.115216; 17-page arXiv expanded full text arXiv:2509.05827",
+      "Springer first-online chapter record, 2022-11-01",
+      "Published mathematical research index searches for shortest s-cover nonuniqueness, ternary 11-letter palindrome and cover equivalences; closest indexed topics deletion covering codes and absent subsequences are not s-cover multiplicity."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The conference proof exhibits a length-15 four-symbol palindrome with two length-8 covers and constructs larger families by appending distinct letters.",
+        "The expanded proof covers the same general-alphabet multiplicity phenomenon.",
+        "The present exact census exhibits a length-11 three-symbol palindrome with two length-6 covers and excludes all shorter three-symbol words."
+      ],
+      "reasoning": "A shorter three-symbol example is not a corollary or special case of an explicit construction that starts with a particular four-symbol seed. The prior papers establish existence with different parameters; they do not imply the exact six-element labeled census or the exclusion of earlier cases.",
+      "searches": [
+        "doi:10.1007/978-3-031-20643-6_1",
+        "arXiv:2509.05827",
+        "Shortest length of ternary word possessing two distinct shortest subsequence covers (s-covers) under scattered subsequence occurrences; length 11 witness 01012021010",
+        "first length two distinct shortest subsequence covers ternary alphabet canonical witness 01012021010"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2022 section discusses distinct shortest covers in four-letter length-15 examples; its ternary example explicitly uses unequal cover lengths.",
+        "The 2025 Section 7 nonuniqueness construction starts from the same four-letter length-15 seed."
+      ],
+      "reasoning": "The exact class of ternary 11-letter words with two minimum-length s-covers is not a statement of either primary full-text construction. Reversal of a cover in a palindromic host explains paired examples but cannot alone establish the sharp global 11-letter cutoff.",
+      "searches": [
+        "\"Subsequence Covers of Words\" \"two\" \"shortest\" ternary 2022",
+        "\"01012021010\" \"010210\" \"012010\"",
+        "s-cover subsequence cover minimum nonunique shortest three-symbol word length eleven reverse cover palindrome",
+        "doi:10.1007/978-3-031-20643-6_1 Section 5",
+        "arXiv:2509.05827 Section 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2022 Table 1 records longest s-primitive lengths by alphabet size, not counts of hosts with nonunique shortest s-covers.",
+        "The available 2025 material likewise lists gamma-values and general multiplicity constructions, not a ternary length-by-length ambiguity table."
+      ],
+      "reasoning": "Neither known gamma-table nor general s-cover membership routine supplies a precomputed table of exactly six exceptional length-eleven ternary words. Exact sequence-database coverage remains a possible external risk.",
+      "searches": [
+        "doi:10.1007/978-3-031-20643-6_1",
+        "\"01012021010\" \"010210\" \"012010\"",
+        "Ternary s-cover uniqueness shortest subsequence covers counterexample smallest word 11, six alphabet relabelings"
+      ]
+    },
+    "rationale": "The primary 2022 conference paper (Section 5) introduces an alphabet-four, length-fifteen nonunique shortest s-cover example and a ternary pair of unequally long covers; the expanded 2025 paper (Section 7) retains the four-letter example. Neither inspected result gives the length-eleven sharp ternary threshold, the one canonical exceptional word, or its exact two-cover classification. Algorithms for a shortest cover do not by themselves imply exact enumerative ambiguity counts. Targeted literature searches and published research-index searches found no equivalence, but literature-index incompleteness remains a residual risk.",
+    "residual_risks": [
+      "A previously published enumeration in a sequence database, unindexed thesis, or independent source may present the same complete finite classification.",
+      "Search exhaustiveness is not priority proof; the full-text comparisons establish only that the specifically inspected published versions do not directly subsume the claim.",
+      "The finite code is reproducible but has not been subjected to an external independent mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_FRAMEWORK_AND_DIFFERENT_EXAMPLE; no direct covering claim for the finite ternary 11 threshold.",
+        "evidence": [
+          "Definition 1 introduces subsequence position coverage.",
+          "Section 3.1 Fact 1 gives gamma(3)=8.",
+          "Section 5 lines 448-506 distinguishes unequal-length ternary covers from a 15-letter four-symbol word with two shortest covers."
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/32638/32638.pdf",
+        "material_read": "Complete 13-page author-manuscript text, with particular comparison of Definition 1, Sections 2, 3, 4 and 5 including proof of Theorem 5 and examples.",
+        "method": "Read PDF text, inspect mathematical statements and implications; inspect scanned page representation.",
+        "title": "Subsequence Covers of Words (SPIRE 2022)",
+        "trigger": "Exact original source defining s-covers and exhibiting multiple shortest covers"
+      },
+      {
+        "assessment": "GENERAL_NONUNIQUENESS_BUT_NOT_THE_CLAIMED_EXACT_TERNARY_CLASSIFICATION",
+        "evidence": [
+          "Section 7 Lemma 7.1 starts from four-letter palindrome of length 15, two covers length 8.",
+          "Theorem 7.3 amplifies multiplicity using alphabet size growing with length.",
+          "No finite ternary length-11 unique-orbit result in inspected relevant material."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2509.05827",
+        "material_read": "17-page PDF, especially Sections 1, 2, 3, 5, 6, 7 and 9 and nonuniqueness proof beginning at PDF p. 11.",
+        "method": "Read arXiv full text, locate Lemma 7.1 and Theorem 7.3 and compare their exact domains and constructors.",
+        "title": "Subsequence Covers of Words (expanded 2025 version)",
+        "trigger": "Closest expanded primary treatment of the same cover multiplicity problem"
+      },
+      {
+        "assessment": "DATE_AND_IDENTITY_ONLY",
+        "evidence": [
+          "First Online: 01 November 2022; paper DOI 10.1007/978-3-031-20643-6_1."
+        ],
+        "identifier_or_url": "https://link.springer.com/chapter/10.1007/978-3-031-20643-6_1",
+        "material_read": "Publisher bibliographic record and first-online metadata (not a full-text substitute).",
+        "method": "Inspect chapter metadata specifying First Online: 01 November 2022.",
+        "title": "Subsequence Covers of Words (Springer publication record)",
+        "trigger": "Verify earliest publicly dated source and paper identity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "19792ff8-73a4-485c-8096-0243346f65d7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Multiplicity of minimum-length scattered-subsequence covers is a natural structural departure from classical string covering, where the shortest cover is unique. The known constructive example of two shortest covers uses four symbols and fifteen positions. A complete sharp ternary threshold and single six-word symmetry orbit at length eleven characterize the first possible ambiguity on the smaller alphabet, with concrete paired cover witnesses. This is a motivated exact boundary and finite classification, not a routine value of an arbitrary parameter or a mere relabeling of a prior example.",
+    "status": "PASS"
+  }
+}
