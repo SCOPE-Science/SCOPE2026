@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T07:08:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Residual identity I−AX_k=(I−αA)^{2^k} gives X_k=q_{2^k}(A) with q_m(λ)=[1−(1−αλ)^m]/λ>0 on spectrum (0,2/α). For every even m the geometric-series derivative is strictly decreasing in λ: numerator 1−mu^{m−1}+(m−1)u^m>0 for −1<u<1, u=1−αλ. For 2×2 SPD Stieltjes A, q_m(A)=c0I+c1A, c1<0, so off-diagonal is nonnegative and diagonal positive; n1 trivial. Exact independent rational recurrence confirms example A SPD det1267/500, 2I−A SPD det73/500 (so spectral convergence), inverse entries positive, X2_13=−1/500 while X1≥0. Finite witness plus all-input n≤2 analytic proof establishes sharp dimension.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hackbusch–Khoromskij–Tyrtyshnikov, Approximate iterations for structured matrices, Numerische Mathematik 109 (2008), DOI 10.1007/s00211-008-0143-0.",
+          "Soleymani–Sharifi–Shateyi, Approximating the inverse of a square matrix with application in computation of the Moore–Penrose inverse, Journal of Applied Mathematics (2014), DOI 10.1155/2014/731562.",
+          "Resultary: Condition two is the sharp second-iterate positivity frontier for MINRES; 2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731; also related CG and SOR positivity work.",
+          "Structured matrix iterations preserve approximate tensor/hierarchical representations under modified implementation; MINRES/CG/SOR results concern iterates of entirely different algorithms."
+        ],
+        "reasoning": "An M-matrix has nonnegative inverse but this does not imply every polynomial approximate inverse is entrywise nonnegative; convergence general theorems cannot dominate the sign preservation dichotomy.",
+        "searches": [
+          "Stieltjes M matrix Newton Schulz inverse iteration entrywise nonnegative matrix monotonicity 2x2 3x3 counterexample",
+          "Newton Schulz M-matrix inverse-positive hyperpower iteration"
+        ]
+      },
+      "checked_sources": [
+        "Hackbusch–Khoromskij–Tyrtyshnikov, Approximate iterations for structured matrices, Numerische Mathematik 109 (2008), DOI 10.1007/s00211-008-0143-0.",
+        "Soleymani–Sharifi–Shateyi, Approximating the inverse of a square matrix with application in computation of the Moore–Penrose inverse, Journal of Applied Mathematics (2014), DOI 10.1155/2014/731562.",
+        "Resultary: Condition two is the sharp second-iterate positivity frontier for MINRES; 2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731; also related CG and SOR positivity work.",
+        "Resultary semantic query: Stieltjes M matrix Newton Schulz inverse iteration entrywise nonnegative matrix monotonicity 2x2 3x3 counterexample"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hackbusch–Khoromskij–Tyrtyshnikov, Approximate iterations for structured matrices, Numerische Mathematik 109 (2008), DOI 10.1007/s00211-008-0143-0.",
+          "Soleymani–Sharifi–Shateyi, Approximating the inverse of a square matrix with application in computation of the Moore–Penrose inverse, Journal of Applied Mathematics (2014), DOI 10.1155/2014/731562.",
+          "Resultary: Condition two is the sharp second-iterate positivity frontier for MINRES; 2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731; also related CG and SOR positivity work.",
+          "Primary sources address convergence, sparsity and matrix structure; the contrast is entrywise positivity of the iteration polynomial."
+        ],
+        "reasoning": "Neither the iterative update identity nor inverse-positivity alone implies q_{2^k}(A)≥0. The divided-difference monotonicity in dimension two and exact three-dimensional counterexample are the substantive extra logical results.",
+        "searches": [
+          "Stieltjes M matrix Newton Schulz inverse iteration entrywise nonnegative matrix monotonicity 2x2 3x3 counterexample",
+          "Schulz iterative inverse Stieltjes matrix structure positivity counterexample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hackbusch–Khoromskij–Tyrtyshnikov, Approximate iterations for structured matrices, Numerische Mathematik 109 (2008), DOI 10.1007/s00211-008-0143-0.",
+          "Soleymani–Sharifi–Shateyi, Approximating the inverse of a square matrix with application in computation of the Moore–Penrose inverse, Journal of Applied Mathematics (2014), DOI 10.1155/2014/731562.",
+          "Direct search found Newton–Schulz structured-matrix and matrix inversion methods but no exact claim with Stieltjes 2D preservation and 3D convergent sign loss."
+        ],
+        "reasoning": "Distinct from positive definiteness of iterates (f_m(λ)>0), which does not imply entrywise nonnegativity; theorem determines the precise minimal matrix dimension under scalar initialization.",
+        "searches": [
+          "Stieltjes M matrix Newton Schulz inverse iteration entrywise nonnegative matrix monotonicity 2x2 3x3 counterexample",
+          "Newton Schulz Stieltjes entrywise positive iterates dimension three"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hackbusch–Khoromskij–Tyrtyshnikov, Approximate iterations for structured matrices, Numerische Mathematik 109 (2008), DOI 10.1007/s00211-008-0143-0.",
+          "Soleymani–Sharifi–Shateyi, Approximating the inverse of a square matrix with application in computation of the Moore–Penrose inverse, Journal of Applied Mathematics (2014), DOI 10.1155/2014/731562.",
+          "The 2014 primary paper contains initialization V0=αI, spectral contraction and accelerated matrix inverse algorithms; it does not tabulate minimal counterexample dimension or the present −1/500 entry."
+        ],
+        "reasoning": "The finite 3×3 witness is a sharp obstruction paired with an all-input dimension-2 theorem; no known database/table of nonnegative Newton–Schulz iterates covers both.",
+        "searches": [
+          "Stieltjes M matrix Newton Schulz inverse iteration entrywise nonnegative matrix monotonicity 2x2 3x3 counterexample",
+          "Stieltjes Newton Schulz 3 by 3 counterexample exact fraction"
+        ]
+      },
+      "rationale": "PASS for sharp entrywise sign preservation vs loss under convergent scalar-start Newton–Schulz on SPD Stieltjes matrices; standard iteration and convergence were known.",
+      "residual_risks": [
+        "Older matrix-function/operator-monotonicity literature could express 2D sign preservation in an equivalent form.",
+        "Availability of preconditioning sign-counterexample folklore is a priority risk despite targeted published searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_MATRIX_STRUCTURE",
+          "evidence": "No entrywise-nonnegativity minimal-dimensionality theorem; structure studied is low-rank/hierarchical representation, not coordinate sign.",
+          "identifier_or_url": "doi:10.1007/s00211-008-0143-0",
+          "material_read": "Open journal article HTML abstract and context on inverse, square root, sign, approximate tensor/hierarchical structure, and intermediate rank/structure loss.",
+          "method": "Full open journal landing text, introductory/context comparison",
+          "title": "Approximate iterations for structured matrices",
+          "trigger": "Closest structured-inversion iterative paper"
+        },
+        {
+          "assessment": "NO_DIMENSION_SHARP_STIELTJES_SIGN_THEOREM",
+          "evidence": "The article discusses higher-order matrix inverse iteration and V0=αI and sparsity, not two-dimensional entrywise positivity or a three-dimensional counterexample.",
+          "identifier_or_url": "doi:10.1155/2014/731562",
+          "material_read": "Open-access 2014 article introduction, algorithms, start matrices, convergence, application examples and conclusions; available online full text.",
+          "method": "Full open HTML article selective mathematical reading",
+          "title": "Approximating the inverse of a square matrix with application in computation of the Moore–Penrose inverse",
+          "trigger": "Explicit scalar X0=αI and Schulz family reference"
+        },
+        {
+          "assessment": "DISTINCT_ALGORITHM",
+          "evidence": "Conjugate gradients uses right-hand-side-dependent Krylov polynomials, whereas Newton–Schulz matrix inversion uses residual squaring and scalar-initialized q_m(A).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5",
+          "material_read": "Published mathematical Resultary title and semantic summary only.",
+          "method": "Resultary index comparison",
+          "title": "Three dimensions are minimal for positivity loss in conjugate gradients on Stieltjes systems",
+          "trigger": "Same matrix class and dimension, distinct iteration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Entrywise positivity matters for M-matrix numerical schemes (monotone comparison and positivity-constrained approximate inverse/preconditioning). The exact two-dimensional safe regime and explicit stable three-dimensional failure sharply delimit a natural structural property of a classical inverse iteration. Sign defects are strict and robust, not floating-point artifacts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only exact scalar initial Newton–Schulz SPD Stieltjes; no rounding/dropping/non-symmetric M-matrices or different initial guesses.",
+    "n≤2 result analytic; explicit n3 counterexample says nothing about maximal duration of transient negativity."
+  ]
+}
