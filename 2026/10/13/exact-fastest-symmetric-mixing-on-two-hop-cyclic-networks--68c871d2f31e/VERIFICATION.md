@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.10+ and the standard library, with no external files or network. The script is included in full and reconstructs every value it tests from elementary trigonometric definitions.
+## correctness
 
-Observed output:
+PASS
 
-`VERIFY_OK spectra=2446 feasible_grid_comparisons=30996 eigenvector_entries=3281 asymptotic_cases=5`
+PASS. Every symmetric, nonnegative, row-stochastic P supported on C_n² with loops has SLEM ||P−J||₂, convex and invariant under dihedral conjugation; averaging yields a circulant orbit-uniform optimizer without increasing norm, so the attained optimum is unrestricted. Fourier modes have q(t)=1−4at−16bt(1−t), t=sin²(πk/n). The sampled quadratic g(t)=t(ℓ+r−t) has minima ℓr at endpoints and maximum at j=floor((n+2)/4), verified by the four congruence classes of n. Balancing the two positive endpoints and negative interior contact gives a=(ℓ+r−1)/(2d), b=1/(8d), d=ℓr+u(ℓ+r−u), and rho=[u(ℓ+r−u)−ℓr]/d. Explicit modulo-4 positivity of h=1−2a−2b and a,b establishes feasibility. For n≥6 the difference between any competing orbit-uniform q and optimum divided by t is affine, so three alternating contacts force uniqueness of orbit-uniform optimum; n=5 handled separately. Global uniqueness for nonuniform walks is NOT claimed. Expansion gives 1−rho=8π²/n²+O(n^{−4}) compared to one-hop 2π²/n². Independently assembled all Fourier constraints and solved fresh linear programs for every 5≤n≤74; every optimum and eigenmode bound agrees within numeric tolerance; finite LP does not prove all n.
 
-It covers sizes \(5\le n\le99\) for Fourier contacts and feasibility; sizes \(5\le n\le40\) for alternative stochastic edge-class weight grids; and sizes \(5\le n\le21\) for direct physical-matrix/Fourier eigenvector identities. It also tests five larger sizes for the spectral-gap asymptotic and exact six-vertex rational special values.
+## originality
 
-A separate finite-dimensional linear-programming check using SciPy's HiGHS solver for all sizes \(5\le n\le100\) returned optimal values agreeing with the stated formula to within \(3\times10^{-16}\). SciPy is not required by the included checker.
+PASS
 
-These numerical and finite-size validations do not independently certify the analytical proof for every integer size. The argument's nonstandard points are the location of the maximum sampled concave quadratic, the four-class holding-probability positivity calculation, and the three-contact affine optimality argument; all are written explicitly in `RESULT.md`.
+PASS, best of knowledge for closed-form all-size discrete-time two-hop-cycle SLEM optimum, its exact weights, three contact frequencies and factor-four leading gap versus best one-hop. The primary Boyd–Diaconis–Xiao 2004 framework gives general SDP and Boyd–Diaconis–Parrilo–Xiao 2009 gives graph symmetry reduction and a different ONE-HOP cycle explicit calculation. Neither inspected theorem specifies this distance-two minimax solution for all n. Published Saha–Das 2025 adjacency spectra of C_n² are unweighted and do not optimize transition probabilities. Similar degree-two sampled trigonometric extremals use a distinct coefficient/positivity normalization; no sound equivalence deriving this SLEM solution was located.
 
-An independent mathematical audit has not been performed.
+## value
+
+PASS
+
+PASS. The square cycle is a canonical nearest-plus-next-nearest-neighbor network, and symmetric FMMC is an established optimization problem. Exact universally positive transition weights, the active Fourier modes, and sharp fourfold asymptotic spectral-gap gain are usable quantitative structural facts, substantially more than the general SDP formulation or a finite numerical solution. Explicitly limited to SLEM, not finite-time TV mixing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

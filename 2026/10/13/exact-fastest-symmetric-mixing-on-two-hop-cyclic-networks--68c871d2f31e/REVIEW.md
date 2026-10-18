@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Dihedral averaging reduces the unrestricted symmetric stochastic problem to three probabilities without increasing the spectral operator norm. Fourier diagonalization produces the precise sampled quadratic. The frequency contact at \(j=\lfloor(n+2)/4\rfloor\) follows from four residue-class trigonometric inequalities, including the five-vertex tie. The constructed probabilities are positive in all cases by explicit holding-probability factorizations. Affineness of the difference of two eigenvalue polynomials after division by positive frequency \(t\) proves minimax optimality and uniqueness among orbit-constant walks. The asymptotic constant is obtained from the exact formula. The script confirms representative calculations but is not used to certify the universal quantifiers.
+## correctness
 
-**Originality — PASS, subject to historical uncertainty.** The most relevant primary texts are Boyd–Diaconis–Xiao (2004), Boyd–Diaconis–Parrilo–Xiao (2009), and Saha–Das (2025). Their inspected content respectively gives the general SLEM framework, symmetry reduction and the one-hop cycle solution, and the unweighted spectrum of this same graph. None of those stated conclusions implies the all-size two-hop discrete-time SLEM optimum, the uniquely balanced three Fourier modes, and the sharp leading gap constant. A published degree-two finite-grid trigonometric extremum is related in algebraic form, but solves a different coefficient and positivity objective. Literature containing a disguised equivalent problem may remain unexamined.
+PASS
 
-**Value — PASS.** Two-hop stochastic consensus is a natural shortest-range extension of nearest-neighbor consensus. A complete rule for arbitrary network size, including positivity of holding probability, the active Fourier modes, and the fourfold asymptotic speedup, makes this exact optimization meaningful beyond fixed-size numerical calculations. The theorem expressly distinguishes discrete-time SLEM optimization from Laplacian spectral-gap-only design.
+PASS. Every symmetric, nonnegative, row-stochastic P supported on C_n² with loops has SLEM ||P−J||₂, convex and invariant under dihedral conjugation; averaging yields a circulant orbit-uniform optimizer without increasing norm, so the attained optimum is unrestricted. Fourier modes have q(t)=1−4at−16bt(1−t), t=sin²(πk/n). The sampled quadratic g(t)=t(ℓ+r−t) has minima ℓr at endpoints and maximum at j=floor((n+2)/4), verified by the four congruence classes of n. Balancing the two positive endpoints and negative interior contact gives a=(ℓ+r−1)/(2d), b=1/(8d), d=ℓr+u(ℓ+r−u), and rho=[u(ℓ+r−u)−ℓr]/d. Explicit modulo-4 positivity of h=1−2a−2b and a,b establishes feasibility. For n≥6 the difference between any competing orbit-uniform q and optimum divided by t is affine, so three alternating contacts force uniqueness of orbit-uniform optimum; n=5 handled separately. Global uniqueness for nonuniform walks is NOT claimed. Expansion gives 1−rho=8π²/n²+O(n^{−4}) compared to one-hop 2π²/n². Independently assembled all Fourier constraints and solved fresh linear programs for every 5≤n≤74; every optimum and eigenmode bound agrees within numeric tolerance; finite LP does not prove all n.
 
-**Scientific limitations.** Only symmetric stochastic walks with a uniform invariant law are covered. There is no classification of all possibly nonuniform optimizers; the claimed global value does include such competitors. There is no claim about exact finite-time mixing, nonnormal chains, or numerical floating-point guarantees.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge for closed-form all-size discrete-time two-hop-cycle SLEM optimum, its exact weights, three contact frequencies and factor-four leading gap versus best one-hop. The primary Boyd–Diaconis–Xiao 2004 framework gives general SDP and Boyd–Diaconis–Parrilo–Xiao 2009 gives graph symmetry reduction and a different ONE-HOP cycle explicit calculation. Neither inspected theorem specifies this distance-two minimax solution for all n. Published Saha–Das 2025 adjacency spectra of C_n² are unweighted and do not optimize transition probabilities. Similar degree-two sampled trigonometric extremals use a distinct coefficient/positivity normalization; no sound equivalence deriving this SLEM solution was located.
+
+## value
+
+PASS
+
+PASS. The square cycle is a canonical nearest-plus-next-nearest-neighbor network, and symmetric FMMC is an established optimization problem. Exact universally positive transition weights, the active Fourier modes, and sharp fourfold asymptotic spectral-gap gain are usable quantitative structural facts, substantially more than the general SDP formulation or a finite numerical solution. Explicitly limited to SLEM, not finite-time TV mixing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

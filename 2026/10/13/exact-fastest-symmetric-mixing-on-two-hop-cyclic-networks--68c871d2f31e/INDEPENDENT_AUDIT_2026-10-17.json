@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T23:56:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Every symmetric, nonnegative, row-stochastic P supported on C_n² with loops has SLEM ||P−J||₂, convex and invariant under dihedral conjugation; averaging yields a circulant orbit-uniform optimizer without increasing norm, so the attained optimum is unrestricted. Fourier modes have q(t)=1−4at−16bt(1−t), t=sin²(πk/n). The sampled quadratic g(t)=t(ℓ+r−t) has minima ℓr at endpoints and maximum at j=floor((n+2)/4), verified by the four congruence classes of n. Balancing the two positive endpoints and negative interior contact gives a=(ℓ+r−1)/(2d), b=1/(8d), d=ℓr+u(ℓ+r−u), and rho=[u(ℓ+r−u)−ℓr]/d. Explicit modulo-4 positivity of h=1−2a−2b and a,b establishes feasibility. For n≥6 the difference between any competing orbit-uniform q and optimum divided by t is affine, so three alternating contacts force uniqueness of orbit-uniform optimum; n=5 handled separately. Global uniqueness for nonuniform walks is NOT claimed. Expansion gives 1−rho=8π²/n²+O(n^{−4}) compared to one-hop 2π²/n². Independently assembled all Fourier constraints and solved fresh linear programs for every 5≤n≤74; every optimum and eigenmode bound agrees within numeric tolerance; finite LP does not prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2004 gives arbitrary-graph SDP, 2009 symmetry method and one-hop cycle example; 2025 gives only unweighted adjacency/Laplacian spectra."
+        ],
+        "reasoning": "General convex optimization existence/algorithm can solve each n but does not present or trivially imply the explicit all-n two-hop weights, Fourier three-contact proof and sharp factor-four asymptotic gap.",
+        "searches": [
+          "Boyd, Diaconis, Xiao SIAM Review 46 (2004)",
+          "Boyd, Diaconis, Parrilo, Xiao SIAM J Optim 20 (2009)",
+          "Saha–Das (2025) Square Graph of a Cycle Graph"
+        ]
+      },
+      "checked_sources": [
+        "Pinned mixing RESULT.md blob 0944b35e… and SLOGAN/REVIEW/AUDIT/METADATA/VERIFICATION",
+        "Independent Fourier-mode linear-program check 5≤n≤74 with full nonnegative/row-sum constraints; every optimum matched analytic formula",
+        "Boyd et al full 2004, 2009 papers and 2025 Saha–Das graph-square reference",
+        "Resultary semantic search: fastest mixing Markov chain square of cycle nearest and next-nearest neighbor symmetric stochastic optimal weights exact SLEM two hop ring"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier one-hop optimum has gap 2π²/n², whereas two-hop optimal gap is 8π²/n² and uses nonzero distance-two probability."
+        ],
+        "reasoning": "The one-hop optimizer on a smaller support is not a minimizer for the enlarged graph; unweighted spectra likewise cannot determine the minimax choice of two independent edge-class weights.",
+        "searches": [
+          "Boyd et al 2009 §3.1.1 cycle special case",
+          "Boyd et al 2004 FMMC SDP",
+          "Saha–Das 2025 graph spectra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fourier polynomial q(t)=1−4at−16bt(1−t) on grid t=sin²(πk/n); three-contact Chebyshev minimax and dihedral averaging."
+        ],
+        "reasoning": "Compared discrete-time SLEM on C_n² to degree-two Fourier minimax, including self-loop and coefficient constraints; same polynomial degree alone does not identify different objectives or normalizations.",
+        "searches": [
+          "Resultary: fastest mixing Markov chain square of cycle nearest and next-nearest neighbor symmetric stochastic optimal weights exact SLEM two hop ring",
+          "Boyd et al 2004 symmetric FMMC/SLEM SDP",
+          "degree-two sampled trigonometric Carathéodory–Fejér extremal searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same two-hop stochastic optimizer table or closed n-formula in checked primary sources; own LP reproduced n5−74."
+        ],
+        "reasoning": "Arbitrary-size formula and proof are central, not a table lookup; numerical small-n SDP values alone do not cover n→∞ and all n.",
+        "searches": [
+          "Resultary: fastest mixing Markov chain square of cycle nearest and next-nearest neighbor symmetric stochastic optimal weights exact SLEM two hop ring",
+          "published FMMC cycle-square spectral weights exact values searches"
+        ]
+      },
+      "rationale": "PASS, best of knowledge for closed-form all-size discrete-time two-hop-cycle SLEM optimum, its exact weights, three contact frequencies and factor-four leading gap versus best one-hop. The primary Boyd–Diaconis–Xiao 2004 framework gives general SDP and Boyd–Diaconis–Parrilo–Xiao 2009 gives graph symmetry reduction and a different ONE-HOP cycle explicit calculation. Neither inspected theorem specifies this distance-two minimax solution for all n. Published Saha–Das 2025 adjacency spectra of C_n² are unweighted and do not optimize transition probabilities. Similar degree-two sampled trigonometric extremals use a distinct coefficient/positivity normalization; no sound equivalence deriving this SLEM solution was located.",
+      "residual_risks": [
+        "An alternative degree-two trigonometric minimax theorem may derive the result in disguised variables; inspected closest records have distinct constraints and no proven domination.",
+        "Closed-form optimizer is unique only among orbit-uniform circulant walks; unrestricted nonuniform optimizers are not classified.",
+        "Factor-four speedup is in asymptotic spectral-gap leading constant, not necessarily full total-variation mixing-time ratio."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines general variational problem; does not establish the two-hop-cycle explicit formula",
+          "evidence": "SLEM as convex spectral norm on nonconstant subspace.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+          "material_read": "Complete lawful Stanford-hosted paper including objective, SDP and examples",
+          "method": "Read full primary text",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Original definition of symmetric FMMC and SDP"
+        },
+        {
+          "assessment": "Covers symmetry reduction and one-hop cycle; does not cover two-hop all-size positive three-contact optimum in inspected derivation",
+          "evidence": "§3.1.1 explicit one-step cyclic neighbor weights, without separately tuned distance-two edges.",
+          "identifier_or_url": "https://doi.org/10.1137/070689413",
+          "material_read": "Complete lawful Stanford-hosted paper including automorphism reduction and §3.1.1 one-hop cycle",
+          "method": "Read primary full text and specifically compared cycle section",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Strongest plausible prior reduction and analytic cycle formulas"
+        },
+        {
+          "assessment": "Graph spectra are useful ingredients; no transition-weight minimax stated in inspected material",
+          "evidence": "Prior results concern graph matrices without stochastic optimization.",
+          "identifier_or_url": "https://doi.org/10.26713/cma.v16i4.3246",
+          "material_read": "Accessible descriptions and reported unweighted adjacency/Laplacian eigenvalue results; full paper not confirmed",
+          "method": "Targeted statement comparison only",
+          "title": "The Square Graph of a Cycle Graph",
+          "trigger": "Exact same graph family but unweighted spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The square cycle is a canonical nearest-plus-next-nearest-neighbor network, and symmetric FMMC is an established optimization problem. Exact universally positive transition weights, the active Fourier modes, and sharp fourfold asymptotic spectral-gap gain are usable quantitative structural facts, substantially more than the general SDP formulation or a finite numerical solution. Explicitly limited to SLEM, not finite-time TV mixing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact fastest-mixing symmetric stochastic walk on two-hop cycles",
+  "limitations": [
+    "An alternative degree-two trigonometric minimax theorem may derive the result in disguised variables; inspected closest records have distinct constraints and no proven domination.",
+    "Closed-form optimizer is unique only among orbit-uniform circulant walks; unrestricted nonuniform optimizers are not classified.",
+    "Factor-four speedup is in asymptotic spectral-gap leading constant, not necessarily full total-variation mixing-time ratio.",
+    "Repository record tree was fully retrieved, sha-matched, and nontruncated; complete repository-root ancestry was not separately recomputed."
+  ],
+  "schema_version": 1
+}
