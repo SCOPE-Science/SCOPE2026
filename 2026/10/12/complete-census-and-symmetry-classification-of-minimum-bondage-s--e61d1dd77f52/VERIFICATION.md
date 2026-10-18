@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The proof is a complete **finite** exhaustive enumeration for one 24-vertex graph; it is not an inferred general infinite-family statement. The file `verify_bondage.cpp` implements direct domination checks using exact 24-bit neighborhood unions, tests all six- through eight-vertex possible small dominating sets, all four- and five-edge deletion subsets, all automorphisms, the star census, the eight orbits, and nine-vertex witnesses. Exact expected counts are displayed in `verification_output.txt`, which records an actual replay.
+## correctness
 
-The independent `census.cpp` implements the different exact bundle-coverage criterion: a dominating set survives an edge deletion unless for some undominated vertex all its edges to the set are deleted. It reproduces all 276 winning five-edge subsets, written to `bondage_sets.txt`, using the same fixed graph but a distinct domination-survival algorithm. Both programs are standalone C++17 sources.
+PASS
 
-The original source (Srivastava, arXiv:2609.02477v1) already establishes that the graph has domination number eight and bondage number five; the independently checked refinement concerns the **full** 276-minimizer census, compulsory complete vertex star, and eight symmetry classes. Potential undiscovered equivalent enumerations remain a literature risk. This documentation reports self-review only, not external audit.
+The fixed source list has 24 cubic vertices and 36 edges. Independent compiled C++ with a direct closed-neighborhood algorithm enumerated all C(24,6)+C(24,7)=480700 candidate small dominating sets (none), 1767 size-eight dominators, every C(36,4)=58905 four-edge deletion (minimum 5 surviving eight-sets), and all C(36,5)=376992 five-edge deletions: exactly 276 kill every size-eight dominator. Each winner contains at least one entire three-edge incident vertex star; 36 winners have two, every vertex has exactly 13 extensions. Separately constructed networkx graph automorphisms (48) and their action on all 276 independently determined eight orbits 12,24,24,24,48,48,48,48 and all claimed representatives. Checked all eight printed nine-vertex domination witnesses by recomputing the surviving edges; the orbit action transports each witness, giving γ(T-F)=9 for every winner. This is an exhaustive finite certificate, not a sampling argument.
+
+## originality
+
+PASS
+
+Srivastava, arxiv:2609.02477v1 Theorem 1, proves only γ(T)=8 and b(T)=5 by one five-edge witness and exhaustive absence of four-edge winners. Its full text gives exactly 1767 domination-eight sets, but nowhere counts all 276 five-edge minima nor specifies eight symmetry orbits, thirteen local extensions or a universal post-deletion γ=9. Those extra natural equality-case assertions are not logical consequences of scalar bondage number five. Nearby Resultary findings on the same truncated octahedron compute unrelated independence complexes, not bondage-minimizer census.
+
+## value
+
+PASS
+
+The complete sensitivity/fault-set classification of the smallest currently exhibited cubic planar counterexample to the planar bondage conjecture is a natural graph invariant. A compulsory full vertex star and eight orbits explain the structure and abundance of extremal destructive edge sets; the result is more than repeating b(T)=5.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
