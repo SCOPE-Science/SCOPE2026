@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-From the same directory as the supplied standalone source files, run `python3 verify.py`. Compile the independent implementation with `g++ -O2 -std=c++17 verify_independent.cpp -o verifier` and run `./verifier`. The checks require no third-party libraries.
+## correctness
 
-The Python program constructs the 13 dual-point coordinates and 13 check rows, exhaustively tests all 8192 possible column subsets, and compares every direct stopping-set result with the geometric nine-class description. It confirms exactly 769 stopping sets, including one empty set, with coefficients \(e_0=1\), \(e_6=78\), \(e_8=117\), \(e_9=247\), \(e_{10}=234\), \(e_{11}=78\), \(e_{12}=13\), and \(e_{13}=1\); unlisted coefficients vanish. It reconstructs all 5616 projective collineations, checks the nine orbit representatives stored in `orbits.csv`, and verifies every nonempty stopping set contains a size-six member.
+PASS
 
-Direct peeling and the independent geometric covering test agree for every erasure pattern. Exactly 3004 patterns fail, with coefficients \(B_6=78\), \(B_7=546\), \(B_8=1287\), \(B_9=715\), \(B_{10}=286\), \(B_{11}=78\), \(B_{12}=13\), and \(B_{13}=1\). The independently written C++ program separately constructs the finite plane and checks all 8192 patterns by checking row intersection sizes and explicitly iterating the peeling rule; it reproduces the two totals and every coefficient.
+Each incidence check meets four variables. For a column stopping set S, complement T in dual PG(2,3) cannot meet any line in exactly three points. If no full dual line is contained, T is an arc and elementary even-parity argument forbids five-point arcs. If T contains full line L, affine U=T minus L has closure property: pair implies all three affine collinear points; hence U is empty, singleton, a full affine line or whole affine plane. These disjoint geometric cases count all 769 stopping sets and nine projective orbits. Every nonempty S contains complement of union of two lines, i.e. a 6-column minimum, yielding exact failure criterion. Independently reconstructed all 8192 incidence masks from F_3^3, computed stopping and iterative peeling, found 769 stopping, exactly same coefficients, 3004 failures; independently enumerated PGL(3,3) of order 5616 and verified all nine orbits. Correct for this H only.
 
-The geometric proof in `RESULT.md` supplies the argument for completeness, rather than extrapolating from a finite experiment. Verification does not extend the theorem to planes of other orders, other parity-check matrices, or maximum-likelihood decoding. The mathematical analysis and executable checks are not an independent mathematical audit.
+## originality
+
+PASS
+
+Kashyap–Vardy 2003 full primary paper gives min stopping distance 6 for order-three PG, complete small order-two Fano enumerator, partial order-four computations, not this full order-three spectrum or peeling failure formula. Napolitano (2020/2021) proves known minimum six-set characterization; its abstract was read but full work inaccessible. Xia–Hu 2007 minimum stopping study also inaccessible in full (publisher/Oxford VPN disconnected). These are material prior risks, but available published statements do not imply the all-cardinality nine-orbit or 3004-outcome peeling census; O best-of-knowledge. Resultary nearest other projective-plane/coding invariants, no identical entry found.
+
+## value
+
+PASS
+
+The exact all-size stopping distribution for a canonical smallest non-Fano projective plane and precise iterative binary-erasure decoder block-failure probability are natural, reusable finite-length coding benchmarks. Structural two-line-cover criterion strengthens known minimum-distance description and explains the full enumerator, beyond arbitrary enumeration of a few subsets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

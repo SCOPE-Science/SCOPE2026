@@ -1,15 +1,21 @@
-# Review of the complete stopping configurations and erasure-failure spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes the thirteen-column binary point–line incidence matrix of \(\mathrm{PG}(2,3)\). The complement criterion (a dual line cannot meet the complement in exactly three points) follows directly from each check having four ones. The geometric proof divides complements into arcs of size at most four and sets containing a whole dual line, whose affine portions are exactly affine flats in \(\mathrm{AG}(2,3)\). This gives nine exhaustive configurations and the complete stopping enumerator. A separate two-line-cover characterization of failed erasure patterns gives every coefficient of the peeling-failure polynomial. In `verify.py`, all 8192 column subsets, all peeling outcomes, all minimum-containment assertions, 5616 projective collineations and the nine orbit representatives were checked. `verify_independent.cpp` independently rebuilds the plane and confirms both distributions. Boundaries: only the specified check matrix and finite order three; no inference to different matrices or larger planes.
+PASS
 
-## Originality — PASS with residual risk
+Each incidence check meets four variables. For a column stopping set S, complement T in dual PG(2,3) cannot meet any line in exactly three points. If no full dual line is contained, T is an arc and elementary even-parity argument forbids five-point arcs. If T contains full line L, affine U=T minus L has closure property: pair implies all three affine collinear points; hence U is empty, singleton, a full affine line or whole affine plane. These disjoint geometric cases count all 769 stopping sets and nine projective orbits. Every nonempty S contains complement of union of two lines, i.e. a 6-column minimum, yielding exact failure criterion. Independently reconstructed all 8192 incidence masks from F_3^3, computed stopping and iterative peeling, found 769 stopping, exactly same coefficients, 3004 failures; independently enumerated PGL(3,3) of order 5616 and verified all nine orbits. Correct for this H only.
 
-Kashyap–Vardy, *Stopping Sets in Codes from Designs* (ISIT 2003, DOI:10.1109/ISIT.2003.1228136), was materially inspected in author-hosted full text. It establishes the known order-three stopping distance six and discusses stopping weight enumerators, computing an order-two enumerator and partial order-four coefficients, but does not state the order-three complete spectrum or peeling-failure polynomial. Napolitano, *Small stopping sets in finite projective planes of order q* (DOI:10.26493/2590-9770.1345.300), already reports the shape of every minimum order-three stopping set; no novelty is claimed for that minimum or its known geometric form. The accessible abstract does not establish the complete all-size and decoding-failure claims, but the full paper could not be inspected, leaving specific priority risk. Xia–Hu (DOI:10.3724/SP.J.1146.2005.01328) was available only by its abstract, concerning minimum stopping sets and codeword supports. Targeted aliases, exact coefficients, duality, larger-coverage and tabulation searches found no directly dominating statement; search absence is not proof of global novelty. The nearest accessible studies of finite-plane blocking sets and graph invariants do not imply this classification.
+## originality
 
-## Value — PASS
+PASS
 
-The complete weight distribution of stopping configurations is a natural finite-design invariant and determines the stopping-set benchmark absent from the foundational treatment for this particular small plane. More substantively, the classification proves every nonempty stopping set contains a minimum one and yields a necessary-and-sufficient two-line geometric criterion for peeling failure, with an exact thirteen-bit erasure-failure polynomial. These are relevant to finite-length iterative decoding and provide a reproducible structural benchmark, not an arbitrary selected numerical slice. The scope is deliberately a single classical projective plane, and independent review remains outstanding.
+Kashyap–Vardy 2003 full primary paper gives min stopping distance 6 for order-three PG, complete small order-two Fano enumerator, partial order-four computations, not this full order-three spectrum or peeling failure formula. Napolitano (2020/2021) proves known minimum six-set characterization; its abstract was read but full work inaccessible. Xia–Hu 2007 minimum stopping study also inaccessible in full (publisher/Oxford VPN disconnected). These are material prior risks, but available published statements do not imply the all-cardinality nine-orbit or 3004-outcome peeling census; O best-of-knowledge. Resultary nearest other projective-plane/coding invariants, no identical entry found.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact all-size stopping distribution for a canonical smallest non-Fano projective plane and precise iterative binary-erasure decoder block-failure probability are natural, reusable finite-length coding benchmarks. Structural two-line-cover criterion strengthens known minimum-distance description and explains the full enumerator, beyond arbitrary enumeration of a few subsets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
