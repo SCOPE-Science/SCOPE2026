@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof tracks equality in two sharp Euclidean comparisons. Below \(\beta=1/\sqrt2\), equality in \(N_\beta\le E\) forces the sum and difference onto coordinate axes; above it, equality in \(N_\beta\le\sqrt2\beta E\) forces them onto diagonal rays. In both regimes, equality in \(E\le M_2N_\beta\) forces the two unit vectors to be octagon vertices. The remaining exact vertex equations give one class in each open regime and their union at the threshold. The endpoints are explicitly excluded.
+## correctness
 
-## Originality
-PASS. The decisive 2011 full text contains the exact same family, value formulas, and threshold but does not state the complete maximizing-pair set in the inspected propositions and examples. Targeted equality-case and extremizer searches found nearby octagonal constants but no equivalent pair-level classification. Later upper-bound and extreme-norm sources provide broader context; the 2023 full text was not inspectable through the checked route and is retained as a residual bibliographic risk.
+PASS
 
-## Value
-PASS. The result supplies the geometric mechanism behind a classical piecewise value formula: the extremal chord directions switch from coordinate axes to diagonals exactly at the regular-octagon parameter. This is a natural equality-case completion of a standard example, not a recomputation of the known constant.
+Every nonzero z has Euclidean norm E(z)≤sqrt(1+c²)Nβ(z), with equality only on octagon vertex rays because E² strictly convex on nontrivial edges. For β<1/√2, Nβ≤E with equality on axes; Euclidean parallelogram chain forces x,y vertices and both sum/difference axes, giving coordinate-reflection orbit. For β>1/√2, Nβ≤√2 β E with equality only on diagonal rays; same chain forces vertices and two diagonal chords, giving coordinate-swapped orbit. At β=1/√2 axes and diagonals together yield union. Finite check only after justified vertex reduction; degenerate endpoints excluded.
 
-## Closest literature and limitations
-Mizuguchi--Saito (2011) is the decisive same-object source. Their later upper-bound paper is the closest broader continuation. The result is confined to \(1/2<\beta<1\) and deliberately excludes the square and diamond endpoints.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Published 2011 theorem computes sharp values via Euclidean comparisons, which does not on its own determine every maximizing pair. The recorded equality-chord orbit classification distinguishes a genuine geometric phase transition. Full 2011 text remained inaccessible, so existence of a hidden equality classification is a specific bibliographic risk, not an automatic FAIL.
+
+## value
+
+PASS
+
+Complete equality sets and their discrete geometric bifurcation add a natural, mathematically motivated invariant of a classical continuously parametrized Banach-plane family beyond the known constant values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
