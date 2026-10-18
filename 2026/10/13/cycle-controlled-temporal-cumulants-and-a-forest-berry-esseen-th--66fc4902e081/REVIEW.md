@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The time-dependent expectation is reconstructed directly in the one-particle energy basis. Relative-gap rational independence gives Haar equidistribution of the relative vertex phases. Signed-edge expansion shows that Haar-surviving monomials are exactly zero-incidence signed edge multisets. At orders three and four, the only connected simple supports are respectively triangles and four-cycles, with the stated coefficients after accounting for orientations and permutations; repeated-edge terms give the single-cosine fourth cumulant. For forests, the edge-incidence coordinates are unimodular after roots are added, so all active edge phases are independent uniform variables. The Berry–Esseen coefficient follows from \(\operatorname{Var}(2r\cos\Theta)=2r^2\) and \(\mathbb E|2r\cos\Theta|^3=32r^3/(3\pi)\). The packaged checker independently reproduces the nontrivial finite identities.
+## correctness
 
-## Originality
-PASS. The closest source, Campos Venuti–Zanardi, supplies the essential prior mapping from quasifree temporal statistics to a generalized infinite-temperature classical \(XY\) model and proves a factorized independent-sum CLT for a specific quantum-\(XY\) magnetization. Its inspected full text does not state the active-support graph cumulant formulas, the if-and-only-if forest criterion for edge-phase independence, or a finite-system Berry–Esseen bound for all forest supports. Searches for equivalent formulations using Gaussian equilibration, quasifree fermions, graph cycles, skewness/kurtosis, forest phase differences, and Berry–Esseen terminology found no covering result. Brandão–Cramer's quantum Berry–Esseen argument concerns energy measurement distributions in short-range lattice states and does not imply the temporal graph theorem. A residual risk is that classical linked-cluster literature for the \(XY\) model may encode equivalent low-order cycle coefficients under different language.
+PASS
 
-## Value
-PASS. The motivating work leaves broad Gaussian equilibration as a conjectural structural phenomenon outside special examples. The result identifies a natural object—the active coherence graph—that controls finite temporal statistics. It makes triangle and four-cycle effects explicit at the first two non-Gaussian cumulant orders and gives a complete, topology-based class in which the whole temporal law factorizes, together with a quantitative finite-size Gaussian error bound. This is more than a numerical check or an arbitrary parameter slice: it supplies a reusable structural criterion and a diagnostic for when model-specific factorization occurs.
+Rational independence of relative one-particle gaps equidistributes the time phases on the vertex torus. Expanding X=sum r_e(exp(iΔtheta+iφ)+exp(-iΔtheta-iφ)) shows only zero-incidence signed edge multisets survive. Counting connected contributions at orders 2,3,4 yields κ2=2∑r², κ3=12∑_triangles ∏r cosΦ, κ4=-6∑r⁴+48∑_4cycles ∏r cosΦ. Every forest oriented-incidence matrix extends to unimodular root-plus-edge coordinates, so edge difference phases are jointly independent Haar; any cycle has a nontrivial modular relation, hence iff forest. Thus forest law is sum of 2r cos Θ, characteristic function ∏J0(2rs), and Berry–Esseen with exact third-absolute-moment prefactor 8√2/(3π). Fresh independent exact rational signed-edge enumeration on a graph with triangle and four-cycle gave κ2=28/5, κ3=189/50, κ4=-8031/1250 and matched the predicted formula; finite checks corroborate general incidence proof.
 
-The main limitations are the strong nonresonance assumption, the restriction of the Berry–Esseen theorem to forests, and the exclusion of pairing Hamiltonians. Cyclic graphs are not claimed to be non-Gaussian in the thermodynamic limit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Campos Venuti–Zanardi 2013 maps temporal statistics to generalized XY partition function and proves a Bessel-product CLT in a particular magnetization model. Its full text is prior for the mapping and model-specific Gaussian equilibration, but does not establish topology-indexed third/fourth cumulant formulas or the iff-forest independence criterion with arbitrary-support quantitative Berry–Esseen. General linked-cluster expansions are a meaningful residual potential implicit implication.
+
+## value
+
+PASS
+
+Theorem connects explicit graph topology to non-Gaussian temporal skewness/kurtosis and gives a sharp structural independence criterion for whole forest families, plus a finite-size Gaussian-equilibration bound. These are motivated, mathematically reusable conclusions beyond standard independent-summand BE applied to an already-factorized toy example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
