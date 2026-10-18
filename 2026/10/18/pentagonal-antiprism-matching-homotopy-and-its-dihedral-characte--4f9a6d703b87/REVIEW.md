@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The twenty-edge graph definition was reconstructed; all \(708\) augmented faces and the \(347\)-pair acyclic matching were independently generated from it. The signed integral Morse matrix has a single primitive rank-one relation, sufficient to establish the precise homotopy wedge, and the character computation uses exact modular linear algebra and the homological a priori trace bound. The complete `verify.py` checks the finite certificates directly; no sampling is substituted for exhaustive proof.
+
+**Originality — PASS, with residual risk.** A full-text comparison with Bayer–Jelić Milutinović–Vega, *Matching Complexes of Outerplanar Graphs* (arXiv:2411.04601v2), shows that its hypothesis excludes this four-regular planar antiprism. Its planar conjecture does not state this homotopy or equivariant classification. The most similar indexed graph-matching results concern Petersen, Desargues or dodecahedral graphs. The square-cycle independence-complex literature studies a different graph complex from the independence complex of its line graph. No matching homotopy-and-character result for this antiprism was identified in targeted searches. A recent rectangular-grid matching-complex source was available at abstract level only, and unindexed sources pose residual risk.
+
+**Value — PASS.** This is a complete homotopy and symmetry classification for a natural ten-vertex polyhedral, planar, nonouterplanar, four-regular graph. Its mixed-dimensional sphere wedge contributes a concrete nontrivial test of the planar matching-complex question; the \(D_{10}\) character contains representation data not determined by Betti numbers. The single-graph nature is an explicit limitation, not an extrapolated theorem.
+
+Self-review: passed. Independent audit: not yet performed.
