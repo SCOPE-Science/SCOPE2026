@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:12:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all sets C of six-bit words with every proper cyclic splice of every ordered pair (including self) excluded from C and aligned Hamming distance at least three, primitive-word reduction leaves exactly 54 candidates. Feasibility is hereditary under taking subsets. Independent lexicographic complete DFS visits precisely (1,54,814,3042,2480,324,16) feasible codes in sizes 0 through 6, no larger sizes. There are exactly 16 size-six codes in four orbits of four under global reversal and bit complement, each with distance multiset eight 3 and seven 4; actual optimal_codes.txt matched enumerated optimizers. This exhaustively proves a finite extremal theorem, not synchronization after substitution during loss of framing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 bounds comma-free size by cyclic classes; Theorem 3.1 concerns asymptotic fixed index with different synchronizing-error requirements."
+        ],
+        "reasoning": "These stronger-looking general inequalities do not fix the joint six-bit optimum, 16 optimizer equality cases or four reversal/complement orbits.",
+        "searches": [
+          "DOI:10.1002/jcd.10071 Theorems 2.1 and 3.1",
+          "Resultary: maximum length-six single-deletion and single-grain codes"
+        ]
+      },
+      "checked_sources": [
+        "Levenshtein, Combinatorial Problems Motivated by Comma-Free Codes, J. Combin. Designs 12 (2004) 184-196, DOI:10.1002/jcd.10071, entire 13-page primary paper inspected",
+        "Golomb-Gordon-Welch, Comma-Free Codes, Can. J. Math. 10 (1958), DOI:10.4153/CJM-1958-023-9",
+        "Resultary: binary length six comma free codes Hamming distance three maximal code size equality six words synchronization",
+        "Frozen RESULT.md, verify_enumeration.py, verify_independent.cpp and optimal_codes.txt read; independent exhaustive DFS replay"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior cyclic-orbit cardinality bound for n=6,q=2 is 9, while joint comma-free+distance3 maximum is 6, and earlier asymptotic constructions do not constrain equality orbits."
+        ],
+        "reasoning": "Neither classic bound nor general index construction implies the exact 6/16/four-orbit classification.",
+        "searches": [
+          "DOI:10.1002/jcd.10071 Sec3",
+          "DOI:10.4153/CJM-1958-023-9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Comma-free index 1 only forbids splice equalities; Hamming distance 3 is an independent same-alignment constraint."
+        ],
+        "reasoning": "The exact studied problem is an intersection of two code constraints, not general distance-3 block coding nor non-overlapping/cross-bifix-free coding (strictly stronger).",
+        "searches": [
+          "DOI:10.1002/jcd.10071 Sec.2-3",
+          "DOI:10.4153/CJM-1958-023-9",
+          "Resultary: binary length six comma free codes Hamming distance three maximal code size equality six words synchronization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded DFS lists 16 exact codebooks, and the 2004 article has no matching six-bit equality table."
+        ],
+        "reasoning": "Search did not identify a matching exact code table, with potentially unindexed computations explicitly retained as risk.",
+        "searches": [
+          "Resultary: comma-free codes n=6 minimum Hamming distance 3 exact optimal tables",
+          "DOI:10.1002/jcd.10071"
+        ]
+      },
+      "rationale": "Full text of Levenshtein (2004) on comma-free codes inspected through all 13 pages, particularly Secs. 2-4, discusses the classical cyclic upper bound, comma-free separation index, asymptotics and stronger overlap-free codes, not the binary length-six joint comma-free/distance-three equality classification. Golomb et al. 1958 established original comma-free bounds without minimum distance three. Resultary six-bit code searches retrieved different error models (single-grain, deletion, burst or cross-bifix-free), not this precise constraint. The combined finite extremum and complete optimizer orbit is not determined by these prior results.",
+      "residual_risks": [
+        "Older tables of simultaneous comma-free and Hamming-distance codes, including unindexed theses or Russian literature, might include the same finite n=6 optimum.",
+        "One-error correction is only asserted after framing is known, not during asynchronous resynchronization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No statement of exact binary n=6, min aligned distance 3 optimizer family; earlier foundations and more stringent alternative conditions credited",
+          "evidence": "Sections 2-4 state upper bounds and definitions, not exhaustive enumeration with exactly 16 optimal codebooks.",
+          "identifier_or_url": "https://doi.org/10.1002/jcd.10071",
+          "material_read": "Complete 13-page article including pp184-196, Sec2 Theorem2.1 cyclic upper bound and Eastman optimal odd lengths; Sec3 separation index and asymptotic constructions; Sec4 non-overlapping codes",
+          "method": "Authorized institutional PDF text, all pages inspected",
+          "title": "Combinatorial Problems Motivated by Comma-Free Codes",
+          "trigger": "Original survey likely to contain stronger table or equivalent comma-free/distance condition"
+        },
+        {
+          "assessment": "General cyclic-orbit bound does not impose distance-three and cannot alone determine the six-word equality classification",
+          "evidence": "The 1958 bound B(6,2)=9 primitive rotational classes, whereas the combined claimed optimum is six.",
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1958-023-9",
+          "material_read": "Classical theorem as stated and attributed in Levenshtein 2004 Theorem 2.1 and references; original full paper not independently read",
+          "method": "primary theorem inspected via subsequent primary mathematical survey",
+          "title": "Comma-Free Codes",
+          "trigger": "Foundational comma-free upper bound and even-length deficiency"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Joint boundary synchronization and aligned single-substitution correction is a standard and motivated coding tradeoff. Exact n=6 optimum plus a complete, symmetry-reduced classification of all optimal codebooks is useful as a small-block benchmark and countercheck of coding bounds; natural finite parameter data can have independent value without infinite-length claims.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Levenshtein, Combinatorial Problems Motivated by Comma-Free Codes, J. Combin. Designs 12 (2004) 184-196, DOI:10.1002/jcd.10071, entire 13-page primary paper inspected",
+    "Golomb-Gordon-Welch, Comma-Free Codes, Can. J. Math. 10 (1958), DOI:10.4153/CJM-1958-023-9",
+    "Resultary: binary length six comma free codes Hamming distance three maximal code size equality six words synchronization",
+    "Frozen RESULT.md, verify_enumeration.py, verify_independent.cpp and optimal_codes.txt read; independent exhaustive DFS replay"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Older tables of simultaneous comma-free and Hamming-distance codes, including unindexed theses or Russian literature, might include the same finite n=6 optimum.",
+    "One-error correction is only asserted after framing is known, not during asynchronous resynchronization."
+  ],
+  "residual_risks": [
+    "Older tables of simultaneous comma-free and Hamming-distance codes, including unindexed theses or Russian literature, might include the same finite n=6 optimum.",
+    "One-error correction is only asserted after framing is known, not during asynchronous resynchronization."
+  ],
+  "schema_version": 1
+}

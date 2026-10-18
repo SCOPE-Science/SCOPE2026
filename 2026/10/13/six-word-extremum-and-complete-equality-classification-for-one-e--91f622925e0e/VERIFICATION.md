@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite extremum
+# Independent mathematical audit
 
-The `verify_enumeration.py` and `verify_independent.cpp` programs are self-contained except for `optimal_codes.txt`, which contains the purported complete sixteen-row equality-case list. Run the Python script from its containing directory; compile the C++17 source and pass the list pathname to its executable. The expected successful output includes `VERIFY_OK`.
+## correctness
 
-Both verifiers enumerate all \(54\) primitive binary words of length six (primitive meaning six distinct rotations) and all valid increasing comma-free subsets with minimum Hamming distance at least three. Exact feasible-cardinality counts for cardinalities zero to six are \((1,54,814,3042,2480,324,16)\), a total of \(6731\). No larger code survives their exhaustive branching. Both compare all \(16\) six-word codes against the embedded list, assert four four-member symmetry classes, and check eight distance-three pairs and seven distance-four pairs for each.
+PASS
 
-Completeness requires the elementary monotonicity property: once a subset contains a forbidden splice or a pair at distance below three, no added word can make that subset valid. The increasing-order DFS does not use a heuristic upper bound or skip a feasible prefix. The result is a complete finite computation; it does not certify novelty of the conclusion or generalize automatically to arbitrary lengths.
+For all sets C of six-bit words with every proper cyclic splice of every ordered pair (including self) excluded from C and aligned Hamming distance at least three, primitive-word reduction leaves exactly 54 candidates. Feasibility is hereditary under taking subsets. Independent lexicographic complete DFS visits precisely (1,54,814,3042,2480,324,16) feasible codes in sizes 0 through 6, no larger sizes. There are exactly 16 size-six codes in four orbits of four under global reversal and bit complement, each with distance multiset eight 3 and seven 4; actual optimal_codes.txt matched enumerated optimizers. This exhaustively proves a finite extremal theorem, not synchronization after substitution during loss of framing.
+
+## originality
+
+PASS
+
+Full text of Levenshtein (2004) on comma-free codes inspected through all 13 pages, particularly Secs. 2-4, discusses the classical cyclic upper bound, comma-free separation index, asymptotics and stronger overlap-free codes, not the binary length-six joint comma-free/distance-three equality classification. Golomb et al. 1958 established original comma-free bounds without minimum distance three. Resultary six-bit code searches retrieved different error models (single-grain, deletion, burst or cross-bifix-free), not this precise constraint. The combined finite extremum and complete optimizer orbit is not determined by these prior results.
+
+## value
+
+PASS
+
+Joint boundary synchronization and aligned single-substitution correction is a standard and motivated coding tradeoff. Exact n=6 optimum plus a complete, symmetry-reduced classification of all optimal codebooks is useful as a small-block benchmark and countercheck of coding bounds; natural finite parameter data can have independent value without infinite-length claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
