@@ -1,0 +1,42 @@
+---
+{
+  "expert_attestation": {
+    "evidence": null,
+    "status": "not_performed"
+  },
+  "independent_audit": {
+    "status": "failed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
+  },
+  "lean_verification": {
+    "evidence": null,
+    "status": "not_performed"
+  },
+  "schema_version": 1
+}
+---
+
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The 18 nonnegative shadow-orbit integer prices b_lambda/420 have exact total 62165/420<149 and cover every one of 715 length-nine five-symbol multisets with sum price at least one. Disjoint length-eight shadows yield |C|<=148. Independent Python regenerated all 495 length-eight vectors, 715 length-nine vectors, 23 input partitions, every covering inequality (integer minimum 420), the total 62165, and a 143-member checksum code whose 495 deletion shadows are distinct. Thus the interval 143<=S5(9,1)<=148 is arithmetically correct, but not optimal.
+
+## originality
+
+FAIL
+
+FAIL DECISIVELY: Zabokritskiy, Independent Sets in Multiset Profile Graphs via Weighted Local Covers, arXiv:2607.13733v2 (July 16, 2026), Theorem 6.6 proves exact alpha_5(d)=ceil(binomial(d+4,4)/5) for all d other than exceptional 2,4. One-deletion-conflicting length-nine multiset profiles are precisely adjacent when differing by a unit transfer, so S5(9,1)=alpha_5(9)=ceil(binomial(13,4)/5)=143. This precedes the October 13 submitted 148 upper bound and is strictly stronger on exactly the same objects. The original January 2026 paper being open at length nine is superseded by this July proof.
+
+## value
+
+FAIL
+
+FAIL: The new 148 upper estimate cannot resolve an open length-nine gap because the exact maximum 143 was already proved for all five-symbol degrees by the July theorem. The 18-weight fractional cover is a valid weaker certificate but does not improve known bounds, classify an unstudied object, or give a separate structural invariant. A certified numerical inequality does not make its already-dominated endpoint valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
