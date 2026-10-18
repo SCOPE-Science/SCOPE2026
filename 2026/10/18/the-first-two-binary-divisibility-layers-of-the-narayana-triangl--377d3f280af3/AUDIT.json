@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For all stated indices, factorial-digit identities split even rows into equal-valuation pairs and odd rows into doubled or adjacent Kummer counts. A full binary-submask enumeration gives odd-layer count \\(\\frac{5\\cdot3^{L-1}-3}{2}\\) for \\(L\\ge1\\) and valuation-one count \\(3^{L-1}-3\\) for \\(L\\ge2\\), with \\(L=1\\) explicitly checked. The local cases \\(E(m)\\) and \\(O(m)\\) are independently tested by integer valuation arithmetic through \\(m=256\\), every Narayana entry for \\(n\\le127\\) is checked with exact binomial products, and all dyadic totals through \\(L=10\\) are replayed; the infinite conclusion follows from the written enumeration rather than these finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pinheiro–Vascon–Craveiro 2026, Section 3 and Theorem 3.13–3.14: congruences for central Narayana numbers \\(N(2n,n)\\), not all entries.",
+        "Bóna–Sagan 2005, Section 3: the extension from parity to all p-adic orders was explicitly described as complicated.",
+        "Eu–Liu–Yeh 2006 publisher abstract: Lucas-congruence methods for central Delannoy, Apéry-like and noncrossing-graph numbers; full text unavailable."
+      ],
+      "reasoning": "A complete mod-4 congruence formula for all Narayana entries, if established earlier, might subsume this aggregate even without stating the count, so this possibility remains a residual risk. The inspected 2026 stronger-looking paper treats only one central entry per row; it cannot itself determine a full triangle census.",
+      "searches": [
+        "Narayana binomial coefficient valuation mod 4 count first 2^n rows",
+        "\"Narayana\" \"divisible by 4\" \"binary\" binomial",
+        "\"Narayana\" \"mod 4\" \"Eu\" \"Yeh\"",
+        "\"Narayana triangle\" \"mod 4\" counts",
+        "doi:10.1111/j.1467-9590.2006.00337.x",
+        "https://periodicos.ufs.br/ReviSe/article/download/23795/18603"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0505382",
+      "https://users.math.msu.edu/users/sagan/Papers/Old/dnn.pdf",
+      "https://doi.org/10.1111/j.1467-9590.2006.00337.x",
+      "https://periodicos.ufs.br/ReviSe/article/download/23795/18603",
+      "https://oeis.org/A335965",
+      "https://oeis.org/A058809",
+      "https://ijerip.erio.org.ph/index.php/articles/article/download/1482/1120/2129"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kummer parity classification determines \\(b(m,j)=0\\) but does not alone supply the valuation-one aggregate without tracing the two adjacent binomial valuations.",
+        "The distinct formula \\(\\nu_2(\\mathcal N(2m,2j))=b(m,j)+b(m-1,j-1)\\) is combined with an explicit binary-submask count to derive the layer-one total.",
+        "Bóna–Sagan Corollary 2.1 addresses Mersenne-indexed rows, where every entry is odd; this special case alone cannot determine valuation-one counts for mixed rows."
+      ],
+      "reasoning": "The novelty claim is not that individual valuations are in principle computable by Kummer or that the sequence \\(3^h-3\\) is new; it is an exact all-length enumeration over an explicitly motivated full triangular region. General Kummer theory is an ingredient and does not, without the supplied mixed-case enumeration, determine this count. No checked source directly covers the joint assertion.",
+      "searches": [
+        "Narayana triangle count entries odd versus exactly divisible by two and binary digit formulas",
+        "Narayana numbers 2-adic valuation one distribution in dyadic triangular regions n below 2^L",
+        "On divisibility of Narayana numbers by primes Bóna Sagan 2005 Theorem 1.2",
+        "On the Congruences of Some Combinatorial Numbers Eu Liu Yeh 2006"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bóna–Sagan, arXiv:math/0505382, Theorem 1.2 and Section 3 (full five-page manuscript inspected): parity test but not valuation-one dyadic count.",
+        "OEIS A335965: odd entry counts in individual Narayana rows; no valuation-one count.",
+        "2026 expository triangle paper DOI:10.5281/zenodo.21899476: symmetry, combinatorial interpretations and parity commentary, not exact 2 mod 4 layer."
+      ],
+      "reasoning": "An equivalent result would count the entries with \\(\\nu_2\\) exactly one, or entries congruent to 2 mod 4, across all complete rows up to \\(2^L\\). The closest inspected results give parity criteria or central-column congruences; they do not state or imply that exact aggregate without a new count. The simple expression \\(3^{L-1}-3\\) alone occurs for unrelated objects, which is not an equivalence of mathematical statements.",
+      "searches": [
+        "Narayana numbers 2-adic valuation one distribution in dyadic triangular regions n below 2^L",
+        "\"Narayana\" \"modulo 4\" \"triangle\" two-adic values",
+        "\"Narayana numbers\" \"2-adic valuation\" \"triangle\"",
+        "exact number of Narayana triangle entries congruent to 2 modulo 4 in rows n less than power of two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A058809 equals the numerical sequence 0,0,6,24,78,240,726,... after indexing but describes interval configurations and wheel-graph orientations.",
+        "OEIS A335965 lists odd-entry counts for each Narayana row.",
+        "OEIS A001263 is the classical Narayana triangle."
+      ],
+      "reasoning": "The exact integer sequence is already tabulated in OEIS A058809, and the zero-valuation row sequence in OEIS A335965. Neither table lists the count of Narayana triangle entries congruent to 2 mod 4 as an interpretation; numerical equality to an unrelated known sequence does not prove the Narayana correspondence. No database priority claim is made for the bare numbers.",
+      "searches": [
+        "sequence \"0, 6, 24, 78, 240, 726\" Narayana",
+        "sequence \"3^n-3\" Narayana numbers valuation",
+        "https://oeis.org/A335965",
+        "https://oeis.org/A058809"
+      ]
+    },
+    "rationale": "Full five-page Bóna–Sagan source supplies prime nondivisibility classification, not the valuation-one count, and explicitly discusses difficulty of higher valuations. Pinheiro–Vascon–Craveiro covers central-column congruences only. OEIS A335965 supplies parity, and A058809 lists an unrelated occurrence of the exact integer sequence; the new statement is its all-triangle Narayana valuation interpretation and complete binary proof, not the novelty of its numbers. Relevant full Eu–Liu–Yeh text remained inaccessible; residual implication risk is acknowledged.",
+    "residual_risks": [
+      "The Eu–Liu–Yeh (2006) complete article was inaccessible and could have an implicit stronger formula not visible in its abstract.",
+      "A general published or unindexed mod-4 result for all Narayana triangle entries could imply the dyadic census after summation.",
+      "OEIS A058809 already tabulates the same numbers in unrelated contexts; only the exact Narayana interpretation is a potential original result.",
+      "The statements have not been independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the valuation-one aggregate; establishes zero/nonzero mod p only.",
+        "evidence": "Theorem 1.2 gives nondivisibility by a given prime criteria; Section 3 comment I calls the general p-adic order calculation complicated and asks whether it is interesting.",
+        "identifier_or_url": "arxiv:math/0505382; https://users.math.msu.edu/users/sagan/Papers/Old/dnn.pdf",
+        "material_read": "Entire 5-page manuscript, Theorems 1.1–1.2, Corollaries 2.1–2.2, Section 3 and references.",
+        "method": "Full text and visual pages 1–5.",
+        "title": "On divisibility of Narayana numbers by primes",
+        "trigger": "Exact same Narayana triangle; first divisibility criteria and explicit question on higher valuations."
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT; no assertion that the full article excludes a broader theorem.",
+        "evidence": "Abstract concerns Lucas congruences of central Delannoy numbers, Apéry-like numbers and noncrossing graph counts. OEIS A335965 links paper to Narayana odd-count sequence.",
+        "identifier_or_url": "doi:10.1111/j.1467-9590.2006.00337.x",
+        "material_read": "Publisher abstract, bibliographic metadata and reference listing only; full paper not available.",
+        "method": "Publisher landing page, institutional record, and OEIS citation.",
+        "title": "On the Congruences of Some Combinatorial Numbers",
+        "trigger": "Named on OEIS A335965 for parity of Narayana rows; possible stronger congruence coverage."
+      },
+      {
+        "assessment": "NOT_COVERING the all-entry dyadic triangular distribution; Section 3 expressly studies central Narayana numbers.",
+        "evidence": "Section 3 begins with central Narayana number \\(N(2n,n)\\); Theorems 3.13–3.14 provide congruences for that central-column specialization.",
+        "identifier_or_url": "https://periodicos.ufs.br/ReviSe/article/download/23795/18603",
+        "material_read": "Relevant Section 3, especially definition of central Narayana numbers and Theorems 3.13–3.14, plus surrounding introduction and references.",
+        "method": "PDF full-text extraction and visual inspection of the relevant theorem page.",
+        "title": "Congruences of Narayana numbers modulo primes and powers of primes",
+        "trigger": "Directly mentions powers of two of Narayana numbers, plausible dominating source."
+      },
+      {
+        "assessment": "NOT_COVERING the mod-4 dyadic census in material inspected; full-text absolute absence not inferred from unread portions.",
+        "evidence": "Abstract enumerates binomial formula, symmetry, Catalan sums, and parity patterns; the inspected results do not state valuations-one dyadic counts.",
+        "identifier_or_url": "https://ijerip.erio.org.ph/index.php/articles/article/download/1482/1120/2129",
+        "material_read": "Abstract and results/discussion, including page 3 descriptions of symmetry and row sums.",
+        "method": "PDF textual inspection and visual page.",
+        "title": "On Triangle of Narayana Numbers",
+        "trigger": "Recent purported triangle-structure synthesis mentioning parity."
+      },
+      {
+        "assessment": "KNOWN_ODD_LAYER, not the valuation-one aggregate.",
+        "evidence": "Entry definition: number of odd numbers in n-th row of Narayana triangle; no mod4 statistic.",
+        "identifier_or_url": "https://oeis.org/A335965",
+        "material_read": "Complete sequence entry, description, comments, references and initial terms.",
+        "method": "HTML sequence entry.",
+        "title": "OEIS A335965",
+        "trigger": "Rowwise parity enumeration of the exact same classical Narayana triangle."
+      },
+      {
+        "assessment": "NUMERIC_MATCH, DIFFERENT_OBJECT; credit the pre-existing integer sequence.",
+        "evidence": "Lists interval placement, harmonic polytope facets, and wheel-graph orientations rather than Narayana valuations.",
+        "identifier_or_url": "https://oeis.org/A058809",
+        "material_read": "Sequence initial terms and listed combinatorial meanings.",
+        "method": "HTML sequence entry and associated search listing.",
+        "title": "OEIS A058809",
+        "trigger": "Exact numerical match to the valuation-one count after dyadic indexing."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "377d3f28-0af3-4f11-8ff3-0096edcae33b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural first nontrivial prime-power layer of the classical Narayana triangle, counting Dyck paths with a prescribed number of peaks, is enumerated over every complete binary-length cutoff. This quantitative mod-4 refinement goes beyond rowwise parity, yields exact growth and the nontrivial limiting \\(2/7\\) proportion among entries not divisible by four, and is motivated by the archival source’s open-ended question on exact valuations. The result is meaningful because it identifies a uniform whole-triangle divisibility distribution, not because the numerical sequence alone is new.",
+    "status": "PASS"
+  }
+}
