@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T10:09:47.566395Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the specified three-state Potts–SOS Cayley tree branch r=theta², x=1, the printed boundary law reduces to F(theta,y)=y³-theta*y²+2theta*y-2=0 with y>0. The nontrivial eigenvalue quadratic has zero constant term and reduces to {0,rho}, rho=y(theta-y)/(2theta+y²). The binary-tree Kesten–Stigum equality 2rho²=1 gives polynomial K=2y²(theta-y)²-(2theta+y²)². Independent symbolic Sylvester resultant verifies Res_y(F,K)=16P(theta) for the stated octic. The exact rational Sturm argument in RESULT and verifier proves P has precisely two positive roots in disjoint rational intervals; over Q(sqrt2) its two quartic factors distinguish rho=-1/sqrt2 at theta_minus and rho=+1/sqrt2 at theta_plus. Substitution and sign brackets put the large crossing on the middle of three positive cubic branches. Independent numeric root/branch calculation agrees at 0.166699331094 and 9.706301627792; decimal checks do not prove global root count. This is the Kesten–Stigum sufficient non-extremality threshold only, not an exact extremality criterion.",
+      "risk": [
+        "Numerical root checks are not a substitute for exact Sturm proof; octic resultant can have spurious algebraic roots without positive-real branch isolation, addressed by sign analysis.",
+        "Only r=theta², x=1 branch and binary tree Kesten–Stigum sufficient condition."
+      ],
+      "sources": [
+        "RESULT.md blob d83218286e793c0acf76d2e6cbf3d40deba9d92d",
+        "Rahmatullaev–Rasulova arXiv:2104.00973v1 boundary-law cubic, eigenvalue equation and numerical thresholds",
+        "Independent_1643_checks.py Sylvester resultant and branch evaluation",
+        "Original verify.py exact rational Sturm certificate described in VERIFICATION.md"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2015 treats pure SOS, different interaction.",
+          "2022 broad lambda-model contains Potts–SOS as a special case but only metadata/abstract accessible; its full text not read."
+        ],
+        "reasoning": "Broader model family scope does not itself establish the specialized exact octic; likewise the 2021 source gives numerical not rigorous algebraic boundaries. The inaccessible 2022 article is retained as material uncertainty, not misreported NOT_COVERING.",
+        "searches": [
+          "Rahmatullaev–Rasulova 2021 arXiv:2104.00973",
+          "Külske–Rozikov 2015 DOI 10.1007/s10955-015-1279-9",
+          "Mukhamedov–Rahmatullaev–Rasulova 2022 DOI 10.1134/S0040577922030114"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2104.00973",
+        "DOI:10.1088/1742-5468/ac08ff",
+        "DOI:10.1007/s10955-015-1279-9",
+        "DOI:10.1134/S0040577922030114",
+        "Resultary query: Potts SOS Cayley tree r theta squared exact Kesten Stigum octic thresholds 0.1666993 9.7063016"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published premises permit, but do not explicitly state, elimination into this octic. Reconstructing the exact algebraic crossing equation and isolating its physical branches requires nontrivial exact resultant/Sturm work."
+        ],
+        "reasoning": "The source polynomial premises alone do not logically state a proved complete positive-root classification; a numerical Maple threshold is not a certificate. A future full-text reading of the 2022 broader model could alter priority, so PASS is best-of-knowledge.",
+        "searches": [
+          "arXiv:2104.00973 equations for cubic and eigenvalues and numerical thresholds",
+          "2022 lambda-model bibliographic abstract DOI 10.1134/S0040577922030114"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source 2021 gives same decimal thresholds via Maple and same boundary-law cubic but no algebraic isolation theorem in inspected section."
+        ],
+        "reasoning": "Checked reconstruction/non-extremality and eigenvalue spectral crossings as synonyms. Identification of already-known decimal thresholds is prior numerically; exact algebraic branches are the assessed remainder.",
+        "searches": [
+          "Resultary semantic search: Potts SOS Cayley tree r theta squared exact Kesten Stigum octic thresholds 0.1666993 9.7063016",
+          "Rahmatullaev–Rasulova arXiv:2104.00973 labels theta thresholds",
+          "Search: Potts SOS Markov reconstruction spectral radius Kesten Stigum boundary polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2021 source reports approximate 0.1666993311 and 9.706301628."
+        ],
+        "reasoning": "A decimal table of threshold estimates does not imply the single exact octic, exact positive-root number two, or sign-specific spectral branch membership; values themselves are not new.",
+        "searches": [
+          "Rahmatullaev–Rasulova 2021 threshold table/Maple discussion",
+          "Resultary paired-decimal/high-precision semantic search top15"
+        ]
+      },
+      "rationale": "Rahmatullaev–Rasulova (2021) provide the same cubic and spectral setup and report two decimal Kesten–Stigum crossing parameters from Maple, but do not supply an exact octic, its two positive-root certification, its splitting over Q(sqrt2), or the assignment of the two crossings to specific positive boundary-law branches. Pure SOS 2015 is a different interaction. The broader 2022 lambda-model paper was only available at abstract level, an explicit priority risk; this access limit alone does not imply failure or prove uniqueness.",
+      "residual_risks": [
+        "The full 2022 general lambda-model paper remained inaccessible (OA timeout; Oxford VPN disconnected); its model scope makes it a relevant historical-priority risk, not a coverage proof.",
+        "Exact algebraic threshold may appear in an unindexed later treatment; search failure does not certify novelty.",
+        "Kesten–Stigum is a sufficient non-extremality test, not an iff Gibbs phase boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE CONTAINS SAME DECIMAL CROSSINGS, not exact positive-root octic certificate or branch factorization in inspected theorem",
+          "evidence": "Maple values approximately 0.1666993311 and 9.706301628; eigenvalue quadratic simplifies under specialization.",
+          "identifier_or_url": "arXiv:2104.00973v1; DOI:10.1088/1742-5468/ac08ff",
+          "material_read": "Lawful open 17-page arXiv paper, focus on specialized x=1 and r=theta² branch, transition matrix nontrivial eigenvalues, and Kesten–Stigum condition and reported two decimal threshold values on pp9-11",
+          "method": "arXiv primary PDF relevant mathematical section and equations",
+          "title": "Extremality of translation-invariant Gibbs measures for the Potts-SOS model on the Cayley tree",
+          "trigger": "Exactly same model and specialized boundary law"
+        },
+        {
+          "assessment": "ACCESS_LIMITED; no whole-document noncoverage claim",
+          "evidence": "Broader lambda-model scope could contain the specialized algebraic boundary; scientific exact overlap could not be ruled out from abstract.",
+          "identifier_or_url": "DOI:10.1134/S0040577922030114",
+          "material_read": "Bibliographic abstract and indexed model description only; full Russian text timed out through OA URL; authorized institutional retrieval returned vpn_disconnected",
+          "method": "Publisher abstract, lawful mathnet OA URL attempt and authorized Oxford status",
+          "title": "Extremality of translation-invariant Gibbs measures for the lambda-model on the binary Cayley tree",
+          "trigger": "Potential stronger general model encompassing Potts–SOS"
+        },
+        {
+          "assessment": "INAPPLICABLE to same model due to absence of Potts coupling in pure SOS",
+          "evidence": "Different interaction; does not directly supply the specialized Potts–SOS r=theta² branch.",
+          "identifier_or_url": "DOI:10.1007/s10955-015-1279-9",
+          "material_read": "Scholarly abstract and indexed statements on pure SOS interaction",
+          "method": "Publisher bibliographic source and mathematical model comparison",
+          "title": "Extremality of Translation-Invariant Phases for a Three-State SOS-Model on the Binary Tree",
+          "trigger": "Earlier Kesten–Stigum binary-tree SOS phase theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two Kesten–Stigum thresholds control a natural spectral sufficient non-extremality test and had been provided as computer decimals. Converting them to exactly the two positive roots of one octic, factoring by signs of eigenvalue crossings, and certifying the relevant positive boundary-law branches supplies a reusable rigorous phase-threshold description with algebraic isolation. This is more than adding decimal precision, and no false necessary/sufficient extremality assertion is made.",
+      "risk": [
+        "The model’s sufficient non-extremality threshold is not a complete phase diagram; much of the setup is prior."
+      ],
+      "sources": [
+        "2021 Potts–SOS primary Kesten–Stigum numerical threshold discussion",
+        "Exact octic and branch-selection identities in source RESULT.md and independent symbolic checks"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only 3-state Potts–SOS on binary Cayley tree r=theta², translation-invariant x=1 branch, y>0.",
+    "Two roots of octic characterize Kesten–Stigum equality, not a necessary-and-sufficient Gibbs extremality frontier.",
+    "Broader 2022 lambda-model full text inaccessible: OA download timed out and institutional VPN disconnected; priority risk retained."
+  ],
+  "schema_version": 1
+}
