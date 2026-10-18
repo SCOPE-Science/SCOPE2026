@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For all finite triangle-free simple G, explicitly prove induced-P3 line-graph Horn closure equals E(G[V(S)]), including empty/disconnected cases, then apply the derived Boolean-fiber Möbius identity and vertex-cover inclusion-exclusion to derive \\(\\mu(A,B)=(-1)^{|R|}I_{G[W]}(-1)\\). Leaf recurrence and cycle transfer verify consequences. Separate standard-library enumeration checked 215512 intervals, but infinite validity rests on proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rota (1964) establishes general Möbius inversion; the closure-fiber formula is rederived here.",
+        "Jinha Kim (2021), arXiv:2101.07131, quotes known signed-independent-set bounds for ternary graphs."
+      ],
+      "reasoning": "General closure Möbius inversion provides an alternating sum but does not by itself identify the residual graph G[W] for all intervals. Known signed independence bounds cover the forest corollary after this identification, but not the bridge.",
+      "searches": [
+        "\"Möbius function\" \"graph induced edge sets\" lattice",
+        "\"Möbius\" \"induced subgraph\" \"independence polynomial\" edge"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2203.05588",
+      "DOI:10.1016/j.tcs.2022.01.004",
+      "DOI:10.1007/978-3-030-25005-8_18",
+      "arXiv:2101.07131",
+      "Rota (1964), standard Möbius functions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gutierrez–Protti–Tondato Theorem characterizes convex geometries via chordal P4-free graphs rather than this interval function.",
+        "Dourado–Penso–Rautenbach presents NP-completeness for chordal hull number and a linear-time unit-interval algorithm.",
+        "Kim 2021 establishes homotopy restrictions on independence complexes but does not supply a Horn closure interval-to-graph reduction."
+      ],
+      "reasoning": "Neither the graph-class characterization nor the hull-number complexity result implies the claimed signed-independence formula. Kim gives a bound on a separate invariant and hence can strengthen corollaries only after the new formula. The general Boolean-fiber lemma and independence identities are acknowledged as prior.",
+      "searches": [
+        "\"P3* convexity\" \"line graph\" \"Mobius\"",
+        "\"The hull number in the convexity of induced paths of order 3\"",
+        "\"Convex geometries over induced paths with bounded length\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gutierrez–Protti–Tondato (2022), arXiv:2203.05588, introduces \\(l^2\\) convexity.",
+        "Dourado–Penso–Rautenbach (2022), DOI:10.1016/j.tcs.2022.01.004, defines P3-star convexity and studies hull numbers."
+      ],
+      "reasoning": "The present closure is \\(l^2\\)/P3-star convexity on L(G), so all aliases were tested. These sources discuss characterization and complexity, not an all-interval incidence-algebra formula. Alternate terminology may hide coverage.",
+      "searches": [
+        "\"P3*\" convexity line graph tree edge induced subgraph closure Möbius",
+        "\"induced edge set\" \"Möbius\" \"independence polynomial\" \"lattice\"",
+        "\"Möbius function\" \"edge-induced\" \"independence\" lattice"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is an all-parameter symbolic identity, not an entry from a finite graph table.",
+        "Exact recurrence checks across 678 graphs and 215512 intervals compare two constructions, not a uniqueness claim."
+      ],
+      "reasoning": "No table identified as containing these full symbolic interval formulas; absence of a search match is not proof of priority.",
+      "searches": [
+        "\"Möbius function\" \"edge induced\" \"independence polynomial\"",
+        "\"Boolean closure on graph edge sets with hull of induced vertex endpoints lattice alternating edge cover polynomial\""
+      ]
+    },
+    "rationale": "The statement links all intervals of a natural binary Horn-closure lattice on line graphs to signed independent-set enumeration of a precisely identified residual vertex graph. Compared 2018/2019/2022 P3-star convexity work and classical Möbius/independence-polynomial tools do not state or dominate that link. Routine general Boolean-fiber inversion and known independence bounds are excluded from the novelty claim. Literature-alias and uninspected-source risks remain.",
+    "residual_risks": [
+      "An equivalent all-interval induced-edge closure identity could exist in graph reconstruction, edge-induced subgraph posets, lattice or Horn dependency literature under different vocabulary.",
+      "The 2018 Araújo et al. full text was not inspected; an inaccessible plausible source does not establish novelty.",
+      "No independent publication-priority audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers \\(l^2\\)-convexity and geometricity, not interval Möbius values on line graphs",
+        "evidence": [
+          "Public arXiv initial date 2022-03-10; main result \\(l^2\\)-convex geometry iff chordal and P4-free"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.05588",
+        "material_read": "Open-access arXiv HTML body: definitions, main theorem statements, and concluding discussion",
+        "method": "Read available full-text HTML and compared objects, hypotheses and results",
+        "title": "Convex geometries over induced paths with bounded length",
+        "trigger": "Definition and structural characterization of induced-path length-two convexity"
+      },
+      {
+        "assessment": "Focuses on hull-number decision complexity and specific classes, not all-interval Möbius values",
+        "evidence": [
+          "2019 conference precursor DOI:10.1007/978-3-030-25005-8_18; journal 2022, TCS 906:52–63"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2022.01.004",
+        "material_read": "Accessible journal-page abstract, introduction, selected result descriptions and reference list; not a complete full-text proof inspection",
+        "method": "Read primary publisher scientific content and compare target parameter",
+        "title": "The hull number in the convexity of induced paths of order 3",
+        "trigger": "Same P3-star hull operator"
+      },
+      {
+        "assessment": "Complexity aspects, not demonstrated coverage of a Möbius interval formula; unresolved full-text risk",
+        "evidence": [
+          "Discrete Applied Mathematics 237 (2018), 33–42, cited in Dourado et al. 2022 reference list"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2017.11.007",
+        "material_read": "Title, abstract/bibliographic descriptions; complete primary text not accessible",
+        "method": "Compared accessible bibliographic scope with theorem statement",
+        "title": "The convexity of induced paths of order three and applications: complexity aspects",
+        "trigger": "Earlier P3-star convexity theory"
+      },
+      {
+        "assessment": "Known signed-independent-set bounds; can subsume forest corollary after the new interval bridge, not the bridge",
+        "evidence": [
+          "Abstract explicitly credits earlier even/odd independent-set difference bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2101.07131",
+        "material_read": "Public abstract and stated theorem, not full proof",
+        "method": "Compared implications of independence-complex theorem",
+        "title": "The homotopy type of the independence complex of graphs with no induced cycles of length divisible by 3",
+        "trigger": "Known evaluations of independence polynomials at minus one"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "59120723-9c12-4a51-9be9-9af98b4df6a3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The graph-to-Horn construction is natural P3-star convexity; the theorem computes every lattice-interval Möbius value via an intrinsic induced graph, enabling signed-independence methods. Forest rigidity and C6 exponential amplification show a meaningful structural divide rather than an arbitrary finite calculation. The general identity is not implied by the separately known forest bound or Boolean inversion.",
+    "status": "PASS"
+  }
+}
