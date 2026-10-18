@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T14:14:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For R_{m,n}=K_m□K_n=L(K_{m,n}), selected rook cells are selected bipartite edges. An unselected cell is undominated iff its row and column both have degree zero in H_S; thus domination iff no isolated row OR no isolated column. L(H_S) has a perfect matching iff each edge-bearing connected component of H_S contains even edge count: necessity by component parity and sufficiency by rooting a spanning tree and pairing its edges plus nontree edges at common endpoints in postorder. The exponential formula for labeled bipartite graphs with edge-weight z, A(u,v;z)=Σ_{a,b≥0}(1+z)^ab u^a v^b/(a!b!), gives even-edge component EGF sqrt(A(z)A(-z)), and no-isolated-side inclusion exclusion multiplies by e^-u+e^-v-e^-u-v. Thus P_{m,n}=m!n![u^m v^n](e^-u+e^-v-e^-u-v)sqrt(A(z)A(-z)). Even-cardinality minimum gives γ_pr=2ceil(min(m,n)/2), except R_1,1 has none. Independently enumerated domination and perfect matchings for 1x1,1x3,2x2,3x3,3x4,4x4; 3x3 polynomial 81z⁴+84z⁶+9z⁸ and 4x4 coefficient vector (80,4464,12150,7992,1820,120,1) for degrees 4,…,16. Formal identity and spanning-tree proof establish all m,n, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cartesian-product prior upper/lower bounds for minimum paired domination; complete multipartite family full polynomial"
+        ],
+        "reasoning": "A general PRODUCT INEQUALITY for γ_pr does not specify an all-cardinality polynomial. K_m□K_n is not a complete multipartite graph for general m,n, so the stronger multipartite-count theorem does not specialize to this class.",
+        "searches": [
+          "paired domination polynomial rook graph K_m Cartesian K_n line graph bipartite even edge components exponential generating",
+          "https://doi.org/10.1016/j.endm.2005.06.059"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/j.endm.2005.06.059",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba",
+        "https://arxiv.org/abs/1911.04098",
+        "https://arxiv.org/abs/2408.08053"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior provides γ_pr product bounds; unrelated complete multipartite balancing rule s_i≤q; current proof requires even edge counts per component of a bipartite graph"
+        ],
+        "reasoning": "Neither bounds for minimum paired domination nor the complete-multipartite balance condition imply the rook-graph polynomial. The parity condition on all connected bipartite edge components is a substantive new enumerative reduction within checked literature.",
+        "searches": [
+          "paired domination polynomial rook graph K_m Cartesian K_n line graph bipartite even edge components exponential generating",
+          "https://doi.org/10.1016/j.endm.2005.06.059",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Natural equivalence R_{m,n}=L(K_{m,n}); prior complete multipartite paired polynomial is on K_{a,b}, not its line graph"
+        ],
+        "reasoning": "Checked aliases rook graph, Cartesian product of cliques, line graph complete bipartite, domino-like pair edge domination. The line-graph correspondence is intrinsic to the new proof, but no prior enumerator for its selected-edge parity components was found.",
+        "searches": [
+          "paired domination polynomial rook graph K_m Cartesian K_n line graph bipartite even edge components exponential generating",
+          "https://doi.org/10.1016/j.endm.2005.06.059"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently reconstructed 3x3=(81,84,9) and 4x4=(80,4464,12150,7992,1820,120,1) coefficients by exhaustive actual subsets and matchings"
+        ],
+        "reasoning": "A small table would not itself imply the all-parameter formal coefficient identity. Checked exact small values; no indexed all-board polynomial or table with a dominating general formula was located.",
+        "searches": [
+          "paired domination polynomial rook graph K_m Cartesian K_n line graph bipartite even edge components exponential generating",
+          "https://doi.org/10.1016/j.endm.2005.06.059"
+        ]
+      },
+      "rationale": "Brešar, Henning and Rall study paired domination numbers and inequalities in arbitrary Cartesian products, not this all-cardinality polynomial for complete-graph factors. Puttaswamy et al. introduced the polynomial invariant but neither the inspected primary material nor Resultary published corpus gives this rook-graph component-parity EGF. Published complete multipartite graph paired domination polynomial is for K_{n1,…}, NOT Cartesian product K_m□K_n (except incidental tiny coincidences), so no implication. The natural full-size rook-board paired-dominating-set enumerator is distinct and not a routine specialization of checked prior expressions.",
+      "residual_risks": [
+        "An unindexed line-graph paired-domination or edge-pair component enumeration theorem may yield an equivalent formula.",
+        "Full 1998 introduction and all 2016 proceedings material on standard graph-family polynomials were not obtained; only available primary comparisons are claimed as read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives paired-domination number inequalities; no full rook all-cardinality polynomial or EGF found in inspected material",
+          "evidence": "2005 publication mathematical theorem and examples",
+          "identifier_or_url": "https://doi.org/10.1016/j.endm.2005.06.059",
+          "material_read": "Accessible full primary author-hosted/ResearchGate text, definitions, results concerning γ_pr product inequalities",
+          "method": "Read full relevant mathematical text and the central product bound",
+          "title": "Brešar, Henning and Rall, Paired-domination of Cartesian products of graphs",
+          "trigger": "General product result could dominate special rook graph"
+        },
+        {
+          "assessment": "Graph object complete multipartite, not rook Cartesian product/line graph, and characterizations are not interchangeable",
+          "evidence": "Full formula over part sizes and special K_{a,b}",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba",
+          "material_read": "Full GitHub published RESULT.md: balancing characterization, polynomial formula and complete-bipartite specialization",
+          "method": "Read entire source result and proof",
+          "title": "Paired-domination polynomial of complete multipartite graphs",
+          "trigger": "Nearest same-invariant published research corpus match"
+        },
+        {
+          "assessment": "Source component postorder pairing argument is valid; independent small-board enumeration confirms consequence",
+          "evidence": "RESULT proof sections 1–5, 16-board verification code",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/bb51cd72c959a3871b26f4537e3e25ff5cb2b772/2026/10/13/a-parity-component-formula-for-the-paired-domination-polynomial--45220dd1e169",
+          "material_read": "Full RESULT.md and verify_rook_pair.py with exact EGF coefficient recursion and separate brute enumeration",
+          "method": "Read actual pinned source proof and reproducer",
+          "title": "A parity-component formula for the paired-domination polynomial of rook graphs",
+          "trigger": "Critical nonstandard matching lemma and all-size claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives a COMPLETE exact polynomial for all rectangular rook graphs counting feasible paired-dominating vertex SETS, not matchings, by size; the nontrivial even-edge connected-component characterization and bivariate EGF can support further enumeration and algorithmic comparisons. A natural graph family and exact natural invariant are motivated independently of computation; no downstream conjecture required.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed line-graph paired-domination or edge-pair component enumeration theorem may yield an equivalent formula.",
+    "Full 1998 introduction and all 2016 proceedings material on standard graph-family polynomials were not obtained; only available primary comparisons are claimed as read."
+  ]
+}

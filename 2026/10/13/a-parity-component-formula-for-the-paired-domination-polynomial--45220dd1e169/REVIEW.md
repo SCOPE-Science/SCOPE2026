@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-A selected rook-cell set is exactly the edge set of a bipartite graph, and induced rook adjacency is line-graph incidence. The two structural equivalences are proved: domination means no isolated row or no isolated column, and an induced perfect matching means every edge-containing bipartite component has even edge count. The latter follows from an explicit spanning-tree postorder pairing of incident edges. The labeled exponential formula, parity projection of connected components, and isolated-vertex exclusion give the exact polynomial coefficient; parity and a connected star-plus-one-cell construction prove the minimum weight. Domains, the singleton exception, and formal-series normalization are explicit. An independently written finite verifier agrees on all sixteen boards up to \(4\) by \(4\). The finite calculation supports but does not establish the infinite theorem.
+## correctness
 
-## Originality — PASS, qualified by residual literature risk
-The directly relevant full 2005 manuscript by Brešar–Henning–Rall treats inequalities for paired-domination **numbers** of Cartesian products (their Theorem 3.8 and related bounds); these do not determine the distribution of all paired-dominating vertex sets. Dettlaff–Gözüpek–Raczek (arXiv:1911.04098) considers comparison bounds and complexity, not this enumeration. Ordinary domination polynomials (Mertens, arXiv:2408.08053) do not enforce perfect matchings and hence do not imply the formula. Closest graph-enumerator findings for complete multipartite or chain graphs involve different graph classes, so are not general statements specializing to rook graphs. Searching by paired-domination polynomial, rook graph, line graph of complete bipartite graphs, and matching parity found no covering theorem. Residual risk: a formula may exist in unindexed combinatorial-species or line-graph literature under equivalent terminology; negative searches cannot prove historical uniqueness.
+PASS
 
-## Value — PASS
-Paired domination models a dominating deployment in which selected vertices can be partitioned into adjacent backup pairs. The polynomial counts every feasible deployment by size in all rectangular rook graphs and therefore determines all size distributions and exact counts, rather than only a minimum. The parity-component bijection and two-variable labeled generating function are structural and extend the counting method beyond the scalar graph-product estimates. The minimum-weight formula is a consequence, not the novelty claim.
+For R_{m,n}=K_m□K_n=L(K_{m,n}), selected rook cells are selected bipartite edges. An unselected cell is undominated iff its row and column both have degree zero in H_S; thus domination iff no isolated row OR no isolated column. L(H_S) has a perfect matching iff each edge-bearing connected component of H_S contains even edge count: necessity by component parity and sufficiency by rooting a spanning tree and pairing its edges plus nontree edges at common endpoints in postorder. The exponential formula for labeled bipartite graphs with edge-weight z, A(u,v;z)=Σ_{a,b≥0}(1+z)^ab u^a v^b/(a!b!), gives even-edge component EGF sqrt(A(z)A(-z)), and no-isolated-side inclusion exclusion multiplies by e^-u+e^-v-e^-u-v. Thus P_{m,n}=m!n![u^m v^n](e^-u+e^-v-e^-u-v)sqrt(A(z)A(-z)). Even-cardinality minimum gives γ_pr=2ceil(min(m,n)/2), except R_1,1 has none. Independently enumerated domination and perfect matchings for 1x1,1x3,2x2,3x3,3x4,4x4; 3x3 polynomial 81z⁴+84z⁶+9z⁸ and 4x4 coefficient vector (80,4464,12150,7992,1820,120,1) for degrees 4,…,16. Formal identity and spanning-tree proof establish all m,n, not finite tests.
 
-## Limits and prior comparison
-The formula does not separately enumerate distinct perfect matchings attached to a fixed selected set. The small-board exhaustive checks are finite. The 2005 Cartesian-product paper and 2019 paired-domination paper were materially inspected; exact all-set overlap remains a nonzero risk under alternate terminology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brešar, Henning and Rall study paired domination numbers and inequalities in arbitrary Cartesian products, not this all-cardinality polynomial for complete-graph factors. Puttaswamy et al. introduced the polynomial invariant but neither the inspected primary material nor Resultary published corpus gives this rook-graph component-parity EGF. Published complete multipartite graph paired domination polynomial is for K_{n1,…}, NOT Cartesian product K_m□K_n (except incidental tiny coincidences), so no implication. The natural full-size rook-board paired-dominating-set enumerator is distinct and not a routine specialization of checked prior expressions.
+
+## value
+
+PASS
+
+The theorem gives a COMPLETE exact polynomial for all rectangular rook graphs counting feasible paired-dominating vertex SETS, not matchings, by size; the nontrivial even-edge connected-component characterization and bivariate EGF can support further enumeration and algorithmic comparisons. A natural graph family and exact natural invariant are motivated independently of computation; no downstream conjecture required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
