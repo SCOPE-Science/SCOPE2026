@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T10:19:22.291268Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From actual RESULT.md, use odds u=p1/(1−p1), v=p2/(1−p2), f=(1,u+v,uv)/[(1+u)(1+v)]. Direct differentiation of P_q yields (∂v log P_q)/q=(Φ_{q−1}−1)/[(1+v)(1+(u+v)^q+(uv)^q)]. Independent central differences verified 54 cases. Φ_r=(1−u)(u+v)^r+u(uv)^r is convex in r, Φ_0=1, Φ_1≤1, weighted AM–GM gives Φ′_0≤0. Thus Φ_r≤1 for r∈[0,1], Φ_r≥1 for −1<r<0, with entropy factor signs reversed at one. Symmetry handles either coordinate; continuous limit handles parameter-zero, support sizes q=0. Published Shannon q=1 and n2 counterexample for every q>2 correctly cited. Finite grid is not proof of all q; convexity argument is.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang handles all n jointly concave q≤1 but fails q>1; this is not an all-q coordinatewise monotonic theorem",
+          "Madiman et al. compare entropy/variance, not derivative in p_i"
+        ],
+        "reasoning": "Neither retrieved broader statement supplies the full q≤2 first-coordinate monotonicity from their available texts; 2026 paper full-body comparison remains open risk.",
+        "searches": [
+          "arXiv:2609.27433 abstract",
+          "arXiv:2103.00896 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1810.09791 §4, Example 4.3, Conjecture 4.4",
+        "arXiv:2609.27433 abstract",
+        "arXiv:2103.00896 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2019 supplies n2 q>2 obstruction and endpoints, not intermediate all-q theorem",
+          "2026 joint-concavity q≤1 does not imply monotonicity for 1<q≤2"
+        ],
+        "reasoning": "The n2 positive range is not a mere restatement of the cited endpoints or of the transverse-concavity failure.",
+        "searches": [
+          "arXiv:1810.09791, 2609.27433"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hillion–Johnson Conj. 4.4 is about coordinatewise improvement p_i↗1/2",
+          "2019 Example 4.3 gives q>2 failure; no proof there for 0<q<2"
+        ],
+        "reasoning": "The term monotonicity differs from joint concavity. For q>1 Wang constructs transverse directional convexity, which neither implies nor contradicts sign along an increasing coordinate. Exact n=2 remaining interval is a new statement relative to inspected source.",
+        "searches": [
+          "Shepp Olkin two Bernoulli Renyi Tsallis monotonicity q=2",
+          "arXiv:1810.09791 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2019 paper explicitly labels interior q∈(0,2) conjectural",
+          "No independently verified exact n=2 classification/table surfaced"
+        ],
+        "reasoning": "No discrete result table substitutes for the continuous two-parameter all-orders proof.",
+        "searches": [
+          "Hillion–Johnson Example 4.3, Conj 4.4",
+          "two Bernoulli Renyi coordinatewise monotonicity 0 2 exact threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge novel n=2 resolution of Hillion–Johnson Conjecture 4.4 between its known endpoints, with its q>2 counterexample correctly attributed; joint concavity is a distinct, strictly stronger directional property and does not entail the q∈(1,2] monotonicity.",
+      "residual_risks": [
+        "Resultary semantic search attempted for this statement, status=temporarily_unavailable/search_internal_error/search_completed:false; NOT a successful negative search",
+        "Highly relevant 2026 joint-concavity paper body inaccessible via arXiv/OA and Oxford VPN; undiscovered discussion of coordinate monotonicity may exist.",
+        "Search failure cannot certify novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shannon and q=2 endpoints and n=2 q>2 counterexample established; 0<q<2 proposed, not settled here",
+          "evidence": "Example 4.3 computes two-Bernoulli negative derivative above 2; Conjecture 4.4 explicitly conjectures 0≤q≤2 for any n.",
+          "identifier_or_url": "arXiv:1810.09791; doi:10.1214/19-EJP380",
+          "material_read": "Full 16-page manuscript consulted, especially Section 4, Example 4.3 and Conjecture 4.4, pages 9–10",
+          "method": "arXiv open PDF, source lines for Eq.(27), Conjecture 4.4",
+          "title": "A proof of the Shepp–Olkin entropy monotonicity conjecture",
+          "trigger": "Identical conjecture, variable q, two Bernoulli summands"
+        },
+        {
+          "assessment": "Abstract proves joint concavity for 0<q≤1 and failure for q>1, not coordinate monotonicity to 2; body could discuss same two-summand reduction",
+          "evidence": "Abstract: failure uses transverse opposite parameter motions, a direction different from increasing one Bernoulli probability.",
+          "identifier_or_url": "arXiv:2609.27433",
+          "material_read": "Abstract with full definition of joint-concavity threshold; body inaccessible",
+          "method": "arXiv PDF refused retrieval, OA queries only supplied abstract/reviews; authorized Oxford attempt returned vpn_disconnected (job 2b35049bd7f090f564504c49bf295606)",
+          "title": "The Sharp Rényi and Tsallis Threshold in the Shepp--Olkin Concavity Problem",
+          "trigger": "2026 strongest plausible competing two-Bernoulli result"
+        },
+        {
+          "assessment": "Variance/entropy and related inequalities not shown to imply exact coordinate derivative sign",
+          "evidence": "No evidence of an n=2 threshold classification from material read",
+          "identifier_or_url": "arXiv:2103.00896",
+          "material_read": "Title/abstract and scope descriptions, not full text",
+          "method": "public index and arXiv metadata",
+          "title": "Bernoulli sums and Rényi entropy inequalities",
+          "trigger": "General Renyi theorems on Bernoulli convolutions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-summand first nontrivial case of an explicitly posed Rényi/Tsallis Shepp–Olkin conjecture is a natural independently useful sharp phase boundary, beyond the known endpoints, even though general n remains open.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No n≥3 claim; inaccessible Wang 2026 full body is originality risk."
+  ],
+  "schema_version": 1
+}
