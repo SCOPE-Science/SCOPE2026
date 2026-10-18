@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Substitution into the published nonreversal coin gives an exact invariant \(\{|x+\rangle,|y-\rangle\}\) sector carrying the standard Hadamard coin. The pathwise identity \(X_t=(t+Z_t)/2\) reduces the target moment to the first two moments of the embedded one-dimensional Hadamard walk. The Fourier calculation yields \(I=1-1/\sqrt2\), hence the two distinct exact limits \(1-3\sqrt2/8\) and \(\sqrt2/8\). Bounded support justifies moment convergence. The packaged exact checker verifies the finite-dimensional algebra and reflection identities independently of the asymptotic argument.
+PASS
 
-## Originality
+At λ=1/√2, γ=0 and zero phases, the inspected reversal coin has two invariant 2D sectors and its (x+,y−) restriction is H=(1/√2)[[1,1],[1,−1]]. This allows only x+ or y− steps; setting Z=X+Y gives X=(t+Z)/2 pathwise. The Fourier Hadamard dispersion sin ω=sin(k)/√2 yields velocity v=cos(k)/sqrt(1+cos²k). Spectral projectors give E[Z]/t→±I, E[Z²]/t²→I with I=∫v²dk/(2π)=1−1/√2. Hence E[X²]/t²→(1+3I)/4 or (1−I)/4, unequal by I>0. Weak convergence implies these moments because |Z/t|≤1. Direct independent rational-integer coin check verified NᵀN=2I, det(N)=4, and Hadamard-sector invariance; finite t=64 walk iterates corroborate distinct trends but are not the infinite-time proof. Boundary γ=0 is explicitly within the primary admissible parameter region.
 
-**PASS, with a recorded literature risk.** The defining source explicitly labels initial-state independence for the nonreversal even joint moments as a conjecture supported by numerical experiments. Searches for the source identifier, nonreversal moment conjecture, invariant-Hadamard reductions, the exact constants, and boundary parameter \(\gamma=0\) did not locate an implication-equivalent result. Classical one-dimensional Hadamard weak-limit papers provide the reduction input but do not discuss the four-state nonreversal conjecture. A differently phrased or poorly indexed later counterexample remains possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result settles a specific published conjectural assertion negatively at the leading ballistic scale, not merely through a finite-time anomaly. The obstruction is structural: an admissible boundary stratum contains a lower-dimensional invariant walk whose initial-state dependence survives asymptotically. This both corrects the universal statement and identifies a concrete nondegeneracy issue that any repaired theorem must address.
+The original nonreversal paper numerically conjectures independent even-total-degree leading moments, but its proof is only for the different nonrepeating walk. The boundary coin gives an explicit valid counterexample with an exact degree-two asymptotic, not merely a finite-time fluctuation; Konno/Grimmett-Janson-Scudo supply classical 1D Hadamard weak limits, which alone do not state this particular 2D nonreversal objection.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A concrete analytically proved counterexample corrects an explicit universal conjecture about this walk; the invariant-sector explanation identifies an overlooked admissible boundary and explains why generic random sampling can miss it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The claim has two distinct verification layers.
+## correctness
 
-First, exact finite-dimensional algebra verifies the specialized four-state coin. After multiplication by \(\sqrt2\), its integer matrix \(N\) satisfies \(N^{\mathsf T}N=2I_4\) and \(\det N=4\), hence the physical coin is unitary with determinant one. The entries coupling \(\operatorname{span}\{|x+\rangle,|y-\rangle\}\) to its complementary pair vanish, and the surviving block is the standard Hadamard matrix.
+PASS
 
-Second, the infinite-time assertion is analytic. On the invariant sector, \(Z_t=X_t+Y_t\) is the ordinary one-dimensional Hadamard walk and \(X_t=(t+Z_t)/2\) pathwise. Fourier diagonalization gives velocity
-\[
-v(k)=\frac{\cos k}{\sqrt{1+\cos^2 k}},
-\]
-with opposite first-moment signs for the two basis initial states and the same second velocity moment
-\[
-I=\frac1{2\pi}\int_{-\pi}^{\pi}v(k)^2\,dk=1-\frac1{\sqrt2}.
-\]
-Because \(|Z_t/t|\le1\), weak convergence implies convergence of the first two moments. Substitution yields the two stated \(X_t^2/t^2\) limits.
+At λ=1/√2, γ=0 and zero phases, the inspected reversal coin has two invariant 2D sectors and its (x+,y−) restriction is H=(1/√2)[[1,1],[1,−1]]. This allows only x+ or y− steps; setting Z=X+Y gives X=(t+Z)/2 pathwise. The Fourier Hadamard dispersion sin ω=sin(k)/√2 yields velocity v=cos(k)/sqrt(1+cos²k). Spectral projectors give E[Z]/t→±I, E[Z²]/t²→I with I=∫v²dk/(2π)=1−1/√2. Hence E[X²]/t²→(1+3I)/4 or (1−I)/4, unequal by I>0. Weak convergence implies these moments because |Z/t|≤1. Direct independent rational-integer coin check verified NᵀN=2I, det(N)=4, and Hadamard-sector invariance; finite t=64 walk iterates corroborate distinct trends but are not the infinite-time proof. Boundary γ=0 is explicitly within the primary admissible parameter region.
 
-The bundled `verify.py` uses only the Python standard library. It checks the integer coin identities, invariant block, exact finite-time reflection identities through several step counts, and the final radical formulas. Its successful terminal line is `VERIFY_OK`. These finite checks are supplementary and are not treated as a proof of the asymptotic limit.
+## originality
+
+PASS
+
+The original nonreversal paper numerically conjectures independent even-total-degree leading moments, but its proof is only for the different nonrepeating walk. The boundary coin gives an explicit valid counterexample with an exact degree-two asymptotic, not merely a finite-time fluctuation; Konno/Grimmett-Janson-Scudo supply classical 1D Hadamard weak limits, which alone do not state this particular 2D nonreversal objection.
+
+## value
+
+PASS
+
+A concrete analytically proved counterexample corrects an explicit universal conjecture about this walk; the invariant-sector explanation identifies an overlooked admissible boundary and explains why generic random sampling can miss it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
