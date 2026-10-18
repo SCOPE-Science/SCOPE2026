@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The proof is algebraic and local. The order-four action has no nontrivial stabilizers outside the two four-point coordinate-line sets. At those points its tangent weights are respectively \((-1,-1)\) and \((1,1)\) modulo \(4\), so every quotient singularity is \(\frac14(1,1)\).
+# Independent mathematical audit
 
-On \(Y W\ne0\), the function-field computation is
-\[
-t^4(r^4+1)+F_4(z,1)=0,
-\]
-with \(r,z\) invariant and \(t\mapsto it\). Thus the quotient field is \(\mathbb C(r,z)\). The standard scalar cyclic-quotient resolution extends the pair-ratio map, and the proof identifies its positive-dimensional fibers exactly with the sixteen invariant lines.
+## correctness
 
-The bundled `verify.py` checks the complete intersection-lattice calculation on \(\operatorname{Bl}_{16}(\mathbf P^1\times\mathbf P^1)\): eight boundary curves of square \(-4\), sixteen grid exceptional curves of square \(-1\), the claimed incidences, \(D=-2K\), \(K^2=-8\), \(\rho=18\), and \(e=20\). The emptiness of \(|-K|\) is proved symbolically by the degree-two restriction argument on each of four vertical fibers, not by sampling.
+PASS
 
-No claim is made about quotient models outside the stated smooth two-outer-Galois-point family.
+For squarefree binary F4, the order-4 projective automorphism (iX,iY,Z,W) has exactly four fixed points on each coordinate line. Local action on the two transverse coordinates is scalar ±i, giving eight 1/4(1,1) quotient points resolved by (-4)-curves. The invariant rational function field is C(X/Y,Z/W), and after these resolutions the rational pair-ratio map contracts the sixteen invariant lines joining fixed endpoint points over 4x4 grid U×V; away from those points its fibers are finite. Standard birational surface contraction identifies R as blow-up of P1xP1 in sixteen grid points. Independently reconstructed the intersection lattice: eight row/column strict transforms have square -4; sixteen exceptional curves square -1; D=4A+4B−2ΣE=−2K; K²=−8, rho 18, Euler 20. No bidegree-(2,2) curve passes through all sixteen grid points, so |-K| empty.
+
+## originality
+
+PASS
+
+Miura–Taki give the exact two-outer-Galois-point quartic and automorphism/fixed point data; Artebani–Sarti give a broader separable-quartic action with eight fixed points. Neither inspected mathematical statement identifies the quotient with the sixteen-point 4×4 blowup, all descended lines and a Coble anticanonical boundary. General Coble-surface definitions are not new. Equivalent model could exist in older birational geometry under other coordinates.
+
+## value
+
+PASS
+
+A concrete birational model, full exceptional-curve incidence (subdivided K4,4), and exact Coble boundary identify the quotient geometry of a motivated K3 family beyond abstract lattice/fixed-point type. It is an infinite squarefree-quartic family, not an artificial finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

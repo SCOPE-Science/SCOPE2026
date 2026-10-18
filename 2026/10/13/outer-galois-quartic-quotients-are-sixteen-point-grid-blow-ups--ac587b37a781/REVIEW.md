@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof determines every nontrivial stabilizer point, computes the scalar tangent action at both four-point fixed sets, and obtains eight \(\frac14(1,1)\) quotient singularities. The invariant function field is exactly \(\mathbb C(r,z)\). Resolving the scalar quotient makes the pair-ratio map regular; its only positive-dimensional fibers are the sixteen descended invariant lines, one over each point of \(U\times V\). This yields the sixteen-point blow-up. The canonical-class and anticanonical calculations are then exact on the blow-up lattice. The bundled verifier independently replays all intersection-lattice identities. Risk: the analytic extension of the pair-ratio map uses the standard minimal resolution of \(\mathbb C^2/\mu_4\) with scalar action, explicitly described in the proof.
+## correctness
 
-## Originality
-PASS. The exact lead source gives the quartic normal form, order-four action, and eight fixed points, while Artebani--Sarti gives the broader separable-quartic order-four family. Neither inspected full text states the quotient resolution as \(\operatorname{Bl}_{U\times V}(\mathbf P^1\times\mathbf P^1)\), the sixteen grid exceptional curves, or the resulting Coble boundary. published-finding corpus searches on the source, quotient, grid, cyclic singularities, and Coble aliases returned no covering record; the nearest K3-quotient hit concerns a different symplectic Klein-four quotient. Dolgachev--Zhang is relevant only for general Coble theory. Residual risk: an older calculation in different coordinates could contain an equivalent explicit model.
+PASS
 
-## Value
-PASS. The result converts the source's lattice/fixed-point characterization into a concrete birational model of the quotient and explains all eight quotient-resolution curves and sixteen invariant lines in one grid configuration. It gives a natural structural invariant of the exact two-Galois-point family, not an arbitrary parameter slice or a routine recomputation: the quotient is a specific Coble surface presentation with a visible subdivided \(K_{4,4}\) configuration and exact numerical invariants.
+For squarefree binary F4, the order-4 projective automorphism (iX,iY,Z,W) has exactly four fixed points on each coordinate line. Local action on the two transverse coordinates is scalar ±i, giving eight 1/4(1,1) quotient points resolved by (-4)-curves. The invariant rational function field is C(X/Y,Z/W), and after these resolutions the rational pair-ratio map contracts the sixteen invariant lines joining fixed endpoint points over 4x4 grid U×V; away from those points its fibers are finite. Standard birational surface contraction identifies R as blow-up of P1xP1 in sixteen grid points. Independently reconstructed the intersection lattice: eight row/column strict transforms have square -4; sixteen exceptional curves square -1; D=4A+4B−2ΣE=−2K; K²=−8, rho 18, Euler 20. No bidegree-(2,2) curve passes through all sixteen grid points, so |-K| empty.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Miura–Taki give the exact two-outer-Galois-point quartic and automorphism/fixed point data; Artebani–Sarti give a broader separable-quartic action with eight fixed points. Neither inspected mathematical statement identifies the quotient with the sixteen-point 4×4 blowup, all descended lines and a Coble anticanonical boundary. General Coble-surface definitions are not new. Equivalent model could exist in older birational geometry under other coordinates.
+
+## value
+
+PASS
+
+A concrete birational model, full exceptional-curve incidence (subdivided K4,4), and exact Coble boundary identify the quotient geometry of a motivated K3 family beyond abstract lattice/fixed-point type. It is an infinite squarefree-quartic family, not an artificial finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
