@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-A five-term polynomial with positive coefficients proves the explicit Hilbert quadratic form is dominated by the cubic Cesàro norm. The radial ratio has a unique global maximizer because its derivative is controlled by a strictly increasing elementary function. The constructed upper sandwich attains the sharp ratio. A separate two-vector argument, using only the parallelogram identity for an arbitrary positive definite quadratic form, rules out every tilted competing ellipse.
+## correctness
 
-## Originality — PASS
-The nearest exact Cesàro Euclidean-distance result treats the quadratic norm, not the cubic norm. Primary full-text work on Cesàro spaces treats James, von Neumann--Jordan, and Ptolemy constants. Prior cubic Cesàro Ptolemy and von Neumann--Jordan scalar values do not imply a sharp global Euclidean quadratic sandwich: they only yield a lower bound for Banach--Mazur distortion. The full Saejung 2010 source remains an access limitation.
+PASS
 
-## Value — PASS
-The exact distance and explicit optimal ellipse for a canonical nonquadratic, coordinate-asymmetric absolute norm clarify when the familiar \(C_{\mathrm{NJ}}\le d_{\mathrm{BM}}^2\) lower bound is sharp. The optimum is proved over all possible ellipses, not just a chosen diagonal family.
+Let a=9^{2/3}; H²=(a u²+v²)/4. Homogeneity reduces sharp H≤N to a polynomial whose nonconstant coefficients are positive for t≥0 and equality only at axes. Ratio R(t)=[8+(1+t)³]^{2/3}/(a+t²) rises then falls, since φ(t)=t(1+8/(1+t)²) is strictly increasing; its unique τ gives Rmax≈1.299582043601. Arbitrary tilted quadratic forms cannot beat it: using x=(1,0),y=(0,τ), N(x+y)=N(x−y) and the Euclidean parallelogram equality yield distortion²≥Rmax; H attains. Independent symbolic polynomial check and high-precision numerical stationarity τ≈2.766739880... verify constants; finite grid not the universal proof.
 
-## Relationship and limitations
-Maligranda--Petrot--Suantai (2006), Saejung (2010), and Zuo (2012) supply the norm and neighboring geometric constants; the cubic Euclidean distance was not located in the inspected material. The result is real, two-dimensional, and exponent three; it does not establish uniqueness of the ellipse or higher-dimensional distances. The complete Saejung body was unavailable and is a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best knowledge: pre-existing Cesàro norm James/B-convexity and Ptolemy/von-Neumann–Jordan constants provide a matching lower-bound scalar but do not in inspected materials establish a globally sharp ellipsoid or no-tilted-ellipse proof for p=3. Related published exact Hilbert distance for p=4 has a different norm/exponent; no dominating all-p theorem found. Saejung 2010 full text inaccessible is recorded as risk.
+
+## value
+
+PASS
+
+PASS: an exact optimal Hilbertian comparison for a canonical asymmetric Cesàro plane, with explicit extremal ellipse and rigorous global optimality, is a natural metric invariant. It proves an otherwise nonautomatic equality of lower geometric constant with true Banach–Mazur distance and could be used as a precise benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
