@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The event that the prescribed pair is a concept splits into disjoint incidence-block constraints; its probability is exactly p^(ab)(1-p^a)^N(1-p^b)^(r-a). Conditional outside-intent column patterns over the extent are independent Bernoulli columns truncated to exclude the all-one vector. For any extent subset X, this yields [(1-p^|X|)/(1-p^a)]^N. Pairwise inclusion-exclusion gives the second moment. A uniform random extent subset has fair-binomial size. Sandwiching intent preservation above and below log_(1/p)N with a width O(log a) and applying binomial anti-concentration proves the uniform L1 error O(log a/sqrt a); Berry–Esseen completes the Gaussian bound. Every step uses p fixed in (0,1), 1<=a<=r,1<=b<m. The self-contained code was executed and gave VERIFY_OK for 264 fully enumerated rational-weighted instances, including conditional variance. Finite computations corroborate exact identities, not the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhi (2014), DOI:10.1155/2014/917639, Section 3 derives stability by minimal generators and inclusion-exclusion for a fixed concept lattice.",
+        "Kuznetsov (2007), Section 2 and conclusions provide general deterministic indices and computational complexity.",
+        "Mouakher–Kő (2022), DOI:10.1080/03081079.2022.2084728, publisher abstract describes a lower-cover exact stability algorithm; complete article unavailable to inspect."
+      ],
+      "reasoning": "General stability-enumeration methods can compute finite instance values and therefore, with extra summation over the random ensemble, in principle recover finite averages. They do not alone establish a random-concept conditional law or a quantitative concentration window; the Gaussian statement requires the new conditioning and binomial-threshold proof. Inaccessible full text is explicitly retained as a risk.",
+      "searches": [
+        "\"On the Calculation of Formal Concept Stability\" Zhi 2014",
+        "\"Efficient assessment of formal concept stability in the Galois lattice\" Mouakher Ko",
+        "\"On stability of a formal concept\" Kuznetsov full text pdf",
+        "\"Concept Stability as a Tool for Pattern Selection\" Buzmakov Kuznetsov Napoli pdf"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2101.11023 Sakurai 2021 open PDF",
+      "DOI:10.1007/s10472-007-9053-6 Kuznetsov 2007 public PDF",
+      "DOI:10.1155/2014/917639 Zhi 2014 open HTML",
+      "Buzmakov-Kuznetsov-Napoli:FCA4AI-2014 public PDF",
+      "DOI:10.1080/03081079.2022.2084728 Mouakher–Kő 2022 abstract, full article inaccessible",
+      "DOI:10.1007/978-3-319-19545-2_12 Antoni–Krajči–Krídlo 2015 abstract only",
+      "Published mathematical results queried for conditional concept stability and related aliases",
+      "Related earlier claims in the same mathematical subject, compared for implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sakurai (2021), arXiv:2101.11023, Proposition 4.1 explicitly computes expected concept numbers and Theorem 5.1 a superpolynomial lower bound, without a stability variable.",
+        "Kuznetsov (2007), cited PDF pp. 103–114, defines stability and studies deterministic monotonicity/computation but not independent Bernoulli incidence-conditioned fluctuations.",
+        "Buzmakov et al. (2014), pp. 1–8, empirically investigate cross-dataset reproducibility and observed trends, not a Gaussian concentration theorem."
+      ],
+      "reasoning": "Known conditional probability of a candidate being a concept under random incidence can be combined with a stability definition to suggest a finite conditional mean, but does not logically entail the quenched uniform Gaussian bound without analyzing all extent-subsets simultaneously. Inference comparison is therefore claim-level, not title-only. The theorem does not claim the original stability definition or the fixed-pair concept-event probability as novel.",
+      "searches": [
+        "arXiv:2101.11023, On formal concepts of random formal contexts",
+        "DOI:10.1007/s10472-007-9053-6",
+        "DOI:10.1155/2014/917639",
+        "Buzmakov–Kuznetsov–Napoli 2014 Concept Stability as a Tool for Pattern Selection",
+        "formal concept analysis stability of concept intent extent random incidence Bernoulli generator subset"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kuznetsov (2007), DOI:10.1007/s10472-007-9053-6, defines stability and studies counting, complexity, and changes under new examples.",
+        "Buzmakov, Kuznetsov and Napoli (2014) report numerical resampling experiments on different datasets; no conditional Bernoulli theorem appears in their eight-page inspected full text.",
+        "The closest retrieved published-record summary titled Sharp unanimity envelope for pairwise-independent Bernoulli trials addresses Bernoulli unanimity rather than formal-context stability."
+      ],
+      "reasoning": "FCA stability is also described as the probability that a uniformly sampled extent subset regenerates an intent. This equivalent formulation was used explicitly and searched. Deterministic survival fractions and dataset resampling overlap in vocabulary, but neither yields the truncated-column conditional law or the Gaussian window for fixed concept candidates. Indexed published-result comparisons gave no directly related formal-context asymptotic; this absence is not a proof of novelty.",
+      "searches": [
+        "formal concept analysis stability of concept intent extent random incidence Bernoulli generator subset",
+        "formal concept stability under removal of objects conditional finite incidence context",
+        "stability index of formal concept closure system surviving random subset of extent probabilistic Bernoulli incidence",
+        "\"expected stability\" \"formal concept\" \"random context\"",
+        "\"conditional stability\" \"formal concepts\" Bernoulli",
+        "\"asymptotic\" \"stability\" \"formal concept\" random"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved published-record summary titled Critical tolerance fluctuations and half-step CG law on Haar power-law spectra concerns Gaussian spectral tolerance, not concept lattices.",
+        "Previously published result titled Almost-sure logarithmic concept-count law for rectangular Bernoulli contexts addresses total concept counts, not the stability of a prescribed conditioned concept.",
+        "Previously published result titled Gaussian reduction threshold for random binary formal contexts concerns individual object reducibility, not intent-preserving extent subsets."
+      ],
+      "reasoning": "No inspected exact table or database encodes the conditional first/second moments or the Gaussian stability profile. The two most relevant earlier FCA findings address different random variables; one is a total concept count, the other a reducibility indicator. Mere lack of retrieved tables does not certify novelty.",
+      "searches": [
+        "random formal contexts concept stability Gaussian threshold",
+        "\"formal concept\" \"random\" \"stability\" gaussian",
+        "\"formal concept stability\" \"probability\" \"random context\"",
+        "Available related earlier findings: formal concept count and reduction results"
+      ]
+    },
+    "rationale": "The complete finite conditional probability reduction and the uniform Gaussian concentration of the random stability index are not stated or implied by the inspected primary results on deterministic stability computation, empirical sample-resampling, or expected concept counts. In particular, exact algorithmic evaluation for an arbitrary supplied matrix does not give the conditional distribution or its growing-size limit; empirical convergence of stability across datasets is not the same statement. Searches of accessible published mathematical records gave no covering statement. This is a best-knowledge comparison, not a proof of global priority; incomplete 2022/2015 full-text comparisons are residual risks.",
+    "residual_risks": [
+      "2022 exact stability-computation article complete text could not be read after lawful public-source attempts; full-content noncoverage is not certified.",
+      "2015 randomized fuzzy context paper full text was inaccessible; abstract indicates a different probabilistic model but a specific mathematical comparison remains incomplete.",
+      "General probability, closure-system and data-mining literature may contain the same conditioned Gaussian law under other terminology; finite and semantic searches cannot certify uniqueness.",
+      "The primary MSC 03G10 emphasizes the logical and Galois-closure aspect of the concept lattice; researchers focusing on FCA applications could alternatively classify under computer-science-oriented MSC codes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides expected concept counts and candidate-concept probabilities; no conditioned concept stability moments or quenched Gaussian window.",
+        "evidence": "Proposition 4.1 is a sum over possible extents/intents weighted by the concept-event probability; Theorem 5.1 concerns expected total concept counts.",
+        "identifier_or_url": "arXiv:2101.11023",
+        "material_read": "Open-access full PDF, sections 1–5 including the definition of random contexts, Proposition 4.1, Theorem 5.1 and proofs.",
+        "method": "PDF text inspection by sections and theorem statements.",
+        "title": "On formal concepts of random formal contexts",
+        "trigger": "Same Bernoulli formal-context model and exact concept counting."
+      },
+      {
+        "assessment": "Defines and studies deterministic stability; no Bernoulli incidence conditioning or Gaussian profile found.",
+        "evidence": "Sections 2 and 5–6 describe stability indices, enumeration complexity, and approximation bounds.",
+        "identifier_or_url": "DOI:10.1007/s10472-007-9053-6",
+        "material_read": "Open-access 15-page PDF, definition of indices, selected proofs and last sections including bounds, complexity and conclusion.",
+        "method": "Full PDF available; targeted text inspection of definitions, results, and concluding claims.",
+        "title": "On stability of a formal concept",
+        "trigger": "Foundational introduction of the exact stability invariant."
+      },
+      {
+        "assessment": "Deterministic calculation for fixed finite contexts, not a random conditional moment law or asymptotic concentration.",
+        "evidence": "Theorems 6 and 7 describe generator-based exact calculations; Section 6 summarizes algorithmic results.",
+        "identifier_or_url": "DOI:10.1155/2014/917639",
+        "material_read": "Complete accessible journal HTML, sections 1–6, including exact minimal-generator inclusion–exclusion and computational claims.",
+        "method": "Read full journal HTML article and related formulas.",
+        "title": "On the Calculation of Formal Concept Stability",
+        "trigger": "Possible stronger exact formula for arbitrary concept stability."
+      },
+      {
+        "assessment": "Experimental cross-sample stability correlations and empirical trends, not exact Bernoulli-conditional Gaussian concentration.",
+        "evidence": "Section 3 compares split real datasets and logarithmic stability scores; conclusion reports observed threshold behavior.",
+        "identifier_or_url": "Buzmakov-Kuznetsov-Napoli:FCA4AI-2014",
+        "material_read": "Complete eight-page open-access PDF text, especially section 3 experimental study and section 4 conclusions.",
+        "method": "Inspected PDF text across sections and figures.",
+        "title": "Concept Stability as a Tool for Pattern Selection",
+        "trigger": "Asymptotic claims about stability under resampling."
+      },
+      {
+        "assessment": "Abstract concerns exact algorithm based on lower covers; full contents cannot be certified as not covering the theorem.",
+        "evidence": "Journal abstract describes Esc-Gl computing fixed-concept stability and tests of computational scalability.",
+        "identifier_or_url": "DOI:10.1080/03081079.2022.2084728",
+        "material_read": "Published abstract and bibliographic metadata only; publisher full-text access returned forbidden and an open repository full text was not available. Complete article was not accessible from available authorized open sources.",
+        "method": "Abstract inspection; full-text availability attempts.",
+        "title": "Efficient assessment of formal concept stability in the Galois lattice",
+        "trigger": "2022 primary topic paper centered on exact concept stability."
+      },
+      {
+        "assessment": "Addresses a Gaussian-randomized fuzzy one-sided context, not evidently the independent binary Bernoulli conditioned-concept model; unresolved full-text comparison retained.",
+        "evidence": "Abstract explicitly identifies one-sided fuzzy concept stability with a normal-distribution randomization.",
+        "identifier_or_url": "DOI:10.1007/978-3-319-19545-2_12",
+        "material_read": "Abstract and publicly indexed text only; complete public text was not available.",
+        "method": "Abstract inspection and bounded PDF attempt.",
+        "title": "Randomized fuzzy formal contexts and relevance of one-sided concepts",
+        "trigger": "Randomized context model with stability and Gaussian terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "89d53e98-6f62-45bf-8a99-1e6d5c80e3a7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Concept stability measures robustness of a Galois-closed intent to deletion of object witnesses and is a standard computationally demanding concept-lattice invariant. The exact conditional moments and especially a uniform quantitative Gaussian crossover determine a natural probabilistic phase boundary for prescribed concepts: stability changes from near one to near zero as outside-intent attributes cross the square-root-width critical scale. The independence from the number of other objects and from intent cardinality is structural, allowing the law to be used across differently sized finite contexts. This is not a mere normalization or one finite table; its claim covers an infinite family with a precise error bound. Limitation: it is conditional, not a typicality theorem for a uniformly sampled concept.",
+    "status": "PASS"
+  }
+}
