@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem is proved symbolically in `RESULT.md`; finite computation is corroborative only.
 
-Critical checks:
-- the standard complete-bipartite graphical building set consists of all singletons and all subsets meeting both bipartition classes;
-- after omitting singleton point summands, the total coordinate sum is \(M=(2^p-1)(2^q-1)\);
-- a tube with \(a\) left and \(b\) right vertices has offset \((2^a-1)(2^b-1)\);
-- a \(k\)-vertex subset hyperplane has intrinsic normal norm \(\sqrt{k(N-k)/N}\);
-- singleton facets give the sharp all-center upper bound and force the uniform center at equality;
-- the density \(F(r,s)=((2^r-1)(2^s-1))/((r+s)(r+s-1))\) is coordinatewise nondecreasing and is strictly smaller for every proper \((a,b)\) inside a genuine \((p,q)\) biclique;
-- this density bound makes every non-singleton connected-tube distance strictly larger than the singleton radius.
+# Independent mathematical audit
 
-`verify.py` checks every pair \(2\le p,q\le35\) and every connected proper tube cardinality pair using exact rational squared-distance comparisons. It also checks the facet count and the center formula. It does not assess originality and does not replace the arbitrary-parameter proof.
+## correctness
+
+PASS
+
+The frozen graph-associahedron package defines P=Σ_{∅≠A⊆L,∅≠B⊆R}Δ_{A∪B}, M=(2^p−1)(2^q−1), N=p+q, Σx_i=M, with p,q≥2. Standard nestohedron support yields x(T)≥z(T)=(2^a−1)(2^b−1) for non-singleton proper connected tubes (a,b≥1), while singleton support is zero. Summing N singleton-ball inequalities gives r≤M/√[N(N−1)], with equality forcing center (M/N)1. Set F(a,b)=z(T)/[k(k−1)], k=a+b. The exact ratio F(a+1,b)/F(a,b)=(2+1/(2^a−1))(k−1)/(k+1), equal to 1 only at (a,b)=(1,1) and strictly >1 for k≥3; coordinatewise path to p,q≥2 contains a strict step. Therefore z(T)/M<k(k−1)/[N(N−1)], and projected tube normal norm √[k(N−k)/N] gives distance >r for all 2≤k<N. For each singleton distance=r. N+M−1 facet count follows from N singleton tubes and M−1 proper mixed tubes. Independently verified 1,872 rational tube pairs p,q in 2..9; not a substitute for the ratio proof.
+
+## originality
+
+PASS
+
+PASS for the specific full-biclique standard Minkowski-sum inradius and touching facets. The exact classical support/fan descriptions are credited; matching parameters/tube counts do not already imply the sharp metric radius. The broadly related BP result in the same assignment concerns another polytope/normalization and has no direct implication to K_{p,q}.
+
+## value
+
+PASS
+
+The complete bipartite graph-associahedron is a natural, exponentially faceted family. An all p,q formula for its exact intrinsic inball, unique center and full tangency orbit provides a meaningful natural geometric invariant and a structural domination principle; it is not an arbitrary finite table or solely a re-expression of the facet count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
