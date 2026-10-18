@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical limits
+# Independent mathematical audit
 
-Run `python verify.py` from the directory containing the standalone checker. It uses only Python's standard library. The observed output was `VERIFY_OK: 6 structured and 300 random consistency cases; non-exhaustive numerical checks only`.
+## correctness
 
-The script tests unit norms, the positive dependence, a nonzero determinant of three directions, and all six strict axial vertex inequalities; it also tests a two-tangency example and the unique octahedral endpoint. Numerical evaluation is not treated as a proof for continuum parameters.
+PASS
 
-The proof is analytic: (i) the pairwise cap-body condition is equivalent to pairwise inverse squared radii sums at least one; (ii) a strict pair yields an open arc on the unit circle; (iii) two nearby nonparallel arc points produce four linearly spanning unit directions with strictly positive dependence and all six spike tests; (iv) all-equality constraints force the regular octahedral case, and at that endpoint one direction cannot cover two spikes. The cap-body criterion is explicitly attributed to the cited primary literature.
+Let q_i=ρ_i^-2 and c_i²=1-q_i. If some q_i+q_j>1 then c_i²+c_j²<1, so there is an open positive quadrant unit-circle arc u=(a,b) with a>c_i,b>c_j. Choose a nearby distinct nonparallel u′ also on the arc, with w=(u′-u)/2 small enough that z=√(1-||w||²)>c_k. The unit vectors v1=(u,0),v2=(-u′,0),v3=(w,z),v4=(w,-z) sum to zero and any first three span R³; they positively span R³ and satisfy all six strict vertex tests. The inspected Ivanov–Strachan cap-body lemma extends vertex+positive-spanning illumination to the entire body. Every 3D body needs at least four directions. If all pair inequalities are equalities then q_i=1/2 all i; each unit direction can strictly illuminate at most one of the six spikes, so at least six, achieved by coordinate directions.
 
-Unproved limits: no classification for nonorthogonal spike axes, other cap bodies, higher dimensions, or multi-illumination; no uniform quantitative illumination margin at the exceptional point; no claim of independent or exhaustive external novelty certification.
+## originality
+
+PASS
+
+The 2020 Ivanov–Strachan and 2025 Arman–Kaire–Prymak theorems establish universal six upper bounds and the octahedral example; a published 2026 equal-radius Resultary finding gives the 4→6 diagonal transition. None of these claims mathematically implies the sharp three-parameter anisotropic classification, including configurations with two exact cap tangencies. Dedicated semantic searches found no dominating special-family theorem.
+
+## value
+
+PASS
+
+The natural full anisotropic deformation family of the extremal six-spike 3D cap body has an exact rigidity phase diagram: I=6 only at the octahedral point, otherwise minimum four, with no intermediate five even on tangency strata. This is a meaningful structural boundary, not a tiny numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
