@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For char 2, n>=11 congruent 3 mod 8, check the generating-series derivative cubic and translation invariance via Lucas parity. With three distinct coordinate values translate one to zero: comparing the cubic roots forces nonzero multiplicities 1 mod 4, and e4 forces 1 mod 8; the zero block is also 1 mod 8. Two values reduce to binomial(a,3), binomial(a-1,3), binomial(a,4), whose joint vanishing gives a mod 8 in {1,2}, hence a refinement to three 1-mod-8 blocks. Converse follows from generating functions. Irreducibility follows by primitive linear induction for e2,e3,e4 and explicit nondivisibility specializations. The Hessian is block diagonal and has rank n-3 at generic three-distinct-value points; dimension two plus hypersurface Cohen-Macaulay gives normality. The exact standalone checker passes GF4 n11,n19 and incidence tests; finite checks are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie Theorems 1.1, 1.3 and 1.4 cover dimensions, extremal partitions, and generic coordinate local rings; Section 7 leaves smaller-dimensional components open.",
+        "Orzel Section 2 addresses bounds and a dimension criterion for order-two loci, not the entire reduced decomposition.",
+        "Cafure et al. Theorem 3.1 supplies Vandermonde partition-space containment, not the explicit full support in this congruence class."
+      ],
+      "reasoning": "Higher-parameter prior theorems are stronger for dimensions and top-dimensional components, and those subclaims are not new. None of the inspected source statements implies that lower-dimensional singular components vanish for this precise family without a further all-points argument. The added two- and three-value necessity establishes that missing assertion.",
+      "searches": [
+        "arXiv:2610.00259v1 Sections 1, 2, 4, 7 exact dimension and component theorems",
+        "arXiv:2509.05009v3 Section 2 order-two zero space",
+        "arXiv:1109.2265v1 Section 3 symmetric hypersurfaces",
+        "Web query: elementary symmetric e4 11 variables singular locus characteristic 2 planes"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1109.2265v1",
+      "https://arxiv.org/html/2509.05009v3",
+      "https://arxiv.org/html/2610.00259v1",
+      "published-finding corpus search queries for exact characteristic-two quartic complete reduced support"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known: exact dimension of the multiplicity-at-least-two locus and the full list of its dimension-maximal components.",
+        "New: every point in the reduced singular support lies on a dimension-maximal component, excluding residual curves and isolated components; proof uses translation to a zero value and precise binary parities.",
+        "Known: generic Hessian ranks of extremal components (Xie Section 4.2)."
+      ],
+      "reasoning": "Top-component classification does not imply the absence of smaller components; the latter is the mathematically distinct conclusion established here. Hessian, plane count, and dimension have been treated as previously covered or elementary consequences rather than novel. The n=11 incidence refinement follows once the whole support is known.",
+      "searches": [
+        "arXiv:2610.00259v1 Theorems 1.1, 1.3, Lemma 2.2, Sections 4.2 and 7",
+        "arXiv:2509.05009v3 Theorem 2.11 and Section 2",
+        "published-finding corpus query: elementary symmetric quartic characteristic two n congruent three modulo eight complete reduced singular locus union partition planes no extra components"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xie Theorem 1.3 already lists top-dimensional planes but Section 7 explicitly says smaller-dimensional and embedded components not classified generally.",
+        "Cafure-Matera-Privitelli Theorem 3.1 bounds the number of coordinate values and dimension, but not the complete reduced support."
+      ],
+      "reasoning": "The new equivalence is that the entire reduced singular support equals the top-dimensional plane union for n congruent 3 modulo 8, with no remaining lower-dimensional components. Earlier partition-space inclusions and extremal classification do not themselves prove this exclusion. The proof checks all two- and three-valued singular points after an affine-cone translation.",
+      "searches": [
+        "arXiv:2610.00259v1 Theorem 1.3 partition spaces, Section 2 Lemma 2.2 and Section 7",
+        "arXiv:1109.2265v1 Theorem 3.1 and Remark 3.2",
+        "published-finding corpus query: e4 characteristic two projective quartic singular three-valued solutions finite union of linear subspaces 1 mod 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus hits examined for each query included geometry of other quartics and unrelated determinantal configurations; no hit stated this complete reduced e4 singular-locus decomposition.",
+        "The n=11 component count 55 is a straightforward known extremal-partition enumeration from Xie and is not independently claimed new."
+      ],
+      "reasoning": "No exact table or prior indexed finding for the complete reduced support and the exclusion of smaller-dimensional components was located. Negative searches are not proof of uniqueness; the strongest overlap comparison is direct full-text reading of Xie and the algebraic implication gap.",
+      "searches": [
+        "published-finding corpus query: elementary symmetric quartic characteristic two n congruent three modulo eight complete reduced singular locus union partition planes no extra components",
+        "published-finding corpus query: Xie derivative multiplicity loci elementary symmetric positive characteristic extremal singular components full reduced support",
+        "Web query: elementary symmetric characteristic 2 55 planes singular quartic",
+        "Web query: elementary symmetric e4 11 variables singular locus characteristic 2 planes"
+      ]
+    },
+    "rationale": "Xie (2026) covers top-dimensional partition planes, dimension, generic Hessian; those are not new. The independently proved added implication that every singular point lies on those planes eliminates any lower-dimensional reduced components in this full arithmetic family, a conclusion not supplied by the inspected Xie theorem statements and identified as an unclassified issue in Xie Section 7. Orzel treats dimension bounds; Cafure et al. give partition containment. published-finding corpus and literature searches found no exact equivalent; implicit/unindexed coverage remains a risk.",
+    "residual_risks": [
+      "A global general theorem not identified in available indexes could imply the complete-support assertion without matching wording.",
+      "The Xie partition-component theorem might admit an unstated specialization implying completeness through an additional argument, though the inspected text explicitly leaves smaller-dimensional components unclassified in general.",
+      "Only relevant full-text sections of primary works were closely inspected; additional appendices or unindexed treatments may contain stronger results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General bound and partition-space inclusion, not full support at characteristic two and degree four",
+        "evidence": [
+          "Theorem 3.1 gives at most d-1 distinct coordinates; Remark 3.2 gives union of partition spaces; Section 3.3 specializes to code hypersurfaces."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1109.2265v1",
+        "material_read": "HTML Sections 1.2, 3.2, 3.3 including Theorem 3.1, Remark 3.2 and proofs",
+        "method": "Full primary source relevant sections via lawful arXiv HTML",
+        "title": "Singularities of symmetric hypersurfaces and an application to Reed-Solomon codes",
+        "trigger": "Historical algebraic-geometric framework for elementary-symmetric hypersurface singularities"
+      },
+      {
+        "assessment": "Bounds and proposed criteria for dimension, no irreducible-component census or complete reduced support classification in this family",
+        "evidence": [
+          "Abstract and Section 2 discuss dimension d-2 versus d-1, rather than lower-dimensional components."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.05009v3",
+        "material_read": "HTML introduction and Section 2 around order-two locus and Conjecture 2.11",
+        "method": "Full primary source relevant sections via lawful arXiv HTML",
+        "title": "Computing the Elementary Symmetric Polynomials in Positive Characteristics",
+        "trigger": "Potential broader positive-characteristic zero-scheme result"
+      },
+      {
+        "assessment": "Covers known maximal planes, dimension, generic Hessian ranks, translation stabilizer; does not state or prove absence of lower-dimensional reduced components for the n=3 mod 8 quartic family",
+        "evidence": [
+          "Theorem 1.3(1) states extremal partition components; Section 4.2 computes Hessian; Section 7 states smaller-dimensional and embedded components are not classified generally."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00259v1",
+        "material_read": "HTML Sections 1, 2, 4.2, 7, including theorems, proof of component criterion, and explicit discussion of unclassified smaller components",
+        "method": "Full primary source relevant sections via lawful arXiv HTML",
+        "title": "Derivative and multiplicity loci of elementary symmetric polynomials in positive characteristic",
+        "trigger": "Very close modern paper giving extremal partition components in identical objects and parameters"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d49a577e-9d27-4cc8-8d36-867ae76d0618",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete reduced singular support (not just dimension or maximal components) of a natural infinite family of normal positive-characteristic quartic hypersurfaces is explicitly classified. The novel no-hidden-components implication excludes residual curves and isolated components and yields the full pure-plane singular arrangement, with a concrete 55-plane, 495-line-pair incidence configuration at n=11. It addresses a meaningful gap left by the previously known extremal component theorem; finite counts and generic Hessian facts alone are not the asserted value.",
+    "status": "PASS"
+  }
+}
