@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The language of Dean words avoiding \(\mathtt{10}\) is factorial, so prefix enumeration is complete. Two independent implementations agree on every level through length \(59\): there is exactly one survivor at length \(58\) and none at length \(59\). Direct factor inspection shows that the survivor misses only \(\mathtt{10}\). The eight inverse-preserving alphabet permutations act transitively on the eight possible length-two Dean factors, producing exactly eight distinct global equality cases.
+## correctness
 
-## Originality
-PASS. The primary source publishes the scalar maximum \(58\), one witness, and the length-\(59\) all-pairs consequence. It does not state that the fixed-pair witness is unique or that exactly eight global equality cases form one symmetry orbit. Searches under fixed-pair, reduced-word, free-group, uniqueness, equality-case, and exact-witness formulations found no covering publication or database entry.
+PASS
 
-The closest existing result in the checked research records concerns a different Dean-word boundary involving critical exponent and absent length-three factors. A residual risk is unpublished source-author backtracking output.
+Dean words over 0,1,2,3 are squarefree with no adjacent inverse pairs 02,20,13,31. For fixed forbidden adjacent 10 the language is factorial. A complete independent direct-prefix enumeration, rescanning all substrings for every square at every extension and inverse-adjacencies, exactly reproduced all 60 survivor counts for n=0..59, with counts n54..59=(7,6,6,4,1,0); unique n58 word matches the cited 58-character witness. Direct pair-set inspection shows it misses only 10. The eight permutations commuting with alphabet inversion act transitively on the eight allowable length2 factors, therefore its eight distinct images are precisely all 58-long words missing any one allowable length2 pair. No extrapolation beyond this exhaustive finite boundary.
 
-## Value
-PASS. Length \(58\) is the sharp equality boundary directly supporting the published length-\(59\) theorem. The complete equality classification identifies every obstruction at that threshold and shows there is exactly one obstruction per possible missing pair.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Badkobeh–Harju–Ochem–Rosenfeld (2022) already prove the sharp maximum 58 for words avoiding 10 and print the same single witness, and infer every Dean word length≥59 has all allowable length-two pairs. Inspection of their full primary paper reveals no explicit fixed-pair uniqueness theorem nor classification of all length58 equality words. Thus the maximum 58, witness, and n59 consequence are not claimed original; uniqueness and one eight-element equality orbit are assessed best of knowledge, with authors’ unpublished backtracking data an acknowledged priority risk.
+
+## value
+
+PASS
+
+The finite equality layer is the sharp boundary of a named published factor-occurrence theorem, not an arbitrary cutoff. The exact one-per-forbidden-pair classification identifies every extremal obstruction, whereas one witness and a bound alone do not imply uniqueness. Exhaustive finite classification is natural and reusable even without a general longer-word census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
