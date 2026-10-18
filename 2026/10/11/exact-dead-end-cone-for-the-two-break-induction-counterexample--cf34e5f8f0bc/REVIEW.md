@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The endpoint identities and the two source applicability inequalities reconstruct the claim exactly. The first permitted move is available precisely for \(v_\beta>v_{\omega_2}\); the second precisely for \(v_{\omega_2}>v_{\omega_1}\). Their simultaneous failure is therefore exactly the stated closed cone. The strict interior is open relative to the admissible length space, where \(v_\alpha=v_{\omega_1}\).
+## correctness
 
-## Originality
-PASS. The motivating source gives a single numerical dead-end vector and a perturbation remark, not the exact if-and-only-if cone. The foundational IRE and rotational-IET papers supply general machinery but not this multiple-break commuting-collection classification. Exact-source, scheme, move-name, alias and broader Rauzy--Veech obstruction searches found no implication-equivalent published result. Residual risk remains that an equivalent elementary derivation exists in unindexed notes or under different terminology.
+PASS
 
-## Value
-PASS. A robust full-dimensional trapped region is materially stronger than an isolated witness: it gives the complete local phase diagram for whether any source-permitted elementary move can be taken and directly constrains proposed infinite induction algorithms in the multiple-break setting.
+The package explicitly fixes a rotational IRE scheme, linear positive lengths and the particular two non-prohibited elementary moves. Under these declared move rules the left-beginning applicability x_{ω2e}<x_{αb} is equivalent, after subtracting x_{βb}, to vβ>vω2. Right-beginning applicability x_{ω2b}<x_{βe} is equivalent, after subtracting from x_{ω1e}, to vω2>vω1. Simultaneous failure of two STRICT move inequalities is exactly the closed cone vβ≤vω2≤vω1; its strict interior is open nonempty in positive admissible length space vα=vω1, with (vω1,vω2,vα,vβ)=(3,2,3,1) strictly inside. These are universal symbolic equivalences, not conclusions from sampling. Crucial limitation: the claim that precisely these two moves are the entire permitted list originates in a primary paper whose full text could not be accessed; thus the completeness statement is verified for the stated two-move protocol, not independently certified for all variants of induction.
 
-## Closest literature and limitations
-Closest sources are arXiv:2609.40261v1, arXiv:2010.16389, and arXiv:2404.11211. The result is deliberately limited to the displayed positive linear scheme and the source's permitted elementary moves; it does not cover nonlinear perturbations, other schemes, or enlarged induction rules.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+A strict source counterexample at a numerical length tuple does not automatically identify all dead-end length vectors; the exact two-halfspace classification is a further statement conditional on the source move protocol. No known published full-dimensional cone equivalence was identified in accessible abstracts and GitHub research-record searches, but the primary source was not available in full and this remains a serious specific residual risk.
+
+## value
+
+PASS
+
+If the source restricts induction to the two identified elementary moves, a full relative-dimensional family of length vectors is trapped rather than just one isolated counterexample. This is a motivated local obstruction to naive indefinite induction in a canonical multiple-break example. The precise cone is useful to classify admissible linear perturbations, but the value is limited to this particular scheme and rules and not a global IRE obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

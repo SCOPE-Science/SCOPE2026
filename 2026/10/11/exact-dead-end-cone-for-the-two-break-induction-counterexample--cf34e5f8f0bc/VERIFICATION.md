@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim was checked from the source endpoint equation and the source definitions of the two non-prohibited elementary induction steps. Eliminating endpoints gives the exact applicability gaps \(v_\beta-v_{\omega_2}\) and \(v_{\omega_2}-v_{\omega_1}\). Because applicability is strict, equality belongs to the dead-end boundary.
+# Independent mathematical audit
 
-The admissible linear length space for the displayed scheme has the relation \(v_\alpha=v_{\omega_1}\); the strict inequalities \(v_\beta<v_{\omega_2}<v_{\omega_1}\) define a nonempty open subset relative to that space. The published witness \(v_{\omega_1}=3\), \(v_{\omega_2}=2\), \(v_\alpha=3\), \(v_\beta=1\) lies in its interior.
+## correctness
 
-Primary-source comparison covered arXiv:2609.40261v1 together with the precursor IRE and rotational-IET papers. Searches for equivalent formulations and stronger coverage did not locate a published theorem that implies the exact cone. This search result is evidence of comparison, not a proof of global uniqueness; unindexed equivalent formulations remain a residual risk.
+PASS
 
-No numerical experiment, finite census, or external certification is used to justify the universal statement.
+The package explicitly fixes a rotational IRE scheme, linear positive lengths and the particular two non-prohibited elementary moves. Under these declared move rules the left-beginning applicability x_{ω2e}<x_{αb} is equivalent, after subtracting x_{βb}, to vβ>vω2. Right-beginning applicability x_{ω2b}<x_{βe} is equivalent, after subtracting from x_{ω1e}, to vω2>vω1. Simultaneous failure of two STRICT move inequalities is exactly the closed cone vβ≤vω2≤vω1; its strict interior is open nonempty in positive admissible length space vα=vω1, with (vω1,vω2,vα,vβ)=(3,2,3,1) strictly inside. These are universal symbolic equivalences, not conclusions from sampling. Crucial limitation: the claim that precisely these two moves are the entire permitted list originates in a primary paper whose full text could not be accessed; thus the completeness statement is verified for the stated two-move protocol, not independently certified for all variants of induction.
+
+## originality
+
+PASS
+
+A strict source counterexample at a numerical length tuple does not automatically identify all dead-end length vectors; the exact two-halfspace classification is a further statement conditional on the source move protocol. No known published full-dimensional cone equivalence was identified in accessible abstracts and GitHub research-record searches, but the primary source was not available in full and this remains a serious specific residual risk.
+
+## value
+
+PASS
+
+If the source restricts induction to the two identified elementary moves, a full relative-dimensional family of length vectors is trapped rather than just one isolated counterexample. This is a motivated local obstruction to naive indefinite induction in a canonical multiple-break example. The precise cone is useful to classify admissible linear perturbations, but the value is limited to this particular scheme and rules and not a global IRE obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
