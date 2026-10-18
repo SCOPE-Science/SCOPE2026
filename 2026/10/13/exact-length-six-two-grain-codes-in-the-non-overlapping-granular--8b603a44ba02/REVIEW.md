@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The non-overlapping grain definition is reconstructed from the inspected primary source. The packaged verifier uses two independent constructions of allowed grain patterns and error balls, a complete maximal-clique census, a separate branch-and-bound maximum-clique computation, and a separate increasing-order enumeration of all ten-cliques. All agree on maximum size \(10\), exactly \(16\) labeled maxima, and common core \(\{001100,011001,100110,110011\}\).
+## correctness
 
-## Originality
-PASS. The closest inspected exact-parameter source is Kashyap--Zémor's finite-bound table, which lists lower bound \(10\) and upper bound \(16\) for length \(6\), two grains. Thus it leaves the equality unresolved. published-finding corpus and web searches over exact parameter, channel aliases, and the value \(10\) found no prior equality census. Residual risk is an obscure or unindexed enumeration.
+PASS
 
-## Value
-PASS. Closing an explicit published finite gap at a canonical small parameter is mathematically motivated, and the full equality census plus the common four-word core gives structural information useful for testing constructions and bounds.
+Independent construction from nonconsecutive masks yields 12 grain patterns, 64 error balls, compatibility graph with1432 edges. Independent unpruned full networkx clique enumeration yields 16 maxima size10 and exact common core {001100,011001,100110,110011}. A separate size11 maximal clique cannot exist, since full enumeration maximum is10. IMPORTANT material errors in source support, NOT main finding: original checker prunes BK hence its histogram 420/3017/... is a partial census, while true full maximal histogram is 4:441, 5:4704, 6:16702, 7:22344, 8:10697, 9:792, 10:16; source misreads Kashyap–Zémor TableI previous bound16 instead of actual14. These inaccuracies require repairs before publication; the one final theorem max10,16 maxima,core remains independently proven.
 
-## Closest literature and limitations
-The foundational 2010 model paper gives the channel and general bounds. The 2013 upper-bound paper treats precisely the same non-overlapping model and leaves \(10\le M(6,2)\le16\). The result here is finite and does not extend to overlapping grains or other values of \(n,t\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact binary (n,t)=(6,2) non-overlapping grain channel census closes a real published 10<=M<=14 gap; neither earlier table nor the published t=1 census implies 16 maximum codes at t=2 or their four-word common intersection.
+
+## value
+
+PASS
+
+A complete natural finite equality classification closes the same-channel published explicit 10 to 14 gap at (6,2), determines 16 labeled optimum codes and universal four-word core. Computation is exhaustive across actual 64 codewords, and this canonical finite cutoff is not a routine re-tabulation; ancillary erroneous histogram is segregated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

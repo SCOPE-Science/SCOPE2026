@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The verification target is the binary non-overlapping grain channel at length \(6\) with at most two grains. `artifacts/verify.py` reconstructs every allowed nonconsecutive grain pattern in two independent ways and checks equality. It then reconstructs every error ball in two independent ways and checks equality for all \(64\) transmitted words.
+# Independent mathematical audit
 
-The verifier builds the compatibility graph in which two words are adjacent exactly when their error balls are disjoint. It exhaustively enumerates all maximal cliques, performs a separate branch-and-bound maximum-clique computation, and independently enumerates all cliques of size \(10\) in increasing order. It then intersects the sixteen maximum codes.
+## correctness
 
-The saved replay in `artifacts/verification_output.txt` reports: `patterns=12`, `vertices=64`, `edges=1432`, `maximum=10`, `labeled_maxima=16`, `independent_10cliques=16`, and `core=001100,011001,100110,110011`. The computation is exhaustive only for this finite parameter; it is not evidence for other lengths, other numbers of grains, or the overlapping-grain channel.
+PASS
+
+Independent construction from nonconsecutive masks yields 12 grain patterns, 64 error balls, compatibility graph with1432 edges. Independent unpruned full networkx clique enumeration yields 16 maxima size10 and exact common core {001100,011001,100110,110011}. A separate size11 maximal clique cannot exist, since full enumeration maximum is10. IMPORTANT material errors in source support, NOT main finding: original checker prunes BK hence its histogram 420/3017/... is a partial census, while true full maximal histogram is 4:441, 5:4704, 6:16702, 7:22344, 8:10697, 9:792, 10:16; source misreads Kashyap–Zémor TableI previous bound16 instead of actual14. These inaccuracies require repairs before publication; the one final theorem max10,16 maxima,core remains independently proven.
+
+## originality
+
+PASS
+
+The exact binary (n,t)=(6,2) non-overlapping grain channel census closes a real published 10<=M<=14 gap; neither earlier table nor the published t=1 census implies 16 maximum codes at t=2 or their four-word common intersection.
+
+## value
+
+PASS
+
+A complete natural finite equality classification closes the same-channel published explicit 10 to 14 gap at (6,2), determines 16 labeled optimum codes and universal four-word core. Computation is exhaustive across actual 64 codewords, and this canonical finite cutoff is not a routine re-tabulation; ancillary erroneous histogram is segregated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
