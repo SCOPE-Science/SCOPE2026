@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Direct substitution into the original source Eq. (22) gives X+=c Q^(1/2)(I-kappa S)Q^(1/2). Sylvester inertia proves all sign and rank claims for noncommuting PSD Q,G. Strictly increasing positive integrals prove exact h cutoff and a/sqrt(mu) phase. Explicit asymptotics give the critical-time divergence. Independently, inequalities for normalized scalar y in [0,1] and [1,infty) prove an all-state if-and-only-if threshold; the y=0 equality witness proves sharpness. 5691 source checker assertions executed successfully; no finite test is substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen and Borzì (2023), DOI:10.1007/s10915-023-02275-6: accessible abstract/first-page preview describes *exponential Euler and exponential midpoint* methods, of orders one and two, proved unconditionally positive.",
+        "Li et al. (2026) Eq. (22) instead has a subtractive \\(2h\\varphi_3[D_2]\\) correction and can fail PSD by the exhibited sharp step threshold.",
+        "Li et al. (2019), arXiv:1907.12971v2 Eq. (23), already develops Erow3 for matrix Riccati equations, but its Section 5 evaluates accuracy and runtime rather than all-state positivity or the noncommutative inertia threshold."
+      ],
+      "reasoning": "The unconditional positivity theorem is for different numerical maps and cannot imply cone preservation or a sharp failure criterion for third-order `exprb32`. The 2025 low-rank integrators are first- and second-order variants, not this third-order update. The full Chen-Borzì 2023 paper was unavailable, leaving specialized unobserved comparisons as residual risk.",
+      "searches": [
+        "Chen Borzi Positivity Preserving Exponential Integrators for Differential Riccati Equations 2023 DOI 10.1007/s10915-023-02275-6",
+        "Low-rank exponential integrators for stiff differential Riccati equations Chen Borzi 2025",
+        "adaptive low rank exponential Riccati full exprb32 positivity invariant step-size 2026",
+        "2019 Erow3 Riccati positivity arXiv:1907.12971 full text"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.26429v1 (full-text)",
+      "DOI:10.1137/080717717 (open full-text)",
+      "DOI:10.1007/s10915-023-02275-6 (abstract/preview)",
+      "2025 Chen-Borzì related low-rank exponential integrator (abstract)",
+      "published research literature concerning related positivity questions",
+      "arXiv:1907.12971v2 (full text, identical earlier Erow3 map)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li et al. (2026) gives stage \\(U=X+h\\varphi_1(hL_X)F(X)\\) and next \\(U+2h\\varphi_3(hL_X)D_2\\), but not an all-step PSD condition.",
+        "Hochbruck et al. (2009) develops the original integrator and order analysis, without a Riccati-specific damping critical value.",
+        "Chen-Borzì unconditional results concern exponential Euler and exponential midpoint, not the `exprb32` update; checked published records concern disparate positivity questions.",
+        "Li, Zhang and Liu (2019) Eq. (23) implies the basic update identity, because it defines the same algorithm; it does not state or analyze the necessary-and-sufficient PSD criterion, unique hcrit, or global scalar all-state threshold."
+      ],
+      "reasoning": "The foundational and 2019 articles *cover the algorithm formula*. Taking their equations as prior, the new claim consists of a nonlinear invariant-cone theorem and complete sharp parameter/spectral classification not found in those full texts; these are not simply relabeled algorithm equations. Their general numerical-error/convergence claims do not imply global PSD preservation or precise failure boundaries. The distinct 2023 unconditional scheme does not dominate Erow3/exprb32.",
+      "searches": [
+        "arXiv:2603.26429v1 Eq. 22 and low-rank truncation discussion",
+        "Hochbruck Ostermann Schweitzer 2009 section 5 full-text tableau",
+        "Chen Borzì 2023 DOI 10.1007/s10915-023-02275-6 abstract/preview",
+        "Riccati exprb32 full matrix zero initial PSD threshold Q square root G Q square root kappa phi1 phi3",
+        "Li Zhang Liu 2019 Erow3 third-order Eq. (23) Sections 3 and 5 full PDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two-stage `exprb32` tableau is given in Hochbruck et al. (2009); equation (22) of arXiv:2603.26429v1 specifies its Riccati specialization. The claimed test is an exact *matrix-cone* threshold, not a method definition.",
+        "Full-text Li et al. sections 2 and 3 formulate the algorithm and adaptive tolerance, but do not state the spectral cone criterion or scalar all-state sharp bound.",
+        "Li, Zhang and Liu (2019), arXiv:1907.12971v2, Section 3 Eq. (23), explicitly supplies the same full-matrix third-order Riccati Rosenbrock step as Erow3. The novelty is not the formula or method; the inspected later analysis contains no PSD phase theorem."
+      ],
+      "reasoning": "The Erow3 method is **exactly equivalent** to the adaptive pair’s third-order exprb32 component; this decisive equivalence is acknowledged, so only the additional derived spectral inertia, damping threshold and all-state scalar cone classification are assessed. The 2019 full manuscript gives implementation experiments and convergence performance, not a positivity criterion or phase diagram.",
+      "searches": [
+        "Riccati exprb32 full matrix zero initial PSD threshold Q square root G Q square root kappa phi1 phi3",
+        "exponential Rosenbrock third order Riccati zero initial positivity invariant step-size",
+        "\"exprb32\" \"Riccati\" positivity negative step size",
+        "Hochbruck Ostermann Schweitzer exprb32 equation (5.1) (2009) full text",
+        "Li Li Yang arXiv:2603.26429v1 section 3.1 equation (22)",
+        "Li Zhang Liu 2019 arXiv:1907.12971 Eq. 23 Erow3",
+        "Erow3 positivity preservation sharp Riccati differential equation nonnegative scalar third order Rosenbrock",
+        "Li Zhang Liu 2019 Erow3 full matrix differential Riccati cone threshold Q G zero initial state",
+        "Li Li Yang 2026 exprb32 spectral positivity threshold hcrit damping"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked relevant published record titles included the 2026 two-step Lanczos exponential positivity horizon and backward-Euler Richardson positivity barrier. Their exact formulas concern other approximation operators.",
+        "The 2026 full primary paper plots numerical accuracy and adaptive performance rather than a positivity classification table for \\(Q^{1/2}GQ^{1/2}\\).",
+        "The full earlier Li et al. (2019) source contains numerical accuracy/runtime tables for Erow3 but no one-step cone preservation table or proof of an eigenvalue/damping phase boundary."
+      ],
+      "reasoning": "No exact table of the requested Riccati `exprb32` PSD boundary or scalar cone-invariance threshold was located. Lack of a search hit alone is not evidence of absence; the substantive comparisons rely on methods, operators and hypotheses.",
+      "searches": [
+        "Riccati exprb32 full matrix zero initial PSD threshold Q square root G Q square root kappa phi1 phi3",
+        "exponential Rosenbrock third order Riccati zero initial positivity invariant step-size",
+        "\"exprb32\" \"Riccati\" positivity negative step size",
+        "published numerical Riccati positivity threshold tables third order exponential Rosenbrock",
+        "arXiv:1907.12971v2 Erow3 positivity matrix Riccati experiments and results"
+      ]
+    },
+    "rationale": "The third-order Riccati update is *not* a new algorithm: Li, Zhang and Liu (arXiv:1907.12971, Eq. 23) already give exactly the same Erow3 map. Hochbruck et al. introduced the underlying exprb32 scheme. The proposed new contribution is the sharp noncommutative matrix inertia/damping law and the all-state scalar positivity criterion, not the scheme. The full texts of the 2019 and 2026 Riccati papers, as well as the 2009 defining integrator paper, contain the algorithm and implementation/convergence results but no equivalent sharp positivity phase diagram. The 2023 Chen-Borzì full article remains inaccessible and an earlier specialized analysis is a residual risk.",
+    "residual_risks": [
+      "No external independent literature audit.",
+      "Chen-Borzì 2023 full article could not be accessed; only abstract/first-page preview were read.",
+      "An equivalent specialized source, possibly under a different name for the same `exprb32` map, could exist despite directed searches.",
+      "Full-matrix theoretical results do not imply behavior of compressed implementation.",
+      "The defining Riccati Erow3 method was already published in 2019; originality attaches only to new mathematical PSD classification, not to the scheme itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the analyzed scheme; lacks the claimed PSD cone phase diagram and full scalar boundary.",
+        "evidence": "arXiv:2603.26429v1 (2026-03-27), PDF pages 3–10, especially equation (22).",
+        "identifier_or_url": "https://arxiv.org/pdf/2603.26429",
+        "material_read": "Full 18-page arXiv v1 PDF, including equation (22), stage defect equation (15), Section 2.2 truncation, Section 3 adaptive embedding, and numerical/conclusion material.",
+        "method": "Read searchable PDF page ranges and visually inspected displayed source equation.",
+        "title": "Adaptive low-rank exponential integrators for large-scale differential Riccati equation",
+        "trigger": "Defines new adaptive matrix `exprb32` version"
+      },
+      {
+        "assessment": "Provides prior algorithm and order theory, not the Riccati noncommutative cone classification.",
+        "evidence": "Hochbruck, Ostermann and Schweitzer (2009), DOI:10.1137/080717717.",
+        "identifier_or_url": "https://publikationen.bibliothek.kit.edu/1000041838/3153466",
+        "material_read": "Open full-text manuscript, original two-stage third-order tableau and relevant convergence/order sections.",
+        "method": "Read PDF text and inspected displayed method tableau.",
+        "title": "Exponential Rosenbrock-Type Methods",
+        "trigger": "Original method, possible broader order/stability claim"
+      },
+      {
+        "assessment": "Describes unconditional positivity for distinctly constructed exponential Euler/midpoint methods. Not sufficient to establish absence of an `exprb32` classification in unread full text.",
+        "evidence": "Chen and Borzì, Journal of Scientific Computing 96, 50 (2023), accessible abstract identifies methods by name.",
+        "identifier_or_url": "https://doi.org/10.1007/s10915-023-02275-6",
+        "material_read": "Publisher abstract and bibliographic/references pages and accessible ResearchGate publisher first-page preview; full article unavailable.",
+        "method": "Examined public publisher and preview text; attempted institutional access but it was unavailable, so no inference from unread later sections.",
+        "title": "Positivity Preserving Exponential Integrators for Differential Riccati Equations",
+        "trigger": "Highly relevant potential stronger positive-cone theorem"
+      },
+      {
+        "assessment": "Related separate integration families, no conclusive comparison to `exprb32` possible without full text.",
+        "evidence": "Chen and Borzì, Advances in Computational Mathematics (2025), title and public abstract.",
+        "identifier_or_url": "https://doi.org/10.1007/s10444-025-10228-w",
+        "material_read": "Abstract/secondary bibliographic description, not complete full text.",
+        "method": "Read public abstract listing first- and second-order full/low-rank schemes.",
+        "title": "Low-rank exponential integrators for stiff differential Riccati equations",
+        "trigger": "Related newer low-rank DRE exponential methods"
+      },
+      {
+        "assessment": "Identical third-order Riccati method is explicitly prior and attributed. No all-state positive-cone threshold, noncommutative matrix inertia law or sharp damping phase theorem appears.",
+        "evidence": "Li, Zhang and Liu (2019), arXiv:1907.12971v2 (2019-08-17 version), section 3 Eq.(23) Erow3; first posted 2019-07-30.",
+        "identifier_or_url": "https://arxiv.org/pdf/1907.12971",
+        "material_read": "Complete twelve-page arXiv preprint, particularly Section 3, equations (22)–(23), Section 4 implementation and Section 5 accuracy experiments.",
+        "method": "Read searchable full PDF and visually inspected the displayed Erow3 tableau/equation (23) on page 4.",
+        "title": "Exponential integrators for large-scale stiff matrix Riccati differential equations",
+        "trigger": "Exact preceding method potentially covers same claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2edd05e4-9817-49ef-abe2-05c68ebd1fac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Identifies the exact step-size and damping geometry controlling a covariance/control-relevant invariant, including a full noncommutative spectral inertia law, all-step stable regime, unique loss threshold, and a stronger global all-state scalar invariance result. Distinguishes tolerance-based numerical accuracy from positivity safety, with an exact false equilibrium at the scalar boundary. The natural invariant and precise safety threshold are mathematically motivated and not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
