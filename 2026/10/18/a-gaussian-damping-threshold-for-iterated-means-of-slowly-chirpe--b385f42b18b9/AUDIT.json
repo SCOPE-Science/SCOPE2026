@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Positive weights ensure the polar partial isometry remains the forward shift. Pascal recurrence proves the exact binomial iterate. On the central binomial event, Taylor remainder has expected size O(n^{beta-1}), with exponential tail control; centered-binomial characteristic function is exactly cos(t/2)^n. Its Gaussian exponent has sharp critical value theta^2/16. Dense-support extension gives SOT convergence above 1/2; two limiting phase subsequences exclude even WOT below or at 1/2. Arbitrarily far tail windows approach a constant extremal phase, establishing the all-n norm equalities, while the diagonal self-commutator and the oscillatory integral estimate prove compactness and Cesàro mean 1. Standard-library checker passed 387 finite assertions; those do not establish the infinite-dimensional claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2014 source focuses on the definition, binomial iteration formula, hyponormality, subnormality, and continuity.",
+        "The 2015 source proves a fixed-n hyponormality criterion and monotonicity of that property over iterations.",
+        "Nearby published-finding corpus weighted-shift expansivity results concern products of weights; nearby polar-mean results concern spectral radii of periodic shifts."
+      ],
+      "reasoning": "The general binomial formula subsumes the finite-order exact identity, which is excluded from novelty. None of the inspected stronger operator conclusions controls the limits of the chirped binomial phase averages, their critical multiplier, or the strong-versus-weak operator phase diagram. Classical Euler acceleration could nevertheless contain comparable asymptotic coverage.",
+      "searches": [
+        "published-finding corpus: operator mean transform iterates strong nonnorm convergence for essentially normal weighted shifts with slowly oscillating weights",
+        "published-finding corpus: binomial convolution mean iteration of weighted shifts Cesaro summable weights no convergence heat smoothing threshold",
+        "Source doi:10.1016/j.jmaa.2013.08.003",
+        "Source doi:10.1002/mana.201500037"
+      ]
+    },
+    "checked_sources": [
+      "Lee–Lee–Yoon, JMAA 410 (2014), DOI 10.1016/j.jmaa.2013.08.003 (publisher rendering read)",
+      "Jung–Ko–Park, Math. Nachr. 288 (2015), DOI 10.1002/mana.201500037 (OA PDF read)",
+      "Hakala, Int. J. Quantum Chem. 1 (1967), DOI 10.1002/qua.560010633 (abstract only)",
+      "published-finding corpus semantic search: four directly pertinent successful queries including mean-iteration, Euler binomial and SOT convergence; relevant nearby records compared."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 2.2 proves the finite sum but does not by itself specify the asymptotic of oscillatory power phases.",
+        "Theorem 3.20 characterizes n-step hyponormality and Corollary 3.21 propagates that property, which do not imply the stated limit for the oscillating weights.",
+        "The binomial-CLT argument, subsequence construction, and far-tail norm saturation are supplied in the present proof."
+      ],
+      "reasoning": "Exact finite weights are indeed covered, while the new statement couples sharp Gaussian damping to three operator topologies and essential normality. A generic averaging theorem plus existing operator facts might make a derivation short, but an implication from an inspected prior theorem sufficient to cover all quantified claims was not established.",
+      "searches": [
+        "Lee–Lee–Yoon 2014 Proposition 2.2, doi:10.1016/j.jmaa.2013.08.003",
+        "Jung–Ko–Park 2015 Lemma 3.19, Theorem 3.20, Corollary 3.21, doi:10.1002/mana.201500037",
+        "published-finding corpus: mean transform weighted shifts binomial iterates polynomial chirp oscillatory weights sqrt n threshold gaussian damping strong convergence not norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lee–Lee–Yoon Proposition 2.2 identifies the mean transform with binomial convolution, making Euler/binomial summation an equivalent sequence formulation.",
+        "Jung–Ko–Park Lemma 3.19 repeats the exact finite-binomial identity; its theorem concerns hyponormality rather than limiting SOT/WOT behavior."
+      ],
+      "reasoning": "An Euler-binomial summability statement for cos(theta k^beta) with the critical Gaussian multiplier would imply the fixed-coordinate asymptotics via Lee–Lee–Yoon. Such a fully covering statement was not located in inspected sources, but equivalent classical sequence literature remains a priority risk. Neither mere terminology difference nor search absence establishes originality.",
+      "searches": [
+        "published-finding corpus: mean transform weighted shifts binomial iterates polynomial chirp oscillatory weights sqrt n threshold gaussian damping strong convergence not norm",
+        "published-finding corpus: mean transform of bounded operators weighted shift iterates convergent Cesaro weights pointwise strong convergence",
+        "Web: \"Euler summability\" \"n^alpha\" oscillatory cosine",
+        "Web: \"mean transform\" \"strongly convergent\" \"weighted shifts\" iterates"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned published-finding corpus records concerned periodic square-root perturbations and their orbit growth, polar means of periodic shifts, and Aluthge iterations of composition operators; no tabulated chirp exponent topological phase diagram was identified."
+      ],
+      "reasoning": "This is an exact functional-asymptotic and operator-topology assertion, not a lookup of a finite table or a known invariant database. A negative semantic search cannot exclude unindexed equivalences; the failed query is not counted as searched.",
+      "searches": [
+        "published-finding corpus: binomially smoothed power chirp weights w_k = 1 + epsilon cos(theta (k+1)^beta) strong convergence mean transform threshold beta one half Gaussian (temporary connection failure)",
+        "published-finding corpus: Euler binomial summation of e^{i k^beta} asymptotic central limit critical square root",
+        "published-finding corpus: mean transform of bounded operators weighted shift iterates convergent Cesaro weights pointwise strong convergence"
+      ]
+    },
+    "rationale": "Known binomial iteration is expressly not claimed as new. Inspected primary work on means and their hyponormality does not give the quantified square-root chirp strong/weak/norm phase transition or critical Gaussian attenuation. Actual published-finding corpus equivalence/broader searches found no covering claim; possible priority from Euler summation or unindexed papers remains a material limitation.",
+    "residual_risks": [
+      "A classical Euler/binomial summability theorem may already state an equivalent power-phase asymptotic.",
+      "The full text of Hakala (1967) was not inspected, and its abstract alone cannot establish noncoverage.",
+      "The exact first-public day of the earlier Lee–Lee–Yoon (2014) article was not verified; the day-resolved source is the 2015 full PDF.",
+      "The 2014 publisher text review did not exhaustively check every auxiliary proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The finite binomial convolution is known and excluded from novelty; no complete asymptotic phase diagram was found in the inspected material.",
+        "evidence": [
+          "Proposition 2.2 states binomial weights 2^{-n} sum binom(n,k) alpha_{j+k}.",
+          "The announced research questions are spectrum, continuity, hyponormality and subnormality."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2013.08.003",
+        "material_read": "Publisher full-text web rendering: abstract, introduction, Section 2 Proposition 2.2, the announced Section 3 themes; not claimed to have exhaustively checked every ancillary proof.",
+        "method": "Read publisher online text and compared exact finite-iterate formula with the proposed n→infinity trichotomy.",
+        "title": "The mean transform of bounded linear operators",
+        "trigger": "Original definition and finite weighted-shift iteration; plausible direct coverage."
+      },
+      {
+        "assessment": "Prior finite-binomial formula and hyponormality criteria do not imply the power-chirp limiting trichotomy; no corresponding full claim located in inspected material.",
+        "evidence": [
+          "Page 1 states published online 21 July 2015.",
+          "Lemma 3.19 describes binomial iterates; Theorem 3.20 handles fixed-order hyponormality; Corollary 3.21 propagates hyponormality."
+        ],
+        "identifier_or_url": "https://cms.ewha.ac.kr/user/ebkmath/k2board/2019%20%EC%A2%85%ED%95%A9%ED%8F%89%EA%B0%80/%EB%B0%95%EC%8B%A0%ED%98%9C_S.pdf",
+        "material_read": "Fifteen-page open full PDF text, introduction, main-result structure, Lemma 3.19, Theorem 3.20, Corollaries 3.21–3.22 and final weighted-shift discussion; first page publication date.",
+        "method": "Read and compared its principal operator/weighted-shift results and finite-binomial Lemma with the three quantified limiting regimes; inspected page images.",
+        "title": "Subscalarity of operator transforms",
+        "trigger": "Full same-transform paper, including iterated weighted-shift means and plausible stronger convergence statements."
+      },
+      {
+        "assessment": "Relevant earlier Euler/binomial context; full-text equivalence is unresolved and recorded as a priority risk.",
+        "evidence": [
+          "1967 abstract explains binomial coefficients accelerating oscillatory iterations."
+        ],
+        "identifier_or_url": "https://digitalcommons.mtu.edu/michigantech-p/3897/",
+        "material_read": "Bibliographic record and abstract only, not full text.",
+        "method": "Read source abstract and compare object/method, without asserting full-document noncoverage.",
+        "title": "The use of normalized binomial coefficients as weights to accelerate convergence of oscillatory first-order iterations",
+        "trigger": "Earlier general binomial smoothing of oscillations could imply the asymptotic sequence component."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b385f42b-18b9-4956-bd58-5ae51dd1286a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Motivated by asymptotic stability of a classical nonlinear operator transform, the same natural essentially normal positive-weighted-shift family with Cesàro mean 1 and vanishing weight increments exhibits three sharp operator-topology regimes. The boundary damping e^{-theta^2/16} and persistent exact norm gap epsilon demonstrate why mean-ergodic heuristics fail and identify a precise Gaussian local-frequency threshold. This is structural operator information, not an arbitrary single finite instance.",
+    "status": "PASS"
+  }
+}
