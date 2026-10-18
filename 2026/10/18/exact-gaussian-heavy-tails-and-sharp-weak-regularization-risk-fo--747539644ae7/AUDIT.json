@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Exact residual differences and image mixing reconstruct the AA update. The 2x2 Gaussian noise map is nonsingular with determinant magnitude one; its conditional Gaussian regression gives h, m and v. Integrating the second-order pole numerator near D=0 yields sharp tail constant 2hM2, and conditioning/rescaling yields both pi/2 ridge risk coefficients. Rational identities were independently checked on 375 fixed oracle paths and deterministic quadratures corroborated limits. Proof, not finite tests, establishes the infinite tail/moment statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Scieur et al. Algorithm 1 mixes input iterates, whereas standard AA here mixes map images; their stochastic results are upper bounds at positive regularization, not matching sharp limits.",
+        "Ouyang et al. adds deterministic adaptive regularization and acceptance; Pollock–Rebholz applies deterministic filtering, both changing or restricting the random update."
+      ],
+      "reasoning": "Neither these broader algorithm analyses nor their stability recommendations imply the precise first-output distribution, nonintegrability for arbitrarily small Gaussian noise, or coefficients of inverse-square-root ridge risk. The 2017 source is particularly close and its different output map and nonsharp bounds are recorded rather than ignored.",
+      "searches": [
+        "arxiv 1706.07270 nonlinear acceleration stochastic algorithms ridge regularization coefficients noise singular rare events rate asymptotic",
+        "arxiv:1706.07270v2 Sections 2-5",
+        "arxiv:2006.02559v4 Section 2",
+        "arxiv:2211.12953v2 Sections 1-3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2110.14813v1",
+      "arxiv:1706.07270v2",
+      "arxiv:2006.02559v4",
+      "arxiv:2211.12953v2",
+      "Published deterministic scalar Aitken–Steffensen contraction frontier (2026-09-21)",
+      "Published two-dimensional deterministic depth-one Anderson positivity counterexample (2026-10-04)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In 2110.14813v1 the noisy training recursion motivates smoothing and its AA formula uses residual least squares; the stated results do not quantify a polynomial tail or exact coefficient-penalty risk.",
+        "In 1706.07270v2 positive-ridge noisy extrapolation bounds cannot determine an equality for the specific image-mixture squared risk as regularization tends to zero."
+      ],
+      "reasoning": "The sources address different update laws (input extrapolation vs image mixing), stabilization regimes or weaker inequalities. No directly stronger theorem whose corollary would yield the final full claim was identified; standard Gaussian-ratio calculus supplies a component of the new proof but not a cited previously published exact AA application.",
+      "searches": [
+        "arxiv:2110.14813v1 Sections Mathematical background and Moving average regularization",
+        "arxiv:1706.07270v2 Algorithms 1 and Propositions 3.1-3.3 and Section 5",
+        "arxiv 2110.14813 stable Anderson acceleration deep learning noisy Gaussian sample estimator variance heavy tail",
+        "arxiv 1706.07270 nonlinear acceleration stochastic algorithms ridge regularization coefficients noise singular rare events rate asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Depth-one image mixing contains a residual-dependent denominator, the stochastic scalar secant/Aitken form.",
+        "Published scalar Aitken-Steffensen frontier assumes deterministic arbitrary contractions; source 2110.14813 gives AA residual least-squares, moving average and safeguards."
+      ],
+      "reasoning": "The Aitken/secant reexpression is explicitly compared, not treated as proof of novelty. Existing deterministic robustness controls an error amplification factor under Lipschitz restrictions, not the Gaussian correlated pole tail or ridge squared-risk constants. Exact probability ratio behavior is standard, but the applied normalized constants for two AA ridge variants are different statements.",
+      "searches": [
+        "Unregularized scalar Anderson acceleration stochastic noisy fixed point with Gaussian oracle residual heavy Cauchy tails infinite variance near singular secant denominator",
+        "arxiv 2110.14813 stable Anderson acceleration deep learning noisy Gaussian sample estimator variance heavy tail",
+        "Published scalar Aitken-Steffensen contraction result (2026-09-21)",
+        "arxiv:2110.14813v1 Sections Anderson acceleration and safeguarding"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The mathematical records returned related stochastic optimizers, deterministic AA studies and Gaussian probability results, not a table for this exact correlated two-evaluation image mixture and both ridge normalization constants."
+      ],
+      "reasoning": "No exact database/table or published indexed claim was identified with the same update, Gaussian oracle assumptions and constants. A negative search cannot prove exhaustive novelty.",
+      "searches": [
+        "Unregularized scalar Anderson acceleration stochastic noisy fixed point with Gaussian oracle residual heavy Cauchy tails infinite variance near singular secant denominator",
+        "Tikhonov regularized Anderson acceleration scalar noisy affine contraction exact mean square bias variance regularization noise",
+        "Gaussian noise standard Anderson acceleration least squares scalar affine contraction Cauchy ratio infinite variance singular residual denominator regularization",
+        "Anderson acceleration Gaussian secant stochastic root finding ratio of correlated normals tail asymptotic regularization lambda inverse square root"
+      ]
+    },
+    "rationale": "The closest source 2110.14813v1 discusses noise, standard Anderson image mixing, averaging and safeguards, but not the precise scalar Gaussian tail or coefficient-ridge asymptotics. Scieur et al. (2017) studies regularized input-extrapolation and upper bounds; deterministic regularization/filtering papers do not cover this joint-Gaussian law. Related published deterministic Aitken/AA results do not imply the stochastic risk constant. General ratio-of-normal tail calculus is acknowledged as known. Residual unindexed-equivalence risk remains.",
+    "residual_risks": [
+      "An unindexed or differently termed stochastic scalar secant/AA calculation might already contain the same limit constants.",
+      "Standard Gaussian pole tails are not themselves new; originality is specific to the image-AA algorithm and two explicit ridge risk laws.",
+      "The papers inspected did not constitute an exhaustive survey of every appendix or other bibliography."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies AA formula and motivation; no sharp Gaussian moment cutoff or weak-ridge constants identified in inspected material.",
+        "evidence": [
+          "Section Anderson acceleration Eq. (4)-(6); Section Moving average regularization Eq. (10)-(14)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2110.14813v1",
+        "material_read": "Abstract, introduction, mathematical background AA formula (4)-(5), moving average model, safeguarding discussion, and conclusion.",
+        "method": "Read arXiv v1 HTML sections and compare stochastic update, coefficient least-squares, noise assumptions, and conclusions against the exact two-history Gaussian claim.",
+        "title": "Stable Anderson Acceleration for Deep Learning",
+        "trigger": "The anchor source explicitly identifies stochastic oscillations as an AA limitation and presents exact AA image corrections."
+      },
+      {
+        "assessment": "Regularized input-iterate extrapolation and general perturbation bounds, not the two-history image-AA Gaussian tail or exact ridge risk coefficient.",
+        "evidence": [
+          "Algorithm 1 defines regularized weights and mixes input iterates; Propositions 3.1-3.3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1706.07270v2",
+        "material_read": "Introduction, regularized nonlinear acceleration Algorithm 1, Propositions 3.1-3.3 and Theorem 3.5, noise formulation and Section 5 asymptotic estimates.",
+        "method": "Read arXiv HTML equations and inspect input-vs-image mixing, stochastic hypotheses, regularization and their stated bounds.",
+        "title": "Nonlinear Acceleration of Stochastic Algorithms",
+        "trigger": "Closest stochastic and Tikhonov-regularized extrapolation analysis."
+      },
+      {
+        "assessment": "Deterministic adaptive acceptance procedure, not unguarded noisy scalar two-evaluation moment computation.",
+        "evidence": [
+          "MSC classification 65B05; Sections 2.1-2.3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.02559v4",
+        "material_read": "Abstract, introduction, algorithm/adaptive quadratic regularization, local/global convergence analysis, and reported numerical setting.",
+        "method": "Inspected HTML method and hypotheses, including safeguard/acceptance mechanism.",
+        "title": "Nonmonotone Globalization for Anderson Acceleration via Adaptive Regularization",
+        "trigger": "Plausibly covers AA ridge coefficients and global stabilization."
+      },
+      {
+        "assessment": "Deterministic history filtering, not Gaussian unfiltered tail or ridge risk asymptotics.",
+        "evidence": [
+          "Algorithm 1.1, Section 2 filtering, Section 3 theory."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.12953v2",
+        "material_read": "Abstract, AA Algorithm 1.1, angle and length filtering constructions, conditioning analysis and conclusion.",
+        "method": "Read HTML methods and theory in relation to denominator near-zero phenomenon.",
+        "title": "Filtering for Anderson acceleration",
+        "trigger": "Conditions of least-squares history matrix can prevent dangerous AA coefficient growth."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "74753964-4ae7-427f-a3ad-1675ab39641b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantifies a motivated stability gap in noisy acceleration: a strict contraction with an exact deterministic first accelerated solve acquires a nonintegrable accelerated output under any nonzero Gaussian noise. It supplies the exact noise/geometry-dependent tail coefficient and two distinct sharp weak-ridge squared-risk coefficients, allowing precise assessment of ridge strength and normalization. It does not rely solely on a qualitative Gaussian-ratio pole or pretend to prove global convergence.",
+    "status": "PASS"
+  }
+}
