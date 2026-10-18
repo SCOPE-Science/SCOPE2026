@@ -1,15 +1,21 @@
-# Scientific review: exceptional-weight shift numerical-radius thresholds
+# Independent mathematical audit
 
-## Correctness — PASS
-The real and complex \(\ell_p\) smoothness formula reduces the spatial radius to nonnegative adjacent-coordinate monomials. Sharp Young inequalities isolate the first exceptional edge and produce the thresholds \(p^{1/p}\) and \(q^{1/q}\). At and below the thresholds every nonzero \(\ell_p\) vector has a strict Young-tail deficit, while distant constant blocks approximate one. Geometric-tail witnesses yield strict excess above the thresholds. Reflexivity and a tail estimate show every excess radius has a maximizing vector. No finite search is relied upon for the infinite-dimensional claim.
+## correctness
 
-## Originality — PASS, with risks
-Sharif (arXiv:2303.00876) records Berger–Stampfli's \(p=2\) exceptional-weight result: this special case is **known**, not presented as new. Martín, Merí, and Popov (arXiv:1011.4785) provide spatial \(L_p\) numerical-radius machinery but not the claimed two-orientation one-edge phase diagram in the inspected material. Related published studies of shift functional-calculus contractivity and norm/spectral-power profiles do not imply these spatial numerical radii. Searches using shift/one-spike/exceptional-weight and conjugate-exponent aliases identified no non-Hilbert coverage. The remaining possibility of unindexed or earlier equivalent results is explicitly unresolved.
+PASS
 
-## Mathematical value — PASS
-A natural infinite-dimensional perturbation exhibits two exact, conjugate nonlinear Banach-space thresholds and a sharp switch in attainment behavior, with a concrete orientation asymmetry for \(p\ne2\). This is a complete structural phase classification for the one-exceptional-edge family (without computing its supercritical numerical-radius value), extending a classical Hilbert phenomenon in a genuinely non-Hilbert direction.
+Reconstructed unique ell_p duality map and scalar positive sequence variational G_F=t u1 u2^(p-1)+sum_(n>=2) u_n u_(n+1)^(p-1), G_B=t u1^(p-1)u2+sum tail. Young inequalities bound the tails by all mass except the exceptional edge, leaving exact two-variable inequalities a^p+(p-1)b^p/p >=p^(1/p)a b^(p-1) and a^p+b^p/p>=q^(1/q)a^(p-1)b. Optimizing gives ratios a/b=p^(-1/p) and (a/b)^p=(p-1)/p, so both thresholds are sharp. At or below threshold equality of every tail Young edge would force nonzero constant infinite ell_p tail, impossible; distant flat blocks show radii still equal one but never attained. For supercritical t, the explicit geometric tail u1=a, u_n=s^(n-2) has limiting positive excess as s increases to 1. Reflexivity, coordinatewise convergence and a tail energy <=tail mass give rho<=G(u)+1-||u||^p; rho>1 forces ||u||=1 and attainment. Independently evaluated exact optimizer equalities for p=1.5,2,3,4,10. p=3,t=4/3 falls between thresholds with forward=1 and backward>1. Valid for both scalar fields, including t=0 and equality threshold.
 
-## Limitations
-Only \(1<p<\infty\) and one exceptional initial weight are addressed. The numerical radius beyond the transition is not expressed in closed form. The existing Hilbert subcase and intrinsic \(L_p\) duality estimates are not new. Independent validation has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Berger–Stampfli classical one-exceptional-weight numerical radius threshold sqrt2 is already known and covers p=2. Sharif 2023 explicitly works in Hilbert ell2, so it does not imply conjugate non-Hilbert p thresholds or their attainment dichotomies. Martín–Merí–Popov supplies the general Banach ell_p numerical radius framework and duality map, but inspected statements do not solve this one-exceptional-infinite-tail optimization. Resultary published three-site ell_p nilpotent radii and other weighted shift profiles refer to finite three-site or different invariants; none directly dominates the present infinite one-edge phase diagram. Priority qualified by potential historical non-Hilbert shift literature.
+
+## value
+
+PASS
+
+An exact structural transition in the natural one-defect perturbation of the canonical unilateral shift, with nonlinear conjugate-exponent directional asymmetry and simultaneous attainment criterion, extends a recognized Hilbert phenomenon to all non-Hilbert ell_p. The exact thresholds are meaningful boundary data; no arbitrary parameter slice or only numerical experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
