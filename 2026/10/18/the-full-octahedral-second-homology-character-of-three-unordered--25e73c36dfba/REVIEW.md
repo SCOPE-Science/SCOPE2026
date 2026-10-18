@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The full closed-disjoint cubical chain complex has ranks \(1140,3672,3840,1296\). The verifier checks every degree-two and degree-three cellular identity \(\partial^2=0\), performs \(1296\) individual elementary free-face collapses eliminating all three-cells, and constructs a 1139-edge spanning tree of the connected one-skeleton. Ko–Park Theorem 3.16 applies to the simple planar triconnected cube, giving \(H_1\cong\mathbb Z^6\). Euler characteristic \(12\) and absence of three-dimensional homology yield free \(H_2\cong\mathbb Z^{17}\). The verifier independently obtains first-homology dimension six modulo primes two and 101. For each of the 48 automorphisms it computes the signed cellular Lefschetz trace and independently reduces six fundamental first cycles modulo 101, with uniquely lifted first-homology traces in \([-6,6]\). Exact 48-element character inner products establish all ten irreducible multiplicities and the claimed antipodal eigenspace dimensions. Reproducibility code is complete and self-contained, not a substitute for the cited general first-homology and discretization theorems.
+
+## Originality — PASS (subject to residual literature risk)
+Same-object graph three-particle representations and the full 48-element character were not found in the surveyed indexed scientific literature. Farley–Sabalka and Prue–Scrimshaw supply models, not this character; Ko–Park's Theorem 3.16 gives \(H_1\), not \(H_2\) with symmetry; An–Knudsen's higher-homology generators under graph operations do not determine the proposed 17-dimensional full-group decomposition. Results on cube two-particle configurations, the cube three-cut complex, and three-particle Heawood/Pappus configurations have distinct spaces or graphs and do not imply this statement. Exact theorem and alias searches compared the three-strand cubical graph braid group, the square prism, antipodal symmetry, and octahedral characters. An undiscovered equivalent calculation is possible.
+
+## Mathematical value — PASS
+The three-particle sector on the cubic one-skeleton is a basic finite planar graph-braid test case. Its second homology has seventeen rational degrees of freedom not resolved by published general generators and Betti-one formulae. Splitting those degrees into all ten possible octahedral symmetry types gives complete, useful natural representation data (including an eight/nine inversion dichotomy and vanishing full rotational invariants) and a benchmark for equivariant graph-braid methods; it is neither a mere restatement of a Betti number nor a cosmetic reparameterization of a prior two-particle result.
+
+## Closest literature and limitations
+Farley–Sabalka (arXiv:math/0410539); Prue–Scrimshaw (arXiv:0909.5511); Ko–Park (arXiv:1101.2648, Theorem 3.16); An–Knudsen (arXiv:2008.10371, main generation theorem). The integral \(\mathbb Z[G]\)-lattice in degree two, equivariant topological attaching maps, cohomology products and family generalizations are not claimed. Unindexed equivalent work remains a bibliographic risk.
+
+Self-review: passed. Independent audit: not yet performed.
