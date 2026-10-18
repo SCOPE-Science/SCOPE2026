@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T04:15:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all n≥3 and t>0, positive definiteness of L+J/(2n), strict convexity of tr(L+J/(2n))^{-1} on connected Laplacians, and injectivity from individual edge conductances prove existence and uniqueness of a global minimizer, not merely a two-class candidate. The graph/price symmetries force matching conductance a and off-matching b. Exact nonzero spectrum is 2(a+(n−1)b), nb (n−1 times), and 2a+(n−2)b (n−1 times). The cost n t a+n(n−1)b=1 and x=a/b yield the stated F=(tx+n−1)H. Computing the endpoint derivative proves deletion iff t≥n²(4n²−11n+8)/[(n−2)(4n³−11n²+10n−4)], equality included, with a unique interior minimizer otherwise. Symbolic expansion confirms T_n=1+2/n+7/(2n²)+O(n^-3) and for t_n=1+s/n, nF′ converges locally to 2s+4x−4 yielding x→(1−s/2)_+. The fixed-t asymptotics have separate coercivity/minimizer-control arguments. Independently recomputed symbolic signs and 36 exact rational Laplacian inversions; these bounded checks are ancillary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General ERMP covers arbitrary graphs and conductance budgets but does not list the priced-matching optimizer; Yang treats topological unweighted bipartite Kirchhoff bounds, not individual budgeted conductances."
+        ],
+        "reasoning": "Problem inclusion in a general convex optimization framework is not prior theorem-level coverage of this explicit boundary law. Unweighted graph topology results are not dominating the priced optimization.",
+        "searches": [
+          "Kirchhoff index resistance optimization complete bipartite matching special edge price conductance deletion threshold",
+          "Ghosh–Boyd–Saberi 2006 complete proceedings",
+          "Yang 2012 DOI:10.1155/2012/195242"
+        ]
+      },
+      "checked_sources": [
+        "GitHub assigned RESULT.md exact blob 43bea37a7eff56f4b13b6f051c7f9d15378f5c7f",
+        "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "https://doi.org/10.1155/2012/195242",
+        "https://mathworld.wolfram.com/KirchhoffIndex.html",
+        "Resultary semantic query: Kirchhoff index resistance optimization complete bipartite matching special edge price conductance deletion threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General optimality/KKT principles imply the possibility of deriving a threshold after symmetry reduction and spectrum computation.",
+          "The new complete scalar characterization includes exact rational T_n and all regimes, not tabulated or proved in the inspected earlier paper."
+        ],
+        "reasoning": "General methods are credited; the particular graph-class classification is not a routine parameter substitution because a nontrivial spectral reduction and global boundary proof are needed.",
+        "searches": [
+          "Kirchhoff index resistance optimization complete bipartite matching special edge price conductance deletion threshold",
+          "Ghosh–Boyd–Saberi 2006 §§II–V"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent objective is A-optimality/total effective resistance/Kirchhoff index with priced weights; strict convexity and inverse Laplacian trace are in earlier general design theory."
+        ],
+        "reasoning": "The equivalent optimization formalism is prior, while the actual if-and-only-if deletion frontier on a matched biclique and critical scaling must still be obtained from its special spectrum.",
+        "searches": [
+          "Kirchhoff index resistance optimization complete bipartite matching special edge price conductance deletion threshold",
+          "Ghosh–Boyd–Saberi 2006 §IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known fixed-weight tables contain K_(n,n) and the crown K_(n,n) minus matching; neither decides which priced conductance class is zero as a function of t."
+        ],
+        "reasoning": "These entries give limiting special graph indices, not the 1-parameter global optimizer or critical window.",
+        "searches": [
+          "Kirchhoff index resistance optimization complete bipartite matching special edge price conductance deletion threshold",
+          "https://mathworld.wolfram.com/KirchhoffIndex.html"
+        ]
+      },
+      "rationale": "The general convex effective-resistance allocation and objective were previously developed by Ghosh–Boyd–Saberi, and unweighted complete bipartite/crown Kirchhoff index values are known. The exact priced perfect-matching deletion threshold across all n, unique optimal conductance split, and 1/n critical-price window were not stated in the primary general-method proceedings inspected. The general convex method can be specialized to derive them but does not give these specific spectral optimization and boundary/asymptotic conclusions as stated. No near-equivalent Resultary finding in direct semantic search. Residual specialty-optimization literature risk.",
+      "residual_risks": [
+        "General convex design theory plus the graph spectrum makes the problem approachable; originality belongs to the completed threshold/classification rather than convexity itself.",
+        "Unindexed electrical-network optimal-design papers might specialize to this price symmetry.",
+        "Interior scalar minimizer specified implicitly; no claim to elementary radicals or nonuniform price designs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_MATCHED_BICLIQUE_CLASSIFICATION",
+          "evidence": "Provides convex ERMP and examples; its worked structural family is a barbell graph, not exact matched-price K_n,n thresholds.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Accessible 12-page conference paper; inspected objective, conductance/Laplacian formulas, optimality/dual sections and worked barbell-network example, including page images",
+          "method": "Primary author-hosted PDF text with visual checks",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Identical objective and general effective-resistance conductance optimization"
+        },
+        {
+          "assessment": "UNWEIGHTED_TOPOLOGY_NOT_WEIGHT_ALLOCATION",
+          "evidence": "Studies graph topology and unweighted Kirchhoff bounds; not known to classify continuous priced individual conductance designs.",
+          "identifier_or_url": "https://doi.org/10.1155/2012/195242",
+          "material_read": "Accessible abstract and bibliographic description; full article was not independently read in this run",
+          "method": "Abstract and scope comparison",
+          "title": "Bounds for the Kirchhoff Index of Bipartite Graphs",
+          "trigger": "Potential stronger bipartite index classification"
+        },
+        {
+          "assessment": "ENDPOINT_ONLY",
+          "evidence": "Fixed-weight endpoints are prior but are not an optimization over t.",
+          "identifier_or_url": "https://mathworld.wolfram.com/KirchhoffIndex.html",
+          "material_read": "Graph-family formulas for unweighted bicliques and matching-deleted bicliques as used in assigned proof",
+          "method": "Mathematical reference table comparison",
+          "title": "Kirchhoff Index",
+          "trigger": "Exact fixed-graph table check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural fixed matched biclique models a network where specified paired links carry a price premium. A sharp if-and-only-if threshold decides whether every such link is bought or omitted, with a unique conductance allocation, controlled finite-size correction and critical window. This exact global design boundary is useful independently of the already-known convex framework and fixed-weight Kirchhoff tables; it is not an arbitrary numeric slice or a tiny improvement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub assigned RESULT.md exact blob 43bea37a7eff56f4b13b6f051c7f9d15378f5c7f",
+    "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+    "https://doi.org/10.1155/2012/195242",
+    "https://mathworld.wolfram.com/KirchhoffIndex.html",
+    "Resultary semantic query: Kirchhoff index resistance optimization complete bipartite matching special edge price conductance deletion threshold"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General convex design theory plus the graph spectrum makes the problem approachable; originality belongs to the completed threshold/classification rather than convexity itself.",
+    "Unindexed electrical-network optimal-design papers might specialize to this price symmetry.",
+    "Interior scalar minimizer specified implicitly; no claim to elementary radicals or nonuniform price designs.",
+    "Exact Git tree/blob snapshot and all scientific files were inspected. Independent finite arithmetic is corroborative, not infinite certification.",
+    "Publication not ready while operational provenance remains in public source metadata or potentially derived artifacts."
+  ],
+  "schema_version": 1
+}

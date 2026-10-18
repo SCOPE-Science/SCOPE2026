@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph, positive prices, normalization, and admissible connected conductance allocations are explicit. Strict convexity and the actual symmetry group reduce the **global** objective to two edge classes, not merely a presumed symmetric search. The Laplacian block decomposition gives all spectral multiplicities, the budget fixes scaling, and the exact scalar derivative determines the unique deletion boundary including equality. The distinct proof of the two asymptotic regimes and the critical price window controls minimizers rather than extrapolating numerical experiments. Exact-rational matrix-inverse checks and independent edge-weight comparisons supplement, but do not substitute for, the proof.
+## correctness
 
-## Originality — PASS
-Closest general source: Ghosh, Boyd and Saberi, *Minimizing Effective Resistance of a Graph*, MTNS 2006 (open proceedings PDF), derives the general optimization method and worked examples but no inspected assertion of the matched-biclique price boundary. Yang's 2012 bipartite Kirchhoff extremal study is for unweighted graph topologies. Reference tables already contain the unweighted K_(n,n) and crown invariants, which are not claimed as new. Targeted published-finding corpus searches for matched-biclique, weighted crown, A-optimal allocation, and equivalent formulations retrieved no covering statement; this is evidence, not proof of exhaustiveness. Historical specialty literature and an only abstract-inspected older circulant paper remain residual risks.
+PASS
 
-## Value — PASS
-The threshold gives a closed, exact purchase/delete decision for an entire natural class of two-cluster networks with expensive paired links, plus unique conductances on either side. It explains a sharp price-one large-size transition and resolves the order-\(1/n\) window; neither property follows from the known fixed-weight graph-index tables. The result is useful as an explicit benchmark for effective-resistance design rather than a routine numerical instance.
+For all n≥3 and t>0, positive definiteness of L+J/(2n), strict convexity of tr(L+J/(2n))^{-1} on connected Laplacians, and injectivity from individual edge conductances prove existence and uniqueness of a global minimizer, not merely a two-class candidate. The graph/price symmetries force matching conductance a and off-matching b. Exact nonzero spectrum is 2(a+(n−1)b), nb (n−1 times), and 2a+(n−2)b (n−1 times). The cost n t a+n(n−1)b=1 and x=a/b yield the stated F=(tx+n−1)H. Computing the endpoint derivative proves deletion iff t≥n²(4n²−11n+8)/[(n−2)(4n³−11n²+10n−4)], equality included, with a unique interior minimizer otherwise. Symbolic expansion confirms T_n=1+2/n+7/(2n²)+O(n^-3) and for t_n=1+s/n, nF′ converges locally to 2s+4x−4 yielding x→(1−s/2)_+. The fixed-t asymptotics have separate coercivity/minimizer-control arguments. Independently recomputed symbolic signs and 36 exact rational Laplacian inversions; these bounded checks are ancillary.
 
-## Reproducibility and limitations
-Run `python3 checker.py` using only the Python standard library. Exact rational calculations validate finite spectral, budget and matrix inverse identities and some feasible comparisons; they cannot establish asymptotic generality or historical novelty. The model assumes balanced sides, one matching price, a continuous budget and n>=3. The scalar interior root is implicit. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general convex effective-resistance allocation and objective were previously developed by Ghosh–Boyd–Saberi, and unweighted complete bipartite/crown Kirchhoff index values are known. The exact priced perfect-matching deletion threshold across all n, unique optimal conductance split, and 1/n critical-price window were not stated in the primary general-method proceedings inspected. The general convex method can be specialized to derive them but does not give these specific spectral optimization and boundary/asymptotic conclusions as stated. No near-equivalent Resultary finding in direct semantic search. Residual specialty-optimization literature risk.
+
+## value
+
+PASS
+
+The natural fixed matched biclique models a network where specified paired links carry a price premium. A sharp if-and-only-if threshold decides whether every such link is bought or omitted, with a unique conductance allocation, controlled finite-size correction and critical window. This exact global design boundary is useful independently of the already-known convex framework and fixed-weight Kirchhoff tables; it is not an arbitrary numeric slice or a tiny improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
