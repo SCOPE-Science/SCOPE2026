@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matrix theorem covers precisely both all-to-all couplings and all powers of two. The algebra \(\mathbb Z[e]/(e^2-ne)\) maps faithfully to \(\mathbb ZI_n+\mathbb ZJ_n\) for \(n\ge2\); hence reducing the coefficient identities modulo eight loses no information about matrix-entry valuations. Exact evaluation of all eight parameter residues proves the required initial valuations, and the elementary matrix squaring lemma lifts those valuations without gaps. The argument establishes the minimal global order, not merely a period upper bound. A clean run of the standalone verifier prints `VERIFY_OK; exact assertions: 576`, including separately implemented dense-matrix checks.
+PASS
 
-## Originality — PASS, residual priority risk acknowledged
+Faithfully embed the two graph couplings into R_n=Z[e]/(e²−ne); injective a+be→aI+bJ for n≥2 is certified by off-diagonal b and diagonal a+b. Exact A(c)^2−I and A(c)^3−I polynomials were reconstructed. Direct independent ring modular arithmetic exhausted all eight n mod8 residues for looped and loopless graphs, reproducing mod2 orders m=2 (J with n even), m=3 otherwise, and exact valuations r=1 or2 with first squaring r→2. Once r≥2, (I+2^rE)^2−I=2^(r+1)(E+2^(r−1)E²) has the same odd entry, proving strict valuation increment at each doubling. Orders modulo 2^s are m multiplied by powers of 2 as kernel reductions are 2-groups; conclude claimed all-s matrix orders. Sparse/dense finite tests alone are not universal proof.
 
-Manolas–Floratos (arXiv:2605.00965, full version-two text inspected) discusses both fully connected entropy specializations and numerically measured period spectra, and derives general recurrence identities. Its Section 4.1 does not state the two closed, all-site modulo-four classifications above. Axenides–Floratos–Nicolis (arXiv:2208.03267v3, period sections inspected) provides antecedent lattice theory but no matching complete-graph congruence-order theorem. The exact residues, self-loop contrast, and boundary at modulus four are assessed as beyond those statements. Earlier or less-indexed congruence-matrix work might contain an equivalent specialization; novelty is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem completely resolves a natural finite-torus period question for both canonical maximal-connectivity graph families, for every number of sites and every power-of-two resolution. It explains a substantive parity/residue effect masked by ordinary real eigenvalue arguments and numerics, including non-doubling of the order upon increasing the torus resolution from two to four. A concise exact two-adic lifting mechanism supplies reusable insight for related periodic graph-coupled maps. This is not a classification for arbitrary graph topologies or arbitrary moduli.
+Uniform powers-of-two global order for two natural complete-graph coupled cat maps is an explicit new 2-adic classification beyond the source paper’s entropy specialization and numerical period examination. The full accessible focal source does not include the residue-class formulas. The earlier lattice paper remains less completely accessible, leaving residual priority risk.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The global torus order controls simultaneous recurrence for every state in a coupled cat-map lattice. A complete n mod4 and s formula for both looped and loopless complete-graph couplings is a meaningful natural parameter classification, with a sharp lifting distinction at modulus four; not an arbitrary finite slice or isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
