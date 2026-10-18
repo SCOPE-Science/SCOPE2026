@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof constructs the precise Zak multiplier from a directly evaluated exponentially decaying correlation sequence and pushes forward the normalized torus measure. The two singular local models are nondegenerate and all other critical points are classified by strict angular monotonicity. The logarithmic coefficient follows from the local saddle Hessian with the normalized angular measure; the square-root cusp coefficient uses both sides of the nonsmooth translational seam. The unique positive cubic crossing is proved algebraically. A 38-check standalone numerical program independently compared Zak sums, both singular coefficients and the crossing. Its finite checks are not substitutes for infinite analytic proofs.
+
+**Originality — PASS, qualified.** Faulhuber--Shafkulovska (2023), Section 8, already provides the sharp Gabor frame bounds for two-sided exponential windows. Those bounds are explicitly acknowledged as known: they do not determine the interior spectral law. The 2026 total-positivity frame-set theorem proves existence rather than density asymptotics. Kloos--Stöckler supplies general Zak methods. Targeted published-record, literature and accessible-prior-claim comparisons did not reveal an equivalent two-singularity/cubic-crossing statement. Priority risk remains for unindexed specialized spectral analyses.
+
+**Value — PASS.** The normalized spectral law controls spectral filtering and average inverse-stability behavior, not just the worst frame condition number. Its logarithmic saddle and nonsmooth square-root corner reveal distinct exact singular mechanisms, and their algebraic exchange gives a natural structural transition in the simplest redundant Laplace Gabor family. The result is a continuous parameter theorem, not a fixed numerical slice or recomputation of known bound tables.
+
+**Scientific scope and risks.** The lattice is fixed at translation one and frequency step one half, with an unnormalized symmetric Laplace window. The two local asymptotics hold for fixed decay parameter and only the logarithmic law is asserted at the collision. Independent audit is not performed and equivalently worded older spectral calculations may escape the present searches.
+
+Self-review: passed. Independent audit: not yet performed.
