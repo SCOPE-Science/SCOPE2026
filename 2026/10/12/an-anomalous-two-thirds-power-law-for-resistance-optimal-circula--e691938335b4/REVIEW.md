@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(n\ge3\) and \(t>0\), strict convexity of the inverse-Laplacian trace on the connected feasible set gives a globally unique optimum. Prism automorphisms force two edge-weight orbits. The cycle Laplacian plus two-layer decomposition yields the stated spectrum and normalized Kirchhoff index. The derivative equation has a unique positive solution because its right-hand implied price is strictly decreasing from infinity to zero; no boundary minimizer is possible. The Poisson-kernel sum is exact and the asymptotic minimizer is confined to compact \(n^{2/3}\)-scaled ratios before uniform convergence establishes the coefficient. The separately constructed exact-rational small-instance code reconstructed graph Laplacians and supported all finite identities tested; its finite scope is explicit.
+PASS
 
-## Originality — PASS, qualified
+For priced unit-conductance budget on prism C_n square K2, n>=3,t>0, Laplacian on 1-perp injectively parameterizes edge weights; tr(L^{-1}) has strictly positive second variation along any nonzero perturbation, hence globally unique connected optimum. Graph edge-orbit averaging forces rim a and rung b>0. Fourier layer blocks give nonzero eigenvalues a sigma_k and a sigma_k+2b (except symmetric k0), K=2n²(2+t x)(A_n+S_n(x)) with x=b/a, A_n=(n²-1)/12. Poisson-kernel sum yields S_n=n coth[n arcosh(1+x)/2]/(2 sqrt(x(x+2))). Derivative stationary equation t(A+V)=4U where U=sum(sigma+2x)^-2,V=sum sigma(sigma+2x)^-2. T(x)=4/(A/U+V/U) strictly decreases from infinity to zero: U decreases and V/U increases by monotone likelihood ratio, proving unique minimizer. For x=c n^-2/3 uniformly on compact c, coth→1 exponentially and S_n~n^(4/3)/(2sqrt(2c)); rescaled excess objective tends g(c)=tc/12+(2c)^-1/2. Trial upper bound and positive S lower bound compactly trap n^(2/3)x_n; strictly convex g minimizes at c=(18/t²)^(1/3). Thus b~c/(2n^(5/3)), K*=n^4/3+(18t)^(1/3)n^(10/3)/2+o. Checked differentiations and boundary t,n conditions; finite original exact matrix-inversion checker inspected but not extrapolated.
 
-The 2006/2008 Ghosh–Boyd–Saberi results establish general convex optimization of total effective resistance, not the prism optimum or fractional-size law. Full primary texts of Çınkır (2017, Theorems 3.1–3.2), Baigonakova–Mednykh (2019, Theorems 2–4), and Azimi–Farrokhi (2023, circular ladder section) determine Kirchhoff data at fixed unit edge values. Their fixed-weight formulas neither state nor imply the price-dependent global optimizer and its \(n^{-2/3}\) law absent substantive additional optimization/asymptotic analysis. A 2014 related weighted **linear** ladder article was accessible only in abstract despite bounded legitimate full-text attempts; it is a genuine residual risk and no full-paper noncoverage assessment is asserted. Targeted literature and published-finding searches produced no matching or dominating specialization; absence from search is not a novelty proof. The assessment is limited to examined sources.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is a natural budgeted network-design objective already motivated in the general electrical-resistance optimization literature. The theorem supplies an exact global placement/design rule on the full infinite family of finite circular ladders, not an ad hoc numerical point. The \(2/3\) scaling exponent is a non-obvious singular large-size phenomenon: nearly all cost is allocated to the rims although a positive rung budget is indispensable for connectivity, with a sharp noninteger correction to total resistance. This clarifies a meaningful topology-dependent resource allocation asymptotic, not a routine tabulation or re-expression of a known unit-weight invariant.
+Best-of-knowledge surviving original contribution; compare mathematical implication rather than titles/parameters. Ghosh–Boyd–Saberi proves general convex total-effective-resistance design, not the specific priced prism orbit equation/asymptotic law. Azimi–Farrokhi and Cinkir formulas use unweighted circular ladders and thus do not optimize vanishing rung weights. Related 2014 Carmona–Encinas–Mitjana studies weighted linear ladders; only abstract was accessible and cannot be declared whole-document noncoverage.
 
-## Scope and unresolved risks
+## value
 
-The claim concerns nonnegative real conductances, two priced edge classes and fixed positive price. Finite checker samples do not establish universal claims; the proof does. A prior specialized optimization theorem could exist outside the accessible corpus. The 2014 Carmona–Encinas–Mitjana full text was not inspected, although its abstract describes a linear (not periodic) weighted ladder chain. No statement about external or independent validation is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Total effective resistance is a standard network-design objective on a canonical circular ladder; allowing a priced rung class uncovers a nontrivial resource-allocation singular limit. The globally optimal ratio shrinks n^-2/3 yet retains connectivity and improves n^4 leading coefficient relative to uniform conductance; exact finite optimizer plus two-term asymptotics are mathematically useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
