@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-The arbitrary-parameter proof is given in `RESULT.md`.
 
-Critical checks:
-- the centered source inequalities are \(|x_i|\le\ell/2\) and \(|x_i-x_j|\le\ell-a\);
-- every source-labeled vertex translates to \(k\) coordinates \(\ell/2\) and \(d-k\) coordinates \(a-\ell/2\), or its antipode;
-- shell \(k\) has squared radius \(k\ell^2/4+(d-k)(\ell/2-a)^2\) and multiplicity \(2\binom dk\);
-- adjacent shell squares differ by \(a(\ell-a)>0\);
-- the two pole vertices uniquely certify minimum-enclosing radius \(\ell\sqrt d/2\);
-- coordinate-facet clearance is \(\ell/2-|z_i|\);
-- difference-facet clearance is \((\ell-a-|z_i-z_j|)/\sqrt2\);
-- the two centered clearances cross exactly at \(a=\ell(1-1/\sqrt2)\);
-- below and at the threshold the optimum center is uniquely \(0\);
-- above the threshold the entire optimal-center set is the stated diagonal segment.
+# Independent mathematical audit
 
-`verify.py` enumerates all source-labeled vertices for \(2\le d\le8\) at several rational parameter pairs. It verifies the defining inequalities, all shell formulas and multiplicities, strict shell ordering, and tightness of every facet family. It also checks the threshold and center-regime identities exactly with symbolic radicals. Finite computation is corroborative only and does not assess originality.
+## correctness
+
+PASS
+
+For d≥2, ℓ>0, 0<a<ℓ the precise Euclidean body is |x_i|≤ℓ/2, |x_i−x_j|≤ℓ−a. Every nonempty W⊆[d] contributes an extreme vertex with coordinates ℓ/2 on W and a−ℓ/2 outside, plus its antipode, as confirmed from the original 2020 vertex classification and 2024 centered inequalities. Squared norms depend only on k=|W|, and consecutive differences equal a(ℓ−a)>0; hence d shells and 2 binomial multiplicities, with only ±ℓ/2 * 1 at outermost radius ℓ√d/2. Opposite poles give the sharp and unique Euclidean minimal enclosing sphere. Every center z of an inscribed Euclidean ball of radius ρ satisfies |z_i|+ρ≤ℓ/2, |z_i−z_j|+√2ρ≤ℓ−a. These constraints are necessary and sufficient for all facets. At z=0 the minimum clearance gives exact radius; at the coordinate-controlled regime all z_i=0, while in difference-controlled regime all z_i are equal and coordinate facets bound a diagonal segment. This proves the sharp transition including equality case. Independently enumerated exact rational vertex-shell counts in d=2..6 and checked symbolic formulas; source checker inspects d≤8. The proof, not the finite enumerations, covers all d.
+
+## originality
+
+PASS
+
+The 2020 full primary text supplies the complete labeled vertex combinatorics, and 2024 full primary text gives the halfspace/zonotope description and volumes. A later published related Resultary finding DOES explicitly give the unique Euclidean minimum enclosing sphere and its pole contacts, so that particular subclaim is already covered and not new. However it treats John and Löwner ellipsoids, not the complete Euclidean incenter phase diagram or d strict vertex shell multiplicities. The surviving complete Euclidean inball center classification is neither a volume identity nor an ellipsoid contact theorem.
+
+## value
+
+PASS
+
+The complete incenter locus and its sharp one-point-to-segment phase transition are intrinsic Euclidean geometric data of a natural all-dimensional class of zonotopes. They explain when metric optimality loses uniqueness; exact strict vertex shell multiplicities also record radial stratification useful for studying contact and non-isotropic approximations. The outer sphere subclaim is known, but does not remove mathematical value of the distinct complete center classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
