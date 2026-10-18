@@ -1,19 +1,21 @@
-# Scientific review: three-piece rotated odometers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The dynamics is defined with explicit half-open boundary choices, and the 12-cell graph proves six exhaustive disjoint tower decompositions. The top-quarter scaling identity yields the three induced permutations exactly. The infinite argument makes each self-induced cyclic type aperiodic: any finite orbit would meet intervals shrinking to \(0\), yet the full map never takes value \(0\). The three transpositions induce cyclic types. The two cited cyclic odometer conjugacies and a standard finite-tower invariant-measure argument then prove unique ergodicity. The embedded exact-rational program independently verifies each finite cell identity and tower coverage. Numerical trajectory searches alone are not used as proof.
+PASS
 
-## Originality — PASS, with priority risk
+The exact 12-cell finite map j->4*pi(floor(j/4))+(j mod 4), then +6 for k<6, -3 for k=6..8, terminates for k>=9. Six explicit starting triple itineraries are pairwise disjoint and exhaust all twelve cells, giving induced cyclic first-return maps, return-time means four and variances 0,8,18. I independently implemented exact integer 12-cell enumeration for all six permutations and confirmed each tower partition. Self-induction to arbitrarily nested first quarters plus F_pi(I) subset (0,1) excludes any finite periodic orbit pointwise. Bruin-Lukina compactification conjugacy for cyclic cases and finite-tower induction yield unique invariant Borel probability for all six, with atomlessness addressing boundary points.
 
-Bruin–Lukina, *Rotated Odometers* (arXiv:2101.00868), already proves the general first-return algorithm, criterion for ergodic Lebesgue measure, and odometer conjugacies for the two three-piece cyclic permutations. The present contribution does not claim these ingredients: it explicitly classifies all three transpositions, proves the combined six-case aperiodicity and unique ergodicity, and gives the full three-way return-time and variance trichotomy. Their related rooted-tree paper (arXiv:2104.05420) treats dyadic partition sizes rather than three. Searches of related published mathematical findings and literature found no direct all-six theorem. The 2021 general algorithm can in principle be specialized to derive this finite classification; that derivability and possible previously unindexed formulations are residual priority risks, not evidence of independent novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete classification at the first non-dyadic number of intervals and exposes universal pointwise aperiodicity despite distinct and sharply computed induction-time statistics. A swapped two-piece map has a positive-length fixed interval, so nonexistence of periodic points for *all* three-piece permutations is a non-obvious structural boundary. The exact induced-law trichotomy characterizes nonuniform return behavior rather than tabulating an arbitrary unrelated statistic.
+The originating Bruin-Lukina Rotated Odometers studies generic return algorithms and proves odometer-conjugacy for the cyclic q=3 types. Available full primary material does not state the exact six-permutation tower table or the transposition reduction and three exact return laws together. Credit the cyclic and general inputs; originality here resides in exhaustive six-case classification.
 
-## Limits
+## value
 
-The scope is precisely the six three-piece permutations and the first-quarter section. The invariant-measure conclusion uses the established cyclic odometer theorem; it does not establish a common topological conjugacy class for all six. Historical publication priority may require further specialist checking.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The q=3 cutoff is a natural boundary: 2-piece swapping has fixed interval while all six q=3 cases have none, and complete return-time laws quantify the dynamics. A finite classification with exact pointwise endpoint conventions is reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

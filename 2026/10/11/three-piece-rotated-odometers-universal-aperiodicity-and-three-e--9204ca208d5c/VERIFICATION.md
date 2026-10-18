@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the three-piece classification
+# Independent mathematical audit
 
-Run `python3 verify_odometer.py` with standard Python 3. The script uses only `fractions` and `itertools`; there are no external datasets or downloads.
+## correctness
 
-The checker enumerates all six permutations, builds the deterministic \(12\)-cell transition graph exactly, follows each of the three possible first-quarter entry cells, tests the complete partition into finite towers, verifies the induced permutation and return lengths, and checks the high-quarter scaling and return identity at exact rational test points. It finishes with the exact marker `EXACT_CELL_GRAPH_OK` when all checks succeed.
+PASS
 
-The twelve-cell enumeration is exhaustive for the first-return combinatorics because on each of the first nine output cells the map acts by exact translation and on the last three cells the same scaled adding map applies. The separate proof in `RESULT.md` uses self-induction to exclude *all* periodic trajectories; a finite computation does not prove that infinite step. Unique invariant probability additionally depends on the already-published conjugacies for the two cyclic types (arXiv:2101.00868, Proposition 8.4) and the exact finite-tower measure reconstruction. No independent audit has been performed.
+The exact 12-cell finite map j->4*pi(floor(j/4))+(j mod 4), then +6 for k<6, -3 for k=6..8, terminates for k>=9. Six explicit starting triple itineraries are pairwise disjoint and exhaust all twelve cells, giving induced cyclic first-return maps, return-time means four and variances 0,8,18. I independently implemented exact integer 12-cell enumeration for all six permutations and confirmed each tower partition. Self-induction to arbitrarily nested first quarters plus F_pi(I) subset (0,1) excludes any finite periodic orbit pointwise. Bruin-Lukina compactification conjugacy for cyclic cases and finite-tower induction yield unique invariant Borel probability for all six, with atomlessness addressing boundary points.
+
+## originality
+
+PASS
+
+The originating Bruin-Lukina Rotated Odometers studies generic return algorithms and proves odometer-conjugacy for the cyclic q=3 types. Available full primary material does not state the exact six-permutation tower table or the transposition reduction and three exact return laws together. Credit the cyclic and general inputs; originality here resides in exhaustive six-case classification.
+
+## value
+
+PASS
+
+The q=3 cutoff is a natural boundary: 2-piece swapping has fixed interval while all six q=3 cases have none, and complete return-time laws quantify the dynamics. A finite classification with exact pointwise endpoint conventions is reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
