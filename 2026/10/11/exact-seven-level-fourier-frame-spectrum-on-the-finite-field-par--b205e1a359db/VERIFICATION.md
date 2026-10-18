@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Computational verification and limits
+# Independent mathematical audit
 
-The proof in `RESULT.md` works for every odd prime-power \(q\) and is logically independent of these finite checks. Run the two complete embedded scripts directly (both depend only on Python plus the listed numerical/symbolic library):
+## correctness
 
-```sh
-python symbolic_certificate.py
-python paraboloid_frame_check.py
-```
+PASS
 
-The symbolic checker verifies exactly, using SymPy, the residual characteristic polynomial identity, the cubic discriminant, the resultant excluding collisions with the two-dimensional block, and the boundary polynomial values. Its observed output was:
+Quadratic Gauss sums give exact cross-column entries s=chi(-1)/q and chirp phase psi(-a²/(4c)). Differences X_a-Y_a and sign-antisymmetric sums yield 3(q-1)/2 eigenvalue-one directions; H1=-1 and HH*=qI-J split all remaining character space into (t-1) two-by-two blocks, a kernel block and a four-by-four block with cubic P_q. Determinant, discriminant, resultant and zero eigenvalue substitutions establish all multiplicities and strict rank boundary q=3,5. All field-size and q mod 4 hypotheses are retained; finite experiments are corroboration, not global proof.
 
-```
-SYMBOLIC_CERTIFICATE_OK determinant_cubic resultant discriminant boundary substitutions
-```
+## originality
 
-The numerical checker constructs the additive characters and full normalized coefficient Gram directly in the prime fields of orders \(3,5,7,11,13,17,19,23\) and explicitly realized quadratic extension fields of orders \(9,25\). It compares complete multiplicity-expanded spectra and checks nullities in the exceptional small fields. Its observed output was:
+PASS
 
-```
-VERIFY_OK fields= [3, 5, 7, 11, 13, 17, 19, 23, 9, 25] total_columns= 376 max_eigenvalue_deviation= 3.33e-15 small_field_singularities=PASS
-```
+Casazza–Fickus treat chirps on finite cyclic integer groups and DFT coefficient magnitudes, while Mockenhaupt–Tao and Iosevich–Koh treat paraboloid restriction/extension estimates, not the spectrum of this selected 3q-2 coefficient Gram matrix. Other published exact finite-field coordinate spectra in Resultary are for different domains (invertible matrices, Plücker cone, Hamming shells) and are not implications for this paraboloid. Originality passes for the complete cubic/short-block eigenvalues and arithmetic conditioning regime, not Gauss sums themselves.
 
-Numerical floating point accuracy does not certify exact equality, and finite examples are not exhaustive over finite fields; infinite validity relies on the stated character orthogonality and Hermitian block reduction. The proof excludes general mixed frequencies, even-characteristic fields and unrelated quadratic varieties. Independent audit: not performed.
+## value
+
+PASS
+
+The rank cutoff and sharp Riesz conditioning of a canonical low-frequency measurement family quantify stable reconstruction on a central finite-field harmonic-analysis surface, with a qualitative difference between q≡1 and q≡3 mod4. The explicit eigenspaces and condition numbers are nontrivial spectral invariants, not isolated numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

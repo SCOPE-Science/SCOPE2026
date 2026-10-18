@@ -116,7 +116,7 @@ Mockenhaupt and Tao introduced finite-field Fourier restriction for the parabolo
 
 ## Limitations
 
-Only the stated first-coordinate frequency family is classified; general Fourier frequencies and arbitrary quadratic surfaces are not. The spectral formulas use cubic roots rather than elementary radicals. Exact novelty relative to all historical equivalent formulations in finite chirp-frame literature has not been independently certified. The same-model review is not an independent audit.
+Only the stated first-coordinate frequency family is classified; general Fourier frequencies and arbitrary quadratic surfaces are not. The spectral formulas use cubic roots rather than elementary radicals. Exact novelty relative to all historical equivalent formulations in finite chirp-frame literature has not been independently certified. The self-review is not an independent audit.
 
 ## References
 
