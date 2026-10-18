@@ -1,12 +1,21 @@
-# Review of Perfect double Italian domination of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. Writing the side sums as \(X,Y\), the crown neighborhood identities give the exact constrained sums \(x_i+Y-y_i\) and \(y_i+X-x_i\). A side of weight at most \(2\) yields an immediate contradiction at a zero coordinate for total weight below \(6\). At weight \(6\), a detailed side-weight check excludes side weights \(0,1,2\), forcing \(X=Y=3\). The two interval inequalities then force every low coordinate to agree across a deleted pair; equality of side sums forces the possible high coordinate to agree as well. Conversely, every identical side vector of weight \(3\) is feasible. The bundled checker verifies every labeling of weight at most \(6\) for \(4\le n\le10\), with the exact predicted minimum-function count.
+## correctness
 
-## Originality
-PASS. The 2023 foundational primary paper was inspected in full text. It defines the target invariant, lists classification \(05C69\), proves bipartite NP-completeness, compares perfect double Italian and perfect double Roman domination, and treats standard/extremal classes, but no crown theorem was located in the inspected material. Semantic and exact literature searches under “perfect double Italian,” “perfect Roman \(\{3\}\),” “crown graph,” and “\(K_{n,n}\) minus a perfect matching” formulations returned no equivalent theorem. The closest stored crown results concern different domination invariants and do not imply the synchronized optimum family.
+PASS
 
-## Value
-PASS. Crown graphs are a canonical dense bipartite perturbation of \(K_{n,n}\), while the foundational paper already identifies bipartite graphs as a meaningful complexity domain for the parameter. The result completely resolves the optimum structure rather than merely adding a scalar value: all minimum labelings are synchronized across the missing matching, and their exact number is \(\binom{n+2}{3}\). The exceptional \(n=3\) boundary also shows that the rigidity is genuinely structural rather than a tautological composition count.
+For crown graph Cr_n=K_n,n-M_n, constrained neighborhood sums are x_i+Y-y_i at a_i and y_i+X-x_i at b_i if their own label is 0 or 1. Synchronized x_i=y_i=z_i with sum_i z_i=3 gives a feasible weight-6 function. If total <6, a shore has weight <=2; at a zero coordinate the opposite lower bound forces a contradiction. At equality, the detailed 0,1,2 side-total case split excludes X<=2 and Y<=2 for n>=4; X=Y=3 then forces x_i=y_i on low coordinates and equality of totals forces the remaining high coordinate to agree. Thus precisely binom(n+2,3) optima. Independent exhaustive bounded-weight label searches yielded Cr_4:20, Cr_5:35, Cr_6:56, Cr_7:84, all synchronized; Cr_3 had 18 optima of which only 10 synchronized, confirming the excluded boundary. These finite checks are not the all-n proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Primary Hao–Jalilolghadr–Mojdeh (2023) establishes the perfect DOUBLE Italian closed-neighborhood interval definition and broad extremal/complexity facts. Its accessible search-index sections contain no claim implying crown synchronization or the binomial minimizer census; complete PDF could not be inspected after open access failed and authorized Oxford retrieval returned VPN-disconnected. Relevant published Resultary perfect ROMAN domination of crown graphs computes a different exact-one-2-neighbor invariant with weight 4; restrained-domination and complete-multipartite perfect Italian results likewise use different constraints/graphs. The exact fixed graph and scalar value PLUS full optimizer synchronization remain unimplicated in inspected mathematics; PASS is best-of-knowledge subject to named primary full-text risk.
+
+## value
+
+PASS
+
+Crown graphs are canonical dense regular bipartite perturbations; the missing matching causes a nontrivial rigid equality phenomenon n>=4 distinct from the hexagonal n=3 boundary. The exact complete optimizer family and binomial count are reusable structural graph-domination invariants, not just one brute-force number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
