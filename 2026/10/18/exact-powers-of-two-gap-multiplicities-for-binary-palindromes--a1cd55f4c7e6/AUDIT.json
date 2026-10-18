@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The length partition is exhaustive. For n of length <=k, alternating reflections force arithmetic-progression one-bit positions and the progression step divides k. Equal-length addition flips a carry interval whose reflection symmetry forces a singleton middle bit at index k. Length overflow is impossible for length >=k+2 because bit 1 must simultaneously be one and zero; length k+1 has a unique form by digit induction. Conversely all three families consist of palindromes separated by 2^k; disjoint lengths yield exact count. No nonstandard lemma is assumed. A standalone standard-library checker enumerated all pairs through the proven length bound for k=2..14, totaling 16,435 pairs; finite checks supplement but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1, Theorem 12] characterizes all d with infinite R(2;d), not the finite values.",
+        "[1, Theorem 14] concerns a conditional irrationality result for sums over infinite-gap pairs.",
+        "[1, Question 26] specifically asks for bounds on finite r(d)."
+      ],
+      "reasoning": "The finiteness theorem implies only that each r(2^k) is finite, because 2^k with k>=2 is outside its infinite-gap classes. Neither cardinality nor classification follows from this; general single-palindrome counting theorems likewise do not impose a fixed difference.",
+      "searches": [
+        "\"Pongsriiam\" \"Saito\" \"r(d)\" palindrome differences 2^k",
+        "binary palindromes separated by a power of two count representations R(2,2^k) digit carry symmetry divisors",
+        "palindrome differences positive density arbitrary long arithmetic progressions base two",
+        "\"binary palindromes\" \"difference\" \"power of two\" number of pairs"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.html",
+      "Pongsriiam (2021), Longest arithmetic progressions of palindromes, J. Number Theory 222, 362–375",
+      "Phunphayap and Pongsriiam (2022), Extremal orders and races between palindromes in different bases, AIMS Mathematics 7, 2237–2254",
+      "Indexed mathematical research records searched for exact formula, difference multiplicity, alternative phrasing and carry patterns; no equivalent among inspected ranked results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1, Theorem 12] yields finiteness of R(2;2^k) for k>=2 but does not determine its size.",
+        "The earlier finding 943176d7-f750-4bcd-b398-edfb9bbadab0 concerns a progression-free positive-relative-density subfamily of binary palindromes, answering [1, Question 27], not pair counts for a fixed distance.",
+        "Theorem 4 of [1] classifies twin palindromes at difference 2, an excluded case."
+      ],
+      "reasoning": "Finiteness does not imply the exact count 2^(k-1)+tau(k)+1. The previous density construction and the difference-two classification have different quantifiers and do not dominate this claim.",
+      "searches": [
+        "Exact number of ordered binary palindrome pairs a,b with b-a=2^k equals 2^(k-1)+tau(k)+1 for k>=2",
+        "finite r(d) count for palindrome differences of powers of two Pongsriiam Saito Question 26",
+        "Palindromes and Antipalindromes in Short Intervals Theorem 12 Question 26 fixed gap",
+        "binary palindrome arithmetic progression free positive relative density"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary [1] defines R(b;d) on page 7 but states only the infinite-gap classification in Theorem 12.",
+        "Targeted searches returned no fixed-power-of-two pair-count equality or complete bit-pattern enumeration."
+      ],
+      "reasoning": "The source gap-representation function r(d) is exactly the cardinality of R(2;d), so both formulations were searched. A closed formula for this power-of-two family was not found in the inspected records; lack of hits alone is not a novelty proof.",
+      "searches": [
+        "Exact number of ordered binary palindrome pairs a,b with b-a=2^k equals 2^(k-1)+tau(k)+1 for k>=2",
+        "binary palindromes separated by a power of two count representations R(2,2^k) digit carry symmetry divisors",
+        "power of two difference of palindromic integers pair classification center-bit flip periodic ones",
+        "binary palindrome pairs distance power of two count tau k",
+        "\"number of representations\" \"difference of two palindromes\" binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant paper lists A002113, A002385, A035928 as single-palindrome related sequences, not this pair multiplicity table.",
+        "Exact computational counts for k=2..14 were generated independently and matched the symbolic formula; they were not copied from a table."
+      ],
+      "reasoning": "The checked paper, sequence references and targeted exact-formula searches did not identify a pretabulated answer. The unrestricted theorem and structural classification are not implied by any finite table, even if a previously unnoticed table should exist.",
+      "searches": [
+        "finite r(d) count for palindrome differences of powers of two Pongsriiam Saito Question 26",
+        "\"2^{k-1}\" \"tau(k)\" palindromes",
+        "\"palindromes\" \"2^n\" \"tau(n)\" difference representations"
+      ]
+    },
+    "rationale": "Direct inspection of the most relevant 28-page primary paper finds only a finiteness classification (Theorem 12) for these gaps, and an explicit open question (Question 26) about bounds for finite multiplicities. The new exact three-family enumeration is not implied by the finite/infinite criterion. Checked base-two palindrome counting and progression studies involve different objects, and targeted search results reveal no equivalent exact formula. Residual risk is unindexed or otherwise overlooked literature.",
+    "residual_risks": [
+      "Indexed results and the cited articles cannot exclude unpublished or unindexed equivalent formulas.",
+      "The Phunphayap–Pongsriiam single-palindrome article was not inspected in complete full text; the implication comparison rests on the cited description, and it is not a decisive unresolved source for this fixed-gap enumeration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "THEOREM 12 PROVES FINITENESS, NOT THIS EXACT COUNT; Question 26 explicitly requests finite-gap multiplicity bounds. Theorem 14 does not address these finite counts.",
+        "evidence": [
+          "Equation (5) defines R(b;d), PDF p. 7.",
+          "Theorem 12(i), PDF p. 11: for b=2, infinite iff d=2 or d=2^r+2^(r-1), r>=2.",
+          "Question 26, PDF p. 26: asks bounds for r(d) when finite."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Saito/saito1.pdf",
+        "material_read": "28-page open-access PDF: introductory definition and notation; Theorems 4, 12, and 14 and their surrounding proofs, pages 1–2, 5–12; comments, Question 26, and bibliography, pages 26–28. Rendered the Theorem 12 and Question 26 pages.",
+        "method": "Original full-text PDF, with rendered page inspection and comparison of theorem statements and proofs",
+        "title": "Palindromes and Antipalindromes in Short Intervals",
+        "trigger": "Same pair definition, complete infinite-gap classification, and Question 26"
+      },
+      {
+        "assessment": "The relevant result estimates single-palindrome counting functions, not pairs subject to a fixed gap; no contrary statement was observed in material read.",
+        "evidence": [
+          "[1] introductory discussion attributes estimates for number of palindromes <=x to this study."
+        ],
+        "identifier_or_url": "P. Phunphayap and P. Pongsriiam, AIMS Mathematics 7 (2022), 2237–2254",
+        "material_read": "Bibliographic reference and its cited implication on count of individual palindromes in the introduction to [1]; available descriptions, not the full article",
+        "method": "Citation and statement-level implication comparison",
+        "title": "Extremal orders and races between palindromes in different bases",
+        "trigger": "Potentially broader palindrome counting theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a1cd55f4-c7e6-491d-81a0-b106a6bead6e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "[1, Question 26] explicitly requests estimates of finite fixed-gap multiplicities. This exact formula and complete classification solve a natural infinite one-parameter subfamily given by single-bit binary differences; they expose three structurally distinct carry regimes and an unexpected additive divisor-function term. The result determines an exact natural invariant and is not a routine consequence of the prior finiteness criterion.",
+    "status": "PASS"
+  }
+}
