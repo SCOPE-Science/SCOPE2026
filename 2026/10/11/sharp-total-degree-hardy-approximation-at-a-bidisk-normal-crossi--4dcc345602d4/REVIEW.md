@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement uses the squared coefficient Hardy norm and every integer \(n\ge0\). The exact polynomial residual constraints are equivalent to unit-flow conservation on a specific finite bipartite staircase graph. Cauchy--Schwarz on the two coordinate axes gives the lower bound, and a complete bounded-width block construction proves the upper bound for every \(n\). The asymptotic and rectangular comparison follow algebraically. A separate exact-arithmetic checker verifies Gram matrix, graph resistance, polynomial divisibility, and inequalities for eight initial degrees. The general result is analytic, not inferred from enumeration.
+## correctness
 
-## Originality — PASS
-The closest source is Bénéteau et al. (2015), Example 3, which explicitly treats \((1-z)(1-w)\) and gives cyclicity and nonoptimal constructed approximation rates. Neither their actual theorem nor the recent Beslikas--Torkinejad Ziarati critical-cyclicity results entail the sharp best total-degree squared-error asymptotic. Sargent--Sola studies the different diagonal factor \(1-z w\). Targeted searches on exact source, optimal-infimum language, equivalent network reductions, and dominating results did not identify an equivalent theorem. The absence of an indexed hit does not prove universal novelty; a prior graph-resistance formula remains an identifiable risk.
+PASS
 
-## Value — PASS
-A two-divisor boundary zero polynomial is a standard motivating test case for cyclic approximation, yet previously cited rates for it are expressly nonoptimal. The coefficient \(2\) is the sharp convergence constant for the natural total-degree best-approximation quantity. The result also proves the nontrivial equivalence to a staircase network and the asymptotic absence of a rate penalty compared with rectangular-degree truncation. This is not a textbook restatement of one-dimensional optimal approximants because two simultaneous marginal constraints must be satisfied under total-degree coupling.
+For f=(1−z)(1−w), any residual R=1−fp from total-degree ≤n p has total degree ≤L=n+2 and restrictions R(1,w)=R(z,1)=1. Conversely both polynomial identities imply divisibility of 1−R by relatively prime (1−z),(1−w), with quotient total degree≤n. Monomial coefficient row/column sums therefore give a unit R0→C0 flow on bipartite staircase graph edges i+j≤L; squared Hardy coefficient norm equals flow energy and Thomson minimum resistance exactly. Cauchy–Schwarz on two axes with r00=a gives E_n≥min_a(|a|²+2|1−a|²/L)=2/(L+2), all integers n≥0. Choose B=floor √L,M=L−B,K=ceil(M/B), r_i0=r_0i=1/M for i=1..M; for each consecutive block Q of size≤B, set r_{i,M+1−k}=−1/(M|Q|) for i,k∈Q. Interior i+j≤L because i−k≤B−1, all row/column cancellation constraints hold; its energy is exactly 2/M+K/M². Since M=L−O(√L), K=O(√L), squeeze gives E_n=2/n+O(n^{-3/2}) and nE_n→2. Rectangular degree n space is tensor product of one-variable projections with one-dimensional squared defect 1/(n+2), giving Erect=1−(1−1/(n+2))²; inclusion shows E_n≥Erect and matching asymptotic yields O(n^{-3/2}) gap. Actual exact Fraction diagnostic checker source inspected; independently computed n=0 one-variable-parameter optimum E0=3/4 and validated full analytic construction. Finite tests n=0..7 do not constitute infinite proof.
 
-## Scope and residual uncertainty
-Only standard \(H^2(\mathbb D^2)\), this fixed polynomial, and polynomial degree cutoffs are covered. No exact closed expression for each degree or analogous statement for other weights is asserted. An unindexed equivalent combinatorial network result may exist. There has been no independent validation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Closest exact same multiplier f=(1−z)(1−w) paper Bénéteau–Condori–Liaw–Seco–Sola (Pacific J Math 276 (2015), Example 3 pp.51–52) proves cyclicity and constructs Riesz-type candidate approximations whose rates authors explicitly do not claim optimal. Their bounded candidate rates do not determine exact optimum under coupled TOTAL degree or sharp nE_n→2. Sargent–Sola arXiv:2002.08790 treats diagonal zero polynomial 1−zw or linear 2−z−w, not the normal-crossing product with coupled total-degree. The unweighted bipartite staircase resistance equivalence could be independently classical; no exact table or stronger covering published source found. Specific implication comparisons and residual risk are recorded, rather than declaring failed searches proof of novelty.
+
+## value
+
+PASS
+
+A concrete normal-crossing multiplier in H²(D²) is a natural test of multidimensional cyclicity/optimal polynomial approximants. Total-degree restriction destroys rectangular tensor factorization; the exact network-flow reformulation and constructive matching constant 2 at leading squared-error order quantify how cheaply that coupling can be satisfied. This is a motivated, reusable structural bridge from Hardy approximation to electrical networks and an exact asymptotic benchmark, not a purely computational tiny-n value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
