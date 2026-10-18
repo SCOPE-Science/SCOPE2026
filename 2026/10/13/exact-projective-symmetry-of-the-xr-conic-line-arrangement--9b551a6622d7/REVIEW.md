@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is exhaustive because every projective automorphism preserves component degree and therefore belongs to the projective stabilizer of the six-line skeleton. The exact rational frame enumeration finds all \(24\) line-skeleton symmetries, and direct quadratic-form transport leaves exactly six maps preserving the conics. The displayed generators satisfy the \(S_3\) relations, and the component and added-line orbits are checked exactly by the packaged verifier.
+## correctness
 
-The main scientific risk was missing a complex projectivity not visible over the displayed rational coordinates. The frame argument closes that gap: any projectivity permuting the six rational dual line points is uniquely determined by the image of a projective four-point frame, so the exact enumeration is exhaustive over \(\mathbb C\), not only over rational trial matrices.
+PASS
 
-## Originality — PASS
-The lead source gives the defining equation, singularity counts, freeness exponents, and two individual addition examples, but the inspected full text contains no projective stabilizer or symmetry-orbit statement. Targeted published-finding corpus searches using the exact equation, the name \(\mathcal{XR}\), automorphism/stabilizer aliases, the \(S_4\)-to-\(S_3\) description, and the two added lines found no covering result. The closest semantic hit is an \(S_3\) stabilizer computation for a different arrangement with only two conics and three lines, so it does not imply this claim.
+Every automorphism preserves component degree and hence stabilizes the six-line set. Dual line vectors yield exactly four collinear triples arranged as the K4 incidence structure. Four-point-frame reconstruction enumerates 72 frames and 24 exact projectivities inducing the full S4 on the four concurrency classes; this is exhaustive over C because any projectivity is determined uniquely by one projective frame and its image, even with rational representative coordinates. Six published conic quadratic forms transported as B Q B^T (B=A^(-T)) cut the 24 maps to exactly six. A wholly independent SymPy rational-matrix reconstruction reproduced all 72 frames, 24 line stabilizers and 6 conic-preserving projectivities, matching the supplied verifier. Direct matrix multiplication checks that listed s,t generate six transformations with s^2=t^3=(st)^2=1 in PGL3. Applying the six maps to added line covectors yields the 3 free-line and 6 plus-one-line orbits. Projectivity preserves the free/plus-one properties and exponent data, subject to originally published examples.
 
-Residual risk: an unindexed equivalent computation may exist under different notation.
+## originality
 
-## Value — PASS
-This invariant is motivated by the source's addition-deletion problem. It identifies the complete embedded symmetry of a highly singular free arrangement, explains exactly how the conics reduce the larger symmetry of the line skeleton, and converts the source's two isolated added-line representatives into full projective-equivalence orbits. That avoids repeated freeness/syzygy calculations for symmetry-equivalent additions and gives useful moduli information about the explicit arrangement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The published source supplies the explicit 12-component XR equation, singularity structure, freeness and two single-line additions but not the embedded S3 stabilizer or the S4-to-S3 break. Exact Resultary similarity search returns a projective S3 stabilizer for a distinct small two-conic three-line arrangement, insufficient for this result. The 3 and 6 orbits are new consequences of this distinct group computation, with residual risk of unindexed equivalent calculation.
+
+## value
+
+PASS
+
+The complete embedded automorphism group of a prominent 12-component free conic-line arrangement is naturally motivated by the initiating addition-deletion problem. It reduces repeated testing of distinct source addition lines by grouping projectively equivalent ones, distinguishes S4 combinatorial line symmetry from S3 symmetry of the full curve, and gives explicit orbit decompositions. This is mathematical structure beyond reproducing the source exponents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
