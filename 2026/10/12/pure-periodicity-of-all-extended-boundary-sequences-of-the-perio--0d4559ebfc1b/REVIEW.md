@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The substitution gives \(p_j\equiv\nu_2(j+1)\pmod2\). At width \(\ell\), partition starting positions modulo \(P=2^{\lceil\log_2\ell\rceil}\). Each length-\(\ell\) window contains at most one high-valuation hole; all other letters are determined by their residue modulo \(P\). The exact parity pairs at holes separated by quotient displacement \(\Delta\) are controlled solely by \(\Delta\bmod2\). Shifting separation by \(2P\) preserves every ordinary letter and adds \(2\) to \(\Delta\), so every possible pair survives, and no new pair is created. This proves pure periodicity and the at-most-\(4P\) pair bound without extrapolation.
+## correctness
 
-The verifier checks the independent substitution/valuation construction, the full parity-pair lemma over a finite range, the exact symbolic boundary generator across the stated range of widths, and finite direct prefix matches. These finite checks support the explicit symbolic proof; they are not substitutes for it.
+PASS
 
-## Originality
-PASS for the uniform all-width statement, not for an independent assertion that the one-letter special case was never known. Rigo–Stipulanti–Whiteland prove general boundary **automaticity**, display examples for Thue–Morse/Fibonacci, and establish aperiodic Sturmian boundaries. Their inspected full article does not supply the period-doubling all-width periodicity, an explicit period, or the residue/valuation construction. Eleven focused searches and own-ledger comparisons found no such stronger result.
+Let k=ceil(log₂ℓ), P=2^k. Each ℓ-window has at most one hole index j+1≡0(mod P), while its nonhole symbols depend only on index mod P. For fixed starting residue i mod P, if both windows contain holes their valuations depend on q and q+Δ where Δ=(d+b−a)/P>0. The complete parity-pair set is {(0,0),(0,1),(1,0)} for odd Δ and all four for even Δ, with each pattern attained on arbitrarily large integer q through congruence choices. Shifting d by 2P preserves all nonholes, hole positions and Δ parity; hence entire boundary sets agree for every d>=ℓ, not just eventually. At most 4 patterns per each of P residues give 4P bound. Independently compared direct substitution/valuation prefixes with residue formula and shift for ℓ<=12; those finite tests are secondary to the all-width proof.
 
-Guo–Lü–Wen address ordinary boundary sequences and characterize periodicity for generalized Cantor sequences. Their correct full text was not recovered; hence possible overlap at width one is retained as a specific residual risk. It does not supply evidence of a covering theorem at all extended widths.
+## originality
 
-## Value
-PASS. The theorem gives a complete finite periodic description at **every** endpoint-window width of a canonical nonperiodic automatic word. The effective period \(2^{1+\lceil\log_2\ell\rceil}\) is linear in the width, and the exact hole-residue method bounds the boundary-set size linearly. This is qualitatively stronger than the general automaticity theorem and contrasts with source examples whose extended boundaries are aperiodic.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rigo–Stipulanti–Whiteland introduce extended boundary sequences and prove broad automaticity, with different Thue–Morse, Fibonacci and Sturmian examples. Their inspected main result is weaker than pure periodicity for the canonical period-doubling word, uniform across all window widths and with an explicit linear period. Guo–Lü–Wen discuss ordinary width-one boundary sequences, and full text was unavailable; possible overlap for ℓ=1 is acknowledged, but the all-width theorem is not claimed as a consequence of an isolated width-one result.
+
+## value
+
+PASS
+
+Extended boundary sets are a natural language-combinatorial invariant measuring all two-window endpoint pairs. Pure periodicity in separation of an aperiodic automatic word is a structural strengthening over mere 2-automaticity, and the theorem supplies a uniform exact construction and linear-size/period bounds for every width, rather than a sparse finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
