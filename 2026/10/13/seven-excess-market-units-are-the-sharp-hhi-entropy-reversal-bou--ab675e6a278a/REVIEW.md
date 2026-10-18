@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For a fixed firm count \(k\) and excess total \(r=N-k\), writing \(n_i=1+y_i\) makes HHI ranking depend exactly on \(\sum_i y_i^2\), while entropy ranking is the reverse ordering of \(\prod_i(1+y_i)^{1+y_i}\). Zero excess coordinates do not change either comparison, so a finite partition census through \(r=7\) proves the universal statement for every \(k\ge3\). Exact enumeration gives no strict reversal through \(r=6\) and a unique reversal at \(r=7\), namely \((3,4)\) versus \((1,1,5)\). The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: allowing zero-share firms or comparing different fixed firm counts changes the domain.
+PASS
 
-## Originality
-**PASS.** Prior literature explicitly compares Herfindahl and entropy and therefore owns the fact that they are distinct concentration measures with different weighting properties. The accepted claim is not that they can differ in general; it is the sharp fixed-firm positive-integer boundary. Published-result searches, exact-profile searches, and concentration-literature searches did not locate the theorem that six excess units allow only tie splitting while seven are necessary and sufficient for strict reversal, with a unique first layer.
+Write n_i=1+y_i, y_i≥0, sum y_i=r; for fixed k and N=k+r, HHI numerator=k+2r+Q(y), Q=∑y_i², while Shannon entropy E=log N−(1/N)log W(y), W=∏(1+y_i)^(1+y_i). Zero excess coordinates do not alter either Q or W, so integer partitions of r cover every fixed k with at least the nonzero excess count. Independent exact-int enumeration of all partitions for 0≤r≤7 gives strict reversal counts [0,0,0,0,0,0,0,1], and tie splits first occur at r=6. At r=7 the unique pair is (3,4) versus (1,1,5); values Q=25<27 and W=800000>746496. Padding zero excess to any k≥3 proves the universal first-layer sharpness; for k=2 both indices are monotone in the larger share, so no reversal ever. This uses no floating logarithms.
 
-Risk: the finite reduction is elementary once posed, so an unindexed exercise, implementation test, or specialist note could contain an equivalent witness or boundary.
+## originality
 
-## Value
-**PASS.** HHI and entropy are established summary concentration measures. A fixed-firm integer market is a natural setting when shares arise from indivisible customers, contracts, or capacity units. The excess-unit formulation isolates resolution from firm count and shows a universal threshold independent of \(k\): the first strict disagreement always occurs exactly seven units above the one-per-firm floor. The uniqueness of the first layer gives a compact diagnostic benchmark for concentration calculations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The classic economics literature compares HHI and Shannon entropy and establishes different weighting/ordering behavior, but the directly inspected full review does not state a sharp positive-integer first-reversal threshold valid for every k≥3, the tie-only r=6 boundary, and uniqueness of the first reversal. The exact partition reduction is a bounded new threshold theorem, with an explicit residual risk of a previously published exercise.
+
+## value
+
+PASS
+
+A sharp resolution threshold for disagreement between two widely used concentration indices is a natural exact finite invariant for same-size fixed-firm market profiles, not a purpose-built arbitrary slice. The theorem identifies a universal first strict reversal across every k≥3, proves no reversal through six excess units, distinguishes a penultimate tie layer and proves uniqueness at the first layer, making the fact suitable for rigorous index-comparison applications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

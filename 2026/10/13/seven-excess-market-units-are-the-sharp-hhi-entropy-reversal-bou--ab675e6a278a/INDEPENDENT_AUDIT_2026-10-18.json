@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T15:58:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md Git blob 0b53a5ef9326017cfd3f293293f4bee6c1599112",
+        "pinned verify_hhi_entropy_excess_boundary.py Git blob 36f599ff128bdeae1334f19e02bd8dbc6c539d62",
+        "independent exact partition reconstruction: /mnt/data/audit_run_20261018T1543/scientific_independent_checks.py",
+        "Bikker–Haaf 2002 full PDF, index definitions"
+      ],
+      "rationale": "Write n_i=1+y_i, y_i≥0, sum y_i=r; for fixed k and N=k+r, HHI numerator=k+2r+Q(y), Q=∑y_i², while Shannon entropy E=log N−(1/N)log W(y), W=∏(1+y_i)^(1+y_i). Zero excess coordinates do not alter either Q or W, so integer partitions of r cover every fixed k with at least the nonzero excess count. Independent exact-int enumeration of all partitions for 0≤r≤7 gives strict reversal counts [0,0,0,0,0,0,0,1], and tie splits first occur at r=6. At r=7 the unique pair is (3,4) versus (1,1,5); values Q=25<27 and W=800000>746496. Padding zero excess to any k≥3 proves the universal first-layer sharpness; for k=2 both indices are monotone in the larger share, so no reversal ever. This uses no floating logarithms.",
+      "residual_risks": [
+        "This is an integer-grid same-k same-total theorem; neither real shares nor changing k are covered.",
+        "Finite enumeration is exhaustive for r≤7 but no claim is made about uniqueness of reversals at larger r."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bikker–Haaf full review describes both formulas and differing influence of larger firms.",
+          "Acar–Sankaran’s comparison addresses decomposition and index differences, not a sharp integer resolution for strict reversal."
+        ],
+        "reasoning": "Prior structural index theory implies possible disagreements for certain profiles, but not the exact fixed-k r=7 first layer without complete finite comparison.",
+        "searches": [
+          "Herfindahl HHI Shannon entropy ranking reversal exact integer partitions smallest market size firms",
+          "Hart 1971 Entropy and Other Measures of Concentration",
+          "Acar–Sankaran 1999 decomposability Herfindahl entropy",
+          "Bikker–Haaf 2002 banking concentration index survey"
+        ]
+      },
+      "checked_sources": [
+        "Bikker–Haaf (2002) complete public PDF",
+        "Acar–Sankaran (1999) abstract",
+        "Hart (1971) summary",
+        "Resultary semantic search: Herfindahl HHI Shannon entropy ranking reversal exact integer partitions smallest market size firms"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known formula HHI=∑s_i² and E=−∑s_i log s_i permits an exact reduction to Q and W at common integer total.",
+          "Known qualitative differences do not imply absence of reversal through six excess units, nor uniqueness at seven."
+        ],
+        "reasoning": "The claimed sharp integer boundary demands a new complete bounded-partition exclusion; none of the inspected qualitative comparisons logically entails it.",
+        "searches": [
+          "Bikker–Haaf 2002 entropy and HHI index formulas",
+          "Acar–Sankaran 1999 index comparison",
+          "Herfindahl HHI Shannon entropy ranking reversal exact integer partitions smallest market size firms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The HHI index equals exp(−H₂ Rényi entropy), so the result is also a Shannon-versus-collision entropy finite-lattice ordinal reversal.",
+          "First reversal is a comparison of Q(y)=∑y² and the integer product W(y)=∏(1+y)^(1+y)."
+        ],
+        "reasoning": "Compared economics and information-theoretic aliases, exact vectors, and majorization/incomparability, rather than requiring the user’s exact index names.",
+        "searches": [
+          "Herfindahl HHI Shannon entropy ranking reversal exact integer partitions smallest market size firms",
+          "Herfindahl entropy integer market share three firms 1 4 5 versus 2 2 6",
+          "Rényi order two Shannon ranking reversal integer partition minimal grid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent enumeration of all partitions for r=0..7 yields strictly opposite-pair counts 0,0,0,0,0,0,0,1; tie splits r6 and r7 occur twice each.",
+          "No inspected external data table states this exact boundary or unique pair."
+        ],
+        "reasoning": "The finite partition count is exhaustive and independently recomputed from definitions, not copied from an extant economics table; a failed search alone does not establish novelty.",
+        "searches": [
+          "Herfindahl HHI Shannon entropy ranking reversal exact integer partitions smallest market size firms",
+          "HHI Shannon concentration reversal 1 4 5 2 2 6",
+          "integer partitions Q sum squares W product 7 excess units entropy Herfindahl"
+        ]
+      },
+      "rationale": "The classic economics literature compares HHI and Shannon entropy and establishes different weighting/ordering behavior, but the directly inspected full review does not state a sharp positive-integer first-reversal threshold valid for every k≥3, the tie-only r=6 boundary, and uniqueness of the first reversal. The exact partition reduction is a bounded new threshold theorem, with an explicit residual risk of a previously published exercise.",
+      "residual_risks": [
+        "Full text of Hart 1971 and Acar–Sankaran 1999 not read; a body-only discrete example might be prior.",
+        "A small integer witness may exist in unindexed exercises; the independent value judgment rests on the universal sharp threshold and uniqueness, not merely witness arithmetic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides standard formulas, weighting differences, and interpretation but no identified universal integer excess threshold.",
+          "evidence": "HHI emphasizes large firms more heavily, entropy varies inversely with concentration.",
+          "identifier_or_url": "https://www.dnb.nl/media/o2vdj421/measures_of_competition_and_concentration_in_the_banking_industry.pdf",
+          "material_read": "Full primary review PDF index sections for HHI/entropy with visual relevant page inspection",
+          "method": "public lawful PDF full-text and page screenshot",
+          "title": "Measures of Competition and Concentration in the Banking Industry: a Review of the Literature",
+          "trigger": "Direct HHI vs entropy comparison and possible exact example"
+        },
+        {
+          "assessment": "The work discusses decomposability and inversion, not the exact first finite integer grid in accessible material.",
+          "evidence": "A stronger body-only example remains possible; no whole-document noncoverage claim.",
+          "identifier_or_url": "doi:10.1002/(SICI)1097-0266(199910)20:10<969::AID-SMJ57>3.0.CO;2-0",
+          "material_read": "Publisher abstract and bibliography; complete primary text not independently read",
+          "method": "publisher abstract",
+          "title": "The myth of the unique decomposability: specializing the Herfindahl and entropy measures?",
+          "trigger": "Possibly dominating direct comparison"
+        },
+        {
+          "assessment": "Establishes established entropy-based concentration comparisons; exact integer threshold cannot be excluded from unseen body.",
+          "evidence": "Hart 1971 is a named substantive residual risk.",
+          "identifier_or_url": "doi:10.2307/2343975",
+          "material_read": "Journal summary/metadata; original full text not obtained",
+          "method": "journal summary",
+          "title": "Entropy and Other Measures of Concentration",
+          "trigger": "Early potential exact witness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bikker–Haaf full index comparison",
+        "independent complete r≤7 partition census",
+        "exact Q/W formulas and unique first witness"
+      ],
+      "rationale": "A sharp resolution threshold for disagreement between two widely used concentration indices is a natural exact finite invariant for same-size fixed-firm market profiles, not a purpose-built arbitrary slice. The theorem identifies a universal first strict reversal across every k≥3, proves no reversal through six excess units, distinguishes a penultimate tie layer and proves uniqueness at the first layer, making the fact suitable for rigorous index-comparison applications.",
+      "residual_risks": [
+        "Economic rankings are mathematical comparisons only; no antitrust, welfare, or policy inference."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No floating point or approximate entropy used.",
+    "Explicitly restricted to strictly positive integer units and fixed number of firms/total size."
+  ],
+  "schema_version": 1
+}
