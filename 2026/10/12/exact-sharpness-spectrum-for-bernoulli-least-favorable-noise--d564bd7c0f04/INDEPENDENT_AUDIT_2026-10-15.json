@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T03:47:10.888750Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed covariance equality E[X−p|T]=aT, a=σ²/(σ²+v), from orthogonal projection and Cauchy-Schwarz, with mandatory saturation of budget. Bounded conditional Bernoulli expectation forces T and centered noise bounded, hence entire characteristic functions. The identity (1−a)φX′φY=aφXφY′ and a simple complex zero of Bernoulli φX force an integer zero multiplicity m=(1−a)/a=v/σ²; integrating logarithmic derivatives with φX(0)=φY(0)=1 gives φY=φX^m. Conversely exchangeability with m Bernoulli summands yields E[X|S]=S/(m+1), exactly attaining covariance bound. At v=0 constant noise is the only equality. Huang existence of minimizers is essential to promote nonattainment to strict infimum at noninteger v. The 54 finite rational examples test only construction, not the analytic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Integer-variance matching Bernoulli-convolution optimizers and the existence of minimizers are explicitly prior, but their conjunction alone does not give noninteger strictness or all noise uniqueness."
+        ],
+        "reasoning": "The new zero-multiplicity constraint is essential; infinite divisibility semigroup theorem concerns a different class than nondegenerate Bernoulli.",
+        "searches": [
+          "arXiv:2103.09794 least favorable noise Theorem integer-convolution optimality",
+          "arXiv:2303.09023 Huang optimizer existence"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2103.09794 full primary mathematical text",
+        "arXiv:2303.09023 main existence theorem",
+        "Resultary Bernoulli least favorable variance sharpness semantic search",
+        "DOI:10.1007/BF02480967 abstract metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior results guarantee sharpness for each nonnegative integer multiple and attainment of the infimum generally; they do not rule out equality at other budgets."
+        ],
+        "reasoning": "The analytic entire-function and simple-zero calculation proves a new converse obstruction, while Huang turns it into strict infimum separation.",
+        "searches": [
+          "Ernst-Kagan-Rogers 2022 arXiv:2103.09794 Bernoulli section",
+          "Huang 2023 arXiv:2303.09023 minimizer existence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The present equality reduces to linear regression E[X|X+Y]=a(X+Y)+b, with Y arbitrary independent noise; classical characterization adds specified conditional distribution assumptions."
+        ],
+        "reasoning": "Compared affine regression/characteristic-function zero multiplicity aliases; not every regression characterization applies without extra conditional-law hypotheses.",
+        "searches": [
+          "Resultary: Bernoulli least favorable additive independent noise Cauchy Schwarz equality sharp integer variance binomial characterization",
+          "Papageorgiou and Cacoullos DOI:10.1007/BF02480967"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic top results concern other Bernoulli extremal inequalities; no direct table of v/σ² sharpness or all equality noises seen."
+        ],
+        "reasoning": "An exact prior table might be indexed under regression rather than optimization; negative search does not certify novelty.",
+        "searches": [
+          "Resultary Bernoulli least favorable noise sharpness variance spectrum query",
+          "1983 Annals of the Institute of Statistical Mathematics DOI:10.1007/BF02480967"
+        ]
+      },
+      "rationale": "Ernst–Kagan–Rogers establish the integer convolution construction, not the converse exact Bernoulli sharpness spectrum or uniqueness of all equality noises. Huang supplies a general existence theorem, not the integer-only obstruction. Classical conditional-regression characterizations may be aliases; available older abstract/theorem scope requires extra prescribed conditional distribution, and unindexed equivalences remain a risk.",
+      "residual_risks": [
+        "Old characterization literature may contain an equivalent affine Bernoulli-noise rigidity not indexed by least-favorable-noise terms.",
+        "Exact Lp(v) values at noninteger variance ratios remain undetermined; strictness uses Huang attainment theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: gives integer sharp points, not converse uniqueness/integer-only spectrum",
+          "evidence": "Integer matching convolution identified as prior; no converse zero-multiplicity criterion in inspected theorem.",
+          "identifier_or_url": "arXiv:2103.09794 / DOI:10.1214/22-ECP467",
+          "material_read": "Full arXiv research text, integer convolution solution, Bernoulli section, optimizer discussion",
+          "method": "arXiv full text",
+          "title": "The least favorable noise",
+          "trigger": "Exact motivating noise problem and claimed integer optimizers"
+        },
+        {
+          "assessment": "USED: existence for independent noise under square-integrable signal assumptions",
+          "evidence": "General minimizer existence establishes that unattained bound cannot be the infimum.",
+          "identifier_or_url": "arXiv:2303.09023",
+          "material_read": "Full arXiv main existence statement and its assumptions",
+          "method": "arXiv full text",
+          "title": "The existence of the least favorable noise",
+          "trigger": "Justification of strict inequality for infimum"
+        },
+        {
+          "assessment": "UNREAD_RISK: no whole-document noncoverage conclusion; requires additional conditional-distribution specification as described",
+          "evidence": "Title and source synopsis posit two pieces of characterization input: regression and a conditional distribution.",
+          "identifier_or_url": "DOI:10.1007/BF02480967",
+          "material_read": "Available bibliographic abstract and characterization theorem description, not full original article independently rerun",
+          "method": "Bibliographic/abstract inspection",
+          "title": "Characterizations of discrete distributions by a conditional distribution and a regression function",
+          "trigger": "Plausible older affine-regression uniqueness equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides a mathematically sharp arithmetic boundary for a recognized least-favorable-noise optimization problem, classifying every noise that saturates a universal covariance bound and explaining why integer convolutions cannot interpolate to fractional budget ratios. This nontrivial structural rigidity is independently worthwhile.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For independent finite-variance additive noise on a Bernoulli(p) signal, the covariance lower bound Lp(v)≥σ⁴/(σ²+v) is attained exactly when v/σ² is a nonnegative integer; equality noises are exactly shifted Bin(m,p), and all noninteger budgets have strict inequality.",
+  "limitations": [
+    "No exact optimization curve between integer variance budgets.",
+    "Published minimizer-existence theorem is a necessary imported premise; finite tests are not infinite proof."
+  ],
+  "schema_version": 1
+}
