@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:57:54.779727Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned 2026/10/12/first-collision-versus-full-collection-times-exact-negative-regr--2d3dc1ccb992/RESULT.md and checker/verify.py read, actual source-tree Git SHA 918ba22c65e404ffaa6daaf4243c2e692d783497",
+        "Independent Fraction enumeration n=2..5 checked joint moments; substantive proof uses independent coupon waiting times and Rayleigh moment convergence."
+      ],
+      "rationale": "For uniform iid n-coupon draws, B in {2,...,n+1}. For B=b<=n, exactly b-1 distinct coupons seen; from time b complete coverage adds independent geometric waits G_k for k=b-1..n-1. Therefore E[T|B=b]=b+nH_(n-b+1), while the boundary B=n+1 means T=n. Common coupled geometric G_k yield nonincreasing first-order stochastic order with strict comparisons, and K=first initial run of G_k=1 yields Cov(B,T)=-sum_{j=2}^n S_{n,j}sum_{k<j}k/(n-k)<0, including n=2 negative 1/2. Birthday survival bound leads B/sqrt n=>Rayleigh R; quadratic-regression asymptotic m(B)-nH_n=1-B²/(2n)+o_L²(1), giving Cov/sqrt n->-sqrt(pi/8) and n*Corr->-sqrt(3/[2pi(4-pi)]) via coupon-collector variance pi²n²/6. Independent exact rational prefix enumeration n=2..5 checked conditional laws and covariance, with n=3 -8/9, n=4 -37/32 and n=5 -844/625; nonasymptotic proof not finite enumeration.",
+      "residual_risks": [
+        "Exact asymptotic L² approximation relies on uniform tail/moment bound and correct exception B=n+1; independent prefix enumeration does not certify the infinity limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General method can model both processes, but inspected source statements focus on marginals rather than a theorem determining their joint conditional law and covariance."
+        ],
+        "reasoning": "A general combinatorial generating-function toolkit does not by itself establish that a prior published statement implies strict stochastic ordering and exact correlation constants.",
+        "searches": [
+          "Flajolet–Gardy–Thimonier 1992 general language method birthday and coupon collectors",
+          "Anceaume et al 2015 generalized coupon distributions",
+          "Myers–Wilf 2003 coupon-collector variants"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: coupon collector first repeat birthday collision vs collection completion time covariance joint generating function Rayleigh",
+        "Resultary: Birthday first collision time T and coupon collection time mixed covariance first order stochastic ordering",
+        "Flajolet Gardy Thimonier Birthday Paradox Coupon Collectors Caching Algorithms Self-Organizing Search 1992 full PDF",
+        "Anceaume Busnel Sericola arXiv:1402.5245 generalized coupon collector full article",
+        "Holst On Birthday Collectors Occupancy Other Classical Urn Problems 1986 DOI 10.2307/1403255 bibliographic record and lawful Oxford access"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Separate marginal distributions of B and T do not determine covariance, stochastic ordering of T|B, or their same-path coupling; need explicit independent geometric waiting-time construction."
+        ],
+        "reasoning": "Published marginals are logically insufficient. The submitted coupling+moment analysis proves genuinely joint statements not automatically forced by either marginal.",
+        "searches": [
+          "Anceaume et al 2014 generalized coupon collector marginal laws",
+          "Flajolet Gardy Thimonier 1992 collision-time and cover-time means"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source papers supply birthday marginal time and cover-time waiting constructions; submitted law conditions full completion on exact first-repeat index in same sample and identifies sign/mixed covariance."
+        ],
+        "reasoning": "Neither inspected full source states mathematically equivalent conditional negative regression or the Rayleigh regression limit. Holst uninspected is a meaningful remaining priority risk.",
+        "searches": [
+          "Flajolet–Gardy–Thimonier 1992 full paper Sections 3-4",
+          "Anceaume–Busnel–Sericola arXiv:1402.5245",
+          "Resultary search birthday collector first-repeat full collection covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact paired birthday/collector joint-law table located; the submitted expressions are all-n formulas and continuum Rayleigh limit, not extraction of a finite tabulation."
+        ],
+        "reasoning": "This exact joint regression is not a known-table recomputation on the inspected evidence.",
+        "searches": [
+          "Flajolet et al 1992 birthday/collection numerical and formula sections",
+          "Resultary search first repeat coupon collection covariance exact table"
+        ]
+      },
+      "rationale": "Flajolet–Gardy–Thimonier 1992 full paper sections 3/4 analyze birthday collision and coupon collection separately through language generating functions, but neither there nor Anceaume–Busnel–Sericola 2014 marginal generalized-collector results state the joint conditional stochastic ordering, exact mixed covariance and n*correlation constant. Myers–Wilf 2003 study variants/singletons, not this pair. Published Resultary semantic searches returned missing-mass and reset-coupon findings rather than dominating paired-stopping-time laws. Holst 1986 broad urn treatise is plausible but unavailable for full-text reading because Oxford auth returned vpn_disconnected; recorded material-access risk does not alone force originality failure. No prior implication sufficiently established.",
+      "residual_risks": [
+        "Lars Holst 1986 broad urn-problems paper could contain equivalent joint law; authorized Oxford retrieval blocked by disconnected VPN and no bypass attempted.",
+        "Even absent explicit joint formula, classical joint generating-function techniques may encode the same covariance under another notation; unsuccessful search is not proof of absolute novelty.",
+        "Exact asymptotic L² approximation relies on uniform tail/moment bound and correct exception B=n+1; independent prefix enumeration does not certify the infinity limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical waiting-time constructs present, but no explicit shared-sequence conditional stochastic order or mixed covariance constant observed.",
+          "evidence": "Sections 3 and 4 treat birthday and collection separately; joint moment remains separately proved.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlGaTh92.pdf",
+          "material_read": "Full 23-page published primary PDF inspected, including page images and Sections 3 and 4 for collision and collection waiting-time computations.",
+          "method": "Read full legal OA PDF and inspected rendered pages for separate event models",
+          "title": "Birthday Paradox, Coupon Collectors, Caching Algorithms and Self-Organizing Search",
+          "trigger": "Most plausible strong classical joint-birthday/collection coverage"
+        },
+        {
+          "assessment": "Marginal coupon collector results do not imply paired first-repeat/collection conditional ordering.",
+          "evidence": "Generalized marginal P(T<=t) does not fix Cov(B,T).",
+          "identifier_or_url": "arXiv:1402.5245; https://ar5iv.labs.arxiv.org/html/1402.5245",
+          "material_read": "Full ar5iv primary manuscript inspected, especially full coverage-time law for generalized weighted collection.",
+          "method": "Read lawful ar5iv full-text HTML and compared statements",
+          "title": "New Results on a Generalized Coupon Collector Problem Using Markov Chains",
+          "trigger": "Potential broader generalized collector laws dominating uniform case"
+        },
+        {
+          "assessment": "NO whole-document not-covering inference; substantial residual historical originality risk, but inaccessible literature alone does not fail best-of-knowledge assessment.",
+          "evidence": "No unsupported claim about unseen sections or the exact dependence theorem.",
+          "identifier_or_url": "DOI:10.2307/1403255; https://doi.org/10.2307/1403255",
+          "material_read": "Bibliography/abstract and title only; full paper not available. Lawful open-access and arXiv attempts unsuccessful.",
+          "method": "Attempted authorized Oxford institutional retrieval (job b72d87a0963a64c88d36e514cbec02e6) after OA alternatives; tool replied vpn_disconnected and requires manual reconnection",
+          "title": "On Birthday, Collectors', Occupancy and Other Classical Urn Problems",
+          "trigger": "Very plausible 1986 primary same objects/possible stronger joint theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary: coupon collector first repeat birthday collision vs collection completion time covariance joint generating function Rayleigh",
+        "Resultary: Birthday first collision time T and coupon collection time mixed covariance first order stochastic ordering",
+        "Flajolet Gardy Thimonier Birthday Paradox Coupon Collectors Caching Algorithms Self-Organizing Search 1992 full PDF"
+      ],
+      "rationale": "First birthday collision and complete coupon collection are canonical stopping times at sqrt(n) and n log n scales. An exact strictly negative joint regression with full stochastic order, finite covariance and nontrivial Rayleigh quadratic regression shape quantifies their dependence on the SAME draws; not reducible to known marginals or trivial finite tabulation. The exact 1/n Pearson correlation coefficient is a natural cross-scale invariant.",
+      "residual_risks": [
+        "Lars Holst 1986 broad urn-problems paper could contain equivalent joint law; authorized Oxford retrieval blocked by disconnected VPN and no bypass attempted.",
+        "Even absent explicit joint formula, classical joint generating-function techniques may encode the same covariance under another notation; unsuccessful search is not proof of absolute novelty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Lars Holst 1986 broad urn-problems paper could contain equivalent joint law; authorized Oxford retrieval blocked by disconnected VPN and no bypass attempted.",
+    "Even absent explicit joint formula, classical joint generating-function techniques may encode the same covariance under another notation; unsuccessful search is not proof of absolute novelty.",
+    "Exact asymptotic L² approximation relies on uniform tail/moment bound and correct exception B=n+1; independent prefix enumeration does not certify the infinity limit."
+  ],
+  "schema_version": 1
+}

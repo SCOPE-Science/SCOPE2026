@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the joint collision–cover law
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the same directory as `RESULT.md`. Only standard-library Python 3.9 or newer is needed. The script enumerates 873,611 length-\(n\) prefixes for \(n=2,3,4,5,6,7\) and uses exact rational arithmetic to compare first-collision probabilities, conditional expected cover times, and the three joint moments that imply the covariance. There are 60 independent exact comparisons. The script separately evaluates the covariance sum at selected larger sizes and tests its approach to the proved Rayleigh constant. The completion marker is `VERIFY_OK`.
+## correctness
 
-The proof of stochastic monotonicity is the common-geometric-waits coupling, while the proof of the infinite limit uses a Gaussian survival bound and Rayleigh moment convergence. Finite enumeration and numerical convergence provide corroboration only, not exhaustive proof over all \(n\). The boundary \(B_n=n+1\), for which \(T_n=n\), is explicitly included. Independent audit: not yet performed.
+PASS
+
+For uniform iid n-coupon draws, B in {2,...,n+1}. For B=b<=n, exactly b-1 distinct coupons seen; from time b complete coverage adds independent geometric waits G_k for k=b-1..n-1. Therefore E[T|B=b]=b+nH_(n-b+1), while the boundary B=n+1 means T=n. Common coupled geometric G_k yield nonincreasing first-order stochastic order with strict comparisons, and K=first initial run of G_k=1 yields Cov(B,T)=-sum_{j=2}^n S_{n,j}sum_{k<j}k/(n-k)<0, including n=2 negative 1/2. Birthday survival bound leads B/sqrt n=>Rayleigh R; quadratic-regression asymptotic m(B)-nH_n=1-B²/(2n)+o_L²(1), giving Cov/sqrt n->-sqrt(pi/8) and n*Corr->-sqrt(3/[2pi(4-pi)]) via coupon-collector variance pi²n²/6. Independent exact rational prefix enumeration n=2..5 checked conditional laws and covariance, with n=3 -8/9, n=4 -37/32 and n=5 -844/625; nonasymptotic proof not finite enumeration.
+
+## originality
+
+PASS
+
+Flajolet–Gardy–Thimonier 1992 full paper sections 3/4 analyze birthday collision and coupon collection separately through language generating functions, but neither there nor Anceaume–Busnel–Sericola 2014 marginal generalized-collector results state the joint conditional stochastic ordering, exact mixed covariance and n*correlation constant. Myers–Wilf 2003 study variants/singletons, not this pair. Published Resultary semantic searches returned missing-mass and reset-coupon findings rather than dominating paired-stopping-time laws. Holst 1986 broad urn treatise is plausible but unavailable for full-text reading because Oxford auth returned vpn_disconnected; recorded material-access risk does not alone force originality failure. No prior implication sufficiently established.
+
+## value
+
+PASS
+
+First birthday collision and complete coupon collection are canonical stopping times at sqrt(n) and n log n scales. An exact strictly negative joint regression with full stochastic order, finite covariance and nontrivial Rayleigh quadratic regression shape quantifies their dependence on the SAME draws; not reducible to known marginals or trivial finite tabulation. The exact 1/n Pearson correlation coefficient is a natural cross-scale invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

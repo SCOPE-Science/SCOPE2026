@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof separates the exceptional all-distinct-first-\(n\) event from first collisions that occur before collection, constructs the conditional cover-time law from independent geometric waiting times, and couples all conditional laws monotonically. The covariance calculation is exact via the same independent geometric waits; the asymptotic uses Rayleigh moment convergence and a uniform square-integrable approximation to the conditional mean. All quantifiers and endpoints were checked. The standalone `verify.py` reproducibly compares 60 exact-rational identities from exhaustive enumeration of 873,611 length-\(n\) prefixes for \(2\le n\le7\), and checks numerical convergence without treating finite checks as infinite proof.
+## correctness
 
-**Originality — PASS, with material historical uncertainty.** The inspected open full texts of Anceaume–Busnel–Sericola, Myers–Wilf, and the relevant central sections of Flajolet–Gardy–Thimonier give marginal, generalized collection, or general language-method results, not the complete pairwise first-collision/cover-time stochastic ordering and its covariance asymptotic. The closest retrieved published results instead treat missing-mass discovery covariance or reset coupon collectors. Earlier occupancy/cover joint ledgers were checked for implication overlap. Holst's unified classical urn paper, potentially relevant in principle, was not available in full; the explicit priority risk is retained. Marginal results and geometric waiting-time decompositions are not represented as novel.
+PASS
 
-**Mathematical value — PASS.** Two classic stopping times of the same coupon process exhibit a strong negative-regression order, an exact finite covariance, and a measurable \(\sqrt n\)-scale dependence correction invisible when focusing only on the separate birthday-Rayleigh and collector-Gumbel laws. The conditional mean has a nonconstant Rayleigh-square limiting profile, and the negative Pearson correlation has an exact \(1/n\) coefficient. This provides useful joint sampling benchmarks rather than an arbitrary statistic or tiny refinement.
+For uniform iid n-coupon draws, B in {2,...,n+1}. For B=b<=n, exactly b-1 distinct coupons seen; from time b complete coverage adds independent geometric waits G_k for k=b-1..n-1. Therefore E[T|B=b]=b+nH_(n-b+1), while the boundary B=n+1 means T=n. Common coupled geometric G_k yield nonincreasing first-order stochastic order with strict comparisons, and K=first initial run of G_k=1 yields Cov(B,T)=-sum_{j=2}^n S_{n,j}sum_{k<j}k/(n-k)<0, including n=2 negative 1/2. Birthday survival bound leads B/sqrt n=>Rayleigh R; quadratic-regression asymptotic m(B)-nH_n=1-B²/(2n)+o_L²(1), giving Cov/sqrt n->-sqrt(pi/8) and n*Corr->-sqrt(3/[2pi(4-pi)]) via coupon-collector variance pi²n²/6. Independent exact rational prefix enumeration n=2..5 checked conditional laws and covariance, with n=3 -8/9, n=4 -37/32 and n=5 -844/625; nonasymptotic proof not finite enumeration.
 
-**Limits and independent review.** The theorem assumes iid uniform types. The possible older full-text coverage is disclosed; no independent assessment of scientific priority has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Flajolet–Gardy–Thimonier 1992 full paper sections 3/4 analyze birthday collision and coupon collection separately through language generating functions, but neither there nor Anceaume–Busnel–Sericola 2014 marginal generalized-collector results state the joint conditional stochastic ordering, exact mixed covariance and n*correlation constant. Myers–Wilf 2003 study variants/singletons, not this pair. Published Resultary semantic searches returned missing-mass and reset-coupon findings rather than dominating paired-stopping-time laws. Holst 1986 broad urn treatise is plausible but unavailable for full-text reading because Oxford auth returned vpn_disconnected; recorded material-access risk does not alone force originality failure. No prior implication sufficiently established.
+
+## value
+
+PASS
+
+First birthday collision and complete coupon collection are canonical stopping times at sqrt(n) and n log n scales. An exact strictly negative joint regression with full stochastic order, finite covariance and nontrivial Rayleigh quadratic regression shape quantifies their dependence on the SAME draws; not reducible to known marginals or trivial finite tabulation. The exact 1/n Pearson correlation coefficient is a natural cross-scale invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
