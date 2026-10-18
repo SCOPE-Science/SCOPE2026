@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T12:16:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a b=2 block each column takes uniformly ±e1 or ±e2. Multiplying by fixed orthogonal 2×2 Hadamard H2 sends the four states bijectively to (±1,±1)/√2, making all transformed matrix entries independent Rademacher/√(2ζ), block and column independence being preserved. Hence whole-matrix distribution and joint Gram laws match all deterministic-input dense-sign sketches. At b=1 identical law is immediate. For m≥2 and b≥3, one offdiagonal Gram entry has fourth-moment difference (b−1)(b−2)/(b³ζ³)>0, derived using centered independent block collision variables and 3Σpair second-moment products. This excludes Gram equality for all ζ. For m=1 Gram is identically one at all b and is properly excluded. Independent exhaustive finite Gram distribution checks in 5 small configurations and 126 exact rational parameter moment checks succeeded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Embedding guarantees or moment upper bounds do not force identical joint Gram distribution at b2.",
+          "Heidary compares signed selectors to independent three-point entries, not exact dense iid Rademacher after fixed 2×2 rotation."
+        ],
+        "reasoning": "Known stronger OSE performance results do not dominate exact ensemble law, and fourth-moment obstruction separates larger widths.",
+        "searches": [
+          "arXiv:2508.21189 Camaño Epperly Meyer Tropp SparseStack moments",
+          "arXiv:2609.02978 optimal SparseStack OSE",
+          "arXiv:2508.14234 optimal subspace embedding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.20195v1 model description",
+        "arXiv:2609.02978v2 abstract/model",
+        "arXiv:2508.21189v1 sparse sketch moments",
+        "Resultary signed selector/Hadamard query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The literature provides construction and performance estimates, which neither establish entire joint distribution nor disprove for widths>2.",
+          "The fourth-moment positive gap is strictly more specific than covariance matching."
+        ],
+        "reasoning": "A statement-level comparison identifies this iff full distributional classification as the surviving contribution.",
+        "searches": [
+          "arXiv:2606.20195 v1 Sections 2.2 4.1",
+          "arXiv:2508.21189 Section 3.1 Appendix B",
+          "arXiv:2609.02978 signed-selector comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source model uses independent hashes and signs, matching this theorem hypotheses.",
+          "A four-state H2 sign-selector bijection provides distributional equivalence, unlike typical OSNAP concentration estimates."
+        ],
+        "reasoning": "Compared same normalized real fully independent ensembles; no Gaussian or three-point substitution is equivalent.",
+        "searches": [
+          "SparseStack two bucket signed one hot Hadamard dense Rademacher exactly Gram",
+          "arXiv:2606.20195 Jeendgar Flint Anzt",
+          "arXiv:2609.02978 Heidary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest published Resultary matches concerned different Hadamard Hamming/Fourier constructions, not this two-row signed-hash law.",
+          "No exact Gram-law table for all block widths was retrieved."
+        ],
+        "reasoning": "Search checked exact numerical/method signature; database absence is a coverage limitation not a priority guarantee.",
+        "searches": [
+          "Resultary semantic SparseStack two-bucket Hadamard dense Rademacher Gram law",
+          "CountSketch 2 row rotation Gram exact law"
+        ]
+      },
+      "rationale": "SparseStack construction and embedding results give approximations or couplings to independent sparse/three-point distributions. They do not imply the deterministic b=2 Hadamard image is exactly a dense iid-sign matrix and the iff b≤2 Gram boundary. Classical Hadamard algebra/moment formulas are credited. Unindexed identity possible.",
+      "residual_risks": [
+        "Simple b=2 signed-selector Hadamard bijection could be known under an older CountSketch name.",
+        "Some highly relevant source interiors were not fully accessible this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines model; no exact H2 whole-matrix equivalence in inspected material",
+          "evidence": "Primary model signed selectors and block hash columns.",
+          "identifier_or_url": "arXiv:2606.20195v1",
+          "material_read": "Public arXiv abstract and available model/implementation descriptions; complete text not reacquired in this run",
+          "method": "Compared model normalization independence and target performance vs exact law",
+          "title": "Randomized Sketching is Robust to Low-Precision Rounding on GPUs",
+          "trigger": "Same signed-selector SparseStack construction"
+        },
+        {
+          "assessment": "No all-width exact Gram law stated in material read",
+          "evidence": "Optimal order embedding and signed-selector moment comparisons concern tail bounds.",
+          "identifier_or_url": "arXiv:2609.02978v2",
+          "material_read": "Accessible abstract and detailed public indexed description of proofs and coupling; not entire paper",
+          "method": "Compared OSE bounds and three-point comparison to b2 exact dense-sign law",
+          "title": "SparseStack Is an Optimal Oblivious Subspace Embedding",
+          "trigger": "Potential dominating theorem for exact model"
+        },
+        {
+          "assessment": "Strong moment machinery does not itself state exact b2 rotation iff",
+          "evidence": "Moment computations do not force full law except via explicit four-state bijection.",
+          "identifier_or_url": "arXiv:2508.21189v1",
+          "material_read": "Public abstract, cited section/appendix summaries; complete primary interior not obtained",
+          "method": "Compared general CountSketch moment analysis and statement-level outputs",
+          "title": "Faster Linear Algebra Algorithms with Structured Random Matrices",
+          "trigger": "Potential general exact moment identity covering statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Block width is a practical structural parameter of SparseStack, and an exact law transfers every Gram-based distributional statement between two-bucket sparse and dense independent-sign sketches. The sharp fourth-moment obstruction at widths ≥3 delineates precisely where the shortcut ceases; claims carefully avoid GPU speed, adaptivity and floating point.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "m≥2, ζ≥1; real, fully independent signed hashes and exact arithmetic, deterministic/independent inputs only.",
+    "No claim of Gaussian equivalence, finite-precision robustness, or pointwise dominance of distribution tails."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytical proof uses only a four-state bijection under a fixed orthogonal matrix and the independent centered-summand fourth-moment identity. These steps apply to arbitrary finite \(m\ge2\) and \(\zeta\ge1\). For \(b\ge3\), strict positivity of \((b-1)(b-2)/(b^3\zeta^3)\) excludes the matched Gram distribution. Finite tests do not establish those quantifiers independently.
+## correctness
 
-`python3 verify.py` uses only Python's standard library. It exactly enumerates complete two- and three-column Gram laws for six \((\zeta,m)\) pairs, checks the Hadamard four-state mapping, verifies \(108\) rational fourth-moment identities, and independently enumerates collision signs for six block widths. It returned `VERIFY_OK exact_full_gram_cases=6 exact_moment_cases=108 support_checks=6` before packaging and is replayed from the decoded packaged path in delivery verification.
+PASS
 
-Limits: the checks operate in exact integer and rational arithmetic, not floating point, GPU execution or dynamically chosen inputs. The independent audit status above reflects an external activity that has not been performed.
+For a b=2 block each column takes uniformly ±e1 or ±e2. Multiplying by fixed orthogonal 2×2 Hadamard H2 sends the four states bijectively to (±1,±1)/√2, making all transformed matrix entries independent Rademacher/√(2ζ), block and column independence being preserved. Hence whole-matrix distribution and joint Gram laws match all deterministic-input dense-sign sketches. At b=1 identical law is immediate. For m≥2 and b≥3, one offdiagonal Gram entry has fourth-moment difference (b−1)(b−2)/(b³ζ³)>0, derived using centered independent block collision variables and 3Σpair second-moment products. This excludes Gram equality for all ζ. For m=1 Gram is identically one at all b and is properly excluded. Independent exhaustive finite Gram distribution checks in 5 small configurations and 126 exact rational parameter moment checks succeeded.
+
+## originality
+
+PASS
+
+SparseStack construction and embedding results give approximations or couplings to independent sparse/three-point distributions. They do not imply the deterministic b=2 Hadamard image is exactly a dense iid-sign matrix and the iff b≤2 Gram boundary. Classical Hadamard algebra/moment formulas are credited. Unindexed identity possible.
+
+## value
+
+PASS
+
+Block width is a practical structural parameter of SparseStack, and an exact law transfers every Gram-based distributional statement between two-bucket sparse and dense independent-sign sketches. The sharp fourth-moment obstruction at widths ≥3 delineates precisely where the shortcut ceases; claims carefully avoid GPU speed, adaptivity and floating point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
