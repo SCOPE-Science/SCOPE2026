@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The preimage of any successful singleton is a nonempty cyclic interval. Inverse b produces a unit gain exactly at start 0, a loss exactly at start n-k, and otherwise no change; inverse a rotates the start. Consecutive gains force n-1 rotations. The length lower bound L+t+(n+1)h+r excludes loss at L+1, reducing all possibilities to two boundary a insertions or exactly one no-op b. Counting safe phases gives (n-2)^2+1 b variants and two a variants. Forward subset DP independently confirms counts for 3<=n<=13 and brute-force literal words for n=3,4,5; the symbolic argument proves all n>=3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The completely-reachable theorem bounds shortest words reaching a designated nonempty subset and general synchronizing threshold, without counting distinct words of length L+1.",
+        "Avoiding-threshold results optimize over a target subset; the new statistic enumerates all reset words at a fixed length."
+      ],
+      "reasoning": "Upper bounds on shortest reaching/reset lengths and exact k-avoiding thresholds cannot determine the number of words at a fixed length. No stronger covering enumeration in the inspected papers was located.",
+      "searches": [
+        "Ferens-Szykuła arxiv:2208.05956 (full text, completely reachable and subset bounds)",
+        "Ferens-Szykuła-Vorel MFCS2021 DOI:10.4230/LIPIcs.MFCS.2021.46 (full text, thresholds)",
+        "number of shortest synchronizing reset words in Černý automata C_n generating function exact enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1708.04864",
+      "arxiv:2208.05956",
+      "doi:10.4230/LIPIcs.MFCS.2021.46",
+      "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+      "2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The k-avoiding result computes max over k-targets of minimum avoiding-word length kn, and a unique worst target. It has no enumeration at reset length L+1.",
+        "The early-deficiency result determines minimal word length to attain rank n-s for s<=ceil(n/2), whereas new theorem concerns full reset s=n-1 and multiplicity at L+1.",
+        "The mathematical contrast is optimization over words versus enumeration of all words of a fixed length."
+      ],
+      "reasoning": "The earlier claims do not logically imply the new count without a separate inverse-interval language enumeration. Their premises and proofs were inspected, rather than inferring novelty from differently worded titles.",
+      "searches": [
+        "public result 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f, full RESULT.md",
+        "public result 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3, full RESULT.md",
+        "Černý automaton shortest reset words count uniqueness conjugacy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rodaro 2017 describes minimal reset words and the two-sided ideal of reset languages; its structural theorems do not enumerate length L+1 words in the Černý family.",
+        "The published avoiding-threshold result computes max_S min_w |w| for S-avoidance; it does not enumerate reset-language words of a fixed excess length."
+      ],
+      "reasoning": "Equivalent descriptions could use near-synchronizing words, second shortest reset words, first nonminimal reset-word coefficient, or the reset-ideal Hilbert function. These formulations were compared by what they count. Neither the inspected reset-ideal theorems nor the avoiding-threshold result computes this number; an unindexed equivalent formulation remains possible.",
+      "searches": [
+        "Černý automaton shortest reset words count uniqueness conjugacy",
+        "second shortest synchronizing words in Černý automaton count near optimal reset word multiplicity",
+        "Černý automaton unique shortest reset word one-letter slack classification",
+        "Rodaro arxiv:1708.04864 (full text, reset ideal and minimal words)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related records count shortest reset words of non-Černý automata or give Černý pair-merging distances; none supplies the all-n second coefficient.",
+        "Exact forward dynamic programming verifies the predicted coefficients 4,7,12,19,28,39,52,67,84,103,124 through n=13."
+      ],
+      "reasoning": "The proof and code supply an all-length expression not inferred from or simply copying a published table. The sampled coefficients are finite corroboration and do not establish bibliographic novelty by themselves.",
+      "searches": [
+        "Cerny automaton exactly n squared minus 4 n plus 7 reset words of length (n-1)^2+1; all arise by one redundant b insertion or an a boundary",
+        "second shortest synchronizing words in Černý automaton count near optimal reset word multiplicity",
+        "prior mathematical records: shortest-reset multiplicity; Černý early deficiency profile; pair-merging distances"
+      ]
+    },
+    "rationale": "The exact all-n multiplicity at one letter above the Černý reset threshold is not contained in inspected primary results. Full texts on reset ideals, reachability, avoidance, and same-automaton early rank estimates concern different invariants. Multiple alias and near-shortest searches, and mathematical implication comparisons, found no dominating result; unindexed historical equivalents remain a residual risk.",
+    "residual_risks": [
+      "Possible earlier equivalent reset-ideal coefficient via an unindexed terminology, particularly circular/one-cluster automata.",
+      "An algorithm counting reset words for arbitrary automata could instantiate the formula, but such an algorithm alone does not explicitly determine this closed form."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact length L+1 coefficient for Černý automata identified; does not imply word-count formula.",
+        "evidence": [
+          "arXiv:1708.04864, first posted 2017-08-16; minimal reset words and ideal I=Σ*MΣ* are the main studied objects."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.04864",
+        "material_read": "Introduction; minimal reset-word definitions; reset ideals and tail-structure theorems; sections outlining consequences.",
+        "method": "Open-access arXiv full parsed text",
+        "title": "Synchronizing automata and the language of minimal reset words",
+        "trigger": "Closest primary reset-language structural theory, same ideal/minimal-word objects."
+      },
+      {
+        "assessment": "General reaching and threshold estimates, not reset-word multiplicities.",
+        "evidence": [
+          "arXiv:2208.05956, posted 2022-08-11; quadratic decision and reaching upper bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.05956",
+        "material_read": "Abstract, definitions, reaching bounds, Černý and subset-reachability discussion.",
+        "method": "Open-access arXiv full parsed text",
+        "title": "Completely reachable automata: a quadratic decision algorithm and a quadratic upper bound on the reaching threshold",
+        "trigger": "May dominate subset/word existence claims for the same Černý automata."
+      },
+      {
+        "assessment": "Optimizes avoidance times, without counting fixed-length reset words.",
+        "evidence": [
+          "MFCS 2021 DOI 10.4230/LIPIcs.MFCS.2021.46; definitions and Černý example."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2021.46",
+        "material_read": "Conference paper PDF: title/abstract/introduction, relevant results and Černý examples; first two page images and parsed text.",
+        "method": "Open-access LIPIcs PDF pages and text",
+        "title": "Lower Bounds on Avoiding Thresholds",
+        "trigger": "Related inverse-set methods and specific Černý examples."
+      },
+      {
+        "assessment": "The optimization result max over targets of minimal avoidance length is mathematically incomparable with count of all length L+1 resetting words.",
+        "evidence": [
+          "Theorem states at_k(C_n)=kn and a unique worst k-subset."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+        "material_read": "Entire RESULT.md including theorem, normal form, proof, limitations, references.",
+        "method": "Read-only primary repository file",
+        "title": "Exact k-avoiding thresholds of the Černý automata",
+        "trigger": "Same automaton, inverse-image proof and exact all-n formula might dominate new statement."
+      },
+      {
+        "assessment": "Theorem only gives lambda_n(s)=3s-2 for s through ceil(n/2), not full-reset multiplicity.",
+        "evidence": [
+          "Its statement explicitly stops at deficiency ceil(n/2)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+        "material_read": "Entire RESULT.md including range, proof, literature relationship and limitations.",
+        "method": "Read-only primary repository file",
+        "title": "Exact early deficiency profile of the Černý automata",
+        "trigger": "Same automaton and rank-change dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "76add0b4-dd0c-4d34-af12-7c4cf0959725",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This determines the first nontrivial coefficient beyond the known shortest-length threshold of the reset-language spectrum for an infinite canonical extremal automaton family. A full optimal-plus-one word classification exposes a forbidden inverse-arc phase and a quadratic multiplicity phenomenon. The exact statistic matters for enumeration and near-optimal synchronization, and is neither a routine restatement of the reset threshold nor a finite table expansion.",
+    "status": "PASS"
+  }
+}
