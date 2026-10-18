@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The normalized resource update, positive-fitness type-II replicator formula, and linearization were reconstructed from equations (1)-(16) of the motivating manuscript. On the invariant x=0 face, the two resource-cycle points (A+1 ± sqrt((A-3)(A+1)))/(2A) exchange under the logistic map; the return derivative is -A^2+2A+4 in (-1,1). The transverse one-step derivative is S(n)>0, so the exact two-step multiplier equals S(n-)S(n+) and factors as the squared mean payoff minus the payoff-slope squared times two-point resource variance. At A=16/5 and m=403/400, the exact multipliers 37321/40000 and 4/25 are both inside the unit disk while mean-game multiplier 403/400 exceeds one. The nonnegative logistic update is uniformly <=4761/5120<1 on the biological square, and all payoffs are positive, proving physical invariance. The embedded Python/SymPy checker independently reconstructs every symbolic identity and checks 42 nearby forward trajectories. Numerical sampling is not used to prove infinite-time stability. Equality at transverse unit multiplier is explicitly unclassified.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ito and Yamamichi 2024 DOI:10.1093/pnasnexus/pgae455 equations (5)-(6) and Methods: ordinary differential equation environmental feedback, rather than this non-overlapping-generation difference map.",
+        "Mukhopadhyay and Chakraborty 2020 DOI:10.1016/j.jtbi.2020.110288: evolutionary stability of periodic orbits in discrete replicator dynamics, without this coupled resource/payoff parameterization as described in its accessible abstract.",
+        "An indexed mathematical research record applies to multispecies row-regular Ricker competition, not strategy payoffs along a scalar ecological logistic two-cycle."
+      ],
+      "reasoning": "General Floquet theory is a tool sufficient to rederive a product once the exact source equations are specified, but the searched stronger results do not state or directly imply the resource-induced mismatch interval and payoff constraints. Continuous-time differential stability statements are not implications about this discrete-period-two multiplier.",
+      "searches": [
+        "period-two logistic resource oscillations cooperator extinction transverse Floquet multiplier product S(n+)S(n-) mean payoff approximation failure discrete time eco-evolutionary game",
+        "replicator map logistic resource invariant boundary 2 cycle exact transverse stability cooperator fraction payoff product inequality",
+        "replicator map eco evolutionary resource periodic orbit invasion multiplier product payoff mean game",
+        "\"hypochaos\" \"transverse Lyapunov\" \"periodic\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2401.12245; first public source version 2024-01-20",
+      "doi:10.1063/5.0190800; source manuscript inspected",
+      "doi:10.1093/pnasnexus/pgae455; continuous-time classification",
+      "doi:10.1016/j.jtbi.2020.110288; accessible title and abstract only",
+      "Singular symmetry-breaking threshold for the period-two orbit of a replicator map; a different autonomous two-strategy replicator map",
+      "Spectral Floquet reduction for synchronous cycles in row-regular Ricker competition; different ecological network model",
+      "Corrected Floquet factor for the bilateral Leslie–Gower cycle; different predator-prey model"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Section III B of DOI:10.1063/5.0190800 states that, for periodic or chaotic n, attraction of invariant strategy manifolds can be assessed via the average environment, explicitly as an ansatz; Fig. 7 illustrates this on the original numerical parameters.",
+        "For the admissible family A=16/5 and S(n)=m+21/16-2n, the exact transverse Floquet value m^2-21/256 is <1 while the mean-game value m is >1 on 1<m<sqrt(277)/16. These strict opposite inequalities cannot be conclusions of the source mean ansatz.",
+        "Primary equations and discussion do not display the exact symbolic variance correction or this counterexample window."
+      ],
+      "reasoning": "The motivating paper derives the map, not this regime-specific Floquet condition, and describes mean substitution as a useful predictive heuristic rather than a proved identity. The new claim exposes a structurally distinct invasion threshold; it does not allege a false theorem or claim global evolutionary fixation.",
+      "searches": [
+        "Primary full text DOI:10.1063/5.0190800 Section II equations (1)-(16), Section III A/B, Table I, Fig. 7, conclusion",
+        "\"hypochaos\" \"mean game\" \"geometric\" \"2025\"",
+        "\"hypochaos prevents tragedy\" \"correction\" \"mean\" \"2025\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Main manuscript DOI:10.1063/5.0190800 equations (2), (10), (14b), and (16): normalized logistic resource map and positive-fitness replicator; Section III B specifically labels average-resource replacement an ansatz.",
+        "An indexed mathematical research record treats a separate replicator map without this environmental logistic coupling.",
+        "Direct searches did not surface an equivalent geometric-payoff invasion theorem for the exact model."
+      ],
+      "reasoning": "A Floquet product and a mean-game arithmetic test coincide only for constant relevant fitness or appropriate degenerate cases. The source presents the latter as heuristic, so an exact product-based model-specific threshold and verified opposite classification are not mere terminological equivalents of its statement. The other period-two replicator result has a different map and parameters.",
+      "searches": [
+        "exact transverse multiplier S(n+)S(n-) logistic period-two cooperator-defector eco evolutionary payoff matrices",
+        "discrete-time eco evolutionary resource mean game approximation wrong under environmental oscillations geometric versus arithmetic average fitness",
+        "\"hypochaos\" \"Floquet\" \"mean game\" period two replicator",
+        "\"Mondal\" \"Ray\" \"Chakraborty\" \"mean game\" \"stability\" log product"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source Table I records pointwise resource thresholds for x=0 and x=1 for four illustrative payoff choices. It does not tabulate a two-step product threshold, nor the displayed varying-m family.",
+        "Indexed mathematical research searches returned no entry with matching paper, payoff parameter family, variance-corrected two-cycle multiplier, or complete coverage; nearest results concerned other discrete maps and recurrent population models."
+      ],
+      "reasoning": "A table of one-step pointwise stable resource intervals cannot decide the stability of a mixed expanding/contracting resident two-cycle; the two-step product must be evaluated. The explicit source examples fix different payoffs and do not subsume the new interval.",
+      "searches": [
+        "Hypochaos prevents tragedy commons Mondal Ray Chakraborty 2024 chaotic environmental resource replicator mean game criterion",
+        "Mondal Ray Chakraborty hypochaos 2024 mean game ansatz counterexample exact periodic resource invasion selection",
+        "\"Hypochaos prevents tragedy\" stability period two analytical invasion"
+      ]
+    },
+    "rationale": "The closest primary 2024 paper gives the exact coupled equations, periodic/chaotic numerical examples, pointwise x=0 stability, and a mean-game ansatz, but no period-two Floquet product, exact variance correction, or explicitly admissible open interval reversing the mean classification. The discrete-specific claim is not implied by continuous-time environmental-game classifications or by abstract periodic-replicator stability notions. Multiple semantic database searches and direct published-source searches returned no logically covering proposition; general Floquet and AM-GM methods are acknowledged as prior technique. Bounded search cannot establish absolute global novelty.",
+    "residual_risks": [
+      "The theorem is derived using classical Floquet linearization and AM-GM; other unindexed ecological-game work could already apply these methods to this specific map and parameter domain.",
+      "The periodic-orbit evolutionary-stability paper was accessible only through abstract-level content; no full-text implication is claimed to have been ruled out.",
+      "Novelty searches are bounded and provide no proof of global uniqueness. The research has not undergone an independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the model and mean-resource ansatz, but no exact period-two Floquet product/variance correction or strict admissible reversal interval.",
+        "evidence": [
+          "DOI:10.1063/5.0190800",
+          "arXiv:2401.12245",
+          "Section III B and Table I"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/378339974_Hypochaos_prevents_tragedy_of_the_commons_in_discrete-time_eco-evolutionary_game_dynamics",
+        "material_read": "Author-uploaded accepted manuscript: resource normalization equations (1)-(8), replicator equations (9)-(16), game choices Section II B, examples Section III A, mean-game argument Section III B and Table I/Fig. 7, Discussion Section IV; searched text for appendices and specific period-two claim.",
+        "method": "Direct inspection of publicly available author manuscript full-text HTML transcript with equations and adjacent text; no inference from mere download or abstract.",
+        "title": "Hypochaos prevents tragedy of the commons in discrete-time eco-evolutionary game dynamics",
+        "trigger": "Exact original coupled map and a plausible existing mean-game stability comparison"
+      },
+      {
+        "assessment": "Continuous-time payoff-feedback game classification does not include a discrete-time logistic boundary two-cycle or its Floquet return stability.",
+        "evidence": [
+          "DOI:10.1093/pnasnexus/pgae455",
+          "Methods: ordinary differential equations (5) and (6)"
+        ],
+        "identifier_or_url": "https://academic.oup.com/pnasnexus/article/3/11/pgae455/7817389",
+        "material_read": "Published open full-text model and methods, especially equations (5)-(6), equilibrium analysis, and explicit description of simulations as ordinary differential equations.",
+        "method": "Direct open HTML full-text inspection of the mathematical model and methods.",
+        "title": "A complete classification of evolutionary games with environmental feedback",
+        "trigger": "Plausible broad-coverage environmental game classification"
+      },
+      {
+        "assessment": "Covers periodic play of a replicator map but the accessible abstract does not state an exact resource-coupled payoff threshold. Absence of full-text inspection limits confidence about any broader implications.",
+        "evidence": [
+          "DOI:10.1016/j.jtbi.2020.110288",
+          "arXiv:2102.11034 (later arXiv record)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.11034",
+        "material_read": "Accessible abstract and research-index summary only; full text not inspected.",
+        "method": "Abstract/title comparison; retained as residual risk rather than asserting exhaustive noncoverage.",
+        "title": "Periodic orbit can be evolutionarily stable: Case Study of discrete replicator dynamics",
+        "trigger": "Discrete replicator periodic-orbit results might supply a broader implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0214eaca-afd7-4e47-8a36-b62b97f1d826",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly proposes mean-game predictions of stability for periodic resource dynamics. The exact model-specific transverse multiplier changes an ecologically important prediction: invasion by a rare cooperator under the positive average payoff can nevertheless decay because its instantaneous multiplicative fitness is correlated with resource phase. The sharp open interval 1<m<sqrt(277)/16 and exact physical rational witness distinguish real attracting resource-supported defection from mean-game-repelling predictions. This is a motivated phase-boundary result, not a numerical table recomputation, a tiny parameter change, or merely a restatement of general Floquet theory.",
+    "status": "PASS"
+  }
+}
