@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:14:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform permutation Pi in S_n (n>=2). For E_i=1[Pi(i)>i], P(E_i)= (n-i)/n. Given E_i, Pi(i) mean (n+i+1)/2, a shift of i/2; others have mean shift -i/(2(n-1)) due to constant sum. For L_w=sum w_j Pi(j), Cov(E_i,L_w)= i(n-i)(nw_i-W)/(2n(n-1)). Taking weights j and D=2 sum j²-2 sum j Pi(j) yields local Cov(E_i,D)=i(n-i)(n+1-2i)/(2(n-1)); R=1-6D/[n(n²-1)] produces the given local Spearman covariance and conditional Spearman mean. Summing gives Cov(X,R)=-1/(2(n-1)); Eulerian excedance variance (n+1)/12 and random Spearman variance 1/(n-1) imply Corr(X,R)=-sqrt(3/(n²-1)). At n=2 the correlation -1 matches direct two-permutation analysis.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Related inversion/cycle and fixed-point/descent exact covariance formulas concern different local events and global statistics"
+        ],
+        "reasoning": "No checked broader theorem specializes to Cov(E_i,sum_j w_j Pi(j)); general permutations moment identities could imply it mechanically but no explicit dominating published result located.",
+        "searches": [
+          "Resultary: covariance excedance positions uniform permutations Spearman rho rank displacement Eulerian",
+          "Resultary 2026/10/4 linear-inversion-gap-profile-for-cycle-count",
+          "arXiv:1301.0430"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob c69aaa393a46e96e11b1fc1f875c00f1b67538a5",
+        "Jiang arXiv:1110.0807 full PDF",
+        "Hultman arXiv:1301.0430 full PDF",
+        "Branden Leander Visontai Eulerian polynomials DOI:10.1017/S0963548316000031 (bibliographic context)",
+        "Resultary semantic hits related local inversion/cycle and fixed-point/descent covariances"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither joint conditional-statistic formula nor claimed exact correlation appears in relevant inspected materials"
+        ],
+        "reasoning": "Separately known Var(Eulerian excedances) and Var(Spearman) do not fix covariance; the new conditional-position calculation supplies it.",
+        "searches": [
+          "Resultary: covariance excedance positions uniform permutations Spearman rho rank displacement Eulerian",
+          "Jiang arXiv:1110.0807",
+          "Hultman arXiv:1301.0430"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Excedance-set statistic and squared Spearman displacement expressed in same permutation, but past inspected source families study them separately"
+        ],
+        "reasoning": "Equality in marginal distribution with other Eulerian statistics does not imply mixed covariance with Spearman; the local arbitrary-weight statement is genuinely joint.",
+        "searches": [
+          "Resultary: covariance excedance positions uniform permutations Spearman rho rank displacement Eulerian",
+          "arXiv:1110.0807",
+          "arXiv:1301.0430"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Metric tables compare pairwise distances, not cross-moments with a local excedance; whole n>=2 and arbitrary weights are not finite table entries"
+        ],
+        "reasoning": "The rank-score functional and conditional mean are universal identities, not recomputations of a known finite table.",
+        "searches": [
+          "Resultary: covariance excedance positions uniform permutations Spearman rho rank displacement Eulerian",
+          "arXiv:1110.0807 metric covariance tables",
+          "modern Eulerian polynomial references"
+        ]
+      },
+      "rationale": "Primary Jiang study of Spearman-type metric dependencies does not study excedances; Hultman studies excedances and character-theoretic permutation statistics but not Spearman displacement. Their separate one-variable laws do not determine joint covariance. Resultary related papers on cycle/inversion and fixed-point/descent cross moments target different statistic pairs. Older Eulerian polynomial or excedance-set literature could hide this elementary mixed-moment law.",
+      "residual_risks": [
+        "Elementary equivalent local identity may be present in historic rank/excedance literature under alternative notation, including the uninspected entire Ehrenborg–Steingrimsson paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies metric correlations but does not introduce the local excedance indicator or its mixed covariance",
+          "evidence": "Spearman correlations between metric statistics are not Cov(1[Pi(i)>i],R).",
+          "identifier_or_url": "arXiv:1110.0807",
+          "material_read": "Complete primary PDF, including the Spearman-family metric descriptions and covariance comparison, plus page screenshot",
+          "method": "full OA PDF text and page image",
+          "title": "Asymptotic correlations of metrics on the symmetric groups",
+          "trigger": "Exact Spearman-rank metric dependence; possible joint formula"
+        },
+        {
+          "assessment": "Treats excedances and their distributions but does not compute their covariance with Spearman coefficient",
+          "evidence": "Distributions of excedance-type statistics do not determine Spearman mixed moments.",
+          "identifier_or_url": "arXiv:1301.0430",
+          "material_read": "Complete primary PDF and page screenshot, including statistics definitions",
+          "method": "full OA PDF text and page image",
+          "title": "Permutation statistics of products of random permutations",
+          "trigger": "Excedance statistic prior-work strand"
+        },
+        {
+          "assessment": "Classical excedance-set work remains a possible equivalent conditional identity source; whole-paper noncoverage not asserted",
+          "evidence": "No source quote about Spearman claim; residual risk explicitly retained.",
+          "identifier_or_url": "Ehrenborg and Steingrimsson 2000, Advances in Applied Mathematics 24:284-299",
+          "material_read": "Citation and abstract/bibliographic level; full text not read this run",
+          "method": "bibliographic evidence only",
+          "title": "The excedance set of a permutation",
+          "trigger": "Possible positional marginal theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform identity is a reusable covariance functional for EVERY linear rank score, not merely a single Spearman number. It identifies a position-resolved exact sign change and explicit finite-n global correlation linking a canonical Eulerian statistic to a standard nonparametric rank metric. Motivated null calibration and joint-statistic interpretation beyond a table of small n.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob c69aaa393a46e96e11b1fc1f875c00f1b67538a5",
+    "Jiang arXiv:1110.0807 full PDF",
+    "Hultman arXiv:1301.0430 full PDF",
+    "Branden Leander Visontai Eulerian polynomials DOI:10.1017/S0963548316000031 (bibliographic context)",
+    "Resultary semantic hits related local inversion/cycle and fixed-point/descent covariances"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform full Sn and no ranking ties; not Mallows or restricted permutations.",
+    "Only second moments, not complete joint law."
+  ],
+  "schema_version": 1
+}
