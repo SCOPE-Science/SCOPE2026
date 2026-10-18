@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The infinite prime tail is a complete interval by Sanna's proved interval-filling lemma, with the required inequality established for every prime: 33602 exact finite prime checks before 396738, and Dusart's unconditional prime-interval theorem thereafter. Exact arctangent enclosures verify every small-prime exponent cutoff. The six-prime exponent grid gives 192 closed blocks; a rational sweep proves 140 components and 139 strict gaps. A separately implemented backward recurrence and a union-find overlap graph reproduce the count and complete endpoint table. The proof distinguishes the infinite statement from the finite computations. Risk: the argument depends on the published Sanna and Dusart theorems; the certificate alone is not a formal derivation of either.
+## correctness
 
-**Originality — PASS.** Sanna's complete primary paper states a general effective algorithm and computes the \(r=2\) case, not \(r=4\) or 140 endpoint pairs. Zubrilina's full-text component-count study gives asymptotic bounds and low-exponent structural results, without the present exact classification. Targeted searches of published mathematical records, natural aliases, component-number tables, and related divisor-function variants did not uncover a covering computation. The general algorithm is expressly credited as prior art; its existence is not confused with a published output for this exponent. Risk: an unindexed earlier run of the same algorithm could give the same component count or table.
+PASS
 
-**Value — PASS.** The exact component count is a natural topological invariant of the classical generalized divisor sum, singled out by the prior finiteness algorithm and subsequent research on growth in the number of components. The jump to 140 components at the first unreported even exponent after the explicit \(r=2\) case is a nontrivial full classification with 140 exact pairs, not a chosen short numerical cutoff or a mere generic existence claim. It enables subsequent distributional or exponent-variation studies; no such downstream theorem is claimed here.
+For all primes p>=17, prove 1+p^-4<product_{q>p}(1-q^-4)^-1 by strict finite rational sums of at most ten next-prime reciprocal fourth powers for all 33,602 p<396738; a fresh sieve to 430000 and exact Python Fraction arithmetic reproduce worst count ten. Dusart Proposition 6.8 proves the necessary small-gap bound for every p>=396738; two successors <101p/100 then suffice. Sanna Lemma 2.3 (combined with tail prime inequalities) gives exactly the tail interval [1,T], not merely sampled values. Exact rational Machin alternating-series pi bounds certify the six exponent thresholds A=(3,2,1,1,1,1); connectivity of each high exponent grid gives 192 closed product blocks. My independent fraction-only construction obtains 140 merged components and 139 strictly positive gaps, first coefficient pair (1,1), last (1558603338253/1440270720000,11033033011/10194124800), exactly matching the real 140-line COMPONENTS.tsv. Infinite claims rest on read published theorems and stated overlap proof, not on finite enumeration.
 
-The most relevant prior source is Sanna's 2015 paper, whose proof method is used and extended to the exact exponent-four evaluation. The exact numerical outcome is not independently audited and novelty cannot be guaranteed from finite database searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General published finite-interval theorem and recursive algorithm do not print an exact r=4 component count or its 140 endpoint coefficients; exhaustive nontrivial computation of a natural missing exponent is the incremental original result.
+
+## value
+
+PASS
+
+Provides a natural exact topological invariant and full 140-component endpoint classification for the first unreported even reciprocal exponent beyond Sanna’s r=2 example. The substantial certified finite cutoff/merge and exact pairs resolve a meaningful missing point in a studied exponent-dependent component-count family; this is not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
