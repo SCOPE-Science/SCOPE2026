@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The full proof derives the decomposition of commuting equivalence relations into nonempty rectangular-cell matrices, identifies **separate** row and column permutation orbits, counts fixed matrices by \(\gcd\)/\(\operatorname{lcm}\) cycle intersections, and applies the multiset transform. It covers all finite carriers including the empty carrier and proves formal-series coefficient finiteness. The standalone verifier performs exact rational cycle-index computation through eleven worlds and separately checks direct relational products for all labelled pairs of set partitions through six worlds. The independent finite orbit canonicalization agrees in all cases, while OEIS A354458 independently corroborates labelled counts. Finite experiments corroborate but are not substitutes for the general proof.
+
+## Originality — PASS, with recorded limits
+The matrix decomposition is **explicitly prior** to this result (Rumenova–Tinchev, 2022); the labelled count is also **explicitly prior** (OEIS A354458). The claimed new subject is the exact unlabelled isomorphism-class generating function and its connected and all-frame coefficients. Relevant searches used the terms commuting/permutable equivalence relations, two named S5 modalities, unlabeled/isomorphism types, positive integer matrices modulo independent row/column permutations, cycle-index/Euler transform, as well as known labelled source and exact candidate coefficients. The complete public Rumenova–Tinchev presentation was materially inspected for its matrix decomposition and main logical objectives; their full journal paper was not accessible. No searched result or inspected material stated the unlabelled count or entailed it by a stronger specialised enumerator. Burnside's general orbit theorem is a technique, not an existing enumeration of this precise natural class. Residual uncertainty about hidden equivalent enumerations, especially in inaccessible journal content, is retained.
+
+## Mathematical value — PASS
+Isomorphism classification is a canonical finite-model-theory invariant and is specifically distinct from the pre-existing labelled count. It respects all automorphisms of the two-modal frames, permits enumeration of connected and disconnected structures for every finite size, and has a closed computable cycle-index/Euler-transform form. The explicit component normal form directly interfaces with known logical uses of commuting bimodal frames. This is a complete natural-family invariant, not a selected small-table slice; no speculative downstream theorem is required.
+
+## Limitations and source comparisons
+A prior structural normal form and published labelled counts are acknowledged, not rebranded. Unrestricted source access to the 2022 journal article was not obtained; the full January 2022 author slide deck and the publisher preview were used. Isomorphism never exchanges relation names. The calculation proves formal series only, without asymptotic claims.
+
+Self-review: passed. Independent audit: not yet performed.
