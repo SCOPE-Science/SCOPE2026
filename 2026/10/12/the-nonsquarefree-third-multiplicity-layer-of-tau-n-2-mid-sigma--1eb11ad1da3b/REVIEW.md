@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The nonsquarefree condition with \(\Omega(n)=3\) has exactly the two shapes \(p^3\) and \(p^2q\). For \(p^3\), the numerator reduces modulo \(16\) to \(3p+1\), yielding exactly \(p\equiv5\pmod{16}\). For \(p^2q\), the exact numerator is \(q(2p^2+1)+2p+1\). The cases involving \(2\) are excluded directly, the repeated-prime case \(p=3\) gives \(q\equiv11\pmod{36}\), and for odd \(p\ne3\) the modulo-\(3\), modulo-\(4\), and modulo-\(9\) conditions leave exactly the two remaining branches. Every step is reversible.
+## correctness
 
-## Originality
-PASS. The exact database A055466 records complete criteria for the \(\Omega(n)=2\) shapes \(p^2\) and \(pq\), but its inspected entry does not state the \(p^3\) or \(p^2q\) criteria. The historical equality reference concerns \(\sigma(n)+\varphi(n)=n\tau(n)\), not the squared-divisor-count divisibility. The inspected full arithmetic-function paper concerns a different composition quotient. Searches covering the exact identifier, third multiplicity layer, prime cubes, repeated-prime products, and the divisor-count-squared formulation returned no same or stronger statement.
+PASS
 
-## Value
-PASS. The database itself singles out the complete second multiplicity layer, making the next nonsquarefree layer a natural structural question rather than an arbitrary slice. The answer is an unbounded necessary-and-sufficient classification with three distinct repeated-prime residue families and one prime-cube family. It advances the exact sequence from isolated membership data to reusable congruence structure.
+Exactly two nonsquarefree factorization types occur for Ω(n)=3: p³ and p²q with distinct primes. For a cube τ²=16 and σ+φ=2p³+p+1; at odd p, 2p³≡2p mod16, hence p≡5 mod16; p=2 fails. For p²q, τ²=36 and σ+φ=q(2p²+1)+2p+1. The cases p=2,q=2 fail. If p=3 one gets q≡11 mod36. If odd p≠3, modulo3 forces p≡1 mod3, modulo4 forces q≡3 mod4, and modulo9 gives: p≡1 mod9 with q≡2 mod3; p≡4 mod9 with q=3; p≡7 mod9 impossible. All implications are reversible, giving exactly the three disjoint branches. Independent direct modular tests over 78 primes and 6006 ordered distinct prime pairs found zero discrepancies. The proof is entirely unbounded by its exhaustive residue split.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact database A055466 includes the predicate and earlier Ω=2 prime-square and semiprime criteria; it does not in the accessible entry give these nonsquarefree Ω=3 congruences. Known sequence terms include some solutions but not the complete classification. Historical Makowski/Sivaramakrishnan equality σ+φ=nτ is a different assertion; De Koninck–Luca concerns distinct composite arithmetic-function quotients. The new proof is elementary; an unindexed extension of OEIS comments remains plausible but not established.
+
+## value
+
+PASS
+
+Classifying the next nonsquarefree multiplicity layer in the named arithmetic sequence is a natural systematic step after the published Ω=2 classifications. Four exact infinite prime-residue families replace scattered table membership and work for arbitrary prime magnitude. It is self-contained complete classification of a mathematically motivated layer, not a known table recomputation; excludes only squarefree Ω=3 and larger multiplicities explicitly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T04:15:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exactly two nonsquarefree factorization types occur for Ω(n)=3: p³ and p²q with distinct primes. For a cube τ²=16 and σ+φ=2p³+p+1; at odd p, 2p³≡2p mod16, hence p≡5 mod16; p=2 fails. For p²q, τ²=36 and σ+φ=q(2p²+1)+2p+1. The cases p=2,q=2 fail. If p=3 one gets q≡11 mod36. If odd p≠3, modulo3 forces p≡1 mod3, modulo4 forces q≡3 mod4, and modulo9 gives: p≡1 mod9 with q≡2 mod3; p≡4 mod9 with q=3; p≡7 mod9 impossible. All implications are reversible, giving exactly the three disjoint branches. Independent direct modular tests over 78 primes and 6006 ordered distinct prime pairs found zero discrepancies. The proof is entirely unbounded by its exhaustive residue split.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1958 equality σ+φ=nτ characterizes primes and is not τ²-divisibility; De Koninck–Luca studies a quotient involving σ and φ but not their sum modulo τ²."
+        ],
+        "reasoning": "Broader arithmetic-function results of the cited works are not known to imply a complete p³ and p²q residue classification, unlike the new exact modular proof.",
+        "searches": [
+          "tau(n)^2 divides sigma(n)+phi(n) Omega=3 prime cube p^2 q A055466",
+          "De Koninck–Luca DOI:10.4064/cm108-1-4",
+          "Makowski problem 339 (1958)"
+        ]
+      },
+      "checked_sources": [
+        "GitHub assigned RESULT.md exact blob 6d332e18fc068c16d56ae66289b5da4e20434900",
+        "https://oeis.org/A055466",
+        "DOI:10.4064/cm108-1-4 bibliographic",
+        "Elemente der Mathematik 13 (1958) problem 339 bibliographic",
+        "Resultary semantic query: tau(n)^2 divides sigma(n)+phi(n) Omega=3 prime cube p^2 q A055466"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Second-multiplicity criteria concern τ²=9 or 16 depending on type and do not determine the Ω=3 predicate whose modulus is 16 or 36.",
+          "The target classification derives instead from exact σ+φ expansions and a complete modulo9/4 split."
+        ],
+        "reasoning": "Prior sequence definition trivially allows calculating the result, but does not automatically entail a published closed classification; the residue taxonomy is the precise incremental mathematical fact.",
+        "searches": [
+          "OEIS A055466 comments",
+          "tau(n)^2 divides sigma(n)+phi(n) Omega=3 prime cube p^2 q A055466",
+          "DOI:10.4064/cm108-1-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sequence predicate is τ(n)^2 | σ(n)+φ(n); equivalently each factorization shape imposes a specific modulo 16 or 36 congruence.",
+          "Residue families for Ω=2 in the OEIS are not interchangeable with Ω=3 families."
+        ],
+        "reasoning": "Rewriting as valuations of σ+φ or congruences at p³,p²q reveals no already-stated covering Ω=3 criterion in the entry.",
+        "searches": [
+          "tau(n)^2 divides sigma(n)+phi(n) Omega=3 prime cube p^2 q A055466",
+          "OEIS:A055466"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A055466 states the predicate and lists individual integers and Ω=2 criteria; tested cube 125 and p²q 99 etc are sequence members.",
+          "The entry lacks an explicitly stated complete nonsquarefree Ω=3 if-and-only-if classification at inspection."
+        ],
+        "reasoning": "Sequence membership of examples is prior; the unbounded three-branch theorem is not obtained from finite membership data, and we do not claim the sequence itself is new.",
+        "searches": [
+          "OEIS A055466 exact entry",
+          "tau(n)^2 divides sigma(n)+phi(n) Omega=3 prime cube p^2 q A055466"
+        ]
+      },
+      "rationale": "The exact database A055466 includes the predicate and earlier Ω=2 prime-square and semiprime criteria; it does not in the accessible entry give these nonsquarefree Ω=3 congruences. Known sequence terms include some solutions but not the complete classification. Historical Makowski/Sivaramakrishnan equality σ+φ=nτ is a different assertion; De Koninck–Luca concerns distinct composite arithmetic-function quotients. The new proof is elementary; an unindexed extension of OEIS comments remains plausible but not established.",
+      "residual_risks": [
+        "The classification is elementary and OEIS A055466 is long-standing; equivalent unpublished or unindexed residue notes are possible.",
+        "Full historical 1958 note and 2007 arithmetic-function paper not independently read this run; no whole-document negative coverage claim.",
+        "Squarefree Ω=3 and higher Ω not covered; the exact bounded arithmetic checks do not exhaust all primes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_DEFINITION_AND_OMEGA_TWO_NOT_NEW_LAYER",
+          "evidence": "Exact condition and lower-layer rules are already public; third-layer infinite residue classification is not printed.",
+          "identifier_or_url": "https://oeis.org/A055466",
+          "material_read": "Accessible entry definition, terms, formula and comments for prime squares and semiprimes; not a proof of all Ω=3",
+          "method": "Primary database entry reading",
+          "title": "OEIS A055466",
+          "trigger": "Exact predicate and prime-factor multiplicity table antecedent"
+        },
+        {
+          "assessment": "DIFFERENT_ARITHMETIC_PREDICATE",
+          "evidence": "The composition quotient and extremal orders do not visibly state divisibility by τ(n)^2; whole-document noncoverage is not inferred.",
+          "identifier_or_url": "DOI:10.4064/cm108-1-4",
+          "material_read": "Scope as described in source and bibliographic material; complete paper not independently read in this run",
+          "method": "Title, description, topic comparison",
+          "title": "On the composition of the Euler function and the sum of divisors function",
+          "trigger": "Potential broader sigma/phi theorem"
+        },
+        {
+          "assessment": "DIFFERENT_EQUALITY_AND_ACCESS_RISK",
+          "evidence": "The quoted σ+φ=nτ identity is not the target predicate; uninspected archival problem remains a source limitation.",
+          "identifier_or_url": "Elemente der Mathematik 13 (1958), 115",
+          "material_read": "Historical bibliographic citation and equation as quoted in database; original problem full text not read",
+          "method": "Bibliographic cross-check",
+          "title": "Problem 339",
+          "trigger": "Old source associated with database sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifying the next nonsquarefree multiplicity layer in the named arithmetic sequence is a natural systematic step after the published Ω=2 classifications. Four exact infinite prime-residue families replace scattered table membership and work for arbitrary prime magnitude. It is self-contained complete classification of a mathematically motivated layer, not a known table recomputation; excludes only squarefree Ω=3 and larger multiplicities explicitly.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub assigned RESULT.md exact blob 6d332e18fc068c16d56ae66289b5da4e20434900",
+    "https://oeis.org/A055466",
+    "DOI:10.4064/cm108-1-4 bibliographic",
+    "Elemente der Mathematik 13 (1958) problem 339 bibliographic",
+    "Resultary semantic query: tau(n)^2 divides sigma(n)+phi(n) Omega=3 prime cube p^2 q A055466"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The classification is elementary and OEIS A055466 is long-standing; equivalent unpublished or unindexed residue notes are possible.",
+    "Full historical 1958 note and 2007 arithmetic-function paper not independently read this run; no whole-document negative coverage claim.",
+    "Squarefree Ω=3 and higher Ω not covered; the exact bounded arithmetic checks do not exhaust all primes.",
+    "Exact Git tree/blob snapshot and all scientific files were inspected. Independent finite arithmetic is corroborative, not infinite certification.",
+    "Publication not ready while operational provenance remains in public source metadata or potentially derived artifacts."
+  ],
+  "schema_version": 1
+}
