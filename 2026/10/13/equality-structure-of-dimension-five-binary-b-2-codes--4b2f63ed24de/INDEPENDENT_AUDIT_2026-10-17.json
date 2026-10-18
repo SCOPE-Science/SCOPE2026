@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T10:14:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ordinary sum equality of unordered pairs including repetitions is invariant under every xor translation (each flipped coordinate sends 0,1,2 to 2,1,0) and coordinate permutations. Normalize one word to 00000. An independently written backtracker exhaustively examines all increasing candidate sets containing zero, maintaining exactly all seen ordinary coordinatewise pair-sum triples; max 12, 72 normalized maxima. XOR all 32 translations and deduplicate: 192 distinct labeled maxima. Full 3840 signed coordinate permutations act transitively on these 192 (stabilizer 20). On a representative, five coordinates each have six ones, exactly one antipodal pair, and pair distance counts [5,20,30,10,1]. Unlike a heuristic search, the normalization/pruning is lossless and complete over the finite cube. Independent re-enumeration confirmed the figures.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cohen–Litsyn–Zémor asymptotic upper bounds do not classify equality at dimension five; Sima et al. treat constant-weight subclass, which cannot imply all 192 unrestricted extrema.",
+          "Previously published dimension-four census is smaller domain and does not imply dimension-five orbit."
+        ],
+        "reasoning": "Prior stronger or generalized coverage was checked for an actual logical implication of the final result.",
+        "searches": [
+          "binary B2 Sidon subset 5 cube maximum 12 192 isometry classes equality",
+          "Sidon subset {0,1}^5 maximum size twelve Hamming orbits",
+          "OEIS A309370 labeled Sidon extremal code count"
+        ]
+      },
+      "checked_sources": [
+        "OEIS:A309370",
+        "arXiv:1401.7505v1",
+        "arXiv:2303.12990",
+        "DOI:10.1006/jcta.2000.3127",
+        "Resultary semantic query binary B2 Sidon subset 5 cube maximum 12 192 isometry classes equality",
+        "actual Git sources verify.py/census.json and independent_checks.py full finite replay"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known maximum size does not imply 72 normalized maxima, 192 total, or transitivity under 3840 Hamming isometries.",
+          "The independent exhaustive enumeration supplies these new equality-layer facts, not merely repeated numerical optimum."
+        ],
+        "reasoning": "The exact implication direction was checked, including already-known subclaims.",
+        "searches": [
+          "binary B2 Sidon subset 5 cube maximum 12 192 isometry classes equality",
+          "Sidon subset {0,1}^5 maximum size twelve Hamming orbits",
+          "OEIS A309370 labeled Sidon extremal code count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binary B2-codes are precisely Sidon subsets of the Boolean cube under ordinary integer coordinate sums; D’yachkov survey and OEIS A309370 give the same definition.",
+          "Constant-weight B2 sequences are a different restricted domain."
+        ],
+        "reasoning": "Aliases and equivalent objects/representations are compared to the final exact mathematical statement, not titles.",
+        "searches": [
+          "binary B2 Sidon subset 5 cube maximum 12 192 isometry classes equality",
+          "Sidon subset {0,1}^5 maximum size twelve Hamming orbits",
+          "OEIS A309370 labeled Sidon extremal code count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A309370 explicitly records maximum value 12 and a sample word set at dimension five, but no complete labeled maximum-code table or one-orbit statement.",
+          "The assigned census.json was checked as a package certificate but is not counted as prior publication."
+        ],
+        "reasoning": "Matching finite databases and earlier numerical values were distinguished from complete equality/inversion structure.",
+        "searches": [
+          "binary B2 Sidon subset 5 cube maximum 12 192 isometry classes equality",
+          "Sidon subset {0,1}^5 maximum size twelve Hamming orbits",
+          "OEIS A309370 labeled Sidon extremal code count"
+        ]
+      },
+      "rationale": "OEIS A309370 already lists dimension-5 optimum 12 and a witness: the 12 optimum is not original. Primary B2-code literature fixes the additive-pair condition, asymptotic bounds and constant-weight variants; no inspected source gives the 192 labeled solutions or single Hamming orbit. Resultary exact phrase query for 192 Sidon cube maxima returned unrelated same-numerical-count objects, not this one. The exact classification remains best-of-knowledge original.",
+      "residual_risks": [
+        "Unindexed exact dimension-five census in older B2/adder-code literature could reduce originality.",
+        "Claim covers only unrestricted length-five binary ordinary-sum B2 codes, not higher dimensions or constant-weight variants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Optimum 12 known; equality-layer census not present in inspected entry",
+          "evidence": [
+            "Table gives scalar 12, not count 192 or orbit 1."
+          ],
+          "identifier_or_url": "https://oeis.org/A309370",
+          "material_read": "Full sequence entry, definition, table and linked examples for dimension five",
+          "method": "read live OEIS HTML entry",
+          "title": "OEIS A309370, Maximum size of a Sidon subset of {0,1}^n",
+          "trigger": "direct exact-value table for same dimension and additive condition"
+        },
+        {
+          "assessment": "Definition and framework covered, not a dimension-five extremizer census",
+          "evidence": [
+            "The B2 condition uses distinct unordered sums including self-pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.7505",
+          "material_read": "Accessible open-access PDF, B_s codes in Section 5.1 including repeated summands and s=2 interpretation",
+          "method": "inspected primary PDF text and relevant page",
+          "title": "A. G. D’yachkov, Lectures on Designing Screening Experiments",
+          "trigger": "same B_s-code definition and binary adder channel alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Given a known maximum in a natural Boolean-cube Sidon/adder-code problem, identifying all extremizers and their unique isometry class is the canonical next structural fact; uniform balance, antipodal and distance invariants follow across all maxima. Fully finite but complete and reproducible.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "OEIS:A309370",
+    "arXiv:1401.7505v1",
+    "arXiv:2303.12990",
+    "DOI:10.1006/jcta.2000.3127",
+    "Resultary semantic query binary B2 Sidon subset 5 cube maximum 12 192 isometry classes equality",
+    "actual Git sources verify.py/census.json and independent_checks.py full finite replay"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed exact dimension-five census in older B2/adder-code literature could reduce originality.",
+    "Claim covers only unrestricted length-five binary ordinary-sum B2 codes, not higher dimensions or constant-weight variants."
+  ],
+  "residual_risks": [
+    "Unindexed exact dimension-five census in older B2/adder-code literature could reduce originality.",
+    "Claim covers only unrestricted length-five binary ordinary-sum B2 codes, not higher dimensions or constant-weight variants."
+  ],
+  "schema_version": 1
+}

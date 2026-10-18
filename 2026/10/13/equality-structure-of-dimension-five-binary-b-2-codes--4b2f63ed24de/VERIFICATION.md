@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` uses only the Python standard library. It rebuilds all \(32\) vertices of the five-cube, represents each ordinary coordinatewise pair sum as a base-three integer, and enumerates every \(B_2\)-subset containing \(00000\) in increasing word order. The acceptance invariant includes self-pairs, so repeated summands are checked exactly as required by the definition.
+# Independent mathematical audit
 
-The normalized exhaustive search returns maximum size \(12\) and \(72\) normalized maxima. The verifier then applies all \(32\) xor translations, deduplicates to \(192\) labeled maxima, checks every one directly, and applies all \(3840\) Hamming isometries to a representative. The resulting orbit has size \(192\), equal to the complete census, and the direct stabilizer count is \(20\).
+## correctness
 
-The same replay checks coordinate one-counts \((6,6,6,6,6)\), exactly one antipodal pair, and Hamming-distance counts \((5,20,30,10,1)\) for distances \(1\) through \(5\). `census.json` stores every labeled maximum, and the verifier compares it with the regenerated census.
+PASS
 
-The proof is finite and exhaustive only for dimension five. It does not extrapolate the computation to larger dimensions, and the literature comparison is not itself a proof of novelty.
+Ordinary sum equality of unordered pairs including repetitions is invariant under every xor translation (each flipped coordinate sends 0,1,2 to 2,1,0) and coordinate permutations. Normalize one word to 00000. An independently written backtracker exhaustively examines all increasing candidate sets containing zero, maintaining exactly all seen ordinary coordinatewise pair-sum triples; max 12, 72 normalized maxima. XOR all 32 translations and deduplicate: 192 distinct labeled maxima. Full 3840 signed coordinate permutations act transitively on these 192 (stabilizer 20). On a representative, five coordinates each have six ones, exactly one antipodal pair, and pair distance counts [5,20,30,10,1]. Unlike a heuristic search, the normalization/pruning is lossless and complete over the finite cube. Independent re-enumeration confirmed the figures.
+
+## originality
+
+PASS
+
+OEIS A309370 already lists dimension-5 optimum 12 and a witness: the 12 optimum is not original. Primary B2-code literature fixes the additive-pair condition, asymptotic bounds and constant-weight variants; no inspected source gives the 192 labeled solutions or single Hamming orbit. Resultary exact phrase query for 192 Sidon cube maxima returned unrelated same-numerical-count objects, not this one. The exact classification remains best-of-knowledge original.
+
+## value
+
+PASS
+
+Given a known maximum in a natural Boolean-cube Sidon/adder-code problem, identifying all extremizers and their unique isometry class is the canonical next structural fact; uniform balance, antipodal and distance invariants follow across all maxima. Fully finite but complete and reproducible.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
