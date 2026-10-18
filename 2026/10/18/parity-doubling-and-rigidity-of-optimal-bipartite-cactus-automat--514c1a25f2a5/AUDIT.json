@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Every closed subwalk on an accepting computation must have length divisible by m by pumping, and even by proper transition coloring; thus at least lcm(m,2) distinct early states occur. At equality a directed Hamilton cycle exists; cactus forbids chords, congruence forbids reverse steps/self-loops, completeness forces every letter on every forward arc, and final states are forced. Explicit construction meets bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.11717 Theorem 1.1 proves existence for all regular languages, Section 4 states tight state-complexity bounds have not been established.",
+        "Book and Chandra (1976), cited in the originating paper, establish existence of planar NFA representations, a strictly more permissive condition."
+      ],
+      "reasoning": "The universal existence theorem does not give the minimum number of states, much less equality rigidity. The classical modulo-m minimal DFA does not rule out smaller nondeterministic representations in the restricted class; the proof needs closed-walk divisibility and bipartiteness.",
+      "searches": [
+        "published-record index: \"Every Regular Language Has a Bipartite Cactus Automaton\" modular length congruence epsilon-free optimal state blowup odd modulus",
+        "web: \"cactus\" \"automata\" \"modular languages\" states"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.11717 full text",
+      "arXiv:2610.11717 citations to Book–Chandra (1976)",
+      "published-record index searches on bipartite cactus/modular language state size and parity overhead",
+      "accessible previously recorded mathematical claims (titles and statements only)",
+      "web searches on cactus modular automata and even-cycle unary state bounds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.11717, Section 4 specifically names minimum blow-up as a remaining problem.",
+        "Accessible prior mathematical claim 00e63527-1147-4c18-8877-d77153668ab5 concerns a separate cactus automaton state cost for finite diagonal languages.",
+        "Accessible prior mathematical claim 8d42de78 concerns finite ambiguity in unary NFAs, not bipartite state blow-up."
+      ],
+      "reasoning": "Neither the universal theorem nor nearby local results logically implies the sharp minimum in the two-color cactus subclass or its unique extremal transition structure. A generic state-duplication upper bound of twice a modulo DFA is insufficient without the lower bound and rigidity proof.",
+      "searches": [
+        "published-record index: \"bipartite cactus automaton optimal unary modular language minimum number of states even cycles parity periodic mod n\"",
+        "web: \"minimal\" \"bipartite\" \"automata\" \"modular\" \"odd\" state"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grobler–Koziel–Siebertz, arXiv:2610.11717, full text Sections 2-4: a two-color transition graph, but no exact modular state bound",
+        "No retrieved published-record index statement asserting an exact congruence-language parity blow-up"
+      ],
+      "reasoning": "Compared the claim under unary, length-modular, residue-cycle, even-cycle graph and NFA state-complexity formulations. The novelty is restricted-model state optimum plus uniquely labeled extremizers, not regularity or existence of a bipartite-cactus representation.",
+      "searches": [
+        "published-record index: \"minimal bipartite cactus nondeterministic finite automaton number states language length multiple of odd modulus 2m\"",
+        "web: \"bipartite automaton\" \"modulo\" \"states\" \"even\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The examined recent source contains no tables of restricted minimal state counts for congruence languages.",
+        "The published-record index nearest matches concern synchronization compression and unrelated parity dynamics, not modular-language cactus NFA size."
+      ],
+      "reasoning": "The theorem gives the complete infinite parameter range, not values inferred from a known finite table.",
+      "searches": [
+        "published-record index: \"even cycle automata state size exact unary residue class modulo p floor odd even\"",
+        "web: \"unary\" \"cactus\" \"automata\" \"state complexity\""
+      ]
+    },
+    "rationale": "Examined primary full text arXiv:2610.11717 states universal existence but expressly leaves optimal state blow-up open. Specific published-record index and literature searches found no direct parity-dependent optimal modulus theorem or extremizer classification. Residual chance of equivalent older folklore is disclosed.",
+    "residual_risks": [
+      "An elementary equivalent result could be implicit in old graph-constrained automata literature under different terms; Book–Chandra full article was not inspected.",
+      "published-record index semantic search has limited recall, so lack of a hit cannot certify unique priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: existence theorem without sharp modulus cost or rigid extremizers; explicit state complexity open in Section 4",
+        "evidence": [
+          "Theorem 1.1 universal existence; definitions 2 and 3; Section 4 explicitly leaves tight state-complexity bounds open."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.11717",
+        "material_read": "Full 13-page paper, including definitions, constructions, proofs, conclusion and references; PDF text inspected and cover/conclusion pages rendered",
+        "method": "Full-text reading, terminology searches, direct comparison with theorem and equality classification",
+        "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+        "trigger": "Exact originating graph model and open optimal-blow-up question"
+      },
+      {
+        "assessment": "Historical context only, direct coverage not ruled out",
+        "evidence": [
+          "Grobler–Koziel–Siebertz Introduction cites Book–Chandra for planar epsilon-free NFAs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF00263745",
+        "material_read": "Bibliographic entry and description in primary arXiv:2610.11717, not full original article",
+        "method": "Bibliographic and implication-level comparison; no whole-document noncoverage claim",
+        "title": "Inherently Nonplanar Automata",
+        "trigger": "Older relevant work cited for planar NFA state graph representations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "514c1a25-f2a5-478f-b1ed-c9e89326a7b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides a complete and natural sharp subfamily answer to an expressly open representation-cost question, proving the exact modulus-parity factor and rigidity of all optimal NFAs across alphabets/residues. It is not a finite-table extension or an arbitrary slice; no general worst-case state bound is claimed.",
+    "status": "PASS"
+  }
+}
