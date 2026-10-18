@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:46:07.360775Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob c7852877b7dfaae38024de52fc7731d11b30e874",
+        "artifacts/verify.py Git blob 7912a4f740f223af17c123c4d45012f4c0d7ecf3",
+        "Fresh direct 3-qubit reduced density calculations /mnt/data/scope09_science_checks_0429.py"
+      ],
+      "rationale": "All pure states of an ensemble of the rank-two density lie in its GHZ/W range. The HJW co-isometry has weights p_j=lambda|v_1j|²+(1-lambda)|v_2j|² and r_j=|v_1j|²/p_j with sum p_jr_j=1. The given pure objective is g(r)=(5lambda²r²-4lambda r+8)/9 with g''=10lambda²/9>0; strict Jensen equality forces all r_j=1, then |v_1j|²=|v_2j|²=p_j. Orthogonal co-isometry rows are precisely the phase zero-barycenter condition. Conversely it yields a valid row isometry and equality. Minimum rank-two ensemble size >=2, and a two-vector zero barycenter forces 1/2 weights and antipodal phases. Direct independent complex-amplitude density-matrix calculations evaluated 4det rho_A at six lambda values and four phases each; phase-independence and polynomial matched. The strict Jensen argument proves all lambda, not finite samples.",
+      "residual_risks": [
+        "Depends on exact concurrence-fill pure-state formula and rank-two HJW parametrization for canonical orthogonal GHZ/W pair; these were checked algebraically but main source primary PDF remained unavailable.",
+        "The parameter endpoints lambda=0,1 are excluded because rho becomes pure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The anchor abstract claims analytic convex roof and visualization of an attaining decomposition, without stating classification of every optimum.",
+          "Aggarwal handles other generalized GHZ/W regimes and upper bounds rather than all equality-case ensembles.",
+          "HJW parameterizes ensembles but does not solve the objective minimization."
+        ],
+        "reasoning": "A theorem for the roof value does not imply all optimizer structures absent an equality analysis; an upper bound for a generalized pair does not imply the canonical exact all-ensemble classification.",
+        "searches": [
+          "arXiv:2608.07145 Verma Kulkarni",
+          "arXiv:2506.16935 Aggarwal generalized GHZ W concurrence fill",
+          "HJW Physics Letters A 183 (1993)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: GHZ W mixture concurrence fill convex roof optimal decompositions HJW Jensen phase polygon barycenter two state ensemble",
+        "arXiv:2608.07145",
+        "arXiv:2506.16935",
+        "HJW Phys. Lett. A 183 (1993)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original displayed four columns are duplicate copies of two antipodal states, but the existence of one optimum does not rule out other ensembles.",
+          "Strict equality of g(r) is the extra necessary-and-sufficient argument, yielding phase polygons of arbitrary finite cardinality."
+        ],
+        "reasoning": "Prior roof-value and ensemble-parametrization results are necessary inputs but do not by themselves classify every equality case. Full anchor unavailable, so possible implicit equality analysis remains an explicit residual risk.",
+        "searches": [
+          "arXiv:2608.07145 convex roof GHZ W co-isometry",
+          "HJW all ensembles density matrix",
+          "arXiv:2506.16935"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Optimal HJW vectors reduce to equal row magnitudes and orthogonality; equivalent to origin-in-convex-hull weighted phase polygons.",
+          "Resultary nearest W-state results address product-state testing, not concurrence-fill convex-roof equalities."
+        ],
+        "reasoning": "HJW describes all decompositions, whereas strict Jensen specifies the proper optimal subset; this distinction prevents mistaking a generic HJW theorem for coverage.",
+        "searches": [
+          "GHZ W mixture concurrence fill convex roof optimal decompositions HJW Jensen phase polygon barycenter two state ensemble",
+          "concurrence fill GHZ W phase polygon HJW optimal equality states"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved Resultary record or exact-phrase match supplies two-support equality and all phase polygons.",
+          "A Resultary product-test frontier for generalized W states uses a different functional."
+        ],
+        "reasoning": "The claim is a continuous equality-case classification, so a finite numerical table is not its natural form; exact optimizer searches were used instead.",
+        "searches": [
+          "GHZ W mixture concurrence fill convex roof optimal decompositions HJW Jensen phase polygon barycenter two state ensemble",
+          "arXiv:2608.07145 minimum support two optimal decompositions phase barycenter"
+        ]
+      },
+      "rationale": "The August 2026 anchor obtains the convex-roof value and gives an attaining four-column co-isometry; the submitted result identifies the complete strict-Jensen equality family and minimal support. The previous HJW classification supplies all ensembles of a density operator but does not isolate this measure’s optimizers. Other GHZ/W entanglement papers address distinct measures or bounds. There is a meaningful access risk because the full anchor article could not be obtained this run, but no inspected stronger statement decisively covers the all-optimizer equality classification.",
+      "residual_risks": [
+        "The complete anchor manuscript arXiv:2608.07145 could not be inspected independently. Oxford authorized retrieval returned vpn_disconnected and human reconnection is required; no bypass was attempted.",
+        "A near-term or unindexed follow-up may already note equality in strict Jensen."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract establishes roof value and an attaining decomposition, not all optimizers; cannot make a whole-document NOT_COVERING claim.",
+          "evidence": [
+            "https://arxiv.org/abs/2608.07145"
+          ],
+          "identifier_or_url": "arXiv:2608.07145v1",
+          "material_read": "Primary arXiv abstract/metadata and accessible scientific synopsis of rank-two prism approach and GHZ–W closed-form convex roof; full PDF/HTML not accessible in this run.",
+          "method": "ArXiv abstract and paper-specific accessible summary; arXiv full-text attempts failed",
+          "title": "From triangles to prisms: towards a geometric extension of concurrence fill for three-qubit mixed states",
+          "trigger": "Identical canonical mixture and measure: decisive primary comparator"
+        },
+        {
+          "assessment": "Different mixed-state classification/upper-bound task from all optimal finite canonical convex-roof decompositions.",
+          "evidence": [
+            "https://arxiv.org/abs/2506.16935"
+          ],
+          "identifier_or_url": "arXiv:2506.16935",
+          "material_read": "Open preprint abstract and accessible described generalized GHZ/W upper-bound/eigenstate focus; full proof of all equality cases not established here.",
+          "method": "Targeted primary preprint summary comparison",
+          "title": "Classification of Three-Qubit Genuine Entangled States Using Concurrence Fill",
+          "trigger": "Potential stronger generalized GHZ/W concurrence-fill result"
+        },
+        {
+          "assessment": "Provides all decompositions but no concurrence-fill strict-Jensen equality criterion.",
+          "evidence": [
+            "Hughston, Jozsa, Wootters, Phys. Lett. A 183 (1993) 14-18"
+          ],
+          "identifier_or_url": "Physics Letters A 183 (1993), 14-18",
+          "material_read": "The HJW co-isometry parametrization stated in source proof; original 1993 article was not fully retrieved.",
+          "method": "Mathematical theorem/equation comparison",
+          "title": "A complete classification of quantum ensembles having a given density matrix",
+          "trigger": "Underlying all-ensemble theorem could potentially imply structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Verma/Kulkarni rank-two concurrence-fill problem arXiv:2608.07145",
+        "General HJW ensemble theorem",
+        "Fresh strict-Jensen equality and two-support argument"
+      ],
+      "rationale": "A full description of every finite convex-roof attaining ensemble is a natural variational equality classification with operationally relevant ensemble cardinality. The exact two-state minimum and continuum of zero-barycenter higher support ensembles distinguish optimizer geometry from one example and can be used when analyzing ensemble choice for this entanglement measure.",
+      "residual_risks": [
+        "Consequence is restricted to canonical GHZ/W concurrence fill and is elementary once the convex-roof scalar reduction is known."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For 0<lambda<1 in the canonical GHZ/W rank-two mixture, every finite concurrence-fill-convex-roof optimal decomposition comprises states sqrt(lambda)GHZ+e^{i theta_j}sqrt(1-lambda)W with positive probabilities summing one and sum p_j e^{i theta_j}=0. Minimum support is two with equal weights and opposite phases, and the roof value remains (5lambda²-4lambda+8)/9.",
+  "limitations": [
+    "Canonical orthonormal GHZ/W mixture with 0<lambda<1; no endpoint, general rank-two or other measures claim.",
+    "Classifies finite strictly positive probability ensembles only.",
+    "Anchor complete full text not read; originality remains best-of-knowledge with explicit residual risk."
+  ],
+  "schema_version": 1
+}

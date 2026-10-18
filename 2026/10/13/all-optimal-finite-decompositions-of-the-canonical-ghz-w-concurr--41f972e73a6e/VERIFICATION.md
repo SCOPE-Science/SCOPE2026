@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic verification has four steps.
+# Independent mathematical audit
 
-1. The HJW rows are orthonormal, so \(\sum_jp_jr_j=1\). For \(0<\lambda<1\), the source quadratic has \(g''(r)=10\lambda^2/9>0\), hence equality in Jensen is equivalent to \(r_j=1\) for every positive-probability term.
-2. The definition of \(r_j\) and the probability equation then give \(|v_{1j}|^2=|v_{2j}|^2=p_j\). Orthogonality of the two HJW rows is therefore the single complex condition \(\sum_jp_je^{i\theta_j}=0\).
-3. Conversely that complex condition makes the two rows \((\sqrt{p_j})_j\) and \((\sqrt{p_j}e^{i\theta_j})_j\) orthonormal, so it generates an optimal ensemble with every \(r_j=1\).
-4. With two positive weights, a zero weighted sum of two unit complex numbers is possible only for equal weights and antipodal phases. Rank \(\rho_\lambda=2\) rules out a one-state ensemble.
+## correctness
 
-The bundled `artifacts/verify.py` additionally evaluates the one-qubit reduction of \(\sqrt q\,|\mathrm{GHZ}\rangle+e^{i\theta}\sqrt{1-q}\,|W\rangle\) for several phases and confirms \(4\det\rho_A=(5q^2-4q+8)/9\). It also checks the source four-column co-isometry and a strict Jensen gap for nonconstant sample values. These computations are finite consistency checks, not an exhaustive proof.
+PASS
 
-Unproved limits: no statement is made about arbitrary rank-two eigenvector pairs, the endpoint rank-one cases, infinite ensemble measures, or other entanglement monotones.
+All pure states of an ensemble of the rank-two density lie in its GHZ/W range. The HJW co-isometry has weights p_j=lambda|v_1j|²+(1-lambda)|v_2j|² and r_j=|v_1j|²/p_j with sum p_jr_j=1. The given pure objective is g(r)=(5lambda²r²-4lambda r+8)/9 with g''=10lambda²/9>0; strict Jensen equality forces all r_j=1, then |v_1j|²=|v_2j|²=p_j. Orthogonal co-isometry rows are precisely the phase zero-barycenter condition. Conversely it yields a valid row isometry and equality. Minimum rank-two ensemble size >=2, and a two-vector zero barycenter forces 1/2 weights and antipodal phases. Direct independent complex-amplitude density-matrix calculations evaluated 4det rho_A at six lambda values and four phases each; phase-independence and polynomial matched. The strict Jensen argument proves all lambda, not finite samples.
+
+## originality
+
+PASS
+
+The August 2026 anchor obtains the convex-roof value and gives an attaining four-column co-isometry; the submitted result identifies the complete strict-Jensen equality family and minimal support. The previous HJW classification supplies all ensembles of a density operator but does not isolate this measure’s optimizers. Other GHZ/W entanglement papers address distinct measures or bounds. There is a meaningful access risk because the full anchor article could not be obtained this run, but no inspected stronger statement decisively covers the all-optimizer equality classification.
+
+## value
+
+PASS
+
+A full description of every finite convex-roof attaining ensemble is a natural variational equality classification with operationally relevant ensemble cardinality. The exact two-state minimum and continuum of zero-barycenter higher support ensembles distinguish optimizer geometry from one example and can be used when analyzing ensemble choice for this entanglement measure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
