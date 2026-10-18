@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The graph is fully specified as GP(10,2), with perfect matchings and octagonal symmetric-difference moves unambiguously defined. Exhaustive recursion visits all 36 states without duplication. A pairwise symmetric-difference construction and a separately coded facial-cycle toggle construction both produce 120 identical edges and the same canonical SHA-256. Independent breadth-first-search and Floyd–Warshall computations recover the exact eccentricities and layer arrays. Complement two-factor traversals and adjacency checks establish every structural assertion (six degree-ten versus thirty degree-six configurations, two common neighbours, and the connected two-regular C10 induced neighbourhoods). Two runnable checkers and a complete 36-state adjacency certificate are embedded, with successful captured replays. These finite exhaustive checks are proofs for the fixed graph only; no infinite extrapolation is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ito et al., arXiv:1907.01700 §1.2, proves algorithms and hardness for all alternating cycles, including general always-possible connectivity, but does not restrict every move to an octagon.",
+        "Aluoch (2019) sets cycle-set independence and width at most two as hypotheses and obtains bipartite induced-cube behavior. The thirty dodecahedral octagons are linearly dependent because the twenty-vertex thirty-edge connected graph has cycle-space dimension eleven. The directly certified octagonal reconfiguration graph contains sixty triangles."
+      ],
+      "reasoning": "Allowing arbitrarily long flips only adds edges, so its general connectedness cannot imply connectivity or diameter three of the subgraph using exactly length-eight flips. Results for independent even-cycle families cannot be transferred to all thirty dependent octagons. A bipartite-cube conclusion would contradict the observed triangles, confirming inapplicability.",
+      "searches": [
+        "fullerenes resonance graph 8-cycle alternating cycles dodecahedron C20 matching transformation",
+        "dodecahedron perfect matching octagon resonance graph switches 8-cycles",
+        "arxiv:1907.01700",
+        "MTSU:5881"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0801.1483 (full primary PDF, material sections)",
+      "MATCH 69 (2013), 333–354 (primary matching enumeration)",
+      "MathOverflow question 192159 and answers",
+      "arxiv:1907.01700 (21-page primary preprint, material main claims)",
+      "Aluoch, Resonance Graph of Perfect Matchings (2019 thesis material sections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ye–Qi–Zhang (2008 first preprint) establishes fullerene hexagonal resonance; the dodecahedron has no hexagonal faces, so its results yield no octagonal reconfiguration transitions.",
+        "Fujita (2013) and the 2015 matching-count discussion cover the count and known matching classes, but not the exact flip topology.",
+        "Ito et al. (2019) uses all alternating-cycle lengths and provides no specialized result about octagons in this graph.",
+        "The certificate explicitly distinguishes the new fixed-length adjacency relation and its local and global graph invariants."
+      ],
+      "reasoning": "Each prior statement was compared with the proposed theorem by logical implication, not by surface title similarity: known counts do not determine transitions; broader allowed move sets do not prove restricted distance; hexagon resonance is vacuous here. The exact finite restricted-flip structure survives these comparisons, subject to possible unindexed priority overlap.",
+      "searches": [
+        "Perfect matchings of dodecahedral graph GP(10,2) reconfiguration via alternating 6 cycles 8 cycles flip graph diameter components 36 perfect matchings",
+        "minimum alternating cycle exchanges connect all dodecahedral 1-factors in three flips octagon switch graph",
+        "arxiv:0801.1483",
+        "arxiv:1907.01700",
+        "MTSU:5881"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ito et al., arXiv:1907.01700, pp. 1–4, §1.2, §5: adjacent states under a single alternating cycle of unrestricted length; no dodecahedral octagon-only example located.",
+        "Ye–Qi–Zhang, arXiv:0801.1483, Introduction/§§2–3: hexagonal-face resonance, distinct from two-pentagon octagon flips.",
+        "Targeted matching queries for octagonal flips, pentalene boundaries, and C20 Kekulé reconfiguration did not produce an equivalent exact 36-state transition theorem."
+      ],
+      "reasoning": "A move across the boundary of two edge-sharing pentagons is an eight-edge alternating-cycle flip; this is the equivalent octagon/pentalene wording considered. Neither a hexagonal face flip (none exist in this graph) nor an unrestricted alternating-cycle flip identifies the same reconfiguration graph. The searches did not establish coverage; absence is not used as a formal novelty proof.",
+      "searches": [
+        "\"dodecahedron\" \"perfect matchings\" \"flip graph\" octagon",
+        "\"dodecahedral graph\" \"alternating 8-cycles\" matching",
+        "\"C20\" \"Kekulé\" \"reconfiguration\" octagon",
+        "resonance graph of perfect matchings in fullerene C20 using pentalene boundaries 8-cycles, each two adjacent pentagons",
+        "Perfect matching flip graph of pentagonal dodecahedron under length 6 alternating cycles and Hamiltonian cycles; complete connectivity classification",
+        "arxiv:1907.01700"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fujita, MATCH 69 (2013), pp. 333–354, particularly pp. 345–346, determines the total of 36 dodecahedral perfect matchings.",
+        "MathOverflow question 192159 (2015), including combinatorial answers, also accounts for the known six-plus-thirty matching split.",
+        "No inspected table provides the octagon-only adjacency lists, their 120 edges, shortest-path layers, or induced C10 neighbourhoods; those data are supplied in a new 36-state certificate."
+      ],
+      "reasoning": "A count of matchings or a classification of complement factors does not determine which pairs differ by one alternating eight-cycle. No implication to connectedness, diameter, local C10, or exceptional common-neighbour multiplicity follows from such counts alone.",
+      "searches": [
+        "Dodecahedron 36 perfect matchings alternating cycles reconfiguration graph all face hexagonal flip impossible",
+        "dodecahedral graph C20 Kekule 36 perfect matchings flip graph under alternating 8 cycles: connected diameter 3, six degree-10 special states, 30 degree-6 states, 120 edges",
+        "MATCH:69:333-354:2013",
+        "MathOverflow:192159"
+      ]
+    },
+    "rationale": "The 36 matching count and six-versus-thirty matching classes occur in earlier enumerations and are not separately claimed new. The new assertion is the complete *shortest-even-cycle* flip graph, its three-step diameter and its exceptional-neighbour structure. Earlier hexagonal fullerene resonance is vacuous on the pentagon-only dodecahedron; the unrestricted-cycle reconfiguration theorem does not imply exact octagon-only reachability; cycle-independence resonance theorems cannot apply to all thirty dependent octagons. Equivalence, broader-theorem, existing-table and implication comparisons were explicitly performed against the inspected primary texts and targeted scientific searches. Residual risk is unindexed or inaccessible equivalent data; this is not an independent historical-priority certificate.",
+    "residual_risks": [
+      "Unindexed literature or supplementary tables could contain equivalent octagon-restricted state graph invariants.",
+      "Only the listed material passages of the long primary texts were inspected; no universal publication-uniqueness certification follows."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering octagonal flips; concerns hexagons and their disjoint resonant patterns.",
+        "evidence": [
+          "Definition of resonance uses hexagonal faces, not the boundary of two pentagons.",
+          "The dodecahedron has only pentagonal faces."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0801.1483",
+        "material_read": "Original abstract, introduction, selected sections 2–3 including definitions and theorems, occurrences of dodecahedron and hexagon resonance.",
+        "method": "ArXiv primary PDF with text inspection and targeted document search.",
+        "title": "On k-Resonant Fullerene Graphs",
+        "trigger": "Foundational fullerene alternating-face resonance, with the dodecahedron as smallest fullerene."
+      },
+      {
+        "assessment": "Covers exactly 36 matchings, not the flip graph or distances.",
+        "evidence": [
+          "Reported dodecahedral perfect-matching total 36; no octagonal reconfiguration theorem in inspected material."
+        ],
+        "identifier_or_url": "https://match.pmf.kg.ac.rs/electronic_versions/Match69/n2/match69n2_333-354.pdf",
+        "material_read": "Primary paper, combinatorial enumeration sections and pages 345–346 containing dodecahedral count.",
+        "method": "Open PDF, inspect matching-enumerator construction and count, compare with adjacency claim.",
+        "title": "Restricted Enumerations: Enumeration of Kekulé Structures and Perfect Matchings of Graphs",
+        "trigger": "Dodecahedron perfect-matching count as exact previously known baseline."
+      },
+      {
+        "assessment": "Counts and classifies matchings, but gives no flip adjacency, diameter, or ten-cycle neighbourhood claim.",
+        "evidence": [
+          "Independent answers classify the matching count; no local eight-cycle move rule."
+        ],
+        "identifier_or_url": "https://mathoverflow.net/questions/192159/number-of-perfect-matchings-of-the-dodecahedron",
+        "material_read": "Question and all mathematical answers discussing the 36 matchings and their six/thirty structural split.",
+        "method": "Full web thread inspection and explicit claim comparison.",
+        "title": "Number of perfect matchings of the Dodecahedron",
+        "trigger": "Plausibly equivalent matching classification or adjacency relations."
+      },
+      {
+        "assessment": "Unrestricted alternating cycles, and separate mention of length-four restriction; does not determine the length-eight restricted dodecahedral graph.",
+        "evidence": [
+          "§1 defines adjacency by symmetric difference one cycle of any length.",
+          "§5 concerns algorithms/hardness for outerplanar and planar/bipartite graphs, no dodecahedral specialization."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1907.01700",
+        "material_read": "Abstract, §§1–1.2 and related-work section, main-contribution statement, hardness theorem and §5 conclusions; document text searched for dodecahedron and length-eight terminology.",
+        "method": "Full accessible ArXiv PDF (21 pages), text inspection, page-image inspection, string search.",
+        "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+        "trigger": "Directly same reconfiguration language; potential broader diameter/reachability coverage."
+      },
+      {
+        "assessment": "Bipartiteness conclusion assumes restrictions incompatible with the complete dependent set of 30 octagonal cycles of this graph.",
+        "evidence": [
+          "Theorem uses independent even-cycle families of width at most two; the observed octagonal flip graph has triangles."
+        ],
+        "identifier_or_url": "https://jewlscholar.mtsu.edu/items/68c98b53-6ec9-40cd-91c2-a9f6dfdce27a",
+        "material_read": "Primary thesis abstract, definitions, Chapter 2 constructions and Chapter 3 theorem on linearly independent width-bounded cycles.",
+        "method": "Lawful open thesis PDF, material theorem/hypothesis inspection.",
+        "title": "Resonance Graph of Perfect Matchings",
+        "trigger": "Exact general resonance-graph framework potentially subsuming the finite case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6c2e5176-255d-4144-80b9-34ce23ac4473",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The dodecahedron is the canonical smallest fullerene, on which standard hexagonal resonance has no moves. The boundary of two adjacent pentagons is its shortest even cycle, making octagonal-flip reconfiguration a geometrically motivated, nonarbitrary next operation. The exact fact that all 36 matching states communicate in at most three such shortest flips is not implied by their count, and the six special configurations, induced C10 neighbourhoods, and pairwise multiplicity-two intersections expose nontrivial local architecture. These concrete data benchmark shortest-even-cycle resonance on odd-faced polyhedral graphs and can support meaningful extensions without any asserted general theorem.",
+    "status": "PASS"
+  }
+}
