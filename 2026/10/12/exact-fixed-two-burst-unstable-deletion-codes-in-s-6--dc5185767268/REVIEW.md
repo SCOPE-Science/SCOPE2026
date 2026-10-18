@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is finite and exhaustive. `verify.py` reconstructs all \(720\) permutations in \(S_6\), all \(24\) received permutations in \(S_4\), and all \(610\) distinct exact-two-burst descendant masks. The proof recurrence partitions every disjoint-mask packing according to the least available received word, so every packing is counted exactly once. It yields maximum \(12\), exactly \(67{,}163{,}560\) labeled maxima, the stated footprint histogram, and exactly \(14{,}024{,}815\) perfect maxima. The explicit \(12\)-word perfect witness is rechecked directly.
+## correctness
 
-## Originality
-PASS. The 2015 primary paper introduces the same unstable burst model and general constructions. The 2020 full text defines exactly-\(s\) PBUD codes and \(A_{\mathrm{PBUD}}(n,s)\), then gives general/asymptotic bounds and constructions. Neither inspected source states or implies the exact \((6,2)\) optimum, all-maximizer count, footprint distribution, or perfect-maximizer count. Exact-parameter, alias, numerical, stronger-coverage, and database searches found no implication-equivalent record. Residual risk remains from an obscure or unindexed finite computation.
+PASS
 
-## Value
-PASS. The parameter \((n,s)=(6,2)\) is a natural first finite benchmark for the foundational two-way interleaving construction: the 2015 paper’s two-burst theorem takes \(n=2m\) with \(m\ge3\), so its first length is \(6\). The exact optimum and complete maximizer/footprint census therefore sharpen the smallest instance of a published infinite construction family rather than selecting an arbitrary slice or recomputing a known table.
+PASS: From frozen RESULT.md/verify.py definitions, reconstructed all 720 permutations, each exact-two-consecutive-deletion/standardization descendant mask on the 24 S4 outputs, and 610 distinct nonempty masks with multiplicities. An independent exhaustive subset recurrence selecting the first uncovered receiver yields maximum 12, 67,163,560 labeled code choices and exact union-footprint histogram (16:100,17:3240,18:47958,19:415120,20:2283083,21:8134400,22:18331932,23:23922912,24:14024815), visiting 525,881 receiver subsets. Weighted counts take a multiplier equal to the number of source permutations sharing a mask, with no overcount by first-uncovered-word partition. Verified submitted 12-permutation perfect witness covers all 24 outputs pairwise disjoint. Exhaustive finite dynamic programming is a complete proof for the explicitly finite S6 domain, not a timeout or sampling claim.
 
-## Closest literature and limitations
-Chee–Vu–Zhang (2015) is the archive-era anchor for unstable burst deletions. Chee–Ling–Nguyen–Vu–Wei–Zhang (2020) is the closest stronger formulation inspected: it cleanly defines fixed exactly-\(s\) PBUD codes and develops general bounds/constructions. The present result is limited to \((n,s)=(6,2)\) in that exact-burst model; it does not address the at-most-two model or larger parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): The model coincides with fixed exactly-two-burst PBUD, not at-most-two bursts. Chee et al 2015 and 2020 develop the general model, constructions and asymptotics, with no specific S6 exact all-optima/footprint/perfect-code tabulation in materially accessible descriptions. Resultary yielded different deletion channels, binary length-six codes, and other permutation models, not this identical S6 finite census. Protected Oxford full-text retrieval of the closely relevant 2020 paper was blocked by disconnected institutional VPN; risk retained.
+
+## value
+
+PASS
+
+PASS: S6 is a natural smallest nontrivial exact fixed two-burst instance, and full maximum-code/all-extremizer/perfect-packing structure supplies useful baseline for permutation-burst constructions; neither the exact histogram nor its natural receiver-covering interpretation is a routine translation of generic sphere packing bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

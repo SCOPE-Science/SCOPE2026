@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T05:49:01.521226Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: From frozen RESULT.md/verify.py definitions, reconstructed all 720 permutations, each exact-two-consecutive-deletion/standardization descendant mask on the 24 S4 outputs, and 610 distinct nonempty masks with multiplicities. An independent exhaustive subset recurrence selecting the first uncovered receiver yields maximum 12, 67,163,560 labeled code choices and exact union-footprint histogram (16:100,17:3240,18:47958,19:415120,20:2283083,21:8134400,22:18331932,23:23922912,24:14024815), visiting 525,881 receiver subsets. Weighted counts take a multiplier equal to the number of source permutations sharing a mask, with no overcount by first-uncovered-word partition. Verified submitted 12-permutation perfect witness covers all 24 outputs pairwise disjoint. Exhaustive finite dynamic programming is a complete proof for the explicitly finite S6 domain, not a timeout or sampling claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior general paper constructs codes correcting burst deletions length s>=2 with decoders, and studies bounds."
+        ],
+        "reasoning": "Construction families and asymptotic bounds do not themselves imply all S6 maximal labeled codes or the exact footprint distribution.",
+        "searches": [
+          "Permutation unstable burst deletion exact two deletions S6 PBUD maximum codes perfect packing",
+          "Chee et al 2020 journal abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md blob ff78cade9f211846ab968127a7248d5ab26691d3",
+        "Frozen verify.py blob dc2b7d4d6253393a39f7e3be02a72cf4fe11ff5e",
+        "Independent 720-source/24-output exhaustive dynamic programming, 525881 states",
+        "Chee et al 2020 DOI 10.1109/TIT.2019.2933819 abstract",
+        "Chee Vu Zhang 2015 DOI 10.1109/ISIT.2015.7282754",
+        "Resultary query: Permutation unstable burst deletion exact two deletions S6 PBUD maximum codes perfect packing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior works concern attainable codes and asymptotics; the submitted exhaustive packing recursion proves a full extremizer distribution."
+        ],
+        "reasoning": "A general lower bound or construction of size 12 would not establish maximality or exact census; no known stronger classification theorem implies these counts.",
+        "searches": [
+          "Chee Vu Zhang 2015 ISIT",
+          "Chee et al 2020 DOI",
+          "Permutation unstable burst deletion exact two deletions S6 PBUD maximum codes perfect packing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PBUD codes use deletion of exactly s consecutive positions followed by unstable rank standardization; S6,s2 descendants live in S4.",
+          "At-most-s PBUD is a different channel."
+        ],
+        "reasoning": "Comparison uses identical PBUD exact-s definition, not ordinary binary deletion or stable burst constructions.",
+        "searches": [
+          "Permutation unstable burst deletion exact two deletions S6 PBUD maximum codes perfect packing",
+          "Chee et al 2020 DOI:10.1109/TIT.2019.2933819"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary found exact binary single/two deletion code censuses but no permutation PBUD(6,2) size-12 and 67,163,560 table."
+        ],
+        "reasoning": "This is a finite code census, so an unindexed parameter table remains plausible; no covering numeric table identified.",
+        "searches": [
+          "Permutation unstable burst deletion exact two deletions S6 PBUD maximum codes perfect packing",
+          "Resultary exact S6 PBUD search"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): The model coincides with fixed exactly-two-burst PBUD, not at-most-two bursts. Chee et al 2015 and 2020 develop the general model, constructions and asymptotics, with no specific S6 exact all-optima/footprint/perfect-code tabulation in materially accessible descriptions. Resultary yielded different deletion channels, binary length-six codes, and other permutation models, not this identical S6 finite census. Protected Oxford full-text retrieval of the closely relevant 2020 paper was blocked by disconnected institutional VPN; risk retained.",
+      "residual_risks": [
+        "2020 primary full text inaccessible after VPN disconnect; parameter table or appendix might already contain S6 computations.",
+        "Counts are for labeled S6 code subsets, no quotient by symmetries, and exactly two positions removed.",
+        "No assertion about at-most-two-burst, n>6 or other models."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_WITH_ACCESS_RISK",
+          "evidence": [
+            "Abstract states constructions for burst deletion s>=2 in stable and unstable permutation models; exact S6 all-maximizer table not visible.",
+            "Oxford DOI job reported vpn_disconnected, requiring manual connection."
+          ],
+          "identifier_or_url": "doi:10.1109/TIT.2019.2933819",
+          "material_read": "University repository and publisher-indexed abstract, authors, parameter-model summary; NOT full IEEE article",
+          "method": "OA/arXiv search and authorized Oxford DOI request",
+          "title": "Burst-Deletion-Correcting Codes for Permutations and Multipermutations",
+          "trigger": "Same deletion channel and likely general bounds"
+        },
+        {
+          "assessment": "MODEL_FOUNDATION",
+          "evidence": [
+            "Initial unstable burst-deletion constructions, not a materially read S6 maximum-code census."
+          ],
+          "identifier_or_url": "doi:10.1109/ISIT.2015.7282754",
+          "material_read": "Title, abstract/bibliographic summary, model terminology; full paper not read",
+          "method": "Bibliographic/source package comparison",
+          "title": "Permutation Codes Correcting a Single Burst Deletion I: Unstable Deletions",
+          "trigger": "Original PBUD definition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: S6 is a natural smallest nontrivial exact fixed two-burst instance, and full maximum-code/all-extremizer/perfect-packing structure supplies useful baseline for permutation-burst constructions; neither the exact histogram nor its natural receiver-covering interpretation is a routine translation of generic sphere packing bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For exactly two consecutive unstable deletions in S6, the largest disjoint standardized-S4-descendant code has 12 words; 67,163,560 labeled maxima, of which 14,024,815 are perfect; full footprint histogram 16..24 is exact.",
+  "limitations": [
+    "2020 primary full text inaccessible after VPN disconnect; parameter table or appendix might already contain S6 computations.",
+    "Counts are for labeled S6 code subsets, no quotient by symmetries, and exactly two positions removed.",
+    "No assertion about at-most-two-burst, n>6 or other models."
+  ],
+  "schema_version": 1
+}
