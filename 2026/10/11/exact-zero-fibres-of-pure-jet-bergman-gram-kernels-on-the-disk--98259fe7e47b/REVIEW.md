@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The polynomial numerator and prefactor follow from the ordinary disk Bergman monomial series after dividing both derivatives by the specified factorial. The Euler hypergeometric transformation and Cayley–Jacobi identity are exact polynomial formulas. Simple zeros, interlacing and Legendre parity prove the precise count at every positive integer order; the boundary point \(-1\) is explicitly excluded. The standalone checker independently corroborates coefficients and polynomial transformations for fixed low orders, without substituting numerical tests for proof.
+## correctness
 
-**Originality: PASS, with residual risk.** Gehlawat–Jain–Sarkar (arXiv:2608.13193v1) construct the kernel on arbitrary domains and calculate all pure-jet kernels on the upper half-plane; Theorem 4.11 proves these particular upper-half-plane kernels zero-free. Their materially inspected §§2–5 do not count or even give a disk pure-jet root formula. The classical DLMF Jacobi results supply root-location inputs but do not discuss these new kernels. Published mathematical-record searches for equivalent descriptions did not reveal this disk classification. Similar unindexed jet-kernel calculations cannot be ruled out.
+PASS
 
-**Value: PASS.** The jet sequence is a natural simplest family in a new canonical Gram-kernel construction. The complete order-by-order count identifies precisely when the disk fails the generalized Lu Qi-Keng property, including its number of distinct attainable zero fibres. The opposite all-orders behavior on the upper half-plane demonstrates genuine domain sensitivity of ordinary jet functionals and motivates the finite full classification beyond elementary isolated examples.
+From K(z,w)=π^-1Σ(k+1)(z wbar)^k, differentiating m times in both variables with /(m!)² gives π^-1Σ(j+m+1) C(j+m,m)² t^j. Euler hypergeometric transform yields (m+1)P_m(t)/(π(1−t)^(2m+2)); Jacobi identity P_m(t)=(1−t)^m P_m^(0,1)((1+t)/(1−t)) is exact. Orthogonality puts m simple zeros on (-1,1) in x, hence negative t; (1+x)P_m^(0,1)=L_m+L_(m+1) and strict interlacing plus parity give ceil(m/2) positive x, hence t in (-1,0), with no x=0. Every such t is z wbar for points strictly in disk. m=0 zero-free. Package code independently checks exact identities m<=12; infinite theorem rests on Jacobi/Legendre argument.
 
-**Limits.** Ordinary normalized pure jets only, unweighted disk only; no claim about arbitrary mixed sequences or general biholomorphic invariance. The proof is an explicit same-source extension using classical Jacobi theory; the originality risk concerns a possibly unindexed equivalent evaluation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Gehlawat--Jain--Sarkar define the canonical derivative Gram kernel and establish upper-half-plane pure-jet zero-freeness; the audited disk family uses its distinct non-affine geometry. The result derives every pure-order disk root fibre via Jacobi and Legendre interlacing. Prior first-jet disk theorem is the m=1 special case but does not imply arbitrary m or the ceil(m/2) count. This is a genuine infinite-order exact classification beyond the m=1 result.
+
+## value
+
+PASS
+
+This supplies a complete order-by-order disk zero-fibre classification of canonical positive-definite jet kernels, quantitatively separating pure jets on the disk from the upper half-plane and answering an exact Lu Qi-Keng question. The natural object and sequence m are intrinsic to derivative evaluation and are not an arbitrary finite parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

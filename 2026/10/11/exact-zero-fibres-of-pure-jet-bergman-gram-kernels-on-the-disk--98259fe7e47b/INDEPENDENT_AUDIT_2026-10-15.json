@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T17:46:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-zero-fibres-of-pure-jet-bergman-gram-kernels-on-the-disk--98259fe7e47b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-zero-fibres-of-pure-jet-bergman-gram-kernels-on-the-disk--98259fe7e47b/check_jet_kernel.py",
+        "https://arxiv.org/abs/2608.13193",
+        "https://dlmf.nist.gov/18.16"
+      ],
+      "rationale": "From K(z,w)=π^-1Σ(k+1)(z wbar)^k, differentiating m times in both variables with /(m!)² gives π^-1Σ(j+m+1) C(j+m,m)² t^j. Euler hypergeometric transform yields (m+1)P_m(t)/(π(1−t)^(2m+2)); Jacobi identity P_m(t)=(1−t)^m P_m^(0,1)((1+t)/(1−t)) is exact. Orthogonality puts m simple zeros on (-1,1) in x, hence negative t; (1+x)P_m^(0,1)=L_m+L_(m+1) and strict interlacing plus parity give ceil(m/2) positive x, hence t in (-1,0), with no x=0. Every such t is z wbar for points strictly in disk. m=0 zero-free. Package code independently checks exact identities m<=12; infinite theorem rests on Jacobi/Legendre argument.",
+      "residual_risks": [
+        "The finite script numerically counts Jacobi roots for m<=12; it does not certify arbitrary m."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gehlawat et al. arXiv:2608.13193 §§2–4 upper-half-plane pure-jet zero-freeness",
+          "Resultary first-order disk mixed jets for arbitrary a,b"
+        ],
+        "reasoning": "Upper half-plane single-jet theorem is domain-specific and non-affine Cayley transport mixes jet orders; first-jet disk theorem covers exactly m=1, not entire m>=2 family.",
+        "searches": [
+          "pure jet Bergman disk derivatives hypergeometric Jacobi root number zero fibres",
+          "Gehlawat Jain Sarkar Theorem 4.11 pure jet unit disk upper half plane"
+        ]
+      },
+      "checked_sources": [
+        "pure jet Bergman disk derivatives hypergeometric Jacobi root number zero fibres",
+        "Gehlawat et al. arxiv 2608.13193",
+        "Resultary first-order disk full text",
+        "DLMF Jacobi/Legendre"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Jacobi zeros and Legendre relation (1+x)P_m^{0,1}=L_m+L_(m+1)",
+          "Gehlawat et al. only upper half-plane pure jets"
+        ],
+        "reasoning": "The elementary classical machinery can prove the claim but its general root-location theorem alone does not state disk Gram fibres, while upper-half-plane zero-freeness does not transfer under fixed jet order.",
+        "searches": [
+          "pure jet Bergman disk derivatives hypergeometric Jacobi root number zero fibres",
+          "Jacobi Legendre interlacing Bergman derivative kernel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hypergeometric numerator 2F1(-m,-m-1;1;t)=P_m(t)",
+          "Jacobi P_m^{(0,1)} zeros under t=(x-1)/(x+1)"
+        ],
+        "reasoning": "Normalized jet derivative Gram on disk and the rational numerator have equivalent zeros; general unnormalized derivative kernel differs only by positive scalar so same zero fibres.",
+        "searches": [
+          "pure jet Bergman disk derivatives hypergeometric Jacobi root number zero fibres",
+          "derivative evaluation Bergman disk Jacobi hypergeometric kernel zero"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF §18.16 zeros of Jacobi",
+          "Resultary m=1 disk finding"
+        ],
+        "reasoning": "DLMF gives all Jacobi zeros on (-1,1) but no indexed disk canonical jet-kernel table; mapping and zero-fibre classification are additional domain conclusions.",
+        "searches": [
+          "pure jet Bergman disk derivatives hypergeometric Jacobi root number zero fibres",
+          "P_m Jacobi zero count disk jet Gram kernel table"
+        ]
+      },
+      "rationale": "Gehlawat--Jain--Sarkar define the canonical derivative Gram kernel and establish upper-half-plane pure-jet zero-freeness; the audited disk family uses its distinct non-affine geometry. The result derives every pure-order disk root fibre via Jacobi and Legendre interlacing. Prior first-jet disk theorem is the m=1 special case but does not imply arbitrary m or the ceil(m/2) count. This is a genuine infinite-order exact classification beyond the m=1 result.",
+      "residual_risks": [
+        "Jacobi root formulas are classical; novelty resides in their count/interpretation for this canonical jet Gram kernel, not in the orthogonal polynomial theory.",
+        "A different indexed kernel convention could already tabulate these same disk zeros. Finite script tests m<=12 only and is not all-orders proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_DOMAIN: contains upper-half-plane vanishing criterion but not the inspected disk all-order count",
+          "evidence": "arXiv:2608.13193, §§2–4, Theorem 4.11",
+          "identifier_or_url": "https://arxiv.org/abs/2608.13193",
+          "material_read": "Full readable arxiv text, sections 2–4 including derivative Gram construction and upper-half-plane pure-jet Proposition 4.5/Theorem 4.11",
+          "method": "arXiv full HTML/text reading",
+          "title": "A Canonical Positive Definite Kernel Associated with the ξ-Bergman Kernel",
+          "trigger": "same exact canonical jet-Gram objects"
+        },
+        {
+          "assessment": "COVERS m=1 only; does not imply all m or count",
+          "evidence": "Pure m=1 zero at z w-bar=-1/2; arbitrary first-order mixed coefficients",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-first-order-bergman-jet-kernels-on-the-disk-have-a-sharp-zero-fr--6c2c52725478/RESULT.md",
+          "material_read": "Complete RESULT theorem and proof including pure first derivative numerator 1+2z w-bar and mixed a f+b f-prime cases",
+          "method": "GitHub exact published RESULT full text",
+          "title": "First-order Bergman jet kernels on the disk have a sharp zero-free dichotomy",
+          "trigger": "same disk and m=1 subcase"
+        },
+        {
+          "assessment": "BACKGROUND to root argument",
+          "evidence": "§18.16 Jacobi zeros in (-1,1)",
+          "identifier_or_url": "https://dlmf.nist.gov/18.16",
+          "material_read": "Standard tabulated Jacobi root simplicity and interval results; consulted reference/summary, not full chapter",
+          "method": "NIST page and package identity",
+          "title": "DLMF Classical Orthogonal Polynomials, zeros",
+          "trigger": "Jacobi orthogonality and zero simplicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-zero-fibres-of-pure-jet-bergman-gram-kernels-on-the-disk--98259fe7e47b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-zero-fibres-of-pure-jet-bergman-gram-kernels-on-the-disk--98259fe7e47b/check_jet_kernel.py",
+        "https://arxiv.org/abs/2608.13193",
+        "https://dlmf.nist.gov/18.16"
+      ],
+      "rationale": "This supplies a complete order-by-order disk zero-fibre classification of canonical positive-definite jet kernels, quantitatively separating pure jets on the disk from the upper half-plane and answering an exact Lu Qi-Keng question. The natural object and sequence m are intrinsic to derivative evaluation and are not an arbitrary finite parameter slice.",
+      "residual_risks": [
+        "Uses classical orthogonal-polynomial facts; the new content is the exact canonical-kernel interpretation and all-order count."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Pure m-jet normalized disk Bergman Gram kernel has rational numerator Jacobi P_m and exactly ceil(m/2) distinct negative-product zero fibres for every m≥1; m=0 zero-free.",
+  "limitations": [
+    "Jacobi root formulas are classical; novelty resides in their count/interpretation for this canonical jet Gram kernel, not in the orthogonal polynomial theory.",
+    "A different indexed kernel convention could already tabulate these same disk zeros. Finite script tests m<=12 only and is not all-orders proof."
+  ],
+  "schema_version": 1
+}
