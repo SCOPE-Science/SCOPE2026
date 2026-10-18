@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Direct derivation of residual path sum, exact parity sums, and unrestricted strict convexity: any two distinct positive exact-budget allocations differ in at least two coordinates, so every one-edge-outage reciprocal loss is strictly convex along their segment. Price-preserving automorphisms force two edge classes at unique optimum. Two branch derivatives yield both sharp thresholds and all boundary values; explicit formulas satisfy budget. The nominal comparison is a differentiable Lagrange necessary-condition argument. Standalone program passed 2,478 finite cross-checks including independent weighted Laplacian spectra; symbolic identities tested separately. Finite checks do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Johnson–Chertkov §V formulates arbitrary graphs and up to \\(k\\) line failures, a broader MODEL but no universal explicit optimizing conductances.",
+        "Ghosh–Boyd–Saberi establishes exact symmetry and convexity for general nominal resistance design, but outage adversary is absent.",
+        "Boyd et al. (2001) vary stochastic loads, not failed links."
+      ],
+      "reasoning": "Although the 2010 model includes the present graph and edge-failure set as a special instance, no mathematical statement there provides the all-parameter solved formula or unique optimal two-color ratio. The general optimization specification alone does not subsume these sharp results; no stronger exact theorem was identified.",
+      "searches": [
+        "published-finding corpus semantic search: single link outage robust graph design minimax total effective resistance under uncertain deletion; symmetry and uniqueness",
+        "Web: network design minimax effective resistance under edge failures cyclic networks",
+        "Johnson–Chertkov arXiv:1004.2285 §V",
+        "Ghosh–Boyd–Saberi SIAM Review (2008) §§5 and 8"
+      ]
+    },
+    "checked_sources": [
+      "Johnson–Chertkov, arXiv:1004.2285v1 (2010-04-13), https://arxiv.org/abs/1004.2285; full HTML/PDF, §§ I–VI and specifically § V single-line failures.",
+      "Ghosh–Boyd–Saberi, SIAM Review 50 (2008), DOI:10.1137/050645452; Stanford hosted PDF https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf, especially §§ 1, 5, 8.",
+      "Boyd–Vandenberghe–El Gamal–Yun, ISPD 2001, https://cecs.uci.edu/~papers/compendium94-03/papers/2001/ispd01/pdffiles/p060.pdf; full article, objective and robustness sections.",
+      "Predari–Berner–Kooij–Meyerhenke (2023), https://arxiv.org/abs/2309.08271; title/abstract checked, edge-insertion objective, not edge-outage cost minimization.",
+      "Available preceding priced-cycle algebraic-connectivity claim: item 33fae1c2-2fc4-4cef-9618-acebaf17620c, concept compared, not the present outage/Kirchhoff objective.",
+      "Published published-finding corpus searches of exact objects, aliases, minimax single-link failures, and alternating price parameters (queries recorded in originality checks)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Johnson–Chertkov gives convexity and a soft-max numerical method for robust loss, but lacks optimality ratios, uniqueness or exact thresholds for the priced cycle.",
+        "Ghosh–Boyd–Saberi §5.2 derives equal conductances on edge-transitive unpriced cycles; it concerns an unfailed network and hence does not imply the price-insensitive outage plateau.",
+        "The preceding local priced-cycle problem optimizes algebraic connectivity of a different weighted Laplacian, not failure-robust resistance."
+      ],
+      "reasoning": "The old nominal cycle result is NOT a dominating theorem when the adversary deletes an edge; different failures turn the cycle into paths with positional reciprocal coefficients. The present sharp phase diagram requires summing parity-weighted path coefficients and solving a nonsmooth minimax problem, which is not given in the prior general model.",
+      "searches": [
+        "Johnson–Chertkov arXiv:1004.2285 §V-A to §V-C",
+        "Ghosh–Boyd–Saberi DOI:10.1137/050645452 §§5 and 8",
+        "published-finding corpus semantic search: On even cycles with alternating prices, independently optimize edge conductances under a budget to minimize the worst post-single-edge-deletion total effective resistance; equal-conductance plateau and two thresholds",
+        "Web: robust effective resistance optimization post-contingency failure budget weighted cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Johnson–Chertkov (arXiv:1004.2285 §V) uses worst-case power dissipation after line failures, mathematically equivalent up to a constant scaling to total effective resistance under isotropic balanced current covariance.",
+        "Ghosh–Boyd–Saberi (2008 §§1–2) identifies Kirchhoff index with total resistance/power dissipation; a failed cycle edge yields a weighted path.",
+        "published-finding corpus closest relevant published result is the priced alternating-cycle algebraic-connectivity problem recorded locally as item 33fae1c2-2fc4-4cef-9618-acebaf17620c, with a different objective and no failed edge."
+      ],
+      "reasoning": "The generic post-failure program is PRIOR ART and is explicitly acknowledged. Its objective can represent the present instance, but neither its general convexity theorem nor numerical soft-max approach computes the closed-form optimizer, reciprocal price thresholds, or nominal-versus-outage equalization phenomenon. No equivalent exact solved family was located.",
+      "searches": [
+        "published-finding corpus semantic search: On even cycles with alternating prices, independently optimize edge conductances under a budget to minimize the worst post-single-edge-deletion total effective resistance; equal-conductance plateau and two thresholds",
+        "published-finding corpus semantic search: Minimum worst-case Kirchhoff index after one edge failure cycle, priced conductance robust allocation, alternating edge colors",
+        "published-finding corpus semantic search: single link outage robust graph design minimax total effective resistance under uncertain deletion; symmetry and uniqueness",
+        "Web: worst case edge removal Kirchhoff index minimax edge weight allocation cycle",
+        "Web: single edge failure robustness optimization edge conductance weights Kirchhoff index"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus titles concern edge-weighted cycles in spectral, metric and dynamical problems, not post-single-edge-failure Kirchhoff-index minimization.",
+        "Targeted web searches returned Ghosh–Boyd–Saberi (2008), Johnson–Chertkov (2010), and graph-augmentation research, with no cycle outage threshold table."
+      ],
+      "reasoning": "Compared object (even cycle), decision variables (alternating-price conductances), adversarial failure count (one), objective (worst residual Kirchhoff index), both threshold fractions, and the equal-conductance interval. No exact table or database row covering that combination was found; this is negative search evidence, not a novelty guarantee.",
+      "searches": [
+        "published-finding corpus semantic search: On even cycles with alternating prices, independently optimize edge conductances under a budget to minimize the worst post-single-edge-deletion total effective resistance; equal-conductance plateau and two thresholds",
+        "published-finding corpus semantic search: Minimum worst-case Kirchhoff index after one edge failure cycle, priced conductance robust allocation, alternating edge colors",
+        "Web: cycle graph alternating edge costs robust all pairs effective resistance after link deletion",
+        "Web: alternating cost cycle edge conductance optimal worst case single failure Kirchhoff index"
+      ]
+    },
+    "rationale": "The unrestricted all-size formula, two reciprocal price thresholds and exact equal-conductance plateau are not stated in the inspected general robust line-failure formulation of Johnson–Chertkov (2010, §V) nor in Ghosh–Boyd–Saberi (2008) nominal resistance design. Full-text claim-versus-implication comparisons distinguish the prior convex model from an explicit analytic optimizer and uniqueness theorem. Targeted published-record and accessible claim checks found no stronger coverage; residual unindexed-equivalence risk remains.",
+    "residual_risks": [
+      "A specialized analytic solution to the same line-outage model could appear in unindexed literature or in a chapter not discovered by search.",
+      "The general robust failure formulation from 2010 already encompasses the instance as an optimization problem, so the novelty is the explicit exact classification, not the formulation or convexity.",
+      "Only first-version date of arXiv:1004.2285 has been verified as the focal archived public source; older contextual articles are cited for background."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS general worst-case single-line failure convex objective and computational approach; DOES NOT STATE a closed-form priced even-cycle optimum or price plateau.",
+        "evidence": [
+          "arXiv:1004.2285 §V-A defines worst-case power dissipation over failed lines and convexity; §V-B soft-max smoothing; §V-C numerical illustrations, not the two reciprocal thresholds."
+        ],
+        "identifier_or_url": "arXiv:1004.2285v1, https://arxiv.org/abs/1004.2285",
+        "material_read": "Full accessible arXiv HTML paper, including introductory claims, convex line sizing, §V robust network design and its formulas; PDF pages 1 and 7 and specific robust section.",
+        "method": "Read arXiv full text and PDF text; inspect visual page for §V; compare objective, parameters, applications and analytical results.",
+        "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+        "trigger": "Same worst-case line-failure optimization framework; high overlap risk."
+      },
+      {
+        "assessment": "COVERS nominal conductance allocation, edge symmetry, and reciprocal tree resistance formula; does not optimize post-outage worst-case value on alternating-price cycles.",
+        "evidence": [
+          "§5.2 says equal weights on an unpriced edge-transitive ring; §8 lists other objectives, but not edge-outage adversary."
+        ],
+        "identifier_or_url": "DOI:10.1137/050645452, https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "30-page author-hosted full text; §§ 1, 2, 5 (tree and graph symmetry), 6–8 (scope, numerical examples and extensions).",
+        "method": "Read original full-text PDF and primary claims/formulas; inspect §§ 5, 8 rather than use snippets.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Foundational Kirchhoff index and graph conductance allocation, including cycle symmetry."
+      },
+      {
+        "assessment": "Controls unknown load currents rather than worst post-single-edge-deletion Kirchhoff index; no alternating-price cycle phase diagram.",
+        "evidence": [
+          "Abstract and §§1–4 discuss variation of block currents, wire width/area and voltage constraints."
+        ],
+        "identifier_or_url": "DOI:10.1145/369691.369734, https://cecs.uci.edu/~papers/compendium94-03/papers/2001/ispd01/pdffiles/p060.pdf",
+        "material_read": "Six-page primary PDF, motivation/objective/constraints/optimization and numerical illustrations.",
+        "method": "Inspected primary PDF text and first-page rendering; compared perturbation model and objective.",
+        "title": "Design of Robust Global Power and Ground Networks",
+        "trigger": "Early robust circuit-design approach; may dominate current network design."
+      },
+      {
+        "assessment": "Different edge-addition intervention, with numerical/greedy methods; not known to imply specific priced post-failure cycle allocation.",
+        "evidence": [
+          "Abstract explicitly states optimizing choice of new edges to lower effective resistance, not loss after an adversarial edge failure."
+        ],
+        "identifier_or_url": "arXiv:2309.08271, https://arxiv.org/abs/2309.08271",
+        "material_read": "Abstract and bibliographic description; full text not needed for decisive comparison because optimization variables insert edges rather than remove an adversarial existing edge.",
+        "method": "Compared abstract problem definition with present deterministic edge-outage objective.",
+        "title": "Greedy Optimization of Resistance-based Graph Robustness with Global and Local Edge Insertions",
+        "trigger": "Same robust effective-resistance design language."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0e2a6b59-a0bc-4550-a36d-e30c91a722ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Single-link outages and total effective resistance are natural reliability design criteria. The theorem identifies a counterintuitive nonzero price interval where robust optimum equalizes unequal-price conductances, while nominal optimum cannot do so for any unequal prices. It gives a unique, unrestricted allocation formula, sharp reciprocal thresholds and a large-size width law, providing a meaningful exact benchmark for a known nonsmooth robust optimization framework rather than a routine unmotivated special value.",
+    "status": "PASS"
+  }
+}
