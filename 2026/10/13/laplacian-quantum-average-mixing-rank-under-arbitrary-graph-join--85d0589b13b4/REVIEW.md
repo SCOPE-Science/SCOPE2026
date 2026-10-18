@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The derivation begins with the ordinary combinatorial Laplacian and removes precisely one global constant direction in each factor, including disconnected factors. Shifted eigenspaces are orthogonal, and cross-factor projectors have disjoint support; the only overlap with the join's global top projector occurs at a factor Laplacian eigenvalue equal to its order. This produces the exact, positive-semidefinite block identity. The nonstandard lemma is proved by decomposing the complement into connected components and showing that the reduced Schur-square matrix is positive definite on component-constant vectors for orders at least three. Both exceptional two-vertex cases and singleton cases are treated separately. The packaged checker reconstructs 100 exact graph pairs independently; finite tests corroborate but do not prove the all-graph theorem.
+## correctness
 
-**Originality: PASS, residual risk.** The 2018 commutant/projector method implies the general Schur-square definition. The 2023 Laplacian join paper supplies transition formulas from which the spectral blocks can be reconstructed. The 2005 circulant-bunkbed paper concerns adjacency walks and approximate average uniformity. Comparison of the inspected source content does not reveal a prior statement of the exact factor-rank law, the order-two-only rank revival or the complement-component positivity lemma. The theorem is nevertheless a further deduction from known formulas, and a stronger unlocated matrix theorem remains a possibility. Existing graph-specific quantum average-mixing results for adjacency Hamiltonians and related operations do not imply a universal Laplacian join rank identity.
+PASS
 
-**Value: PASS.** The statement covers arbitrary nonempty simple graphs, including irregular and disconnected factors, and reveals a universal additive rank law with a complete, small exception set. It translates a potentially high-dimensional spectral computation on a joined graph into two lower-dimensional reduced computations. The complement-component lemma explains why top-frequency coincidences almost never create additional nullity effects. This is a structural classification rather than a parameter relabeling or a finite experiment.
+From the pinned RESULT.md, the shifted factor eigenprojectors are supported on disjoint factor vertex sets. Resolving collision with the join eigenvalue N gives an exact Schur-square positive-semidefinite block decomposition diag(B_X,B_Y)+J_N/N^2+pp^T. For a factor G, the complement-component argument makes ker Q_G subset ker F_s(G) for s>=3; only connected K_2 has a rank-one gain. The constant directions already lie in B-block ranges for n,m>=2; singleton blocks contribute exactly one direction. Thus rank Mhat_L(X join Y)=rho(X)+rho(Y)+1_(min orders=1)+1_(X=K2)+1_(Y=K2), where Q_G is built after subtracting the constant-direction spectral projector even if G disconnected. Finite exact spectral-projector checks on 49 pairs corroborate, not prove, the all-graph lemma.
 
-**Limitations.** Only ordinary unweighted Laplacian Hamiltonians, finite graphs and uniform-time Cesàro averaging. No independent audit, and no claim that every stronger published formulation has been located. The concise full-source comparisons and the remaining coverage risk appear in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary Kirkland--Monterde (2023) develops Laplacian join eigenfrequencies and transition amplitudes; Coutinho et al. (2018) develops the general average-mixing projector formula. Neither inspected result gives this arbitrary-join rank identity or the complement-component kernel lemma. This is a nontrivial new synthesis best-of-knowledge, with an unlocated stronger commutant theorem a residual risk.
+
+## value
+
+PASS
+
+A full structural rank classification for arbitrary connected/disconnected factors under a natural quantum-walk invariant, with exactly identified exceptional K_2 and singleton factors. The all-order theorem determines nullity under joins, not just a finite example or restatement of projector calculus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
