@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof was reconstructed from the definitions. The cardinal count uses exactly the stated bound \(2^{\lambda}\le\kappa\). The hereditary check treats the nontrivial case in which a subset has a new maximal vertex. The exact restriction equivalence follows from coherence of initial labels. Coordinate projections are contractive, and the source's Theorem 7.1 supplies a contractive projection onto the embedded monotone-basis space.
+## correctness
 
-## Originality
-PASS. The focal full text and the 2024 countable predecessor were compared at theorem and proof level, and targeted semantic searches covered exact restriction, induced hereditary embeddings, universal hypergraphs, uncountable Fraïssé formulations, and norm-one coordinate universality. The closest predecessor gives only the countable exact hereditary-universal construction. The focal Proposition 7.5 gives an uncountable universal hypergraph but its canonical range becomes complete after hereditary closure, so it does not imply the new exact-restriction claim through that route. A standard universal-structure theorem may provide an abstract antecedent; this remains a stated residual risk.
+PASS
 
-## Value
-PASS. The result isolates the precise coherence needed for universal combinatorial Banach spaces and gives a direct construction under the focal cardinal hypothesis. The \(1\)-complemented isometric consequence for monotone unconditional bases is a natural quantitative strengthening, not a parameter-only or routine recomputation.
+Cardinality |S|=κ follows from ≤2^|α|≤κ types at every α<κ and κ many stages, including singular κ. The coherent-label order has unique first-coordinate order, is transitive, and survives restriction of the maximal label; thus U is hereditary, contains every singleton, and the canonical φ_G(α)=(α,G|α+1) satisfies A∈G iff φ_G[A]∈U. Coordinate projections in X_U are norm ≤1 by heredity and absolute norm. Theorem 7.1 gives the needed isometric embedding and contractive projection for the specified monotone unconditional bases, so composing maps yields a norm-one projection. Directly reconstructed finite hereditary-chain cases n=2,4,6 to check changing-maximum subset cases (not proof for infinite κ).
 
-## Closest literature and limitations
-The closest exact model is the separable Fraïssé construction in arXiv:2404.01733v1, Section 4.G. The focal uncountable paper arXiv:2610.01919v1 supplies the cardinal bound, the intended universal-space application, and the contractive projection theorem used in the final step. No necessity of the cardinal bound is claimed, and the result does not settle universality from an arbitrary universal hypergraph alone.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best knowledge: the primary 2026 paper Section7 constructs a universal hypergraph and uses hereditary closure, but that destroys induced exactness on its particular coding range: any finite pattern can be added by a later label. The current coherence condition corrects the structural issue, giving an exact induced hereditary restriction and contractive coordinate projection. The 2024 countable Fraïssé construction covers κ=ω only; no inspected stronger cardinal theorem was shown to supply the exact κ statement. General uncountable model-theoretic universality remains a priority risk.
+
+## value
+
+PASS
+
+PASS: existence of a single exactly coordinate-universal hereditary system at κ is a natural structural strengthening beyond abstract hypergraph universality; the immediate 1-complemented isometric Banach-space host for the entire monotone unconditional class is a mathematically substantive consequence, not an arbitrary finite instance or rephrasing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
