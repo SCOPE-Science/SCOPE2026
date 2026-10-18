@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact one-deletion model and the 0–1 incidence inequalities are equivalent in both directions. All 128 potential length-seven codewords and all 64 received words are represented. Independent deletion-generated and insertion-generated incidence matrices agree entrywise; eight explicit witnesses reach the asserted sizes, and complete mixed-integer optimizations establish the matching upper bounds with optimal termination and sufficiently tight dual bounds. The six shorter pairs and the syndrome partition also reproduce. The underlying integer optimizer is trusted; a separate symbolic search-tree certificate was not produced.
+## correctness
 
-**Originality: PASS, with access risk.** Searches of mathematical research records and external literature examined the same length/list constraints, potential alternative shadow-packing descriptions, exact tables and broader capacity formulations. Both closely related 2026 arXiv full HTML papers were inspected. Kiah--Wei--Zeng gives a finite-length Theorem 23; its best length-seven list-two upper bound is \(170/3\), well above the exact \(33\). Con--Doron--Ribeiro addresses asymptotic capacity, and No (2019) concerns the list-one case. None of these imply the complete profile or the strict two-class cardinality gap. An unindexed earlier exact table remains possible.
+PASS
 
-**Value: PASS.** The novel structural point is the first length in which the **maximum size** of a list-two synchronization code exceeds the maximum size of a union of two unique-deletion codebooks: \(33>2\cdot16\). This is a natural exact boundary (with every shorter length ruled out), rather than an arbitrary number. The complete list-size profile further fixes a nontrivial test instance for general techniques.
+Deletion-shadow incidence A_{y,x} is exactly 1 for a distinct one-deletion descendant; max code size with each row sum <=L is an unrelaxed 0-1 integer program over all 128 columns and 64 rows (n=7). Independently constructed insertion and deletion incidences coincide and every received word has n+1 one-insertion supersequences. The assigned source verifier checks the stored 7-bit witnesses for L=1..8; independently solved integer programs returned feasible integer optimum vectors at each L. Independent SciPy/HiGHS binary-variable MILP reruns proved optima 16,33,50,65,81,96,112,128 with solver-reported optimality and integrality; similarly n<=6 M1/M2 pairs 1/2,2/3,2/4,4/7,6/12,10/19. Thus n=7 first with M(7,2)>2M(7,1); a 33-word list-two code cannot be a union of two list-one codes. Upper bounds rely on trusted solver termination/dual bound; no separate human-readable integer branch certificate.
 
-No asymptotic extension or independent verification is asserted. Sources: Kiah--Wei--Zeng, arXiv:2609.21395; Con--Doron--Ribeiro, arXiv:2607.03989; No, *Entropy* 21 (2019), 1202. The two 2026 primary full HTML articles were inspected, as were substantial indexed sections of the 2019 source; unexplored finite tables outside these sources remain a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Theorem 23 of Kiah-Wei-Zeng provides only 170/3 at n7 list2, insufficient to force 33. The Resultary code with n6 list2 under TWO deletions is a distinct channel; its n6 unique-one-deletion optimizer census does not classify n7 list2. Earlier MILP papers target unique decoding. The 33 capacity and first strict two-class size gap are not derived from the checked prior statements.
+
+## value
+
+PASS
+
+The first finite blocklength where true list-two capacity exceeds two optimal unique-decoding classes is a natural, sharply motivated obstruction to a simple time-sharing construction. Full n7 profile is a useful benchmark for exact list decoding, despite no infinite-length theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

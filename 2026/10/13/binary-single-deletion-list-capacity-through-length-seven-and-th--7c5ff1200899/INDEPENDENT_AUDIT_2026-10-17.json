@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T02:17:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Deletion-shadow incidence A_{y,x} is exactly 1 for a distinct one-deletion descendant; max code size with each row sum <=L is an unrelaxed 0-1 integer program over all 128 columns and 64 rows (n=7). Independently constructed insertion and deletion incidences coincide and every received word has n+1 one-insertion supersequences. The assigned source verifier checks the stored 7-bit witnesses for L=1..8; independently solved integer programs returned feasible integer optimum vectors at each L. Independent SciPy/HiGHS binary-variable MILP reruns proved optima 16,33,50,65,81,96,112,128 with solver-reported optimality and integrality; similarly n<=6 M1/M2 pairs 1/2,2/3,2/4,4/7,6/12,10/19. Thus n=7 first with M(7,2)>2M(7,1); a 33-word list-two code cannot be a union of two list-one codes. Upper bounds rely on trusted solver termination/dual bound; no separate human-readable integer branch certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 23 at n7,L2 gives |C|<=170/3, not <=33; Resultary example is a two-deletion channel."
+        ],
+        "reasoning": "Existing broader asymptotic bounds and other channel optima cannot force the claimed 33.",
+        "searches": [
+          "arXiv:2609.21395",
+          "Resultary 2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.21395 (Kiah, Wei, Zeng)",
+        "arXiv:2607.03989 (Con, Doron, Ribeiro)",
+        "DOI:10.3390/e21121202 (No, 2019)",
+        "Resultary 2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+        "Resultary 2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier results cover finite upper bounds unique decoding and asymptotic list codes; neither implies first M(n,2)>2M(n,1) at n7."
+        ],
+        "reasoning": "Nondecomposable 33 size is an exact optimization gap, beyond known inequality.",
+        "searches": [
+          "arXiv:2609.21395",
+          "DOI:10.3390/e21121202"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same one-deletion lists and distinct supersequence incidence, but general bounds do not enumerate exact n7 optima."
+        ],
+        "reasoning": "The source combinatorial model matches; the exact n7 vector requires MILP optimum computation.",
+        "searches": [
+          "binary single deletion list 2 decoding capacity n=7 33 16 M(7,L) optimal code",
+          "arXiv:2609.21395"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published n6 unique one-deletion code census has M(6,1)=10; no n7 list2 table found."
+        ],
+        "reasoning": "Indexed exact database or table could still exist, explicitly retained as risk.",
+        "searches": [
+          "binary single deletion list 2 decoding capacity n=7 33 16 M(7,L) optimal code",
+          "Resultary 2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c"
+        ]
+      },
+      "rationale": "Theorem 23 of Kiah-Wei-Zeng provides only 170/3 at n7 list2, insufficient to force 33. The Resultary code with n6 list2 under TWO deletions is a distinct channel; its n6 unique-one-deletion optimizer census does not classify n7 list2. Earlier MILP papers target unique decoding. The 33 capacity and first strict two-class size gap are not derived from the checked prior statements.",
+      "residual_risks": [
+        "Integer upper bounds depend on documented trustworthy HiGHS MILP proof-of-optimality/dual bounds; no symbolic dual or portable branch-and-bound certificate in source package.",
+        "Unindexed exact n7 list-capacity table remains possible; uniqueness of nondecomposable code at shorter length is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Specialization n7, one deletion, L2 yields 170/3 upper bound, strictly larger than 33; no matching exact 33 statement found in examined sections",
+          "evidence": "Upper bound 56.67 does not imply integer optimum 33.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.21395",
+          "material_read": "Primary full PDF sections defining channel and Theorem 23 with run-counting upper bound",
+          "method": "Open-access primary PDF, relevant theorem and its hypotheses inspected",
+          "title": "Constant-List Insertion--Deletion Codes: New Bounds and an Improvement of Levenshtein Lower Bound",
+          "trigger": "Same binary insertion/deletion list model and finite upper bound"
+        },
+        {
+          "assessment": "Two deletions at n6 and list size two, different A matrix from one deletion at n7",
+          "evidence": "Its 7-word optimum for n6 and k2 cannot dominate n7,k1 capacity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814/RESULT.md",
+          "material_read": "Entire published RESULT.md, seven-word witness and rational packing certificate",
+          "method": "GitHub source retrieval, full RESULT.md",
+          "title": "Exact length-six binary two-list two-deletion code size",
+          "trigger": "Potential published same finite coding benchmark"
+        },
+        {
+          "assessment": "Covers n6 L=1, not n7 list L=2 or full vector",
+          "evidence": "No direct implication for the 33-word list-two witness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c/RESULT.md",
+          "material_read": "Complete published RESULT.md, unique-deletion n6 optimum 10 and nine maxima",
+          "method": "GitHub source retrieval, full RESULT.md",
+          "title": "Complete census of maximum binary length-six single-deletion codes",
+          "trigger": "Potential prior finite one-deletion optima"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first finite blocklength where true list-two capacity exceeds two optimal unique-decoding classes is a natural, sharply motivated obstruction to a simple time-sharing construction. Full n7 profile is a useful benchmark for exact list decoding, despite no infinite-length theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.21395 (Kiah, Wei, Zeng)",
+    "arXiv:2607.03989 (Con, Doron, Ribeiro)",
+    "DOI:10.3390/e21121202 (No, 2019)",
+    "Resultary 2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+    "Resultary 2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Integer upper bounds depend on documented trustworthy HiGHS MILP proof-of-optimality/dual bounds; no symbolic dual or portable branch-and-bound certificate in source package.",
+    "Unindexed exact n7 list-capacity table remains possible; uniqueness of nondecomposable code at shorter length is not claimed."
+  ],
+  "residual_risks": [
+    "Integer upper bounds depend on documented trustworthy HiGHS MILP proof-of-optimality/dual bounds; no symbolic dual or portable branch-and-bound certificate in source package.",
+    "Unindexed exact n7 list-capacity table remains possible; uniqueness of nondecomposable code at shorter length is not claimed."
+  ],
+  "schema_version": 1
+}
