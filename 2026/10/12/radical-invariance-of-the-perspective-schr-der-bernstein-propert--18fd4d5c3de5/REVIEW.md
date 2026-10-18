@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. In idempotent language, perspective is exactly the relation \(\sim_{rlr}\). The quotient-to-ring implication is the lifting argument already present in the last paragraph of Khurana–Mittal Theorem 2.6: reduce mutual subperspectivity, use quotient PSB, then lift the resulting \(rlr\)-chain with Lemma 2.5. For the reverse implication, semiregularity supplies compatible lifts of the two orthogonal decompositions realizing the nested quotient summands; Lemma 2.5 lifts the two subperspectivity relations, PSB upstairs gives perspectivity of the lifted ambient summands, and quotienting returns perspectivity downstairs.
+## correctness
 
-## Originality
-PASS. The recent source proves the stronger-hypothesis statement “SB in a semiregular ring implies PSB both upstairs and modulo the radical,” and its proof contains the quotient-to-ring PSB implication. It does not state the converse descent implication or the resulting radical-invariance biconditional. published-finding corpus searches for the biconditional and its standard aliases found no covering record. Web searches located the recent Khurana–Mittal paper and the foundational Keef–Koşan article but no prior quotient criterion with the same hypotheses and conclusion. The inaccessible portion of the Keef–Koşan article is retained as a residual risk rather than treated as evidence of absence.
+PASS
 
-## Value
-PASS. The biconditional removes the ordinary SB hypothesis from the structural reduction and shows that, within semiregular rings, PSB is determined exactly by the regular semiprimitive quotient. This converts a property quantified over nested direct summands of \(R_R\) into one on \(R/J(R)\), where regular-ring structure is available. The result is a reusable reduction principle rather than a parameter substitution or finite special case.
+For semiregular unital R, idempotents lift modulo J(R), with R/J regular. Perspectivity eR~p fR is equivalent to a right-left-right idempotent chain, and Khurana–Mittal Lemma 2.5 lifts such a chain through ideals in J(R). If quotient has PSB, reducing mutually subperspective summands gives quotient PSB and the terminal rlr chain lifts back. Conversely if R has PSB, start with arbitrary mutually subperspective quotient summands, express the two nested summands by finite orthogonal idempotent decompositions and lift those compatible decompositions (semiregularity). The two quotient rlr chains lift by Lemma 2.5, giving mutually subperspective summands upstairs; PSB in R yields a chain whose reduction gives quotient perspectivity. The required compatibility and exact semiregularity scope were checked. No computational certificate is used or needed.
 
-## Closest literature and limitations
-The closest source is Khurana–Mittal, arXiv:2609.39491v1, especially Lemma 2.5 and Theorem 2.6. Keef–Koşan, DOI 10.1142/S0219498828500090, is the foundational PSB source; only its publisher preview and abstract were accessible in this run. The theorem is not claimed beyond semiregular rings.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Khurana–Mittal Theorem 2.6 establishes that semiregular ring with ordinary SB has PSB for ring and quotient; its last paragraph directly proves quotient PSB ⇒ ring PSB even without SB. The reverse direction from ring PSB alone and the resulting iff are not explicitly present in the read full HTML. The foundational Keef–Koşan preview gives definition and positive module classes but full text was inaccessible; cannot exclude earlier radical invariance hidden therein, and authorized Oxford was safety-blocked. Closest searched Resultary results are not this iff.
+
+## value
+
+PASS
+
+A precise iff reduction of a property quantified over nested mutually subperspective direct summands from semiregular R to regular R/J(R) is a natural reusable structure theorem. The reverse transfer lifts *nested* quotient summands, not merely final isomorphisms, and removes the stronger ordinary SB assumption of prior theorem. Value does not rest on a finite case or nominal rephrasing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

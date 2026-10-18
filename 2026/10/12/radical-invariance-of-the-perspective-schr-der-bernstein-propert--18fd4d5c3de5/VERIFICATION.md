@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final theorem is a universal ring-theoretic statement, so no finite experiment is used as proof. The argument was replayed in the idempotent formulation of perspectivity.
+# Independent mathematical audit
 
-For the quotient-to-ring implication, arbitrary idempotents representing mutually subperspective summands were reduced modulo the Jacobson radical. Quotient PSB produces an \(rlr\)-chain between their images, and Khurana–Mittal Lemma 2.5 lifts that chain.
+## correctness
 
-For the ring-to-quotient implication, arbitrary nested quotient summands were represented by two orthogonal idempotent decompositions. Semiregularity permits these finite orthogonal families to be lifted. Lemma 2.5 then lifts both subperspectivity chains; PSB upstairs gives the ambient perspectivity chain; quotienting gives the desired chain downstairs.
+PASS
 
-Boundary check: the descent proof would not be justified for an arbitrary ring in which compatible idempotent lifting fails. Accordingly the claim is restricted to semiregular rings. No claim about SB itself is made.
+For semiregular unital R, idempotents lift modulo J(R), with R/J regular. Perspectivity eR~p fR is equivalent to a right-left-right idempotent chain, and Khurana–Mittal Lemma 2.5 lifts such a chain through ideals in J(R). If quotient has PSB, reducing mutually subperspective summands gives quotient PSB and the terminal rlr chain lifts back. Conversely if R has PSB, start with arbitrary mutually subperspective quotient summands, express the two nested summands by finite orthogonal idempotent decompositions and lift those compatible decompositions (semiregularity). The two quotient rlr chains lift by Lemma 2.5, giving mutually subperspective summands upstairs; PSB in R yields a chain whose reduction gives quotient perspectivity. The required compatibility and exact semiregularity scope were checked. No computational certificate is used or needed.
 
-Originality checks compared the statement in both module and idempotent-chain language against published-finding corpus, the current and prior own ledgers, the complete accessible arXiv source, and the accessible material of the foundational 2026 PSB paper. The remaining full-text access limitation is recorded in AUDIT.json.
+## originality
+
+PASS
+
+Khurana–Mittal Theorem 2.6 establishes that semiregular ring with ordinary SB has PSB for ring and quotient; its last paragraph directly proves quotient PSB ⇒ ring PSB even without SB. The reverse direction from ring PSB alone and the resulting iff are not explicitly present in the read full HTML. The foundational Keef–Koşan preview gives definition and positive module classes but full text was inaccessible; cannot exclude earlier radical invariance hidden therein, and authorized Oxford was safety-blocked. Closest searched Resultary results are not this iff.
+
+## value
+
+PASS
+
+A precise iff reduction of a property quantified over nested mutually subperspective direct summands from semiregular R to regular R/J(R) is a natural reusable structure theorem. The reverse transfer lifts *nested* quotient summands, not merely final isomorphisms, and removes the stronger ordinary SB assumption of prior theorem. Value does not rest on a finite case or nominal rephrasing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
