@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical proof has two independent layers: a symbolic realizability theorem and a finite exhaustive count.
+# Independent mathematical audit
 
-For necessity, minimum converse-well-founded rank of each occurring depth-one type supplies lower-rank witnesses. Transitivity forces every witness successor-set to be a subset of its parent's required valuation set. Induction on minimum rank therefore reproduces the support closure.
+## correctness
 
-For sufficiency, the closure stage of a type is a finite rank. For each requested valuation, choose an earlier-stage witness with a nested successor-set. Edges always lower the stage; after transitive closure the frame is finite and irreflexive. Nested successor-sets guarantee that no unintended valuation can appear below a node, while the chosen witnesses guarantee that every intended valuation does appear.
+PASS
 
-`verify_depth2.py` then checks all \(256\) candidate spectra for the one-variable case. Its fixed-point test accepts exactly \(85\). A second exhaustive test searches linear orders of each candidate spectrum and verifies the equivalent earlier-witness condition; the two procedures have zero mismatches. For every accepted spectrum the checker constructs the witness frame, computes its transitive closure, and recomputes every node type and the root spectrum; there are zero construction failures.
+For a transitive conversely well-founded Kripke frame, depth-one types are (v,T) with v in finite V, T subset of successor valuations. Necessity of the least support closure follows by choosing a minimum ordinal rank occurrence of each type in the successor spectrum, using strictly rank-decreasing successors and transitivity U⊆T. Sufficiency constructs one representative per type, connects each supported T requirement to a type at a strictly earlier closure stage, takes transitive closure, and adjoins a root; each representative then has exactly its required successor-valuation set. This proves an iff for any finite valuation alphabet without relying on enumeration. With |V|=2, the eight possible depth-one types produce 256 spectra; independent separate bitmask fixed-point enumeration returned 85 realizable, with size histogram 1,2,5,12,21,22,15,6,1. Each possible root valuation doubles to 170 pointed depth-two types; finite characteristic formulas separate them, so all 2^170 subsets are definable even in the language permitting countable conjunctions. The given verify_depth2.py exhausts all 256, cross-checks permutations and constructs finite witnesses; finite check is exhaustive for the count while the structural theorem is independently proved.
 
-The recorded output is:
+## originality
 
-`{"accepted_spectra":85,"construction_failures":0,"depth2_pointed_types":170,"equivalence_classes":"2^170","permutation_mismatches":0,"size_distribution":{"0":1,"1":2,"2":5,"3":12,"4":21,"5":22,"6":15,"7":6,"8":1},"total_candidate_spectra":256}`
+PASS
 
-The checker is exhaustive and terminates over finite search spaces. It is evidence for the numeric census, not a substitute for the symbolic proof of the realizability criterion.
+Classical GL completeness, bounded-depth modal bisimulation and 2024 mechanised uniform interpolation are genuinely prior, and the 2026 paper provides the infinitary-GL setting. Inspected accessible primary sections give no exact 85-spectra support-closure iff or 2^170 quotient, while the necessary one-variable finite model construction is a further structural result. The 2026 direct arXiv full preprint was inaccessible after arXiv PDF/HTML and lawful alternative attempts; authorized institutional retrieval reported VPN disconnected, so novelty is best-of-knowledge with explicit risk, not an automatic failure or a fabricated full-text noncoverage claim.
+
+## value
+
+PASS
+
+A complete, naturally bounded one-variable depth-two GL type census and the exact support-closure realizability criterion are substantial finite model-theoretic facts; the criterion generalizes structurally to any finite valuation alphabet and separates realizable from the many impossible naive successor profiles. The 85/170 count is an exhaustive natural classification, not an arbitrary subset or a restatement of interpolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

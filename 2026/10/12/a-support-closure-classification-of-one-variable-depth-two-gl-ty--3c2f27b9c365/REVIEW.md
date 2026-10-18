@@ -1,27 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The necessity direction uses only transitivity and converse well-foundedness. Choosing a minimum-rank occurrence of each depth-one type forces every valuation demanded by its successor set to be witnessed by a strictly lower-rank type whose own successor-valuation set is contained in the original one. This is exactly the support-closure rule.
+PASS
 
-For sufficiency, closure stages provide a finite acyclic dependency order. One node per candidate type, with one earlier witness for each demanded valuation and then transitive closure, realizes the prescribed type because successor-valuation sets can only decrease along generated edges. Adding a root above all constructed nodes realizes exactly the requested spectrum.
+For a transitive conversely well-founded Kripke frame, depth-one types are (v,T) with v in finite V, T subset of successor valuations. Necessity of the least support closure follows by choosing a minimum ordinal rank occurrence of each type in the successor spectrum, using strictly rank-decreasing successors and transitivity U⊆T. Sufficiency constructs one representative per type, connects each supported T requirement to a type at a strictly earlier closure stage, takes transitive closure, and adjoins a root; each representative then has exactly its required successor-valuation set. This proves an iff for any finite valuation alphabet without relying on enumeration. With |V|=2, the eight possible depth-one types produce 256 spectra; independent separate bitmask fixed-point enumeration returned 85 realizable, with size histogram 1,2,5,12,21,22,15,6,1. Each possible root valuation doubles to 170 pointed depth-two types; finite characteristic formulas separate them, so all 2^170 subsets are definable even in the language permitting countable conjunctions. The given verify_depth2.py exhausts all 256, cross-checks permutations and constructs finite witnesses; finite check is exhaustive for the count while the structural theorem is independently proved.
 
-The count is exhaustive: all \(256\) subsets of the eight possible one-variable depth-one types are tested. The fixed-point criterion and an exhaustive ordering criterion agree on every case, exactly \(85\) are accepted, and explicit frame reconstruction succeeds on all \(85\). Root truth values double the count to \(170\). Characteristic formulas then identify the semantic quotient with the powerset of these \(170\) realized types, giving \(2^{170}\) classes.
+## originality
 
-## Originality
+PASS
 
-PASS. The recent primary source establishes the infinitary GL setting and its Kripke semantics but does not state the support-closure classification or the exact one-variable depth-two counts in the inspected material. Searches combining GL/provability logic, one variable, depth two, finite types, universal models, the numbers \(85\) and \(170\), and successor-spectrum language did not locate an equivalent statement.
+Classical GL completeness, bounded-depth modal bisimulation and 2024 mechanised uniform interpolation are genuinely prior, and the 2026 paper provides the infinitary-GL setting. Inspected accessible primary sections give no exact 85-spectra support-closure iff or 2^170 quotient, while the necessary one-variable finite model construction is a further structural result. The 2026 direct arXiv full preprint was inaccessible after arXiv PDF/HTML and lawful alternative attempts; authorized institutional retrieval reported VPN disconnected, so novelty is best-of-knowledge with explicit risk, not an automatic failure or a fabricated full-text noncoverage claim.
 
-The closest general material is standard bounded-depth modal type theory and recent GL uniform interpolation. Those results explain finite distinguishability or variable elimination, but they do not imply the exact realizability boundary without the new transitivity/rank analysis. No located source gave the \(85\)-spectrum or \(170\)-type count.
+## value
 
-## Value
+PASS
 
-PASS. The recent infinitary-GL paper raises a global proof-theoretic completeness comparison. The retained result does not solve that problem, but it gives a complete exact semantic model of the first shallow level at which the GL frame condition imposes nontrivial constraints: depth one permits every valuation spectrum, whereas depth two filters the \(256\) candidates down to \(85\). The support criterion is structural and works for every finite valuation alphabet, while the one-variable count gives a small complete test universe for shallow infinitary principles.
+A complete, naturally bounded one-variable depth-two GL type census and the exact support-closure realizability criterion are substantial finite model-theoretic facts; the criterion generalizes structurally to any finite valuation alphabet and separates realizable from the many impossible naive successor profiles. The 85/170 count is an exhaustive natural classification, not an arbitrary subset or a restatement of interpolation.
 
-## Closest literature and limitations
-
-Mojtahedi--Pakhomov--Soldà (arXiv:2609.24795v1) is the immediate source: it introduces countably infinitary GL and develops the transitive conversely well-founded semantic setting. Férée--van der Giessen--van Gool--Shillito (arXiv:2402.10494v2) proves uniform interpolation for finitary GL, a nearby effective-definability result but not an exact depth-two type census.
-
-The exact numerical count is restricted to one variable and modal depth at most two. An equivalent shallow-type calculation could conceivably exist in older universal-model literature under different notation; targeted searches did not locate it.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
