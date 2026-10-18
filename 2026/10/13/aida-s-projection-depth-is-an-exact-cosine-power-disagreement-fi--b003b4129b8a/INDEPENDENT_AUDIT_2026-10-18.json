@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T14:49:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob 6de8988678dad4f3fad51a75dcb8df28a7a1cbc3",
+        "primary Aida equations (10)-(14), arXiv:2203.13273",
+        "independent m=(1,0),g=(1,1) check"
+      ],
+      "rationale": "The mutual updates interchange directions and multiply both by the same-sign scalar q=<g,m>; hence signed cosine is preserved while both vectors are nonzero. Taking norms gives the exact recurrences. At xi=0 with c>0, the normalizing fractions are 1 and both norms acquire c per iteration; preserved signed cosine makes the difference norm acquire c^K. An independent m=(1,0),g=(1,1),K=2 calculation gives squared-energy ratio exactly 1/4=c^4. Orthogonal q=0 kills both at the FIRST iteration regardless of xi. IMPORTANT removable-boundary limitation: for exactly xi=0 and exactly orthogonal inputs, a literal subsequent K>=2 recurrence encounters 0/0; the claimed zero discrepancy at later depths must be understood as the xi-down-to-zero continuous limit or by stopping after the initial annihilation, not as a defined unregularized second iteration. This is explicitly reserved from a broader all-pairs iterability claim.",
+      "residual_risks": [
+        "At xi=0 and m perpendicular to g, iteration past K=1 is undefined without a zero-vector continuation; xi>0 removes this singularity.",
+        "Finite xi has exact norm formulas, NOT generally exact squared-difference factor c^(2K)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Related joint-radius projection phenomena arise for alternating operator products and are not the simultaneous mutual Aida state updates."
+        ],
+        "reasoning": "A general fact that Euclidean projections contract is insufficient to recover this exact signed-angle factor in the optimizer second moment at a fixed depth.",
+        "searches": [
+          "Aida mutual projection optimizer AdaBelief exact cosine power disagreement second moment depth K",
+          "Aida arXiv:2203.13273",
+          "2026/10/11/Resultary rank-one projection joint-radius theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2203.13273 complete preprint",
+        "Aida mutual projection optimizer AdaBelief exact cosine power disagreement second moment depth K",
+        "Resultary optimizer and projection-depth query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary text explicitly notes unchanged angle, nonincreasing projected norms and asymptotic depth suppression, without the displayed exact c^(2K) formula."
+        ],
+        "reasoning": "Those statements are weaker than a universally sharp finite-K quantitative law and do not specify its orthogonal versus collinear endpoints.",
+        "searches": [
+          "Aida mutual projection optimizer AdaBelief exact cosine power disagreement second moment depth K",
+          "Zhang Niwa Kleijn arXiv:2203.13273"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aida source fixes the same simultaneous two-vector recursion and records qualitative angle invariance and norm monotonicity."
+        ],
+        "reasoning": "The derivation reduces to two scalar norm factors; the exact power law is a specialization of orthogonal projection geometry, not claimed new as general linear algebra.",
+        "searches": [
+          "Aida mutual projection optimizer AdaBelief exact cosine power disagreement second moment depth K",
+          "Aida arXiv:2203.13273 mutual projection equations (10)-(14)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic search returned different optimizer error identities and projection results, not a pre-existing Aida c^(2K) table."
+        ],
+        "reasoning": "This is not a finite enumerative table. Nonmatching optimizer results do not cover the same projection recurrence.",
+        "searches": [
+          "Aida mutual projection optimizer AdaBelief exact cosine power disagreement second moment depth K",
+          "published Resultary Aida / Adafactor second-moment search"
+        ]
+      },
+      "rationale": "The source Aida paper establishes layerwise mutual projection, invariant angles and nonincrease with qualitative depth suppression. Its inspected equations/prose do not give the exact c^(2K) zero-regularizer squared-discrepancy law or sharp c^4 at depth 2. The Euclidean projection identity by itself is elementary, limiting novelty to the algorithm-specific quantified innovation law.",
+      "residual_risks": [
+        "The exact power law could be an unstated immediate corollary in prior projection geometry; mathematical novelty is narrowly algorithm-specific.",
+        "The zero-regularizer orthogonality case requires a continuous extension or terminating convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source supplies equations and qualitative monotonicity; no exact finite-depth cosine-power law located.",
+          "evidence": "Equation sequence (10)-(14), projection-depth discussion",
+          "identifier_or_url": "arXiv:2203.13273",
+          "material_read": "Accessible complete original preprint; projection and angle mathematics, equations (10)-(14) and qualitative scaling argument",
+          "method": "open arXiv PDF with inspected equation pages",
+          "title": "A DNN Optimizer that Improves over AdaBelief by Suppression of the Adaptive Stepsize Range",
+          "trigger": "Identical Aida projection recursion and possible hidden exact-power result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Aida arXiv:2203.13273 projection-depth motivation",
+        "sharp c^4 at K=2"
+      ],
+      "rationale": "Projection depth K is the explicit design parameter of Aida and the squared momentum-gradient discrepancy feeds its adaptive second-moment update. The exact c^(2K) gain quantifies when extra depth matters (near orthogonal) and when it does not (near collinear), a motivated algorithm-specific mechanism beyond a bare algebraic renaming.",
+      "residual_risks": [
+        "It bounds layerwise aggregate disagreement energy, not each coordinate or optimization convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the simultaneous Aida mutual projections of nonzero vectors m,g with unsigned cosine c, a nonzero projected pair retains its signed angle and satisfies exact norm recurrences M_{k+1}=c M_k G_k^2/(G_k^2+xi), G_{k+1}=c G_k M_k^2/(M_k^2+xi). In the zero-regularizer limit and for nonorthogonal vectors, squared Euclidean discrepancy after K projections equals c^(2K)||m-g||^2, giving c^4 at K=2. Orthogonal vectors annihilate on the first projection.",
+  "limitations": [
+    "Exact power law only for xi=0 limiting recursion and nonorthogonal input; orthogonal first step zero with continuation caveat",
+    "At positive xi only norm bounds, no exact energy power law",
+    "No statement on full optimizer trajectory or coordinatewise second moment."
+  ],
+  "schema_version": 1
+}
