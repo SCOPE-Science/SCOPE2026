@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:56:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The recurrence with characteristic polynomial (T-a)^2 has x_n=(Cn+D)a^(n-1), C=x_1-a x_0 and D=a x_0. Cancellation gives [n,k]_x=a^[k(n-k)] product_{j=n-k+1}^n(Cj+D)/product_{j=1}^k(Cj+D). If C=0 the coefficients are powers of integer a; if D=0 they are ordinary binomials times such powers; both are divisible. Otherwise normalize affine factors to Aj+B with A>=1, B!=0, gcd(A,B)=1 and no zero positive-index terms. Dirichlet supplies arbitrarily large primes p congruent B mod A and not dividing a, set k=(p-B)/A. Denominator j=1..k has exactly one p factor (at j=k) and none at j<k; numerator j=k+1..2k has no multiples of p (when A=1 all lie in (p,2p), otherwise their mod-A congruence forbids hp for 2<=h<=A). Thus nu_p([2k,k]_x)=-1 for infinitely many distinct p; x_k does not divide x_2k. Independently reconstructed sample witnesses (a,x0,x1,p,k)=(2,3,1,59,13),(-3,2,5,137,13),(1,2,5,29,9). Infinite conclusion uses Dirichlet, not the finite samples. All hypotheses including a negative, D=0, C=0 and no positive zeros checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shapiro Proposition28 restricts DIVISIBLE second-order sequences when Qx0!=0; Granville 2022 classifies division sequences and not all binomid sequences."
+        ],
+        "reasoning": "These stronger divisibility results cannot entail nondivisible implies nonbinomid without an additional argument; the new prime valuation obstruction supplies that missing implication.",
+        "searches": [
+          "binomid Shapiro repeated root integer second order linear recurrence sequence n a^n plus constant binomial integrality divisibility infinite prime denominator",
+          "https://math.colgate.edu/~integers/x57/x57.pdf",
+          "https://arxiv.org/abs/2206.11823"
+        ]
+      },
+      "checked_sources": [
+        "https://math.colgate.edu/~integers/x57/x57.pdf",
+        "https://arxiv.org/abs/2206.11823",
+        "Resultary scientific record search: binomid Shapiro repeated root integer second order linear recurrence sequence n a^n plus constant binomial integrality divisibility infinite prime denominator",
+        "Resultary scientific record search: Shapiro binomid repeated characteristic root sequence (A n+B)c^n prime denominator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shapiro pp17-18: Lemma16 x0=0 positive; Proposition28 divisible=>root-of-unity ratio; Open Questions29 seeks binomid=>divisible.",
+          "Granville 2022 theorem addresses division sequences, an assumption not available for a candidate binomid sequence."
+        ],
+        "reasoning": "Existing positive and division-only statements imply special sufficient cases but cannot give the negative central-binomial valuation or equivalence for all initial conditions.",
+        "searches": [
+          "binomid Shapiro repeated root integer second order linear recurrence sequence n a^n plus constant binomial integrality divisibility infinite prime denominator",
+          "https://math.colgate.edu/~integers/x57/x57.pdf",
+          "https://arxiv.org/abs/2206.11823"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shapiro §4.4 treats order-two f(n+2)=Pf(n+1)-Qf(n), repeated characteristic root P=2a,Q=a²; Lemma16 gives the Lucas case x0=0."
+        ],
+        "reasoning": "This is exactly Shapiro's binomid definition after parameter C=x1-a x0,D=a x0; no redefinition conceals prior coverage. Open Questions29 asks the general implication, while this work proves it only for integer repeated root.",
+        "searches": [
+          "binomid Shapiro repeated root integer second order linear recurrence sequence n a^n plus constant binomial integrality divisibility infinite prime denominator",
+          "Shapiro binomid repeated characteristic root sequence (A n+B)c^n prime denominator",
+          "https://math.colgate.edu/~integers/x57/x57.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Shapiro Theorem26 lists normalized low-degree binomid POLYNOMIAL sequences; its statement assumes f(1)=1 and does not treat general integer a exponential scaling nor give infinite denominator witnesses."
+        ],
+        "reasoning": "This is a classification rather than an existing finite database entry. The normalized degree-one subcase may overlap and is acknowledged, but does not dominate the recurrence result.",
+        "searches": [
+          "binomid Shapiro repeated root integer second order linear recurrence sequence n a^n plus constant binomial integrality divisibility infinite prime denominator",
+          "Shapiro binomid repeated characteristic root sequence (A n+B)c^n prime denominator",
+          "Shapiro theorem 26 binomid degree one polynomial classification"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty is the if-and-only-if binomid/divisibility classification and infinite distinct prime denominator obstruction for nonzero integer repeated roots. Shapiro explicitly leaves general order-two binomid classification and its implication to divisibility as an open question. His zero-initial-value Lucas result and polynomial divisible classification cover only the easy directions; Granville classifies division sequences but does not imply every binomid sequence is divisible.",
+      "residual_risks": [
+        "Equivalent treatment of affine-times-exponential binomids could appear under a nonindexed generalized-binomial alias; search absence is not a proof of uniqueness.",
+        "Verification of infinitely many distinct p invokes Dirichlet; no effective least witness bound claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial special-case overlap; full repeated-root binomid classification is not among the stated results",
+          "evidence": [
+            "Lemma16 covers x0=0; Theorem26 polynomial sequences f(1)=1; Open Questions29 asks binomid classification / divisibility."
+          ],
+          "identifier_or_url": "https://math.colgate.edu/~integers/x57/x57.pdf",
+          "material_read": "Full relevant primary PDF §4.3 and §4.4 pp17–18, Lemma16, Proposition25, Theorem26, Proposition28 and Open Questions29, including visual page inspection",
+          "method": "primary PDF text plus page screenshots",
+          "title": "Divisibility Properties for Integer Sequences",
+          "trigger": "Same binomid definition, repeated-root Lucas case, open problem"
+        },
+        {
+          "assessment": "Covers divisible recurrent sequences, not whether all binomid recurrences in repeated-root family are divisible",
+          "evidence": [
+            "Division hypothesis is stronger than the property needing classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.11823",
+          "material_read": "Primary preprint statement and division-sequence theorem plus relevant introductory classification material; not a claim to have verified all possible equivalents",
+          "method": "primary preprint PDF read for mathematical theorem comparison",
+          "title": "Classifying linear division sequences",
+          "trigger": "Potential stronger whole-class classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This treats a natural discriminant-zero family in a published explicit open problem on second-order recurrences, produces a full dichotomy (not an arbitrary numerical slice) and infinitely many certified central coefficient denominator primes in the complementary case. It is a nontrivial infinitary arithmetic classification, not just a finite congruence check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No classification of repeated noninteger roots, other characteristic polynomials or sequences with positive-index zero entries.",
+    "Full recursive Git record tree guard could not be independently reconstructed, although named frozen blobs were fetched."
+  ],
+  "schema_version": 1
+}
