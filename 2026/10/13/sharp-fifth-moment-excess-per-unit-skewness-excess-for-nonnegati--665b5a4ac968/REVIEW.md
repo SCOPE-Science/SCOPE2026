@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two exact moment-excess identities are derived from a degree-five polynomial factorization and only the first two moment constraints. The pointwise half-line minimum of the quadratic multiplier yields the sharp piecewise coefficient. A family of explicitly normalized three-point laws with a vanishing contamination atom proves optimality for every variance ratio, including the endpoint and coincident-atom limits. The exact polynomial arithmetic and 32 rational constructions were replayed from the packaged verifier. The proof is analytic; finite checks are supplementary.
+## correctness
 
-**Originality — PASS with bibliographic uncertainty.** Meer and Weeks state a fifth-moment endpoint conjecture but no sharp third-to-fifth excess coefficient; the present statement is a strictly quantitative refinement, not merely a restatement of that conjecture. Rowe's single-expectation extremal principle does not directly cover the two-moment contrast because its relevant third derivative changes sign. Castañeda-Leyva et al. give raw power-moment inequalities rather than this centered deficit slope. Targeted exact-statement, equivalence, broader-coverage, and database searches did not locate a covering formulation. An unindexed classical moment-cone inequality could still be equivalent.
+PASS
 
-**Value — PASS.** The initiating study explicitly proposes investigating relations among different standardized moments. This result gives the best possible globally valid linear third-to-fifth moment tradeoff, a nontrivial coefficient-of-variation transition, and a family certifying sharpness. It quantifies how fifth-order asymmetry must increase as skewness moves above its support-constrained minimum; it is not a finite table or a simple reparameterization.
+For Y=X/E[X] with E[Y]=1 and E[Y²]=1+v, the identities M3−v(v−1)=E[Y(Y−1−v)²] and M5−v(v−1)(v²+1)=E[Y(Y−1−v)²Q_v(Y)] follow by expanding the polynomial remainder of (y−1)^5 modulo the fixed first two moments. The quadratic Q_v(y)=y²+(2v−3)y+3v²−4v+3 has exact minimum 2v²−v+3/4 for v≤3/2 and 3v²−4v+3 for v≥3/2 on y≥0; both are strictly positive. The three-atom family on {0,y,b_epsilon} satisfies exact first two moments; as epsilon→0 the ratio of moment excesses tends to Q_v(y). Taking y towards the quadratic minimizer proves pointwise sharpness for every v, with the y=a and y=0 coincidences covered by limits. Equality requires support {0,1+v}; the two atom probabilities are forced. Independently symbolically reconstructed the moment identities. This is a universal finite-fifth-moment proof, not an inference from samples.
 
-**Closest literature and limitations.** See Meer–Weeks (2023/2024), Rowe (1988), and Castañeda-Leyva et al. (2023) in `RESULT.md`. The result does not provide the full fifth-moment lower envelope at an independently prescribed third moment and makes no claim to settle all odd moments or bibliographic priority beyond the reported searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Meer and Weeks conjecture the unrefined fifth central moment lower bound for nonnegative laws and pose relationships between higher standardized moments; the present result proves a quantitatively stronger optimally weighted third-to-fifth excess comparison. Classical moment-cone polynomial nonnegativity and the variance-endpoint two-atom extremizer are background, not asserted new. Rowe's constant-sign-third-derivative condition does not directly give this inequality since the relevant transformed third derivative changes sign. The full HTML article by Meer and Weeks and Rowe's author paper were inspected. Related Resultary inequalities concern different fixed-support moment statistics, not an implication of this coefficient profile.
+
+## value
+
+PASS
+
+The exact optimal universal coefficient C(v) measures how a nonnegative distribution's fifth central moment must depart from the two-point endpoint minimum when its skewness departs. It settles a concrete fifth-moment endpoint conjecture and introduces an explicit variance-dependent sharp trade-off with a geometric transition at v=3/2; this is a natural moment-inequality invariant, not a renamed textbook inequality or isolated numeric sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

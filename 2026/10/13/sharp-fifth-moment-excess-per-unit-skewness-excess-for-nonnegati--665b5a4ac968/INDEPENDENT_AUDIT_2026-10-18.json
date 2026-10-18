@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T17:02:05.908871Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md and verification script via GitHub at exact assigned commit and tree",
+        "Local sympy symbolic factorization and expected quadratic remainder",
+        "Meer and Weeks PLOS ONE 2024 full HTML",
+        "Rowe 1988 author paper",
+        "Resultary semantic comparison"
+      ],
+      "rationale": "For Y=X/E[X] with E[Y]=1 and E[Y²]=1+v, the identities M3−v(v−1)=E[Y(Y−1−v)²] and M5−v(v−1)(v²+1)=E[Y(Y−1−v)²Q_v(Y)] follow by expanding the polynomial remainder of (y−1)^5 modulo the fixed first two moments. The quadratic Q_v(y)=y²+(2v−3)y+3v²−4v+3 has exact minimum 2v²−v+3/4 for v≤3/2 and 3v²−4v+3 for v≥3/2 on y≥0; both are strictly positive. The three-atom family on {0,y,b_epsilon} satisfies exact first two moments; as epsilon→0 the ratio of moment excesses tends to Q_v(y). Taking y towards the quadratic minimizer proves pointwise sharpness for every v, with the y=a and y=0 coincidences covered by limits. Equality requires support {0,1+v}; the two atom probabilities are forced. Independently symbolically reconstructed the moment identities. This is a universal finite-fifth-moment proof, not an inference from samples.",
+      "residual_risks": [
+        "The sharp bound is for a linear comparison of two excesses at fixed variance; no complete fifth-versus-third envelope at a separately specified third moment is proved.",
+        "The strictly positive variance requirement excludes the degenerate point mass."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rowe addresses extrema under a constant-sign transformed third derivative; the third derivative of (y−1)^5−C(v)(y−1)^3 varies in sign on y≥0.",
+          "The cited nonnegative-moment article studies inequalities among raw moments rather than the joint *centered excesses* at the two-atom endpoint."
+        ],
+        "reasoning": "These methods provide background but no inspected theorem with premises implying the claimed optimal variance-dependent coefficient.",
+        "searches": [
+          "Rowe 1988 constant-sign derivative transformed expectation variance bounds",
+          "Castañeda-Leyva et al. 2023 Moment inequalities for nonnegative random variables DOI:10.37190/0208-4147.00106"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and verification script via GitHub at exact assigned commit and tree",
+        "Local sympy symbolic factorization and expected quadratic remainder",
+        "Meer and Weeks PLOS ONE 2024 full HTML",
+        "Rowe 1988 author paper",
+        "Resultary semantic comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted inequality implies Meer–Weeks endpoint conjecture by discarding its positive term, but the converse endpoint inequality does not determine the sharp excess coefficient."
+        ],
+        "reasoning": "Direction of implication is stronger-to-weaker from this claim to the previously posed endpoint assertion, not established in reverse.",
+        "searches": [
+          "PLOS ONE Meer Weeks bounded distributions place limits on skewness and larger moments",
+          "Rowe 1988 absolute bounds on transformed data"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meer–Weeks 2024 explicitly labels fifth-moment endpoint estimate conjectural and asks for higher-moment relationships; it does not present the sharp coefficient C(v)."
+        ],
+        "reasoning": "Neither the endpoint lower bound alone nor moment-cone representation determines the optimal positive excess ratio C(v) with its transition v=3/2.",
+        "searches": [
+          "Resultary semantic: nonnegative random variable fixed mean variance sharp fifth central moment minus two point endpoint bound controlled by third central moment excess polynomial moment inequality",
+          "Meer–Weeks arXiv:2308.05006 / PLOS DOI 10.1371/journal.pone.0297862"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact C(v) piecewise coefficient in related Resultary moment descriptions or the inspected initiating paper."
+        ],
+        "reasoning": "This is an infinite-support theorem, not a known finite table lookup; lack of a database hit is not asserted as proof of priority.",
+        "searches": [
+          "Resultary semantic search for fifth central moment excess and skewness two-atom sharp coefficient",
+          "Meer Weeks fifth moment conjecture 2024"
+        ]
+      },
+      "rationale": "Meer and Weeks conjecture the unrefined fifth central moment lower bound for nonnegative laws and pose relationships between higher standardized moments; the present result proves a quantitatively stronger optimally weighted third-to-fifth excess comparison. Classical moment-cone polynomial nonnegativity and the variance-endpoint two-atom extremizer are background, not asserted new. Rowe's constant-sign-third-derivative condition does not directly give this inequality since the relevant transformed third derivative changes sign. The full HTML article by Meer and Weeks and Rowe's author paper were inspected. Related Resultary inequalities concern different fixed-support moment statistics, not an implication of this coefficient profile.",
+      "residual_risks": [
+        "Older Stieltjes moment-problem or dual polynomial positivity literature could encode an equivalent inequality under another normalization.",
+        "The 2023 raw-moment article was not read in full; no entire-paper noncoverage finding is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the new weighted sharp third-to-fifth excess ratio",
+          "evidence": "2024 article gives unrefined fifth lower bound as a conjecture; no piecewise sharp C(v).",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0297862",
+          "material_read": "Full accessible HTML paper, including stated fifth-moment conjecture and discussion of relationships between higher moments",
+          "method": "web.open full article",
+          "title": "Bounded distributions place limits on skewness and larger moments",
+          "trigger": "Exact same nonnegative-law moment endpoints"
+        },
+        {
+          "assessment": "DIFFERENT_HYPOTHESES; method not immediately a proof",
+          "evidence": "Constant-sign higher derivative prerequisite is violated by the difference function needed here.",
+          "identifier_or_url": "https://faculty.nps.edu/ncrowe/unary2.htm",
+          "material_read": "Full author-hosted HTML treatment of the transformation hypothesis and bounding scheme",
+          "method": "web open/reading",
+          "title": "Absolute bounds on the mean and standard deviation of transformed data for constant-sign-derivative transformations",
+          "trigger": "General transformed-expectation bound plausibly subsuming fifth moments"
+        },
+        {
+          "assessment": "LIMITED_ACCESS; residual possibility of unexamined equivalent bound",
+          "evidence": "Raw moment formulations unlike fixed-centered-excess pair.",
+          "identifier_or_url": "https://doi.org/10.37190/0208-4147.00106",
+          "material_read": "Citation and abstract/related prior-work description; no claim of full primary text",
+          "method": "bibliographic/abstract review",
+          "title": "Moment inequalities for nonnegative random variables",
+          "trigger": "General moment inequalities on same support"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md and verification script via GitHub at exact assigned commit and tree",
+        "Local sympy symbolic factorization and expected quadratic remainder",
+        "Meer and Weeks PLOS ONE 2024 full HTML",
+        "Rowe 1988 author paper",
+        "Resultary semantic comparison"
+      ],
+      "rationale": "The exact optimal universal coefficient C(v) measures how a nonnegative distribution's fifth central moment must depart from the two-point endpoint minimum when its skewness departs. It settles a concrete fifth-moment endpoint conjecture and introduces an explicit variance-dependent sharp trade-off with a geometric transition at v=3/2; this is a natural moment-inequality invariant, not a renamed textbook inequality or isolated numeric sample.",
+      "residual_risks": [
+        "No claim about the entire fixed-M3 fifth-moment feasible region or arbitrary higher odd moments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Exact unrestricted nonnegative-law inequality at finite fifth moment, sharp linear excess coefficient only; bibliographic priority qualified.",
+  "schema_version": 1
+}
