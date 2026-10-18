@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,50 +18,25 @@
   "schema_version": 1
 }
 ---
-The main identity is exact and requires no numerical approximation. For every norming pair \((x,x^*)\) and every \(y\in B_X\),
-\[
-d\!\left(y,(x^*)^{-1}(\{1\})\right)
-=
-1-x^*(y).
-\]
-The lower bound follows from \(\|x^*\|=1\); equality is attained by
-\[
-z_y=y+\bigl(1-x^*(y)\bigr)x.
-\]
-Infimizing over \(\|x-y\|\ge\epsilon\) proves
-\[
-\eta_X(\epsilon,(x,x^*))
-=
-\upsilon_X(\epsilon,(x,x^*)).
-\]
 
-Under symmetric Birkhoff orthogonality, writing
-\[
-y=x^*(y)x+w
-\]
-gives \(w\perp_B x\) and therefore
-\[
-\|w\|\le\|y\|.
-\]
-This yields
-\[
-\|x-y\|\le2-x^*(y)
-\]
-and the lower bound
-\[
-\eta_X(\epsilon)\ge\max\{0,\epsilon-1\}.
-\]
+# Independent mathematical audit
 
-For the affine-regular hexagon, `verify.py` checks that
-\[
-J(a,b)=(-b,a)
-\]
-maps the six dual vertices exactly onto the six primal vertices, verifies the canonical norming-functional reversal certificates for Birkhoff symmetry, and checks both explicit sharp witness families at all rational values
-\[
-\epsilon=\frac{k}{200},
-\qquad
-0\le k\le400.
-\]
-The finite grid is supplementary only; the formulas in `RESULT.md` prove the continuum profile.
+## correctness
 
-No independent audit or independent validation has been performed.
+PASS
+
+For a norming pair (x,x*) and every y∈B_X, each z with x*(z)=1 satisfies ||z-y||≥1-x*(y); equality is attained exactly by z=y+(1-x*(y))x. Infimizing gives eta_X(epsilon,(x,x*))=upsilon_X(epsilon,(x,x*)) with no compactness assumption. Under symmetric Birkhoff orthogonality w=y-x*(y)x is orthogonal to x in Birkhoff sense, so ||w||≤||y||≤1; then ||x-y||≤2-x*(y) establishes eta_X(epsilon)≥max(0,epsilon-1). In the hexagonal norm N(s,t)=max(|s|,|t|,|s-t|), quarter-turn of the polar hexagon establishes Birkhoff symmetry; y=(1,epsilon) for epsilon≤1 and y=(2-epsilon,1) for epsilon≥1 meet the lower envelope identically. Inspected full source verify.py and independently evaluated the exact rational unit-ball witnesses; the 401-point grid is supplementary, not the continuum proof. The claim is for real Banach spaces; boundary epsilon=0,1,2 is covered.
+
+## originality
+
+PASS
+
+The defining 2023 source proves only 2delta_X≤upsilon_X≤eta_X and computes the Hilbert-space value; the 2024 follow-up still uses one-sided inequalities and special endpoint conclusions. No inspected source states universal equality or this exact Radon hexagon profile. The identity is elementary as an affine-hyperplane distance formula, so equivalence under an unnamed convex-analysis formulation is a genuine priority risk.
+
+## value
+
+PASS
+
+Eliminates a distinct-seeming auxiliary geometric index in all real Banach spaces and supplies a sharp structural lower bound for the natural symmetric-Birkhoff/Radon class. A standard non-Hilbert extremal plane has a flat-then-linear exact function, in sharp contrast to the Hilbert quadratic profile; this is a motivated geometric benchmark rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

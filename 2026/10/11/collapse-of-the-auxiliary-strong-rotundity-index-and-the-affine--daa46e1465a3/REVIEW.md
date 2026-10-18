@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For any norming pair \((x,x^*)\) and \(y\in B_X\), the distance from \(y\) to the affine hyperplane \((x^*)^{-1}(\{1\})\) is exactly \(1-x^*(y)\): the dual norm gives the lower bound, and \(y+(1-x^*(y))x\) attains it. Infimizing proves \(\eta_X=\upsilon_X\) with no compactness or attainment assumption. If Birkhoff orthogonality is symmetric, the projection \(I-x\otimes x^*\) is contractive, yielding \(\|x-y\|\le2-x^*(y)\) and hence \(\eta_X(\epsilon)\ge\max\{0,\epsilon-1\}\). For the affine-regular hexagon, the quarter-turn maps the dual unit hexagon onto the primal one, giving Birkhoff symmetry, and two explicit continuum witness families attain the lower bound.
+## correctness
 
-## Originality
-PASS. The defining 2023 full text was inspected at the definitions, the Hilbert computation, and Theorem 2.4. It states only \(2\delta_X\le\upsilon_X\le\eta_X\). The 2024 follow-up again records only \(0\le\upsilon_X\le\eta_X\le2\) and proves selected simultaneous zero or endpoint values. Searches under the exact index names, equality language, Radon-plane terminology, and affine-regular-hexagon aliases returned no covering public record. The current own ledger through g000055 contains no strong-rotundity finding.
+PASS
 
-## Value
-PASS. The equality removes an apparently separate auxiliary index from the theory and gives an exact scalar formula for the strong-rotundity distance in every real Banach space. The symmetric-Birkhoff consequence supplies a new structural lower envelope, and the affine-regular hexagon shows it is sharp at every separation. This gives a canonical non-Hilbert benchmark contrasting with the source's Hilbert law \(\epsilon^2/2\).
+For a norming pair (x,x*) and every y∈B_X, each z with x*(z)=1 satisfies ||z-y||≥1-x*(y); equality is attained exactly by z=y+(1-x*(y))x. Infimizing gives eta_X(epsilon,(x,x*))=upsilon_X(epsilon,(x,x*)) with no compactness assumption. Under symmetric Birkhoff orthogonality w=y-x*(y)x is orthogonal to x in Birkhoff sense, so ||w||≤||y||≤1; then ||x-y||≤2-x*(y) establishes eta_X(epsilon)≥max(0,epsilon-1). In the hexagonal norm N(s,t)=max(|s|,|t|,|s-t|), quarter-turn of the polar hexagon establishes Birkhoff symmetry; y=(1,epsilon) for epsilon≤1 and y=(2-epsilon,1) for epsilon≥1 meet the lower envelope identically. Inspected full source verify.py and independently evaluated the exact rational unit-ball witnesses; the 401-point grid is supplementary, not the continuum proof. The claim is for real Banach spaces; boundary epsilon=0,1,2 is covered.
 
-## Closest literature and limitations
-García-Pacheco introduced \(\eta_X\) and \(\upsilon_X\) in AIMS Mathematics 8 (2023), 20477–20486, with the publisher PDF dated 25 June 2023 and MSC 46B20. Campos-Jiménez and García-Pacheco reused both quantities in AIMS Mathematics 9 (2024), still with the one-sided comparison. The exact hexagonal profile does not classify all Radon planes, and absolute bibliographic uniqueness cannot be guaranteed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining 2023 source proves only 2delta_X≤upsilon_X≤eta_X and computes the Hilbert-space value; the 2024 follow-up still uses one-sided inequalities and special endpoint conclusions. No inspected source states universal equality or this exact Radon hexagon profile. The identity is elementary as an affine-hyperplane distance formula, so equivalence under an unnamed convex-analysis formulation is a genuine priority risk.
+
+## value
+
+PASS
+
+Eliminates a distinct-seeming auxiliary geometric index in all real Banach spaces and supplies a sharp structural lower bound for the natural symmetric-Birkhoff/Radon class. A standard non-Hilbert extremal plane has a flat-then-linear exact function, in sharp contrast to the Hilbert quadratic profile; this is a motivated geometric benchmark rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
