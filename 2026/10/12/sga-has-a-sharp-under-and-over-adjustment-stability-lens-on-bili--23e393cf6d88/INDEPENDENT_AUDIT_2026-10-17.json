@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:58:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With J skew symmetric, the actual source SGA adjusted field is (I−τJ)Jz. Singular-vector orthogonal coordinates split the Euler matrix into (1−ητσ²)I−ησR with R²=−I, whose exact squared norm factor is (1−ητσ²)²+η²σ². Solving r²<1 gives η<2τ/(1+τ²σ²), tightest at σ=L; equality has norm-one top block, above expands, establishing both directions. Let s=ηL and u=τL; the sharp inequality s(1+u²)<2u has maximum allowed s=1 at u=1 and adjustment window u±=(1±sqrt(1−s²))/s, product 1. Comparison of exact ceiling with Vater et al general sufficient step τμ²/((1+τ²L²)L²) yields 2(L/μ)². Original independent rational modal/block checks corroborate algebra, not substitute for it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vater et al arXiv:2510.25716 gives a sufficient bound η<τμ²/((1+τ²L²)L²) in the pure-skew specialization"
+        ],
+        "reasoning": "A sufficient bound is strictly smaller than the exact iff threshold by 2(L/μ)²; it cannot dominate the necessity/equality and overadjustment claims.",
+        "searches": [
+          "Resultary: symplectic gradient adjustment bilinear zero sum exact discrete time step size tau sigma stability lens over adjustment",
+          "Balduzzi arXiv:1802.05642",
+          "Vater arXiv:2510.25716"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1802.05642",
+        "https://arxiv.org/abs/2510.25716",
+        "https://arxiv.org/abs/1808.01531",
+        "Resultary: symplectic gradient adjustment bilinear zero sum exact discrete time step size tau sigma stability lens over adjustment"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct singular-block exact formula is independently reconstructed; published sufficient result is weaker"
+        ],
+        "reasoning": "The exact result can be obtained by applying elementary singular-mode spectral analysis to the existing algorithm but is not simply the published sufficient convergence theorem; this close-method relationship is a genuine originality/value limitation.",
+        "searches": [
+          "Resultary: symplectic gradient adjustment bilinear zero sum exact discrete time step size tau sigma stability lens over adjustment",
+          "Balduzzi arXiv:1802.05642",
+          "Vater arXiv:2510.25716"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Balduzzi et al arXiv:1802.05642 and Gemp–Mahadevan arXiv:1808.01531 describe the same radial correction",
+          "SGA modal norm expression from assessed source"
+        ],
+        "reasoning": "The adjustment field and Hamiltonian skew structure are known; equivalence of algorithms does not itself assert exact Euler stability region as a joint condition in η,τ,L.",
+        "searches": [
+          "Resultary: symplectic gradient adjustment bilinear zero sum exact discrete time step size tau sigma stability lens over adjustment",
+          "Balduzzi arXiv:1802.05642",
+          "Vater arXiv:2510.25716"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Top semantic results describe PDHG or reflected-gradient skew thresholds for distinct iterations"
+        ],
+        "reasoning": "No checked exact SGA parameter-lens database/table covers both full step and adjustment window; search failure is not proof of priority.",
+        "searches": [
+          "Resultary: symplectic gradient adjustment bilinear zero sum exact discrete time step size tau sigma stability lens over adjustment",
+          "Balduzzi arXiv:1802.05642",
+          "Vater arXiv:2510.25716"
+        ]
+      },
+      "rationale": "Balduzzi/Letcher/Gemp introduced Hamiltonian gradient correction and its radial effect on bilinear games; Vater–Foglia–Colao–Borzì give a sufficient general quadratic-game step bound. Their inspected result does not state the necessary-and-sufficient full-spectrum discrete step threshold or fixed-step reciprocal overadjustment window. The novelty is not the SGA algorithm or its skew decomposition but a sharp optimization-parameter boundary; the familiar spectral-calculus derivation is acknowledged.",
+      "residual_risks": [
+        "The exact scalar/2×2 threshold is a short standard stability computation and could be implicit in an unindexed numerical-analysis source.",
+        "The contribution is restricted to a full-rank bilinear deterministic explicit iteration; not a statement on nonlinear or stochastic SGA."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS algorithm/field and Hamiltonian motivation, not observed exact full-parameter stability lens",
+          "evidence": "SGA adjustment equation, skew Jacobian",
+          "identifier_or_url": "https://arxiv.org/abs/1802.05642",
+          "material_read": "Source algorithm, abstract and foundational bilinear model discussion",
+          "method": "lawful arXiv primary material",
+          "title": "The Mechanics of n-Player Differentiable Games",
+          "trigger": "Original symplectic adjustment method and rotational bilinear model"
+        },
+        {
+          "assessment": "Sufficient step condition weaker by 2(L/μ)^2 on pure-skew family",
+          "evidence": "Theorem/proposition on quadratic SGA convergence and step restriction",
+          "identifier_or_url": "https://arxiv.org/abs/2510.25716",
+          "material_read": "Full-text HTML relevant quadratic-game SGA convergence proposition and sufficient bound",
+          "method": "Open scholarly primary full-text HTML",
+          "title": "A Low-Rank Symplectic Gradient Adjustment Method for Computing Nash Equilibria",
+          "trigger": "Later broader quadratic convergence theorem potentially dominating the claim"
+        },
+        {
+          "assessment": "Equivalence of field concept is prior; no justified whole-document negative coverage claim",
+          "evidence": "Curl correction perspective",
+          "identifier_or_url": "https://arxiv.org/abs/1808.01531",
+          "material_read": "Abstract and described radial correction, not full text",
+          "method": "arXiv abstract and bibliographic discussion",
+          "title": "Global Convergence to the Equilibrium of GANs using Variational Inequalities",
+          "trigger": "Crossing-the-Curl equivalent correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact threshold gives an actionable answer to whether increasing adjustment always helps and quantifies both under- and overadjustment; its comparison shows a sufficient general theorem loses a condition-number-squared factor on a canonical test class. These boundaries matter for explicit numerical algorithm stability and clarify an otherwise misleading tuning tradeoff, even though the proof is short linear algebra.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1802.05642",
+    "https://arxiv.org/abs/2510.25716",
+    "https://arxiv.org/abs/1808.01531",
+    "Resultary: symplectic gradient adjustment bilinear zero sum exact discrete time step size tau sigma stability lens over adjustment"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No nonlinear, stochastic, rank-deficient, or adaptive-step convergence conclusions.",
+    "The exact scalar/2×2 threshold is a short standard stability computation and could be implicit in an unindexed numerical-analysis source.",
+    "The contribution is restricted to a full-rank bilinear deterministic explicit iteration; not a statement on nonlinear or stochastic SGA."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "COVERS algorithm/field and Hamiltonian motivation, not observed exact full-parameter stability lens",
+      "evidence": "SGA adjustment equation, skew Jacobian",
+      "identifier_or_url": "https://arxiv.org/abs/1802.05642",
+      "material_read": "Source algorithm, abstract and foundational bilinear model discussion",
+      "method": "lawful arXiv primary material",
+      "title": "The Mechanics of n-Player Differentiable Games",
+      "trigger": "Original symplectic adjustment method and rotational bilinear model"
+    },
+    {
+      "assessment": "Sufficient step condition weaker by 2(L/μ)^2 on pure-skew family",
+      "evidence": "Theorem/proposition on quadratic SGA convergence and step restriction",
+      "identifier_or_url": "https://arxiv.org/abs/2510.25716",
+      "material_read": "Full-text HTML relevant quadratic-game SGA convergence proposition and sufficient bound",
+      "method": "Open scholarly primary full-text HTML",
+      "title": "A Low-Rank Symplectic Gradient Adjustment Method for Computing Nash Equilibria",
+      "trigger": "Later broader quadratic convergence theorem potentially dominating the claim"
+    },
+    {
+      "assessment": "Equivalence of field concept is prior; no justified whole-document negative coverage claim",
+      "evidence": "Curl correction perspective",
+      "identifier_or_url": "https://arxiv.org/abs/1808.01531",
+      "material_read": "Abstract and described radial correction, not full text",
+      "method": "arXiv abstract and bibliographic discussion",
+      "title": "Global Convergence to the Equilibrium of GANs using Variational Inequalities",
+      "trigger": "Crossing-the-Curl equivalent correction"
+    }
+  ]
+}

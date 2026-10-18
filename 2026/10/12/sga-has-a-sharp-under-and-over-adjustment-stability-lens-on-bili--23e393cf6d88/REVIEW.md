@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The defining SGA field is reconstructed exactly on a full-rank bilinear zero-sum game. Orthogonal singular-vector coordinates split the iteration into two-dimensional scaled rotations, and direct multiplication gives the exact Euclidean modal factor
-\[
-(1-\eta\tau\sigma^2)^2+\eta^2\sigma^2.
-\]
-Solving its strict contraction inequality yields the stated if-and-only-if threshold. A top singular mode proves both the equality obstruction and supercritical expansion.
+PASS
 
-Risk: the theorem is an exact pure-skew linear classification, not a nonlinear or stochastic SGA theorem.
+With J skew symmetric, the actual source SGA adjusted field is (I−τJ)Jz. Singular-vector orthogonal coordinates split the Euler matrix into (1−ητσ²)I−ησR with R²=−I, whose exact squared norm factor is (1−ητσ²)²+η²σ². Solving r²<1 gives η<2τ/(1+τ²σ²), tightest at σ=L; equality has norm-one top block, above expands, establishing both directions. Let s=ηL and u=τL; the sharp inequality s(1+u²)<2u has maximum allowed s=1 at u=1 and adjustment window u±=(1±sqrt(1−s²))/s, product 1. Comparison of exact ceiling with Vater et al general sufficient step τμ²/((1+τ²L²)L²) yields 2(L/μ)². Original independent rational modal/block checks corroborate algebra, not substitute for it.
 
-## Originality
+## originality
 
-PASS. The defining and expanded SGA papers provide the field, Hamiltonian interpretation, alignment properties, and learning-rate evidence. The independently discovered Crossing-the-Curl work gives related radial and monotonicity structure. A later paper proves a broader quadratic-game convergence theorem under a sufficient step bound. None of the inspected sources states the exact reciprocal under/over-adjustment lens or the exact gap between that lens and the later sufficient quadratic bound.
+PASS
 
-Residual risk: an algebraically equivalent explicit-Euler calculation may exist in unindexed notes under different terminology.
+Balduzzi/Letcher/Gemp introduced Hamiltonian gradient correction and its radial effect on bilinear games; Vater–Foglia–Colao–Borzì give a sufficient general quadratic-game step bound. Their inspected result does not state the necessary-and-sufficient full-spectrum discrete step threshold or fixed-step reciprocal overadjustment window. The novelty is not the SGA algorithm or its skew decomposition but a sharp optimization-parameter boundary; the familiar spectral-calculus derivation is acknowledged.
 
-## Value
+## value
 
-PASS. The result addresses SGA's defining tuning mechanism rather than an arbitrary specialization. It proves that stronger symplectic correction is not monotonically stabilizing at a fixed outer step, gives the complete sharp adjustment interval, and quantifies a quadratic condition-number gap in a later general bound on the canonical pure-skew family.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact threshold gives an actionable answer to whether increasing adjustment always helps and quantifies both under- and overadjustment; its comparison shows a sufficient general theorem loses a condition-number-squared factor on a canonical test class. These boundaries matter for explicit numerical algorithm stability and clarify an otherwise misleading tuning tradeoff, even though the proof is short linear algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The package verifies the exact bilinear stability lens for Symplectic Gradient Adjustment.
 
-`verify.py` constructs full bilinear game matrices with prescribed singular values, reconstructs the SGA iteration, and checks its operator norm against the closed singular-mode formula. It verifies strict contraction below the threshold, unit top-mode modulus at equality, expansion above it, the reciprocal fixed-step adjustment boundaries, and the exact comparison ratio to the later sufficient quadratic-game bound.
+# Independent mathematical audit
 
-The computations are transcription guards. The if-and-only-if result and its sharp boundary witnesses are proved algebraically in `RESULT.md`.
+## correctness
+
+PASS
+
+With J skew symmetric, the actual source SGA adjusted field is (I−τJ)Jz. Singular-vector orthogonal coordinates split the Euler matrix into (1−ητσ²)I−ησR with R²=−I, whose exact squared norm factor is (1−ητσ²)²+η²σ². Solving r²<1 gives η<2τ/(1+τ²σ²), tightest at σ=L; equality has norm-one top block, above expands, establishing both directions. Let s=ηL and u=τL; the sharp inequality s(1+u²)<2u has maximum allowed s=1 at u=1 and adjustment window u±=(1±sqrt(1−s²))/s, product 1. Comparison of exact ceiling with Vater et al general sufficient step τμ²/((1+τ²L²)L²) yields 2(L/μ)². Original independent rational modal/block checks corroborate algebra, not substitute for it.
+
+## originality
+
+PASS
+
+Balduzzi/Letcher/Gemp introduced Hamiltonian gradient correction and its radial effect on bilinear games; Vater–Foglia–Colao–Borzì give a sufficient general quadratic-game step bound. Their inspected result does not state the necessary-and-sufficient full-spectrum discrete step threshold or fixed-step reciprocal overadjustment window. The novelty is not the SGA algorithm or its skew decomposition but a sharp optimization-parameter boundary; the familiar spectral-calculus derivation is acknowledged.
+
+## value
+
+PASS
+
+The exact threshold gives an actionable answer to whether increasing adjustment always helps and quantifies both under- and overadjustment; its comparison shows a sufficient general theorem loses a condition-number-squared factor on a canonical test class. These boundaries matter for explicit numerical algorithm stability and clarify an otherwise misleading tuning tradeoff, even though the proof is short linear algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
