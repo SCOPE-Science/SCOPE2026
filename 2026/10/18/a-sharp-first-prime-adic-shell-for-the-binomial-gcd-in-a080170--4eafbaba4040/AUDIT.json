@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Direct Lucas argument gives the lower bound for all q; explicit Kummer addition gives one and only one carry for q*; prime support outside p is excluded by the fully inspected Lemma 9 and finite-difference prime support. The boundary case p=2,a=2 is included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1 covers the unit/nonunit dichotomy; Lemma 9 covers support for each prime",
+        "Adjacent 1985/2017 selected-row binomial gcd literature treats different varying indices"
+      ],
+      "reasoning": "A fully general explicit valuation formula would dominate this theorem, but none was located. Published support criteria do not quantify a positive gcd valuation.",
+      "searches": [
+        "OEIS A080170 stronger exact greatest common divisor binomial multiples boundary largest prime power, squarefree",
+        "Guo Qiu Cao Feng Gao 2026 A080170 gcd criterion prime p valuation one Kummer witness q=1+p^a(p^(a-1)-1)",
+        "arXiv:2606.22997"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A080170",
+      "https://arxiv.org/abs/2606.22997",
+      "https://arxiv.org/html/2606.22997v1",
+      "Published semantic research record b1c9c7629241 (different binomial selection)",
+      "Published semantic research record a71ec1d0fa28 (different prime-base congruence)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known: p|D(n-1) iff n/p^a<=p^a",
+        "New: v_p(D)=1 by a specific one-carry multiplier"
+      ],
+      "reasoning": "The old lemma implies p|D and no other prime but allows any p^j for j>=1; the new one-carry witness forbids j>=2 and supplies exact D=p.",
+      "searches": [
+        "arXiv:2606.22997 Lemma 9",
+        "arXiv:2606.22997 Theorem 1",
+        "Binomial gcd D(k)=gcd of C(qk,k) for 2<=q<=k+1 exact p-adic valuation when p^a exactly divides k+1 and complementary cofactor between p^(a-1) and p^a; D(k)=p"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A080170 enumerates D(k)=1, not D(k)=p",
+        "arXiv:2606.22997 Lemma 9 detects prime support only"
+      ],
+      "reasoning": "Equivalent valuation statement is that the gcd has exactly one p-adic factor when p^(a-1)<m<p^a. The digit-carry witness is absent in the primary inspected source.",
+      "searches": [
+        "Binomial gcd D(k)=gcd of C(qk,k) for 2<=q<=k+1 exact p-adic valuation when p^a exactly divides k+1 and complementary cofactor between p^(a-1) and p^a; D(k)=p",
+        "OEIS:A080170"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A080170 lists only k with D(k)=1",
+        "OEIS A051283 gives a related largest prime power inequality"
+      ],
+      "reasoning": "Neither the database statement nor its sequence tables give an infinite exact formula for nontrivial D(k) in this first shell.",
+      "searches": [
+        "OEIS A080170",
+        "OEIS A080170 stronger exact greatest common divisor binomial multiples boundary largest prime power, squarefree"
+      ]
+    },
+    "rationale": "The 2026 proof determines the prime divisors, while the present theorem settles the sharp valuation-one layer by a new explicit Kummer witness. The first-shell infinite exact gcd is not implied by prime support alone; targeted research-record and primary-source comparisons found no stronger identical result. Residual possibility of implicit general valuation literature remains.",
+    "residual_risks": [
+      "An implicit general p-adic valuation result in related binomial-gcd literature might dominate the shell formula; absence from targeted searches does not prove priority",
+      "Earlier-week private historical records were only partially accessible; comparison is limited to actual accessible texts"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes unit gcd and exact support of primes, but no first-shell exact valuation, no one-carry witness",
+        "evidence": [
+          "Lemma 4 establishes prime support in k+1",
+          "Lemma 9: r divides D(n-1) iff n/r^e <= r^e for r^e||n",
+          "Theorem 1: D(k)=1 iff n/P>P"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.22997v1",
+        "material_read": "Full open HTML paper, sections 1 and 2 including Lemmas 4 and 9, the proof of local criterion, and remaining discussion",
+        "method": "Open-text reading, identifying which statements prove support versus valuation",
+        "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+        "trigger": "Exact binomial-gcd family and known criterion"
+      },
+      {
+        "assessment": "Records only indices of gcd equal to 1, not exact nonunit values",
+        "evidence": [
+          "Benoit Cloitre first entry date 2003-01-31",
+          "Related Guo et al. 2026 criterion cited in comments"
+        ],
+        "identifier_or_url": "https://oeis.org/A080170",
+        "material_read": "Entry description, author/date, comments, references, formulas and links",
+        "method": "Read publicly accessible full entry",
+        "title": "OEIS A080170",
+        "trigger": "Archived motivating object and date"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4eafbaba-4040-43d5-8335-b3317c1efba1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A naturally distinguished first nontrivial prime-adic shell of the long-studied A080170 binomial gcd receives a complete exact gcd classification. Distinct from the published support criterion, the single-carry witness proves nontrivial sharpness for all eligible p,a,m; the invariant controls exact multiplicity, not merely support.",
+    "status": "PASS"
+  }
+}
