@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For each zero \\((i,j)\\), its neighboring label sum is precisely \\(R_i+C_j\\). If any column is empty every row sum must be ≥2 and total weight at least \\(2m\\); otherwise each column has positive weight and total at least \\(n\\). Surjection-one placements and row-weight-two placements attain both bounds. At optimum below threshold each column has weight exactly one and all rows must occur; above threshold a zero column forces all row sums exactly two. At equality the exhaustive union has intersection counted by \\((2m)!/2^m\\). The direct-adjacency independent finite verifier checks all feasible labelings of total weight ≤optimum in nineteen profiles and exactly matches the formulas; finite checks are corroborative, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alizadeh et al., arXiv:1701.01416, studies Roman-{2} properties and graph-product bounds, but does not count minimum labelings of complete-graph Cartesian products.",
+        "Klostermeyer–MacGillivray, JCMCC 108 (2019), accessible indexed material gives previously known numerical equality for square rook graphs, not an optimizer-count theorem.",
+        "Varghese–Lakshmanan (2023), theorem 2.4, concerns perfect Italian domination (every zero sees exactly two), a stronger requirement that does not enumerate all ordinary Italian minima."
+      ],
+      "reasoning": "A scalar minimum or a single construction does not imply exact numbers of every optimum. The stricter perfect variant does not cover the larger ordinary Italian optimizer family, and in rectangular \\(n<2m\\) it can have a different numerical minimum. The particularly plausible 2019 paper is only partially inspectable; its uninspected material is a substantive residual bibliographic uncertainty, not proof of noncoverage.",
+      "searches": [
+        "Italian domination Cartesian product complete graphs exact minimum count",
+        "Roman 2 domination Cartesian product complete graphs rook graphs",
+        "Italian domination number K_m box K_n rook graphs Roman 2 cardinality minimum"
+      ]
+    },
+    "checked_sources": [
+      "Alizadeh et al. 2017 arXiv:1701.01416 first public 2017-01-05",
+      "Klostermeyer and MacGillivray 2019, JCMCC 108, 125–146 (indexed relevant passages; not full text)",
+      "Varghese and Lakshmanan 2023, Palestine J. Math. 12, 158–168, theorem 2.4",
+      "Shao and Zhao 2026 arXiv:2610.00108 v1",
+      "Published mathematical-record abstracts of Roman-{2} complete-multipartite and related graph domination enumerators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known square scalar result γ_I(K_t□K_t)=t is recovered by the n<2m case and is not claimed new.",
+        "General Italian domination Cartesian product bounds do not decide equality-case optimizer structures or counts.",
+        "Perfect Italian rook-graph theorem enforces equality at zeros, while this theorem enforces only inequality.",
+        "The complete-multipartite Roman-{2} count applies to nonisomorphic graph classes with different neighborhoods."
+      ],
+      "reasoning": "The new claim specifies all optimal functions and a three-regime count, not simply the known minimum. Neither a scalar bound/equality, a perfect-condition minimum, nor a different graph-class polynomial logically implies optimizer multiplicities here. A decisive inaccessible covering result cannot be excluded; the 2019 unexamined full text remains the main risk.",
+      "searches": [
+        "Italian Roman {2} domination rook graph K_m square K_n min(m,n) n versus 2m optimal label functions",
+        "Italian domination minimizing functions coefficient of Italian domination polynomial rectangular rook graph",
+        "Italian domination number K_m box K_n rook graphs Roman 2 cardinality minimum",
+        "number of Italian dominating functions K_m square K_n exactly count",
+        "Italian domination rook graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2017 primary source names Italian domination Roman {2}-domination, with zeros defended by neighborhood weight at least two.",
+        "The 2019 source explicitly treats numerical Italian/2-domination of square Cartesian complete-graph products.",
+        "Relevant published mathematical-record summaries concern complete multipartite graphs, complete prisms, or other domination variants rather than labeled rook-graph minimum Italian optimizer counts."
+      ],
+      "reasoning": "Italian and Roman {2} are equivalent definitions, so sources using either name were compared. The complete-multipartite Roman-{2} enumerator does not imply the rook-graph count: for both factor sizes at least three, the rook graph is not complete multipartite. In the small 2-row case, the rook graph contains triangles for n≥3 and is also not generally a complete multipartite model. No accessible source states the surjection versus row-weight-two optimizer classification or its tie correction.",
+      "searches": [
+        "Italian Roman {2} domination rook graph K_m square K_n min(m,n) n versus 2m optimal label functions",
+        "weight enumerator Italian dominating functions rook graph",
+        "Italian domination minimizing functions coefficient of Italian domination polynomial rectangular rook graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual mathematical-record searches using the graph, invariant, minimum parameter, Stirling numbers, and transition threshold yielded related complete-multipartite enumerators, not this exact coefficient formula.",
+        "The 2019 indexed source supplies a square numerical result but no accessible exact optimum-function table or coefficient.",
+        "Shao–Zhao (2026), arXiv:2610.00108, counts Italian functions on trees, paths and cycles."
+      ],
+      "reasoning": "The new invariant is the precise number of named-vertex minimum-weight labelings for all integer pairs 2≤m≤n, including a factorial tie correction. The identified references do not supply a table or formula implying that count. Database incompleteness remains an explicit risk.",
+      "searches": [
+        "For the rook graph K_m □ K_n, the Italian domination number equals min(n,2m) for 2≤m≤n; number of minimizers is m! S(n,m) for n<2m and (n+binom(n,2))^m for n>2m with inclusion-exclusion at equality",
+        "Rook graphs Italian domination optimal functions surjective functions when n<2m versus per-row weight two when n>2m",
+        "number of Italian dominating functions K_m square K_n exactly count"
+      ]
+    },
+    "rationale": "Literature-led novelty comparison acknowledges prior square numerical minimum, and verifies the new classification and exact multiplicity formula is not implied by the accessible 2017 foundational products, 2019 indexed scalar square result, 2023 perfect Italian result, or recent counting results on non-rook graphs. Public mathematical-record queries using equivalent names and formulas found no covering theorem, but missing full text of the highly plausible 2019 source remains a material bibliographic risk.",
+    "residual_risks": [
+      "Uninspected full 2019 Klostermeyer–MacGillivray article might already contain some equivalent counting claim; indexed scalar passage alone cannot refute this.",
+      "Unindexed theses, preprints, papers, or tables may independently give equivalent optimizer counts.",
+      "No independent scientific verification or priority investigation has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes subject terminology and bounds but no labeled rook graph optimizer enumeration.",
+        "evidence": "arXiv first version dated 2017-01-05; article general product results; no transition count formula.",
+        "identifier_or_url": "https://arxiv.org/abs/1701.01416",
+        "material_read": "Full open-access preprint, including definitions, statements, and Cartesian-product results (9 pages).",
+        "method": "Open-access PDF/text reading and direct theorem comparison",
+        "title": "Roman {2}-domination in graphs and graph products",
+        "trigger": "Original dated source for equivalent Italian/Roman-{2} definitions and product bounds"
+      },
+      {
+        "assessment": "The scalar square minimum is prior work. No complete classification was verifiable from accessible text; unresolved possible coverage risk.",
+        "evidence": "JCMCC 108 (2019), 125–146; indexed published result \\(\\gamma_I(K_t\\square K_t)=t\\).",
+        "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-108/roman-italian-and-2-domination/",
+        "material_read": "Accessible article landing-page metadata and indexed excerpts establishing square-case numerical equality; full 2019 publisher PDF not readable.",
+        "method": "Publisher landing page and search-indexed source excerpts, NOT full-paper inspection",
+        "title": "Roman, Italian, and 2-Domination",
+        "trigger": "Highly relevant same invariant on square Cartesian products of complete graphs"
+      },
+      {
+        "assessment": "Different strictly stronger equality condition on zero neighborhoods; cannot imply ordinary optimizer enumeration.",
+        "evidence": "Theorem 2.4: perfect Italian parameter equals \\(n\\) in the square case and \\(2m\\) for \\(m<n\\).",
+        "identifier_or_url": "https://pjm.ppu.edu/sites/default/files/papers/PJM_Feb_2023_158_to_168.pdf",
+        "material_read": "Full nine-plus-page PDF including theorem 2.4 and its proof on graph products",
+        "method": "Open-access PDF text and page-image inspection",
+        "title": "Perfect Italian Domination Number of Graphs",
+        "trigger": "Same Cartesian complete-graph family under potentially dominating variant"
+      },
+      {
+        "assessment": "Paths, trees and cycles only, not the complete-graph Cartesian product family.",
+        "evidence": "Shao and Zhao 2026 analyze trees, paths, and cycles.",
+        "identifier_or_url": "https://arxiv.org/html/2610.00108v1",
+        "material_read": "Open-access HTML article title, main assertions and covered graph-family theorems",
+        "method": "Full available HTML article reading and family comparison",
+        "title": "Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+        "trigger": "Potential broad Italian domination weight enumerator covering graph families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "62f015f2-fbca-410d-bf1e-88c84d645c03",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact classification and enumeration for an infinite natural two-parameter product-graph family identifies distinct surjection and independent row-weight-two phases, with nontrivial intersection correction at \\(n=2m\\). It gives the first nonzero coefficient of the Italian domination weight polynomial and precise optimizer multiplicities, sharpening but not relabeling the known square numerical result. This addresses a mathematically motivated whole-family counting problem rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
