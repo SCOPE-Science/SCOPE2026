@@ -1,0 +1,15 @@
+# Scientific review: exact second moments of nonbinary two-deletion shadows
+
+## Correctness — PASS
+The domain is every integer \(q\ge3\), \(n\ge2\), with uniformly random words and exactly two deleted positions. An explicit bijection to leftmost-greedy embeddings gives the canonical-pair formula in `RESULT.md`; the adjacent-pair correction distinguishes the return-to-first-letter triple specific to nonbinary alphabets. Independent uniform symbol increments make transition indicators Bernoulli, and the local signed correction has zero covariance at successive locations. All expectation and covariance terms are stated and combined without asymptotic approximation. Boundaries, particularly \(n=2\), were checked. The bundled standalone script directly enumerates distinct outputs and exact rational moments for 79,073 source words. The proof, not the finite test, establishes all \(n\).
+
+## Originality — PASS on the inspected record
+The 2026 Wang–Li–Fu paper (arXiv:2609.16837) determines maxima of *pairwise intersections* of deletion balls, not second moments of the cardinality of one ball. A 2026 public result entitled “Exact variance of binary two-deletion sphere size” proves only \(q=2\), and explicitly states that nonbinary alphabets are excluded; its displayed formula is recovered as a boundary consistency check, not claimed. Earlier double-insertion/deletion work offers deterministic combinatorics, and earlier random-subsequence work concerns binary statistics, but the examined materials do not supply the all-\(q\ge3\) second moment. Targeted database queries for q-ary variance, deletion shadows, covariance, and random distinct subsequences retrieved the binary result as the nearest mathematical analogue, not a stronger nonbinary theorem. Because a literature search is not a novelty certificate, unindexed/nonstandard equivalents remain a risk. All prior comparisons are implication-based, not title matching.
+
+## Value — PASS
+The exact dispersion quantifies nonregularity of deletion-channel neighborhoods for every nonbinary alphabet, including the four-letter channel used in DNA coding, at every finite length. The \(n^{3/2}\) standard-deviation scale and alphabet-dependent leading constant are obtained without a large-length approximation. A structural canonical-embedding identity explains the law and exposes the extra local return phenomenon absent from binary-only run analyses. The invariant is a natural channel quantity; this is not a routine substitution of the binary result.
+
+## Scientific boundaries
+The scope is strictly uniform centers and two deletions; no result on three deletions, ball intersections, full distributions or nonuniform sources is asserted. The cited public binary result was inspected in full via its repository file; relevant 2026 primary literature was inspected in full-text HTML for its problem statement and results; older work was checked by retrievable descriptions and/or its cited statements. The originality search cannot rule out unindexed prior work.
+
+Self-review: passed. Independent audit: not yet performed.
