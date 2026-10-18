@@ -1,27 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The operator
-\[
-U=I_{R(K)}\oplus B
-\]
-with \(B\) the unilateral backward shift is onto and noninjective, commutes with the rank-one projection \(K\), and preserves \(R(K)^\perp\). The singleton \(\{e_0\}\) is a Parseval \(K\)-frame of zero excess and is fixed by both projection and \(U\). Thus the three excesses are equal although \(U\) is not injective.
+## correctness
 
-The finite-excess repair is independent of the counterexample: for a projected frame with synthesis operator \(T\), the exact sequence
-\[
-0\to\ker T\to\ker(VT)\to\ker V\to0
-\]
-shows that the visible injectivity condition is injectivity of \(V=U|_{R(K)}\).
+PASS
 
-## Originality
-PASS. The exact article, Corollary 5.11, onto-operator excess preservation, synthesis-kernel formulations, restricted injectivity, and erratum variants were searched and compared.
+For H=M⊕N with M=Ce0 and N=ell2, K=P_M and U=I_M⊕B with B the backward unilateral shift, U is onto, commutes with K, leaves R(K)^perp invariant and is noninjective (ker U=C f1). The one-atom family Φ=(e0) is a Parseval K-frame: its coefficient square equals ||K*f||². UΦ=UP_MΦ=Φ; none of these singleton families permits removal, so all three deletion excesses equal zero. This directly contradicts the iff global-injectivity assertion of Corollary 5.11 despite satisfying its printed assumptions. For the corrected restricted statement, the relevant ordinary projected frame lies in M; on V=U|M the synthesis-kernel exact sequence of a surjective V gives dim ker(VT)=dim ker T+dim ker V, in finite-excess cases. The visible excess can detect only ker(U|M), never a kernel solely in M-perp. Critically, this argument does NOT assume the false unrestricted equality E_K(Φ)=E(P_MΦ) in general; it holds here because all atoms are in M. All steps are exact infinite-dimensional operator identities, not finite approximations.
 
-A close published result already shows that projection onto \(R(K)\) can overcount \(K\)-frame excess for arbitrary \(K\)-frames. That result does not subsume this claim: here every atom lies in \(R(K)\), projection leaves the sequence unchanged, and the failure is entirely due to a kernel of \(U\) in \(R(K)^\perp\).
+## originality
 
-## Value
-PASS. The corollary gives a global injectivity characterization from excess data that are confined to \(R(K)\). The counterexample shows that the characterization fails even for a Parseval singleton of zero excess, while the synthesis-kernel calculation identifies the exact restricted operator that the data can test.
+PASS
 
-## Limitations
-The result does not reassess the source's separate projected-excess theorem. The additive excess formula is used in the finite-excess regime to avoid infinite-cardinal cancellation. A nonindexed correction remains a literature risk.
+Source-specific failure of the exact iff in Corollary 5.11 and the invisible-complement obstruction are not given by known ordinary-frame excess theory. The separate previously published SCOPE projection-counterexample attacks Theorem 5.9 instead and cannot subsume this supported-atom case. Qualified best-of-knowledge originality PASS for the concrete operator-theoretic correction; basic backward-shift facts and ordinary synthesis-kernel formula are not novel.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Correcting a specific published iff whose claimed ambient injectivity is invisible to any range-supported K-frame is a genuine interpretive obstruction, despite the economical one-atom witness. The restricted synthesis-kernel exact sequence locates the precise algebraic fault; no stronger general classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
