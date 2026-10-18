@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The moving-person utility inequalities use the destination degree, and the exact six-edge construction has before scores (0,1/3,1/2,0,2/3) and after scores (1,1/3,0,1/3,1/3). The A mover improves 0 to 1/3 and the B mover 2/3 to 1, whereas the count with own-type neighbor fraction at least 1/2 falls from 2 to 1. A self-contained standard-library exact checker enumerates every labeled graph through five vertices, canonicalizes its connected graph isomorphism classes by all permutations, visits each allowed two-color assignment, and tests each opposite-color swap. It verifies connected counts 1,4,38,728 and connected isomorphism classes 1,2,6,21 at n=2,3,4,5; precisely two five-vertex classes, with 6 and 7 edges, admit loss. The complete finite proof is independent of floating point. A separate graph-atlas class enumeration confirms the number and edge sizes of witness classes; no assertion on larger orders is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Echzell et al., Convergence and Hardness of Strategic Schelling Segregation, arXiv:1907.07513, examines thresholds and potential/convergence.",
+        "Bilò et al., Topological Influence and Locality in Swap Schelling Games, DOI 10.1007/s10458-022-09573-7, considers topology and equilibrium/potential properties."
+      ],
+      "reasoning": "A theorem asserting individual-utility potential monotonicity or eventual convergence is logically weaker for the present sign comparison of binary aggregate satisfaction: a continuous potential may rise while a stepwise headcount falls. Neither source as materially examined establishes a general monotone half-satisfied headcount result or its sharp minimal obstruction.",
+      "searches": [
+        "Schelling segregation two-color swap game graph satisfied agents happy neighborhoods number discontent potential smallest counterexample",
+        "arxiv:1907.07513",
+        "doi:10.1007/s10458-022-09573-7"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1111/j.1467-9787.2010.00671.x",
+      "arxiv:1806.08713",
+      "arxiv:1909.02421",
+      "arxiv:1907.07513",
+      "doi:10.1007/s10458-022-09573-7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Agarwal et al. formulate the same mover incentives, but the inspected results address Nash/swapping stability and social welfare rather than the binary half-satisfaction monotonicity after a single exchange.",
+        "Chauhan et al. and Echzell et al. use thresholded individual utilities; their equilibrium and potential claims cannot be silently transferred to strict untruncated mover incentives."
+      ],
+      "reasoning": "Matching the game definition does not imply the new one-step headcount conclusion. Stronger coverage would require a published exact finite classification or a general statement that yields the minimum n=5 and two isomorphism classes; these were not found in the sources inspected. The claim remains subject to external literature assessment.",
+      "searches": [
+        "Two-type Schelling swap games improving swaps decrease number of satisfied happy agents despite both swappers improving sharp five vertex graph",
+        "Schelling segregation two-color swap game graph satisfied agents happy neighborhoods number discontent potential smallest counterexample",
+        "arxiv:1909.02421",
+        "arxiv:1806.08713"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Agarwal et al., Swap Stability in Schelling Games on Graphs, arXiv:1909.02421: fraction of same-type neighbors defines player utility and opposite-color mutually profitable swaps are permitted.",
+        "Chauhan et al., Schelling Segregation with Strategic Agents, arXiv:1806.08713: tolerance-truncated utility differs from a strict untruncated improvement."
+      ],
+      "reasoning": "An equivalent formulation would say a strictly improving two-player exchange can lower the number meeting a raw similarity threshold, or that the individual threshold-satisfaction potential is not monotone. The 2019 incentives coincide, but the 2018 truncated incentives do not: in the witness, the B mover is already happy and nevertheless strictly improves from 2/3 to 1. Neither inspected paper states the five-vertex classification.",
+      "searches": [
+        "Two-type Schelling swap games improving swaps decrease number of satisfied happy agents despite both swappers improving sharp five vertex graph",
+        "Binary threshold segregation welfare count happy content agents profitable swap graph minimum counterexample",
+        "Schelling segregation tolerance 1/2 welfare decline one improving pairwise swap on five nodes",
+        "arxiv:1909.02421",
+        "arxiv:1806.08713"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The general count of 21 connected unlabeled five-vertex graphs is standard combinatorial data, but contains no Schelling two-color placement, two-person utility calculation, or satisfaction headcount direction.",
+        "Exact exhaustive certificate verify.py tests all 21 classes, all admissible colorings and all distinct-type swaps, finding two witness classes."
+      ],
+      "reasoning": "Enumeration of graph topologies alone does not provide the behavioral predicate or its exact two-class classification. An exact table with the additional predicate was not found in compared sources. The complete small-size enumeration is independent of relying on an external graph table.",
+      "searches": [
+        "connected unlabeled graphs five vertices 21 classes check complete enumeration",
+        "Binary threshold segregation welfare count happy content agents profitable swap graph minimum counterexample"
+      ]
+    },
+    "rationale": "The precise one-swap monotonicity obstruction for a binary half-neighbor satisfaction headcount is not a direct corollary of potential convergence or aggregate continuous utility. The relevant untruncated swap-game primary literature defines the moves but studies stability and overall welfare. Truncated-tolerance utility papers use a distinct player incentive; Zhang studies a different spatial utility. The published primary comparisons and searches did not reveal the sharp five-node threshold or two graph classes, while uninspected appendices and alternate sociophysics terminology remain residual risks.",
+    "residual_risks": [
+      "A mathematically equivalent sharp small-graph example may exist in an uninspected appendix or other Schelling-game paper, including variants named integration welfare, tolerance welfare, or segregation potential.",
+      "Zhang (2011) publicly accessible bibliographic and abstract material was inspected but full paper was not accessible; its different preference model makes direct coverage less likely, but not impossible.",
+      "Finite correctness was checked with standalone exact code and one independent graph-atlas enumeration, not independently audited by a separate mathematical reviewer."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different tipping-preference model; not treated as complete negative full-text coverage",
+        "evidence": [
+          "First online February 7, 2011; DOI 10.1111/j.1467-9787.2010.00671.x."
+        ],
+        "identifier_or_url": "doi:10.1111/j.1467-9787.2010.00671.x",
+        "material_read": "Published abstract, bibliographic first-online date and descriptive public article information; full journal paper not obtained",
+        "method": "Public publisher article page",
+        "title": "Tipping and Residential Segregation: A Unified Schelling Model",
+        "trigger": "Motivating archive-era literature; verified earliest first-public date"
+      },
+      {
+        "assessment": "Player incentives truncated by tolerance threshold differ from our untruncated fractions",
+        "evidence": [
+          "Thresholded utilities and equilibrium welfare expressed in dissatisfaction are distinct from the present raw-fraction improving pair and external headcount."
+        ],
+        "identifier_or_url": "arxiv:1806.08713",
+        "material_read": "Full arXiv PDF: definitions and relevant main results and welfare discussion, including pages 2 and 14",
+        "method": "Open preprint PDF and visual page inspection",
+        "title": "Schelling Segregation with Strategic Agents",
+        "trigger": "Overlapping model semantics, utility and happiness definitions"
+      },
+      {
+        "assessment": "Same strict mover incentives; inspected text does not report the one-swap half-satisfaction size cutoff",
+        "evidence": [
+          "Agarwal, Elkind, Gan, Voudouris: swap-stability, equilibria, and total welfare rather than the stated binary headcount threshold."
+        ],
+        "identifier_or_url": "arxiv:1909.02421",
+        "material_read": "Full arXiv PDF: model/utility, main stability and welfare theorem sections, and conclusion; relevant pages visually checked",
+        "method": "Open preprint PDF plus text and page screenshots",
+        "title": "Swap Stability in Schelling Games on Graphs",
+        "trigger": "Exact source for our fraction-maximizing opposite-type swap rule"
+      },
+      {
+        "assessment": "Potential/convergence under different truncated utility does not imply monotonicity of an external satisfaction headcount",
+        "evidence": [
+          "Thresholded-objective dynamics on graphs and eventual convergence; different implication from individual utility fraction improvement."
+        ],
+        "identifier_or_url": "arxiv:1907.07513",
+        "material_read": "Full arXiv PDF definitions, convergence results and discussion; pages visually checked",
+        "method": "Open preprint PDF and page screenshots",
+        "title": "Convergence and Hardness of Strategic Schelling Segregation",
+        "trigger": "Possible dominance by small-threshold convergence/potential theorem"
+      },
+      {
+        "assessment": "No equivalent exact half-satisfaction five-vertex classification found in relevant material",
+        "evidence": [
+          "Topological and locality effects on equilibria, potential, and zero-utility counts, as contrasted with one-step half-satisfied headcount."
+        ],
+        "identifier_or_url": "doi:10.1007/s10458-022-09573-7",
+        "material_read": "Public full text including sections on potentials and zero-utility agents",
+        "method": "Open publisher/OA full HTML",
+        "title": "Topological Influence and Locality in Swap Schelling Games",
+        "trigger": "Overlapping topological analysis of swap games"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ad682eff-3c98-4856-8344-1ebd91f05d9f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of agents with at least half their neighbors of the same type is a standard interpretable tolerance-based societal measure. Showing that two privately utility-improving swaps can make fewer people satisfied, even while the sum of continuous utilities rises, pinpoints a genuine aggregation failure rather than a generic downside in a changing graph. A sharp five-person boundary and the classification of both graph topologies specify exactly the first structural obstruction. The small finite threshold is motivated by the canonical Schelling move and common 50% satisfaction criterion; no claim of paper-sized downstream result is required.",
+    "status": "PASS"
+  }
+}
