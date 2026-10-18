@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T08:48:10.578793Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding U(t)=sum exp(i theta t)E_theta and Cesàro-averaging gives Mhat=sum E_theta∘E_theta. Primitive SRG projector entries are constant on diagonal, edges and nonedges; independently simplified m=(-k-(n-1)s)/(r-s), n=(k-r)(k-s)/(k+rs), and resulting d-f+(e-f)r to the displayed rational expression Λ_r=[r²+s(s+2)]/(r-s)²−2r(s+1)/[(k−r)(r−s)] exactly (SymPy difference zero). For primitive SRG restricted r>0 and s<-1; integer case gives r>=1,s<=-2. In the nonintegral Galois-conjugate case m=p implies r+s=-1, k=(n-1)/2 and conference parameters; n>=9 again r>=1,s<=-2, with n=5=C_5 direct. Both terms of Λ_r are nonnegative with strict positive second term; complement swaps restricted eigenspaces without changing projector Schur squares, implying Λ_s>0 too. Principal eigenvalue=1 and C_5 Λ_r=Λ_s=1/5. This is a proof for all feasible primitive SRG, not extrapolated from example scripts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 open problem encompasses primitive strongly regular graphs but is posed, not solved.",
+          "Kang 2026 studies averaging against controllable observation-time distributions on SRGs, not the fixed infinite-time Cesàro measure."
+        ],
+        "reasoning": "More general graph classes or different sampling laws do not imply positive definiteness of the specific Cesàro matrix. Stronger association-scheme Krein inequalities might imply it but were not found as an explicit theorem.",
+        "searches": [
+          "Resultary: primitive strongly regular graphs average mixing matrix nonsingular full rank quantum walk",
+          "doi:10.1515/spma-2024-0025",
+          "doi:10.37236/7867",
+          "arxiv:2610.10017"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1515/spma-2024-0025",
+        "doi:10.37236/7867",
+        "arxiv:2610.10017",
+        "Resultary: primitive strongly regular graphs average mixing matrix nonsingular full rank quantum walk"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Coutinho–Guo 2024 explicitly calls this full-rank question open for the broader primitive distance-regular class.",
+          "The spectral projector identity yields matrix positivity semidefinite, but not strict positive definiteness; the new SRG restricted-mode eigenvalue inequality is decisive."
+        ],
+        "reasoning": "The old identity supplies input, not the needed strict inequality. Proof handles all primitive SRG including nonintegral conference graphs, not only matching sample eigenparameters.",
+        "searches": [
+          "Resultary: primitive strongly regular graphs average mixing matrix nonsingular full rank quantum walk",
+          "doi:10.1515/spma-2024-0025",
+          "doi:10.37236/7867",
+          "arxiv:2610.10017"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard identity Mhat=sum E_theta∘E_theta is known since Coutinho et al 2018.",
+          "Coutinho and Guo (2024) explicitly pose full rank for all primitive distance-regular graphs (Open Problem 4.2)."
+        ],
+        "reasoning": "The submitted claim provides a strict positivity proof for the diameter-two primitive strongly regular subcase; naming spectral projectors or rank alone does not already prove it.",
+        "searches": [
+          "Resultary: primitive strongly regular graphs average mixing matrix nonsingular full rank quantum walk",
+          "doi:10.1515/spma-2024-0025",
+          "doi:10.37236/7867",
+          "arxiv:2610.10017"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2018 paper gives finite graph rank tables and a general algebraic framework but no universal primitive-SRG positive-definiteness table.",
+          "The theorem is quantified over all feasible SRGs; a finite parameter catalogue would not be an exhaustive proof without a classification."
+        ],
+        "reasoning": "Standard tables with examples cannot establish arbitrary primitive SRG positivity; the submitted sign/complement proof is a structural theorem.",
+        "searches": [
+          "Resultary: primitive strongly regular graphs average mixing matrix nonsingular full rank quantum walk",
+          "doi:10.1515/spma-2024-0025",
+          "doi:10.37236/7867",
+          "arxiv:2610.10017"
+        ]
+      },
+      "rationale": "Best-of-knowledge acceptance follows the actual statement-versus-implication comparisons above; the strongest inspected primary sources establish a general framework, different problem, or strictly narrower subcase, not this final full claim. The explicitly listed plausible full-text access/implicit-coverage risks remain open; lack of search hits alone is not novelty evidence.",
+      "residual_risks": [
+        "A stronger but differently indexed positive Krein-parameter statement for 2-class association schemes may imply strict Cesàro positivity.",
+        "The 2026 Kang manuscript was not inspected in full; abstract/descriptions concern different sampling laws.",
+        "The theorem does not resolve full rank for primitive distance-regular graphs of diameter >=3."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_PARENT_PROBLEM; no covering full-rank theorem supplied",
+          "evidence": "Problem 4.2 explicitly asks full rank of Mhat for primitive distance-regular graphs, of which SRG are diameter two.",
+          "identifier_or_url": "https://doi.org/10.1515/spma-2024-0025",
+          "material_read": "Open publisher full-text HTML, especially Section 4 Average mixing matrix and Open Problem 4.2",
+          "method": "publisher article HTML read in full relevant sections",
+          "title": "Coutinho and Guo, Selected Open Problems in Continuous-Time Quantum Walks",
+          "trigger": "Direct parent open question for diameter-two primitive distance-regular case"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK, not a universal primitive-SRG full-rank theorem",
+          "evidence": "The paper establishes Mhat=sum E_r∘E_r and commutant interpretation, studies rank for selected finite graph classes.",
+          "identifier_or_url": "https://doi.org/10.37236/7867",
+          "material_read": "Complete accessible 12-page journal PDF text, pages 1–11 sections 1–6, with screenshot check of page 2 projector identity",
+          "method": "open journal PDF full-text and visual mathematical inspection",
+          "title": "Coutinho, Godsil, Guo, Zhan, A New Perspective on the Average Mixing Matrix",
+          "trigger": "Original average mixing projector identity and rank theory"
+        },
+        {
+          "assessment": "DIFFERENT_SAMPLING, residual body-inspection risk",
+          "evidence": "Studies freely chosen observation-time distributions and moment conditions, unlike the fixed infinite-time Cesàro average.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.10017",
+          "material_read": "ArXiv abstract, contextual manuscript description; not full text",
+          "method": "arXiv metadata and indexed summary",
+          "title": "Kang, Moment Methods for Uniform Average Mixing on Strongly Regular Graphs",
+          "trigger": "Recent potential same-parameter theorem about average mixing SRGs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves the diameter-two primitive strongly regular subclass of an explicit open full-rank question for primitive distance-regular graph quantum mixing; strict positivity means no vertex-distribution mode is lost under long-time averaging. The result addresses a natural unknown spectral property, not an arbitrary graph sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite primitive strongly regular graph (G and its complement connected), the ordinary uniform-in-time Cesàro quantum average mixing matrix is positive definite of rank n, with positive nonprincipal eigenvalues from explicit SRG spectral formulas and complement symmetry (including exceptional C_5).",
+  "limitations": [
+    "Assumes both SRG and its complement connected; imprimitive cases and diameter>=3 omitted.",
+    "Finite examples in source checker are corroboration only; the all-SRG proof uses exact identities and positivity."
+  ],
+  "schema_version": 1
+}
