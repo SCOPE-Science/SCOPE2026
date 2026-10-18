@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T02:20:04.878030Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With X_n attachment to the oldest vertex and Y_n attachment to any leaf, E[X|T]=D/2(n-1), E[Y|T]=L/2(n-1), E[XY|T]=1_{D=1}/2(n-1). The mixed product recurrence cancels the D*L terms and gives c_{n+1}-c_n=d_n l_n/(4(n-1)^2)-q_n/(2(n-1)). Exact d=(2n-3)q and l=2(n-1)/3+4q/3 yield the displayed positive increment for n>=3; gamma ratio q~1/sqrt(pi n) then gives c_n~2sqrt(n)/(3sqrt(pi)). An independent exact rational recurrence checked 158 increments. Boundary c2=c3=0 verified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hartle–Krapivsky obtains global N_1/N_2 covariance; Peköz et al obtain joint degree law for old vertices."
+        ],
+        "reasoning": "Each covers one component, not the mixed local-global covariance; no quoted broad theorem supplies the displayed recurrence.",
+        "searches": [
+          "arXiv:2602.01021 leaf-degree joint distribution",
+          "arXiv:1402.4686 old vertices"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2602.01021",
+        "https://arxiv.org/abs/1402.4686",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq.92 concerns Cov(N1,N2), total number of leaves and degree-two vertices."
+        ],
+        "reasoning": "Neither implies Cov(D_initial,L_total) without an additional tagged-vertex analysis; that new mixed recursion is the assessed contribution.",
+        "searches": [
+          "Hartle–Krapivsky 2026 eq.92",
+          "Peköz–Röllin–Ross arXiv:1402.4686"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hartle–Krapivsky cov(N_1,N_2) uses global counts; another Resultary record treats a uniform recursive tree, not degree-proportional attachment."
+        ],
+        "reasoning": "Identifying one fixed seed vertex is not an exchangeable aggregate leaf-count statistic.",
+        "searches": [
+          "Hartle–Krapivsky arXiv:2602.01021 exact covariance appendices",
+          "Resultary oldest hub and leaves covariance query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A related Resultary root-degree/leaves exact covariance belongs to a uniform recursive tree."
+        ],
+        "reasoning": "Changing attachment probability from 1/n to degree proportional changes dynamics and asymptotic scale, so the formula is not a known-table re-expression.",
+        "searches": [
+          "Resultary preferential attachment local-global covariance query",
+          "arXiv:2602.01021"
+        ]
+      },
+      "rationale": "Hartle–Krapivsky (2026) calculates aggregate leaf/degree-class fluctuations and covariances; Peköz–Röllin–Ross (2017) joint old-vertex degrees but not global leaf count. Neither inspected statement gives the distinguished oldest-degree / total-leaves mixed covariance or exact positive increment.",
+      "residual_risks": [
+        "Large preferential-attachment literature might contain a tagged-root mixed recurrence implicitly, beyond the inspected aggregate-count paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers aggregate covariances, not tagged oldest vertex degree",
+          "evidence": "Eq.92 is Cov(N1,N2) and contains no initial-vertex degree",
+          "identifier_or_url": "https://arxiv.org/html/2602.01021",
+          "material_read": "Abstract, main-section joint degree-leafdegree discussion, appendix mixed moments eqs. 92–104",
+          "method": "Full-text arXiv HTML including appendix sections inspected",
+          "title": "Leaves of preferential attachment trees",
+          "trigger": "Same preferential attachment model and leaf fluctuations"
+        },
+        {
+          "assessment": "Potential antecedent for old-vertex degree, not global leaf mixed covariance",
+          "evidence": "Degree distributions are studied without this mixed total-leaf moment",
+          "identifier_or_url": "https://arxiv.org/abs/1402.4686",
+          "material_read": "Abstract and metadata",
+          "method": "arXiv landing page and scope inspection",
+          "title": "Joint degree distributions of preferential attachment random graphs",
+          "trigger": "Old vertex degree joint distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The local-global covariance quantifies a non-obvious positive coupling in a canonical growth model despite competition for individual edges, and exposes an exact square-root growth scale distinct from aggregate degree-class covariance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2602.01021",
+    "https://arxiv.org/abs/1402.4686",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One-edge initial seed and pure linear preferential attachment; covariance only, not stochastic association or joint CLT."
+  ],
+  "residual_risks": [
+    "Large preferential-attachment literature might contain a tagged-root mixed recurrence implicitly, beyond the inspected aggregate-count paper."
+  ],
+  "schema_version": 1
+}
