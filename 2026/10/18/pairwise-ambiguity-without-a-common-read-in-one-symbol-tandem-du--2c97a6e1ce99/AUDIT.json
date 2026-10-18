@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Run-root/excess bijection gives each exact one-symbol duplication as a one-coordinate increment. For any adjacent pair, solving adjacency to both proves exactly two incompatible orientations for every third member; coordinate minima/maxima recover unique parameters for all cliques of size at least three. Stars and bars counts both types; binomial derivatives yield the triple formula and shifted relation. Clique-size and common-read bounds use exact run counts. Direct alphabet-word enumeration corroborates every triple in tested ranges and all higher sizes in smaller ranges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee et al., DOI 10.1145/3338514, Section 2 gives unbounded descendant cones; Section 4 uses edges of nonconfusability to find code sizes",
+        "Yehezkeally and Schwartz, arXiv:1801.06022, descendant-cone/reconstruction setting"
+      ],
+      "reasoning": "Unbounded cones make many same-root words confusable and do not determine which words share a read after exactly one symbol duplication. An exact pairwise edge census and general optimal-code bounds do not imply the counts of higher simultaneous ambiguity classes.",
+      "searches": [
+        "\"tandem duplication\" \"clique\" \"confusability\" \"graph\" \"one\"",
+        "\"tandem duplication\" \"common descendant\" \"pairwise\" clique",
+        "single-symbol tandem-duplication correction confusability clique spectrum number of s-cliques common descendant three-way Helly obstruction"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1712.09345v1",
+      "arxiv:1808.10328v1",
+      "arxiv:1801.06022",
+      "doi:10.1145/3338514",
+      "https://github.com/published-finding corpus/2026",
+      "https://arxiv.org/pdf/1911.06561"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published fixed-length edge theorem identifies exactly one common output of every adjacent pair",
+        "Chee et al. (2019) uses a graph with opposite adjacency and arbitrary-length duplication cones",
+        "Lenz et al. (2017) provides coding bounds and 1-run profiles"
+      ],
+      "reasoning": "Even knowing each confusable pair has a unique shared output leaves open whether three pairwise-confusable words share that same output. The explicitly constructed upper triple (starting with a run root of length three and one excess symbol assigned to one of three runs) proves non-Helly behavior and requires a new third-way statement, while the lower triples do share a read. None of the inspected stronger/adjacent prior statements settles their count or the full clique classification.",
+      "searches": [
+        "maximal clique size of single tandem-duplication confusability graph n-1 versus maximum inverse sphere floor((n+1)/2)",
+        "single-symbol tandem-duplication correction confusability clique spectrum number of s-cliques common descendant three-way Helly obstruction",
+        "\"tandem duplication\" \"clique number\" single error"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lenz, Wachter-Zeh, Yaakobi, arXiv:1712.09345v1, run signatures and sphere bounds",
+        "Kovačević and Tan, arXiv:1808.10328v1, zero-insertion signature",
+        "Published exact-one tandem-duplication edge-count result (October 2026), unit-transfer edges only"
+      ],
+      "reasoning": "The same root-and-transfer reduction is known, but exact-one clique counts for every size and the upper/lower intersection dichotomy are not stated in the inspected sources; the literature also defines cone-confusability for any number of errors, which is mathematically different from intersection of length-(n+1) spheres.",
+      "searches": [
+        "for single-symbol tandem duplication, pairwise-confusable triples with no common descendant, failure of Helly property, cliques classified by run lengths",
+        "q-ary exact one tandem duplication zero run signatures upper lower cliques 3 source words",
+        "\"tandem duplication\" \"Helly\" intersection descendants"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published exact-one fixed-length tandem-duplication record gives the edge count, not a triangle or higher-clique table",
+        "Published binary single-deletion triangle count concerns a different channel",
+        "Directly enumerated 28232 triangles are new verification data, not a prior published table"
+      ],
+      "reasoning": "No exact tabulation of upper and lower clique numbers was found in the checked records. The closest exact pair table does not fix its triangle spectrum by logical implication; graphs with identical edge counts can have different triangle numbers.",
+      "searches": [
+        "exact number of confusability triangles without common noisy duplication output for q-ary strings",
+        "binary 1-duplication channel triangles common descendants code decoding ambiguity",
+        "single tandem duplication channel run lengths 3 runs exact size floor n(n-1)/6"
+      ]
+    },
+    "rationale": "Compared channel-equivalent formulations, stronger descendant-cone definitions, closest exact-one published edge theorem, and code-size bounds. The precise higher-order upper/lower clique split with all-size counts and sharp Helly discrepancy was not stated by the inspected primary sources, nor is it a direct corollary of the pairwise count. Possible equivalent transfer-graph folklore remains a documented residual risk.",
+    "residual_risks": [
+      "A general graph-theoretic classification of integer-composition adjacency cliques may exist under a different name; no comprehensive historical uniqueness guarantee.",
+      "Unindexed dissertations or papers might already count these q-ary exact-one cliques.",
+      "Independent mathematical and literature audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes sphere and run-representation methods, not exact-one-error clique type classification or higher-intersection counts",
+        "evidence": "arXiv version 1 submitted 2017-12-24 (abstract history); PDF §§1-3 and §3.2 runs",
+        "identifier_or_url": "https://arxiv.org/pdf/1712.09345",
+        "material_read": "Introduction and definitions; derivative/signature sections and run-length-code material; full text searched for clique discussion",
+        "method": "Lawful full-text PDF text and selected rendered pages",
+        "title": "Duplication-Correcting Codes",
+        "trigger": "Foundational 2017 paper with primary MSC 94B20 and one-symbol duplication schemes"
+      },
+      {
+        "assessment": "Asymptotic optimal code sizes, not clique enumeration, pairwise-vs-joint read ambiguity",
+        "evidence": "arXiv:1808.10328v1, 2018-08-30, 4 pp",
+        "identifier_or_url": "https://arxiv.org/pdf/1808.10328",
+        "material_read": "All four pages including construction and bounds; sought clique coverage",
+        "method": "Lawful full-text PDF text and rendered sections",
+        "title": "Asymptotically Optimal Codes Correcting Fixed-Length Duplication Errors in DNA Storage Systems",
+        "trigger": "Single-error q-ary coding and zero-insertion signatures"
+      },
+      {
+        "assessment": "Different descendant-cone/reconstruction regime; did not encounter full exact-one clique formulas in inspected sections or full-text clique search",
+        "evidence": "arXiv:1801.06022, §§1-2",
+        "identifier_or_url": "https://arxiv.org/pdf/1801.06022",
+        "material_read": "Introduction and preliminary definitions, especially reconstruction and descendant cones",
+        "method": "Lawful full-text PDF text and page 2 rendered",
+        "title": "Reconstruction Codes for DNA Sequences with Uniform Tandem-Duplication Errors",
+        "trigger": "Nearby concept of descendant intersections and reconstruction"
+      },
+      {
+        "assessment": "Confusability means shared arbitrary-length descendant cone, and its clique graph uses edges for NONconfusability. Does not cover exact-one shared-read clique spectrum",
+        "evidence": "Chee et al. (2019), DOI 10.1145/3338514, §§2.1 and 4.3",
+        "identifier_or_url": "https://ymchee66.github.io/home/PDF/confusabilityjournal.pdf",
+        "material_read": "Abstract and §§1-2, targeted §4.3 clique application and table; checked the occurrence of clique across PDF",
+        "method": "Lawful journal-author hosted full PDF, text and rendered page",
+        "title": "Deciding the Confusability of Words under Tandem Repeats in Linear Time",
+        "trigger": "Plausibly stronger confusability and clique formulation"
+      },
+      {
+        "assessment": "Exact edge count and unique pair descendant already established. Its theorem stops at two sources and explicitly excludes degree sequence and higher intersection information; it does not imply a triple-clique count directly",
+        "evidence": "Published record October 2026, unit-transfer lemma and edge-count theorem",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Full RESULT.md including theorem, derivative proof, verification scope and limitations",
+        "method": "Public primary research repository full-text read",
+        "title": "Exact confusability edge count for one fixed-length tandem duplication",
+        "trigger": "Closest exact-one-error, all-alphabet, arbitrary-block published statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2c97a6e1-ce99-420e-b113-f3c63135500b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Higher-order decoding ambiguity is not captured by the graph edge count: pairwise-confusable triples may or may not share any received string. The theorem gives the complete, naturally parameterized classification and exact census of both cases at every clique size over all word lengths and alphabets. The linear gap between maximum pairwise clique size and maximum simultaneous-parent list size quantifies a real distinction relevant to list reconstruction; no arbitrary parameter slice or unmotivated table. This is a structural all-length result rather than an isolated finite census.",
+    "status": "PASS"
+  }
+}
