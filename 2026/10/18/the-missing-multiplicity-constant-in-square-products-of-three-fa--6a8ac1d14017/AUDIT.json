@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For c<d equal squarefree factorial parts require a square consecutive product, hence d=c+1=t² by Erdős--Selfridge. Thus consecutive-largest representation multiplicity is 0,1,2, with duplicated class b_t=s((t²)!). Published exponential growth s(m!)≥exp(delta m) yields b_t≥exp(delta t²), absolute convergence of K and O(sqrt(log(2X))) doubled-family counting error. Yudin Section 3.2 yields C0 sqrt X+O(log X) distinct consecutive-largest endpoints. Yudin Theorem 3.1 plus eq. (3.2) give O_eps(X^(2/5+eps)) nonconsecutive triples with their multiplicities by counting O(X^(2eta)) parameters for each exceptional endpoint. The exact finite parity-signature program verifies examples through 260 but is not used to prove the infinite assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yudin arXiv:2610.01899v1, Theorem 1.1 estimates D3(X), the number of largest arguments, and Section 3.2 counts distinct kernels once.",
+        "Yudin arXiv:2610.01899v1, Theorem 3.1 estimates exceptional n, not directly total multiplicity; equation (3.2) is additionally needed.",
+        "Tao arXiv:2603.27990v1, Theorem 1.10 proves only the power-scale x^(1/2+o(1)) for total solutions and Remark 1.11 proposes an incorrect coefficient."
+      ],
+      "reasoning": "The known endpoint estimate does not dominate the claimed total-representation estimate, since a largest argument can support two distinct triples. The new coefficient and conditional multiplicity proportions require counting repeated kernels and upgrading the exceptional bound using Yudin/Tao parameter restrictions.",
+      "searches": [
+        "factorial square products three factorials representation multiplicity asymptotic",
+        "\"consecutive factorial\" \"number of representations\" \"square\" n",
+        "Yudin square products factorials Theorem 3.1 nonconsecutive number solutions triple asymptotic",
+        "Tao counting solutions factorial equation theorem 1.10 asymptotic constant"
+      ]
+    },
+    "checked_sources": [
+      "F. Yudin, arXiv:2610.01899v1, relevant full primary sections",
+      "T. Tao, arXiv:2603.27990v1, relevant primary sections",
+      "Dujella et al., Products of three factorials (2014), full accessible primary PDF",
+      "Erdős--Selfridge (1975) classical theorem as quoted by Yudin and Tao; original 1975 article not read",
+      "OEIS A055204, squarefree part of n!, first terms and comments (consulted as exact table, not as asymptotic proof)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tao, arXiv:2603.27990v1, Section 1.3 (square-index repeated kernels) and Theorem 1.10/Remark 1.11 (counting solutions and proposed coefficient).",
+        "Yudin, arXiv:2610.01899v1, Theorems 1.1 and 3.1 and Section 3.2 (distinct largest-argument count and exceptional bound).",
+        "Dujella--Najman--Saradha--Shorey (2014), Theorems 1.1--1.2 and example (50,3),(50,4)."
+      ],
+      "reasoning": "Published ingredients imply a short deduction, which this finding makes explicit and sharp: squarefree-kernel duplicates contribute a new positive leading constant K to the count of triples; E(X) and (3.2) bound the remaining weighted triples by O_eps(X^(2/5+eps)). The 2026 conjectural constant c3^1 for triples is thereby ruled out. No prior full-text theorem found states this corrected asymptotic, though its ingredients are known.",
+      "searches": [
+        "Tao Products of consecutive integers with unusual anatomy Conjecture number factorial square equation three solutions c3^1 constant correction multiplicity duplicate squarefree factorial",
+        "factorial square products three factorials representation multiplicity asymptotic",
+        "\"number of such solutions\" \"c_3^1\" factorial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tao arXiv:2603.27990v1, Section 1.3, explicitly says factorial squarefree parts repeat exactly at square indices.",
+        "Erdős--Selfridge consecutive-products theorem as stated in Tao arXiv:2603.27990v1, Theorem 1.1(ii), and Yudin arXiv:2610.01899v1, Section 3.2."
+      ],
+      "reasoning": "The repeated-kernel lemma is prior, not claimed as new. The equivalent total-triple count weights each repeated kernel twice rather than once; Tao Section 1.3 defines a distinct-kernel constant, while Remark 1.11 proposes it for the multiplicity-weighted count. The proposed equality is contradicted by the positive duplicate series.",
+      "searches": [
+        "\"three factorials\" \"same\" \"two\" \"square\" representations Erdős Graham",
+        "\"squarefree kernel\" \"factorial\" consecutive square multiplicities n!",
+        "\"squarefree part\" \"factorials\" \"multiplicity\" \"consecutive\" Erdős Graham",
+        "\"same squarefree part of factorials\" \"two\"",
+        "squarefree factorial kernel duplicates at square indices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Tao arXiv:2603.27990v1, Section 1.3 gives squarefree factorial sequence and references OEIS A055204, A387186 and A389117.",
+        "Exact finite computations produce duplicate kernels 6, 70, 1430, 676039 and larger terms; first two are visible in Tao Section 1.3."
+      ],
+      "reasoning": "Previously tabulated factorial kernels and the distinct-endpoint constant do not themselves tabulate or state the multiplicity-corrected asymptotic of all three-factor square solutions. Numerical values are treated only as verification.",
+      "searches": [
+        "OEIS A055204 squarefree part of factorial",
+        "OEIS A387186 endpoints type F3 intervals",
+        "OEIS A389117 constant for endpoints",
+        "factorial squarefree repeats 3! 4! 8! 9!"
+      ]
+    },
+    "rationale": "The correction counts representations rather than endpoints. Tao explicitly stated the square-index repetition, but subsequently conjectured the distinct-endpoint coefficient for all ordered triples. Yudin proves a distinct-endpoint asymptotic, not the multiplicity-corrected triple count; the argument here combines that theorem with an exact duplicate-series asymptotic and a multiplicity-weighted exceptional bound. Relevant primary full-text passages and published result catalog searches did not identify the corrected coefficient. Residual possibility of a previously noted implicit correction is acknowledged.",
+    "residual_risks": [
+      "Earlier uncatalogued commentary may already note the short logical correction to Tao Remark 1.11.",
+      "Erdős--Selfridge original 1975 article was not directly read; its standard theorem is quoted in two inspected primary sources.",
+      "Asymptotic depends on published nonconsecutive-endpoint analytic estimates; these were applied with their stated quantifiers, not independently reproved.",
+      "Finite checks do not certify a numerical high-precision limit of K."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem counts distinct endpoints and bounds exceptional endpoints; does not state a total triple multiplicity constant. Its input estimates allow the correction after an additional multiplicity argument.",
+        "evidence": "arXiv:2610.01899v1, lines for Theorem 1.1, Section 3.1 equations (3.1)-(3.2) and Theorem 3.1, Section 3.2 equation (3.3).",
+        "identifier_or_url": "https://arxiv.org/html/2610.01899v1",
+        "material_read": "Primary HTML introduction, Theorem 1.1, Section 3.1 including Theorem 3.1/equation (3.2) and proof, Section 3.2 including entire main-term argument and final references",
+        "method": "Direct full primary HTML text inspection of relevant theorems, proofs, definitions and notation",
+        "title": "Square products of factorials and a conjecture of Erdős and Graham",
+        "trigger": "Direct motivating 2026 paper with same factorial-square triples and asymptotic endpoint theorem"
+      },
+      {
+        "assessment": "Known repeated factorial kernels are explicitly recognized, but the conjectural triple-count constant remains the once-counted endpoint coefficient; not a covering result.",
+        "evidence": "arXiv:2603.27990v1, Section 1.3, equation (1.15), Theorem 1.10 and Remark 1.11.",
+        "identifier_or_url": "https://arxiv.org/html/2603.27990v1",
+        "material_read": "Primary HTML introduction, Section 1.3 including squarefree kernel list, Theorem 1.10, Remark 1.11, and definitions of F3 intervals",
+        "method": "Direct primary HTML statement and surrounding discussion comparison",
+        "title": "Products of consecutive integers with unusual anatomy",
+        "trigger": "Same factorial-square equation; the precise proposed asymptotic coefficient to be tested"
+      },
+      {
+        "assessment": "Gives finite solutions for middle-gap three and examples 50!47!3!, 50!47!4!, but no asymptotic multiplicity correction for consecutive largest arguments.",
+        "evidence": "2014 article, pp. 124--129, examples (50,3) and (50,4), Theorems 1.1--1.2.",
+        "identifier_or_url": "https://publi.math.unideb.hu/paper/1890/download/10_5486_PMD_2014_5835.pdf",
+        "material_read": "Accessible eight-page primary PDF, introduction, Theorems 1.1--1.2, proof sections, numerical exceptions, and references",
+        "method": "Read the textual full PDF and visually inspected the theorem/introduction page",
+        "title": "Products of three factorials",
+        "trigger": "Older primary Diophantine work with duplicated small-index witness"
+      },
+      {
+        "assessment": "Directly tabulates the first repeated values and cites Tao; supplies no theorem about the corrected asymptotic for total three-factorial square solutions.",
+        "evidence": "OEIS A055204 records values 6,6 at indices 3,4 and 70,70 at 8,9, plus larger repeated entries.",
+        "identifier_or_url": "https://oeis.org/A055204",
+        "material_read": "Sequence definition, initial terms, references, examples and published sequence comments",
+        "method": "Read OEIS primary entry and its internal plain-text view",
+        "title": "A055204: Squarefree part of n!",
+        "trigger": "Check whether square-index repeated kernels and numerical examples were already in a standard table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a8ac1d1-4017-4caf-80ea-49bec9611100",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Corrects an explicit conjectural coefficient for a significant 2026 factorial-square enumeration problem by distinguishing numbers that admit a triple from distinct triples. Identifies a strictly positive new series K in the leading term, sharp restricted collision classification and sparse multiplicity law. Derives a nonzero conditional fraction of double representations among three-factorable nonsquare endpoints. No claim of new proof of the cited classical theorem, and no unsupported applications are asserted.",
+    "status": "PASS"
+  }
+}
