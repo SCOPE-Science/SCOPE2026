@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is replayed by `verify.py` using only Python's standard library. The checker represents numbers of the form \(a+b\sqrt d\) exactly over rational \(a,b\), reconstructs
-\[
-F_m(t)=
-\frac{\frac{t^2}{m}-\frac87t+\frac{m+1}{7}}
-{6\left(\frac{t^2}{m}+\frac{(1-t)^2}{6-m}-\frac17\right)}
-\]
-for \(1\le m\le5\), differentiates numerator and denominator algebraically, and verifies the exact radical maximizers and maximum values.
+# Independent mathematical audit
 
-It also checks that the \(m=1\) maximum dominates the \(m=2\) maximum by an exact squared inequality, that the remaining chambers are below \(1\), that the equality pairing ratio simplifies to
-\[
-\frac{29-\sqrt{511}}{11},
-\]
-and that multiplying the normalized maximum by \(12\) gives
-\[
-6+\frac{2\sqrt{511}}7.
-\]
+## correctness
 
-The geometric volume identity is proved in `RESULT.md`; the checker verifies the subsequent algebraic optimization. A separate floating-point convex-hull calculation was used only as a consistency check and is not needed for correctness.
+PASS
 
-Limit: the verification establishes the six-dimensional theorem only. It does not certify any claim for dimensions \(n\ge7\).
+For a regular six-simplex, every support meets a vertex; normalize edges to 1 and contact at 0. Its Gram inverse 2I-(2/7)J gives A^2=[2(Q-1/7)]^-1 in normalized nonnegative vertex heights. The reflected-hull volume follows integration over upper projected facets, leading to R=2[Q_I-(8/7)t+(m+1)/7]/(Q-1/7). For m in {1,...,5}, conditional Cauchy equalization of complementary heights and fractional derivative sign of Q_I reduces to F_m(t); m=0 gives R<=12 and m=6 impossible. Independently differentiated each F_m and checked all admissible radical maxima, showing m=1 gives R=6+2sqrt(511)/7. The unique m=1 ratio is (29-sqrt511)/11; 7 possible contact vertices times 6 small-height vertices gives exactly 42 supports. Separately independently constructed seven reflected vertices and verified six-dimensional ConvexHull ratio 12.458659745975591 vs exact 12.45865974597561. Finite/float hull is not the universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level prior comparison: the exact final claim goes beyond inspected narrower qualitative, lower-bound, upper-bound or Poisson-restricted results. This is not a claim of exhaustive historical priority; see four comparisons and source-specific risks.
+
+## value
+
+PASS
+
+First full global solution for dimension six of the corrected Horváth supporting-hyperplane reflection problem, including rigorous upper bound over all facet chambers and complete 42-support equality orbit. The matching two-upper-facet numerical witness was already known; the global optimization and equality classification are the valued novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

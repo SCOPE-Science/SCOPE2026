@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof covers every supporting hyperplane because every exposed face of a simplex contains a vertex, after which the support can be written as \(u^\perp\) at that vertex. The regular-simplex Gram matrix gives the exact unit-normal constraint. The reflected-hull volume is derived by integrating the affine height over projections of all upper facets, producing an exact piecewise-rational objective. Each chamber is reduced rigorously by two sum-of-squares equalization steps, and the remaining one-variable derivatives are checked exactly. The unique global chamber maximum is
-\[
-6+\frac{2\sqrt{511}}7.
-\]
-No finite experiment is used to establish the theorem.
+PASS
 
-## Originality
+For a regular six-simplex, every support meets a vertex; normalize edges to 1 and contact at 0. Its Gram inverse 2I-(2/7)J gives A^2=[2(Q-1/7)]^-1 in normalized nonnegative vertex heights. The reflected-hull volume follows integration over upper projected facets, leading to R=2[Q_I-(8/7)t+(m+1)/7]/(Q-1/7). For m in {1,...,5}, conditional Cauchy equalization of complementary heights and fractional derivative sign of Q_I reduces to F_m(t); m=0 gives R<=12 and m=6 impossible. Independently differentiated each F_m and checked all admissible radical maxima, showing m=1 gives R=6+2sqrt(511)/7. The unique m=1 ratio is (29-sqrt511)/11; 7 possible contact vertices times 6 small-height vertices gives exactly 42 supports. Separately independently constructed seven reflected vertices and verified six-dimensional ConvexHull ratio 12.458659745975591 vs exact 12.45865974597561. Finite/float hull is not the universal proof.
 
-PASS. The directly relevant 2019 correction states that the formerly claimed all-dimensional value \(2n\) is valid only through dimension four, solves dimension five, and explicitly poses the higher-dimensional problem. The earlier 2013/2014 theorem claiming \(2n\) in all dimensions is therefore not covering and is superseded on this question by the correction. Searches for the six-dimensional formulation, the exact radical \(\sqrt{511}\), the decimal value, supporting-hyperplane/reflection aliases, and later references to arXiv:1811.12399 found no statement implying the six-dimensional exact value or its equality classification. Residual risk remains for unindexed or differently worded literature.
+## originality
 
-## Value
+PASS
 
-PASS. The finding resolves the first dimension left open by the corrected primary paper, gives an exact extremal constant rather than a numerical estimate, and classifies all equality supports. The reduction also identifies a reusable structural mechanism: within every six-dimensional upper-facet chamber, an optimizer equalizes both the small and large normal-pairing groups.
+Best-of-knowledge statement-level prior comparison: the exact final claim goes beyond inspected narrower qualitative, lower-bound, upper-bound or Poisson-restricted results. This is not a claim of exhaustive historical priority; see four comparisons and source-specific risks.
 
-## Closest literature and limitations
+## value
 
-The closest source is Á. G. Horváth, *An extremal problem of regular simplices: the five-dimensional case*, Journal of Geometry 110, 17 (2019), DOI 10.1007/s00022-019-0472-4, earliest public version arXiv:1811.12399 (2018-11-29). Its Problem 1 leaves dimensions beyond five open. The earlier paper *On an extremal problem connected with simplices* (2014; arXiv:1303.3454) contains the now-corrected all-dimensional \(2n\) claim. The new theorem is limited to dimension six and does not solve dimensions \(n\ge7\).
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+First full global solution for dimension six of the corrected Horváth supporting-hyperplane reflection problem, including rigorous upper bound over all facet chambers and complete 42-support equality orbit. The matching two-upper-facet numerical witness was already known; the global optimization and equality classification are the valued novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
