@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The power-domain criterion is exact: a restriction \(g|_A\) has nonempty \(h\)-th power precisely when an orbit of \(g\) contains a cyclic run of \(h\) members of \(A\). The cyclic transfer trace counts domain subsets without repetitions; rotation orders and reflection fixed-point types supply all dihedral contributions. The extension-multiplicity correction includes all and only the empty, singleton, and even-antipodal two-point cases established by Fernandes–Paulista Lemma 1.1. The proof separately handles \(h=1\), proves the stabilization at \(h=n\), and derives the \(n\varphi(n)\) extremal count. Actual checker replay independently agrees in all ranks for \(3\le n\le10\) and all \(1\le h\le n\). Finite checks alone do not prove the universal claim.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest source is Fernandes–Paulista, arXiv:2205.02196, whose Lemma 1.1 proves the restriction and multiplicity infrastructure and Theorem 1.4 counts all elements, not nilpotent ones by rank and index. The 2023 dihedral-submonoid studies arXiv:2301.01519 and arXiv:2301.02474 calculate cardinality/rank/Green structure and presentations, respectively; their relevant full-text sections and term searches did not establish this refined power filtration. Searches also addressed cyclic-word and group-restriction formulations and exact small sequences. No directly equivalent formula was found; this is not a proof that no undiscovered or poorly indexed equivalent theorem exists. The dihedral representation and the generic finite transfer-matrix technique are prior mathematics, not claimed as newly developed.
+PASS
 
-## Value — PASS
-The distribution by both rank and nilpotency index is a natural invariant of a finite inverse transformation monoid, not a chosen numerical slice. The theorem calculates every such stratum for the complete family of cycle sizes, identifies parity-sensitive extension corrections, gives a divisor-sum for total nilpotents and proves the sharp extremal \(n\varphi(n)\) law. It complements the published size/rank/presentation results and could support refined studies of the nilpotent strata. It makes no assertion about a downstream theorem or larger research program.
+Fernandes–Paulista Lemma 1.1 supplies that every distance-preserving partial injection of a finite cycle is a dihedral restriction, unique beyond ranks <=2 apart from even antipodal domain. A power of g|A survives h times iff some g-cycle contains a cyclic run of h selected domain points; the trace of T_h^t counts precisely the legal cyclic 0/1 words by rank. Rotation orders contribute phi(t)B_(t,h)^(n/t), reflections forbid fixed points and allow at most one vertex of each 2-cycle, giving R_n. Subtract (2n-1) empty, n(n-1) singleton, and n(n-2)/2 even antipodal rank-two duplicate extensions. h=1 treated separately. The top rank n-1 forces n-cycle rotation and one omitted vertex, count n phi(n), with index n. Independently enumerated distinct restrictions and all h for n=4..7, matching totals 41,141,307,897 and all rank/index coefficients. Finite checks do not establish arbitrary n.
 
-## Scientific limitations
-The full relevant primary source PDFs were available and inspected; some potentially equivalent general group-restriction formulas may be difficult to locate. Verification by exhaustive computation is limited to modest finite cases; the infinite statement rests on the written proof. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fernandes–Paulista arXiv:2205.02196 Lemma 1.1 provides exact infrastructure and Theorem 1.4 total monoid size, not joint nilpotency-index rank enumerator. Related dihedral inverse monoid submonoid papers arXiv:2301.01519 and 2301.02474 have order/Green/presentation focus; their full text was not entirely inspected, so no absolute negative. Resultary semantic search did not return direct coverage. The new nilpotency filtration and duplication correction cannot be read directly from total monoid cardinality without new transfer counting.
+
+## value
+
+PASS
+
+A natural finite inverse monoid invariant is classified across every size and every power cutoff, with exact rank-index generating functions and extremal n phi(n) stratum; it fills a meaningful enumerative gap not mechanically implied by whole-monoid size. Parity-dependent antipodal corrections are structurally informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

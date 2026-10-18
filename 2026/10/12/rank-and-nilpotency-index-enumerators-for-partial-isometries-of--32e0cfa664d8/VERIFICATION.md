@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the rank-index formula
+# Independent mathematical audit
 
-Run `python checker.py` with Python 3.9 or later. It requires only the standard library and prints `VERIFY_OK` if all assertions pass. It directly enumerates the defining distance-preserving partial maps for cycle sizes \(3\le n\le6\), without using the dihedral restriction theorem in that independent cross-check. It then enumerates every distinct dihedral restriction for \(3\le n\le10\), computes each power up to index \(n\), and compares complete rank polynomials with the transfer formula. A separate binary cyclic-word enumeration checks the transfer trace for orbit lengths \(1\le t\le10\) and all bounds \(1\le h\le11\).
+## correctness
 
-The observed counts of all nilpotent elements at cycle sizes \(4,5,6,7,8,9,10\) are respectively \(41,141,307,897,1889,4393,9651\). The top-rank and maximal-index counts agree with \(n\varphi(n)\) throughout this tested range. The actual general proof relies on the permutation-restriction and cyclic-run arguments in `RESULT.md`; enumeration is a finite check only. Machine execution and self-review do not constitute independent certification.
+PASS
+
+Fernandes–Paulista Lemma 1.1 supplies that every distance-preserving partial injection of a finite cycle is a dihedral restriction, unique beyond ranks <=2 apart from even antipodal domain. A power of g|A survives h times iff some g-cycle contains a cyclic run of h selected domain points; the trace of T_h^t counts precisely the legal cyclic 0/1 words by rank. Rotation orders contribute phi(t)B_(t,h)^(n/t), reflections forbid fixed points and allow at most one vertex of each 2-cycle, giving R_n. Subtract (2n-1) empty, n(n-1) singleton, and n(n-2)/2 even antipodal rank-two duplicate extensions. h=1 treated separately. The top rank n-1 forces n-cycle rotation and one omitted vertex, count n phi(n), with index n. Independently enumerated distinct restrictions and all h for n=4..7, matching totals 41,141,307,897 and all rank/index coefficients. Finite checks do not establish arbitrary n.
+
+## originality
+
+PASS
+
+Fernandes–Paulista arXiv:2205.02196 Lemma 1.1 provides exact infrastructure and Theorem 1.4 total monoid size, not joint nilpotency-index rank enumerator. Related dihedral inverse monoid submonoid papers arXiv:2301.01519 and 2301.02474 have order/Green/presentation focus; their full text was not entirely inspected, so no absolute negative. Resultary semantic search did not return direct coverage. The new nilpotency filtration and duplication correction cannot be read directly from total monoid cardinality without new transfer counting.
+
+## value
+
+PASS
+
+A natural finite inverse monoid invariant is classified across every size and every power cutoff, with exact rank-index generating functions and extremal n phi(n) stratum; it fills a meaningful enumerative gap not mechanically implied by whole-monoid size. Parity-dependent antipodal corrections are structurally informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
