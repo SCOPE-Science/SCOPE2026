@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the published all-vertices sink cubical model to a transparent subcomplex of a torus: all product cells occur except the \(m\) diagonal edge-by-edge squares. Replacing each deleted square interior by a smaller disk produces a genus-one surface with \(m\) boundary components that retracts onto the cubical model. This proves the wedge rank for every \(m\ge3\). The label transposition is handled by an equivariant cellular Lefschetz calculation; its chain traces are \((m,0,0)\), forcing first-homology trace \(1-m\). The bundled verifier independently checks the full cellular matrices for \(3\le m\le12\).
+## correctness
 
-Risk: the computational range is finite, so it cannot establish the all-parameter statement by itself. The general proof is geometric and does not rely on extrapolation.
+PASS
 
-## Originality
-PASS. The closest primary source, Chettih--Lütgehetmann, introduces the sink model and computes a circle with one sink. Ramos uses the all-vertices convention and supplies the general discrete model, Euler characteristic and asphericity, but its exact homology/fundamental-group formulas are for trees and its general-graph results are asymptotic. Statement-level searches under sink-configuration, permitted-collision, cycle, punctured-torus and label-swap formulations found no source stating or implying the combined all-cycle wedge formula and \(S_2\)-character.
+For every m>=3 the Ramos all-vertices-sink two-particle cubical retraction removes precisely the interiors of m diagonal squares from C_m x C_m, a cellulated torus. Their open interiors are disjoint (though square boundaries meet at corners); taking m small disjoint invariant inner disks and retracting the intervening annuli onto the square boundaries gives a genus-one orientable surface with m boundary components, homotopy equivalent to K_m and thus wedge of m+1 circles. The transposition fixes exactly the m diagonal vertices and no oriented one- or allowed two-cells, giving Lefschetz number m, H1 trace 1-m, eigen-dimensions (+, -)=(1,m). This is an all-m topological proof, not an inference from the saved mod-p tests.
 
-Risk: uncatalogued notes or computations may exist. No checked source supplies decisive broader coverage.
+## originality
 
-## Value
-PASS. Cycles are the simplest connected non-tree graphs, and the all-vertex sink convention is standard. The two-particle case is the first with a nontrivial label symmetry. An exact homotopy type for every cellulation length, together with the full transposition character, is a natural structural benchmark rather than a parameter-table recomputation.
+PASS
 
-## Closest literature and limitations
-Chettih--Lütgehetmann, arXiv:1612.08290 / DOI 10.2140/agt.2018.18.2443, supplies the sink deformation model and the one-sink circle example. Ramos, arXiv:1703.05535, supplies the all-vertices discrete model and the general cell count. The present claim is restricted to two labeled particles, all vertices as sinks, and the standard \(m\)-edge cycle for \(m\ge3\).
+Prior cactus-graph general theorem DOES ALREADY CONTAIN the cycle integral Betti ranks and exact label-swap H1 character after E=m,b=1; these are NOT original in isolation. However that published theorem explicitly restricts itself to homology and disclaims a homotopy classification: H1 and H2 ranks, even with group action, do not imply a free fundamental group or wedge-of-circles homotopy. The present central explicit all-m homotopy equivalence and free fundamental group remain distinguishable in inspected statements. This is narrow best-of-knowledge novelty, not priority asserted for the already-covered representation.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural simplest non-tree sink graph family has an explicit complete space-level classification for every subdivision size m, giving free fundamental group of rank m+1 and supporting equivariant topological checks. That is strictly stronger information than the already published integral homology/character; the exact homotopy shape is a useful reusable benchmark for higher-particle or more-complicated sink graphs, even though the derivation is short. Value is assigned to that homotopy information alone, not to recomputing known ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
