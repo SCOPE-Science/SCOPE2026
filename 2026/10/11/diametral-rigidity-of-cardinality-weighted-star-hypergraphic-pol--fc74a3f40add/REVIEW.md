@@ -1,19 +1,21 @@
-# Scientific review: diametral rigidity of cardinality-weighted star hypergraphic polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The original hyperedge Minkowski sum yields the exact prefix-weight vertex description by maximizing each simplex against a generic functional. The hockey-stick identity counts all summands. The nonnegative distance estimate and exhaustive equality analysis use the essential hypotheses \(r\ge2\), \(w_1>0\). The proof covers all allowed real weights and dimensions. The exact-rational standalone program separately recomputes support vertices, diameter pairs and finite specializations. Finite tests are corroborative, not infinite proofs.
+PASS
 
-## Originality — PASS, with residual risk
+For each strict coefficient order, every positive hyperedge simplex contributes to its largest-coordinate vertex. Thus every exposed vertex is a prefix v_(s,pi)=(T-sum_{j<=s}a_j)e0+sum_{j<=s} a_j e_pi(j), and sum a_j=T by hockey-stick identity. For vertices u,v with leaf coordinate sums x>=y, all leaf weights nonnegative, ||U||²<=H=sum a_j², ||V||²<=y² and U·V>=0; hence ||u-v||²<=(T-y)²+H+y²=T²+H-2y(T-y)<=T²+H. If 0<y<T the inequality is strict; if y=T both endpoints have >=2 positive leaf entries so ||V||²<y², strict. Equality only y=0, x=T; the full-support permutations give equality. Pascal difference a_j-a_(j+1) is positive whenever w2>0, so precisely r! distinct pairs in that case. Independent exact vertex- and distance-enumeration for 9 parameter cases r=2,3,4 corroborates. A general algebraic proof, not finite enumeration, establishes the theorem.
 
-The 2022 source arXiv:2209.12053v1 develops \(m\)-graph polytopes and their enumerators, not their Euclidean diameter. arXiv:2403.06975v1 and arXiv:2207.14253v3 develop projected partial permutohedra, Minkowski decompositions and face/Ehrhart invariants. The \(m=2\) star leaf projection is a known partial permutohedron; however, its ordinary leaf-coordinate Euclidean metric omits the rank-one sum-of-coordinate-differences term, so its known diameter and disjoint-support maximizers do not imply the apex-to-full-leaf metric theorem. No inspected source states the arbitrary cardinality-weighted formula or all diametral-pair classifications. An equivalent result under another name or a stronger general simplex-sum theorem remains a genuine risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete natural Euclidean invariant with exhaustive extremizers across an entire nonnegative cardinality-weighted family. Hub-to-full-leaf rigidity persists during interpolation from the graphical zonotope to the stellohedron while the number of diameter pairs jumps from one to \(r!\) when the first higher-order hyperedges are introduced. It distinguishes Euclidean geometry in the natural affine realization from combinatorial normal-fan and leaf-projection invariants. The result is not restricted to arbitrarily selected parameter values.
+The published partial-permutohedron diameter and graphical-zonotope cone law were read in full as particularly relevant potential covering results. Both are mathematically adjacent yet fail to imply the positive-higher-order cardinality-weighted star’s complete ambient diametral-pair classification. The m=2 projected leaf model omits the hub-coordinate squared-sum correction, which changes distances; the graphical-zonotope cone law treats only size-two edge summands rather than all star hyperedges. The original m-graph and partial-permutohedron papers concern face/Ehrhart properties, not this metric classification.
 
-## Closest literature and limits
+## value
 
-Primary relevant full texts: Pešović–Stojadinović, arXiv:2209.12053v1; Behrend, arXiv:2403.06975v1; Behrend et al., arXiv:2207.14253v3. Their checked sections give normal-equivalence, simplex-sum, face and Ehrhart information, not the current ambient Euclidean-diameter statement. The assumption of positive hub-leaf edge weight is essential for the exact equality classification. The search is not exhaustive and provides no independent validation.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Computes a natural complete ambient Euclidean invariant of a substantial class of star hypergraphic generalized permutohedra, with all extremizers and a sharp multiplicity transition from one to r! at m=2. Its embedding sensitivity distinguishes meaningful metric geometry from the familiar face and projection invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
