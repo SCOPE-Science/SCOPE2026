@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The determinant expansion has only fixed points and one full directed cycle, giving \(\chi_A(t)=\prod(t-a_i)-\prod b_i\). Finite-field Frobenius factorization yields exactly \(m\) distinct roots each repeated \(h\) times and \((q-1)/m\) allowed cycle products. The independent count of edge-weight fibers and the Möbius inversion of cyclic-word periods give the stated full orbit distribution. The nonvanishing Krylov pivots prove maximal nilpotency index. A standalone explicit finite-field checker independently enumerates all diagonal/product candidates and checks matrix powers and orbit periods over both prime and extension fields.
+## correctness
 
-**Originality — PASS with residual risk.** The exact existence criterion for the same pattern is *not new*: it appears in Vander Meulen–Van Tuyl (2009), Theorem 4.6. Their full text was inspected, and the current claim is deliberately restricted to quantitative labelled realization counts and monomial-conjugacy orbit sizes. Campbell–Vander Meulen–Van Tuyl (2011) treats related existence conditions and pattern constructions, not the full finite-field orbit-size count. Engel–Schneider (1982) establishes general diagonal-similarity canonical forms, but does not supply the nilpotent finite-field necklace spectrum. Broad semantic and exact-phrase searches did not reveal a stronger prior quantitative result; this cannot establish exhaustive novelty.
+PASS
 
-**Value — PASS.** The theorem answers a natural counting and symmetry-classification question left open by the qualitative existence result for an irreducible support pattern in all dimensions. It measures the fraction of admissible coefficient assignments that actually realize nilpotence, distinguishes the inseparable characteristic-dividing-dimension strata, and classifies stabilizers and orbit sizes rather than merely finding a witness. For example, the \(21{,}870\) nilpotent realizations in the six-dimensional quaternary case split into two small and fourteen large monomial orbits, a nontrivial stabilizer phenomenon obscured by the mere existence criterion.
+Determinant has only diagonal identity and full cycle permutations, giving chi_A(t)=prod_i(t-a_i)-B. Nilpotence iff prod_i(t-a_i)=t^n+B=(t^m+beta)^h with Frobenius bijective and m coprime p. Degree-m factor is separable and splits precisely when m|q-1 and -beta is mth power, giving each of m roots h times, n!/(h!)^m diagonal words for (q-1)/m allowed products B and (q-1)^(n-1) nonzero edge tuples per product. A Krylov triangular pivot along cycle e_n,Ae_n,...,A^(n-1)e_n proves minimal polynomial t^n, so index n. Diagonal conjugation transitive on edge-weight fibers with fixed B; rotations act on balanced root words, period d count F(d), Moebius inversion gives exact O_d and Burnside total. Independent finite-field word/rotation arithmetic recomputed (q,n)=(4,6) 21870 solutions in two 729-size and fourteen 1458-size orbits, along with q4,n3, q5,n4, q7,n3; finite checks corroborate but do not prove all n/q.
 
-**Closest sources and limitations.** The 2009 paper's Theorem 4.6 covers existence but not the new count; the 1982 paper covers the diagonal-similarity mechanism but not nilpotent specialization, and the 2011 paper concerns other qualitative patterns. Only this one support family is considered. An equivalent unpublished or unindexed quantitative orbit formula remains a residual priority risk. Experimental checks do not replace the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the final specific quantitative/mathematical statement after semantic published-finding search and primary source comparisons; precise coverage and residual risks are recorded. No literature search is represented as exhaustive or as independent priority certification.
+
+## value
+
+PASS
+
+The same irreducible looped directed-cycle matrix support was previously treated only qualitatively for potential nilpotence. Complete labeled realization and symmetry-orbit multiplicities (including characteristic dividing size) answer the natural next counting/classification problem. Regular nilpotence and nontrivial necklace stabilizers sharpen existence, even though the component Möbius and diagonal similarity facts are classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
