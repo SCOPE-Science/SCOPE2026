@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** With explicitly fixed molecule/dual coordinates and real metrics, the proof writes the exact transportation norm by a single cheaper direct edge, integrates positive-negative sign chambers, and proves that a chamber crossing the special edge expands in volume by exactly \(1/t\). Vandermonde's identity gives the primal volume. A full decomposition of the equilateral dual ball into equal-volume order simplices, followed by Dirichlet-gap beta mixtures, yields the polar volume. The derivative of their product proves the unique optimizer and asymptotic gain. Twelve small rational polytope cases were reconstructed and checked in the standalone code, with exact determinant arithmetic. The floating-point triangulation selects faces but does not establish the general theorem; the analytic proof does.
+
+**Originality: PASS (subject to normal literature limits).** Alexander–Fradelizi–García-Lirola–Zvavitch, arXiv:1911.10642, Section 5.2, Claim 5 establishes the equilateral volume product and Theorem 5.8 establishes that this equilateral body cannot be a global maximum for dimension at least three. Neither implies the exact one-short-edge primal/polar profiles or its optimizer. The inspected complete matching-shortening result is about facet counts, not volume. The inspected one-edge four-point result is about Hilbertian distortion, not volume. Searches of mathematical records and primary-literature terminology found no stronger covering statement. Residual uncertainty concerns unindexed presentations under root-polytope or volume-product terminology.
+
+**Value: PASS.** The theorem converts a qualitative nonmaximality result into a sharp constructive metric deformation in every finite dimension; the peak occurs strictly inside the family, and the optimal parameter and positive gain have exact, dimension-uniform formulas with a nontrivial \(1/8\) asymptotic gain. These are naturally defined invariants of the Lipschitz-free norm, not an arbitrary finite numerical slice.
+
+Closest sources are listed in RESULT.md. The theorem does not claim a global maximum over all metrics, a multiedge deformation theorem, or any external scientific certification.
+
+Self-review: passed. Independent audit: not yet performed.
