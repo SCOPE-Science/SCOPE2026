@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The proof derives exact cyclic mixed-window identities from alternating zero/one runs and directly identifies pure-trimer extras. Necessity gives p≡q (mod 3) and sharp boundary p≥2 for a>0, q≥2 for d>0. Sufficiency constructs every admissible profile using A=(2p+q)/3, B=(p+2q)/3 and r=ceil(max(A,B)/2) alternating runs. The rational series follows by a residue-class generating sum; its partial fractions prove exact counts, period and asymptotics. Direct exhaustive enumeration through n=16 and independent de Bruijn-state DP through n=48 confirm every attainable quadruple and its count. Finite checks are not claimed as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2201.09955, Sections I–IV describe full-composition linear reconstruction algorithms and codebooks.",
+        "arXiv:2208.14963, Section VIII gives code constructions for a different linear observation map.",
+        "doi:10.1587/transfun.2023TAP0015, Theorem 1 concerns uniqueness of cyclic word reconstruction from ordered substring frequencies."
+      ],
+      "reasoning": "A stronger observation map containing ordered 3-mer counts or all linear length-limited compositions need not determine the image size of its noninjective cyclic composition-only projection. The cited results do not contain a dominating theorem characterizing every projected count vector.",
+      "searches": [
+        "cyclic ternary-or-binary composition spectrum of k-mer windows count of achievable Parikh histograms for circle, necklace, enumeration",
+        "connected balanced de Bruijn flows projected to Hamming weight classes length three binary",
+        "arxiv 2021 2022 2023 composition multiset substrings DNA reconstruction bounded substring lengths Gabrys Milenkovic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.14963",
+      "arXiv:2201.09955",
+      "doi:10.1587/transfun.2023TAP0015",
+      "Indexed: Exact binary r=2 length-limited composition reconstruction",
+      "Indexed: Exact binary two-multispectrum code size and singleton classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ota–Manada Theorem 1: a weighted automaton criterion for unique reconstruction of an input circle from ordered substring frequencies.",
+        "Ye–Elishco Corollary VIII.3: a code construction for linear length-limited composition observations.",
+        "Gupta–Mahdavifar: efficient reconstruction algorithms for full linear substring-composition observations."
+      ],
+      "reasoning": "The new statement is a characterization and all-length enumeration of the set of attainable unordered trimer-composition count vectors. An ordered-factor reconstruction criterion, a construction of codes for a richer channel, or a count of linear r-limited outputs does not imply this count simply by changing titles or parameters. The proof uses a separate cyclic-run feasibility lattice.",
+      "searches": [
+        "binary length-three composition profiles attainable exact rational generating function cyclic substring mass spectra",
+        "connected balanced de Bruijn flows projected to Hamming weight classes length three binary",
+        "\"Ota\" \"Manada\" circular binary reconstruction 2023 arxiv substrings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2208.14963, Sec. VIII defines compositions of all linear factors up to length r rather than the cyclic histogram of exact-length-three factors.",
+        "doi:10.1587/transfun.2023TAP0015, Secs. 2 and 4 use ordered factor frequencies C(v) and a weighted-automaton uniqueness test."
+      ],
+      "reasoning": "Composition = the number of ones in a binary factor; cyclic trimer histograms are projected ordered 3-mer multiplicities. This semantic equivalence was included in searches. Neither inspected source provides the exact projected image or the congruence-and-boundary characterization.",
+      "searches": [
+        "Exact enumeration of binary circular length-three substring-composition multiset profiles or cyclic trimer Hamming-weight spectrum, residue congruence c1 ≡ c2 modulo 3, rational generating function",
+        "binary length-three composition profiles attainable exact rational generating function cyclic substring mass spectra",
+        "\"cyclic\" \"substring composition\" \"weight\" \"three\" binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published indexed exact pair-multispectrum counts concern length-two ordered observations; a linear three-length-limited composition-profile enumeration also concerns a different channel.",
+        "Full length-one through length-forty-eight profile sets were independently reproduced from the defining observation in verify.py."
+      ],
+      "reasoning": "No matching known table or database formula was found for the cyclic exact-length-three four-count histogram sequence. Failure to find a database entry does not constitute an originality proof; the theorem is defended by its exact mathematical distinction from inspected sources.",
+      "searches": [
+        "Exact enumeration of binary circular length-three substring-composition multiset profiles or cyclic trimer Hamming-weight spectrum, residue congruence c1 ≡ c2 modulo 3, rational generating function",
+        "For circular binary strings count distinct histograms of cyclic contiguous length-3 windows by the number of ones in the window (0,1,2,3). Exact image of Parikh 3-spectrum, congruence c1 congruent c2 mod 3, generating function and exact zero error code size.",
+        "\"2, 3, 4, 5, 8, 12, 16, 23, 32, 42, 56\" binary circular"
+      ]
+    },
+    "rationale": "The exact image of cyclic binary length-three composition histograms and its generating function are not stated by the inspected primary works on linear length-limited composition reconstruction, full linear composition reconstruction, or ordered cyclic substring reconstruction. The nearest indexed results concern different window sizes, observation maps, endpoints or alphabets. General reconstruction techniques do not logically supply the stated all-length image enumeration without the run-length feasibility argument. Search cannot establish uniqueness; unindexed equivalent work remains possible.",
+    "residual_risks": [
+      "An unindexed finite-state projection or Eulerian-multigraph enumeration could imply an equivalent rational formula.",
+      "Other papers on cyclic abelianized k-mer counts may use different terminology and be missed by indexing.",
+      "The closest circular paper assumes primitive input and ordered frequencies; no claim about its unstated corollaries is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different linear up-to-length-r observation and code construction, not an image enumeration for cyclic exact-length-three composition windows.",
+        "evidence": "Section VIII defines C_{<=r}(s) as a multiset over all linear lengths at most r and builds codewords from Lyndon words.",
+        "identifier_or_url": "https://arxiv.org/pdf/2208.14963",
+        "material_read": "Full-text PDF, problem definitions and introduction, Section VIII pp. 21–23, conclusions.",
+        "method": "Read the article PDF text around Definition VIII.1 and Corollary VIII.3, and inspect the first-page PDF rendering.",
+        "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+        "trigger": "Defines length-limited substring-composition model at the same read-length scale."
+      },
+      {
+        "assessment": "Addresses all linear substring compositions and reconstruction algorithms, not cyclic fixed trimer histogram realization.",
+        "evidence": "Definition of C(s) includes compositions of all contiguous substrings, and main contributions address backtracking and efficient codebook construction.",
+        "identifier_or_url": "https://arxiv.org/pdf/2201.09955",
+        "material_read": "Full-text PDF introduction, model definitions and summaries of the main reconstruction and codebook results, pp. 1–4.",
+        "method": "Read full-text PDF statements and model definitions.",
+        "title": "A New Algebraic Approach for String Reconstruction from Substring Compositions",
+        "trigger": "Potentially stronger reconstruction result using the full composition multiset."
+      },
+      {
+        "assessment": "Ordered exact-factor frequencies and input-specific reconstruction criterion, not the cardinality of projected Parikh histograms; assumption excludes periodic inputs.",
+        "evidence": "Theorem 1 characterizes unique reconstruction via a weighted automaton; Definition C(v) retains frequency for each ordered binary string v.",
+        "identifier_or_url": "https://www.jstage.jst.go.jp/article/transfun/E107.A/3/E107.A_2023TAP0015/_pdf/-char/en",
+        "material_read": "Full-text PDF, definitions pp. 409–410, main Condition 2 and Theorem 1 p. 412, reconstruction examples and conclusion pp. 413–415.",
+        "method": "Read PDF text and inspect rendered theorem page.",
+        "title": "A Reconstruction of Circular Binary String Using Substrings and Minimal Absent Words",
+        "trigger": "Closest circular binary reconstruction paper, with fixed-length substring frequencies."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ce7c84e-f38b-41e2-9399-f8bdbb21b748",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The observation is the natural unordered-composition-only cyclic trimer read channel, relevant to molecular-spectrum reconstruction. Its full image, not merely a few cases, is resolved by a sharp modular congruence and two nontrivial boundary constraints; an exact cubic quasipolynomial yields both the one-third density of realizable abstract output histograms and the exact zero-error coding cardinality. Distinct from prior pair profiles and linear all-short-read composition models.",
+    "status": "PASS"
+  }
+}
