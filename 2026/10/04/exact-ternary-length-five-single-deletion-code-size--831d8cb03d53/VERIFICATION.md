@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact theorem is certified by `verify.py` using only integer arithmetic and the Python standard library. The script reconstructs every ternary length-five word and every ternary length-four deletion output, verifies pairwise disjoint deletion shadows for the 24 displayed codewords, and checks the complete rational dual certificate.
+# Independent mathematical audit
 
-The dual weights have common denominator \(14\). Their integer numerators sum to \(348\), and the script verifies that the distinct deletion shadow of every one of the \(243\) possible input words has numerator weight at least \(14\). This proves \(14|C|\le348\) for every one-deletion-correcting code. The calculation is exhaustive over the finite domain; no probabilistic sampling or optimization solver is involved in replay.
+## correctness
 
-Expected output:
+PASS
 
-`VERIFY_OK N(5,3,1)=24 dual=174/7 min_scaled_shadow_weight=14`
+For each ternary five-word x, D1(x) is the SET of its distinct length-four subsequences by one deletion. The explicit 24 codewords have pairwise disjoint D1 shadows, giving lower bound 24. The pinned verify.py gives 81 positive integer weights c_z with sum 348, scale 14; independently reconstructed all 243 input deletion shadows and checked min_x sum_{z in D1(x)}c_z =14, and verified disjointness of the 24 source witnesses (using 78 distinct output words). Any code then satisfies 14|C|≤348; integer |C|≤24. Finite enumeration exhausts the exact 3^5 domain, not a partial sample. This establishes N(5,3,1)=24.
 
-`certificate.json` records the checked domain sizes, the exact objective \(174/7\), the minimum verified shadow weight, and the resulting upper bound. The package does not classify all maximum codes or address other alphabet sizes or lengths.
+## originality
+
+PASS
+
+Kulkarni–Kiyavash arXiv:1211.3128 Table I(b) gives q=3,n=5 fractional rounded upper bound 24 but best listed construction size 17, so the exact equality and code of size 24 are not prior claims. Full licensed eight-page Li–Houghten CIT 2012 primary text newly read: Table IV gives ternary Tenengolts size 17 at n=5 and examines extensions, without proving N(5,3,1)=24. Neighbor Resultary ternary n4 and quinary n4 optimum or ternary n5 covering numbers are distinct. Residual earlier unindexed specialized code constructions remain possible.
+
+## value
+
+PASS
+
+Exact natural ternary length-5 one-deletion optimum closes a specific documented seven-codeword construction gap (17 to 24) against the existing rounded fractional upper bound. The constructive primal witness plus independently checkable exact dual is useful as a small synchronization-code benchmark, even without a general family or census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
