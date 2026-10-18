@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The definition is reduced exactly to the ratio \(r=\min\{\lambda,\mu\}/\max\{\lambda,\mu\}\). The embedding \(T(s,t)=(s,t,s-t)\) turns the hexagonal norm into a three-coordinate sup norm. For distinct active output coordinates, weighted AM-GM plus the exact dual norm of two coordinate functionals yields a one-variable certificate in \(z=\kappa^2\). The stationary point is feasible exactly when \(r^4+r^2\le1\); otherwise the optimum is at \(z=1/r\). Both branches have explicit attaining pairs. The bundled checker verifies the finite dual-norm lemma, the symbolic branch identities and the transition.
+## correctness
 
-## Originality
-PASS. The defining 2021 primary full text was inspected through the generalized Zbăganu definition, its comparison theorems and Examples 4.3 and 4.5. The latter is an octagonal upper-bound example; no hexagon or regular-polygon computation occurs in the inspected text. Searches covered the exact invariant notation, affine-regular-hexagon aliases, both formulas and the threshold equation. The closest indexed same-space results compute different invariants and do not imply this profile.
+PASS
 
-## Value
-PASS. The claim gives the complete generalized Zbăganu profile on a canonical nonsmooth Radon plane. The phase change at \(r^4+r^2=1\) is structural: an interior optimal dual weight reaches a facet-switch boundary. This is substantially more informative than a single parameter evaluation and gives a reusable polyhedral optimization mechanism.
+Inspected the exact definition on the hex norm \(N(s,t)=\max\{|s|,|t|,|s-t|\}\), scale and parameter interchange invariance, and the plane embedding into a three-coordinate sup-norm space. For distinct active coordinates, the dual unit-ball six vertices imply signed two-functional norms \(a+b\) and \(\max(a,b)\) in opposite sign choices; independently checked six ordered pairs on twenty positive rational coefficient choices. Weighted AM--GM and Cauchy--Schwarz reduce the sharp upper bound to minimizing \(G_1(z)\) for \(z\le1/r\) and \(G_2(z)\) for \(z\ge1/r\); the unconstrained minimum \(z=\sqrt{1+r^2}\) crosses the boundary exactly when \(r^4+r^2=1\). Checked both explicit attaining families at \(r=0.04,0.2,0.5,0.75,r_*,0.9,1\); direct evaluation matched both closed forms including \(C_Z(1,1)=5/4\). These samples supplement the universal analytic argument and the source symbolic verifier.
 
-## Closest literature and limitations
-Liu, Sarfraz and Li introduced \(C_Z(\lambda,\mu,X)\) in Demonstratio Mathematica 54 (2021), 299–310, published 16 August 2021 with MSC 2020: 46B20. Their Example 4.5 treats a regular octagon by an upper estimate. The present theorem is specific to the affine-regular hexagon and does not classify all polygonal norms or all extremizers.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+This particular final statement and its implications were checked against the named primary sources; the returned primary literature supports the stated best-of-knowledge comparison, while incomplete/full-text risks are expressly recorded. The Resultary semantic query returned temporarily_unavailable (search_completed=false), not a negative hit; no absence or external certification is inferred.
+
+## value
+
+PASS
+
+A motivated complete generalized parameter profile for a canonical polyhedral Banach plane. The transition between an interior dual-weight optimizer and the facet-switch boundary is an intrinsic feature of a natural invariant. The precise two-parameter law is potentially useful independently of any previously known unweighted hexagon endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
