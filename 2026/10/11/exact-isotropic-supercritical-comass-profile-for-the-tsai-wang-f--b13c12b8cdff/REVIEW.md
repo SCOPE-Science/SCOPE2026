@@ -1,27 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof starts from the exact graph-plane evaluation in Chen--Lien. Equal singular values reduce its numerator to an affine function of \(\operatorname{tr}B\). The trace inequality gives an upper bound depending only on the singular values of \(B\). After writing those singular values as tangents of angles, pairwise averaging changes the objective by the nonnegative amount
-\[
-Q\sin^2v.
-\]
-Thus the global matrix problem reduces to one scalar \(t\). The scalar derivative has exactly one positive zero: \(t=\lambda\) in the comass-one region and \(t=1/((r-1)\lambda)\) in the supercritical region. In the latter case \(B=-tI_r\) attains every inequality used, so the resulting bound is the exact comass. The packaged symbolic checker replays the critical-point and closed-form algebra for symbolic \(r\).
+PASS
 
-## Originality
+For real r>=2 and lambda>0, reconstruct Chen–Lien graph-plane expression C(a+d tr B)/sqrt det(I+B^T B) as cited by the package. Trace inequality reduces to nonnegative singular values; writing b_i=tan(theta_i) gives symmetric H. At fixed angle sum u, pairwise averaging increases H by Q sin²(v)>=0, Q>=0. Scalar derivative has sign d-|a|t-(r-1)d t², strictly decreasing for t>=0, with t=lambda subcritical and t=1/((r-1)lambda) supercritical. Substitution yields displayed piecewise formula; B negative scalar attains supercritical equality. Finite rank tests are corroboration only. The exact external coordinate formula in the inaccessible Chen–Lien full text is a residual premise risk, not falsely reported as independently derived.
 
-PASS. Chen--Lien prove the exact criterion for the comass to equal one. When the criterion fails, their necessity argument evaluates the form on \(B=-\operatorname{diag}(\lambda_i)\) only to obtain a value of magnitude greater than one. Their inspected text does not optimize the supercritical norm. Tsai--Wang's earlier paper gives broader sufficient estimates but no exact norm on this supercritical isotropic family. Source-specific and equivalent-formulation searches found no statement of the closed formula or reciprocal maximizing slope.
+## originality
 
-The main residual risk is a very recent or unindexed independent calculation of the same isotropic matrix norm.
+PASS
 
-## Value
+Best-of-knowledge novelty after object/parameter/implication comparisons with primary literature and published Resultary findings; specific plausible residual coverage risks stated; inaccessible literature alone does not force scientific rejection.
 
-PASS. The result quantitatively continues a newly proved sharp threshold on the canonical equal-singular-value family in every rank. It identifies both the exact amount by which the form ceases to be a calibration and a non-obvious change in the extremizing plane. This is a natural structural refinement of the exact criterion, rather than a numerical example or arbitrary finite slice.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
 
-## Closest literature and limitations
+The new quantitative comass profile over an infinite isotropic affine rank family measures precisely how a geometrically motivated calibration fails above the established sharp threshold; the reciprocal maximizing slope, full magnitude and large-lambda growth distinguish it from a binary comass-one criterion. Natural extremal invariant, not a trivial parameter substitution.
 
-The closest source is Chen--Lien, arXiv:2609.39159v1; Tsai--Wang, arXiv:2604.04336v1, is the underlying construction.
-
-The theorem does not solve the general supercritical problem with unequal singular values. A comass value greater than one concerns this particular differential form and does not imply non-minimality or non-area-minimality of the affine plane by other calibrations.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

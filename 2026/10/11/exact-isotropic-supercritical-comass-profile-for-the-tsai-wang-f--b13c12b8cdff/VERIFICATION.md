@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,73 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For equal singular values \(\lambda\), the primary graph-plane formula reduces to
-\[
-\Theta(\Gamma_B)
-=
-(1+\lambda^2)^{r/2}
-\frac{a+d\,\operatorname{tr}B}
-{\sqrt{\det(I+B^TB)}},
-\]
-where
-\[
-a=\frac{1-(r-1)\lambda^2}{1+\lambda^2},
-\qquad
-d=\frac{\lambda}{1+\lambda^2}.
-\]
+# Independent mathematical audit
 
-If \(b_i=\tan\theta_i\) are the singular values of \(B\), the trace inequality reduces the absolute value to the scalar objective
-\[
-H=
-q\prod_i\cos\theta_i
-+
-d\sum_i\sin\theta_i\prod_{j\ne i}\cos\theta_j,
-\qquad
-q=|a|.
-\]
-For a pair \(\alpha=u+v\), \(\beta=u-v\), holding all other angles fixed,
-\[
-H(u,u)-H(u+v,u-v)=Q\sin^2v\ge0.
-\]
-Thus all singular values may be equalized without decreasing the objective.
+## correctness
 
-The resulting one-variable function is
-\[
-h(t)
-=
-(1+\lambda^2)^{r/2}
-\frac{q+rdt}{(1+t^2)^{r/2}}.
-\]
-Its derivative has the sign of
-\[
-d-qt-(r-1)dt^2.
-\]
+PASS
 
-When
-\[
-(r-1)\lambda^2\le1,
-\]
-the unique nonnegative root is \(t=\lambda\), and \(h(\lambda)=1\).
+For real r>=2 and lambda>0, reconstruct Chen–Lien graph-plane expression C(a+d tr B)/sqrt det(I+B^T B) as cited by the package. Trace inequality reduces to nonnegative singular values; writing b_i=tan(theta_i) gives symmetric H. At fixed angle sum u, pairwise averaging increases H by Q sin²(v)>=0, Q>=0. Scalar derivative has sign d-|a|t-(r-1)d t², strictly decreasing for t>=0, with t=lambda subcritical and t=1/((r-1)lambda) supercritical. Substitution yields displayed piecewise formula; B negative scalar attains supercritical equality. Finite rank tests are corroboration only. The exact external coordinate formula in the inaccessible Chen–Lien full text is a residual premise risk, not falsely reported as independently derived.
 
-When
-\[
-(r-1)\lambda^2>1,
-\]
-the unique positive root is
-\[
-t=\frac1{(r-1)\lambda}.
-\]
-Substitution gives
-\[
-h(t)
-=
-\frac{(r-1)^{r-1}\lambda^r(1+\lambda^2)^{(r-2)/2}}
-{\bigl(1+(r-1)^2\lambda^2\bigr)^{(r-2)/2}}.
-\]
-Taking \(B=-tI_r\) gives equality in the trace estimate and hence attains this value.
+## originality
 
-The bundled checker verifies these identities symbolically, checks continuity at the sharp boundary, and verifies the \(r=3\) specialization.
+PASS
 
-No finite numerical search is used to establish the global maximum.
+Best-of-knowledge novelty after object/parameter/implication comparisons with primary literature and published Resultary findings; specific plausible residual coverage risks stated; inaccessible literature alone does not force scientific rejection.
+
+## value
+
+PASS
+
+The new quantitative comass profile over an infinite isotropic affine rank family measures precisely how a geometrically motivated calibration fails above the established sharp threshold; the reciprocal maximizing slope, full magnitude and large-lambda growth distinguish it from a binary comass-one criterion. Natural extremal invariant, not a trivial parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
