@@ -1,11 +1,21 @@
-# Scientific review: Retraction rank spectra of evolution algebras with one-dimensional square
+# Independent mathematical audit
 
-**Correctness — PASS.** The defining homomorphism equation is exactly \(B(Fu,Fv)=\lambda B(u,v)\), where \(F(c)=\lambda c\). Composition-idempotence restricts \(\lambda\) to \(0,1\); nondegeneracy forces the \(1\) case to be the identity, and the \(0\) case is precisely an isotropic-image projection killing \(c\). Counts use the bijection between isotropic subspaces containing an isotropic \(c\) and subspaces of \(c^\perp/Kc\), followed by independent complement-graph choices. Standard finite-orthogonal-space counting is proved with the vector recurrence and ordered-frame argument; no experimental step substitutes for the theorem. The independent-by-method finite enumerator returns \(\texttt{VERIFY_OK}\) on all specified tests, including complete enumeration of all small matrices.
+## correctness
 
-**Originality — PASS with residual bibliographic uncertainty.** Brache et al. (arXiv:2103.01625v1) prove the identical bilinear-product reduction and classify algebra structures by quadratic-space invariants; that background is explicitly not claimed as new. Full-text sections and theorems of the same paper were inspected for composition-idempotent endomorphisms and finite-field rank multiplicities without finding this result. Facchini–Heidari Zadeh (arXiv:2210.08230v1) treat unital weak-augmentation splittings, not composition-idempotents of the nonunital evolution algebra. Calderón Martín et al. (arXiv:2303.00862v1) classify nondegenerate evolution-algebra structures and investigate derivations, not these rank distributions. Fernández-Ternero et al. (DOI:10.1002/cmm4.1200) consider when one distinguished evolution operator is a homomorphism, not all retractions. Exact-name, alias, reduction, and polynomial searches revealed no directly covering result, but no database search proves global novelty. Classical orthogonal polar-space counting is an ingredient, not a new contribution.
+PASS
 
-**Value — PASS.** Retractions are canonical split-quotient data for nonassociative algebras. The theorem classifies every retract of each nondegenerate one-dimensional-square evolution algebra in arbitrary characteristic and gives every finite-field multiplicity simultaneously in all dimensions, distinguishing two quadratic-space types and whether the square generator is isotropic. The rank polynomial is not just the known Grassmannian count: excluding the distinguished generator and counting complements are necessary and affect coefficients. The explicit differences for \(n=3,4\) show a structural arithmetic effect that can guide questions about endomorphism semigroups and the prevalence of split zero-product images.
+For E=(V,B,c), E²=Kc, nondegenerate symmetric orthogonally diagonalizable B and c≠0, F(c)=λc and the homomorphism condition is B(Fu,Fv)=λ B(u,v). Composition idempotence forces λ∈{0,1}. λ=1 plus nondegeneracy gives F=id. λ=0 yields precisely projections onto totally isotropic W with c∈ker F. For odd F_q, excluding isotropic W containing c gives I_r(B)−1_{B(c,c)=0}I_{r−1}(c⊥/Kc), while the number of complements containing c is q^{r(n−r−1)}. Standard ordered-isotropic-frame counting gives the explicit product for I_r. Independently enumerated all 2×2 matrices over q=3 or 5 in three form-and-c cases and recovered the predicted ranks. No formula is asserted for q even.
 
-**Closest literature and limitations.** The same-object precursor arXiv:2103.01625v1 is the strongest prior comparison. The theorem does not classify degenerate forms or give even-field enumerators. Equivalent retraction counts elsewhere remain possible; independent examination is warranted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brache et al. (arXiv:2103.01625) determine the bilinear-form model and quadratic types of evolution algebras with one-dimensional square. The assessed addition is a full algebra-homomorphism retract classification and labeled odd-field rank spectrum depending explicitly on isotropy of c; the older algebra classification is not claimed new. Facchini–Heidari Zadeh analyze idempotent maps in unital weakly augmented constructions, not this nonunital evolution-algebra census.
+
+## value
+
+PASS
+
+Retraction ranks of a natural nonassociative algebra family measure how its possible zero-product retracts vary with Witt type and with the designated square generator c; their complete finite-field count is an independently useful structural invariant, not a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

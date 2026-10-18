@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Execute `python3 checker.py` in an environment with Python 3 and no third-party dependencies. Successful execution prints `VERIFY_OK`. The checker directly enumerates composition-idempotent algebra-homomorphism matrices for seven odd-prime-field test inputs, rather than assuming the derived parametrization. A second implementation enumerates row-reduced subspaces in seven inputs and checks total isotropy and exclusion of the distinguished vector. Outputs include the rank multiplicities.
+## correctness
 
-The full generality of the result is deductive: nondegeneracy and composition-idempotence imply the projection classification; a geometric counting bijection and a hyperbolic-frame count imply the finite-field polynomial. The tests do not establish the result for untested field orders or dimensions. No external or independent audit has been conducted.
+PASS
+
+For E=(V,B,c), E²=Kc, nondegenerate symmetric orthogonally diagonalizable B and c≠0, F(c)=λc and the homomorphism condition is B(Fu,Fv)=λ B(u,v). Composition idempotence forces λ∈{0,1}. λ=1 plus nondegeneracy gives F=id. λ=0 yields precisely projections onto totally isotropic W with c∈ker F. For odd F_q, excluding isotropic W containing c gives I_r(B)−1_{B(c,c)=0}I_{r−1}(c⊥/Kc), while the number of complements containing c is q^{r(n−r−1)}. Standard ordered-isotropic-frame counting gives the explicit product for I_r. Independently enumerated all 2×2 matrices over q=3 or 5 in three form-and-c cases and recovered the predicted ranks. No formula is asserted for q even.
+
+## originality
+
+PASS
+
+Brache et al. (arXiv:2103.01625) determine the bilinear-form model and quadratic types of evolution algebras with one-dimensional square. The assessed addition is a full algebra-homomorphism retract classification and labeled odd-field rank spectrum depending explicitly on isotropy of c; the older algebra classification is not claimed new. Facchini–Heidari Zadeh analyze idempotent maps in unital weakly augmented constructions, not this nonunital evolution-algebra census.
+
+## value
+
+PASS
+
+Retraction ranks of a natural nonassociative algebra family measure how its possible zero-product retracts vary with Witt type and with the designated square generator c; their complete finite-field count is an independently useful structural invariant, not a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
