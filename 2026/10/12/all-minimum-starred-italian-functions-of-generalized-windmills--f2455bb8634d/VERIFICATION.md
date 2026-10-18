@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,40 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs
-\[
-W_{m,r}=K_1\vee mK_r
-\]
-directly.
+# Independent mathematical audit
 
-For each ternary labeling it verifies the exact Italian condition on every zero vertex and checks that the zero set is not dominating.
+## correctness
 
-The exhaustive cases are
-\[
-(m,r)\in
-\{(3,1),(3,2),(3,3),(3,4),(4,1),(4,2),(4,3),(5,1),(5,2)\}.
-\]
+PASS
 
-For every case the checker computes the minimum weight and the complete set of minimum functions, then compares them with the theorem's predicted family: center label \(2\), exactly one whole blade labeled \(1\), and every other outer vertex labeled \(0\).
+Since the zero set V0 is not dominating, some positive vertex x has no zero neighbor. When V0 is nonempty, the universal center cannot play x, so x lies in a blade B_i, forcing center positive and all r blade vertices positive. Weight ≥r+1, and r+1 fails Italian domination on every all-zero other blade (they see center label1 only). A matching construction with center2 and B_i labels1 gives weight r+2. If optimum weight r+2 had center1, at most one further positive unit outside the forced blade is available; m≥3 guarantees at least one totally zero other blade, whose zero vertices have total neighbor weight1, contradiction. Thus center2 and exactly one full blade1 are forced, giving m distinct functions for every r≥1. Independently enumerated all 3^(1+mr) labels for (3,1),(3,2),(3,3),(4,1),(4,2),(5,1), reproducing minima r+2 and multiplicity m; finite checks only corroborate arbitrary m,r proof.
 
-Recorded output:
+## originality
 
-```text
-VERIFY_OK
-m=3, r=1: gamma_star_I=3, minimum_functions=3
-m=3, r=2: gamma_star_I=4, minimum_functions=3
-m=3, r=3: gamma_star_I=5, minimum_functions=3
-m=3, r=4: gamma_star_I=6, minimum_functions=3
-m=4, r=1: gamma_star_I=3, minimum_functions=4
-m=4, r=2: gamma_star_I=4, minimum_functions=4
-m=4, r=3: gamma_star_I=5, minimum_functions=4
-m=5, r=1: gamma_star_I=3, minimum_functions=5
-m=5, r=2: gamma_star_I=4, minimum_functions=5
-ternary_labelings_checked = 3447765
-parameter_cases_checked = 9
-all minimum functions matched: center label 2 plus one whole blade labeled 1
-```
+PASS
 
-The checker exhausts \(3{,}447{,}765\) ternary labelings across nine parameter pairs. The computation is exhaustive for those cases and corroborative only for the arbitrary-parameter theorem, whose proof is symbolic.
+Cabrera Martínez 2021 establishes the same scalar γ*_I=r+2 via Theorem 4.6 universal-join formula with δ(mK_r)=r-1, but the theorem does not list every minimum starred Italian function or multiplicity. Full original PDF inspected, notably universal-join theorem and family results. Searches for windmill/friendship and starred Italian equality families (also Resultary) did not reveal an equivalent optimizer census. Unindexed equality-characterization risk remains.
+
+## value
+
+PASS
+
+The minimum-weight value already existed, but this identifies *every* minimizing labeling and the exact optimizer multiplicity on the whole natural generalized-windmill family, with a genuine transition at m=2. Structural rigidity describes the combinatorial mechanism of extremality, not merely an arbitrary small parameter substitution or re-derivation of the known scalar.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
