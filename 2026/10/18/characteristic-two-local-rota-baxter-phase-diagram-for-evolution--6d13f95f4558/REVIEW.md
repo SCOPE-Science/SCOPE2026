@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+
+The characteristic-two specialization of the Rota–Baxter identity at equal arguments forces the square of every output to vanish. With independent nonzero natural-basis squares, the square-zero set is exactly the annihilator; both directions of the operator classification follow. In dimension two over a finite characteristic-two field, the remaining dependent, nonzero-squares case is a rank-one symmetric bilinear multiplication. Its unique square-zero line carries every ordinary operator. Substituting this normal form gives the union of the two stated lines of coefficient functionals, and pointwise evaluation proves precisely when every map into the square-zero line is local. These implications, the finite-field square roots, and all structural boundary cases have been reconstructed. The labeled census follows by a direct projective-line count. Exhaustive independent enumeration over the binary and four-element fields, representative eight-element-field checks and two higher-dimensional chain checks confirm the formulas but are not used as infinite-field proofs.
+
+## Originality — PASS, with documented residual risk
+
+The closest motivating full text is Qaralleh--Mukhamedov--Khakimov, arXiv:2606.22623v1, which studies local operators under the explicit **characteristic-zero** hypothesis; its diagonal-string theorem is not a result over characteristic-two fields. The earlier arXiv:2601.08669 likewise explicitly assumes characteristic zero. Ladra--Murodov, arXiv:1906.09098, classifies ordinary operators on two-dimensional complex evolution algebras but not finite characteristic-two pointwise-local operators. Comparisons concerned statement inclusion, not title or parameter matches. Searches for characteristic-two local operators, annihilator-valued maps, equivalent rank-one tensor characterizations, and finite-field tables did not identify an implication covering the combined rigidity, five-case classification, and labeled census. An older unindexed characteristic-two computation or a reduction implicit in broader operator literature remains a residual originality risk; this review cannot certify uniqueness against unpublished findings.
+
+## Mathematical value — PASS
+
+This supplies a sharp characteristic boundary in a currently studied local-operator problem: the characteristic-zero nilpotent-chain local/ordinary separation disappears across an arbitrary-dimensional, structurally defined characteristic-two family. It also identifies and completely classifies the first dimension where separation can persist, computes both operator varieties by explicit lines, and determines the exact finite-field density of exceptional multiplication tables. This is a motivated operator-structure problem rather than an arbitrary small numerical slice. It does not classify all evolution algebras of dimension above two with dependent squares or supply independent priority review.
+
+Self-review: passed. Independent audit: not yet performed.
