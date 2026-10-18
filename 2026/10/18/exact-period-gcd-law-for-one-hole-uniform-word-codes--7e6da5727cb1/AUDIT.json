@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The alignment lemma reduces nonoccurrence in the factor language to all k residues being obstructed by missing-block occurrences, including arbitrary partial endpoint blocks. Any k occurrences in different residues form a weighted residue spanning path. Kruskal costs each proper period p_i exactly (g_(i-1)-g_i)*p_i, plus (g_m-1)*(k+1), where g_i are successive gcd values. A translated-coset Hamilton path achieves exactly these positive forward gaps, and overlapping copies are consistent because sums of proper periods shorter than k remain periods. This proves the infinite-domain equality; independent KMP and direct NFA BFS agree on 508 and 124 binary instances, respectively. All k>=2 and all finite alphabets of size>=2 are quantified, including constants and unbordered words.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chandelkar–Chadha 2026 Theorem 1.1 provides a coarse upper bound for arbitrary incomplete uniquely decipherable code, without exact length for one-hole bordered codes.",
+        "Pribavkina 2009 Proposition 2 handles all unbordered one-hole missing words but does not cover bordered holes.",
+        "Fici–Pribavkina–Sakarovitch 2010, Section 3 explicitly studies structure assuming an unbordered missing word."
+      ],
+      "reasoning": "A general upper bound cannot determine the exact positive length or the mixed-period dependence. Existing unbordered coverage is acknowledged and excluded from the asserted novel part.",
+      "searches": [
+        "Pribavkina slowly synchronizing automaton zero bordered excluded word generalization period spectrum",
+        "\"Σ^k\" \"bordered\" \"incompletable\" word",
+        "\"Σ^n\" \"minus one word\" \"uncompletable\" bordered"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0907.4576 (primary relevant full text)",
+      "arXiv:1002.1928v2 (primary sections 2–3 read in publicly accessible manuscript text)",
+      "arXiv:2609.30817v1 (primary relevant full text)",
+      "arXiv:1104.0388 (abstract, full text unavailable)",
+      "Published indexed mathematical claim 2026/10/4/SCOPE-exact-high-deficiency-rank-profile-of-pribavkina-s-widehat-mathc--ef663bcc4c9e (ranked summary only)",
+      "Earlier accessible mathematical claims (compared for overlap; no matching bordered one-hole formula found)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pribavkina, arXiv:0907.4576, Section 2 Proposition 2: shortest incompletable length k^2+k-1 for unbordered deleted word.",
+        "Chandelkar–Chadha, arXiv:2609.30817v1, Section 5 Proposition 5.1: construction deleting a^(k-1)b, an unbordered word.",
+        "Published mathematical research claim 2026/10/4/SCOPE-exact-high-deficiency-rank-profile-of-pribavkina-s-widehat-mathc--ef663bcc4c9e: indexed rank threshold claim for completed Pribavkina semi-flower automata with unbordered defining word.",
+        "Fici–Pribavkina–Sakarovitch, arXiv:1002.1928v2, Proposition 2.3 restricts exact one-hole minimum to unbordered missing words."
+      ],
+      "reasoning": "Each cited one-hole equality corresponds exactly to m=0 in the new expression, so those statements are already prior art. None yields U(u) for u with several proper periods. The broader code theorem gives inequalities, not the exact classification. Automaton rank thresholds are different invariants on a restricted unbordered family.",
+      "searches": [
+        "arXiv:0907.4576v1 Proposition 2 unbordered incomplete set",
+        "arXiv:2609.30817v1 Proposition 5.1 one missing unbordered codeword",
+        "2026/10/4/SCOPE-exact-high-deficiency-rank-profile-of-pribavkina-s-widehat-mathc--ef663bcc4c9e"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pribavkina 2009 Proposition 2 determines only unbordered missing words, which have no short-overlap edges.",
+        "Alignment and occurrence-residue hitting are equivalent formulations of the same one-hole factor-language problem."
+      ],
+      "reasoning": "Any result for arbitrary bordered missing blocks determining the shortest factor noncoverage length would directly cover this claim regardless of terminology. The inspected source handles only missing words with no proper periods, so does not imply the required gcd filtration.",
+      "searches": [
+        "finite incomplete code all words of length k except arbitrary bordered word u exact shortest uncompletable length determined by word period gcd",
+        "\"incompletable\" \"period\" \"gcd\" deleted word",
+        "\"shortest\" \"uncompletable\" \"periods\" \"word\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed nearest high-deficiency rank claim 2026/10/4/SCOPE-exact-high-deficiency-rank-profile-of-pribavkina-s-widehat-mathc--ef663bcc4c9e concerns the distinct, unbordered Pribavkina automata family.",
+        "No indexed exact table covering the arbitrary bordered one-hole family was returned by the actual semantic queries."
+      ],
+      "reasoning": "The family covers infinitely many k and all forbidden words; finite enumerations of unbordered or selected cases would not imply the all-border gcd formula. Indexed search absence alone does not exclude such a table in unindexed sources.",
+      "searches": [
+        "one hole uniform code shortest absent substring period set gcd chain spanning tree optimal length",
+        "cyclic residue Hamilton path minimum weight sorted period gaps k unique forbidden codeword",
+        "shortest uncompletable word binary uniquely decipherable codes maximum word length three exact extremal classification"
+      ]
+    },
+    "rationale": "The examined primary sources cover unbordered one-hole codes and general-code quadratic bounds, not an exact formula for arbitrary bordered holes. The new result determines every bordered case from the full gcd-filtered proper-period set, and provides a matching constructive Hamilton path. Searches of indexed records and scientific terms found no known general formula; unindexed priority remains possible.",
+    "residual_risks": [
+      "An indexed search cannot establish mathematical novelty; an equivalent unindexed source may exist.",
+      "The complete text of Gusev and Pribavkina 2011 was not obtained; the accessible abstract alone does not support a definitive not-covered judgment.",
+      "The nearest indexed automata result was available as a summary rather than full text; it describes only unbordered defining words."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unbordered missing-word extremal equality already covered; bordered mixed-period exact formula not stated in inspected material",
+        "evidence": [
+          "Proposition 2 gives k^2+k-1 when the deleted word is unbordered."
+        ],
+        "identifier_or_url": "arXiv:0907.4576",
+        "material_read": "Section 2 on incomplete codes, especially Proposition 2 and proof; later automata discussion",
+        "method": "Lawful arXiv PDF full-text inspection",
+        "title": "Slowly Synchronizing Automata with Zero and Incomplete Sets",
+        "trigger": "Same exact one-hole code and uncompletable-word invariant"
+      },
+      {
+        "assessment": "Proposition 2.3 states the unbordered result; Section 3 explicitly assumes an unbordered missing word. No mixed-proper-period exact formula in the inspected sections.",
+        "evidence": [
+          "Fici–Pribavkina–Sakarovitch 2010, Proposition 2.3 and Section 3."
+        ],
+        "identifier_or_url": "arXiv:1002.1928v2",
+        "material_read": "Accessible manuscript text covering Section 2, Propositions 2.1–2.3, and Section 3 on minimal-word structures",
+        "method": "Public full-manuscript text inspection on author-uploaded page",
+        "title": "On the Minimal Uncompletable Word Problem",
+        "trigger": "Direct named one-hole code and shortest-uncompletable-word problem"
+      },
+      {
+        "assessment": "General incomplete-code bound and unbordered special case are prior; not the arbitrary bordered exact formula",
+        "evidence": [
+          "Theorem 1.1 gives 4k^2-3k upper bound for general codes; Proposition 5.1 treats the one-hole unbordered a^(k-1)b construction."
+        ],
+        "identifier_or_url": "arXiv:2609.30817v1",
+        "material_read": "Introduction and Theorem 1.1; Section 5 including Proposition 5.1 and demonstration of deleted special word",
+        "method": "Lawful arXiv PDF full-text inspection, including the relevant Section 5 PDF page",
+        "title": "Quadratic Bounds for Uncompletable Words and Matrix Mortality",
+        "trigger": "Recent primary work defining and bounding same invariant"
+      },
+      {
+        "assessment": "Different broader incomplete-set setting identified but equivalence not conclusively ruled out without full text",
+        "evidence": [
+          "Abstract discusses general incomplete sets and Restivo conjecture; no claim of the arbitrary bordered one-hole period formula in the accessible summary."
+        ],
+        "identifier_or_url": "arXiv:1104.0388",
+        "material_read": "Accessible title and abstract only; full primary text unavailable during this review",
+        "method": "Lawful public abstract inspection; not full-text comparison",
+        "title": "On Non-Complete Sets and Restivo’s Conjecture",
+        "trigger": "Potential broader incomplete-code result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7e6da572-7cb1-470e-9048-26fcc5ca9b61",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The one-hole full uniform code is a canonical extremal completeness object. Determining the exact shortest absent factor for every missing word, including those with multiple interacting periods, strengthens prior unbordered-only exact classification. The formula is structural and infinite: successive gcd reductions quantify how cheaper period edges eliminate expensive code-boundary transitions. It gives a constructive witness and arithmetic computation without exponentially enumerating the code. It does not imply a theorem for arbitrary incomplete codes.",
+    "status": "PASS"
+  }
+}
