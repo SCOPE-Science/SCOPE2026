@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:58:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The weighted composition map W_t has triangular coefficient entries t^n 1_{j≤n}. It is trace class for 0<t<1 by a product of two Hilbert–Schmidt factors. K=W_tW_t^* has Gram kernel t^{n+m}(min(n,m)+1). Every principal minor factorizes into increasing-index gaps; summation over independent positive gaps gives e_k=t^{k(k−1)}/prod_{j≤k}(1−t^{2j})², establishing the entire Fredholm determinant and its Hahn–Exton third-Jackson normalization termwise. The adjoint has zero kernel and the second-difference recurrence determines each positive eigenvector uniquely from its first scalar, proving infinitely many simple positive eigenvalues and positive simple determinant zeros.",
+      "risks": [
+        "No elementary zeros, endpoint t=0 or t=1, or arbitrary-weight formula asserted."
+      ],
+      "sources": [
+        "Frozen Git tree 0baa0eb4150ca7dc64c80b530ec6f4726a1a4814: RESULT.md blob 3a33336e713470e88ecd83b884090e8609fac03f, check_spectral_coefficients.py blob 83bc5d495e38a82272138824f1d07cae95ce8861",
+        "Independently computed rational finite Gram principal minors for t=1/2, n=6, k=1..3 and compared their strictly smaller symmetric sums with exact infinite coefficients; read exact rational checker for t=1/2,2/3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broader analytic-function-space mapping, compactness and Schatten membership results do not by their stated theorems give a complete individual singular-value sequence. Accessible 2026 abstract emphasizes Schatten properties; its unavailable full body remains risk."
+        ],
+        "reasoning": "The precise determinant and zero correspondence are additional unless uninspected higher details supply them.",
+        "searches": [
+          "point mass geometric Rhaly operator Hardy H2 all singular values Hahn Exton q Bessel determinant min kernel",
+          "Galanopoulos–Girela arXiv:2511.09201; Bellavita et al arXiv:2503.21930 and 2606.15875; Gallardo-Gutiérrez–Partington"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree 0baa0eb4150ca7dc64c80b530ec6f4726a1a4814: RESULT.md blob 3a33336e713470e88ecd83b884090e8609fac03f, check_spectral_coefficients.py blob 83bc5d495e38a82272138824f1d07cae95ce8861",
+        "Gallardo-Gutiérrez–Partington arXiv:2408.03182 / published ordinary spectrum",
+        "Bellavita–Dellepiane–Stylogiannis arXiv:2503.21930 Schatten class",
+        "Bellavita–Dellepiane–Stylogiannis arXiv:2606.15875 abstract; full text blocked",
+        "Galanopoulos–Girela arXiv:2511.09201 mapping/compactness",
+        "SIGMA 14 (2018) 035 Hahn–Exton background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An ordinary spectrum does not imply singular values of nonnormal W_t; knowing Schatten membership for p does not imply exact individual values or simplicity. The Gram-minor summation is a separate constructive implication."
+        ],
+        "reasoning": "Best-of-knowledge PASS with a specific unresolved source-access risk for the plausible 2026 paper, not an automatic failure.",
+        "searches": [
+          "point mass geometric Rhaly operator Hardy H2 all singular values Hahn Exton q Bessel determinant min kernel",
+          "Gallardo-Gutiérrez–Partington 2025 full open article; Bellavita 2025/2026 abstracts; classical Hahn–Exton zero theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same weighted composition map W_t f(z)=f(tz)/(1-tz) is identified in primary source. Ordinary eigenvalues t^n and individual singular values are distinct because W_t is nonnormal."
+        ],
+        "reasoning": "Equivalent Gram min-kernel, Fredholm determinant, q-Bessel zero and approximation-number formulations were compared.",
+        "searches": [
+          "point mass geometric Rhaly operator Hardy H2 all singular values Hahn Exton q Bessel determinant min kernel",
+          "Resultary Rhaly geometric weights singular Hahn-Exton determinant query; Gallardo-Gutiérrez–Partington arXiv:2408.03182; Bellavita et al arXiv:2606.15875"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ordinary spectrum and Schatten-ideal tests were located; no independent tabulation of every geometric Rhaly singular value or its Hahn–Exton determinant was found."
+        ],
+        "reasoning": "The numerical zero list is implicit; the determinant is an exact entire spectral identity not a known finite table recomputation.",
+        "searches": [
+          "point mass geometric Rhaly operator Hardy H2 all singular values Hahn Exton q Bessel determinant min kernel",
+          "Resultary operator singular spectra top12; Gallardo-Gutiérrez–Partington Section point-mass map"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality based on mathematical statement and implication comparisons, not title matches. Best-of-knowledge PASS with a specific unresolved source-access risk for the plausible 2026 paper, not an automatic failure. Search self-hit 2026/10/11/SCOPE-hahn-exton-zeros-determine-every-singular-value-of-a-geometric-r--43fc115e6443 identifies the assigned candidate itself, not prior independent coverage.",
+      "residual_risks": [
+        "Full arXiv:2606.15875 could not be read; authorized Oxford returned vpn_disconnected; it may hide a related exact singular-value statement beyond abstract and summary.",
+        "Classical q-Bessel operator models may realize the determinant in unindexed spectral literature."
+      ],
+      "risks": [
+        "Full arXiv:2606.15875 could not be read; authorized Oxford returned vpn_disconnected; it may hide a related exact singular-value statement beyond abstract and summary.",
+        "Classical q-Bessel operator models may realize the determinant in unindexed spectral literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_DIFFERENT_INVARIANT",
+          "evidence": "Ordinary eigenvalue set {0,t^n} for nonnormal W_t does not determine the Fredholm singular determinant or singular values.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.03182",
+          "material_read": "Full accessible published primary HTML, including identification of the point-mass weighted composition map and ordinary spectral conclusions.",
+          "method": "Primary published full-text sections matched by formula and invariant",
+          "title": "Rhaly operators: more on generalized Cesàro operators",
+          "trigger": "Exact same point-mass W_t=f(tz)/(1-tz) with ordinary spectrum potentially confused with singular spectrum"
+        },
+        {
+          "assessment": "PLAUSIBLE_SOURCE_INACCESSIBLE_FULL_TEXT",
+          "evidence": "Abstract focuses on boundedness/compactness/Schatten criteria; individual singular-value formula cannot be excluded solely from abstract. This is a residual risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15875",
+          "material_read": "Accessible arXiv/alphaXiv abstract and secondary detailed thematic overview only; full primary paper inaccessible through arXiv/export and lawful OA; authorized Oxford access returned vpn_disconnected.",
+          "method": "Same-paper open-access attempts first, then authorized Oxford paper access attempt; no bypass or claim of full inspection",
+          "title": "Rhaly operators on weighted Hardy spaces and factorable matrices",
+          "trigger": "Recent primary source about same operator family and general Schatten behavior"
+        }
+      ],
+      "sources": [
+        "point mass geometric Rhaly operator Hardy H2 all singular values Hahn Exton q Bessel determinant min kernel",
+        "Gallardo-Gutiérrez–Partington arXiv:2408.03182 / published ordinary spectrum",
+        "Bellavita–Dellepiane–Stylogiannis arXiv:2503.21930 Schatten class",
+        "Bellavita–Dellepiane–Stylogiannis arXiv:2606.15875 abstract; full text blocked",
+        "Galanopoulos–Girela arXiv:2511.09201 mapping/compactness",
+        "SIGMA 14 (2018) 035 Hahn–Exton background"
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Knowing the entire singular sequence of a canonical geometric Rhaly/point-mass weighted-composition operator gives sharp operator norm and every best rank-limited approximation error, substantially more than ordinary eigenvalues or ideal membership. The q-Bessel determinant is a natural exact spectral characterization.",
+      "risks": [
+        "Full arXiv:2606.15875 could not be read; authorized Oxford returned vpn_disconnected; it may hide a related exact singular-value statement beyond abstract and summary.",
+        "Classical q-Bessel operator models may realize the determinant in unindexed spectral literature."
+      ],
+      "sources": [
+        "Frozen Git tree 0baa0eb4150ca7dc64c80b530ec6f4726a1a4814: RESULT.md blob 3a33336e713470e88ecd83b884090e8609fac03f, check_spectral_coefficients.py blob 83bc5d495e38a82272138824f1d07cae95ce8861",
+        "Gallardo-Gutiérrez–Partington arXiv:2408.03182 / published ordinary spectrum",
+        "Bellavita–Dellepiane–Stylogiannis arXiv:2503.21930 Schatten class",
+        "Bellavita–Dellepiane–Stylogiannis arXiv:2606.15875 abstract; full text blocked",
+        "Galanopoulos–Girela arXiv:2511.09201 mapping/compactness",
+        "SIGMA 14 (2018) 035 Hahn–Exton background"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git tree 0baa0eb4150ca7dc64c80b530ec6f4726a1a4814: RESULT.md blob 3a33336e713470e88ecd83b884090e8609fac03f, check_spectral_coefficients.py blob 83bc5d495e38a82272138824f1d07cae95ce8861",
+    "Gallardo-Gutiérrez–Partington arXiv:2408.03182 / published ordinary spectrum",
+    "Bellavita–Dellepiane–Stylogiannis arXiv:2503.21930 Schatten class",
+    "Bellavita–Dellepiane–Stylogiannis arXiv:2606.15875 abstract; full text blocked",
+    "Galanopoulos–Girela arXiv:2511.09201 mapping/compactness",
+    "SIGMA 14 (2018) 035 Hahn–Exton background"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No elementary zeros, endpoint t=0 or t=1, or arbitrary-weight formula asserted.",
+    "Full arXiv:2606.15875 could not be read; authorized Oxford returned vpn_disconnected; it may hide a related exact singular-value statement beyond abstract and summary.",
+    "Classical q-Bessel operator models may realize the determinant in unindexed spectral literature."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "SAME_OBJECT_DIFFERENT_INVARIANT",
+      "evidence": "Ordinary eigenvalue set {0,t^n} for nonnormal W_t does not determine the Fredholm singular determinant or singular values.",
+      "identifier_or_url": "https://arxiv.org/abs/2408.03182",
+      "material_read": "Full accessible published primary HTML, including identification of the point-mass weighted composition map and ordinary spectral conclusions.",
+      "method": "Primary published full-text sections matched by formula and invariant",
+      "title": "Rhaly operators: more on generalized Cesàro operators",
+      "trigger": "Exact same point-mass W_t=f(tz)/(1-tz) with ordinary spectrum potentially confused with singular spectrum"
+    },
+    {
+      "assessment": "PLAUSIBLE_SOURCE_INACCESSIBLE_FULL_TEXT",
+      "evidence": "Abstract focuses on boundedness/compactness/Schatten criteria; individual singular-value formula cannot be excluded solely from abstract. This is a residual risk.",
+      "identifier_or_url": "https://arxiv.org/abs/2606.15875",
+      "material_read": "Accessible arXiv/alphaXiv abstract and secondary detailed thematic overview only; full primary paper inaccessible through arXiv/export and lawful OA; authorized Oxford access returned vpn_disconnected.",
+      "method": "Same-paper open-access attempts first, then authorized Oxford paper access attempt; no bypass or claim of full inspection",
+      "title": "Rhaly operators on weighted Hardy spaces and factorable matrices",
+      "trigger": "Recent primary source about same operator family and general Schatten behavior"
+    }
+  ]
+}
