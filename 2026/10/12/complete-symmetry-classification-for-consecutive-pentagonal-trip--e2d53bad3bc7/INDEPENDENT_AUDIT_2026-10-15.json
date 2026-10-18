@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:52:17.584580Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed pentagonal differences and gcd(A,B)=2 iff n≡3 mod4, gcd(B,C)=2 iff n≡2 mod4, gcd(A,C)=5^[5|n]7^[n≡5 mod7]. Correctly separates redundant generators n=2,5. Herzog three-minimal-generator symmetry criterion restricts possible gluing to a nontrivial pair gcd and remaining scaled membership. Pair (A,B) leaves n=3 versus 7; pair (B,C) none; outer pair d∈{5,7,35} bounded by explicit sum-of-coefficients inequalities to n<11,15,71, respectively, and congruence exclusions leave n=40. The relation 2501=7·68+27·75 proves n=40. Independent exact Apéry Dijkstra computations for all 2≤n≤124 confirm only 2,3,5,40 and reproduce each exact F and genus. The universal exclusion is algebraic, not inference from this finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fel establishes consecutive Fibonacci/Lucas classifications, whose recurrences and pair gcds differ from pentagonal differences.",
+          "General 3-generator CI/gluing characterization is necessary starting theory, not an explicit classification over all consecutive pentagonal n."
+        ],
+        "reasoning": "No inspected parametric theorem automatically yields the four pentagonal exceptional indices without the claim-specific congruence and inequality analysis.",
+        "searches": [
+          "arXiv:0803.1606",
+          "García-Sánchez Viola 2015 three generator symmetry Theorem 10"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A069757",
+        "arXiv:0803.1606",
+        "doi:10.2140/involve.2015.8.677",
+        "Resultary query: three consecutive pentagonal numbers numerical semigroup symmetric Frobenius 40 2 3 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Herzog/Fel provides a criterion but imposes solving 3 possible gcd-pair Diophantine membership relations for each n.",
+          "OEIS Frobenius numbers alone do not logically imply that all n≥41 are nonsymmetric."
+        ],
+        "reasoning": "The additional complete infinite parameter classification and last-exception cutoff are nontrivial deductions not already furnished by an inspected stronger family theorem.",
+        "searches": [
+          "https://oeis.org/A069757",
+          "arXiv:0803.1606"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For numerical semigroups, symmetric means 2g=F+1 and for 3 minimally generated cases equals complete intersection gluing.",
+          "Fel Section 2.1 provides the gcd/coin representation criterion; submitting the same criterion without the pentagonal-specific exclusion would be covered."
+        ],
+        "reasoning": "The exact claim is a complete all-index classification of the quadratic pentagonal parameter family, not novelty of the general symmetric-semigroup definition.",
+        "searches": [
+          "three consecutive pentagonal numbers numerical semigroup symmetric Frobenius 40 2 3 5",
+          "OEIS:A069757",
+          "arXiv:0803.1606"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A069757 specifically lists Frobenius numbers for three consecutive pentagonal terms, including F=258529 at n=40.",
+          "Its table does not report genera or identify exactly which n satisfy 2g=F+1."
+        ],
+        "reasoning": "The Frobenius values are prior database information and not presented as novelty; knowing F alone does not determine symmetry without the gaps/genus.",
+        "searches": [
+          "https://oeis.org/A069757",
+          "three consecutive pentagonal numbers numerical semigroup symmetric Frobenius 40 2 3 5"
+        ]
+      },
+      "rationale": "The 2002 OEIS A069757 database predetermines the listed Frobenius values including n=40 but not symmetric indices or genera. Fel proves a general three-generator criterion and Fibonacci/Lucas-specific classifications, not the all-index consecutive pentagonal classification. Applying the criterion requires new gcd congruences, global cutoff and exceptional verification rather than a direct substitution of a ready-made parametric result.",
+      "residual_risks": [
+        "A previously unindexed polygonal-semigroup paper could specialize the same symmetry criterion and classify exactly these indices.",
+        "Finite Apéry computations verify only n≤124; the theorem for all n rests on the complete inequality cutoffs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE of Frobenius numbers, NOT_COVERING symmetry classification",
+          "evidence": "F(n) values known; no displayed genus or all-n symmetric index classification.",
+          "identifier_or_url": "https://oeis.org/A069757",
+          "material_read": "OEIS entry description and linked b-file values, including n=40",
+          "method": "database entry/table",
+          "title": "A069757, Frobenius number of three consecutive pentagonal generators",
+          "trigger": "Identical three-generator sequence and exact numerical values"
+        },
+        {
+          "assessment": "NOT_COVERING the pentagonal specialization",
+          "evidence": "Different exponential recurrences; the proof needs pentagonal-specific gcd 5,7,35 and inequalities.",
+          "identifier_or_url": "https://arxiv.org/abs/0803.1606",
+          "material_read": "Full accessible manuscript, Section 2.1 gcd criterion and theorems for Fibonacci/Lucas families",
+          "method": "arXiv PDF theorem inspection",
+          "title": "Symmetric Numerical Semigroups Generated by Fibonacci and Lucas Triples",
+          "trigger": "Closest published parametric triple symmetry classification"
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND, not verified all-text exclusion",
+          "evidence": "No claim of whole-document noncoverage based on limited reading.",
+          "identifier_or_url": "https://doi.org/10.2140/involve.2015.8.677",
+          "material_read": "Citation to Theorem 10 and published statement; no claimed pentagonal all-index formula was materially read",
+          "method": "bibliographic and theorem comparison",
+          "title": "When the catenary degree agrees with the tame degree in numerical semigroups of embedding dimension three",
+          "trigger": "General three-generator structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural classical consecutive polygonal-number semigroup family exhibits a rare last symmetric index at 40; locating all exceptions and proving finite cutoff with exact Frobenius/genus values is a motivated infinite arithmetic classification, not a renamed textbook two-generator case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all n≥2 the semigroup generated by P(n),P(n+1),P(n+2), P(n)=n(3n−1)/2, is symmetric exactly when n is 2,3,5 or 40, with Frobenius numbers 43,133,1699,258529 and genera 22,67,850,129265.",
+  "limitations": [
+    "General nonsymmetric Frobenius values not claimed; other polygonal families not classified.",
+    "Potential unindexed older symmetry classification remains an originality risk.",
+    "Complete Git directory tree could not be enumerated, but frozen scientific blobs were checked."
+  ],
+  "schema_version": 1
+}

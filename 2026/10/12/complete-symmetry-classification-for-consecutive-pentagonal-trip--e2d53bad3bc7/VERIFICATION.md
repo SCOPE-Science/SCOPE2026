@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` (Python 3, standard library only). Expected output:
+## correctness
 
-`EXACT_CERTIFICATE_OK indices=2,3,5,40 apery_checked=2..141 high_cutoffs=11,15,71 max_F=258529`
+PASS
 
-The script computes exact Apéry minimal representatives using Dijkstra's algorithm, from which the Frobenius number and genus are calculated without relying on the general three-generator criterion. It also independently executes the latter criterion on each index and checks the analytic-boundary inequalities and hand-excluded cases.
+Reconstructed pentagonal differences and gcd(A,B)=2 iff n≡3 mod4, gcd(B,C)=2 iff n≡2 mod4, gcd(A,C)=5^[5|n]7^[n≡5 mod7]. Correctly separates redundant generators n=2,5. Herzog three-minimal-generator symmetry criterion restricts possible gluing to a nontrivial pair gcd and remaining scaled membership. Pair (A,B) leaves n=3 versus 7; pair (B,C) none; outer pair d∈{5,7,35} bounded by explicit sum-of-coefficients inequalities to n<11,15,71, respectively, and congruence exclusions leave n=40. The relation 2501=7·68+27·75 proves n=40. Independent exact Apéry Dijkstra computations for all 2≤n≤124 confirm only 2,3,5,40 and reproduce each exact F and genus. The universal exclusion is algebraic, not inference from this finite check.
 
-The theorem for every positive integer index at least two follows from the written polynomial and modular arguments, not from 140 instances of computation. In particular, the upper bounds derived in RESULT.md eliminate all larger indices for each possible common divisor, so the finite set of residual tests is exhaustive.
+## originality
 
-No independent audit has been performed. Self-review verifies the stated proof and the checks only.
+PASS
+
+The 2002 OEIS A069757 database predetermines the listed Frobenius values including n=40 but not symmetric indices or genera. Fel proves a general three-generator criterion and Fibonacci/Lucas-specific classifications, not the all-index consecutive pentagonal classification. Applying the criterion requires new gcd congruences, global cutoff and exceptional verification rather than a direct substitution of a ready-made parametric result.
+
+## value
+
+PASS
+
+A natural classical consecutive polygonal-number semigroup family exhibits a rare last symmetric index at 40; locating all exceptions and proving finite cutoff with exact Frobenius/genus values is a motivated infinite arithmetic classification, not a renamed textbook two-generator case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

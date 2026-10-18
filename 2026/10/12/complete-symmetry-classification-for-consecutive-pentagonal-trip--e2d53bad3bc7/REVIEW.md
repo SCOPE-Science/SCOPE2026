@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof establishes exact adjacent gcds \(1\) or \(2\) and the outer gcd dividing \(35\). Herzog's established three-generator symmetry criterion reduces the question to three cofactor membership cases. Two cases are eliminated by explicit quadratic inequalities and small arithmetic; the outer case is reduced unconditionally to \(n=5,10,12,40\), of which only \(5,40\) work. The redundant two-generator cases are handled separately. An independent Apéry-set algorithm reproduces the claimed classification for every \(2\le n\le141\), including all boundary checks, and verifies the claimed Frobenius numbers and genera. The proof, not finite testing, establishes the unbounded conclusion.
+## correctness
 
-**Originality — PASS, with residual risk.** OEIS A069757 is an exact-object Frobenius table but not a symmetry/genus classification. Fel's arXiv:0803.1606 treats Fibonacci and Lucas triples, and García-Sánchez--Viola's 2015 paper supplies the general criterion rather than these pentagonal congruence and cutoff results. Searches for symmetry, complete intersection, Gorenstein, and genus formulations, plus published-record semantic searches, found no dominating statement. The absence of a search hit cannot exclude older unindexed work.
+PASS
 
-**Value — PASS.** This is a complete structural classification for a natural infinite family already recorded in the Frobenius-number literature, rather than another finite enumeration. The exceptional index \(40\), caused by a \(35\)-fold gluing of the outer generators, is not predictable from the neighboring small exceptions or from the published Frobenius table alone. The proof gives a finite theoretical stopping bound and isolates each possible divisibility mechanism. Similar symmetry criteria are classical; the family-specific resolution is the contribution.
+Reconstructed pentagonal differences and gcd(A,B)=2 iff n≡3 mod4, gcd(B,C)=2 iff n≡2 mod4, gcd(A,C)=5^[5|n]7^[n≡5 mod7]. Correctly separates redundant generators n=2,5. Herzog three-minimal-generator symmetry criterion restricts possible gluing to a nontrivial pair gcd and remaining scaled membership. Pair (A,B) leaves n=3 versus 7; pair (B,C) none; outer pair d∈{5,7,35} bounded by explicit sum-of-coefficients inequalities to n<11,15,71, respectively, and congruence exclusions leave n=40. The relation 2501=7·68+27·75 proves n=40. Independent exact Apéry Dijkstra computations for all 2≤n≤124 confirm only 2,3,5,40 and reproduce each exact F and genus. The universal exclusion is algebraic, not inference from this finite check.
 
-**Closest literature and limitations.** Sapko/OEIS A069757 (2002, complete exact family but only Frobenius values); Fel (2008, other recurrence families and general criterion); García-Sánchez--Viola (2015, general structure). The claim does not give Frobenius values at nonsymmetric indices or apply to all polygonal numbers. Unindexed duplication remains a literature risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2002 OEIS A069757 database predetermines the listed Frobenius values including n=40 but not symmetric indices or genera. Fel proves a general three-generator criterion and Fibonacci/Lucas-specific classifications, not the all-index consecutive pentagonal classification. Applying the criterion requires new gcd congruences, global cutoff and exceptional verification rather than a direct substitution of a ready-made parametric result.
+
+## value
+
+PASS
+
+A natural classical consecutive polygonal-number semigroup family exhibits a rare last symmetric index at 40; locating all exceptions and proving finite cutoff with exact Frobenius/genus values is a motivated infinite arithmetic classification, not a renamed textbook two-generator case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
