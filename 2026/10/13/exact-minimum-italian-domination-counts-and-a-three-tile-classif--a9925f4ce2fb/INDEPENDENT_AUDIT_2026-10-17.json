@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T13:59:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2 the two-row ladder P2 square Pn admits local column states (a,b) in {0,1,2}^2. For triples (p,s,t), each zero entry of s must have its neighboring row and horizontal weights >=2. Let delta(s)=sum(s)-1 and the finite integer potential d(p,s) as explicitly tabulated in the frozen source. Exhaustive independent enumeration of all 9^3=729 triples found 666 feasible and verified delta(s)+d(p,s)-d(s,t)>=0 in every feasible case; exactly 161 zero-cost triples. Summing telescopes to weight>=n with nonnegative endpoints. The source fully enumerates 13 trimmed zero-cost pair-states and yields two starting row choices, with alternating excursions of uniquely recoverable lengths 1,2,5 and a terminal opposite-column state. The corresponding exact generating function is 2*z^2/(1-z-z^2-z^5), with gamma_I=n and a2..a5=2,2,4,6. Independent exhaustive vertex-label checks for n=2..5 verify minima and counts; the unrestricted all-n statement depends on the complete local certificate/finite transition classification, not on extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gardner gives exact minimum weight n, not shown to give its multiplicity from available excerpt; Shao–Zhao full HTML develops paths, trees and cycles, with no ladder count in inspected results."
+        ],
+        "reasoning": "The min-value theorem alone does not determine all minimum labelings, and cycles/trees are not ladder Cartesian products; a full inaccessible Gardner thesis may nonetheless have wider enumeration.",
+        "searches": [
+          "Shao–Zhao arXiv:2610.00108v1",
+          "Gardner 2018 thesis Theorem 3.4"
+        ]
+      },
+      "checked_sources": [
+        "https://dc.etsu.edu/etd/3509/",
+        "https://arxiv.org/html/2610.00108v1",
+        "Resultary semantic search: Italian domination ladder graph minimum Italian dominating function enumeration 1 2 5 tile composition generating function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gardner: minimum value n, which permits many possible a_n; Shao–Zhao: path/tree/cycle enumeration, different topology."
+        ],
+        "reasoning": "Neither available theorem mathematically implies the minimum-ladder multiplicity formula without a nontrivial equality-case structure. The source provides an explicit 729-case local potential and complete equality transition graph, a separate piece of mathematics.",
+        "searches": [
+          "Gardner thesis 2018 Theorem 3.4 excerpt",
+          "Shao–Zhao arXiv:2610.00108v1 main counting theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Italian domination is also called Roman {2} domination in related literature, but admissibility is precise: a zero vertex has total neighbor label >=2."
+        ],
+        "reasoning": "Compared ladder Italian domination, Roman-2 domination, Cartesian product P2 square Pn, minimum labelings, and rational generating function/tiling descriptions. Counting total Italian dominating functions is not the same as counting minima.",
+        "searches": [
+          "Resultary semantic search: Italian domination ladder graph minimum Italian dominating function enumeration 1 2 5 tile composition generating function",
+          "Gardner 2018 Italian Domination on Ladders and Related Products",
+          "Shao–Zhao arXiv:2610.00108v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published C4 base case yields a2=2; no inspected table gives all ladder a_n or their 1,2,5 tile classification."
+        ],
+        "reasoning": "A small base-case count or known gamma_I=n does not cover rational generating function 2z²/(1-z-z²-z⁵); negative search is not novelty certification.",
+        "searches": [
+          "Resultary semantic search: Italian domination ladder graph minimum Italian dominating function enumeration 1 2 5 tile composition generating function",
+          "Shao–Zhao arXiv:2610.00108v1"
+        ]
+      },
+      "rationale": "Gardner 2018 thesis establishes the minimum scalar Italian domination weight gamma_I(L_n)=n and is credited for it, while Shao–Zhao 2026 counts Italian dominating functions on paths, trees, cycles, not the exact ladder-optimum enumerator. The retained original contribution is the unique three-tile all-minimizer classification and all-n generating function; an unexamined full Gardner thesis (PDF access 403) might conceal that count. Inaccessibility alone is not an O fail; residual coverage risk is explicit.",
+      "residual_risks": [
+        "Gardner 2018 full thesis was not retrievable (403) and might include an exact count or construction beyond its advertised minimum weight.",
+        "Only standard two-row ladders and minimum-weight IDFs, not complete Italian domination polynomials, perfect-Italian variants, or wider Cartesian grids."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PUBLISHED_SCALAR_MINIMUM; UNKNOWN_MULTIPLICITY_IN_FULL_TEXT",
+          "evidence": "The accessible passage supports the known weight, not a verified noncoverage of the hidden full thesis.",
+          "identifier_or_url": "https://dc.etsu.edu/etd/3509/",
+          "material_read": "Landing abstract and indexed Theorem 3.4 statement establishing gamma_I(L_n)=n; complete PDF NOT read because download returned 403",
+          "method": "University repository landing and indexed excerpt; PDF access failure retained",
+          "title": "Italian Domination on Ladders and Related Products",
+          "trigger": "Thesis with exact same ladder object, high-priority comparison"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILIES",
+          "evidence": "A two-row ladder is neither a path, tree nor cycle for n>=3, and no all-ladder three-tile recurrence identified.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00108v1",
+          "material_read": "Full accessible HTML; examined defining function and counting theorems for paths, trees, cycles; searched for ladder",
+          "method": "Primary HTML theorem inspection",
+          "title": "Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+          "trigger": "Closest accessible modern enumeration in the same domination notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-orders classification and exact enumeration of every optimal Italian dominating labeling on the canonical two-row ladder strengthens a known optimum value by a natural nontrivial structural invariant. The finite local cost-potential lemma and three-tile bijection make the result reusable for constrained domination generating functions; it is not a tiny arbitrary n table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://dc.etsu.edu/etd/3509/",
+    "https://arxiv.org/html/2610.00108v1",
+    "2026/10/13/exact-minimum-italian-domination-counts-and-a-three-tile-classif--a9925f4ce2fb/RESULT.md",
+    "Resultary semantic search: Italian domination ladder graph minimum Italian dominating function enumeration 1 2 5 tile composition generating function"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Gardner 2018 full thesis was not retrievable (403) and might include an exact count or construction beyond its advertised minimum weight.",
+    "Only standard two-row ladders and minimum-weight IDFs, not complete Italian domination polynomials, perfect-Italian variants, or wider Cartesian grids.",
+    "No whole-package public semantic privacy clearance or full neutral replacement files; not publication-ready.",
+    "The completed review is an independently reconstructed best-of-knowledge C/O/V assessment, not external proof certification."
+  ],
+  "residual_risks": [
+    "Gardner 2018 full thesis was not retrievable (403) and might include an exact count or construction beyond its advertised minimum weight.",
+    "Only standard two-row ladders and minimum-weight IDFs, not complete Italian domination polynomials, perfect-Italian variants, or wider Cartesian grids."
+  ],
+  "schema_version": 1
+}
