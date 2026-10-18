@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** Each marked Boolean-lattice automorphism permutes coordinates independently inside the joint marker-membership regions. The number of directed paths from an atom to a named subset detects atom membership; the counts of incoming covers determine rank; and the multiset of predecessor orbit profiles reconstructs a vertex profile by summation. This proves orbit exactness and the bound in every finite rank. The replayable 2,047-case vertex-level test agrees, but is not the basis of the infinite proof.
+
+**Originality — PASS, qualified.** Searches considered named-subset Boolean lattice cover graphs, marked Boolean algebra counting logic, directed colour refinement and stabilizer orbits. Primary background sources address general colour refinement, its iteration number, and a different integer-partition reconstruction problem; their inspected statements do not state the arbitrary-marker orbit recovery and explicit product-class formulas for directed Boolean covers. The closest indexed finding on ordinary Boolean lattices concerns **unmarked** two-variable logical identification and does not directly address multiple distinguished vertices. The graph-distance two-root theorem for Hamming graphs uses the **undirected** hypercube relation and its much larger isometry group; it does not entail the marked directed-lattice stabilizer classification. Specialized earlier results could exist and independent priority review remains necessary.
+
+**Value — PASS.** A potentially exponential family of pointwise-marker stabilizer orbits is obtained exactly by a local, iterative counting invariant using no meet, join, or complement operations in the input language. This supplies a uniform structural theorem for every finite number of named subsets and explicit sizes of every orbit, not just a finite census or a rephrasing of the unmarked degree partition. The direction and marker hypotheses are essential boundaries.
+
+**Limitations.** This is intra-family orbit refinement, not global structure identification or a claim of independent verification. The time bound is for refinement iterations and not computational cost.
+
+Self-review: passed. Independent audit: not yet performed.
