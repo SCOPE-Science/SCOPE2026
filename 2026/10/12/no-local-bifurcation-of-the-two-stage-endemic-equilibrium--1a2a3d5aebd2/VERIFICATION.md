@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled `verify.py` uses only Python 3 standard-library functionality and exact integer multivariate-polynomial arithmetic. It reconstructs the four-by-four endemic Jacobian symbolically from the primitive positive parameters, computes the determinant of \(zI-J^*\) by all 24 permutations, and confirms the displayed characteristic-polynomial identity.
+# Independent mathematical audit
 
-It then extracts \(A_1,A_2,A_3,A_4\) and forms
-\[
-\Delta_2=A_1A_2-A_3,
-\qquad
-\Delta_3=A_1A_2A_3-A_3^2-A_1^2A_4.
-\]
-Every expanded coefficient is checked to be a positive integer. The reviewed run reports 5, 13, 23, 20, 36, and 331 monomials respectively for \(A_1,A_2,A_3,A_4,\Delta_2,\Delta_3\); the minimum coefficient is 1 in every case. The third determinant has maximum coefficient 58.
+## correctness
 
-These checks establish a finite exact polynomial identity and coefficient-sign certificate. They do not constitute an independent audit and do not prove global asymptotic stability, behavior for three or more infectious stages, or any statement for models with additional transmission routes.
+PASS
+
+At the strictly positive endemic equilibrium beta*S*=x1 and q=beta*I1*>0. Reconstructed the actual four-by-four Jacobian J with rows (-(mu+q),-x1,0,alpha), (q,0,0,0), (0,gamma1,-x2,0), (0,theta1,theta2,-alpha-mu). Its characteristic polynomial is monic quartic; independent sympy exact expansion from primitive positive parameters gives all-positive coefficients A1..A4 and Hurwitz Delta2, Delta3, with Delta2 36 monomials and Delta3 331 monomials, each coefficient strictly positive. Routh-Hurwitz therefore proves all four roots strictly in left half-plane for EVERY interior positive parameter set admitting endemic equilibrium. This is local, not global, and excludes interior local Hopf/zero crossings only.
+
+## originality
+
+PASS
+
+The actual four-dimensional waning-immunity/stage-specific mortality Jacobian and full positive-parameter Hurwitz conclusion are not contained in the inspected 2026 motivating article, whose endemic global convergence is conditional on additional Lyapunov inequalities. Röst--Tekeli 2020 treats constant-population SIS stage chains, while Guo--Li--Shuai 2012 treats broader staged progression under hypotheses not shown to cover this feedback system. Positive best-of-knowledge originality is for unconditional LOCAL equilibrium stability, not endemic-existence or global dynamics.
+
+## value
+
+PASS
+
+An unconditional local stability theorem for a specific published two-stage endemic equilibrium settles whether parameter variation can create a local Hopf instability, directly clarifying numerical stability seen beyond a restrictive global Lyapunov sufficient condition; the epidemiological model and stability question are intrinsically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

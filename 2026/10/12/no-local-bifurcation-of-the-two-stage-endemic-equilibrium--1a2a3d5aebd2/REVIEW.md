@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof was reconstructed from the source equations rather than from a numerical trajectory. At \(E^*\), the identity \(\beta S^*=x_1\) and positivity \(q=\beta I_1^*>0\) give the displayed Jacobian. A standalone exact-arithmetic verifier recomputes \(\det(zI-J^*)\) by the full determinant formula, checks the quartic coefficients, and verifies positivity of \(A_1,A_2,A_3,A_4,\Delta_2,\Delta_3\). The decisive third Hurwitz determinant expands into 331 positive-coefficient monomials, so no finite sampling or floating-point root calculation is used as proof. The claim is only local and does not infer global convergence.
+## correctness
 
-## Originality
-**PASS.** The closest source is the motivating 2026 article itself, which proves global asymptotic stability only under additional Lyapunov inequalities and does not state unconditional local stability. Röst--Tekeli (2020) prove unconditional low-stage stability for a constant-population SIS progression chain, but their equations omit the separate recovered state, waning-immunity feedback, stage-specific recovery, and disease-induced mortality present in the 2026 system. Guo--Li--Shuai (2012) provide a broad staged-progression global theorem, but the inspected statement does not directly instantiate the 2026 recovered-state feedback. No searched source supplied the same all-positive-parameter quartic Hurwitz result for the motivating system.
+PASS
 
-## Value
-**PASS.** The distinction is mathematically useful because the motivating paper explicitly observes stable simulations outside its sufficient global Lyapunov region. The new theorem proves that, for two stages, crossing out of that region cannot generate a local endemic-equilibrium instability. Any genuinely different dynamics outside the global sufficient region must therefore be nonlocal rather than a Hopf or zero-eigenvalue loss of the endemic equilibrium. This is a structural boundary, not a parameter-table recomputation.
+At the strictly positive endemic equilibrium beta*S*=x1 and q=beta*I1*>0. Reconstructed the actual four-by-four Jacobian J with rows (-(mu+q),-x1,0,alpha), (q,0,0,0), (0,gamma1,-x2,0), (0,theta1,theta2,-alpha-mu). Its characteristic polynomial is monic quartic; independent sympy exact expansion from primitive positive parameters gives all-positive coefficients A1..A4 and Hurwitz Delta2, Delta3, with Delta2 36 monomials and Delta3 331 monomials, each coefficient strictly positive. Routh-Hurwitz therefore proves all four roots strictly in left half-plane for EVERY interior positive parameter set admitting endemic equilibrium. This is local, not global, and excludes interior local Hopf/zero crossings only.
 
-## Closest literature and limitations
-Somnic--Gasparyan--Rao (2026) is the exact model source. Röst--Tekeli (2020) is the closest unconditional low-stage stability theorem but has a different compartment topology. Guo--Li--Shuai (2012) is the broadest staged-progression comparison inspected. The result does not prove global convergence, does not treat \(n\ge3\), and does not cover direct transmission from later infectious stages. An unindexed equivalent theorem remains a residual literature risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The actual four-dimensional waning-immunity/stage-specific mortality Jacobian and full positive-parameter Hurwitz conclusion are not contained in the inspected 2026 motivating article, whose endemic global convergence is conditional on additional Lyapunov inequalities. Röst--Tekeli 2020 treats constant-population SIS stage chains, while Guo--Li--Shuai 2012 treats broader staged progression under hypotheses not shown to cover this feedback system. Positive best-of-knowledge originality is for unconditional LOCAL equilibrium stability, not endemic-existence or global dynamics.
+
+## value
+
+PASS
+
+An unconditional local stability theorem for a specific published two-stage endemic equilibrium settles whether parameter variation can create a local Hopf instability, directly clarifying numerical stability seen beyond a restrictive global Lyapunov sufficient condition; the epidemiological model and stability question are intrinsically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
