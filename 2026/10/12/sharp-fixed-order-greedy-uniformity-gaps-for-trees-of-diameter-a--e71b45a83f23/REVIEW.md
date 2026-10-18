@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem identifies every eligible tree as a star or double star, proves all three exact output probabilities for arbitrary positive leaf counts by an arrival-time integral, then reduces fixed-order optimization to reciprocal sums. A strict algebraic comparison with numerator \(n^2-8n+9\) singles out the sole order-six exception and unique minimizers for every order. Direct exhaustive permutation profiles and 20,100 rational comparisons corroborate, but do not establish, the universal quantifiers. The proof handles all boundary orders from three onward.
+## correctness
 
-## Originality — PASS, with uncertainty
-Fairfax-Ball, arXiv:2610.02276v1, establishes qualitative tree nonuniformity and exact mixed-spider probabilities. Its one-arm formula **already supplies** the \(D_{1,b}\) subfamily, so these particular probabilities are not new. It does not state or imply directly the minimum over **all** diameter-three trees, which requires checking every double star \(D_{a,b}\), including \(a,b\ge2\), and comparing stars. Searches of related greedy MIS results and mathematical research records revealed no published sharp fixed-order classification. A separate exact random-greedy law for cographs concerns a different hereditary class; the double stars here contain induced four-vertex paths. Unindexed equivalent quantitative results remain a risk.
+PASS
 
-## Value — PASS
-The diameter-three versus diameter-four near-uniformity transition is a structural question motivated by the 2026 qualitative-obstruction/near-uniform-spider paper. This result gives a global positive gap, the exact minimum for **every** order, and **unique** extremizers, with a nontrivial order-six change in extremal type. It is a complete natural optimization, not a single computer-found example. No downstream theorem or general all-tree minimum is claimed.
+Connected trees of diameter<=3 are exhausted by stars and double stars. For D_(a,b), all three maximal independent sets and exact random-greedy probabilities are p_u=(n−1)/(n(a+1)), p_v=(n−1)/(n(b+1)), p_0=1−p_u−p_v; independent exhaustive permutation counts matched cases including D_(2,2) and D_(2,3). The three-coordinate TV bias is max_i|p_i−1/3|. Convexity/reciprocal comparison reduces a>=2 to a=2; exact difference against a=1 is (n²−8n+9)/(3n(n−3)(n−2)), negative at n6, positive at integer n>=7. Stars have bias (n−2)/(2n), strictly worse at n>=4. Boundary orders n3,4,5,6 give unique minimizers P3,D11,D12,D22 with biases 1/6,1/12,1/15,1/9; n>=7 unique D_(1,n−3) and bias 1/3−(n−1)/(n(n−2)). Independent rational fixed-order checks n=3..100 confirm examples only; displayed algebra proves all n.
 
-## Limits
-The classification excludes trees of diameter at least four and does not assert all-order minimum among unrestricted trees. Mixed-spider near-uniformity and the one-arm formulas are explicitly credited to the motivating paper. Independent replication beyond the supplied verifier and independent scholarly audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fairfax-Ball already gives exact mixed-spider probabilities including one-sided double stars D_{1,b}; that subcase is not new. The final assessment is the sharp optimization across ALL stars and two-sided D_{a,b} at each n with unique minimizers, plus the order-six transition and uniform positive gap for diameter<=3. Its fresh two-sided law and extremum comparison are not direct corollaries of the published mixed-spider expression.
+
+## value
+
+PASS
+
+The smallest nontrivial diameter class with a positive uniform greedy-selection bias is a natural structural boundary given the known diameter-four family with bias tending to zero. An exact sharp value at every order, globally 1/15 at a uniquely characterized five-vertex fork, and the exceptional order-six minimizer constitute a complete, motivated optimization rather than an arbitrary small graph census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
