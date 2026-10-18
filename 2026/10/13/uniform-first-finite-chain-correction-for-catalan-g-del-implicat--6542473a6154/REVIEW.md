@@ -1,15 +1,21 @@
-# Self-review: uniform Gödel-chain correction
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes the order of limits (\(n\to\infty\) before \(m\to\infty\)), all quantifiers \(m\ge2,\ 0\le k\le m-1\), and the exact rank normalization \(t=k/m\). Starting from the reconstructed Catalan generating functions, the coefficient-ratio product is derived and expanded to the first nonvanishing uniform finite-\(m\) correction. Uniform lower and upper bounds on the squared critical orbit justify every Taylor and Euler remainder, including at the endpoint. Actual packaged verifier output is `VERIFY_OK`, and the separate Catalan DP matches direct total counts. The infinite theorem rests on proof, not finite computation.
+## correctness
 
-## Originality — PASS
-The strongest comparison is Yildiz (2026), arXiv:2602.16135v1, which already gives the exact finite-\(m\) product, the large-\(m\) leading survival law and the top mass limit \(1/\sqrt3\). This finding **does not** claim those results anew. It proves the previously unstated position-dependent first correction \(E(t)\) and a uniform second-order error, with the endpoint shift. The full accessible primary manuscript (especially Sections II–III and tables) and the earlier Kleene-implication paper (2020) were inspected. published-finding corpus searches using aliases, nested radicals, first correction, Euler analysis, Gödel Catalan truth tables, and the exact coefficient showed no matching finding. The two local-ledger histories were checked for overlap. Residual risk: an unindexed general product-expansion theorem could implicitly cover this refinement; the already-published exact product is acknowledged as numerically stronger for fixed \(m\).
+PASS
 
-## Value — PASS
-A uniform, explicit finite-\(m\) bias term for *all* macroscopic truth thresholds supplies the error control absent from the motivating asymptotic and tables. The top atom gives a concrete nonzero coefficient, significantly improving finite-chain predictions. This is an analytically derived distributional correction, not routine parameter replacement, a known-table recount, or a special-case count.
+For each fixed m, the standard Catalan recurrence for non-top Gödel implication values yields H_k=Psi_x^k(G) at G=(1−sqrt(1−4mx))/2. At r=1/(4m), square-root transfer gives the exact limiting survival product q_k(m)=prod_(j<k) d_j with u0=1/2, u_(j+1)=(u_j+sqrt(u_j²+h))/2, d_j=(1+u_j/sqrt(u_j²+h))/2 and h=1/m. This exact product is PRIOR, not the assessed new finding. Let X_j=u_j². The uniform expansion X_(j+1)=X_j+h/2−h²/(16X_j)+O(h³), with X bounded away from zero, yields X_j=(1+2jh)/4−h log(1+2jh)/8+O(h²) uniformly through m−1 by summing O(h³) local residual. Next log d_j=−h/(4X_j)+5h²/(32X_j²)+O(h³). Euler left-sum correction and exact integration give log q_k=−(1/2)log(1+2t)+h(4t+log(1+2t))/(4(1+2t))+O(h²), uniform t=k/m including k=0. At k=m−1, t=1−h adds endpoint shift h/3 and gives (8+log3)/12 as coefficient. Independent sympy series and integration check confirm all terms; direct product tests up to m500 have scaled error m²×max_k|error| around .207 to .228. They corroborate, but not prove, uniform O(m^-2). Limit order n→infty first, m→infty second is essential.
 
-## Scientific limitations
-The theorem says nothing about simultaneous \(m,n\) growth or monotonicity at every finite \(m\). The error is uniform in \(k\) but its universal constant is not optimized. The existing exact product is stronger for exact finite-\(m\) evaluation. Earlier or unpublished equivalences may remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Yildiz arxiv:2602.16135 (2026-02 v1, 2026-10-14 revised v2) explicitly derives the exact finite-m product and continuum leading q→(1+2t)^(-1/2). The revised full 36-page primary PDF was inspected, including its Part III Theorem 6 and proof: its orbit control is O(1/m) and logarithmic product o(1), with no explicit 1/m coefficient or uniform O(m^-2) remainder in the examined main results, appendices and numerical tables. Thus the new claim is a quantitative second-order refinement of already-known exact and first-order statements; no new exact finite-m law is claimed. Standard Euler summation is a method, but identifying and controlling the nontrivial discrete orbit correction is essential. Resultary related finite-chain papers concern different connectives/operators.
+
+## value
+
+PASS
+
+A uniform first correction to a natural full-Catalan logical truth-value distribution is a useful precise rate theorem: it quantifies finite-chain bias at every moving cut, resolves the top-atom side of approach to 1/sqrt3, and supplies a fully explicit coefficient with uniform O(m^-2) remainder. This nontrivial refinement is not merely reproducing the known exact product or leading continuum law, and future work comparing finite-chain sizes can use this exact rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T10:12:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed m, the standard Catalan recurrence for non-top Gödel implication values yields H_k=Psi_x^k(G) at G=(1−sqrt(1−4mx))/2. At r=1/(4m), square-root transfer gives the exact limiting survival product q_k(m)=prod_(j<k) d_j with u0=1/2, u_(j+1)=(u_j+sqrt(u_j²+h))/2, d_j=(1+u_j/sqrt(u_j²+h))/2 and h=1/m. This exact product is PRIOR, not the assessed new finding. Let X_j=u_j². The uniform expansion X_(j+1)=X_j+h/2−h²/(16X_j)+O(h³), with X bounded away from zero, yields X_j=(1+2jh)/4−h log(1+2jh)/8+O(h²) uniformly through m−1 by summing O(h³) local residual. Next log d_j=−h/(4X_j)+5h²/(32X_j²)+O(h³). Euler left-sum correction and exact integration give log q_k=−(1/2)log(1+2t)+h(4t+log(1+2t))/(4(1+2t))+O(h²), uniform t=k/m including k=0. At k=m−1, t=1−h adds endpoint shift h/3 and gives (8+log3)/12 as coefficient. Independent sympy series and integration check confirm all terms; direct product tests up to m500 have scaled error m²×max_k|error| around .207 to .228. They corroborate, but not prove, uniform O(m^-2). Limit order n→infty first, m→infty second is essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The revised Yildiz paper offers a continuum limit law and differential-equation interpretation, but not the next Euler discretization constant.",
+          "General numerical-analysis Euler/Taylor methods do not directly supply this model-dependent coefficient without nontrivial orbit/sum expansion."
+        ],
+        "reasoning": "The stronger finite-m exact formula could calculate each q numerically, but the uniform m→infty rate is a separate asymptotic statement not mechanically stated or dominated by the prior qualitative limit.",
+        "searches": [
+          "Resultary semantic: Finite Gödel implication chains Catalan bracketing uniform 1/m asymptotic correction truth probabilities",
+          "Yildiz 2602.16135 v2 Theorem 6 Theorem 7 Euler continuum limit",
+          "Flajolet Sedgewick square root coefficient transfer analytic combinatorics"
+        ]
+      },
+      "checked_sources": [
+        "Pinned Git RESULT.md SHA b9cfa34f04baeb30752d4829dea85644ae00d511",
+        "verify.py SHA 0916983cc3f2e7114032afa268fc1004f5ae97b9",
+        "arxiv:2602.16135v2 2026-10-14 update Theorem6",
+        "arxiv:2602.16135v1",
+        "arxiv:2010.10303",
+        "Resultary semantic: Finite Gödel implication chains Catalan bracketing uniform 1/m asymptotic correction truth probabilities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yildiz establishes u(t)^2=1/4+t/2 and resulting leading log q; the new second-order X_j correction R(t)=−log(1+2t)/8 is needed for E(t).",
+          "Finite-m formula is already exact; the accepted result is a new rate derivation, not a new finite-m count."
+        ],
+        "reasoning": "Existing leading law plus an unquantified O(1/m) orbit approximation cannot infer the displayed uniform coefficient or O(m^-2) error without extra computations. The supplied derivation establishes those terms.",
+        "searches": [
+          "Resultary semantic: Finite Gödel implication chains Catalan bracketing uniform 1/m asymptotic correction truth probabilities",
+          "Yildiz 2602.16135v2 Part III.1 36-page full text",
+          "Euler Maclaurin first order correction critical iterative square root"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yildiz v2 Theorem 6 states only macroscopic tail convergence q_(k_m)(m)→(1+2t)^(-1/2), and Part III estimates orbit with O(1/m), log product with o(1).",
+          "No E(t) coefficient or uniform O(m^-2) appears in inspected Theorems 5–7/appendices."
+        ],
+        "reasoning": "Exact finite-m product is equivalent to starting point, not equivalent to the stated explicit uniform first-order asymptotic. The result acknowledges that exact product and leading continuum are prior-covered.",
+        "searches": [
+          "Resultary semantic: Finite Gödel implication chains Catalan bracketing uniform 1/m asymptotic correction truth probabilities",
+          "Yildiz arxiv:2602.16135v1/v2 finite Gödel chain Catalan survival exact product correction",
+          "(8+log 3)/(12m) Catalan implication"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Yildiz v2 includes finite chain proportions and examples, but no corrected asymptotic coefficients as a table.",
+          "Resultary found preconditional factorial-chain counts, not Gödel/Catalan bracketing survival rates."
+        ],
+        "reasoning": "The object is a uniform parameter-dependent asymptotic theorem, not an exact constant already provided by a data table.",
+        "searches": [
+          "Resultary semantic: Finite Gödel implication chains Catalan bracketing uniform 1/m asymptotic correction truth probabilities",
+          "Yildiz 2602.16135 appendices finite m numerical table top probability",
+          "Resultary Catalan finite chain truth level enumerations"
+        ]
+      },
+      "rationale": "Yildiz arxiv:2602.16135 (2026-02 v1, 2026-10-14 revised v2) explicitly derives the exact finite-m product and continuum leading q→(1+2t)^(-1/2). The revised full 36-page primary PDF was inspected, including its Part III Theorem 6 and proof: its orbit control is O(1/m) and logarithmic product o(1), with no explicit 1/m coefficient or uniform O(m^-2) remainder in the examined main results, appendices and numerical tables. Thus the new claim is a quantitative second-order refinement of already-known exact and first-order statements; no new exact finite-m law is claimed. Standard Euler summation is a method, but identifying and controlling the nontrivial discrete orbit correction is essential. Resultary related finite-chain papers concern different connectives/operators.",
+      "residual_risks": [
+        "An unindexed supplementary numerical-analysis calculation could contain the same coefficient, despite absence in the 2026-10-14 v2 primary manuscript."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already proves exact product and leading limit but only O(1/m) orbit estimate and o(1) for log q; no corrected uniform m^-2 statement in inspected work",
+          "evidence": "Theorem 6 page 22 and proof page 23 explicitly give leading (1+2t)^(-1/2) and O(1/m) orbit bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.16135v2",
+          "material_read": "Full 36-page PDF, especially Part II.1–II.2, Part III.1–III.3, Theorems 5–7, appendices; visually inspected printed pages 22–23",
+          "method": "Primary arXiv PDF read by parsed text and PDF page images for key theorem/proof",
+          "title": "Gödel Implication on Finite Chains: Catalan Enumeration and a Continuum Limit Law",
+          "trigger": "Same generating function, exact product and leading limit; revised paper Oct 14 2026"
+        },
+        {
+          "assessment": "v1 names the same exact finite-chain count and limiting proportions; no independent full-text NOT_COVERING claim for v1",
+          "evidence": "Source package credits v1; updated 2026-10-14 v2 strengthens continuum context but still does not derive first correction.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.16135v1",
+          "material_read": "Original February abstract and bibliographic information; current updated v2 primary used for full source comparison",
+          "method": "Read earlier abstract and updated complete same-paper PDF; did not infer absence from v1 snippets",
+          "title": "Gödel Implication on Finite Chains: Truth Tables and Catalan-Bracketing Enumerations",
+          "trigger": "Same-paper earlier version"
+        },
+        {
+          "assessment": "Different connective/m-valued scaling; does not imply the Gödel uniform m correction",
+          "evidence": "Kleene fixed three-valued truth tables lack limit m→infty.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.10303",
+          "material_read": "Primary abstract/bibliographic scope for Kleene three-valued operation",
+          "method": "Read abstract and comparison of operation domains",
+          "title": "Counting with 3-valued truth tables of bracketed formulae connected by implication",
+          "trigger": "Earlier logical truth-table enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform first correction to a natural full-Catalan logical truth-value distribution is a useful precise rate theorem: it quantifies finite-chain bias at every moving cut, resolves the top-atom side of approach to 1/sqrt3, and supplies a fully explicit coefficient with uniform O(m^-2) remainder. This nontrivial refinement is not merely reproducing the known exact product or leading continuum law, and future work comparing finite-chain sizes can use this exact rate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned Git RESULT.md SHA b9cfa34f04baeb30752d4829dea85644ae00d511",
+    "verify.py SHA 0916983cc3f2e7114032afa268fc1004f5ae97b9",
+    "arxiv:2602.16135v2 2026-10-14 update Theorem6",
+    "arxiv:2602.16135v1",
+    "arxiv:2010.10303",
+    "Resultary semantic: Finite Gödel implication chains Catalan bracketing uniform 1/m asymptotic correction truth probabilities",
+    "Pinned METADATA.json blob 3e2ac8f7eb93b671f85efed5c4cd2aa91330f8ba",
+    "Pinned AUDIT.json blob c03bf7ba6d2f31413016c3a7972a72f02f6fa75b"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "First n→infty for fixed m, then m→infty; no simultaneous n,m asymptotic.",
+    "Uniform only in rank k for 0<=k<=m-1, no assertion of monotonic top mass for every finite m.",
+    "Existing exact fixed-m product and leading continuum law are prior, not newly claimed."
+  ],
+  "schema_version": 1
+}
