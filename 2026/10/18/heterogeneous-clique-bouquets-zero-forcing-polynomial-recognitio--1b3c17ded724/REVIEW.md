@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The twin-vertex obstruction makes two initially white vertices in the same peripheral clique impossible to force, and explicit blue-hub/full-clique forcing sequences prove the converse. This gives the exact polynomial, its valuation and initial coefficient. Evaluating its reduced polynomial at \(z=-1\) reconstructs the full product of the peripheral linear factors. The critical-window law follows from independent rare two-white-clique obstructions, uniform error summability under the stated maximum-size hypothesis, and disappearance of the one excluded all-one-omission configuration. A standalone brute-force simulation verified all labeled subsets of 38 small profiles. No finite calculation is substituted for the infinite argument.
+
+**Originality — PASS (best-knowledge, with limitations).** The foundational zero-forcing-polynomial paper and the random-initial-set threshold paper were compared at the statement level with the recognition and heterogeneous probability-limit results. The closest indexed result covers the friendship-graph specialization exactly; it cannot by itself recover distinct peripheral sizes or prove the heterogeneous Rayleigh window. Skew forcing uses a different rule, while scalar block-graph forcing provides different output. Relevant searches did not identify a statement implying this combined heterogeneous recognition/threshold theorem. An unindexed or inaccessible block-graph all-set enumeration remains an explicit residual priority risk, so failed searches are not treated as uniqueness proofs.
+
+**Value — PASS.** Unlike a scalar zero-forcing value, the polynomial recovers a complete multiset of block sizes, giving an infinite-family polynomial-recognition theorem with constructive inversion. The random-set part supplies a motivated sharp limiting law for variable-size clique blocks and identifies the precise double-white local mechanism and maximum-size condition. The known friendship subcase is acknowledged rather than relabeled as new.
+
+Closest literature: Boyer et al. 2018 (polynomial), Curtis et al. 2022 (random thresholds), and the indexed friendship polynomial (special case). Independent checking of priority and mathematical details remains desirable.
+
+Self-review: passed. Independent audit: not yet performed.
