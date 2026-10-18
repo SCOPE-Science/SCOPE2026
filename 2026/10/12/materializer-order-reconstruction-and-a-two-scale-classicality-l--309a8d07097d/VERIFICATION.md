@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The embedded `verify_materializers.py` constructs the finite lattice with Boolean elements represented by bit masks and newly adjoined upper chain points represented by successive integers. It computes implication by enumerating the elements \(z\) with \(x\wedge z\le y\) and locating their unique greatest element, not by reusing the derived implication-case formulas. It separately compares each resulting materializer to the claimed set, verifies all claimed inclusions and strict inclusions, checks the number of distinct materializers and compares the exhaustive number of failures against the closed formula.
+## correctness
 
-Replayed from the standalone code at its actual package path using `python3 verify_materializers.py`:
+PASS
 
-```
-VERIFY_OK cases 30 material_implication_pairs 11243 materializer_orders_checked 30
-```
+Use the finite Heyting residual a→b=max{z:a∧z≤b} in B_n plus k *new* points (Boolean top retained). For Boolean nonzero S and consequent T⊆[n], S→T is new top if S⊆T, else complement(S)∪T; for added antecedent t_i it equals consequent on Boolean elements and top on added t_j≥t_i. These yield all asserted materializer sets and their inclusion order (B_n without zero)⊕C_k, with n=1 exceptional chain. The failures disjointly count as 3^n−2^n, (2^n−1)(k−1), k(k−1)/2; limit with k/2^n→c gives 1/2+1/[2(1+c)^2]. Independent finite lattice residual enumerator tested 16 (n,k) cases n≤4,k≤4 and all 2080 ordered implication inputs, sample n=3,k=2 gives 27 failures of 100; full proof is symbolic.
 
-Checked every \(n\in\{1,2,3,4,5\}\), \(k\in\{1,2,3,4,5,6\}\). This finite experiment does not certify the formulas for arbitrary parameters; the general proof is the exhaustive implication-case argument in `RESULT.md`. No independent audit or external verification is claimed.
+## originality
+
+PASS
+
+Bumpus–Kocsis define materializers and prove qualitative failure of a uniform satisfiability gap using the one-added-top Boolean construction. Their inspected sections do not provide the inclusion-order isomorphism for arbitrary attached chain length, the exact failure polynomial, or the scaling/limit noncommutation. Resultary finite-chain preconditional records use different operations, not this materializer family. Genuine prior special case k=1 is credited.
+
+## value
+
+PASS
+
+The inclusion poset recovers algebra parameters, a structural classification. Exact satisfaction probabilities and two noncommuting limiting regimes quantify the previously qualitative Boolean-top phenomenon and can serve as finite-Heyting benchmarks; this is not simply a renaming of k=1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
