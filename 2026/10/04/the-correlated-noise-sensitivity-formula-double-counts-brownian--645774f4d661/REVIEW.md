@@ -1,15 +1,21 @@
-# Review: The correlated-noise sensitivity formula double-counts Brownian variance
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim follows from Itô's product rule for the linearized SDE \(dz=Fz\,dt+G\,dB\) with \(d\langle B\rangle_t=R\,dt\): the covariance forcing is \(GRG^\top\). In the source model, \(G=-\operatorname{diag}(\sigma_1S^*,\sigma_2I^*,\sigma_3R^*)\), so the matrix \(Q\) printed in Remark 3.8 is exactly \(GRG^\top\). The independent limit \(R=I\) therefore exposes the double count without approximation. The source's stability hypothesis makes \(F\) Hurwitz, so the Lyapunov solution is unique and the factor-of-two conclusion is rigorous. The packaged exact-rational verifier independently checks the matrix identities on a nontrivial correlated example.
+## correctness
 
-## Originality
-**PASS.** Statement-level searches were made for the exact article title, DOI, Remark 3.8, the matrix form \(GG^\top+Q\), correlated Brownian covariance, stochastic sensitivity, and confidence ellipsoids. No located source states this correction or an equivalent independent-limit contradiction. The closest methodological predecessor is Bashkirtseva–Ryashko–Ryazanova (2017), which concerns stochastic-sensitivity confidence domains in population systems; its accessible abstract does not cover this 2026 SIRS formula. The correction is not merely a rephrasing of Eq. (3.16): it identifies that the matrix called \(Q\) in Remark 3.8 is already the full correlated diffusion covariance.
+PASS
 
-## Value
-**PASS.** Remark 3.8 is meant to explain how correlated environmental forcing changes confidence-ellipsoid geometry. The printed equation fails the required independent-noise limit and, there, doubles covariance exactly, inflating every half-axis by \(\sqrt2\). For general correlation it adds a full independent-noise covariance on top of the correct correlated covariance, potentially changing both scale and orientation. The correction is therefore directly relevant to any use of the paper's correlated-noise confidence domain.
+For linearized fluctuation dZ=FZ dt+GdB with d<B>_t=Rdt, Itô product gives d E[ZZ^T]/dt=F W+W F^T+G R G^T, hence stationary Lyapunov forcing GRG^T only. The 2026 source Remark 3.8 defines Q_ij=rho_ij sigma_i sigma_j E_i* E_j*, which already is GRG^T since G is negative diagonal. Adding GG^T double-counts every diagonal diffusion variance. With R=I, Q=GG^T, so unique Hurwitz solution W_printed=2W_correct and ellipsoid semiaxes inflate by sqrt(2). Exactly the indicated local covariance error, not a global epidemic-model rejection.
 
-## Closest literature and limitations
-The source paper itself is the decisive comparison because Eqs. (3.16) and (3.19) are mutually inconsistent under \(R=I\). The 2017 stochastic-sensitivity paper cited by the source is methodologically close, but only its abstract and bibliographic record were lawfully accessible during this review. The result is local and small-noise; it does not make claims about global stochastic dynamics or other theorems in the source. An unindexed later correction remains a residual novelty risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Publisher 2026 article prints the contradictory diffusion term; targeted correction searches and published mathematical sources found no indexed prior correction. General stochastic covariance and confidence-region methods long predate this example, but their universal Lyapunov identity does not by itself constitute an explicit correction of the source-specific double count.
+
+## value
+
+PASS
+
+The source-specific correction quantitatively doubles the predicted covariance in the independent limit and alters confidence-domain axes by sqrt(2). It repairs a consequential mathematical formula and distinguishes true correlations from marginal noise variance; not merely a typographical normalization observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

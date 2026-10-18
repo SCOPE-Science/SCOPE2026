@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the covariance identity for the linear SDE \(dz=Fz\,dt+G\,dB\) with \(d\langle B\rangle_t=R\,dt\). Itô's product rule gives \(M'=FM+MF^\top+GRG^\top\). For the source's diagonal diffusion matrix, its printed \(Q\) is exactly \(GRG^\top\).
+# Independent mathematical audit
 
-`verifier.py` checks the key identities with exact `fractions.Fraction` arithmetic for a three-dimensional Hurwitz example and a nontrivial rational correlation matrix. It also checks the independent limit \(R=I\), where the source-style equation produces exactly twice the correct stationary covariance. The verifier has no external dependencies and prints `VERIFY_OK` on success.
+## correctness
 
-The exact factor-of-two conclusion for the source itself does not depend on the illustrative example: it follows by linearity and uniqueness of the continuous Lyapunov equation when \(F\) is Hurwitz. No assertion is made about large-noise accuracy, global dynamics, or other results of the source article.
+PASS
+
+For linearized fluctuation dZ=FZ dt+GdB with d<B>_t=Rdt, Itô product gives d E[ZZ^T]/dt=F W+W F^T+G R G^T, hence stationary Lyapunov forcing GRG^T only. The 2026 source Remark 3.8 defines Q_ij=rho_ij sigma_i sigma_j E_i* E_j*, which already is GRG^T since G is negative diagonal. Adding GG^T double-counts every diagonal diffusion variance. With R=I, Q=GG^T, so unique Hurwitz solution W_printed=2W_correct and ellipsoid semiaxes inflate by sqrt(2). Exactly the indicated local covariance error, not a global epidemic-model rejection.
+
+## originality
+
+PASS
+
+Publisher 2026 article prints the contradictory diffusion term; targeted correction searches and published mathematical sources found no indexed prior correction. General stochastic covariance and confidence-region methods long predate this example, but their universal Lyapunov identity does not by itself constitute an explicit correction of the source-specific double count.
+
+## value
+
+PASS
+
+The source-specific correction quantitatively doubles the predicted covariance in the independent limit and alters confidence-domain axes by sqrt(2). It repairs a consequential mathematical formula and distinguishes true correlations from marginal noise variance; not merely a typographical normalization observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

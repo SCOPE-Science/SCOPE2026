@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T12:22:46.494463Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For linearized fluctuation dZ=FZ dt+GdB with d<B>_t=Rdt, Itô product gives d E[ZZ^T]/dt=F W+W F^T+G R G^T, hence stationary Lyapunov forcing GRG^T only. The 2026 source Remark 3.8 defines Q_ij=rho_ij sigma_i sigma_j E_i* E_j*, which already is GRG^T since G is negative diagonal. Adding GG^T double-counts every diagonal diffusion variance. With R=I, Q=GG^T, so unique Hurwitz solution W_printed=2W_correct and ellipsoid semiaxes inflate by sqrt(2). Exactly the indicated local covariance error, not a global epidemic-model rejection.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang–Du–Liang 2026 DOI 10.3934/math.2026278 Eq.(3.16) and Remark 3.8 (publisher PDF; rendered page 11).",
+          "Bashkirtseva–Ryashko–Ryazanova 2017 DOI 10.1016/j.mbs.2017.08.007 general sensitivity background."
+        ],
+        "reasoning": "General covariance Lyapunov theorem already holds for all correlated diffusions, yet specific assertion that the 2026 source prints an extra diagonal GG^T is not stated in older papers.",
+        "searches": [
+          "Resultary: stochastic SIRS Huang Du Liang correlated Brownian noise Lyapunov Remark 3.8 double counting",
+          "AIMS Mathematics DOI 10.3934/math.2026278 full PDF Remark 3.8 Eq 3.16",
+          "Bashkirtseva Ryashko Ryazanova 2017 stochastic sensitivity confidence domain"
+        ]
+      },
+      "checked_sources": [
+        "Huang–Du–Liang 2026 DOI 10.3934/math.2026278 Eq.(3.16) and Remark 3.8 (publisher PDF; rendered page 11).",
+        "Bashkirtseva–Ryashko–Ryazanova 2017 DOI 10.1016/j.mbs.2017.08.007 general sensitivity background.",
+        "Resultary indexed findings, query: Resultary: stochastic SIRS Huang Du Liang correlated Brownian noise Lyapunov Remark 3.8 double counting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Huang–Du–Liang 2026 DOI 10.3934/math.2026278 Eq.(3.16) and Remark 3.8 (publisher PDF; rendered page 11).",
+          "Bashkirtseva–Ryashko–Ryazanova 2017 DOI 10.1016/j.mbs.2017.08.007 general sensitivity background."
+        ],
+        "reasoning": "Standard Ito calculus implies correction but the direct contradiction is in the 2026 article’s own newly printed correlated-noise extension, not in a previously checked erratum.",
+        "searches": [
+          "Resultary: stochastic SIRS Huang Du Liang correlated Brownian noise Lyapunov Remark 3.8 double counting",
+          "AIMS Mathematics DOI 10.3934/math.2026278 full PDF Remark 3.8 Eq 3.16",
+          "Bashkirtseva Ryashko Ryazanova 2017 stochastic sensitivity confidence domain"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang–Du–Liang 2026 DOI 10.3934/math.2026278 Eq.(3.16) and Remark 3.8 (publisher PDF; rendered page 11).",
+          "Bashkirtseva–Ryashko–Ryazanova 2017 DOI 10.1016/j.mbs.2017.08.007 general sensitivity background."
+        ],
+        "reasoning": "Searched independent-limit Lyapunov correction and diagonal noise covariance formulations; the universal Ito identity matches correction but does not identify the 2026 source error.",
+        "searches": [
+          "Resultary: stochastic SIRS Huang Du Liang correlated Brownian noise Lyapunov Remark 3.8 double counting",
+          "AIMS Mathematics DOI 10.3934/math.2026278 full PDF Remark 3.8 Eq 3.16",
+          "Bashkirtseva Ryashko Ryazanova 2017 stochastic sensitivity confidence domain"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Huang–Du–Liang 2026 DOI 10.3934/math.2026278 Eq.(3.16) and Remark 3.8 (publisher PDF; rendered page 11).",
+          "Bashkirtseva–Ryashko–Ryazanova 2017 DOI 10.1016/j.mbs.2017.08.007 general sensitivity background."
+        ],
+        "reasoning": "Not a table lookup: the exact source Eq.(3.16), Remark3.8 and Q_ij formula establish error algebraically; no indexed erratum identified.",
+        "searches": [
+          "Resultary: stochastic SIRS Huang Du Liang correlated Brownian noise Lyapunov Remark 3.8 double counting",
+          "AIMS Mathematics DOI 10.3934/math.2026278 full PDF Remark 3.8 Eq 3.16",
+          "Bashkirtseva Ryashko Ryazanova 2017 stochastic sensitivity confidence domain"
+        ]
+      },
+      "rationale": "Publisher 2026 article prints the contradictory diffusion term; targeted correction searches and published mathematical sources found no indexed prior correction. General stochastic covariance and confidence-region methods long predate this example, but their universal Lyapunov identity does not by itself constitute an explicit correction of the source-specific double count.",
+      "residual_risks": [
+        "No exhaustive hunt for informal author corrections or errata; unindexed correction possible.",
+        "No claim of consequences for nonlinear large-noise SIRS dynamics.",
+        "Earlier 2017 sensitivity-method full body inaccessible, but does not determine this 2026 source-specific printed Q."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Remark adds GG^T and Q though Q itself equals GRG^T with unit-diagonal correlation; unequivocal double counting.",
+          "evidence": "Printed Q_ij=rho_ij sigma_i sigma_j E_i* E_j* for i,j=1,2,3, rho_ii=1; at R=I printed forcing equals 2GG^T.",
+          "identifier_or_url": "doi:10.3934/math.2026278",
+          "material_read": "Primary publisher PDF mathematical model and the stochastic sensitivity section including Eq. (3.16), Remark 3.8 on rendered page 11, and stated covariance entry formula.",
+          "method": "Compare exact displayed independent and correlated Lyapunov equations against Itô product rule.",
+          "title": "Dynamics and stochastic sensitivity technique of a stochastic SIRS epidemic model",
+          "trigger": "Exact target of a stochastic covariance correction."
+        },
+        {
+          "assessment": "General background; no evidence on accessible material of the same 2026 source-specific typo.",
+          "evidence": "Earlier stochastic-sensitivity method does not refer to 2026 Remark 3.8.",
+          "identifier_or_url": "doi:10.1016/j.mbs.2017.08.007",
+          "material_read": "Abstract/bibliographic summary only; full text inaccessible.",
+          "method": "Compare generic covariance methods with source-specific equation.",
+          "title": "Stochastic sensitivity technique in a persistence analysis of randomly forced population systems with multiple trophic levels",
+          "trigger": "Referenced stochastic sensitivity/confidence-ellipse method."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source-specific correction quantitatively doubles the predicted covariance in the independent limit and alters confidence-domain axes by sqrt(2). It repairs a consequential mathematical formula and distinguishes true correlations from marginal noise variance; not merely a typographical normalization observation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No exhaustive hunt for informal author corrections or errata; unindexed correction possible.",
+    "No claim of consequences for nonlinear large-noise SIRS dynamics.",
+    "Earlier 2017 sensitivity-method full body inaccessible, but does not determine this 2026 source-specific printed Q."
+  ],
+  "schema_version": 1
+}
