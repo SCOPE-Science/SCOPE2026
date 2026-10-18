@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,31 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its actual packaged path before replay.
+# Independent mathematical audit
 
-For every \(1\le a\le8\), it enumerates all subsets of the \(2a\)-vertex graph, computes the complete independence polynomial directly, identifies every maximal independent set, and compares both outputs with the closed formulas.
+## correctness
 
-It separately checks the independence number, the number of maximum independent sets, the well-covered criterion, and the independent domination number.
+PASS
 
-The verifier also constructs representative annihilating-ideal graphs directly from divisor ideals in integer residue rings and tests zero products by divisibility, independently checking the algebra-to-graph reduction.
+For R=Z/(p^a q), p≠q, the nonzero proper divisor ideals are exactly A_i=(p^i), i=1..a, and B_j=(p^j q), j=0..a−1. Products give no A–A edges, A_i B_j adjacency iff i+j≥a, B_j B_k adjacency iff j+k≥a. Every independent set with a selected B has a unique largest B-index m; it may use any of a−m−1 A-vertices and min(m,a−m) lower B-vertices, which are mutually compatible. Therefore I(G;x)=(1+x)^a+Σ_{m=0}^{a−1}x(1+x)^[a−m−1+min(m,a−m)], equal to the claimed closed expression. Maximality forces all these vertices, giving exactly a+1 facets, alpha=a, floor(a/2)+2 maximum sets, well-covered iff a≤2, and independent domination 1 at a=1 and 2 otherwise. Independent exhaustive graph enumeration for every a=1..7 reproduced exact polynomials and all facets; arbitrary a follows uniquely from the max-index decomposition.
 
-Exact replay output:
+## originality
 
-```text
-a=1: polynomial=[1, 2, 0], facets=2, max_sets=2, well_covered=True, i=1
-a=2: polynomial=[1, 4, 3, 0, 0], facets=3, max_sets=3, well_covered=True, i=2
-a=3: polynomial=[1, 6, 8, 3, 0, 0, 0], facets=4, max_sets=3, well_covered=False, i=2
-a=4: polynomial=[1, 8, 16, 13, 4, 0, 0, 0, 0], facets=5, max_sets=4, well_covered=False, i=2
-a=5: polynomial=[1, 10, 26, 31, 18, 4, 0, 0, 0, 0, 0], facets=6, max_sets=4, well_covered=False, i=2
-a=6: polynomial=[1, 12, 39, 63, 56, 26, 5, 0, 0, 0, 0, 0, 0], facets=7, max_sets=5, well_covered=False, i=2
-a=7: polynomial=[1, 14, 54, 108, 126, 86, 32, 5, 0, 0, 0, 0, 0, 0, 0], facets=8, max_sets=5, well_covered=False, i=2
-a=8: polynomial=[1, 16, 72, 174, 256, 236, 134, 43, 6, 0, 0, 0, 0, 0, 0, 0, 0], facets=9, max_sets=6, well_covered=False, i=2
-Z/6Z direct ideal-product graph OK: vertices=2
-Z/12Z direct ideal-product graph OK: vertices=4
-Z/80Z direct ideal-product graph OK: vertices=8
-Z/1215Z direct ideal-product graph OK: vertices=10
-Z/875Z direct ideal-product graph OK: vertices=6
-VERIFY_OK
-```
+PASS
 
-The finite checks are corroborative. The arbitrary-exponent result follows from the symbolic classification by the largest selected \(B\)-index.
+Earlier sources establish annihilating-ideal graph definition, weak perfectness and clique/edge-coloring numbers for Z_n, or classify rings with small independence number. Such results do not give the complete independence-polynomial enumerator or list all maximal independent sets for this one-parameter infinite arithmetic family. The Resultary comparable findings concern different domination invariants or distinct graph constructions; a possible graph-theoretic renaming of the exact threshold graph remains a priority risk.
+
+## value
+
+PASS
+
+The independence polynomial and complete maximal-facet list are canonical graph invariants, strictly stronger than independence number or clique number. The infinite semiprime-power family receives a closed formula for every independent-set size, the exact maximum-set multiplicities and the natural well-covered boundary at a=2, with downstream independent domination readily determined. The result is not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
