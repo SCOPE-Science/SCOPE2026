@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T17:50:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unsigned incidence B, BᵀB=2I+A(L(H)), so -2 flat band is ker B. For each root edge e, alternating ±1 vectors on two 4-cycles meeting only at e both lie in ker B, norm 2, and their entrywise product is ±unit_e. With symmetric orthogonal P, zᵀ(P∘P)z=tr((P diag(z)P)^2)=||P diag(z)P||_F². Pairing that compression against the two cycle vectors gives |z_e|≤4||P diag(z)P||_F, yielding the universal 1/(16m) Loewner bound. Time-average spectral identity is Σ_θ E_θ∘E_θ, so additional bands only add PSD matrices. For three-factor Cartesian products, use distinct other coordinate directions to create the required squares; no isolated factor vertices. Independent exact rational Q3 projector/Schur check gave strictly positive gap; Q2 spectral decomposition yields rank 2. Finite checks are corroboration; the compression argument establishes all eligible graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foundational papers describe general mixing spectral projectors and line-graph -2 modes. They do not give an across-all-root-edges two-four-cycle overlap condition implying a uniform positive gap in the inspected relevant material."
+        ],
+        "reasoning": "General spectral projection PSD is weaker than strict positivity, and the flat-band description alone does not imply P∘P invertible. The pointwise product spanning argument supplies the missing rank condition.",
+        "searches": [
+          "Godsil arXiv:1103.2578",
+          "Coutinho Godsil Guo Zhan arXiv:1709.03591",
+          "Kang arXiv:2605.01953v2 line graph flat-band states"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 37eda42bb5369b753567db915079ff000276f2d4 and verified tree 13bf516e16e6d995d8f916c12cd61e172d69da52",
+        "Coutinho et al. arXiv:1709.03591 primary PDF",
+        "Godsil arXiv:1103.2578",
+        "Kang arXiv:2605.01953v2 flat band discussion",
+        "Coutinho & Guo arXiv:2404.02236"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior projector-Schur identities imply M≥P∘P. Positive-definiteness requires an additional independent proof that the flat-band projector square has no zero modes."
+        ],
+        "reasoning": "The submitted per-edge pair of intersecting 4-cycle modes makes each diagonal coordinate testable; Cauchy–Schwarz then gives a uniform lower bound not mechanically present in the spectral identity.",
+        "searches": [
+          "arXiv:1103.2578",
+          "arXiv:1709.03591",
+          "arXiv:2605.01953v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Average mixing is Σ eigenprojector Schur squares, while the submitted certificate is P∘P≥I/(16m) obtained from crossing four-cycle localized incidence vectors."
+        ],
+        "reasoning": "Restating full rank as injectivity of diagonal compression P D_z P is equivalent to this proof, but that injectivity does not follow automatically from the general formula in prior work.",
+        "searches": [
+          "Resultary: line graph hypercube quantum walk average mixing matrix positive definite projector -2 square cycles",
+          "Coutinho et al. arXiv:1709.03591 average mixing commutant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known isolated graph average-mixing rank computations do not tabulate the full Cartesian product L(Q_d) positive gap for all d≥3."
+        ],
+        "reasoning": "This is an unrestricted structural criterion, not merely an exact small-graph database value; Q2 establishes sharpness within a specified natural family.",
+        "searches": [
+          "Selected Open Problems in Continuous-Time Quantum Walks arXiv:2404.02236 Section 4",
+          "arXiv:1709.03591 examples"
+        ]
+      },
+      "rationale": "Spectral-projector formula for quantum average mixing and incidence -2 flat band are established. The localized crossing-square-cycle product certificate, universal quantitative positivity gap and hypercube d=3 cutoff are not statements of the inspected foundational average-mixing paper; queried published Resultary material did not show a covering criterion. O PASS best of knowledge, with possibility of equivalent diagonal-compression test in other literature.",
+      "residual_risks": [
+        "Possible previously published general Schur-compression or line-graph positivity criterion implies this sufficient condition.",
+        "1/(16m) is sufficient, not claimed sharp for general graph; no necessity of cycle condition.",
+        "Finite exact Q3 computation supports but does not replace all-graph compression proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_CROSSING_CYCLES",
+          "evidence": "Establishes spectral average mixing in general graphs; no explicit pairwise four-cycle-local P∘P lower bound in inspected relevant theorems.",
+          "identifier_or_url": "arXiv:1709.03591",
+          "material_read": "Full primary PDF relevant spectral projector/commutant sections, with page screenshot of eigenprojector average-mixing formula",
+          "method": "Read relevant full-text proof/formulas and compare assumptions",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "Same exact quantum average-mixing invariant and strongest general algebraic framework"
+        },
+        {
+          "assessment": "PRIOR_SPECTRAL_IDENTITY",
+          "evidence": "Identifies inherited formula Σ E∘E, not specific graph-local two-cycle certificate.",
+          "identifier_or_url": "arXiv:1103.2578",
+          "material_read": "Relevant open text and cited spectral-projector statement",
+          "method": "Read pertinent text and compare result",
+          "title": "Average Mixing of Continuous Quantum Walks",
+          "trigger": "Original spectral time-average theorem"
+        },
+        {
+          "assessment": "PARTIAL_PRIORITY_RISK",
+          "evidence": "Flat-band incidence identity is known; cannot categorically exclude equivalent positivity condition in uninspected sections.",
+          "identifier_or_url": "arXiv:2605.01953v2",
+          "material_read": "Identified primary article and its incidence flat-band discussion, not a full exhaustive independent reading of every section in this run",
+          "method": "Compare located section on line-graph modes",
+          "title": "Schur States and Many-Body Quantum Walks on Line Graphs",
+          "trigger": "Recent plausible flat-band line-graph treatment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A graph-local sufficient condition for a global positive-definite quantum mixing invariant, with a dimension-uniform explicit quantitative eigenvalue bound and a natural binary hypercube cutoff. Identifies a structural fact beyond known formulas and does not conflate failure of sufficient criterion with singularity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite unweighted simple root graph H with m edges such that each edge is the only common edge of two 4-cycles, its line-graph infinite-time continuous-time quantum average mixing matrix dominates P∘P≥I/(16m), P the projector onto the adjacency -2 flat band. Thus full-rank mixing for Cartesian products of >=3 no-isolate factors including L(Q_d), d>=3, whereas L(Q_2)=C4 has rank two.",
+  "limitations": [
+    "Possible previously published general Schur-compression or line-graph positivity criterion implies this sufficient condition.",
+    "1/(16m) is sufficient, not claimed sharp for general graph; no necessity of cycle condition.",
+    "Finite exact Q3 computation supports but does not replace all-graph compression proof."
+  ],
+  "schema_version": 1
+}

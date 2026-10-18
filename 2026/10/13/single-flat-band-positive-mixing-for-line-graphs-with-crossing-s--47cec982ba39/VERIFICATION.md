@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing the standalone checker. Only Python's standard library is needed. All projector and positivity operations in the five exact examples use `fractions.Fraction`; no floating-point computation is used to decide a sign, nullspace dimension, or matrix identity. The printed decimal \(LDL^{\mathsf T}\) pivot summaries are merely displays of exact rational pivots, not eigenvalue estimates.
+## correctness
 
-The program enumerates four-cycles and their edge sets, searches for distinct pairs meeting precisely at each prescribed root edge, and checks that alternating signed cycle vectors lie in the unsigned-incidence kernel and have isolated coordinatewise products. In five exact test graphs, it constructs the orthogonal projector onto that kernel, checks its symmetry, idempotence, and incidence-nullspace property, and confirms that every rational pivot of \(P\circ P-I_m/(16m)\) is positive. It separately checks cycle witnesses for \(Q_d\), \(3\le d\le7\), and confirms the certificate hypothesis fails for \(Q_2\).
+PASS
 
-Successful replay ends with:
+For unsigned incidence B, BᵀB=2I+A(L(H)), so -2 flat band is ker B. For each root edge e, alternating ±1 vectors on two 4-cycles meeting only at e both lie in ker B, norm 2, and their entrywise product is ±unit_e. With symmetric orthogonal P, zᵀ(P∘P)z=tr((P diag(z)P)^2)=||P diag(z)P||_F². Pairing that compression against the two cycle vectors gives |z_e|≤4||P diag(z)P||_F, yielding the universal 1/(16m) Loewner bound. Time-average spectral identity is Σ_θ E_θ∘E_θ, so additional bands only add PSD matrices. For three-factor Cartesian products, use distinct other coordinate directions to create the required squares; no isolated factor vertices. Independent exact rational Q3 projector/Schur check gave strictly positive gap; Q2 spectral decomposition yields rank 2. Finite checks are corroboration; the compression argument establishes all eligible graphs.
 
-```
-VERIFY_OK exact_projectors 5 certificate_edges 861 cycle_witnesses 1087 nonexample_Q2_confirmed
-```
+## originality
 
-The finite checks validate the implemented instances but cannot certify the theorem for all graphs or dimensions. The general proof is the alternating-cycle/Schur-compression argument in RESULT.md, including the requirement that every Cartesian factor have no isolated vertices.
+PASS
+
+Spectral-projector formula for quantum average mixing and incidence -2 flat band are established. The localized crossing-square-cycle product certificate, universal quantitative positivity gap and hypercube d=3 cutoff are not statements of the inspected foundational average-mixing paper; queried published Resultary material did not show a covering criterion. O PASS best of knowledge, with possibility of equivalent diagonal-compression test in other literature.
+
+## value
+
+PASS
+
+A graph-local sufficient condition for a global positive-definite quantum mixing invariant, with a dimension-uniform explicit quantitative eigenvalue bound and a natural binary hypercube cutoff. Identifies a structural fact beyond known formulas and does not conflate failure of sufficient criterion with singularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
