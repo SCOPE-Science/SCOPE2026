@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,43 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The argument is analytic. Its critical checks are:
+# Independent mathematical audit
 
-1. The upper-regime inequality is equivalent to
-\[
-2t<\frac{d+1}{2}n,
-\qquad t=\frac{dn-m}{2},
-\]
-which is exactly the strict-separation condition for corner centers whose mutual Hamming distance is \((d+1)/2\).
+## correctness
 
-2. A single cap is transformed by coordinate reflections to
-\[
-\left\{z\in[0,n]^d:\sum_i z_i<t\right\}.
-\]
-Inclusion-exclusion over the coordinate events \(z_i>n\) gives
-\[
-\frac1{d!}\sum_{k=0}^d(-1)^k\binom{d}{k}(t-kn)_+^d.
-\]
-After multiplying by \(2^d\) for the affine chart and substituting \(t=(dn-m)/2\), this is exactly the stated volume formula.
+PASS
 
-3. At \(m_j=(d-2j)n\), only the \(j\)-th positive-part term changes branch. Therefore all derivatives through order \(d-1\) are continuous, while the right-minus-left jump of the \(d\)-th derivative is
-\[
-(d+1)(-1)^{j+d}\binom{d}{j}.
-\]
+In Lebedev’s actual upper affine chart, (d+1) Hamming-separated cube corners have disjoint cut caps with threshold t=(dn−m)/2. Cube cap volume is 1/d! Σ(−1)^k binom(d,k)(t−kn)_+^d, so chart Jacobian 2^d directly gives the displayed exact full volume spline. At m_j=(d−2j)n only k=j branch changes; d-th right-minus-left derivative is (d+1)(−1)^{j+d}binom(d,j). For noninteger τ=(dn−m)/(2n), delete Hamming layers ≤r and replace each exposed r→r+1 cube edge with a simple cut vertex, yielding f0 formula (6). At integer τ=j the disjoint layer-j vertices number (d+1)binom(d,j); local tangent cone has d+1 facets and rays e_a (a in N), e_a+e_b (a in N,b in P), hence degree (j+1)(d−j). Every other vertex is simple; equality of jump magnitude and K_j follows. Independently checked exact d=7,11,15 resonances and sign/degree; no finite check substituted for universal disjointness proof.
 
-4. At the same parameter, the cut boundary passes through exactly the Hamming layer of radius \(j\) around each of the \(d+1\) Hadamard corners. Since \(2j<(d+1)/2\), those layers are disjoint, so their total size is exactly
-\[
-(d+1)\binom{d}{j}.
-\]
-The source's local cone shows that these are precisely the nonsimple vertices.
+## originality
 
-5. In the local cone, the extreme rays are \(e_a\) for the \(d-j\) negative-side indices and \(e_a+e_b\) for an ordered choice of one negative-side and one positive-side index. Hence the degree is
-\[
-(d-j)+j(d-j)=(j+1)(d-j).
-\]
+PASS
 
-As a concrete consistency check, \(d=7\) has the unique internal resonance \(j=1\). The formulas give \(56\) nonsimple vertices, degree \(12\), total vertex count \(120\), and a seventh-derivative jump of magnitude \(56\).
+Lebedev’s 2026 primary paper supplies the disjoint-corner upper chart, smoothness resonances and tangent-cone description, but the inspected original treatment does not give the exact assembled volume spline, phase-by-phase vertex count, derivative-jump constant or its equality with the nonsimple vertex count. The prior geometric cut representation plus elementary inclusion–exclusion and combinatorial Hamming counting is substantive synthesis: a general elementary cube-cap formula is known, but the exact analytic/combinatorial identification across all Hadamard dimensions is not located as an existing theorem. Best-of-knowledge PASS; possible broad polytope-spline coverage explicitly remains.
 
-The checks establish only the strict upper regime. They do not assert a formula when corner cuts overlap, and they do not derive normality or Ehrhart properties from the volume calculation.
+## value
+
+PASS
+
+The separated upper Hadamard truncation family already has a meaningful published smoothness-resonance problem. A complete volume spline and vertex-count profile, and the exact equality |jump of d-th volume derivative|=number of nonsimple vertices with degrees, are natural and structurally connected invariants for the entire Hadamard-order family. Value does not rest on the already known single-cap inclusion-exclusion formula alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the published upper-regime affine chart, in which the polytope is a cube with \(d+1\) pairwise disjoint corner caps. Inclusion-exclusion gives the exact cap volume, and differentiating the resulting positive-part spline gives the stated jump. Independently, Hamming-layer and edge counts give the complete vertex profile. At resonance the published tangent cone has \(d+1\) irredundant facets; its extreme rays give degree \((j+1)(d-j)\). The two independent exact counts coincide as claimed. No finite enumeration is used to establish the universal theorem.
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:2609.32950v1, contains the separated-corner representation, resonance set, and local nonsimple cone, but not the volume spline, full vertex-count profile, resonance degree, or jump-count identity. The direct Santos predecessor contains the Hadamard/Hamming geometry but not these truncation formulas. Targeted searches using the family name, resonance ratios, volume-spline aliases, vertex counts, and derivative-jump wording found no checked source covering the complete statement. The classical one-cap inclusion-exclusion formula is explicitly treated as background rather than as original content.
+PASS
 
-Residual originality risk remains that a general polyhedral-spline treatment not indexed under Hadamard terminology could imply part of the theorem. No checked comparison produced such a covering result.
+In Lebedev’s actual upper affine chart, (d+1) Hamming-separated cube corners have disjoint cut caps with threshold t=(dn−m)/2. Cube cap volume is 1/d! Σ(−1)^k binom(d,k)(t−kn)_+^d, so chart Jacobian 2^d directly gives the displayed exact full volume spline. At m_j=(d−2j)n only k=j branch changes; d-th right-minus-left derivative is (d+1)(−1)^{j+d}binom(d,j). For noninteger τ=(dn−m)/(2n), delete Hamming layers ≤r and replace each exposed r→r+1 cube edge with a simple cut vertex, yielding f0 formula (6). At integer τ=j the disjoint layer-j vertices number (d+1)binom(d,j); local tangent cone has d+1 facets and rays e_a (a in N), e_a+e_b (a in N,b in P), hence degree (j+1)(d−j). Every other vertex is simple; equality of jump magnitude and K_j follows. Independently checked exact d=7,11,15 resonances and sign/degree; no finite check substituted for universal disjointness proof.
 
-## Value
-PASS. The theorem identifies every upper smoothness resonance simultaneously by an analytic singularity and by an exact combinatorial singularity count, with the striking equality
-\[
-\left|[V^{(d)}]_{m_j}\right|=(d+1)\binom{d}{j}.
-\]
-It also gives the complete upper-regime vertex-count phase diagram and the exact degree of each nonsimple resonance vertex. These are natural invariants of the same family for which smoothness and normality are being studied and expose structure not visible from the smooth/non-smooth dichotomy alone.
+## originality
 
-## Closest literature and limitations
-The lead 2026 paper proves the separated-corner geometry and smoothness classification used as premises. Santos's 2007 report is the direct constructional predecessor. The present theorem is restricted to the strict separated upper regime and does not claim lower-regime formulas, normality consequences, or Ehrhart consequences. The originality assessment is limited to the checked literature and indexed comparisons.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Lebedev’s 2026 primary paper supplies the disjoint-corner upper chart, smoothness resonances and tangent-cone description, but the inspected original treatment does not give the exact assembled volume spline, phase-by-phase vertex count, derivative-jump constant or its equality with the nonsimple vertex count. The prior geometric cut representation plus elementary inclusion–exclusion and combinatorial Hamming counting is substantive synthesis: a general elementary cube-cap formula is known, but the exact analytic/combinatorial identification across all Hadamard dimensions is not located as an existing theorem. Best-of-knowledge PASS; possible broad polytope-spline coverage explicitly remains.
+
+## value
+
+PASS
+
+The separated upper Hadamard truncation family already has a meaningful published smoothness-resonance problem. A complete volume spline and vertex-count profile, and the exact equality |jump of d-th volume derivative|=number of nonsimple vertices with degrees, are natural and structurally connected invariants for the entire Hadamard-order family. Value does not rest on the already known single-cap inclusion-exclusion formula alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
