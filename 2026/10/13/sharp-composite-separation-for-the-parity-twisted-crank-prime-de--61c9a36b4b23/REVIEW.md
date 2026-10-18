@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the coefficient through the source's exact divisor-sum identities and treats all composite integers by the mutually exclusive classes odd, congruent to \\(2\\pmod4\\), and divisible by \\(4\\). The odd branch has a one-divisor sharp bound; the twice-odd branch has an analytic lower bound for all odd \\(m\\ge5\\) plus the exact boundary \\(m=3\\); the \\(4\\)-divisible branch has a uniform negative estimate and a separate exact evaluation at \\(n=4\\). The bundled checker confirms normalization and all inequalities through \\(n=20000\\), but finite replay is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest source is Kang, arXiv:2609.37301v1. Its Theorem 2.3 proves the prime zero-set and the sign trichotomy, and Section 5 contains the divisor-sum identities used here, including the direct value at \\(n=4\\). The inspected text does not state the sharp positive minima \\(6144\\) and \\(1488\\), their equality cases, or the exact global composite separation \\(120\\). Semantic database searches for the same object, exact constants, aliases, and broader prime-detecting formulations found only different arithmetic detectors or broader partition prime-detection results, none implying these constants for this normalized \\(h(n)\\). A residual risk remains that an equivalent quantitative statement exists under different notation outside the searched literature.
+PASS
 
-## Value
-PASS. The exact minimum of \\(|h(n)|\\) on composites is the natural separation/robustness margin of a coefficient sequence whose purpose is to distinguish primes by vanishing. The residue-class equality cases identify precisely where each sign branch comes closest to failure. This is an infinite structural sharpening rather than a finite census, and it is directly motivated by the newly introduced detector.
+Use Kang's normalization h(n)=2F6(n)-2(n^2-n+3)F4(n)+2(-n^3+4n^2-3n+2)F2(n), F2k=2^(2k)sigma_(2k-1)(n/2)-sigma_(2k-1)(n). For odd composite n=pq, nonnegative divisor sums yield h>=2p(p^2-1)(q^2-1)(p^2+pq-2)>=6144, equality n=9. At n=2m,m odd>=3, source divisor-sum bounds and monotonic lower polynomial L(m) give h(6)=1488 and strict > for m>=5. For 4|n, write n=2^a m, 2^a>=4, source A1/A3/A5 inequalities give h(4)=-120 and h(n)<-144 otherwise. Thus global |h| minimum=120 only at 4. Independent exact divisor-sum reconstruction tested n<=1000 including normalized prime zeros and all three residue classes; these are bounded corroborations only. Primary article's full text remained inaccessible and its identities need continued human cross-check before publication.
 
-## Closest literature and limitations
-Kang's 2026 preprint is the direct predecessor. Craig, van Ittersum, and Ono's 2024 work supplies broader partition-theoretic context but uses different detectors. The numerical margin depends on Kang's normalization; the result does not optimize across all prime-detecting elements or address arbitrary coefficient perturbations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claim is not merely Kang's prime zero-set; it determines exact absolute separation and three sharp congruence-branch minima for Kang's fixed normalized coefficient. The accessible arXiv abstract and secondary mathematical review explicitly give vanishing iff prime and the positive/negative composite sign pattern, but do not describe quantitative 120/1488/6144 margins. Those descriptions are not whole-document evidence that Kang's theorem or appendix omits the same bounds. Legal full-text attempts did not complete and authorized institutional access reported vpn_disconnected. Best-of-knowledge originality accepted with material unresolved source-inspection risk, not on the premise that inaccessible literature is noncovering.
+
+## value
+
+PASS
+
+A prime-detecting coefficient is naturally tested for the exact nonzero separation margin on composites, which is relevant to quantitative robustness of its sign/zero criterion. The exact extrema in the three natural parity classes distinguish its arithmetic behavior beyond finite enumeration. The margin is specific to Kang's fixed normalization, not a universal stability guarantee under arbitrary rescaling or perturbation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

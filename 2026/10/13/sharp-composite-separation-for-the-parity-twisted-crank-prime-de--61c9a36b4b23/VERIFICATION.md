@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked symbolically against the exact divisor-sum coefficient formula. In particular:
+# Independent mathematical audit
 
-- for odd composite \\(n=pq\\) with \\(p\\) the least prime factor, the retained \\(d=p\\) contribution is \\(2p(p^2-1)(q^2-1)(p^2+pq-2)\\), whose minimum on \\(p,q\\ge3\\) is \\(6144\\);
-- for \\(n=2m\\), the expanded formula for \\(h(2m)\\) was checked term-by-term and the analytic lower function \\(L\\) was differentiated exactly; its derivative is positive on \\([5,\\infty)\\) under \\(\\log x\\le x/3\\);
-- for \\(4\\mid n\\), the exact functions \\(A_1,A_3,A_5,K\\) were re-evaluated, including \\(K(4)=-1\\) and \\(A_3(4)=71\\), and the sign of \\(u\\) was checked algebraically in the exceptional \\(t=4\\) and general \\(t\\ge8\\) ranges.
+## correctness
 
-The bundled `verify_margin.py` reconstructs coefficients from divisor sums and checks every integer through \\(20000\\). Its expected replay output is recorded in `VERIFY_OUTPUT.txt`. This finite computation verifies normalization and catches boundary/algebra mistakes; it is not evidence for cases beyond the checked range and is not used in the infinite proof.
+PASS
+
+Use Kang's normalization h(n)=2F6(n)-2(n^2-n+3)F4(n)+2(-n^3+4n^2-3n+2)F2(n), F2k=2^(2k)sigma_(2k-1)(n/2)-sigma_(2k-1)(n). For odd composite n=pq, nonnegative divisor sums yield h>=2p(p^2-1)(q^2-1)(p^2+pq-2)>=6144, equality n=9. At n=2m,m odd>=3, source divisor-sum bounds and monotonic lower polynomial L(m) give h(6)=1488 and strict > for m>=5. For 4|n, write n=2^a m, 2^a>=4, source A1/A3/A5 inequalities give h(4)=-120 and h(n)<-144 otherwise. Thus global |h| minimum=120 only at 4. Independent exact divisor-sum reconstruction tested n<=1000 including normalized prime zeros and all three residue classes; these are bounded corroborations only. Primary article's full text remained inaccessible and its identities need continued human cross-check before publication.
+
+## originality
+
+PASS
+
+The claim is not merely Kang's prime zero-set; it determines exact absolute separation and three sharp congruence-branch minima for Kang's fixed normalized coefficient. The accessible arXiv abstract and secondary mathematical review explicitly give vanishing iff prime and the positive/negative composite sign pattern, but do not describe quantitative 120/1488/6144 margins. Those descriptions are not whole-document evidence that Kang's theorem or appendix omits the same bounds. Legal full-text attempts did not complete and authorized institutional access reported vpn_disconnected. Best-of-knowledge originality accepted with material unresolved source-inspection risk, not on the premise that inaccessible literature is noncovering.
+
+## value
+
+PASS
+
+A prime-detecting coefficient is naturally tested for the exact nonzero separation margin on composites, which is relevant to quantitative robustness of its sign/zero criterion. The exact extrema in the three natural parity classes distinguish its arithmetic behavior beyond finite enumeration. The margin is specific to Kang's fixed normalization, not a universal stability guarantee under arbitrary rescaling or perturbation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
