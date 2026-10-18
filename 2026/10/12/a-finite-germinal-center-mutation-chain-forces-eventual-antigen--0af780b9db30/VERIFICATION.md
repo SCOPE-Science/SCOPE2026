@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,14 @@
   "schema_version": 1
 }
 ---
-The bundled checker verifies the two algebraic identities used for global boundedness.
+# Verification
 
-For an arbitrary symbolic finite chain of length \(n\), the weighted quantity
+The analytic proof in `RESULT.md` applies for every finite \(n\ge2\), the domain where the distinct \(B_1\) and terminal \(B_n\) equations are unambiguous. For those lengths, the weighted quantity
 \[
-Q=
-B_0+\sum_{i=1}^n\alpha^{-i}B_i+\alpha^{-n}P
+Q=B_0+\sum_{i=1}^n\alpha^{-i}B_i+\alpha^{-n}P
 \]
-cancels each maturation flux and the terminal plasma-cell production flux. Its derivative is
+has derivative
 \[
-\dot Q=
--d\left(
-B_0+\sum_{i=1}^n\alpha^{-i}B_i
-\right).
+\dot Q=-d\left(B_0+\sum_{i=1}^n\alpha^{-i}B_i\right)\le0.
 \]
-
-The checker explicitly reconstructs this cancellation for several symbolic chain lengths and verifies the general coefficient pattern.
-
-It also verifies that the activation and T-follicular-helper differentiation terms cancel in
-\[
-T=N+H+G,
-\]
-leaving only the recruitment term and nonpositive losses.
-
-Strict positivity and the exponential antigen bound are proved analytically from variation-of-constants formulas; no numerical trajectory is used.
+Direct summation gives \(\dot{(N+H+G)}\le s_N-m(N+H+G)\). The positive variations-of-constants through \(H,G,B_1,\ldots,B_n\) establish \(B_n(t)>0\) and \(P(t)>0\) for \(t>0\). The exact antigen equation then provides exponential decay after each \(t_0>0\). The original packaged numerical/algebraic verifier can corroborate cancellation identities at sampled chain lengths, but neither a finite test nor a `VERIFY_OK` flag establishes the universal long-time limit. No assertion is made for the undefined \(n=1\) degeneration without a further model convention.
