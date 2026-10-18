@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The prime-power coefficient identity yields D_3 = 1 * 1_square * c with c(p)=c(p^2)=0, c(p^3)=4/3, c(p^j)=2/3 thereafter. Exact two-way hyperbola decomposition for L(s,chi)L(2s,chi^2) proves the linear and quadratic-character square-root contributions, with O_q(X^(1/3)) remainder. Convolution with the absolutely summable correction at every sigma>1/3 produces O_{q,eps}(x^(1/3+eps)). Orthogonality and positive L(1/2,chi_-3), G_chi(1/2) give the stated sign. Independent exact rational verification of the coefficient identity at n<=20000 returned VERIFY_OK. No finite enumeration is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Karras and Derbal 2020: whole-family mean with error of square-root logarithmic scale",
+        "Karras 2026: whole-family fixed-progressions main term with O(x^(1/2+eps)) error",
+        "General divisor hyperbola method applies, but no located wider theorem states the secondary coefficient plus smaller error for the full weighted convolution."
+      ],
+      "reasoning": "General theorems giving only the leading term do not subsume a signed nonzero secondary term. The possibility of an unstated consequence of a generic two-term convolution theorem is retained as risk.",
+      "searches": [
+        "Piltz divisor quotient D_k(n)=d_k(n)/k^omega(n), sharp secondary term x^(1/2)(log x)^((k-3)/2), zeta(1/2), squarefull convolution, Selberg Delange",
+        "mean value d_k(n)/d_k*(n) optimal secondary asymptotic 2020 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2602.12371v1",
+      "https://arxiv.org/abs/2602.12371",
+      "Karras and Derbal 2020 related global mean manuscript",
+      "Bouakkaz and Derbal 2023 article",
+      "semantic mathematical result searches for normalized Piltz divisor secondary terms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Karras arXiv:2602.12371 Theorem 3.1: S_k(x;q,a)=A_{k,q} x+O_{k,q,eps}(x^(1/2+eps))",
+        "Karras and Derbal mean: A_k x+O(x^(1/2)(log x)^(k-2))",
+        "New claim: explicit B_{3,q,a} sqrt(x)+O(x^(1/3+eps)); B_{3,3,1}-B_{3,3,2}>0."
+      ],
+      "reasoning": "A bound of order x^(1/2+eps) or x^(1/2)log(x) cannot determine an exact x^(1/2) term. The new error is asymptotically smaller than that term. k=2 progression literature has different Euler factors.",
+      "searches": [
+        "Piltz divisor quotient D_k(n)=d_k(n)/k^omega(n), sharp secondary term x^(1/2)(log x)^((k-3)/2), zeta(1/2), squarefull convolution, Selberg Delange",
+        "ternary Piltz divisor quotient d3(n) divided by 3^omega(n), arithmetic progressions modulo 3 square-root quadratic residue bias, L(1/2, chi_-3), Euler product",
+        "d_k(n)/k^omega(n) secondary term x^(1/2) logarithm asymptotic zeta"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.12371, Theorem 3.1 (same D_k(n), reduced progressions)",
+        "arXiv:2602.12371, Lemma 2.2 (different convolution with 2-full g_k)",
+        "Direct identity: D_3 Dirichlet series equals L(s,chi)L(2s,chi^2)G_chi(s) with G absolutely convergent at 1/2.",
+        "No accessible result supplied the explicit secondary L(1/2,chi) factor for this weight."
+      ],
+      "reasoning": "Quadratic-character secondary coefficients are equivalent to the residues at the twisted square-divisor L(2s,chi^2) pole, and the difference modulo three isolates the nonprincipal real character. The leading-only theorems do not determine these values.",
+      "searches": [
+        "ternary Piltz divisor quotient d3(n) divided by 3^omega(n), arithmetic progressions modulo 3 square-root quadratic residue bias, L(1/2, chi_-3), Euler product",
+        "normalized ternary ordered factorization function d_3(n)/3^{omega(n)} x^{1/2} secondary term and 1/3-error Dirichlet characters"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact cubic-residue Lebesgue constants: a Fourier-projection result with different object, no normalized D_3 mean",
+        "Parity-resolved divisor power sums: different multiplicative summatory function",
+        "arXiv:2602.12371 has a table of linear mean constants A_k, not second-order progression coefficients."
+      ],
+      "reasoning": "No previously located exact table of the secondary constants in normalized ternary divisor progressions. A table of A_3 does not imply the quadratic-character bias.",
+      "searches": [
+        "ternary Piltz divisor quotient d3(n) divided by 3^omega(n), arithmetic progressions modulo 3 square-root quadratic residue bias, L(1/2, chi_-3), Euler product",
+        "normalized ternary ordered factorization function d_3(n)/3^{omega(n)} x^{1/2} secondary term and 1/3-error Dirichlet characters"
+      ]
+    },
+    "rationale": "The full 2026 Karras paper arXiv:2602.12371, including Theorem 3.1 and its proof, concerns exactly these normalized divisor functions but only establishes the linear mean with O(x^(1/2+eps)) error. Its cited 2020 Karras-Derbal result has leading order with O(x^(.5)(log x)^(k-2)) error. Neither implies the square-root coefficient or a signed two-class bias, since that magnitude is obscured by those errors. Closest semantic result records involve other invariants, not the ternary progression statistic; no covering claim found. A generic prior hyperbola theorem may implicitly encompass the specialization: residual risk noted.",
+    "residual_risks": [
+      "A broad uninspected earlier hyperbola or convolution theorem could include this particular square-root secondary term as a corollary.",
+      "Search failures and absence from an inspected paper do not logically establish literature uniqueness.",
+      "The proof establishes only fixed q and k=3; no generalization or error-optimality is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives linear term with O(x^(1/2+eps)) but no secondary character coefficient or power-saving isolation",
+        "evidence": [
+          "Theorem 3.1 formula (14), arXiv:2602.12371",
+          "Lemma 2.2 formula (7), arXiv:2602.12371",
+          "Introduction formula (2), arXiv:2602.12371"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.12371v1",
+        "material_read": "Full accessible HTML article, including introduction, Lemma 2.2, Theorem 3.1 and surrounding proof",
+        "method": "Read the primary HTML article and compared its mathematical statement and error scales",
+        "title": "On the Mean Value of D_k(n) in Arithmetic Progressions",
+        "trigger": "Identical normalized arithmetic function, progressions and closest theorem"
+      },
+      {
+        "assessment": "Earlier leading asymptotic has error as large as the proposed second term; no explicit square-root coefficient located",
+        "evidence": [
+          "Cited in arXiv:2602.12371 introduction formula (2) with O(x^(.5)(log x)^(k-2))"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/328484013_Mean_value_of_an_arithmetic_function_associated_with_the_Piltz_divisor_function",
+        "material_read": "Author-provided full manuscript portions giving main theorem, error term, and proof method",
+        "method": "Examined accessible mathematical manuscript text for explicit results on the normalized d_k quotient",
+        "title": "Mean value of an arithmetic function associated with the Piltz divisor function (Karras and Derbal)",
+        "trigger": "2020 cited same-family global mean and possible secondary term"
+      },
+      {
+        "assessment": "Treats d_2(n)/2^omega(n) rather than the ternary function; not directly a k=3 signed progression theorem",
+        "evidence": [
+          "2023 paper Theorem 1.1 is about D_2, leading progression asymptotic"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/372064143_The_mean_value_of_the_function_fracdndn_in_arithmetic_progressions",
+        "material_read": "Accessible article introduction and stated main theorem/abstract; k=2 specialization",
+        "method": "Compared source definition, theorem and exponent; no claim of whole-document novelty based solely on excerpts",
+        "title": "The mean value of the function d(n)/d*(n) in arithmetic progressions",
+        "trigger": "Earlier progression mean with related normalized divisor weight"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b49cf123-a8a8-42b8-a006-fd5b08e52542",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 publication studies exactly the reduced-progression mean and leaves every nontrivial secondary term inside O(x^(1/2+eps)). The theorem separates an explicitly nonzero square-root quadratic-character bias between residue classes 1 and 2 mod 3 with O(x^(1/3+eps)) remainder; the coefficient is a natural analytic arithmetic invariant, and its strict sign is a new quantified phenomenon relative to the inspected leading-only literature.",
+    "status": "PASS"
+  }
+}
