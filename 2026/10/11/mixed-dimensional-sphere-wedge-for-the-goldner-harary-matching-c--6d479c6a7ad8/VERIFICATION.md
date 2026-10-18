@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the Goldner–Harary matching-complex decomposition
+# Independent mathematical audit
 
-The package contains the complete integer Morse certificate `MORSE_CERTIFICATE.json` and two stand-alone verifiers. From the package directory run:
+## correctness
 
-`python verify_goldner_harary.py MORSE_CERTIFICATE.json`
+PASS
 
-`python verify_independent.py`
+Construct the graph as triangular-bipyramid Kleetope (11 vertices,27 edges). Independently enumerate all 1441 nonempty matchings with f=(27,219,613,510,72), rebuild certificate 14-stage toggles, check 662 nonempty matched pairs, acyclic orientation on all 1441 faces/4677 incidences, critical cells (1 in degree0,49 in degree2,67 in degree3). Reconstruct integral signed 49x67 Morse boundary, SHA-256 0042e255c0bdcc8db6e602d39eb8614f3d966ad89e8140c4462faa26aa299bf6 matching frozen certificate. Independently calculate Smith normal form: precisely nineteen nonzero invariant factors, ALL equal to 1. Since simply connected Morse CW has no 1-cells, integer degree attaching maps diagonalize and cancel 19 2/3-cell pairs, leaving 30 S2 and 48 S3. F2 checks alone would not establish the integral claim.
 
-The first verifier reconstructs the eleven-vertex, twenty-seven-edge graph, enumerates all 1441 nonempty faces, regenerates the matching, validates 662 nonempty pairs, and confirms acyclicity by a directed topological sort over all 4677 face incidences. Its 49-by-67 integral Morse boundary is reconstructed by oriented simplex incidence and signed gradient-path elimination. It checks rational rank 19 and recomputes a maximal integer minor with determinant 1. The critical CW cells are one zero-cell, 49 two-cells and 67 three-cells, so elementary homotopy-theoretic reasoning gives \(\bigvee^{30}S^2\vee\bigvee^{48}S^3\).
+## originality
 
-The second verifier does not use the certificate or Morse matching. It independently enumerates pairwise disjoint edge sets by combinations and checks mod-two boundary ranks \((26,193,390,72)\) and reduced mod-two Betti numbers 30 in dimension two and 48 in dimension three. This corroborates the enumeration but cannot by itself establish the integral homotopy type.
+PASS
 
-The two verifiers were executed from the embedded package files. Reproducibility is limited to the specified finite complex and mathematics used to translate signed cellular data into homotopy. An independent scientific audit and independent formal validation were not performed.
+The exact ordinary matching-complex integral wedge on the Goldner–Harary graph is not supplied by outerplanar matching-complex wedge theorems or matching-complex results for other graph families. The Resultary hit with identical title/30,48 values is the public mirror of the same assigned mathematical record, not evidence of an independently earlier stronger claim. Best-of-knowledge originality survives with explicit unindexed-calculation risk.
+
+## value
+
+PASS
+
+Canonical 11-vertex maximal planar non-Hamiltonian graph gives a motivated first nonouterplanar benchmark; the full integral sphere-wedge homotopy decomposition in TWO distinct degrees is a structurally informative exact object-specific invariant, not generic Euler-characteristic arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
