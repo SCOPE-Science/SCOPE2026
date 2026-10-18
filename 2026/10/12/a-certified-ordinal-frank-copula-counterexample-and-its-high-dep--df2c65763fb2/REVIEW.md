@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit twenty-category witness is defined by nineteen exact rational thresholds, not by approximate optimized probabilities. The exact identity for its covariance is a 361-term finite sum of copula evaluations. `check_frank.py` carries rational lower/upper bounds for every exponential and logarithm using explicit Taylor remainder bounds, for \(\zeta(2)\) and \(\zeta(3)\) using integral tails, and for the Frank Debye expression using positivity; its decisive rational inequality is strictly positive. Independent arbitrary-precision evaluation using the original distribution and integral representation agreed. The supporting high-parameter lemma is an analytical proof with an explicit exponential dominating kernel and verifies the variance normalizations and quantifiers; uniform quantizer approximation transfers strictly positive difference at each fixed large parameter. No finite experiments are offered as infinite proofs.
+PASS
 
-## Originality — PASS
+Hoeffding indicator expansion gives A=sum_{ij}(C_15(t_i,t_j)-t_i t_j) and B=sum_{ij}(min(t_i,t_j)-t_i t_j)>0 for 19 exact rational thresholds. The actual check_frank.py was inspected: it brackets exponentials and logarithms using rational truncated Taylor series with proven positive tail bounds and compares exact integer endpoints for all 361 CDF terms; certified A/B>0.93092569 and latent rho<0.92938730. An independent 65-digit evaluation reproduced ordinal 0.930925698735820068..., latent 0.929365805485040128..., gap ~0.00155989325, but is NOT substituted for the rational certificate. The general theta->infinity assertion is separately established analytically by the covariance-deficit kernel, exponential domination and theta-rescaling; g(u)=(1-cos pi u)/2 has derivative-energy/variance quotient pi² vs 12 for g(u)=u, yielding pi²(12-pi²)/6. Uniform finite quantization approximates g at each fixed sufficiently large theta. No claim of finite m uniform in theta.
 
-The full September 2026 Barbiero paper explicitly calls magnitude attenuation a conjecture and numerically tests up to eleven categories and latent Spearman correlation 0.9. Its Theorem 2 only gives the sign of the ordinal correlation. The new twenty-category witness lies beyond that numerical grid and contradicts rather than follows from the conjecture; the high-parameter asymptotic is likewise absent from the inspected text. The older 2021 Barbiero paper constructs ordinal copula models and calibrates correlation but does not compare maximal ordinal Pearson correlation to latent Frank Spearman. Searches of directly related published mathematical records found no equivalent certified finite Frank counterexample or dominating inequality. General Hoeffding identities and ordinary comonotonic limits do not themselves entail the explicit finite witness or nonzero second-order limit. Residual priority risk: unindexed or contemporaneous specialized work may exist; web search is not proof of universal novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The work gives a reproducible **counterexample to a plainly stated contemporary statistical conjecture** rather than merely improving a numerical approximation. It identifies the meaningful boundary of the available numerical evidence and shows mathematically that the failure is systematic near strong positive dependence, even when both ordinal margins are identical and scores are consecutive integers. The finding affects the interpretation of correlation calibration in latent-Frank ordinal models. It does not determine smallest possible categories, optimal thresholds, or all parameter regimes.
+Barbiero (2026) proposes attenuation of Pearson correlation for Frank-ordinal scores compared with latent Spearman correlation and reports numerical work limited to <=11 categories and latent rho<=0.9; its Theorem 2 proves sign-preservation, not magnitude attenuation. The exact twenty-category example is beyond the reported search and contradicts the universal attenuation conjecture, while the asymptotic mechanism establishes a family of witnesses. Searches did not reveal a covering counterexample; exact priority remains bounded.
 
-## Closest literature and limits
+## value
 
-Barbiero (2026), DOI 10.1007/s11634-026-00709-1, Sections 2.2 and 5, is the precise conjecture; its sign theorem remains intact. Barbiero (2021), DOI 10.1007/s10182-021-00405-9, is relevant to construction but not to the disputed attenuation assertion. A prior publication with the same counterexample that was not indexed or found remains a priority risk. The certificate establishes only the specified instance; the separate asymptotic proof establishes existence at each sufficiently large parameter.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicitly certified counterexample overturns a mathematical conjecture in a contemporary primary article, and a sharp high-dependence mechanism explains why rather than merely supplying an optimized number. This matters for interpreting discretized correlation models and for the conjecture boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

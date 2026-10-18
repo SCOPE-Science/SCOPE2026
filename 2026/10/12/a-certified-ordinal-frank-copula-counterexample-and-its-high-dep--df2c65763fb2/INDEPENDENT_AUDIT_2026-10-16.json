@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T22:42:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Hoeffding indicator expansion gives A=sum_{ij}(C_15(t_i,t_j)-t_i t_j) and B=sum_{ij}(min(t_i,t_j)-t_i t_j)>0 for 19 exact rational thresholds. The actual check_frank.py was inspected: it brackets exponentials and logarithms using rational truncated Taylor series with proven positive tail bounds and compares exact integer endpoints for all 361 CDF terms; certified A/B>0.93092569 and latent rho<0.92938730. An independent 65-digit evaluation reproduced ordinal 0.930925698735820068..., latent 0.929365805485040128..., gap ~0.00155989325, but is NOT substituted for the rational certificate. The general theta->infinity assertion is separately established analytically by the covariance-deficit kernel, exponential domination and theta-rescaling; g(u)=(1-cos pi u)/2 has derivative-energy/variance quotient pi² vs 12 for g(u)=u, yielding pi²(12-pi²)/6. Uniform finite quantization approximates g at each fixed sufficiently large theta. No claim of finite m uniform in theta.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barbiero’s Theorem 2 establishes sign preservation for positive Frank dependence, not magnitude attenuation; hence that theorem does not refute inflation or dominate the counterexample."
+        ],
+        "reasoning": "Theorem 2 pertains to sign; the conjectural attenuation assertion is stronger and false at the supplied parameter.",
+        "searches": [
+          "Resultary semantic search: Frank copula ordinal discretization Pearson correlation exceeds latent Spearman correlation high dependence counterexample",
+          "https://doi.org/10.1007/s11634-026-00709-1",
+          "https://doi.org/10.1007/s10182-021-00405-9"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s11634-026-00709-1",
+        "https://doi.org/10.1007/s10182-021-00405-9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original conjecture predicts ordinal Pearson <= latent Spearman; the rigorously certified strict reverse inequality is not entailed by sign preservation or by earlier copula-calibration procedures."
+        ],
+        "reasoning": "Exact rational gap lower bound 0.00153839 disproves the prior generalization.",
+        "searches": [
+          "Resultary semantic search: Frank copula ordinal discretization Pearson correlation exceeds latent Spearman correlation high dependence counterexample",
+          "https://doi.org/10.1007/s11634-026-00709-1",
+          "https://doi.org/10.1007/s10182-021-00405-9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Comparing ordinal Pearson to latent Spearman amounts here to comparing Corr(X,Y) with Corr(U,V) under the same Frank copula, not two tie-adjusted rank correlations."
+        ],
+        "reasoning": "The two correlations are distinct statistics even with identical uniform latent margins; exact threshold covariance identity recovers the candidate statistic.",
+        "searches": [
+          "Resultary semantic search: Frank copula ordinal discretization Pearson correlation exceeds latent Spearman correlation high dependence counterexample",
+          "https://doi.org/10.1007/s11634-026-00709-1",
+          "https://doi.org/10.1007/s10182-021-00405-9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Barbiero’s numerical studies range m<=11 and rho<=0.9; the witness uses m=20 and rho≈0.92937. No exact table in the inspected primary source covers the witness."
+        ],
+        "reasoning": "Original finite grid does not include 20 levels or the chosen theta=15.",
+        "searches": [
+          "Resultary semantic search: Frank copula ordinal discretization Pearson correlation exceeds latent Spearman correlation high dependence counterexample",
+          "https://doi.org/10.1007/s11634-026-00709-1",
+          "https://doi.org/10.1007/s10182-021-00405-9"
+        ]
+      },
+      "rationale": "Barbiero (2026) proposes attenuation of Pearson correlation for Frank-ordinal scores compared with latent Spearman correlation and reports numerical work limited to <=11 categories and latent rho<=0.9; its Theorem 2 proves sign-preservation, not magnitude attenuation. The exact twenty-category example is beyond the reported search and contradicts the universal attenuation conjecture, while the asymptotic mechanism establishes a family of witnesses. Searches did not reveal a covering counterexample; exact priority remains bounded.",
+      "residual_risks": [
+        "An independently published or unindexed numerical counterexample might predate this specific witness.",
+        "Finite numerical checker is evidence for one quantizer only; the asymptotic theorem relies on a separate analytic dominated-convergence argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 2 is sign preservation; attenuation is presented as conjectural; experiment covers fewer levels and lower latent rho.",
+          "evidence": [
+            "Theorem 2, Section 2.2 conjectural magnitude claim; study grid <=11 categories and latent rho<=0.9."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11634-026-00709-1",
+          "material_read": "Full lawfully available publisher HTML consulted, focusing on Section 2.2 (theorem and conjecture), numerical grid and Section 5 conclusions.",
+          "method": "Direct open-access publisher HTML and theorem/statement comparison",
+          "title": "The Frank copula as a latent model for ordinal variables: dependence structure, correlation attenuation, and statistical inference (A. Barbiero, 2026)",
+          "trigger": "Exact same Frank model and claimed universal attenuation"
+        },
+        {
+          "assessment": "Concerns copula calibration for specified discrete correlation, not an inspected theorem asserting universal Frank attenuation.",
+          "evidence": [
+            "Title and stated procedure only; full text not independently examined."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10182-021-00405-9",
+          "material_read": "Abstract, available bibliographic information and topic overview; no complete text read, hence no whole-document noncoverage conclusion.",
+          "method": "Open bibliographic/abstract comparison",
+          "title": "Inducing a desired value of correlation between two point-scale variables: a two-step procedure using copulas (A. Barbiero, 2021)",
+          "trigger": "Possible prior general copula correlation construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicitly certified counterexample overturns a mathematical conjecture in a contemporary primary article, and a sharp high-dependence mechanism explains why rather than merely supplying an optimized number. This matters for interpreting discretized correlation models and for the conjecture boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "At Frank theta=15, explicit rational cutpoints yield identical 20-category ordinal variables with Pearson correlation >0.93092569 while latent Spearman rho<0.92938730; a smooth high-theta mechanism gives asymptotic inflation constant pi²(12-pi²)/6>0.",
+  "limitations": [
+    "Not a classification of minimal number of categories, all cutpoint families, or a complete finite-theta phase diagram.",
+    "The smooth-transform asymptotic proves finite quantizer existence only pointwise at fixed sufficiently large theta.",
+    "An independently published or unindexed numerical counterexample might predate this specific witness.",
+    "Finite numerical checker is evidence for one quantizer only; the asymptotic theorem relies on a separate analytic dominated-convergence argument."
+  ],
+  "schema_version": 1
+}

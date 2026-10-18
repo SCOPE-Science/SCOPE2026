@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Mathematical verification record
+# Independent mathematical audit
 
-**Certificate:** `python3 check_frank.py` runs on Python 3 without external dependencies; it was executed successfully against the bundled script. Its decisive comparison uses exact `Fraction` arithmetic rather than floating-point values. The script builds rigorous scaled-integer enclosures of each exponential and logarithm, checks all 361 copula terms, brackets the covariance, and upper bounds the latent Spearman correlation using the exact Debye identity and integral-test zeta tails. The certified lower gap exceeds \(0.00153839\).
+## correctness
 
-**Separate numerical cross-check:** the nineteen rational thresholds were evaluated against the original (non-rearranged) Frank CDF with 65-digit arbitrary precision, and the latent Spearman correlation was independently integrated from the Debye formula. The resulting respective values were about \(0.930925698735820068\) and \(0.929365805485040129\). This floating computation is corroborating evidence only.
+PASS
 
-**Infinite-domain proof:** the large-dependence mechanism is proved analytically by rescaling the explicit positive covariance-deficit kernel and an exponentially dominated convergence argument. The constant \(\pi^2/6\) is the exact mass of the limiting kernel. The extension to ordinal scores uses uniform quantizer convergence for every fixed sufficiently large parameter. No interval checker asserts the asymptotic statement.
+Hoeffding indicator expansion gives A=sum_{ij}(C_15(t_i,t_j)-t_i t_j) and B=sum_{ij}(min(t_i,t_j)-t_i t_j)>0 for 19 exact rational thresholds. The actual check_frank.py was inspected: it brackets exponentials and logarithms using rational truncated Taylor series with proven positive tail bounds and compares exact integer endpoints for all 361 CDF terms; certified A/B>0.93092569 and latent rho<0.92938730. An independent 65-digit evaluation reproduced ordinal 0.930925698735820068..., latent 0.929365805485040128..., gap ~0.00155989325, but is NOT substituted for the rational certificate. The general theta->infinity assertion is separately established analytically by the covariance-deficit kernel, exponential domination and theta-rescaling; g(u)=(1-cos pi u)/2 has derivative-energy/variance quotient pi² vs 12 for g(u)=u, yielding pi²(12-pi²)/6. Uniform finite quantization approximates g at each fixed sufficiently large theta. No claim of finite m uniform in theta.
 
-**Scope and limits:** only bivariate positive-parameter Frank dependence is considered. A particular twenty-category point and existence of some finite quantizer for every sufficiently large positive parameter are proved. No minimality, universal parameter threshold, arbitrary-marginal optimization, or external certification is asserted. The scientific review is not an independent audit.
+## originality
+
+PASS
+
+Barbiero (2026) proposes attenuation of Pearson correlation for Frank-ordinal scores compared with latent Spearman correlation and reports numerical work limited to <=11 categories and latent rho<=0.9; its Theorem 2 proves sign-preservation, not magnitude attenuation. The exact twenty-category example is beyond the reported search and contradicts the universal attenuation conjecture, while the asymptotic mechanism establishes a family of witnesses. Searches did not reveal a covering counterexample; exact priority remains bounded.
+
+## value
+
+PASS
+
+An explicitly certified counterexample overturns a mathematical conjecture in a contemporary primary article, and a sharp high-dependence mechanism explains why rather than merely supplying an optimized number. This matters for interpreting discretized correlation models and for the conjecture boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
