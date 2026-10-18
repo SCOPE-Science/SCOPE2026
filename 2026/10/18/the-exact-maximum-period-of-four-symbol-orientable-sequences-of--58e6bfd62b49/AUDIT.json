@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The two circuits produce a balanced reversal-closed subgraph with 2m edges of 240 nonpalindromic 4-arcs. Every uniform vertex has even chosen indegree at most 2, forcing u>=4 omitted pairs. At the 12 vertices aab, full out-in=1, so missing outgoing minus incoming=12; U supplies at least u missing incoming and no missing outgoing arcs, and only six aabb/bbaa classes can have two T-tails. Thus 12+u<=r-u+6, r>=14 and m<=106. A complete executable check validates every one of the 106 windows and reversal classes of the literal witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mitchell--Wild Table 6 bounds 4-ary order-4 periods by 112 but gives only 88 attained.",
+        "Mitchell--Wild 2026 Table 4 records the same 88/112 gap.",
+        "Gabrić--Sawada Theorem 11 gives a family of orientable cycles, but its proof only constructs an achievable lower bound."
+      ],
+      "reasoning": "The broader general-alphabet construction and upper-bound theorems are mathematically weaker at the exact parameter q=4,n=4. An upper bound 112 and a witness 88 cannot imply maximum 106.",
+      "searches": [
+        "orientable sequences order four alphabet four k=4 maximum period 88 bound 112 new cycles construction",
+        "optimal orientable sequences order four even alphabet length 4 period 88 112",
+        "arXiv:2603.18646 Table 4",
+        "arXiv:2507.02526 Table 6",
+        "arXiv:2407.07029 Theorem 11"
+      ]
+    },
+    "checked_sources": [
+      "2025 primary full text: C. J. Mitchell and P. R. Wild, New orientable sequences, arXiv:2507.02526, published PDF doi:10.1007/s00236-026-00528-z Table 6 (n=4,k=4 known period 88, upper bound 112); concluding open-gap discussion.",
+      "2026 primary full HTML: Mitchell and Wild arXiv:2603.18646, August 14 2026 revision, §6 Table 4 (n=4,k=4 known period 88, upper bound 112); definitions §1.",
+      "2024/2025 primary full PDF: D. Gabrić and J. Sawada, Constructing k-ary Orientable Sequences with Asymptotically Optimal Length, arXiv:2407.07029, Theorem 11 and Table 2: general cycle-joining lower bounds, not an exact q=4 order-4 optimum.",
+      "Targeted public exact-number, terminology, and bibliographic semantic searches for prior orientable-sequence results."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior literature explicitly leaves q even,n=4 unresolved: largest 88, bound 112.",
+        "The present degree argument forces at least 14 missing reversal classes, strengthening the upper bound to 106; a certified 106-cycle attains it."
+      ],
+      "reasoning": "Neither lower 88 nor upper 112 entails exact 106. The combined strict improvement and matching construction is not a corollary of the compared results.",
+      "searches": [
+        "orientable sequences order four alphabet four k=4 maximum period 88 bound 112 new cycles construction",
+        "four-symbol orientable cyclic sequence order four exact maximum period 106 88 112 reverse windows 4-grams",
+        "arXiv:2507.02526 concluding discussion",
+        "arXiv:2603.18646 §6",
+        "arXiv:2407.07029 Theorem 11"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An orientable order-four cyclic word is a directed de Bruijn circuit selecting at most one arc per reversal pair; §§1/5 of arXiv:2603.18646 use the same reversal condition.",
+        "Checked both reversal-class and window-language formulations against primary result tables and targeted indexes; their published values remain 88 and 112."
+      ],
+      "reasoning": "The graph model is a reformulation, not a different object. Neither the reversal-equivalence terminology nor a possible directed graph dual statement in inspected sources yields the new 106 equality.",
+      "searches": [
+        "orientable sequences reverse substring distinct cyclic quaternary four-grams n=4 k=4 2026 maximum",
+        "four-symbol orientable cyclic sequence order four exact maximum period 106 88 112 reverse windows 4-grams",
+        "quaternary order-4 orientable sequences length 106 optimal period n=4 k=4 reversal distinct subwords",
+        "\"orientable sequence\" \"106\" quaternary",
+        "\"OS_4(4)\" \"106\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest exact primary tables list 88 as a lower attainable period and (112) as the upper bound for q=4,n=4.",
+        "The separately computed 106 witness has fourteen absent nonpalindromic reversal classes, documented in CHECK_OUTPUT.txt."
+      ],
+      "reasoning": "An explicitly checked table giving 88/(112) is not an exact answer to the maximization problem. No checked exact table with 106 was recovered.",
+      "searches": [
+        "four-symbol orientable cyclic sequence order four exact maximum period 106 88 112 reverse windows 4-grams",
+        "quaternary order-4 orientable sequences length 106 optimal period n=4 k=4 reversal distinct subwords",
+        "\"orientable sequences\" \"order 4\" \"106\"",
+        "arXiv:2603.18646 Table 4",
+        "arXiv:2507.02526 Table 6"
+      ]
+    },
+    "rationale": "The 2025 and August-2026 Mitchell--Wild primary full texts state 88 as best constructed period and 112 as the upper bound at q=n=4, and discuss the even-alphabet case as unsolved. The new independent degree bound 106 and matching 106-cycle resolve that specific gap. Related cycle-joining sources concern lower bounds. Multiple targeted semantic and exact-phrase queries and accessible earlier own claims showed no covering theorem, with non-indexed or later work a residual risk.",
+    "residual_risks": [
+      "Later or unindexed work may independently resolve q=4,n=4 or encode the bound by another graph invariant.",
+      "The source comparison is not independent scientific peer review; it does not certify priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; provides upper bound 112 and attained 88, no exact 106.",
+        "evidence": [
+          "Table 6 page 24 of PDF displays q=4,n=4: 88 and (112).",
+          "Conclusions identify even-alphabet order-four gap as unresolved."
+        ],
+        "identifier_or_url": "arXiv:2507.02526; https://doi.org/10.1007/s00236-026-00528-z",
+        "material_read": "Published 25-page full PDF, especially definitions, Theorem 2.13 context, Table 6, conclusions, references; original arXiv submission date verified.",
+        "method": "opened full primary PDF and inspected relevant final table page image and surrounding extracted text",
+        "title": "New orientable sequences",
+        "trigger": "closest general upper bound and explicitly unresolved q=4,n=4 case"
+      },
+      {
+        "assessment": "NOT_COVERING; retains 88 (112) for q=4,n=4.",
+        "evidence": [
+          "§1 definition of orientable order-n sequences and de Bruijn graph formulation.",
+          "§6 Table 4 shows q=4,n=4 as 88 and (112)."
+        ],
+        "identifier_or_url": "arXiv:2603.18646; https://arxiv.org/abs/2603.18646",
+        "material_read": "Full publicly accessible HTML of August 14, 2026 revision, including introduction/definitions and Section 6 Table 4.",
+        "method": "opened complete arXiv HTML; compared Table 4 and scope of methods directly",
+        "title": "Constructing orientable and negative orientable sequences with asymptotically optimal period",
+        "trigger": "later candidate source with improved sequences and potential dominating bounds"
+      },
+      {
+        "assessment": "NOT_COVERING; constructs explicit length lower bounds, does not prove new exact maximum.",
+        "evidence": [
+          "Theorem 11 guarantees a universal cycle from selected bracelet classes.",
+          "Table 2 lists achievable lengths, not sharp maximum at q=4,n=4."
+        ],
+        "identifier_or_url": "arXiv:2407.07029; https://www.socs.uoguelph.ca/~sawada/papers/kary-orientable.pdf",
+        "material_read": "Complete 15-page author-hosted PDF available, with focused reading of introduction, bracelet construction, Theorem 11, Table 2 and concluding period formula.",
+        "method": "opened full original PDF, inspected Theorem 11/Table 2 page image and results",
+        "title": "Constructing k-ary Orientable Sequences with Asymptotically Optimal Length",
+        "trigger": "earlier general-alphabet cycle-joining algorithm potentially achieving longer periods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "58e6bfd6-2b49-441c-9351-252021480de8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Closes the explicitly stated even-alphabet order-four problem at q=4: the formerly published values were an 88 example and an upper bound 112; an exact maximum 106 is now proved and constructively certified. The proof isolates a new degree deficit at repeated-letter vertices and identifies precisely the exceptional reversible arcs relevant to sharpness.",
+    "status": "PASS"
+  }
+}
