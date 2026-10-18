@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T12:54:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The tensor of local (aI+bT) maps expands as sum_{S subset K} w_S Gamma_S with product weights w_S>=0 and sum w_S=1. Trace-norm convexity bounds the whole cube by the largest subset partial-transpose norm; choosing lambda_j=±1 selects each vertex exactly. Positivity equivalence follows by convexity of PSD cone; all-party transpose preserves singular values, so scaling n-1 parties covers bipartitions. No claims for anisotropic maps or PPT sufficiency for separability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lupo already states no bound-entanglement detection by T_lambda; full multipartite norm maximum follows by ordinary convexity of the trace norm."
+        ],
+        "reasoning": "Earlier statement plus universally applicable convex-hull argument dominates the result without any new premise.",
+        "searches": [
+          "Lupo et al. 2005 §4/§5",
+          "Vidal–Werner 2002 negativity"
+        ]
+      },
+      "checked_sources": [
+        "Partial scaling transform of multiqubit states as a criterion of separability; DOI:10.1088/0305-4470/38/48/009; arXiv:quant-ph/0509006",
+        "A computable measure of entanglement; DOI:10.1103/PhysRevA.65.032314; arXiv:quant-ph/0102117",
+        "Resultary semantic search on exact objects, aliases and dominating coverage; five searches in this audit."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Eq. (18) + tensor distributivity gives convex combination of all subset transposes; trace norm convexity and endpoint realization give equality."
+        ],
+        "reasoning": "An immediate corollary of a published representation and a textbook inequality is covered even when the n-party equality was not explicitly printed as a named theorem.",
+        "searches": [
+          "DOI:10.1088/0305-4470/38/48/009 Eq. (18), Eqs. (28)–(31)",
+          "DOI:10.1103/PhysRevA.65.032314"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (18) explicitly expresses each local map as convex mixture of identity and transpose."
+        ],
+        "reasoning": "The claimed cube image is just the tensor product of those 2-vertex mixtures; exact weight formula is mechanically equivalent to Eq. (18) on disjoint subsystems.",
+        "searches": [
+          "Lupo et al. Eq. (18) arXiv:quant-ph/0509006",
+          "web: Partial scaling transform multipartite tensor convex maximum bipartition negativity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a symbolic norm-convexity identity, not a finite table or novel enumeration."
+        ],
+        "reasoning": "Exact tables irrelevant; the source formula itself is the covering prior evidence.",
+        "searches": [
+          "Resultary: multipartite partial scaling trace norm vertex PPT negativity",
+          "Lupo numerical three-qubit examples"
+        ]
+      },
+      "rationale": "The defining 2005 paper states the exact Eq. (18) convex representation T_lambda=(1+lambda)I/2+(1-lambda)T/2 and explicitly observes no detection beyond transpose for its scaling map. Tensor distributivity makes the claimed whole-cube convex hull an immediate extension, with the maximum equality supplied by textbook convexity and endpoint attainment. The finite bipartition formula is therefore directly implied by this earlier representation and standard norm/transpose facts; it is not an independent new invariant or beyond-prior family.",
+      "residual_risks": [
+        "Prior paper does not spell out this all-state, all-party maximization in precisely the current notation; originality decision rests on strict mathematical-implication test rather than identical words.",
+        "A conceptual explanatory note may be useful scientifically despite failure of the mathematical value threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_DIRECT_IMPLICATION",
+          "evidence": "Eq. (18) is the convex map decomposition; its tensor product gives the proposed convex-hull equality by routine norm convexity. Source explicitly states failure to detect PPT-bound entanglement and uses vertex examples.",
+          "identifier_or_url": "DOI:10.1088/0305-4470/38/48/009; arXiv:quant-ph/0509006",
+          "material_read": "Full 16-page publicly archived manuscript, particularly p. 6 Eq. (18), p. 8 Eqs. (28)–(31), sections 5.3–7",
+          "method": "primary full PDF text and page image",
+          "title": "Partial scaling transform of multiqubit states as a criterion of separability",
+          "trigger": "Exact original map, multipartite use, existing negativity/PPT implication"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_COVERING_ALONE",
+          "evidence": "Supplies trace-norm negativity and convexity, not the defining Eq. (18) map.",
+          "identifier_or_url": "DOI:10.1103/PhysRevA.65.032314; arXiv:quant-ph/0102117",
+          "material_read": "Standard formula and source abstract; not a complete independent full-text review",
+          "method": "published result reference, formula cross-check",
+          "title": "A computable measure of entanglement",
+          "trigger": "Negativity as trace norm of partial transpose"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The no-extra-detection interpretation is relevant to the motivating entanglement measure, but in the exact stated Eq. (18) family it is the textbook fact that a convex function on an affine image of a cube has a vertex maximum. It introduces no nonstandard structural lemma, motivated counterexample, difficult boundary, or new quantitative invariant beyond an immediate algebraic rewriting of published Eq. (18). Scientific correctness and conceptual clarity alone are insufficient for mathematical-value acceptance.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the Eq. (18) partial-scaling tensor product with parameters in [-1,1]^K, trace-norm maximization occurs at vertices and equals twice the maximum subset partial-transpose negativity; interior parameters add no PPT-detection power.",
+  "limitations": [
+    "Prior paper does not spell out this all-state, all-party maximization in precisely the current notation; originality decision rests on strict mathematical-implication test rather than identical words.",
+    "A conceptual explanatory note may be useful scientifically despite failure of the mathematical value threshold.",
+    "Repository interface exposed frozen individual blobs but not recursive tree enumeration; assigned tree SHA is an exact importer guard, not an independently rehashed tree."
+  ],
+  "schema_version": 1
+}
