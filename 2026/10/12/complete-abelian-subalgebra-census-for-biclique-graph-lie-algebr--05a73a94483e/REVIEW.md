@@ -1,19 +1,21 @@
-# Scientific review: complete abelian-subalgebra census for biclique graph Lie algebras
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The classification follows from the tensor-contraction lemma: a vector with nonzero components in both bipartition summands has a one-dimensional horizontal centralizer. This forces every bracket-zero horizontal subspace to lie in one pure summand or be a mixed line. Each embedded abelian subalgebra has a unique center intersection, horizontal projection, and graph map into the central quotient. Counting those maps, subspaces and mixed lines proves the exact Gaussian-binomial polynomial. Maximal by inclusion subalgebras are identified separately from maximum-dimensional ones. The standalone checker exhausts six prime-field instances and independently verifies their entire RREF subspace lattices and maximality. The proof, not the sample checker, establishes the result for all fields.
+PASS
 
-## Originality — PASS, with residual risk
+The bracket on L=U⊕W⊕(U⊗W) is central, alternating even in char2. A mixed horizontal x=(u,w), u,w!=0, commutes with y=(u′,w′) iff u⊗w′=u′⊗w; applying a linear functional taking u↦1 yields y proportional to x. Consequently abelian horizontal spaces T are precisely any U-subspace, any nonzero W-subspace, or a mixed line, counting zero only once. Every full abelian H corresponds bijectively to image T, central intersection C and graph of f:T→Z/C. Over Fq, exactly Gaussian(h,j)·q^{t(h-j)} lifts for each T of dimension t and central j, yielding the stated complete generating polynomial. Maximal ones contain Z, with horizontal types U,W or a mixed line, giving number 2+(q^a−1)(q^b−1)/(q−1). Independent complete F2^5 RREF subspace enumeration for (a,b,q)=(1,2,2) gives dimension counts [1,31,59,19,1,0] as predicted; the symbolic reasoning proves all a,b,characteristics.
 
-The closest same-object source, Godoy Molina–Lagos (arXiv:2308.00272), computes graph-induced ideals/subalgebras and graded derivations of the edge-distinct complete-bipartite family; it does not provide the all-embedded abelian-subspace distribution. The 2025 independence-polynomial work of Aldi et al. (arXiv:2504.19836) does cover the maximum abelian dimension; that consequence is not claimed as original. Its vertex-set polynomial does not enumerate noncoordinate finite-field linear spaces or central lifts. DeCoste et al. (arXiv:2208.09541) study central *abelian factors*, which are different objects, while Rossmann (DOI:10.1112/blms.12665) counts conjugacy classes of graphical groups. Published research-record and primary-literature searches for exact and synonymous formulations located no theorem implying the complete distribution. Equivalent unindexed work remains a risk; the full 2022 abelian-factor paper could only be partially inspected and is not used to claim an exhaustive negative.
+## originality
 
-## Value — PASS
+PASS
 
-This provides a complete, naturally defined family of subalgebra incidence invariants over every finite field, not a fixed-parameter computation. The entire polynomial distinguishes nonideal/central-lift subalgebras that graph-induced and ideal-only censuses miss. The projective family of inclusion-maximal abelian subalgebras can have dimensions arbitrarily below the maximum: this structural boundary is invisible from the maximum-dimension invariant alone.
+Godoy Molina–Lagos define the same edge-distinct K_{a,b} Lie algebra but their Section 5 computes strata-preserving derivations, not arbitrary embedded abelian-subalgebra counts. Aldi et al derive maximum abelian dimension from independence number, which is a strictly weaker numerical invariant than the complete q-Gaussian dimension distribution and separate inclusion-maximal census. DeCoste et al abelian direct factors concern central summands rather than embedded subalgebras. Published Resultary results on Heisenberg subalgebra commutativity have other brackets/invariants. The full embedded count and mixed-line-vs-coordinate inclusion-maximal classes are not implied by these checked sources.
 
-## Scope and verification limits
+## value
 
-Only the edge-distinct biclique family is classified. No formula for all nonabelian subalgebras, arbitrary graph Lie algebras, or automorphism orbits is asserted. Finite checks included \((a,b,q)=(1,1,2),(1,1,3),(1,1,5),(1,2,2),(1,2,3),(2,2,2)\); independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The edge-distinct complete bipartite graph Lie algebra is a canonical two-step nilpotent family. Its exact all-dimension embedded abelian-subalgebra enumerator and count of inclusion-maximal instances supply a natural finite-field structural invariant not determined by known maximal-dimension bounds or independence polynomials; separating inclusion-maximal from maximum-dimensional is mathematically useful, not a routine small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
