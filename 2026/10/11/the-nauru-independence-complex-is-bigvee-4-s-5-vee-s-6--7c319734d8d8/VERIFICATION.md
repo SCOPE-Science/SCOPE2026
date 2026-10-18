@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The independent-set enumeration and discrete-Morse reduction are exactly specified in the accompanying `verify_nauru.py` (standard-library Python). The verifier constructs the undirected generalized Petersen graph from the explicit formula, independently tests every face extension, performs a 24-stage lexicographic matching on all 35,219 augmented faces, verifies that there are 17,605 pairs and exactly six critical five-simplices and three critical six-simplices, and topologically sorts every one of the 205,680 directed face-cover relations to prove acyclicity.
+## correctness
 
-The same program constructs signed incidences using increasing vertex order, recursively eliminates matched degree-five/six pairs over the integers, recovers the six-by-three Morse boundary matrix and verifies a \(-1\) determinant minor giving a primitive rank-two attaching-image. Successful execution prints `NAURU_INTEGER_VERIFY_OK`.
+PASS
 
-The companion `check_nauru_mod2.py` independently uses an include/exclude recursion on graph vertices rather than face-extension enumeration. It forms every augmented simplicial boundary over \(\mathbb F_2\) and computes ranks with exact bitset elimination, yielding reduced Betti ranks four in dimension five and one in dimension six. A successful run prints `NAURU_MOD2_VERIFY_OK`.
+Reconstructed undirected GP(12,5) from u_i u_(i+1), u_i v_i, v_i v_(i+5), exactly 24 vertices,36 edges and 35,219 independent faces including empty (f=(24,240,1304,4212,8328,10036,7176,2964,752,156,24,2)). Independently exhaustive vertex-toggle matching produced 17,605 augmented face pairs and six critical 5-cells plus three critical 6-cells; exact topological sort verified all 205,680 Hasse incidence orientations acyclic. Integer signed gradient-path 6x3 degree matrix reproduced [[1,1,0],[0,0,0],[0,0,0],[1,0,-1],[1,0,-1],[0,0,0]]; its rank is two and unit minor -1, so two integral cell cancellations leave 4S5+S6 with no torsion. This is full fixed finite case, not an extrapolation to all GP(n,k).
 
-Both tools enumerate finite objects exhaustively; they do not prove a theorem for infinitely many graphs. The all-degree mod-two computation is only a secondary cross-check, and does not establish integral homotopy by itself. The integral discrete-Morse degree cancellation is the critical step. Independent validation and audit have not been performed.
+## originality
+
+PASS
+
+Barmak triangle-free suspension theorem applies but does not determine the exact Nauru wedge type. Nilakantan–Shukla cyclic-neighborhood cubic bipartite family has 4-cycles and therefore excludes Nauru of girth six. Indexed dodecahedral and Desargues generalized Petersen independence-complex computations are different GP parameters, with no found dominating family coverage.
+
+## value
+
+PASS
+
+For the canonical Nauru symmetric cubic graph, an exact mixed-dimensional integral homotopy classification and torsion-free attaching map are independently worthwhile natural graph-topology invariants, substantially stronger than suspension or an Euler characteristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

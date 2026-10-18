@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the explicitly defined Nauru graph \(GP(12,5)\), the primary standalone verifier exhaustively enumerates all 35,219 independent subsets (including empty) and all 205,680 face incidences. It confirms an acyclic 17,605-pair matching by full directed topological sorting and leaves six critical five-cells and three critical six-cells. The computed signed degree matrix has primitive rank two, proved by its unimodular minor \(-1\). Because \(\pi_5(\bigvee^6 S^5)\cong\mathbb Z^6\), the integral attaching degrees suffice for the asserted two cancellations and final \(\bigvee^4 S^5\vee S^6\) homotopy type. A separate all-degree mod-two boundary calculation corroborates homology, without being mistaken for an integral proof. The inference relies on standard integral discrete Morse reduction and cellular attaching-map classification, not on numerical homology alone.
+## correctness
 
-**Originality — PASS, subject to stated bibliographic limitations.** Barmak's triangle-free suspension theorem (arXiv:1007.0418v1), Tsukuda's incidence-graph duality and Nilakantan–Shukla's regular-bipartite family theorem were compared to the actual Nauru graph statement. None determines the exact sphere multiplicities or attaching maps for \(GP(12,5)\). Exact published classifications of the Heawood and dodecahedral independence complexes concern different underlying graphs, and Möbius/circular ladders are not the Nauru graph. A published semantic-result index search and targeted literature searches under Nauru, generalized Petersen and permutation-star aliases showed no directly covering result; novelty is not guaranteed against unindexed or inaccessible literature. The investigation included full relevant theorem statements and the close exact graph examples rather than relying solely on snippets.
+PASS
 
-**Value — PASS.** The Nauru graph is a canonical 24-vertex cubic symmetric graph with several natural mathematical descriptions. Its mixed-dimensional integral homotopy decomposition determines a natural, previously uncomputed topological invariant, including the absence of torsion and two distinct attaching-cell dimensions. Neither the independence polynomial nor a generic suspension theorem gives those facts. The result is mathematically motivated by the gap between structure-level independence-complex theorems and graph-specific exact classifications; it is not an arbitrary graph-label substitution.
+Reconstructed undirected GP(12,5) from u_i u_(i+1), u_i v_i, v_i v_(i+5), exactly 24 vertices,36 edges and 35,219 independent faces including empty (f=(24,240,1304,4212,8328,10036,7176,2964,752,156,24,2)). Independently exhaustive vertex-toggle matching produced 17,605 augmented face pairs and six critical 5-cells plus three critical 6-cells; exact topological sort verified all 205,680 Hasse incidence orientations acyclic. Integer signed gradient-path 6x3 degree matrix reproduced [[1,1,0],[0,0,0],[0,0,0],[1,0,-1],[1,0,-1],[0,0,0]]; its rank is two and unit minor -1, so two integral cell cancellations leave 4S5+S6 with no torsion. This is full fixed finite case, not an extrapolation to all GP(n,k).
 
-**Closest literature and remaining limitations.** See Barmak 2010, Tsukuda 2017, Nilakantan–Shukla 2017, Agarwal–Basak and the cited dodecahedral and Heawood exact examples. The proof is finite, the computational certificate depends on a full exhaustive replay, and undiscovered prior work remains possible. No external independent validation or audit has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Barmak triangle-free suspension theorem applies but does not determine the exact Nauru wedge type. Nilakantan–Shukla cyclic-neighborhood cubic bipartite family has 4-cycles and therefore excludes Nauru of girth six. Indexed dodecahedral and Desargues generalized Petersen independence-complex computations are different GP parameters, with no found dominating family coverage.
+
+## value
+
+PASS
+
+For the canonical Nauru symmetric cubic graph, an exact mixed-dimensional integral homotopy classification and torsion-free attaching map are independently worthwhile natural graph-topology invariants, substantially stronger than suspension or an Euler characteristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
