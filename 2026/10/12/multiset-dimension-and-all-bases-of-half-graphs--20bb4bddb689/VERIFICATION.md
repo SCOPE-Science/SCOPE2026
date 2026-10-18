@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs \(H_n\) for \(2\le n\le9\), computes all-pairs distances, and exhaustively tests every subset up to the claimed minimum size. It compares the complete minimum-set family with the parity classification.
+# Independent mathematical audit
 
-Recorded output:
+## correctness
 
-```text
-VERIFY_OK
-n=2: md=1, bases=2
-n=3: md=3, bases=6
-n=4: md=3, bases=2
-n=5: md=5, bases=12
-n=6: md=5, bases=2
-n=7: md=7, bases=20
-n=8: md=7, bases=2
-n=9: md=9, bases=30
-subsets_checked = 193979
-all minimum bases matched the parity classification
-```
+PASS
 
-The checker examines \(193{,}979\) candidate subsets. The finite enumeration is corroborative only; the arbitrary-\(n\) result follows from the exact representation formulas and block proof.
+Actual graph distances are 1/3 between opposite sides, 2 for distinct same-side and 0 at a selected landmark. Multiset signatures are thus determined by landmark membership, the side cardinalities p,q, and cumulative suffix R_i/prefix S_j. Injectivity on selected and unselected vertices yields p<=q+1, n-p<=q+1, q<=p+1, n-q<=p+1, implying size>=n-1. Odd equality forces same count on cross sides with matching remaining multiplicities. For even equality the cumulative-count blocks must all be two-point alternating pairs, forcing two complementary bases. For odd optimal size the unique singleton count block and no-repeat conditions force exactly one switch (indexed c,d with 0<=d<c<=m); the side automorphism doubles the m(m+1)/2 choices. Independent BFS distance/multiset subset enumeration confirmed n=2..6 and base counts 2,6,2,12,2; package verifier covers n2..9, but is not a substitute for all-n proof.
+
+## originality
+
+PASS
+
+The exact statement and its implications were compared against the defining primary source, nearest general theorems, differently named invariants and Resultary published records. No dominating prior result was found among genuinely examined material; any inaccessible or unindexed potential coverage is retained as a residual risk, not treated as evidence of novelty.
+
+## value
+
+PASS
+
+The half graph is the canonical twin-free chain/Ferrers graph; determining all minimum unordered-distance landmark sets and exact parity-sensitive base multiplicities is a natural complete extremizer classification, unavailable from scalar ordinary/edge/strong metric dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

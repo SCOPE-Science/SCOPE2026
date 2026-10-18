@@ -1,12 +1,21 @@
-# Review of Multiset dimension and all bases of half graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact distance-multiset formulas yield four sharp inequalities on the two side cardinalities. They prove the \(n-1\) lower bound. Odd equality forces equal side cardinalities and an unavoidable cross-side collision. Even equality saturates every count level and forces exactly two alternating bases. At odd order, a single constant-count block has length one; the remaining no-repeat condition yields the explicit \(0\le d<c\le m\) families. Exhaustive verification through \(n=9\) agrees with every basis and count.
+## correctness
 
-## Originality
-PASS. The 2017 foundational primary source was inspected in searchable full text. It introduces multiset dimension, lists MSC \(05C35,05C12\), and contains no half, chain, or bipartite occurrence. The 2021 follow-up presents general properties but does not identify half graphs in its accessible scope. Exact and semantic searches under half graph, chain graph, Ferrers graph, and multiset-resolving terminology did not locate the parity theorem or complete basis classification.
+PASS
 
-## Value
-PASS. The theorem gives a complete minimum-set classification on the canonical twin-free chain family and reveals a genuine parity transition caused by discarding landmark order. Even order is maximally rigid with two bases, while odd order has the explicit quadratic count \(m(m+1)\).
+Actual graph distances are 1/3 between opposite sides, 2 for distinct same-side and 0 at a selected landmark. Multiset signatures are thus determined by landmark membership, the side cardinalities p,q, and cumulative suffix R_i/prefix S_j. Injectivity on selected and unselected vertices yields p<=q+1, n-p<=q+1, q<=p+1, n-q<=p+1, implying size>=n-1. Odd equality forces same count on cross sides with matching remaining multiplicities. For even equality the cumulative-count blocks must all be two-point alternating pairs, forcing two complementary bases. For odd optimal size the unique singleton count block and no-repeat conditions force exactly one switch (indexed c,d with 0<=d<c<=m); the side automorphism doubles the m(m+1)/2 choices. Independent BFS distance/multiset subset enumeration confirmed n=2..6 and base counts 2,6,2,12,2; package verifier covers n2..9, but is not a substitute for all-n proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact statement and its implications were compared against the defining primary source, nearest general theorems, differently named invariants and Resultary published records. No dominating prior result was found among genuinely examined material; any inaccessible or unindexed potential coverage is retained as a residual risk, not treated as evidence of novelty.
+
+## value
+
+PASS
+
+The half graph is the canonical twin-free chain/Ferrers graph; determining all minimum unordered-distance landmark sets and exact parity-sensitive base multiplicities is a natural complete extremizer classification, unavailable from scalar ordinary/edge/strong metric dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
