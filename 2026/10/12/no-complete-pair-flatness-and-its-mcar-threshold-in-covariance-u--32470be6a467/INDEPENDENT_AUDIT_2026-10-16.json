@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:12:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a completed n×p matrix X with unbiased sample covariance S=(1/(n−1))Σ(xi−xbar)(xi−xbar)^T, the exact scatter identity Σ_{i<j}(xi−xj)(xi−xj)^T=n(n−1)S proves Φ=n(n−1)p whenever every original row pair is active, equivalently at most one complete original row. Checked original paper Eqs. (3.1), (3.3), (3.8), active-pair definition, Eq. (3.11) ridge via full public text. Independent rational 6×2 example using SymPy gave det(S)=2552/25 and tr(S^-1 T)=60; the separately inspected package verifier constructs a six-missing-variable design with full rank six and two distinct positive-definite completions of value 60. Substituting (S+ηI)^-1 gives ridge formula n(n−1)Σλ/(λ+η), which is not flat in general. Independent Bernoulli cell omission probability q gives C~Bin(n,(1−q)^p), hence P(C≤1)=P(C=0)+P(C=1) and its Poisson transition at n(1−q)^p→λ. Statements conditional on positive definite completion and fixed original mask; no inference about singular or generally optimized ridge cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Salas S., Ocampo R., Martínez H., Mahalanobis-geometry imputation..., AIMS Mathematics 11 (2026), 14641–14654, doi:10.3934/math.2026600; Sections 3.1,3.3,3.7 and 3.8 reviewed in full hosted transcript, Eqs (3.1),(3.8),(3.11).",
+          "Mozharovskyi/Josse/Husson, Nonparametric imputation by data depth, arXiv:1701.03513, different robust depth/regression imputation objective.",
+          "Resultary semantic search returned gaussian missingness and covariance geometry records without this published pairwise-covariance-dependent objective."
+        ],
+        "reasoning": "General scatter identity exists, but inspected source Eq3.8 and mask-specific active set must be combined; prior frozen-Hessian rank theorem does not entail it.",
+        "searches": [
+          "Mahalanobis geometry imputation covariance update complete pairwise squared distances trace constant missing data",
+          "Mahalanobis-geometry imputation multivariate data missing entries Salas Ocampo Martinez 2026 PDF equation 3.8",
+          "https://arxiv.org/abs/1701.03513"
+        ]
+      },
+      "checked_sources": [
+        "Salas S., Ocampo R., Martínez H., Mahalanobis-geometry imputation..., AIMS Mathematics 11 (2026), 14641–14654, doi:10.3934/math.2026600; Sections 3.1,3.3,3.7 and 3.8 reviewed in full hosted transcript, Eqs (3.1),(3.8),(3.11).",
+        "Mozharovskyi/Josse/Husson, Nonparametric imputation by data depth, arXiv:1701.03513, different robust depth/regression imputation objective.",
+        "Resultary semantic search returned gaussian missingness and covariance geometry records without this published pairwise-covariance-dependent objective."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Salas S., Ocampo R., Martínez H., Mahalanobis-geometry imputation..., AIMS Mathematics 11 (2026), 14641–14654, doi:10.3934/math.2026600; Sections 3.1,3.3,3.7 and 3.8 reviewed in full hosted transcript, Eqs (3.1),(3.8),(3.11).",
+          "Mozharovskyi/Josse/Husson, Nonparametric imputation by data depth, arXiv:1701.03513, different robust depth/regression imputation objective.",
+          "Resultary semantic search returned gaussian missingness and covariance geometry records without this published pairwise-covariance-dependent objective."
+        ],
+        "reasoning": "Salas et al. Eq3.8 exactly matches the claimed nonlinear objective and allows all-active-pair masks; source does not derive degeneration. General sum identity + original mask condition ⇒ new contextual failure; Eq3.11 shows regularization is distinct.",
+        "searches": [
+          "Mahalanobis geometry imputation covariance update complete pairwise squared distances trace constant missing data",
+          "Mahalanobis-geometry imputation multivariate data missing entries Salas Ocampo Martinez 2026 PDF equation 3.8",
+          "https://www.researchgate.net/publication/405245564_Mahalanobis-geometry_imputation_for_multivariate_data_with_missing_entries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Salas S., Ocampo R., Martínez H., Mahalanobis-geometry imputation..., AIMS Mathematics 11 (2026), 14641–14654, doi:10.3934/math.2026600; Sections 3.1,3.3,3.7 and 3.8 reviewed in full hosted transcript, Eqs (3.1),(3.8),(3.11).",
+          "Mozharovskyi/Josse/Husson, Nonparametric imputation by data depth, arXiv:1701.03513, different robust depth/regression imputation objective.",
+          "Resultary semantic search returned gaussian missingness and covariance geometry records without this published pairwise-covariance-dependent objective."
+        ],
+        "reasoning": "Compared active-pair Mahalanobis pairwise scatter invariance, covariance-updated imputation nonidentifiability, and global whitening reformulation. Only when all missingness-defined pairs are active does the classical identity impose constant objective.",
+        "searches": [
+          "Mahalanobis geometry imputation covariance update complete pairwise squared distances trace constant missing data",
+          "Mahalanobis-geometry imputation multivariate data missing entries Salas Ocampo Martinez 2026 PDF equation 3.8",
+          "https://www.researchgate.net/publication/405245564_Mahalanobis-geometry_imputation_for_multivariate_data_with_missing_entries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Salas S., Ocampo R., Martínez H., Mahalanobis-geometry imputation..., AIMS Mathematics 11 (2026), 14641–14654, doi:10.3934/math.2026600; Sections 3.1,3.3,3.7 and 3.8 reviewed in full hosted transcript, Eqs (3.1),(3.8),(3.11).",
+          "Mozharovskyi/Josse/Husson, Nonparametric imputation by data depth, arXiv:1701.03513, different robust depth/regression imputation objective.",
+          "Resultary semantic search returned gaussian missingness and covariance geometry records without this published pairwise-covariance-dependent objective."
+        ],
+        "reasoning": "No source table of all-active-pair flatness under precise recomputed-covariance Eq3.8 identified; the exact MCAR zero/one-binomial mask probability is a direct derived expression, not a claimed new binomial identity.",
+        "searches": [
+          "Mahalanobis geometry imputation covariance update complete pairwise squared distances trace constant missing data",
+          "Mahalanobis-geometry imputation multivariate data missing entries Salas Ocampo Martinez 2026 PDF equation 3.8",
+          "https://www.researchgate.net/publication/405245564_Mahalanobis-geometry_imputation_for_multivariate_data_with_missing_entries"
+        ]
+      },
+      "rationale": "The source's Theorem 1 proves full-rank uniqueness of the FROZEN-covariance linear Hessian, not uniqueness of covariance-updated objective. Its Eq. (3.8) explicitly recomputes sample covariance from completions and states the nonlinear problem is generally nonconvex; it does not identify the all-active-pair exact constant objective in Section 3 or the MCAR dimension transition. The scatter identity is standard, but its implication for the exact source optimization program, the full-rank/flat contrast, and dimensional mask phase threshold are not the same as known generic Mahalanobis-depth imputation. Resultary search and relevant missingness source comparison found no covering same-object statement. Best of knowledge with classical folklore risk.",
+      "residual_risks": [
+        "The exact full-pair scatter/whitening identity is classical, so the algebra alone is not a new lemma; value attaches to application-specific failure and mask threshold.",
+        "The theorem requires nonsingular covariance and no ridge, does not prove failure of a regularized estimator or the reported low-dimensional wine experiment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATION_WITH_UNSTATED_DEGENERACY",
+          "evidence": "Defines active pairs when at least one missing variable, Eq.3.8 S(x) recomputed and Eq.3.11 ridge; does not state all-pairs scatter flatness or MCAR mask threshold.",
+          "identifier_or_url": "https://www.researchgate.net/publication/405245564_Mahalanobis-geometry_imputation_for_multivariate_data_with_missing_entries",
+          "material_read": "Full readable article text, specifically §3.1 pp.14645, §3.3 pp.14646–47, §3.7 Eq.3.8 p.14648, §3.8 Eq.3.11 and concluding discussion",
+          "method": "read lawful openly distributed author/publisher full-text transcript, checking explicit equations",
+          "title": "Mahalanobis-geometry imputation for multivariate data with missing entries",
+          "trigger": "precise source-specific active pair and covariance-updated formula"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": "Conditional/depth imputation, not the all-pair covariance-recomputed trace objective of the 2026 article.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.03513",
+          "material_read": "Primary arXiv preprint imputation algorithms and objective comparison; article is methodologically different",
+          "method": "open access arXiv text checked at central framework",
+          "title": "Nonparametric imputation by data depth",
+          "trigger": "nearby Mahalanobis/depth imputation prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pinpoints an identifiability failure of a recently published nonlinear imputation refinement even when the predecessor linear design has full column rank; gives exact ridge caveat instead of pretending regularization fails similarly. The exact independent-cell MCAR mask threshold quantifies when all pairs are active, with a critical logarithmic dimension useful for experiment design, while not claiming all imputations fail on that event.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The exact full-pair scatter/whitening identity is classical, so the algebra alone is not a new lemma; value attaches to application-specific failure and mask threshold.",
+    "The theorem requires nonsingular covariance and no ridge, does not prove failure of a regularized estimator or the reported low-dimensional wine experiment."
+  ]
+}
