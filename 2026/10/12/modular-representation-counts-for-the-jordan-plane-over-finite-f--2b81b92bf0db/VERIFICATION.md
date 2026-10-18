@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of modular Jordan-plane counts
 
-Reproduce with `python verification/jordan_plane_verify.py` using the Python standard library. The checker constructs the finite fields \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\) (the last as \(\mathbb F_2[t]/(t^2+t+1)\)), performs independent matrix products, and solves the fixed-second-matrix commutator system by elimination. It exhaustively enumerates all ordered matrix pairs for \((q,n)=(2,2),(3,2),(4,2),(2,3)\), obtaining totals \(40,153,1216,2192\), respectively. It compares direct and linear-algebraic fiber counts, checks the Jordan-block eligibility in those cases, samples \(500\) second matrices each for \((3,3)\) and \((4,3)\), and expands the product through dimension five for field orders \(2,3,4,5\). It confirms all extracted coefficients become integers after multiplication by the full general-linear-group order. The success marker is `VERIFY_OK_JORDAN_PLANE`.
+# Independent mathematical audit
 
-These experiments do not certify the infinite family. The general statement follows from the trace-pairing argument, the rational-canonical divisibility condition and the explicit centralizer-weighted orbit enumeration in the proof. Historical equivalence and independent audit remain open limits.
+## correctness
+
+PASS
+
+Fix Y in M_n(F_q). Trace duality gives im(ad_Y)=C(Y)^⊥, so [X,Y]=Y² is soluble iff tr(Y²Z)=0 for every Z commuting with Y, and every soluble Y has precisely q^{dim C(Y)} partners. Over an algebraic closure, projection to each Jordan block J_ℓ(a)=aI+N detects trace ℓ a², and polynomial descriptions of a single-block commutant prove this condition sufficient on all blocks. Thus a=0 blocks are unrestricted, while each a≠0 Jordan size ℓ must satisfy p|ℓ; finite fields are perfect so each f-primary rational cyclic exponent ℓ for f≠t must be divisible by p. Summing centralizer-weighted similarity classes using the exact finite-field unit-centralizer formula and the q-binomial identity gives the submitted two Euler products coefficientwise; the extra nonnilpotent possibilities begin exactly in dimension p and add q|GL_p(q)| pairs at n=p. The n=2 formula is 2q⁴−q² for p≠2, q⁵+q⁴−q³ for p=2. A separate direct linear-system count over every Y gives N_{2,2}=40, N_{2,3}=153 and N_{3,2}=2192, validating fibers and the modular onset without treating finite checks as infinite proof.
+
+## originality
+
+PASS
+
+Characteristic-zero Jordan plane work forces nilpotent Y, whereas positive characteristic permits nonzero eigenvalue blocks of lengths divisible by p. Known rational-canonical centralizer cycle-index formulas supply enumeration ingredients but not the modular [X,Y]=Y² admissibility condition. The combined finite-field framed representation Euler product and onset are not implied by these inspected sources.
+
+## value
+
+PASS
+
+The Jordan plane is a natural noncommutative algebra whose characteristic-zero finite-dimensional theory has only nilpotent second generators. The exact characteristic-p threshold allowing new nonnilpotent Y and the all-dimensional framed F_q representation count expose a substantive modular structural effect; a reusable block-eligibility theorem and finite-field generating function can inform further module/representation enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

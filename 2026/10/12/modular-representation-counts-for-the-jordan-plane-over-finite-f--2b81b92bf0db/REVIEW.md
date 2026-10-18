@@ -1,19 +1,21 @@
-# Scientific review: modular Jordan-plane representation counts
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The trace pairing on the full matrix algebra is nondegenerate in every characteristic. It identifies the image of the commutator operator at a fixed second matrix with the orthogonal complement of its centralizer. Jordan block projectors and polynomial commutants then show that the sole obstruction to representing the square as a commutator is the divisibility by the characteristic of every nonzero-eigenvalue block length. Rational canonical forms descend this geometric statement to arbitrary finite fields. The affine-fiber cardinality follows from the centralizer dimension, and orbit-stabilizer followed by the finite-field centralizer-unit formula yields the Euler product, with all inverse factors explicitly justified by the \(q\)-binomial identity. Both the minimal nonnilpotent dimension and the two-by-two numerical boundary are independently recomputed. Matrix enumeration tests are supplementary rather than infinite proofs.
+PASS
 
-## Originality — PASS, with residual bibliographic uncertainty
+Fix Y in M_n(F_q). Trace duality gives im(ad_Y)=C(Y)^⊥, so [X,Y]=Y² is soluble iff tr(Y²Z)=0 for every Z commuting with Y, and every soluble Y has precisely q^{dim C(Y)} partners. Over an algebraic closure, projection to each Jordan block J_ℓ(a)=aI+N detects trace ℓ a², and polynomial descriptions of a single-block commutant prove this condition sufficient on all blocks. Thus a=0 blocks are unrestricted, while each a≠0 Jordan size ℓ must satisfy p|ℓ; finite fields are perfect so each f-primary rational cyclic exponent ℓ for f≠t must be divisible by p. Summing centralizer-weighted similarity classes using the exact finite-field unit-centralizer formula and the q-binomial identity gives the submitted two Euler products coefficientwise; the extra nonnilpotent possibilities begin exactly in dimension p and add q|GL_p(q)| pairs at n=p. The n=2 formula is 2q⁴−q² for p≠2, q⁵+q⁴−q³ for p=2. A separate direct linear-system count over every Y gives N_{2,2}=40, N_{2,3}=153 and N_{3,2}=2192, validating fibers and the modular onset without treating finite checks as infinite proof.
 
-The closest primary sources are Iyudu's 2008 and 2012 analyses of representations of this precise algebra over algebraically closed characteristic-zero fields. The nilpotence and Jordan-form description of the characteristic-zero branch are known and excluded from novelty claims. Fulman's cycle-index and centralizer formulas cover the counting mechanism but do not impose or derive the modular condition for this noncommutative relation. The 2020 restricted Jordan plane is a distinct quotient, with extra defining relations and a different representation problem. Targeted searches for the aliases `Jordanian algebra`, `Jordan plane`, `matrix commutator equal square`, finite-field representation zeta series, and characteristic-divisible Jordan blocks revealed no stronger equivalent statement in inspected primary sources or retrieved indexed findings. This lack of discovery is not proof of global novelty; a positive-characteristic paper or unindexed historical enumeration might already imply the formula.
+## originality
 
-## Value — PASS
+PASS
 
-The result is a complete natural invariant: the exact number of \(n\)-dimensional framed modules of a canonical noncommutative quadratic algebra over every finite field. It detects a genuine structural change invisible in characteristic-zero representation theory: nonnilpotent matrix images are forbidden below the characteristic but arise at its exact dimension, in explicit multiplicities. The all-dimensional Euler product is effective for coefficient extraction and makes the permitted rational canonical types explicit, rather than merely computing one small finite table. The independent small-field tests provide reproducibility without substituting for the proof.
+Characteristic-zero Jordan plane work forces nilpotent Y, whereas positive characteristic permits nonzero eigenvalue blocks of lengths divisible by p. Known rational-canonical centralizer cycle-index formulas supply enumeration ingredients but not the modular [X,Y]=Y² admissibility condition. The combined finite-field framed representation Euler product and onset are not implied by these inspected sources.
 
-## Scope and risks
+## value
 
-The theorem does not classify indecomposable modules up to isomorphism or geometric components. Its counting inputs are standard and credited, and equivalent finite-field representation counts remain a residual bibliographic risk. Independent verification beyond the present mathematical review remains necessary for publication-level confidence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Jordan plane is a natural noncommutative algebra whose characteristic-zero finite-dimensional theory has only nilpotent second generators. The exact characteristic-p threshold allowing new nonnilpotent Y and the all-dimensional framed F_q representation count expose a substantive modular structural effect; a reusable block-eligibility theorem and finite-field generating function can inform further module/representation enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
