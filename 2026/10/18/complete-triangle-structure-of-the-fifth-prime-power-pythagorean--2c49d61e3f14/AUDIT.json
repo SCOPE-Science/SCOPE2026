@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Two distinct packaged verifier implementations were executed successfully: 3125 unique vertices; every one of 4881250 unordered vertex pairs tested by exact integer square equality (Python isqrt, C++ corrected integer128 sqrt); 14856 edges; all indexed i<j<k clique triples covered, yielding 288 triangles with primitive multiplicities 144+144. All 41328 unordered triangle pairs checked for intersections: 174 isolates and 57 nonadjacent pairs, split 9 single-vertex and 48 double-vertex intersections. A 231-element disjoint packing and 231-element triangle-hitting set were explicitly constructed and checked. The overlap matching is also proved algebraically from the distinct 2-adic coordinate valuations and the two possible multiplier ratios 21/5 and 275/63, giving 48 and 9 pairs. The deductions proving optimality then use the matching decomposition. This is a finite exact theorem, not an extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xiao arXiv:2610.11965v1 Theorem 1.1 yields nonconstructive large-N bounds on f(N), without finite triangle enumeration.",
+        "Knill arXiv:2205.13285 studies interval-induced Babylonian subgraphs and gives explicit small Euler-brick tables; its vertex restriction is different."
+      ],
+      "reasoning": "Neither the asymptotic upper bound for independent sets nor the interval-vertex graph results furnish the asserted N=5 primitive brick exhaustion, counts or triangle-intersection matching. The existing N≤4 independence and N=5 nonbipartiteness result gives one triangle but does not bound the other 287.",
+      "searches": [
+        "Pythagorean pairs in boxes of prime powers Rongzhong Xiao arXiv 2610.11965 11B30 triangle Euler brick",
+        "Euler brick enumeration prime power exponents small prime smooth all primitive types",
+        "arXiv:2610.11965v1 section 1.2 and main theorem; full-document checks for Euler brick, clique, triangle"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.11965v1 (pp. 1–4 and text searches)",
+      "arXiv:2205.13285 / accessible complete Knill text and appendix",
+      "OEIS A239618",
+      "TobiasGrothmann/list-of-euler-bricks public description",
+      "Published mathematical finding-index semantic results; no statement-level covering hit"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The preceding exact four-box result has f(1)=1, f(2)=4, f(3)=21, f(4)=144, plus a 3-clique witness in box five; it contains no fifth-box census.",
+        "Xiao’s main theorem is asymptotic and does not provide the exact fifth-box triangle-intersection graph.",
+        "Knill’s two original bricks and graph formulation do not imply exact 288 or 231 for the specified prime-exponent box without a new bounded classification."
+      ],
+      "reasoning": "The final claim is not the previously known existence of an Euler brick or the older finite graph definition. It states that these specific scaled bricks exhaust all 288 triangles in Phi5, that the 288-triangle intersection graph is a matching plus isolates, and that this forces sharp packing/transversal invariants. The displayed prior statements alone do not imply these numerical and structural assertions.",
+      "searches": [
+        "The Pythagorean pairs graph on Phi_5 = {2^a 3^b 5^c 7^d 11^e: 0<=a,b,c,d,e<5} has exactly 288 unordered 3-cliques, consisting of 144 multiples of Euler brick (240,252,275) and 144 multiples of Euler brick (1008,1100,1155).",
+        "The fifth prime-box Pythagorean pair graph has exactly 288 triangles of two primitive Euler brick types, and the triangle intersection graph is 174 isolated vertices together with 57 disjoint edges. Its maximum vertex-disjoint triangle packing and minimum triangle transversal are both 231.",
+        "In the fifth Pythagorean prime-power box Phi_5, the full Euler-brick triangle family consists of 288 triangles in two classes, with intersection graph 174K1 disjoint union 57K2, and exact triangle packing number and triangle transversal number both 231.",
+        "Rongzhong Xiao Pythagorean pairs in prime power boxes phi_5 14856 edges 288 triangles 231 disjoint packing",
+        "arXiv:2205.13285 Euler bricks and triangles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Knill, The Babylonian Graph, 2022, sections 1 and appendix, explicitly identifies K3 of Pythagorean leg graph with Euler bricks and lists both seeds among examples.",
+        "Xiao, arXiv:2610.11965v1, section 1.2 defines exactly the same vertex box and two-leg adjacency condition."
+      ],
+      "reasoning": "An unordered Pythagorean 3-clique is precisely an Euler brick; this equivalence and the two seed bricks are prior work. The new assertion is complete enumeration and intersection structure restricted to Xiao’s fifth prime-exponent box, not a new equivalence or new brick.",
+      "searches": [
+        "Euler brick enumeration Pythagorean leg graph box five primes exponent four all triangles classification 288 144",
+        "Knill Babylonian graph Euler bricks prime power box fifth N=5 exact triangle packing transversal 231 288 Euler bricks",
+        "The Babylonian Graph arXiv:2205.13285 sections 1 and appendix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A239618 enumerates primitive bricks within coordinate maxima 10^n and includes the primitive triple (240,252,275).",
+        "Grothmann publicly lists 139592 Euler bricks, 659 primitive, with max side <=10 million.",
+        "The actual fifth exponent-box vertex maximum is 28473963210000, above the cited database limit."
+      ],
+      "reasoning": "These tables establish that the seed bricks are already known; no inspected table applies the exact prime support and exponent-cap filter or resolves all possible brick triples up to the much larger maximal box vertex. One could potentially filter a stronger comprehensive database; such prior implicit coverage is a residual risk.",
+      "searches": [
+        "OEIS A239618 primitive Euler bricks side less than 10^n",
+        "TobiasGrothmann/list-of-euler-bricks 10 million all bricks repository",
+        "1008 1100 1155 240 252 275 Euler bricks exactly two primitive five smooth exponent bounded four",
+        "288 Euler bricks 11 smooth exponent four"
+      ]
+    },
+    "rationale": "The original 2026 prime-power box paper proves asymptotic independence bounds; Knill’s 2022 Babylonian graph paper supplies the known triangle/brick equivalence and both known primitive brick examples; OEIS and a bounded public database list Euler bricks in different domains. Actual statement-level searches did not identify the exact restricted 288-triangle exhaustion, overlap matching, or 231 packing/transversal equality. Earlier fifth-box triangle existence does not imply the classification. Residual risk: an unindexed or broader precomputed Euler-brick dataset might implicitly contain the information.",
+    "residual_risks": [
+      "The two Euler brick seeds and the general triangle/Euler-brick equivalence are old; novelty is restricted to the complete fifth-prime-box census, its intersection structure, and the sharp resulting invariants.",
+      "A stronger unpublished, unindexed or very large Euler-brick database might implicitly permit the same constrained enumeration; inspected cited tables did not certify the full exponent box.",
+      "The finite classification relies on independently reproduced exhaustive programs rather than a compact handwritten Diophantine classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same objects but its theorem concerns asymptotic f(N), not this fixed-box triangle census.",
+        "evidence": "arXiv:2610.11965v1, pp.1–4, Theorem 1.1 and definition of Phi_N",
+        "identifier_or_url": "https://arxiv.org/pdf/2610.11965",
+        "material_read": "Full PDF source accessed; abstract, MSC, introduction and main theorem on pages 1–4; searchable text checked for Euler brick, clique and relevant uses of triangle.",
+        "method": "Read PDF text and rendered page 3; searched full extracted text for plausible finite classification terminology.",
+        "title": "Pythagorean pairs in boxes of prime powers",
+        "trigger": "Exact source of the fifth prime-power box and the graph’s edge relation"
+      },
+      {
+        "assessment": "Establishes triangle/Euler brick correspondence and lists both known seeds, but tables use coordinate-bounded boxes instead of Phi5.",
+        "evidence": "Knill (2022), sections 1 and 3, appendix brick tables including 240 252 275 and 1008 1100 1155",
+        "identifier_or_url": "https://www.researchgate.net/publication/360888170_The_Babylonian_Graph",
+        "material_read": "Accessible full paper text, abstract, graph definitions, discussion of triangles, questions and appendix primitive-brick lists through coordinate 8000.",
+        "method": "Read primary full-text sections and searched tables for both seed triples and prime/exponent-specific arguments; arXiv copy sought first but not retrievable in this run.",
+        "title": "The Babylonian Graph",
+        "trigger": "Exact equivalent Euler-brick interpretation and possible stronger small-graph triangle tables"
+      },
+      {
+        "assessment": "A coordinate-bound count and seed examples, not a five-prime exponent-box triangle classification.",
+        "evidence": "OEIS A239618 title, comments and example",
+        "identifier_or_url": "https://oeis.org/A239618",
+        "material_read": "Complete sequence entry and construction notes, including coordinate-bound definition and example enumeration.",
+        "method": "Read full accessible OEIS entry.",
+        "title": "OEIS A239618",
+        "trigger": "Potential exact database or table of primitive Euler bricks"
+      },
+      {
+        "assessment": "Possible computational overlap for small triples, but 10-million coordinate bound is insufficient for all 5-box elements.",
+        "evidence": "Repository README states maximum side 10 million, 139592 bricks /659 primitive",
+        "identifier_or_url": "https://github.com/TobiasGrothmann/list-of-euler-bricks",
+        "material_read": "Repository public README with exact stated coordinate cutoff and table size; underlying 139592-row dataset was not exhaustively inspected.",
+        "method": "Read repository description and bounded scope; compared its coordinate cutoff with maximum possible Phi5 vertex.",
+        "title": "List of Euler-Bricks",
+        "trigger": "Potential complete Euler-brick table dominating the desired fifth-box census"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2c49d61e-3f14-466f-aacb-856bd20eceeb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fifth box is the first where the recently studied Pythagorean-leg graph is nonbipartite, so the exact triangle hypergraph is a natural missing local invariant. This classifies every obstruction of length three, not just a chosen example; the unexpectedly sparse intersection pattern has an exact extremal interpretation as matching packing and transversal number 231, providing explicit finite structure relevant to the independence problem. The seeds themselves and elementary gcd scaling are not claimed original; the value is the complete box-filtered classification and optimal triangle hypergraph invariants. No assertion that this solves f(5) is made.",
+    "status": "PASS"
+  }
+}
