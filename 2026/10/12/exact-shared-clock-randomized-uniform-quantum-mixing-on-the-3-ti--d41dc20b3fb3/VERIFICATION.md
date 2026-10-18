@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and proof boundaries
 
-Run `python verify.py` with Python 3 and SymPy installed. This constructs adjacency matrices for \(P_3\) and \(P_4\), reconstructs all seven spectral idempotents from their eigenvalues, verifies idempotence, orthogonality and completeness, and checks exact rational-surd identities giving expected mixing \(J_3/3\), \(J_4/4\), and all 144 entries of \(J_{12}/12\). It also checks that the relevant numbers of distinct positive gaps are two and four, providing a direct basis for the fifteen-dimensional coefficient-space support bound.
+# Independent mathematical audit
 
-Expected exact output:
+## correctness
 
-`VERIFY_OK idempotents=7 exact_factor_rows=7 exact_product_entries=144 nonzero_gap_counts=2,4 caratheodory_support_bound=15`
+PASS
 
-Optionally run `python verify.py --numerical` if NumPy and SciPy are installed. This also checks the Cartesian mixing identity against five full twelve-dimensional matrix exponentials and solves a finite linear program over 300 sampled observation times using a fixed random seed; in one execution it returned a fifteen-positive-weight approximate solution with matrix residual \(2.77\times10^{-11}\). This numerical witness **does not prove** that exact times or weights have been found.
+Reconstructed factor spectra {√2,0,−√2} and {α,β,−α,−β}, their projectors and all 2+4 cosine frequencies; independently checked exact SymPy spectral moment identities J3/3 and J4/4 under strictly positive densities f3=1−(2/3)cos(2θ), f4=1−(1/2)cos(φ−ψ). The numbers √2,α,β are rationally independent, so Kronecker gives a dense positive-time 3-torus orbit. Strictly positive product measure makes J12/12 relative interior of the compact torus-image convex hull; approximation of a surrounding finite polytope shows it is in the physical dense-orbit convex hull itself, giving exact finite nonnegative times. The factor coefficient spaces have dimensions ≤3 and ≤5; constant stochastic sum cuts affine dimension to ≤14, so Carathéodory bounds support by 15. Numerical LP is not the proof; times are existential and unbounded.
 
-The exact finite physical-time assertion is established by the rational independence and Kronecker density arguments together with the relative-interior lemma, followed by Carathéodory. Neither finite random sampling nor projector identities alone establish that topological step. This proof gives no bound on the magnitudes of realizing times and no constructive exact arithmetic representation for their weights.
+## originality
+
+PASS
+
+Published generalized average mixing independently constructs uniform laws for P3 and P4 but explicitly warns the *same clock* makes Cartesian averaging nonmultiplicative. Its Cartesian theorem provides covariance/trace statements, not this exact 12-vertex shared-time law; no dominating exact uniformity result was located. Best-of-knowledge PASS with a genuine product-theorem search risk.
+
+## value
+
+PASS
+
+The shared observation-time issue is a real mathematical obstruction in quantum walks: independent averaging on factors is not an admissible single clock. A rigorous exact uniform law for the first mixed path grid with a finite-support bound supplies a motivated constructive-existence example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
