@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The recurrence for each diagonal coordinate is a two-state Bernoulli product with a three-dimensional covariance operator. Its characteristic crossing is exactly \(p(1-\beta)F=0\). Positivity of the covariance operator, uniqueness of the positive root, and the positive-definite first-step covariance establish necessity and sufficiency, including nondecay at equality and exponential growth above. Exact algebra and 240 exhaustive rational path-moment identities were checked with `verify.py`. Numerical enumeration is not presented as proof.
+
+**Originality — PASS, subject to explicit risk.** The earlier indexed orthonormal-two-row KGSM frontier, \(\beta+2(1-\beta)M<\sqrt{\beta+2}\), is the known special case \(p=1/2\), not a novel part of this claim. The inspected Alderman–Luikart–Marshall paper only obtains signed-mean relations; the relevant Bollapragada–Chen–Ward and Lorenz–Winkler papers respectively use sufficient large-batch guarantees and adaptive momentum. The heterogeneous sharp worst-row criterion, full-momentum smoothing threshold and singular rare-row limit are not implied by their cited results. The complete indexed equal-row manuscript was inaccessible, and hidden stronger coverage remains a material originality risk.
+
+**Value — PASS.** Diagonal systems are the natural separable model for distinguishing row-selection imbalance from spectral coupling. The theorem answers a sharply motivated stability question, identifies the least sampled row as the governing obstruction, and shows that fixed smoothing never prevents the asymptotic \(1/2\) momentum barrier when sampling becomes rare. The result is not a claim about accelerated general-purpose Kaczmarz on nonorthogonal matrices.
+
+Self-review: passed. Independent audit: not yet performed.

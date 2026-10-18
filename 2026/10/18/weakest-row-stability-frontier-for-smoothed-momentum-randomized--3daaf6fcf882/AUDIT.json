@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The update matrices exactly match the published KGSM rule on orthogonal diagonal rows. Algebraically det(I-Q)=p(1-beta)F, Q is a positive covariance operator with real nonnegative Perron spectral radius, F has exactly one positive root, and the strictly positive first-step covariance forces sharp nondecay/growth above it. All parameter boundaries M=0, beta<1, p in (0,1), M=1 are addressed. The standalone SymPy script passed 240 exact path-moment identities and symbolic determinant/factorizations; enumeration is corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bollapragada-Chen-Ward arxiv:2206.07553v5 Theorem 3.2 assumes a sufficiently large minibatch and yields a sufficient bound, not the exact one-row p-dependent smoothed rule.",
+        "Lorenz-Winkler arxiv:2307.15435v1 Section 4 selects momentum adaptively by minimal-error principles, unlike fixed M,beta."
+      ],
+      "reasoning": "The general random matrix product formalism could calculate moments when specialized, but none of the inspected theorems implies the exact F>0 condition or its p_min and p->0 consequences. A theoretical method that can be adapted is not the same as published coverage; residual overlap risk remains.",
+      "searches": [
+        "web: randomized Kaczmarz heavy ball mean square convergence instability threshold diagonal matrix momentum exact",
+        "web: stochastic heavy ball minibatch B=1 exact stability threshold mean square orthogonal coordinate 2022 Bollapragada Chen Ward",
+        "arxiv:2206.07553v5 HTML Sections 1,3",
+        "arxiv:2307.15435v1 HTML Sections 1,4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2401.09415v3",
+      "arxiv:2206.07553v5",
+      "arxiv:2307.15435v1",
+      "published-finding corpus index 2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209",
+      "accessible own 32 earlier ledger titles and claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original paper only proves signed expectation, and explicitly asks for critical momentum and absolute-error convergence.",
+        "Equal-weight indexed result yields precisely the p=1/2 specialization; it has no identified heterogeneous-row or d->infinity classification in accessible summary.",
+        "Large-batch theorem controls a different sampling regime with only sufficient inequalities."
+      ],
+      "reasoning": "Signed-mean convergence does not imply mean-square convergence. Symmetric two-row coverage is credited and excluded from the asserted new distinction. The unequal probability polynomial, weakest-row monotonicity and fixed-smoothing rare-row universal 1/2 limit require new arguments not contained in the quoted published statements.",
+      "searches": [
+        "arxiv:2401.09415v3 HTML Theorem 1.1, Remarks 1.1/2.1, sec.4.2",
+        "published-finding corpus ID 2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209",
+        "arxiv:2206.07553v5 HTML Theorem 3.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus ID 2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209 reports exact beta+2(1-beta)M<sqrt(beta+2) on equal-probability 2x2; this matches substitution p=1/2 in F.",
+        "Alderman et al. arXiv:2401.09415v3, equations (9)-(11) and sec.4.2.1/4.2.4, describe signed mean and leave mean-square question."
+      ],
+      "reasoning": "The published equal-row formula is an exact prior special case and is explicitly credited. It does not, from the accessible summary, state dependence on arbitrary p_i, p_min, or singular rare-row asymptotics; arbitrary p cannot be inferred from the p=1/2 inequality by relabeling. The complete indexed text was inaccessible, limiting certainty.",
+      "searches": [
+        "published-finding corpus: geometrically smoothed momentum randomized Kaczmarz exact mean-square stability orthogonal rows momentum critical threshold",
+        "published-finding corpus: critical momentum stochastic Kaczmarz unequal orthogonal rows sampling probability p smoothed parameter beta 2024",
+        "web: \"KGSM\" \"mean-square\" \"stability\" \"orthogonal\" heterogeneous"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed numerical-analysis result is the 2026-10-04 p=1/2 KGSM frontier (identifier above).",
+        "Accessible same-slot ledger contains 32 prior titles/claims; none states smoothed KGSM heterogeneously norm-weighted orthogonal coordinate mean-square boundary."
+      ],
+      "reasoning": "Search results and inspected titles/claims support absence of an identical indexed p_min classification, not database-wide mathematical uniqueness. Results of two additional targeted attempts that returned internal errors are not counted as negative evidence.",
+      "searches": [
+        "published-finding corpus: geometrically smoothed momentum randomized Kaczmarz exact mean-square stability orthogonal rows momentum critical threshold",
+        "published-finding corpus: critical momentum stochastic Kaczmarz unequal orthogonal rows sampling probability p smoothed parameter beta 2024",
+        "own accessible 2026-10_week2 ledger claim/title inventory for 32 earlier items"
+      ]
+    },
+    "rationale": "The equal-probability two-row result is explicitly credited and excluded. Inspected source papers treat signed mean, large batches, or adaptively chosen momentum and do not imply the sharp heterogeneous p_min phase boundary, full-momentum beta_c, or universal fixed-beta rare-row limit. Residual risk is substantial for an inaccessible closely related equal-probability manuscript and unindexed equivalences; this is a best-knowledge finding, not an independence certificate.",
+    "residual_risks": [
+      "The complete indexed 2026 equal-probability manuscript was not accessible; its uninspected arguments might contain a more general p-dependent theorem.",
+      "Other unindexed numerical-stability literature may contain equivalent weak-row covariance calculations.",
+      "Direct algebraic specialization of general stochastic matrix-product theory could shorten the proof, although no inspected published theorem covers the stated sharp transition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives signed-mean formula and asks for norm and critical region; no p_min mean-square theorem in inspected material",
+        "evidence": [
+          "HTML lines 108-165 show the algorithm and signed error theorem; lines 719-730 pose critical momentum and norm questions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.09415v3",
+        "material_read": "Update Eq. (9), Theorem 1.1, Remarks 1.1/2.1, Sections 1.1-1.5, 2.4, 4.2.1, 4.2.4 and reference material",
+        "method": "read arXiv full-text HTML sections and equations",
+        "title": "Randomized Kaczmarz with geometrically smoothed momentum",
+        "trigger": "Direct motivating method and explicitly open critical-momentum question"
+      },
+      {
+        "assessment": "Theorem is sufficient under batch-size constraints, not exact for one-row KGSM; different smoothed velocity dynamics",
+        "evidence": [
+          "HTML lines 319-425, Theorem 3.2 and proof; lines 146-147 about minibatch one."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.07553v5",
+        "material_read": "Abstract, sections 1-2, main theorem 3.2 and its proof, discussion of minibatch size one",
+        "method": "read arXiv full-text HTML substantive sections",
+        "title": "On the fast convergence of minibatch heavy ball momentum",
+        "trigger": "Potential general result dominating stochastic heavy-ball stability"
+      },
+      {
+        "assessment": "Adaptive minimization of momentum coefficient differs from the fixed two-parameter smoothed algorithm; no stated exact F threshold",
+        "evidence": [
+          "HTML lines 83-107 explain minimal-error beta_k selection and related work."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.15435v1",
+        "material_read": "Abstract, introductory update, adaptive parameter formulation in Section 4 summary and related-work survey",
+        "method": "read arXiv full-text HTML substantive sections",
+        "title": "Minimal error momentum Bregman-Kaczmarz",
+        "trigger": "Adaptive momentum might imply fixed-momentum stability"
+      },
+      {
+        "assessment": "Covers the symmetric 2x2 case; not enough text to rule out broader p-dependent implication in full proof",
+        "evidence": [
+          "Indexed summary gives beta+2(1-beta)M<sqrt(beta+2) for orthonormal 2x2."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209",
+        "material_read": "published-finding corpus title and full available scientific summary only; full manuscript could not be fetched",
+        "method": "read indexed scientific summary and compare algebraically p=1/2 specialization",
+        "title": "Exact mean-square stability frontier and a signed-mean blind spot in KGSM",
+        "trigger": "Highly relevant indexed equal-probability frontier"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3daaf6fc-f882-4e91-a5ba-858300b51a19",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper expressly asks for critical momentum and norm convergence. The sharp worst-row classification reveals an invisible instability in signed-mean analysis, supplies an exact nonuniform sampling criterion, and proves the singular high-dimensional threshold 1/2 independent of fixed smoothing, directly relevant to choosing momentum in imbalanced/large orthogonal systems; not just numerical examples or reparameterization of the p=1/2 formula.",
+    "status": "PASS"
+  }
+}
