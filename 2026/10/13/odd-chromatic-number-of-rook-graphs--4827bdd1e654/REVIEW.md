@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In a proper rook coloring, a neighborhood color has odd multiplicity at \((i,j)\) exactly when it belongs to the symmetric difference of the row and column color sets. This gives the exact criterion \(R_i\ne C_j\). The cyclic construction reaches the clique lower bound when \(m<n\). In the balanced case, \(n\) colors force all row and column palettes to agree, and \(n+1\) colors are impossible because the number of rows missing a color equals the number of columns missing it, forcing one equal missing-color pair. The \(n+2\) construction separates distance-two row omissions from consecutive column omissions.
+PASS
 
-The independent finite checker evaluates the defining neighborhood multiplicities directly and agrees with the theorem throughout its stated test ranges.
+A proper rook coloring is a Latin rectangle; at each cell odd neighborhood color occurs iff row and column color palettes are unequal. Row clique gives n lower bound and cyclic Z_n matrix attains n for every 1<=m<n. Square n- and n+1-color obstructions follow all-full palettes then equal omitted-frequency argument. Explicit q=n+2 offsets F=Zq\{0,2}, c(i,j)=i+f(j) gives missing pairs separated by cyclic gap 2 in rows and gap 1 in columns, distinct even for q=4; so achieves n+2. New direct finite checking n<=24 supports; frozen artifacts/verify.py explicitly fetched. No dependence on the code for infinite n.
 
-## Originality
+## originality
 
-PASS. The closest primary source is Liu--Dou--Yang's 2026 paper on the same invariant and Cartesian product operation. Its inspected full text treats path/cycle products and complete-by-path or complete-by-cycle products, not \(K_m\square K_n\). Broader graph-product work gives bounds rather than this exact formula. Published-result searches using rook, line-graph, complete-bipartite, Cartesian-product, and neighborhood-parity aliases found no covering exact result.
+PASS
 
-The nearest same-invariant database result concerns complete multipartite graphs, a distinct class that does not contain general rook graphs. Residual risk remains from alternate rook-graph terminology and concurrent 2026 work.
+The exact row/column-set criterion and n versus n+2 bound are not implied by Liu--Dou--Yang's path/cycle Cartesian products, the general product bounds or the unrelated complete-multipartite result. The same frozen assignment contains a mathematically overlapping rook result without dated priority; no claim of independent priority of these packages is made. Best-of-knowledge external originality PASS subject to the material duplicate-package risk.
 
-## Value
+## value
 
-PASS. This is an all-parameter exact classification of a canonical product family, with a sharp balanced-versus-unbalanced transition and explicit optimal colorings. The local row-column criterion is structural rather than a one-off computation and explains the two-color surcharge.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact all-size odd chromatic number of a natural line-graph/Cartesian-product family, including square obstruction with sharp two-color surcharge, supplies a meaningful classification absent from the compared product theorems. The m=1 and C4 boundary are elementary and do not constitute an independent advance over the companion same-day package.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
