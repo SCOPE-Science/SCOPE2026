@@ -1,22 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The sixth-moment expansion separates coordinatewise balanced terms from the only additional order-three resonance. The resulting identity
-\[
-\|F_a\|_6^6=6S^3-9SQ+3R+|T|^2
-\]
-was reconstructed combinatorially. After \(S=1\), the chain \(|T|^2\le(\sum x_j^{3/2})^2\le Q\) is valid, and pairwise averaging is strictly improving because
-\[
-2h((u+v)/2)-h(u)-h(v)=\frac{(u-v)^2(16-9(u+v))}{4}>0
-\]
-for unequal \(u,v\) on the simplex. Equality therefore forces equal moduli and common phase of the cubes, and those conditions directly attain the bound.
+## correctness
 
-## Originality
-PASS with a residual literature risk. The closest inspected harmonic-analysis source, Bourgain--Lewko, treats \(\Lambda(p)\), Sidonicity, and even-integer moment expansions but does not state a finite ternary \(\Lambda(6)\) constant or equality classification. The closest inspected optimal-moment source, Nayar--Oleszkiewicz, concerns real Rademacher and rotationally invariant variables, not discrete third roots of unity. Literature searches for the exact formula, ternary coordinate characters, third-root Khinchine inequalities, and aliases did not locate a covering statement. A published nonresonant cubic-moment comparison has the distinct sixth-power factor \(6-9/n+4/n^2\), which does not imply the ternary resonance formula.
+PASS
 
-## Value
-PASS. Coordinate character systems are canonical examples in the \(\Lambda(p)\)/Sidon literature, and exponent six is the first even moment at which order-three torsion creates a new resonance. The theorem gives the exact dimension-dependent constant and a complete equality classification, isolating precisely how ternary torsion changes the nonresonant sixth moment. This is a natural structural fact rather than an arbitrary finite slice.
+Expanding three-positive and three-negative character multiplicities gives 6S³−9SQ+3R+|Σ a_j³|², with only the order-3 resonance beyond Steinhaus. Under S=1, |T|²≤(Σx_j^{3/2})²≤Q and averaging pairs strictly increases Σ(3x³−8x²), since 16−9(u+v)>0 on probability simplex; hence xj=1/n is unique. Equality in triangle inequality forces all a_j³ to share argument. Independent exact enumeration for n=2..4 and inspected source code n=2..6 corroborate.
 
-The main limitation is literature indexing: an older finite-root Khinchine statement under probabilistic terminology could still exist. The proof itself is all-dimensional and does not depend on the finite replay.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bourgain–Lewko 2015 full text discusses Sidonicity, qualitative Λ(p) bounds, and even-moment expansions, not the finite n exact third-root sixth-moment constant. Havrilla–Tkocz arXiv:1912.13345 full text gives real symmetric discrete-uniform Khinchine inequalities and does not cover complex 3rd-root phase alignment. Published finite-field ternary three-mode theorem deals different parabola geometry and n=3 special configuration; no all-n coordinate-space implication. An unindexed complex-root Khinchine theorem remains priority risk.
+
+## value
+
+PASS
+
+Exact dimension-dependent sixth-moment growth and the discrete cubic phase lock are intrinsic to the first resonant complex Khinchine system and may be useful when the qualitative Λ(p) property is insufficient, particularly for finite product groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
