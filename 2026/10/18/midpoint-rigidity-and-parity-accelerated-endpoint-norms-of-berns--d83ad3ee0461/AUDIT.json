@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "For every integer n≥2 and m≥1, each signed kernel has nonnegative interior and nonpositive endpoint masses by the binomial martingale and absorption identities; its absolute mass is exactly twice interior survival, attained by a continuous nodal sign witness. Initial survival is strictly concave and reflection-symmetric; Bernstein second differences preserve strict concavity for every power, giving a unique x=1/2 maximum. Distinct Bernstein polynomial eigenvalues and parity yield a symmetric-sector spectrum λ2,λ4,...; Perron biorthogonal normalization yields λ2^m/(2H_n), with O_n(λ4^m) for n≥4 and zero remainder for n=2,3. Degree-four formula follows from the two even modes and exact first-step values. All boundaries and k≥1 are treated. The packaged exact-rational checker independently passes 940 finite assertions; it does not replace the analytic universal argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kelisky--Rivlin (1967), theorem 1: convergence of powers to endpoint interpolation, not finite-horizon maximization.",
+        "Cooper--Waldron, Eq. (5.1): complete spectral expansion of B_n^m with eigenvalues; leading-rate machinery known.",
+        "Nagler--Cerejeiras--Forster (2014), Theorem 3.1: C γ^m convergence upper bound for a Schoenberg spline operator, not a sharp finite-time Bernstein norm.",
+        "Nielson--Riesenfeld--Weiss (1976) abstract: finite evaluation matrix and convergence criterion; full text not retrieved."
+      ],
+      "reasoning": "The historical spectral expansion covers component eigenvalues and allows generic spectral asymptotics, so those are excluded from the novelty claim. The stricter all-power optimized norm and unique midpoint require an additional shape-preserving argument not supplied in accessible source statements; incomplete 1976 full-text access remains a priority risk.",
+      "searches": [
+        "Bernstein operator iterates sharp uniform norm convergence endpoint interpolation exact leading constant second eigenvalue n/(n-1) projector",
+        "\"Bernstein operator\" \"operator norm\" \"iterates\" \"linear\" convergence",
+        "\"Iterates of Markov operators\" \"Nielson\" \"Riesenfeld\" \"Weiss\" pdf 1976"
+      ]
+    },
+    "checked_sources": [
+      "https://msp.org/pjm/1967/21-3/pjm-v21-n3-p12-p.pdf",
+      "https://www.math.auckland.ac.nz/~waldron/Preprints/Eigenstructure/eigenstructure.pdf",
+      "https://arxiv.org/html/1312.5546v1",
+      "https://arxiv.org/html/1402.2403v1",
+      "https://doi.org/10.1016/0021-9045(76)90076-9 (abstract only)",
+      "https://doi.org/10.1007/s00025-008-0333-1 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cooper--Waldron diagonalization gives the eigenvalues, including λ2 and λ4, and eigenpolynomial parity; it does not bound the absolute row measure sharply at every iteration or locate a unique norming point.",
+        "The first-step survival polynomial is 1-x^n-(1-x)^n; Bernstein second differences prove strict concavity after every subsequent power.",
+        "Nagler--Kähler (2013), §§2–3: derivative and smoothness estimates for a different spline operator; no exact Bernstein C-norm identity."
+      ],
+      "reasoning": "The full candidate does not follow from merely knowing eigenvalues or pointwise convergence. Its operator norm is optimized over functions and starting points; a sign calculation, martingale and strict-concavity induction are necessary. The named sources do not state the combined conclusion, although an uninspected older paper might.",
+      "searches": [
+        "Exact operator norm of powers of Bernstein polynomial operator minus endpoint interpolation equals twice the survival probability of the neutral Wright Fisher binomial chain started at 1/2. Unique midpoint maximizer for every iterate; asymptotic Perron coefficient and cancellation of odd eigenmodes giving lambda4 remainder.",
+        "Bernstein operator iterates sharp uniform norm convergence endpoint interpolation exact leading constant second eigenvalue n/(n-1) projector",
+        "Bernstein overiterates norm convergence exact finite powers and parity improvement lambda4 eigenvalue",
+        "\"Bernstein operator\" \"midpoint\" \"iterates\" \"convergence\" supremum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The binomial Wright--Fisher chain has the same Bernstein-node transition matrix: twice interior survival equals the signed-row norm, by exact endpoint martingale identities.",
+        "Cooper--Waldron manuscript, §5, pp.15–16: a spectral expansion of powers, but it does not identify the global absolute-row maximizer or give the all-power sharp C-norm.",
+        "Search matches concerning Perron corrections for a different countable Markov map and a Johnson spherical projector concern different objects."
+      ],
+      "reasoning": "Equality of the operator error with two times absorption survival is proved, not merely asserted as a distinct wording. Existing general Markov-matrix convergence statements could imply existence/rate but do not themselves state the midpoint exact norm or reflection-accelerated coefficient; this implication was examined against available texts.",
+      "searches": [
+        "Exact operator norm of powers of Bernstein polynomial operator minus endpoint interpolation equals twice the survival probability of the neutral Wright Fisher binomial chain started at 1/2. Unique midpoint maximizer for every iterate; asymptotic Perron coefficient and cancellation of odd eigenmodes giving lambda4 remainder.",
+        "Bernstein polynomial B_n iterates exact sharp operator sup norm B_n^k minus endpoint linear interpolation; worst point x=1/2 and Wright Fisher nonfixation survival",
+        "\"Bernstein operator\" \"survival\" \"concavity\" \"midpoint\" iterations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific database searches returned nearby but non-equivalent papers on countable Markov maps and Johnson-scheme projectors.",
+        "A prior Bernstein transition-matrix Hilbert--Schmidt energy asymptotic concerns a different invariant, not operator powers or maximal absorption survival.",
+        "The exact degree-four formula is verified from a symmetric two-mode sector, rather than imported from a numerical table."
+      ],
+      "reasoning": "Neither the record statements nor the relevant accessible historical claims provide this exact power-indexed norm or its spectral amplitude. This is a comparison of implications, not a uniqueness claim based on the record search engine.",
+      "searches": [
+        "Exact operator norm of powers of Bernstein polynomial operator minus endpoint interpolation equals twice the survival probability of the neutral Wright Fisher binomial chain started at 1/2. Unique midpoint maximizer for every iterate; asymptotic Perron coefficient and cancellation of odd eigenmodes giving lambda4 remainder.",
+        "Wright-Fisher binomial absorption survival central maximizer, strict concavity, Yaglom spectral eigenvalues (n)_j/n^j",
+        "Bernstein overiterates norm convergence exact finite powers and parity improvement lambda4 eigenvalue",
+        "\"Bernstein\" \"iterates\" \"operator norm\" \"linear interpolation\" rate convergence"
+      ]
+    },
+    "rationale": "The genuinely new candidate is the sharp finite-iteration C([0,1]) operator error, unique global midpoint maximizer and its exact Perron amplitude with even-mode correction. The classical spectrum and convergence are acknowledged as known. Bibliographic searches of the exact statement, midpoint/survival aliases and eigenmode cancellations, together with primary literature inspections, gave no identical or stronger claim. Remaining historical priority uncertainty is explicit, particularly inaccessible sources with the same general object. An unreturned search hit is not evidence of novelty.",
+    "residual_risks": [
+      "Nielson--Riesenfeld--Weiss (1976) discusses the exact evaluation-matrix family; its inaccessible full text may contain a closely related sharp norm or survival maximization.",
+      "Nagel (1980), Asymptotic properties of powers of Bernstein operators, not inspected in full; it may include the claimed parity remainder or Perron constant.",
+      "Badea (2009), Bernstein Polynomials and Operator Theory, full text inaccessible in this run; abstract covers norm convergence only, but exact details remain unresolved.",
+      "An equivalent Wright--Fisher fixation-survival maximum may be published under stochastic-process terminology rather than approximation operators.",
+      "Publication priority is not independently established; search non-hits cannot exclude an equivalent source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known convergence is not a covering statement for the sharp power-specific operator norm in the material examined.",
+        "evidence": [
+          "The paper addresses convergence of powers, including the n-fixed theorem, not the center-maximized total variation formula in inspected portions."
+        ],
+        "identifier_or_url": "https://msp.org/pjm/1967/21-3/pjm-v21-n3-p12-p.pdf",
+        "material_read": "Paper pages 512 and 514, theorem statements and iterative convergence argument, plus abstract/bibliographic references",
+        "method": "Read open-access journal PDF text and page images",
+        "title": "Iterates of Bernstein Polynomials",
+        "trigger": "Direct original source on the same operator powers"
+      },
+      {
+        "assessment": "Spectral eigenvalues and reflection parity known and credited. No exact all-power C-norm maximizer or absorption-survival formula in inspected sections.",
+        "evidence": [
+          "Equation (5.1) gives powers via eigenpolynomials and duals; Section 5 explicitly attributes n-fixed convergence to Kelisky--Rivlin."
+        ],
+        "identifier_or_url": "https://www.math.auckland.ac.nz/~waldron/Preprints/Eigenstructure/eigenstructure.pdf",
+        "material_read": "Full manuscript introduction, §5 pp.15–16 and §5 continuation on spectral expansion; pp.17–20 for limiting semigroup context",
+        "method": "Author open manuscript; inspect PDF page images and numbered equations (5.1)–(5.8)",
+        "title": "The eigenstructure of the Bernstein operator",
+        "trigger": "Potentially dominating spectral decomposition of exactly the same operator"
+      },
+      {
+        "assessment": "Iterates of Schoenberg spline projector; no exact Bernstein power-to-interpolation norm.",
+        "evidence": [
+          "Lemma 1 composes spline transition kernels; Section 2 studies derivative bounds and approximate smoothness."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1312.5546v1",
+        "material_read": "Abstract, §1 and §2 including Lemmas 1–2 and Theorem 1, and main-results outline",
+        "method": "Full lawful arXiv HTML, inspected definitions and derivative bounds",
+        "title": "A lower bound for the uniform Schoenberg operator",
+        "trigger": "Same approximation-theory family and iterates"
+      },
+      {
+        "assessment": "Non-sharp geometric C-norm upper bound for iterated Schoenberg operator, not this exact Bernstein norm.",
+        "evidence": [
+          "Theorem 3.1 gives ||S^m-L||≤ C γ^m, with C not optimized; no claim on global midpoint."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1402.2403v1",
+        "material_read": "§2 spectral setup and §3.1 Theorem 3.1 with proof and §3.2 transition",
+        "method": "Full lawful arXiv HTML; read theorem text and supporting hypotheses",
+        "title": "Lower bounds for the approximation with variation-diminishing splines",
+        "trigger": "Potential covering power-to-limit norm estimate for positive approximation operators"
+      },
+      {
+        "assessment": "Historical priority unresolved, not assessed as not covering.",
+        "evidence": [
+          "Abstract states matrix-power convergence criterion and application to Bernstein operators, not the detailed finite-time norm conclusion."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0021-9045(76)90076-9",
+        "material_read": "Available bibliographic abstract only, not full article",
+        "method": "Bibliographic/abstract search and lawful open-access full-text search",
+        "title": "Iterates of Markov operators",
+        "trigger": "Direct general finite evaluation-matrix iteration and Bernstein applications"
+      },
+      {
+        "assessment": "Historical priority unresolved, not assessed as not covering.",
+        "evidence": [
+          "Abstract states class of operators converging in operator norm to endpoint interpolation."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00025-008-0333-1",
+        "material_read": "Public abstract only; accessible author PDF fetch unsuccessful; full text not read",
+        "method": "Open-access and repository search after arXiv availability check; full text could not be inspected",
+        "title": "Bernstein Polynomials and Operator Theory",
+        "trigger": "Direct norm-convergence theorem for general operators including Bernstein"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d83ad3ee-0461-44f1-a2c7-ca7081986d21",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The canonical classical Bernstein overiteration is an important positive approximation method; its exact uniform operator error for every degree and positive iteration is a natural sharp stability invariant rather than a selected test-function estimate. Locating a unique global norming point is an all-iteration geometric theorem, enables direct finite calculation, and identifies a nontrivial parity effect: after extracting the exact Perron amplitude the error decays with the fourth spectral eigenvalue, not the second-largest generic one λ3. The degree-four closed expression exhibits a genuine finite-time correction. The precise constants are not table recomputation or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
