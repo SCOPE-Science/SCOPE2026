@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact facet list reconstructs an \((8,24,17)\) complex. The full complex has edge-to-triangle incidence profile \(2^{\times 21},3^{\times 3}\), so it has no free edge. For each of all \(17\) facets, the supplied certificate is replayed from the punctured complex: every triangle-edge pair is checked to be a legal elementary collapse at the moment it is removed, every later vertex-edge pair is checked to be a leaf collapse, and the terminal graph is checked to be a connected simple cycle. The proof is therefore exhaustive over the finite facet set and does not infer a universal statement from sampling.
+## correctness
 
-## Originality
-PASS. Searches for universal facet deletion, puncture-to-circle, facet-critical, and equivalent discrete-Morse formulations found no covering published statement. The closest published finding is an exact optimal discrete-gradient census on the same labelled complex; its aggregate statement does not establish that every individual facet is available as the unique critical triangle and does not give direct collapse certificates for all punctures. The inspected primary classification literature identifies the minimal dunce hats and their noncollapsibility but does not supply this per-facet puncture classification. Residual risk remains from unindexed historical computations.
+PASS
 
-## Value
-PASS. The dunce hat is a canonical obstruction to collapsibility, and the eight-vertex model is vertex-minimal. Determining whether its obstruction is localized or uniformly supported across top-dimensional cells is a natural structural question. The result is a complete classification over the entire top-facet layer: every single facet deletion exposes a direct collapse to a one-dimensional core, while the unpunctured complex has no legal first collapse.
+The frozen facet set comprises 17 triangles on 8 vertices and 24 edges; every edge has triangle degree 2 (21 cases) or 3 (3 cases), so the full complex admits no initial free-edge collapse. Independently read all 17 entries in the actual 70,599-byte collapse_certificate.json (Git blob 840ce18d4f180c91ca5213259010406f400640de). Reimplemented a fresh exact replay: for each omitted facet, delete that triangle only, retain all proper faces; every 2-to-1 step removes an edge in exactly one remaining triangle, every 1-to-0 step removes a leaf and its unique edge, no omissions or duplicate omitted facets; all 17 end in a connected 2-regular graph. Twelve terminal cycles have 3 vertices, five have 4, for THIS recorded choice of collapse path. Each elementary collapse preserves simple homotopy, so each puncture collapses to S1. No extrapolation to other triangulations or collapse orders.
 
-## Closest literature and limitations
-Benedetti--Lutz establish the minimal eight-vertex setting and global noncollapsibility; Paixão--Spreer classify all seven minimal \(17\)-triangle dunce hats. A later simple-homotopy paper studies expansion-assisted simplification, and a published exact discrete-Morse census studies aggregate optimal gradients on this same labelled model. None of the inspected statements covers all seventeen direct facet punctures. The present result does not extend to the other six minimal types or classify all collapse sequences.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact claim and logical implication against primary published literature and relevant Resultary entries. Every facet puncture of the minimal eight-vertex dunce hat collapses to a circle survives on best current evidence, with named full-text/access limits and residual risks. Exact nontrivial class/support/collapse/convolution data are not established by identified older stronger or generic statements.
+
+## value
+
+PASS
+
+A global sensitivity/critical-facet property of the canonical eight-vertex dunce hat: although the full noncollapsible 2-complex lacks free edges, EVERY facet puncture (not just some) has a direct collapse route to a cycle. The 17 explicit finite certificates and simple-homotopy conclusion are natural for discrete Morse theory and deletion robustness; the exact property is neither a generic homology deduction nor a restatement of noncollapsibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

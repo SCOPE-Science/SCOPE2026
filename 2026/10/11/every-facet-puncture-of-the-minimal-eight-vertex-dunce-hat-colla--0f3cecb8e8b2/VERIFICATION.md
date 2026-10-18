@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone verifier reads the exact `collapse_certificate.json` shipped with this package.
+# Independent mathematical audit
 
-It first reconstructs the \((8,24,17)\) face vector and checks the full-complex edge-to-triangle incidence profile \(2^{\times 21},3^{\times 3}\). Hence there is no free edge in the unpunctured complex.
+## correctness
 
-For each of all \(17\) facets, the verifier deletes only that triangle and replays the recorded elementary collapses. Before each triangle-edge removal it recomputes all current triangle incidences and requires the recorded edge to lie in exactly one current triangle. Before each graph collapse it recomputes all vertex degrees and requires the recorded vertex to have degree one. It then requires the terminal graph to be connected and two-regular.
+PASS
 
-The exact replay output is:
+The frozen facet set comprises 17 triangles on 8 vertices and 24 edges; every edge has triangle degree 2 (21 cases) or 3 (3 cases), so the full complex admits no initial free-edge collapse. Independently read all 17 entries in the actual 70,599-byte collapse_certificate.json (Git blob 840ce18d4f180c91ca5213259010406f400640de). Reimplemented a fresh exact replay: for each omitted facet, delete that triangle only, retain all proper faces; every 2-to-1 step removes an edge in exactly one remaining triangle, every 1-to-0 step removes a leaf and its unique edge, no omissions or duplicate omitted facets; all 17 end in a connected 2-regular graph. Twelve terminal cycles have 3 vertices, five have 4, for THIS recorded choice of collapse path. Each elementary collapse preserves simple homotopy, so each puncture collapses to S1. No extrapolation to other triangulations or collapse orders.
 
-`VERIFY_OK f=8,24,17 full_free_edges=0 punctures=17 all_collapse_to_cycle=yes certificate_core_lengths=3:12,4:5`
+## originality
 
-The displayed terminal-length histogram belongs to the deterministic lexicographic certificate. The scientific claim uses only the verified existence of a collapse to a simple cycle for every facet; it does not claim uniqueness of terminal cycle or collapse order.
+PASS
+
+Compared exact claim and logical implication against primary published literature and relevant Resultary entries. Every facet puncture of the minimal eight-vertex dunce hat collapses to a circle survives on best current evidence, with named full-text/access limits and residual risks. Exact nontrivial class/support/collapse/convolution data are not established by identified older stronger or generic statements.
+
+## value
+
+PASS
+
+A global sensitivity/critical-facet property of the canonical eight-vertex dunce hat: although the full noncollapsible 2-complex lacks free edges, EVERY facet puncture (not just some) has a direct collapse route to a cycle. The 17 explicit finite certificates and simple-homotopy conclusion are natural for discrete Morse theory and deletion robustness; the exact property is neither a generic homology deduction nor a restatement of noncollapsibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
