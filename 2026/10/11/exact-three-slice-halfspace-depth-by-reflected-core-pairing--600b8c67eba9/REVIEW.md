@@ -1,15 +1,21 @@
-# Review of exact reflected-core three-slice depth
+# Independent mathematical audit
 
-## Correctness — PASS
-For the candidate middle point, the middle section of every non-horizontal ambient halfspace contains at least \(\delta(K)|K|\) by the assumed Tukey-center property. Reflection of the excluded lower-slice mass into the included upper-slice mass is valid exactly because \(-rK\subseteq K\). Consequently, the two outer slices contribute at least \(r^d|K|\). Horizontal halfspaces satisfy the bound separately. At every candidate point, explicit sufficiently tilted halfspaces give the matching upper bound: lower-slice only at level zero, middle cap plus lower-slice at level one, and top cap alone at level two. The normalization is \((2+r^d)|K|\). For simplices, the sharp centroid Grünbaum bound, parallel-facet cap, and exact barycentric reflection criterion independently give the stated all-dimensional specialization. The all-dimensional statement follows from the analytic proof, not from finite tests.
+## correctness
 
-## Originality — PASS, subject to bibliographic risk
-The closest originating theorem (Cheng--Basu, arXiv:2609.32953v1) provides the uniform planar \(2/9\) lower bound and the finite-mass \(2/9+7\varepsilon/9\) **upper** bound on a sharpness family; neither assertion implies its exact depth at positive \(\varepsilon\). Its proof and conclusions do not contain an excluded-mass reflection lower bound or the full arbitrary-\(d\), arbitrary-\(K\) formula. The published equal-area three-slice refinement concerns equal-area translates, a distinct parameter regime, and only certifies a lower bound. Targeted formula, homothetic, Tukey-depth, reflection, and three-slice searches yielded no equivalent or dominating statement. Unindexed historical use of the reflection trick cannot be ruled out.
+PASS
 
-## Mathematical value — PASS
-A sharpness construction previously used only as \(\varepsilon\downarrow0\) acquires an exact finite-parameter depth curve, including a geometrically maximal positive parameter interval \(0<\varepsilon\le1/9\) for the reflection hypothesis. The structural theorem identifies an elementary but robust pairing mechanism for arbitrary convex depth cores in every dimension. This is a natural exact invariant of a motivated family, not a numerically chosen slice or a routine Taylor coefficient. The result does not purport to solve the unrestricted higher-dimensional centerpoint conjecture.
+For full-dimensional compact convex K in R^d, d≥2, origin achieving maximum ordinary halfspace depth δ(K), and 0<r≤1 with −rK⊂K, every (d+1)-dimensional closed halfspace through middle point (1,0) cuts ≥δ(K)|K| on middle slice. Excluded volume B⊂rK from the lower slice is reflected by x↦−x into K and satisfies the upper slice halfspace; thus outer slices contribute at least r^d|K|. Horizontal halfspaces also satisfy this. Conversely sufficiently tilted halfspaces through any (1,x) contain the full small bottom but exclude upper, selecting middle K mass ≤δ(K)|K|; through upper points can exclude both lower slices, and bottom points have horizontal halfspace mass r^d|K|. Thus max depth exactly (δ+r^d)/(2+r^d), at (1,0). Sharp simplex δ=(d/(d+1))^d from centroid cap and facet caps; barycentric coordinates of reflected vertices show −rΔ⊂Δ iff r≤1/d. ε=r^d/(2+r^d) gives exact m_d/2+(1−m_d/2)ε and d=2 value 2/9+7ε/9, ε≤1/9. Independent exact rational checks at admissible radii support representative halfspaces; no finite sample replaces the all-body reflection argument.
 
-## Reproducibility and boundaries
-`verify.py` performs 5,390 exact-rational checks including 5,324 halfspace instances for four triangle scales, explicit equality witnesses, dimensional barycentric bounds, and parameter conversion. The exhaustive infinite quantification is provided by the proof. Bibliographic originality remains subject to unindexed equivalent results; independent review has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The arXiv:2609.32953 three-planar-body centerpoint theorem is directly relevant: establishes 2/9 asymptotic extremality but available abstract cannot resolve whether the full source proves this exact finite ε profile. Reflected-core pairing supplies an all-dimensional exact formula beyond the abstract headline. No whole-document exclusion is asserted. This is bounded best-of-knowledge with notable primary-text priority risk, not a novelty certification.
+
+## value
+
+PASS
+
+Provides an exact maximal halfspace-depth identity for a motivated three-slice convex-stack configuration, explaining the small-slice centerpoint sharpness mechanism by a reflected excluded-volume pairing. The exact finite-mass simplex profile and sharp geometric range r≤1/d refine a known asymptotically sharp construction and furnish usable reference cases for mixed-dimensional centerpoint questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

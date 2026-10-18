@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python's standard library. The expected deterministic output is `VERIFY_OK 5390 exact-rational assertions`.
+## correctness
 
-The checker uses exact `fractions.Fraction` polygon clipping for the centered triangle \(\operatorname{conv}\{(-1,-1),(2,-1),(-1,2)\}\). It tests four scales \(r\in\{1/8,1/4,1/3,1/2\}\) and every coefficient triple \((a,b,t)\in\{-5,\ldots,5\}^3\) for the halfspace \(ax+by+t(i-1)\ge0\). It then tests explicit equality halfspaces, the planar normalized-mass identity, and exact barycentric threshold and positivity calculations for dimensions \(2\le d\le30\). Every individual arithmetic assertion is rational; the resulting finite check does not prove a universal statement.
+PASS
 
-The proof's universal coverage depends on two facts independent of the checker: excluded lower-slice points reflect into included upper-slice points under \(-rK\subseteq K\); and arbitrarily steep ambient halfspaces isolate a desired planar cap on any chosen slice. Those facts establish both directions of the exact depth formula. The simplex corollary additionally invokes the standard Grünbaum centroid theorem. No independent mathematical audit or certification has been carried out.
+For full-dimensional compact convex K in R^d, d≥2, origin achieving maximum ordinary halfspace depth δ(K), and 0<r≤1 with −rK⊂K, every (d+1)-dimensional closed halfspace through middle point (1,0) cuts ≥δ(K)|K| on middle slice. Excluded volume B⊂rK from the lower slice is reflected by x↦−x into K and satisfies the upper slice halfspace; thus outer slices contribute at least r^d|K|. Horizontal halfspaces also satisfy this. Conversely sufficiently tilted halfspaces through any (1,x) contain the full small bottom but exclude upper, selecting middle K mass ≤δ(K)|K|; through upper points can exclude both lower slices, and bottom points have horizontal halfspace mass r^d|K|. Thus max depth exactly (δ+r^d)/(2+r^d), at (1,0). Sharp simplex δ=(d/(d+1))^d from centroid cap and facet caps; barycentric coordinates of reflected vertices show −rΔ⊂Δ iff r≤1/d. ε=r^d/(2+r^d) gives exact m_d/2+(1−m_d/2)ε and d=2 value 2/9+7ε/9, ε≤1/9. Independent exact rational checks at admissible radii support representative halfspaces; no finite sample replaces the all-body reflection argument.
+
+## originality
+
+PASS
+
+The arXiv:2609.32953 three-planar-body centerpoint theorem is directly relevant: establishes 2/9 asymptotic extremality but available abstract cannot resolve whether the full source proves this exact finite ε profile. Reflected-core pairing supplies an all-dimensional exact formula beyond the abstract headline. No whole-document exclusion is asserted. This is bounded best-of-knowledge with notable primary-text priority risk, not a novelty certification.
+
+## value
+
+PASS
+
+Provides an exact maximal halfspace-depth identity for a motivated three-slice convex-stack configuration, explaining the small-slice centerpoint sharpness mechanism by a reflected excluded-volume pairing. The exact finite-mass simplex profile and sharp geometric range r≤1/d refine a known asymptotically sharp construction and furnish usable reference cases for mixed-dimensional centerpoint questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
