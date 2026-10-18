@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T03:51:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the monomial cyclic shift |T| and |T*| are commuting positive diagonals with eigenvalues a^j and a^(j+1 mod n). Their norm/numerical radius maxima reduce exactly to 1/4 max{U+V,Z+1}+1/2 max{P,Q}. For n=2 this is strictly increasing with max(theta,1-theta). For n>=3, F=U+V-Z-1 strictly decreases, with F(1/2)>0 and F((n-1)/n)<0; crossing tau is unique. On [1/2,tau], derivative has sign of strictly increasing G with G(1/2)<0; post-crossing branches are increasing. Thus the classified unique global optimizer and strict n>=3 gain follow. Verified exact rational n10,a=6/5,r=1 certificate using Fraction integers, and independent numeric n3 tau≈0.518032178392, Phi≈8.571894479<9 plus n10 smooth theta≈0.5484123. Finite tests supplement global analytic monotonicity, not an all-n proof.",
+      "risks": [
+        "All n>=2, a>1, r>=1 only geometric positive finite cyclic shifts and given upper-bound Phi; does not claim actual numerical-radius equality.",
+        "Older shift literature full text not completely inspected."
+      ],
+      "sources": [
+        "2026/10/11/exact-weight-optimization-for-geometric-cyclic-shifts-and-the-di--2aa0131979e7/RESULT.md",
+        "2026/10/11/exact-weight-optimization-for-geometric-cyclic-shifts-and-the-di--2aa0131979e7/VERIFICATION.md",
+        "2026/10/11/exact-weight-optimization-for-geometric-cyclic-shifts-and-the-di--2aa0131979e7/verify_geometric_cycle.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General 2026 theorem bounds w(T)^(2r) by Phi and guarantees a minimizing theta but gives no unique minimizer/phase regimes for geometric cyclic shifts.",
+          "2012 optimization runs over permutations of fixed edge weights and maximizes w(T), not theta in a weighted-mean bound."
+        ],
+        "reasoning": "An inequality and abstract minimizer existence do not imply which theta minimizes, let alone strict n=3 onset and smooth-versus-crossing transition.",
+        "searches": [
+          "numerical radius weighted operator means optimum theta geometric cyclic shift dimension three",
+          "weighted numerical radius upper bound Phi theta geometric cyclic monomial Mondal Mohapatra Dewage",
+          "source_id:arXiv:2602.04134v1",
+          "source_id:arXiv:2602.04134v2"
+        ]
+      },
+      "checked_sources": [
+        "Mondal--Mohapatra--Dewage arXiv:2602.04134v1/v2, weighted inequality and minimizer existence",
+        "Chang--Wang DOI:10.1016/j.jmaa.2012.04.039",
+        "Chien--Nakazato DOI:10.13001/1081-3810.1293",
+        "Resultary cyclic numerical-radius and weighted-bound search queries 2026-10-15"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 source provides weighted inequality/existence, but no restriction that θ=1/2 is suboptimal for every n>=3 geometric cycle.",
+          "The 2012/2009 objectives are direct numerical radius, whereas the present conclusion is explicitly about an upper bound that need not be sharp for w(T)."
+        ],
+        "reasoning": "Deriving this claim needs exact monomial diagonalization plus global F/G monotonicity and branch switching; none of the older theorems yields those statements as a mathematical corollary.",
+        "searches": [
+          "numerical radius weighted operator means optimum theta geometric cyclic shift dimension three",
+          "weighted numerical radius upper bound Phi theta geometric cyclic monomial Mondal Mohapatra Dewage",
+          "source_id:arXiv:2602.04134v1",
+          "source_id:arXiv:2602.04134v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mondal--Mohapatra--Dewage arXiv:2602.04134v2 Section 2 defines Phi and a general existence theorem; changing variables to logarithmic exponentials leaves no all-n geometric cyclic optimizer formula in its stated results.",
+          "Published Resultary related periodic numerical-radius optimization titles address spectral radius/numerical radius, not this bound."
+        ],
+        "reasoning": "Commuting diagonal moduli reduce the new optimization to a maximum of 2 exponential branch sums, a different objective from finding numerical radius of T or permuting its weights.",
+        "searches": [
+          "numerical radius weighted operator means optimum theta geometric cyclic shift dimension three",
+          "weighted numerical radius upper bound Phi theta geometric cyclic monomial Mondal Mohapatra Dewage",
+          "source_id:arXiv:2602.04134v1",
+          "source_id:arXiv:2602.04134v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The parent 2026 paper examples concern normal, triangular, nilpotent/block operators; no given table reports the n=3 quartic or all n optimizer.",
+          "Resultary returned the assigned finding but no earlier exact geometric cyclic theta classification."
+        ],
+        "reasoning": "Specific optimal θ and the two actual regimes are not tabulated in checked sources; unsuccessful index search is not alone proof of priority.",
+        "searches": [
+          "numerical radius weighted operator means optimum theta geometric cyclic shift dimension three",
+          "weighted numerical radius upper bound Phi theta geometric cyclic monomial Mondal Mohapatra Dewage",
+          "source_id:arXiv:2602.04134v1",
+          "source_id:arXiv:2602.04134v2"
+        ]
+      },
+      "rationale": "The 2026 Mondal--Mohapatra--Dewage paper introduces the parameterized weighted upper bound and proves existence of optimum but not the exact optimizing parameter for geometric finite cyclic shifts. Older Chang--Wang and Chien--Nakazato papers optimize/analyze actual numerical radius or different infinite unilateral shifts, not this 2026 weighted-bound functional. No searched prior exact all-dimensional nonsmooth/smooth regime theorem implies the claim.",
+      "residual_risks": [
+        "The arXiv 2602.04134v1 accessible Theorem 2.1 writes a different θ exponent placement than the revised v2 expression cited in the frozen claim. The v2 full article was inaccessible through this tool; verify the exact general upper-bound attribution against v2 before any public use. The optimization of the explicitly defined Phi is independently proved in the assigned RESULT.",
+        "Full text of the 2012 and 2009 related shift papers was not independently obtained, although their stated optimization objectives differ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BOUND_ONLY_NOT_OPTIMIZER",
+          "evidence": "v1 establishes a parameterized numerical-radius inequality, but its displayed exponent placement differs from the assigned v2-based Phi. Direct v2 source access was blocked; this leaves a live parent-bound attribution risk, while the new Phi argmin identity and monotonicity remain independently verifiable.",
+          "identifier_or_url": "https://arxiv.org/html/2602.04134v2",
+          "material_read": "Open complete v1 HTML (509 lines): abstract, Introduction, Theorem 2.1, Proposition 2.5, other stated sections and examples. Direct v2 HTML/PDF access failed in the available route; the original package cites a changed v2 functional, which is not presumed verbatim equal to v1.",
+          "method": "Independently read v1 accessible arXiv HTML; compared original operator bound definitions and v1/v2 versioning risk. This source inspection does NOT assert full v2 text was read.",
+          "title": "Refined upper bounds for the numerical radius via weighted operator means",
+          "trigger": "Primary source defines exact functional and existence of optimal theta"
+        },
+        {
+          "assessment": "DISTINCT_OBJECTIVE_FULL_TEXT_UNREAD",
+          "evidence": "Permutations maximize w(T), whereas current optimization minimizes new post-2026 parameterized upper bound.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2012.04.039",
+          "material_read": "Publisher abstract and accessible text fragments, not entire 11-page article",
+          "method": "Compared permutation target and direct numerical-radius objective",
+          "title": "Maximizing numerical radii of weighted shifts under weight permutations",
+          "trigger": "Plausible same cyclic shifts and optimizer terminology"
+        },
+        {
+          "assessment": "RELATED_BUT_UNREAD",
+          "evidence": "Older work computes numerical radius for geometric shifts, not shown to entail the new upper-bound optimizer.",
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1293",
+          "material_read": "Publisher metadata and abstract only, not full paper",
+          "method": "Compared infinite unilateral/direct radius against finite cyclic/upper bound",
+          "title": "The numerical radius of a weighted shift operator with geometric weights",
+          "trigger": "Same weights/shift naming"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The parent weighted numerical-radius inequality explicitly introduces an optimizer θ but only guarantees existence. Geometric cyclic monomial matrices are a natural invertible test family where wraparound creates a structural switching threshold. Complete all-dimensional uniqueness and exact n=2-versus-n>=3 gain, with two genuinely realized smooth/nonsmooth optimizer regimes, provide motivated exact parameter geometry; the claim explicitly does not pretend to compute w(T) itself.",
+      "risks": [
+        "The arXiv 2602.04134v1 accessible Theorem 2.1 writes a different θ exponent placement than the revised v2 expression cited in the frozen claim. The v2 full article was inaccessible through this tool; verify the exact general upper-bound attribution against v2 before any public use. The optimization of the explicitly defined Phi is independently proved in the assigned RESULT.",
+        "Full text of the 2012 and 2009 related shift papers was not independently obtained, although their stated optimization objectives differ."
+      ],
+      "sources": [
+        "Mondal--Mohapatra--Dewage arXiv:2602.04134v1/v2, weighted inequality and minimizer existence",
+        "Chang--Wang DOI:10.1016/j.jmaa.2012.04.039",
+        "Chien--Nakazato DOI:10.13001/1081-3810.1293"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Mondal--Mohapatra--Dewage arXiv:2602.04134v1/v2, weighted inequality and minimizer existence",
+    "Chang--Wang DOI:10.1016/j.jmaa.2012.04.039",
+    "Chien--Nakazato DOI:10.13001/1081-3810.1293",
+    "Resultary cyclic numerical-radius and weighted-bound search queries 2026-10-15"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "All n>=2, a>1, r>=1 only geometric positive finite cyclic shifts and given upper-bound Phi; does not claim actual numerical-radius equality.",
+    "Older shift literature full text not completely inspected."
+  ],
+  "source_inspections": [
+    {
+      "assessment": "BOUND_ONLY_NOT_OPTIMIZER",
+      "evidence": "v1 establishes a parameterized numerical-radius inequality, but its displayed exponent placement differs from the assigned v2-based Phi. Direct v2 source access was blocked; this leaves a live parent-bound attribution risk, while the new Phi argmin identity and monotonicity remain independently verifiable.",
+      "identifier_or_url": "https://arxiv.org/html/2602.04134v2",
+      "material_read": "Open complete v1 HTML (509 lines): abstract, Introduction, Theorem 2.1, Proposition 2.5, other stated sections and examples. Direct v2 HTML/PDF access failed in the available route; the original package cites a changed v2 functional, which is not presumed verbatim equal to v1.",
+      "method": "Independently read v1 accessible arXiv HTML; compared original operator bound definitions and v1/v2 versioning risk. This source inspection does NOT assert full v2 text was read.",
+      "title": "Refined upper bounds for the numerical radius via weighted operator means",
+      "trigger": "Primary source defines exact functional and existence of optimal theta"
+    },
+    {
+      "assessment": "DISTINCT_OBJECTIVE_FULL_TEXT_UNREAD",
+      "evidence": "Permutations maximize w(T), whereas current optimization minimizes new post-2026 parameterized upper bound.",
+      "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2012.04.039",
+      "material_read": "Publisher abstract and accessible text fragments, not entire 11-page article",
+      "method": "Compared permutation target and direct numerical-radius objective",
+      "title": "Maximizing numerical radii of weighted shifts under weight permutations",
+      "trigger": "Plausible same cyclic shifts and optimizer terminology"
+    },
+    {
+      "assessment": "RELATED_BUT_UNREAD",
+      "evidence": "Older work computes numerical radius for geometric shifts, not shown to entail the new upper-bound optimizer.",
+      "identifier_or_url": "https://doi.org/10.13001/1081-3810.1293",
+      "material_read": "Publisher metadata and abstract only, not full paper",
+      "method": "Compared infinite unilateral/direct radius against finite cyclic/upper bound",
+      "title": "The numerical radius of a weighted shift operator with geometric weights",
+      "trigger": "Same weights/shift naming"
+    }
+  ]
+}

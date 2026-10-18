@@ -1,19 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact diagonal formula follows from the two moduli of a weighted monomial matrix, where the original and shifted geometric progressions share a diagonal basis. In every dimension the largest internal coordinate is the last nonwrap coordinate; only it and the wrap coordinate can control each maximum. Direct differentiation gives a strictly decreasing crossing function, with opposite signs at the two exact rationally described endpoints. The interior derivative is a strictly increasing function, negative at the symmetric weight. The postcrossing derivative is strictly positive because the growing wrap term dominates the decreasing product term. Therefore the optimizer and its uniqueness are proved on the entire closed parameter interval, not merely found numerically. The three-dimensional quartic follows by substitution, and the explicit tenth-dimensional smooth-branch witness has an exact rational certificate. The checker replays finite consistency and rational-sign tests; the proof of all-dimensional statements is analytic.
+PASS
 
-Limits: only invertible finite geometric cyclic shifts are treated; the optimized bound is not asserted to equal the numerical radius. The main source's bound requires real exponents at least one, as imposed. No inference from samples to universal quantifiers is made.
+For the monomial cyclic shift |T| and |T*| are commuting positive diagonals with eigenvalues a^j and a^(j+1 mod n). Their norm/numerical radius maxima reduce exactly to 1/4 max{U+V,Z+1}+1/2 max{P,Q}. For n=2 this is strictly increasing with max(theta,1-theta). For n>=3, F=U+V-Z-1 strictly decreases, with F(1/2)>0 and F((n-1)/n)<0; crossing tau is unique. On [1/2,tau], derivative has sign of strictly increasing G with G(1/2)<0; post-crossing branches are increasing. Thus the classified unique global optimizer and strict n>=3 gain follow. Verified exact rational n10,a=6/5,r=1 certificate using Fraction integers, and independent numeric n3 tau≈0.518032178392, Phi≈8.571894479<9 plus n10 smooth theta≈0.5484123. Finite tests supplement global analytic monotonicity, not an all-n proof.
 
-## Originality — PASS, with residual risk
+## originality
 
-The closest source is Mondal--Mohapatra--Dewage, arXiv:2602.04134v2, whose full HTML version was inspected: Theorem 2.1 introduces the parameter-dependent bound; Proposition 2.5 and Proposition 5.20 prove existence of a minimizer but do not give a closed scalar classification for cyclic geometric shifts. Sections 4--6 and the examples were checked for coverage. The new conclusion contains the exact optimizer, strict dimension-three improvement for all ratios/exponents, and a nonvacuous two-regime criterion. These conclusions do not follow from existence alone without the new diagonal reduction and derivative argument.
+PASS
 
-Chang--Wang's cyclic shift work concerns optimizing the actual numerical radius under discrete weight permutations, not the bound parameter introduced later in [1]. Chien--Nakazato's geometric weighted-shift work concerns infinite unilateral shifts and the numerical radius itself. The related publications' titles and available abstract/introduction material were checked; the complete Chang--Wang and Chien--Nakazato texts were not fully inspected, so equivalent older scalar techniques cannot be categorically excluded. Searches of published mathematical records returned no direct covering theorem. This is a qualified novelty judgment, not proof of absence from the literature.
+The 2026 Mondal--Mohapatra--Dewage paper introduces the parameterized weighted upper bound and proves existence of optimum but not the exact optimizing parameter for geometric finite cyclic shifts. Older Chang--Wang and Chien--Nakazato papers optimize/analyze actual numerical radius or different infinite unilateral shifts, not this 2026 weighted-bound functional. No searched prior exact all-dimensional nonsmooth/smooth regime theorem implies the claim.
 
-## Value — PASS
+## value
 
-The newly introduced parameter in [1] is intended to improve a known symmetric bound, yet its optimal choice is only asserted to exist. Positive geometric cycles are a natural, invertible, irreducible monomial test family; unlike arbitrary slices, they are stable under scaling and capture the interaction of geometric growth and wraparound. The result supplies the first-dimension threshold, universally strict parameter improvement, and an exact all-dimensional optimization prescription with two demonstrably nonempty optimizer regimes. It explains both the gain mechanism and why a crossing of active diagonal entries can cease to govern the optimizer at larger dimension. The significance is an exact structural classification of a mathematically motivated optimization problem; it is not an unsupported claim about broader spectral consequences.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The parent weighted numerical-radius inequality explicitly introduces an optimizer θ but only guarantees existence. Geometric cyclic monomial matrices are a natural invertible test family where wraparound creates a structural switching threshold. Complete all-dimensional uniqueness and exact n=2-versus-n>=3 gain, with two genuinely realized smooth/nonsmooth optimizer regimes, provide motivated exact parameter geometry; the claim explicitly does not pretend to compute w(T) itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
