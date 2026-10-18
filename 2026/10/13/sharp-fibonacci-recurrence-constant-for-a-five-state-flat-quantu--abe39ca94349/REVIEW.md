@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Fourier projectors give an exact scalar spectral-norm error; the quadratic Gauss sum proves the reference is flat. A congruence modulo \(20\) forces the Pell norm to be at least \(4\), while Lucas/Fibonacci identities attain this norm infinitely often. Near any target return, the two eigenphase residuals have opposite signs and negative slopes, so shifting away from the sampled clock cannot improve their maximum to first order (indeed it cannot improve it inside the sufficiently small neighborhood). Bounded continued-fraction quotients yield matching first-hit scaling. The standalone verifier checks matrix values, congruences and selected Fibonacci times; infinity is established by proof, not simulation.
+## correctness
 
-**Originality — PASS, with priority risk.** Godsil–Mullin–Roy (2017), Section 9, already gives the exact Gaussian target and qualitative dense recurrence. This claim does not relabel that fact: it computes the previously unstated sharp time-weighted error coefficient and proves the optimal \(\varepsilon^{-1}\) first-hit exponent by a constrained Pell congruence. The generalized five-level kicking problem is motivated by Pathak–Ebisu–Prosen (2026). Cao–Zhu (2026) focuses on prime-square cycles and does not derive this coefficient. Published-record searches did not find the exact quantitative claim; an older implicit consequence in arithmetic mixing work cannot be ruled out.
+PASS
 
-**Value — PASS.** The five-level cyclic kick is a natural minimally nontrivial prime-dimensional unitary for which exact flatness fails but asymptotic flatness is known. A sharp constant and explicit Fibonacci pulse design quantify the actual duration–precision cost of approaching the canonical flat gate. The result is intentionally limited to the phase-anchored target; it is not a general gate-synthesis speed limit or a noise-robust many-body statement.
+Reconstructed C5 Fourier eigenprojectors and Gaussian-phase unitary H, with |Hxy|²=1/5 by quadratic Gauss-sum orthogonality. Phase anchoring yields d(t_k)=2 sin(π||kα−1/5||), t_k=2πk/5 and α=(1/sqrt(5)−1)/2. If N=5k+10m+2, the Pell-type norm N²−5k²≡4 (mod20) and nonzero, giving lower bound k||kα−1/5||>=1/(5sqrt(5)) in liminf. Fibonacci F_{4r}/Lucas L_{4r} realize norm 4 and admissible congruence; sampling yields exactly 4π²/(25sqrt(5)). Opposite small residual phases at adjacent sample enforce no nonsampled improvement, and bounded continued fractions give the first-hit Θ(1/ε). Independent high-precision Fibonacci asymptotics and finite Pell congruence/phase checks confirmed consistency; infinite statements use proof.
 
-**Closest evidence and risks.** Godsil et al., *Electronic Journal of Combinatorics* 24(3), P3.22 (2017), Lemma 9.1 and Theorem 9.2: flat target and qualitative Kronecker approximation, but no sharp timing constant. Pathak et al., arXiv:2608.09695v1, Section III: kicked qudit structure and lack of identified exact flat points for dimension at least five, but no quantitative recurrence. Cao and Zhu, arXiv:2607.04207v1, Sections 4–5: nonexact mixing and prime-square approximate mixing, different graphs/claim. Residual risk includes implicit derivations and the distinction between phase-anchored operator-norm error and other notions of mixing.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Godsil–Mullin–Roy (2017) Lemma 9.1 / Theorem 9.2 constructs this five-cycle Gaussian Hadamard target and establishes arbitrary-precision approach using Kronecker; those qualitative facts receive no novelty credit. The sharp target-specific liminf rate coefficient and order-optimal first hit are not in the inspected original §9, nor evident from 2026 kick or cycle-mixing papers. This is a Diophantine quantitative refinement with risk of an earlier quadratic-inhomogeneous approximation specialization.
+
+## value
+
+PASS
+
+The best possible phase-anchored time-vs-error rate is a natural quantitative invariant of a specific flat quantum gate, identifying exact Fibonacci near-recurrence pulses and proving that no better asymptotic constant occurs at off-grid times. It is not a generic phase-optimized quantum mixing-time claim; its precise constant can inform calibrated pulse-duration planning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
