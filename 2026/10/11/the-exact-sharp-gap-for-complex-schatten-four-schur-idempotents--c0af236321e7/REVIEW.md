@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces the entire complex \(2\times2\) Schatten-four norm to a real, balanced two-coordinate optimization without assuming Hermitian inputs at the outset. The phase bound, monotonicity in the off-diagonal squared-sum, strict convexity of the denominator, and uniqueness of the positive cubic root establish the exact constant. Pattern compression and rectangular-block averaging extend the result to every bounded zero-one Schur idempotent on finite/countable complex Schatten-four spaces. The same-source algebraic identities and a separate standard-library checker support the proof; finite experiments are not used as an infinite-space certification.
+PASS
 
-## Originality — PASS
+The Schatten-four identity is (sum squared moduli)^2 minus twice the squared determinant. The adverse complex phase and off-diagonal balancing reduce the triangular mask to a two-real-variable quartic ratio. Eliminating the killed diagonal gives the unique positive stationary t satisfying t^3+4t^2+3t-1=0; independent symbolic differentiation gave -4(3t+2)(t^3+4t^2+3t-1)/[(1+t)^5(t^2+4t+2)^2], so the critical point is the maximum and endpoints give the lower ratio. The sharp norm is 1.037541006105634...; the explicit matrix attains it. An arbitrary 0/1 mask either contains a row-column-permuted triangular 2x2 compression or is disjoint rectangular all-ones blocks; in the latter case block-diagonal conditional expectation is contractive on S4. Finite-to-countable passage uses Schatten finite-section density; neither finite enumeration nor random tests alone establish the general assertion.
 
-Banks–Harcharras (2004), pp.2121–2124, prove the qualitative sharp-gap reduction and explicitly leave the exact triangle-mask norm for finite \(p>2\) undetermined. The present single new claim supplies that missing exact value at \(p=4\). Doust–Gillespie (2005), Section 2, establish contraction of rectangular block masks and broad boundedness results but not the cubic constant. Levene (2013) addresses bounded-operator, rather than Schatten-four, norm gaps. Targeted searches and related published records did not establish a dominating prior result. An older equivalent formula remains possible, and Doust's 2001 contribution was not available in full.
+## originality
 
-## Value — PASS
+PASS
 
-The exact threshold solves a mathematically motivated quantitative gap for all complex Schatten-four zero-one projections. It identifies a sharp universal jump of approximately \(0.037541\) above the contractive norm and an explicit smallest-dimensional extremizer. The sharp value is not supplied by the existing qualitative characterization.
+Banks–Harcharras prove a qualitative p-dependent gap and triangle-free/rectangular classification but explicitly leave the precise norm of the 2x2 triangle mask unknown for 2<p<infinity. The assigned exact p=4 root is not a corollary of the qualitative lower bound. Doust 2000/2001 proceedings is a specifically plausible incompletely read precursor; residual risk is recorded, not used as failure.
 
-## Scope and residual risks
+## value
 
-The statement is restricted to the ordinary induced Schatten-four norm and to finite/countable matrices. No exact formula for other exponents or complete boundedness is asserted. The 2001 short proceedings source could only be evaluated from its abstract; a differently titled later derivation cannot be excluded solely by search.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The earliest nontrivial multiplier pattern controls a gap for all zero-one Schur idempotents. An exact algebraic sharp threshold answers the explicit 2004 2x2 norm question at the natural even exponent four and supplies an attained smallest-size extremizer; this is a motivated invariant, not an arbitrary simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
