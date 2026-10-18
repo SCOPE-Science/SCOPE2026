@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cyclic-anchor transformation produces four exchangeable Dirichlet gaps. Unit-chord and signed shoelace identities yield perimeter and positive area even when one angular gap exceeds a semicircle. Correct one-gap and pair-gap densities reduce every first and second moment to eight explicit elementary integrals. Re-expansion reconstructs the cross moment and all variance identities. Sixteen symbolic equalities were replayed from a standalone checker, with independent Cartesian geometry checks; the proof does not depend on the numerical sample.
+PASS
 
-## Originality — PASS, qualified
+Four iid uniform points ordered cyclically give gaps Dirichlet(1,1,1,1). P=2Σsin(πD_i), A=(1/2)Σsin(2πD_i) by chord lengths and oriented shoelace; for cyclic four-point order the signed total is the nonnegative polygon area. The marginal density 3(1−x)² and bivariate density 6(1−x−y) integrate eight required sin-product expectations. Recalculated all eight elementary trig integrals independently with SymPy, reproducing EP=24(π²−4)/π³, EA=3/π, EP²=8+132/π², EA²=1/2+105/(16π²), EPA=140/(3π²) and Cov=4(216−19π²)/(3π⁴)>0. A 1,000,000-sample independent seeded Dirichlet Monte Carlo yielded covariance 0.389921 vs exact 0.389800 (diagnostic only); symbolic integrals prove claim for radius one.
 
-Finch [1] explicitly describes joint perimeter–area analysis as beyond the scope of that work and obtains the second area moment conditionally on an unproved angle-density conjecture. The present exact cross moment and an unconditional derivation of that area moment do not follow as statements of its inspected results. Wang–Li–Xu [2] contain the same Dirichlet polygon representation and extensive asymptotics in the number of sides, but not the finite-four closed mixed moment or its covariance. Standard Dirichlet moment formulas can in principle be integrated to derive the result: those ingredients are not claimed as new. Residual risk is implicit coverage by an unlocated classical moment evaluation; negative database searches alone are not treated as proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Perimeter and area are two natural, jointly generated descriptors of a random polygon. Their exact association has motivated literature but was not resolved in the directly relevant four-point treatment. The nonzero explicit covariance and dimensionless correlation provide a reproducible benchmark, and the same short calculation removes the unproved density condition on a published second-area-moment value. These are exact population facts, not an arbitrary parameter slice; nothing is claimed about a full joint distribution or numerical downstream performance.
+Finch (2016) explicitly leaves joint perimeter–area analysis open and derives E[A²] only under a conjectured angular density; the present exact Dirichlet pair integral proves that value and yields E(PA)=140/(3π²). Wang–Li–Xu (2023) gives the general sine-Dirichlet representation and n→infinity asymptotics but its inspected full paper does not state this finite-four covariance. Ingredients credited; exact natural mixed moment is a best-of-knowledge new evaluated result.
 
-## Scope and historical qualifications
+## value
 
-The result is a fixed-four-vertex formula for a unit circumcircle, with deterministic scaling for other radii. Searches and inspected primary texts support a qualified novelty assessment, not exhaustive historical priority. No independent validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural joint area–perimeter dependence of a fixed four-vertex random cyclic polygon was explicitly left open by the primary study. Exact covariance and correlation quantify that dependence and the unconditional area second moment removes reliance on a proposed but unproved angular density. Four vertices are the object of a well-established concrete problem, not an arbitrary cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

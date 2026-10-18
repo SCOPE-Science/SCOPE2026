@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility of the exact mixed moments
+# Independent mathematical audit
 
-Run `python verify_quadrilateral.py` in a Python 3 environment with SymPy available. The embedded program evaluates all one-gap and two-gap trigonometric moment integrals from their explicit Dirichlet densities and simplifies each asserted identity to zero. Its recorded execution checked sixteen symbolic identities (eight integral evaluations and eight derived moments, variances, and covariance). It also compared the direct Cartesian polygon construction against the trigonometric-gap formulas for 150,000 seeded uniformly sampled four-point configurations; all samplewise geometry consistency checks passed. The numerical covariance was \(0.388434453\), compared with the exact \(0.389799570\). This simulation is illustrative only; the exact integral evaluations and algebra form the proof.
+## correctness
 
-The distributional premises (iid uniform angles, choice of a random vertex as origin, and Dirichlet spacings) are proven in RESULT.md, not inferred from the numerical experiment. The exact identity does not establish the full joint distribution or any universality beyond uniform independent unit-circle sampling. No independent scientific audit is reported.
+PASS
+
+Four iid uniform points ordered cyclically give gaps Dirichlet(1,1,1,1). P=2Σsin(πD_i), A=(1/2)Σsin(2πD_i) by chord lengths and oriented shoelace; for cyclic four-point order the signed total is the nonnegative polygon area. The marginal density 3(1−x)² and bivariate density 6(1−x−y) integrate eight required sin-product expectations. Recalculated all eight elementary trig integrals independently with SymPy, reproducing EP=24(π²−4)/π³, EA=3/π, EP²=8+132/π², EA²=1/2+105/(16π²), EPA=140/(3π²) and Cov=4(216−19π²)/(3π⁴)>0. A 1,000,000-sample independent seeded Dirichlet Monte Carlo yielded covariance 0.389921 vs exact 0.389800 (diagnostic only); symbolic integrals prove claim for radius one.
+
+## originality
+
+PASS
+
+Finch (2016) explicitly leaves joint perimeter–area analysis open and derives E[A²] only under a conjectured angular density; the present exact Dirichlet pair integral proves that value and yields E(PA)=140/(3π²). Wang–Li–Xu (2023) gives the general sine-Dirichlet representation and n→infinity asymptotics but its inspected full paper does not state this finite-four covariance. Ingredients credited; exact natural mixed moment is a best-of-knowledge new evaluated result.
+
+## value
+
+PASS
+
+The natural joint area–perimeter dependence of a fixed four-vertex random cyclic polygon was explicitly left open by the primary study. Exact covariance and correlation quantify that dependence and the unconditional area second moment removes reliance on a proposed but unproved angular density. Four vertices are the object of a well-established concrete problem, not an arbitrary cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
