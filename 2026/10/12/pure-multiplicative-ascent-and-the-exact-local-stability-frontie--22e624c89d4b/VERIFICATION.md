@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof in `RESULT.md` is analytic.
+# Independent mathematical audit
 
-`artifacts/verify_hmgd_frontier.py` symbolically differentiates the scalar core map at the minimizer and checks representative stable and unstable parameter choices. It also simulates the pure multiplicative recurrence and verifies convergence of its increment toward \(\eta_M\log3\).
+## correctness
 
-The numerical trajectory is supporting evidence only. Local stability follows from the exact derivative, and global pure-branch divergence follows from the sign and fixed-point argument in the proof.
+PASS
+
+With m(θ)=θh(θ−a)/(c+h(θ−a)^2/2), m(a)=0, m′(a)=ah/c, σ(0)=1/2, slog′(0)=1. Differentiating the source-defined core map gives T′(a)=1−η_A h/2+η_M ah/c. The one-dimensional hyperbolic fixed-point criterion gives local attraction iff |q|<1, repulsion iff |q|>1; |q|=1 unclassified. With η_A=0 and θ_0>a>0, m(θ)>0, so T(θ)>θ; a finite monotone limit would be a fixed point above a, impossible. Since m(θ)→2 as θ→∞, increments →η_M log3 and θ_k/k→η_M log3 by Cesàro. Independent centered finite difference at a=2,c=3,h=5, η_A=.8,η_M=.06 converges to q=−.8; positive initial pure trajectory increases and its increment approaches .0659167373.
+
+## originality
+
+PASS
+
+MDPI 2026 primary article Sections 3.4,4.3 gives precisely the additive/multiplicative signed-log core update and warns qualitatively of instability, but its inspected material does not give the positive-minimizer derivative/dominance inequality or linear asymptotic divergence speed. Earlier multiplicative descent methods optimize with different maps. Originality scoped to this source equation and scalar positive quadratic, not generic fixed-point calculus itself.
+
+## value
+
+PASS
+
+The sign of HMGD’s multiplicative correction at positive minimizers matters for actual algorithm tuning: it identifies an exact hyperbolic attraction frontier and a globally diverging purely multiplicative branch even on a smooth strongly convex objective, quantifying speed. This is a motivated algorithmic counterexample to unqualified stability interpretation, not just a normalization exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
