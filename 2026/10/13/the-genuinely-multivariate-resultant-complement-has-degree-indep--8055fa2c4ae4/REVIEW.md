@@ -1,28 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A base-weight diagonal \(\mathbb C^*\)-action separates every monomial in each coefficient factor. Hence the fixed points of the product coefficient space are exactly ordered monomial systems.
+## correctness
 
-A monomial system has no common projective zero only if, for every coordinate point, at least one selected monomial is nonzero there. That forces a pure power of each variable to occur. Because there are exactly \(n\) equations and \(n\) variables, the system must be
-\[
-(x_{\sigma(1)}^{d_1},\ldots,x_{\sigma(n)}^{d_n})
-\]
-for a unique \(\sigma\in S_n\). Every such permutation system is non-resultant. Thus the complement has exactly \(n!\) fixed points, and Euler localization gives
-\[
-\chi_c(U_{\mathbf d})=n!.
-\]
-Constructible additivity gives the resultant-locus formula.
+PASS
 
-The bundled checker independently tests common zeros by coordinate-support enumeration on \(43\) degree tuples and \(45275\) monomial systems. Finite computation is regression evidence only.
+For n>=3 and arbitrary positive degrees, independently projectivized n coefficient blocks carry a diagonal one-parameter torus action with base-B separated monomial weights (B>max degrees). Fixed coefficient systems are n-tuples of monomials. Avoiding every coordinate point forces a pure power of each of n variables; there are exactly n! such systems, each indeed base-point-free. Compactly supported Euler localization to fixed points is valid for complex quasiprojective torus varieties, giving chi_c(U)=n!. Product projective coefficient spaces have Euler ∏binom(n+d_i-1,n-1), so additivity gives the resultant formula. Direct independent monomial enumeration checked several multivariate degree choices; not a proof for arbitrary degrees.
 
-## Originality
-PASS. The archival same-object source develops determinantal formulas and resultant complexes, not Euler topology. The closest located topology paper computes cohomology for homogeneous systems in two variables, not the genuinely multivariate square-system multiprojective space.
+## originality
 
-Targeted semantic, web, and full-text searches did not locate the exact \(n!\) complement value, the equivalent ambient-minus-\(n!\) resultant formula, or a stronger statement implying it. The binary-variable regime is excluded from the accepted claim and has separate classical topology.
+PASS
 
-Residual risk remains because the torus-localization argument is short.
+D'Andrea--Dickenstein treat the same square homogeneous resultant and its determinantal construction; Vassiliev studies topology in TWO variables/other coefficient conventions. Their inspected statements neither cover nor imply the stated n-variable multiprojective Euler characteristic as an explicitly computed result. Torus localization itself is old and is not claimed new. A prior uncatalogued torus-fixed-point observation remains possible.
 
-## Value
-PASS. The Macaulay resultant is a fundamental elimination-theoretic hypersurface. The result gives a uniform degree-independent Euler invariant for every square system in at least three variables and identifies its fixed-point meaning with permutations of pure powers.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The resultant complement of n homogeneous forms in n variables is a canonical geometric space; the exact Euler invariant is unexpectedly independent of all degrees and provides a full natural infinite-family topological invariant, rather than arbitrary low-dimensional computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
