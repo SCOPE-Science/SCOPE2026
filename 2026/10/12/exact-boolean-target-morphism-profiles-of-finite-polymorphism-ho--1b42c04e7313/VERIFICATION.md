@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The proof was checked symbolically and by exhaustive finite enumeration.
+# Independent mathematical audit
 
-`verify.py` constructs meet tables from the order relation for six lattices: \(C_2,C_3,C_4,B_2,M_3,N_5\). For each tested Boolean target dimension it enumerates every set map, checks the identity \(f(x\wedge y)=f(x)\cap f(y)\) for every pair, counts all homomorphisms and injective homomorphisms, and compares those counts with the closed formulas. It also separately checks the \(n+1\) scalar-homomorphism count.
+## correctness
 
-The current checker output is:
+PASS
 
-`VERIFY_OK 38 exact assertions`
+A meet homomorphism L->2 either has empty preimage of 1, i.e. constant 0, or a nonempty upward meet-closed filter; finite filters have a unique least element, so exactly n principal-filter thresholds plus constant zero. Boolean coordinates are independent. For each join-irreducible j with unique lower cover j_*, any threshold separating j,j_* must be j, proving necessity that all r thresholds occur. They suffice because every finite lattice element is join of join-irreducibles below it, and occurrence-coordinate vector preserves that incidence. Inclusion-exclusion counts all e-tuples containing every distinguished threshold. Boundary r=0 (one-element lattice) not claimed to have minimal positive e=0; e>=1 formula remains valid. Independent direct meet-map enumeration on B2 (e=1,2,3 gives hom 5,25,125, emb 0,2,24) and nondistributive M3 (e=1,2 gives hom 6,36, emb 0,0) corroborated counts but the all-lattice proof is structural. Toth-Waldhauser Theorem4.1 explicitly identifies the polymorphism-homogeneous application.
 
-The computation is only a finite consistency check. The all-finite-lattice theorem is established by the principal-filter and join-irreducible proof in `RESULT.md`, not by extrapolating from the enumeration.
+## originality
+
+PASS
+
+The primary 2022 finite semilattice classification and Birkhoff representation furnish class membership and a canonical Boolean embedding, but the inspected statements do not enumerate all unbounded-coordinate meet-homomorphisms and embeddings nor identify invariance of those counts under all lattice structure with same (n,r). Folklore risk is especially material given the elementary filter-and-inclusion-exclusion proof; no unseen standard exercise is declared noncovering.
+
+## value
+
+PASS
+
+Canonical Boolean powers are natural targets for semilattice representation. The entire hom/embedding generating profiles, exact minimum dimension, and invariance under lattice shape are exact structural counts for all finite lattices, genuinely refining a pure existence classification; the precise count may be reused to compare representation multiplicities. The contribution is the complete quantitative invariant, not merely the routine proof of existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
