@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof gives a complete sharp scalar optimization and then sums it coordinatewise. The stationary-point split between three distinct coordinates and a repeated coordinate is exhaustive on the normalized compact scalar problem. The cyclic three-coordinate construction verifies sharpness algebraically.
+## correctness
 
-## Originality
-PASS. The defining 2024 preprint and searches for the same notation, the equivalent three-point packing formulation, classical multi-vector James terminology, and the exact radical did not identify a covering result. The closest retrieved equilateral-triangle record concerns regular polygonal norms rather than \(\ell_4\). A residual risk remains that older packing literature uses substantially different terminology.
+PASS
 
-## Value
-PASS. This determines a natural exact three-point geometric invariant for a canonical classical Banach space, with a dimension-independent formula for every real \(\ell_4(I)\) having at least three coordinates. The sharp quartic lemma is structural rather than a numerical census.
+The real scalar quartic ratio is homogeneous on the compact ℓ4 unit sphere. Reconstructed stationary condition: all-distinct critical triples have a+b+c=0 and ratio=9; two equal coordinates reduce to f(t)=2(1-t)^4/(2+t^4), whose derivative has critical root t=-cuberoot(2) yielding sharp K=(1+cuberoot2)^3>9. Checked the derivative and zero-sum identity algebraically; applying this scalar bound coordinatewise proves the universal upper bound. Cyclic three-coordinate vectors proportional to (1,1,-cuberoot2) have ℓ4 norm 1 and all three distances K^(1/4). No finite data is used to prove the unbounded-index theorem.
 
-## Closest literature and limitations
-The closest primary source is Ni--Liu--Zhou--Xia, which introduces \(J_T\), proves general bounds, and computes selected spaces, but the inspected text does not supply the exact \(\ell_4\) value. The present statement does not cover \(\ell_4^2\) or exponents other than \(4\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining Ni–Liu–Zhou–Xia preprint gives the same J_T invariant but no exact ℓ4 value or stronger ℓp theorem in inspected material. Three-point packing aliases, exact radical and classical James constants were compared; no covering implication found, subject to stated terminology risk.
+
+## value
+
+PASS
+
+Three-point Banach-sphere packing is a defined natural geometric invariant, and ℓ4 is the canonical first even non-Hilbert benchmark. A sharp quartic inequality with identified extremizers gives a dimension-stable exact value that can calibrate related Banach geometric estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

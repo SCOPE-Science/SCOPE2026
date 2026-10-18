@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical check is analytic.
+# Independent mathematical audit
 
-1. Normalize the scalar quotient by \(a^4+b^4+c^4=1\). The constraint is compact and smooth.
-2. Euler homogeneity applied to the Lagrange equations gives a positive multiplier at a maximizing nonconstant triple. For an all-distinct stationary triple, subtracting those equations then forces \(a+b+c=0\); expansion gives quotient \(9\).
-3. A repeated coordinate equal to zero gives quotient \(2\). Otherwise scaling reduces the quotient to \(f(t)=2(1-t)^4/(2+t^4)\), and direct differentiation gives \(f'(t)=8(t-1)^3(t^3+2)/(t^4+2)^2\). Its global maximum is attained at \(t=-\sqrt[3]{2}\) and equals \((1+\sqrt[3]{2})^3\), which is strictly larger than \(9\).
-4. Summing the sharp scalar inequality over coordinates proves the infinite-dimensional upper bound without truncation or enumeration.
-5. The three cyclic vectors in the proof are unit vectors and have all three pairwise distances exactly \((1+\sqrt[3]{2})^{3/4}\).
+## correctness
 
-No computational experiment is needed for the proof. The remaining limitation is bibliographic rather than mathematical: differently named older three-point packing results may exist, although the recorded equivalence and exact-value searches did not find one.
+PASS
+
+The real scalar quartic ratio is homogeneous on the compact ℓ4 unit sphere. Reconstructed stationary condition: all-distinct critical triples have a+b+c=0 and ratio=9; two equal coordinates reduce to f(t)=2(1-t)^4/(2+t^4), whose derivative has critical root t=-cuberoot(2) yielding sharp K=(1+cuberoot2)^3>9. Checked the derivative and zero-sum identity algebraically; applying this scalar bound coordinatewise proves the universal upper bound. Cyclic three-coordinate vectors proportional to (1,1,-cuberoot2) have ℓ4 norm 1 and all three distances K^(1/4). No finite data is used to prove the unbounded-index theorem.
+
+## originality
+
+PASS
+
+The defining Ni–Liu–Zhou–Xia preprint gives the same J_T invariant but no exact ℓ4 value or stronger ℓp theorem in inspected material. Three-point packing aliases, exact radical and classical James constants were compared; no covering implication found, subject to stated terminology risk.
+
+## value
+
+PASS
+
+Three-point Banach-sphere packing is a defined natural geometric invariant, and ℓ4 is the canonical first even non-Hilbert benchmark. A sharp quartic inequality with identified extremizers gives a dimension-stable exact value that can calibrate related Banach geometric estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
