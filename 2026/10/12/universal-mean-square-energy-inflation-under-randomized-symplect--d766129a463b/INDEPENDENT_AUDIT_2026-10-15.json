@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:08:01.467763Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each 0<h<2 kick–drift symplectic Euler S_h is elliptic with det 1, no invariant real line and unique invariant SPD metric P_h=[[1,h/2],[h/2,1]] up to scale. Cone Perron–Frobenius yields nonzero positive semidefinite right and left spectral-radius eigenmatrices, both forced positive definite by absence of real eigendirections. Strict equality in determinant-root Minkowski concavity for T(P)=E[S_HP S_H^T] would impose a common invariant P for almost all h, impossible for a nonpoint law; thus rho>1. A dual SPD eigenmatrix Q gives E[X_k^T Q X_k]=rho^k x0^TQx0, hence uniform two-sided Euclidean moment bounds. Exact symbolic recomputation gives jitter trace quotient 2 δ²(h²+δ²)/(4−h²), and the rational two-step matrix has characteristic polynomial (64z³−66z²+49z−49)/64. Random product finite-step enumeration only cross-checks, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abdulle–Garegnani Theorem 6 proves energy approximation under fixed-small-step and finite time/proximity hypotheses; Sturman–Thiffeault treat products of random shears and Lyapunov exponents rather than correlated kick–drift pairs."
+        ],
+        "reasoning": "Existing finite-horizon conservation theorems do not imply an infinite-iteration rho>1 for every nonconstant law; random SL(2,R) generalities may be adaptable but no directly dominating published theorem was established. State the general-products residual risk.",
+        "searches": [
+          "arXiv:1801.01340v4 Theorem 6 and Remarks 12–13",
+          "doi:10.1007/s00332-018-9497-3 Sturman and Thiffeault random shear products",
+          "arXiv:1011.3830 adaptive symplectic timestep energy drift"
+        ]
+      },
+      "checked_sources": [
+        "A. Abdulle and G. Garegnani, arXiv:1801.01340v4, Theorem 6, Remarks 12–13, §9.6 (full HTML)",
+        "N. Kaib, T. Quinn & R. Brasser, arXiv:1011.3830 (abstract/context)",
+        "R. Sturman & J.-L. Thiffeault, doi:10.1007/s00332-018-9497-3 (abstract/context)",
+        "Resultary query on symplectic Euler random timestep mean-square instability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6 bounds E|Q(Y_n)−Q(y0)| in its finite domain; Remark 12 notes linear drift for varying steps, not an exact all-elliptic iid mean-square Perron rate."
+        ],
+        "reasoning": "The mathematical conclusion is a universal strict 3x3 covariance eigenvalue inequality with arbitrary nonpoint stable step distribution; neither prior finite-time error nor adaptive-step observation implies this quantifier. Explicitly limited to kick–drift oscillator and iteration count.",
+        "searches": [
+          "arXiv:1801.01340v4 Theorem 6/Remark 12/Remark 13, original full HTML",
+          "arXiv:1011.3830 source discussion and DOI:10.1007/s00332-018-9497-3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abdulle and Garegnani 2020 full arXiv HTML treats iid random-step Runge-Kutta, symplecticity and long-time conservation with time restrictions; its Theorem 6 requires proximity and upper time horizon."
+        ],
+        "reasoning": "Search aliases (random elliptic matrix products, mean-square amplification, covariance Perron operator) did not identify the same necessary-and-sufficient statement. Nonexistence from searches alone is not novelty proof.",
+        "searches": [
+          "Resultary: random symplectic Euler timestep harmonic oscillator independent random steps mean-square instability energy growth spectral radius",
+          "web: randomized symplectic Euler independent random timesteps mean-square instability harmonic oscillator",
+          "arXiv:1801.01340v4 sections 2 and 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published long-time energy numerical figures concern a pendulum and other time-integration techniques; no exact 64z³−66z²+49z−49 covariance polynomial appears in materially read primary text."
+        ],
+        "reasoning": "The two-point spectral polynomial and jitter coefficient are exact object-specific formulas, not a recomputation of a known finite table. A matching unindexed random-products formula remains possible.",
+        "searches": [
+          "arXiv:1801.01340v4 section 9.6 pendulum experiments",
+          "Resultary: Universal mean-square energy inflation under randomized symplectic Euler steps"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct mathematical statement relative to the compared accessible primary results, with explicit access and broad-priority risks.",
+      "residual_risks": [
+        "Broader general random SL(2,R) matrix product or stochastic instability literature might supply an equivalent corollary; no exhaustive global priority claim.",
+        "All-time second-moment instability does not prove almost-sure exponential orbit divergence or physical-time/finite-horizon failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not state/infer unrestricted infinite-step moment-growth criterion",
+          "evidence": [
+            "Theorem 6 assumes small nominal step, proximity to initial state and a restricted time scale; section 9.6 has finite-horizon pendulum energy tests."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1801.01340v4",
+          "material_read": "Entire accessible HTML including sections 2, 7, Theorem 6, Remarks 12–13, section 9.6 and conclusions",
+          "method": "Full arXiv HTML web reading and indexed section navigation",
+          "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+          "trigger": "Same randomized symplectic methods and energy preservation"
+        },
+        {
+          "assessment": "Distinct law and quantity; comprehensive full-text equivalence not excluded",
+          "evidence": [
+            "Separate random shear factors and Lyapunov exponent are not the exact covariance spectral radius for a coupled kick–drift Euler matrix."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00332-018-9497-3",
+          "material_read": "Title/abstract and claim description, not full content in this run",
+          "method": "bibliographic/abstract reading",
+          "title": "Lyapunov Exponents for the Random Product of Two Shears",
+          "trigger": "Potential stronger random shears framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp all-nondegenerate-iid timesteps classification pinpoints an infinite-horizon mean-square instability invisible from stable deterministic steps and finite-horizon energy estimates. It includes an all-initial-state uniform rate, a two-point rational example whose mean contracts while second moments inflate, and quantitative small-jitter rate. These are useful structural reliability boundaries, not a routine simulation experiment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Broader general random SL(2,R) matrix product or stochastic instability literature might supply an equivalent corollary; no exhaustive global priority claim.",
+    "All-time second-moment instability does not prove almost-sure exponential orbit divergence or physical-time/finite-horizon failure."
+  ],
+  "schema_version": 1
+}
