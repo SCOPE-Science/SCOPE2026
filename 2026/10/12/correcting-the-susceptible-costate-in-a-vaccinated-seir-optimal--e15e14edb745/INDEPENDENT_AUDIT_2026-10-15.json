@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:52:17.584611Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read original printed equation (5.2) and Hamiltonian/costates (5.3) from the actual publisher PDF page 8. Differentiation w.r.t S gives −∂H/∂S=λ1(aE+v)−λ2 aE, a=(1−u2)θ(I),v=µ+z0u1; print has −λ2(aE+v), introducing −vλ2. Independently expanded all three Hamiltonian gradients by symbolic differentiation (SymPy), which agrees with source for costates 2 and 3 but not costate 1. With terminal λ3=λ2=λ1=0 and positive infection penalty C3, λ3(T−τ)=C3τ+..., hence λ2(T−τ)=α C3 τ²/2+...; since v≥µ>0, the source discrepancy is nonzero near T, not algebraically equivalent. This diagnoses necessary conditions, not actual implementation or displayed numerical trajectories.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Related COVID optimal-control source has different state laws and Hamiltonian.",
+          "The previously indexed SQEIAR adjoint correction concerns a variable total population and six states, not this three-state SEIR equation."
+        ],
+        "reasoning": "General Pontryagin formulas provide the method but do not constitute an earlier published identification of this specific erroneous printed term and its terminal implication.",
+        "searches": [
+          "Witbooi Vyambwera Nsuami vaccinated SEIR optimal control 2023 equation 5.3 susceptible costate correction",
+          "doi:10.1016/j.sciaf.2022.e01268",
+          "Resultary: Correct Pontryagin adjoints for a variable-population SQEIAR media-control model"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.2023411",
+        "doi:10.1016/j.sciaf.2022.e01268",
+        "Resultary query: Witbooi Vyambwera Nsuami vaccinated SEIR optimal control 2023 equation 5.3 susceptible costate correction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Paper equation (5.3) itself contains the false factor, while Hamiltonian differentiation gives the corrected expression; the source does not announce that correction.",
+          "Same-model earlier equilibrium comparative-statics theorem constrains stationary infection levels, not optimal-control adjoint dynamics."
+        ],
+        "reasoning": "The known optimality framework makes the derivative elementary to verify but does not negate the original identification of an active source-specific inconsistency.",
+        "searches": [
+          "doi:10.3934/math.2023411",
+          "Resultary query: Witbooi Vyambwera Nsuami vaccinated SEIR optimal control 2023 equation 5.3 susceptible costate correction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pontryagin canonical −∂H/∂S and printed equation (5.3) are directly comparable expressions for the identical S-variable in (5.2).",
+          "Printed term −λ2[(1−u2)θ(I)E+µ+z0u1] should have only −λ2(1−u2)θ(I)E."
+        ],
+        "reasoning": "This is a literal source-specific mismatch, not model reparametrization or notation; a previous correction of precisely (5.3) would cover it, but none was located.",
+        "searches": [
+          "Witbooi Vyambwera Nsuami vaccinated SEIR optimal control 2023 equation 5.3 susceptible costate correction",
+          "doi:10.3934/math.2023411",
+          "Witbooi Vyambwera Nsuami equation 5.3 corrigendum costate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary publisher PDF on page 8 displays the first adjoint with the extra −vλ2 term.",
+          "DOI/title/erratum keyword searches and related semantic results did not yield a correction of the same displayed equation."
+        ],
+        "reasoning": "No numerical table is relevant to an algebraic adjoint mismatch; the exact primary equation is the decisive documentary source. Failed searches are not proof of never-published errata.",
+        "searches": [
+          "Witbooi Vyambwera Nsuami vaccinated SEIR optimal control 2023 equation 5.3 susceptible costate correction",
+          "doi:10.3934/math.2023411",
+          "Witbooi equation 5.3 erratum"
+        ]
+      },
+      "rationale": "The paper itself prints the inconsistent first costate; no published erratum or exact replacement equation was found by author-title, DOI, equation 5.3, costate and corrigendum searches. Resultary contains unrelated SEIR/SQEIAR adjoint corrections in distinct models and an earlier same-model endemic-equilibrium finding that does not analyze Pontryagin adjoints. Elementary derivation does not make an unreported, consequential specific published error known before this correction.",
+      "residual_risks": [
+        "An unindexed corrigendum or follow-up note might already explicitly report the first-costate correction.",
+        "Authors’ unavailable implementation could use the correct adjoint, so no inference that published plots or computed optimal trajectories are wrong.",
+        "Smooth terminal Taylor O(τ³) presumes ordinary regularity of the admissible optimality system; the leading nonzero τ² term is robust under continuity and positive parameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_SOURCE of printed expression; confirms error, not a published corrigendum",
+          "evidence": "−λ2(aE+v) in print vs −λ2aE from differentiating H; v=µ+z0u1>0.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2023411",
+          "material_read": "Full accessible publisher 18-page PDF, specifically section 5 model, Hamiltonian, equation 5.3 and terminal conditions on pages 8–9",
+          "method": "publisher open-access PDF, screenshot cross-check of typeset equations",
+          "title": "Control and elimination in an SEIR model for the disease dynamics of COVID-19 with vaccination",
+          "trigger": "Exact originating published controlled model and purported equation (5.3)"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL, no whole-document priority claim",
+          "evidence": "Different state/control laws from the 3-state Witbooi–Vyambwera–Nsuami problem.",
+          "identifier_or_url": "https://doi.org/10.1016/j.sciaf.2022.e01268",
+          "material_read": "Bibliographic/title/abstract model comparison, not whole full paper inspection",
+          "method": "abstract context",
+          "title": "Application of Optimal Control to Long Term Dynamics of COVID-19 Disease in South Africa",
+          "trigger": "Nearby epidemic optimal-control adjoint literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A printed necessary condition in a concrete published optimal-control epidemic model has an active sign/variable error, changing the backward boundary-value system and therefore the mathematical basis for reported optimal interventions. Identifying and correcting that specific inconsistency with a nonvanishing terminal witness is useful even though differentiation itself is elementary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In Witbooi–Vyambwera–Nsuami (2023) vaccinated three-state SEIR Pontryagin system, the published first adjoint has spurious −(µ+z0u1)λ2; actual −∂H/∂S equals λ1[(1−u2)θ(I)E+µ+z0u1]−λ2(1−u2)θ(I)E. Under stated positive parameters and terminal zero adjoints, λ2(T−τ)=α C3 τ²/2+O(τ³), so the printed and correct backward systems differ nontrivially near terminal time.",
+  "limitations": [
+    "Does not claim numerical plots were produced with printed erroneous equation; code not inspected.",
+    "Any already-published unindexed erratum remains originality risk.",
+    "Exact source-tree enumeration unavailable; assigned guard retained."
+  ],
+  "schema_version": 1
+}
