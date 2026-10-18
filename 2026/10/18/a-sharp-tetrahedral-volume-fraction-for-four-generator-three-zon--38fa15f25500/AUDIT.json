@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers are specified: four possibly dependent generators span R^3, all tetrahedra inside the resulting zonotope allowed. After normalizing a largest triple determinant and orienting generator signs, each remaining coordinate lies in [0,1]. Classical zonotope volume is exactly 8S; the explicit signed four-point tetrahedron has exact edge determinant 8(S+m), establishing the bound for all real inputs without experimentation. Equal minors are necessary for global equality and imply an affine image of the regular rhombic dodecahedron. The supplied standalone exact-integer verifier enumerates all C(14,4)=1001 vertex quadruples and independently evaluates their determinants, confirming a sharp max 20, exactly eight specified maxima, and pairwise intersection at most two. Separate affinity of determinant reduces every interior tetrahedron to vertex combinations and upgrades the no-overlap fact to a complete classification. Cube-plus-six-pyramids volume=16; normalized maximum=5/24. The necessary near-equality minor bounds follow algebraically. No finite test is substituted for any infinite assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Di Summa, Eisenbrand, Faenza and Moldenhauer, arXiv:1406.3512, introduction and Theorem 1: approximation algorithms and hardness for general maximum-volume simplices and subdeterminants.",
+        "Joós and Lángi, arXiv:2206.03204, Sections 3–4: intrinsic volumes, radii, mean width, polarization and asymptotic isoperimetry, without maximum-volume-simplex fractions.",
+        "Akopyan and Glazyrin, 2012 preprint, Proposition 17: volume bound for simplices maximal in a parallelotope, which cannot determine the d+1 segment zonotope equality case."
+      ],
+      "reasoning": "The examined general maximum-volume-simplex theorems provide computability or structural containment, not a universal class-specific numerical lower bound with equality. A statement applicable to a larger class but weaker in conclusion does not cover this sharper four-generator bound.",
+      "searches": [
+        "published-finding corpus query: four-generator zonotope 3-dimensional sharp contained simplex volume fraction affine equality",
+        "published-finding corpus query: largest simplex zonotope determinant generators balance tetrahedra",
+        "Web query: largest-volume simplex ratio zonotope generated d+1 segments sharp bound",
+        "Web query: maximum volume tetrahedron 4 generator zonotope 3 dimensional minimum ratio"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1406.3512 (Di Summa et al., 2014 original primary source)",
+      "Akopyan–Glazyrin December 4, 2012 preprint (full four pages)",
+      "arXiv:2206.03204 (Joós–Lángi, 2022, zonotope volume and d+1-generator extremals)",
+      "Mathematical Association of America, Cardil, Kepler and the Rhombic Dodecahedron (2022 ambient volume)",
+      "Published published-finding corpus record 2026/9/8/SCOPE008 (illumination numbers, distinct functional)",
+      "Published published-finding corpus record 2026/10/4/SCOPE-exact-scale-phase-diagram-for-a-four-dimensional-zonotope-log-su--75844497da3f (different dimension/functional)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical zonotope-volume formula, Joós–Lángi arXiv:2206.03204 Corollary 1, implies the denominator 8S, but gives no upper bound on tetrahedral maxima or equality sets.",
+        "Akopyan–Glazyrin Corollary 3 implies every maximum contained simplex in a centrally symmetric body contains its center; this center-containment statement does not imply a sharp ratio or determinant histogram.",
+        "Di Summa et al. prove approximation/hardness statements for arbitrary V-polytopes, and do not specify the four-segment zonotope family."
+      ],
+      "reasoning": "The novel mathematical content is the explicit tetrahedral witness with determinant 8(S+m), the resulting sharp 5/24 all-family fraction, minor-imbalance stability, and the exact equality classification. Classical zonotope volume and the general vertex-reduction observation are properly treated as used background, not independent novelty. None of the inspected prior implications reaches the new bound with its equality.",
+      "searches": [
+        "Primary PDF inspection: arXiv:1406.3512 Sections 1–2 and main results",
+        "Primary PDF inspection: Akopyan_Glazyrin_Volumes.pdf pp.1–4",
+        "Primary PDF inspection: arXiv:2206.03204 Sections 2–5",
+        "published-finding corpus query: \"5/24\" \"rhombic dodecahedron\" maximal volume tetrahedron"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Akopyan and Glazyrin, On maximum volume simplices in polytopes, 2012 preprint, Corollary 3 and Lemmas 11–15: general center containment and parallelotope geometry, not a zonotope volume fraction.",
+        "Joós and Lángi, arXiv:2206.03204, introduction and Theorems 2–7: various d+1-generator zonotope extrema, but no maximum-volume contained simplex classification.",
+        "published-finding corpus published record 2026/9/8/SCOPE008: five parallelohedron illumination numbers, not largest inscribed tetrahedron."
+      ],
+      "reasoning": "The tested aliases refer to an affine-invariant maximal tetrahedron/zonotope volume ratio and the geometric equivalent equality class, not merely a matching numeric constant. The closest inspectable statements change the extremal functional (circumradius, inradius, intrinsic volume, illumination) or study general rather than sharp class-specific MVS. Those do not give the occupancy theorem by implication. An equivalent older result under dissimilar terminology has not been excluded.",
+      "searches": [
+        "published-finding corpus query: rhombic dodecahedron maximum volume tetrahedron largest inscribed tetrahedron equality families all 14 vertices",
+        "published-finding corpus query: \"5/24\" \"rhombic dodecahedron\" maximal volume tetrahedron",
+        "Web query: \"rhombic dodecahedron\" \"maximal-volume tetrahedron\" 10/3",
+        "Web query: maximum volume tetrahedron inscribed rhombic dodecahedron 14 vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Di Summa et al., arXiv:1406.3512, maximum-volume-subdeterminant optimization problem definitions; no tabulation for the rhombic dodecahedron.",
+        "Roberto Cardil, Mathematical Association of America, Kepler and the Rhombic Dodecahedron (2022), https://old.maa.org/press/periodicals/convergence/kepler-and-the-rhombic-dodecahedron-the-rhombic-dodecahedron-as-a-cube-with-pyramids-volume-as-a : volume double the inscribed cube, not maximal tetrahedron volume.",
+        "The exact 1001-subset histogram and eight-maximizer list are generated from the specified 14-point configuration in verify.py."
+      ],
+      "reasoning": "Existing volume formulae for the ambient rhombic dodecahedron do not determine its maximal inscribed tetrahedron or the count and rigidity of maximizers. No inspected primary paper or published searchable table records the claimed 1001-subset volume spectrum; this absence is evidence-limited and not a categorical priority guarantee.",
+      "searches": [
+        "published-finding corpus query: rhombic dodecahedron tetrahedron determinant spectrum 14 choose 4",
+        "published-finding corpus query: rhombic dodecahedron eight maximal volume tetrahedra 10/3",
+        "Web query: rhombic dodecahedron 8 maximal tetrahedra volume 10/3",
+        "Web query: \"tetrahedron\" \"rhombic dodecahedron\" \"10/3\""
+      ]
+    },
+    "rationale": "The claims about general MVS approximation complexity (Di Summa et al., arXiv:1406.3512), center containment and prisms/parallelotopes (Akopyan–Glazyrin, 2012 preprint), and intrinsic-volume/circumradius isoperimetry for four-generator zonotopes (Joós–Lángi, arXiv:2206.03204) do not state or imply the sharp four-segment three-dimensional tetrahedral occupancy fraction 5/24, the explicit minor-sensitive lower bound, or the eight-point equality classification. The published rhombic-dodecahedron illumination record concerns an unrelated functional. All three highly relevant primary PDFs were materially read. Published-record and primary-literature searches found no stronger result explicitly covering the theorem, but possible unlocated historical equivalents remain a genuine priority risk.",
+    "residual_risks": [
+      "Classical regular-polyhedron literature may contain an equivalent maximal-inscribed-tetrahedron computation with different terminology despite targeted full-text and search comparisons.",
+      "An unpublished or unindexed classification of maximal simplices in four-generator three-zonotopes cannot be ruled out by public searchable sources.",
+      "The proof is completely self-contained modulo the classical zonotope-volume formula and the supplied exact finite enumeration; it is not an independent mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related algorithmically but not covering: its results concern general approximation factors and complexity, not a sharp four-generator zonotope occupancy theorem.",
+        "evidence": [
+          "arXiv v1 date 2014-06-13; p.1 MVS definition and p.2 list of main contributions."
+        ],
+        "identifier_or_url": "arXiv:1406.3512; https://arxiv.org/pdf/1406.3512",
+        "material_read": "Full primary PDF available (13 pp.); title, abstract, introduction, exact MVS/MSD definitions, main algorithmic/hardness theorems and related work read; searched for small fixed zonotopes.",
+        "method": "Direct primary PDF text and page inspection, including arXiv version metadata and determinant definitions.",
+        "title": "On largest volume simplices and sub-determinants",
+        "trigger": "Initiating pre-2016 source on inscribed maximum-volume simplices and determinant optimization."
+      },
+      {
+        "assessment": "General center-containment and parallelotope lower bounds are not statements about four-generator three-zonotope tetrahedral volume fractions.",
+        "evidence": [
+          "2012 preprint pp.1–4, Corollary 3 and Proposition 17."
+        ],
+        "identifier_or_url": "https://dcglab.uniyar.ac.ru/sites/default/files/papers/preprints/Akopyan_Glazyrin_Volumes.pdf",
+        "material_read": "Complete four-page 2012 preprint including Lemma 1, Corollary 3, Radon argument, prism/parallelotope lemmas and final Proposition 17.",
+        "method": "Direct lawful open preprint PDF inspection.",
+        "title": "On maximum volume simplices in polytopes",
+        "trigger": "High-priority earlier full text on maximizing simplices in centrally symmetric bodies and parallelotopes."
+      },
+      {
+        "assessment": "The same family and classical volume denominator appear, but extremized quantities are intrinsic volumes, radii, width and squared generator volume sums, not maximal contained tetrahedron fraction.",
+        "evidence": [
+          "arXiv:2206.03204, Corollary 1 and Theorems 3–7; Section 5 open problems."
+        ],
+        "identifier_or_url": "arXiv:2206.03204; https://arxiv.org/pdf/2206.03204",
+        "material_read": "Twenty-four-page publicly accessible PDF: abstract/introduction, classical zonotope-volume formula and proof (Section 2), Section 3 theorem statements and relevant proofs, Section 4 framework, and closing open problems; searched complete parsed text for maximum simplex and tetrahedron terminology.",
+        "method": "Direct arXiv PDF inspection, theorem-by-theorem subject comparison, targeted document-wide searches and page visualization.",
+        "title": "Isoperimetric Problems for Zonotopes",
+        "trigger": "Directly addresses d+1 generator zonotopes and specifically regular rhombic dodecahedra, making full-text comparison essential."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "38fa15f2-5500-42b4-900f-4963dab37d64",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first genuinely non-parallelotope 3D zonotope class (four Minkowski summands) receives a sharp dimensionless maximum-inscribed-tetrahedron lower bound with a unique affine equality body. The parameter-sensitive strengthening relates a geometric occupancy extremum to the four generator minors and yields a quantitative necessary stability condition. The equality locus consists of eight isolated tetrahedra, unlike generic convex-body phenomena with continuous families. This is a motivated, structural geometric extremum rather than a textbook renaming, arbitrary thin slice, or only a computational count; any historical equivalent would alter its originality assessment.",
+    "status": "PASS"
+  }
+}
