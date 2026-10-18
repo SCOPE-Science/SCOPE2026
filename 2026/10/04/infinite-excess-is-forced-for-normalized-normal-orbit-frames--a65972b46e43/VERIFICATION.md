@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The verification is analytic and uses no numerical truncation.
+# Independent mathematical audit
 
-The checked primary source supplies four exact inputs: the unitary coefficient model \(\ell^2\simeq\mathcal H_0\), nontriviality of \(\ker J^*\), atomicity of the spectral measure, and the zero-set characterization of \(\ker J^*\).
+## correctness
 
-From the outer-radius normalization,
-\[
-m_{n+1}\le m_n,
-\]
-so multiplication by \(z\) is contractive on \(\mathcal H_0\). The zero-set characterization therefore makes \(\ker J^*\) invariant under multiplication by \(z\). A nonzero analytic \(f\) cannot satisfy a nontrivial finite polynomial relation \(P f=0\), so \(f,zf,z^2f,\ldots\) are linearly independent. Their coefficient supports shift to the right, producing a nonzero kernel vector after every finite index.
+PASS
 
-The unitary coefficient map transfers the conclusion from \(J^*\) to the synthesis operator of the original normalized orbit frame.
+From Tian's full arXiv measure model, frame synthesis is J*:H0->L2(mu), ker J* contains a nonzero analytic f and equals the functions vanishing at spectral atoms. With support radius at most 1, m_{n+1}<=m_n so z multiplication is a contraction preserving ker J*. For all k, z^k f lie in kernel and are independent (P(z)f(z)=0 forces P=0 analytically); normalized coefficient support shifts at least k. Therefore synthesis kernel is infinite-dimensional with nonzero tail relations. Independent check: the bounded weighted forward shift intertwines the frame synthesis with T; normality forbids an injective Riesz-basis orbit, and shift-invariance rules out a finite-dimensional nonzero kernel. No finite experiments or arbitrary-removal claim.
 
-No claim is made that arbitrary deletions preserve the frame property.
+## originality
+
+PASS
+
+Best-of-knowledge new universal infinite-excess structural consequence of Tian's normalized measure model, not implied by existing unnormalized Carleson positive-operator redundancy statements.
+
+## value
+
+PASS
+
+Every normalized normal one-generator frame must have infinite excess, not merely one dependence: a universal redundancy theorem yields relations arbitrarily late in time and sharpens the recent spectral existence model. Such a structural restriction is meaningful without an arbitrary-subsequence removal theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
