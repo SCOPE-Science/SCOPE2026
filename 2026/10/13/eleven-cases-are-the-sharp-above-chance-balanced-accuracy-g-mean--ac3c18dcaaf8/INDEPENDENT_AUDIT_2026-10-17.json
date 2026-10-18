@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:13:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At common N and P with strictly positive confusion cells, exhaustive allowed TP∈[1,P−1], FP∈[1,N−P−1], FN=P−TP, TN=N−P−FP is complete. The exact rational identities B=(TP/P+TN/(N−P))/2, G²=TP·TN/[P(N−P)] and G²=B²−(s−c)²/4 hold. B>1/2 iff TP·TN>FP·FN. Fresh independently written exact Fraction census gives eligible-table/pair/weak/strict counts for N=4..11: (0,0,0,0),(2,0,0,0),(3,0,0,0),(10,8,0,0),(15,17,2,0),(26,48,4,0),(38,93,6,0),(60,216,16,6). Thus first weak disagreement N=8 and first strict reversal N=11, exactly six unordered pairs modulo three class-label flips. Explicit N=11 P=3 pairs (1,1,2,7) and (2,4,1,4) give B 29/48>7/12 but G² 7/24<1/3.",
+      "risk": [
+        "The threshold depends on fixed actual prevalence, above-chance restriction, strict positivity of every cell, and definition of Gmean using sensitivity/specificity."
+      ],
+      "sources": [
+        "Actual RESULT.md Git blob e0370914e44607a01cdf1d0d9af2705be7db154a",
+        "Source exact enumerator 29295cef3763810c2057575e8aef9f032ba54526",
+        "Fresh independent_1633_checks.py Fraction census"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Comparative literature discusses arithmetic versus geometric mean and tie splitting but does not determine minimum N under the exact four restrictions."
+        ],
+        "reasoning": "Arbitrary real s,c ranking reversals are broader in values, not stronger in discrete minimal sample threshold. If a prior full classification of all integer-score orderings existed it might dominate, none found in checked material.",
+        "searches": [
+          "de Diego et al 2022 General Performance Score balanced accuracy geometric mean",
+          "balanced accuracy geometric mean sensitivity specificity fixed prevalence sample size integer confusion matrix rank reversal first 11"
+        ]
+      },
+      "checked_sources": [
+        "Kubat & Matwin, ICML 1997",
+        "Brodersen et al ICPR 2010 DOI:10.1109/ICPR.2010.764",
+        "de Diego et al Applied Intelligence 2022 DOI:10.1007/s10489-021-03041-7",
+        "Resultary semantic query: balanced accuracy geometric mean sensitivity specificity fixed prevalence sample size integer confusion matrix rank reversal first 11"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The relation G²=B²−δ² explains reversal mechanism but gives no restriction-sensitive integer minimality without exhaustive search."
+        ],
+        "reasoning": "The exact six-pair count and N=11 first strict cutoff are not immediate consequences of the general metric definitions and comparative examples.",
+        "searches": [
+          "Kubat Matwin 1997",
+          "Brodersen et al 2010",
+          "de Diego et al 2022",
+          "balanced accuracy geometric mean sensitivity specificity fixed prevalence sample size integer confusion matrix rank reversal first 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original metrics are G=√(sensitivity·specificity) and B=(sensitivity+specificity)/2; classical AM–GM does not contain integer-lattice cutoffs."
+        ],
+        "reasoning": "The fixed prevalence grid plus all-cells-positive and B>1/2 hypotheses exclude generic continuous counterexamples; prior definitions alone do not imply sharp N=11 by a stated established result.",
+        "searches": [
+          "balanced accuracy geometric mean sensitivity specificity fixed prevalence sample size integer confusion matrix rank reversal first 11",
+          "Kubat Matwin 1997 one-sided selection Gmean",
+          "Brodersen et al 2010 balanced accuracy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest semantic hits concern other finite-sample tests and metric statistics, not an exact finite confusion-table rank-reversal catalogue."
+        ],
+        "reasoning": "No exact database of all classifier-table comparisons through N=11 identified; absence in search is not a proof of novelty.",
+        "searches": [
+          "balanced accuracy geometric mean sensitivity specificity fixed prevalence sample size integer confusion matrix rank reversal first 11",
+          "Search exact matrices 1 1 2 7 and 2 4 1 4 balanced accuracy Gmean"
+        ]
+      },
+      "rationale": "Earlier classifier-metric papers define and compare these two scores, and AM–GM inequalities already show qualitative differences, but the sharp restricted common-prevalence integer-table threshold and full first strict layer were not located. Originality is the finite extremal classification, not non-equivalence of the metrics.",
+      "residual_risks": [
+        "An unindexed educational confusion-table example may show witness without describing the complete restricted N≤11 theorem.",
+        "Primary comparative articles not all certified examined cover-to-cover; claims about them limited to material seen."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior Gmean, not the new finite-reversal boundary.",
+          "evidence": [
+            "Gmean uses product of positive and negative class accuracies."
+          ],
+          "identifier_or_url": "Kubat and Matwin, ICML 1997",
+          "material_read": "Metric definitions and stated class-imbalance goal as available in source excerpts/related material.",
+          "method": "Bibliographic and available source material; not asserting complete full-text noncoverage.",
+          "title": "Addressing the Curse of Imbalanced Training Sets: One-Sided Selection",
+          "trigger": "G-mean definition and motivation"
+        },
+        {
+          "assessment": "Prior balanced accuracy definition, no cutoff established in inspected material.",
+          "evidence": [
+            "B arithmetic mean of specificity and sensitivity."
+          ],
+          "identifier_or_url": "DOI:10.1109/ICPR.2010.764",
+          "material_read": "Metric formula and motivation from available primary source records.",
+          "method": "Primary source/bibliographic inspection.",
+          "title": "The Balanced Accuracy and Its Posterior Distribution",
+          "trigger": "Same balanced-accuracy metric"
+        },
+        {
+          "assessment": "Generic ranking differences and tie splitting are prior context, exact restricted finite layer not found.",
+          "evidence": [
+            "General class-score comparison and inequalities."
+          ],
+          "identifier_or_url": "DOI:10.1007/s10489-021-03041-7",
+          "material_read": "Available sections/excerpts discussing score comparisons and ties; no complete-article exclusion claimed.",
+          "method": "Primary article accessible material reviewed.",
+          "title": "General Performance Score for classification problems",
+          "trigger": "Closest comparative score literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Balanced accuracy and the sensitivity–specificity geometric mean are canonical scores for imbalanced classification; a complete smallest-test-set boundary after realistic same-prevalence and nondegenerate above-chance restrictions is a motivated exact decision comparability threshold. Six first-layer reversals distinguish genuine opposite strict choices from mere ties. It does not claim statistical superiority of either score.",
+      "risk": [
+        "The integer cutoff depends on the chosen operational restrictions and does not imply a universal continuous-performance theorem."
+      ],
+      "sources": [
+        "Kubat–Matwin and Brodersen definitions",
+        "Exact rational finite classification"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Both classifiers must share N,P; all four confusion cells >0 and BA>1/2.",
+    "No uncertainty modeling or classification beyond first strict layer N=11."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,51 +18,25 @@
   "schema_version": 1
 }
 ---
-Write sensitivity and specificity as
-\[
-s=\frac{TP}{P},
-\qquad
-c=\frac{TN}{N-P}.
-\]
-Then
-\[
-B=\frac{s+c}{2},
-\qquad
-G^2=sc,
-\qquad
-G^2=B^2-\frac{(s-c)^2}{4}.
-\]
 
-The embedded `verify_balanced_accuracy_gmean_boundary.py` enumerates every positive-cell binary confusion matrix through total eleven, retains exactly those satisfying
-\[
-B>\frac12,
-\]
-and compares every unordered pair at common prevalence using exact rational arithmetic.
+# Independent mathematical audit
 
-It verifies no strict reversal for
-\[
-N\le10,
-\]
-the first weak-only disagreement at
-\[
-N=8,
-\]
-and exactly six strict reversals at
-\[
-N=11.
-\]
+## correctness
 
-It also verifies global class-label complement symmetry and the determinant identity
-\[
-s+c-1
-=
-\frac{TP\,TN-FP\,FN}{P(N-P)}.
-\]
+PASS
 
-Run:
+At common N and P with strictly positive confusion cells, exhaustive allowed TP∈[1,P−1], FP∈[1,N−P−1], FN=P−TP, TN=N−P−FP is complete. The exact rational identities B=(TP/P+TN/(N−P))/2, G²=TP·TN/[P(N−P)] and G²=B²−(s−c)²/4 hold. B>1/2 iff TP·TN>FP·FN. Fresh independently written exact Fraction census gives eligible-table/pair/weak/strict counts for N=4..11: (0,0,0,0),(2,0,0,0),(3,0,0,0),(10,8,0,0),(15,17,2,0),(26,48,4,0),(38,93,6,0),(60,216,16,6). Thus first weak disagreement N=8 and first strict reversal N=11, exactly six unordered pairs modulo three class-label flips. Explicit N=11 P=3 pairs (1,1,2,7) and (2,4,1,4) give B 29/48>7/12 but G² 7/24<1/3.
 
-`python3 verify_balanced_accuracy_gmean_boundary.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+Earlier classifier-metric papers define and compare these two scores, and AM–GM inequalities already show qualitative differences, but the sharp restricted common-prevalence integer-table threshold and full first strict layer were not located. Originality is the finite extremal classification, not non-equivalence of the metrics.
+
+## value
+
+PASS
+
+Balanced accuracy and the sensitivity–specificity geometric mean are canonical scores for imbalanced classification; a complete smallest-test-set boundary after realistic same-prevalence and nondegenerate above-chance restrictions is a motivated exact decision comparability threshold. Six first-layer reversals distinguish genuine opposite strict choices from mere ties. It does not claim statistical superiority of either score.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
