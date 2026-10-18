@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "All hypotheses and degenerate coefficients included. An exact DFT identifies all modes except ±d; two real alternating sums recover a_d times conjugate(a_0) iff sin(d Δ)≠0; rational circle-reflection identities force f/g constant under nontrivial radial dilation; explicit z^d±i e^{idθ1} proves necessity. A direct 2×2 Gram diagonalization gives sharp singular values. The packaged checker passed 990 numerical formula/ambiguity tests across degrees 1–15; infinite validity comes from the supplied symbolic proof, not from extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pohl–Li–Boche 2017 page 18 states 4d amplitudes on concentric circles with allocation 2d+1 / 2d-1, not balanced 2d / 2d.",
+        "Bodmann–Hammen section 2.3 places samples on two intersecting circles, a different incidence geometry.",
+        "Chalendar–Partington proves continuous two-circle uniqueness and a different finite Blaschke-product uniqueness condition."
+      ],
+      "reasoning": "The closest general 4d theorem has the same total cardinality but uses different per-circle distributions; neither its stated hypotheses nor its construction directly entails universal injectivity for the balanced regular polygons, let alone an exact angular failure set and sharp two-channel conditioning.",
+      "searches": [
+        "doi:10.1109/SAMPTA.2017.8024411, full open 22-slide presentation pages 13–18",
+        "arxiv:1302.5487, section 2.3",
+        "arxiv:2403.16255, Theorems 2.6, 2.8, 2.11"
+      ]
+    },
+    "checked_sources": [
+      "Bodmann–Hammen, arXiv:1302.5487 (2013), Theorem 2.3",
+      "Pohl–Li–Boche, SampTA 2017, DOI:10.1109/SAMPTA.2017.8024411, full open presentation pages 13–18",
+      "Chalendar–Partington, arXiv:2403.16255, Theorems 2.6, 2.8 and 2.11",
+      "public mathematical-claims archive published findings, six targeted semantic searches plus broader explorations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013 theorem samples intersecting circles; 2017 theorem uses 2d+1 and 2d-1 samples; 2024 theorem assumes knowledge on entire circles.",
+        "The candidate exhibits a sharp aligned-grid counterexample, while the balanced staggered configuration recovers the only aliased Nyquist pair."
+      ],
+      "reasoning": "The known continuous statement supplies step 3 of the proof but not step 2; the known low-redundancy finite theorem supplies a 4d measurement count but not this different balanced sample arrangement. The exact necessity, sufficiency, and angular minimax law do not follow as corollaries without an additional nontrivial alias calculation.",
+      "searches": [
+        "Bodmann and Hammen arxiv:1302.5487, Theorem 2.3",
+        "Pohl, Li, Boche DOI:10.1109/SAMPTA.2017.8024411, presentation page 18",
+        "Chalendar and Partington arxiv:2403.16255, Theorem 2.6",
+        "public mathematical-claims archive: balanced 2d+2d phaseless samples of degree-d analytic polynomials on two concentric circles and sharp angular Nyquist rank"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 2.6 of Chalendar–Partington establishes two full-circle moduli imply a global phase, not recovery of those moduli from a balanced finite grid.",
+        "The only collision among Fourier modes from -d through d on 2d equispaced points is ±d; the two offsets determine its real and imaginary parts precisely when the sine is nonzero."
+      ],
+      "reasoning": "Continuous two-circle uniqueness is explicitly separated from the new balanced 2d+2d finite-grid if-and-only-if; Fourier aliasing is known but its incorporation into a universal phase-retrieval classification is the comparison target.",
+      "searches": [
+        "public mathematical-claims archive: balanced 2d+2d phaseless samples of degree-d analytic polynomials on two concentric circles and sharp angular Nyquist rank",
+        "Web: phaseless two concentric circles roots unity finite polynomial",
+        "arxiv:2403.16255, Theorem 2.6 and Theorem 2.11"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved database hit stated the balanced two-circle phase-retrieval criterion.",
+        "Closest public mathematical-claims archive record 2026/10/11/SCOPE-sharp-determinant-stability-and-conditioning-of-concentric-szeg--44f30fce73fa concerns linear Szegő-kernel Gram determinants, not squared-modulus polynomial identifiability.",
+        "Another record, 2026/10/4/SCOPE-exact-finite-grid-phase-minimum-for-the-consecutive-unimodular-t--49933ee8abec, concerns peak minimization of a fixed three-term unimodular polynomial, not two-circle phase retrieval."
+      ],
+      "reasoning": "These are semantic-retrieval observations, not proof of database completeness or publication novelty. Their mathematical objects and quantified statements do not imply the candidate theorem.",
+      "searches": [
+        "public mathematical-claims archive: degree d complex polynomial phaseless point evaluations on two concentric circles, 2d equally-spaced nodes per circle, nonaligned angular grids uniqueness phase retrieval",
+        "public mathematical-claims archive: staggered two-circle roots-of-unity modulus polynomial phase retrieval Nyquist alias angle",
+        "public mathematical-claims archive: finite magnitude polynomial recovery roots of unity on two distinct radii sharp angular offset"
+      ]
+    },
+    "rationale": "The closest inspected prior 2017 concentric 4d construction is strictly asymmetric (2d+1/2d-1); the 2013 polynomial low-redundancy scheme uses intersecting circles; the 2024 full-circle uniqueness theorem does not supply finite balanced Nyquist reconstruction. Explicit public mathematical-claims archive searches returned no same statement. The present exact if-and-only-if for 2d/2d concentric polygon samples and unique optimal offset are not directly implied by the compared prior statements. Publication-priority uncertainty remains.",
+    "residual_risks": [
+      "The elementary 2d Fourier alias argument may have appeared implicitly in older applied signal-processing literature not found by textual/semantic retrieval.",
+      "The open Pohl–Li–Boche slide set was inspected for the near-identical construction; a complete journal-style proof of every possible corollary was not available in that slide set.",
+      "No claim of independent publication-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTEXT_NOT_COVERING: samples are on intersecting circles mapped to irrational-angle lines rather than concentric balanced regular polygons.",
+        "evidence": [
+          "Theorem 2.3 uses 2d−1 points on a transformed circle plus 2d−3 additional points on the unit circle for degree at most d−1; their circles meet at two points."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1302.5487",
+        "material_read": "Full displayed theorem and proof of Section 2.3 (PDF printed page 3), plus introduction (pages 1–2)",
+        "method": "Read paper PDF text and inspect page-image of Theorem 2.3 and its proof",
+        "title": "Stable phase retrieval with low-redundancy frames",
+        "trigger": "Earlier low-redundancy polynomial phase-retrieval construction with 4d measurements"
+      },
+      {
+        "assessment": "CLOSEST_PRIOR_NOT_COVERING_BY_STATED_THEOREM: allocates 2d+1 outer and 2d−1 inner amplitudes rather than balanced 2d+2d; no angular if-and-only-if or Nyquist condition-number classification.",
+        "evidence": [
+          "Presentation page 18 explicitly requires 2N+1 samples on outer unit circle and 2N−1 on inner circle, total 4N."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/SAMPTA.2017.8024411",
+        "material_read": "Open 22-page presentation: pages 13–18 concerning two-circle polynomial reconstruction, including page 18 theorem and sample counts",
+        "method": "Read presentation PDF text and inspect full page-images of pages 17 and 18",
+        "title": "Phase retrieval in spaces of analytic functions on the unit disk",
+        "trigger": "Extremely close 4d intensity construction using concentric circles"
+      },
+      {
+        "assessment": "CONTEXT_NOT_COVERING: proves uniqueness from complete circle moduli, or from extra boundary data and a finite inner set, but does not establish balanced 2d+2d finite-grid identifiability.",
+        "evidence": [
+          "Theorem 2.6 assumes |f|=|g| on both entire circles; Theorem 2.11 uses boundary agreement plus sufficiently many inner points for finite Blaschke products."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.16255",
+        "material_read": "Theorem 2.6 and proof on page 5, Theorems 2.8 and 2.11 on pages 6–8, and finite-sample remarks",
+        "method": "Read PDF theorem text and inspect page-image of theorem 2.6",
+        "title": "Phase retrieval on circles and lines",
+        "trigger": "Potential stronger two-circle modulus uniqueness and finite observations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "12ae1d0f-43de-49fc-8912-00337b4cdb5d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The balanced 2d/2d allocation is a natural low-redundancy competitor to published 2d+1/2d−1 concentric designs, and its universal injectivity has a sharp geometric obstruction rather than generic-position hypotheses. Recovering both complete circle intensities from precisely 4d samples and determining the uniquely optimally staggered Nyquist geometry provides constructive design and a full exact classification, not a routine scalar example. Full nonlinear noise stability is explicitly outside the claim.",
+    "status": "PASS"
+  }
+}
