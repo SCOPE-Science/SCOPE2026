@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source equation is \(f=y^4-2(\phi_1+\phi_2)y^2+(\phi_1-\phi_2)^2\), with pairwise-disjoint quartic branch divisors and characteristic \(0\) or at least \(5\). At an affine singular point, the source identifies the point with a root of \(h_1=-(\phi_1-\phi_2)\). Because \(\phi_1=\phi_2\ne0\) there, the coefficient of the transverse square is a unit, and formal Morse reduction gives \(V^2-U^{2m}\), where \(m\) is the root multiplicity. At \((0:1:0)\), the homogenized equation has transverse square \(s^2\) and residual order exactly four, giving \(A_3\). At \((1:0:0)\), when present, the residual term is \((d_2s-d_3s^2+d_4s^3)^2\), giving \(A_1,A_3,A_5\) according to its order. The seven baskets all have total \(\delta=5\), matching the plane-sextic genus defect. The packaged checker independently verifies the algebraic expansions and table arithmetic.
+## correctness
 
-Risk: the formal Morse lemma is used over a complete local ring; the characteristic hypothesis ensures that the relevant derivatives and unit-root coordinate changes are valid. The claim does not extend to excluded small characteristics.
+PASS
 
-## Originality
-PASS. The closest source is Kudo's part-II paper itself. It proves irreducibility, locates all singular points, and classifies them only by multiplicity two and by the root pattern of \(h_1\); its generic conclusion is “four double points.” Direct inspection of the singularity section and Table 1 found no \(A_1\), \(A_3\), \(A_5\), node-versus-tacnode basket, or local analytic normal-form classification. Targeted searches for the exact paper together with “tacnode,” “A3,” “A5,” “ADE,” and “local analytic type” found no covering statement. Moriya--Kudo part I is a necessary comparison because it uses tacnode language, but it treats a different sextic construction; its tacnode observation for certain special double points does not imply the part-II seven-stratum table.
+On the affine chart y=0 at a root xi of the quartic difference b=phi1-phi2, distinct branch loci force phi1(xi)=phi2(xi)≠0, so the quadratic coefficient in y is a unit and completed-square/Morse reduction gives V²+unit*b(xi+u)², the A_{2m-1} germ for root multiplicity m. At P∞ on chart Y=1, homogenization yields a unique quadratic s² with critical section s=O(r³) and residual −4r⁴+O(r⁶), so A3 in every stratum (allowed char is not 2). At Q∞ on chart X=1 when d1=0 the v² coefficient is -4 and transverse critical section v=0; D(1,s)=d2*s−d3*s²+d4*s³ yields A1, A3, A5 for leading order 1,2,3. These give I-1/II-1 3A1+A3, I-2/II-2/II-3 A1+2A3, and I-3/II-4 A3+A5, all delta=5 matching sextic genus defect. Independently checked leading coefficients, orders and all seven basket sums exactly using symbolic arithmetic. Formal coordinate reductions, not the finite symbolic check alone, prove the uniform assertion.
 
-The closest indexed records returned by semantic search were unrelated singularity refinements, including `2026/10/4/SCOPE-a-hidden-a-5-point-in-hels-s-8-6-4-hermitian-quartic--b60418bd8981`, `2026/10/4/SCOPE-a-7a-1-3a-3-hessian-quartic-at-the-exceptional-3a-1-cubic-parame--28ad0c5658dd`, and `2026/10/4/SCOPE-the-h3-unexpected-sextic-is-a-rational-curve-with-one-ordinary-q--1894da80c4a2`; none concerns Howe sextics. The current and prior ledgers were also searched for “Howe,” the source identifiers, ADE aliases, and the seven basket patterns, with no overlapping finding.
+## originality
 
-Residual risk: a paper or note not indexed by the searched systems may have already made this local-analytic refinement under different terminology.
+PASS
 
-## Value
-PASS. The refinement is mathematically structural rather than a cosmetic relabeling. The source's generic phrase “four double points” leaves open whether the points are nodes, tacnodes, or worse multiplicity-two singularities. The new classification shows that the point at infinity is generically a tacnode and explains exactly how degenerations of the cubic \(h_1\) trade affine nodes for higher \(A\)-singularities while preserving total \(\delta=5\). This supplies the conductor/genus contribution of every singularity in every source stratum and gives a uniform local mechanism for the whole family.
+PASS best-of-knowledge: the exact originating primary paper Kudo Part II (arXiv:2401.00760) gives singularity coordinates and multiplicity two with seven parameter strata, but not the completed local normal forms or ADE types. Part I arXiv:2310.15993 discusses other tacnodes for a different sextic; its results do not determine this Part II analytic basket. A1/A3/A5 and local delta refinements require actual local expansion beyond multiplicity two. Targeted searches returned no equivalent seven-basket refinement; alternative unindexed local analytic classifications remain possible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: Node versus tacnode/higher two-branch contact affects local delta, intersection theory and resolution of the natural explicit genus-five Howe plane sextic. The complete seven-row ADE classification corrects an easy misreading of four multiplicity-two points as four nodes, explains the fixed genus defect five, and resolves all singularity analytic types for precisely the published family. This is a motivated singularity refinement, not mere renaming of the published location/count table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
