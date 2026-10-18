@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and exact checks
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing the supplied file. Only the Python standard library is required. The program itself reconstructs all finite combinatorial sets and does not load recorded outputs or external paths. It prints `VERIFY_OK` only if all assertions succeed.
+## correctness
 
-The checks include all 29 field residues, the graph's strong regularity and diameter; exhaustive clique enumeration with face counts \((29,203,406,203)\); absence of five-cliques; exactly two tetrahedral cofaces per triangle; connected and nonorientable tetrahedral dual; all 29 vertex links being connected, closed, nonorientable triangulated surfaces of face vector \((14,42,28)\); all 203 edge links being six-cycles; integral elementary unit-pivot reduction of the 175 non-tree-edge coordinate presentation for \(H_1\); and independent binary boundary ranks \((28,175,202)\).
+PASS
 
-The integral \(H_2\) torsion follows from the explicitly proved signed-dual-incidence Smith-form lemma. The standalone code verifies every hypothesis for this lemma, and does not assert that modulo-two ranks alone prove torsion. The coefficient-field barcode is deduced from the exact integral groups and the verified diameter-two metric.
+Verified pinned field-residue adjacency with 29 vertices, 203 edges, 406 triangles, 203 tetrahedra and no K5. Exhaustively independently checked all 29 vertex links are connected 14–42–28 triangulated nonorientable closed surfaces, so Klein bottles, and dual tetrahedra orientation obstruction. Reconstructed primal spanning-tree cycle lattice and all 406 triangle boundary columns: complete 175 integer unit pivots prove H1(Z)=0. Signed connected unbalanced dual incidence gives SNF(∂3)=1^202,2; exact sequence gives H2=Z^28⊕Z/2 and H3=0. Graph diameter 2 yields barcode by UCT.
 
-Expected leading output:
+## originality
 
-`VERIFY_OK vertices=29 edges=203 triangles=406 tetrahedra=203 triangle_degrees=2 dual_connected=yes dual_nonorientable=yes vertex_links=29_Klein_bottles edge_links=203_C6 unit_d2_pivots=175 mod2_ranks=(28,175,202) H0=Z H1=0 H2=Z^28+Z/2 H3=0`
+PASS
 
-The second output line reports one concrete orientation conflict between oriented tetrahedra. The calculation is finite and exact; no all-parameter extension and no independent audit are claimed.
+Published Paley(29) independence-complex homotopy covers H2 and field barcodes via self-complementarity; the narrowly delineated 29 Klein-bottle vertex-link normal-pseudomanifold classification is not implied by that global result or the 2026 SRG first-cohomology theorem. Accept ONLY that remaining local structural novelty, not the two-torsion itself.
+
+## value
+
+PASS
+
+The order-29 Paley graph and inclusive radius-one Rips complex are canonical finite-field/Cayley objects; 29 nonorientable Klein surface links demonstrate a specific local-to-global singular 3-pseudomanifold phenomenon not implied by an already known global H2 computation. This is a natural structural invariant rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the precisely defined 29-vertex graph, the exhaustive source-level verifier checks the 29/203/406/203 face vector, the absence of larger cliques, exactly two tetrahedra at every triangle, connected tetrahedral dual, 29 connected nonorientable surface vertex links with face vector 14/42/28, and 203 six-cycle edge links. The closed nonorientable surfaces are Klein bottles. The connected unbalanced signed dual incidence matrix has integral Smith factors consisting of 202 units and one 2, so it has no kernel and its cokernel has exactly one order-two summand. The independent integral cycle presentation of \(H_1\) reduces through 175 unit pivots to zero; the short exact sequence and free cokernel complete the integral \(H_2\) computation. Mod-two ranks \((28,175,202)\) independently corroborate the groups. The proof does not confuse finite checks with an infinite theorem.
+PASS
 
-## Originality — PASS, with residual risk
+Verified pinned field-residue adjacency with 29 vertices, 203 edges, 406 triangles, 203 tetrahedra and no K5. Exhaustively independently checked all 29 vertex links are connected 14–42–28 triangulated nonorientable closed surfaces, so Klein bottles, and dual tetrahedra orientation obstruction. Reconstructed primal spanning-tree cycle lattice and all 406 triangle boundary columns: complete 175 integer unit pivots prove H1(Z)=0. Signed connected unbalanced dual incidence gives SNF(∂3)=1^202,2; exact sequence gives H2=Z^28⊕Z/2 and H3=0. Graph diameter 2 yields barcode by UCT.
 
-The closest direct graph-specific paper, Cioabă–Guo–Ji–Mim (2026; DOI 10.1016/j.laa.2025.10.013), explicitly includes Paley-29 in its Theorem 5.21 class and obtains first-cohomology vanishing. That component is acknowledged as prior coverage, not presented as novel. The inspected theorem, example and surrounding discussion do not determine the integral \(H_2\) torsion or classify the vertex links. Rinaldo–Romeo's study of Paley-17 is a distinct two-dimensional case. Adamaszek–Adams' circle theorem handles another metric family, not Paley-29. Targeted exact-parameter and equivalent-formulation searches found no stronger theorem or table that implies the Klein links or this integral homology, but this is not a proof of uniqueness; overlooked or unindexed calculations remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-Paley-29 is a canonical self-complementary strongly regular finite-field graph, and its clique complex is a natural intrinsic-scale Rips object. A transitive graph whose every vertex link is a Klein bottle is a substantive local/global topology phenomenon, not an arbitrary small-parameter restatement. Its integral torsion changes the persistence barcode over characteristic two and supplies an exact reproducible benchmark for strong-regularity clique topology. The precise invariant is motivated independently of the computation, even without an all-parameter theorem.
+Published Paley(29) independence-complex homotopy covers H2 and field barcodes via self-complementarity; the narrowly delineated 29 Klein-bottle vertex-link normal-pseudomanifold classification is not implied by that global result or the 2026 SRG first-cohomology theorem. Accept ONLY that remaining local structural novelty, not the two-torsion itself.
 
-## Methodological boundaries
+## value
 
-This review is a same-model scientific check of the stated finite theorem and the supplied standalone verifier, not an independent audit. No general classification, complete homotopy type, integral cohomology ring or proof against all unidentified literature is claimed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The order-29 Paley graph and inclusive radius-one Rips complex are canonical finite-field/Cayley objects; 29 nonorientable Klein surface links demonstrate a specific local-to-global singular 3-pseudomanifold phenomenon not implied by an already known global H2 computation. This is a natural structural invariant rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
