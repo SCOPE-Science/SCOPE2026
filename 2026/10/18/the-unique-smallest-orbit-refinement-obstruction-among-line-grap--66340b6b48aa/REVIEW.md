@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The finite classification is supported by an explicit mathematically complete leaf-attachment generation and an exact recursive rooted-tree isomorphism invariant. A second, logically different checker independently computes full graph automorphisms of the witness. The graph's two-class equitable quotient and its three true orbit classes also have a short direct proof. The standalone checker reproduces exactly 47 unlabelled nine-vertex trees with one failure; all smaller sizes are exhausted. Finite coverage, not extrapolation to all orders, is claimed.
+
+**Originality — PASS (qualified).** The nearest inspected full-text study, Arvind–Köbler–Rattan–Verbitsky (2015), proves forests amenable and gives Johnson-graph examples, but those do not imply preservation of orbit-refinability by taking line graphs of trees. The accessible introduction and abstract of Kiefer–Schweitzer–Selman (2015) establish the general logical context without giving the claimed sharp tree-order obstruction. Searches also considered tree-edge rooted refinement, block graphs and equitable partitions. No equivalent or stronger statement was identified, though specialized prior coverage remains possible and independently established priority is not asserted.
+
+**Value — PASS.** The result isolates a sharp natural boundary for colour refinement under the line-graph operation. The original graphs are trees, a class on which refinement is especially strong; a unique smallest tree nevertheless produces a line graph with equitable classes strictly coarser than its automorphism orbits. The witness has an explicit structural explanation, rather than relying only on a census, and one arbitrary individualized vertex repairs the failure. A complete minimal classification is useful for testing preservation theorems and their hypotheses. It does not settle larger orders.
+
+The chief residual risks are a previously published equivalent small-obstruction census, and software implementation error despite the elementary coverage proof and independent witness checker. General all-size uniqueness is neither claimed nor inferred.
+
+Self-review: passed. Independent audit: not yet performed.
