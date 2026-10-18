@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** After translation to the symmetry center, the zonotope is the Minkowski sum of symmetric edge segments in the zero-sum hyperplane. Its support function is exactly one half of the weighted graph total variation. Central symmetry reduces the unrestricted inradius to the centered ball. The layer-cake representation of a mean-zero vector, discrete coarea identity, and Euclidean triangle inequality prove that every vector has total-variation quotient at least the minimum centered cut quotient; a minimizing centered cut indicator attains equality. The proof covers all finite connected graphs with strictly positive edge weights. Exact finite replay through five vertices corroborates the normalization and equality mechanism but is not used as a proof of the general theorem.
+## correctness
 
-## Originality
-**PASS with stated residual risk.** The same-object paper by Padrol–Pilaud–Poullot was inspected in full-text form: it defines graphical zonotopes and develops deformation theory, while exact searches for “inradius” and “Cheeger” returned no occurrence. Xu's graphical-zonotope paper concerns face vectors. The nearest graph-analytic comparison, Mazón's Cheeger treatment, uses vertex-volume/\(L^1\)-median normalization rather than the centered-cardinality \(L^2\) quotient and contains no graphical-zonotope metric identification. Semantic searches over published findings for graphical zonotopes, inradii, Chebyshev balls, total variation, cuts, and isoperimetry returned no statement implying the theorem. The remaining risk is differently named graph-Sobolev literature; the claim therefore isolates the polyhedral metric identification and does not claim the coarea technique itself as new.
+PASS
 
-## Value
-**PASS.** Graphical zonotopes are a canonical family linking graph theory and polyhedral geometry. The result converts a genuinely Euclidean invariant of every positively weighted member into an exact graph cut optimization, making the inradius computable from edge-isoperimetric data and giving immediate closed forms for standard families such as complete graphs and paths. The weighted statement is structural rather than a finite-table recomputation and exposes a direct metric meaning for a natural \(L^2\)-normalized cut constant.
+Read exact RESULT.md at assigned source and verify layer cake/coarea proof: translation by c gives support h_K(u)=1/2 sum_{ij}w_ij|u_i-u_j| on mean-zero H; central symmetry averages any inscribed ball center back to zero. Each u in H integrates centered superlevel indicators v_S, whose norms are sqrt(|S|(n-|S|)/n). Discrete coarea plus triangle inequality yields TV(u)>=min_S [w(dS)/||v_S||] ||u||; u=v_S for a minimizing cut attains equality. Connectivity and positive edges make intrinsic dimension n-1, so formula is exact in all dimensions. Independently checked sample weighted P4/K4 cut and integer vector bounds; source verify.py exact finite n=2..5 is corroboration only.
 
-## Closest literature and limitations
-The closest same-object source is Padrol–Pilaud–Poullot, *Deformed Graphical Zonotopes* (arXiv:2111.12422; DOI 10.1007/s00454-023-00586-x). The closest analytic source inspected is Mazón, *The Cheeger Cut and Cheeger Problem in Metric Graphs* (arXiv:2203.07760; DOI 10.1007/s13324-022-00729-y). The theorem is intrinsic to the standard Euclidean realization, does not classify all centers, and retains a residual terminology-indexing risk in graph Sobolev theory.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical comparison of the complete statement and stronger potential prior claims: Their published polytope/combinatorial and graph-Cheeger statements are not strong enough to yield the claimed normalized metric invariant as a corollary; proof uses their objects but different quantity.
+
+## value
+
+PASS
+
+Natural Euclidean radius of a standard combinatorial polytope identified exactly with a normalized cardinality-cut expansion invariant across arbitrary weighted connected graphs; bridges convex width and graph total variation. This is more than renaming a constant because the intrinsic Chebyshev-ball identification and equality/center are proved, and the graph cut formula is independently usable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

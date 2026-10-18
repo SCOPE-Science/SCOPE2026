@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proved for every finite connected simple graph with strictly positive edge weights. The logical chain is: translate to the symmetry center; compute the zonotope support function as one half of weighted edge total variation; use central symmetry to reduce to a centered inscribed ball; express each mean-zero vector by centered superlevel-set indicators; apply discrete coarea and the Euclidean triangle inequality; and obtain equality from a minimizing centered cut indicator.
+# Independent mathematical audit
 
-The accompanying `verify.py` uses exact rational arithmetic. It enumerates all 771 connected labeled simple graphs on 2 through 5 vertices, applies two positive integer weightings to each graph, verifies all 44,796 nontrivial cut comparisons, and checks 74,220 nonzero mean-zero vectors with coordinates in {-1,0,1}. Replay output:
+## correctness
 
-`VERIFY_OK graphical-zonotope-inradius connected_graphs=771 weightings=1542 cut_checks=44796 vector_checks=74220 n=2..5`
+PASS
 
-This finite replay is corroborative only. It is not an exhaustive proof for arbitrary graph size or arbitrary real weights, and the general claim does not depend on it. The unresolved literature risk is possible alternative graph-Sobolev terminology for the variational quotient; no independent audit has been performed.
+Read exact RESULT.md at assigned source and verify layer cake/coarea proof: translation by c gives support h_K(u)=1/2 sum_{ij}w_ij|u_i-u_j| on mean-zero H; central symmetry averages any inscribed ball center back to zero. Each u in H integrates centered superlevel indicators v_S, whose norms are sqrt(|S|(n-|S|)/n). Discrete coarea plus triangle inequality yields TV(u)>=min_S [w(dS)/||v_S||] ||u||; u=v_S for a minimizing cut attains equality. Connectivity and positive edges make intrinsic dimension n-1, so formula is exact in all dimensions. Independently checked sample weighted P4/K4 cut and integer vector bounds; source verify.py exact finite n=2..5 is corroboration only.
+
+## originality
+
+PASS
+
+Best-of-knowledge mathematical comparison of the complete statement and stronger potential prior claims: Their published polytope/combinatorial and graph-Cheeger statements are not strong enough to yield the claimed normalized metric invariant as a corollary; proof uses their objects but different quantity.
+
+## value
+
+PASS
+
+Natural Euclidean radius of a standard combinatorial polytope identified exactly with a normalized cardinality-cut expansion invariant across arbitrary weighted connected graphs; bridges convex width and graph total variation. This is more than renaming a constant because the intrinsic Chebyshev-ball identification and equality/center are proved, and the graph cut formula is independently usable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
