@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim was reconstructed from the semantics rather than inferred from experiments. Boolean noun terms commute with disjoint union, all four sentence forms are preserved, and the realization construction was checked atom-by-atom. The finite-generation lemma for additive subsemigroups of \(\mathbb{N}^{+}\) is proved directly using least representatives modulo the least element. The construction handles zero-sized Boolean atoms and positive-universe spectra correctly.
+## correctness
 
-## Originality
-PASS. The direct 2026 source proves the base classification and supplies a noun-level multiples-of-three example, but not a classification of the extended spectra. Earlier work on union/intersection size logics studies proof systems and decidability without the same Boolean noun closure or a spectrum theorem. The closest broader analogue found is the ALCIF concept-cardinality spectrum theorem of Manière and Przybyłko; it concerns a different object and stronger formalism and does not imply the present result. Searches for aliases, numerical-semigroup phrasing, and the exact extension found no covering statement, and the owned ledgers contain no overlap.
+PASS
 
-## Value
-PASS. A complete spectrum classification is the natural next question once noun-level union is shown to express divisibility by three. The theorem replaces isolated divisibility examples by an exact algebraic boundary: every and only additive subsemigroups occur, and finite theories suffice. This is a substantive structural description of the extension's expressive power.
+Disjoint union of two models of the same theory preserves Boolean noun interpretation term-by-term even for complement taken relative to the entire disjoint-union universe. It preserves inclusion, nonempty intersection, non-strict |.| comparisons and strict |.| comparisons, so every nonempty spectrum is closed under addition. Any nonempty additive semigroup S⊆N+ has a least a and finitely many least occupied residue representatives modulo a; every s∈S is its residue representative plus q a, proving finite generation. For generators g_i, select sum g_i Boolean atoms (enough noun variables), block them into sizes g_i, force every unused atom empty by inclusion A⊆complement(A), and equate cardinalities within each block by mutual >= sentences. Their positive total model sizes are exactly all nonzero combinations sum g_i t_i with t_i≥0, and every such combination is realized. A contradictory theory gives empty spectrum. The finite examples 4a+7b were checked independently but are illustrative; the all-semigroup statement follows from the abstract proof and positive-universe boundary.
 
-## Closest literature and limitations
-The closest direct source is arXiv:2609.24902v1, especially Section 5.1. DOI 10.1609/aaai.v34i03.5677 is the closest earlier natural-logic study of size comparison with union/intersection terms. arXiv:2412.12929v1 gives the closest theorem with the same semigroup shape in a different description-logic spectrum setting. The present result is finite-model only and makes no complexity or minimal-size claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jiang 2026 proves base syllogistic finite spectra are tails/even tails, and explicitly demonstrates divisibility by 3 after noun Boolean closure; Section 5.1 does not present the complete arbitrary positive additive-semigroup classification in the material actually read. Kisby et al 2020 omit complement and do not classify finite universe spectra; Manière–Przybyłko 2025 show an analogous additive semigroup outcome for a different description-logic concept cardinality invariant, not an immediately dominating theorem for this restricted four-form language. The quantified converse construction supplies the apparent new structural classification, qualified by the possibility of unnoticed equivalence elsewhere.
+
+## value
+
+PASS
+
+Characterizing every realizable finite-universe spectrum of a natural logical extension exactly by positive additive semigroups is a complete expressive-power theorem, with a finite theory realization for each semigroup; it identifies a reusable algebraic invariant, unlike the prior single divisibility-by-three example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
