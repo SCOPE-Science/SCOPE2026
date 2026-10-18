@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T20:18:22.979654Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real 0<p<1 and p-metrics rho=d^p, the Cúth–Raunig finite spanning-tree norm formula reduces a signed three-terminal zero-mass vector to a weighted one-hub star; pruning zero-flow and suppressing degree-two nonterminal vertices preserves or decreases tree cost, and the finite-subset infimum covers arbitrary infinite superspaces. Thus ||mu||^p=inf_z∑|m_i|^p rho(t_i,z) and the intrinsic 3-point norm minimizes over terminal hubs. For arbitrary z, triangle inequalities yield norm_N^p≤S+min_i(A−2a_i)r_i≤(1+F^{-1})S, F=∑a_i/(A−2a_i)>0. For masses (−1,u,1−u), F≥t+1/(t−1)≥v+1/(v−1), where t=u^p+(1−u)^p≤v=2^(1−p)<2. The resulting factor 4/(4−2^(p+1)+2^(2p)) bounds every inverse norm. The explicit four-terminal star has rho arm lengths q^-1,q^-1,(2−q)^-1, masses (−2,1,1), realizes exact equality. Singleton molecule/zero mass and p approaching endpoints are handled; bounded symbolic and deterministic p tests corroborated exact ratio but are not the infinite-space proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General sharp unknown constant bounded by A^(1/p), A~13982; proposed K_p^p <2.",
+          "The finite tree formula computes each finite metric expression but does not pre-optimize over all embeddings and mass distributions."
+        ],
+        "reasoning": "Nonsharp theorem for arbitrary N does not dominate the exact 3-point value. The tree formula is a method for a new optimization, not its previously stated numerical solution.",
+        "searches": [
+          "Albiac–Ansorena 2026 arXiv:2603.28193v1 Theorem 3.5",
+          "Cúth–Raunig 2023 arXiv:2311.02920v1 Theorem 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md blob 5ad3c7f1a064a2921acbee773c410080145b866f",
+        "Git three_terminal_median_check.py blob 26342152903503c74f961d150a3cc4ae5d39aa6a",
+        "arXiv:2311.02920v1 Theorem 2.2/Proposition 3.24 full",
+        "arXiv:2603.28193v1 Theorem 3.5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published lower ≥c(p) and generic upper ≤A^(1/p) do not imply equality K_p=c(p); proof establishes missing upper ≤c(p) by median and F estimate."
+        ],
+        "reasoning": "The proposed equality is not already a corollary of existing inequalities at their stated constants; the comparison explicitly acknowledges the known matching lower case.",
+        "searches": [
+          "Theorem 2.2, Fact 1.1, Proposition 3.24 of arXiv:2311.02920v1",
+          "Theorem 3.5 of arXiv:2603.28193v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_p equals notation aa_p(2) already defined in the 2023 work; there the explicit value appears as a lower bound but no equality theorem found."
+        ],
+        "reasoning": "The exact invariant has been compared under native aa_p(2) notation, not merely under a new label. Sharp constant is the claimed equality, not its known witness.",
+        "searches": [
+          "Lipschitz free p three-point inclusion sharp inverse embedding constant Cúth Raunig median formula [Resultary, search_internal_error; not completed]",
+          "Cúth–Raunig 2023 Proposition 3.24 three-terminal aa_p(2)",
+          "three point free p-space canonical isomorphism distortion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Proposition 3.24 tabulates/constructs an extremal lower value, not a universal upper bound in full inspected text."
+        ],
+        "reasoning": "No finite numerical database settles the infinitely many exponents, ambient metrics and signed coefficients; attaining a known witness is not the remaining theorem.",
+        "searches": [
+          "Cúth–Raunig Proposition 3.24 sharp lower example",
+          "GitHub SCOPE search for 3-point free p inclusion (no matched files; non-exhaustive)"
+        ]
+      },
+      "rationale": "Cúth–Raunig 2023 Proposition 3.24 establishes exactly the attained lower witness, which is prior and not newly claimed. The fresh contribution is a universal sharp upper bound through a median reduction and scalar F inequality. Albiac–Ansorena 2026 universal bound is much weaker and does not imply this exact constant.",
+      "residual_risks": [
+        "Cúth–Raunig tree-norm theorem used as an externally cited result, materially inspected but not rederived from the universal property.",
+        "Semantic index unavailable search_internal_error; unindexed paper could contain the missing sharp upper bound.",
+        "Complex scalars or >3 terminals not assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 2.2 gives tree-norm; Proposition 3.24 states a matching explicit lower bound via weighted star. No sharp universal matching upper bound identified in inspected material.",
+          "evidence": [
+            "Cúth–Raunig 2023, Theorem 2.2, Proposition 3.24, page 19"
+          ],
+          "identifier_or_url": "arXiv:2311.02920v1; https://arxiv.org/pdf/2311.02920",
+          "material_read": "Full primary 21-page preprint including Fact 1.1, Theorem 2.2, Definition 3.1, Proposition 3.24 and adjacent proof; page 19 visually inspected",
+          "method": "ArXiv PDF full text and page image",
+          "title": "Canonical embedding of Lipschitz-free p-spaces",
+          "trigger": "Exact same three-terminal free p embedding quantity and known lower witness"
+        },
+        {
+          "assessment": "Uniform upper bound uses C(p)=A^(1/p) with A approximately 13982.564; far above three-terminal sharp p-power factor <2 and does not supply sharp K_p.",
+          "evidence": [
+            "Albiac–Ansorena 2026, Thm3.5"
+          ],
+          "identifier_or_url": "arXiv:2603.28193v1",
+          "material_read": "Full publicly available arXiv text, particularly Theorem 3.5 and surrounding cardinality-independent estimates",
+          "method": "ArXiv HTML/PDF text access",
+          "title": "Lipschitz extensions into p-Banach spaces, and canonical embeddings of Lipschitz-free p-spaces for 0<p<1",
+          "trigger": "New general uniform upper bound for arbitrary subset size could dominate three-point sharp constant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines the exact worst-case inverse norm of the smallest genuinely nontrivial canonical Lipschitz-free p inclusion, settling an explicit 2023 lower-bound witness as sharp uniformly in p and unrestricted ambient cardinality. This gives a sharp benchmark for nonlocal convex embedding constants, motivated by the existing aa_p(2) extremal question rather than a contrived star instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md blob 5ad3c7f1a064a2921acbee773c410080145b866f",
+    "Git three_terminal_median_check.py blob 26342152903503c74f961d150a3cc4ae5d39aa6a",
+    "arXiv:2311.02920v1 Theorem 2.2/Proposition 3.24 full",
+    "arXiv:2603.28193v1 Theorem 3.5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only real coefficients, 0<p<1, 3-point N, p-metric ambient spaces; no q>p or larger terminal classification.",
+    "Independent checks of star ratios at multiple p values supplement, not replace, the tree norm theorem and scalar proof."
+  ],
+  "residual_risks": [
+    "Cúth–Raunig tree-norm theorem used as an externally cited result, materially inspected but not rederived from the universal property.",
+    "Semantic index unavailable search_internal_error; unindexed paper could contain the missing sharp upper bound.",
+    "Complex scalars or >3 terminals not assessed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Theorem 2.2 gives tree-norm; Proposition 3.24 states a matching explicit lower bound via weighted star. No sharp universal matching upper bound identified in inspected material.",
+      "evidence": [
+        "Cúth–Raunig 2023, Theorem 2.2, Proposition 3.24, page 19"
+      ],
+      "identifier_or_url": "arXiv:2311.02920v1; https://arxiv.org/pdf/2311.02920",
+      "material_read": "Full primary 21-page preprint including Fact 1.1, Theorem 2.2, Definition 3.1, Proposition 3.24 and adjacent proof; page 19 visually inspected",
+      "method": "ArXiv PDF full text and page image",
+      "title": "Canonical embedding of Lipschitz-free p-spaces",
+      "trigger": "Exact same three-terminal free p embedding quantity and known lower witness"
+    },
+    {
+      "assessment": "Uniform upper bound uses C(p)=A^(1/p) with A approximately 13982.564; far above three-terminal sharp p-power factor <2 and does not supply sharp K_p.",
+      "evidence": [
+        "Albiac–Ansorena 2026, Thm3.5"
+      ],
+      "identifier_or_url": "arXiv:2603.28193v1",
+      "material_read": "Full publicly available arXiv text, particularly Theorem 3.5 and surrounding cardinality-independent estimates",
+      "method": "ArXiv HTML/PDF text access",
+      "title": "Lipschitz extensions into p-Banach spaces, and canonical embeddings of Lipschitz-free p-spaces for 0<p<1",
+      "trigger": "New general uniform upper bound for arbitrary subset size could dominate three-point sharp constant"
+    }
+  ]
+}

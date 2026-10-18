@@ -1,15 +1,21 @@
-# Scientific review: exact three-point free-\(p\) inclusion constant
+# Independent mathematical audit
 
-## Correctness — PASS
-All quantifiers, scalar field, and ambient \(p\)-metric hypothesis are explicit. The three-terminal median identity follows by pruning zero-flow edges and shortening degree-two Steiner paths in the finite tree-norm formula [2, Theorem 2.2], and by passage through all finite support supersets [2, Fact 1.1]. For nonzero masses, the metric triangle inequality yields the estimate by \(S+\min_i b_i r_i\); the scalar identity \(F=1/(t-1)+(t+s^2)/(1-s^2)\) and the monotonicity on \((1,2)\) give the universal constant. The finite four-point star realizes equality in both its ambient and intrinsic minimizations. Degenerate two-terminal molecules have unchanged norm. The extracted standalone finite verifier passed, but finite testing is not used as an infinite proof.
+## correctness
 
-## Originality — PASS with residual literature risk
-The 2023 Cúth--Raunig Proposition 3.24 gives the exact same *lower* witness and Theorem 3.9 gives qualitative isometry classification; neither asserts the matching universal *upper* bound. The inspected 2026 Albiac--Ansorena Theorem 3.5 proves universal embeddability with a much larger constant rather than a sharp three-point computation. Searches by names, weighted three-terminal formulations, point cardinality, parameters, and the exact algebraic value found no dominating exact evaluation. This is a statement-and-implication comparison, not an inference from a negative search alone. Residual risk: unindexed later resolution or an equivalent argument in related p-amenability work.
+PASS
 
-## Value — PASS
-The constant is a complete exact answer for the first nontrivial subset size: one- and two-point subsets embed isometrically, whereas three-point subsets can distort. It sharpens a specifically motivated, previously conjectured-optimal lower example into a universal theorem, making the four-point star an optimal benchmark. The result does not claim the harder higher-cardinality problem.
+For real 0<p<1 and p-metrics rho=d^p, the Cúth–Raunig finite spanning-tree norm formula reduces a signed three-terminal zero-mass vector to a weighted one-hub star; pruning zero-flow and suppressing degree-two nonterminal vertices preserves or decreases tree cost, and the finite-subset infimum covers arbitrary infinite superspaces. Thus ||mu||^p=inf_z∑|m_i|^p rho(t_i,z) and the intrinsic 3-point norm minimizes over terminal hubs. For arbitrary z, triangle inequalities yield norm_N^p≤S+min_i(A−2a_i)r_i≤(1+F^{-1})S, F=∑a_i/(A−2a_i)>0. For masses (−1,u,1−u), F≥t+1/(t−1)≥v+1/(v−1), where t=u^p+(1−u)^p≤v=2^(1−p)<2. The resulting factor 4/(4−2^(p+1)+2^(2p)) bounds every inverse norm. The explicit four-terminal star has rho arm lengths q^-1,q^-1,(2−q)^-1, masses (−2,1,1), realizes exact equality. Singleton molecule/zero mass and p approaching endpoints are handled; bounded symbolic and deterministic p tests corroborated exact ratio but are not the infinite-space proof.
 
-## Closest prior literature and limitations
-Cúth--Raunig, arXiv:2311.02920v1, Proposition 3.24 and Theorem 3.9; Albiac--Ansorena, arXiv:2603.28193v1, Theorem 3.5. No claim is made for complex scalars, a larger terminal set, or ambient \(q\)-metrics with \(q>p\). A distinct scalar normalization must not be confused with the \(p\)-th power of the inverse norm. As with any literature comparison, unindexed equivalents may exist.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Cúth–Raunig 2023 Proposition 3.24 establishes exactly the attained lower witness, which is prior and not newly claimed. The fresh contribution is a universal sharp upper bound through a median reduction and scalar F inequality. Albiac–Ansorena 2026 universal bound is much weaker and does not imply this exact constant.
+
+## value
+
+PASS
+
+Determines the exact worst-case inverse norm of the smallest genuinely nontrivial canonical Lipschitz-free p inclusion, settling an explicit 2023 lower-bound witness as sharp uniformly in p and unrestricted ambient cardinality. This gives a sharp benchmark for nonlocal convex embedding constants, motivated by the existing aa_p(2) extremal question rather than a contrived star instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
