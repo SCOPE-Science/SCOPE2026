@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For all n>=7 the proof eliminates empty columns by cost k+2>=3 per maximal distance-two zero block; two disjoint endpoint pairs then force minimum n+2 and precisely two size-two columns. A singleton core of length >=3 must be a three-color rainbow period, giving six phases. Each flanking double has two choices and any outside endpoint singleton is forced. Each of the four profiles contributes 6*2*2=24 distinct valid sets, total 96. Direct brute graph enumeration n=2..7, a transfer DP n=1..200, and independently generated structures corroborate all tested instances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2409.16703v1 Corollary 1 covers scalar minimum sizes for C_n with circumference divisible by three, including C_3, but no optimizer counts.",
+        "doi:10.1007/s40314-025-03201-2 Proposition 12 and the cited corollary give numerical weak/ordinary/rainbow two-domination bounds, not the labeled count.",
+        "doi:10.1007/s11227-022-04574-5 implements min-plus optimization for small path factors, not counting minimum two-domination sets."
+      ],
+      "reasoning": "Broader circumference families subsume the old numerical equality, not the present count or structural classification; the different weak, Italian, rainbow, super, and broadcast variants are not equivalent extremizer-count statements.",
+      "searches": [
+        "\"The 2-domination number of cylindrical graphs\" Martinez Castano Puertas 2022 theorem",
+        "\"On 2-domination and 2-rainbow domination of cylindrical graphs\"",
+        "doi:10.1007/s40314-025-03201-2 full-text Sections 3-5",
+        "doi:10.1007/s11227-022-04574-5 Sections 2-4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2109.10549 (first submission 2021-09-22)",
+      "https://arxiv.org/pdf/2109.10549 (15-page full text)",
+      "https://arxiv.org/pdf/2409.16703 (19-page full text)",
+      "https://link.springer.com/article/10.1007/s11227-022-04574-5 (full text)",
+      "https://link.springer.com/article/10.1007/s40314-025-03201-2 (full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published identity gamma_2(C_3 square P_n)=n+2 supplies a lower bound on size, not the number of sets attaining it.",
+        "The present proof forces a precise equality profile, then enumerates 6 internal rainbow phases and 4 independently selectable boundary combinations for each of four column profiles.",
+        "Matrix minimization does not preserve multiplicities unless a distinct counting-semiring computation or equality-path classification is supplied, which these inspected statements do not present."
+      ],
+      "reasoning": "A minimum-cardinality theorem alone admits arbitrarily different counts of minimizers. Nor does a single periodic construction establish exhaustive four-profile rigidity. The present exact enumeration requires and proves additional equality-case structure.",
+      "searches": [
+        "Exactly 96 minimum 2-dominating sets of triangular cylindrical grids K_3 Cartesian product P_n for every n >= 7; four boundary profiles with 24 each.",
+        "Classification of minimum 2-domination subsets of C_3 box P_m with exactly two double columns at boundaries and one chosen vertex in every other triangle; periodic three-color patterns.",
+        "arxiv:2109.10549v3 Theorems 2.5, 2.6 and Table 2",
+        "arxiv:2409.16703v1 Corollary 1",
+        "doi:10.1007/s40314-025-03201-2 Proposition 12"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2109.10549v3 Section 2 defines exactly the two-neighbor domination condition; Table 2 and Section 3 report its minimum cardinality, not extremizer multiplicity.",
+        "doi:10.1007/s40314-022-02137-1 discusses the same graph product and parameter through lower bounds and a patterned construction, but not a complete optimizer census.",
+        "The four boundary profiles with 24 members each are stricter data than the scalar minimum n+2."
+      ],
+      "reasoning": "The natural aliases are 2-domination/two-domination, triangular cylinder, triangular prism chain, K_3 Cartesian P_n, and minimum 2-dominating-set enumeration. None of the inspected sources states an equivalent all-optimizer classification or constant multiplicity 96. This comparison depends on inspected content, not search absence alone.",
+      "searches": [
+        "Exact enumeration of minimum 2-dominating vertex sets of the triangular-prism cylinder C3 Cartesian product P_n; generating function for optimal 2-domination",
+        "Minimum two-dominating sets and their counts in cylindrical graphs C_3 square P_n",
+        "Exactly 96 minimum 2-dominating sets of triangular cylindrical grids K_3 Cartesian product P_n for every n >= 7; four boundary profiles with 24 each.",
+        "\"minimum 2-dominating sets\" \"cylinder\" enumeration \"C_3\"",
+        "\"C_3 square P_m\" 2-domination number of minimum sets",
+        "\"2-dominating sets\" \"triangular prism\" 96",
+        "arxiv:2109.10549v3 Sections 2-4",
+        "arxiv:2409.16703v1 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Garzón et al. 2022, Table 1 records finite-difference equations for minimum sizes and Table 2 reports scalar boundary values, including n=3, not counts.",
+        "The later cylinder articles give scalar optima and representative constructions, not a table indexed by n with 96 extremizers."
+      ],
+      "reasoning": "Checked for a direct optimum-multiplicity table and for a finite-state algorithm whose stated result would imply the count. The earlier optimization algorithms do not report or prove the count of minimizing paths.",
+      "searches": [
+        "\"enumeration\" \"minimum 2-domination\" cylinders triangular prism",
+        "arxiv:2109.10549v3 Tables 1 and 2",
+        "arxiv:2409.16703v1 Figure 3 and Corollary 1",
+        "\"number of minimum 2-dominating sets\" cylinder path"
+      ]
+    },
+    "rationale": "Four relevant primary full texts were materially inspected, as were source aliases, published mathematical records, current research similarity hits, and 26 accessible same-slot own claims. Exact minimum cardinality n+2 is prior art and is not claimed new. The 96 labeled extremizers and their exhaustive four-profile classification are not implied by the inspected cardinality results or by other domination variants; residual unindexed-literature risk is disclosed.",
+    "residual_risks": [
+      "Exact enumeration might appear in unindexed writings or in the unexamined supplements of another work.",
+      "Known scalar min-plus algorithms could in principle be extended to count optima; their stated published results do not give that extension.",
+      "Novelty was compared by implication using accessible content and selected publication searches; it is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_SCALAR_MINIMUM_NOT_ENUMERATION",
+        "evidence": "Table 2 gives gamma_2(C_3 square P_n)=n+2 for n>=4 and the paper computes minimum values via tropical recurrence; it contains no count or complete classification of all minimum vertex sets.",
+        "identifier_or_url": "https://arxiv.org/pdf/2109.10549",
+        "material_read": "Complete 15-page accessible PDF, particularly pp. 1-13: definitions, quasi-two-domination labeling and min-plus theorems 2.5-2.8, algorithmic results, Tables 1-2, conclusions.",
+        "method": "ArXiv openly available PDF: extracted full text and page image inspection of algorithm/table context.",
+        "title": "On the 2-domination Number of Cylinders with Small Cycles",
+        "trigger": "Same two-domination parameter and exactly the triangular cylinder C_3 Cartesian P_n; primary earliest source."
+      },
+      {
+        "assessment": "BROADER_SIZE_COVERAGE_NOT_COUNT",
+        "evidence": "Corollary 1 yields gamma_2(P_m square C_n)=(m+2)n/3 when n=0 mod 3 (for suitable ranges); its argument constructs an optimum but does not enumerate all minimum sets.",
+        "identifier_or_url": "https://arxiv.org/pdf/2409.16703",
+        "material_read": "Accessible 19-page author PDF, sections 1-4; especially Section 2, Corollary 1, Figure 3 and discussion of optimal patterned construction; page image of algebraic proof context.",
+        "method": "Lawful author arXiv preprint text extraction and page image inspection; original journal publication in 2022.",
+        "title": "The 2-domination number of cylindrical graphs",
+        "trigger": "Potentially stronger theorem for arbitrary path length and circumference divisible by three, including C_3."
+      },
+      {
+        "assessment": "SIZES_AND_ALGORITHMS_NOT_OPTIMIZER_COUNTS",
+        "evidence": "Theorems and algorithms compute minima for short paths and cycles; no multiplicity or all-optimizer classification for C_3 square P_n.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11227-022-04574-5",
+        "material_read": "Accessible full journal HTML, Sections 2-4, definitions of digraph and min-plus optimization, main algorithms and conclusions.",
+        "method": "Open journal full-text HTML.",
+        "title": "HPC acceleration of large (min,+) matrix products to compute domination-type parameters in graphs",
+        "trigger": "Same parameter, cylindrical products, computer-generated minimum sizes; possible implicit optimum enumeration."
+      },
+      {
+        "assessment": "NUMERICAL_BOUNDS_NOT_ENUMERATION",
+        "evidence": "The paper compares numerical weak, ordinary and rainbow two-domination bounds; it does not state constant 96 multiplicity or the four optimal column profiles.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40314-025-03201-2",
+        "material_read": "Accessible full journal HTML, Sections 3-5, Proposition 12, Corollary 1 and conclusions.",
+        "method": "Open journal full-text HTML.",
+        "title": "On 2-domination and 2-rainbow domination of cylindrical graphs",
+        "trigger": "Later related literature that might strengthen size statements or equality cases."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a533d10c-c475-4079-afdc-dcacb46b71ed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact classification and constant multiplicity of all minimum two-dominating sets is a natural missing structural statistic for the simplest cyclic grid, whose minimum sizes are studied because of redundant resource placement. The four sharp boundary profiles and rigid three-periodicity explain a surprising n-independent optimizer count. It is not a textbook restatement of known minimum-size formulas.",
+    "status": "PASS"
+  }
+}
