@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** After relabeling a putative conflict so that AV elects \(\{A,B\}\) and SAV elects \(\{B,C\}\), the AV comparison \(A>C\) and SAV comparison \(C>A\) force
-\[
-c-a\ge2,\qquad ab-bc\ge3.
-\]
-Five voters therefore force the unique count pattern \(3\times AB+2\times C\), which leaves SAV tied between \(A\) and \(B\). At six voters, the same inequalities force exactly one additional ballot; checking the only three possible locations for that ballot leaves only \(B\), producing the stated representative. Exhaustive labeled and anonymous enumeration independently confirms the lower bound, one-orbit classification, and counts \(360\) and \(75051\).
+## correctness
 
-Risk: the theorem is deliberately restricted to the three-candidate, two-seat, nonempty-ballot setting.
+PASS
 
-## Originality
-**PASS.** Brams and Kilgour explicitly establish that AV and SAV can choose different or disjoint committees and study the same three-candidate, two-winner geometry, including a \(17\)-voter AV/SAV disagreement. Aziz and collaborators formalize both objectives together. The inspected full texts do not state the six-voter minimum, the unique boundary profile, or the exact first-layer census. Targeted searches by aliases, exact parameters, and minimality language found no covering result.
+With three candidates and two seats, unique committee is equivalent to a unique bottom-scoring candidate. After orienting a hypothetical AV {A,B} / SAV {B,C} conflict, strict comparisons imply e-d>=1, 2d-e>=1 for d=c-a and e=ab-bc, so d>=2 and e>=3: at least five ballots. Five forces 3AB+2C, yielding SAV A/B tie, not distinct UNIQUE committees. At six, d=2,e=3 and one leftover ballot: among B,AC,ABC, only B yields both unique committees, giving 3AB+B+2C. Exact independent enumeration of all anonymous compositions of n ballots into 7 nonempty approval types for n=1..6 and multinomial labeled weighting gave (both unique,distinct) at n6=(75051,360), 6 anonymous profiles one candidate-relabeling orbit. All q-rational score comparisons exact; scope fixes 3 candidates, 2 seats and nonempty ballots.
 
-Risk: failed search is not proof of bibliographic uniqueness. An unindexed example collection or software corpus could contain the same six-voter profile.
+## originality
 
-## Value
-**PASS.** The primary literature motivates SAV precisely as a different way to aggregate the same approval ballots as multiwinner AV, and explicitly treats the three-candidate, two-seat case as the simplest competitive setting. The six-voter cutoff therefore measures the first electorate size at which ballot-length normalization alone can change an otherwise unambiguous committee. The single-orbit first layer gives a canonical minimal test case, not an arbitrary finite slice.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Brams–Kilgour introduces AV versus normalized SAV and supplies a 17-voter three-candidate differing unique committee example, which proves upper bound 17 but not the minimal 6-voter threshold and its entire first-orbit census; their Proposition 6 uses 9 voters where AV and SAV agree. The later standard score linearization makes the strict integer comparison possible but does not imply six-ballot sharpness without the bounded diophantine argument. Closest published result on Bucklin six-voter paradox concerns different rule. Best-of-knowledge PASS, unindexed illustrative 6-voter example possible.
+
+## value
+
+PASS
+
+SAV was motivated as a correction to multiwinner approval bloc overrepresentation. The first electorate size where the two rules force distinct unique committees with the fewest candidates and seats, plus classification of all first conflict profiles, provides a precise natural finite threshold useful as a canonical voting example and boundary test; proof relies on nontrivial strict-score inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

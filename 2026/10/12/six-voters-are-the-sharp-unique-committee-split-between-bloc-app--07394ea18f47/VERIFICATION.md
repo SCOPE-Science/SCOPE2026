@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,50 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_av_sav_six_voter_boundary.py` performs an exact finite replay using only the Python standard library.
 
-The ballot domain is the seven nonempty subsets of three candidates.
+# Independent mathematical audit
 
-The verifier exhausts every labeled profile through six voters and computes:
-- ordinary AV candidate scores with integers;
-- SAV candidate scores with exact `Fraction` arithmetic;
-- unique two-member committees by identifying a unique lowest-scoring candidate.
+## correctness
 
-The numbers of labeled profiles where both rules are unique are
-\[
-3,\ 27,\ 201,\ 1467,\ 10398,\ 75051
-\]
-for one through six voters.
+PASS
 
-The corresponding numbers with distinct unique committees are
-\[
-0,\ 0,\ 0,\ 0,\ 0,\ 360.
-\]
+With three candidates and two seats, unique committee is equivalent to a unique bottom-scoring candidate. After orienting a hypothetical AV {A,B} / SAV {B,C} conflict, strict comparisons imply e-d>=1, 2d-e>=1 for d=c-a and e=ab-bc, so d>=2 and e>=3: at least five ballots. Five forces 3AB+2C, yielding SAV A/B tie, not distinct UNIQUE committees. At six, d=2,e=3 and one leftover ballot: among B,AC,ABC, only B yields both unique committees, giving 3AB+B+2C. Exact independent enumeration of all anonymous compositions of n ballots into 7 nonempty approval types for n=1..6 and multinomial labeled weighting gave (both unique,distinct) at n6=(75051,360), 6 anonymous profiles one candidate-relabeling orbit. All q-rational score comparisons exact; scope fixes 3 candidates, 2 seats and nonempty ballots.
 
-An independent anonymous enumeration over weak compositions of six voters into the seven ballot types finds exactly six conflict profiles. Candidate relabeling puts all six in one orbit represented by
-\[
-(0,1,2,3,0,0,0)
-\]
-for ballot types
-\[
-A,B,C,AB,AC,BC,ABC.
-\]
+## originality
 
-That representative has AV scores
-\[
-(3,4,2)
-\]
-and SAV scores
-\[
-\left(\frac32,\frac52,2\right).
-\]
+PASS
 
-Its voter-labeling multiplicity is \(60\), so the six candidate relabelings give \(360\) labeled profiles.
+Brams–Kilgour introduces AV versus normalized SAV and supplies a 17-voter three-candidate differing unique committee example, which proves upper bound 17 but not the minimal 6-voter threshold and its entire first-orbit census; their Proposition 6 uses 9 voters where AV and SAV agree. The later standard score linearization makes the strict integer comparison possible but does not imply six-ballot sharpness without the bounded diophantine argument. Closest published result on Bucklin six-voter paradox concerns different rule. Best-of-knowledge PASS, unindexed illustrative 6-voter example possible.
 
-Run:
+## value
 
-`python3 verify_av_sav_six_voter_boundary.py`
+PASS
 
-The first output line must be:
+SAV was motivated as a correction to multiwinner approval bloc overrepresentation. The first electorate size where the two rules force distinct unique committees with the fewest candidates and seats, plus classification of all first conflict profiles, provides a precise natural finite threshold useful as a canonical voting example and boundary test; proof relies on nontrivial strict-score inequalities.
 
-`VERIFY_OK`
+The dated certificate retains the supplied scientific assessment, sources and limitations.
