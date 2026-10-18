@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite object is completely specified. `verify.py` reconstructs the graph and complex, checks all \(272\) independent triples and all \(64{,}883\) faces, regenerates the \(32{,}419\)-pair sequential element matching, confirms exactly \(45\) critical \(10\)-cells, and directly checks acyclicity on all \(515{,}872\) Hasse cover relations. Together with the standard element-matching and discrete-Morse theorems, this proves the claimed wedge.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2209.13503, defines total cut complexes and treats complete bipartite graphs, cycles, prisms and grids; its complete-bipartite theorem does not apply to the sparse Möbius–Kantor graph. The later arXiv:2602.21427 treats cycle powers, complete multipartite graphs, some disconnected graphs, and selected total \(2\)-cut Cartesian-product cases. Exact-name, notation, alias and parameter searches located no published statement of this exact \(G(8,3)\), parameter-\(3\) homotopy type. Residual risk remains for inaccessible or unindexed literature.
+PASS
 
-## Value
-PASS. This is an exact homotopy computation on a standard highly symmetric cubic graph, not a parameter renaming or known-table recomputation. The gap between the pure dimension \(12\) and the surviving homotopy dimension \(10\) yields a substantive non-shellability boundary example beyond the complete-bipartite calculations.
+From the prescribed G(8,3) edges u_i u_{i+1}, u_i v_i, v_i v_{i+3}, independently reconstructed 16 vertices, 24 graph edges, 272 independent triples, 64883 faces including empty, complete 13-entry face vector, 32419 sequential element matches and exactly 45 critical 10-faces, no other unmatched faces. The matching includes the empty face; independent complete directed-Hasse acyclicity test traversed all 64883 faces and 515872 covers. The standard discrete-Morse reduced-complex convention yields one base point with 45 degree-10 cells; wedge type follows. Face dimension 12 excludes pure shellability. All claims are this one graph and k=3; no infinite-family inference from finite data.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality based on scientific implication comparison, alias searches and material reading; no earlier source establishes the full final claim under the precise convention. Later broader methods, where relevant, are dated and explicitly delimited.
+
+## value
+
+PASS
+
+The Möbius–Kantor graph is a canonical named, symmetric cubic, 16-vertex graph. The exact total-three-cut homotopy type and non-shellability are natural unknown invariants of an established graph; exhaustive acyclic-matching certificate goes beyond a face-count recomputation. The later broad uniform BI3 argument gives context but does not invalidate the earlier separately established concrete computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
