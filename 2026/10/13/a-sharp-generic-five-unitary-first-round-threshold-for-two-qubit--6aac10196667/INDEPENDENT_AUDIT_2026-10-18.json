@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:59:08.228258Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m unitaries the repeated diagonal pair products yield rank upper bound min(16,m(m−1)+1). The concrete Hermitian Gaussian-rational Cayley witnesses from the actual package, independently reconstructed in Sympy modular arithmetic over F_1009 (sqrt(−1)=469), attained pair-product and Alice/Bob-sum ranks (3,6,6), (7,10,10), (13,16,16), (16,16,16) for m=2..5. Nonzero characteristic-1009 minors imply characteristic-zero nonvanishing, and real-analytic minor zero sets on connected U(4)^m are Haar null. Therefore generic local intersections are only scalar for m≤4 and full M2 for m≥5. Cohen first-measurement criterion gives non-LOCC below threshold; for m≥5 a Hermitian coefficient preimage plus small epsilon positivity gives a real two-outcome first local POVM, not a full LOCC protocol.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general criterion constrains POVM roots in the Kraus-product span, but does not compute the generic span and local intersections.",
+          "The resource-bound paper treats allowable protocol structures rather than the Haar-generic two-qubit threshold."
+        ],
+        "reasoning": "A broader necessary-condition framework is not a proof of ranks of random rank-16 complex matrices constrained to pair-product form; that nonvanishing is the separate new step.",
+        "searches": [
+          "Cohen arXiv:1606.00029 channel LOCC first-measurement criterion",
+          "Cohen arXiv:1904.10980 resources and outcomes for LOCC channel protocols",
+          "Resultary random-unitary rank threshold semantic search"
+        ]
+      },
+      "checked_sources": [
+        "Cohen arXiv:1606.00029 primary full PDF relevant material",
+        "Cohen arXiv:1904.10980 resource bound statements",
+        "Resultary query for generic two-qubit random-unitary first-measurement threshold",
+        "Frozen Cayley-witness verify_generic_random_unitary.py and RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pair-product span dimension upper bound m(m−1)+1=3,7,13 for m≤4 follows from repeated diagonal identities, but attaining it along with both local rank sums is not automatic.",
+          "For m=5 the witness establishes rank16; positive coefficient perturbations then produce actual first local POVM effects."
+        ],
+        "reasoning": "Prior Cohen first-step criterion plus his numerical data do not imply exact almost-sure ranks; the certified witness/analytic-minor argument is a genuine extra mathematical proof. Conversely a nontrivial first POVM does not imply the full channel is LOCC.",
+        "searches": [
+          "Cohen 2016/2017 PRL 118 020501 random unitary example",
+          "Cohen 2019 general LOCC resource bounds",
+          "Actual assigned Cayley witness and pair-product rank rows"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cohen 2016/2017 explicitly gives a numerical transition around Nu=D=4, based on finite 100-sample random-unitary experiments.",
+          "The claimed exact ranks m=2:(3,6,6), m=3:(7,10,10), m=4:(13,16,16), m=5:(16,16,16) are proved by a Gaussian-rational witness and real-analytic minors."
+        ],
+        "reasoning": "A sample-based no-measurement observation is not equivalent to a Haar-a.e. theorem. The rank condition is a stronger rigorous conclusion for the same two-qubit channel family; no implication-equivalent analytic threshold was found in inspected sources.",
+        "searches": [
+          "Resultary semantic query: two qubit random unitary LOCC channel first measurement span U_i dagger U_j sharp threshold 5 unitaries",
+          "Cohen 2016 arXiv:1606.00029 two qubit four five random unitary first measurement",
+          "Cohen 2019 arXiv:1904.10980 generic random unitary LOCC"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source data are empirical 100-sample counts, not a finite exact exhaustive table or algebraic certificate for all Haar-generic tuples.",
+          "The assigned witness computes rank data over F_1009, where a nonzero minor lifts to characteristic zero."
+        ],
+        "reasoning": "A finite-field rank certificate is a valid algebraic nonvanishing witness, but its mathematical role differs from a sampled empirical table; the generic almost-sure conclusion also needs real-analytic zero-set reasoning.",
+        "searches": [
+          "Cohen 2016 table/plots random unitary two qubit m=4 and 5, 100 samples",
+          "Exact modular witness ranks m=2..5 in assigned verify_generic_random_unitary.py",
+          "Resultary query published generic unitary LOCC threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty is the exact Haar-generic m=2..5 rank/intersection theorem for two qubits, turning Cohen's random-sampling evidence into a nonzero-minor proof. The same random-unitary source was inspected directly; its reported 100 samples per choice are not a mathematical genericity theorem. The m≥5 conclusion explicitly does not establish LOCC implementability.",
+      "residual_risks": [
+        "A later or differently titled algebraic-geometry treatment might encode the same nonvanishing rank fact; search nonretrieval is not proof of absolute novelty.",
+        "Positive local first POVMs for m≥5 are only necessary first-round feasibility, not implementation of the channel by LOCC."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_NUMERICAL_NOT_GENERIC_THEOREM",
+          "evidence": [
+            "Reports samples of 100 random unitary sets per parameter case and transition around number of unitaries D=4, no exact Haar-generic 5-unitary pair-product rank proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1606.00029",
+          "material_read": "Primary 12-page paper, channel first-measurement theorem and random-unitary numerical illustration (particularly pages 4–5).",
+          "method": "Read primary PDF text and relevant page image, compare sampling versus quantifiers.",
+          "title": "General approach to quantum channel impossibility by local operations and classical communication",
+          "trigger": "Same model and originally reported transition"
+        },
+        {
+          "assessment": "NO_FOUND_SAME_RANK_CONCLUSION",
+          "evidence": [
+            "General protocol resource/outcome bounds rather than the exact two-qubit random-unitary rank certificate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1904.10980",
+          "material_read": "Abstract and resource-bound statements compared with assigned pair-product result; no claim of whole-paper NOT_COVERING based on partial material.",
+          "method": "Compare theorem topics and consequences; retain access limitation for full text.",
+          "title": "Strong bounds on required resources for quantum channels by local operations and classical communication",
+          "trigger": "Possible broader dominating LOCC theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cohen explicitly reported a striking numerical two-qubit transition after 100 random-unitary draws per configuration. The exact finite-field witness and real-analytic proof upgrade that to a sharp almost-sure structural classification, resolving a natural first-round obstruction boundary while separating its necessary from sufficient force.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Cohen arXiv:1606.00029 primary full PDF relevant material",
+    "Cohen arXiv:1904.10980 resource bound statements",
+    "Resultary query for generic two-qubit random-unitary first-measurement threshold",
+    "Frozen Cayley-witness verify_generic_random_unitary.py and RESULT.md"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only Haar-generic 2-qubit unitaries and Cohen first-local-measurement criterion.",
+    "Nontrivial first local POVMs above m=4 do not prove existence of a full LOCC protocol."
+  ]
+}
