@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates idempotents by rank. Rank-zero and rank-two idempotents give the two indicator terms. For rank one, trace forces \(\operatorname{tr}A=1\), and the determinant identity reduces the nilpotence condition to one linear condition on the functional defining the projection. Counting by the image line gives one solution for each noninvariant line and either \(q\) or zero solutions for an invariant line. Evaluating the trace-one characteristic polynomial at \(1-\det A\) gives \((\det A)^2\), so the exceptional invariant-line contribution occurs exactly at determinant zero. The class census follows from standard centralizer sizes and was independently exhaustively checked for \(q=2,3,4,5,7\).
+## correctness
 
-## Originality
-PASS. The 2013 archive anchor proves the global field criterion for when an entire matrix ring is nil-clean, and the 2018 integral-domain paper gives a \(2\times2\) existence characterization. The latter explicitly reduces nontrivial nil-cleanness to trace one plus solvability of equations for a rank-one idempotent, but the inspected paper does not count all such idempotents or give the finite-field profile. published-finding corpus searches returned no exact additive idempotent-plus-nilpotent multiplicity law; the closest hits concern torsion-unit sums, idempotent-nilpotent products, or strongly nil-clean matrices over dual numbers. The new statement is therefore not a restatement of the known existence criterion.
+PASS
 
-## Value
-PASS. Exact decomposition multiplicity is a natural refinement of nil-cleanness and uniqueness, analogous to clean-index questions but for the nil-clean decomposition itself. The formula is structural rather than a one-off enumeration: it identifies projective eigenlines as the only nontrivial parameter, gives the full finite-field locus size, and isolates the binary ring-level exception quantitatively. The result is self-contained and usable for questions about unique nil-clean decompositions or finite nil-clean graphs.
+Rank-0 and rank-2 idempotents uniquely contribute at A nilpotent or A-I nilpotent. For rank-one projection E=u phi, phi(u)=1 and trE=1; over any field A-E nilpotent iff trA=1 and det(A-E)=0. Determinant expansion gives det(A-E)=d-1+phi(Au), hence phi(Au)=1-d. On non-A-invariant image lines, u and Au are a basis and exactly one phi works; on invariant eigenline all q choices work iff its eigenvalue 1-d. Since for trace-one char poly X²-X+d, evaluation at 1-d equals d², the latter is possible iff d=0 and exactly one eigenline contributes. Finite-field centralizers then yield class table and nil-clean locus counts. Independently enumerated all 2x2 matrices and rank idempotents over F2,F3,F5, verifying each single-matrix fiber and histograms; q4 extension and q7 original-script checks are not claimed as independently run. Analytic proof works for every prime power.
 
-## Closest literature and limitations
-The closest inspected source is Rajeswari–Gupta (2018), Theorem 3.1, which supplies an existence condition over integral domains and therefore covers the coarse question “does a decomposition exist?” after specialization. It does not imply the exact number of decompositions without a further count of all rank-one idempotent solutions. Breaz–Călugăreanu–Danchev–Micu (2013) and Koşan–Lee–Zhou (2014) are broader at the ring level but do not provide the elementwise multiplicity profile. The theorem here is only for \(2\times2\) finite-field matrices, and the computational replay is supportive rather than a proof of the infinite family.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the final specific quantitative/mathematical statement after semantic published-finding search and primary source comparisons; precise coverage and residual risks are recorded. No literature search is represented as exhaustive or as independent priority certification.
+
+## value
+
+PASS
+
+Nil-clean decomposition multiplicity is a natural refined invariant of the classic existence/uniqueness problem; the eigenline formula and similarity-class census give exact fibers, quantify the F2 exceptional entire ring and expose matrices with unique decompositions. The count cannot be obtained by only the ring-level existence criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
