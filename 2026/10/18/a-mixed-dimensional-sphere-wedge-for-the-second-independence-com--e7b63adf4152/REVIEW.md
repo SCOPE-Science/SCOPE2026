@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The edge-intersection interpretation is equivalent to the induced-component definition. A component-block count independently determines every face number. The complete 405-face discrete-Morse matching is explicitly defined and checked to be acyclic, with one critical vertex, 24 critical two-cells and 10 critical three-cells. The exact integral differential between the last two groups is zero by signed gradient-path calculation. Since the resulting CW model has no one-cells, zero attaching-degree vectors mean the three-cells attach trivially to the wedge of two-spheres. The included code fully reproduces the finite certificate; mod-two ranks are corroboration only.
+
+**Originality — PASS, subject to residual discovery risk.** The closest primary higher-independence paper (Deshpande–Singh, arXiv:2001.05448) classifies different graph families and does not treat triangular line graphs. The chordal-graph study (arXiv:2106.10863) does not cover this nonchordal graph. The line-graph clique complex (arXiv:2009.12130), ordinary matching complex, and bounded-degree two-matching complex (arXiv:2006.13632) are mathematically different simplicial complexes; none of their inspected conclusions implies the stated mixed-dimensional homotopy type. Indexed mathematical-record searches and direct terminology/parameter searches identified no exact equivalent. The possibility of an unindexed equivalent theorem remains.
+
+**Value — PASS.** The triangular graphs form a canonical strongly regular family, and their higher independence complexes are a natural test outside the previously classified complete multipartite, cycle, whiskered and chordal cases. The first nonpure packing pattern at six underlying vertices supports both perfect matchings and two disjoint length-two paths. The explicit simultaneous second- and third-dimensional integral sphere summands exhibit a structurally meaningful mixed-dimensional topological phenomenon, not just a recomputation of a table or a renamed matching complex. No extrapolation to larger graphs is claimed.
+
+**Limitations.** A single 15-vertex graph complex is classified, non-equivariantly. Full literature coverage cannot be guaranteed, and no independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
