@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Badr--Bars supply the exact family, the generators, the full group \(G\cong C_3\times D_8\), and the normal subgroup \(N=\langle\sigma^2\rangle\). From the displayed equation, the fixed field of \(N\) is \(\mathbb C(t)\) with \(t=Y/Z\), and the residual Klein four-group acts by \(t\mapsto-t\) and \(t\mapsto t^{-1}\). The invariant \(u=t^2+t^{-2}\) therefore generates the full fixed field. The Kummer valuations give ramification index \(6\) at \(t=0,\infty\) and at the four roots of \(t^4+\beta t^2+1\); the degree-four Klein quotient contributes the stated order-\(2\) branching. The symbolic checker verifies the algebraic identities and Riemann--Hurwitz exactly. No finite experiment is being promoted to an infinite theorem; the proof is symbolic for arbitrary admissible \(\beta\).
+## correctness
 
-## Originality
-**PASS for the explicit quotient statement.** The primary Type-12 section was inspected in full around Proposition 6.1. It gives the group and its exact sequence but does not state the quotient function, the labeled branch divisor, or the ramification-orbit decomposition. Semantic searches of published-finding corpus for the equation, `SmallGroup(24,10)`, quotient signatures, and the numerical passport returned no covering result. The Broughton--Shaska--Wootton survey explicitly warns that abstract signatures through genus \(48\) have already been tabulated, so the unordered signature is not treated as the novelty-bearing component. Residual risk remains that an older plane-curve or Fuchsian-group source writes this same explicit quotient in different coordinates.
+PASS
 
-## Value
-**PASS.** The full automorphism quotient is a canonical invariant of this positive-dimensional plane-sextic stratum. The formula turns the source's group-theoretic classification into an explicit four-point Galois cover and shows geometrically how the family parameter enters the quotient: the fixed branch values are \(\infty,2,-2\) and the moving value is \(-\beta\). This is structurally useful for Hurwitz-space and moduli comparisons and is not a routine restatement of the automorphism-group order.
+Taking affine t=Y/Z and x=X/Z gives Kummer extension x^6=-t(t^4+beta t²+1). The cited Badr–Bars theorem supplies full G=C3×D8 of order24 and N=<sigma²> of order6. With residual V4 action t→-t and t→1/t, the invariant fixed field is C(t²+t^-2); degree is 6×4=24. Kummer ramification index6 at t=0,∞ and 4 roots of t^4+beta t²+1; the degree4 base map has index2 at t=0,∞ and ±1,±i. For beta≠±2, combined inertia orders at u=∞,-beta,2,-2 are (12,6,2,2); orbit sizes 24/e=(2,4,12,12). Calculated discriminant of quartic as 16(beta-2)²(beta+2)² and tame Riemann–Hurwitz 24(-2+11/12+5/6+1)=18=2g-2 for g=10. Independent sympy validation of branch-polynomial identities and Riemann–Hurwitz; this is symbolic in beta, not finite sampling. Exceptional beta loci excluded exactly as stated.
 
-## Closest literature and limitations
-The closest source is Badr--Bars itself, which supplies all premises about the full automorphism group but stops at the exact sequence on the invariant line. Broughton--Shaska--Wootton provide the broader signature-classification context, which means the signature alone is not claimed as new. The remaining originality risk is an older table or explicit superelliptic treatment using a different normalization of the branch coordinate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Badr–Bars arXiv:2208.12749v1 Proposition 6.1 is acknowledged as prior source of full group, family and N. The novelty-bearing datum is the actual quotient rational function and the labeled beta-dependent branch divisor; it is not the group identity or unordered abstract signature. Broughton–Shaska–Wootton arXiv:1807.02742 describes Breuer genus≤48 signature tables and hence broader coverage of generic abstract signature. Searches for explicit t²+t^-2/plane model and group/signature did not locate a stronger labeled quotient, but an old equivalent Mobius-transformed superelliptic model remains possible.
+
+## value
+
+PASS
+
+The quotient by the full automorphism group is a natural invariant of this genus10 plane-sextic family. Providing its rational coordinate and varying branch location makes explicit a degree24 Hurwitz cover and parametrized four-point configuration useful in moduli studies; the result does not rely for value on claiming the abstract inertia multiset itself was previously unknown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
