@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T17:45:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md graph degree and wavefront proof",
+        "Pikhurko–Verbitsky Theorem 4.4 exact 1-WL/C² bridge",
+        "Independent correctly indexed joint-WL replay through n=14"
+      ],
+      "rationale": "The standard 1-WL/C² depth bridge says D^2_#(G)=R(G)+1. Uniform round-zero separates graph order and degree round-one forces two degree-one vertices and all other degree-two vertices; hence surviving nonisomorphic rivals are a single P_m plus one or more disjoint cycles. Color propagation from endpoints maintains identical histograms until round floor(m/2), after which the shorter path center sees meeting fronts, distinguishing at floor(m/2)+1. Since each cycle requires at least 3 vertices, maximum m=n−3, yielding R(P_n)=floor((n−1)/2) for n≥5; small n=1..4 independently handled. Corrected independent joint-color refinement replay checked all P_m∪C_(n−m) rivals for n=5..14; proof is for arbitrary cycle decompositions and n.",
+      "residual_risks": [
+        "Round-zero versus round-one conventions must be respected; the off-by-one distinction is explicit.",
+        "Computational checks handle a subset of cycle partitions; general multi-cycle result follows analytic wavefront argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krebs–Verbitsky and Kiefer–McKay give worst-case/nearlinear bounds on WL stabilization, not a stronger exact every-n path depth theorem in the inspected material."
+        ],
+        "reasoning": "Even a general upper bound O(n) with a sharp extremal family does not imply exact depth for all paths.",
+        "searches": [
+          "two variable counting logic depth finite path P_n exact floor n+1 over 2 color refinement",
+          "Pikhurko Verbitsky Logical complexity of graphs survey arxiv:1003.4865 Theorem 4.4 paths D2#",
+          "Krebs Verbitsky universal covers color refinement two-variable counting logic paths",
+          "Kiefer McKay iteration number of colour refinement Gödicke thesis"
+        ]
+      },
+      "checked_sources": [
+        "two variable counting logic depth finite path P_n exact floor n+1 over 2 color refinement",
+        "Pikhurko Verbitsky Logical complexity of graphs survey arxiv:1003.4865 Theorem 4.4 paths D2#",
+        "Krebs Verbitsky universal covers color refinement two-variable counting logic paths",
+        "Kiefer McKay iteration number of colour refinement Gödicke thesis",
+        "https://arxiv.org/abs/1003.4865",
+        "https://arxiv.org/abs/1407.3175",
+        "https://doi.org/10.4230/LIPIcs.ICALP.2020.73"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The survey lower-bound witness demonstrates one competitor and an asymptotic lower bound, whereas proving exact depth requires exclusion of every other n-vertex graph via first-round degree classification."
+        ],
+        "reasoning": "The new maximum over competitors is achieved by P_(n−3) ∪ C3 and yields floor((n+1)/2), refining O(1) to an exact integer.",
+        "searches": [
+          "two variable counting logic depth finite path P_n exact floor n+1 over 2 color refinement",
+          "Pikhurko Verbitsky Logical complexity of graphs survey arxiv:1003.4865 Theorem 4.4 paths D2#",
+          "Krebs Verbitsky universal covers color refinement two-variable counting logic paths",
+          "Kiefer McKay iteration number of colour refinement Gödicke thesis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-variable counting-logic invariant matches color-refinement identifying round plus one under the survey bridge, with all counting quantifier ranks normalized to one."
+        ],
+        "reasoning": "The prior n/2−O(1) statement does not fix the parity and additive constant; the rival classification supplies it.",
+        "searches": [
+          "two variable counting logic depth finite path P_n exact floor n+1 over 2 color refinement",
+          "Pikhurko Verbitsky Logical complexity of graphs survey arxiv:1003.4865 Theorem 4.4 paths D2#",
+          "Krebs Verbitsky universal covers color refinement two-variable counting logic paths",
+          "Kiefer McKay iteration number of colour refinement Gödicke thesis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite database can by itself imply the all-n formula, and the verifier only corroborates n≤30 in the source package; independent checks n≤14."
+        ],
+        "reasoning": "An unindexed combinatorial sequence of path WL rounds is a risk but no same-object exact published table was confirmed.",
+        "searches": [
+          "two variable counting logic depth finite path P_n exact floor n+1 over 2 color refinement",
+          "Pikhurko Verbitsky Logical complexity of graphs survey arxiv:1003.4865 Theorem 4.4 paths D2#",
+          "Krebs Verbitsky universal covers color refinement two-variable counting logic paths",
+          "Kiefer McKay iteration number of colour refinement Gödicke thesis"
+        ]
+      },
+      "rationale": "Published graph-logic survey states a path depth n/2−O(1) and provides P_(n−3)∪C3 as a long-surviving witness, without an exact constant or complete rivalry classification. The current proof completes the exact quantifier depth and all degree-compatible rival separation rounds; folklore or a hard-to-find thesis could contain the exact same result.",
+      "residual_risks": [
+        "The 2015 Gödicke master thesis and folklore notes were not fully inspected; potential exact path formula predating this submission.",
+        "The general graph-logic bridge is classical and is not claimed original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BRIDGE_ESTABLISHED_ONLY_ASYMPTOTIC_PATH_DEPTH",
+          "evidence": [
+            "Theorem 4.4 gives R+1 bridge; path appears as n/2−O(1), with particular lower-bound rival, rather than an exact every-n depth and full rival list."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1003.4865",
+          "material_read": "Theorem 4.4, later path discussion and its witness P_(n−3) plus C3 read in full primary PDF; relevant pages visually inspected",
+          "method": "full primary PDF text search, open, screenshot",
+          "title": "Logical complexity of graphs: a survey",
+          "trigger": "Identical two-variable counting depth and path asymptotic statement"
+        },
+        {
+          "assessment": "GENERAL_WORST_CASE_NOT_EXACT_PATH_CLASSIFICATION",
+          "evidence": [
+            "General lower bounds on depth and universal covers do not by themselves give an exact formula for undirected paths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.3175",
+          "material_read": "Indexed abstract and accessible relevant mathematical overview, not a complete full-text re-reading in this run",
+          "method": "arXiv bibliographic/abstract lookup",
+          "title": "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth",
+          "trigger": "Plausible stronger all-graph iteration theorem"
+        },
+        {
+          "assessment": "POSSIBLE_PRIOR_PATH_FORMULA_UNRESOLVED",
+          "evidence": [
+            "Citation to Gödicke thesis remains a priority source to check for exact path depth."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ICALP.2020.73",
+          "material_read": "Indexed mathematical overview and citations; complete primary article not independently read during this run",
+          "method": "bibliographic search",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "Iteration-number classification and possible Gödicke thesis overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1003.4865",
+        "https://arxiv.org/abs/1407.3175",
+        "https://doi.org/10.4230/LIPIcs.ICALP.2020.73"
+      ],
+      "rationale": "The exact invariant and exact first-separation classification are natural benchmark quantities in finite-model theory and graph isomorphism, and the parity-sensitive constant is not a mere renaming of the known asymptotic bound.",
+      "residual_risks": [
+        "Proof is elementary once the 1-WL bridge is known; pedagogical benchmark value, not a broad new complexity separation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For finite simple undirected paths, exact two-variable counting-logic identifying quantifier depth equals 1 for P1, 2 for P2, and floor((n+1)/2) for n≥3; all path-plus-cycle rivals are distinguished at the specified WL round.",
+  "limitations": [
+    "Round-zero versus round-one conventions must be respected; the off-by-one distinction is explicit.",
+    "Computational checks handle a subset of cycle partitions; general multi-cycle result follows analytic wavefront argument.",
+    "The 2015 Gödicke master thesis and folklore notes were not fully inspected; potential exact path formula predating this submission.",
+    "The general graph-logic bridge is classical and is not claimed original.",
+    "Proof is elementary once the 1-WL bridge is known; pedagogical benchmark value, not a broad new complexity separation."
+  ],
+  "schema_version": 1
+}

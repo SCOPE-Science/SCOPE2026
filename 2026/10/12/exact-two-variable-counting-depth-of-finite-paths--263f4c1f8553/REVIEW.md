@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces definability depth to the exact one-dimensional WL round count using Pikhurko--Verbitsky Theorem 4.4 at \(k=1\). After one refinement round, every same-order graph not yet separated from \(P_n\) has degree multiset \(1^2 2^{n-2}\), forcing exactly one path component and any number of cycles. Endpoint colors propagate one layer per round; cycles stay in the interior color forever. This gives equality of color multiplicities through round \(\lfloor m/2\rfloor\) and a forced difference in the next round. The extremal permitted path length is \(m=n-3\), giving the stated formula. Edge cases \(n=1,2,3,4\) are handled separately.
+## correctness
 
-## Originality
-PASS with residual priority risk. The 2010/2011 survey explicitly states only \(D^2_{\#}(P_n)=n/2-O(1)\) and names \(P_{n-3}\dot\cup C_3\) as a lower-bound witness. Krebs--Verbitsky (2014/2015) again uses the path only for an \(n/2-O(1)\) lower bound while pursuing general worst cases. Targeted published-finding corpus queries, exact-formula searches, later color-refinement papers, and a 2025 full-text search did not locate the exact closed form. A cited 2015 master's thesis could not be inspected from the indexed material, so an unindexed thesis/folklore occurrence remains possible.
+PASS
 
-## Value
-PASS. This replaces an explicit \(n/2-O(1)\) benchmark in a standard survey by an exact formula, and does more than identify one witness: it classifies every same-order graph capable of surviving the degree round and gives its exact separation time. The result cleanly calibrates the standard width-depth example behind the jump from linear depth with two variables to logarithmic depth with three variables on paths.
+The standard 1-WL/C² depth bridge says D^2_#(G)=R(G)+1. Uniform round-zero separates graph order and degree round-one forces two degree-one vertices and all other degree-two vertices; hence surviving nonisomorphic rivals are a single P_m plus one or more disjoint cycles. Color propagation from endpoints maintains identical histograms until round floor(m/2), after which the shorter path center sees meeting fronts, distinguishing at floor(m/2)+1. Since each cycle requires at least 3 vertices, maximum m=n−3, yielding R(P_n)=floor((n−1)/2) for n≥5; small n=1..4 independently handled. Corrected independent joint-color refinement replay checked all P_m∪C_(n−m) rivals for n=5..14; proof is for arbitrary cycle decompositions and n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Published graph-logic survey states a path depth n/2−O(1) and provides P_(n−3)∪C3 as a long-surviving witness, without an exact constant or complete rivalry classification. The current proof completes the exact quantifier depth and all degree-compatible rival separation rounds; folklore or a hard-to-find thesis could contain the exact same result.
+
+## value
+
+PASS
+
+The exact invariant and exact first-separation classification are natural benchmark quantities in finite-model theory and graph isomorphism, and the parity-sensitive constant is not a mere renaming of the known asymptotic bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof has two independently checkable parts.
+## correctness
 
-1. **Structural reduction.** After one color-refinement round, any same-order rival of \(P_n\) that remains indistinguishable must have degree multiset \(1^2 2^{n-2}\). Hence it is exactly one path component \(P_m\) plus cycle components. Cycles stay monochromatic under refinement, so all delaying behavior is controlled by the length \(m\) of the path component.
+PASS
 
-2. **Round count.** Endpoint information propagates one layer per refinement round. The two graphs have equal color histograms through round \(\lfloor m/2\rfloor\), and the short path's endpoint waves meet in round \(\lfloor m/2\rfloor+1\), producing the first mismatch. Since a nonisomorphic rival needs at least three vertices in a cycle, \(m\le n-3\), yielding the maximum first-separation round \(\lfloor(n-1)/2\rfloor\).
+The standard 1-WL/C² depth bridge says D^2_#(G)=R(G)+1. Uniform round-zero separates graph order and degree round-one forces two degree-one vertices and all other degree-two vertices; hence surviving nonisomorphic rivals are a single P_m plus one or more disjoint cycles. Color propagation from endpoints maintains identical histograms until round floor(m/2), after which the shorter path center sees meeting fronts, distinguishing at floor(m/2)+1. Since each cycle requires at least 3 vertices, maximum m=n−3, yielding R(P_n)=floor((n−1)/2) for n≥5; small n=1..4 independently handled. Corrected independent joint-color refinement replay checked all P_m∪C_(n−m) rivals for n=5..14; proof is for arbitrary cycle decompositions and n.
 
-The included `artifacts/verify.py` implements joint canonical color refinement directly and enumerates every partition of the cycle remainder for every order \(5\le n\le30\). It verifies the per-rival formula and the global maximum over 6,699 decompositions. Running it with Python 3 produces:
+## originality
 
-`VERIFY_OK rival_decompositions=6699 n_range=5..30 max_cases=26 formula=D2#(P_n)=1,2,2,2 then floor((n+1)/2)`
+PASS
 
-The verifier is finite evidence only; correctness for all \(n\) comes from the structural proof.
+Published graph-logic survey states a path depth n/2−O(1) and provides P_(n−3)∪C3 as a long-surviving witness, without an exact constant or complete rivalry classification. The current proof completes the exact quantifier depth and all degree-compatible rival separation rounds; folklore or a hard-to-find thesis could contain the exact same result.
+
+## value
+
+PASS
+
+The exact invariant and exact first-separation classification are natural benchmark quantities in finite-model theory and graph isomorphism, and the parity-sensitive constant is not a mere renaming of the known asymptotic bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
