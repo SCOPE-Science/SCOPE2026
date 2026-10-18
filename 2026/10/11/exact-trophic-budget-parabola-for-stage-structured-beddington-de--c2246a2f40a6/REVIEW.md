@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the printed dimensional system and verifies the exact linear coboundary. Integrating against a compact invariant probability measure gives the stationary balance; completing the square gives the parabola and ceiling. Equality rigidity follows from flow-invariance of the support and strict monotonicity of the predation flux in \(z\) on \(x=k/2\). The exact source-parameter specialization was replayed by the bundled checker.
+## correctness
 
-## Originality
-PASS. The complete Feng–Jiang article was inspected for the model, theorem scope, bifurcation conclusions, discussion, and stationary-statistics terminology. The closest same-system predecessor, Khajanchi (2014), uses \(k_1x+y+z\) for a dissipative inequality but does not imply the tuned stationary identity. Targeted semantic searches over aliases such as weighted biomass, mean mature predator, prey variance, and invariant-measure budget returned no equivalent claim. The remaining risk is that an older source could contain the same elementary cancellation under different notation; this risk is not supported by the closest inspected sources.
+PASS
 
-## Value
-PASS. Feng and Jiang exhibit regimes with multiple stable and unstable periodic branches. A single exact budget shared by every such branch is structurally useful: it constrains the observable mean mature-predator abundance by prey oscillation variance and is independent of capture rate, handling, and predator interference. The source parameter set gives a concrete universal non-equilibrium ceiling \(\bar z<100/3\).
+Set predation F=axz/(1+bx+cz) and Φ=x+y/k1+(α+d1)z/(α k1). Substitution cancels -F +F and -(α+d1)y/k1+(α+d1)y/k1 exactly, leaving dΦ/dt = r x(1−x/k) − C z, C=(α+d1)d2/(α k1). For any compactly supported invariant probability in the nonnegative octant, boundedness of the generator on its support justifies ∫dΦ/dt dμ=0. Completing square yields ∫(x−k/2)²+(kC/r)mean z=k²/4 and equivalent Var x + (kC/r)mean z = mean x(k−mean x). Since z≥0, max mean z=rk/(4C); equality puts invariant support inside plane x=k/2. Tangency x′=0 on that plane fixes z uniquely by strict monotonicity of F in z≥0, then invariance and z′=0 fixes y, proving support consists of one equilibrium. Consequently every non-equilibrium invariant ergodic recurrent state has strict inequality. Independent SymPy cancellation and exact parameter values checked: C=9/10, kC/r=27/4, ceiling=100/3. No existence or stability of periodic states assumed.
 
-## Closest literature and limitations
-Feng–Jiang (DOI 10.3934/dcdsb.2022195) is the exact motivating system and supplies the primary MSC classification and periodic-orbit setting. Khajanchi (DOI 10.1016/j.amc.2014.06.109) is the closest same-system predecessor and supplies a different boundedness functional. Georgescu–Hsieh (DOI 10.1137/060670377) is related stage-structured global-dynamics literature but was only needed at statement level. The present result does not establish recurrence, bifurcation, stability, or sharp attainability for arbitrary parameters.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full original Feng–Jiang model paper investigates bifurcations and periodic-orbit multiplicity, while Khajanchi 2014 uses S=k1 x+y+z for dissipative bounds. The latter cancellation retains juvenile/mature mortality terms and gives no exact stationary parabola. The tuned Φ cancels the juvenile term as well and, after invariant-measure integration, establishes a response-independent mature predator ceiling and equality rigidity. Related mean-variance laws in different ecological systems have no implication for the exact nine-parameter stage-structured system.
+
+## value
+
+PASS
+
+Feng–Jiang study coexisting limit cycles where orbit averages are mathematically meaningful but nonlinear period computation is difficult. A universally exact, response-independent relation between prey fluctuation variance and mature-predator mean, plus its sharp algebraic cap and rigid equality case, constrains every possible compact recurrent state without solving bifurcation dynamics. The weighted trophic content is physically motivated by cancellation of within-population transfers; its exact budget is an independently useful stationary law, even though deriving it uses elementary algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

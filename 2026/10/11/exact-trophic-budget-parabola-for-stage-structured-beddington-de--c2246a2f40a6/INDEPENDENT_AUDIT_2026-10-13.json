@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T08:59:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 8a35b7153736f78da923a4e1c9c7b6afc01122ae and verify.py dc213889469bd6137ee894adb27bb8626b18f876",
+        "Feng–Jiang DOI:10.3934/dcdsb.2022195 exact printed dimensional system (3)",
+        "Khajanchi DOI:10.1016/j.amc.2014.06.109 source model and boundedness §3.2"
+      ],
+      "rationale": "Set predation F=axz/(1+bx+cz) and Φ=x+y/k1+(α+d1)z/(α k1). Substitution cancels -F +F and -(α+d1)y/k1+(α+d1)y/k1 exactly, leaving dΦ/dt = r x(1−x/k) − C z, C=(α+d1)d2/(α k1). For any compactly supported invariant probability in the nonnegative octant, boundedness of the generator on its support justifies ∫dΦ/dt dμ=0. Completing square yields ∫(x−k/2)²+(kC/r)mean z=k²/4 and equivalent Var x + (kC/r)mean z = mean x(k−mean x). Since z≥0, max mean z=rk/(4C); equality puts invariant support inside plane x=k/2. Tangency x′=0 on that plane fixes z uniquely by strict monotonicity of F in z≥0, then invariance and z′=0 fixes y, proving support consists of one equilibrium. Consequently every non-equilibrium invariant ergodic recurrent state has strict inequality. Independent SymPy cancellation and exact parameter values checked: C=9/10, kC/r=27/4, ceiling=100/3. No existence or stability of periodic states assumed.",
+      "residual_risks": [
+        "Equality rigidity relies on nonnegative invariant support; not asserted for non-compact measures or stochastic models."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feng–Jiang establish limit-cycle existence/multiplicity and Hopf bifurcations. Khajanchi proves positivity and dissipativity using S=k1 x+y+z and dS/dt=k1 r x(1−x/k)−d1 y−d2 z, unlike the exact single-z identity for Φ. Related published Resultary shells concern different ODEs."
+        ],
+        "reasoning": "The broader dynamical results do not supply the exact mature-predator mean cap for *all* compact invariant measures of this stage-structured system. Generic integration of a Lyapunov function is a known method but the tuned exact cancellation and equality case are specific.",
+        "searches": [
+          "Feng–Jiang doi:10.3934/dcdsb.2022195 full primary pages 1–38",
+          "Khajanchi doi:10.1016/j.amc.2014.06.109 §§2–3 plus remaining model results",
+          "Resultary related exact stationary mean-variance shell strong-Allee Holling-II and other models"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/dcdsb.2022195 authorized 38-page text",
+        "doi:10.1016/j.amc.2014.06.109 author-uploaded article §3.2",
+        "doi:10.1137/060670377 partial",
+        "Resultary stage-structured mean-variance search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Khajanchi obtains dS/dt=k1 r x(1−x/k)−d1 y−d2 z. Invariant averaging therefore gives a relation involving both predator stages, not exact coefficient on z only. Feng–Jiang proves periodic-orbit results but does not show this response-independent stationary moment identity."
+        ],
+        "reasoning": "An inequality on k1 x+y+z cannot be algebraically inverted into the new variance parabola. Tuned generator coboundary is a genuine additional statement despite elementary algebra in its proof.",
+        "searches": [
+          "Feng Jiang full primary text model eq(3), bifurcation results and conclusion",
+          "Khajanchi §3.2 full author-uploaded text S boundedness proof",
+          "Georgescu Hsieh DOI:10.1137/060670377 publication-scope comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same identity can be expressed as a generator coboundary dΦ/dt, mean z bound or variance penalty. Feng–Jiang printed this nine-parameter ODE but not the stationary x-variance vs z parabola in the inspected mathematical results. Khajanchi derives a different lossy S derivative."
+        ],
+        "reasoning": "The weighted stationary balance is not implied by a generic boundedness inequality; it uses a specific coefficient tuned to remove internal maturation as well as consumption.",
+        "searches": [
+          "Resultary semantic stage structured Beddington DeAngelis predator prey mean predator invariant measure budget variance prey Feng Jiang Khajanchi",
+          "exact stationary mean variance shell stage structured juvenile mature predator",
+          "weighted biomass derivative prey logistic mature predator invariant measure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Feng–Jiang parameter table r=4,k=30,k1=0.1,α=0.1,d1=0.08,d2=0.05 implies the new exact coefficient 27/4 and ceiling 100/3, neither stated in the inspected tables. Other indexed mean-shell records are different models."
+        ],
+        "reasoning": "A numerical equilibrium table or dissipative upper bound is not the all-stationary equality with its variance penalty and equality rigidity.",
+        "searches": [
+          "Feng–Jiang Table 1 dimensional parameter values and figures",
+          "Khajanchi boundedness estimates",
+          "Resultary same-system trophic budget semantic query"
+        ]
+      },
+      "rationale": "The full original Feng–Jiang model paper investigates bifurcations and periodic-orbit multiplicity, while Khajanchi 2014 uses S=k1 x+y+z for dissipative bounds. The latter cancellation retains juvenile/mature mortality terms and gives no exact stationary parabola. The tuned Φ cancels the juvenile term as well and, after invariant-measure integration, establishes a response-independent mature predator ceiling and equality rigidity. Related mean-variance laws in different ecological systems have no implication for the exact nine-parameter stage-structured system.",
+      "residual_risks": [
+        "Oxford institutional retrieval for Khajanchi DOI returned vpn_disconnected; author-uploaded openly readable copy supplies key model and boundedness comparison but literature access completeness remains bounded.",
+        "An older paper in a different variable normalization could obtain a tuned extinction/predator mean budget without using invariant-measure language.",
+        "No numerical argument is used to claim existence of non-equilibrium recurrent measures at each parameter choice."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No stationary mean–variance identity or response-independent bound identified in materially reviewed model, proofs and conclusion; search alone is not evidence for every possible equivalent formulation.",
+          "evidence": "Equation (3), Table 1 parameters, §3 Theorems and figures, pp.35–37 conclusion/cycle bifurcations.",
+          "identifier_or_url": "doi:10.3934/dcdsb.2022195",
+          "material_read": "Full 38-page authorized primary PDF text recovered; closely read pages 1–5 model, §3 bifurcation theorems, pp.13–38 skim/search for moment balances, conclusion and tables",
+          "method": "Authorized institutional PDF extraction/reading, 1–12/13–24/25–36/37–38 pages",
+          "title": "A stage structured predator-prey model with periodic orbits",
+          "trigger": "The exact dimensional ODE and oscillating nine-parameter branch"
+        },
+        {
+          "assessment": "Section 3.2 weighted S=k1 x+y+z gives dissipative inequality; not the new exact variance-mean shell. Broader theorem text remains an originality access risk.",
+          "evidence": "Section 3.2 dS/dt=k1 r x(1−x/k)−d1 y−d2 z; DOI metadata and document p346.",
+          "identifier_or_url": "doi:10.1016/j.amc.2014.06.109",
+          "material_read": "Author-uploaded openly readable paper text §§2–3.2, exact dissipativity proof and further section headings; institutional fetch unavailable because VPN disconnected",
+          "method": "ResearchGate author-uploaded publicly accessible full article text (not Oxford, which returned vpn_disconnected)",
+          "title": "Dynamic behavior of a Beddington–DeAngelis type stage structured predator–prey model",
+          "trigger": "Same original three-equation stage-structured ODE with potential prior dissipativity bound"
+        },
+        {
+          "assessment": "Different Holling-II stage model; no whole-document NOT_COVERING assertion.",
+          "evidence": "Feng–Jiang intro identifies Georgescu–Hsieh global stability and periodic orbit treatment of eq(2).",
+          "identifier_or_url": "doi:10.1137/060670377",
+          "material_read": "Bibliographic summary and literature discussion in Feng–Jiang pp.2–3, not full primary text",
+          "method": "Source-context citation, partial only",
+          "title": "Global Dynamics of a Predator-Prey Model with Stage Structure for the Predator",
+          "trigger": "Related earlier stage-structured dynamical results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "doi:10.3934/dcdsb.2022195 cycle bifurcations",
+        "doi:10.1016/j.amc.2014.06.109 prior dissipativity"
+      ],
+      "rationale": "Feng–Jiang study coexisting limit cycles where orbit averages are mathematically meaningful but nonlinear period computation is difficult. A universally exact, response-independent relation between prey fluctuation variance and mature-predator mean, plus its sharp algebraic cap and rigid equality case, constrains every possible compact recurrent state without solving bifurcation dynamics. The weighted trophic content is physically motivated by cancellation of within-population transfers; its exact budget is an independently useful stationary law, even though deriving it uses elementary algebra.",
+      "residual_risks": [
+        "No proof of attainment of 100/3 for a given choice of a,b,c, and not a full classification of cycles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Assumes a compactly supported invariant probability in nonnegative octant; no stochastic/delayed extensions.",
+    "Institutional Oxford VPN disconnected for Khajanchi; author-uploaded accessible content used, residual alternate-notation coverage risk stated."
+  ],
+  "schema_version": 1
+}
