@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The Python standard-library program `verify.py` was executed from the delivered package directory with Python 3. It independently builds the degree-three prism adjacency lists, initializes the observed set to the union of the two closed neighborhoods, and computes all simultaneous unique-white-neighbor forces. For each \(7\le n\le50\) it checks every unordered vertex pair, the complete eligibility criterion, the exact two-term time distribution, and the claimed time for each eligible geometric pair type. It also checks six direct local full-interval identities per order and the failure of a single seed.
+## correctness
 
-Observed output:
+PASS
 
-`VERIFY_OK n=7..50 all_unordered_pairs every_latency_and_nonforcing checked_pdpairs=13794 base_intervals=264 singleton_nonforcing=44`
+For n>=7, the six eligible seed-pair orbit types are same-rail separations 1,2,3 and opposite-rail separations 0,1,2 (distance-at-most-three lemma of Girish–Somasundaram). Directly checked each initial rail-observation set, its q=1,2,2,0,1,1 post-domination fills, and the L=4,5,6,3,4,5 complete rung intervals. Each subsequent simultaneous round expands both interval ends, hence t=1+q+ceil((n-L)/2). Type counts (2n each same 1/2/3; n,2n,2n opposite 0/1/2) yield precisely 11n and 3n/8n fastest/slowest odd, 9n/2n even. Independent direct simulation of ALL unordered pairs for n=7..18 reproduced every value, including nonqualifying pairs; it does not prove arbitrary n.
 
-The program verifies 13,794 successful minimum seed pairs and all unsuccessful two-vertex pairs across the stated finite range. The theorem for unrestricted \(n\ge7\) follows instead from the six local calculations, the full-rung propagation induction, and the prior exact pair-eligibility lemma. Neither finite verification nor the self-review constitutes independent review or an infinite machine certificate.
+## originality
+
+PASS
+
+The threshold/eligible two-seed classification is credited to Girish–Somasundaram. Neither its structural lemma nor inspected propagation-time generalities directly supplies the six exact latencies and parity-dependent time-resolved multiplicities for every labeled minimum placement. Broad Resultary search returned power-domination polynomial results for other families but no dominating prism time enumerator; unindexed equivalent time formulas remain a risk.
+
+## value
+
+PASS
+
+Synchronous detection latency is a natural operational invariant conditional on minimum sensor cost; exact full distribution distinguishes n odd/even and singles out a large parity-sensitive optimal subfamily. This is more than the known existence/count of two-seed sets: it classifies every feasible minimum placement by an independent performance metric.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

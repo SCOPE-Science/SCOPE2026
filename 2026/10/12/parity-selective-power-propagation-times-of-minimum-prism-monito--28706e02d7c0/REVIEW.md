@@ -1,15 +1,21 @@
-# Self-review: parity-selective prism power-propagation latency
+# Independent mathematical audit
 
-## Correctness — PASS
-The closed-neighborhood and synchronous forcing rule is explicitly normalized, including the domination round. For the six eligible seed geometries, the local proof computes the complete observed interval after zero, one, or two forcing rounds. At that point exactly two endpoint rungs per subsequent round are added, up to collision of the fronts; the interval-length formula therefore proves both upper and lower completion times without extrapolating from finite experiments. The exact 2024 two-seed eligibility criterion is independently checked against direct simulation for all pairs of orders 7–50. The standalone verifier checked 13,794 qualifying pairs, all nonqualifying pairs, 264 base intervals, and singleton failure. Possible limitations are only those expressly identified in RESULT.md.
+## correctness
 
-## Originality — PASS, with priority risk
-The closest source is Girish and Somasundaram (2024), Lemmas 1–2: this already settles precisely which two-vertex placements power dominate prisms, so that criterion and the total \(11n\) are not new. Their statements neither grade minimum placements by synchronous completion time nor identify the odd/even reversal in the number of fastest pairs; deriving the new polynomial requires the separate six-case timed local analysis. Barrera and Ferrero (2010/2011) establish basic prism power-domination numbers but not this latency distribution. The available Bozeman thesis chapter presenting propagation time and examples for paths, cycles and spiders does not report the prism result. Searches under propagation radius, bounded-time power domination, power propagation time, prism/circular ladder, and generalized Petersen aliases found no exact duplicate in accessible records. This is a priority assessment, not a claim of exhaustive literature coverage: an uncatalogued or inaccessible equivalent remains possible.
+PASS
 
-## Value — PASS
-Counting and characterizing fastest minimum-sensor placements is a natural latency-sensitive refinement of cardinality-optimal power domination. The theorem distinguishes two consecutive attainable propagation times and discovers a strong parity transition: the fastest proportion is \(3/11\) at odd circumference and \(9/11\) at even circumference. The all-order exact distribution is useful for selecting minimum sensors subject to synchronous monitoring delay; it is not a renamed minimum-size calculation. General product families, larger seed budgets and asynchronous forcing remain outside the result.
+For n>=7, the six eligible seed-pair orbit types are same-rail separations 1,2,3 and opposite-rail separations 0,1,2 (distance-at-most-three lemma of Girish–Somasundaram). Directly checked each initial rail-observation set, its q=1,2,2,0,1,1 post-domination fills, and the L=4,5,6,3,4,5 complete rung intervals. Each subsequent simultaneous round expands both interval ends, hence t=1+q+ceil((n-L)/2). Type counts (2n each same 1/2/3; n,2n,2n opposite 0/1/2) yield precisely 11n and 3n/8n fastest/slowest odd, 9n/2n even. Independent direct simulation of ALL unordered pairs for n=7..18 reproduced every value, including nonqualifying pairs; it does not prove arbitrary n.
 
-## Closest literature and limitations
-Barrera–Ferrero, *Networks* (2011), DOI 10.1002/net.20413; Girish–Somasundaram, *Symmetry* (2024), DOI 10.3390/sym16070781, especially Lemmas 1–2; Bozeman, arXiv:1608.01189v1 (2016) and related full thesis chapter, §3.2. The relevant statements and locally generated fronts were examined; earlier equivalent time-refined formulas under alternative terminology remain a residual priority risk. All computational checks are finite corroboration, not independent mathematical certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The threshold/eligible two-seed classification is credited to Girish–Somasundaram. Neither its structural lemma nor inspected propagation-time generalities directly supplies the six exact latencies and parity-dependent time-resolved multiplicities for every labeled minimum placement. Broad Resultary search returned power-domination polynomial results for other families but no dominating prism time enumerator; unindexed equivalent time formulas remain a risk.
+
+## value
+
+PASS
+
+Synchronous detection latency is a natural operational invariant conditional on minimum sensor cost; exact full distribution distinguishes n odd/even and singles out a large parity-sensitive optimal subfamily. This is more than the known existence/count of two-seed sets: it classifies every feasible minimum placement by an independent performance metric.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
