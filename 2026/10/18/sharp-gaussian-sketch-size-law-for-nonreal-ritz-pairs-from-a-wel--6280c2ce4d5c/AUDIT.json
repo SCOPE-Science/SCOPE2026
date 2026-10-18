@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The orthonormal Krylov basis, bivariate Gaussian leakage density, exact discriminant and Laplace boundary asymptotic reconstruct with correct quantifiers for every integer sketch size s>=2. The unique saddle gives base 3 and prefactor sqrt(3/(2*pi*s)), not a finite-s numerical extrapolation. A standalone actual-path script verifies 971 deterministic analytical and numerical checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2407.03208v1 provides randomized Arnoldi convergence and projection bounds.",
+        "doi:10.1002/nla.2596 gives rank-one modifications and broad matrix-function analysis.",
+        "arxiv:2604.01037v1 gives high-probability convergence for a different complex-Gaussian Ritz formulation."
+      ],
+      "reasoning": "General sketch embedding distortion and eigenpair convergence estimates do not imply a necessary-and-sufficient event for the two Ritz values or the exact Laplace prefactor. The later complex-Gaussian result has a different sampling law; a reduction to the real-Gaussian density was not found.",
+      "searches": [
+        "randomized Rayleigh Ritz self adjoint eigenproblem spurious non-real complex Ritz pair Student t probability Gaussian embedding",
+        "randomized Arnoldi Gaussian sketches imaginary Ritz eigenvalues tail exponential logarithm 3 over 2",
+        "arxiv:2407.03208 spurious complex Ritz values diagonal 0 1 2",
+        "own ledger (68 accessible claims): Arnoldi, Ritz, sketched eigen, non-real, Student, complex pair",
+        "arxiv:2407.03208v1 full text",
+        "doi:10.1002/nla.2596 full text",
+        "arxiv:2604.01037v1 full text",
+        "arxiv:2604.01037v1 Sections 3--5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2407.03208v1; https://arxiv.org/html/2407.03208v1, sections 2.4, 3.2 and 5; explicit sketch orthogonal projector, randomized Ritz theory",
+      "DOI:10.1002/nla.2596; https://onlinelibrary.wiley.com/doi/10.1002/nla.2596, sections 3--5 and conclusions; spurious sketched Ritz values outside spectral region",
+      "arxiv:2604.01037v1; https://arxiv.org/html/2604.01037v1, sections 3--5; complex Gaussian randomized Ritz eigenpair convergence",
+      "own accessible ledger latest g000068: 68 claim texts searched for aliases and explicit implication comparisons",
+      "published-finding corpus records: relevant randomized Krylov and spectral computations returned for four target queries; no covering mathematical statement in closest retrieved summaries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Palitta et al. state sketched Ritz values outside the spectrum can occur, which covers only the qualitative warning.",
+        "Historical harmonic Ritz law concerns one real scalar projected eigenvalue with reciprocal-Student tails, so a complex conjugate pair is impossible there.",
+        "Historical sketched Galerkin error result concerns error moment tails, not eigenvalue-pair reality."
+      ],
+      "reasoning": "The final claim is deliberately restricted to the new exact probability integral, positivity for every finite s and asymptotic constant for a fixed SPD input. Generic spectral pollution, a single Ritz pole and convergence/error tails neither imply nor dominate the stated probability law.",
+      "searches": [
+        "sketched Arnoldi symmetric real diagonal matrix produces complex conjugate Ritz eigenvalues 3 by 3 two step Gaussian sharp probability",
+        "randomized Rayleigh Ritz self adjoint eigenproblem spurious non-real complex Ritz pair Student t probability Gaussian embedding",
+        "randomized Arnoldi Gaussian sketches imaginary Ritz eigenvalues tail exponential logarithm 3 over 2",
+        "arxiv:2407.03208 spurious complex Ritz values diagonal 0 1 2",
+        "own ledger (68 accessible claims): Arnoldi, Ritz, sketched eigen, non-real, Student, complex pair",
+        "arxiv:2407.03208v1 full text",
+        "doi:10.1002/nla.2596 full text",
+        "arxiv:2604.01037v1 full text",
+        "own ledger item IDs 38a83f9c-9464-4d85-bd44-9577c920c1e5,abb9953e-eb24-4c46-9e8b-e7cdc36acf07"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Ritz matrix is similar to ((SQ)^T SQ)^(-1)(SQ)^T SAQ, the standard sketched Petrov--Galerkin formulation.",
+        "Palitta--Schweitzer--Simoncini already acknowledge general spurious sketched Ritz values."
+      ],
+      "reasoning": "Rephrasing as a rank-one modification of an ordinary Arnoldi compression recovers the same negative-discriminant event, but generic spectral-pollution statements do not imply its explicit normalized probability integral or sharp sketch-size coefficient.",
+      "searches": [
+        "sketched Arnoldi symmetric real diagonal matrix produces complex conjugate Ritz eigenvalues 3 by 3 two step Gaussian sharp probability",
+        "randomized Rayleigh Ritz self adjoint eigenproblem spurious non-real complex Ritz pair Student t probability Gaussian embedding",
+        "doi:10.1002/nla.2596 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible historic claims include a sketched Galerkin inverse-moment tail result and a one-dimensional harmonic Ritz Student reciprocal law.",
+        "No inspected table or published result states this probability P_s or asymptotic 3^(-s/2)."
+      ],
+      "reasoning": "This is a random two-eigenvalue complex-pair probability, not a known eigenvalue table or a deterministic compression spectrum; one-dimensional harmonic Ritz inverse tails cannot imply a quadratic discriminant event.",
+      "searches": [
+        "sketched Arnoldi symmetric real diagonal matrix produces complex conjugate Ritz eigenvalues 3 by 3 two step Gaussian sharp probability",
+        "randomized Arnoldi Gaussian sketches imaginary Ritz eigenvalues tail exponential logarithm 3 over 2",
+        "own ledger (68 accessible claims): Arnoldi, Ritz, Student, non-real; IDs 38a83f9c-9464-4d85-bd44-9577c920c1e5,abb9953e-eb24-4c46-9e8b-e7cdc36acf07"
+      ]
+    },
+    "rationale": "The inspected primary randomized Arnoldi and later sketched Krylov sources do not state the sharp real-Gaussian two-step nonreal pair probability; generic spectral pollution is acknowledged as known. Published search, published-finding corpus, and all accessible own historical claims were compared at the implication level; residual older specialized-literature risk remains.",
+    "residual_risks": [
+      "An older non-arXiv publication could tabulate the same special Gaussian discriminant probability under random oblique compression terminology.",
+      "The 2025 primary text explicitly covers generic spurious Ritz behavior; originality is only asserted for the sharp special-case distribution/asymptotic, not the existence mechanism.",
+      "This is an analytic self-review, not independent peer confirmation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same oblique projection and eigenvalue extraction but no real-Gaussian well-conditioned symmetric two-step event probability or sharp oversampling asymptotic was found in relevant technical sections.",
+        "evidence": [
+          "arxiv:2407.03208v1, sections 2.4, 3.2, 5; paper discusses embedding and randomized eigenvalue convergence, not the event integral"
+        ],
+        "identifier_or_url": "arxiv:2407.03208v1",
+        "material_read": "Sections 1--3 and 5; extraction and numerical experiment material in sections 4 and 6",
+        "method": "Read public arXiv HTML primary text and searched for symmetric, spurious, complex eigenvalues",
+        "title": "Randomized Implicitly Restarted Arnoldi method for the non-symmetric eigenvalue problem",
+        "trigger": "same sketch-orthogonal Arnoldi extraction object"
+      },
+      {
+        "assessment": "Generic existence of spurious sketched Ritz values outside the spectral region is already known; the paper analyzes their effects on matrix-function approximation, not the specified exact two-eigenvalue complex-pair probability or Gaussian large-sketch constant.",
+        "evidence": [
+          "doi:10.1002/nla.2596, Section 3 and Conclusions: sketched Ritz values can be far outside field of values"
+        ],
+        "identifier_or_url": "doi:10.1002/nla.2596",
+        "material_read": "Full accessible HTML discussion of sections 1--5, numerical and conclusion relevant paragraphs",
+        "method": "Read primary HTML and searched spurious Ritz, symmetric, numerical spectral bounds",
+        "title": "Sketched and Truncated Polynomial Krylov Methods: Evaluation of Matrix Functions",
+        "trigger": "stronger plausible coverage: spectral pollution under sketched Arnoldi"
+      },
+      {
+        "assessment": "Uses complex Gaussian test spaces and studies convergence near simple target eigenvectors; no specialization implying this real Gaussian nonreal-pair probability was identified.",
+        "evidence": [
+          "arxiv:2604.01037v1, Algorithm 1 and sections 3--4: different random ensemble and estimation guarantee"
+        ],
+        "identifier_or_url": "arxiv:2604.01037v1",
+        "material_read": "Full accessible arXiv HTML sections 1--4, algorithm and theorem statements",
+        "method": "Compared complex-Gaussian Petrov--Galerkin eigenpair consistency guarantees to real-Gaussian event law",
+        "title": "Stabilizing the Rayleigh--Ritz procedure by randomization",
+        "trigger": "newer stronger random Ritz extraction possible dominating scope"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6280c2ce-4d5c-430c-88a6-ee610650713d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact finite-s failure probability and asymptotic event rate give a meaningful quantified spectral-reality benchmark for oblique sketched Ritz extraction on a well-conditioned SPD matrix. This is not merely a known qualitative bad example or an efficiency claim; the oversampling exponent and prefactor describe reliability that generic embedding bounds do not quantify.",
+    "status": "PASS"
+  }
+}
