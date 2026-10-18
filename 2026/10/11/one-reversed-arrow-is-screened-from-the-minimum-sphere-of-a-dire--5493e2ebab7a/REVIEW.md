@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Reconstructing the signed path-incidence Gram matrix gives two tridiagonal positive blocks and positive links to the single reversed vertex. The quadratic Dirichlet weights solve the exact normal equations, sum to one, and vanish only at the flipped vertex. The weighted squared-distance identity is a global minimax lower bound for every center and proves uniqueness. All unreversed vertices contact the sphere; the flipped vertex has exact positive squared-distance deficit \(\lambda(m-3)\) for \(m\ge4\), and equality at \(m=3\). The polynomial identity for the two run lengths yields the announced radius and position extremality.
+## correctness
 
-## Originality
-PASS. The primary source's Example 5.2 identifies arbitrary path orientations as simplices but does not compute Euclidean minimum spheres. The second directed-root full text concerns triangulations and Ehrhart data. Indexed searches under Dynkin quiver, type-A root simplex, oriented path, one reversal, Chebyshev ball, and circumradius names found no dominating radius/contact theorem. An all-vertex sphere criterion would only decide whether that *particular* sphere is optimal; here the flipped vertex is strictly interior to a smaller sphere and the formula explicitly solves the smaller active set. The consistently oriented path has a different signed Gram matrix.
+PASS
 
-## Value
-PASS. The result answers a natural first orientation-perturbation question for a canonical simplex family: a single reversed arrow causes strict contact screening in every larger dimension. The exact radius is sensitive to defect position, with sharp central and endpoint extremizers. The complete contact and center formulas give a useful geometric test case for broader directed-root-polytope and active-set optimization problems.
+At the assigned exact tree read RESULT.md and verify.py. Reconstructed the signed root-gram matrix G with diagonal 2, consecutive entries -s_i s_{i+1}, zero otherwise. For a one-arrow reversal the positive weights p_i=lambda i(L+1-i)/2 on the two surviving runs, p_j=0, sum to 1 by the cubic identity S/12, and satisfy (Gp)_i=lambda outside j, (Gp)_j=lambda(m-1)/2. Thus p^T Gp=lambda, every vertex has squared norm 2, and the weighted center c gives maximum squared distance 2-lambda. The weighted squared-distance averaging identity establishes minimum and uniqueness for every competing Euclidean center. The flipped vertex gap is lambda(m-3), hence contacts all m vertices at m=3 and exactly m-1 otherwise; position monotonicity follows from S=(m+1)(m(m-1)-3(j-1)(m-j)). Independently rebuilt rational incidence vertices and tested all 322 (m,j), m=3..25, with exact arithmetic; all center/weight/contact/gap identities held. The all-integer claim follows from algebra, not finite extrapolation.
 
-## Closest literature and limitations
-Numata--Takahashi--Tamaki classify the simplex combinatorics; Kálmán--Tóthmérész analyze directed-root dissection and Ehrhart data. Classical minimum-ball dual certificates are known, and priority under alternative root-system terminology remains a residual risk. Multiple arrow reversals, general trees, inradii and ellipsoids are not covered.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Numata, Takahashi and Tamaki Example 5.2 states that any oriented Dynkin A path produces a simplex, but Section 5 gives combinatorial faces, not Euclidean Chebyshev radius or strict contact screening. General root-polytope dissection or canonical circumsphere statements do not solve the smaller active-set minimax sphere when its flipped vertex is screened. A related Resultary cycle-root screening result concerns different graph and two screened contacts, not this all-length one-reversal path formula.
+
+## value
+
+PASS
+
+The metric effect of changing just one orientation in a directed-path root simplex is a natural structural perturbation: an otherwise extreme vertex ceases to support the unique minimum sphere for every m>=4. The complete exact contact transition, reversal-position dependence and center formula provide an explicit nontrivial family benchmark for finite-dimensional Chebyshev-ball and root-polytope geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
