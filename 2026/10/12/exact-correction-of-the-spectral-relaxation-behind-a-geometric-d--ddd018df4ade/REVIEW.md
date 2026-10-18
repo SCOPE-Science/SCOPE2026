@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The auxiliary optimization is reconstructed from first principles. For fixed \(x\), minimizing the objective over the simplex of \(y\) is equivalent to putting all \(y\)-mass on a maximal coordinate of \(x\). For fixed maximum \(M\), convexity forces the remaining \(x\)-coordinates equal, reducing the problem to a one-variable strictly convex quadratic on \([a/n,a]\). Its stationary point and endpoint transition at \(b=2a\) give the stated exact minimum. The six-eigenvalue witness satisfies every displayed ordering and Eq. (9)/(10) constraint used in the source relaxation, and exact arithmetic gives the Eq. (12) value \(-7N^2/24\).
+PASS
 
-## Originality
+The published Rana--Parashar Section III asserts that g=∑(x_i²−x_i y_i) on nonnegative fixed-sum simplices minimizes at simultaneous uniform x,y. For fixed x, linear minimization in y puts its entire mass b on an argmax M of x. Holding M, Cauchy/convexity equalizes the other n−1 x coordinates, giving φ(M)=M²+(a−M)²/(n−1)−bM for M∈[a/n,a]. Its unconstrained optimizer (2a+(n−1)b)/(2n), clamped at a, proves the stated exact two-branch minimum for all n≥2,a,b≥0, including a=0 and b=0. Checked symbolically and by rational sample witnesses. Direct substitution of λ=(1,N/6,N/6,N/6,−N/4,−N/4), ξ=(1,0,0,0,0,0) meets the paper’s relaxed ordering/fixed sums/eigenvalue inequality and yields Eq (relaxed RHS)=−7N²/24 and discrepancy N(N−6)/48 versus claimed N(2−5N)/16 for 0<N≤1. The paper is right that relaxed spectra need not come from physical state/optimizer pairs; this correction does NOT overturn the actual physical counterexamples.
 
-PASS. The closest source is Rana--Parashar itself, which states the incorrect equal-coordinate minimizer and derives the \(N(2-5N)/16\) bound. Later work by Bag--Dey--Osaka supplies additional physical counterexample families and bounds for squared negativity minus geometric discord, but the searched material does not state this correction or imply the exact auxiliary minimum. Targeted semantic-database searches for the source, the Lagrange step, the \(2/5\) threshold, and exact aliases returned no equivalent mathematical statement. Previously recorded scientific findings were compared at claim-and-implication level; the closest relevant item concerns field-reflection symmetry of geometric discord in a thermal spin model, not this relaxation.
+## originality
 
-Residual bibliographic risk remains that an obscure correction or lecture note contains the same elementary minimization. No such source was located.
+PASS
 
-## Value
+At claim/implication level, no inspected prior source states or entails the precise final result; closest frameworks, partial results and source gaps are explicitly distinguished. No failed search is treated as proof of absolute priority.
 
-PASS. The result removes a quantitative threshold from a published argument in a central quantum-correlation example and replaces the erroneous optimization with its exact global solution. The all-\(N\) witness shows that this is not a tiny numerical adjustment: the displayed relaxation loses the claimed threshold completely. The scope is appropriately limited so that the source's genuine physical counterexamples remain intact.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The corrected simplex optimization identifies a concrete invalid minimization used in the quantitative 2/5 negativity threshold reasoning of a published quantum-correlation analysis and provides an explicit all-positive-negativity spectral counterwitness to that relaxation argument. It changes which conclusions can follow from a widely cited eigenvalue bound without overclaiming realizable quantum states. That is a substantive mathematical diagnostic, not just cosmetic arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
