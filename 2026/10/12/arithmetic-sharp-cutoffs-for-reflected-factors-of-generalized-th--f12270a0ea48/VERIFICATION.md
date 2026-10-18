@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json` using Python 3 standard library.
+# Independent mathematical audit
 
-The verifier independently evaluates base-\(b\) digit sums for \(96\) combinations with \(2\le b\le9\) and \(1\le m\le12\). For every pair it reconstructs the predicted full two-letter language from allowed carries, checks the exact size and reversal-orbit count, and constructs an actual integer realizing each advertised pair. In the palindromic branch it constructs both length-three palindrome orientations for every alphabet residue by separating their high digits.
+## correctness
 
-For \(63\) combinations it independently computes a finite digit-sum prefix of length \(36000\) and tests all occurring factors of lengths \(1\) through \(6\). It checks the absence of reflected pairs in the appropriate cases and the condition that every reversible length-three factor is palindromic. The prefix may miss factors requiring very long carries; therefore it is not used to prove any factor set is complete. A separate finite symbolic shape enumeration checks the binary-base difference-pattern obstruction for moduli \(3\) through \(29\).
+PASS
 
-The infinite theorem follows from the carry identity, additive-shift lemma, complete local-pattern proof and explicit witnesses in `RESULT.md`, not from extrapolating experimental enumeration. No independent audit has been performed.
+The adjacent digit-sum jump is 1−(b−1)ν_b(n+1), so the exact difference coset is D=1−(b−1)Z_m. Long-block digit additivity realizes every alphabet translation, yielding all length-two factors F2={(a,a+d):d∈D}, cardinal m²/g. Reversal of an edge requires D∩(−D), and as D is one coset, D=−D iff g|2; for g≥3 no two-letter reversals. For m≥3, any length-four difference triple for b≥3 has ≥2 occurrences +1 and any reversal would force ≥2 occurrences −1, impossible. For b=2, exhaustive even/odd start types (1,x,1) and (x,1,y) with at least one outer 0 also preclude reversed length-four patterns. Reversible length-three words must be palindromes; when g|2 a carry with j(b−1)≡2(mod m), together with alphabet translations, constructs both (a,a±1,a) for every a, exactly 2m. For m≤2 the constant/alternating/morphism palindrome arguments give full closure. Independent digit-sum prefix computations across seven (b,m) cases corroborated but do not establish the infinite result.
+
+## originality
+
+PASS
+
+The all-base gcd-dependent cutoff is not supplied by the known reflection-complexity source question, generalized Thue–Morse factor-complexity theorems, or Starosta’s dihedral letter-changing antimorphisms; the binary-base modular case is a known special case and explicitly credited.
+
+## value
+
+PASS
+
+This supplies an exact arithmetic trichotomy and all reversal-complexity corrections for a canonical automatic sequence family, closing the specific generalized-language question rather than merely reporting sparse finite experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

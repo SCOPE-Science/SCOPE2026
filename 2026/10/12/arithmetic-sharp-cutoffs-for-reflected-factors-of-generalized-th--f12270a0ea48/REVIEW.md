@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is an all-parameter carry and local-difference argument. The exact two-letter language is reconstructed from the digit-sum carry identity and unrestricted additive shifts of every factor; its ordinary-reflection orbits give the stated gcd formula. Every length-four factor is excluded from having its reversal by a complete base-\(b\ge3\) argument and an independent base-two parity split. The length-three assertion and sharpness follow from two explicit carry palindromes and their translated copies. Reversal closure for \(m\le2\) follows from periodicity or palindromic substitution iterates. The finite verifier replays genuine arithmetic witnesses and checks the local cases, but the general statements are proved symbolically.
+## correctness
 
-## Originality
-PASS for the all-base sharp ordinary-reversal cutoff classification. The 2024 reflection-complexity paper asks for generalized Thue–Morse extensions but gives only a binary-base example. The 2012 generalized Thue–Morse paper gives factor complexity and generalized letter-negating antimorphisms, not ordinary reversal; its two-letter factor language is credited as prior. The 2000 palindromicity theorem excludes long palindromes but not unequal factors that are mutual reversals. The previously established binary-base special case is also credited and not presented as new. Targeted source, equivalence, exact-parameter, and implication searches found no prior all-base cutoff theorem. Residual risk is an unindexed elementary observation deduced from the older factor-language result.
+PASS
 
-## Value
-PASS. This resolves a directly posed natural extension of reflection complexity by classifying every base/modulus regime. The \(\gcd(b-1,m)\) transition changes the earliest length at which reversal disappears and gives a complete reflection-complexity formula for every modulus at least three by combining the exact small-length correction with known factor complexity. This is structural infinite-family information, not a finite recomputation.
+The adjacent digit-sum jump is 1−(b−1)ν_b(n+1), so the exact difference coset is D=1−(b−1)Z_m. Long-block digit additivity realizes every alphabet translation, yielding all length-two factors F2={(a,a+d):d∈D}, cardinal m²/g. Reversal of an edge requires D∩(−D), and as D is one coset, D=−D iff g|2; for g≥3 no two-letter reversals. For m≥3, any length-four difference triple for b≥3 has ≥2 occurrences +1 and any reversal would force ≥2 occurrences −1, impossible. For b=2, exhaustive even/odd start types (1,x,1) and (x,1,y) with at least one outer 0 also preclude reversed length-four patterns. Reversible length-three words must be palindromes; when g|2 a carry with j(b−1)≡2(mod m), together with alphabet translations, constructs both (a,a±1,a) for every a, exactly 2m. For m≤2 the constant/alternating/morphism palindrome arguments give full closure. Independent digit-sum prefix computations across seven (b,m) cases corroborated but do not establish the infinite result.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The all-base gcd-dependent cutoff is not supplied by the known reflection-complexity source question, generalized Thue–Morse factor-complexity theorems, or Starosta’s dihedral letter-changing antimorphisms; the binary-base modular case is a known special case and explicitly credited.
+
+## value
+
+PASS
+
+This supplies an exact arithmetic trichotomy and all reversal-complexity corrections for a canonical automatic sequence family, closing the specific generalized-language question rather than merely reporting sparse finite experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
