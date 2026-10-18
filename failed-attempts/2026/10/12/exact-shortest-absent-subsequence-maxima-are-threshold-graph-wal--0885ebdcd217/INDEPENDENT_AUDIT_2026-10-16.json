@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T11:00:11.327741Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The assigned maximum is correct as a direct consequence of known extremal A_k and its exact weak-zigzag SAS characterization: a length k+1 word is absent from k alternating permutation arches exactly if each transition forces the next block, i.e. x0>=x1<=x2>=..., including ties. Reflecting odd positions y_i=sigma−1−x_i converts each inequality to y_i+y_{i+1}>=sigma−1. Appending the universal threshold vertex sigma−1 gives a length k+1 graph walk, so its count is OEIS A050447 row sigma−1,column k+1. Kosche et al. Proposition 3.14 independently proves A_k maximizes SAS over words at fixed universality index. Independent exhaustive direct subsequence checks for sigma=2..5, k=1..4 matched the weak-zigzag/graph recurrence and tabulated values. Bounded scans are not proof of global extremality; that assertion is already established in the cited 2021 primary theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosche et al. Proposition 3.14 maximizes all SAS at fixed universality index via A_k for arbitrary sigma,k and characterizes SAS(A_k) as weak zigzags. Adamson et al. generalize alternating-arch extremal constructions."
+        ],
+        "reasoning": "The 2021 result already covers every parameter of the claimed maximum and its exact objects; the current work does not extend the domain or sharpen the extremal set.",
+        "searches": [
+          "https://arxiv.org/pdf/2108.13968",
+          "https://arxiv.org/pdf/2407.18599",
+          "shortest absent subsequences maximum alternating arch weak zigzag threshold graph walk A050447"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2108.13968",
+        "https://arxiv.org/pdf/2407.18599",
+        "https://oeis.org/A050447",
+        "Resultary semantic query: shortest absent subsequences maximum alternating arch weak zigzag threshold graph walk A050447",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kosche et al. Proposition 3.10 introduction lines describing all alternating weak inequality SAS; Proposition 3.14 full extremality; OEIS A050447 comments March 2026 threshold walks."
+        ],
+        "reasoning": "These two pre-existing statements imply the boxed formula directly by reflecting every other symbol and including a universal start vertex. No genuinely new counting obstacle remains. The equivalence is a short direct reduction, so O FAIL despite a correctly written proof.",
+        "searches": [
+          "https://arxiv.org/pdf/2108.13968",
+          "https://oeis.org/A050447",
+          "shortest absent subsequences maximum alternating arch weak zigzag threshold graph walk A050447"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosche et al. arXiv:2108.13968 pages 9–12: SAS(A_k) iff i1>=i2<=i3>=... (Proposition 3.10 context); OEIS A050447 comments and formula from March 2026 give v←prefixsum(reverse(v))."
+        ],
+        "reasoning": "Odd-position order reversal makes the known weak-zigzag exact class literally the OEIS threshold-adjacency walk language, up to indexing. This matches the statement, not merely a few initial numerical values.",
+        "searches": [
+          "shortest absent subsequences maximum alternating arch weak zigzag threshold graph walk A050447",
+          "https://arxiv.org/pdf/2108.13968",
+          "https://oeis.org/A050447"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A050447 explicitly lists complete rows and algorithmic matrix M(i,j)=1_{i+j>=row}; Kosche 2021 gives the matching alternating-inequality SAS class."
+        ],
+        "reasoning": "Combining full prior combinatorial characterization with existing exact array yields every submitted count (including higher alphabets), not only matching small rows. The table/recurrence predates this record.",
+        "searches": [
+          "https://oeis.org/A050447",
+          "https://arxiv.org/pdf/2108.13968",
+          "A050447 rows 3 6 14 31 weak zigzag"
+        ]
+      },
+      "rationale": "FAIL: The central two mathematical facts that determine the alleged new exact maximum were already proved by Kosche–Koß–Manea–Siemer: Proposition 3.14 gives the global maximum at A_k, and the opening of their Proposition 3.10 proof explicitly CHARACTERIZES every SAS(A_k) as the identical alternating weak inequalities. They further provide endpoint prefix-sum recurrences in the proof of Proposition 3.14. Separately OEIS A050447 (pre-October 2026, updated March 15 2026) already explicitly describes the same reversed-prefix-sum operator and threshold-graph walk matrix. The asserted all-(sigma,k) values therefore follow by a direct combinatorial reindexing of a known full characterization and an existing table. Absence of a verbatim SAS label in OEIS does not make this mathematical count independent prior work; claim-vs-prior implication is decisive.",
+      "residual_risks": [
+        "The OEIS page does not explicitly mention shortest absent subsequences: originality rejection is based on direct logical implication of published complete weak-zigzag characterization and exact preexisting matrix, not a verbatim table citation.",
+        "It is possible to view the literature bridge as an expository connection; it does not establish a new independent maximum under the stated bar.",
+        "A previously published Resultary fixed-word-length binary Fibonacci extremum is a different quantification; it is not itself the decisive general covering result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE COVERING source for extrema and exact weak-zigzag class",
+          "evidence": "Page 9 lines 545–548: SAS in A_k precisely alternating weak inequalities; page 11–12 Proposition 3.14: global extremality; endpoint recurrences in proof.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "Entire accessible 42-page arXiv PDF; directly examined pages 9–13, Proposition 3.10 introductory characterization and Proposition 3.14 proof plus endpoint recurrences",
+          "method": "read primary complete-text PDF and page passages",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Exact same SAS maximum, alternating arches and counting objects"
+        },
+        {
+          "assessment": "DECISIVE matched matrix, recurrence and table, dated March 15 2026",
+          "evidence": "Defines A(n,k) as walks in threshold graph i+j>=k and reverse-prefix-sum iteration; rows match submission.",
+          "identifier_or_url": "https://oeis.org/A050447",
+          "material_read": "Full current OEIS entry including comments, formula, algorithm, examples and history",
+          "method": "read complete OEIS page",
+          "title": "OEIS A050447: threshold-graph walk array",
+          "trigger": "Potential exact preexisting table and graph-matrix equivalent"
+        },
+        {
+          "assessment": "Supports known alternating-word extremality; no need to rely on search silence",
+          "evidence": "Later work credits old shortest-length extremal construction; decisive coverage is 2021+OEIS.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+          "material_read": "Accessible complete arXiv PDF and relevant extremal formulation",
+          "method": "read full scholarly PDF and relevant theorem",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Later more general count theorem for absent subsequences"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: On the strict shared value bar, merely identifying the already-determined alternating weak-zigzag enumeration with the already-tabulated threshold-graph walk matrix is a low-cost parity reflection/renaming of an existing exact recurrence. Although explicit look-up of maximum SAS numbers is convenient, the submitted package establishes no motivated unknown invariant beyond the already characterized class and existing table, no new extremal witnesses/classification, and no substantive mathematical obstacle beyond the textbook bijection. Correctness, reproducibility and the missing phrase on an OEIS page do not independently prove value. The earlier extremality and full object characterization make the claimed exact count mechanically implied.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Coverage is by clear mathematical implication, not by an earlier source literally displaying the same M_{sigma,k} notation.",
+    "The scientifically failed original is kept intact; no disclaimer or additional verification certificate is a scientific repair."
+  ],
+  "schema_version": 1
+}
