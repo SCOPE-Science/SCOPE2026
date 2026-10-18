@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The target coordinate is preserved, so nonreal preimages of real targets occur in conjugate pairs determined by an explicit one-variable equation. The exact rational identity for the second derivative of the arctangent correction proves that its reciprocal slope is unimodal, giving no more than two positive heights and hence at most five distinct preimages. Its exact boundary derivative identifies the transition parameter. For each parameter regime, endpoint inequalities and an open-interval perturbation construct respectively three and five *interior* distinct solutions; the proof treats equality at the threshold. The standalone script reproduces selected witnesses and numerical constants, but the theorem does not rely on finite sampling.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest source, Borovikov's arXiv:2609.39676v1, defines the shear and proves a real-axis Jacobian zero and a Landau-radius obstruction, not exact real-target fiber counts. Earlier bounded harmonic radius estimates establish univalence in prescribed disks, which logically cannot force the sharp five-preimage transition outside those disks. A centered injectivity-radius calculation, even if known, would not itself determine simultaneous five-fold fibers. Searches for five-valence, real-fiber multiplicity, vertical-shear inverses, and the exact threshold did not locate a dominating published statement. An unindexed or differently phrased equivalent fiber classification cannot be excluded.
+PASS
 
-## Value — PASS
-This is a complete natural parameter phase diagram for the inverse geometry of an explicit modern harmonic counterexample, not a routine numerical increment. The uniform five-preimage upper bound, the sharp threshold, and the distinct interior quintuple fibers are structural information that Jacobian-based non-univalence alone does not provide. The exact all-parameter result is potentially useful when analyzing fold configurations and mapping multiplicity.
+For Borovikov F_M(z)=z+i(M−1)2/pi Arg((1−z²)/(1+z²)), Re F_M(x+iy)=x. For a positive real target x, the non-real preimages occur as conjugate pairs at y>0 satisfying m=M−1=mu_x(y)=y/g_x(y), with g_x=(2/pi)arctan(4xy/[1−(x²+y²)²]). Limits mu_x(0)=pi(1−x^4)/(8x), mu_x(sqrt(1−x²))=sqrt(1−x²) are boundary limits only. Reconstructed differentiation p(z)=z/(1−z^4), g_x=−8/pi Im p prime(z), and algebraic sign factor (5−2 Re z^4−3|z|^8)Im(z^4)/|1−z^4|^4, strictly positive prefactor inside disk; sign changes at y=x. H=g−y times derivative(g) rises and then falls, so mu initially rises and has ≤1 maximum; at most two positive heights and at most five distinct fiber points. At boundary boundary derivative of g=2/(pi x), H(b)=1−2b/(pi x) yields xc=2/sqrt(pi²+4), mc=pi/sqrt(pi²+4). Below mc endpoint ordering forbids two crossings and a continuous witness provides one; above mc the perturbation around x with mu_x(0)=m and boundary/peak sign gives two distinct interior crossings. Numerical root witnesses at m near and above threshold are corroboration only. At mc no boundary preimage is counted. Negative and zero target fibers only have real preimage due to imaginary correction sign.
 
-## Limitations and further checks
-The theorem concerns real targets only. The numerical checker supplies witnesses but does not exhaust all parameters. Independent inspection of proof details, especially the complex-rational derivative identity and the boundary-persistence argument, would strengthen confidence; it has not yet occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Borovikov 2026 supplied identical F_M and the Landau-radius/nonunivalence question. A radius or vanishing Jacobian theorem does not imply exact 3/5 count of complete REAL fibers, all M>1, and a sharp threshold ≈1.84356. However original preprint full text was inaccessible; no negative whole-paper novelty claim is made. Bound is best-of-knowledge with high-priority overlap risk.
+
+## value
+
+PASS
+
+Classifies exact maximum distinct real-target fiber valence across the full one-parameter bounded-harmonic Landau-shear family and isolates a sharp geometrically interpretable phase threshold. Neither sharp univalence radius nor a local Jacobian criterion provides full-fiber count; the unimodality lemma is a reusable analytic method for noninjective harmonic shears.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
