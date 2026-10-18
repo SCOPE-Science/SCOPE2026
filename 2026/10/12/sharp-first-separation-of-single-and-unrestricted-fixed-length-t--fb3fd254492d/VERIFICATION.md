@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` and `python3 verify_general.py` using only Python's standard library. Both reconstruct the defining physical tandem-duplication channel, the derivative and the root signature for each tested word. `verify.py` checks all shorter blocklengths and the first boundary for two alphabets at duplication length two. `verify_general.py` also checks duplication lengths three and four for binary alphabets, with independent exact per-fiber subset optimization.
+# Independent mathematical audit
 
-Expected terminal messages:
+## correctness
 
-`VERIFY_OK q2_n7_maximum=84 q2_n7_maxima=2176782336 q3_n7_maximum=1719 first_strict_length=7 direct_signature_conflicts_agree=true`
+PASS
 
-`GENERAL_VERIFY_OK q2_k2 q3_k2 q2_k3 q2_k4 checked`
+The k-step derivative map is bijective on length-n q-ary words and a literal length-k tandem duplication inserts exactly k zeros in the derivative; irreducible trunk and zero-signature composition are invariant root coordinates. A common one-duplication descendant between equal-weight signatures occurs exactly at L1 distance two, equivalent to moving one unit between zero runs. For n<=3k every fiber has signature weight at most one, unless weight two with the zero trunk (single signature); thus both one-error and unlimited optima choose one word per root. At n=3k+1 the only trunk lengths are 2k+1 (weight0), k+1 (weight1 clique) or 1 (weight2). A nonzero length-one trunk has three signatures (2,0),(1,1),(0,2) forming P3, whose unique maximum independent set is its two endpoints; each of the q-1 roots contributes an extra codeword per q^k prefix. Hence first gap q^k(q-1), and the fiberwise independent-choice count yields the exact maximizer product with factor 2^((k-1)(q-1)) and factors (w+1)^(binom(k+1,w)(q-1)^w). Our independent literal duplication-output enumerator, not the uploaded verifier log, rebuilt fiber conflict graphs for (q,k,n)=(2,2,7),(3,2,7),(2,3,10), verifying maxima (84,80),(1719,1701),(776,768); the binary q2,k2 product gives 2176782336. The all-q,k assertion rests on the complete fiber-type proof, not finite tests.
 
-The two direct-output and signature distance predicates agree on all tested word pairs within every root fiber. The tested first-onset size pairs are \((84,80)\), \((1719,1701)\), \((776,768)\) and \((6928,6912)\). Every possible local subset is checked in each tested fiber; the huge global equality counts are obtained by multiplication of the independent local choices and independently checked against the proved product expression.
+## originality
 
-This finite validation does not prove the all-alphabet, all-duplication-length claim by itself. The universal proof is the complete symbolic classification of the only root-signature fiber types possible before and at length \(3k+1\), as presented in RESULT.md. No formal or independent validation has been performed.
+PASS
+
+Jain--Farnoud--Schwartz--Bruck 2016 already prove the derivative insertion rule, root classification and optimal unrestricted-error code cardinality and their Theorem 20 relates bounded errors to constant-weight L1 signature codes. These are strong foundations and must not be claimed new. Lenz--Wachter-Zeh--Yaakobi give finite bounds, Kovačević--Tan asymptotic behavior, and later small constant-weight work handles local cases. None of the inspected exact cited theorems states the across-all-parameter first equality-to-gap boundary at 3k+1 or counts every labeled optimum at that boundary. The new result is a natural complete first-onset census, not an independent discovery of trunk metrics.
+
+## value
+
+PASS
+
+The minimal blocklength where one-error correction strictly outperforms unlimited-error correction is a natural finite-blocklength coding boundary. An explicit sharp threshold for every alphabet and duplication length, with exact equality-case count, informs channel-design tradeoffs and reveals when the P3 signature fiber first appears. The result is not an arbitrary small code table; it classifies all parameters at the first structural transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
