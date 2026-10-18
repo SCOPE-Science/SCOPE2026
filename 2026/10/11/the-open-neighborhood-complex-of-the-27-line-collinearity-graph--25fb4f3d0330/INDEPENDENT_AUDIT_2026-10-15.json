@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T04:58:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For H, the 27-line intersection graph (not its 16-regular Schlaefli complement), independently constructed 27 divisor classes E_i, L-E_i-E_j and 2L-sum_{j ne i} E_j, checked graph degree 10 and strongly regular (27,10,1,5). Exhausted all nonempty subsets of 27 ten-vertex OPEN neighborhoods, finding 23778 faces and f=(27,351,1800,4590,6588,5670,3240,1215,270,27). A separate deterministic full matching makes 11853 pairs, leaves one critical zero-cell and 71 four-cells, with global acyclicity certified by a topological ordering of ALL 23778 faces and 126522 Hasse arrows. No 1-,2-,3-cells remain, so attaching spheres map to a point and Forman implies integral wedge^{71} S4. Counts are exhaustive for THIS graph, not extrapolated to larger quadrangles.",
+      "residual_risks": [
+        "Complete Morse topological ordering is essential; Euler characteristic72 or homology over fields alone would not yield wedge S4.",
+        "Graph is the 10-regular collinearity (line-meeting) graph, not 16-regular skew-line complement."
+      ],
+      "sources": [
+        "Frozen RESULT.md e2378288b4c38f283d598cd363131771b811239e",
+        "Frozen verify_neighborhood_gq.py ee9d5f2b757cc8a0d53b260f76666800dc71be5a",
+        "Fresh independent complete 23778-face/126522-arrow matching acyclicity check",
+        "Forman 1998 discrete Morse theorem"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dominance-neighborhood Alexander duality holds for general graphs but is functor equivalence, not computed exact homotopy of all GQ(2,4)",
+          "Classical del Pezzo/Gosset theory gives incidence and subpolytope combinatorics but not N(H) homotopy"
+        ],
+        "reasoning": "No inspected broader graph-class theorem explicitly determines the target wedge; the broad equivalence changes viewpoint but not numerical proof.",
+        "searches": [
+          "arXiv:2312.02639 Matsushita and Wakatsuki, Theorem 1.1: Alexander duality of dominance and open-neighborhood complexes",
+          "arXiv:1210.2803, Matsushita, Theorem 1.1 even subgroup of 2-fundamental group, no explicit homotopy wedge count",
+          "arXiv:0905.3025 J.-H. Lee, lines on cubic del Pezzo surfaces and 2_21 Gosset polytope correspondence"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0905.3025 J.-H. Lee, lines on cubic del Pezzo surfaces and 2_21 Gosset polytope correspondence",
+        "arXiv:2312.02639 Matsushita and Wakatsuki, Theorem 1.1: Alexander duality of dominance and open-neighborhood complexes",
+        "arXiv:1210.2803, Matsushita, Theorem 1.1 even subgroup of 2-fundamental group, no explicit homotopy wedge count",
+        "Resultary exact 27-line neighborhood query",
+        "Assigned RESULT.md and two source verifiers for tree 0627013ab60890bb040b2c27365d4402a6a03a9c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Alexander dual identity does not assert cell collapses or 71 critical 4-cells",
+          "Lee gives graph-defining 27-line incidence but not the topological type of the 23778-face common-neighbor simplicial complex"
+        ],
+        "reasoning": "Forman complete matching and global Hasse acyclicity are additional computations needed for claimed full integral homotopy type; prior data do not entail the exact type without this nonroutine classification.",
+        "searches": [
+          "arXiv:2312.02639 Matsushita and Wakatsuki, Theorem 1.1: Alexander duality of dominance and open-neighborhood complexes",
+          "arXiv:0905.3025 J.-H. Lee, lines on cubic del Pezzo surfaces and 2_21 Gosset polytope correspondence",
+          "Assigned RESULT.md blob e2378288b4c38f283d598cd363131771b811239e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "27-line intersection graph H = GQ(2,4) point collinearity SRG(27,10,1,5); complement is degree16 Schlaefli skew-line graph",
+          "Matsushita-Wakatsuki Theorem1.1 N(H) Alexander dual of the dominance complex of complement graph"
+        ],
+        "reasoning": "The duality is an exact alternate formulation but does not provide the number 71 or 4-dimensional wedge type unless that dominance complex is itself computed.",
+        "searches": [
+          "Resultary semantic query: Neighborhood complex GQ(2,4) 27 lines cubic surface 71 four spheres Schläfli graph Alexander dual dominance",
+          "arXiv:2312.02639 Matsushita and Wakatsuki, Theorem 1.1: Alexander duality of dominance and open-neighborhood complexes",
+          "arXiv:0905.3025 J.-H. Lee, lines on cubic del Pezzo surfaces and 2_21 Gosset polytope correspondence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact result is the assigned target, not distinct covered record",
+          "Lee discusses 27 lines and Gosset correspondence, no neighborhood-complex calculation in checked relevant text"
+        ],
+        "reasoning": "No distinct database/table containing exact integral 71-sphere open-neighborhood homotopy was found. Negative retrieval leaves a bounded risk, not priority proof.",
+        "searches": [
+          "Resultary exact GQ(2,4) 27-line Schlaefli 71 S4 semantic query",
+          "Lee arXiv:0905.3025",
+          "arXiv:2312.02639 Matsushita and Wakatsuki, Theorem 1.1: Alexander duality of dominance and open-neighborhood complexes"
+        ]
+      },
+      "rationale": "The exact graph is the collinearity/intersection graph of 27 cubic-surface lines, complement of the 16-regular Schlaefli graph, equivalently GQ(2,4). Lee provides classical divisor/Gosset geometry; Matsushita-Wakatsuki gives general Alexander duality N(H) = D(complement H)^*, but neither inspected theorem gives its integral wedge^{71} S4 homotopy type. Resultary indexed exact 27-line query returned this target but no distinct covering homotopy computation. The complete 23778-face acyclic matching is an independently useful exact homotopy classification with best-of-knowledge novelty and remaining literature risk.",
+      "residual_risks": [
+        "Graph H is collinearity not skew-line graph; mistaken complement would invalidate comparison, carefully distinguished.",
+        "An unindexed finite geometry or Schlaefli dominance-complex computation could indirectly imply the same homotopy type; accessible primary comparisons do not settle global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical geometry and combinatorial object supplied; no exact Lovasz neighborhood homotopy calculation in inspected primary material",
+          "evidence": [
+            "Introduction: 27 lines on cubic surface are vertices of Gosset 2_21; named geometric correspondences."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0905.3025",
+          "material_read": "29-page primary PDF: abstract, introduction and relation of 27 cubic-surface lines to Gosset 2_21 and divisor classes; searched for neighborhood terminology",
+          "method": "Inspected original introduction/theorem themes and polynomial/divisor context; no claim of reading every page",
+          "title": "Gosset Polytopes in Picard groups of del Pezzo Surfaces",
+          "trigger": "Exact 27-line cubic-surface configuration and potential incidence-table coverage"
+        },
+        {
+          "assessment": "Provides general N/H to dominance-dual correspondence, not GQ(2,4) 71-wedge evaluation",
+          "evidence": [
+            "Theorem1.1 gives combinatorial Alexander-dual relation for arbitrary finite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.02639",
+          "material_read": "Original primary PDF abstract, introduction, Theorem 1.1 and definitions of complementary graph; queried Schlaefli/GQ aliases",
+          "method": "Read relevant theorem statements, not merely abstract",
+          "title": "Dominance complexes, neighborhood complexes and combinatorial Alexander duals",
+          "trigger": "Direct alternative formulation via Alexander duality"
+        },
+        {
+          "assessment": "Pi1 information alone does not determine pi4 rank71",
+          "evidence": [
+            "Even graph two-fundamental subgroup theorem."
+          ],
+          "identifier_or_url": "arXiv:1210.2803, https://www.ms.u-tokyo.ac.jp/journal/jms240302.pdf",
+          "material_read": "Primary paper introduction and Theorem1.1 on pi1; no individual GQ computation in inspected theorem",
+          "method": "Read relevant primary theorem statements",
+          "title": "Fundamental Groups of Neighborhood Complexes",
+          "trigger": "Same topological invariant general framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 27-line cubic-surface intersection graph is a canonical finite exceptional object with rich geometry. Its ordinary open-neighborhood complex is highly dimensional (up to 9) and a COMPLETE homotopy decomposition as 71 four-spheres supplies exact integral information far beyond the standard SRG parameters and Euler characteristic, suitable as a natural finite topological benchmark.",
+      "residual_risks": [
+        "Only one finite graph; no result for arbitrary GQ(s,t) or complement."
+      ],
+      "sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/the-open-neighborhood-complex-of-the-27-line-collinearity-graph--25fb4f3d0330/RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complete Morse topological ordering is essential; Euler characteristic72 or homology over fields alone would not yield wedge S4.",
+    "Graph is the 10-regular collinearity (line-meeting) graph, not 16-regular skew-line complement.",
+    "Graph H is collinearity not skew-line graph; mistaken complement would invalidate comparison, carefully distinguished.",
+    "An unindexed finite geometry or Schlaefli dominance-complex computation could indirectly imply the same homotopy type; accessible primary comparisons do not settle global priority.",
+    "Only one finite graph; no result for arbitrary GQ(s,t) or complement."
+  ],
+  "schema_version": 1
+}

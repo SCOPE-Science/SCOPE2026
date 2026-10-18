@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The 27-line intersection graph is defined without dependence on unspecified external graph tables, using divisor intersection. The standalone full finite certificate verifies the graph parameters, 23,778 faces, the 11,853 pairs, critical cells in dimensions zero and four only, and a complete topological sort of the 126,522 directed Hasse incidences. Forman's discrete Morse theorem then gives the integral homotopy equivalence, since each four-cell attaches to the one-point three-skeleton. A second finite-polar model, explicit isomorphism and independent face census check graph and simplex identification. Both programs execute successfully. No finite sample is extrapolated to an unproved infinite classification.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest primary material is Lee's cubic-surface and Gosset-polytope line geometry, Matsushita's neighborhood-complex fundamental-group theorem, and Matsushita–Wakatsuki's complementary dominance-complex Alexander-duality description. Reading their relevant full-text mathematical statements did not reveal a conclusion that implies this exact wedge of 71 four-spheres. The Schläfli **skew-line** graph, its **complementary intersection** graph, and metric or matching complexes of incidence graphs must be kept distinct. Exact graph tables give adjacency parameters, not this higher homotopy type. No matching published exact calculation was identified in the searches documented in the structured review. Equivalent unindexed mathematical work remains a priority risk.
+PASS
 
-**Value — PASS.** The unique 27-point generalized quadrangle and 27 lines on a smooth cubic surface are canonical objects, and their open-neighborhood complex is a natural algebraic-topological invariant. Reducing a nine-dimensional, 23,778-face complex to 71 four-spheres determines integral homotopy type and gives a nontrivial topological graph-coloring bound. The result is neither a textbook consequence of the configuration alone nor a field homology table or a rephrasing of an established graph-family theorem.
+For H, the 27-line intersection graph (not its 16-regular Schlaefli complement), independently constructed 27 divisor classes E_i, L-E_i-E_j and 2L-sum_{j ne i} E_j, checked graph degree 10 and strongly regular (27,10,1,5). Exhausted all nonempty subsets of 27 ten-vertex OPEN neighborhoods, finding 23778 faces and f=(27,351,1800,4590,6588,5670,3240,1215,270,27). A separate deterministic full matching makes 11853 pairs, leaves one critical zero-cell and 71 four-cells, with global acyclicity certified by a topological ordering of ALL 23778 faces and 126522 Hasse arrows. No 1-,2-,3-cells remain, so attaching spheres map to a point and Forman implies integral wedge^{71} S4. Counts are exhaustive for THIS graph, not extrapolated to larger quadrangles.
 
-**Limits.** The claim is for the specified graph only. Bibliographic completeness and independent validation are not asserted. The supporting scripts exhaust every finite face and incidence necessary for this certificate, but the physical source interpretations and literature-priority assessment are not externally certified.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact graph is the collinearity/intersection graph of 27 cubic-surface lines, complement of the 16-regular Schlaefli graph, equivalently GQ(2,4). Lee provides classical divisor/Gosset geometry; Matsushita-Wakatsuki gives general Alexander duality N(H) = D(complement H)^*, but neither inspected theorem gives its integral wedge^{71} S4 homotopy type. Resultary indexed exact 27-line query returned this target but no distinct covering homotopy computation. The complete 23778-face acyclic matching is an independently useful exact homotopy classification with best-of-knowledge novelty and remaining literature risk.
+
+## value
+
+PASS
+
+The 27-line cubic-surface intersection graph is a canonical finite exceptional object with rich geometry. Its ordinary open-neighborhood complex is highly dimensional (up to 9) and a COMPLETE homotopy decomposition as 71 four-spheres supplies exact integral information far beyond the standard SRG parameters and Euler characteristic, suitable as a natural finite topological benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

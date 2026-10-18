@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof limits
+# Independent mathematical audit
 
-Run `python3 verify_neighborhood_gq.py` to reconstruct all exceptional-line intersection edges, all 23,778 nonempty open-neighborhood simplices, all 11,853 matched pairs and the 71 remaining critical four-cells. The program constructs the entire directed Hasse diagram and verifies global acyclicity by Kahn topological sorting: 126,522 edges, 23,778 of 23,778 nodes processed. It asserts the graph's complete common-neighbor parameters, the face vector and Euler characteristic.
+## correctness
 
-Run `python3 verify_polar_model.py` to construct an independently defined elliptic quadratic space over \(\mathbb F_2\), explicitly match its 27 singular points to the 27 cubic-surface line labels, check adjacency on every unordered pair and count the complete open-neighborhood face vector by combinations.
+PASS
 
-These are complete finite graph/face/matching checks, not partial experiments. The topological implication invokes the ordinary discrete-Morse theorem: one critical zero-cell and 71 critical four-cells leave a CW space homotopy equivalent to a wedge of 71 four-spheres. This does not establish analogous results for any other graph or guarantee priority against unindexed publications.
+For H, the 27-line intersection graph (not its 16-regular Schlaefli complement), independently constructed 27 divisor classes E_i, L-E_i-E_j and 2L-sum_{j ne i} E_j, checked graph degree 10 and strongly regular (27,10,1,5). Exhausted all nonempty subsets of 27 ten-vertex OPEN neighborhoods, finding 23778 faces and f=(27,351,1800,4590,6588,5670,3240,1215,270,27). A separate deterministic full matching makes 11853 pairs, leaves one critical zero-cell and 71 four-cells, with global acyclicity certified by a topological ordering of ALL 23778 faces and 126522 Hasse arrows. No 1-,2-,3-cells remain, so attaching spheres map to a point and Forman implies integral wedge^{71} S4. Counts are exhaustive for THIS graph, not extrapolated to larger quadrangles.
+
+## originality
+
+PASS
+
+The exact graph is the collinearity/intersection graph of 27 cubic-surface lines, complement of the 16-regular Schlaefli graph, equivalently GQ(2,4). Lee provides classical divisor/Gosset geometry; Matsushita-Wakatsuki gives general Alexander duality N(H) = D(complement H)^*, but neither inspected theorem gives its integral wedge^{71} S4 homotopy type. Resultary indexed exact 27-line query returned this target but no distinct covering homotopy computation. The complete 23778-face acyclic matching is an independently useful exact homotopy classification with best-of-knowledge novelty and remaining literature risk.
+
+## value
+
+PASS
+
+The 27-line cubic-surface intersection graph is a canonical finite exceptional object with rich geometry. Its ordinary open-neighborhood complex is highly dimensional (up to 9) and a COMPLETE homotopy decomposition as 71 four-spheres supplies exact integral information far beyond the standard SRG parameters and Euler characteristic, suitable as a natural finite topological benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
