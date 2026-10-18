@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T19:10:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/signed-domination-weight-enumerator-of-barbell-graphs--01438911ae14/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/signed-domination-weight-enumerator-of-barbell-graphs--01438911ae14/verify_signed_barbell.py"
+      ],
+      "rationale": "For every n>=2 the four closed-neighborhood inequalities L>=1, R>=1, L+beta>=1, R+alpha>=1 are logically equivalent to signed domination: ordinary clique vertices give the first two, bridge vertices the latter two. For even n parity forces L,R>=2 and extra constraints are vacuous; independent binomial choices give W=P_n^2 and gamma_s=4. For odd n=2q+1 condition on both endpoint labels, giving disjoint A^2+2BC+D^2 enumerators. Minimum odd weight 2 requires both clique sums 1 and both bridge labels +1; multiplicity C(2q,q)^2. Independently enumerated ALL 2^(2n) signings and weight coefficients for each n=2..8 (total 87376) and confirmed both formulas, but unrestricted proof is symbolic.",
+      "residual_risks": [
+        "Scope only equal-size K_n barbells with exactly one bridge and signed closed neighborhoods; family-specific unindexed signed-domination publication could predate this theorem. Known results on ordinary domination polynomials do not settle it.",
+        "Finite checks are distinguished from symbolic proof and exhaustive finite-domain proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zelinka Theorem 1 yields minima only for K_{p,q}, an entirely different graph adjacency pattern; general bounds of Hosseini Moghaddam–Khodkar–Samadi do not give exact barbell coefficients."
+        ],
+        "reasoning": "Neither bipartite family scalar result nor general lower/upper bounds dominates the polynomial classification over all n.",
+        "searches": [
+          "signed domination weight enumerator barbell graph cliques connected bridge signed dominating function polynomial parity",
+          "https://dml.cz/bitstream/handle/10338.dmlcz/128088/CzechMathJ_56-2006-2_23.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/signed-domination-weight-enumerator-of-barbell-graphs--01438911ae14/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/signed-domination-weight-enumerator-of-barbell-graphs--01438911ae14/verify_signed_barbell.py",
+        "https://arxiv.org/pdf/1511.00159",
+        "https://dml.cz/bitstream/handle/10338.dmlcz/128088/CzechMathJ_56-2006-2_23.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-weight-enumerator-of-signed-roman-dominating-functions-on-comple--95e888e0d4b1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.7 establishes bridge invisibility for ordinary domination every n; actual signed theorem says invisible only for even n, and odd bridge deletes certain assignments."
+        ],
+        "reasoning": "Published ordinary edge-invariance does not imply the sign-dependent loss; the four inequalities supply a nontrivial extra counting consequence.",
+        "searches": [
+          "signed domination weight enumerator barbell graph cliques connected bridge signed dominating function polynomial parity",
+          "https://arxiv.org/pdf/1511.00159"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jahari–Alikhani Theorem 2.7 is for dominating SETS and enumerates ((1+x)^n-1)^2; actual signed f∈{±1} weight requires all closed-neighborhood sums >=1."
+        ],
+        "reasoning": "The ordinary domination polynomial is not a transform of the signed total-weight polynomial under a fixed coefficient substitution; its edge irrelevance does not decide the odd-signed bridge exclusion.",
+        "searches": [
+          "signed domination weight enumerator barbell graph cliques connected bridge signed dominating function polynomial parity",
+          "https://arxiv.org/pdf/1511.00159"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary signed Roman K_multipartite permits -1,+1,+2 and extra Roman condition; Resultary zero-forcing polynomial of same barbell graph counts zero-forcing sets, not signed dominating functions."
+        ],
+        "reasoning": "Matching object name/barbell or the word weight enumerator does not match invariant; no exact signed barbell coefficient table was found, but database search is not novelty proof.",
+        "searches": [
+          "signed domination weight enumerator barbell graph cliques connected bridge signed dominating function polynomial parity",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2"
+        ]
+      },
+      "rationale": "Same barbell graph and same closed-neighborhood signed function convention as classic signed domination, but full signed weight enumerator is not implied by the ordinary domination polynomial D(B_n,x) from Jahari–Alikhani or Zelinka's signed scalar K_{p,q} results. The parity-dependent bridge effect is genuinely outside both examined statements. Best-of-knowledge originality with unindexed graph-family enumeration residual risk.",
+      "residual_risks": [
+        "Scope only equal-size K_n barbells with exactly one bridge and signed closed neighborhoods; family-specific unindexed signed-domination publication could predate this theorem. Known results on ordinary domination polynomials do not settle it.",
+        "Published literature coverage is a best-of-knowledge inference, not a proof from failed search; no external expert attestation or formal Lean proof is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers ordinary set-domination polynomial D(B_n,x)=((1+x)^n-1)^2; NOT signed +/-1 closed-neighborhood weight counts. Its bridge irrelevance for ordinary domination does not imply the parity switch for signed domination.",
+          "evidence": [
+            "Theorem 2.7 on PDF page 4",
+            "https://arxiv.org/pdf/1511.00159"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1511.00159",
+          "material_read": "Accessible 9-page original PDF, inspected relevant barbell Theorem 2.7 and bridge irrelevance proof (PDF p4) plus surrounding sections",
+          "method": "Original arXiv PDF parsed text and page-image comparison",
+          "title": "On D-equivalence classes of some graphs",
+          "trigger": "Identical one-edge K_n barbell graph; theorem 2.7 could dominate enumeration under a different domination convention"
+        },
+        {
+          "assessment": "Computes signed/minus domination numbers of K_{p,q} (a complete bipartite graph), not two cliques joined by one edge; no weight enumerator for all functions.",
+          "evidence": [
+            "Theorem 1 on PDF pages 2–3",
+            "https://dml.cz/bitstream/handle/10338.dmlcz/128088/CzechMathJ_56-2006-2_23.pdf"
+          ],
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/128088/CzechMathJ_56-2006-2_23.pdf",
+          "material_read": "Five-page lawful primary PDF; definition page 587 and Theorem 1/proof pp588–589, plus Theorem 2",
+          "method": "Czech Digital Mathematics Library PDF parsed text and visual PDF page 1",
+          "title": "Signed and minus domination in bipartite graphs",
+          "trigger": "Same signed +/-1 closed-neighborhood constraint; possible general graph-family coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/signed-domination-weight-enumerator-of-barbell-graphs--01438911ae14/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3483f65fb030cf34348a8a03e667158c1d8993dd/2026/10/12/signed-domination-weight-enumerator-of-barbell-graphs--01438911ae14/verify_signed_barbell.py",
+        "https://arxiv.org/pdf/1511.00159"
+      ],
+      "rationale": "Full weight enumerator, not just scalar gamma_s, is an exact structural invariant for the natural symmetric barbell family; the parity of clique size controls whether adding a single bridge changes any signed dominating assignments, contrary to ordinary-domination edge irrelevance. Coefficientwise formula and minimal layer counts offer meaningful function enumeration beyond a textbook scalar optimization and could serve future domination polynomial comparisons.",
+      "residual_risks": [
+        "Mathematical utility is confined to the explicitly stated object/domain and is not asserted as a general optimal algorithm or broader classification.",
+        "Scope only equal-size K_n barbells with exactly one bridge and signed closed neighborhoods; family-specific unindexed signed-domination publication could predate this theorem. Known results on ordinary domination polynomials do not settle it."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Scope only equal-size K_n barbells with exactly one bridge and signed closed neighborhoods; family-specific unindexed signed-domination publication could predate this theorem. Known results on ordinary domination polynomials do not settle it."
+  ]
+}
