@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The derivation is a direct finite-word proof: the substitution creates no cyclic 11; even and odd rotations form four strictly ordered prefix classes 0001,0010,01,1; within each class the source-rotation order reverses; preceding letters yield the exact BWT recursion; simple boundary induction yields 2m-2 runs for m>=2. The m=1 base is explicit. Standard-library independent cyclic rank-doubling checks agree for m=1..13, and naive full-rotation sorting agrees for m=1..9. Numerical checks are not substitutes for the all-m proof. The statement excludes suffix BWT and non-dyadic lengths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 source proves O(log n) BWT run bounds for binary purely morphic words, including primitive morphisms, not the exact 2m-2 coefficient or transformed word.",
+        "The 2025 source concerns additive/multiplicative sensitivity of morphisms on arbitrary inputs, not the sequence of all iterates of one specified starting letter."
+      ],
+      "reasoning": "A class-wide logarithmic bound covers only the order of magnitude; it does not imply a fixed-point-specific exact run count or word recurrence. Neither a generic morphism sensitivity lower bound nor a transform-order-preserving lemma determines the special cyclic rotation class boundaries.",
+      "searches": [
+        "Frosini Mancini Rinaldi Romana Sciortino logarithmic equal letter runs pure morphic period doubling exact transform",
+        "Brlek Frosini Mancini Pergola Rinaldi 2019 Burrows Wheeler transform period doubling comparison",
+        "source: arXiv:2202.02609v1, Proposition 6 and Corollary 11",
+        "source: DOI:10.4230/LIPIcs.MFCS.2025.49"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2202.02609v1 (5 February 2022): general BWT run bounds for purely morphic words.",
+      "DOI:10.1007/978-3-030-25005-8_32 (2019): exact Thue–Morse and generalized Fibonacci BWT.",
+      "DOI:10.4230/LIPIcs.CPM.2023.10 (2023): BWT order and sensitivity under period-doubling and other morphisms.",
+      "DOI:10.4230/LIPIcs.MFCS.2025.49 (2025): later BWT-run sensitivity, not fixed-point iterates.",
+      "2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69 (published indexed comparison; string attractor invariant only).",
+      "2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899 (published indexed comparison; symbolic dynamical fibre ranks only).",
+      "2026/9/8/SCOPE079 (published indexed comparison; Rudin–Shapiro and paperfolding attractors only)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 Theorem 2 handles Thue–Morse substitution 0->01,1->10, not period doubling 0->01,1->00.",
+        "Corollary 12 in CPM 2023 addresses the relative order of substituted original rotations; the new proof also orders intermediate odd-start rotations and obtains their distinct boundary pattern.",
+        "published-finding corpus-indexed 2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899 concerns symbolic-dynamical component and fibre ranks rather than BWT of finite words."
+      ],
+      "reasoning": "Thue–Morse and period doubling are nonconjugate substitutions with different output words and different BWT run lists. The general reverse-order implication is used as a known-type ingredient, but the special four-class lexicographic partition and the recurrence are not corollaries of the cited assertions. The fixed-point-specific exact output is stronger than the known asymptotic bound.",
+      "searches": [
+        "period-doubling fixed point 0 to 01 1 to 00 exact Burrows Wheeler transform lexicographically sorted rotations reverse complement recurrence BWT run length",
+        "binary period doubling iterates 2^m Burrows Wheeler BWT exactly 2m-2 equal-letter runs",
+        "Frosini Mancini Rinaldi Romana Sciortino logarithmic equal letter runs pure morphic period doubling exact transform",
+        "source: DOI:10.1007/978-3-030-25005-8_32, Theorem 2",
+        "source: DOI:10.4230/LIPIcs.CPM.2023.10, Corollary 12 and Lemma 29"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2022 paper states general BWT run bounds but does not give an exact period-doubling BWT word (arXiv:2202.02609v1, pp.1-3,6-11).",
+        "The 2023 full text gives an acyclic-morphism order-reversal lemma and studies arbitrary inputs to the period-doubling morphism (CPM 2023, Lemma 11 and Lemma 29), but not dyadic fixed-point BWT."
+      ],
+      "reasoning": "Possible aliases include period-doubling substitution 0->01,1->00, cyclic rotation sorting, RLBWT/runs and reverse-complement recurrences. Checked primary results can supply a component of the proof (order reversal) but not the four-block interleaving or exact transform.",
+      "searches": [
+        "period-doubling fixed point 0 to 01 1 to 00 exact Burrows Wheeler transform lexicographically sorted rotations reverse complement recurrence BWT run length",
+        "complete run-length encoding of Burrows Wheeler transform period doubling morphic words",
+        "\"period doubling\" \"Burrows Wheeler\" transform",
+        "\"period doubling\" \"BWT\" \"runs\"",
+        "source: arXiv:2202.02609v1",
+        "source: DOI:10.4230/LIPIcs.CPM.2023.10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 and 2025 sources contain small BWT examples of the period-doubling morphism acting on arbitrary words; those examples are not tables of the dyadic fixed-point BWT.",
+        "Closest indexed record 2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69 computes greedy string attractors, not BWT runs."
+      ],
+      "reasoning": "The literature tables/examples checked do not specify the complete BWT of the 2^m-length substitution iterates for all m or the exact run-length count. Database nonappearance is not treated as mathematical proof of novelty.",
+      "searches": [
+        "binary period doubling iterates 2^m Burrows Wheeler BWT exactly 2m-2 equal-letter runs",
+        "complete run-length encoding of Burrows Wheeler transform period doubling morphic words",
+        "\"period doubling\" \"Burrows Wheeler\" \"2m-2\"",
+        "source: DOI:10.4230/LIPIcs.CPM.2023.10, Examples 18 and Lemma 29",
+        "source: DOI:10.4230/LIPIcs.MFCS.2025.49, Example 26"
+      ]
+    },
+    "rationale": "Direct searches for exact cyclic BWT, run-length sequence, reversed-complement recurrence, period-doubling substitution, and related morphic-word theorems revealed no covering exact transform or run-count result. Full-text comparison with the 2019 Thue–Morse transform theorem (different morphism), 2022 logarithmic bounds (not exact), 2023 morphism sensitivity result (different quantifiers), and 2025 follow-up (sensitivity, not iterates) leaves the exact fixed-point recursion and 2m-2 formula unproved by those sources. The closest indexed period-doubling records concern attractors and dynamical lifts, not the cyclic BWT. Originality is assessed relative to the available corpus; undiscovered equivalents remain a risk.",
+    "residual_risks": [
+      "Unindexed theses, unpublished computational examples or papers under different terminology may contain an equivalent exact BWT formula.",
+      "Search methods do not certify global novelty; relevance judgments are based on inspected primary passages and source comparisons.",
+      "No independent external audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: 0->01,1->10 Thue–Morse, k-bonacci and certain compositions; no period-doubling iterate BWT theorem located.",
+        "evidence": [
+          "Theorem 2, PDF page 4: BWT of standard Thue–Morse words.",
+          "PDF abstract explicitly names Thue–Morse and generalized Fibonacci, not period doubling."
+        ],
+        "identifier_or_url": "https://flore.unifi.it/retrieve/e398c380-dd2e-179a-e053-3705fe0a4cff/BWT-morphism_%20Last.pdf",
+        "material_read": "Original 12-page PDF: abstract/introduction and Theorem 2 with surrounding proof on pages 1-5; other named morphic-family statements on pages 7-9; page 4 viewed as an image.",
+        "method": "Inspected primary PDF text and its theorem page image; searched the full document for period doubling.",
+        "title": "Burrows-Wheeler Transform of Words Defined by Morphisms",
+        "trigger": "A 2019 exact BWT theorem for standard Thue–Morse and other morphic families might subsume the fixed-point claim."
+      },
+      {
+        "assessment": "NOT_COVERING: proves logarithmic BWT-run bounds but does not give exact full transform or sharp 2m-2 run count for period doubling.",
+        "evidence": [
+          "arXiv:2202.02609v1 initial header 5 February 2022.",
+          "Proposition 6 and Corollary 11: upper bounds; Theorem 28: BWT-high compressibility; conclusions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.02609",
+        "material_read": "Original 20-page arXiv v1 PDF: abstract, introduction, definitions on pages 1-4; main general bounds on pages 5-7 and 9-11; conclusions and relevant appendix statements; page 1 and 11 images viewed.",
+        "method": "Read extracted primary PDF statements/proofs around the relevant theorems and page screenshots.",
+        "title": "Logarithmic equal-letter runs for BWT of purely morphic words",
+        "trigger": "General bounds for binary purely morphic BWT runs could imply or dominate the exact formula."
+      },
+      {
+        "assessment": "NOT_COVERING: arbitrary-input sensitivity and reverse-order results, not full BWT of the dyadic fixed-point iterates.",
+        "evidence": [
+          "Lemma 11/Corollary 12 on order reversal.",
+          "Example 18 and Lemma 29 concern BWT-run changes for particular input words, not the fixed-point family."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/opus/volltexte/2023/17964/pdf/LIPIcs-CPM-2023-10.pdf",
+        "material_read": "Original 18-page PDF: definitions and morphism order results on pages 3-7; morphism-sensitivity section and proof on pages 12-14; page 12 viewed as an image.",
+        "method": "Inspected original paper propositions, proof paragraphs and diagrams around its direct period-doubling statements.",
+        "title": "On the Impact of Morphisms on BWT-Runs",
+        "trigger": "Period-doubling morphism and BWT were studied together, risking direct coverage."
+      },
+      {
+        "assessment": "NOT_COVERING: concerns sensitivity and finite arbitrary-word examples, not iterative BWT profile of W_m.",
+        "evidence": [
+          "Example 26: six representative source words of length 5.",
+          "Proposition 31: asymptotic sensitivity under the period-doubling morphism."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol345-mfcs2025/html/LIPIcs.MFCS.2025.49/LIPIcs.MFCS.2025.49.html",
+        "material_read": "Open primary HTML material on period-doubling definitions, Example 26/Table 1, and Propositions 30-31 with surrounding discussion.",
+        "method": "Read linked primary full-text HTML around the relevant assertions and table.",
+        "title": "Morphisms and BWT-Run Sensitivity",
+        "trigger": "Later broader results involving the period-doubling morphism could dominate the fixed-point statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0c35eb39-4ad7-49b6-943c-147aa25671d7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Run-length BWT is a standard compression and indexing measure. This gives the complete transform and exact run count of a canonical aperiodic primitive-morphism family, not a routine specialization of the known O(log n) bound. The proof reveals a four-class interleaving mechanism absent from generic order-reversal observations, and the finite recurrence yields all run lengths without lexicographically sorting 2^m rotations. The exact coefficient and word output are natural algorithmic refinements with independent mathematical interest; the scope is limited to the cyclic transform of dyadic period-doubling words.",
+    "status": "PASS"
+  }
+}
