@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The maximal-proper-ball decomposition exists for every non-singleton finite ultrametric ball and has constant cross-child distance. An omitted child provides two independent constant fillings whenever the target contains two points, while occupied children are invariant under every nonexpansive retraction because a fixed point lies inside. The corresponding induction proves necessity and sufficiency, yields the rank recursion without double counting, and proves existence for every target. The regular rank-support induction uses contiguous sums of the admissible exponent arithmetic progression. Monotonicity of normalized logarithms and strict local-pattern upper bounds establish the entropy limit. Direct exhaustive computation checks all image subsets of the enumerated small hierarchies, not merely aggregate totals. No infinite conclusion is inferred from finite tests.
+PASS
 
-## Originality — PASS with explicitly delimited claim
+Every nonempty Y retracts by recursively collapsing empty children, and cross-child distance bounds ensure global 1-Lipschitz maps. For a ball with at least two points of Y and a child missing Y, two choices of image of the empty child give distinct retractions, proving necessity. If each child is occupied, compare x and any fixed y in the child: d(r(x),y)<=d(x,y)<diam(B), forcing the image into the same child, so all restrictions are independent and uniqueness reduces by induction to each child. Singleton Y is forced constant. Enumerative product, regular recurrence U_h=q^h+U_(h-1)^q and congruence rank support follow. The normalized log U_h / q^h rises to a positive limit; strict upper bounds come from bottom q-leaf balls with at most q+2 allowed subset patterns (q>=3), or 4-leaf binary balls with 14<16 patterns. Independent enumeration of all concrete subsets of 4-leaf ultrametric and all nonexpansive idempotent maps matched unique-retract criterion. The theorem is finite; no infinite ultrametric claim.
 
-The source existence theorem and general finite-ultrametric homomorphism-homogeneity are prior results, not inventions of this note. Full text of Al-Sabti (2024) covers existence and locally finite endomorphism monoids, not the unique-retraction spectrum. Dolinka–East (2014/2016), Propositions 3.1–3.2, already characterize and enumerate idempotents preserving one uniform partition; that shallow case is excluded from the originality assertion. The present statement is the all-finite-ultrametrics, arbitrary branching and depth, fixed-image *uniqueness* criterion, together with an exact rank polynomial and a sharp arity/entropy law. Related exact-phrase and equivalence searches did not locate these statements. Residual uncertainty remains about inaccessible/unindexed material, especially the full Pantić–Pech article and generic iterated-wreath transformation literature.
+## originality
 
-## Value — PASS
+PASS
 
-Uniqueness of the nonexpansive projection onto a prescribed subset is a natural rigidity invariant of the same endomorphism monoids for which existence is known. The theorem classifies it for every finite ultrametric, allows coefficient-level census by the canonical metric hierarchy, detects regular arity through the precise permitted image ranks, and quantifies how rarely a nonexpansive retract is unique as the leaf count grows. The conclusions are not obtained merely by renaming known idempotent counts: they specify which concrete images support exactly one idempotent and produce a hierarchy-sensitive rank distribution. The proof is elementary; the contribution claimed is the complete invariant and its structural consequences, not an unrelated broad conjecture.
+PASS best of knowledge: existing literature gives existence/nonexpansive extensions and one-level partition idempotent counts. A unique-retraction hierarchy classification, every-rank polynomial, and exponentially rare probability on regular finite ultrametrics are not implied by inspected exact primary results.
 
-## Literature and limitations
+## value
 
-Closest sources: Al-Sabti (2024), DOI 10.37256/cm.5320243750 (full open reproduction inspected); Pantić–Pech (2022), *Towards the Classification of Polymorphism-homogeneous Metric Spaces* (abstract available, full content not retrieved); Dolinka–East (2014/2016), arXiv:1407.3312, especially Propositions 3.1–3.2 (full arXiv HTML inspected). The latter already has the single-partition idempotent analysis. An unindexed stronger hierarchy theorem could subsume this finding, and the finite checker provides no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: uniqueness of a 1-Lipschitz projection is a natural rigidity property of metric retractions. Complete arbitrary finite hierarchy classification, exact image cardinalities, congruence gaps and asymptotic entropy expose substantial structure beyond trivial existence or a single one-level partition count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

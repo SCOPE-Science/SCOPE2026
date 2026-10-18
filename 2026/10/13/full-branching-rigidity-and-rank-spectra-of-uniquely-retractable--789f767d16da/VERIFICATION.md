@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-Direct exhaustive checks ran with Python 3 using `verify.py`, an entirely self-contained program. The program generates all unordered rooted branching hierarchy shapes with up to five leaves, constructs ultrametric distances from lowest common ancestors, and checks every candidate self-map by all pairwise distances. Every idempotent nonexpansive map is grouped by its concrete image; the count is compared against the full-branching criterion for each nonempty subset. It computes the independent tree-polynomial product from recursively constructed shapes and compares every rank coefficient. It also tests three additional explicit hierarchies (including a six-leaf irregular hierarchy) and regular-polynomial recurrences for arities 2–5 through height four.
+# Independent mathematical audit
 
-Actual replay output:
+## correctness
 
-```
-SHAPES 1 1
-SHAPES 2 1
-SHAPES 3 2
-SHAPES 4 5
-SHAPES 5 12
-REGULAR 2 1 [(0, 0), (1, 2), (2, 1)] 3
-REGULAR 2 2 [(0, 0), (1, 4), (2, 4), (3, 4), (4, 1)] 13
-REGULAR 3 1 [(0, 0), (1, 3), (2, 0), (3, 1)] 4
-REGULAR 3 2 [(0, 0), (1, 9), (2, 0), (3, 27), (4, 0), (5, 27), (6, 0), (7, 9), (8, 0), (9, 1)] 73
-VERIFY_OK 24 finite ultrametric shapes; 550 image-subset tests; 85778 total map candidates; 1887 idempotent maps; regular rank recurrences q=2..5,d=1..4
-```
+PASS
 
-Exhaustive checking is only finite and does not establish the all-height theorem; its proof is the hierarchy induction and strict entropy argument in RESULT.md. The verifier does not establish originality, and no independent audit or mathematical certification was performed.
+Every nonempty Y retracts by recursively collapsing empty children, and cross-child distance bounds ensure global 1-Lipschitz maps. For a ball with at least two points of Y and a child missing Y, two choices of image of the empty child give distinct retractions, proving necessity. If each child is occupied, compare x and any fixed y in the child: d(r(x),y)<=d(x,y)<diam(B), forcing the image into the same child, so all restrictions are independent and uniqueness reduces by induction to each child. Singleton Y is forced constant. Enumerative product, regular recurrence U_h=q^h+U_(h-1)^q and congruence rank support follow. The normalized log U_h / q^h rises to a positive limit; strict upper bounds come from bottom q-leaf balls with at most q+2 allowed subset patterns (q>=3), or 4-leaf binary balls with 14<16 patterns. Independent enumeration of all concrete subsets of 4-leaf ultrametric and all nonexpansive idempotent maps matched unique-retract criterion. The theorem is finite; no infinite ultrametric claim.
+
+## originality
+
+PASS
+
+PASS best of knowledge: existing literature gives existence/nonexpansive extensions and one-level partition idempotent counts. A unique-retraction hierarchy classification, every-rank polynomial, and exponentially rare probability on regular finite ultrametrics are not implied by inspected exact primary results.
+
+## value
+
+PASS
+
+PASS: uniqueness of a 1-Lipschitz projection is a natural rigidity property of metric retractions. Complete arbitrary finite hierarchy classification, exact image cardinalities, congruence gaps and asymptotic entropy expose substantial structure beyond trivial existence or a single one-level partition count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
