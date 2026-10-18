@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify_core.py` from this directory. Python's standard library is sufficient. The verifier reconstructs the finite Alexandrov product order directly, enumerates **all** injective ordered triples for each \(2\le n\le12\), and recomputes strict predecessor/successor relations among surviving configurations at each deletion. It confirms the exact four deletion-class sizes, the unique beat-point witnesses, the residual pairwise-incomparable subposet, and minimality by explicitly testing every remaining point for both beat-point types. It also exhaustively resolves the \(24\)-point exceptional case as two \(12\)-cycles with no beat points. A successful run prints `VERIFY_OK`.
+## correctness
 
-The finite verification does not establish an infinite-family statement on its own. The all-parameter proof is supplied in `RESULT.md`, using the two-neighbor incidence structure of the crown and the finite-space beat-point theorem. The calculation does not establish a general homology or fundamental-group formula, and no independent audit has been performed.
+PASS
+
+The induced coordinatewise order on injective ordered triples is used, not geometric-circle configurations. Every mixed comparable triple has e=1 or2 incidences and belongs to L1,U1,L2,U2. In sequence L1 down, U1 up, L2 up, U2 down, the strict witness is unique after predecessor/successor classes have been removed, and each deleted class is an antichain. In surviving A_n, lower/upper triples have at least two incomparable strict opposite-rank neighbors (cyclic boundary edges for n>=4, two distinct all-upper raises for n=3); each mixed incomparable triple has two distinct incomparable predecessors and successors. Thus no beats remain. Counts |L1|=|U1|=12n(n-2), |L2|=|U2|=6n imply |A_n|=2n(2n-4)(2n-5). Independent direct reconstruction n=3..6 tested every stated witness and no-beat residue; n=2 direct 24-triple enumeration gives two 12-cycles and no beats. The n>=3 proof is symbolic, not extrapolated from the tests.
+
+## originality
+
+PASS
+
+No located published finite-space Stong core or four-stage beat-point classification for three labeled particles on finite crowns; all specifically found crown configuration results concern two particles.
+
+## value
+
+PASS
+
+An exact Stong core records the strong finite-space homotopy type, much finer than weak homotopy of the order complex. The four class eliminations and the sharp four-point exception provide a complete natural classification for every crown size at fixed three-particle number, usable as a minimal model for further configuration invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
