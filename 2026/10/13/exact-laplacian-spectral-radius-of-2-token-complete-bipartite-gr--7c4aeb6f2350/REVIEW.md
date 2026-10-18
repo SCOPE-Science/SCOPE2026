@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof identifies an equitable three-cell partition of the signless Laplacian of \(F_2(K_{m,n})\), constructs a strictly positive quotient eigenvector, and uses bipartiteness plus Perron--Frobenius to prove that the corresponding eigenvalue \(2(m+n-1)\) is the Laplacian spectral radius. The argument requires \(m,n\ge2\), exactly as stated. The checker independently verifies the cell counts and lifted eigenvector over a broad parameter range and on explicitly constructed small token graphs.
+PASS
 
-## Originality
+For m,n≥2, 2-token vertices partition into X_A=2-subsets of A, Y=mixed pairs, X_B=2-subsets of B. The token graph is connected and bipartite. For its signless Laplacian Q, the equitable quotient B has rows (2n,2n,0), (m−1,m+n−2,n−1), (0,2m,2m). Direct multiplication gives B(n(n−1),(m−1)(n−1),m(m−1))^T=2(m+n−1) times the vector. Every entry is positive; lifting across cells and using irreducible Perron–Frobenius yields rho(Q)=2(m+n−1). Bipartite signature similarity gives rho(L)=rho(Q). Source boundaries m=n=2 are covered; m=1 excluded. Independent reconstruction of 25 whole token matrices 2≤m,n≤6 matched full spectra and quotient, but unbounded correctness rests on the positive-eigenvector argument.
 
-**PASS.** The closest source is arXiv:2610.00500v1. Its Corollary 4.14 proves only the lower bound \(\rho_L(F_2(K_{m,n}))\ge2(m+n-1)\), while Remark 4.15 establishes equality only for balanced complete bipartite graphs. The 2024 token-spectrum paper gives exact quotient conclusions for bipartite distance-regular bases, which include the balanced but not the unbalanced complete bipartite graphs. Searches using the aliases “2-token graph,” “double vertex graph,” and “symmetric square” found no statement implying the all-unbalanced equality. The residual risk of a poorly indexed older equivalent formulation is retained explicitly.
+## originality
 
-## Value
+PASS
 
-**PASS.** This closes the sharpness question for the complete two-parameter nonstar biclique family highlighted by the initiating recent paper. The result is structural rather than a finite parameter increment: it proves that imbalance never raises the Laplacian spectral radius above the published quotient lower bound, despite the unbalanced token graphs lying outside the balanced semiregular/distance-regular shortcut used in prior work.
+Song et al prove the same value as a universal lower bound and equality for balanced K_{n,n} only. Their result does not imply unbalanced equality. Reyes–Dalfó–Fiol handle bipartite distance-regular token bases, which do not include unbalanced complete bipartite graphs because such bases are not regular. The new all-unbalanced exact formula removes that parameter restriction.
 
-## Closest literature and limitations
+## value
 
-The closest prior statement is Corollary 4.14 plus Remark 4.15 of arXiv:2610.00500v1. The result is limited to \(k=2\), excludes stars, and does not determine the full Laplacian spectrum. The principal originality risk is an unindexed equivalent formula under older token-graph aliases.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It sharpens a stated general lower bound to exactness on every nonstar complete bipartite 2-token graph by a small but revealing Perron quotient witness. The unbalanced family is natural and not a parameter substitution within the old balanced/distance-regular proofs. It identifies a non-obvious spectral-radius rigidity and provides a usable exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
