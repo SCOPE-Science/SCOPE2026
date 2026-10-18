@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The full stabilizer bound is proved from the four three-rich lines and their six pairwise intersections, while the signed-permutation group gives the matching order-\(24\) lower bound. Exact arithmetic verifies \(\dim I(Z)_4=6\), the explicit basis, the class character \((6,0,-2,0,0)\), and the two constituent characters.
+## correctness
 
-## Originality
-PASS. The closest literature establishes uniqueness of the configuration, its \(B_3\) model, and the six-dimensional quartic space, but the inspected sources do not state the \(S_4\)-module decomposition. Targeted semantic and exact searches likewise did not locate an equivalent statement. The main residual risk is terminology drift into classical root-system or invariant-theory literature.
+PASS
 
-## Value
-PASS. The result determines the symmetry representation of the precise linear system responsible for the unique unexpected quartic. The explicit irreducible splitting and absence of invariant quartics or invariant lines and planes are canonical structural information, not an arbitrary parameter computation.
+Nine given projective points are the B3 root directions. The nine independent evaluation conditions on 15 quartic monomials give dim I(Z)_4=6. An independent SymPy calculation verified rank 9, that all six displayed A/B quartics vanish and form a basis, and evaluated all 48 signed permutation lifts, 24 projective transformations, preserving each 3-dimensional span. Trace-pair frequency among 24 group elements is (3,3):1, (-1,1):6, (1,-1):6, (-1,-1):3, (0,0):8; this agrees with irreducible S4 standard and sign-twisted standard characters and total (6,0,-2,0,0). Incidence of four three-rich lines yields injection into S4, proving signed subgroup is full stabilizer. No one- or two-dimensional invariant subspace or invariant quartic follows by irreducibility.
 
-## Closest literature and limitations
-The lead uniqueness paper is arXiv:1804.03590. Bauer--Malara--Szemberg--Szpond identify the same configuration as the \(B_3\) arrangement and state that the quartic space has dimension six. Di Marca--Malara--Oneto treat the same example from the special-line-arrangement viewpoint. The claim is restricted to this configuration and degree four; it does not classify analogous representations in higher degree.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bauer–Malara–Szemberg–Szpond’s arXiv:1804.03610 explicitly gives nine B3 points and 6-dimensional quartic system, with quartic formula Eq(4) supplying basis monomials. Farnik–Galuppi–Sodomaco–Trok arXiv:1804.03590 proves uniqueness up to projectivity. Thus the configuration, basis and existence are prior-covered. The submitted new claim is the precise full projective-stabilizer representation, its character and irreducible decomposition, which neither inspected primary text states. Resultary search returned a distinct B3 marked-point discriminant result but not equivalent S4 module. Residual risk: classical reflection-arrangement representation literature could encode the same module.
+
+## value
+
+PASS
+
+Determining the complete symmetry module of a natural six-dimensional interpolation space supporting the unique unexpected quartic is a motivated exact structural invariant. It identifies zero fixed quartics and no invariant lines/planes, thereby distinguishing how symmetries act on the ambient quartic system, rather than simply repeating the well-known unexpected curve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
