@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Every connected-set simplex contributes its highest-ranked coordinate vertex. An adjacent label swap affects exactly connected sets containing both swapped labels and avoiding earlier-ranked labels; all weights are strictly positive and contributions point in the same \\(e_u-e_v\\) direction. In a tree, such a set exists exactly when all \\(d-1\\) internal vertices of the unique u–v path follow the adjacent block. Contracting the pair yields a uniform permutation of \\(n-1\\) objects in which the block precedes those \\(d-1\\) path vertices with probability \\(1/d\\). Since there are (n-1)! undirected permutohedral edges carrying that pair, exactly \\((n-1)!/d\\) survive. This proves labelled metric recovery, the Harary index sum, and star/path fractions for all \\(n\\ge2\\). The separate direct-exposure standard-library checker enumerates all 145 labelled trees of order \\(\\le5\\) and 6 selected larger trees, 151 exact passes. The checker is finite corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2305.08471 Section 4.1 realizes all graph associahedra by connected-subset Minkowski sums; arXiv:2006.00264 treats broader quotient fan realizations."
+      ],
+      "reasoning": "General connected graphs and quotient fans are broader object classes, but these constructions supply no stronger theorem determining the label-pair wall counts. Cyclic graphs do not satisfy the unique-path step, so general construction alone does not subsume the numerical tree result.",
+      "searches": [
+        "graph associahedron quotient normal fan braid chamber adjacent transposition changes graph elimination tree probability 2 Harary index divided n tree",
+        "graph associahedron weak order congruence contracted edges count tree Harary index harmonic Wiener",
+        "tree graph associahedron permutation-fiber adjacent transposition edge count n factorial graph distances"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1808.05670 (full-text relevant portions, 2018-08-16)",
+      "arXiv:2305.08471 (full-text Sections 1,4; primary 52B11/52B12, 2023-05-15)",
+      "arXiv:2106.16204 (full-text relevant Sections 1,4,5; 2021-06-30)",
+      "arXiv:2006.00264 (full-text Introduction, Section 2; 2020-05-30)",
+      "Searches of indexed mathematical results for graph-associahedron braid-wall contraction, label-pair frequencies, inverse-distance formulas and Harary-index interpretation (closest topics: graph-associahedron eccentricity and permutohedron graph persistence)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2305.08471 establishes the tube-simplex sum and normal fan; arXiv:1808.05670 establishes Ψ_G; arXiv:2106.16204 studies rotations/Gray codes."
+      ],
+      "reasoning": "These premises explain how adjacent swaps are represented but do not imply the pair-conditioned survival probability by themselves. The substantive additional result is the unique-path obstruction and uniform relative-order symmetry yielding exactly \\(1/d\\) for every pair; its complete pair table reconstructs the tree, which is not a consequence of knowing only the quotient map exists.",
+      "searches": [
+        "For graph associahedra of labelled trees, the fraction of adjacent permutation swaps changing the exposed vertex equals inverse graph distance between the swapped labels; inverse-distance braid-wall survival count (n-1)!/d and Harary index.",
+        "Minkowski sum of connected-subset simplices tree adjacent swap exposure survives iff path interior avoids prefix; rank adjacency probability reciprocal distance",
+        "graph associahedron quotient normal fan braid chamber adjacent transposition changes graph elimination tree probability 2 Harary index divided n tree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1808.05670 introduction gives Ψ_G from permutations to tubings; arXiv:2106.16204 Section 1.3 gives elimination-tree ordering classes; arXiv:2006.00264 Lemma 13 describes adjacent braid chambers."
+      ],
+      "reasoning": "The searched alternate representations via elimination orders, normal-fan quotient/congruence and adjacent permutation swaps concern the same boundary geometry, but none of these inspected results states or logically supplies the exact \\(1/d\\) survival frequency without the new path/block counting argument.",
+      "searches": [
+        "For graph associahedra of labelled trees, the fraction of adjacent permutation swaps changing the exposed vertex equals inverse graph distance between the swapped labels; inverse-distance braid-wall survival count (n-1)!/d and Harary index.",
+        "Minkowski sum of connected-subset simplices tree adjacent swap exposure survives iff path interior avoids prefix; rank adjacency probability reciprocal distance",
+        "permutation elimination tree adjacent swap sensitivity Harary reciprocal distance sum tree permutohedron edge contraction",
+        "\"Harary index\" \"graph associahedra\" weak order"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary full texts do not contain a pair-labelled braid-wall survival table. The closest checked published mathematical claims concern graph-associahedron eccentricity and permutohedron Rips persistence, which are different invariants."
+      ],
+      "reasoning": "Neither the queried record titles and claims nor inspected indexed primary sources contain a table N_T(u,v), an inverse-distance law, or a dominating theorem. A failed search does not itself establish novelty.",
+      "searches": [
+        "labelled braid fan wall counts graph associahedron tree recovery graph distance reciprocal Harary index n factorial",
+        "\"Harary index\" \"graph associahedra\" weak order",
+        "\"graph associahedron\" \"permutation\" \"adjacent transposition\" tree"
+      ]
+    },
+    "rationale": "The normal-fan coarsening, tubing/exposure map, and original Harary index are prior work. Inspected full-text primary sources and actual mathematical-record/own-ledger searches did not identify an exact label-refined (n-1)!/graph-distance wall count, its weight-independent geometric form, or inversion of the full labelled tree metric. This is a positive best-knowledge assessment, not proof of absolute novelty.",
+    "residual_risks": [
+      "An earlier equivalent theorem might appear under sylvester congruence, random elimination ordering, Cartesian tree, graph-search or hypergraphic polytope terminology not detected by the searches.",
+      "The relevant source inspections were targeted full-text sections and searches, not independent specialist validation of all potentially covering mathematics.",
+      "This labelled fan-wall statistic is not the number of distinct quotient-polytope edges; falsely identifying those quantities would invalidate the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the permutation-to-tubing projection and lattice quotient questions; no pair-labelled reciprocal-distance survivor count or metric reconstruction located.",
+        "evidence": "Introduction states the canonical surjective map Ψ_G:S_n→L_G, Theorem 1.1 concerns lattice congruences of filled graphs; graph-distance/Harary enumeration not reported in inspected relevant portions.",
+        "identifier_or_url": "arXiv:1808.05670, https://arxiv.org/abs/1808.05670",
+        "material_read": "Full-text HTML, Introduction, Section 2.1 on tubes and G-trees, and canonical surjection theorem; searched full text for distance, Harary and adjacent transposition.",
+        "method": "Primary mathematical source comparison of statements and consequences.",
+        "title": "Lattices from graph associahedra and subalgebras of the Malvenuto–Reutenauer algebra",
+        "trigger": "Direct treatment of graph-associahedron projection from permutations and braid-fan coarsening."
+      },
+      {
+        "assessment": "Provides the established realization and permutation chambers; does not present a label-refined inverse-distance survival count or its reconstruction.",
+        "evidence": "Section 4.1 explicitly realizes graph associahedra as sums over tubes and describes the nested normal fan; surrounding research overview discusses Hamiltonicity, lattice properties, deformation cones, not the claimed inverse-distance table.",
+        "identifier_or_url": "arXiv:2305.08471, https://arxiv.org/abs/2305.08471",
+        "material_read": "Full-text arXiv HTML Introduction and Sections 1.1–1.2, 4.1–4.2; inspected normal-fan coarsening, tube construction, and bibliography.",
+        "method": "Check exact geometric model and whether survey states a wall-label survival formula.",
+        "title": "Celebrating Loday's Associahedron",
+        "trigger": "Direct construction by connected-simplex Minkowski sums, and verified primary MSC 52B11/52B12, with public first date 2023-05-15."
+      },
+      {
+        "assessment": "Hamilton generation and elimination tree rotations are studied; no exact frequency 1/d for an arbitrary swapped pair or graph-distance recovery is given in inspected material.",
+        "evidence": "Section 1.3 defines an elimination tree and many elimination orders per tree; Sections 4 and 5 treat Gray code generation, not uniform adjacency counts.",
+        "identifier_or_url": "arXiv:2106.16204, https://arxiv.org/html/2106.16204v5",
+        "material_read": "Full-text arXiv HTML Sections 1.1–1.5 and 4–5 with explicit discussion of adjacent transpositions and tree rotations, plus full-text word searches.",
+        "method": "Compare local-change generation theorem to quantitative label-refined normal-fan wall survival.",
+        "title": "Combinatorial generation via permutation languages. IV. Elimination trees",
+        "trigger": "Same graph-elimination objects and permutations/adjacent transpositions."
+      },
+      {
+        "assessment": "Gives adjacent-cone dependencies and removahedral/permutree fan type-cone classifications, not counts of surviving edges by graph distance.",
+        "evidence": "Lemma 13 describes linear dependencies for adjacent braid cones, Proposition 14 concerns submodular heights, neither a tree-metric reciprocal law.",
+        "identifier_or_url": "arXiv:2006.00264, https://arxiv.org/abs/2006.00264",
+        "material_read": "Full-text arXiv HTML Introduction, Sections 2.2–2.3 with Lemma 13 and Proposition 14, searches for Harary/distance/adjacent permutations.",
+        "method": "Test whether general quotient-fan wall crossing entails the exact quantified survival table.",
+        "title": "Removahedral congruences versus permutree congruences",
+        "trigger": "Most plausible alternate formulation in adjacent braid-fan chambers and wall-crossing inequalities."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce4ae410-1529-4fb4-a1b7-68d09e6c0a97",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural geometric statistic of adjacent braid chambers reconstructs the full labelled graph distance matrix of any tree from a generalized permutahedron fan, and works for every positive connected-tube weighting. The aggregate links a classical global distance invariant to a concrete wall-survival count and yields markedly different asymptotic local sensitivity of path versus star graph associahedra. This is an all-tree structural metric-reconstruction theorem, not merely a renamed Harary index or arbitrary finite numerical gain.",
+    "status": "PASS"
+  }
+}
