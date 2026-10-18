@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T08:48:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/html/2501.05830v2",
+        "https://arxiv.org/abs/2101.02056",
+        "https://doi.org/10.1142/9789812704979_0004"
+      ],
+      "rationale": "Proved binary scaling P_(2^k d)=P_d via t(2^k q+s)=t(q) xor t(s), and global complement closure via adding a new high leading bit. For odd d, a 192-state carry+parity transducer tracks x+jd for j=1,2,3, with carry bounds c_j<=j. Higher zero bits of d plus guessed bits of starting n are handled by exact reverse reachability, not finite prefixes. Independently reimplemented both transitions and subset determinization without using the source verifier: precisely 195 reachable subsets after initial odd bit, with output masks 0x6e (5), 0xf7 (6), 0xff (184); zero cycles and all one-bit edges establish A only d=1, B only d=3, C all other odd d. Corresponding relative-mask sizes 5,7,8; complement gives 10,14,16. Checker addresses all unbounded input words because finite reachable graph is exhausted. Supplemental finite prefix computations are not infinite proof.",
+      "residual_risks": [
+        "Only length-four binary Thue--Morse arithmetic factors; does not compute minimal occurrence positions or lengths >=5."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Monochromatic progression work considers run-length and first occurrence; 2003 arithmetical complexity allows difference to vary, a weaker existential quantifier."
+        ],
+        "reasoning": "The all-differences union being complete never implies each fixed-d factor set is complete. The new statement has strictly stronger prescribed-d quantification for nonmonochromatic patterns.",
+        "searches": [
+          "https://arxiv.org/html/2501.05830v2",
+          "https://arxiv.org/abs/2101.02056",
+          "Arithmetical complexity of infinite words Thue Morse 2003",
+          "Thue Morse fixed difference length four arithmetic progression factor patterns relative masks"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2501.05830v2",
+        "https://arxiv.org/abs/2101.02056",
+        "https://doi.org/10.1142/9789812704979_0004"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Joshi--Rust Prop 3.3 implies 0000 and 1111 exist if d has odd part>1, consistent with 0x f7,ff masks. It says nothing about 0110 and 1001 at d=3."
+        ],
+        "reasoning": "Our derived 195-state quotient computes relative parity masks for every odd input, supplying the implication gap that monochromatic run-length claims leave.",
+        "searches": [
+          "https://arxiv.org/html/2501.05830v2",
+          "https://arxiv.org/abs/2101.02056",
+          "Thue Morse fixed difference length four arithmetic progression factor patterns relative masks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Joshi--Rust Proposition 3.3 gives A(d)>=4 for all odd-part>1; A(d) is maximum monochromatic arithmetic-run length, not set of 16 binary patterns."
+        ],
+        "reasoning": "Existence of 0000/1111 differs from full simultaneous occurrence of all 4-letter words at each fixed d. The nonmonochromatic exclusions 0110,1001 at d_odd=3 are not controlled by A(d).",
+        "searches": [
+          "Thue Morse fixed difference length four arithmetic progression factor patterns relative masks",
+          "Thue Morse arithmetic factor length 4 at a fixed difference 1 3 5 10 14 16",
+          "https://arxiv.org/html/2501.05830v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full Joshi--Rust paper's computational tables concern longest monochromatic run A(d), not length-four pattern-set cardinalities. Prior 2003 complete paper unavailable."
+        ],
+        "reasoning": "No exact fixed-step four-letter spectrum database was located in actual targeted searches; do not infer novelty solely from this fact. A possible unindexed table remains risk.",
+        "searches": [
+          "Thue Morse fixed difference length four arithmetic progression factor patterns relative masks",
+          "Thue Morse fixed d all 16 length 4 pattern table Walnut 195 states"
+        ]
+      },
+      "rationale": "Joshi--Rust's automata theorem gives length>=4 monochromatic arithmetic progressions for each difference with odd part>1, but no nonmonochromatic four-word spectrum. Aedo et al. study maximum monochromatic runs and their arithmetic scaling, while Avgustinovich--Fon-Der-Flaass--Frid study union-over-d arithmetical complexity. The fixed-difference 14-versus-16 separation at d odd-part3 is not implied by any of these statements. The 2003 primary complete work remains unread.",
+      "residual_risks": [
+        "Original 2003 arithmetical-complexity chapter full text not inspected; a hidden fixed-d table cannot be ruled out.",
+        "The all-d classification critically requires the exact 195-state transducer/reachability graph, not a sample of differences.",
+        "Full worldwide prior-work coverage and unindexed supplements cannot be certified; best-of-knowledge judgment only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers monochromatic existence for odd d>1; does not compute every nonmonochromatic length-four factor",
+          "evidence": "Proposition 3.3 and Walnut definition §3.1.",
+          "identifier_or_url": "https://arxiv.org/html/2501.05830v2",
+          "material_read": "Full 1160-line arXiv HTML, especially §3.1--3.2, Proposition 3.3 proof and tables for A(d)",
+          "method": "Primary full arXiv HTML",
+          "title": "Monochromatic arithmetic progressions in the Fibonacci, Thue--Morse, and Rudin--Shapiro words",
+          "trigger": "Same Thue--Morse prescribed-difference progression problem"
+        },
+        {
+          "assessment": "Addresses A(d) and scaling, not full fixed-step 16-pattern profile",
+          "evidence": "Aedo et al., arXiv:2101.02056, Lemma 13 cited by Joshi--Rust.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.02056",
+          "material_read": "Primary abstract, original article bibliographic/theorem descriptions in Joshi--Rust full text; complete original paper not claimed read",
+          "method": "Primary abstract plus cited theorem in later full primary",
+          "title": "On long arithmetic progressions in binary Morse-like words",
+          "trigger": "Earlier fixed-step monochromatic run-length bounds"
+        },
+        {
+          "assessment": "Different union-over-d invariant; uninspected appendix could have a stronger fixed-d statement",
+          "evidence": "Avgustinovich et al. (2003), DOI as listed.",
+          "identifier_or_url": "https://doi.org/10.1142/9789812704979_0004",
+          "material_read": "Bibliographic data and later descriptions; original complete 2003 chapter not recovered",
+          "method": "Bibliographic and later-primary references only",
+          "title": "Arithmetical complexity of infinite words",
+          "trigger": "Potential prior full binary arithmetic factor tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2501.05830v2",
+        "https://arxiv.org/abs/2101.02056",
+        "https://doi.org/10.1142/9789812704979_0004"
+      ],
+      "rationale": "It resolves a natural fixed-step factor-spectrum invariant of the canonical automatic sequence for **every** d and includes a subtle exceptional odd part 3. The 195-state exact certificate is a substantive all-input classification useful for automatic-sequence factors, not an arbitrary small sampled table.",
+      "residual_risks": [
+        "Original 2003 arithmetical-complexity chapter full text not inspected; a hidden fixed-d table cannot be ruled out.",
+        "The all-d classification critically requires the exact 195-state transducer/reachability graph, not a sample of differences.",
+        "Full worldwide prior-work coverage and unindexed supplements cannot be certified; best-of-knowledge judgment only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For binary Thue--Morse, all length-four arithmetic factors at prescribed difference d have cardinality 10, 14, or 16 according as the odd part of d is 1, 3, or >=5; the exceptional missing patterns are fully specified.",
+  "limitations": [
+    "Only length-four binary Thue--Morse arithmetic factors; does not compute minimal occurrence positions or lengths >=5.",
+    "Original 2003 arithmetical-complexity chapter full text not inspected; a hidden fixed-d table cannot be ruled out.",
+    "The all-d classification critically requires the exact 195-state transducer/reachability graph, not a sample of differences.",
+    "Full worldwide prior-work coverage and unindexed supplements cannot be certified; best-of-knowledge judgment only."
+  ],
+  "schema_version": 1
+}

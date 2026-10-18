@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`. Only Python 3 and its standard library are required.
+# Independent mathematical audit
 
-The script reconstructs all \(192\) elementary states \((c_1,c_2,c_3,p)\), with the carry bounds \(0\le c_j\le j\), directly from binary addition. It computes the exact high-bit terminal reachability for each of eight relative masks and exhaustively discovers all \(195\) subset states reachable after the obligatory low bit \(1\) of an odd difference.
+## correctness
 
-The verifier checks that exactly five, six, and 184 reachable subsets admit hexadecimal terminal masks `0x6e`, `0xf7`, and `0xff`, respectively. It checks every transition-closure condition that proves the exceptional LSB-first digit classes and verifies the precise zero-orbit structures. This is a complete *finite-state certificate*: no maximum difference or starting index is assumed.
+PASS
 
-It independently builds explicit starting-position witnesses from carry paths for every accepted mask at each difference \(1\le d\le511\), checks their Thue–Morse digit sums, and checks complements. Finally it enumerates all four-term arithmetic factors within the first 80,000 positions at each \(1\le d\le128\), matching the exact count and missing-pattern descriptions. These supplementary bounded tests validate the implementation but do not establish the infinite theorem without the finite-state proof.
+Proved binary scaling P_(2^k d)=P_d via t(2^k q+s)=t(q) xor t(s), and global complement closure via adding a new high leading bit. For odd d, a 192-state carry+parity transducer tracks x+jd for j=1,2,3, with carry bounds c_j<=j. Higher zero bits of d plus guessed bits of starting n are handled by exact reverse reachability, not finite prefixes. Independently reimplemented both transitions and subset determinization without using the source verifier: precisely 195 reachable subsets after initial odd bit, with output masks 0x6e (5), 0xf7 (6), 0xff (184); zero cycles and all one-bit edges establish A only d=1, B only d=3, C all other odd d. Corresponding relative-mask sizes 5,7,8; complement gives 10,14,16. Checker addresses all unbounded input words because finite reachable graph is exhausted. Supplemental finite prefix computations are not infinite proof.
 
-The checker has no dependencies on external services or unpublished files and reports the exact numbers of states and witnesses upon success.
+## originality
+
+PASS
+
+Joshi--Rust's automata theorem gives length>=4 monochromatic arithmetic progressions for each difference with odd part>1, but no nonmonochromatic four-word spectrum. Aedo et al. study maximum monochromatic runs and their arithmetic scaling, while Avgustinovich--Fon-Der-Flaass--Frid study union-over-d arithmetical complexity. The fixed-difference 14-versus-16 separation at d odd-part3 is not implied by any of these statements. The 2003 primary complete work remains unread.
+
+## value
+
+PASS
+
+It resolves a natural fixed-step factor-spectrum invariant of the canonical automatic sequence for **every** d and includes a subtle exceptional odd part 3. The 195-state exact certificate is a substantive all-input classification useful for automatic-sequence factors, not an arbitrary small sampled table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
