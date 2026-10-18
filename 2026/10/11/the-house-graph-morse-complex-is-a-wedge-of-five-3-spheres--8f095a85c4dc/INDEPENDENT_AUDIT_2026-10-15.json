@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T03:09:35.806485Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the explicitly labeled 5-vertex 6-edge house (4-cycle sharing an edge with a triangle), 12 primitive vertex-edge incidences yield all acyclic partial functional orientations. Independent brute force across all 2^12 primitive subsets, discarding reused edge/tail and directed cycles, obtains exactly 208 nonempty simplices and face vector (12,51,90,55). Using actual package toggle order (7,5,4,11,3,9,10,1,6,8,2,0), reconstructed matching has exactly 101 valid pairs; complete acyclic topological sort of 592 Hasse covers leaves precisely one 0-cell and five 3-cells. No 1- or 2-dimensional CW cells remain; all attaching maps land at the single 0-cell, proving wedge of five S3 integrally, not just homology over primes. Original verifier independently checks exact Laplacian characteristic det(L+xI)=x^5+12x^4+51x^3+90x^2+55x and boundaries mod 2,3,5; tree/forest count checks are corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Scoville–Zaremsky Theorem 4.3 gives connectivity lower bound, not exact wedge count",
+          "Capitelli–Minian Theorems A and B assert rigidity; Sect.3 gives dimension |V|-2, not its full homotopy",
+          "Kozlov exact calculations cited there are complete graphs, paths, cycles"
+        ],
+        "reasoning": "Generic connectivity, known dimension 3 and invariance under graph isomorphism do not imply rank five of top homotopy/homology for this house graph.",
+        "searches": [
+          "Resultary actual semantic query: house graph roof graph Morse complex acyclic matchings rooted forests five 3-spheres",
+          "https://arxiv.org/pdf/2004.10481",
+          "https://arxiv.org/pdf/1509.07457"
+        ]
+      },
+      "checked_sources": [
+        "Resultary actual semantic query: house graph roof graph Morse complex acyclic matchings rooted forests five 3-spheres",
+        "https://arxiv.org/pdf/2004.10481",
+        "https://arxiv.org/pdf/1509.07457"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scoville–Zaremsky house edge count 6/max vertex degree3 implies a connectivity bound, not five 3-sphere summands",
+          "Capitelli–Minian dim M(H)=|V|-2=3 but cannot fix degree-three Betti rank"
+        ],
+        "reasoning": "The general statements are strictly weaker than the complete house graph homotopy classification. A perfect explicit acyclic matching with five critical 3-faces supplies the missing information.",
+        "searches": [
+          "Resultary actual semantic query: house graph roof graph Morse complex acyclic matchings rooted forests five 3-spheres",
+          "https://arxiv.org/pdf/2004.10481",
+          "https://arxiv.org/pdf/1509.07457"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Capitelli–Minian Section 3 explicitly identifies graph Morse complex with directed-forest complex of bidirected graph",
+          "Search for house as directed forest and roof graph did not produce a direct exact homotopy calculation"
+        ],
+        "reasoning": "The equivalence to rooted directed forests describes exactly the same object; the unrelated graph matching complex and 2-particle graph configuration-space Morse complex are NOT equivalent.",
+        "searches": [
+          "Resultary actual semantic query: house graph roof graph Morse complex acyclic matchings rooted forests five 3-spheres",
+          "https://arxiv.org/pdf/2004.10481",
+          "https://arxiv.org/pdf/1509.07457"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the exact assigned house record plus distinct graph-matching and K33/Wagner Morse-complex records",
+          "Original papers list a handful of named families and no house row"
+        ],
+        "reasoning": "No covering table of house-graph homotopy was identified; exact face-vector 208 is independently generated, not copied from a published table. Search limitation retained.",
+        "searches": [
+          "Resultary actual semantic query: house graph roof graph Morse complex acyclic matchings rooted forests five 3-spheres",
+          "https://arxiv.org/pdf/2004.10481",
+          "https://arxiv.org/pdf/1509.07457"
+        ]
+      },
+      "rationale": "The finite directed-forest/Morse complex for a house (roof) graph is not determined by prior graph-family homotopy theorems that apply to complete graphs, paths, cycles, or by generic Morse-complex connectivity/rigidity theorems. The exact wedge multiplicity five is sourced from exhaustive computation rather than asserted from Euler characteristic alone.",
+      "residual_risks": [
+        "An unindexed software homotopy census under roof/house alias could duplicate this finite case.",
+        "This is an exact small-graph exemplar, not a graph-family theorem; its significance depends on the natural C3-C4 shared-edge motif."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Only connectivity bound and examples K_n / C_n, no house exact homotopy",
+          "evidence": [
+            "Thm 4.3 lower-connectivity bound; Sec.4.1 discusses previously known K_n,C_n not house."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.10481",
+          "material_read": "Original 12-page PDF introduction, Section 1 definition, Section 4 Theorem 4.3 proof and known-example discussion; house text search",
+          "method": "Original primary PDF, page screenshot and full relevant theorem",
+          "title": "Higher connectivity of the Morse complex",
+          "trigger": "Potential dominating graph-Morse theorem"
+        },
+        {
+          "assessment": "Graph-Morse=directed-forest complex and dimension |V|-2; no computed house homotopy",
+          "evidence": [
+            "Sect. 3: M(G)=Delta(d(G)); Lemma 3.1 dimension n−2; Kozlov exact graphs are paths/cycles/complete graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.07457",
+          "material_read": "Original 11-page PDF Sections 1–3 including Theorem A/B, Lemma 3.1, and Kozlov discussion",
+          "method": "Primary arXiv PDF, first page screenshot, detailed original definitions/theorem inspection",
+          "title": "A Simplicial Complex is Uniquely Determined by Its Set of Discrete Morse Functions",
+          "trigger": "Rooted forests alias and possible direct small graph formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS, bounded: The house (roof) graph is a canonical minimal mixed-cycle motif with a triangle and four-cycle sharing an edge; its directed rooted-forest complex sits beyond the classical path/cycle/complete-graph examples. Its exact integral homotopy (five 3-spheres), certified by a full 208-face acyclic matching rather than rank-only outputs, supplies a natural small test case for graph-Morse connectivity and directed-forest topology. This is not claimed to settle a family or to be a major quantitative improvement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Tiny single-graph result; does not characterize all two-cycle graphs or provide a general formula.",
+    "Mod-prime ranks and Laplacian forest polynomial by themselves do not prove integral wedge decomposition."
+  ],
+  "schema_version": 1
+}
