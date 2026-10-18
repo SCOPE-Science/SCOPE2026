@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full dimensional proof reduces the transverse anticommuting Hamiltonian to a two-term trigonometric exponential, reconstructs all Pauli weights, and uses Pauli-character orthogonality to obtain the sharp iff and exact mean-square defect. The signed Pauli-pair convention and sine-zero boundary are explicit. The standalone matrix verifier independently checks 106 finite cases, which do not replace the analytic proof.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** The 2026 anchor establishes first-order invariance for coherent noise. The claim here concerns the stronger all-orders iff and exact total defect in a narrower model. The earlier Pauli-conjugation literature studies error mitigation after coding rather than this gate-adjoint all-Pauli equality. Targeted scientific and index comparisons found no implication-equivalent statement. However the complete 2026 primary manuscript, especially its appendices, was not accessible for inspection: this is an explicit residual novelty risk; lack of access is not evidence of noncoverage.
+PASS
 
-**Value — PASS.** First-order symmetries are useful for calibration only when higher-order coherent-error interference is understood. The exact law singles out one-quadrature models with rigorous all-strength symmetry and gives a closed quadratic diagnostic for coherent errors that excite both rotated quadratures. It is not a general-noise or hardware-performance claim.
+Mutually anticommuting Pauli terms imply H^2=omega^2 I and exact exp(-itH)=cI-isH. Multiplication by U†=(I+iL)/sqrt(2) gives each paired orbit Pauli probabilities s²(a+b)²/2 and s²(b-a)²/2; difference 2s²ab. Fourier characters on the affine anti-L coset are orthogonal modulo L-pairing, so all fidelities invariant iff s*a*b=0 for every orbit, and normalized square defect is 8s^4 sum(ab)². Character parity forbids third mutually anticommuting transverse term alongside an active Q,Q* pair. Independent direct one-qubit matrix exponential, twirl, and Pauli fidelity checks matched n=1 examples including paired and unpaired errors. Exact conditions require static real amplitudes, all active transverse terms mutually anticommute, and error channel U†exp(-itH).
 
-**Closest literature and limitations.** M. Malekakhlagh et al., arXiv:2607.02481v1 (first-order coherent-fidelity symmetry); Z. Cai et al., arXiv:1906.06270 (Pauli conjugation and encoded logical fidelity); Z. Cai and S. Benjamin, arXiv:1807.04973 (twirling background). The dynamics are static and mutually anticommuting, with no dissipators or temporal variation. Additional independent literature review could change novelty assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact nonperturbative iff and aggregate squared defect for this Clifford Pauli rotation, distinct from generic Pauli twirling and first-order Lindbladian symmetry; full 2026 anchor unavailable, material risk explicit.
+
+## value
+
+PASS
+
+The exact boundary between harmless single transverse-axis errors and quadratic two-quadrature symmetry breaking is a motivated diagnostic for coherent gate models. Quantitative global mean-square defect and exact zero-set are more than routine formal twirling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

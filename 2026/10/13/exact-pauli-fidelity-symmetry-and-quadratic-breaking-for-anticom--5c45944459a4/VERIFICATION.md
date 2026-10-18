@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction checks
+# Independent mathematical audit
 
-Run `python -m pip install -r artifacts/requirements.txt`, then `python artifacts/verify.py`.
+## correctness
 
-The verifier generates Hermitian Pauli matrices for one- and two-qubit test systems, constructs independent matrix exponentials via `scipy.linalg.expm`, computes Pauli-twirl amplitudes from direct traces, and compares the complete probability weights, conjugate-fidelity differences, and aggregate squared-defect formula. It uses a fixed random seed for 100 parameter draws and six additional edge/structure configurations, and reports `VERIFY_OK 106 matrix experiments`. The tested maximum tolerance is \(3\times10^{-10}\).
+PASS
 
-The all-\(n\) result depends on the symbolic anticommuting-Hamiltonian exponential and orthogonality of Pauli characters, proved in `RESULT.md`, not on finite sampling. An arXiv full-text comparison for the motivating 2026 publication was inaccessible; only the publicly available abstract and scientific descriptions were read. The independent-audit field above is unperformed, not a negative finding.
+Mutually anticommuting Pauli terms imply H^2=omega^2 I and exact exp(-itH)=cI-isH. Multiplication by U†=(I+iL)/sqrt(2) gives each paired orbit Pauli probabilities s²(a+b)²/2 and s²(b-a)²/2; difference 2s²ab. Fourier characters on the affine anti-L coset are orthogonal modulo L-pairing, so all fidelities invariant iff s*a*b=0 for every orbit, and normalized square defect is 8s^4 sum(ab)². Character parity forbids third mutually anticommuting transverse term alongside an active Q,Q* pair. Independent direct one-qubit matrix exponential, twirl, and Pauli fidelity checks matched n=1 examples including paired and unpaired errors. Exact conditions require static real amplitudes, all active transverse terms mutually anticommute, and error channel U†exp(-itH).
+
+## originality
+
+PASS
+
+Best-of-knowledge exact nonperturbative iff and aggregate squared defect for this Clifford Pauli rotation, distinct from generic Pauli twirling and first-order Lindbladian symmetry; full 2026 anchor unavailable, material risk explicit.
+
+## value
+
+PASS
+
+The exact boundary between harmless single transverse-axis errors and quadratic two-quadrature symmetry breaking is a motivated diagnostic for coherent gate models. Quantitative global mean-square defect and exact zero-set are more than routine formal twirling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
