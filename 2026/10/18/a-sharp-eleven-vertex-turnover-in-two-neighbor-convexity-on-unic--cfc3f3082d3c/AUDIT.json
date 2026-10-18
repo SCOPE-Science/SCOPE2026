@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "A complete rooted-multiset construction and collision-free tree-center canonicalization enumerate all unrooted trees through ten; adding every nonedge covers every simple connected unicyclic graph. Exhaustive bitmask enumeration proves the unique cycle maxima for \\(3\\le n\\le10\\). The 4-state transfer-matrix trace satisfies the verified characteristic cubic and yields \\(c_{11}=486\\), while conditioning on the attachment hub yields \\(p_n=2^{n-2}+2n-2\\) and \\(p_{11}=532\\). The displayed recurrence and induction prove p_n>c_n for all \\(n\\ge11\\). The embedded standard-library certificate was executed and reproduced all claimed finite values. Noncomputational all-order steps are proved explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dourado–Grippo–Lin–Protti Lemma 5: \\(N(G)<N(T)\\) for every spanning tree T of a unicyclic G, not a bound within unicyclic graphs.",
+        "Theorem 3 of that paper counts \\(P_3\\)-convex subsets of trees, and Theorem 11 addresses connected graphs globally, not the unicyclic subclass."
+      ],
+      "reasoning": "Knowing that each unicyclic graph has fewer convex sets than a tree does not order different unicyclic graphs. A tree recurrence can help enumerate cycles but cannot imply the unique 3–10 extremal census or first 11-counterexample without further analysis.",
+      "searches": [
+        "arXiv:2603.04706v1 complete full text, Section 2 and Lemma 5/Corollary 6",
+        "\"P3 convex sets\" \"unicyclic\" number",
+        "\"convex sets\" \"unicyclic graphs\" maximum cycle"
+      ]
+    },
+    "checked_sources": [
+      "Dourado et al., arXiv:2603.04706v1, https://arxiv.org/html/2603.04706, publicly posted 2026-03-05",
+      "Carvalho–Dourado–Szwarcfiter (2017), On the Helly Number in P3-Convexity in Graphs, abstract only",
+      "Graphs with few P4s under the convexity of paths of order three (2014), abstract only",
+      "Published mathematical findings index searches for exact invariant, cycle/leaf threshold, two-neighbor closure and aliases",
+      "Accessible prior findings ledger, all recoverable claim statements (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2603.04706v1 includes \\(P_3\\)-convexity, tree counting and strict edge-deletion comparisons, without exact unicyclic within-class maximizers.",
+        "Carvalho–Dourado–Szwarcfiter (2017) counts Helly intersection thresholds, not numbers of convex subsets.",
+        "The older few-P4 graph work addresses structural convexity classes; only title and abstract were accessible for this comparison."
+      ],
+      "reasoning": "The 2026 connected graph maximum theorem has a tree as an optimizer, which is excluded from the unicyclic class. Neither that theorem nor the stated auxiliary results imply cycle uniqueness for \\(n\\le10\\) or its universal failure for \\(n\\ge11\\). Peripheral material not read in full is documented as residual risk rather than certified noncoverage.",
+      "searches": [
+        "Counting $P_3$-convex sets in graphs arXiv:2603.04706v1",
+        "On the Helly Number in P3-Convexity in Graphs 2017",
+        "\"Graphs with few P4’s under the convexity of paths of order three\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For an outside vertex to have <=1 selected neighbor is precisely closure under the 2-neighbor bootstrap rule and \\(P_3\\) path convexity (arXiv:2603.04706v1 Section 1).",
+        "For C_n this equals counting cyclic binary words avoiding pattern 101; the transfer trace and polynomial identity are proved here."
+      ],
+      "reasoning": "The searches cover equivalent closure dynamics and binary forbidden-word reformulations rather than only the name \\(P_3\\)-convexity. None of the identified records asserts the combined unicyclic maximization threshold. A failed search is not treated as a uniqueness proof.",
+      "searches": [
+        "Counting P3 convex sets in unicyclic graphs, extremal number of convex vertex sets, cycles optimal until order 10 and fail at order 11",
+        "2-neighbor bootstrap percolation closed sets unicyclic graphs extremal cycles first order 11 n=11 486 532",
+        "\"2-bootstrap percolation\" \"unicyclic\" \"closed sets\" number",
+        "\"P3-convex\" \"cycle\" \"unicyclic\" enumeration maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact computed table in RESULT.md enumerates 1,6,18,60,165,483,1316,3816 unicyclic presentations for \\(3\\le n\\le10\\), and gives maxima 5,10,17,29,51,90,158,277.",
+        "The closest mathematical index hits instead concern cover-free families, cut complexes and unrelated NOC set systems, without a table for this invariant."
+      ],
+      "reasoning": "No direct published exact database/table for the finite unicyclic maximum was identified. The rooted-tree certificate itself verifies the result; the index absence is not asserted as proof of novelty.",
+      "searches": [
+        "noc(C_n) convex subset number unicyclic graph P_3 first noncycle maximum C4 leaves",
+        "Graph number of P3-convex sets cycle generating function recurrence n and extremal unicyclic graphs",
+        "\"P_3-convex\" \"cycle\" maximal number \"unicyclic\""
+      ]
+    },
+    "rationale": "The closest complete 2026 primary paper proves only global connected extremality and a strict comparison between a unicyclic graph and its spanning trees; it does not compare unicyclic graphs of the same order. Published mathematical-index and web searches for two-neighbor closed subsets, equivalent \\(P_3\\)-convexity, cycle recurrences and unicyclic extremality found no theorem implying the exact first failure at order eleven. Its tree/path results do not establish the exhaustive uniqueness statement nor the infinite explicit nonoptimality family.",
+    "residual_risks": [
+      "Unindexed or inaccessible equivalent unicyclic extremal results may exist.",
+      "The 2014 structural-convexity paper and 2017 Helly paper were not read in full; no whole-document negative inference is made.",
+      "A fully independent external mathematics review of the finite generator and all-order induction has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_IMPLY_CLAIM",
+        "evidence": "Lemma 5 compares every unicyclic graph to its spanning trees; the authors do not present the order-11 within-unicyclic extremal turnover.",
+        "identifier_or_url": "https://arxiv.org/html/2603.04706",
+        "material_read": "ArXiv v1 abstract, introduction and formal definitions, Section 2 through unicyclic Lemma 5, connected-extremal setup, and sections 3–4 summaries/keyword locations.",
+        "method": "Read accessible primary full HTML and compare exact statement and hypotheses; search the article for unicyclic and cycle.",
+        "title": "Counting \\(P_3\\)-convex sets in graphs",
+        "trigger": "Same counted invariant and explicit treatment of unicyclic graphs and connected extremals"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_INVARIANT_WITH_FULL_TEXT_ACCESS_RISK",
+        "evidence": "Abstract states bounds/determination of the Helly number on paths, cycles and threshold graphs, not numbers of convex sets.",
+        "identifier_or_url": "https://mc.sbm.org.br/wp-content/uploads/sites/9/sites/9/2021/12/45-12.pdf",
+        "material_read": "Search-visible abstract and bibliographic description only; remote full document access was denied.",
+        "method": "Compare the declared invariant (Helly number) and theorem scope at abstract level.",
+        "title": "On the Helly Number in P3-Convexity in Graphs",
+        "trigger": "Same path convexity and explicit study of cycles"
+      },
+      {
+        "assessment": "UNRESOLVED_PERIPHERAL_SOURCE",
+        "evidence": "The accessible abstract frames graph classes and convexity structure, not an exact unicyclic counting extremum; whole-document noncoverage cannot be asserted.",
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.05.005",
+        "material_read": "Search-visible abstract/excerpts only; publisher full text could not be retrieved.",
+        "method": "Compare stated structural scope and material limitations.",
+        "title": "Graphs with few P4s under the convexity of paths of order three",
+        "trigger": "Same \\(P_3\\) path convexity and potentially relevant earlier structural theorems"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cfc3f308-2d3c-428d-bf44-928cfabdcea9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 counting study identifies a natural extremal counting invariant. Restricting to connected unicyclic graphs makes cycle maximality a mathematically motivated question distinct from its global tree extremum. This finding establishes a sharp first failure at n=11, proves unique cycle extremality at all earlier feasible orders through exhaustive complete graph generation, and gives a single concrete noncycle family beating the cycle for every larger order. The threshold is a natural first exception, and the proof connects a finite extremal census with an infinite transfer-matrix growth separation; no full global classification is claimed.",
+    "status": "PASS"
+  }
+}
