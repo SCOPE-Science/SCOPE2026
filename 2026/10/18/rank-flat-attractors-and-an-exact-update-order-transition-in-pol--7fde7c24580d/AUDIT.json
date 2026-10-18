@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "SVD signed-coefficient diagonal invariance; post-step absolute-value scalar q-contraction, finite-preimage resonances, eventual sign dynamics, pre-step affine recursion above eta a=1, and exact proximal finite hitting. Explicit target is a strict fixed-point calculation and all boundaries are handled. 13554 exact-rational and 18636 dense numerical checks passed; the proof not experiment establishes all sizes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General constant-step subgradient instability provides settings of nonconvergence but no exact three-map singular spectrum.",
+        "The local previously recorded exact-line-search matrix polar method centers singular values by their arithmetic mean each step, unlike the fixed eta nuclear penalty maps here."
+      ],
+      "reasoning": "Neither broad instability conditions nor exact-line-search self-similar orbits imply a global contraction of each singular value to positive tau/(1+q), phase change at eta a=1, or unbounded pre/post attractor ratios.",
+      "searches": [
+        "nonsmooth nuclear norm subgradient method exact stepsize bifurcation rank flat convergence strongly convex quadratic",
+        "nuclear norm constant step subgradient descent quadratic full rank limit two cycle equal singular values",
+        "arxiv:2211.14852 subgradient constant step instability",
+        "Published exact-line-search matrix polar descent 365ef3f5-b464-4542-9ad5-66d4ae514c2d"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.11730v1 full primary PDF (2026-10-08)",
+      "arxiv:2607.08754v1 limited accessible abstract and primary cross-description",
+      "arxiv:2211.14852 abstract/general constant-step subgradient instability",
+      "Published mathematical results on smoothed Polar-Express and polar descent, including an inspected proof",
+      "Published related mathematical results, with claims compared for implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source Proposition 1 controls ||post-pre|| for one update by 2*eta*lambda in operator norm and does not control separated long-run trajectories.",
+        "The source Appendix A.2 explains proximal soft thresholding, but gives no complete iteration convergence theorem.",
+        "The closest historical claim assumes per-step exact line search, generating a different scalar mean-deviation map."
+      ],
+      "reasoning": "No cited premise implies the joint result; comparing single-step and long-horizon quantifiers is essential. The counterbenchmark does not contradict the existing one-step estimate.",
+      "searches": [
+        "fixed-step polar descent isotropic quadratic spectral weight decay additive shrinkage rank flat fixed point two cycle versus exact-line-search polar",
+        "arxiv:2610.11730v1 Eq. (7), Prop. 1, Appendix A.2",
+        "published claim identifier 365ef3f5-b464-4542-9ad5-66d4ae514c2d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Andriianov et al. Eq. (1) and Sec. 4 give the post-step map; Appendix A.2 identifies polar-vs-soft-threshold difference.",
+        "SLORR-Nuc describes nuclear polar regularization but uses pre-step loss regularization."
+      ],
+      "reasoning": "General finite-dimensional proximal maps and sign/subgradient recurrences are classical, but their definitions alone do not state the global post/pre/prox attractor and update-order ratio. The source provides one-step, not long-run, comparisons.",
+      "searches": [
+        "arXiv:2610.11730 spectral weight decay quadratic stationary optimizer fixed points limit cycles exact polar post step",
+        "matrix nuclear norm partial polar constant learning rate isotropic quadratic scalar recursion absolute value flat singular spectrum stable two cycle",
+        "arxiv:2610.11730v1 equation (1) and proposition 1",
+        "arxiv:2607.08754v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus SCOPE polar-express uses a smoothed nonlinear gradient preconditioner with scalar flip threshold gamma*a=2*epsilon, not exact weight polar shrinkage.",
+        "published-finding corpus fixed-radius trust region solves a scalar composite subproblem, not the decoupled polar update."
+      ],
+      "reasoning": "No exact published result for the canonical post-step spectral weight decay rank-flat attractor or its pre/post ratio appeared in the actual semantic database returns; absence alone is not a novelty certificate.",
+      "searches": [
+        "fixed-step polar descent isotropic quadratic spectral weight decay additive shrinkage rank flat fixed point two cycle versus exact-line-search polar",
+        "arXiv:2610.11730 spectral weight decay quadratic stationary optimizer fixed points limit cycles exact polar post step",
+        "matrix nuclear norm partial polar constant learning rate isotropic quadratic scalar recursion absolute value flat singular spectrum stable two cycle",
+        "Published polar express scalar 5f6e926df82f",
+        "Published fixed-radius trust-region 18ebe14ebda2"
+      ]
+    },
+    "rationale": "Inspected motivating full manuscript and appendices, compared SLORR, soft-threshold proximal method, prior polar exact-line-search published theorem and smoothed Polar-Express database theorem. None inspected implies the new complete constant-step three-rule asymptotic classification; important residual risk from incompletely accessible SLORR full text and unindexed nonsmooth dynamics remains.",
+    "residual_risks": [
+      "Independent complete SLORR full text was inaccessible; materially related scalar or matrix examples could predate this classification.",
+      "The very elementary scalar absolute-value recurrence could be implicit in earlier subgradient/optimization textbooks with a different algorithm name.",
+      "A semantic database search cannot establish exhaustive novelty; independent bibliographic inspection remains required."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "One-step polar/singular-value definition, order sensitivity and proximal distinction established; no exact isotropic-quadratic asymptotic attractor theorem identified in inspected text.",
+        "evidence": "Eq. (1) gives Z-eta*lambda*Q(Z); Sec. 4.1 Eq. (7) and Prop. 1 compare update order; Appendix A.2 distinguishes thresholding from signed crossing.",
+        "identifier_or_url": "arxiv:2610.11730v1; https://pdfs.assets.alphaxiv.org/2610.11730v1.pdf",
+        "material_read": "Full accessible PDF: abstract, Sections 3-5, Equation (1), Section 4.1, Proposition 1, Appendices A.1-A.3",
+        "method": "Full-text reading and visual inspection of page 7 Proposition 1 and Eq. (7)",
+        "title": "Spectral Weight Decay: Inducing Low-Rank Structure in Neural Network Weights",
+        "trigger": "Identical algorithm definition, update-order proposition and approximate proximal comparisons"
+      },
+      {
+        "assessment": "SLORR-Nuc applies polar correction via loss; the decoupled pre-step variant is described separately. The unavailable complete source could include related scalar analyses and is a residual risk.",
+        "evidence": "Andriianov et al. PDF p. 2 Section 2 distinguishes SLORR-Nuc through-loss and pre-step from new post-step rule.",
+        "identifier_or_url": "arxiv:2607.08754v1",
+        "material_read": "Accessible abstract and the technical comparison in the full Andriianov et al. PDF, Section 2 and Eq. (7); standalone full PDF was not accessible",
+        "method": "Abstract-based comparison supplemented by primary later manuscript's specific method descriptions",
+        "title": "SLORR: Simple and Efficient In-Training Low-Rank Regularization",
+        "trigger": "Closest existing polar nuclear-norm regularization method"
+      },
+      {
+        "assessment": "Distinct nonlinear gradient surrogate h4 applied before update; cannot imply same result for post-step partial polar of weights.",
+        "evidence": "Surrogate map u -> u[1-tau/(1+|u|^4)^(1/4)] has smooth zero behavior, unlike constant additive shrinkage tau*sign(alpha u).",
+        "identifier_or_url": "published result identifier 5f6e926df82f",
+        "material_read": "Complete accessible RESULT.md including proof and scope",
+        "method": "Read original result and compared signed recurrence with weight-polar map",
+        "title": "A sharp flip frontier for the Polar-Express surrogate on scalar quadratics",
+        "trigger": "Semantic match of quadratic, polar and two-cycle"
+      },
+      {
+        "assessment": "Uses exact line search and mean-centered singular-value map, unlike constant-step nuclear partial-polar correction.",
+        "evidence": "Its reported claim gives singular deviations from the current arithmetic mean and dimension-three self-similar orbits, not the fixed-parameter three-rule comparison.",
+        "identifier_or_url": "published result identifier 365ef3f5-b464-4542-9ad5-66d4ae514c2d",
+        "material_read": "Accessible published claim statement",
+        "method": "Compare assumptions and map identities",
+        "title": "Exact-line-search matrix-polar descent on a centered Frobenius quadratic",
+        "trigger": "Mathematically related exact-line-search polar descent on the same quadratic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7fde7c24-580d-43b6-9fd4-11accd951553",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact limiting rank and update-order stability are motivated directly by the 2026 spectral weight decay method's low-rank and order claims. The new theorem establishes rank-flat nonzero attractors, sharp eta a=1 order transition, diverging fixed-step pre/post asymptotic amplitude ratio, positive regularized objective floor, and sharp contrast against actual proximal termination. These precise facts are needed to characterize when additive weight-polar shrinkage fails as a nuclear-norm optimization surrogate, beyond a routine one-step observation.",
+    "status": "PASS"
+  }
+}
