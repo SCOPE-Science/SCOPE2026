@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:11:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md Git blob e30a8ff6f7f1e6accb644ea9a94b1c5772a768bb",
+        "pinned verify.py Git blob 727299461143feb3fdfced142e764ed4c15d1605",
+        "independent mathematical reconstruction and bounded code in /mnt/data/scope05_independent_checks.py"
+      ],
+      "rationale": "In generalized theta graph Theta(ell_1,...,ell_d) with d>=3 paths ell_i>=2, the branch vertices have equal round colors by the graph involution and are distinguished from degree-2 internal vertices at round 1. For internal position i on a length ell path, equality of round-r colors is exactly equality of unordered clipped distances {min(i,r),min(ell-i,r)}, proved inductively using the two neighbor colors plus branch marker. Within a longest length L, positions unresolved after round r force r>=floor(L/2). Across distinct lengths a<b, the shorter path tip first differs at round a; the largest such shorter length is second-largest DISTINCT path length S, requiring r>=S. These conditions jointly suffice: each path position is distinguished up to its reversal and shorter-length distance sums differ from every longer clipped pair. Hence Stab=max(floor(L/2),S). At fixed d and n=sum ell_i-d+2, L<=n-d and distinct second length S<=floor((n-d+1)/2); d-2 paths of length 2 and two balanced lengths attain upper bound. Independent direct refinement for 2,958 nondecreasing length tuples d=3..6, ell=2..9 matched the depth formula, corroborating but not proving its infinite quantification.",
+      "residual_risks": [
+        "All d>=3 and each ell_i>=2; no direct paths of length one and no multiple-edge version.",
+        "Uncolored ordinary 1-WL only; no higher-dimensional WL or graph-pair logical depth."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krebs–Verbitsky and Kiefer–McKay upper bounds for all n-vertex graphs apply but are not sharp equality for every theta path tuple and do not give max(floor(L/2),S).",
+          "The 2025 long-refinement classification addresses near-worst-case instances, not every subdivision K_{2,d}; no demonstrated theorem dominates this exact family result."
+        ],
+        "reasoning": "Checked whether the strongest inspected existing theorem logically entails this result, including its exact domain and sharp conclusion. Established input background is explicitly credited.",
+        "searches": [
+          "Resultary semantic search: color refinement iteration number generalized theta graphs K2d subdivisions paths clipped distances",
+          "Resultary semantic search: generalized theta graph color refinement stabilization max floor(L/2), second-largest distinct path length",
+          "Primary-source comparison: Krebs and Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175 (2015)"
+        ]
+      },
+      "checked_sources": [
+        "Krebs and Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175 (2015)",
+        "Kiefer and McKay, The Iteration Number of Colour Refinement, LIPIcs ICALP 2020 article 73",
+        "Kiefer and de Mel, A Classification of Long-Refinement Graphs for Colour Refinement, arXiv:2510.20802 (2025)",
+        "Resultary: SCOPE-two-distance-coloring-theta-graphs--c303e1622d47 (square chromatic number, different invariant)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general n−1 iterative upper bound, even if tight elsewhere, does not imply a lower bound tied to the second-largest DISTINCT arm length S nor the exact maximum at fixed d and n.",
+          "The family-specific clipped-distance induction plus path-length extremal construction are needed to derive the submitted formulas."
+        ],
+        "reasoning": "Compared the conclusion itself with strongest relevant prior statements and specializations; documented nonimplications and acknowledged genuine overlap.",
+        "searches": [
+          "Resultary semantic search: color refinement iteration number generalized theta graphs K2d subdivisions paths clipped distances",
+          "Resultary semantic search: generalized theta graph color refinement stabilization max floor(L/2), second-largest distinct path length",
+          "Primary-source comparison: Krebs and Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175 (2015)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Generalized theta graphs are subdivisions of K_{2,d}; published square-coloring computations on theta graphs study proper coloring of square graph, not iterative 1-WL color refinement.",
+          "A standard 1-WL local-view formulation still needs path-pair clipping and maximum over the path-length data to recover this formula."
+        ],
+        "reasoning": "Compared exact definitions, parameters, and translation to the named existing frameworks; topical overlap without a mathematical iff implication is not prior coverage.",
+        "searches": [
+          "Resultary semantic search: color refinement iteration number generalized theta graphs K2d subdivisions paths clipped distances",
+          "Resultary semantic search: generalized theta graph color refinement stabilization max floor(L/2), second-largest distinct path length",
+          "Primary-source comparison: Krebs and Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175 (2015)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct verifier and independent enumeration cover finite small theta graphs, not a published infinite length table; no indexed exact theta-1-WL database was found.",
+          "Resultary theta square-chromatic-number classification and Rips complex entries concern different invariants and cannot provide this 1-WL stopping time."
+        ],
+        "reasoning": "A numerical entry is prior coverage only if it states the exact all-parameter assertion or genuinely exhausts the specified finite domain; finite observations alone cannot prove these universal claims.",
+        "searches": [
+          "Resultary semantic search: color refinement iteration number generalized theta graphs K2d subdivisions paths clipped distances",
+          "Resultary semantic search: generalized theta graph color refinement stabilization max floor(L/2), second-largest distinct path length",
+          "Primary-source comparison: Krebs and Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175 (2015)"
+        ]
+      },
+      "rationale": "Generalized theta graphs are subdivisions of K_{2,d}; published square-coloring computations on theta graphs study proper coloring of square graph, not iterative 1-WL color refinement. Krebs–Verbitsky and Kiefer–McKay upper bounds for all n-vertex graphs apply but are not sharp equality for every theta path tuple and do not give max(floor(L/2),S). The general n−1 iterative upper bound, even if tight elsewhere, does not imply a lower bound tied to the second-largest DISTINCT arm length S nor the exact maximum at fixed d and n. Primary text inspections and Resultary cross-checks found no exact or dominating theorem for the complete claim; this is a best-of-knowledge PASS with the listed explicit literature and accessibility risks, not proof of absolute novelty.",
+      "residual_risks": [
+        "An earlier unindexed refinement result for series-parallel/theta subdivisions remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general mechanism and worst-case lower bounds; the theta graph clipped-pair threshold is not a stated same-parameter result in inspected text.",
+          "evidence": "arXiv 1407.3175 definitions/theorems",
+          "identifier_or_url": "arXiv:1407.3175",
+          "material_read": "Public full PDF, introductory definitions, round partitions and universal-cover characterization",
+          "method": "Read PDF text and relevant pages",
+          "title": "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth",
+          "trigger": "The local-view theorem could imply a theta-specific iteration formula"
+        },
+        {
+          "assessment": "Proves maximum iteration over unrestricted graphs, not the maximum over subdivisions of K_{2,d}; general bound cannot specify theta threshold.",
+          "evidence": "ICALP 2020 article 73",
+          "identifier_or_url": "doi:10.4230/LIPIcs.ICALP.2020.73",
+          "material_read": "Public full PDF abstract, main upper-bound and sharp general-graph construction statements",
+          "method": "Read LIPIcs PDF pertinent sections",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "General sharp stabilization bounds might dominate theta fixed-order extremum"
+        },
+        {
+          "assessment": "Focuses graphs close to global longest iteration and characterizes separate extremal families; no all-length theta formula is found in material examined.",
+          "evidence": "arXiv 2510.20802 main theorem and classification",
+          "identifier_or_url": "arXiv:2510.20802",
+          "material_read": "Public full PDF, introduction, theorem statements and families; visual page checks",
+          "method": "Read relevant full-paper material through public PDF",
+          "title": "A Classification of Long-Refinement Graphs for Colour Refinement",
+          "trigger": "Recent low-degree long-refinement classification with potentially overlapping theta graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Krebs and Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175 (2015)",
+        "actual reviewed 2026/10/13/exact-color-refinement-depth-of-generalized-theta-graphs--c0ef587ac6f6/RESULT.md"
+      ],
+      "rationale": "Subdivisions of K_{2,d} constitute a natural graph family with two high-degree symmetric hubs; the result gives the full refinement partition evolution, identifies the exact bottleneck from path length diversity, and solves a sharp fixed-order extremum within the whole family. It supplies precise algorithmic iteration behavior not provided by generic worst-case 1-WL bounds.",
+      "residual_risks": [
+        "An earlier unindexed refinement result for series-parallel/theta subdivisions remains possible.",
+        "The value judgment concerns this exactly stated object/invariant and does not claim an unstated general theorem or priority beyond inspected sources."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "All d>=3 and each ell_i>=2; no direct paths of length one and no multiple-edge version.",
+    "Uncolored ordinary 1-WL only; no higher-dimensional WL or graph-pair logical depth.",
+    "An earlier unindexed refinement result for series-parallel/theta subdivisions remains possible."
+  ]
+}
