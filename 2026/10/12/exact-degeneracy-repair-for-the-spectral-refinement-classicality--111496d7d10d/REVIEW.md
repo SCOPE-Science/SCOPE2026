@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The existential equivalence follows directly from product-basis diagonalization and marginal partial traces. The universal characterization follows because all rank-one product projectors inside a fixed \(P_\alpha\otimes Q_\beta\) block generate the full matrix algebra on that block, so their commutant is scalar; cross-block terms are excluded by the block projectors. The converse is immediate. The two-qubit witness is exact.
+## correctness
 
-## Originality
-PASS. Later literature already covers the ambiguity of spectral-eigenbasis choices for degenerate marginals, including Bell-diagonal and Werner-type examples. The accepted claim is deliberately narrower and different: it repairs the logical quantifier in the general rank-one spectral classicality criterion and classifies exactly when all refinements give the same classicality verdict. Statement-level searches and full-text comparison of the closest sources did not locate that general block-scalar if-and-only-if theorem. Residual risk remains because the proof is elementary and could appear in an obscure note.
+PASS
 
-## Value
-PASS. Degenerate reduced states occur systematically in symmetric quantum states. The theorem separates three notions that are easily conflated: being classical-classical, being classical in one compatible marginal eigenbasis, and being invariant under every marginal eigenbasis. It therefore gives an exact criterion for when the common spectral-measurement shortcut is logically safe without optimization.
+A CC density operator is diagonal in some product basis, and that basis refines eigenspaces of its two marginals; conversely a rank-one marginal spectral-refinement product resolution commuting with the state forces product-basis diagonality. For universal commutation, all rank-one product projectors inside each P_alpha tensor Q_beta block generate its full matrix algebra, whose commutant consists of scalars; cross-block terms vanish, giving rho=sum c_ab P_a tensor Q_b with nonnegative coefficients and the stated marginal trace constraints. Conversely that block scalar form commutes with all refinements. Two-qubit rho_cc=0.5(|00><00|+|11><11|) has both marginals I/2 but X-basis dephasing yields I/4; checked the exact matrix witness independently.
 
-## Closest literature and limitations
-The defining 2008 paper was inspected through its classicality theorems and spectral-measurement construction. A 2009 analysis explicitly discusses ambiguity from degenerate marginals and basis dependence in symmetric states. A 2011 analysis explicitly discusses Bell-diagonal ambiguity and optimization. These sources cover the phenomenon, but the inspected statements do not give the general existential repair together with the universal block-scalar characterization. The remaining risk is a poorly indexed source containing the same elementary commutant argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Luo 2008 Theorems 1-2 and Section III were read in the authorized full text: the classicality/spectral criterion is stated using eigenprojectors without resolving the all-versus-exists degeneracy quantifier. Wu–Poulsen–Mølmer and Girolami et al. acknowledge degenerate-basis measurement ambiguity. The exact iff block-scalar characterization for every rank-one refinement is not stated in the inspected primary material. Its elementary commutant proof could be folklore and this remains a risk.
+
+## value
+
+PASS
+
+A classically correlated state with degenerate marginals can be misclassified by an arbitrary spectral eigenbasis. The theorem repairs a precise logical gap and exactly identifies when marginal degeneracy is harmless, a motivated reusable classification of quantum-correlation measurements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
