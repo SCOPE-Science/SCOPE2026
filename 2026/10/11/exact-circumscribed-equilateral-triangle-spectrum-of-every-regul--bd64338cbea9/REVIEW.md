@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Three support lines with outward normals separated by \(2\pi/3\) form an equilateral triangle. Summing their support equations uses \(u_0+u_1+u_2=0\) and gives the inradius as the arithmetic mean of the three support values. For a regular \(n\)-gon the support function is the cosine of angular distance to the vertex-direction lattice. When \(3\mid n\), the three phases coincide modulo that lattice. Otherwise they are separated by exactly one third of a vertex spacing, and one fundamental chamber reduces the sum to a single cosine by the three-term identity. This proves both endpoint spectra, attainment, and the modulo-three asymptotic. The bundled checker independently reconstructs support-line intersections and verifies the formulas numerically.
+## correctness
 
-## Originality
-**PASS, with explicit historical risks.** The direct motivating full text introduces the entire family of circumscribed equilateral triangles \(T(t)\) and their inradii \(r(t)\) for convex curves, but uses them for circle rigidity and does not compute a regular-polygon orientation profile. The minimum-enclosing-triangle literature already covers the fact that a regular \(3k\)-gon has an equilateral minimum enclosure; that specialization is explicitly excluded from the novelty claim. Searches under support-function, circumscribed/enclosing-equilateral, modulo-three, and exact trigonometric formulations found no statement implying the complete spectrum. A later paper on circumscribed equiangular polygons was available only at abstract level, and older rotor literature remains a residual source risk.
+PASS
 
-## Value
-**PASS.** The source literature treats the inradius function \(r(t)\) of circumscribed equilateral triangles as a rigidity diagnostic for circles. Regular polygons are the canonical nonsmooth approximants to the circle, so their exact \(r(t)\) variation is a natural discrete benchmark. The theorem gives the complete profile for every side count, explains an arithmetic modulo-three transition, recovers a known minimum-enclosure endpoint where appropriate, and quantifies convergence to orientation-independence by two sharp asymptotic constants differing by a factor of nine.
+The three outward support normals sum to zero, hence the equilateral support triangle inradius equals the mean of three polygon support values and area equals 3sqrt(3)rho^2. For a regular n-gon h(phi)=R cos distance(phi,2pi Z/n). When 3|n the three values coincide, giving rho range R cos(pi/n) to R. Otherwise their phases modulo vertex period are t,t+Delta/3,t-Delta/3; on the reduced |t|<=Delta/6 chamber rho=C_n cos t with C_n=R(1+2cos(2pi/(3n)))/3. This proves all orientations and endpoint identities, and leads to n^-2 spread with factor-nine leading ratio. Independent evaluation of all original polygon vertex support functions for 6200 angles across 3<=n<=64 confirmed both closed ranges, not used as proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Compared the exact claim/implications against independently searched Resultary and relevant published mathematical literature. Accepted on best-of-knowledge evidence with explicitly bounded overlap and residual risks; no claim of exhaustive bibliographic novelty.
+
+## value
+
+PASS
+
+A natural exact orientation spectrum for circumscribed equilateral support triangles exhibits a concrete arithmetic 3-divisibility phase jump and resolves endpoint equality cases; useful as a support-function/rotor geometry benchmark despite elementary trigonometric final reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
