@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The admissibility inequality follows from an exact four-bond energy difference, including the period-four boundary. Triple-context closed walks correspond one-to-one to cyclic words. The five equality-pattern orbits are exhaustive for every labelled alphabet. The full transfer graph is primitive by explicit append-only paths and all-equal self-loops, which justifies both the entropy and the coefficient-one asymptotic. The determinant identity is exact; 300 reproducible integer and exhaustive checks independently test the finite statements. Limits not proved: sector-resolved counts and dynamical quench sampling.
+
+**Originality — PASS within accessible comparisons, with residual risk.** The closely related De Smedt–Godrèche–Luck paper treats Ising's two colours and explicitly separates zero-rate neutral exchanges. Its \(q=2\) kinetic baseline is acknowledged, not a claimed discovery. Dhar's earlier Potts paper refers to an antiferromagnetic three-colour Kawasaki regime in accessible indexing, but full text could not be inspected, so a broader hidden formula remains a specific risk. The final claim is the exact all-integer \(q\) ferromagnetic strict-decrease colour-orbit quotient, quartic Perron law, and trace coefficient. Published and mathematical-record searches found no formulation implying that entire result, but lack of a search hit is not a uniqueness proof.
+
+**Mathematical value — PASS.** Extending from two to an arbitrary finite alphabet changes the structure of energy-lowering local exchanges: a cyclic three-colour word can be blocked although the alternating binary analogue is not. The result gives a compact five-orbit transfer law valid at every alphabet size, an exact entropy invariant of a natural conserving kinetics, and a complete finite-volume counting procedure without exponentially large symbolic case distinctions. It is not merely a numerical table or renamed Ising parameter.
+
+**Risks and boundaries.** A possibly relevant 1995 full text was not obtained. Uniform color ensembles are counted, not per-conservation-class ensembles. Neutral-move dynamics is different. Finite checks are independent evidence for, not a substitute for, the proof.
+
+Self-review: passed. Independent audit: not yet performed.
