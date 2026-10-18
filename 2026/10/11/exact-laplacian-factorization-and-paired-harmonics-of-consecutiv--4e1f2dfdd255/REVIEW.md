@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is stated for integer \(d\ge2\) and \(0\le a<b\le d\), and the full graph edge relation is reconstructed from Manecke–Sanyal–So's Theorem 2.1. Boolean up/down-operator commutators produce normalized chains, Johnson exchange edges give the exact boundary eigenvalue \(j(d+1-j)\), and the resulting tridiagonal blocks exhaust the entire graph Laplacian. A radial weighted-path adjugate calculation independently gives its pseudodeterminant and the Kirchhoff product. Finally three bidiagonal Gram identities prove the stronger radial/first-harmonic factor pairing including both extreme-rank corrections. The standalone integer verifier reproduced every block dimension and pairing over 219 intervals and every matrix-tree cofactor through dimension five. No finite experiment is used to infer an infinite statement.
+## correctness
 
-## Originality — PASS, with stated coverage limits
-The full primary paper by Manecke, Sanyal and So was inspected for precisely the edge theorem, spectral statements and tree enumeration. It supplies combinatorial prerequisites, not the evaluated all-interval spectrum, tree product, or Gram pairing. The full public result *Exact graph metric of consecutive-layer S-hypersimplices* was inspected; it gives distances and diameter but no evaluated Laplacian polynomial. Qiu et al.'s middle-cube graph omits the Johnson exchange edges present here. The identity for the whole Boolean cube and isolated two-rank cases is not presented as new. Synonym and broader-spectrum searches found no decisive covering source, but results under older terminology remain possible and have not been ruled out by exhaustive bibliographic certification.
+PASS
 
-## Value — PASS
-The normalized object is a canonical polytope whose one-skeleton has exponentially many vertices. The theorem yields every Laplacian eigenvalue and its multiplicity using at most quadratically many low-order tridiagonal entries, and converts its global spanning-tree invariant to exact determinants of small blocks. The dual Gram construction establishes a previously nonobvious rigid pairing between different harmonic sectors, making this more than routine numeric matrix-tree enumeration. Such exact spectral and spanning-tree data are natural invariants of the polytope's graph, including nontrivial multilayer intervals not reducible to Johnson or full-cube special cases.
+Reconstructed the original S-hypersimplex graph edge premise: vertical inclusion edges across ranks and same-rank Johnson exchanges only at the extreme ranks a,b, NOT the induced middle-cube graph. Boolean incidence U,D commutator decomposes each rank into harmonics H_j of multiplicity binom(d,j)-binom(d,j-1), each giving M_j tridiagonal entries and boundary Johnson eigenvalue j(d+1-j). Complete rank dimension count proves polynomial factorization. M0=B^TB has binomial-weight nullvector; weighted-path adjugate and Kirchhoff yield the exact spanning-tree formula. Verified identities 2dI-M1hat=X^TX and BB^T+XX^T=2dI, artificial endpoint rows of eigenvalue 2d, and Sylvester determinant pairing. Independent exact graph-Laplacian determinant and characteristic-polynomial checks for (d,a,b)=(3,0,3),(4,1,3),(4,0,4),(5,1,4) reproduce tau(4,1,3)=113799168 and x(x-8)^3(x-7)^4(x-4)^2(x-3)^4. All-dimensional conclusion rests on harmonic proof, not finite checks.
 
-## Limits and risks
-No independence audit has been performed. Undiscovered work under the aliases cardinality-homogeneous set-system polytopes, rank-selected Boolean lattices, or Johnson-boundary graphs may contain an equivalent block result. The computational verifier is finite and covers different ranges for different checks; only the written proof establishes the theorem for arbitrary permitted parameters.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for full all-consecutive-rank spectral blocks, tree numbers and radial/first harmonic pairing. Manecke–Sanyal–So 2020 primary paper provides graph-edge criterion, credited as premise, not spectra. Qiu et al. middle-cube graph lacks Johnson boundary edges and is a different operator. Classical hypercube and Johnson spectra are special cases, and published same-graph SCOPE graph metric gives distances rather than eigenvalues. Unindexed alias-named rank-slab spectral prior remains risk; Resultary unavailable.
+
+## value
+
+PASS
+
+Complete all-dimension Laplacian factorization and exact spanning trees of natural polytopal graphs supply structural invariants; the new radial/first-harmonic spectral pairing is not a routine table or narrow sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

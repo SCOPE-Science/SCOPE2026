@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The standalone Python file `artifacts/verify_slab_spectra.py` uses only the Python standard library. It directly enumerates the one-skeleton from the stated edge criterion, uses the fraction-free Bareiss determinant algorithm, independently computes full-graph Laplacian cofactors, and computes tridiagonal-block characteristic polynomials by a three-term integer recurrence.
 
-Execution: `python3 artifacts/verify_slab_spectra.py`
+# Independent mathematical audit
 
-Result: `VERIFY_OK rank-slab spectral blocks and tree counts intervals= 219 paired= 219 matrix_tree= 34 max_vertices= 32 full_characteristic_test_d<=4=True`.
+## correctness
 
-**Checks actually performed:** harmonic-block dimension totals and exact first-harmonic polynomial pairing for all 219 intervals with \(2\le d\le10\); direct matrix-tree cofactors for all 34 intervals with \(2\le d\le5\); direct full-Laplacian characteristic evaluations for all intervals with \(2\le d\le4\). The recurrence has integer coefficients even though its symmetric matrix entries involve square roots; its off-diagonal squares are integers.
+PASS
 
-**Not checked computationally:** exhaustive graph cofactors above dimension five, all real-parameter variants (which are outside scope), or source originality in all unpublished or unindexed work. The all-dimensional proof rests on the Boolean harmonic-chain decomposition, the weighted-path adjugate, and the three Gram identities, not extrapolation from the finite ranges.
+Reconstructed the original S-hypersimplex graph edge premise: vertical inclusion edges across ranks and same-rank Johnson exchanges only at the extreme ranks a,b, NOT the induced middle-cube graph. Boolean incidence U,D commutator decomposes each rank into harmonics H_j of multiplicity binom(d,j)-binom(d,j-1), each giving M_j tridiagonal entries and boundary Johnson eigenvalue j(d+1-j). Complete rank dimension count proves polynomial factorization. M0=B^TB has binomial-weight nullvector; weighted-path adjugate and Kirchhoff yield the exact spanning-tree formula. Verified identities 2dI-M1hat=X^TX and BB^T+XX^T=2dI, artificial endpoint rows of eigenvalue 2d, and Sylvester determinant pairing. Independent exact graph-Laplacian determinant and characteristic-polynomial checks for (d,a,b)=(3,0,3),(4,1,3),(4,0,4),(5,1,4) reproduce tau(4,1,3)=113799168 and x(x-8)^3(x-7)^4(x-4)^2(x-3)^4. All-dimensional conclusion rests on harmonic proof, not finite checks.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for full all-consecutive-rank spectral blocks, tree numbers and radial/first harmonic pairing. Manecke–Sanyal–So 2020 primary paper provides graph-edge criterion, credited as premise, not spectra. Qiu et al. middle-cube graph lacks Johnson boundary edges and is a different operator. Classical hypercube and Johnson spectra are special cases, and published same-graph SCOPE graph metric gives distances rather than eigenvalues. Unindexed alias-named rank-slab spectral prior remains risk; Resultary unavailable.
+
+## value
+
+PASS
+
+Complete all-dimension Laplacian factorization and exact spanning trees of natural polytopal graphs supply structural invariants; the new radial/first-harmonic spectral pairing is not a routine table or narrow sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
