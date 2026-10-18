@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is analytic and applies to all admissible parameters. It classifies maximal independent sets directly, solves the weighting equations in every positive case, and uses the published four-set positive-weight obstruction in every negative case with \(t\ge2\) and \(a+b>4\).
+## correctness
 
-The standalone script `verify.py` reconstructs the graph from adjacency, enumerates every nonempty vertex subset, identifies maximal independent sets without using the claimed list, and checks all parameter triples with \(1\le a,b\le6\). For positive cases it verifies explicit positive integer weight witnesses. For negative cases it checks the exact four maximal independent sets and strict-union certificate used by the analytic proof.
+PASS
 
-Replay command: `python verify.py`
+All maximal independent sets are A and B when t=0. For t>=1 every independent set meeting both sides lies in a unique missing pair {a_i,b_i}; these pairs are maximal; each entire side remains maximal iff its cardinality is at least 2. For t=1, equating the weights of surviving maximal sets yields the exact displayed positive free parameters, with singleton-side exceptions. For t>=2 both entire sides and P1,P2 are maximal; their weights must all equal W but P1 and P2 are disjoint, so w(P1∪P2)=2W=w(A∪B). Since P1∪P2 is a proper subset of A∪B if a+b>4, positivity is impossible. The remaining a=b=t=2 yields two disjoint edges with all solutions (p,q,q,p). Finite independent maximal-independent-set enumeration checked representative boundary cases, and source verify.py fully inspected; no small finite experiment is used in place of the unbounded proof.
 
-Observed output: `ALL CHECKS PASSED; parameter_cases=127; maximal_sets_checked=438; nonlevel_obstructions=54; a,b_range=1..6`
+## originality
 
-The finite enumeration is not an exhaustive proof for unbounded \(a,b\); it is only a stress test of the structural proof and boundary handling.
+PASS
+
+Bhaskara et al. introduced levelability, complete multipartite positive weight examples and the generic four-maximal-set obstruction, which are explicitly prior; the exact matching-deletion threshold plus every integer level in the surviving family is not stated in inspected source. General well-covered vector-space algorithms for arbitrary fixed graphs do not symbolically give this family classification in their conclusions.
+
+## value
+
+PASS
+
+Asks a natural sharp robustness question: when does deleting a matching of size t destroy positive weight equalization of maximal independent sets in complete bipartite graphs? The one-edge boundary, exceptional 2K2 and full positive-integer cone are a self-contained exact structural classification, more useful than a single small graph check despite short obstruction proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
