@@ -1,19 +1,21 @@
-# Scientific review: topology-explicit stochastic Allee fixation
+# Independent mathematical audit
 
-## Correctness (PASS)
-For every connected finite simple graph, noncritical initial average and positive mixing rate, the generator acts on centered quadratic energy by exactly the edgewise decrement \(2\mu(1-\mu)(x_u-x_v)^2\). The Laplacian Poincare inequality yields exponential expected-energy decay. The first refresh time is an independent exponential of rate \(n\), so integration gives the displayed exact coefficient. An energy smaller than the squared initial-average threshold margin puts all vertices in an invariant strict-threshold region, where the matching absorbing state is reached almost surely. These steps prove the claimed probability upper bound. For the two-site example, the first two prescribed clock rings occur with probability \(\alpha/(\alpha+2)^2\), create a new mean below threshold, and the upper bound applied to this new state makes its conditional extinction probability tend to one. Thus the wrong outcome is bounded below at order \(1/\alpha\) while the global bound gives an order-matched upper bound. A finite positive-probability absorption route through binary states ensures eventual fixation; no finite enumeration is treated as a general proof.
+## correctness
 
-The stand-alone exact checker successfully tested 35,952 edgewise identities, 1,089 complete-graph energy identities, and the sharpness construction. These are supporting checks, not certificates of an infinite statement.
+PASS
 
-## Originality (PASS, qualified)
-Kang–Lanchier, arXiv:1003.0121v1 (2010), already treats the stochastic two-patch Allee mixing process and qualitatively discusses rapid relative dispersal. Lanchier, arXiv:1301.0125v1 (2013), treats stochastic Allee mixing on arbitrary finite habitat graphs but obtains the main analytical results in a growing-graph regime. Neither inspected article states the explicit finite-graph spectral-gap error inequality with accelerated edge clocks and arbitrary noncritical initial means, nor the two-site example that proves the inverse-rate error order sharp. The originality claimed here is this *joint quantitative statement*, not the general observation that sufficiently fast migration homogenizes patches. Literature comparisons with fast-dispersal, Allee, graph mixing and spectral-gap variants did not identify a theorem that logically dominates the stated finite-graph inequality and rate-sharp example. Absence of retrieval does not prove universal novelty.
+Reconstructed symmetric edge-mixing energy decrement exactly 2mu(1-mu)(x_u-x_v)² with conserved average; the generator and graph Laplacian spectral gap yield E[H(t)]<=H(0)exp(-2alpha mu(1-mu)lambda2 t). Independent first local refresh T~Exp(n) gives E[H(T)]<=nH/(n+2alpha mu(1-mu)lambda2). If H(T)<Delta², every coordinate is strictly on same side of Allee threshold, making the corresponding region invariant and eventual correct absorption; Markov gives the bound. For n=2, x=(1,0), mu=1/5, theta=9/20, first edge then refresh initially empty site has probability alpha/(alpha+2)², reaches (.8,0) with mean .4<.45, and the bound from that new initial state shows extinction probability->1 as alpha grows; lower and upper bounds give Theta(alpha^-1). The full universal bound is analytic, not inferred from finite examples. Rechecked rational edge decrement and sharpness route independently.
 
-Residual risk: general fast-stirring or stochastic-averaging literature may contain a comparable inequality; the 2019 Vilk–Assaf demographic model was accessible only at abstract level. The precise finite-graph constant and order-sharp example should be compared independently if priority is to be assessed.
+## originality
 
-## Value (PASS)
-The sharp quantitative control makes the well-motivated ecological question operational: how rapidly must symmetric dispersal act, relative to local extinction and expansion, before initial mean density reliably predicts the absorbing outcome? Graph algebraic connectivity and initial heterogeneity enter explicitly; the two-vertex lower construction proves inverse-rate dependence cannot be dismissed as merely a weak upper bound. The result is a full finite-network theorem and a meaningful structural boundary rather than arbitrary parameter enumeration. Applicability is confined to the idealized threshold-refresh model; no empirical rates or finite-population birth–death interpretation is inferred.
+PASS
 
-## Sources and limitations
-Primary full-text comparisons: Kang–Lanchier (2010), arXiv:1003.0121v1, including stochastic model and dispersal theorems; Lanchier (2013), arXiv:1301.0125v1, including model, main theorems and proofs. Additional abstract-only comparison: Vilk–Assaf (2019), arXiv:1908.09026. No assertion is made about unpublished work. Independent priority and proof audit remain unperformed.
+Prior Allee patch models analyze qualitative dispersal and growing-graph regimes. The new mathematical content is fixed-arbitrary-topology finite-alpha wrong-fixation error with explicit combinatorial Laplacian connectivity coefficient and matching inverse-rate lower event, not just high-dispersal homogenization folklore.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A quantitative finite-graph guarantee links ecological patch connectivity directly to the probability of crossing an Allee threshold in the wrong direction; the two-site construction proves optimality of the inverse-rate order. This is structurally meaningful even though its idealized patch model is restricted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

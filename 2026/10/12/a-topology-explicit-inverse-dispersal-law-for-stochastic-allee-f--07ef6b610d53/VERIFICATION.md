@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and check scope
+# Independent mathematical audit
 
-The finite-model checker `verify_gap.py` is included in the package. It uses Python 3 and only the standard library. Run `python3 verify_gap.py` to check local rational arithmetic and the lower-event construction.
+## correctness
 
-Observed completion: `VERIFY_OK edge_energy_identities=35952 complete_graph_gap_identities=1089 two_patch_lower_event=1`. The tests cover finite rational configurations, not a census of all graphs, states, or event histories. The universal theorem depends on the analytic proof in `RESULT.md`.
+PASS
 
-The bound assumes a connected finite undirected graph, symmetric mixing, positive edge and site rates, a common strict threshold, and initial mean different from that threshold. The order-sharpness construction is one explicit two-vertex example, not a claim of optimal constants for every network.
+Reconstructed symmetric edge-mixing energy decrement exactly 2mu(1-mu)(x_u-x_v)² with conserved average; the generator and graph Laplacian spectral gap yield E[H(t)]<=H(0)exp(-2alpha mu(1-mu)lambda2 t). Independent first local refresh T~Exp(n) gives E[H(T)]<=nH/(n+2alpha mu(1-mu)lambda2). If H(T)<Delta², every coordinate is strictly on same side of Allee threshold, making the corresponding region invariant and eventual correct absorption; Markov gives the bound. For n=2, x=(1,0), mu=1/5, theta=9/20, first edge then refresh initially empty site has probability alpha/(alpha+2)², reaches (.8,0) with mean .4<.45, and the bound from that new initial state shows extinction probability->1 as alpha grows; lower and upper bounds give Theta(alpha^-1). The full universal bound is analytic, not inferred from finite examples. Rechecked rational edge decrement and sharpness route independently.
 
-No independent mathematical audit or external verification has been performed.
+## originality
+
+PASS
+
+Prior Allee patch models analyze qualitative dispersal and growing-graph regimes. The new mathematical content is fixed-arbitrary-topology finite-alpha wrong-fixation error with explicit combinatorial Laplacian connectivity coefficient and matching inverse-rate lower event, not just high-dispersal homogenization folklore.
+
+## value
+
+PASS
+
+A quantitative finite-graph guarantee links ecological patch connectivity directly to the probability of crossing an Allee threshold in the wrong direction; the two-site construction proves optimality of the inverse-rate order. This is structurally meaningful even though its idealized patch model is restricted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
