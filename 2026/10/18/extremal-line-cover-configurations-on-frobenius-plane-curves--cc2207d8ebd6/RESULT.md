@@ -1,0 +1,49 @@
+# Extremal line-cover configurations on Frobenius plane curves
+
+## Finding
+Fix a prime \(p\), an odd positive integer \(m=2n+1\), and \(q=p^m\). Let \(C\) be the geometrically irreducible plane curve
+\[
+ C:\quad YZ^{p^2-1}=X^{p^2}
+\]
+over \(\mathbf F_q\), with rational points \(P_s=[s:s^{p^2}:1]\) for \(s\in\mathbf F_q\) and \(P_\infty=[0:1:0]\). A *cover* means a **set of distinct rational projective lines** whose union contains all \(q+1\) rational curve points. Write \(\operatorname{cov}(C)\) for its minimum size.
+
+The following is a complete description of extremizers of the known equality \(\operatorname{cov}(C)=q/p+1\).
+
+**Odd characteristic.** For \(p\ge3\), a minimum cover is exactly a family of \(q/p\) maximal affine secants associated with an affine one-spread of \(\mathbf F_q\) as an \(m\)-dimensional \(\mathbf F_p\)-vector space, together with any one of the \(q+1\) lines through \(P_\infty\). An affine one-spread is a partition of the whole vector space into affine subsets \(s+\mathbf F_pu\) with \(u\ne0\). In particular there are no holes or repeated affine points in the maximal secants of any optimal cover. When \(m\ge3\), the number of optimal covers is at least
+\[
+(q+1)\left(\frac{q-1}{p-1}+2^{q/p^2}-2\right).
+\]
+
+**Characteristic two.** For \(p=2\), the \(q+1\) rational points of \(C\) form an oval (no three collinear). The exact number of minimum line covers is
+\[
+\boxed{\binom{q+2}{2}(q-1)!!},
+\]
+where \((q-1)!!=1\cdot3\cdots(q-1)\). Each minimum cover consists either of one tangent and a perfect matching of its remaining \(q\) points by secants, or of \((q+2)/2\) secants with precisely one doubled point and all other curve points covered exactly once. These two types are disjoint and exhaustive.
+
+## Assumptions and scope
+The integer \(n\ge0\) is arbitrary, so the extension degree \(m\) is **odd**. No assertion is made for even extension degree or for arbitrary nonreflexive curves. All lines are defined over \(\mathbf F_q\), counted without order, and intersect the curve in their sets of rational points; scheme-theoretic multiplicities do not enter the cover count. The projective curve is singular at \(P_\infty\), and its normalization is rational. The first-publication date of the motivating source is 2026-10-09.
+
+## Proof
+1. **Incidence and the minimum.** On a nonvertical line \(Y=aX+bZ\), the rational affine intersections satisfy \(s^{p^2}-as=b\). Differences of two solutions form the kernel of \(L_a(s)=s^{p^2}-as\). If \(a\ne0\), every nonzero kernel element \(u\) satisfies \(u^{p^2-1}=a\). Since \(m\) is odd, \(\gcd(p^2-1,p^m-1)=p-1\), so a nontrivial kernel has exactly \(p\) elements, namely \(\mathbf F_pu\). Otherwise its size is one. Thus ordinary lines meet the rational curve in \(0\), \(1\), or \(p\) affine points. The \(q+1\) lines through \(P_\infty\) are the \(q\) vertical lines \(X=cZ\) (one additional affine point apiece) and \(Z=0\) (no affine point). In particular no rational line contains more than \(p\) rational curve points. Bézout is not needed here. Since there are \(q+1\) points, every cover has at least \(\lceil(q+1)/p\rceil=q/p+1\) lines. For any \(u\ne0\), the \(q/p\) cosets of \(\mathbf F_pu\) map to maximal \(p\)-secants, covering all affine points, and one line through \(P_\infty\) completes an optimal cover.
+
+2. **Characterizing maximal secants.** The image of a coset \(s+\mathbf F_pu\) under \(t\mapsto P_t\) lies on the rational line with affine equation \(y=u^{p^2-1}x+(s^{p^2}-u^{p^2-1}s)\), since \(\lambda^{p^2}=\lambda\) for every \(\lambda\in\mathbf F_p\). Conversely every line with \(p\) affine curve points cuts out exactly such a coset. Distinct cosets give distinct secant lines because each contains at least two affine points and a line is determined by two distinct points.
+
+3. **Odd-prime rigidity.** Suppose \(p\ge3\) and a cover uses \(q/p+1\) lines; let \(t\) of them pass through \(P_\infty\). Necessarily \(t\ge1\), and the number of affine points covered is at most \(p(q/p+1-t)+t=q+p-(p-1)t\). For \(t\ge2\), this is at most \(q+2-p<q\); hence \(t=1\). The remaining \(q/p\) lines must all be maximal \(p\)-secants: replacing even one by a smaller nonvertical section loses at least \(p-1\ge2\) affine incidences, which the final line through \(P_\infty\) cannot replace. Their total affine-incidence count is exactly \(q\). Thus, if the maximal secants do not partition the \(q\) affine points, precisely one point \(v\) appears twice and one different point \(u\) is missed, and the remaining points appear once. This is impossible: the sum of the elements in every coset \(s+\mathbf F_pu\) is \(ps+u\sum_{\lambda\in\mathbf F_p}\lambda=0\) in \(\mathbf F_p^m\), since \(p\) is odd. Summing the incidence multiset would yield \(0=\sum_{x\in\mathbf F_q}x+v-u=v-u\ne0\). Hence all maximal secants are disjoint on affine points and form an affine one-spread. Conversely every spread and every line through \(P_\infty\) give an optimal cover.
+
+4. **Odd-prime quantitative richness.** There are exactly \((q-1)/(p-1)\) parallel affine one-spreads (one for each one-dimensional \(\mathbf F_p\)-direction). If \(m\ge3\), fix a splitting \(\mathbf F_p^m=U\oplus W\) with \(\dim U=2\). In each of the \(p^{m-2}=q/p^2\) affine two-planes parallel to \(U\), independently choose one of two distinct parallel line partitions. This gives \(2^{q/p^2}\) different affine one-spreads, exactly two of which belong to the already counted global parallel spreads. Multiplying by the independent \(q+1\) choices of the line through \(P_\infty\) proves the stated lower bound. Mixed choices are non-pencil optimal covers.
+
+5. **Characteristic two and exact count.** Let \(p=2\). Every ordinary nonvertical line contains at most two affine curve points, and every line through \(P_\infty\) contains at most one affine point besides \(P_\infty\); hence no three of the \(q+1\) rational points are collinear. Since any two distinct rational points lie on a unique rational secant, this is a \((q+1)\)-arc. Exactly one of the \(q+1\) lines through a given rational curve point is tangent in the finite-geometric sense (meets the rational point set only there), because the other \(q\) lines join it to the other \(q\) points. With \(q+1\) odd points and a line cap of two, the minimum is \(k=(q+2)/2\). A minimum cover must have either (i) one tangent and \(q/2\) secants that partition the other \(q\) points into unordered pairs, or (ii) \(k\) secants with exactly one doubled point and all other points covered once. Write \(M(q)=(q-1)!!=q!/(2^{q/2}(q/2)!)\). Type (i) has \((q+1)M(q)\) covers. In type (ii), choose the doubled point (\(q+1\) choices), choose its two different secant partners (\(\binom q2\) choices), and perfectly match the remaining \(q-2\) points (\((q-3)!!\) choices). Its total is \((q+1)\binom q2(q-3)!!=(q+1)(q/2)M(q)\). No overcount occurs because the tangent or repeated point is unique. Adding gives \((q+1)(q+2)M(q)/2=\binom{q+2}{2}(q-1)!!\), as asserted.
+
+## Verification
+The standalone standard-library program `verify.py` computes in \(\mathbf F_{27}\) and \(\mathbf F_8\), checking the finite-field secant descriptions, all parameterized affine secants, the two independent plane-switch choices, and exact covering counts. Over \(\mathbf F_{27}\) it finds 117 maximal three-secants, 13 pencil spreads, eight distinct switched spreads (six non-pencil), and at least 532 corresponding optimal line covers. Over \(\mathbf F_8\) the four finer position types of minimum covers contain respectively 945, 2520, 840, and 420 distinct line sets, totalling 4725, equal to \(\binom{10}{2}7!!\). These are finite consistency checks; the universal formulas follow from the proof above.
+
+## Relationship to prior work
+Asgarli, Dassarma, Ghioca, MacLean, and Stokdyk establish the exact minimum \(q/p+1\) for this nonreflexive Frobenius curve (Proposition 4.1), not a classification or count of all its extremal covering arrangements. A related earlier result for the different rational Frobenius model \(YZ^{t-1}=X^t\) over \(\mathbf F_{t^h}\) establishes the minimum cover and identifies possible affine-spread behavior for \(t\ge3\); its bound allows a one-point hole in maximal secants. The odd-characteristic zero-hole rigidity proved here is a stronger conclusion, and the characteristic-two exact enumeration lies outside that theorem's stated \(t\ge3\) range. Affine spreads are classical finite-geometric objects (Gupta–Pavese, Akman–Sissokho); construction of such spreads by switches is not claimed as a new general technique. The novel claim is the **complete extremal-line-cover classification of this curve family**, including the parity dichotomy and explicit characteristic-two enumeration.
+
+## Limitations
+The formulas concern lines over the same odd-extension finite field, not rational lines over its algebraic closure or even extension degrees. They do not enumerate all affine one-spreads for odd \(p\); the displayed count there is only a proved lower bound. The characteristic-two enumeration is the classical matching combinatorics of an oval once the oval incidence property has been identified, so its conceptual novelty is the application to this Frobenius family, not a new oval theorem. Earlier unpublished or unindexed statements could contain this classification.
+
+## References
+1. S. Asgarli, S. Dassarma, D. Ghioca, S. MacLean, E. Stokdyk, *Covering plane curves over finite fields with lines*, arXiv:2610.13042v1, 2026-10-09, especially §4, Proposition 4.1. https://arxiv.org/html/2610.13042v1
+2. S. Gupta and F. Pavese, *Affine vector space partitions and spreads of quadrics*, Designs, Codes and Cryptography 92 (2024), DOI:10.1007/s10623-024-01447-1.
+3. F. Akman and P. Sissokho, *A note on Tight Irreducible Affine Spreads*, arXiv:2607.23411v1.

@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** A nonvertical section is an affine fiber of the linearized polynomial \(s^{p^2}-as\); the gcd \(\gcd(p^2-1,p^{2n+1}-1)=p-1\) establishes every relevant secant size. In odd characteristic, incidence counting forces exactly one line through the unique point at infinity and all other lines to be maximal, while the sum-of-points identity on affine \(\mathbf F_p\)-lines excludes a single double point and a single hole. In characteristic two, the whole rational point set is an oval; disjoint tangent/matching and repeated-point/secant partitions give the exact count. The package verifier checks the critical low-field incidences and covering counts, independently of the symbolic proof.
+
+**Originality (PASS, with residual priority risk).** The motivating paper establishes the minimum count but not the extremizer classification. The closest related Frobenius-curve result covers \(t\ge3\) over \(\mathbf F_{t^h}\), allows one missing point, and does not give the oval-based exact characteristic-two cover count. Standard affine spreads and oval matching enumeration are acknowledged as prior ingredients; novelty is asserted only for their complete specialization and parity contrast in this explicitly studied curve family. Targeted mathematical-record and literature searches found no stronger covering-classification statement, but absence from search cannot establish absolute priority.
+
+**Value (PASS).** The article's extremal counterexample is a natural test of what a minimum line cover means geometrically, not an arbitrary sampled curve. The theorem upgrades the optimum number to a complete description of all attaining configurations, supplies an exact rapidly growing count in characteristic two, establishes rigidity against near-spreads in odd characteristic, and exhibits exponentially many non-pencil minimizers. These distinguish qualitatively different extremizer geometries; no generalization to other curves is asserted.
+
+**Limitations.** The even-degree extension case and exact enumeration of odd-characteristic affine spreads remain unresolved. The matching count follows elementary oval combinatorics once the incidence reduction is made, and the classical spread construction is not claimed as new.
+
+Self-review: passed. Independent audit: not yet performed.
