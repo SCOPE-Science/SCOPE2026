@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Open adjacency excludes the query edge itself in exact mask (1). The 0/1/2-outside support reduction is proved without dependence on n; complete 19-type finite table and orbit counts then prove every displayed coefficient. The published all-Johnson open-VC upper bound supplies j>=5. Standalone standard-library checker verified all table entries and 265023 distinct candidate sets over 2<=n<=10.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adler, Benediktsson, Macpherson (2020), arXiv:2007.16042, Theorem 3.6 bounds open Johnson VC dimension by 4, Theorem 3.7 gives the sharp threshold; Section 3 considers sixteen local quartet types.",
+        "Coudert, Csikós, Ducoffe, Viennot (2024), arXiv:2405.07588, describes general VC-dimension computation for closed graph neighborhoods."
+      ],
+      "reasoning": "The strongest inspected broader Johnson theorem covers the maximum shattered cardinality and existence, not counts of all shattered subsets, universal pair shattering, or asymptotic prevalence. General decision algorithms can determine finite instances but do not imply the closed all-n formulas without the support analysis.",
+      "searches": [
+        "Vapnik Chervonenkis open neighborhoods line graph complete graph K_n shattering 4-edge patterns enumeration",
+        "shattering polynomial triangle graph VC dimension graph neighborhood trace type classifications stars paths",
+        "arXiv:2007.16042 Theorems 3.6 3.7 Section 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.16042, primary full relevant Section 3 and Figure 4",
+      "arXiv:2405.07588, primary introduction and definitions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.7 of arXiv:2007.16042 implies only that some quartets shatter for n>=7, not how many.",
+        "The known degree-four bound is used as a premise, not presented as new.",
+        "The new exact trace enumeration exhibits coefficients 125 C(n,5)+90 C(n,6), plus sharp threshold at n=8 for two-disjoint-path support."
+      ],
+      "reasoning": "Published quartet local analyses could in principle be developed to derive parts of this refinement, but they do not state or immediately imply the complete rank-by-rank enumerator without additional global isomorphism-class counts and small-n trace checks. The claim is a genuine exact refinement, not a corollary merely restating the VC maximum.",
+      "searches": [
+        "\"shattered subsets\" \"J(n,2)\" count",
+        "\"shattered\" \"line graphs\" \"four\" VC dimension neighborhoods 2020 2024",
+        "arXiv:2007.16042 J(7,2) witness and 16 local four-point patterns"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For every edge e, the complement in E(K_n) of open N_{J(n,2)}(e) is closed N_{KG(n,2)}[e]; complementing each trace preserves shattered sets.",
+        "arXiv:2007.16042 defines open neighborhoods on Johnson graphs, Section 3."
+      ],
+      "reasoning": "The closed-Kneser reformulation is logically equivalent and is not claimed separately. The comparison searched for exact all-rank enumeration under both neighborhoods and found no verified covering result; searches cannot prove absence.",
+      "searches": [
+        "closed neighborhoods Kneser graph KG(n,2) shattering polynomial VC density",
+        "number of shattered sets of all sizes line graphs of complete graphs open neighborhoods"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact rank-four coefficient table was found in the inspected Johnson VC-dimension paper, arXiv:2007.16042, Section 3 and Figure 4.",
+        "The proof supplies an explicit new 19-type trace table and independently computed labeled embedding multipliers."
+      ],
+      "reasoning": "Numeric and combinatorial formula searches did not identify an exact matching database entry or prior table. A negative search is not a novelty certificate; unindexed identical tables remain a residual priority risk.",
+      "searches": [
+        "125 binomial n5 90 binomial n6 shattered quartets J(n,2) line graph open neighborhoods",
+        "exact numbers of shattered 4 element vertex sets open neighborhoods triangular graph J(n,2) Johnson graph shattering polynomial",
+        "\"shattering polynomial\" \"triangular graph\" \"Johnson\""
+      ]
+    },
+    "rationale": "Closest Adler et al. (2020) establishes the 4-point upper bound and an example, plus a local 16-case obstruction analysis, but not the complete exact all-n shattering polynomial and support counts. A 2024 general VC algorithm does not give these formulas. Complementary closed-Kneser neighborhood formulation was treated as equivalent rather than additional novelty. Priority risk from unindexed equivalent enumeration remains.",
+    "residual_risks": [
+      "A separate combinatorics or learning-theory enumeration using closed Kneser neighborhoods or an equivalent trace system might not be indexed or retrieved.",
+      "The 2020 paper explicitly contains extensive four-point case analysis and hence provides relevant techniques; the claim is the all-rank enumerator and support classification, not its prior VC upper bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS upper bound and existence; does NOT give the complete all-n shattering polynomial or support-type enumerator.",
+        "evidence": [
+          "Theorem 3.6 gives VC<=4; Theorem 3.7 and Figure 4 provide an n=7 four-point example.",
+          "The sixteen-case proof focuses on extension obstruction, not global count of all edge-graph supports."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+        "material_read": "PDF Section 3, pages 7-19 (definitions, lemmas, sixteen case analysis, Theorems 3.6-3.7, Figure 4).",
+        "method": "Inspected full primary preprint section, with theorem statements, case descriptions and four-point witness.",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Exact same Johnson graphs and open neighborhoods; plausible strong coverage and dominant VC theorem."
+      },
+      {
+        "assessment": "NOT_COVERING on inspected material: general closed-neighborhood VC-dimension computation, not exact all-n triangular open-neighborhood shattering enumeration.",
+        "evidence": [
+          "Authors explicitly choose closed neighborhoods in introduction.",
+          "No Johnson or Kneser graph-specific result located in the PDF text search."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2405.07588",
+        "material_read": "PDF abstract, Section 1 introduction and Section 2 definitions and algorithmic outline; searched full text for Johnson and Kneser.",
+        "method": "Inspected primary open-access PDF and its definitions and contributions.",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "General algorithm may subsume exact finite counting or enumerate graph neighborhood traces."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "43076c96-fc46-473a-bb19-fabe3e71db62",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural complete count of all shattered sets of every cardinality in an infinite graph family, exposing a strong hierarchy: every pair is shattered from n=5, but the shares of triples and quartets vanish as 12/n and 48/n^2. Exact support structure and thresholds are mathematically motivated refinements of VC dimension, not arbitrary finite examples.",
+    "status": "PASS"
+  }
+}
