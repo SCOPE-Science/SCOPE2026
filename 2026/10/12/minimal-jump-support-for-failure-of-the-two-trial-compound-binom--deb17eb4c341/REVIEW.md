@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two-trial compound law is the convolution square of the one-trial pmf \((A,B,C)\), where \(A=q+pf_0\), \(B=pf_1\), and \(C=pf_2\). Its five coefficients are explicit. The first and last log-concavity defects have the common sign factor \(3B^2-2AC\), while the middle defect is \(B^4+4A^2C^2>0\). Substitution gives exact equivalence with the Xia--Lv condition \(3\delta f_1^2\ge2f_2\). The bundled exact-rational checker independently replays these identities and the published support-\(\{0,1,2,3\}\) counterexample.
+## correctness
 
-## Originality
-PASS. Xia and Lv prove the condition necessary for general compound binomial laws, sufficient for one trial, and not sufficient in general for at least two trials. Their explicit failure example already has two trials but uses a positive jump at \(3\). The inspected full text does not state the complete maximum-jump-\(2\) equivalence or infer that the counterexample is support-minimal. Candidate-specific published-finding corpus, own-ledger, and public exact-expression searches found no covering statement. Residual risk remains from older convolution-sequence literature using different terminology.
+PASS
 
-## Value
-PASS. The result identifies exactly where the source's sufficiency mechanism first breaks in its smallest nontrivial count case. It rules out every failure on jumps \(\{0,1,2\}\) and pairs that complete classification with the source's jump-\(3\) failure, giving a sharp structural support boundary rather than one more numerical example.
+Write one-trial law h=(A,B,C)=(1-p+pf0,pf1,pf2); its convolution-square coefficients are A²,2AB,B²+2AC,2BC,C². Direct independent symbolic expansion verified the three neighboring log-concavity defects A²(3B²-2AC), B⁴+4A²C², C²(3B²-2AC). As A,B>0 this is exactly 3B²>=2AC, i.e. the stated Xia-Lv inequality. Direct exact-rational replay of their support-0..3 example with p=20/23 and f=(1/20,1/5,3/10,9/20) reproduces equality in the condition but g4²-g3*g5=-1296/279841<0. This is a complete algebraic all-real proof, not extrapolation.
 
-## Closest literature and limitations
-The closest source is Xia and Lv, DOI 10.1017/S0269964823000293, Proposition 4.6. Earlier work of Yu and of Johnson--Kontoyiannis--Madiman supplies broader compound-distribution and compound-Poisson context but not this five-coefficient classification. The theorem is limited to two binomial trials and maximum jump \(2\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Xia and Lv Proposition 4.6 proves necessity for general compound binomial, sufficiency for one Bernoulli trial, and gives n=2 counterexample with positive f3, but does not classify the full support-0..2 regime or establish that its counterexample is minimal jump size. The new n=2 iff follows by exact five-coefficient factorization, compared to the source in full relevant context.
+
+## value
+
+PASS
+
+A motivated sharp support boundary of the explicit failed sufficiency claim in the primary paper: for exactly two trials support <=2 is an exhaustive positive classification, while a real failure starts exactly at maximum jump 3; not an arbitrary tiny parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

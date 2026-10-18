@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T00:35:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write one-trial law h=(A,B,C)=(1-p+pf0,pf1,pf2); its convolution-square coefficients are A²,2AB,B²+2AC,2BC,C². Direct independent symbolic expansion verified the three neighboring log-concavity defects A²(3B²-2AC), B⁴+4A²C², C²(3B²-2AC). As A,B>0 this is exactly 3B²>=2AC, i.e. the stated Xia-Lv inequality. Direct exact-rational replay of their support-0..3 example with p=20/23 and f=(1/20,1/5,3/10,9/20) reproduces equality in the condition but g4²-g3*g5=-1296/279841<0. This is a complete algebraic all-real proof, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published necessary bound (n+1) delta f1²>=2f2 is derived for general n.",
+          "Sufficiency in the published theorem is for n=1; n=2 general false by support-3 witness."
+        ],
+        "reasoning": "The published general necessary condition does NOT imply sufficiency for n=2, nor cover all three-point jump pmfs.",
+        "searches": [
+          "DOI:10.1017/S0269964823000293 Proposition 4.6 and preceding Lemma",
+          "Resultary: compound binomial log concavity two trials jump support 0 1 2 necessary sufficient 3B2 2AC"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1017/S0269964823000293 Proposition 4.6 full HTML",
+        "arXiv:0805.4112 (background compound Poisson only)",
+        "Resultary query on two-trial three-point convolution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source establishes all-n necessity but explicitly demonstrates failure of all-n sufficiency.",
+          "The independent new middle-defect factor B⁴+4A²C² shows no hidden later defect for support<=2."
+        ],
+        "reasoning": "One must prove the sufficiency direction in the restricted support class; it is not entailed by a merely necessary inequality.",
+        "searches": [
+          "DOI:10.1017/S0269964823000293 Proposition 4.6",
+          "Resultary: compound binomial log concavity two trials jump support 0 1 2 necessary sufficient 3B2 2AC"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The candidate condition is the source parameter delta=p/(q+pf0) specialized n=2.",
+          "An arbitrary three-point h=(A,B,C) law has convolution square with three explicit defects; their common factor is 3B²-2AC."
+        ],
+        "reasoning": "Comparison includes aliases convolution square of three-term nonnegative sequences, Bernoulli-binomial count and three-point jump distribution.",
+        "searches": [
+          "Resultary: compound binomial log concavity two trials jump support 0 1 2 necessary sufficient 3B2 2AC",
+          "DOI:10.1017/S0269964823000293 Proposition 4.6",
+          "Web exact expression 3B²>=2AC convolution square"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Xia-Lv exact parameters p=20/23 and f=(1/20,1/5,3/10,9/20) show later negative defect.",
+          "No finite table needed: all real admissible coefficients are decided by symbolic factorization."
+        ],
+        "reasoning": "The source numerical example establishes the failure at 3, but not the absence of all failures at 2; present analytic equivalence closes the threshold.",
+        "searches": [
+          "Resultary: compound binomial log concavity two trials jump support 0 1 2 necessary sufficient 3B2 2AC",
+          "DOI:10.1017/S0269964823000293 printed support-0..3 counterexample",
+          "Search: three-point sequence convolution-square log concavity 3B²-2AC"
+        ]
+      },
+      "rationale": "Xia and Lv Proposition 4.6 proves necessity for general compound binomial, sufficiency for one Bernoulli trial, and gives n=2 counterexample with positive f3, but does not classify the full support-0..2 regime or establish that its counterexample is minimal jump size. The new n=2 iff follows by exact five-coefficient factorization, compared to the source in full relevant context.",
+      "residual_risks": [
+        "An earlier convolution-of-three-positive-sequences theorem may already give the same inequality in different vocabulary.",
+        "Sharpness is only among maximum jump sizes for two trials; no n>=3 threshold is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS NECESSITY / SUPPORT-3 FAILURE, NOT SUPPORT-2 SUFFICIENCY",
+          "evidence": "For n=1 sufficiency is proved; n=2 support-3 counterexample witnesses failure but does not quantify minimality",
+          "identifier_or_url": "DOI:10.1017/S0269964823000293; Probability in the Engineering and Informational Sciences 38 (2024)",
+          "material_read": "Public full-text HTML around Section 4 and Proposition 4.6, with numerical support-3 example and formulation of necessary/sufficient assertions",
+          "method": "Direct full-text primary HTML reading",
+          "title": "Log-concavity and relative log-concave ordering of compound distributions",
+          "trigger": "Same condition and explicit n=2 counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated sharp support boundary of the explicit failed sufficiency claim in the primary paper: for exactly two trials support <=2 is an exhaustive positive classification, while a real failure starts exactly at maximum jump 3; not an arbitrary tiny parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For M~Bin(2,p), 0<p<1, and jump pmf (f0,f1,f2) with f1>0, its compound law is log-concave iff 3*(p/(1-p+pf0))*f1^2>=2*f2. The Xia-Lv positive-jump-at-3 two-trial counterexample makes maximum jump 3 the sharp minimal failure support.",
+  "limitations": [
+    "p in (0,1), f1>0, support in 0..2, with endpoint f2=0 valid.",
+    "Finite rational sample is corroboration; the factorization proves all admissible real parameters."
+  ],
+  "schema_version": 1
+}
