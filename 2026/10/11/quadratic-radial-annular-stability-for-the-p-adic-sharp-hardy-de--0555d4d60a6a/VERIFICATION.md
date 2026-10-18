@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked against the focal paper's exact normalization. The critical ground state is \(h(x)=\|x\|_p^{-(n-\alpha)/2}\), and the coefficient multiplying the double integral is \(C_{n,\alpha}/2\). For distinct shells \(S_k,S_\ell\), direct substitution of the shell measures, ground-state values and ultrametric distance gives
-\[
-\iint_{S_k\times S_\ell}
-\frac{h(x)h(y)}{\|x-y\|_p^{n+\alpha}}\,dx\,dy
-=(1-p^{-n})^2p^{-(n+\alpha)|k-\ell|/2}.
-\]
-The factor \(1/2\) disappears after summing the two ordered orientations of each distinct shell pair.
+# Independent mathematical audit
 
-For the Hardy mass, \(\|x\|_p^{-\alpha}h(x)^2=\|x\|_p^{-n}\), and multiplication by \(|S_k|=(1-p^{-n})p^{-nk}\) gives the constant shell contribution \(1-p^{-n}\).
+## correctness
 
-The sequence inequalities were checked symbolically. For support length \(2N+1\) with zero extension, the exact first path eigenvalue is
-\[
-\lambda_N=4\sin^2\!\left(\frac{\pi}{4N+4}\right).
-\]
-The chosen sine profile attains that nearest-neighbor Rayleigh quotient. For every positive integer \(m\), telescoping and Cauchy--Schwarz give \(D_m\le m^2D_1\), and the convergent geometric moment is
-\[
-\sum_{m\ge1}m^2r^m=\frac{r(1+r)}{(1-r)^3}.
-\]
-These identities yield the stated two-sided bounds without numerical approximation.
+PASS
 
-The verification establishes only the radial finite-annulus theorem stated in the finding. It does not certify an exact closed form for the best multiplicative constant, a nonradial extension, or a nonlinear \(L^q\) analogue.
+Checked Sun Proposition3.2 double-integral ground-state identity with C_{n,alpha}/2 and h=||x||^{-(n-alpha)/2}; for unequal ultrametric shells k,l the kernel integral factors exactly as (1-p^-n)^2 p^{-(n+alpha)|k-l|/2}. Summing orientations cancels 1/2 and same-shell differences vanish for radial v; Hardy mass per shell equals (1-p^-n)|a_k|². With r=p^{-(n+alpha)/2}, D_m(a)=sum_k |a_{k+m}-a_k|², r D1<=sum_m r^m D_m, while D_m<=m² D1 by telescoping. The Dirichlet path first eigenvalue with 2N+1 interior sites is lambda_N=4sin²(pi/(4N+4)), attained by displayed sine shell profile, and sum m²r^m=r(1+r)/(1-r)^3; gives both constant factors and sharp asymptotic N^-2. No nonradial or exact multiplicative constant claimed.
+
+## originality
+
+PASS
+
+Sun’s sharp p-adic Hardy theorem gives the whole-space ground-state representation and hard-cutoff approximating sequence with O(1/N) normalized gap, but no optimal spectral-scale lower bound for arbitrary radial profiles on finite annuli. Reduction to an all-pairs shell Dirichlet form plus sharp path Poincaré and matching sine test adds the missing N^-2 spectral order; no stronger published radial annular estimate was located.
+
+## value
+
+PASS
+
+The sharp Hardy weight has no attained ground state, and quantitative annular coercivity is a natural model for concentration/minimizing sequences. Showing smooth radial profiles achieve the optimal quadratic width decay as opposed to the known hard truncation O(1/N) supplies meaningful new spectral stability information; exact coefficient is not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
