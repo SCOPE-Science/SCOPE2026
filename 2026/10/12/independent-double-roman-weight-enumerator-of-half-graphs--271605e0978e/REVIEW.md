@@ -1,12 +1,21 @@
-# Review of Independent double Roman weight enumerator of half graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. A positive label \(1\) is impossible because it requires an adjacent positive label \(2\) or \(3\), contradicting support independence. The positive support is therefore an independent dominating set. Half-graph nesting forces every independent dominating set to be one canonical cut set \(S_t\). At an endpoint cut, the unique leaf-side boundary forces one label \(3\); at an interior cut, the two boundary zeros force exactly two labels \(3\). All remaining positive vertices may independently be labeled \(2\) or \(3\), giving the stated polynomial. A direct verifier checks all \(1{,}118{,}464\) quaternary labelings for \(2\le n\le5\) and matches every feasible function and coefficient.
+## correctness
 
-## Originality
-PASS. The foundational and subsequent primary literature develops independent double Roman domination through complexity, inequalities, and tree results. The inspected full-text 2020 primary paper contains no half-graph, chain-graph, or Ferrers-graph occurrence. The closest same-parameter structured-family result available for comparison is complete multipartite behavior, where positive support is confined to one part; this does not imply the half-graph cut structure. Exact and semantic searches using the half, chain, Ferrers, polynomial, and enumerator formulations did not locate an equivalent all-function theorem.
+PASS
 
-## Value
-PASS. The result determines every feasible independent double Roman function, not merely its minimum weight, on the canonical twin-free chain family. The cut-support classification is structurally natural, the full weight distribution is closed-form, and the theorem exposes how nested neighborhoods differ from complete-multipartite symmetry. The minimum value and its multiplicity are immediate corollaries rather than the sole contribution.
+For every n>=2, a label-1 vertex would require a positive adjacent defender, which violates independent positive support. Every positive support is therefore an independent dominating set. The nested half-graph neighborhoods force a unique cut S_t, t=0,...,n; endpoint cuts have exactly one forced label 3 and each interior cut exactly two. All other supported vertices independently receive 2 or 3. Summing the resulting weight generating functions gives 2z^(2n+1)(1+z)^(n-1)+(n-1)z^(2n+2)(1+z)^(n-2); lower coefficient 2 is rigorous. Independent direct Python enumeration of all 4^(2n) labelings for n=2,3,4,5 matched entire feasible-support patterns and polynomial histograms. This finite check corroborates the all-n proof; no extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+A complete symbolic independent-double-Roman function enumerator for the canonical half (chain) graph family was not found in independently searched primary papers and published-record corpus; general independent-double-Roman bounds and a Roman (not double-Roman independent) chain-graph polynomial do not imply the exact cut-support labeled weight distribution.
+
+## value
+
+PASS
+
+Half graphs are the canonical twin-free chain graphs; a complete independent double Roman weight polynomial and optimizer count are natural invariants unavailable from scalar parameter bounds. The unique cut-support structure and boundary forced-label phenomenon offer an exact, reusable family classification beyond simple recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

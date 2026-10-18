@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier constructs the half graph
-\[
-H_n
-\]
-for
-\[
-2\le n\le5.
-\]
+# Independent mathematical audit
 
-It exhausts every map
-\[
-f:V(H_n)\to\{0,1,2,3\},
-\]
-tests positive-support independence, and checks the double Roman requirements directly.
+## correctness
 
-The direct result is compared with the theorem's \(n+1\) support families. The verifier also computes the exact weight histogram and compares it with
-\[
-2z^{2n+1}(1+z)^{n-1}
-+
-(n-1)z^{2n+2}(1+z)^{n-2}.
-\]
+PASS
 
-Recorded output:
+For every n>=2, a label-1 vertex would require a positive adjacent defender, which violates independent positive support. Every positive support is therefore an independent dominating set. The nested half-graph neighborhoods force a unique cut S_t, t=0,...,n; endpoint cuts have exactly one forced label 3 and each interior cut exactly two. All other supported vertices independently receive 2 or 3. Summing the resulting weight generating functions gives 2z^(2n+1)(1+z)^(n-1)+(n-1)z^(2n+2)(1+z)^(n-2); lower coefficient 2 is rigorous. Independent direct Python enumeration of all 4^(2n) labelings for n=2,3,4,5 matched entire feasible-support patterns and polynomial histograms. This finite check corroborates the all-n proof; no extrapolation.
 
-```text
-VERIFY_OK
-n=2: i_dR=5, minimum_functions=2, total_IDRDFs=5, histogram={5: 2, 6: 3}
-n=3: i_dR=7, minimum_functions=2, total_IDRDFs=12, histogram={7: 2, 8: 6, 9: 4}
-n=4: i_dR=9, minimum_functions=2, total_IDRDFs=28, histogram={9: 2, 10: 9, 11: 12, 12: 5}
-n=5: i_dR=11, minimum_functions=2, total_IDRDFs=64, histogram={11: 2, 12: 12, 13: 24, 14: 20, 15: 6}
-quaternary_labelings_checked = 1118464
-feasible_IDRDFs_checked = 109
-all feasible functions matched the n+1 support-family classification
-```
+## originality
 
-The computation checks \(1{,}118{,}464\) quaternary labelings and \(109\) feasible functions. It is corroborative only; the arbitrary-\(n\) theorem follows from the independent-dominating-support classification and the forced boundary labels.
+PASS
+
+A complete symbolic independent-double-Roman function enumerator for the canonical half (chain) graph family was not found in independently searched primary papers and published-record corpus; general independent-double-Roman bounds and a Roman (not double-Roman independent) chain-graph polynomial do not imply the exact cut-support labeled weight distribution.
+
+## value
+
+PASS
+
+Half graphs are the canonical twin-free chain graphs; a complete independent double Roman weight polynomial and optimizer count are natural invariants unavailable from scalar parameter bounds. The unique cut-support structure and boundary forced-label phenomenon offer an exact, reusable family classification beyond simple recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
