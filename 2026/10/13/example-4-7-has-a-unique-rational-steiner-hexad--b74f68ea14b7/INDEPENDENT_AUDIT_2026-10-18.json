@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T16:59:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and proof verifier source",
+        "Independent check_hexad.py using a fresh six-bit affine symplectic representation and explicit permutations",
+        "Elsenhans–Jahnel Example 4.7"
+      ],
+      "rationale": "The primary paper gives a unique geometric correspondence between 63 nonzero J[2] vectors and Steiner hexads and identifies order-48 12T31 on the source’s invariant hexad bitangents. The finite calculation constructs 28 odd theta characteristics q0(a,b)=a·b, 63 twelve-element Steiner sets H_v, the complete v-stabilizer U63 of order 23040, and the unique 12T31-invariant six-pair system. A freshly written independent Python group enumeration found the U63 restriction faithful, the lifted group of order 48, nonzero J[2] orbits 1,6,16,16,24, and fixed class exactly {v=1}. Therefore J(Q)[2]≅F2. The original article states that both sign Galois images are conjugate, so the result transfers. This is complete finite exhaustive group enumeration rather than sampling.",
+      "residual_risks": [
+        "Relies on primary paper’s exact identification of 12T31 Galois image; group computation alone would not prove which curve has that image."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General symplectic-stabilizer framework U63 of order 23040 and orbit dictionary are given in the original.",
+          "No general theorem in the inspected source deduces the exact 63-orbit decomposition for this order-48 subgroup."
+        ],
+        "reasoning": "The ambient Sp6(F2) theory provides the correct action but not this subgroup-specific fixed-space calculation without deriving and lifting a concrete representation.",
+        "searches": [
+          "Elsenhans Jahnel Example 4.7 Steiner hexad rational two torsion 12T31 orbit 63",
+          "arXiv:1708.00071 Propositions on U63 stabilizer"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1708.00071v1 Example 4.7, Props. 3.5 and 4.2",
+        "LMFDB:GaloisGroup/12T31",
+        "Resultary semantic query: Elsenhans Jahnel Example 4.7 Steiner hexad rational two torsion 12T31 orbit 63"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original proves at least one Galois-invariant Steiner hexad and conjugate images for the two signs.",
+          "Independent enumeration lifts the 12T31 generators through the faithful U63 restriction and finds only v=1 fixed among nonzero 2-torsion vectors."
+        ],
+        "reasoning": "The source ensures at least one rational nonzero class, not precisely one. The lifted 63-action is a new necessary calculation, giving the rank-one rational 2-torsion consequence.",
+        "searches": [
+          "arXiv:1708.00071 Example 4.7",
+          "Example 4.7 unique Galois invariant Steiner hexad two-torsion orbits 1 6 16 16 24",
+          "LMFDB:GaloisGroup/12T31"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The statements unique rational Steiner hexad and dim_F2 J(Q)[2]=1 are equivalent under the source’s Steiner hexad/J[2] correspondence.",
+          "Original Example 4.7 identifies a 12T31 subgroup but does not assert its unique fixed point on the 63 classes."
+        ],
+        "reasoning": "Existence of a fixed class is weaker than uniqueness; the standard 12T31 label alone does not specify or compute the full 63-point lifted representation.",
+        "searches": [
+          "Elsenhans Jahnel Example 4.7 Steiner hexad rational two torsion 12T31 orbit 63",
+          "Example 4.7 unique Galois invariant Steiner hexad two-torsion orbits 1 6 16 16 24",
+          "arXiv:1708.00071 Example 4.7 rational Jacobian two torsion",
+          "LMFDB 12T31 fixed Sp6 vector"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "LMFDB 12T31 gives order 48, group generators and cycle structure in the 12-letter action.",
+          "The recovered 63-class orbit decomposition involves a distinct geometrically attached action not listed there."
+        ],
+        "reasoning": "Transitive group databases identify 12-letter permutations but do not tabulate fixed points in the Jacobian 2-torsion of these quartics.",
+        "searches": [
+          "LMFDB:GaloisGroup/12T31",
+          "Example 4.7 unique Galois invariant Steiner hexad two-torsion orbits 1 6 16 16 24",
+          "Steiner hexads orbit decomposition 1 6 16 16 24"
+        ]
+      },
+      "rationale": "The Elsenhans–Jahnel original already constructs a rational Steiner hexad and identifies the 12-bitangent transitive group 12T31 for both sign cases. This audit credits existence, the polynomial and source group. The surviving finite group calculation establishes a unique fixed nonzero 2-torsion vector and the complete previously unstated 63-class orbit spectrum, so rational J[2] has order two.",
+      "residual_risks": [
+        "An older arithmetic or theta-characteristic computation might give the same fixed subspace in different notation.",
+        "This only concerns the two Example 4.7 quartics, not full Jacobian Mordell–Weil groups."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_DISTINGUISHED_HEXAD_AND_12T31_NOT_UNIQUENESS",
+          "evidence": "Polynomial F(T) and the two signs ±5 plus conjugacy are in Example 4.7; source does not give a 63-orbit 1+6+16+16+24 table.",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.00071",
+          "material_read": "Primary article complete relevant group-theoretic sections, Steiner/J[2] dictionary, Propositions 3.5/4.2 and entire Example 4.7 pages (page 23 rendered).",
+          "method": "Open-access primary arXiv PDF and page image",
+          "title": "On plane quartics with a Galois invariant Steiner hexad",
+          "trigger": "Primary source for precisely these two polynomial quartics and their Galois action"
+        },
+        {
+          "assessment": "GROUP_DATA_NOT_QUARTIC_ORBIT",
+          "evidence": "Order 48 degree-12 action does not directly specify the 63 two-torsion orbit sizes for the Example 4.7 quartics.",
+          "identifier_or_url": "https://www.lmfdb.org/GaloisGroup/12T31",
+          "material_read": "Database group order, transitivity, abstract structure and displayed generators.",
+          "method": "LMFDB specialized group database",
+          "title": "Transitive group 12T31",
+          "trigger": "Group identification and standard 12-permutation generators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Elsenhans–Jahnel Example 4.7",
+        "Independent complete 63-orbit group calculation"
+      ],
+      "rationale": "The rational 2-torsion subgroup and complete Galois orbit pattern are intrinsic arithmetic invariants of two explicitly constructed plane quartics used to realize Galois-invariant Steiner hexads. Distinguishing existence from uniqueness and enumerating the full 63-set is a natural complete classification for these benchmark curves, not an arbitrary slice of group multiplication.",
+      "residual_risks": [
+        "No extension to other quartics, odd-primary torsion or full Mordell–Weil group."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1708.00071v1 Example 4.7, Props. 3.5 and 4.2",
+    "LMFDB:GaloisGroup/12T31",
+    "Resultary semantic query: Elsenhans Jahnel Example 4.7 Steiner hexad rational two torsion 12T31 orbit 63"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only the two quartics specified by original Example 4.7, not their full rational points."
+  ]
+}

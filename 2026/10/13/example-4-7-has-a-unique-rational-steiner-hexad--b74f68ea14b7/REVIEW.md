@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The source supplies the geometric dictionary: nonzero classes of \(J(C)[2]\) correspond to Steiner hexads; the distinguished hexad has stabilizer \(U_{63}\); and Example 4.7 has degree-twelve Galois group 12T31 on the twelve bitangents in that hexad, with the two sign choices giving conjugate bitangent images. The attached exact verifier reconstructs the canonical \(28\)-point odd-theta model, enumerates \(U_{63}\) with order \(23040\), identifies the unique invariant six-pair system of 12T31, lifts the order-\(48\) group, reproduces the published bitangent orbit sizes \(12,16\), and then obtains the exhaustive nonzero two-torsion orbit sizes \(1,6,16,16,24\). Its common nonzero fixed set has one element, proving \(J(C)(\mathbb Q)[2]\cong\mathbb Z/2\mathbb Z\).
+# Independent mathematical audit
 
-## Originality
-PASS. The primary source proves existence of the distinguished rational two-torsion class and reports the 12T31 bitangent action, but it does not state that this class is the only nonzero rational two-torsion class or give the full \(63\)-point orbit decomposition. Searches using the exact source identifier, polynomial, 12T31 label, Steiner-hexad terminology, rational two-torsion terminology, and the proposed orbit profile found no statement implying the claimed uniqueness. The standard 12T31 database entry supplies only abstract/permutation group data, not this geometric interpretation.
+## correctness
 
-## Value
-PASS. The rational two-torsion subgroup is a natural arithmetic invariant of the Jacobian, and Steiner hexads are the geometric realization of its nonzero two-torsion classes. Upgrading a known rational class to the exact subgroup and giving every Galois orbit on the remaining classes is useful for the arithmetic of these explicit quartics and for distinguishing the unique rational conic-bundle/Steiner structure from its non-rational companions.
+PASS
 
-## Closest literature and limitations
-The closest source is Elsenhans--Jahnel, arXiv:1708.00071v1: it supplies the geometry, the explicit Example 4.7 polynomial, the group 12T31 on the distinguished twelve bitangents, and the conjugacy statement for the two sign choices. The LMFDB 12T31 page supplies a standardized permutation representative. Neither source states the \(1,6,16,16,24\) orbit profile on nonzero two-torsion. Residual originality risk remains from an older or unindexed calculation expressed in alternative theta-characteristic notation. The claim is deliberately limited to rational two-torsion and does not address the full Jacobian rational-point group.
+The primary paper gives a unique geometric correspondence between 63 nonzero J[2] vectors and Steiner hexads and identifies order-48 12T31 on the source’s invariant hexad bitangents. The finite calculation constructs 28 odd theta characteristics q0(a,b)=a·b, 63 twelve-element Steiner sets H_v, the complete v-stabilizer U63 of order 23040, and the unique 12T31-invariant six-pair system. A freshly written independent Python group enumeration found the U63 restriction faithful, the lifted group of order 48, nonzero J[2] orbits 1,6,16,16,24, and fixed class exactly {v=1}. Therefore J(Q)[2]≅F2. The original article states that both sign Galois images are conjugate, so the result transfers. This is complete finite exhaustive group enumeration rather than sampling.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The Elsenhans–Jahnel original already constructs a rational Steiner hexad and identifies the 12-bitangent transitive group 12T31 for both sign cases. This audit credits existence, the polynomial and source group. The surviving finite group calculation establishes a unique fixed nonzero 2-torsion vector and the complete previously unstated 63-class orbit spectrum, so rational J[2] has order two.
+
+## value
+
+PASS
+
+The rational 2-torsion subgroup and complete Galois orbit pattern are intrinsic arithmetic invariants of two explicitly constructed plane quartics used to realize Galois-invariant Steiner hexads. Distinguishing existence from uniqueness and enumerating the full 63-set is a natural complete classification for these benchmark curves, not an arbitrary slice of group multiplication.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
