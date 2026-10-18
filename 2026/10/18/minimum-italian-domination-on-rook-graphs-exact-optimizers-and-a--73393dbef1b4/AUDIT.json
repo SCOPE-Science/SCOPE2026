@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For a zero-labelled cell, its open-neighbourhood sum is exactly its row sum plus column sum. A zero-sum row forces every column sum at least 2; otherwise either a weight-one row forces every column positive or all rows have weight at least two. This proves the sharp lower bound \\(\\min\\{n,2m\\}\\). Equality imposes either one unit in every column and no empty row, or exactly two units in every row. Counting these with surjections and independent row compositions gives the formula, with exact intersection \\(n!/(2!)^m\\) at \\(n=2m\\). The one-cell boundary is valid. The independently coded verifier checked 1,152,264 complete assignments at 14 small orders and 696,634 assignments of weight at most the optimum at four other orders. The proof, not this finite enumeration, establishes all positive orders.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "One indexed published record concerns Roman {2} domination on complete multipartite graphs, not Cartesian products of complete graphs.",
+        "A published two-row complete-prism result concerns the different Roman {3} condition.",
+        "Shao–Zhao (2026) treats paths, trees, cycles; Kazemi–Pahlavsay–Stones (arXiv:1509.08208) treat binary k-tuple total domination of Cartesian products."
+      ],
+      "reasoning": "The inspected nearby general methods and exact formulas do not give the exact ordinary Italian minimum and every optimizer of rook graphs. The same graph under distinct domination constraints does not make the present result a corollary. A general graph-theoretic search or algorithm is not a closed coverage theorem for this case.",
+      "searches": [
+        "rook graph Italian domination number exact multiplicity minimum assignments row column Stirling surjections",
+        "Italian Roman two dominating functions of rook graphs Cartesian product K_m square K_n line graph of K_m,n exact minimum weight and number of optimum labelings",
+        "Literature: \"Italian domination\" \"Cartesian product\" \"complete graphs\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.00108",
+      "arXiv:1910.12260",
+      "arXiv:1509.08208",
+      "Accessible relevant published mathematical record search results",
+      "Weight enumerator of all Roman {2}-dominating functions on complete multipartite graphs (published research record)",
+      "Roman {3} domination of complete prisms (published research record)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Perfect-Italian theorem has value 2m for m<n, whereas ordinary Italian minimum n for m<n<2m; e.g. K_2 square K_3 distinguishes them.",
+        "The later Italian weight-enumeration paper provides DP for tree and cycle graph classes, none of which contains general rook graphs with both sides at least two.",
+        "The binary total-domination problem enforces its constraint also at positively labelled vertices, unlike the new three-state zero-only condition."
+      ],
+      "reasoning": "Neither an equivalent formulation nor a stronger theorem found among the inspected sources logically entails the two optimizer-family classification or the exact labelled multiplicity formula. Perfect Italian domination only gives a feasible upper bound for the ordinary invariant; distinct optima exist strictly below that bound in the transition interval.",
+      "searches": [
+        "arXiv:1910.12260 Theorem 2.4 Cartesian product complete graphs",
+        "arXiv:2610.00108 Sections 1-8 Italian domination polynomial",
+        "arXiv:1509.08208 Proposition 1 rook graph k-tuple total domination",
+        "minimum Italian domination weight phase transition n versus 2m and all optimal assignments on Cartesian product K_m K_n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shao–Zhao arXiv:2610.00108 explicitly defines Italian domination/Roman {2}-domination and computes coefficients for paths, trees and cycles, not rook graphs.",
+        "Varghese–Lakshmanan arXiv:1910.12260 studies perfect Italian domination of complete-graph Cartesian products; the equality-at-zero constraint differs from the at-least-two constraint here."
+      ],
+      "reasoning": "Terminology Italian domination and Roman {2}-domination was searched as equivalent. The seemingly same-graph exact result is about perfect Italian domination, not the ordinary invariant. At K_2 square K_3 the minimum values are respectively 4 and 3; the former cannot imply the latter equality-case enumeration.",
+      "searches": [
+        "Italian Roman two dominating functions of rook graphs Cartesian product K_m square K_n line graph of K_m,n exact minimum weight and number of optimum labelings",
+        "Literature: \"Italian domination\" \"rook graph\"",
+        "arXiv:2610.00108, abstract and Sections 1-8",
+        "arXiv:1910.12260, Theorem 2.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching published research record was found among the ranked results examined.",
+        "Shao–Zhao numerical tables are for paths, cycles, stars and other trees, not rook graphs.",
+        "The 2019 perfect-Italian result provides a formula for a different minimum, not the two-family Stirling-number multiplicity."
+      ],
+      "reasoning": "We sought identical formulas, tabulations, and labelled-function counts, including their synonym Roman {2}. No matching exact table or database record was found in the sampled sources. Negative search results are not proof of absence.",
+      "searches": [
+        "Roman {2} domination on Hamming graphs two dimensional rook graphs exact optimum multiplicities Stirling numbers",
+        "Cartesian product of complete graphs Roman two domination minimum counts rook graph",
+        "Literature: \"Roman {2} domination\" \"rook graph\" counting optimal functions"
+      ]
+    },
+    "rationale": "Inspected nearest directly motivated Italian-domination enumeration paper (arXiv:2610.00108) counts different graph families. The nearest same-graph formula (arXiv:1910.12260) studies strictly perfect Italian domination and does not imply the ordinary parameter or multiplicity; its values disagree on a nontrivial interval. Related product binary total domination also differs. Published mathematical-index and primary-literature searches found no equivalent or logically covering formula; absolute priority remains subject to bibliographic risk.",
+    "residual_risks": [
+      "Some independent publications, older print literature, differently indexed synonyms or obscure tables may not be covered by searchable records.",
+      "The accessible read scope of all background publications cannot establish universal nonexistence of a pre-existing equivalent theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover rook graph labelled optimum classification.",
+        "evidence": "The described graph classes and numerical tables are paths, stars, trees and cycles; the Italian condition exactly matches the present one.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.00108",
+        "material_read": "Article abstract, introductory definitions and contributions, and path/tree/cycle enumeration discussion",
+        "method": "Accessible arXiv complete HTML full-text and targeted text search for rook and Cartesian product",
+        "title": "Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+        "trigger": "Recent Italian domination weight-enumeration literature"
+      },
+      {
+        "assessment": "Applies to a stricter equality-at-zero constraint; not covering.",
+        "evidence": "For m<n, the cited perfect invariant equals 2m, while the present ordinary minimum is n when m<n<2m.",
+        "identifier_or_url": "https://arxiv.org/html/1910.12260v2",
+        "material_read": "Section 2, particularly Theorem 2.4 and its proof, and stated perfect condition",
+        "method": "Read accessible full HTML theorem and compare exact hypotheses, normalization and value",
+        "title": "Perfect Italian Domination Number of Graphs",
+        "trigger": "Same graph family and almost identical invariant name"
+      },
+      {
+        "assessment": "The binary total domination condition differs and cannot imply the claimed three-state multiplicity.",
+        "evidence": "A two-neighbor requirement applies at every vertex, including labelled selected vertices, not only zero-labelled vertices.",
+        "identifier_or_url": "https://arxiv.org/pdf/1509.08208",
+        "material_read": "Abstract, definitions and Proposition 1 concerning complete graph products, including adjacent discussion",
+        "method": "Read lawful full PDF text and inspected relevant pages",
+        "title": "Cartesian product graphs and k-tuple total domination",
+        "trigger": "Rook graph product and two-neighbor domination condition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "73393dbe-f1b4-4c47-b9bd-0015340dd011",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact natural labelled optimizer classification reveals a sharp transition between a surjection/Stirling-number family and independently row-heavy configurations, with a nontrivial overlap correction at \\(n=2m\\). It refines a recent motivation to count Italian dominating functions and pinpoints an ordinary-versus-perfect Italian domination gap on a fundamental Cartesian product graph class. Exact minimum multiplicity, not merely a renaming or known minimum, is useful for extremal structure and the least-weight coefficient of the Italian domination polynomial.",
+    "status": "PASS"
+  }
+}
