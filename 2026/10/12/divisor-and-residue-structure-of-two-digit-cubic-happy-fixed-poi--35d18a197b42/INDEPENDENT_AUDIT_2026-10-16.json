@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T16:00:54.059811Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed-point equation a³+c³=ab+c rearranges exactly to a(b−a²)=c(c−1)(c+1). For c≥2, a is any positive divisor of c³−c and b=a²+(c³−c)/a uniquely; b>a,c follows by considering a>c and a≤c, so count τ(c³−c) is exact, not just formal factorization. For a=2^e m, odd p-power factors of c(c−1)(c+1) give residues −1,0,1; powers of 2 yield 1,2,3,5 residue classes for e=0,1,2,≥3. CRT gives r(e)3^{ω(m)} /a density. Cases c=0,1 require b=a² and a≥2. Independent exhaustive divisor/digit tests for 2≤c≤250 and residue counts for 2≤a≤500 agree; these are corroboration to unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Accessible Hargreaves–Siksek abstract explicitly describes exact square-digit (exponent two) fixed points; cubic work tabulates bases 2–16."
+        ],
+        "reasoning": "General cycle bounds and fixed-base finite classifications do not yield a divisor-parametric classification over ALL bases and infinitely many trailing digits. A full general e,b theorem may dominate but was not evidenced by actual inspected sources.",
+        "searches": [
+          "Resultary semantic search: generalized happy numbers cubic sum of digits two digit fixed points varying base divisor parametrization",
+          "Hargreaves–Siksek 2010 generalized-happy paper",
+          "Wu–Dang–Zhang 2015 selected positional systems"
+        ]
+      },
+      "checked_sources": [
+        "Wu–Dang–Zhang DOI:10.2991/ic3me-15.2015.327 cubic section",
+        "Hargreaves–Siksek 2010 abstract Warwick repository, full text not accessible",
+        "OEIS A193594",
+        "Resultary semantic search: generalized happy numbers cubic sum of digits two digit fixed points varying base divisor parametrization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For all a≥2 and any c, congruence c(c−1)(c+1)≡0(mod a) exactly determines when an integral valid base exists; 2-adic exceptional r(e)=5 for e≥3 follows from valuations."
+        ],
+        "reasoning": "Standard CRT and the fixed-point equation are elementary inputs, but neither inspected source actually states the exact classification and density. A pure rearrangement alone would be weak; the independent exact prime-power count and all-digit validity are the result being judged.",
+        "searches": [
+          "Wu–Dang–Zhang 2015 cubic section",
+          "Hargreaves–Siksek 2010 bibliographic/abstract",
+          "Resultary semantic search: generalized happy numbers cubic sum of digits two digit fixed points varying base divisor parametrization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Changing base along with digits turns S_{3,b}(ab+c)=ab+c into a(b−a²)=c(c−1)(c+1), and the theorem exhausts all legal c≥2 pairs and c≤1 boundary."
+        ],
+        "reasoning": "Equivalent names include fixed points of the cubic digit-power map, cubic narcissistic/Armstrong points and generalized happy numbers. The precise variable-base two-digit classification is stronger than enumerations at any finite list of fixed bases.",
+        "searches": [
+          "Resultary semantic search: generalized happy numbers cubic sum of digits two digit fixed points varying base divisor parametrization",
+          "Hargreaves–Siksek Cycles and Fixed Points of Happy Functions (2010)",
+          "Wu–Dang–Zhang 2015 cubic-digit fixed-point tables"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tables include (1,2)_7, (2,2)_7, and (3,2)_11, recovered with a|2³−2=6; no infinite divisor/residue formula in inspected tables."
+        ],
+        "reasoning": "An OEIS list of attractor counts for fixed bases is not the same object as the number τ(c³−c) for each trailing digit across bases; no exact published column was found.",
+        "searches": [
+          "OEIS A193594 cubic digit-map attractors by base",
+          "Resultary semantic search: generalized happy numbers cubic sum of digits two digit fixed points varying base divisor parametrization",
+          "Wu–Dang–Zhang cubic tables bases 2–16"
+        ]
+      },
+      "rationale": "Finite-base cubic fixed-point tables in Wu–Dang–Zhang and OEIS A193594 do not provide the varying-base complete divisor parametric family or fixed-leading-digit prime-power residue density. Hargreaves–Siksek exact fixed points address exponent 2, not 3 in the accessible abstract; its full text could not be accessed and Oxford attempt returned worker unavailable, retained as residual risk. Best-of-knowledge originality for the exact two-digit CRT classification, not for the trivial rearrangement.",
+      "residual_risks": [
+        "Hargreaves–Siksek 2010 complete text was inaccessible; a general cubic varying-base consequence might be present; do not claim entire text noncoverage.",
+        "Other digital-invariant or Armstrong-number literature could independently contain the divisor classification.",
+        "The result only classifies exactly two-digit fixed points, not three-or-more-digit points or nontrivial cycles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit finite census, not a varying-base classification; sample entries agree with divisor formula.",
+          "evidence": "Cubic fixed-point entries for base 7 and base 11 are (1,2),(2,2),(3,2) in digit notation.",
+          "identifier_or_url": "https://www.atlantis-press.com/article/25837937.pdf",
+          "material_read": "Original primary PDF cubic section, pp.3–6 and fixed-base tables for bases through 16",
+          "method": "Opened primary PDF and inspected relevant pages including page images",
+          "title": "Periodic Points Under Iteration of Sum of Squares or Cubes of Digits in Some Positional Systems",
+          "trigger": "Same sum-of-cubes digit map, cubic fixed points"
+        },
+        {
+          "assessment": "Abstract concerns exact exponent-two enumeration and broad cycle bounds, but whole-document noncoverage cannot be asserted.",
+          "evidence": "Full-text access failure retained as priority uncertainty.",
+          "identifier_or_url": "https://wrap.warwick.ac.uk/44072/",
+          "material_read": "University repository abstract, title and bibliographic record only; full text unavailable",
+          "method": "ArXiv and lawful OA searches unsuccessful; authorized Oxford returned worker unavailable or request invalid; no bypass",
+          "title": "Cycles and Fixed Points of Happy Functions",
+          "trigger": "Generalized happy-number fixed points might dominate special case"
+        },
+        {
+          "assessment": "Enumerates attracting cycles per fixed base; not τ(c³−c) for varying bases.",
+          "evidence": "Different grouping/invariant: base-indexed count versus trailing-digit-indexed divisor parameterization.",
+          "identifier_or_url": "https://oeis.org/A193594",
+          "material_read": "OEIS entry, parameter definition and bibliography",
+          "method": "Inspected public sequence page",
+          "title": "OEIS A193594: Number of attractors under iteration of sum of cubes of digits in base b",
+          "trigger": "Potential exact fixed-base database"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two-digit fixed points of the sum-of-cubes-of-digits dynamical map are a standard natural subproblem. Beyond a bare algebraic substitution, the theorem gives the complete varying-base parametrization, exact divisor-count layer τ(c³−c), and nontrivial local-to-global leading-digit residue distribution with exceptional 2-adic factor. Researchers studying base-dependent digit dynamics could use this full classification as a precise boundary and source of infinite families; no claim about all digits/cycles.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Wu–Dang–Zhang DOI:10.2991/ic3me-15.2015.327 cubic section",
+    "Hargreaves–Siksek 2010 abstract Warwick repository, full text not accessible",
+    "OEIS A193594",
+    "Resultary semantic search: generalized happy numbers cubic sum of digits two digit fixed points varying base divisor parametrization"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Hargreaves–Siksek 2010 complete text was inaccessible; a general cubic varying-base consequence might be present; do not claim entire text noncoverage.",
+    "Other digital-invariant or Armstrong-number literature could independently contain the divisor classification.",
+    "The result only classifies exactly two-digit fixed points, not three-or-more-digit points or nontrivial cycles.",
+    "Scientific acceptance does not imply exhaustive historical priority, formal-proof attestation or publication.",
+    "Potentially public METADATA.json and AUDIT.json contain operational scope_run_id; publication withheld until semantically reviewed neutral replacements exist."
+  ],
+  "residual_risks": [
+    "Hargreaves–Siksek 2010 complete text was inaccessible; a general cubic varying-base consequence might be present; do not claim entire text noncoverage.",
+    "Other digital-invariant or Armstrong-number literature could independently contain the divisor classification.",
+    "The result only classifies exactly two-digit fixed points, not three-or-more-digit points or nontrivial cycles."
+  ],
+  "schema_version": 1
+}

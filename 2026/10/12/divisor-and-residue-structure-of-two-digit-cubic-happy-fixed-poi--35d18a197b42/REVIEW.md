@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The fixed-point equation is exactly
-\[
-a(b-a^2)=c(c-1)(c+1).
-\]
-For \(c\ge2\), integrality of the base is therefore equivalent to the divisor condition. The proof checks both digit inequalities in the two cases \(a>c\) and \(a\le c\), so no formal divisor produces an invalid numeral. For fixed \(a\), admissibility is exactly a periodic congruence. The odd-prime-power local count is \(3\), while the \(2\)-power count is \(2,3,5\) in exponents \(1,2,\ge3\); Chinese remaindering gives the claimed density. Fresh exhaustive replay agrees with all formulas.
+## correctness
 
-## Originality
-PASS. The closest full primary comparison is the 2015 selected-base census of Wu, Dang, and Zhang. It explicitly lists cubic fixed points in bases \(2\) through \(16\), including several examples recovered by the theorem, but does not state a varying-base divisor parametrization. Hargreaves--Siksek give an exact fixed-point count only for exponent \(2\), not exponent \(3\). A193594 is a base-indexed attractor count rather than a digit-parameter theorem.
+PASS
 
-Formula-level and alias searches for two-digit cubic fixed points, perfect digital invariants, Armstrong-style fixed points, and the factor \(c^3-c\) found no equivalent or stronger accessible statement. Residual risk remains for unindexed recreational literature.
+The fixed-point equation a³+c³=ab+c rearranges exactly to a(b−a²)=c(c−1)(c+1). For c≥2, a is any positive divisor of c³−c and b=a²+(c³−c)/a uniquely; b>a,c follows by considering a>c and a≤c, so count τ(c³−c) is exact, not just formal factorization. For a=2^e m, odd p-power factors of c(c−1)(c+1) give residues −1,0,1; powers of 2 yield 1,2,3,5 residue classes for e=0,1,2,≥3. CRT gives r(e)3^{ω(m)} /a density. Cases c=0,1 require b=a² and a≥2. Independent exhaustive divisor/digit tests for 2≤c≤250 and residue counts for 2≤a≤500 agree; these are corroboration to unrestricted proof.
 
-## Value
-PASS. Cubic digit fixed points are a standard object in generalized happy-number dynamics, and finite-base censuses are explicitly published. The theorem replaces those isolated two-digit examples by a complete all-base normal form. It also yields two exact invariants not present in the inspected literature: \(\tau(c^3-c)\) for a prescribed trailing digit and a multiplicative prime-power formula for the density of admissible trailing digits at fixed leading digit. These expose a genuine divisor/CRT structure rather than merely recomputing a table.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Finite-base cubic fixed-point tables in Wu–Dang–Zhang and OEIS A193594 do not provide the varying-base complete divisor parametric family or fixed-leading-digit prime-power residue density. Hargreaves–Siksek exact fixed points address exponent 2, not 3 in the accessible abstract; its full text could not be accessed and Oxford attempt returned worker unavailable, retained as residual risk. Best-of-knowledge originality for the exact two-digit CRT classification, not for the trivial rearrangement.
+
+## value
+
+PASS
+
+Two-digit fixed points of the sum-of-cubes-of-digits dynamical map are a standard natural subproblem. Beyond a bare algebraic substitution, the theorem gives the complete varying-base parametrization, exact divisor-count layer τ(c³−c), and nontrivial local-to-global leading-digit residue distribution with exceptional 2-adic factor. Researchers studying base-dependent digit dynamics could use this full classification as a precise boundary and source of infinite families; no claim about all digits/cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
