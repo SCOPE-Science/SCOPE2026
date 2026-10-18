@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The explicit row-span morphism is a closed immersion of Plücker degree \(4k-1\) spanning the ambient space. The four tangent blocks follow from the adjacent polynomial-syzygy resolutions. The derivative in the first block is the complete degree-\(2k-2\) system; its cokernel is \(\mathcal O(2k+1)^{2k-2}\). The resulting normal extension splits since its only \(\operatorname{Ext}^1\) groups reduce to \(H^1(\mathcal O)\) and \(H^1(\mathcal O(1))\). The splitting is balanced and has the correct rank and degree. Irreducibility and openness pass this to a general curve. `CHECK.py` corroborates the polynomial identities for a finite sample but is not the infinite proof.
+
+**Originality — PASS, with residual risk.** Cao's first-posted 2026 manuscript proves the proposed normal-bundle conjecture for the smaller Grassmannians \(\operatorname{Gr}(2,4)\), \(\operatorname{Gr}(2,5)\), and \(\operatorname{Gr}(2,6)\). Coskun–Larson–Vogt give the general two-balanced bound and formulate, but do not resolve, the relevant balancedness conjecture. Ran proves distinct degree/dimension families; his indicated Theorem 13(i) bounds exclude the odd-\(k\) subfamily here. Specific implication, parameter and equivalent-normal-splitting searches returned no covering result. A separate unindexed proof or a nonobvious implication of Ran's more general constructions remains a genuine risk.
+
+**Mathematical value — PASS.** This is an infinite nontrivial family of cases of a specifically formulated, currently open balancedness conjecture, starting at the first unhandled Grassmannian \(\operatorname{Gr}(2,7)\). The degrees sit exactly one beyond the predicted numerical splitting obstruction, making a natural boundary test rather than an arbitrary specialization. The explicit monomial-block construction yields a transparent and reusable mechanism. The scope is a one-parameter series, not a full solution to the conjecture.
+
+**Closest literature and limits.** Primary comparisons: Cao (arXiv:2609.19381), Coskun–Larson–Vogt (arXiv:2404.08102), and Ran (arXiv:2111.02466). General characteristic-zero curves only; no assertion in positive characteristic or for special non-general curves. Search-based absence is not a uniqueness certificate.
+
+Self-review: passed. Independent audit: not yet performed.
