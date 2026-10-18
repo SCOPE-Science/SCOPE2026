@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The full-Farey denominator-bijection with coprime ordered pairs and u+v>N is classical and has the required endpoint normalization. Within [F_k,F_(k+1)) all valid adjacent denominator pairs must involve F_k, because all distinct smaller Fibonacci denominators sum to at most F_k; only F_k+F_(k-1) and F_k+F_(k-2) can exceed the moving threshold at the top. Fibonacci strong divisibility proves both candidate pairs coprime. The resulting final-block length F_(k-3), the initial count E(7)=3, and the Fibonacci recurrence yield E(N)=max(F_(k-2),N-F_k+1) exactly. Quotient monotonicity within every block and Fibonacci limits give the two distinct irrational extremal values. Actual packaged verifier independently cross-checked all full-Farey orders through 450 and all coprime-pair orders through 15000; this finite testing is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boca--Cobeli--Zaharescu (2002), theorem setup and section 1, concerns frequencies of determinant values for consecutive members of the odd-subsequence, not the full Farey sequence.",
+        "Cobeli--Zaharescu (2005), Theorems 1--2, addresses a limiting local density of adjacent denominators inside the even-subsequence. The 35-page source has no Fibonacci-value restriction in its theorem.",
+        "The denominator-pair lemma in Cobeli--Zaharescu (2005), introductory section, is a known input here, not coverage of the Fibonacci-block counting result."
+      ],
+      "reasoning": "General parity-congruence density theorems assume fixed positive-density residue conditions and a different adjacency population. They do not specialize to the zero-density nonperiodic Fibonacci set while retaining original full-Farey consecutiveness. Classical denominator-pair parametrization alone does not state the exact oscillatory frequency.",
+      "searches": [
+        "Farey sequences orders N with exactly two adjacent pairs whose denominators are Fibonacci numbers density oscillation",
+        "Sparse denominator Farey adjacency exact Fibonacci cutoffs phi(n) totient summatory order",
+        "On the distribution of the Farey sequence with odd denominators arXiv math/0201046",
+        "A density theorem on even Farey fractions arXiv math/0511362"
+      ]
+    },
+    "checked_sources": [
+      "https://www.fq.math.ca/Scanned/13-1/alladi1.pdf",
+      "arXiv:math/0201046v1",
+      "arXiv:math/0511362v1",
+      "https://oeis.org/A207524"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alladi, The Fibonacci Quarterly 13(1) (1975), theorem statements and appendix concern the ordering of fractions with Fibonacci numerators and denominators, not full Farey adjacency at every integer order.",
+        "Boca--Cobeli--Zaharescu arXiv:math/0201046v1 (2002-01-07) and Cobeli--Zaharescu arXiv:math/0511362v1 (2005-11-14) provide parity-restricted distribution laws.",
+        "This claim exploits the Fibonacci addition identity and strong-divisibility property inside the fixed-order Farey denominator-pair criterion; its exact block-length telescoping and density failure are not consequences of the cited limiting parity distributions."
+      ],
+      "reasoning": "Input lemmas are classical and reused transparently, but the asserted output is an exact condition on all integer orders and two unequal irrational limiting frequencies. The inspected prior results neither assert this event nor imply it as a corollary of the stated parity/subsequence theorems.",
+      "searches": [
+        "Farey sequence Fibonacci denominators adjacent neighbor pairs exact counts totient",
+        "Farey sequences orders N with exactly two adjacent pairs whose denominators are Fibonacci numbers density oscillation",
+        "Fibonnaci-denominator Farey neighbor adjacent full Farey sequence counts natural density no limiting frequency",
+        "For full Farey sequence of order N, the number of adjacent pairs with both Fibonacci-number denominators is exactly two on a terminal Fibonacci interval; orders with exactly two have lower natural density (5-sqrt5)/10 and upper density (3-sqrt5)/2",
+        "\"Farey\" \"Fibonacci\" \"only two\" \"denominators\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alladi (1975), pp. 1, 9--10, defines a separate sequence of ratios of Fibonacci numbers and studies order/symmetry; the set of fractions differs from the full Farey sequence.",
+        "Boca--Cobeli--Zaharescu, arXiv:math/0201046v3, introduction, defines adjacency inside the odd-denominator subsequence, which can skip full-Farey fractions."
+      ],
+      "reasoning": "A statement about Fibonacci fractions by numerator and denominator, or adjacency after restricting the Farey sequence, is not equivalent to counting adjacent pairs of the unreduced full Farey sequence whose two denominators alone are Fibonacci values. No equivalent exact threshold was located.",
+      "searches": [
+        "Farey sequence Fibonacci denominators adjacent neighbor pairs exact counts totient",
+        "Fibonnaci-denominator Farey neighbor adjacent full Farey sequence counts natural density no limiting frequency",
+        "Farey fractions both denominators Fibonacci numbers neighbor count",
+        "\"Fibonacci denominators\" \"Farey\" \"neighbour\" classification count",
+        "Alladi A Farey Sequence of Fibonacci Numbers 1975"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A207524 defines a count of rationals lying below the largest quotient of consecutive Fibonacci numbers with denominator bounded by the order, not a count of adjacent pairs whose denominators are both Fibonacci values.",
+        "The locally generated exact order table through 15000 is verification rather than a claim of an exhaustive literature search."
+      ],
+      "reasoning": "The closest located indexed integer-sequence item uses a different Farey statistic and supplies no claimed sharp threshold or asymptotic order-density envelope.",
+      "searches": [
+        "site:oeis.org Fibonacci Farey neighbors denominator count",
+        "site:oeis.org Fibonacci Farey neighbors denominator count",
+        "OEIS A207524 Fibonacci Farey consecutive fractions"
+      ]
+    },
+    "rationale": "The source statements have different domains or adjacency relations: ratios of Fibonacci values (Alladi), consecutive fractions after retaining only a parity class (Boca--Cobeli--Zaharescu and Cobeli--Zaharescu), or a bound by a consecutive-Fibonacci quotient (OEIS A207524). None of the materially inspected assertions provides the exact full-Farey Fibonacci-denominator two-neighbor threshold or the two distinct order-frequency limits. Semantic publication-index queries for equivalent formulations and dominating results found no matching statement. This supports provisional originality but does not guarantee global uniqueness.",
+    "residual_risks": [
+      "Classical ingredients make an unindexed earlier elementary derivation plausible.",
+      "Alladi source has a 1975 printed month but not an established exact first-publication day.",
+      "The parity-restricted works were compared by material theorem sections and searches, not by independent expert re-review.",
+      "No independent novelty certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: different sequence consisting of Fibonacci numerators and denominators, with its own adjacency and symmetry definitions",
+        "evidence": [
+          "p. 1 defines its f-f sequence as ratios of Fibonacci entries",
+          "p. 10 tabulates the f-f fractions of orders 5, 8, 13, 21, 34 rather than full Farey neighbor pairs"
+        ],
+        "identifier_or_url": "https://www.fq.math.ca/Scanned/13-1/alladi1.pdf",
+        "material_read": "Definition and interval structure on pp. 1--3; theorems on pp. 7--9; appendix/example sequences and references on p. 10",
+        "method": "Scanned source page render at pp. 1 and 10 plus public extracted full-text view of theorem/definition passages",
+        "title": "A Farey Sequence of Fibonacci Numbers",
+        "trigger": "Title is a direct potential equivalent phrasing"
+      },
+      {
+        "assessment": "Not covering: statistics of adjacency within the odd-denominator subsequence rather than the full Farey sequence subject to Fibonacci denominator conditions",
+        "evidence": [
+          "p. 1 expressly defines the odd-denominator subsequence and notes that determinant-one fails for its neighbors",
+          "submission record dates v1 to 2002-01-07"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0201046",
+        "material_read": "Introduction and main theorem setup on pp. 1--3, with full-text theorem search and abstract/submission history",
+        "method": "Rendered first page and inspected extracted paper text through the main theorem definition",
+        "title": "On the Distribution of the Farey Sequence with Odd Denominators",
+        "trigger": "Potential broader adjacency and denominator distribution result"
+      },
+      {
+        "assessment": "Not covering: limiting density for the parity-restricted subsequence; no Fibonacci-value denominator restriction or exact integer-order frequency law",
+        "evidence": [
+          "p. 1 defines the parity-restricted denominator family and recalls full Farey neighbor conditions",
+          "p. 5 Theorem 1 is a local-density result; p. 6 Theorem 2 studies subintervals",
+          "sole Fibonacci word hit is bibliography on p. 35"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0511362",
+        "material_read": "Introduction and Theorems 1--2 on pp. 1--7, end-of-proof passages pp. 30--34, final bibliography",
+        "method": "Public full-text PDF search for theorem and Fibonacci, plus render of the main theorem page",
+        "title": "A Density Theorem on Even Farey Fractions",
+        "trigger": "Potential dominating distribution for denominator-restricted Farey pairs"
+      },
+      {
+        "assessment": "Not covering: compares a Farey fraction against a Fibonacci quotient, not simultaneous Fibonacci denominators of adjacent full-Farey fractions",
+        "evidence": [
+          "Entry defines a count of rational numbers bounded by the greatest quotient of consecutive Fibonacci numbers with denominator at most the order"
+        ],
+        "identifier_or_url": "https://oeis.org/A207524",
+        "material_read": "Public sequence definition and accompanying comments/example",
+        "method": "Sequence entry text inspection",
+        "title": "OEIS A207524",
+        "trigger": "Potential exact database or precomputed Farey/Fibonacci table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d6d51126-f6e3-4dde-8906-a7045347e09d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The event exactly two full-Farey adjacencies with Fibonacci denominators is a canonical minimal nontrivial sparse-denominator phenomenon; classifying precisely every integer order on which it occurs is a natural complete classification. Its exact block count additionally proves nonexistence of natural density with sharp positive distinct lower and upper density constants. This is not just an arbitrary numerical slice: the Fibonacci recurrence determines a precise arithmetic sawtooth at every scale. No extra claims about all adjacency counts or sparse sets in general are made.",
+    "status": "PASS"
+  }
+}

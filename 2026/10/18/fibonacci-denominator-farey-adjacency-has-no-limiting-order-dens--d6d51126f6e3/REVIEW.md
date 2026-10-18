@@ -1,0 +1,9 @@
+# Scientific review: Fibonacci-denominator Farey adjacency
+
+**Correctness — PASS.** Classical Farey adjacency is in bijection with ordered coprime denominator pairs whose sum exceeds the order. In a Fibonacci block the only pairs potentially exceeding the order must use the maximal Fibonacci denominator; the next two largest distinct candidates are consecutive and two-apart Fibonacci terms, both coprime to that maximum. This proves the sharp threshold, and the Fibonacci block lengths telescope to the exact counting law. Monotonicity of the resulting quotient within each block gives both irrational limiting endpoints. Independent direct Farey enumeration through order \(450\), plus denominator-pair checks through order \(15{,}000\), matched exactly. The proof, not the enumeration, establishes the infinite claim.
+
+**Originality — PASS, with residual risk.** Alladi's 1975 Fibonacci-fraction sequence permits Fibonacci numerators and denominators but is not the unrestricted Farey sequence. The parity-restricted subsequence results of Boca–Cobeli–Zaharescu (arXiv:math/0201046) and Cobeli–Zaharescu (arXiv:math/0511362) concern a different notion of adjacency. OEIS A207524 counts rationals relative to a Fibonacci quotient. Statement-level comparison did not locate the same sharp threshold, exact frequency count, or distinct natural-density endpoints. Unindexed prior derivations remain possible; no independent literature certification was conducted.
+
+**Mathematical value — PASS.** This is a natural complete classification of the minimal nontrivial Fibonacci-denominator adjacency count in the classical Farey sequence. The exact block formula reveals persistent macroscopic order-frequency oscillations and a sharp failure of natural density, rather than a mere finite census or renamed elementary identity. No claim is made about higher adjacency counts or general sparse denominator sets.
+
+Self-review: passed. Independent audit: not yet performed.
