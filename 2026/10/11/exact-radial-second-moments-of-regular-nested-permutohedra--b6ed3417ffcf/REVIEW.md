@@ -1,20 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the source's exact two-permutation vertex formula with the endpoint convention \(\tau_0=\tau_{d+1}=0\). After centering, the \(M^2\) term is the standard rank variance, the \(MN\) cross term telescopes to \(MN\,d(d+1)\), and all remaining radial variation is \(N^2\mathcal E(\tau)\). The first two moments of \(\mathcal E\) are derived exactly from sampling without replacement, with the second moment split exhaustively into identical, one-overlap, and disjoint adjacent-product pairs. Coordinate-permutation symmetry plus the trace then gives the covariance matrix.
+## correctness
 
-## Originality
-PASS. The primary nested-braid-fan source was inspected at its vertex construction, regular specialization, and vertex theorem, including the corresponding PDF page. It contains no occurrence of “Euclidean”, “covariance”, “isotropic”, or “second moment”. Direct and alias searches under nested permutohedron, radial moments, tight frames, cosphericity, and covariance found no covering theorem. Own current and prior geometry ledgers contain no nested-permutohedron metric finding.
+PASS
 
-## Value
-PASS. The theorem gives a complete second-order Euclidean description of the \(d!(d+1)!\)-vertex regular nested permutohedron. It identifies an exact tight-frame normalization and isolates every radial fluctuation into a single inner-permutation roughness statistic. The variance formula
-\[
-N^4
-\frac{(d-2)(d+1)^2(d+2)(5d+11)}{180}
-\]
-also exposes a sharp geometric transition: the dimension-two vertex set is cospherical, whereas every higher-dimensional member is provably non-cospherical.
+Checked original full Castillo–Liu arXiv:1710.01899 equations (4.1)–(4.3), Definition4.4 and Proposition4.6 for two-permutation vertices v_{pi,tau}=Σ_i[Mi+N(tau_{i-1}−tau_i)]e_{pi^{-1}(i)} for appropriate M,N. The N-summand telescopes and center is c=M(d+2)1/2; coordinates decompose a_i=i−(d+2)/2 and b_i=tau_{i-1}−tau_i. Sum a_i²=d(d+1)(d+2)/12 and sum a_i b_i=d(d+1)/2, leaving endpoint-zero path roughness E(tau)=Σ(tau_{i-1}−tau_i)². Uniform permutation sampling gives E[E]=(d+1)²(d+2)/6 and E-variance=(d−2)(d+1)²(d+2)(5d+11)/180 from identical, adjacent-overlap, disjoint path-edge products; independently exact-enumerated all permutations d=2..7, matching these formulas, including 0 iff d=2. Covariance by Sn permutation invariance has equal diagonal/off-diagonal, vanishes on 1, and trace=mean R², yielding (meanR²/d)(I−J/(d+1)). All dimensions d>=2 and only appropriate positive M,N, not full arbitrary nested deformations.
 
-## Closest literature and limitations
-The closest source provides the vertex formula, normal fan, face correspondence, and deformation cone, but does not study Euclidean vertex moments. Generic coordinate symmetry explains why the covariance must be scalar on \(\mathbf1^\perp\), but not the scalar or the radial-variance formula. A residual risk remains for the permutation roughness moment calculation under unrelated terminology. The result concerns regular nested permutohedra and does not determine extreme radii.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Read the 2017 Castillo–Liu primary 2022 published full paper at original vertex formulas (4.1)–(4.3) and Proposition4.6. Paper develops nested fans, deformations and combinatorics, does not state Euclidean radii, covariance or radial variance. Resultary nearest analogous geometry is bipermutahedron radial spectrum (different polytope) and partial permutohedron ellipsoid formulas (different objects/invariants). No exact nested-permutohedron radial second-moment stronger theorem found. Residual possibility known adjacent-permutation energy moment under different combinatorial name.
+
+## value
+
+PASS
+
+Natural metric invariant of new symmetric nested permutohedra, with exact vertexwise radial fluctuations, tight-frame covariance and sharp d=2-only cosphericity transition for every admissible M,N. The variance is not a group-theoretic tautology: full value derives from permutation edge-overlap combinatorics. Does not claim extreme radii or John ellipsoid.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
