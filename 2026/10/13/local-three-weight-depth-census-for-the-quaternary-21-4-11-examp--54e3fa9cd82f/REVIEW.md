@@ -1,14 +1,21 @@
-# Self-review
-## Correctness
-PASS. The claim is a finite exhaustive classification. The checker reconstructs the field, all projective points and planes, and the source generator; reproducing the printed plane spectrum is an internal normalization check before the new incidence census. The unique depth-one point and all 16 depth-two points are then determined by complete enumeration, not sampling.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest primary source is Kawamoto–Kato–Maruta, DOI 10.55630/serdica.2026.52.219-248. It introduces the local notion and proves the displayed code is 1-locally 3-weight at \(P=(0,0,1,3)\), but the inspected full text does not give the all-point depth histogram, uniqueness of that center, or the 2-local center count. Exact-phrase web searches, published-findings semantic searches, the exact parameter table found no equivalent statement.
+## correctness
 
-## Value
-PASS. The result completes the local geometry of the paper's explicit motivating example under the new invariant. It separates existence from rigidity: the exhibited 1-local center is unique, whereas 16 points satisfy the 2-local condition. This is not recoverable from the source's global plane spectrum alone.
+PASS
 
-## Closest literature and limitations
-The closest literature is the 2026 source article itself and the earlier locally two-weight framework cited there. The result is limited to the printed generator matrix and does not classify all quaternary \([21,4,11]\) codes. An unindexed older calculation of the same projective multiset remains a residual originality risk.
+Using the four actual length-21 generator rows of Kawamoto–Kato–Maruta Example 2.1 and alpha^2=alpha+1, a fresh independent GF(4) implementation enumerated all 85 nonzero projective points and 85 planes, without sampling. Hyperplane multiplicities exactly reproduce the printed 1..10 spectrum (2,4,12,12,22,16,6,4,3,4). For n=21,q=4,w=3 the sole exceptional plane residue is 0 mod4: 12 four-planes and 4 eight-planes. Counting every incidence yields (N0,...,N7)=(2,1,16,9,25,23,2,7). Unique depth-one point is (0,0,1,3), with zero generator multiplicity; depth two occurs 16 times. Incidence checksum is 336=16*21. This complete finite enumeration proves the finite claim subject to faithful transcription of the printed matrix, which was directly inspected in the primary rendered article.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The primary 2026 article presents the matrix, global hyperplane-weight spectrum, and a witness point of 1-local three-weight behavior, but does not classify all projective points by incident exceptional planes. The global spectrum alone lacks incidence-intersection data and cannot force the histogram or uniqueness. No equivalent exact table was found in targeted mathematical record searches.
+
+## value
+
+PASS
+
+Uniqueness of the motivating 1-local witness, contrast with the 16 two-local centers, and the complete 85-point depth distribution answer natural questions about rigidity and local geometry for a source example introducing a new code invariant. The exact incidence statistic is not derivable from published aggregate weight data alone; a full finite census is an appropriate scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
