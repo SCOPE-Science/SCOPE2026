@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof isolates the only collision pair \(\{1,n\}\), proves the three-symbol spacing lower bound for effective rank drops, proves equality uniquely forces \(a(b^2a)^{s-1}\), and then derives an exact recurrence for the missing states. The residue-class orbit of that recurrence gives \(h_n\) and proves that the next forced equality word fails. Exhaustive power-automaton verification for \(4\le n\le18\) and direct replay through \(n=300\) agree with every asserted case.
+## correctness
 
-## Originality
-PASS. The 2010 source introducing \(D'_n\) and the 2013 extended treatment were inspected in full around the relevant family. They prove the total reset threshold \(n^2-3n+4\) and provide an endpoint reset word but do not state the intermediate rank-compression function, the unique words \(a(b^2a)^{s-1}\), or the mod-three stopping index. Searches using rank, deficiency, image cardinality, compression, and subset-synchronization aliases found no equivalent statement. Residual risk remains because search coverage cannot exclude older work under different terminology.
+PASS
 
-## Value
-PASS. The result concerns a classical extremal family rather than an arbitrary slice. It identifies a rigid initial geodesic in the subset automaton and a sharp mod-three saturation boundary, clarifying how early rank compression differs from total synchronization in \(D'_n\).
+The one-collision a map alone decreases rank, each effective a deletes one image state, and the omitted n prevents the next a from being effective. One b after that omission instead leaves 1 missing, forcing at least two intervening letters. Equality requires exactly b² between a's and the initial effective a first: w_s=a(b²a)^(s−1). The hole action under b²a is F(n)=3, F(n−3)=1, F(j)=j+3 in the pre-saturation range; tracing residues mod 3 yields h_n=2n/3 if 3|n, else floor(n/3)+1. The forced word then stops gaining a deficiency. This symbolic argument covers n≥4; independent bitmask subset-BFS (n=4..13) confirmed minima, uniqueness, and strict next threshold; the package's distinct BFS routine and witness/hole checks (n=4..18/300) were inspected, not relied on as logs alone.
 
-## Closest literature and limitations
-The closest literature is Ananichev–Gusev–Volkov, arXiv:1005.0129v1 and arXiv:1302.5793v2, which establish the reset threshold of \(D'_n\). The present result stops after the first failure of the linear profile and does not claim a formula for later deficiencies.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: two original full papers contain the same D'_n maps and endpoint reset threshold but no intermediate λ_n(s), unique a(b²a)^… word or mod-three boundary; the reset result does not logically determine initial subset compression. No located exact-table or stronger rank result; semantic index outage and unindexed work are residual risks.
+
+## value
+
+PASS
+
+A sharp, nontrivial residue-dependent transition and unique optimizing words for the natural intermediate-rank parameter of a classical slow synchronizer. Reset length alone gives no such high-rank path metric; the hole-orbit mechanism is a substantive structural lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
