@@ -1,24 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A diagonal row-column \(\mathbb C^*\)-action with binary-separated weights has exactly the matrix coordinate points as projective fixed points. Every \(r\times r\) permanent is a semi-invariant for this action because all of its monomials have the same total row-plus-column weight.
+## correctness
 
-When \(r\ge2\), every coordinate matrix annihilates every defining permanent. Hence the permanental variety has exactly \(mn\) fixed points. Euler localization applies to singular and reducible complex algebraic varieties, so projectivity gives
-\[
-\chi_{\mathrm{top}}(P_{m,n}^r)=mn.
-\]
-Constructible additivity gives the vanishing Euler characteristic of the complement.
+PASS
 
-The bundled checker independently verifies coordinate-weight separation, semi-invariance, and direct permanent evaluation on a finite grid. Finite computation is regression evidence only.
+Frozen RESULT.md ed759eb842e79a069e6ad0120e42823552387488 specifies complex reduced underlying projective variety. Distinct binary-separated row and column weights define a diagonal C* action with exactly mn ambient projective fixed coordinate points. Each r×r permanent is semi-invariant (all terms use selected rows/columns once); every coordinate point lies on vanishing locus for r≥2. The C*-fixed locus of P is exactly these points. Standard algebraic C*-Euler localization χ_c(Y)=χ_c(Y^{C*}) gives mn; projective compactness identifies χ_top and χ_c, while additive χ_c of complement is 0. Checked binary weight uniqueness and all permanent monomial weights for m,n,r=(2,3,2),(3,4,3),(4,4,2) independently; integer-valued checks only supplement the general proof. r=1 would give empty projective locus, rightly excluded.
 
-## Originality
-PASS. The archival source defines the same permanental schemes and uses torus fixed points on their Fano schemes, but its stated results concern the geometry of those Fano schemes rather than the global Euler characteristic of the base permanental variety.
+## originality
 
-A later same-object paper studies codimension, components, and singular loci with a \(\mathbb C^*\)-action and explicitly emphasizes how poorly understood permanental geometry remains. Targeted literature and full-text searches did not locate the all-parameter Euler formula or a stronger Poincaré or motivic statement implying it.
+PASS
 
-Residual risk remains because the localization argument is short and may be folklore.
+Chan--Ilten study Fano schemes of same permanental varieties; Boralevi et al study their components, codimensions and singular loci via C* actions. The inspected primary results do not establish the Euler characteristic of the entire projective permanental locus for all r,m,n. Classical C*-localization is fully credited; only the parameter-uniform application is the candidate contribution.
 
-## Value
-PASS. Permanental varieties are a basic but difficult counterpart of determinantal rank loci and include the permanent hypersurface important in geometric complexity theory. The result gives a uniform global invariant in all dimensions and ranks and shows that every nontrivial permanental rank condition is invisible to ordinary Euler characteristic.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Euler characteristic is a natural global invariant of geometrically difficult singular/reducible permanental varieties. An exact all-format computation and vanishing of complement χ_c can serve as a consistency constraint even while finer topology remains unknown. Its proof is unusually short and coarse, but the mathematical object/invariant are independently motivated and the all-parameter fact is not a random slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
