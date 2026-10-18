@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The claim is for fixed finite chains equipped with uniformly sampled complete semi-Heyting implications. The known complete finite row parameterization yields independent gap coordinates of weights \(1/(k!E_m)\). The bound on the mean number of threshold exceedances is uniform outside at most \(2t\) boundary rows, and the sum of squared exceedance probabilities tends to zero on the claimed scale. The proof explicitly couples independent Bernoulli exceedances to a Poisson distribution, deduces the factorial threshold and the extreme-value scale by Stirling, and applies bounded-variance arguments to the empirical gap profile. All hypotheses (\(t\to\infty\), \(t=o(n)\), bounded \(n/t!\)) are stated. A separate finite brute-force check establishes the row parameterization in small cases, but is not used as an infinite proof.
+
+## Originality — PASS with identified priority risk
+The complete row normal form and exact finite chain enumeration are established in Monteiro–Cornejo–Viglizzo, arXiv:1710.02408; Cornejo–Monteiro–Sankappanavar–Viglizzo (2020) further count special finite classes and extensions. Those source results are explicitly attributed and are not claimed as new. The distinctive claim is an unrestricted factorial rare-event Poisson approximation, the maximum-gap asymptotic, empirical gap law, and the contrast between uniform full expansions and uniform unary reducts. These asymptotic statements were not found in the materially inspected antecedents. Searches of adjacent probabilistic mathematics and related published findings found no exact statement. The historical 2010/2011 foundational paper was inaccessible in full, and independently rediscovered versions could exist.
+
+## Mathematical value — PASS
+The top-consequent restriction is a natural and logically motivated unary forgetful map on semi-Heyting chains. The result answers a global asymptotic question about a typical full expansion and establishes a sharp factorial extreme-value boundary, not just a finite count. A surprising and consequential distinction is that selecting an expansion uniformly makes typical gaps bounded, whereas choosing the possible reducts uniformly makes their total quadratic. The finite normal form alone does not announce or immediately interpret these probabilistic phenomena.
+
+Self-review: passed. Independent audit: not yet performed.
