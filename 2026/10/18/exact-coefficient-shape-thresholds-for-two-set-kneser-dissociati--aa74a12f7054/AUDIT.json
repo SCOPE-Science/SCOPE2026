@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "A case-complete proof splits intersecting two-set families into stars/triangles and nonintersecting families into unique four-label supports; all subfamilies of those supports are feasible. This gives the exact polynomial, and maximality follows from single-vertex extensions. The listed exact internal determinants prove strict log-concavity for n<=12 and failures beyond; the coefficient differences and binomial tail prove unimodality except n=14. Direct checker tested 2,131,008 subsets n=4..7 and all maximality extensions and shape n=4..500, but the infinite result relies on symbolic identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tu--Xiao--Lang 2023, Theorem 1.1 and Corollary 1.1: cubic-graph upper bounds on a dissociation occupancy fraction and polynomial, not an equality formula for all Kneser graphs.",
+        "Tu--Li--Du 2021 Theorems 1.1--1.5 concern extremal graph-family bounds for numbers of maximal dissociation sets, not exact K(n,2) enumeration.",
+        "published-finding corpus entries concern complete multipartite, generalized windmill, and fan graphs, not two-set Kneser graphs."
+      ],
+      "reasoning": "Compared implication strength, not titles. A universal bound for cubic graphs covers K(5,2) as a member but does not fix any of its coefficients; for n>=6 the two-set Kneser graph is generally not cubic. Bounds on maximal-set counts for arbitrary graphs do not determine the precise Kneser polynomial or its unimodality.",
+      "searches": [
+        "On the dissociation number of Kneser graphs K(n,2) Bostjan Bresar Dravec 2021 exact distribution dissociation sets, maximal dissociation polynomial, unimodality and log-concavity.",
+        "General induced-degree-at-most-one polynomial for Kneser graphs K(n,2) graph independent matching families log concavity failure",
+        "\"maximum degree at most one\" \"Kneser graph\" dissociation",
+        "non-unimodal dissociation polynomials Kneser graph",
+        "DOI:10.3934/math.2023507",
+        "2026/10/4/SCOPE-dissociation-polynomials-of-complete-multipartite-graphs-and-the--6b754da5643b",
+        "2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+        "2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b"
+      ]
+    },
+    "checked_sources": [
+      {
+        "coverage": "Scalar and four-label observation already covered",
+        "identifier": "arXiv:2108.10801v1",
+        "title": "Brešar and Dravec, On the dissociation number of Kneser graphs"
+      },
+      {
+        "coverage": "General maximal-set extremal inequalities",
+        "identifier": "arXiv:2103.01402v1",
+        "title": "Tu, Li and Du, Maximal and Maximum Dissociation Sets in General and Triangle-Free Graphs"
+      },
+      {
+        "coverage": "Cubic graph weighted extremal polynomial bounds",
+        "identifier": "DOI:10.3934/math.2023507",
+        "title": "Tu, Xiao and Lang, Counting the number of dissociation sets in cubic graphs"
+      },
+      {
+        "coverage": "Different graph family",
+        "identifier": "2026/10/4/SCOPE-dissociation-polynomials-of-complete-multipartite-graphs-and-the--6b754da5643b",
+        "title": "Dissociation polynomials of complete multipartite graphs and their coefficientwise extremizers"
+      },
+      {
+        "coverage": "Different graph family",
+        "identifier": "2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+        "title": "Dissociation polynomial and all maximal dissociation sets of generalized windmills"
+      },
+      {
+        "coverage": "Different graph family",
+        "identifier": "2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b",
+        "title": "Dissociation polynomial and extremal coefficients of fan graphs"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brešar--Dravec Prop. 2.1 uses exactly the four-label localization and proves the maximum size max(n-1,6), and no coefficient-level statement.",
+        "The proposed formula refines the scalar to every cardinality and the new shape transitions depend on explicit coefficient differences and determinants.",
+        "The general extremal papers prove inequalities rather than the exact parameter-dependent claims."
+      ],
+      "reasoning": "Prior localization is an essential ingredient and is fully credited, not repackaged as new. Neither known maximum-set size nor all-graph inequalities entail the complete Kneser counting polynomial or shape threshold statements as logical consequences without the extra finite-support enumeration and symbolic inequalities. The new full polynomial itself can be derived from that known localization by additional elementary counting; this is a genuine limitation, not concealed.",
+      "searches": [
+        "arXiv:2108.10801v1, Proposition 2.1 (p.3)",
+        "arXiv:2103.01402v1, theorems on maximal sets",
+        "DOI:10.3934/math.2023507, Theorem 1.1",
+        "On the dissociation number of Kneser graphs K(n,2) Bostjan Bresar Dravec 2021 exact distribution dissociation sets, maximal dissociation polynomial, unimodality and log-concavity.",
+        "2026/10/4/SCOPE-dissociation-polynomials-of-complete-multipartite-graphs-and-the--6b754da5643b",
+        "2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dissociation sets are complements of 3-path vertex covers (Brešar--Dravec 2021, p. 2); no formula for their all-size generating function appears in Proposition 2.1.",
+        "The closest matching Kneser source establishes only diss(K(n,2))=max(n-1,6); a scalar invariant does not determine coefficients or unimodality."
+      ],
+      "reasoning": "Checked the dissociation/three-path vertex-cover alias, and maximal-dissociation/induced-low-degree descriptions. Complementing sets transfers coefficients by a reversal and cannot supply absent enumerators. The known Kneser scalar and localization do not logically imply the proposed coefficient-shape thresholds without additional counting/algebra.",
+      "searches": [
+        "Complete dissociation polynomial of Kneser graph K(n,2), counting all induced subgraphs of maximum degree one; exact formula star families plus all six edges on four base points; nonunimodality uniquely at n=14, log-concavity fails n>=13.",
+        "Kneser K(n,2) dissociation polynomial coefficientwise enumeration matching and intersecting graph families n=14 non-unimodal",
+        "\"three-path vertex cover\" \"Kneser\" \"polynomial\" count",
+        "\"P3-free\" \"Kneser\" enumerating subsets",
+        "arXiv:2108.10801v1, Proposition 2.1",
+        "arXiv:2103.01402v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact formula queried against published-finding corpus semantic records, including Kneser family, dissociation enumeration, unimodality and log-concavity; closest return was a different graph-family polynomial.",
+        "Published papers examined give either scalar Kneser dissociation size or generic bounds, not a table of all K(n,2) coefficients."
+      ],
+      "reasoning": "No matching published-finding corpus record or enumerator/table was returned by these actual searches. Failed retrieval does not establish novelty; possible unindexed equations or datasets are retained as residual risks.",
+      "searches": [
+        "Complete dissociation polynomial of Kneser graph K(n,2), counting all induced subgraphs of maximum degree one; exact formula star families plus all six edges on four base points; nonunimodality uniquely at n=14, log-concavity fails n>=13.",
+        "Kneser K(n,2) dissociation polynomial coefficientwise enumeration matching and intersecting graph families n=14 non-unimodal",
+        "\"dissociation polynomial\" \"Kneser\"",
+        "\"dissociation polynomial\" \"Kneser\" unimodality log concavity",
+        "\"K(n,2)\" \"dissociation\" polynomial coefficient",
+        "\"dissociation polynomial\" \"Petersen\" Kneser Petersen polynomial",
+        "2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642"
+      ]
+    },
+    "rationale": "The explicit scalar dissociation number and the four-base-label localization are known from Brešar--Dravec, Prop. 2.1, and are not claimed new. The new all-coefficient enumerator, full maximal-set polynomial and isolated nonunimodality/strict log-concavity classification are stronger questions: they are not stated by the inspected primary sources, nor implied by the published scalar/bound theorems without the new enumeration and exact shape analysis. Meaningful residual risk of alternative equivalent derivations remains.",
+    "residual_risks": [
+      "An unindexed complete dissociation polynomial for the Kneser family may predate this calculation under the alias 3-path vertex-cover polynomial.",
+      "The all-coefficient formula is an accessible elaboration of the already published four-label lemma; an unobserved source may have already performed this enumeration.",
+      "The search does not prove global uniqueness and no independent mathematical priority audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS scalar dissociation number and essential four-label localization; NOT a stated complete polynomial or coefficient-shape theorem",
+        "evidence": "arXiv:2108.10801v1, pp. 1--3, Proposition 2.1",
+        "identifier_or_url": "https://arxiv.org/pdf/2108.10801",
+        "material_read": "Abstract, introduction, Section 2 Proposition 2.1 and its proof, and following generalization",
+        "method": "Open-access arXiv PDF textual and rendered-page reading",
+        "title": "On the dissociation number of Kneser graphs",
+        "trigger": "Exact same two-set Kneser objects and dissociation condition"
+      },
+      {
+        "assessment": "Bounds dissociation partition functions for cubic graphs, does not specify full two-set Kneser polynomial",
+        "evidence": "DOI:10.3934/math.2023507, pp. 1--2",
+        "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2023/5/PDF/math-08-05-507.pdf",
+        "material_read": "Abstract, introduction, definition of polynomial, Theorem 1.1 and Corollary 1.1",
+        "method": "Open-access AIMS PDF textual and rendered-page reading",
+        "title": "Counting the number of dissociation sets in cubic graphs",
+        "trigger": "Uses the exact dissociation-polynomial invariant; Petersen graph member is cubic"
+      },
+      {
+        "assessment": "General extremal bounds, no named two-set Kneser exact enumerator or sharp shape theorem",
+        "evidence": "arXiv:2103.01402v1, pp. 1--3",
+        "identifier_or_url": "https://arxiv.org/pdf/2103.01402",
+        "material_read": "Abstract, introduction, theorem statements, preparatory lemmas",
+        "method": "Open-access arXiv PDF textual and rendered-page reading",
+        "title": "Maximal and Maximum Dissociation Sets in General and Triangle-Free Graphs",
+        "trigger": "Same maximal dissociation set invariant, possible graph-independent dominating bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aa74a12f-7054-48ed-8a30-caf3ba0da655",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Kneser graphs are a canonical family in extremal combinatorics. Full enumeration of dissociation configurations and maximal sets goes beyond their previously known maximum size. The isolated order-14 unimodality failure with permanent recovery for n>=15 and persistent log-concavity failure from 13 is a motivated, sharp global shape phenomenon that cannot be read from the earlier scalar invariant. The star/four-label count also explains exactly the observed distribution and purity transition.",
+    "status": "PASS"
+  }
+}
