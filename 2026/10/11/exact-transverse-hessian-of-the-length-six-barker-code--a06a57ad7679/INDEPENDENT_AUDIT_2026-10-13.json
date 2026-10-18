@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T08:59:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 9704f8da0a64ca9eb7d0aa1a31efcabcf1a401cf",
+        "Frozen verify.py blob b469a31dcf02f3b13b0025d45af0df9a595b4ae0",
+        "Independent symbolic replay in local private independent_recheck.py; exact charpoly λ²(λ−1)(λ−5)(λ−9)(λ−21)"
+      ],
+      "rationale": "Directly reconstruct E=sum_{k=1}^5|sum_{j=0}^{5-k}exp(i(theta_{j+k}-theta_j))|² and its derivatives. For each lag C, A=sum u_j(e_{j+k}-e_j), B=sum u_j d_j d_j^T, gradient=2Re(i A conjugate C) and Hessian=2Re(-conjugate C B + A conjugate A^T). Independent fresh symbolic computation from ζ=e^{iπ/3} and phase exponents (0,0,1,3,0,4) recovered all five sidelobe unit norms, E=5, exactly zero gradient, the stated 6x6 integer H and exact characteristic polynomial λ²(λ−1)(λ−5)(λ−9)(λ−21). The common-phase and linear-phase zero vectors span the nullspace; positive other four eigenvalues give strict local minimum on the normal slice modulo symmetries. Parseval gives ||P||_4^4=36+2E and doubled Hessian spectrum. This is local; global value 5 is not inferred here.",
+      "residual_risks": [
+        "Exact Hessian eigenvalues depend on Euclidean coordinates on six phases; strict positivity modulo symmetries is intrinsic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang–Golomb proves uniqueness of Barker sequences up to peak-preserving transformations, Borwein–Ferguson report n6 E=5.000 with local-minima search, and the later indexed global theorem says E≥5 for all length-six phases."
+        ],
+        "reasoning": "None implies the precise Hessian eigenvalues, even if global minimizer uniqueness could separately give strict minimization (which still need not be quadratic). The exact second variation remains extra information.",
+        "searches": [
+          "Ning Zhang Solomon Golomb doi:10.1109/18.57221 full primary paper",
+          "Peter Borwein Ron Ferguson doi:10.1109/TIT.2004.842778 full paper",
+          "Resultary Exact length-six polyphase base-energy minimum (published same-length global theorem)"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1109/18.57221 full primary text",
+        "doi:10.1109/TIT.2004.842778 primary full PDF",
+        "Resultary exact length-six global base-energy minimum",
+        "arXiv:math/0703236 scope only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Barker uniqueness theorem is for all sidelobes |C_k|≤1, not differentiable curvature of E. Borwein–Ferguson compute approximate minima and list n6 E=5.000. Later exact global statement establishes E≥5 for every six-term unimodular sequence."
+        ],
+        "reasoning": "Global nonnegativity E−5 does not determine whether local behavior is quadratic vs fourth-order flat, nor the four positive eigenvalues; the explicit charpoly is independently non-implied.",
+        "searches": [
+          "Zhang Golomb 1990 Theorems 1-4 and conclusion",
+          "Borwein Ferguson 2005 Figure 1 and optimization sections",
+          "Resultary global E≥5 statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By Parseval, the fourth Fourier moment is 36+2E; the 4th-moment transverse spectrum is {2,10,18,42}. Published Resultary global E≥5 does not specify any Hessian; Zhang–Golomb studies peak-lag constraints."
+        ],
+        "reasoning": "Integrated sidelobe Hessian and Fourier 4th moment are equivalent objectives up to factor 2; a global-minimum theorem is strictly weaker on local quadratic curvature.",
+        "searches": [
+          "Resultary semantic length 6 generalized Barker sequence phase local base energy Hessian spectral eigenvalues 1 5 9 21 Borwein Ferguson",
+          "length six Barker integrated sidelobe energy local stability fourth Fourier moment Hessian",
+          "arXiv:math/0703236 maximum modulus trig trinomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published n=6 tabulation confirms energy 5.000, not the matrix entries/eigenvalues. Exact Resultary same-title hit is this record; global-minimum record supplies E=5 independently."
+        ],
+        "reasoning": "A table of energy values has no coefficient-wise Hessian content. The energy value is prior coverage, explicitly not asserted novel.",
+        "searches": [
+          "Borwein Ferguson Figure 1 n=6 E 5.000 alphabet 6",
+          "Resultary length-six global base energy min and Hessian search"
+        ]
+      },
+      "rationale": "Primary classification gives length-six Barker uniqueness subject to peak sidelobes; base-energy article provides numerical optimum 5.000 and local optimization machinery; later published Resultary record establishes stronger global base-energy minimum E≥5. These prior statements give the stationary value and global minimality, but do not logically fix second-order nondegeneracy or the exact transverse spectrum {1,5,9,21}. Distinct Hessian calculation supplies original local stiffness data.",
+      "residual_risks": [
+        "A less-visible optimization appendix or numerical Hessian table could have computed this exact 6x6 spectrum; no such material located in inspected two directly relevant primary articles.",
+        "Global minimum E=5 is already covered by published results and contributes no independent originality to this claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Determines generalized Barker uniqueness by peak constraints but not the energy Hessian.",
+          "evidence": "The stated central theorem concerns |C(k)|≤1, proof partitions angular cases; no second-variation spectral classification in inspected material.",
+          "identifier_or_url": "doi:10.1109/18.57221",
+          "material_read": "Full 4-page article, 1990 IEEE volume pp.1167–1170, main Theorem 4, lemmas and uniqueness proof",
+          "method": "Authorized institutional text pages 1–4, with OCR/extraction imperfections",
+          "title": "Uniqueness of the Generalized Barker Sequence of Length 6",
+          "trigger": "Identical six-phase Barker orbit and uniqueness"
+        },
+        {
+          "assessment": "Figure 1 lists n=6 E=5.000, alphabet 6; no explicit Hessian or exact characteristic polynomial.",
+          "evidence": "Base energy definition and Figure 1 statistics; optimization searches local minima.",
+          "identifier_or_url": "doi:10.1109/TIT.2004.842778",
+          "material_read": "Full 5-page publicly accessible PDF, §§I–VI, Figure 1 and algorithms",
+          "method": "Author-hosted publisher article PDF with rendered table",
+          "title": "Polyphase sequences with low autocorrelation",
+          "trigger": "Same base-energy objective and six-element polyphase candidate"
+        },
+        {
+          "assessment": "Different three-term max-modulus objective, not six-term phase-autocorrelation 4th moment.",
+          "evidence": "Title and stated trigonometric trinomial setting.",
+          "identifier_or_url": "arXiv:math/0703236",
+          "material_read": "Bibliographic abstract/scope, not a full text review",
+          "method": "Primary bibliographic comparison only",
+          "title": "The maximum modulus of a trigonometric trinomial",
+          "trigger": "Potential Fourier-variation alias"
+        },
+        {
+          "assessment": "Positively implies E=5 is global minimum, not Hessian eigendata; no whole-document absence claim.",
+          "evidence": "Result summary explicitly says E≥5, equivalent 4th norm≥46.",
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-exact-length-six-polyphase-base-energy-minimum--b03150b9996c",
+          "material_read": "Published Resultary title/summary identifying exact E≥5 for every six-term sequence",
+          "method": "Resultary semantic search, abstract/summary only",
+          "title": "Exact length-six polyphase base-energy minimum",
+          "trigger": "More powerful same n=6 global result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "doi:10.1109/18.57221",
+        "doi:10.1109/TIT.2004.842778"
+      ],
+      "rationale": "The canonical generalized Barker six-sequence is a natural polyphase design and base-energy benchmark. The exact four positive transverse eigenvalues rigorously measure phase stability and condition number of this known optimum modulo the unavoidable two symmetries; they distinguish a nondegenerate minimum from a merely flat global minimizer. This is a motivated local-stability invariant, not a replacement for or novelty claim about the already-known global energy 5.",
+      "residual_risks": [
+        "Spectrum is local and Euclidean phase-metric dependent; not a bound for arbitrarily large phase changes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No proof claimed of global optimum E=5; the global minimum is separately published and its proof not reconstructed in this record.",
+    "Gradient and Hessian exact arithmetic reproduced independently, without executing opaque package code."
+  ],
+  "schema_version": 1
+}

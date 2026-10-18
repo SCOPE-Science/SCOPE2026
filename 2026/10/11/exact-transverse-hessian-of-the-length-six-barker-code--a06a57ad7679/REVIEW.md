@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact aperiodic-correlation definition, differentiates \(|C_k|^2\) explicitly, and evaluates the resulting formulas at the sextic Barker point. The five sidelobes all have exact modulus one. The gradient vanishes exactly. The Hessian is reconstructed entry by entry in \(\mathbb Z[\zeta]\), and its exact characteristic polynomial is \(\lambda^2(\lambda-1)(\lambda-5)(\lambda-9)(\lambda-21)\). The two zero modes are precisely the common-phase and linear-phase directions, so the standard transverse second-derivative test proves strict local minimality modulo those symmetries. Parseval gives the equivalent fourth-moment statement.
+## correctness
 
-## Originality
-PASS. The closest primary comparison, Zhang–Golomb, classifies length-six generalized Barker sequences under the peak constraint \(|C_k|\le1\); it does not study the base-energy Hessian or second variation. Borwein–Ferguson explicitly optimize base energy and report the length-six value \(5.000\), but their treatment is algorithmic/statistical and gives no exact Hessian spectrum. Neuwirth studies phase-sensitive Fourier extremals for trigonometric trinomials in a different norm. Searches using Barker, integrated-sidelobe, Hessian, second-variation, fourth-moment, and local-stability aliases did not produce an implication-equivalent result.
+PASS
 
-## Value
-PASS. The length-six generalized Barker sequence is the first missing binary Barker length and is a canonical polyphase benchmark. The exact transverse spectrum gives a rigorous local stability certificate for the integrated sidelobe objective and quantifies its four nontrivial phase stiffness modes. This directly connects the classical peak-sidelobe uniqueness theorem with the local geometry of the base-energy/fourth-moment optimization landscape.
+Directly reconstruct E=sum_{k=1}^5|sum_{j=0}^{5-k}exp(i(theta_{j+k}-theta_j))|² and its derivatives. For each lag C, A=sum u_j(e_{j+k}-e_j), B=sum u_j d_j d_j^T, gradient=2Re(i A conjugate C) and Hessian=2Re(-conjugate C B + A conjugate A^T). Independent fresh symbolic computation from ζ=e^{iπ/3} and phase exponents (0,0,1,3,0,4) recovered all five sidelobe unit norms, E=5, exactly zero gradient, the stated 6x6 integer H and exact characteristic polynomial λ²(λ−1)(λ−5)(λ−9)(λ−21). The common-phase and linear-phase zero vectors span the nullspace; positive other four eigenvalues give strict local minimum on the normal slice modulo symmetries. Parseval gives ||P||_4^4=36+2E and doubled Hessian spectrum. This is local; global value 5 is not inferred here.
 
-The theorem is deliberately local; it does not claim global base-energy optimality.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Primary classification gives length-six Barker uniqueness subject to peak sidelobes; base-energy article provides numerical optimum 5.000 and local optimization machinery; later published Resultary record establishes stronger global base-energy minimum E≥5. These prior statements give the stationary value and global minimality, but do not logically fix second-order nondegeneracy or the exact transverse spectrum {1,5,9,21}. Distinct Hessian calculation supplies original local stiffness data.
+
+## value
+
+PASS
+
+The canonical generalized Barker six-sequence is a natural polyphase design and base-energy benchmark. The exact four positive transverse eigenvalues rigorously measure phase stability and condition number of this known optimum modulo the unavoidable two symmetries; they distinguish a nondegenerate minimum from a merely flat global minimizer. This is a motivated local-stability invariant, not a replacement for or novelty claim about the already-known global energy 5.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

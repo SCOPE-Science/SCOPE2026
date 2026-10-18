@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-The verification target is the aperiodic base energy
-\[
-E(\theta)=\sum_{k=1}^{5}\left|\sum_{j=0}^{5-k}e^{i(\theta_{j+k}-\theta_j)}\right|^2
-\]
-at \(\theta_*=(0,0,\pi/3,\pi,0,4\pi/3)\).
+# Independent mathematical audit
 
-`verify.py` uses only the Python standard library and exact arithmetic. It represents \(\mathbb Z[\zeta]\), where \(\zeta=e^{i\pi/3}\) and \(\zeta^2-\zeta+1=0\), as pairs \(a+b\zeta\). It checks that every nonzero aperiodic sidelobe has squared modulus \(1\), so \(E(\theta_*)=5\). It then evaluates the exact differentiated formulas for the gradient and Hessian, recovering
-\[
-\begin{pmatrix}
-4&-6&-1&2&3&-2\\
--6&10&0&-3&-4&3\\
--1&0&4&-2&-3&2\\
-2&-3&-2&4&0&-1\\
-3&-4&-3&0&10&-6\\
--2&3&2&-1&-6&4
-\end{pmatrix}.
-\]
-It verifies that the common-phase and linear-phase vectors span a two-dimensional kernel. Finally it expands \(\det(\lambda I-H)\) by an exact permutation determinant and checks
-\[
-\det(\lambda I-H)=\lambda^2(\lambda-1)(\lambda-5)(\lambda-9)(\lambda-21).
-\]
+## correctness
 
-No random search, floating-point eigenvalue computation, or finite sampling is used as proof. The local-minimum conclusion is analytic: the functional is smooth, invariant along the two kernel directions, and has positive-definite Hessian on their orthogonal complement. The verification does not address global optimality among all phase vectors.
+PASS
+
+Directly reconstruct E=sum_{k=1}^5|sum_{j=0}^{5-k}exp(i(theta_{j+k}-theta_j))|² and its derivatives. For each lag C, A=sum u_j(e_{j+k}-e_j), B=sum u_j d_j d_j^T, gradient=2Re(i A conjugate C) and Hessian=2Re(-conjugate C B + A conjugate A^T). Independent fresh symbolic computation from ζ=e^{iπ/3} and phase exponents (0,0,1,3,0,4) recovered all five sidelobe unit norms, E=5, exactly zero gradient, the stated 6x6 integer H and exact characteristic polynomial λ²(λ−1)(λ−5)(λ−9)(λ−21). The common-phase and linear-phase zero vectors span the nullspace; positive other four eigenvalues give strict local minimum on the normal slice modulo symmetries. Parseval gives ||P||_4^4=36+2E and doubled Hessian spectrum. This is local; global value 5 is not inferred here.
+
+## originality
+
+PASS
+
+Primary classification gives length-six Barker uniqueness subject to peak sidelobes; base-energy article provides numerical optimum 5.000 and local optimization machinery; later published Resultary record establishes stronger global base-energy minimum E≥5. These prior statements give the stationary value and global minimality, but do not logically fix second-order nondegeneracy or the exact transverse spectrum {1,5,9,21}. Distinct Hessian calculation supplies original local stiffness data.
+
+## value
+
+PASS
+
+The canonical generalized Barker six-sequence is a natural polyphase design and base-energy benchmark. The exact four positive transverse eigenvalues rigorously measure phase stability and condition number of this known optimum modulo the unavoidable two symmetries; they distinguish a nondegenerate minimum from a merely flat global minimizer. This is a motivated local-stability invariant, not a replacement for or novelty claim about the already-known global energy 5.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
