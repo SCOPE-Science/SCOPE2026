@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:07:50.996839Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 0a02b8c01f0a0d82d13e8079e09301506433a8d8",
+        "Assigned verify.py blob d349f43dcc95a578baea92402b980317b594df74",
+        "Jiao–Huang DOI:10.3934/math.2020431 full primary deterministic system, H1-H2 and Theorem2.3",
+        "Hou–Lan–Yuan–Zhang DOI:10.3934/mbe.2022195 follow-up model",
+        "Independent symbolic ratio and critical numerical replay"
+      ],
+      "rationale": "At R0=1 the source equilibrium condition f(N*)=c and invariant bound N<=N* imply I’=[f(N)-f(N*)−β(N)(I+H+R)]I <=−β* I², β*=β(N*)>0. This gives I->0 for I0>0; H,R,z=N*−N obey stable linear forced equations, hence decay to 0 and yield Lyapunov stability. Since I’/I->0, stable ratio equations H/I->h=δ/(m+μ+μ2), R/I->r=(γ+m h)/μ, z/I->d=(μ1+μ2h)/μ. Then differentiability at N*, f’≥0 and β(N)->β* give −I’/I²->K=β*(1+h+r)+d f’(N*)>0; integrating (1/I)’ gives tI->1/K, and t(H,R,z)->(h,r,d)/K. Integrating I∼1/(Kt) yields log t cumulative infection and confirmation flows. Boundary I0=0 is invariant with exponential stable subsystem and not included in nonzero tails. The bundled Jacobian/ratio checker and independent critical nonconstant-beta ODE replay corroborate identities but do not prove infinite-time asymptotics; the exact comparison/ratio proof does.",
+      "residual_risks": [
+        "The proof depends on the source invariant set N<=A/μ and differentiability of f(N) at equilibrium; without these, the comparison and coefficient are not established.",
+        "The theorem is deterministic, not a result for stochastic critical extinction or finite-time observations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiao–Huang Theorem2.3 requires R0<1 and does not treat critical equality or derive an inverse-time coefficient.",
+          "Zhang–Ma 2003 proves equality-case disease-free stability for a *different* SEIR system, not the printed SIHR hospital/population-loss model."
+        ],
+        "reasoning": "A general epidemic global threshold or center-manifold theorem may suggest the method, but it does not mechanically give this globally valid source-specific K and full state-vector profile.",
+        "searches": [
+          "Jiao–Huang DOI 10.3934/math.2020431 full text Theorem2.3 and appendix",
+          "Hou–Lan–Yuan–Zhang DOI 10.3934/mbe.2022195",
+          "Zhang–Ma DOI 10.1016/S0025-5564(03)00087-7 earlier SEIR threshold"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2020431",
+        "DOI:10.3934/mbe.2022195",
+        "DOI:10.1016/S0025-5564(03)00087-7",
+        "Resultary 2026/10/11/SCOPE-universal-extinction-crossover-at-the-pitchfork-edge-of-a-nonlin--c1921b9ff104",
+        "Resultary 2026/10/4/SCOPE-critical-date-palm-mite-extinction-is-globally-stable-with-a-uni--ba3881dcd4ec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source provides the invariant region N<=N* and monotonic contact hypotheses, together with strict R0<1 disease-free stability.",
+          "The 2003 SEIR theorem covers the equality stability idea for a different model, but its stated result does not entail the SIHR tI->1/K coefficient."
+        ],
+        "reasoning": "The new claim follows by using existing model/invariance ingredients plus a new sharp critical comparison/ratio argument, not by mere substitution of R0=1 into a strict inequality theorem.",
+        "searches": [
+          "Jiao–Huang DOI:10.3934/math.2020431 Theorems2.1–2.4",
+          "Hou et al DOI:10.3934/mbe.2022195 deterministic threshold summary",
+          "Zhang–Ma 2003 R0<=1 SEIR theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact coefficient K=β(N*)(1+h+r)+((μ1+μ2h)/μ) f’(N*) is specific to the hospital and population-dependent β equations.",
+          "Resultary indexed t^−1 critical laws in unrelated SIRS, bullying, mite and other epidemic systems, with different transition structures/coefficient."
+        ],
+        "reasoning": "Generic transcritical 1/t center-manifold asymptotics are not equivalent to a proven global-attractor statement and this explicit multi-compartment SIHR K; the exact model equations matter.",
+        "searches": [
+          "Resultary query: SIHR epidemic population dependent contact rate critical threshold R0 equals 1 algebraic decay inverse time",
+          "Web Jiao Huang population size dependent SIHR R0=1 center manifold decay 1/t critical coefficient",
+          "critical SIS SIHR endemic threshold polynomial center manifold asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The semantic index has several unrelated epidemic 1/t coefficients but no exact Jiao–Huang critical coefficient or table.",
+          "The source paper tabulates R0 and strict-threshold stability, not critical tail constants."
+        ],
+        "reasoning": "No exact database can replace the differential-equation argument; no same-equation coefficient was located. Similar power laws across different infection models are not same-model coverage.",
+        "searches": [
+          "Resultary query: SIHR epidemic population dependent contact rate critical threshold R0 equals 1 algebraic decay inverse time",
+          "Web queries exact β*(1+h+r)+d f-prime SIHR relaxation K",
+          "Resultary critical noncompliance 1/t and SIRS profile findings"
+        ]
+      },
+      "rationale": "Jiao–Huang prove global disease-free stability strictly for R0<1, and their 2022 stochastic follow-up repeats the deterministic threshold gap. Other epidemic models had R0<=1 global stability and algebraic critical tails, so neither equality stability in general nor t^−1 by itself is novel. The source-specific exact coefficient K coupling hospitalization, recovery, demographic depletion and contact-law slope, the scaled vector and logarithmic cumulative case are not supplied by these earlier theorems. This is a meaningful new boundary regime for the printed population-dependent SIHR model.",
+      "residual_risks": [
+        "A general positive-system critical relaxation theorem might imply an algebraic rate abstractly; the exact K and global trajectory vector still need actual self-review.",
+        "Only abstract-level reading of the older Zhang–Ma 2003 different-model paper, so a relevant comparison risk remains."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_STRICT_THRESHOLD_ONLY",
+          "evidence": "Theorem 2.3 proves global disease-free attraction only when R0<1 using strict negative bound; no critical 1/t limit or K appears in the inspected theorem/proof.",
+          "identifier_or_url": "DOI:10.3934/math.2020431",
+          "material_read": "Full accessible primary text including H1-H2, equations (1.1)/(2.2), invariant region (2.3), reproduction number (2.4), disease-free Theorem2.3 and appendix proof",
+          "method": "Primary full-text theorem and hypotheses comparison",
+          "title": "An SIHR epidemic model of the COVID-19 with general population-size dependent contact rate",
+          "trigger": "Exact same model and possible boundary case in appendix"
+        },
+        {
+          "assessment": "FOLLOWUP_STOCHASTIC_NOT_DETERMINISTIC_SHARP_K",
+          "evidence": "The follow-up describes deterministic R0<1/R0>1 regimes and studies stochastic thresholds; no exact deterministic R0=1 scaled profile in inspected material.",
+          "identifier_or_url": "DOI:10.3934/mbe.2022195",
+          "material_read": "Accessible deterministic model reproduction and threshold summary plus stochastic paper scope",
+          "method": "Primary model-and-summary examination",
+          "title": "Threshold dynamics of a stochastic SIHR epidemic model of COVID-19 with general population-size dependent contact rate",
+          "trigger": "Same deterministic transition model reused and possible stronger critical theorem"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_MODEL_ACCESS_RISK",
+          "evidence": "Older SEIR model already covers equality-case global stability in different equations, but accessible material does not supply hospital/population-dependent SIHR coefficient.",
+          "identifier_or_url": "DOI:10.1016/S0025-5564(03)00087-7",
+          "material_read": "Indexed abstract stating global disease-free stability at R0<=1 for an SEIR model; full paper inaccessible in this run",
+          "method": "Abstract-level comparison only; do not claim full-text noncoverage",
+          "title": "Global dynamics of an SEIR epidemic model with saturating contact rate",
+          "trigger": "Earlier equality-case global result could cover contribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Jiao–Huang 2020 exact model and strict threshold",
+        "Hou–Lan–Yuan–Zhang 2022 stochastic follow-up"
+      ],
+      "rationale": "Critical slowing at the epidemic threshold is mathematically and epidemiologically meaningful because disease-free global attraction coexists with an O(1/t) infection/hospitalization tail and logarithmically divergent cumulative flow. The explicit positive coefficient K encodes the source model’s independent hospitalization, recovery, demographic mortality and population-sensitive contact slope. This is not an arbitrary parameter slice: R0=1 is the natural omitted equality boundary of the source’s strict-threshold theorem, and the proven global profile is stronger than a qualitative transcritical heuristic.",
+      "residual_risks": [
+        "No stochastic critical limit or empirical parameter refit, and log cumulative case applies only to positive initial infection."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Deterministic system restricted to the source invariant region N<=Nstar, beta>0 beta nonincreasing, N beta nondecreasing and differentiable at Nstar.",
+    "Nonzero 1/t limits require I(0)>0; I(0)=0 gives identically zero infection.",
+    "Comparison of older SEIR 2003 is abstract-only and a genuine residual originality risk."
+  ],
+  "schema_version": 1
+}

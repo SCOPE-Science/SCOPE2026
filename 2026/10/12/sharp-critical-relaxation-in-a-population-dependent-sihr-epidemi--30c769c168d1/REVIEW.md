@@ -1,27 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. At \(\mathcal R_0=1\), the exact source equations imply
-\[
-I'\le-\beta_\star I^2.
-\]
-This proves extinction and an \(O(t^{-1})\) bound. The hospitalized, recovered, and population-deficit variables are stable linear filters of infection, giving the explicit ratio limits. Substitution into the exact infected equation then gives
-\[
-\frac{I'}{I^2}\to-K,
-\]
-which proves the full critical profile and logarithmic cumulative-flow laws.
+PASS
 
-## Originality
+At R0=1 the source equilibrium condition f(N*)=c and invariant bound N<=N* imply I’=[f(N)-f(N*)−β(N)(I+H+R)]I <=−β* I², β*=β(N*)>0. This gives I->0 for I0>0; H,R,z=N*−N obey stable linear forced equations, hence decay to 0 and yield Lyapunov stability. Since I’/I->0, stable ratio equations H/I->h=δ/(m+μ+μ2), R/I->r=(γ+m h)/μ, z/I->d=(μ1+μ2h)/μ. Then differentiability at N*, f’≥0 and β(N)->β* give −I’/I²->K=β*(1+h+r)+d f’(N*)>0; integrating (1/I)’ gives tI->1/K, and t(H,R,z)->(h,r,d)/K. Integrating I∼1/(Kt) yields log t cumulative infection and confirmation flows. Boundary I0=0 is invariant with exponential stable subsystem and not included in nonzero tails. The bundled Jacobian/ratio checker and independent critical nonconstant-beta ODE replay corroborate identities but do not prove infinite-time asymptotics; the exact comparison/ratio proof does.
 
-PASS. The source and its 2022 follow-up use strict deterministic threshold statements. Older SEIR work already includes equality-case global disease-free stability in a different model, so closed-threshold stability is not claimed as new. The accepted contribution is the source-specific SIHR critical coefficient, scaled state vector, and logarithmic cumulative-burden law.
+## originality
 
-## Value
+PASS
 
-PASS. The result quantifies critical slowing exactly at the eradication/endemic transition. It shows that vanishing prevalence can coexist with a long \(t^{-1}\) hospital/infection tail and logarithmically growing cumulative flow in the demographic model.
+Jiao–Huang prove global disease-free stability strictly for R0<1, and their 2022 stochastic follow-up repeats the deterministic threshold gap. Other epidemic models had R0<=1 global stability and algebraic critical tails, so neither equality stability in general nor t^−1 by itself is novel. The source-specific exact coefficient K coupling hospitalization, recovery, demographic depletion and contact-law slope, the scaled vector and logarithmic cumulative case are not supplied by these earlier theorems. This is a meaningful new boundary regime for the printed population-dependent SIHR model.
 
-## Closest literature and limitations
+## value
 
-Zhang and Ma's 2003 SEIR result states disease-free global stability for \(\mathcal R_0\le1\), so the equality stability statement is prior in another model. Its indexed abstract does not expose the SIHR-specific critical coefficient; inaccessible full text remains a residual risk. The theorem here is deterministic and assumes positive initial infection for the nonzero \(t^{-1}\) profile.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Critical slowing at the epidemic threshold is mathematically and epidemiologically meaningful because disease-free global attraction coexists with an O(1/t) infection/hospitalization tail and logarithmically divergent cumulative flow. The explicit positive coefficient K encodes the source model’s independent hospitalization, recovery, demographic mortality and population-sensitive contact slope. This is not an arbitrary parameter slice: R0=1 is the natural omitted equality boundary of the source’s strict-threshold theorem, and the proven global profile is stronger than a qualitative transcritical heuristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
