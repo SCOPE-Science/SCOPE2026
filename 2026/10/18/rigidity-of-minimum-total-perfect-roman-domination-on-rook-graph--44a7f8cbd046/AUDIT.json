@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact-zero and positive-support constraints are applied with correct quantifiers. The disjoint mandatory-one regions yield inequality (1); optimizing it over s=max(r,c), t=min(r,c) rules out k<m for m>=4. Width-three and width-two exceptions are checked separately with the extra support constraints; k>=m forces exactly m twos and gives only a full column or, on squares, a row. The k=0 all-one case is included. Executed standalone brute and bounded exact subset enumeration reproduce all optimal counts on thirteen test boards; finite tests are checks, while the general argument proves the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Almulhim 2023 proves complete multipartite numerical results, Proposition 2, and general upper bounds; the Cartesian rook graphs are generally not complete multipartite.",
+        "Almulhim et al. 2022 Theorem 1 concerns perfect Roman domination on path/cycle grids, not the simultaneous total and perfect conditions on K_m square K_n."
+      ],
+      "reasoning": "Checked strongest nearby general results for domination variants and product graphs. The complete-multipartite Proposition 2 covers the four-cycle's minimum value but not its 13 minimum functions and does not cover higher rook graphs. A bound for the weaker perfect Roman parameter cannot imply the TPR minimizer classification.",
+      "searches": [
+        "The total perfect Roman domination number of Cartesian products of complete graphs K_m square K_n is 2 min(m,n), with unique minimum functions columns and rows",
+        "\"total perfect Roman domination\" \"Cartesian product\" \"complete graphs\"",
+        "\"total perfect Roman domination\" \"Hamming graph\"",
+        "\"total perfect Roman\" \"K2 square Kn\""
+      ]
+    },
+    "checked_sources": [
+      "A. Almulhim, Total Perfect Roman Domination, Symmetry 15 (2023), 1676, doi:10.3390/sym15091676",
+      "Almulhim, Akwu, Al Subaiei, The Perfect Roman Domination Number of the Cartesian Product of Some Graphs, Journal of Mathematics (2022), doi:10.1155/2022/1957027",
+      "Almulhim, Al Subaiei, Mondal, Survey on Roman {2}-Domination, Mathematics 12 (2024) 2771; DOI 10.3390/math12172771",
+      "Indexed mathematical record: Roman {3}-domination of complete prisms",
+      "Indexed mathematical record: Perfect Roman domination polynomial of complete multipartite graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2023 paper gives a total perfect Roman minimum of 4 on K_{2,2}, an already-known numeric special case; no optimal-function counting there.",
+        "2022 paper provides an upper bound for *perfect* Roman domination on path/cycle Cartesian grids, neither the asserted graph family nor the stronger feasibility conditions.",
+        "published-finding corpus's complete-prism Roman {3} record is a different labeling problem, so its optimum and optimizer count do not imply this theorem."
+      ],
+      "reasoning": "Compared actual hypotheses and conclusions rather than title similarity. The one numerical four-cycle consequence is already covered, but neither it nor a different domination variant yields the all-parameter exact labeled optimizer rigidity or the exceptional nine extra functions.",
+      "searches": [
+        "The total perfect Roman domination number of Cartesian products of complete graphs K_m square K_n is 2 min(m,n), with unique minimum functions columns and rows",
+        "total perfect Roman domination rook graph optimal labelings 2m entire column or row",
+        "doi:10.3390/sym15091676 Proposition 2",
+        "doi:10.1155/2022/1957027 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rook graph also equals the Hamming graph with two complete-graph coordinates; the nearest published-finding corpus hits concern different Roman variants or graph classes.",
+        "Almulhim 2023 Definition 1 explicitly requires exactly one neighbor labeled two for zeros, plus positive-induced no isolates; both conditions were used in the proof."
+      ],
+      "reasoning": "Checked total-perfect-Roman, Hamming/rook, and Cartesian-product aliases. Perfect Roman and ordinary total Roman impose fewer conditions; numeric values from those invariants alone cannot classify TPR minima. No retrieved indexed record stated or implied the two-parameter rigidity and count.",
+      "searches": [
+        "The total perfect Roman domination number of Cartesian products of complete graphs K_m square K_n is 2 min(m,n), with unique minimum functions columns and rows",
+        "total perfect Roman domination rook graph optimal labelings 2m entire column or row",
+        "total perfect Roman domination of rook graphs Hamming graph H(2,q) Cartesian complete graph product exact optimal functions",
+        "\"total perfect Roman domination\" \"Cartesian product\" \"complete graphs\"",
+        "\"total perfect Roman\" \"rook graphs\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary 2023 paper has no rook-graph tables or optimizer counts; its complete multipartite table/formula contains K_{2,2}=C4 only at the numerical level.",
+        "published-finding corpus's closest results included different Roman parameters and graph families, with no retrieved exact rook TPR table."
+      ],
+      "reasoning": "The newly counted labeled minima are n for rectangles, 2m for squares of order at least 3, and 13 on the four-cycle. The search uncovered no exact database or table containing this count sequence. This is a bounded search conclusion, not a uniqueness certificate.",
+      "searches": [
+        "The total perfect Roman domination number of Cartesian products of complete graphs K_m square K_n is 2 min(m,n), with unique minimum functions columns and rows",
+        "\"total perfect Roman domination\" \"rook graph\" K_m",
+        "\"total perfect Roman\" \"rook graphs\"",
+        "\"total perfect Roman domination\" \"minimum functions\" counting"
+      ]
+    },
+    "rationale": "The full primary 2023 article defines the parameter and covers complete multipartite graphs only; its C4 numerical value is prior-covered but it does not classify minimum functions. The accessible 2022 Cartesian-product article treats the weaker perfect Roman variant on path/cycle factors. published-finding corpus comparisons with related Roman-parameter exact enumerators gave no implication to the simultaneous exact-one-and-total constraints on rook graphs. No reviewed source entails the all-parameter optimizer count. Risk: unindexed equivalent work may exist; novelty is best-knowledge, not absolute.",
+    "residual_risks": [
+      "An unindexed thesis, preprint or publication may already have this exact TPR rook classification.",
+      "published-finding corpus returned intermittent internal errors for some additional alias queries; the successful full ranked query was compared, while failed queries were not treated as negative evidence.",
+      "Published results for the weaker perfect Roman and ordinary total Roman variants may contain unused reductions that were not found in the accessible searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_COVER claimed rook Cartesian product and full optimizer counts; DOES_COVER C4 numerical value",
+        "evidence": "Symmetry 15 (2023), 1676, pages 1-4, Definition 1 and Proposition 2",
+        "identifier_or_url": "https://pdfs.semanticscholar.org/df1f/c7e883486c82017aff34cacb2c5955260645.pdf",
+        "material_read": "Abstract, Definitions 1, Proposition 2 and proof on pp. 1-4; section headings and conclusions; document text searched for rook, Cartesian and product, plus page screenshots 1 and 3",
+        "method": "Lawful open-access full PDF, inspected parsed text and page images",
+        "title": "Total Perfect Roman Domination",
+        "trigger": "Foundational source defining the exact invariant and giving multipartite bounds that include the four-cycle"
+      },
+      {
+        "assessment": "DOES_NOT_COVER: omits the total-positive-support condition, and factors are paths or cycles",
+        "evidence": "Journal of Mathematics 2022, Article 1957027, Theorem 1 and Conclusions",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2022/1957027",
+        "material_read": "HTML article Introduction, main theorem/discussion and Conclusions",
+        "method": "Open-access publisher full-text HTML",
+        "title": "The Perfect Roman Domination Number of the Cartesian Product of Some Graphs",
+        "trigger": "Similar Roman invariant studied on Cartesian graph products"
+      },
+      {
+        "assessment": "Related but not covering: Roman {2} and its variants have different zero-neighbor constraints",
+        "evidence": "Mathematics 12 (2024), 2771, MSC 05C69 and Section 4",
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/12/17/2771",
+        "material_read": "Abstract, reported MSC and variant definitions in Section 4",
+        "method": "Open-access indexed HTML search rendering",
+        "title": "Survey on Roman {2}-Domination",
+        "trigger": "Check MSC classification and related Roman variants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "44a7f8cb-d046-4104-bf8d-fa6719df5bbd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines not merely the minimum weight but *every optimizer* for the natural infinite two-parameter family of rook/Hamming graphs for a recently introduced domination condition. The proof uncovers rigidity to a single complete fiber, the square-board symmetry transition and exceptional nine additional C4 labelings. The optimizer multiplicities n, 2m and 13 do not follow from the numerical result alone, and the forced-row/column cross argument is a reusable structural method. Graph-product extremizers are a motivated exact-enumeration question.",
+    "status": "PASS"
+  }
+}
