@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is an exhaustive partition by the two spine labels. In the no-spine-\(2\) regime, the six allowed page-label pairs give the marked polynomial \(P(x;y,z)\), and the only cross-page obligations are the requirements that a zero-labeled spine vertex see an incident page vertex labeled \(2\). Inclusion-exclusion handles those obligations exactly. With exactly one spine label \(2\), each page has the seven stated feasible label pairs and no global condition; with both spine labels \(2\), every page labeling is feasible. The packaged verifier directly checks every labeling for \(1\le n\le5\) and matches all coefficients, minima, multiplicities, and total counts.
+## correctness
 
-## Originality
-PASS. The closest same-object primary source is the 2011 Cartesian-product paper, which implies the scalar minimum \(\gamma_R(B_n)=4\) for \(n\ge2\) but does not count Roman dominating functions by weight. The 2021 paper defining the Roman domination polynomial was inspected in full around its graph-family results; it treats complete graphs, stars, wheels, complete bipartite graphs, certain firefly graphs, joins, and a corona construction, with no “book” or “Cartesian” occurrence. Semantic database searches under book, square-book, star-prism, product, and polynomial aliases returned no statement implying the retained all-weight formula. The scalar minimum is explicitly excluded from the novelty claim.
+PASS
 
-## Value
-PASS. The all-weight polynomial is a natural refinement of a known product-graph minimum: it determines every weight multiplicity, the exact total number of Roman dominating functions, and the transition in the number of minimum functions from five at two pages to uniqueness from three pages onward. The factorization also identifies the exact structural source of the enumeration—page independence conditioned on the spine—rather than giving an isolated numerical table.
+The ordered spine-label pair splits Roman functions into disjoint cases. With neither spine labeled 2, the six allowed labels of an individual page have generating function A=x^2(x^2+2x+3), with exclusions A0=x^2(x+2) for missing left/right defenders; inclusion-exclusion enforces defense of spine 0s. With one spine=2 the seven page labels give B=x+3x^2+2x^3+x^4. With both spine=2 page labels are free. The resulting identity is valid for all n>=1 and yields total 4*6^n-4*3^n+1+4*7^n+9^n and minimum multiplicities 4 (n1), 5 (n2), 1 (n>=3). Independent all-label enumeration confirms complete coefficient lists for n=1,2,3,4.
 
-## Closest literature and limitations
-The strongest prior implication is the 2011 Cartesian-product result giving the minimum Roman weight for the same square-book family. The 2021 polynomial paper supplies the invariant and several neighboring closed forms but not the square-book family. Residual risk remains for differently indexed literature because “book graph” is not a uniform graph-family name. The theorem does not extend to triangular books or to other Roman variants.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest actual same-object product result of Yero and Rodriguez-Velazquez (2011) supplies gamma_R(P_2 Cartesian S_{1,r})=4 for r>=2 but no coefficientwise count. The primary 2021 paper defines R(G;x) and treats other families including joins and a corona, but square book is a Cartesian product and its complete polynomial is not given by those formulas. Indexed Resultary book result concerns power domination, a different invariant. Best-of-knowledge novel complete distribution.
+
+## value
+
+PASS
+
+The square book K_{1,n} Cartesian P_2 is a standard family with a known scalar optimum but an uncounted full Roman weight distribution. The exact polynomial, total count and sharp change in number of optimal labelings at 1,2,3 pages are natural reusable enumerative data; conditioning on the spine gives a meaningful structural method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
