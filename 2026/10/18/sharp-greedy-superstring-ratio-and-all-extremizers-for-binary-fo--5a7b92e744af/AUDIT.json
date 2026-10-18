@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For distinct binary four-mers, endpoints determine every possible greedy overlap (length at most 3). The exact F recurrence minimizes savings over every maximizing ordered pair; the Held–Karp D recurrence computes the true shortest superstring. An integer-arithmetic C++17 exhaustive scan of all 65535 nonempty subsets gives sharp maximum 17/11 and four masks. A separate literal-string witness checker verifies each chosen merge is globally maximal and that the eight-word optimum is 11 by checking every 8! source ordering. Finite arguments prove only the specified finite domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.01365 gives failure of factor 2 for even input lengths at least ten over alphabets increasing with construction size.",
+        "The September 2026 four-mer study gives greater-than-15/8 unrestricted-alphabet lower bounds and quotes 2 as the known unrestricted upper bound, without a binary-domain classification."
+      ],
+      "reasoning": "A bound ρ4≤2 is weaker than binary exact 17/11. A construction with fresh letters at length four is not a binary four-mer instance; as alphabet grows, its lower bounds cannot imply our fixed-binary maximum or four extremizers.",
+      "searches": [
+        "web: \"greedy superstring binary alphabet length four k 4 exact approximation ratio\"",
+        "arxiv:2609.01365v1 (introduction and construction)",
+        "https://ideosphere.ai/papers/greedy-scs-v2.pdf (pp. 1–8, definitions, table and four-mer family)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.20018v1",
+      "arxiv:2609.01365v1",
+      "https://ideosphere.ai/papers/greedy-scs-v2.pdf",
+      "https://www.lirmm.fr/~rivals/publication/cazaux-dam-2018/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The global three-letter-word ratio 9/5 is for a different fixed length and unrestricted alphabet.",
+        "The published general-alphabet four-letter bounds 15/8 < ρ4 ≤ 2 do not determine ρ_{binary,4}.",
+        "The September length-four witness uses indexed fresh alphabet symbols and 10t distinct words, which cannot be embedded into a 16-word fixed-binary universe for unbounded t."
+      ],
+      "reasoning": "The exact 17/11 upper bound and unique reversal/complement orbit are strictly stronger than any applicable numerical bound examined, and are not corollaries of the known general-alphabet lower constructions.",
+      "searches": [
+        "arxiv:2608.20018v1 (Theorems 4.1, 5.1, sections 2, 5)",
+        "arxiv:2609.01365v1 (sections 1, 2 and length-ten construction)",
+        "https://ideosphere.ai/papers/greedy-scs-v2.pdf (pp. 2–8, Table 1 and Theorem 2)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No semantically matching mathematical research index title or statement returned by the searches; leading hits concerned unrelated exact substring or attractor data.",
+        "arXiv:2608.20018 derives unrestricted-alphabet length-three ratio 9/5; its stated four-mer ratios were not solved by that theorem."
+      ],
+      "reasoning": "The present quantity maximizes over the fixed 16-element binary four-mer universe and every ordered-pair tie, and classifies all maximizing subsets. A general bound or an example over a growing alphabet is not an equivalent exact binary result.",
+      "searches": [
+        "mathematical research index: \"binary 4-uniform shortest common superstring greedy worst case ratio 17/11 8 input words\"",
+        "mathematical research index: \"exact approximation ratio for maximum-overlap greedy superstring on distinct binary strings of length four exhaustive all 65535 subsets\"",
+        "web: \"binary greedy superstring length 4 exact worst approximation\"",
+        "arxiv:2608.20018v1 (sections 1, 2, 4, 5)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A prior published result establishes a separate binary length-three ratio 10/7 with four extremizers, not any statement about four-letter inputs.",
+        "No checked database hit provides 17/11 at q=2,k=4 or the four maximizing masks 1343,5431,60584,64672."
+      ],
+      "reasoning": "The earlier finite table enumerates only 255 subsets of 8 three-letter words. The current 16-word de Bruijn universe and 65535 subsets have different overlap structure; the previous value neither bounds nor calculates the new maximum.",
+      "searches": [
+        "mathematical research index: \"worst greedy superstring over alphabet two length four optimum eleven greedy seventeen\"",
+        "mathematical research index: \"fixed-alphabet Greedy superstring length-four finite exhaustive certification\"",
+        "accessible historical claims and source searches: \"superstring\", \"greedy\", \"2608.20018\", \"17/11\", \"binary\""
+      ]
+    },
+    "rationale": "The examined primary papers cover unrestricted-alphabet bounds for word lengths three, four, and at least ten, but none computes a fixed binary four-mer exact ratio or its complete maximizing orbit. Mathematical research-index searches and accessible historical source/claim/parameter comparisons found no covering equivalent; a distinct prior binary length-three census is non-implicative. Historical priority outside indexed and inspected records remains uncertain.",
+    "residual_risks": [
+      "An unindexed equivalent binary four-mer enumeration may exist.",
+      "The 2018 paper was assessed only through its official abstract; no full-text NOT_COVERING claim is made about it.",
+      "The finite exhaustive checker is not an independently audited external certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: global three-mer theorem and length-six lower construction; binary four-mer exact ratio and extremizers absent",
+        "evidence": [
+          "Definition of GREEDY and ratio in section 2",
+          "Theorem 4.1 and Theorem 5.1 give ρ3=9/5 for unrestricted alphabets",
+          "Section 3 gives ρk≥2 for k≥6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.20018",
+        "material_read": "Full-text HTML sections 1, 2, 3, 4, 5 and theorem statements, including formal overlap definition and trail-cover argument",
+        "method": "Read accessible arXiv HTML primary text and checked four-mer and binary terminology",
+        "title": "The Greedy Superstring Algorithm Achieves Ratio 2 for Strings of Length 6 Already",
+        "trigger": "Same greedy algorithm and closest 2026 fixed-length theory"
+      },
+      {
+        "assessment": "NOT_COVERING: lower construction applies to even word lengths at least ten and uses growing alphabets",
+        "evidence": [
+          "Theorem stated in introduction for even k≥10",
+          "Construction fixes alphabet with t private indexed symbols"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.01365",
+        "material_read": "Accessible primary full-text HTML introduction, preliminaries, Lemmas 1–3, and section-three construction and stated scope",
+        "method": "Read arXiv HTML text and examined parameter restrictions",
+        "title": "Disproving the Greedy Superstring Conjecture",
+        "trigger": "Strong published lower bound for the same greedy method"
+      },
+      {
+        "assessment": "NOT_COVERING: provides four-mer lower-bound examples using one fresh letter per block and discusses unrestricted ratio; no finite binary four-mer enumeration or 17/11 claim",
+        "evidence": [
+          "Table 1 on p. 4: 15/8 < ρ4 ≤ 2 over unrestricted alphabets",
+          "Section 3.2: ten 4-mers per block on alphabets containing private Xi"
+        ],
+        "identifier_or_url": "https://ideosphere.ai/papers/greedy-scs-v2.pdf",
+        "material_read": "Primary PDF pp. 1–8 including abstract, table, Theorem 2, model, letter-counting lemma and 4-mer block family; searchable full document checked for binary-specific language",
+        "method": "Inspected PDF extracted text and screenshots of pp. 4 and 6, and searched full text for binary/two-letter/alphabet-size restrictions",
+        "title": "The greedy superstring ratio at small string lengths",
+        "trigger": "Plausible covering four-mer source and strongest known unrestricted four-mer lower examples"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY: establishes broader approximate guarantees rather than inspected exact fixed-binary classification",
+        "evidence": [
+          "Official abstract discusses 3-SSP bound and strengthened greedy conjecture"
+        ],
+        "identifier_or_url": "https://www.lirmm.fr/~rivals/publication/cazaux-dam-2018/",
+        "material_read": "Public abstract and bibliographic summary only",
+        "method": "Read official publication listing abstract; no full-text exclusion asserted",
+        "title": "Relationship between superstring and compression measures: new insights on the greedy conjecture",
+        "trigger": "Foundational approximation bounds for greedy shortest superstrings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5a7b92e7-44af-4720-9e22-81856669021c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At fixed binary alphabet and word length four, this is a natural complete problem domain (all sixteen edges of the order-three binary de Bruijn graph and all 65535 input sets), not a selective example. The sharp approximation constant, complete four-extremizer orbit, and handling of every adversarial greedy tie give a reproducible benchmark that differs sharply from unrestricted-alphabet four-mer lower bounds and from the binary three-mer situation. No extension to arbitrary word length is claimed.",
+    "status": "PASS"
+  }
+}
