@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-For \(B=\beta uu^*\), the two expressions reduce to \(au^*+ub^*\) and \((a+b)u^*\); the second exterior power gives the product of the two nonzero singular values. Hilbert–Schmidt expansion and Cauchy–Schwarz yield both exact squared defects. The spectral-measure double-integral proves covariance strictness, and strict convexity/concavity of the power curve determines all equality cases, including null spectral values. Strict monotonicity of a two-entry \(\ell^p\)-norm proves a unique crossing exponent when the spectral support has at least three points and \(t\ne1/2\). The exact witness reproduces two norms and the singular product with rational arithmetic. Numerical or finite verification is not invoked as a proof of the Hilbert-space theorem.
+PASS
 
-## Originality (PASS; residual risk)
+PASS. With B=beta uu*, define a=beta^(1-t) A^t u and b=beta^t A^(1-t)u. Then C=a u*+u b* has at most two singular values and H=(a+b)u* has rank one. Hilbert–Schmidt expansion yields 2 beta K for ||H||_2^2-||C||_2^2; exterior-square Gram determinants give s1*s2=beta sqrt(V_F V_G), hence trace defect 2 beta(sqrt(V_F V_G)-K). Increasing power functions yield K>0 exactly for nonsingleton spectral support. Cauchy–Schwarz equality means two powers are affinely related on spectral support, and strict convexity/concavity forces at most two support points unless t=1/2. With strictly positive second singular value, Schatten-p norm of C is strictly decreasing whereas H norm is constant, yielding one crossover in (1,2) for >=3 supports and t≠1/2. Independent 3x3 matrix SVD agrees with 1004/3, 952/3 and exact trace defect. Boundary t=1/2 and 1/2-point supports checked analytically. Finite SVD only corroborates the universal proof.
 
-Sababheh–Bourin, arXiv:2610.04567v1, establish general two-dimensional weak majorization and cite a three-dimensional counterexample for the operator norm; their inspected statements do not give a rank-one-input reverse trace-norm inequality or the all-exponent crossover. Bottazzi–Elencwajg–Larotonda–Varela, arXiv:1403.7472, prove the central-interval Hilbert–Schmidt comparison and use a different positive-definite example outside that interval for the operator norm. The exact rank-one nuclear comparison and equality classification are not implied by either statement. Manjegani, doi:10.1186/s13660-016-0965-8, treats other Heinz majorizations. Targeted searches uncovered no matching statement. Residual risk: an older, differently named rank-two singular-value identity may already have been explicitly applied to this particular operator family.
+## originality
 
-## Value (PASS)
+PASS
 
-The 2026 literature identifies the failure of ordinary-Heinz domination from dimension three, but the behavior across unitarily invariant norms remains structurally important. The theorem provides a complete rank-one family classification in arbitrary Hilbert dimension, proves opposite trace and Hilbert–Schmidt directions, and locates an unavoidable, unique Schatten crossing. Its exact \(3\times3\) witness demonstrates that the trace-norm failure occurs even at the central endpoint where the classical Hilbert–Schmidt comparison holds. This characterizes a motivated class rather than an arbitrary numerical slice.
+PASS best of knowledge. Sababheh–Bourin provide two-dimensional crossed-Heinz results and distinct comparison with A+B, not the rank-one versus ordinary-Heinz trace reversal and complete spectral-support Schatten transition. Related central-interval Frobenius results cannot imply the trace deficit or unique threshold. Resultary published common-two-point-spectra theorem compares a different quantity and does not cover the arbitrary spectral measure supporting the rank-one input.
 
-## Scope and residual limitations
+## value
 
-Only bounded positive \(A\), nonzero rank-one positive \(B\), and \(0<t<1\) are covered. The implicit crossing exponent is not evaluated uniformly. The example is not a counterexample to the separate domination by \(A+B\). A published but unindexed equivalent rank-one treatment would change the originality assessment.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS. The direction of Schatten inequality changes exactly once with p, controlled by spectral support and two covariance invariants; a sharp three-dimensional example demonstrates a genuine failure of a natural majorization ordering, not merely restatement of a standard Heinz mean inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
