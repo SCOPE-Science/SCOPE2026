@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T06:13:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With [x,y]=z, every automorphism is (A,w), A in GL2(Fq), w a free central covector, acting by det(A) on z. Fixed vectors solve (A−I)v=0 and w(v)+(det A−1)t=0. For det A≠1 the fixed dimension equals dim ker(A−I); for determinant 1 it equals 1+dim(ker(A−I)∩ker w). The five GL2 strata (q(q+1)(q−2)^2, q(q+1)(q−2), q(q²−q−1), q²−1, 1) and central-covector incidences give exactly N0=q³(q+1)(q−2)², N1=q(2q⁴−q³−4q²−q+1), N2=(q²−1)(q+1), N3=1, valid q=2 and extensions. The polynomial sum equals q³(q−1)²(q+1), and weighted Burnside sum equals three times group order. Independent symbolic identities and q=2,3,4,5 numeric fibers checked; actual verify.py is rank-based exhaustive for q=2,3,4,5,7.",
+      "risk": [
+        "The independent numeric table checks formulas but does not independently enumerate all automorphisms; general proof is the five-stratum argument."
+      ],
+      "sources": [
+        "arXiv:1303.3376, Fisher–Gray–Hydon, page 8 automorphisms of A_{3,1}",
+        "assigned RESULT.md, verify.py",
+        "independent_audit1603_checks.py",
+        "Git immutable tree f9634f694c0a13a50f7211587fca174f0209ce7c"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aut(H3) cardinality q³(q−1)²(q+1) and transitivity on zero, nonzero center, noncentral elements are classical elementary consequences of the block automorphism group."
+        ],
+        "reasoning": "The stronger available combination of prior automorphism structure and known fixed-point-free count implies ALL coefficients: there is no additional independent invariant left to classify.",
+        "searches": [
+          "arXiv:1303.3376 A3,1 automorphism form",
+          "Resultary N0 published fiber and density",
+          "Burnside lemma"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1303.3376, Fisher–Gray–Hydon, page 8 automorphisms of A_{3,1}",
+        "Resultary 2026/10/4/SCOPE-exact-fixed-point-free-automorphism-count-for-the-three-dimensio--17f0de4cb789",
+        "J. Liu and Z. Tang, The automorphism groups of Heisenberg Lie (super)algebras, doi:10.13548/J.SXZZ.20170518.003 (bibliographic context)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published N0=q³(q+1)(q−2)² and N0/|Aut|=((q−2)/(q−1))² imply the classical |Aut|=q³(q−1)²(q+1). Classical block form yields exactly three automorphism orbits on elements: zero; all nonzero central vectors; all noncentral vectors. Only the identity fixes the whole 3-dimensional Lie algebra, hence N3=1.",
+          "Burnside and total count supply N1+N2=|Aut|−N0−1 and q*N1+q²*N2=3|Aut|−N0−q³. Solving forces N1=q(2q⁴−q³−4q²−q+1) and N2=(q²−1)(q+1), identical to every claimed additional coefficient."
+        ],
+        "reasoning": "No unknown invariant remains once these previously known or elementary structural facts are combined. The exact full spectrum is a direct algebraic corollary; numerical novelty of the missing displayed entries is insufficient to pass originality.",
+        "searches": [
+          "Resultary: 2026/10/4/SCOPE-exact-fixed-point-free-automorphism-count-for-the-three-dimensio--17f0de4cb789",
+          "arXiv:1303.3376 A3,1 automorphism form and order",
+          "Burnside fixed-point orbit count for H3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The previously published N0 and automorphism density determine G, while the classical action has three easily seen element orbits and a unique identity automorphism fixing every element."
+        ],
+        "reasoning": "Although the old record prints only N0, the full theta spectrum is mathematically equivalent to its N0 count in the presence of these already known group-action facts: total and Burnside moment equations uniquely solve for N1,N2. Absence of the tuple in a title is not novelty.",
+        "searches": [
+          "Resultary same-object N0 record 2026/10/4/SCOPE-exact-fixed-point-free-automorphism-count-for-the-three-dimensio--17f0de4cb789",
+          "arXiv:1303.3376 Heisenberg A3,1 automorphism group",
+          "Burnside fixed-set-size/theta-value formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary provides N0 and the density, and Fisher–Gray–Hydon gives the full automorphism form; no table printing the full tuple was located."
+        ],
+        "reasoning": "The absence of an exact four-number table cannot justify PASS when the complete tuple is an algebraic corollary of known data and Burnside. This named check is resolved as prior implication, not as a failed search.",
+        "searches": [
+          "Resultary semantic: finite Heisenberg Lie algebra automorphisms fixed point spectrum dimensions fixed subspaces count q three dim",
+          "arXiv:1303.3376 A3,1 matrix table"
+        ]
+      },
+      "rationale": "The published N0 fiber, classical automorphism-group order, identity-only N3=1, and immediate three-element-orbit Burnside identity already imply both remaining fibers through a two-by-two linear system. This is decisive prior mathematical implication even if no earlier paper prints the ordered four-tuple. A fresh independent proof of a consequence does not restore originality.",
+      "residual_risks": [
+        "A specialized finite-algebra fixed-point distribution might be indexed under theta values or class functions rather than Heisenberg Lie algebra terminology.",
+        "Remaining fibers are elementary from classical block form after specific finite-field stratification; do not overstate conceptual depth.",
+        "No dependence on inaccessible literature for this rejection; explicit prior N0 plus elementary Burnside equations suffice.",
+        "Source self-reviews were not used as independent originality proof; bounded current primary literature comparisons are recorded here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARAMETRIZATION_ONLY",
+          "evidence": "Page 8 gives matrix with 2×2 determinant on central line and free central shifts, over real Lie algebras; it does not tabulate finite-field fixed-space multiplicities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.3376",
+          "material_read": "Full open arXiv PDF, worked direct-sum Example on page 8 and classification table entry for A3,1, plus title and scope.",
+          "method": "Public arXiv full-text PDF; visual page inspection.",
+          "title": "Automorphisms of real Lie algebras of dimension five or less",
+          "trigger": "Exact H3/A3,1 automorphism matrices are the central prior structural input."
+        },
+        {
+          "assessment": "STRICT_SPECIAL_CASE",
+          "evidence": "Its stated N0=q³(q+1)(q−2)² coincides exactly, and must be credited as prior; summary offers no remaining fiber values.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-fixed-point-free-automorphism-count-for-the-three-dimensio--17f0de4cb789",
+          "material_read": "Published Resultary semantic title and full returned scientific summary (not full source manuscript).",
+          "method": "Resultary semantic lookup, limited to published summary.",
+          "title": "Exact fixed-point-free automorphism count for the three-dimensional Heisenberg Lie algebra",
+          "trigger": "Same algebra, same automorphism population and dimension-zero fixed-space coefficient."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "While the complete fixed-space distribution is natural, this specific purported advance follows from an existing zero-fiber count via two routine linear equations and immediate three-orbit partition. It has explanatory/educational use but supplies no independent substantive classification or difficult additional invariant beyond published coverage. Correctness, exhaustive checks, and restating the four coefficients do not establish standalone mathematical value.",
+      "risk": [
+        "The label failed reflects prior implication and lack of independent mathematical substance, not a false formula."
+      ],
+      "sources": [
+        "Resultary 2026/10/4/SCOPE-exact-fixed-point-free-automorphism-count-for-the-three-dimensio--17f0de4cb789",
+        "arXiv:1303.3376, Fisher–Gray–Hydon, page 8 automorphisms of A_{3,1}",
+        "Burnside lemma and elementary three-orbit action"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Finite Lie-algebra automorphisms only; all q prime powers, including q=2; no result for Heisenberg groups or higher rank.",
+    "The published fixed-point-free count is prior, not claimed new.",
+    "No Lean or external expert attestation; independent calculations are corroboration.",
+    "Scientific rejection: known zero-fiber plus classical order and Burnside three orbits determine all other fibers without a new structural lemma.",
+    "The reviewed Git source contains operational provenance in metadata; not_ready is a publication/transport state, not a scientific C/O/V failure."
+  ],
+  "schema_version": 1
+}
