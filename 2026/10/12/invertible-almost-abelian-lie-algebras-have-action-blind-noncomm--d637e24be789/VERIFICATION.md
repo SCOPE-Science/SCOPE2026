@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is symbolic.
 
-The packaged checker `artifacts/verify.py` constructs the algebras directly over
-\[
-\mathbf F_2,\quad\mathbf F_3,\quad\mathbf F_5
-\]
-for scalar, Jordan, and nonscalar diagonal invertible actions.
+# Independent mathematical audit
 
-It tests
-\[
-(q,n)=(2,1),(2,2),(2,3),(3,2),(5,2).
-\]
-For every pair of nonzero elements it computes the bracket and checks that adjacency is exactly inequality of the predicted multipartite labels. It verifies both degree formulas.
+## correctness
 
-For
-\[
-(q,n)=(2,2)
-\quad\text{and}\quad
-(3,2),
-\]
-it exhaustively checks that \(I_2\) is not proportionally similar to \(I_2+E_{12}\).
+PASS
 
-The checker returns `VERIFY_OK`.
+Direct bracket reconstruction gives [alpha t+u,beta t+v]=A(alpha v-beta u). A invertible implies commuting exactly alpha v=beta u. All nonzero V form one independent part of size q^n-1, and outside V the q^n projective one-spaces each have q-1 nonzero elements. Between parts brackets are nonzero; Z(L)=0. Standard complete-multipartite graph formulas prove degree, clique/chromatic, automorphism wreath product (distinguishing n=1 equal part sizes), and reconstruct (q,n) from complement clique sizes. Since [L,L]=V is characteristic, Lie isomorphism forces P A=c B P and conversely. Scalar I_n cannot be proportionally similar to unipotent I_n+E_12 for n>=2. Own independent small F_2/F_3 enumerations reproduce all adjacency predictions; proof not based on finite tests.
 
-Finite computation is not used to prove the all-field theorem.
+## originality
+
+PASS
+
+Best-of-knowledge novelty concerns exact element-level graph partition and operator-blind but (q,n)-rigid classification, not bare centerless commutative-transitive/projective multipartiteness or general isomorphism representation. The primary projective theorem supplies qualitative context; exact collision/isomorphism data require the stated family-specific calculation.
+
+## value
+
+PASS
+
+An explicit infinite family of connected noncommuting graphs that identifies field/dimension while forgetting an arbitrary invertible almost-abelian action is a motivated graph-versus-Lie reconstruction obstruction, including concrete nonisomorphic witnesses. Complete graph/automorphism formulas make the blindness quantitative beyond a loose degree coincidence; the algebraic calculation is elementary but serves a nontrivial structure-identification question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
