@@ -1,0 +1,23 @@
+# Review of the positive-root maximal-clique incidence theorem
+
+## Correctness
+
+**PASS.** The matrix-unit multiplication rule excludes the possibility that one pair of distinct strictly upper-triangular root units has two cancelling nonzero products, even in characteristic two. Consequently, pairwise commuting root vectors define a directed arc set with disjoint incoming and outgoing supports, extendable to a source/sink cut. The first and last labels fix the source/sink orientation, making all maximal cliques precisely the \(2^{n-2}\) distinct cuts described in `RESULT.md`.
+
+The incidence columns are exactly Boolean polynomials \(1\), \(x_i\), \(1-x_j\), and \(x_i(1-x_j)\). Integer column operations expose every squarefree monomial of degree at most two, and a unit triangular minor proves both rank and torsion-free cokernel, rather than relying on finite-field rank experiments. Boolean Möbius inversion supplies a complete integer kernel basis. Fourier orthogonality gives its rational Walsh description. The Gram statement follows from positive semidefiniteness over the rationals, and Gaussian-word inversion proves the clique-size polynomial. The proof explicitly covers \(n=2,3,4\), for which the kernel basis is empty. The separate verifier tests literal matrix products and finite all-clique enumeration only through \(n=6\), and rank/kernel identities through \(n=9\).
+
+## Originality
+
+**PASS, with literature-priority limits.** The exact **integral incidence kernel** and the quadratic Walsh cutoff are the asserted contribution, not the classical largest abelian dimension, full-root-system maximal-set classification, or the Gaussian binomial polynomial in isolation. Lawther's accessible accepted manuscript, §2.1, gives a full-signed-root source/sink classification up to Weyl action, and his introduction connects such sets to root-vector subalgebras. This is a strong antecedent for the cut part of the theorem and does not itself provide the integer dependence relations among the restricted positive-root cut incidence rows. Panyushev studies abelian ideals of Borels and associated poset edges, not the maximal root-clique-by-root incidence homomorphism. Benjumea–Núñez–Tenorio study the maximal abelian dimension of the niltriangular Lie algebra, which alone cannot determine the full labeled incidence kernel. Related Ceballos–Núñez–Tenorio work focuses on computing maximal dimensions.
+
+Searches of available published research records and the accessible historical claim ledger found no equivalent statement about the integral high-degree finite-difference basis, all-one Smith normal form, or the sharp \(n=5\) incidence-reconstruction boundary. This is a best-knowledge comparison, not a uniqueness proof. The closest inaccessible detailed source is the full 2007 Benjumea–Núñez–Tenorio paper; only its abstract and publisher description were accessible. An older alternative formulation of cut incidence under representation-theoretic or design terminology remains possible. The complete manuscript of Lawther was not read from cover to cover, though its specifically relevant type-A classification section and introductory connection were read.
+
+## Value
+
+**PASS.** The theorem answers a natural root-incidence reconstruction question: given a signed distribution of maximal commuting positive-root supports, which linear statistics are determined by their individual root occupancies? The answer is **exactly the degree-at-most-two component** of the Boolean source/sink distribution. All higher-order interactions are invisible, with a sharp first failure for eight cliques at \(n=5\). The result gives an explicit integral basis for *every* invisible dependence, proves there is no hidden integer torsion in the incidence cokernel, and counts the sizes of all maximal supports. These are global structural facts about a natural algebraic configuration rather than an arbitrary numerical slice or a maximum-dimension recomputation.
+
+## Boundaries and evidence
+
+The graph has only distinguished positive-root matrix units as vertices, not arbitrary elements of the nilradical. The Gram-rank equality is in characteristic zero; reduction of the Gram matrix modulo small primes is not analyzed. The general assertions rest on the exact proof; finite enumerations and modular-rank checks are corroboration. Priority remains subject to further literature inspection, especially possible cut-design terminology. Primary references and precise computation instructions occur in `RESULT.md` and `VERIFICATION.md`.
+
+Self-review: passed. Independent audit: not yet performed.
