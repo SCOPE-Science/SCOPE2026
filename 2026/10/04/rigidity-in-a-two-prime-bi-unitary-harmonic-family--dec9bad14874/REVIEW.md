@@ -1,11 +1,21 @@
-# Review
-## Correctness
-PASS. The proof starts from the standard multiplicative formulas for \(\sigma^{**}\) and \(d^{**}\), derives the necessary divisibilities \(AC\mid4aq\) and \(q+1\mid4ap^{2a}\), and then covers the exhaustive order split \(q<p\) versus \(p<q\). In the second branch it further splits \(q\le4a\) and \(q>4a\), with elementary exponential bounds reducing all remaining cases to \(a\le4\). Each finite case is checked exactly. The surviving triple \((3,1,5)\) is verified directly from the definition.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest inspected source is Sándor's 2011 paper, which gives the defining formulas and proves nearby special exponent patterns; it records \(45\) only for the single slice \(p^2q\), not for all \(p^{2a}q\). Manea--Minculete (2016) treat other structured factorization families and do not state the present all-even-exponent extension. Searches for the exact family, aliases, and a complete two-prime classification did not find a published statement implying this theorem. The main residual risk is unindexed literature using different notation for bi-unitary harmonic numbers.
+## correctness
 
-## Value
-PASS. This is a natural complete classification of an infinite minimal-support mixed-parity family, extending an isolated exponent-two observation to every even exponent. It supplies a reusable rigidity mechanism based on the factorization of \(\sigma^{**}(p^{2a})\), rather than a bounded table extension.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact formula sigma**(p^(2a))=[(p^a−1)(p^(a+1)+1)]/(p−1)=AC and d**(p^(2a))=2a yields AC(q+1)|4a p^(2a)q and hence AC|4aq and q+1|4ap^(2a). The frozen original RESULT.md contains a genuine omission: q<p does allow the consecutive-prime pair (q,p)=(2,3), contradicting the assertion that no such pair exists. The repaired complete RESULT.md proves AC>3^(2a)>8a for this case, so it cannot satisfy AC|8a, and separately closes remaining q<p, p<q<=4a, and p<q with q>4a via a<=4 and exact branches. The candidate (3,1,5) yields sigma**(45)=60|180. Independent bounded scan p,q<200, a<=12 found only (3,1,5); finite scan is not infinite proof.
+
+## originality
+
+PASS
+
+Sándor 2011 gives bi-unitary divisor formulas and records p^2 q=45 but does not classify p^(2a)q for all a. Manea–Minculete 2016 has different patterns 2^k times squarefree, pqt², p²q²t. Resultary finds other bi-unitary or infinitary families with different divisor theories; none inspected entails this exact even exponent infinite classification.
+
+## value
+
+PASS
+
+A motivated complete infinite family classification in bi-unitary harmonic number theory, extending a previously singled-out two-prime p²q theorem to arbitrary even prime exponents; the exceptional prime-order boundary is now settled rigorously.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
