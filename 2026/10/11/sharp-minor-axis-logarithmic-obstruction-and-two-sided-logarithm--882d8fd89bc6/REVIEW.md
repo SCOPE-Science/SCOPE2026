@@ -1,17 +1,21 @@
-# Scientific comparison and same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The affine normalization preserves the distinction between Euclidean physical step length and disk-coordinate displacement; the constraint is \(u^2+\kappa^2v^2=\delta^2\). Exact minor-axis coverage intervals yield a two-sign logarithmic lower bound. A geometric progression of intervals matches its leading constant. Four-quadrant displacements at a logarithmic family of vertical scales cover a fixed central square, and the classical strictly interior length-\(a\) compactness argument (as used in the initiating 2013 paper) provides finite uniform coverings away from the center. All quantifiers hold for fixed \(0<\kappa<1\), with sufficiently small \(\eta>0\). At the endpoint, the positive minor-axis intervals stay away from zero for each fixed admissible displacement. The reproducibility code runs 38,000 finite checks but cannot substitute for the analytic argument. The coefficient for the whole ellipse is bounded, not identified exactly.
+## correctness
 
-## Originality — PASS, subject to historical risk
-The principal 2013 source defines and compares fixed-length illumination numbers, and gives qualitative circumradius behavior, without a sharp minor-axis logarithmic constant or the two-sided logarithmic asymptotic order established here. The 2014 translative-covering source permits translations of varying magnitudes, so its finite planar illumination number does not imply a uniform bound for equal-length steps. Searches for quantified illumination, equivalent equal-step covering, ellipse endpoint blow-up and parameter aliases did not reveal direct coverage. An obscure equivalent asymptotic estimate cannot be definitively excluded; this is residual historical risk rather than a claim of independent external certification.
+PASS
 
-## Value — PASS
-The result converts the known qualitative endpoint loss of finite covering for a natural, fundamental family of smooth convex bodies into a sharp quantitative geometric obstruction, with a canonical measurable coefficient, and simultaneously controls the exact order of the full-body covering requirement. The distinction between Euclidean fixed-length steps and affine-transformed disk-covering steps is structurally essential. Unlike an isolated parameter experiment, the theorem covers every fixed noncircular ellipse and exposes the discontinuity from the circular case.
+The Euclidean fixed-length constraint is preserved after ellipse-to-disk affine normalization as u²+κ² v²=δ², κ=b/a. On the minor axis each shift traces an exact interval [s-sqrt(κ²s²+η),s+sqrt(κ²s²+η)], η=1-δ². Away from the central O(sqrtη) region, positive and negative traces require disjoint shift signs; interval log-width tends to Λ=log((1+κ)/(1-κ)), establishing liminf J/log≥1/Λ. A geometric progression with ratio expΛ covers both traces with asymptotic count log(1/η)/Λ, proving exact limit. The four-sign indexed shift family covers a normalized square of fixed radius with 2/log(1+κ/8) leading coefficient; checked its factorization (r-1/(1+κ))(r-1/(1-κ)) and sign conditions. A compact interior-translate argument covers the rest of the ellipse using O_κ(1) shifts; finite ε<a, and ε≥a fails via center or arbitrarily small minor-axis points. All bounds hold with κ fixed in (0,1); coefficient for entire ellipse N is NOT determined. Source finite random checks cannot prove uncountable coverage.
 
-## Closest literature and limitations
-1. Martini–Richter–Spirova, arXiv:1308.0791v1 (2013), sections defining equal-length illumination and circumradius comparison: qualitative rather than logarithmic rates.
-2. Lassak–Martini–Spirova, Rocky Mountain J. Math. 44 (2014), 1281–1299, DOI 10.1216/RMJ-2014-44-4-1281: unrestricted translative-covering quantities, not a same-length metric restriction.
-Only an upper/lower coefficient interval is proved for the full ellipse, not a limiting coefficient. There is no claim of exhaustive historical nonoverlap or independent auditing.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge positive originality for the exact final theorem, differentiating known underlying objects/structural tools from the new quantified result. Direct primary comparisons and bounded actual searches are recorded; inaccessible full texts and missing exhaustive registry coverage remain risks. No search failure is interpreted as novelty proof.
+
+## value
+
+PASS
+
+Exact-length translative illumination has a natural qualitative-to-infinite transition at the circumradius; for the canonical family of noncircular ellipses this quantifies divergence and isolates a sharp, aspect-ratio-dependent obstruction along the minor axis. The constructive full-body logarithmic upper/lower order is meaningful even without a sharp global coefficient. Dependence on physical rather than affine-length steps is mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
