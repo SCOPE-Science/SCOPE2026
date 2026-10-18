@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The supplied `verify.py` is standalone Python 3 standard-library code. Run it as
+## correctness
 
-```sh
-python3 verify.py
-```
+PASS
 
-The expected complete success line is:
+Regular root 24-cell is C=conv{±e_i±e_j}=[-1,1]^4 intersect l1-ball radius 2, with 24 octahedral facets, each 3-volume 4/3, supporting distance 1, hence 4-volume 8. For five roots, D²=5 det scatter matrix, trace<=10, AM-GM yields |D|<=25sqrt(5)/4<14. D4 even-coordinate-sum lattice forces even integer D, thus |D|<=12. Explicit five-root witness determinant 12 gives maximum simplex volume=12/24=1/2, ratio 1/16; multilinear replacement extends upper bound to arbitrary points of C. Independently EXACT-enumerated all C(24,5)=42504 distinct root five-sets, determinant count {0:12168,2:11328,4:13776,6:3936,8:1152,10:96,12:48}, with zero repeated four-root faces among 48 top sets. A nonvertex optimum would interpolate two maximizers sharing four root vertices; impossible. Inspected full supplied script: it computes B4 signed-permutation orbit 48 and edge spectrum six lengths²=4/four lengths²=6. Census exactly exhausts finite root sets; continuum rigidity is separate analytic reasoning.
 
-```text
-VERIFY_OK D4_24cell vertex_sets=42504 max_det=12 maximizers=48 B4_orbit=48 shared_four=0
-```
+## originality
 
-The code constructs the \(24\) four-coordinate roots, checks their squared radii and even coordinate sums, examines **every** unordered five-root combination (exactly \(42{,}504\)), and recomputes each determinant by two distinct exact-integer methods (cofactor expansion and permutation expansion). It checks the full seven-bin determinant spectrum, all \(48\) maximum determinant configurations, and the absence of any common set of four vertices among two maxima. It also computes the entire \(384\)-element signed-coordinate-permutation orbit of a concrete maximum, checks that it agrees with the complete 48-member maximum family, and verifies the six/four squared-edge-length spectrum of every maximizer.
+PASS
 
-The certificate is exhaustive only over the explicitly enumerated finite vertex subsets, not over continuum-many points inside the polytope. The proof of the universal upper bound, the four-volume of the containing polytope, and the reduction of an arbitrary optimizer to a vertex optimizer with rigidity are supplied analytically in `RESULT.md`. No timeout, stochastic sample, or approximate computation is used as evidence for an infinite or exhaustive statement.
+Best-of-knowledge PASS for sharp discrete D4 root 24-cell inscribed simplex volume and complete 48 equality configuration orbit, not for known 24-cell or universal sphere geometry. Horváth–Lángi 2014 FULL arxiv article Corollary 1 maximizes on unrestricted sphere, not root-lattice equality. Koca et al. W(D4) root paper studies snub cells/symmetries; published SCOPE D4 lattice reduced/complete studies Voronoi/width, not simplex volume. Classical Coxeter determinant tables are real residual priority risk; Resultary unavailable.
 
-Historical originality is compared with the referenced root-system, spherical-simplex and published lattice-Voronoi results, with an explicit residual possibility of unnoticed classical tables. No independent validation has been performed.
+## value
+
+PASS
+
+Exact largest 4-simplex ratio and complete equality geometry in a distinguished regular root polytope are natural and independently useful; rigidity of every interior optimizer is a substantive geometric classification, not an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
