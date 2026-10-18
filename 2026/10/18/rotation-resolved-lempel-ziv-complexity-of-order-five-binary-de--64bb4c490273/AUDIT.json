@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Every Eulerian circuit of the binary four-bit de Bruijn graph induces one of 65536 local pairings; one 32-cycle produces exactly one rotation class once edge 00000 is fixed as origin. Independent DFS enumerates the same set of 2048 words. Both distinct correct LZ76 parsers agree for each of 65536 rooted strings. Direct assertions of all four rooted multiplicities and all four cyclewise (minimum,maximum) multiplicities, plus arithmetic consistency, pass in verify.py. Finite completeness is mathematically established, not extrapolated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nunes et al. (2013), §3, construct unrestricted globally maximum-LZ76 strings, not a conditional histogram on 65536 rooted order-five de Bruijn words.",
+        "Etzion–Lempel, IEEE Trans. Information Theory 30 (1984), 611–614, investigates linear feedback shift-register complexity rather than exhaustive phrase complexity.",
+        "Chan–Games–Key (1982), On the Complexities of de Bruijn Sequences, abstracts define sequence complexity by shortest linear recursion."
+      ],
+      "reasoning": "Neither unconditional maximal LZ76 complexity nor a distribution of minimal recurrence degrees implies the occurrence counts of 8, 9, 10, 11 exhaustive history phrases on the de Bruijn subset. The recurrence-degree invariant is mathematically distinct despite similar title and authors.",
+      "searches": [
+        "Lempel Ziv complexity optimal de Bruijn sequences",
+        "On the distribution of de Bruijn sequences of given complexity Etzion Lempel 1984",
+        "Properties of maximum Lempel-Ziv complexity strings arxiv 1311.0822",
+        "arxiv:1311.0822"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0009084",
+      "arxiv:1311.0822v1",
+      "doi:10.1109/TIT.1976.1055501 (definition; original exact first-public day not asserted)",
+      "doi:10.1109/TIT.1984.1056933 (abstract/extract only)",
+      "doi:10.1109/18.749013 (abstract only)",
+      "doi:10.1137/100808782 (publisher metadata/abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Szczepanski (2000), §III, Theorem, represents P_n(C_n<=k) under the uniform ensemble of all length-n words by exact-history probabilities; conditionalizing on the de Bruijn orbit event requires additional enumeration not supplied by the theorem.",
+        "Etzion–Lempel (1984) and Chan–Games–Key (1982) address linear recurrence complexity, not the LZ76 quantity c(w).",
+        "Lempel–Ziv (1976) supplies the underlying measure and no order-five cycle-specific census."
+      ],
+      "reasoning": "The target is the restriction of LZ76 to 2048 cycles with 32 distinguished roots each, plus the joint extrema within each circle. No inspected statement computes this restriction, and no stronger inspected theorem provides these two numerical tables by substitution without a separate substantive case computation.",
+      "searches": [
+        "The cyclic Lempel Ziv 1976 exhaustive factor count distribution for binary de Bruijn cycles order five: counts of 8, 9, 10, 11 factors and rotation min-max types",
+        "order five binary de Bruijn cycle exhaustive history counts over 65536 rooted linearizations",
+        "On the Distribution Function of the Complexity of Finite Sequences math 0009084",
+        "Linear complexity of de Bruijn sequences-old and new results 1999"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Szczepanski, arXiv:math/0009084, Definition 1–3 and Theorem in §III, establishes exhaustive-history distribution identities for all binary strings under the uniform source, not the order-five de Bruijn subset.",
+        "Nunes et al., arXiv:1311.0822v1, §2 defines the same full-component LZ76 measure and §3 studies unrestricted maximum-complexity strings."
+      ],
+      "reasoning": "Tested the same property under names exhaustive history, full LZ76, novelty/innovation phrase count, shortest nonprevious phrase, and cyclic-cut profiles. The inspected general LZ76 papers have no condition on a word having each five-letter circular factor exactly once; they do not state the two joint finite distributions.",
+      "searches": [
+        "Lempel-Ziv 1976 phrase count exhaustive histogram over binary de Bruijn cycles order five and cyclic rotations",
+        "de Bruijn sequences Lempel-Ziv complexity distribution lengths 32 cycles",
+        "de Bruijn cycles LZ76 parsing complexity",
+        "arxiv:math/0009084"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The located 1984 de Bruijn complexity-distribution article explicitly concerns linear recurrence complexity, with no LZ76 phrase data in the inspected abstract and extract.",
+        "Szczepanski (2000) gives an abstract all-word identity parameterized by exact-history probabilities, without the conditional de Bruijn count or the two tables."
+      ],
+      "reasoning": "No exact matching table was found in the targeted sources or searched research-record snippets. This is a bounded negative search finding only, not an exhaustive uniqueness claim. Existing de Bruijn linear-complexity tables concern a different recurrence-based invariant and do not imply the LZ76 values.",
+      "searches": [
+        "6766 34836 23208 726 LZ de Bruijn sequence",
+        "rotation-resolved phrase complexity 8 to 11 among 2048 de Bruijn cycles",
+        "de Bruijn sequences LZ76 phrase distribution order 5",
+        "On the distribution of complexity for de Bruijn sequences Holdahl 1983"
+      ]
+    },
+    "rationale": "Searches of external research records, primary combinatorics-of-words / LZ76 sources did not find the two numerical order-five conditional histograms. General exact-history distribution identities are unconditional on de Bruijn membership; prior de Bruijn complexity histograms are about linear feedback recurrence degree, not LZ76. The originality conclusion is evidence-bounded, with specific residual historical-priority risk.",
+    "residual_risks": [
+      "An unindexed earlier LZ76/de Bruijn census may exist.",
+      "The full Etzion–Lempel (1984) paper was not verified read; accessible material identifies a different linear-recurrence invariant, so a mention of LZ76 elsewhere inside it cannot be categorically ruled out.",
+      "The classification is highly convention-sensitive: a variant omitting a fully reproductive final component, nonoverlapping-copy parsing, LZ78, or LZ77 code length will not necessarily share the displayed histogram.",
+      "Independent external audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "All-word uniform distributions; no order-five de Bruijn conditioning or rooted-cut classification",
+        "evidence": [
+          "Definition 1 and 2 specify full exhaustive component count; §III gives distribution by exact-history sequence probabilities, with the uniform sample space all binary words."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0009084",
+        "material_read": "Abstract, §§I–III definitions and full distribution theorem/proof in publicly accessible text",
+        "method": "Read publicly accessible arXiv full text, including definitions of history/exact terminal phrase and distribution formula",
+        "title": "On the Distribution Function of the Complexity of Finite Sequences",
+        "trigger": "Same LZ76 exhaustive-history complexity and distribution-function theorem"
+      },
+      {
+        "assessment": "Defines same measure; studies unrestricted maximum-complexity constructions, not de Bruijn fixed-factor cycles",
+        "evidence": [
+          "§2 states component partition, innovation rule and final component exception; §3 builds maximum-complexity words by a search over candidate factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1311.0822v1",
+        "material_read": "Primary full-text sections 1–4, especially §2 factorization and §3 maximizing constructions and §4 comparisons",
+        "method": "Read arXiv full HTML rendition corresponding to original v1 and verified first submission date on abstract page",
+        "title": "Properties of Maximum Lempel-Ziv Complexity Strings",
+        "trigger": "Potential stronger coverage via unrestricted maximum LZ76 complexity"
+      },
+      {
+        "assessment": "Different invariant (linear recurrence degree), not LZ76; no matching coverage in inspected material",
+        "evidence": [
+          "Accessible abstract explicitly calls the target the linear complexity of de Bruijn sequences, contrasted with recursive-copy LZ76 complexity."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.1984.1056933",
+        "material_read": "Accessible abstract and opening extract; full journal article not verified read",
+        "method": "Compared exposed abstract and introduction extract on accessible academic mirror with definition of linear recurrence complexity",
+        "title": "On the Distribution of de Bruijn Sequences of Given Complexity",
+        "trigger": "Highly plausible title containing distribution, de Bruijn and complexity"
+      },
+      {
+        "assessment": "Different, non-implicative complexity measure",
+        "evidence": [
+          "Abstract gives lower/upper bounds on degree of shortest linear recurrence, not LZ76 factor numbers."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/18.749013",
+        "material_read": "Publisher abstract and descriptive metadata, not full text",
+        "method": "Read IEEE publisher abstract defining linear complexity as shortest linear recursion",
+        "title": "Linear complexity of de Bruijn sequences—old and new results",
+        "trigger": "Another plausible broader de Bruijn complexity classification"
+      },
+      {
+        "assessment": "Constructive fixed-weight universal-cycle problem, no inspected LZ76 counts",
+        "evidence": [
+          "Publisher keywords describe fixed-weight cycles, necklace concatenation and cool-lex generation, not exhaustive-history distributions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/100808782",
+        "material_read": "Accessible journal metadata, abstract/keywords, not all article sections",
+        "method": "Read publisher indexed record",
+        "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+        "trigger": "Primary 2012 work on de Bruijn sequences with permitted MSC 68R15"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "64bb4c49-0273-4544-9cda-1ed1b8f8cbbc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact interaction of cyclic de Bruijn universality with the linear, orientation-sensitive LZ76 exhaustive history is a natural finite combinatorial statistic. Full rooted distribution and joint cut extrema for every order-five cycle reveal nontrivial cut dependence despite identical length-five circular factor sets. Unlike a bare score of one chosen representative, the minimum–maximum law classifies every cycle, providing reproducible reference data for universal-cycle phrase complexity. The order-five size and no-all-order limitation are explicit; the claim is not presented as an asymptotic compression theorem.",
+    "status": "PASS"
+  }
+}
