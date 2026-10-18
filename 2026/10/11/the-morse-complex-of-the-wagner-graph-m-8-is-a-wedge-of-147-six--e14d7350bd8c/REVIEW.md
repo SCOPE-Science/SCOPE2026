@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The verifier reconstructs all \(23{,}804\) nonempty faces, all \(125{,}280\) Hasse covers, the complete acyclic matching, and the signed top Morse boundary. A \(10\times10\) minor has determinant \(-1\), proving integral surjectivity. Independent full boundary-rank computations over \(\mathbf F_2\), \(\mathbf F_3\), and \(\mathbf F_5\) all give Betti vector \((1,0,0,0,0,0,147)\). The Hurewicz/Whitehead argument applies to the resulting CW model with cells only in dimensions \(0,5,6\).
+## correctness
 
-## Originality
-**PASS.** Database searches covered Wagner graph, Möbius ladder \(M_8\), rooted-forest complex, Morse complex, and complex-of-discrete-Morse-functions aliases. The closest Wagner entry concerns a different total \(3\)-cut complex; closest graph-Morse entries concern other graphs. Materially relevant primary text was inspected for arXiv:2004.10481, arXiv:1909.11440, and the 2023 NYJM paper; none covers this graph-specific homotopy type. An unindexed graph-specific computation remains the residual risk.
+PASS
 
-## Value
-**PASS.** The Wagner graph is a standard highly symmetric cubic graph and the canonical eight-vertex Möbius ladder. Its complete Morse-complex homotopy type is a natural benchmark, not merely a face count or modular Betti calculation.
+Reconstructed explicit 8-vertex graph edges {i,i+1},{i,i+4}, obtaining 24 directed pairs and 23,805 augmented rooted-forest faces with f=(24,240,1296,4084,7520,7504,3136). Exhaustive topological sort verified 125,304 face-cover incidences. An INDEPENDENT greedy ordering different from supplied certificate left 41 critical 5-cells and 188 critical 6-cells, and exact signed Morse boundary reduced through 41 integer unit pivots with no residual five-dimensional classes, leaving 147 six-spheres. The supplied original matching order has 10 critical 5-cells and157 critical 6-cells, with determinant -1 minor, consistent but not relied upon. Since the CW model is 5-connected after primitive cancellation, Whitehead/Hurewicz promotes the homology calculation to the integral homotopy wedge.
 
-## Closest literature and limitations
-General graph-Morse connectivity bounds and selected exact graph families do not imply this result. No formula for larger Möbius ladders or all cubic graphs is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Indexed literature on Wagner/Möbius ladder concerns matching, total cut, or different graph families, not the ordinary rooted-forest Morse complex exact integral wedge for M8; inspected primary graph-Morse literature provides general connectivity or tree-family calculations.
+
+## value
+
+PASS
+
+The smallest Möbius-ladder cubic graph is a canonical non-tree exact test of graph Morse-complex homotopy. A complete integral 147-sphere classification, independently confirmed with distinct acyclic matchings, is a motivated natural finite invariant rather than a random integer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
