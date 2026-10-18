@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T13:07:50.996700Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 3bac97097cbacc0a355e90024969e7e57900ad1a",
+        "Assigned artifacts/verify.py blob 4937a8bed64b7fa5328836f10a44a937f619043d",
+        "Xiang & Song 2026 original Example 2, DOI:10.3934/amc.2026017",
+        "Independent full 174251 two-space trace/weight census"
+      ],
+      "rationale": "Reconstructed F_1024 using the displayed primitive degree-10 polynomial (x^10+x^6+x^5+x^3+x^2+x+1), verified generator order 1023 and absolute trace, built the defining set D of 231 coordinates, and independently obtained the 1023 nonzero codewords with ordinary frequencies 132 weight104, 396 weight112, 396 weight120, 99 weight128. For any binary two-space {u,v,u+v}, support size is exactly half the sum of its three nonzero weights, establishing lower bound 156. Exhaustive unique enumeration of all ((2^10-1)(2^9-1))/3=174251 two-spaces by canonical message triple u<v<u^v gave spectrum {156:440,160:3564,164:13464,168:30558,172:45144,176:43362,180:26664,184:9306,188:1584,192:165}; all 440 minimizers have three weight104 words. This complete finite domain is itself a valid finite mathematical proof, unlike partial sampling; independent checker uses a fresh trace/reduction implementation and disjoint support arithmetic, not a copied table.",
+      "residual_risks": [
+        "Result treats the precise source defining set with alpha and alpha², not every [231,10,104] code.",
+        "Finite proof relies on an independently constructed field model of the given irreducible primitive polynomial; the statement is not all-m."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xiang–Song Example2 proves length=231, dimension=10, minimum=104 and ordinary distribution, not a higher support distribution.",
+          "General Wei theory defines d2 but does not evaluate it for this explicit trace code."
+        ],
+        "reasoning": "The all-family source formulas and general higher-weight theory are prior ingredients; a dominating exact support formula for these source parameters was not identified.",
+        "searches": [
+          "Xiang–Song Binary self-orthogonal codes with few weights (2026) full primary Example2",
+          "Wei Generalized Hamming weights for linear codes (1991)",
+          "Resultary higher-support geometry same parameters searches"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/amc.2026017",
+        "V. K. Wei, Generalized Hamming weights for linear codes (1991)",
+        "Resultary: 2026/10/4/SCOPE-higher-support-geometry-of-the-displayed-ternary-code-c3-2--5a04295fa5a9",
+        "Resultary: 2026/10/4/SCOPE-complete-support-profile-of-the-new-optimal-binary-lcd-55-7-25-c--6afc537a4072"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source ordinary enumerator constrains possible support sizes through (wt u+wt v+wt(u+v))/2 and yields lower bound 156.",
+          "Equality and 440 achieving subspaces require actual triple incidence in this code, not source aggregate weight counts."
+        ],
+        "reasoning": "The bound is a routine deduction, credited as such, whereas attaining bound and the complete distribution require the new all-subspace enumeration for the source code.",
+        "searches": [
+          "Xiang–Song DOI:10.3934/amc.2026017 Example2",
+          "Wei 1991 higher weights and 2-space support identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-space support identity depends on triples u,v,u+v, not only single-codeword Hamming weights.",
+          "Primary source gives standard weight enumerator 1+132 z^104+396 z^112+396 z^120+99 z^128, which omits pair-incidence information."
+        ],
+        "reasoning": "Aliases such as second generalized weight, second support weight and union support of dimension-two subcodes all correspond to the audited property. Ordinary weight enumerator equivalence does not determine this statistic.",
+        "searches": [
+          "Resultary query: Xiang Song Gold type self orthogonal binary [231,10,104] generalized Hamming weights 2-dimensional subcode supports",
+          "Search [231,10,104] dual code projective multiset generalized Hamming weight rank-2 support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top results describe different codes, e.g. ternary C3,2 and binary LCD [55,7,25], not this [231,10,104] trace code.",
+          "Published Example2 contains ordinary weights, not 10-entry rank-two support count spectrum."
+        ],
+        "reasoning": "No equivalent exact database table for this *same code* was found; matching one scalar length or d2 for an inequivalent code would not suffice.",
+        "searches": [
+          "Resultary query: Xiang Song Gold type self orthogonal binary [231,10,104] generalized Hamming weights 2-dimensional subcode supports",
+          "Queries \"231\" \"10\" \"104\" \"156\" \"440\" generalized support",
+          "Resultary higher-support spectrum query"
+        ]
+      },
+      "rationale": "The primary Xiang–Song paper supplies the specific code construction and ordinary weight distribution but not its two-dimensional support spectrum or d2 minimizer count. The usual generalized Hamming weights framework and independently indexed spectra on other code families do not determine the additive incidence among weight classes here. Searches by length/dimension/distance, defining polynomial and 440 minima located no same-object published table.",
+      "residual_risks": [
+        "An unindexed code database or equivalent representation of this exact Gold-type code could contain a prior rank-two support table.",
+        "The ordinary weight distribution is known; do not claim discovery of the trace code or its ordinary enumerator."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_CODE_ORDINARY_ENUMERATOR_ONLY",
+          "evidence": "Example 2 has 132/396/396/99 nonzero words in weights 104/112/120/128, but no two-dimensional support histogram or generalized-weight minimum count.",
+          "identifier_or_url": "DOI:10.3934/amc.2026017",
+          "material_read": "Full accessible primary article including defining-set theorem, primitive-polynomial setup and Example 2 [231,10,104] with weight enumerator",
+          "method": "Primary full-text and exact formula comparison",
+          "title": "Binary self-orthogonal codes with few weights",
+          "trigger": "Exact same source construction and parameters"
+        },
+        {
+          "assessment": "GENERAL_DEFINITION_ONLY",
+          "evidence": "Provides generalized-weight framework but no checked specialization to the Xiang–Song 2026 code.",
+          "identifier_or_url": "V. K. Wei, IEEE IT 37 (1991) 1412–1418",
+          "material_read": "Established defining/general theorem context cited; complete primary text not separately inspected in this run",
+          "method": "Theorem/definition context, not a whole-paper noncoverage declaration",
+          "title": "Generalized Hamming weights for linear codes",
+          "trigger": "Standard definition could imply d2 from existing bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Xiang–Song 2026 Example2",
+        "Wei 1991 general higher weights",
+        "Independent complete 174251 rank-two subspace census"
+      ],
+      "rationale": "Second generalized Hamming weight is the standard first nontrivial higher-support invariant of a linear code, relevant to subcode support geometry and leakage. The exact 440 extremal subspaces and complete 174251-space distribution reveal additive incidence data absent from the ordinary weight enumerator. The finite census is natural and complete for a primary-source named trace code, not an arbitrary small slice or a recomputation of a known table; no all-family formula is required for independent value.",
+      "residual_risks": [
+        "No asserted generalization to the Xiang–Song family or dimension-three support spectrum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite complete rank-two census only for explicitly fixed F_1024 trace-code example with a1=alpha,a2=alpha².",
+    "Finite enumeration is exhaustive in 174251 possibilities but is not an infinite code-family theorem."
+  ],
+  "schema_version": 1
+}

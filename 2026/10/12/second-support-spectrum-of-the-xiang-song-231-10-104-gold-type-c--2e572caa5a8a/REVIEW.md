@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source field polynomial, defining-set equations, length, dimension, and ordinary weight enumerator are reconstructed exactly. For any binary two-space \(U=\langle u,v\rangle\), the identity \(2|\operatorname{{Supp}}(U)|=\operatorname{{wt}}(u)+\operatorname{{wt}}(v)+\operatorname{{wt}}(u+v)\) gives the lower bound \(156\). Exact enumeration of all \(174251=\binom{{10}}{{2}}_2\) two-spaces finds \(440\) witnesses at that bound and gives the complete spectrum stated in the finding. The packaged verifier recomputes support unions directly from coordinate bitsets.
+PASS
 
-## Originality
+Reconstructed F_1024 using the displayed primitive degree-10 polynomial (x^10+x^6+x^5+x^3+x^2+x+1), verified generator order 1023 and absolute trace, built the defining set D of 231 coordinates, and independently obtained the 1023 nonzero codewords with ordinary frequencies 132 weight104, 396 weight112, 396 weight120, 99 weight128. For any binary two-space {u,v,u+v}, support size is exactly half the sum of its three nonzero weights, establishing lower bound 156. Exhaustive unique enumeration of all ((2^10-1)(2^9-1))/3=174251 two-spaces by canonical message triple u<v<u^v gave spectrum {156:440,160:3564,164:13464,168:30558,172:45144,176:43362,180:26664,184:9306,188:1584,192:165}; all 440 minimizers have three weight104 words. This complete finite domain is itself a valid finite mathematical proof, unlike partial sampling; independent checker uses a fresh trace/reduction implementation and disjoint support arithmetic, not a copied table.
 
-PASS. The primary article states the construction, ordinary parameters, and ordinary weight enumerator but does not discuss generalized Hamming weights or subcode-support distributions. Exact web searches for \([231,10,104]\), the source title, the ordinary enumerator, \(d_2=156\), and the \(440\) minimizer count found no same-object statement. Published-research-index searches for the same parameters and higher-support aliases likewise returned only unrelated code families or general generalized-weight results. The ordinary enumerator alone does not imply the two-space spectrum because it lacks pairwise additive-incidence data.
+## originality
 
-## Value
+PASS
 
-PASS. The source presents this example as a concrete new few-weight self-orthogonal code. The second generalized Hamming weight is the standard first higher-dimensional refinement of minimum distance, and the complete two-space support multiplicities quantify all two-dimensional support behavior rather than a single ad hoc statistic. The exact \(440\)-fold minimum identifies how often the extremal higher-support event occurs, information relevant to the code's higher-support geometry and wiretap-style leakage interpretation.
+The primary Xiang–Song paper supplies the specific code construction and ordinary weight distribution but not its two-dimensional support spectrum or d2 minimizer count. The usual generalized Hamming weights framework and independently indexed spectra on other code families do not determine the additive incidence among weight classes here. Searches by length/dimension/distance, defining polynomial and 440 minima located no same-object published table.
 
-Closest literature and limitations are those stated in `RESULT.md`: the source ordinary-weight theorem, Wei's general higher-weight framework, and the residual possibility of an unindexed equivalent representative.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Second generalized Hamming weight is the standard first nontrivial higher-support invariant of a linear code, relevant to subcode support geometry and leakage. The exact 440 extremal subspaces and complete 174251-space distribution reveal additive incidence data absent from the ordinary weight enumerator. The finite census is natural and complete for a primary-source named trace code, not an arbitrary small slice or a recomputation of a known table; no all-family formula is required for independent value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
