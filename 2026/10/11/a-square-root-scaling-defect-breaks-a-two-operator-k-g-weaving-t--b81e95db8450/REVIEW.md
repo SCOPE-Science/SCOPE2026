@@ -1,41 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The coordinate pair is exactly \(K\)-woven with
-\[
-K=\frac14 I_H,
-\qquad
-C=16,
-\qquad
-D_\Gamma=1.
-\]
-For the identity \(U_1\) and coordinate swap \(U_2\),
-\[
-\|U_1^\dagger\|\,
-\|U_2-U_1\|\,
-\|\widetilde{K^*}^{-1}\|
-=
-8
-<
-16
-=
-\frac{C}{D_\Gamma}.
-\]
-Thus the printed hypothesis holds.
+## correctness
 
-The partition choosing index \(1\) from the \(U_1\)-family and index \(2\) from the \(U_2\)-family has both coefficients equal to \(f_1\). It annihilates \(e_2\), while \(K^*e_2\ne0\). The conclusion is therefore false.
+PASS
 
-The repaired proof uses \(\sqrt C\) and \(\sqrt{D_\Gamma}\) after taking coefficient-space norms.
+Every hypothesis of Xiang (2021) Theorem 2.6 is checked on H=C², K=I/4, Λ_i=Γ_i=the two coordinate functionals, U1=I and U2=coordinate-swap. The pair has exact relative K-lower C=16 and Bessel DΓ=1 (no requirement C≤DΓ since K rescales), each Ui is invertible and commutes with K. The original printed quantity ||U1†|| ||U2−U1|| ||(K*)~⁻¹||=1·2·4=8<16=C/DΓ, but the partition selecting Λ1U1* and Γ2U2* has both coefficients f1 and zero energy at e2 while ||K*e2||²=1/16. The theorem’s conclusion is therefore false as written. The proof’s coefficient-norm triangle inequality demands √C and √DΓ instead of quadratic constants, giving a valid sufficient (not optimal claimed) threshold. Independent matrix arithmetic reconfirmed the precise inequality and failed weave.
 
-## Originality
-PASS. Searches covered the exact theorem and DOI, two-operator perturbation aliases, scalar rescaling of \(K\), permutation examples, square-root corrections, and later operator-preservation literature.
+## originality
 
-The closest indexed findings concern different weaving characterizations, compact perturbations, duality, and range phenomena. No checked indexed source states this counterexample or correction.
+PASS
 
-## Value
-PASS. The defect changes the theorem from true to false under its own hypotheses. It also reveals the correct homogeneity: quadratic frame constants must enter a norm-level perturbation estimate through square roots. The resulting repaired threshold excludes the counterexample and gives a usable sufficient theorem.
+Best-of-knowledge source-specific counterexample and corrected scaling for Xiang 2021 Theorem 2.6. Full open primary text has C and DΓ in squared frame inequalities but carries them unsquared after taking a coefficient norm. An apparently close published SCOPE result concerns a different Faraj–Derouich–Rossafi (2022) Theorem 3.10 and is not a prior refutation of Xiang’s theorem. Other published operator-perturbation results address distinct g-frame/K-g-frame assertions. No indexed correction of this exact theorem found; unindexed erratum risk remains.
 
-## Limitations
-The square-root threshold is a sufficient repair derived from the intended proof, not a claim of global optimality. A nonindexed correction may exist.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The printed theorem claims false qualitative preservation of weaving, not just a nonsharp constant. This elementary explicit counterexample identifies a genuine homogeneity error and restores a usable square-root sufficient criterion. It matters to reliance on the specific two-operator perturbation result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

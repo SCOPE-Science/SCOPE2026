@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,100 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let
-\[
-K=\frac14 I_{\mathbb C^2},
-\qquad
-\Lambda_1 f=\Gamma_1 f=f_1,
-\qquad
-\Lambda_2 f=\Gamma_2 f=f_2.
-\]
-Then
-\[
-\sum_{i=1}^2\|\Lambda_i f\|^2
-=
-\|f\|^2
-=
-16\|K^*f\|^2,
-\]
-so
-\[
-C=16
-\]
-is a valid universal lower \(K\)-\(g\)-weaving bound, and
-\[
-D_\Gamma=1.
-\]
+# Independent mathematical audit
 
-Use
-\[
-U_1=I,
-\qquad
-U_2=
-\begin{pmatrix}
-0&1\\
-1&0
-\end{pmatrix}.
-\]
-Both are invertible and commute with \(K\). Direct spectral calculation gives
-\[
-\|U_2-U_1\|=2.
-\]
-Also
-\[
-\|U_1^\dagger\|=1
-\]
-and
-\[
-\|\widetilde{K^*}^{-1}\|=4.
-\]
-Hence the printed perturbation quantity equals
-\[
-1\cdot2\cdot4=8,
-\]
-which is strictly below
-\[
-\frac{C}{D_\Gamma}=16.
-\]
+## correctness
 
-For
-\[
-\sigma_1=\{1\},
-\qquad
-\sigma_2=\{2\},
-\]
-the selected transformed coefficient maps are both
-\[
-f\longmapsto f_1.
-\]
-Their energy vanishes at \(e_2\), but
-\[
-\|K^*e_2\|^2=\frac1{16}.
-\]
-Thus the selected weaving has no positive lower \(K\)-\(g\)-frame bound.
+PASS
 
-The corrected norm estimate is
-\[
-E(f)^{1/2}
-\ge
-\left(
-\sqrt C\,\|U_1^\dagger\|^{-1}
--
-\sqrt{D_\Gamma}\,\|U_2-U_1\|\,\|\widetilde{K^*}^{-1}\|
-\right)
-\|K^*f\|.
-\]
-Its positivity condition is
-\[
-\|U_1^\dagger\|\,\|U_2-U_1\|\,\|\widetilde{K^*}^{-1}\|
-<
-\sqrt{\frac{C}{D_\Gamma}}.
-\]
-The example fails this repaired condition because
-\[
-8\not<4.
-\]
+Every hypothesis of Xiang (2021) Theorem 2.6 is checked on H=C², K=I/4, Λ_i=Γ_i=the two coordinate functionals, U1=I and U2=coordinate-swap. The pair has exact relative K-lower C=16 and Bessel DΓ=1 (no requirement C≤DΓ since K rescales), each Ui is invertible and commutes with K. The original printed quantity ||U1†|| ||U2−U1|| ||(K*)~⁻¹||=1·2·4=8<16=C/DΓ, but the partition selecting Λ1U1* and Γ2U2* has both coefficients f1 and zero energy at e2 while ||K*e2||²=1/16. The theorem’s conclusion is therefore false as written. The proof’s coefficient-norm triangle inequality demands √C and √DΓ instead of quadratic constants, giving a valid sufficient (not optimal claimed) threshold. Independent matrix arithmetic reconfirmed the precise inequality and failed weave.
 
-The complete source statement, defining frame inequalities, and proof were inspected in the open full text. All calculations above are exact.
+## originality
+
+PASS
+
+Best-of-knowledge source-specific counterexample and corrected scaling for Xiang 2021 Theorem 2.6. Full open primary text has C and DΓ in squared frame inequalities but carries them unsquared after taking a coefficient norm. An apparently close published SCOPE result concerns a different Faraj–Derouich–Rossafi (2022) Theorem 3.10 and is not a prior refutation of Xiang’s theorem. Other published operator-perturbation results address distinct g-frame/K-g-frame assertions. No indexed correction of this exact theorem found; unindexed erratum risk remains.
+
+## value
+
+PASS
+
+The printed theorem claims false qualitative preservation of weaving, not just a nonsharp constant. This elementary explicit counterexample identifies a genuine homogeneity error and restores a usable square-root sufficient criterion. It matters to reliance on the specific two-operator perturbation result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
