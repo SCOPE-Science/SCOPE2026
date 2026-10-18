@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces Gaussian section integrals to restricted determinants, differentiates the log determinant exactly, derives the Haar projection second moment from orthogonal invariance and the two projection trace identities, and contracts the resulting tensor. The bundled exact-arithmetic checker confirms the algebraic coefficient and sign factorization. The checker is not used as a substitute for the universal proof.
+## correctness
 
-## Originality
-PASS. The lead source defines the centro-sectional \((m,q)\) functional and the predecessor develops the \(q=n\) affine-quermassintegral context, but neither checked text gives the determinant-one Gaussian Hessian or the all-\(q\) phase transition. Targeted searches using source identifiers, determinant formulations, and the exact coefficient found no covering statement. A residual risk remains from unindexed literature.
+PASS
 
-## Value
-PASS. The Gaussian is the canonical smooth model for the new functional. The result gives an exact local stability modulus and a sharp sign transition at the affine exponent \(q=n\), uniformly across the section dimension \(m\), which is a natural structural diagnostic for the developing theory rather than an arbitrary parameter slice.
+For ξ with orthonormal U, exact Gaussian sectional integral is (2π)^(m/2) det(U^T exp(tH) U)^(-1/2). Set L=log det; Lʹ(0)=tr(PH), Lʺ(0)=tr(PH²)-tr(PHPH), P=UU^T. Haar rank-m projector second moments from invariance and tr(P)=tr(P²)=m yield E(tr(PH))²=2m(n-m)/(n(n-1)(n+2)) trH² and E Lʺ=m(n-m)/((n-1)(n+2)) trH² for traceless symmetric H. Differentiating exp(-qL/2) and averaging gives exact factor m(n-m)q(q-n)/(2n(n-1)(n+2)), with independent logarithmic q=0 formula. Independently checked invariant tensor contractions and polynomial identities for every 2<=n<=12, all 1<=m<n and representative q; infinite parameter theorem follows from symbolic projector argument, not finite tests. Sign definite for every nonzero H off q=n; q=n Hessian vanishes.
 
-## Closest literature and limitations
-The closest sources are arXiv:2609.18553v1 and arXiv:2503.21494v1. The finding is restricted to centered determinant-one Gaussians and to second order; at \(q=n\) it asserts quadratic degeneracy only, not a higher-order classification or a global theorem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Original Böröczky–Hu–Liu full primary paper defines all-q centro-sectional functionals and already identifies q=n with the classical SL(n)-invariant affine quermassintegral. Tziotziou gives earlier functional affine inequalities. From q=n global invariance plus power-mean/Jensen inequalities, the qualitative q=n sign threshold for determinant-one Gaussians is ALREADY IMPLIED; that sign diagram is NOT claimed as original in isolation. The distinct narrowly surviving result is the complete exact all-q, all-m, all-n Gaussian Hessian coefficient, including negative-q and q=0 normalizations, which was not found in the source texts. Resultary current-record self-hit excluded. An unindexed prior quantitative Gaussian Hessian remains possible.
+
+## value
+
+PASS
+
+The new precise Hessian is an exact quantitative local stability/instability curvature for a natural full Gaussian anisotropy manifold of a recently defined (m,q) sectional functional. It measures susceptibility in EVERY traceless covariance direction and exposes m(n-m)/[n(n-1)(n+2)] conditioning, beyond the already known qualitative affine-invariance/power-mean sign. As a canonical benchmark for perturbative affine integral geometry this exact natural invariant has mathematical use without needing a new global functional inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
