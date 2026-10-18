@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked symbolically over an arbitrary ground field \(F\). No finite experiment is used to establish an infinite statement.
+# Independent mathematical audit
 
-For split local \(B\) and \(C\), direct multiplication verifies that
-\[
-J(B\otimes C)=J(B)\otimes C+B\otimes J(C)
-\]
-and
-\[
-J(B\otimes C)^2=J(B)^2\otimes C+J(B)\otimes J(C)+B\otimes J(C)^2.
-\]
-Taking the quotient therefore gives the direct sum of the two cotangent spaces and proves additivity of \(e\).
+## correctness
 
-For the equality case, if \(e(P)=1\), a lift \(x\) of a cotangent basis generates every nonzero radical layer: multiplication maps \((J/J^2)^{\otimes q}\) onto \(J^q/J^{q+1}\), so the latter has dimension at most one. A nonzero layer cannot equal the next layer because the radical is nilpotent. Hence \(1,x,\ldots,x^{m-1}\) is a basis up to the radical nilpotency index \(m\), proving \(P\cong F[t]/(t^m)\). The converse tensor-irreducibility of this algebra follows immediately from cotangent additivity.
+PASS
 
-The only external theorem used for the final uniqueness statement is Sakurai's unique irreducible tensor factorization theorem for finite-dimensional local algebras over a splitting field. The proof does not claim results for nonsplit local algebras or nonlocal algebras. Historical full-text coverage remains incomplete for some older uniqueness/cancellation sources; that is a novelty-risk limitation, not a gap in the proof.
+PASS: For split finite-dimensional locals B,C, the tensor radical is JB⊗C+B⊗JC (nilpotent, quotient F); quotient by its square canonically gives JB/JB² ⊕ JC/JC². Thus e is additive. A nontrivial local split algebra has e>=1 because J=J² and nilpotence imply J=0. e(P)=1 implies every radical layer is at most one-dimensional, with x^k spanning it; stationary nonzero filtration layers impossible, so P=F[x]/(x^m). Converse follows from e-additivity. Sakurai unique factorization is the explicit external premise for uniqueness of exponent multiset. Scope: finite-dimensional split local F-algebras over arbitrary fields; no assertion for nonsplit or nonlocal rings.
+
+## originality
+
+PASS
+
+Best-of-knowledge original as precise final theorem, after distinguishing stronger priors and genuine access limitations. Failed search is not proof of novelty; see mathematical implication checks and source inspections.
+
+## value
+
+PASS
+
+PASS: This is a natural structural limit on the number of tensor factors of a split Artinian local algebra using its elementary cotangent dimension. Equality gives a complete maximal-factorability classification and unique nilpotency exponents, rather than an arbitrary instance or a numerical substitution. It does not determine subextremal factorization patterns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
