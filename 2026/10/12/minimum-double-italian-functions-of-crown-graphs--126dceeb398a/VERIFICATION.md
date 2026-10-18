@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The checker exhausts every map \(f:V(\operatorname{Cr}_n)\to\{0,1,2,3\}\) for \(2\le n\le5\), tests the exact double Italian inequalities, and for \(n=4,5\) compares the complete minimum-family with the copied compositions of side total \(3\).
 
-```text
-VERIFY_OK
-n=2: gamma_dI=6, minimum_functions=16
-n=3: gamma_dI=6, minimum_functions=18
-n=4: gamma_dI=6, minimum_functions=20
-n=5: gamma_dI=6, minimum_functions=35
-quaternary_labelings_checked = 1118464
-for n=4,5 all minima matched identical-side compositions of total side weight 3
-```
-The finite computation is corroborative only; the arbitrary-order theorem follows from the analytic side-weight proof.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+With X=sum x_i and Y=sum y_i, f(N[a_i])>=3 for x_i<=1 is x_i+Y-y_i>=3 and similarly y_i+X-x_i>=3 for y_i<=1. If total <=5 the lighter side X<=2 has zero coordinates, and opposite inequalities make Y exceed available weight, ruling out <6. At weight 6, X=2 case is impossible: either two 1 entries imply Y>=n+2>4, or one 2 entry forces all other y_i>=1 and n=4,5 distinguished coordinate fails; similarly X<=1 impossible. Thus X=Y=3. If x_i or y_i <=1 the paired inequalities force equality; if both >=2, side totals force equality of final coordinate. Conversely copied composition totals 3 satisfy all; weak compositions of 3 into n parts count C(n+2,3).
+
+## originality
+
+PASS
+
+No prior mathematical result located implying the all-parameter family-specific theorem; best-of-knowledge, with residual indexed/access limitations.
+
+## value
+
+PASS
+
+The missing perfect matching makes a crown a natural one-edge-per-vertex perturbation of a solved complete multipartite family. Equality forces a nontrivial synchronization of labels on omitted matched endpoints and completely counts optimum functions; a precise natural equality invariant, not an arbitrary graph slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
