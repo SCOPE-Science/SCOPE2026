@@ -114,7 +114,7 @@ The present result specializes to standard unreduced homology when \(N=2\), but 
 
 ## Limitations
 
-The theorem concerns only complete **transitively directed** multipartite graphs, finite nonempty levels, and complex coefficients at a primitive root of unity. It does not assert a homotopy invariant of the underlying undirected multipartite graph, an integral decomposition, or a classification of arbitrary nontransitive directed graphs. The universal matrices give an exact finite algorithm for all \(r,N,q\) rather than a simple closed numerical formula in every degree for arbitrary \(r\). The specific \(r=N=3\) formulas are complete. The finding has undergone same-model mathematical review only; no independent validation is asserted.
+The theorem concerns only complete **transitively directed** multipartite graphs, finite nonempty levels, and complex coefficients at a primitive root of unity. It does not assert a homotopy invariant of the underlying undirected multipartite graph, an integral decomposition, or a classification of arbitrary nontransitive directed graphs. The universal matrices give an exact finite algorithm for all \(r,N,q\) rather than a simple closed numerical formula in every degree for arbitrary \(r\). The specific \(r=N=3\) formulas are complete. The finding has undergone self-review only; no independent validation is asserted.
 
 ## References
 

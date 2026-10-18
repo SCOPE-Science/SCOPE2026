@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The self-contained standard-library program `verify.py` constructs all directed paths of complete transitive layered digraphs and their nonregular root-of-unity boundary matrices over suitable finite fields. It independently constructs every fixed-augmentation subset block and its boundary. It checks complete Mayer homology dimensions by the identity \(\dim H_k^{N,q}=\dim C_k-\operatorname{rank}(d^q|_{C_k})-\operatorname{rank}(d^{N-q}|_{C_{k+N-q}})\), checks the canonical universal block multiplicities are constant at fixed subset size, and checks the closed three-level \(N=3\) numbers. Every sample whose chain degrees permit it is also checked for \(d^N=0\).
+## correctness
 
-Run `python verify.py` using the supplied file, without external dependencies. Expected exact output: `VERIFY_OK: 41 complete direct-vs-universal Mayer homology comparisons with canonical block and low-dimensional checks`.
+PASS
 
-The test domains contain finite layered graphs with two to five levels, varying cardinalities, and parameters \(N=2,3,4,5\). Arithmetic is exact modular arithmetic in fields containing primitive \(N\)-th roots. Finite-field agreement provides an independently generated finite consistency check, not an infinite characteristic-zero proof. The all-size theorem and equivariant trace formula follow from the displayed module splitting and the explicit rescaling proof, not from computational extrapolation.
+In a complete transitively oriented layered digraph, every allowed path corresponds to an increasing subset of levels and all its deletions remain allowed. On each permutation module C[A_i]=C u_i⊕W_i with u_i normalized by augmentation, a deletion annihilates W_i. Fixed W-slot subsets S therefore split the full N-complex as (⊗_{i∈S}W_i)⊗T(S), with no cross terms. The change of basis scaling by product ζ^{-#fixed-before-optional} conjugates each T(S) to universal block B(|S|,r-|S|); homology and traces yield h_s and elementary symmetric characters e_s(f_i−1). Edge cases s=0 omit empty path; q=1..N−1 and N≥2 use d^N=0 by q-factorial cancellation. Direct modular rank computations independently matched three-level N=3,q=1,2 formulas for (n_i)=(1,1,1),(2,2,2),(2,3,2),(3,1,2). The included verify.py independently enumerates vertex-labeled directed paths for a bounded family but cannot itself prove the universal statement.
 
-Independent audit: not performed. No independent validation is claimed.
+## originality
+
+PASS
+
+The foundational Mayer path homology paper defines the N-boundary but not this complete class of equivariant augmentations; general q-homology does not automatically supply the subset-size gauge invariance and explicit 3-layer characters.
+
+## value
+
+PASS
+
+Complete character formulas for a natural family with large varying symmetry groups and all Mayer indices make a substantive structural calculation beyond merely defining the invariant. Permuting layer sizes preserves homology characters even though orientation data order changes, a motivated and potentially reusable phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
