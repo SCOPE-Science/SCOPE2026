@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T08:08:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under I(0)=A(0)=W(0)=0 with E(0)>0 and s0=S(0)/N<1, the source final-size equation is log(s0/x)=R0(1-x), 0<x<=s0. f(0+)=+infinity and f(s0)=-R0(1-s0)<0; strict convexity ensures a unique physical root on the decreasing part and R0*x<1. Implicit derivative dx/dR0=(1-x)/(R0-1/x)<0 everywhere R0>0. At exactly zero seeding s0=1, ODE selects x=1, whereas lower root 0.7001358120 at R0=1.188808 is only a small-positive-seed limit. Independently computed the root and strict derivative for four seeded s0 values.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General final-size theory implies monotone depletion under increasing transmission in standard models but does not address the explicit contradictory sign evaluation and numerical branch in Lv et al."
+        ],
+        "reasoning": "Broader methodological results cover the generic direction; originality is narrowly the diagnosis and quantitative branch resolution in the initiating SEIAWR source.",
+        "searches": [
+          "Arino et al 2007 doi:10.3934/mbe.2007.4.159",
+          "Hsu Roeger 2007 doi:10.1016/j.jmaa.2006.11.026"
+        ]
+      },
+      "checked_sources": [
+        "Lv–Guo–Cui–Tian, MBE 18 (2021) 92–111 complete relevant final-size and sensitivity sections",
+        "Arino et al. doi:10.3934/mbe.2007.4.159 generic final-size prior",
+        "Hsu–Roeger doi:10.1016/j.jmaa.2006.11.026 prior monotonicity",
+        "Resultary semantic SEIAWR query returned related but different epidemic model corrections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "f(s0)<0 and f convex force x<1/R0; derivative denominator negative. Source suggests a sign switch without respecting that domain."
+        ],
+        "reasoning": "General monotonicity is known and the correction is elementary, but the source actually claims the opposite at large R0; the precise correction is not a repeated prior claim from that paper.",
+        "searches": [
+          "Lv et al MBE 18 (2021) pp 92-111, final size relation and sensitivity paragraphs",
+          "Arino et al general final-size relations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source differentiates log(S0/Sinfty)=R0(1-Sinfty/N) and then asserts high-R0 increase; the physical positive-seed root always has R0*x<1."
+        ],
+        "reasoning": "Standard final-size monotonicity is prior; equivalent source-specific statements are no high-R0 reversal and no derivative sign reversal on the seeded root.",
+        "searches": [
+          "asymptomatic SEIAWR epidemic final susceptible size monotone reproduction branch Lv Guo Cui Tian correction",
+          "Lv Guo Cui Tian \"Asymptomatic transmission shifts epidemic dynamics\" final size derivative",
+          "Hsu Roeger 2007 final susceptible size monotone R0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source itself prints R0=1.188808 and final ratio about 0.700135; independent root is 0.7001358120 on s0=1 implicit equation, and x=1 is another root."
+        ],
+        "reasoning": "Numerical value is known; its branch interpretation and contradiction with exact zero-seed ODE are the contribution, not discovery of a novel decimal constant.",
+        "searches": [
+          "asymptomatic SEIAWR epidemic final susceptible size monotone reproduction branch Lv Guo Cui Tian correction",
+          "\"1.188808\" \"0.700135\" epidemic final size",
+          "Lv et al model numerical parameter source"
+        ]
+      },
+      "rationale": "Arino et al. and Hsu–Roeger already have general epidemic final-size relations and monotonicity; no novelty is asserted for that calculus itself. The claimed source-specific correction is that Lv et al. reverse the derivative sign at large R0, infer spurious k- and p-sensitivity switches, and report a lower implicit root with an exactly unseeded normalization that selects the trivial trajectory. The full motivating article was materially inspected at those assertions.",
+      "residual_risks": [
+        "The basic monotonicity calculus is classical; originality is limited to correction of the specific published interpretation and zero-seed branch.",
+        "The small-positive-seed limit is distinct from an exactly unseeded deterministic trajectory.",
+        "No statement about the long-term demographic version, stochastic importation, or R0 independent effects without the paper's parameterization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its derivative algebra is correct but claimed reversal conflicts with physical branch; zero-seed example selects nontrivial implicit root not ODE trajectory.",
+          "evidence": "log(S0/Sinfty)=R0(1-Sinfty/N); dSinfty/dR0=(N-Sinfty)/(R0-N/Sinfty); source prints 0.700135 for R0 1.188808.",
+          "identifier_or_url": "https://doi.org/10.3934/mbe.2021005",
+          "material_read": "Full original 20-page article, final-size derivation and parameter-sign discussion around published pp. 103–104, numerical R0=1.188808",
+          "method": "Lawful publisher-hosted full PDF text and page images",
+          "title": "Asymptomatic transmission shifts epidemic dynamics",
+          "trigger": "Exact short-term SEIAWR final-size formula and erroneous derivative interpretation"
+        },
+        {
+          "assessment": "Known general final-size methodology, not source-specific error correction.",
+          "evidence": "Arino et al. derive broad epidemic final-size relations.",
+          "identifier_or_url": "https://doi.org/10.3934/mbe.2007.4.159",
+          "material_read": "Published theorem and bibliographic/related formula inspected, not all proof pages claimed",
+          "method": "Primary literature targeted comparison",
+          "title": "A final size relation for epidemic models",
+          "trigger": "Potential broader generic final-size monotonicity"
+        },
+        {
+          "assessment": "Established generic monotone susceptible response; do not claim generic concept new.",
+          "evidence": "Hsu–Roeger studied final susceptible decline with reproduction strength.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2006.11.026",
+          "material_read": "Abstract and theorem-level monotonicity referenced, full manuscript not claimed read",
+          "method": "Primary source comparison",
+          "title": "The final size of a SARS epidemic model without quarantine",
+          "trigger": "Stronger monotonic final size prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The paper's stated high-transmission reversal and claimed triple critical-k structure drive the qualitative interpretation of asymptomatic transmission. Correctly identifying seeded and unseeded final-size branches removes a material error in applied conclusions, not just a normalization detail.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "E(0)>0 and I(0)=A(0)=W(0)=0 for strict branch; s0 must remain fixed as R0 varies.",
+    "At s0=1 exactly with all infected/exposed components zero, x=1 is selected dynamically."
+  ],
+  "schema_version": 1
+}

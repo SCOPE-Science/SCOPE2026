@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's exact implicit final-size equation is analyzed on the physical domain. Strict convexity gives uniqueness of the seeded root, and the inequality \(\mathcal R_0x<1\) makes the denominator in the source's own derivative formula strictly negative. The lower root at the quoted numerical reproduction number is independently replayed. The zero-seed deterministic branch is distinguished from the singular positive-seed limit.
+PASS
 
-## Originality
+Under I(0)=A(0)=W(0)=0 with E(0)>0 and s0=S(0)/N<1, the source final-size equation is log(s0/x)=R0(1-x), 0<x<=s0. f(0+)=+infinity and f(s0)=-R0(1-s0)<0; strict convexity ensures a unique physical root on the decreasing part and R0*x<1. Implicit derivative dx/dR0=(1-x)/(R0-1/x)<0 everywhere R0>0. At exactly zero seeding s0=1, ODE selects x=1, whereas lower root 0.7001358120 at R0=1.188808 is only a small-positive-seed limit. Independently computed the root and strict derivative for four seeded s0 values.
 
-PASS. Monotone final-size theory is established prior work and is not claimed as new. The accepted content is the source-specific correction: the paper's high-\(\mathcal R_0\) reversal cannot occur on its physical branch, its downstream \(k\)- and \(p\)-sensitivity inferences therefore change, and its numerical value selects the nontrivial branch under an unseeded normalization. Targeted source and correction searches found no published repair.
+## originality
 
-## Value
+PASS
 
-PASS. The incorrect reversal drives the source's qualitative conclusions about how asymptomatic transmission changes epidemic final size. Removing it changes the interpretation from a sign reversal to a globally monotone susceptible response and resolves the numerical branch ambiguity.
+Arino et al. and Hsu–Roeger already have general epidemic final-size relations and monotonicity; no novelty is asserted for that calculus itself. The claimed source-specific correction is that Lv et al. reverse the derivative sign at large R0, infer spurious k- and p-sensitivity switches, and report a lower implicit root with an exactly unseeded normalization that selects the trivial trajectory. The full motivating article was materially inspected at those assertions.
 
-## Closest literature and limitations
+## value
 
-General final-size relations and monotonic susceptible responses are classical, including work by Arino and coauthors and by Hsu and Roeger. The novelty is consequently narrow and source-specific. The lower branch remains meaningful as the limit of arbitrarily small positive seeding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The paper's stated high-transmission reversal and claimed triple critical-k structure drive the qualitative interpretation of asymptomatic transmission. Correctly identifying seeded and unseeded final-size branches removes a material error in applied conclusions, not just a normalization detail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
