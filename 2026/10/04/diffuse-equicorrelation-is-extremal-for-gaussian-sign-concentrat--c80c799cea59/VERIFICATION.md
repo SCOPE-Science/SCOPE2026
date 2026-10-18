@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof requires only exact algebra and a classical Gaussian identity.
+# Independent mathematical audit
 
-1. For \(\Sigma=(1-\rho)I+\rho\mathbf1\mathbf1^{\mathsf T}\), direct multiplication verifies the displayed inverse. Its diagonal is scalar, so \(D=dI\), and the eigenvalues immediately give \(\kappa_\star=(1+(n-2)\rho)/(1-\rho)\).
-2. Substitution of \(\rho=(K-1)/(K+n-2)\) gives \(\kappa_\star=K\) and \(\kappa=K+(K-1)/(n-1)\) exactly.
-3. The Gaussian sign arcsine identity gives the off-diagonal sign covariance \((2/\pi)\arcsin(\rho)\); the top eigenvalue of the resulting equicorrelation matrix is therefore the stated \(L_{K,n}\).
-4. With \(a=K-1\), \(t=n-1\), and \(r=a/(a+t)\), differentiation gives \(F'(t)=\arcsin(r)-r\sqrt{(1-r)/(1+r)}>0\). The limit follows from \(\arcsin(r)/r\to1\) as \(r\downarrow0\).
-5. For any moment-generating-function variance proxy, differentiating at zero yields \(\operatorname{Var}\langle u,Y\rangle\le s^2\) for every unit \(u\), hence \(s^2\ge L_{K,n}\). The published Gaussian Hamming-Lipschitz sign bound supplies \(s^2\le K\).
+## correctness
 
-No finite experiment is used as evidence for an infinite statement. The unresolved point is the exact value of the optimal proxy between the displayed lower and upper bounds.
+PASS
+
+Independently substituting rho=(K-1)/(K+n-2) in the equicorrelation inverse gives D=dI and kappa_star=(1+(n-2)rho)/(1-rho)=K; ordinary kappa=(1+(n-1)rho)/(1-rho)=K+(K-1)/(n-1). Gaussian arcsine law yields largest sign covariance eigenvalue 1+2(n-1)arcsin(rho)/pi. For a=K-1, t=n-1, derivative of t arcsin(a/(a+t)) is arcsin(r)-r sqrt((1-r)/(1+r))>0 for r in (0,1); the limit is a. MGF variance proxy must dominate covariance. Roth’s Gaussian-sign upper bound supplies the advertised K proxy. No equality for the optimal MGF proxy or global extremality is claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge new *sharpness witness* for kappa_star: prior Gaussian-sign bounds, arcsine formulas and compound-symmetry upper results do not state the fixed-precision-coordinate calibration, strict dimension extremum or nonsingular vanishing-correlation lower obstruction. This is not presented as a new general concentration inequality.
+
+## value
+
+PASS
+
+The limiting example identifies a natural sharpness boundary for a recently strengthened Gaussian sign concentration constant: each pair correlation vanishes while a normalized sum still has variance asymptotic to 1+2(K-1)/pi. It distinguishes global dependence from pairwise correlation, not merely rewriting a theorem parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

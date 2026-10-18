@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The covariance inverse, eigenvalues, \(\kappa_\star\), ordinary condition number, and sign-covariance spectrum are reconstructed exactly. The monotonicity proof is one-dimensional and strict on the full stated range. The concentration lower bound uses only the necessary covariance condition for any moment-generating-function proxy, while the upper bound is precisely the published Gaussian sign consequence. The theorem does not claim equality of those bounds.
+## correctness
 
-## Originality
-PASS. The closest sources give broader upper concentration theorems or an earlier compound-symmetric sign-sub-Gaussian result. Full-text comparison did not reveal the exact fixed-\(\kappa_\star\) calibration, strict growth of the sign-covariance obstruction with dimension, diffuse supremum, or the nonsingular vanishing-correlation sharpness consequence. An older equivalent formulation remains a residual literature risk and is stated as such.
+PASS
 
-## Value
-PASS. The result gives a natural sharpness witness for a newly introduced dependence parameter, showing that weak pairwise correlations can collectively retain order-\(K\) sign fluctuations. It also quantifies the explicit asymptotic gap between the known upper proxy and the covariance obstruction.
+Independently substituting rho=(K-1)/(K+n-2) in the equicorrelation inverse gives D=dI and kappa_star=(1+(n-2)rho)/(1-rho)=K; ordinary kappa=(1+(n-1)rho)/(1-rho)=K+(K-1)/(n-1). Gaussian arcsine law yields largest sign covariance eigenvalue 1+2(n-1)arcsin(rho)/pi. For a=K-1, t=n-1, derivative of t arcsin(a/(a+t)) is arcsin(r)-r sqrt((1-r)/(1+r))>0 for r in (0,1); the limit is a. MGF variance proxy must dominate covariance. Roth’s Gaussian-sign upper bound supplies the advertised K proxy. No equality for the optimal MGF proxy or global extremality is claimed.
 
-## Closest literature and limitations
-Zou--Vershynin supply the ordinary-condition-number Gaussian bounded-differences estimate and a singular necessity example; Roth sharpens the upper parameter to \(\kappa_\star\); Barber--Kolar and Han--Liu provide older sign-sub-Gaussian upper results. The present result is only extremal within positive equicorrelation and does not determine the exact optimal sub-Gaussian proxy or a global optimizer over all covariances.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new *sharpness witness* for kappa_star: prior Gaussian-sign bounds, arcsine formulas and compound-symmetry upper results do not state the fixed-precision-coordinate calibration, strict dimension extremum or nonsingular vanishing-correlation lower obstruction. This is not presented as a new general concentration inequality.
+
+## value
+
+PASS
+
+The limiting example identifies a natural sharpness boundary for a recently strengthened Gaussian sign concentration constant: each pair correlation vanishes while a normalized sum still has variance asymptotic to 1+2(K-1)/pi. It distinguishes global dependence from pairwise correlation, not merely rewriting a theorem parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
