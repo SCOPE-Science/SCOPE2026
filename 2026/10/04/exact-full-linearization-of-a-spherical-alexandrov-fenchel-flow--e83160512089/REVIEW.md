@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the full nonlocal derivative rather than using the source's local spatial operator. The geometric variation \(\delta H=-\Delta f-n\csc^2R\,f\), the exact quotient derivative \(\delta F=\delta H/n\), and the normalization derivative \(\delta\phi=2\cot R\,\overline{\delta F}\) combine to give the claimed operator. Constants and degree-one harmonics are independently forced to be neutral by the stationary family of geodesic spheres, providing a sign and normalization check. The packaged checker replays the algebra but is not used as a substitute for the analytic proof.
+## correctness
 
-## Originality
-PASS. The closest source is arXiv:2609.13829v1. It explicitly notes that its displayed spatial operator is not the full linearization of the nonlocal equation, and its convergence section proves exponential decay with unspecified constants rather than this harmonic spectrum. Searches using the exact speed, curvature quotient, nonlocal-linearization terminology, spherical harmonics, and spectral-gap aliases found no covering statement. Earlier quermassintegral-preserving spherical flows use different speeds and do not imply this operator. A residual risk remains that an analogous calculation exists under different terminology.
+PASS
 
-## Value
-PASS. The result fills a gap explicitly exposed by the source's distinction between local and full linearization. The cancellation of the quotient index is structural, not a relabeling: all members of the new flow family have the same linearized shape spectrum at a geodesic sphere. The degree-two gap supplies an exact local benchmark complementary to the source's qualitative exponential convergence theorem.
+From normal variation delta H=-Delta f-n csc^2(R) f and E_j(c,...,c)=c^j, reconstruct delta F=delta H/n independent of index k. Independently differentiate phi=N/D at stationary F=c and cancel equal area-variation terms, obtaining delta phi=2c average(delta F)=-2c csc^2(R) average f. Therefore delta(phi/F-F)=(2/n)Delta f+2 csc^2(R)(f-average f). Constants and degree-one harmonics neutral; degree-lambda for degree ell is 2 csc^2(R)(1-ell(ell+n-1)/n), with sharp shape gap 2(n+2)/(n sin^2 R) at ell=2. Independently checked binomial-derivative cancellation through n<=15 and all k; proof analytic for every n>=2, k=0..n-1 and 0<R<pi/2; no nonlinear convergence rate claimed.
 
-## Closest literature and limitations
-The primary comparison is T. Luo, Y. Wei, and R. Zhou, arXiv:2609.13829v1, especially Sections 2.5–2.6 and 5.1. Background comparisons are E. Cabezas-Rivas and J. Scheuer, arXiv:2211.17040 / Analysis & PDE 17 (2024), and S. Albert-Niclòs, E. Cabezas-Rivas, and S. Pan, arXiv:2608.10745v1. The claim is strictly linearized: no exact nonlinear asymptotic exponent or nonlinear modulation theorem is asserted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+For the precisely defined nonlocal Luo--Wei--Zhou curvature flow, the full mean-projection operator is mathematically more specific than the stated nonlinear convergence framework. Best-of-knowledge O remains subject to an unusually strong full-text access limitation on the focal primary paper.
+
+## value
+
+PASS
+
+The primary flow has global nonlocal normalization and a full derivative distinct from its local spatial operator. Isolating the rank-one average projection, k-independence, neutral moduli and degree-two sharp linearized gap gives a directly applicable local stability benchmark, without claiming an unproved nonlinear rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
