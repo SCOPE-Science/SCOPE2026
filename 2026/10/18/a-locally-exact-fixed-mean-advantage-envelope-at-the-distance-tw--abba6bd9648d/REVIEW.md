@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The fixed-mean reduction and sharp boundary uniqueness are correctly attributed to Kleiner (2026). The new proof handles the countably infinite family of trial counts: for each deterministic shift it identifies a strictly negative Poisson-limit rival, takes a common bound over finitely many shifts, and combines that tail bound with finitely many strictly negative alternatives. Uniform binomial-to-Poisson convergence supplies the same gap near the boundary. The derivative is calculated from the binomial probability mass function. The finite verification script corroborates, but does not establish, the infinite result.
+
+**Originality — PASS, qualified.** The source determines the *first mean at which reversal can occur* and the unique *boundary tie*; it does not state the pointwise extremum of the signed difference over an open fixed-mean neighborhood. That extremum is not a formal consequence of uniqueness without addressing infinitely many possible trial counts. The added uniform-gap argument fills precisely that step. Targeted published-finding corpus searches and the accessible primary source revealed no direct covering local-envelope result. Older general fixed-mean extremal theorems may still establish equivalent coverage and have not all been examined in complete original texts.
+
+**Mathematical value — PASS.** A threshold answers when reversal becomes possible; the sharp advantage function answers *how strongly* it can occur at a prescribed nearby mean. Quantifying the worst signed difference and its exact susceptibility is a motivated local extremal problem, not an arbitrary numerical slice. The exact optimizer persists despite an unbounded choice of trial count, which is the substantive structural content. No global optimization, large-\(k\) uniformity or externally validated priority is claimed.
+
+**Closest literature and risks.** I. Kleiner, arXiv:2610.10664v1, Theorem 1, Lemma 4 and Proposition 7 are the nearest source. The extension depends on their previously proved statements and contributes a compactness/Poisson-tail argument for optimality near the transition. The original Hoeffding paper was not fully inspected. Independent scholarly review and priority checks remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
