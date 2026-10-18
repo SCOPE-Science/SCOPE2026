@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The planar area constant follows from the uniform cubic circular-arc deficit and the exact beta third moment of uniform probability spacings. The Hausdorff constant follows from the uniform sagitta expansion, the largest uniform spacing law on each positive-probability subarc, and uniform integrability. Both arguments cover the continuous (typically nonsmooth) optimum without importing an unwarranted differentiability assumption. The optimization is exact: strict convexity of the area functional plus its floor KKT condition gives the unique constrained optimizer; nested feasible sets and monotone crossing give unique global minimax balance. The noncircle case follows from strictly nonconstant positive curvature. These arguments include all endpoints and quantify exactly which claims are asymptotic.
+## correctness
 
-**Originality — PASS with remaining risk.** Source [1] states the separate square-root-curvature Hausdorff optimum and curvature-one-third volume optimum but does not provide their simultaneous minimax solution. Source [2] establishes continuous-density weighted volume limits/CLTs rather than a Hausdorff-versus-area clipped optimizer. Source [3] addresses boundary sampling for simple polytopes, a different geometric regime. A close mathematical record giving an ellipse-specific *area-versus-perimeter* integral-functional compromise is not covering: the Hausdorff objective here is an essential-supremum functional, and the result applies to arbitrary smooth positively curved plane bodies. The targeted record search and checked research ledgers reveal no statement implying the clipped-law theorem. Classical abstract constrained convex optimization could imply the functional part after independent identification of the two geometric leading coefficients; unindexed equivalent geometric formulations remain a genuine risk.
+PASS
 
-**Value — PASS.** Hausdorff control penalizes the sparsest sampled boundary arc while missed area aggregates all local curvature defects. The resulting exactly solvable tradeoff is mathematically natural and distinguishes a clipped sampling-density floor from the smooth blends appropriate to two integral objectives. It is a complete classification for all positively curved \(C^3\) plane curves, including the circle equality case, strict noncircle compromise, uniqueness, and effective scalar computation. The ellipse with semiaxes \((2,1)\) has minimax ratio about \(1.03107\), whereas its area-optimal law has much larger normalized Hausdorff error. This is not a mere reparameterization of either known separate optimum.
+For positive-curvature strictly convex planar C3 boundary and positive continuous density f, local small-arc chord sagitta κℓ²/8 and circular maximum-spacing law on every positive-probability subarc yield (n/log n)^2 E d_H→max κ/f² /8; a global exponential spacing tail supplies uniform integrability. Local missing area κℓ³/12 and beta third circular-gap moment 6/[n(n+1)(n+2)] yield n² E area deficit→(1/2)∫κ/f² ds. Hölder separately minimizes these with f_H=√κ/V and f_A=κ^(1/3)/Z. With µ=f_H ds, q=f/f_H, a=κ^-1/2 and m=Eµ a^(1/3), RH=(min q)^-2 and RA=E(a/q²)/m³. Strict convexity under floor q≥t and ∫q=1 produces the unique water-filled q_t=max(t,c_t a^(1/3)), with strictly increasing F(t)=RA(q_t) for t_A<t<1, meeting decreasing t^-2 uniquely at t*. Its positive open floor and normalized errors balance; circle is the sole R=1 case. Finite ellipse quadrature only corroborates the infinite proof.
 
-**Limits and risks.** This is a leading-order fixed-density theorem, not a finite-sample result. The density optimizer is only continuous at clipping transitions; the included Hausdorff proof explicitly covers this regularity. The numerical program illustrates formulas only and does not certify the continuum argument. An alternative published source could contain an equivalent joint minimax formulation. Independent audit has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Sonnleitner 2025 states the leading Hausdorff asymptotic for smooth positive boundary densities and the separately optimal √κ law; distinct area-optimal κ^(1/3) law is known. Their separate optimal laws do not imply the exact minimax of max{supremum coefficient, integral coefficient}. A related indexed ellipse result minimizes area versus perimeter, with two integral objectives and a different smooth optimizer. The current curvature clipping and equalizing scalar frontier for all smooth planar convex curves were not found among those prior claims; generic water-filling principles remain a residual possibility.
+
+## value
+
+PASS
+
+Two separately canonical geometric approximation losses have incompatible density laws. This theorem supplies a unique exact compromise, a qualitative clipping transition, strict noncircular cost, and a practical scalar characterization valid for all positively curved planar bodies. A future researcher choosing a single i.i.d. boundary law to control both errors needs precisely this minimax curve, not simply either separate optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
