@@ -1,0 +1,9 @@
+# Mathematical review
+
+**Correctness — PASS.** The doubled-torus closed-walk expansion bounds the first possible holonomy harmonic by its minimum winding length; the transpose/swap similarity \(S\mathcal L_H^{\mathsf T}S=\mathcal L_{-H}\) adds a half-flux-period symmetry precisely for odd cycles. Every first sensitive winding walk contains no dephasing waiting step, reducing the exact leading coefficient to a binomial trace-of-commutator identity. The coefficient formulas and exceptional-flux boundaries are proved for every integer \(N\ge3\) and arbitrary rates, with 432 numerical matrix comparisons supporting the sign and normalization.
+
+**Originality — PASS (self-review).** Esposito–Gaspard (2005) treats the finite untwisted dephasing ring and its relaxation spectrum. Klausen–Werner (2022) treats Lindblad spectral theory including local dephasing and periodic approximations. Inspected primary content covers the shared tools, but neither examined section includes this parity-doubled magnetic-flux onset with arbitrary spatially heterogeneous dephasing. A related research-record result on phase-shifted EPR-like Hamiltonians concerns a different matrix model and does not imply the Liouvillian order-\(2N\) statement. A general closed-walk theorem might contain an implicit corollary, so independent priority assessment remains an acknowledged risk.
+
+**Value — PASS.** A physically motivated gauge-holonomy question has a sharp all-size structural answer: finite-cycle Liouvillian spectra become sensitive to flux at different exact moment orders depending on parity, and the leading nonzero spectral signature is protected against arbitrary site-dependent pure dephasing. This is a concrete exact spectral design/diagnostic invariant, not an arbitrary finite slice, a numerical fit, or a general claim about dynamics.
+
+Self-review: passed. Independent audit: not yet performed.
