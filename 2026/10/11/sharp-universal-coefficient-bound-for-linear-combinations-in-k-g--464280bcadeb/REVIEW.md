@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The final claim follows from the triangle inequality and the individual \(K_i\)-\(g\)-fusion lower bounds. The one-dimensional construction realizes equality for every admissible list of coefficients and lower bounds. The counterexample to the printed intermediate inequality is exact.
+## correctness
 
-## Originality
-PASS. The target theorem and proof, earlier \(K\)-\(g\)-fusion construction literature, the current/prior ledger, and nine semantic published-finding corpus formulations were compared. The qualitative preservation statement is already in Huang--Yang and is not claimed as new. The checked material did not contain the exact sharp universal coefficient bound or its all-parameter extremizer.
+PASS
 
-## Value
-PASS. The result repairs a false proof step in a general operator-combination theorem and replaces its conservative quantitative estimate by the exact universal constant obtainable from the theorem's own input data. The statement is reusable whenever several operator-frame lower bounds are combined.
+Every lower Ai bound gives ||K_i^*f||≤E(f)^{1/2}/√Ai. Triangle inequality gives ||(Σa_i K_i)^*f||≤(Σ|a_i|/√Ai)E(f)^{1/2}, hence the exact lower coefficient; common Bessel upper bound stays. For arbitrary Ai>0, nontrivial ai, the one-dimensional H=ℂ single identity analysis E(f)=|f|² and phase-aligned K_i=e^{-i arg(ai)}/√Ai produce simultaneous equality for all i and the sum, ruling out larger universal bound. Original source 2020 Eq.(3.10) preceding inequality fails for K1=I,K2=−I,a1=1,a2=−1 (weighted sum 2I, unweighted sum zero). The new constant is ≥ its printed coarser bound by Cauchy–Schwarz. All dimensional and zero-coefficient cases are covered analytically.
 
-## Closest literature and limitations
-Huang--Yang Theorem 3.4(1) is the closest source and contains the same qualitative preservation conclusion with a weaker bound. Sadri--Ahmadi--Rahimi provide earlier foundational \(K\)-\(g\)-fusion constructions but no inspected result gives the sharp coefficient-dependent constant. The sharpness proved here is universal with respect to the supplied lower bounds and coefficients; additional structure of a particular operator tuple can improve the bound. An unindexed erratum or note remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Primary full theorem directly checked: published weaker bound, invalid displayed proof, and exact all-parameter stronger universal constant absent from the printed statement. The target record appears in Resultary but is not independent prior. The sharpness witness and proof correction justify a bounded best-of-knowledge originality conclusion.
+
+## value
+
+PASS
+
+The result directly corrects an invalid displayed proof step in a published general closure theorem for K-g-fusion frames and gives the exact universal weighted coefficient for arbitrary finite operator combinations. Its improvement is reusable when bounds vary, and the scalar extremizer settles a well-posed quantitative sharpness gap; the bare triangle inequality is not portrayed as an independent landmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
