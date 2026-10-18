@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The six right-hand sides were independently evaluated at both advertised carcinoma-free states. The second has nonzero normal/dysplastic derivatives whenever the conversion rate is positive. The first exists uniquely among nonnegative carcinoma-free equilibria under positive removal assumptions. Its full Jacobian polynomial factors into four negative scalar modes and one exact two-dimensional viral-infection feedback factor, proving the stated strict stability/instability dichotomy. The exact positive parameter witness has a positive eigenvalue even with all cellular apoptosis rates larger than their proliferation rates. A standalone symbolic checker replays the polynomial and both substitutions. The threshold equality remains nonhyperbolic only.
+## correctness
 
-## Originality
-PASS. The original six-compartment article gives the two equilibrium assertions and apoptosis-only criterion that are corrected here; its displayed equations contradict those assertions. The classical within-host virus literature already contains reproduction-number thresholds, so the originality claim is strictly the exact 2026 source-specific correction, including the invalid equilibrium and exact positive counterexample. Searches for the source, synonymous EBV-dysplasia terms and general viral feedback found no matching published correction. The nearest identified model studies have different equations and do not imply these statements.
+PASS
 
-## Value
-PASS. The error affects two central interpretive outputs of the source: the existence of a purported no-dysplasia resting state and the claimed sufficiency of cellular apoptosis dominance to stabilize the carcinoma-free state. An exact counterexample refutes the latter; the additional conditional dysplasia persistence statement clarifies what viral clearance alone achieves within the printed model. These are mathematically meaningful boundaries, not an arbitrary parameter slice.
+With C=0 at an equilibrium, Cdot=mu H forces H=0, then Hdot=gamma I forces I=0, and Vdot=-d6 V forces V=0. Remaining equations give N0=a1/(d1+alpha)>0 and D0=alpha*N0/q>0. If D=0 the Ddot=alpha N term forces N=0, contradicting Ndot=a1>0. Printed E02=(a1/d1,0,0,0,0,0) has Ndot=-alpha*a1/d1 and Ddot=+alpha*a1/d1. Exact Jacobian factorization gives four strictly negative scalar eigenvalues and infectious quadratic (lambda+k)(lambda+d6)-beta*e*a3*D0. For R>1 it has a positive real root; for R<1 both roots have negative real parts; at R=1 nonhyperbolic only. Explicit apoptosis-dominant rates a_i=1, d_i=2, alpha=gamma=mu=e=1, beta=20 give R=5/3 and positive root -2+sqrt(20/3). A fresh independent SymPy Jacobian reconstruction verified polynomial and witness. The claimed clearance-conditional D->D0 follows stable scalar forcing.
 
-## Closest literature and limitations
-Mutijah and Sugiyanto (2026), DOI 10.17654/0972087126163, is the exact motivating source. Smith and De Leenheer (2003), DOI 10.1137/S0036139902406905, and Wodarz and Nowak (2002), DOI 10.1002/bies.10196, supply the acknowledged standard within-host threshold setting. The result does not prove global convergence or anything clinical. The threshold is nonhyperbolic, and the author-uploaded full text was available as a transcription rather than a separately rendered PDF, leaving a limited glyph-transcription risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source-specific correction targets the original published six equations, a purported nonstationary second equilibrium and an unjustified unconditional local-stability sufficiency. General virus reproduction-number theory is prior background, but its generic existence does not establish the precise published error, exact six-state factorization and concrete counterexample. The open-licensed primary article transcription was materially inspected for equations and stability assertions.
+
+## value
+
+PASS
+
+The published model gives a mathematically wrong equilibrium and potentially reversed linear-stability prediction. Demonstrating the exact feedback threshold with a positive-parameter counterexample is substantively important for interpreting the stated ODE, beyond a superficial typo or cheap zero check. It makes no clinical inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

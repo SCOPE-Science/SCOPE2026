@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:44:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With C=0 at an equilibrium, Cdot=mu H forces H=0, then Hdot=gamma I forces I=0, and Vdot=-d6 V forces V=0. Remaining equations give N0=a1/(d1+alpha)>0 and D0=alpha*N0/q>0. If D=0 the Ddot=alpha N term forces N=0, contradicting Ndot=a1>0. Printed E02=(a1/d1,0,0,0,0,0) has Ndot=-alpha*a1/d1 and Ddot=+alpha*a1/d1. Exact Jacobian factorization gives four strictly negative scalar eigenvalues and infectious quadratic (lambda+k)(lambda+d6)-beta*e*a3*D0. For R>1 it has a positive real root; for R<1 both roots have negative real parts; at R=1 nonhyperbolic only. Explicit apoptosis-dominant rates a_i=1, d_i=2, alpha=gamma=mu=e=1, beta=20 give R=5/3 and positive root -2+sqrt(20/3). A fresh independent SymPy Jacobian reconstruction verified polynomial and witness. The claimed clearance-conditional D->D0 follows stable scalar forcing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical virus reproduction threshold applies in many models, and this six-compartment case reduces to a 2x2 infected block. The 2026 authors nevertheless claim an invalid alternative equilibrium and a strictly weaker criterion."
+        ],
+        "reasoning": "A general R0 concept does not directly identify and correct the specific incorrectly listed equilibria and stability theorem; credit to prior principle retained.",
+        "searches": [
+          "Mutijah Sugiyanto Mathematical modeling of nasopharyngeal carcinoma DOI 10.17654/0972087126163; Smith De Leenheer Virus Dynamics 2003"
+        ]
+      },
+      "checked_sources": [
+        "2026 primary open-licensed article, DOI:10.17654/0972087126163",
+        "Smith and De Leenheer 2003 DOI:10.1137/S0036139902406905",
+        "Resultary six-compartment EBV correction semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting E02 contradicts two printed vector-field equations. Exact characteristic polynomial contains beta*ea3*D0 and cannot be certified stable by d_i>a_i alone."
+        ],
+        "reasoning": "Mathematical contradiction is decisive for the source-specific claim even if reproduction-number vocabulary is familiar.",
+        "searches": [
+          "Published NPC paper Equations 1a-1f, Theorem 1, post-Theorem E02 and Section 5; classical viral R0 threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same infection-feedback spectral condition can be written det(B)>0, beta*ea3*D0<k*d6 or R_EBV<1."
+        ],
+        "reasoning": "All are equivalent, but the published unqualified apoptosis criterion lacks the feedback factor.",
+        "searches": [
+          "Mutijah Sugiyanto 2026 mathematical modeling nasopharyngeal carcinoma EBV dysplasia free equilibrium R0 stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary findings address distinct cell-stage lineage and epidemic correction models with other variable couplings; no exact NPC source erratum located."
+        ],
+        "reasoning": "This is a source-specific published-statement correction, not a numerical invariant table; relevant indexed erratum absence is a bounded search, not a guarantee.",
+        "searches": [
+          "Resultary semantic: nasopharyngeal carcinoma EBV six compartment model disease free equilibria stability reproduction threshold"
+        ]
+      },
+      "rationale": "The source-specific correction targets the original published six equations, a purported nonstationary second equilibrium and an unjustified unconditional local-stability sufficiency. General virus reproduction-number theory is prior background, but its generic existence does not establish the precise published error, exact six-state factorization and concrete counterexample. The open-licensed primary article transcription was materially inspected for equations and stability assertions.",
+      "residual_risks": [
+        "Author-uploaded mathematical glyph transcription is imperfect; rendered publisher PDF comparison would further reduce equation-transcription risk.",
+        "Independent symbolic check verifies the printed ODE, not the article figure-generating implementation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_MODEL_NOT_CORRECTION",
+          "evidence": [
+            "Source gives the original ODE and the assertions disproved by direct substitution and spectral factorization"
+          ],
+          "identifier_or_url": "DOI:10.17654/0972087126163; https://www.researchgate.net/publication/410114499_MATHEMATICAL_MODELING_OF_NASOPHARYNGEAL_CARCINOMA",
+          "material_read": "Publisher-layout transcription of model equations 1a-1f, Theorem 1 and equilibria, Section 5 apoptosis stability claim and conclusion",
+          "method": "Lawful author-uploaded full-text transcription; relevant passages checked repeatedly against variable definitions despite imperfect formula glyphs",
+          "title": "Mutijah and Sugiyanto, Mathematical modeling of nasopharyngeal carcinoma",
+          "trigger": "Exact initiating six-state equations, listed E02 and stability assertions"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": [
+            "General within-host infection threshold not the specific 2026 model erratum"
+          ],
+          "identifier_or_url": "DOI:10.1137/S0036139902406905",
+          "material_read": "Title/abstract and relevance to reproduction thresholds; not full specialized NPC system",
+          "method": "Bibliographic overview / abstract",
+          "title": "H. L. Smith and P. De Leenheer, Virus Dynamics: A Global Analysis",
+          "trigger": "Possible stronger general threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The published model gives a mathematically wrong equilibrium and potentially reversed linear-stability prediction. Demonstrating the exact feedback threshold with a positive-parameter counterexample is substantively important for interpreting the stated ODE, beyond a superficial typo or cheap zero check. It makes no clinical inference.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In the positive-parameter Mutijah--Sugiyanto six-state NPC ODE, with q=d2-a2,k=d3+gamma-a3,h=d4+mu-a4,c=d5-a5 positive, the unique carcinoma-free equilibrium has positive D, no dysplasia-free equilibrium exists, and its linear stability is governed exactly by R_EBV=beta*e*a3*alpha*a1/((d1+alpha)*q*k*d6): stable below 1, unstable above. Published E02 fails stationary substitution; apoptosis dominance alone is insufficient.",
+  "limitations": [
+    "Linear local stability only; nonhyperbolic R=1 not classified, virus-clearance limit conditional, no clinical outcome inference."
+  ],
+  "schema_version": 1
+}
