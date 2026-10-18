@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Exact Bartlett independence and beta-gamma law prove finite integral for every integer s>=2; the strict constrained Wishart saddle yields I>0 uniquely for 1<T<K. Exact exponential likelihood tilt and smooth Wishart density near the nondegenerate boundary saddle yield the derived sqrt(s) prefactor, with algebra independently checked numerically. The fixed-basis independence and parameter boundaries are explicit; stochastic tests support but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical isotropic Gaussian condition-number distributions address identical singular variances, whereas here the true two-column variances differ.",
+        "The 2021 large-deviation source describes condition-number tails in a different random independent-entry setting, but complete manuscript comparison was unavailable."
+      ],
+      "reasoning": "Classical Gaussian/Wishart theory provides proof ingredients and may dominate the general finite-distribution machinery; the asserted new claim is a particular sharp false-acceptance tail and explicit prefactor for a fixed anisotropic basis. Incomplete source inspection remains a nontrivial risk, not declared noncoverage.",
+      "searches": [
+        "Edelman Eigenvalues and condition numbers of random matrices 1988",
+        "Anderson Wells Exact Distribution of the Condition Number of a Gaussian Matrix 2009",
+        "Singull Uwamariya Yang Large-deviation asymptotics of condition numbers of random matrices 2021"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.10354v1 accessible article relevant sections",
+      "Edelman 1988 isotropic Gaussian condition-number results (bibliographic/abstract level)",
+      "Anderson–Wells 2009 Gaussian condition-number distribution (bibliographic/abstract level)",
+      "Singull–Uwamariya–Yang 2021 abstract/partial related text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating algorithm concerns sketch-based stopping, not exact false-pass probabilities.",
+        "The adaptive randomized pivoting result bounds projected-column errors, rather than the small-condition-number lower tail of a fixed anisotropic Gaussian sketch.",
+        "Gaussian sign-covariance condition-number results address discretized signs and an isotropy-type barrier, not the continuous Wishart false-pass event."
+      ],
+      "reasoning": "Neither a general sketching accuracy guarantee nor a result for signed Gaussian observations implies the exact beta integral and leading exponential prefactor at every fixed K>T>1.",
+      "searches": [
+        "arxiv:2607.10354v1",
+        "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "2026/10/4/SCOPE-diffuse-equicorrelation-is-extremal-for-gaussian-sign-concentrat--c80c799cea59"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bartlett reduction gives equivalent 2x2 anisotropic Wishart eigenvalue-ratio left tail.",
+        "The source arXiv:2607.10354v1 monitors sketched nonorthogonal-basis condition without a matching sharp probability."
+      ],
+      "reasoning": "An equivalent formulation would be the anisotropic Wishart event that a population eigenvalue ratio K>T is falsely observed at ratio <=T; its event and sharp sample-row asymptotic were searched, not only the sketching nomenclature.",
+      "searches": [
+        "arxiv:2607.10354v1",
+        "two-column Gaussian sketch condition number false pass beta Wishart probability",
+        "Wishart spiked covariance 2x2 condition number ratio lower tail asymptotic rate and prefactor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical research searches returned results on Gaussian sign concentration, randomized subspace methods and sketches with distinct target events.",
+        "Direct comparison of formulas found no already-tabulated joint rate and prefactor matching the threshold K>T."
+      ],
+      "reasoning": "An exact tabulation of anisotropic Wishart 2x2 condition tails would subsume the beta integral, but exact finite laws alone need not supply the sharp noncentral asymptotic multiplier. No matching complete source was identified; coverage is not certified.",
+      "searches": [
+        "published mathematical research exact Gaussian sketch condition false acceptance 2 columns",
+        "Wishart spiked covariance 2x2 condition number ratio lower tail asymptotic rate and prefactor"
+      ]
+    },
+    "rationale": "Inspected the algorithm and analysis of arXiv:2607.10354v1, plus known isotropic Gaussian condition-number and independent-entry large-deviation material; these do not state the present two-column fixed-basis anisotropic false-pass probability with its sharp multiplier. Semantic searches of published mathematical records and the accessible own-claim archive were compared by mathematical implication; no dominating equivalent was identified. Partial access to some plausible publications and possible unindexed equivalent results remain explicit uncertainty.",
+    "residual_risks": [
+      "The complete Singull–Uwamariya–Yang (2021) paper could not be inspected; a general result might subsume the special-case asymptotic.",
+      "The complete Anderson–Wells (2009) paper could not be inspected; exact anisotropic extensions may be indexed differently.",
+      "Other Wishart eigenvalue-ratio saddlepoint prefactors may occur in unindexed statistical literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces stopping mechanism but does not derive the fixed anisotropic two-column false-acceptance tail or leading prefactor.",
+        "evidence": [
+          "arXiv:2607.10354v1 Algorithm 4 and associated discussion of sketched Krylov basis conditioning."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.10354",
+        "material_read": "Accessible arXiv HTML introduction, Algorithm 4 sketch monitoring and mathematical analysis, including condition criterion and error/convergence discussion.",
+        "method": "Read primary HTML full article sections relevant to basis conditioning and stopping, compared mathematical probability and hypotheses.",
+        "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+        "trigger": "Motivating 2026 random-sketch condition-based restart decision"
+      },
+      {
+        "assessment": "Relevant classical distributional tools; cannot be treated as an exhaustive whole-paper exclusion.",
+        "evidence": [
+          "Edelman 1988, eigenvalue/condition-number distributions for Gaussian matrices."
+        ],
+        "identifier_or_url": "Edelman 1988, SIAM J. Matrix Anal. Appl. 9:543-560",
+        "material_read": "Search-result bibliographic and abstract material identifying isotropic Gaussian random-matrix conditioning.",
+        "method": "Compared observable model (identity covariance) and target probability.",
+        "title": "Eigenvalues and condition numbers of random matrices",
+        "trigger": "Possible exact 2-column Gaussian condition-number formula"
+      },
+      {
+        "assessment": "Distinct stated isotropic setup; incomplete full-text comparison remains a residual risk.",
+        "evidence": [
+          "Anderson and Wells 2009, exact distribution of a Gaussian matrix condition number."
+        ],
+        "identifier_or_url": "Anderson and Wells (2009)",
+        "material_read": "Accessible bibliographic/abstract-level material about Gaussian-matrix condition numbers.",
+        "method": "Compared isotropic Gaussian setup against fixed anisotropic two-column Gaussian sample covariance.",
+        "title": "The Exact Distribution of the Condition Number of a Gaussian Matrix",
+        "trigger": "Possible exact distribution and table coverage"
+      },
+      {
+        "assessment": "Plausible methodological overlap; exact anisotropic 2-column tail and prefactor comparison unresolved without the complete publication.",
+        "evidence": [
+          "Singull–Uwamariya–Yang (2021), condition-number large-deviation asymptotics."
+        ],
+        "identifier_or_url": "Singull, Uwamariya and Yang (2021)",
+        "material_read": "Accessible abstract and limited related open text; complete paper pages not reliably obtained.",
+        "method": "Checked reported independent-entry model and large-deviation target against anisotropic false-pass saddlepoint.",
+        "title": "Large-deviation asymptotics of condition numbers of random matrices",
+        "trigger": "Potential stronger large-deviation asymptotics of condition-number events"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4c6c91d6-df4f-4834-9c4e-57f754a08f09",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The condition-number acceptance test controls randomized restarting with nonorthogonal Krylov bases. This result calibrates a natural failure event beyond generic sketch distortion inequalities, with a full finite-s beta formula, sharp exponential rarity and actual leading multiplier; the explicit 2-column case is the minimal nontrivial numerical benchmark and informs choice of sketch dimension without asserting entire adaptive-run reliability.",
+    "status": "PASS"
+  }
+}
