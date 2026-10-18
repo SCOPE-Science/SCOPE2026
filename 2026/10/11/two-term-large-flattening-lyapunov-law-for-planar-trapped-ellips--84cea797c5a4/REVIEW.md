@@ -1,19 +1,21 @@
-# Review: Two-term large-flattening Lyapunov law for planar-trapped ellipsoidal billiards
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The **stated ellipsoid** has Hessian \(\operatorname{diag}(2,2,2\beta^2)\); at equatorial impacts the unit-normal differential in the vertical direction is exactly \(\beta^2/r_i\). The source's plane-symmetric Poincaré matrices thus give the transverse positive cocycle with \(Q=\beta^2\). Direct division of its recurrences yields \(u_i\le Q^{-1}/a_i\) and an explicit \(O(Q^{-2})\) bound for the difference between \(u_i\) and \(Q^{-1}/a_i\). Expanding the exact one-step growth logarithm incurs at most \(3Q^{-2}/(a_*^2d_*^2)\), uniformly. The first transient vanishes in the ergodic average. Uniform boundedness of the planar block and a transverse lower growth bound establish which positive exponent is largest when \(Q\) is sufficiently large. No finite experiment is offered as infinite proof. Primary support: arXiv:2610.03004v1, §3 (matrices, coding, angle bounds); arXiv:2306.03611, §3 (Poincaré derivation).
+PASS
 
-## Originality (O): PASS
+At equatorial impacts of (x-X)^2+(y-Y)^2+beta^2 z^2=r^2, differentiating the unit normal yields vertical curvature beta^2/r, while planar curvature remains 1/r. The normal Poincare block is the positive matrix [[1,d_i],[Q a_i,1+Q a_i d_i]], Q=beta^2. Its projective ratio u_i=U_i/V_i obeys 0<u_i<=h/a_i and |u_i-h/a_i|<=h^2/(a_*^2 d_*), h=1/Q. The exact log increment is log Q+log(a_i d_i)+log(1+(u_(i-1)+h/a_i)/d_i); scalar log bounds yield error <=3h^2/(a_*^2 d_*^2) relative to h(a_(i-1)^(-1)+a_i^(-1))/d_i. Birkhoff and elimination of the first transient give the stated measure coefficients. The beta-independent bounded planar block is dominated by normal growth for sufficiently large beta. This proves the specified per-collision asymptotic on planar trapped orbits; it does not prove a flow-time or nonplanar formula.
 
-The 2026 ellipsoid paper provides a strict positive-exponent separation criterion and positive recurrences but neither the exact \(2\log\beta\) leading rate for its displayed geometry nor the geometric integral coefficients and uniform \(O(\beta^{-4})\) remainder. Its 2023 spherical predecessor treats a fixed isotropic curvature without the singular flattening regime; the 2023 deformation paper studies small perturbations, not this limit. Source-, curvature-, cocycle-, strong-coupling-, and alias-level searches found no same-statement or dominating general result in the checked works. An older general matrix-product theorem might entail the expansion, so this remains a real residual novelty risk. The argument is confined to the exact stated physical geometry, not to a typographic parameter reinterpretation.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-This provides a quantitative spectral law for the motivating new hyperbolic billiard family, including a genuinely dynamical measure-dependent constant term and an explicit first curvature-correction integral from adjacent collision data. The universal uniform error turns qualitative exponent separation into a reproducible controlled asymptotic, permitting comparison across Gibbs states and configurations. Simply pointing out a curvature normalization would not provide these new coefficients. The result does not assert an optimized remainder, existence of other invariant measures, or new spectral bounds at moderate flattening.
+The closest recent open-billiard paper identifies a strict top-exponent gap and its beta-independent planar exponent, but no controlled two-term asymptotic for its physically flattened ellipsoids. The spherical predecessor lacks a flattening regime; small-deformation perturbation results concern a different limit. Resultary returned the same candidate plus a distinct gap-repair record, which is not prior coefficient coverage. Broad positive-matrix high-coupling asymptotics may subsume the formula but no explicit implication-equivalent statement was verified in accessible sources; this is best-of-knowledge, not absolute novelty.
 
-## Closest literature and residual limits
+## value
 
-The immediate comparison is Al Dowais–Stoyanov, *Some open billiards with distinct top Lyapunov exponents* (arXiv:2610.03004v1), equations (1.1), (3.1)–(3.9); the Poincaré construction is cross-checked in *Lyapunov exponents for open billiards in the exterior of balls* (arXiv:2306.03611), §3. A small-deformation comparison is Al Dowais, *Mathematics* (2023), 4633. Strong-coupling matrix-cocycle literature is the main residual originality risk and has not been exhaustively ruled out.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Determining the leading geometric curvature law, the nontrivial Gibbs-state-dependent zero-order potential, and the first adjacent-collision correction with a uniform O(beta^-4) bound is a quantitative result for a natural hyperbolic open-billiard family. It goes materially beyond naming a curvature-normalization discrepancy or merely proving a qualitative gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

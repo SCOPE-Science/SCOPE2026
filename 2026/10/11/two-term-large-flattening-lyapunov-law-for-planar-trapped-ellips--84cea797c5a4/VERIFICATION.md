@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact identity \(D\nu(e_z)=(\beta^2/r_i)e_z\) follows from the Hessian and unit normal of the stated obstacle equation at each equatorial collision. The source and its spherical predecessor supply the block Poincaré representation and the identification of logarithmic growth with the normal exponent. No external proof assistant, numerical census, or simulated trajectory is needed.
+## correctness
 
-Write \(Q=\beta^2\) and \(h=Q^{-1}\). Starting at \(U_0=V_0=1\), check the exact recurrence
-\[
-U_i=U_{i-1}+d_i V_{i-1},\qquad V_i=V_{i-1}+Qa_i U_i.
-\]
-Elementary division and subtraction give \(0<u_i\le h/a_i\) and \(0\le h/a_i-u_i\le h^2/(a_*^2d_*)\). Next expand the exact log increment and apply \(|\log(1+z)-z|\le z^2/2\) for \(z\ge0\) to obtain the termwise \(3h^2/(a_*^2d_*^2)\) bound. This bound is independent of \(i\) and \(\mu\), so ergodic averaging retains it; the finite initial increment disappears.
+PASS
 
-An independent constant-coefficient algebraic boundary check: for \(a_i=a\) and \(d_i=d\), the one-step matrix is symplectic with trace \(2+Qad\). Its expanding eigenvalue is \(\frac12(2+Qad+\sqrt{(2+Qad)^2-4})\). Its logarithmic expansion is \(\log(Qad)+2/(Qad)+O(Q^{-2})\), matching the integral expression \(C_1=2/(ad)\). This check tests the first correction; the general proof does not depend on periodicity.
+At equatorial impacts of (x-X)^2+(y-Y)^2+beta^2 z^2=r^2, differentiating the unit normal yields vertical curvature beta^2/r, while planar curvature remains 1/r. The normal Poincare block is the positive matrix [[1,d_i],[Q a_i,1+Q a_i d_i]], Q=beta^2. Its projective ratio u_i=U_i/V_i obeys 0<u_i<=h/a_i and |u_i-h/a_i|<=h^2/(a_*^2 d_*), h=1/Q. The exact log increment is log Q+log(a_i d_i)+log(1+(u_(i-1)+h/a_i)/d_i); scalar log bounds yield error <=3h^2/(a_*^2 d_*^2) relative to h(a_(i-1)^(-1)+a_i^(-1))/d_i. Birkhoff and elimination of the first transient give the stated measure coefficients. The beta-independent bounded planar block is dominated by normal growth for sufficiently large beta. This proves the specified per-collision asymptotic on planar trapped orbits; it does not prove a flow-time or nonplanar formula.
 
-Limits: no numerical data are presented as proof; no independent audit has been performed. The controlled remainder is not claimed optimal; the flattening cutoff is qualitative and depends on a uniform bound for the \(\beta\)-independent planar block. The theorem concerns exponents per reflection, not per unit flow time.
+## originality
+
+PASS
+
+The closest recent open-billiard paper identifies a strict top-exponent gap and its beta-independent planar exponent, but no controlled two-term asymptotic for its physically flattened ellipsoids. The spherical predecessor lacks a flattening regime; small-deformation perturbation results concern a different limit. Resultary returned the same candidate plus a distinct gap-repair record, which is not prior coefficient coverage. Broad positive-matrix high-coupling asymptotics may subsume the formula but no explicit implication-equivalent statement was verified in accessible sources; this is best-of-knowledge, not absolute novelty.
+
+## value
+
+PASS
+
+Determining the leading geometric curvature law, the nontrivial Gibbs-state-dependent zero-order potential, and the first adjacent-collision correction with a uniform O(beta^-4) bound is a quantitative result for a natural hyperbolic open-billiard family. It goes materially beyond naming a curvature-normalization discrepancy or merely proving a qualitative gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
