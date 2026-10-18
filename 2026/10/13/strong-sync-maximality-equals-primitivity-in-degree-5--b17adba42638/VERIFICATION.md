@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-Engine A checks all \(3000\) maps of ranks \(2\), \(3\), and \(4\). For each map it builds the complete simultaneous subset-pair graph under the cyclic generator and that map, then reverse-searches from the states where exactly one component is a singleton. All \(45\) initial pairs are reached. The exact shortest-distance histogram is
-\[
-45000,42360,28420,13525,4395,1005,235,50,10
-\]
-for lengths \(1,\ldots,9\).
+## correctness
 
-Engine B quotients maps by independent cyclic rotations on the domain and image, leaving \(12+60+48=120\) representatives. It also quotients pairs of distinct \(2\)-subsets by simultaneous rotation, leaving \(9\) representatives. For every representative map it generates the entire transformation monoid and directly scans for a distinguishing element for every representative pair.
+PASS
 
-The finite verification establishes strong sync-maximality of \(C_5\). The extension to all primitive degree-\(5\) groups is the elementary deductive argument stated in the result.
+For C5=<cycle (0 1 2 3 4)>, all 5^5−5!−5=3000 maps of rank 2,3,4 are covered. For each map f and 45 unordered distinct pairs of two-element subsets, reverse BFS on the 31×31 nonempty subset-pair state graph with transitions induced by c and f certifies a distinguishing word; independent reimplementation produced complete distance histogram length 1..9: 45000,42360,28420,13525,4395,1005,235,50,10 (total 135000), hence sharp universal word length 9. Strong sync maximality increases with permutation group inclusion; any transitive degree-5 group has an order-5 element by orbit-stabilizer and Cauchy, hence includes a conjugate of C5. Conversely Hoffmann Proposition 14 proves strong sync-maximal groups primitive. Exact all-map enumeration is finite exhaustive proof of degree-five core, not speculative sampling; bound is only for this c and five-point maps.
 
-Independent audit has not been performed.
+## originality
+
+PASS
+
+Hoffmann defines strong sync-maximality and proves 4-transitivity sufficient and primitivity necessary; he leaves sharp class relationship open. C5 has regular 5-cycle action, not 4-transitive, so degree-five primitive converse and the sharp word-length histogram are additional. Resultary nearby automata findings concern reset/avoidance not this 2-set distinguishability condition. A hidden finite-table classification remains possible.
+
+## value
+
+PASS
+
+The smallest nontrivial prime-degree regular action supplies the exact first complete classification for this stronger synchronizing property; 135000-case sharp distinguishing-word diameter quantifies a natural finite automata invariant rather than an arbitrary instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

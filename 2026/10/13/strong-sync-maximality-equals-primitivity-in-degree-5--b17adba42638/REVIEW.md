@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite core checks every one of the \(3000\) admissible maps and every one of the \(45\) pairs of distinct \(2\)-subsets. Exact reverse BFS proves distinguishability in every case and gives a sharp maximum shortest distinguishing length of \(9\). A second implementation reduces by cyclic symmetries, explicitly generates every representative transformation monoid, and independently recovers universal distinguishability. The passage from \(C_5\) to every primitive degree-\(5\) group follows from orbit-stabilizer, Cauchy's theorem, and upward monotonicity.
+## correctness
 
-## Originality
-PASS. The defining paper proves only
-\[
-\text{\(4\)-transitive}\Longrightarrow
-\text{strongly sync-maximal}\Longrightarrow
-\text{primitive}
-\]
-and explicitly leaves the strong class open. The candidate lies outside the sufficient hypothesis because \(C_5\) is regular. Exact-property, degree-\(5\), cyclic-group, prime-degree, table, and later-literature searches found no covering statement. Available current/prior records contain separate \(A_4\) and \(A_5\) results but not the \(C_5\) core or the complete degree-\(5\) equivalence.
+PASS
 
-Residual risk remains for an unindexed or unpublished small-degree computation.
+For C5=<cycle (0 1 2 3 4)>, all 5^5−5!−5=3000 maps of rank 2,3,4 are covered. For each map f and 45 unordered distinct pairs of two-element subsets, reverse BFS on the 31×31 nonempty subset-pair state graph with transitions induced by c and f certifies a distinguishing word; independent reimplementation produced complete distance histogram length 1..9: 45000,42360,28420,13525,4395,1005,235,50,10 (total 135000), hence sharp universal word length 9. Strong sync maximality increases with permutation group inclusion; any transitive degree-5 group has an order-5 element by orbit-stabilizer and Cauchy, hence includes a conjugate of C5. Conversely Hoffmann Proposition 14 proves strong sync-maximal groups primitive. Exact all-map enumeration is finite exhaustive proof of degree-five core, not speculative sampling; bound is only for this c and five-point maps.
 
-## Value
-PASS. This is a complete natural classification at degree \(5\), not a routine parameter increment. It shows that the smallest transitive subgroup in that degree already satisfies the universal strong condition, sharply strengthening the source's \(4\)-transitivity sufficient criterion at the first prime-degree test case.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hoffmann defines strong sync-maximality and proves 4-transitivity sufficient and primitivity necessary; he leaves sharp class relationship open. C5 has regular 5-cycle action, not 4-transitive, so degree-five primitive converse and the sharp word-length histogram are additional. Resultary nearby automata findings concern reset/avoidance not this 2-set distinguishability condition. A hidden finite-table classification remains possible.
+
+## value
+
+PASS
+
+The smallest nontrivial prime-degree regular action supplies the exact first complete classification for this stronger synchronizing property; 135000-case sharp distinguishing-word diameter quantifies a natural finite automata invariant rather than an arbitrary instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
