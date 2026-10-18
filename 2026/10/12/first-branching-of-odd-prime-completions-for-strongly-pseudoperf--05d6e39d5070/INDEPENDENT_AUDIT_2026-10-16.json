@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:03:46.226979Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A reciprocal-closed divisor subset in N=2^a p selects exactly one binary mask over the a+1 distinct pairs (2^i,2^(a−i)p). Their sum x+p rev_(a+1)(x)=2^(a+1)p makes p=x/(2^(a+1)−rev(x)), with positive denominator and p<2^(a+1). Thus all prime completions for 1≤a≤9 are covered by 2^(a+1)−1 exact masks. An independently written direct bit-reversal loop with deterministic primality tests reproduced P1={3}, P2={7}, P3=∅, P4={31}, P5={11}, P6={127}, P7=P8=∅, P9={23,179}. Masks 943 and 895 give p=23 and p=179, respectively, with exact reciprocal closure and sums 2N. No inference beyond a=9 is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary proves no nonperfect multi-pair N below 11776, but not no multi-pair N with small exponent a and N above cutoff.",
+          "Wang–Zelinsky only covers Mersenne p in Theorem 6; Aryan covers one omitted pair."
+        ],
+        "reasoning": "None identified as dominating the complete exponent-wise P1..P9 profile, although sources already establish individual witnesses.",
+        "searches": [
+          "Resultary first multi-pair 11776 cutoff",
+          "Wang–Zelinsky arXiv:2609.36068 Theorem 6",
+          "Aryan et al 2024 one-pair classification"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.36068v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-first-multi-pair-strongly-pseudoperfect-number-of-the-form-2--067a5b7cff02",
+        "https://doi.org/10.5281/zenodo.12167628",
+        "Resultary semantic search: strongly pseudoperfect 2^a p binary mask first exponent having two different prime completions 9 23 179"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary classifies N≤11776, while at a=8 N can be as large as 256*(511)=130816.",
+          "Known p=179 and p=23 at a=9 do not rule out two primes at a≤8."
+        ],
+        "reasoning": "The first branching is NOT a direct corollary of the prior integer cutoff and known a=9 examples: the a≤8 upper range extends far beyond the integer cutoff and includes possible multiple pairs.",
+        "searches": [
+          "Resultary first multi-pair full RESULT.md",
+          "Aryan et al Proposition 5",
+          "Wang Zelinsky Theorem 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary uses p=(2^(a+1)−1−A_I)/(1+B_I) for omitted pairs I; this is algebraically identical to p=x/(2^(a+1)−rev(x)) for included pairs."
+        ],
+        "reasoning": "Equivalent parameterization is prior. The final claim instead exhausts all possible distinct prime completions at each a through 9.",
+        "searches": [
+          "strongly pseudoperfect 2^a p binary mask first exponent having two different prime completions 9 23 179",
+          "Resultary published first multi-pair 2^a p",
+          "Wang Zelinsky 2026 Theorem 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A334405 lists 11776=2^9*23 as an entry, not a complete census over all a≤9 with p<2^(a+1).",
+          "The 2026 paper prints a sample of early even examples, not all admissible p up to the exponent-specific cap."
+        ],
+        "reasoning": "Known numerical examples cannot alone establish the first exponent with multiple completions. Independent exhaustive bounded enumeration supplies missing totality.",
+        "searches": [
+          "OEIS A334405 strongly pseudoperfect numbers",
+          "strongly pseudoperfect 2^a p binary mask first exponent having two different prime completions 9 23 179",
+          "Wang–Zelinsky 2026 Table 2"
+        ]
+      },
+      "rationale": "The binary-mask criterion and 11776=2^9*23 were already published by the Resultary October 4 record; p=179 was known in 2024 one-pair work. The final first-branching statement differs and is not directly implied by those priors because the 11776 smallest-integer cutoff does not exclude other primes p yielding much larger N=2^a p for a≤8. Full 2026 Wang–Zelinsky paper was read and does not state the complete first-branching profile. Best-of-knowledge originality attaches ONLY to P1..P9 completion fibers and minimal branching exponent, not individual representations or binary criterion.",
+      "residual_risks": [
+        "Identical mask quotient and 11776 two-pair witness are prior in Resultary and must not be separately claimed as original.",
+        "A possible unpublished or unindexed complete exponent-wise prime completion census remains a residual priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not state the complete P1..P9 fibers or that a=9 is the first exponent with two prime completions; p and a families treated separately",
+          "evidence": "Wang–Zelinsky Theorem 6: if n=2^k p with p=2^m−1 prime and n strongly pseudoperfect then n is perfect; Table 2 lists sample even values, not all completions.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.36068v1",
+          "material_read": "All 17 pages, including Section 3 restrictions, Theorem 6 on Mersenne odd primes, Sections 4–5 and tables of examples",
+          "method": "Authorized institutional retrieval, all pages read and compared to prime-fiber assertion",
+          "title": "Strongly Pseudoperfect Numbers",
+          "trigger": "Same strongly pseudoperfect definition and 2^a p prime-support family"
+        },
+        {
+          "assessment": "PRIOR: full equivalent bit-mask criterion and least nonperfect two-pair integer 11776; not the all-prime completion profile or first multiplicity in exponent a",
+          "evidence": "The prior cutoff is by numeric N≤11776, while at a=8 admissible p could reach 511, giving N well above the cutoff.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-first-multi-pair-strongly-pseudoperfect-number-of-the-form-2--067a5b7cff02",
+          "material_read": "Complete RESULT.md theorem, assumptions, proof, finite cutoff census and limitations",
+          "method": "Pinned readable published finding at GitHub; implication comparison of integer-minimality vs exponent-fiber multiplicity",
+          "title": "The first multi-pair strongly pseudoperfect number of the form 2^a p",
+          "trigger": "Near-identical binary quotient and n=11776 witness; strongest Resultary coverage candidate"
+        },
+        {
+          "assessment": "Covers one-pair subfamily, including p=179 at a=9, not the two-pair p=23 witness or exhaustion of all other prime completions",
+          "evidence": "Aryan et al 2024, INTEGERS 24 A61; one-pair omission restriction.",
+          "identifier_or_url": "https://doi.org/10.5281/zenodo.12167628",
+          "material_read": "Paper Section 4/Proposition 5 and scope as identified in assigned packet and bibliographic cross-check; full comprehensive scan not independently repeated here",
+          "method": "Prior-results hypothesis comparison",
+          "title": "On 2-Near Perfect Numbers",
+          "trigger": "One omitted reciprocal divisor pair and known 2^9*179 example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The least exponent at which one dyadic support admits two different odd-prime completions is a natural parameter-family branching invariant. It separates the known one-pair p=179 mechanism from the genuinely two-omission-pair p=23 mechanism; requires exhaustive exclusion of all p for a≤8, not simply discovering either known integer. It is a complete exact finite classification of a mathematically motivated initial parameter regime.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.36068v1",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-first-multi-pair-strongly-pseudoperfect-number-of-the-form-2--067a5b7cff02",
+    "https://doi.org/10.5281/zenodo.12167628",
+    "Resultary semantic search: strongly pseudoperfect 2^a p binary mask first exponent having two different prime completions 9 23 179"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Identical mask quotient and 11776 two-pair witness are prior in Resultary and must not be separately claimed as original.",
+    "A possible unpublished or unindexed complete exponent-wise prime completion census remains a residual priority risk.",
+    "Matching record tree SHAs and pinned scientific blob identities were fetched; complete root-to-record Git ancestry of full pinned commit was not separately rebuilt.",
+    "Potential public metadata contains private provenance: publication not ready, scientific assessment complete."
+  ],
+  "residual_risks": [
+    "Identical mask quotient and 11776 two-pair witness are prior in Resultary and must not be separately claimed as original.",
+    "A possible unpublished or unindexed complete exponent-wise prime completion census remains a residual priority risk."
+  ],
+  "schema_version": 1
+}
