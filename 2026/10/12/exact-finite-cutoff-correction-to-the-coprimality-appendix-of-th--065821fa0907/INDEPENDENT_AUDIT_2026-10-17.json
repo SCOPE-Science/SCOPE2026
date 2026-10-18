@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:44:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Mobius inversion of the gcd(a,n)=1 indicator gives C_a(N)=sum_(d|a)mu(d)*floor(N/d). Inclusion--exclusion of the common pair gcd gives J_a(N)=sum_(d<=N,(d,a)=1)mu(d)*C_a(floor(N/d))^2. Independent arithmetic checks give C_6(10)=3, C_3(4)=3 and J_3(4)=5, J_5(6)=13, so finite inequalities 3/10<1/3, 5/9<6/pi^2, 13/36<96/(25*pi^2) strictly hold. A separate direct pair enumeration matched Mobius counts on 176 (a,N) parameter pairs. For fixed a, periodicity yields C_a(M)/M->phi(a)/a, and absolute domination by d^-2 allows interchange of Mobius sum and N->infinity, producing the stated Euler product. The limit is fixed-a, not uniformly simultaneous in a and N.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical Euler-product coprimality densities explain the N->infinity limit. They do not imply the source finite inequalities for all N>=a, which are directly contradicted by counts."
+        ],
+        "reasoning": "Dominated convergence applies fixed-a only, exposing the missing uniformity in the printed argument.",
+        "searches": [
+          "Lomonaco Kauffman quant-ph/0210141 arithmetic appendix; Continuous Quantum Hidden Subgroup Algorithms quant-ph/0304084"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:quant-ph/0210141 original PDF appendix Propositions 2,3,Corollary 2",
+        "arXiv:quant-ph/0304084 related paper metadata and searches",
+        "Resultary exact finite-coprimality/correction semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Proposition 2 lower bound contradicts 3/10<1/3 at a=6,N=10; independent counterexamples invalidate Proposition3 and Corollary2 exactly as finitely stated."
+        ],
+        "reasoning": "No stronger valid prior lemma can imply these false universal finite claims, whereas corrected fixed-a Euler product is classical and credited.",
+        "searches": [
+          "quant-ph/0210141 primary appendix propositions and printed independence argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Probability conditioned on gcd(a,n_i)=1 equals J_a(N)/C_a(N)^2; joint unrestricted probability is J_a(N)/N^2. Both counts are related through standard Mobius inversion."
+        ],
+        "reasoning": "Finite periodic cutoffs, rather than asymptotic prime independence, are the relevant comparison to source wording.",
+        "searches": [
+          "Lomonaco Kauffman Continuous Variable Shor Algorithm Proposition 2 3 Corollary 2 coprime probability sieve finite sampling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed Resultary records concern different gcd map Euler factors and finite-resultant densities; no direct erratum or same counterexample table located."
+        ],
+        "reasoning": "This is a correction to false published statements, not primarily a new coprimality table; no-hit cannot prove originality.",
+        "searches": [
+          "Resultary semantic Continuous Variable Shor Algorithm Lomonaco Kauffman coprime Proposition 2 3 Corollary finite N Mobius probability correction"
+        ]
+      },
+      "rationale": "Original source propositions explicitly assert the finite-uniform inequalities, but use invalid independence/multiplication of divisibility probabilities. The correction is not covered by those false statements. Standard Mobius inversion is prior mathematical machinery; the new contribution is identifying three exact counterexamples to the specific published probability bounds and replacing their proof mechanism while preserving the fixed-a limit.",
+      "residual_risks": [
+        "Later arXiv revision, unpublished errata, or later author-written hidden-subgroup work may already identify these corrections; complete final v2 not verified.",
+        "The fixed-a limit does not justify a uniform cutoff N>=a nor an implementation-specific quantum sampling distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_STATEMENTS_FALSE_FOR_FINITE_MODEL",
+          "evidence": [
+            "Printed formula treats prime-divisibility events as independent at finite cutoff and cannot imply valid lower bounds"
+          ],
+          "identifier_or_url": "arXiv:quant-ph/0210141; DOI:10.1090/conm/381/07093",
+          "material_read": "Original arXiv PDF appendix pages containing finite coprimality counts, prime-independence multiplication and lower-bound claims, including repetition-estimate context",
+          "method": "Primary v1 arXiv PDF and visual pages of relevant propositions materially inspected",
+          "title": "S. J. Lomonaco Jr and L. H. Kauffman, A Continuous Variable Shor Algorithm",
+          "trigger": "Direct purported finite-uniform Propositions 2 and 3 and Corollary 2"
+        },
+        {
+          "assessment": "LIMITED_NOT_COVERING_UNKNOWN",
+          "evidence": [
+            "No verified same specific finite-cutoff correction found in inspected material"
+          ],
+          "identifier_or_url": "arXiv:quant-ph/0304084",
+          "material_read": "Bibliographic/abstract context; full appendix not inspected",
+          "method": "Metadata and targeted search",
+          "title": "S. J. Lomonaco Jr and L. H. Kauffman, Continuous Quantum Hidden Subgroup Algorithms",
+          "trigger": "Possible self-correction in later author literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These lower bounds feed into a published repeated-sampling estimate for a continuous-variable period-finding proposal; correcting their finite-cutoff scope addresses a concrete logical dependency, rather than an arbitrary coprime-count exercise. It does not invalidate the quantum algorithm or physical distribution analysis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The finite-uniform coprimality lower bounds in Propositions 2 and 3 and Corollary 2 of Lomonaco--Kauffman A Continuous Variable Shor Algorithm are false in the stated integer uniform-cutoff model. Exact Mobius formulas determine C_a(N) and J_a(N); explicit (a,N)=(6,10),(3,4),(5,6) violate them, while for fixed a, J_a(N)/N^2 tends to (phi(a)/a)^2*(6/pi^2)/prod_(p|a)(1-p^-2).",
+  "limitations": [
+    "Applies only to finite uniform integer model; no quantum measurement, detector errors or complete algorithmic complexity theorem."
+  ],
+  "schema_version": 1
+}

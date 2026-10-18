@@ -1,15 +1,21 @@
-# Review: Exact finite-cutoff correction to the coprimality appendix of the continuous-variable Shor algorithm
+# Independent mathematical audit
 
-## Correctness
-PASS. Both exact counting formulas are immediate consequences of Möbius inversion. The counterexamples are exact, and the limiting formula follows from periodic reduced-residue density, dominated convergence with a \(d^{-2}\) majorant, and the absolutely convergent Euler product. The attached checker independently matches the formulas to brute-force counting on a grid and reproduces all three counterexamples.
+## correctness
 
-## Originality
-PASS. The final anchor source retains the finite propositions. The inspected same-author follow-up and broad hidden-subgroup review do not contain the source-specific correction. Focused searches by identifier, proposition wording, aliases, coprimality constant, and erratum language found no implication-equivalent result. The closest search results concern generic coprimality or Euler-product problems rather than this appendix.
+PASS
 
-## Value
-PASS. These finite probability lemmas are explicitly used to motivate the source's rational-period repetition estimate. The correction is therefore mathematically consequential: it removes an unsupported finite-uniform guarantee, provides exact replacement formulas, and identifies the valid fixed-parameter asymptotic regime.
+Mobius inversion of the gcd(a,n)=1 indicator gives C_a(N)=sum_(d|a)mu(d)*floor(N/d). Inclusion--exclusion of the common pair gcd gives J_a(N)=sum_(d<=N,(d,a)=1)mu(d)*C_a(floor(N/d))^2. Independent arithmetic checks give C_6(10)=3, C_3(4)=3 and J_3(4)=5, J_5(6)=13, so finite inequalities 3/10<1/3, 5/9<6/pi^2, 13/36<96/(25*pi^2) strictly hold. A separate direct pair enumeration matched Mobius counts on 176 (a,N) parameter pairs. For fixed a, periodicity yields C_a(M)/M->phi(a)/a, and absolute domination by d^-2 allows interchange of Mobius sum and N->infinity, producing the stated Euler product. The limit is fixed-a, not uniformly simultaneous in a and N.
 
-## Closest literature and limitations
-The anchor paper is necessarily the closest prior work because it contains the statements being corrected. The same-author hidden-subgroup follow-up is algorithmically related but does not supply the correction in the inspected portions. This result does not model physical noise or prove what exact discrete law a finite-resolution continuous measurement produces. An unindexed erratum remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Original source propositions explicitly assert the finite-uniform inequalities, but use invalid independence/multiplication of divisibility probabilities. The correction is not covered by those false statements. Standard Mobius inversion is prior mathematical machinery; the new contribution is identifying three exact counterexamples to the specific published probability bounds and replacing their proof mechanism while preserving the fixed-a limit.
+
+## value
+
+PASS
+
+These lower bounds feed into a published repeated-sampling estimate for a continuous-variable period-finding proposal; correcting their finite-cutoff scope addresses a concrete logical dependency, rather than an arbitrary coprime-count exercise. It does not invalidate the quantum algorithm or physical distribution analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
