@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The exact undamped RKC recurrence yields scalar Chebyshev multipliers. The full interior-extremum classification follows from Chebyshev cosine geometry; the repeated independent reflections have an exact 4n variance at the five-stage witness. The full-gradient multiplier 61/64 and the stationary variance formula are exact. Both multiplier derivatives vanish at the resonance, while positive second-order coefficients sum to 1/25, so the punctured invariant-variance pole constant is 100. The embedded actual-path verifier passed 48 checks; finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abdulle–Cirilli S-ROCK studies SDE weak/mean-square stability, not the same stochastic sampled optimization rule (public abstract only).",
+        "The 2025 related article concerns a stochastic gradient-with-momentum construction; the 2026 article addresses stochastic Runge–Kutta methods for convex optimization (public abstracts only).",
+        "Stillfjord–Williamson decreasing-step convergence theorem does not apply to the fixed-step resonance."
+      ],
+      "reasoning": "Broader RKC or random-iteration theory supplies technical ingredients but no checked source established a theorem that subsumes the particular sampled-gradient, fixed-step, negative-interior-extremum and exact pole statements. Limited full-text access to later stochastic methods is a real priority risk, not treated as proof of noncoverage.",
+      "searches": [
+        "Explicit stabilized stochastic gradient noise amplification stability polynomial Chebyshev stationary variance zero nontrivial learning rates",
+        "Stochastic Runge Kutta Chebyshev method scalar quadratic stability noise covariance independent stage batches",
+        "SRKCD stabilized Runge Kutta Chebyshev stochastic optimization first order method and internal stability Chebyshev extrema",
+        "doi:10.1137/070679375",
+        "doi:10.1007/s11075-025-02251-1",
+        "doi:10.1007/s40314-026-03805-2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.12782 Sections 2-5, Appendix A",
+      "doi:10.1007/s10543-020-00819-y Sections 2-3 and conclusions",
+      "doi:10.1137/070679375 abstract (not full text)",
+      "doi:10.1007/s11075-025-02251-1 public abstract only",
+      "doi:10.1007/s40314-026-03805-2 public abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original SRKCD convergence theorem uses diminishing step sizes and reports increased nominal stability; the present fixed-step resonance is outside that convergence regime.",
+        "The deterministic RKCD analysis assumes a full gradient and does not include sampled per-component affine forcing.",
+        "A related accessible two-stage second-order Chebyshev positivity statement concerns a distinct numerical method and invariant."
+      ],
+      "reasoning": "The prior method definition plus established Chebyshev identities permits deriving the new phenomenon, but it does not directly imply it without a separate joint-extremum stochastic-moment analysis; no inspected theorem dominates the full claim. The distinct two-stage Chebyshev positivity result does not imply a stochastic RKC variance classification.",
+      "searches": [
+        "arXiv:2201.12782 full text",
+        "doi:10.1007/s10543-020-00819-y full OA text",
+        "stochastic RKCD undamped Chebyshev odd extrema simultaneous scalar quadratic mean square stability invariant variance pole",
+        "SRKCD stabilized Runge Kutta Chebyshev stochastic optimization first order method and internal stability Chebyshev extrema",
+        "Runge Kutta Chebyshev method stage s=5 25 step noise variance failure identical negative one sampled gradients"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "SRKCD shares one sampled gradient oracle across its internal stages and permits the undamped parameter, so scalar affine samples reduce to RKC Chebyshev multipliers.",
+        "Classical random affine recursions give second-moment criteria once the multipliers are known.",
+        "Neither inspected primary article states the joint odd-Chebyshev-extremum reflection walk or its exact variance divergence."
+      ],
+      "reasoning": "The equivalent stochastic affine recursion is explicitly acknowledged and reduced analytically; general moment-recursion identities imply a stability criterion but not a previously published classification of the interior Chebyshev negative extrema or exact five-stage stationary pole. Theorems from general affine theory remain background, not asserted novel.",
+      "searches": [
+        "Stochastic Runge Kutta Chebyshev descent shared random batch across all stages exact cancellation frozen steps Chebyshev extrema",
+        "stochastic RKCD undamped Chebyshev odd extrema simultaneous scalar quadratic mean square stability invariant variance pole",
+        "SRKCD random affine quadratic batch-specific optimum reflected map Chebyshev stage five resonance",
+        "arXiv:2201.12782 Section 3",
+        "doi:10.1007/s10543-020-00819-y"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record searches for exact coefficients, resonance and quadratic variance poles returned no indexed record of the same calculation.",
+        "The full-source method coefficients are known, but no table giving the joint sampled-curvature resonance or invariant variance pole was identified."
+      ],
+      "reasoning": "An exact five-stage radical pair and the local pole constant are not in the accessed tables or listed results. This is a bounded search outcome, not a uniqueness proof.",
+      "searches": [
+        "Chebyshev RKC stochastic descent two sampled quadratic curvatures internal negative extrema reflections linearly growing variance instead of contraction",
+        "stochastic Chebyshev descent exact resonance 61/64 deterministic contractive and stochastic batch variance grows",
+        "Runge Kutta Chebyshev method stage s=5 25 step noise variance failure identical negative one sampled gradients",
+        "stochastic stabilized optimization Chebyshev interior resonance invariant variance pole, shift centers"
+      ]
+    },
+    "rationale": "The full SRKCD primary article defines the undamped, same-sample-within-stages method and convergence under diminishing steps; the deterministic RKCD article provides only the full-gradient Chebyshev stability framework. Classical Chebyshev and random affine moment identities are acknowledged. No accessible primary statement or mathematical-record hit was found that covers the joint interior negative-extremum classification, strictly contracting five-stage full-gradient example, and exact stationary-variance pole. Later closely related full texts are inaccessible and retained as residual priority risks.",
+    "residual_risks": [
+      "A different source may already calculate this specialized fixed-step Chebyshev resonance via general random affine recursion theory.",
+      "Full texts of Krivovichev 2025 and 2026 related articles were unavailable, so only their bibliographic abstracts were compared.",
+      "S-ROCK full text was not read; its SDE setting is materially different but possible shared stability insights are not excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates and defines algorithm; no checked passage covers the fixed-step joint interior negative-reflection criterion or pole",
+        "evidence": [
+          "Sections 2-3 share sampled batch within each macrostep and permit epsilon=0; Section 3 notes positive damping removes stability-region degeneracy.",
+          "Convergence results use diminishing learning rate, not the fixed constant resonant step."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.12782",
+        "material_read": "Accessible public full text, Sections 1-5 and Appendix A passages, especially (3.1),(3.2), damping specification, stochastic convergence and numerical setting",
+        "method": "Read accessible structured full-text HTML and compared method, theorem hypotheses and implications",
+        "title": "SRKCD: a stabilized Runge-Kutta method for stochastic optimization",
+        "trigger": "Exactly the stochastic algorithm and cohort dated January 30, 2022"
+      },
+      {
+        "assessment": "Deterministic gradient scheme, no per-step sampled-curvature reflection walk",
+        "evidence": [
+          "Method uses full gradient; conclusion explicitly identifies adaptation to stochastic optimization as an unaddressed direction."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10543-020-00819-y",
+        "material_read": "Open-access full HTML Sections 1-3, stability analysis and conclusion",
+        "method": "Read and compare complete relevant method statements and deterministic quadratic theorem",
+        "title": "Explicit stabilised gradient descent for faster strongly convex optimisation",
+        "trigger": "Original undamped deterministic RKC stability polynomial and potential stronger coverage"
+      },
+      {
+        "assessment": "Distinct SDE stochastic-integrator setting; full text not compared",
+        "evidence": [
+          "Abstract describes explicit schemes for numerical SDEs with mean-square stability regions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/070679375",
+        "material_read": "Public bibliographic abstract only; full paper not read",
+        "method": "Compared problem class and abstract scope without assuming full-text noncoverage",
+        "title": "S-ROCK: Chebyshev methods for stiff stochastic differential equations",
+        "trigger": "Classic RKC mean-square stability results might dominate"
+      },
+      {
+        "assessment": "Cannot exclude equivalent specialized analysis; momentum algorithm seems different, publication priority risk retained",
+        "evidence": [
+          "Abstract emphasizes a stochastic gradient method with momentum and sufficient convergence conditions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11075-025-02251-1",
+        "material_read": "Public abstract and bibliographic scope; full text inaccessible",
+        "method": "Searched public arXiv/open access and requested authorized scholarly access; only preview material accessible",
+        "title": "Application of stochastic gradient method with momentum inspired by explicit stabilized Runge–Kutta method in unconstrained convex optimization",
+        "trigger": "Later stochastic Chebyshev optimization could contain equivalent example"
+      },
+      {
+        "assessment": "Cannot rule out coincident resonance classification; no abstract-level decisive covering statement",
+        "evidence": [
+          "Public synopsis concerns broader stochastic RK methods for convex optimization."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40314-026-03805-2",
+        "material_read": "Public bibliographic abstract only; full text inaccessible",
+        "method": "Searched accessible full-text routes and attempted authorized scholarly access; no full text obtained",
+        "title": "On the application of explicit Runge–Kutta methods to the construction of stochastic gradient descent methods for convex optimization",
+        "trigger": "Later stochastic Runge-Kutta methods may contain general results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "179de4c8-46a6-4aa0-bc41-2399c98bc4b4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The central benefit of stabilized stochastic RKC methods is increased allowed outer learning rate. This theorem gives a sharp, non-routine stage-extremum obstruction to interpreting scalar deterministic stability as mean-square stochastic stability, exhibits strict opposite behavior between random sampled and full-gradient schemes, and quantifies sensitivity by an exact quadratic variance pole. A natural positive-damping remedy is already used by the method authors. Scope is carefully limited to undamped fixed-step sampled quadratics, so no unsupported claim about their recommended decreasing/damped schemes.",
+    "status": "PASS"
+  }
+}
