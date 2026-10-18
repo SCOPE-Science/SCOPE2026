@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof is in `RESULT.md`; the companion code `verify.py` is a finite diagnostic that checks its algebra and parameter matching. From a folder containing the two files, run `python3 verify.py` with Python 3 and no third-party dependencies.
+## correctness
 
-The script independently evaluates \(\frac{d}{dx}[x^2f_{|C+m|}(x)]\) in partial fractions and in the factored polynomial representation with exact rational arithmetic for 1,584 input pairs, including shifts inside and outside the claimed boundary. It checks positive polynomial signs for rational shifts satisfying \(3m^2\le1\), tests the explicit negative-leading-coefficient obstruction at four shifts outside the boundary, and compares the complex characteristic functions of the Cauchy/positive-stable mixture and its claimed strictly stable law at several parameters. The actual run returned: `PASS: 2530 exact-rational and finite complex-analytic identity checks`.
+PASS
 
-None of these finite checks constitutes proof of monotonicity for every real \(x\) or every parameter. Those quantifiers are justified analytically by the quartic's coefficients, the integral representation of independent scaling, and identity of holomorphic Laplace transforms. The conditional mixture identity does not rely on simulated positive-stable variables. No independent scientific audit has been performed.
+For X=|C+m|, differentiating x^2 f_X(x) gives [4x/(π d_-(x)^2 d_+(x)^2)] [(1−3m²)x⁴+2(1+m²)²x²+(1+m²)³]. It is positive at all x>0 iff |m|≤1/√3; beyond that the leading coefficient is negative. Conditioning on an independent positive stable scale preserves concavity of G_X(t)=Pr(X>1/t). The characteristic function of T_alpha(C+m) is exp(−(|t|−imt)^alpha), and identifying the strictly alpha-stable scale and skewness yields beta=tan(alpha arctan m)/tan(πα/2) with the stated sufficient band for 0<alpha<1. alpha=1 is separately the shifted Cauchy. Domain/endpoint/scope and essential infimum are explicit. Newly derived symbolic derivative and 64 independent characteristic-function comparisons passed; the continuum assertion rests on the analytic proof.
+
+## originality
+
+PASS
+
+The source Chen–Hu–Shneer–Zou arXiv:2505.01739v2 explicitly poses stable-magnitude membership in inverted concavity as an open direction. Its general class criterion, positive-product closure and stochastic order are known inputs, not the claimed theorem. Mainardi–Pagnini–Gorenflo provides classical stable subordination, while Bridaa–Jedidi–Sendov concerns different positive one-sided reciprocal laws. The folded *shifted* Cauchy sharp threshold and continuum asymmetric stable-magnitude band require the additional density sign argument. No dominating theorem was found in the searched published records; historical priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+The exact |m|=1/√3 sign transition solves a naturally motivated stability-of-inverted-concavity question; positive-stable subordination then establishes the property for every symmetric strict stable law with alpha<=1 and for a continuous nonzero skewness band. These are whole infinite parameter families with the originating stochastic-order consequence, not an arbitrary finite check. The beta band is sufficient and is not claimed globally maximal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
