@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The endpoint argument is exact. The left regular action of each semigroup element is a partial permutation, so for every finite algebraic combination the involution produces the conjugate-transpose matrix. The \(\ell^\infty\) operator norm is the supremal absolute row sum and the \(\ell^1\) operator norm is the supremal absolute column sum. This proves the missing semigroup endpoint duality. The published groupoid endpoint identity and the published \(p=1\) inverse-semigroup comparison then give the required \(p=\infty\) norm equality. Taking suprema over an exponent set and using Steinberg \(I\)-norm density completes the proof.
+## correctness
 
-Risk: the argument is stated only for the no-zero, Hausdorff-universal-groupoid setting used in the source comparison. No extension outside that scope is claimed.
+PASS
 
-## Originality
-PASS. The focal paper proves the reduced inverse-semigroup/groupoid theorem for \(1\le p<\infty\) and explicitly restricts its inverse-semigroup subsection to finite exponents. The 2025 predecessor proves the full inverse-semigroup/groupoid theorem through \(p=\infty\), not the reduced left-regular theorem. Full-text comparison and targeted source, alias, endpoint and implication searches did not locate the exact reduced endpoint or simultaneous-exponent inverse-semigroup statement.
+The endpoint bridge is a direct valid operator identity for a finite sum of left regular inverse-semigroup partial-permutation matrices: M_{xi*}=conjugate(M_xi)^T; each row and column is finite, so the sup absolute row-sum ℓ∞ norm equals the sup absolute column-sum ℓ1 norm of M_{xi*}. Using the published p=1 reduced groupoid/semigroup canonical norm identity and the groupoid endpoint involution duality yields the canonical p=∞ reduced identity on C S. Supremum over arbitrary nonempty P gives simultaneous-exponent norm equality, with I-norm density and norm domination furnishing surjective completion. Morita equivalence for countable equivalent Hausdorff ample groupoids in all p then transports through these isometries. Importantly no claim about density of finitely supported vectors in ℓ∞ is used. Assumptions: no zero, Hausdorff universal groupoid/weak semilattice; the application assumes the published groupoid-equivalence theorem and compatibility.
 
-Risk: an older equivalent result may exist under a different convention for reduced inverse-semigroup Banach algebras.
+## originality
 
-## Value
-PASS. The omitted endpoint is not obtained by the source's finite-support density proof, because finitely supported vectors are not dense in \(\ell^\infty\). The conjugate-transpose norm argument supplies a different endpoint mechanism and closes the source's natural range. It also makes the arbitrary-exponent-set Morita theorem available for reduced inverse-semigroup algebras, so the result has structural use beyond the singleton endpoint.
+PASS
 
-## Closest literature and limitations
-The closest literature is Chung–Delfín–Wang, arXiv:2609.39031v1, Proposition 8.10 and Corollary 8.11, together with Bardadyn–Kwaśniewski–McKee, arXiv:2303.09997v4, Corollary 6.10. The theorem assumes no zero and a weak semilattice; it does not assert a non-Hausdorff or contracted-zero version.
+Best-of-knowledge original missing reduced p=∞ inverse-semigroup/groupoid comparison and the simultaneous-exponent extension. Chung–Delfín–Wang arXiv:2609.39031 abstract covers all p groupoids and semigroup applications, while assigned source quotes its Section 8.3 as restricting the concrete inverse-semigroup comparison to finite p. Bardadyn–Kwaśniewski–McKee Corollary 6.10 supplies a full/universal inverse-semigroup completion theorem, not concrete reduced left-regular equality. The exact semigroup row-column bridge is not in the inspected earlier theorem. Crucial residual risk: Chung et al full text could not be independently read today (arXiv/OA blocked; institutional VPN disconnected), so implications and hypotheses are recorded as qualified best knowledge, not whole-document exclusion.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The p=∞ endpoint of a new inverse-semigroup/groupoid Lp comparison is a natural structural gap: finite-support density arguments cannot work on ℓ∞. The row-sum/column-sum involution duality supplies a distinct analytic mechanism and unlocks simultaneous-exponent reduced completions and their Morita/K-theory transport across every nonempty exponent set. This is a motivated completion of a natural theorem, rather than a cosmetic endpoint relabelling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
