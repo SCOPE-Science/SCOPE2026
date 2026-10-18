@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The proof proceeds through three explicit constructions: full recursive valuation on equivalence classes of known exact finite size; arithmetical extraction of the optional class partner for size at most two; and an injection-to-matching-equivalence-frame reversal recovered from \(\Box p_0\) at even worlds. The reversal uses a fixed parity-based atomic assignment; no modal nesting is required for it.
+## correctness
 
-The Python 3 checker `verify.py` uses two evaluation procedures on the same finite frames: direct universal quantification over accessible worlds and the simplified evaluation via a class-partner map. It enumerates every partition of up to six labeled worlds into blocks of size at most two and tests eleven modal formula shapes under every one-variable assignment, then separately checks finite injection encodings. Run `python verify.py` in the directory containing that file; expected output:
+PASS
 
-`VERIFY_OK frames=119 valuations=5898 formula_world_comparisons=375078 range_checks=30`
+For each fixed k≥1 the promise |[w]|=k lets RCA0 search until all k successors have appeared; recursion on the finite formula computes the total truth function relative to the set-coded R and atomic assignment, and Δ1 comprehension produces its graph. For class size at most two ACA0 determines if a mate exists and calculates Box truth from at most two positions. Conversely, for each injection f, define an effective reflexive symmetric matching relation pairing even 2n to odd 2s+1 iff f(s)=n; injectivity ensures transitivity. With p0 true exactly at evens, V(2n,Box p0)=0 iff n∈ran f, so VEL gives ranges of all injections and hence ACA0. The finite verifier was read, and an independent finite injection-mate truth test was reproduced; finite cases are not taken to prove the reverse-mathematical equivalence.
 
-Finite checks cannot establish implications over arbitrary countably infinite frames or formal-provability claims over \(\mathrm{RCA}_0\). Those rest on the mathematical proof, and no independent auditing has yet been performed.
+## originality
+
+PASS
+
+Takeda proved ACA0 equivalence for all image-finite frames and used directed partial-function predecessor frames. The inspected theorem and proof do not supply a reflexive/symmetric/transitive matching equivalence construction or an RCA0 computability theorem for exact uniform class size. The older injection-to-equivalence-class coding method is credited in a distinct emulation principle. The present same-S5-frame information threshold remains non-implied by the checked prior statements.
+
+## value
+
+PASS
+
+A sharply isolated information threshold within reflexive, symmetric, transitive countable modal frames answers which restriction of the image-finite principle still requires arithmetical comprehension. The depth-one matching witness and exact-size RCA0 contrast are mathematically motivated boundary results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
