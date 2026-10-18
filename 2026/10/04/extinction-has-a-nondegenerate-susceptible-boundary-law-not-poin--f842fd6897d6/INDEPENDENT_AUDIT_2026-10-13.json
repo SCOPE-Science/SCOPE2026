@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T20:17:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/extinction-has-a-nondegenerate-susceptible-boundary-law-not-poin--f842fd6897d6/RESULT.md",
+        "doi:10.3934/math.2026278 PDF Eq.(1.3), Theorem 3.2, Section 4.1",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/extinction-has-a-nondegenerate-susceptible-boundary-law-not-poin--f842fd6897d6/verify.py"
+      ],
+      "rationale": "The 2026 primary paper Eq.(1.3) indeed has susceptible multiplicative mortality noise -epsilon*sigma1*S dB1 and assumes f(0)>0. Let a=epsilon*sigma1>0. On the hypothetical event S→Lambda/mu>0, I,R→0, Ito gives d(log S)=[Lambda/S-mu-beta I/f(I)+delta R/S-a^2/2]dt-a dB1; the bracket tends -a²/2, and B1(t)/t→0 a.s., forcing log S(t)/t→-a²/2. Positive point convergence instead forces log S(t)/t→0, contradiction. On invariant face I=R=0 the zero-current stationary equation (a²s²p)'=2(Lambda-mu s)p integrates to InvGamma(k=1+2mu/a²,q=2Lambda/a²), normalized on (0,infinity). Moments are q/(k-1)=Lambda/mu and q²/[(k-1)²(k-2)]=Lambda²a²/[mu²(2mu-a²)] when mu>a²/2. With a=9/20,Lambda=1,mu=1/5 compute k=241/81,q=800/81, mean=5 and variance=2025/79 exactly. Source Theorem3.2 proves time averages, which remain consistent with the finding. Neither eventual interior-to-boundary convergence in law nor almost-sure convergence of S to a random constant is claimed.",
+      "residual_risks": [
+        "The inverse-gamma is the stationary law of the invariant disease-free face; proving attraction from every interior starting state would require a separate theorem.",
+        "When a=0 the nonconvergence obstruction vanishes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai-Kang-Wang 2017 transmission noise is proportional to I, vanishing at I=0.",
+          "The 2026 model instead has -aS dB on the disease-free face."
+        ],
+        "reasoning": "Broader qualitative epidemic extinction and stationary distribution theory cannot automatically cover the exact susceptible inverse-gamma moments or diagnose the contradictory 2026 point-convergence claim. Classical affine-diffusion invariant laws are expressly prior.",
+        "searches": [
+          "doi:10.1016/j.amc.2017.02.003 Cai Kang Wang",
+          "doi:10.1038/s41598-019-47131-6 Cao et al.",
+          "doi:10.3934/math.2026278 Theorem 3.2"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.2026278",
+        "doi:10.1016/j.amc.2017.02.003",
+        "doi:10.1038/s41598-019-47131-6",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cd76f0b741a81ebc64b2fc7846361df5d730832d/2026/10/04/extinction-has-a-nondegenerate-susceptible-boundary-law-not-poin--f842fd6897d6/RESULT.md",
+        "Resultary semantic search stochastic SIRS natural death susceptible multiplicative noise nonconvergence deterministic disease free inverse gamma boundary Huang Du Liang"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem3.2 establishes exponential I extinction with S and R time averages; it does not establish S→Lambda/mu pointwise.",
+          "Section 4 discussion explicitly describes a trajectory as converging a.s. to E0=(5,0,0) despite the displayed nonzero -epsilon*sigma1*S dB1."
+        ],
+        "reasoning": "Time averages and infection extinction do not imply pathwise point convergence. Under the actual diffusion term, the latter is contradicted by the log-S drift, while the invariant boundary law quantifies the residual fluctuations.",
+        "searches": [
+          "doi:10.3934/math.2026278 Eq.(1.3) Theorem3.2 Section4.1",
+          "doi:10.1016/j.amc.2017.02.003"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical InvGamma solution of dS=(Lambda-mu S)dt-aS dB is acknowledged prior stochastic-process mathematics.",
+          "The printed article Eq.(1.3) retains nonvanishing susceptible noise at E0."
+        ],
+        "reasoning": "Equivalent language such as boundary invariant measure and random disease-free regime is covered classically, but the specific correction to the paper’s stronger pointwise interpretation is not implied by different epidemic noise models.",
+        "searches": [
+          "stochastic SIRS natural death susceptible multiplicative noise nonconvergence deterministic disease free inverse gamma boundary Huang Du Liang",
+          "Huang Du Liang 2026 SIRS disease free point almost sure converge extinction",
+          "stochastic logistic affine multiplicative diffusion inverse gamma stationary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact hit repeats the candidate; nearby findings concern different SEI/SIR/SIRS diffusions and threshold defects.",
+          "The published 2026 model parameters give the exact rational pair (241/81,800/81), mean 5, variance 2025/79."
+        ],
+        "reasoning": "No same-source exact numerical inverse-gamma boundary table or correction was located beyond the candidate publication. A search failure is not global priority proof.",
+        "searches": [
+          "stochastic SIRS natural death susceptible multiplicative noise nonconvergence deterministic disease free inverse gamma boundary Huang Du Liang",
+          "Resultary stochastic SIRS boundary law inverse gamma point convergence",
+          "published Resultary SEI extinction threshold boundary noise integrability"
+        ]
+      },
+      "rationale": "Inverse-gamma laws for affine multiplicative diffusions are classical and not asserted as new. The novel specific assertion is the incompatibility between this exact source SIRS equation and its narrative pointwise extinction claim, together with a concrete invariant susceptible law and nonzero variance in the exact published noise regime. Indexed comparable SIR/SIRS papers involve different diffusion coefficients and do not directly settle this source-specific inconsistency.",
+      "residual_risks": [
+        "Inverse-gamma stationary law itself is classical; claim originality is narrowly the interpretation/correction of the exact source model.",
+        "The full interior-process limit law is unproved and is intentionally excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS time-average extinction and establishes the model; the stronger pointwise description conflicts with its nonzero susceptible noise. Does not give the exact boundary InvGamma density in the read sections.",
+          "evidence": "Eq.(1.3) has -epsilon*sigma1*S dB1, whereas Eq.(1.1) predecessor noise was infection-proportional; source numerical section interprets stochastic infection extinction in terms of deterministic E0.",
+          "identifier_or_url": "doi:10.3934/math.2026278",
+          "material_read": "Lawful full 24-page open-access PDF relevant material: conditions C1/C2 and stochastic Eq.(1.3) on printed page 6722, Theorem 3.2 and its time-average conclusion, Section 4 simulation parameters, and figure/discussion of epsilon=.75 extinction around printed pages 6732–6733.",
+          "method": "Open-access primary AIMS Mathematics PDF text plus original rendered pages",
+          "title": "Dynamics and stochastic sensitivity technique of a stochastic SIRS epidemic model",
+          "trigger": "Exact paper and purported pointwise disease-free conclusion"
+        },
+        {
+          "assessment": "Different diffusion: it vanishes on disease-free face; does not state the candidate source-specific InvGamma variance.",
+          "evidence": "2017 model as reproduced in 2026 paper has +/-sigma*I*S/f(I)dB for transmission noise.",
+          "identifier_or_url": "doi:10.1016/j.amc.2017.02.003",
+          "material_read": "The 2026 primary paper reproduces its model (1.1) and conditions; independent 2017 full text not accessed.",
+          "method": "2026 primary paper comparison with cited precursor",
+          "title": "A stochastic SIRS epidemic model with nonlinear incidence rate",
+          "trigger": "Same disease compartments but changed noise mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "doi:10.3934/math.2026278 Eq.(1.3), Theorem3.2, Section4"
+      ],
+      "rationale": "The source interprets an extinction simulation as nearly deterministic convergence to its disease-free equilibrium, but the paper’s own SDE sustains nonzero susceptible noise. Proving that distinction and computing a boundary variance about 25.63 when mean=5 materially changes interpretation of extinction and numerical output. The source-specific contradiction is a motivated diagnostic, not a tiny artificial instance.",
+      "residual_risks": [
+        "Stationary boundary behavior is not proved to attract every interior trajectory in law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The inverse-gamma is the stationary law of the invariant disease-free face; proving attraction from every interior starting state would require a separate theorem.",
+    "When a=0 the nonconvergence obstruction vanishes.",
+    "Inverse-gamma stationary law itself is classical; claim originality is narrowly the interpretation/correction of the exact source model.",
+    "The full interior-process limit law is unproved and is intentionally excluded.",
+    "Stationary boundary behavior is not proved to attract every interior trajectory in law."
+  ],
+  "schema_version": 1
+}
