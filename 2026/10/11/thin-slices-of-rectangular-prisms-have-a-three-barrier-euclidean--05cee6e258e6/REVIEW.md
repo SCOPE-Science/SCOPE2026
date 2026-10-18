@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. In the intrinsic hyperplane metric, every coordinate facet normal has length \(\sqrt{(n-1)/n}\). The proof classifies exactly when lower and upper coordinate hyperplanes are actual facets. If the mass barrier is smallest, every lower facet must occur and summing its clearance inequalities gives the sharp bound; the co-mass case is complementary. If the narrowest capacity is smallest, both opposite facets of a minimum-capacity coordinate occur and give the width bound. The three inequalities also make the coordinate intervals simultaneously feasible at equality, producing an inscribed ball. The shifted actual-facet inequalities then give every incenter.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the definition, dimension statement, polymatroid interpretation, and paper program. Direct term checks found no inradius, Chebyshev-center, Euclidean-radius, or inscribed-ball treatment. Candidate-specific published-result and literature searches covered prism slices, box sections, Veronese-type polymatroids, hypersimplices, largest-inscribed balls, and Chebyshev centers. No arbitrary-capacity theorem implying the stated formula or complete center set was located.
+PASS
 
-## Value
-PASS. The source family generalizes hypersimplices and is simultaneously a family of generalized permutohedra, polypositroids, and Veronese-type polymatroid base polytopes. The result works for every nontrivial capacity vector and gives both the exact intrinsic inradius and all optimal centers. The phase split into total mass, total co-mass, and narrowest-coordinate barriers also records precisely how asymmetric capacities affect Euclidean geometry.
+For n>=3, 0<k<C and positive integer capacities c, affine translation space 1-perp has projected coordinate normal norm sqrt((n-1)/n). Exact lower facet criterion k<C-c_i and upper facet criterion k>c_i were proved from residual-coordinate interior feasibility. If delta=min(k/n,(C-k)/n,c_min/2), each minimal barrier forces enough actual facets for an upper bound: all lowers, all uppers, or both sides of a minimum-width coordinate. Conversely intervals [delta,c_i-delta] are nonempty with total lower <=k and upper >=k, giving a feasible center whose distance to all actual facets is sqrt(n/(n-1))*delta. All incenters are precisely feasible points satisfying shifted actual-facet inequalities. Boundary equalities and strict unique-center regimes were checked; finite rational active-set cases corroborate only listed inputs.
 
-## Closest literature and limitations
-The closest checked work on unit-capacity S-hypersimplices concerns either full-dimensional cube slabs or minimum enclosing spheres of Boolean cardinality layers, so it does not imply the codimension-one arbitrary-capacity result. The theorem is realization-sensitive and does not transfer through the source's non-isometric integral equivalence with fat slices. A broader affine-box-section Chebyshev theorem remains the principal residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ferroni–McGinnis develops the exact source family for Ehrhart/polymatroid problems and does not give its intrinsic Euclidean Chebyshev radius or full center polytope. Equal-capacity hypersimplex formulas, general Chebyshev linear programming, and non-isometric integer equivalences to fat slices do not directly imply the all-capacity three-barrier classification. Broader affine box-section radius theorem remains a genuine residual literature risk.
+
+## value
+
+PASS
+
+The statistic is the natural Euclidean inradius of Veronese-polymatroid base polytopes, with complete all-capacity answer, exact transitions between mass/co-mass/narrowest facet obstructions and entire incenter family. An elementary LP reduction is not by itself a reason to reject a motivated new exact geometric classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-The all-parameter proof is given in `RESULT.md`.
 
-Critical checks:
-- \(R_{k,\mathbf c}\) has affine hull \(\sum_i x_i=k\);
-- the projection of \(e_i\) to its translation space has norm \(\sqrt{(n-1)/n}\);
-- \(x_i=0\) is a facet exactly when \(k<C-c_i\), and \(x_i=c_i\) is a facet exactly when \(k>c_i\);
-- if \(k/n\) is a smallest barrier, all lower coordinate facets occur;
-- if \((C-k)/n\) is a smallest barrier, all upper coordinate facets occur;
-- if \(c_{\min}/2\) is a smallest barrier, both opposite facets for a minimum-capacity coordinate occur;
-- the interval-sum criterion constructs a center with coordinate clearance \(\delta_*\);
-- the complete incenter set is exactly the shifted system for the actual facets.
+# Independent mathematical audit
 
-`verify.py` independently formulates the coordinate-clearance Chebyshev linear program from the actual facet list and solves it by active-set enumeration for deterministic capacity vectors in dimensions three and four. It compares the LP optimum with \(\min\{k/n,(C-k)/n,c_{\min}/2\}\) and checks the facet classification. Finite computation is corroborative only and does not assess originality.
+## correctness
+
+PASS
+
+For n>=3, 0<k<C and positive integer capacities c, affine translation space 1-perp has projected coordinate normal norm sqrt((n-1)/n). Exact lower facet criterion k<C-c_i and upper facet criterion k>c_i were proved from residual-coordinate interior feasibility. If delta=min(k/n,(C-k)/n,c_min/2), each minimal barrier forces enough actual facets for an upper bound: all lowers, all uppers, or both sides of a minimum-width coordinate. Conversely intervals [delta,c_i-delta] are nonempty with total lower <=k and upper >=k, giving a feasible center whose distance to all actual facets is sqrt(n/(n-1))*delta. All incenters are precisely feasible points satisfying shifted actual-facet inequalities. Boundary equalities and strict unique-center regimes were checked; finite rational active-set cases corroborate only listed inputs.
+
+## originality
+
+PASS
+
+Ferroni–McGinnis develops the exact source family for Ehrhart/polymatroid problems and does not give its intrinsic Euclidean Chebyshev radius or full center polytope. Equal-capacity hypersimplex formulas, general Chebyshev linear programming, and non-isometric integer equivalences to fat slices do not directly imply the all-capacity three-barrier classification. Broader affine box-section radius theorem remains a genuine residual literature risk.
+
+## value
+
+PASS
+
+The statistic is the natural Euclidean inradius of Veronese-polymatroid base polytopes, with complete all-capacity answer, exact transitions between mass/co-mass/narrowest facet obstructions and entire incenter family. An elementary LP reduction is not by itself a reason to reject a motivated new exact geometric classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
