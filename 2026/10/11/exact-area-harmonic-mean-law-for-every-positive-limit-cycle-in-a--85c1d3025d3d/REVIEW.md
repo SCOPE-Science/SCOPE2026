@@ -1,20 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Multiplication by \(B(x,y)=1/(xy)\) gives the exact weighted divergence
-\[
-\nabla\!\cdot(BF)=\varepsilon e-\frac{b}{y}.
-\]
-A positive periodic trajectory is a simple Jordan curve, \(BF\) is tangent on it, and Green's theorem makes its normal flux zero. The resulting integral identity is algebraically exact. The half-plane argument proves strict crossing of \(y=b/(\varepsilon e)\). The source's independently printed trace formula yields the same threshold at positive equilibria.
+## correctness
 
-Risk: the theorem is only a necessary condition for positive periodic orbits. It is not used to infer existence, uniqueness, stability, or nonperiodic recurrence.
+PASS
 
-## Originality
-PASS. The source paper was inspected at the model, no-cooperation Dulac proof, cooperative-case trace calculation, Hopf theorem, and numerical cycle example. It uses \(B=1/(xy)\) only to exclude cycles when \(e=0\), and separately uses \(g(y)=\varepsilon ey-b\) for local equilibrium stability and Hopf. It does not state the enclosed-area identity or the finite-amplitude crossing theorem. Searches of the semantic literature index for the source, aliases, Dulac/Green formulations, harmonic-mean formulations, and Hopf-threshold equivalences did not return a covering statement. The nearest conceptual retrieved item is a Goodwin-oscillator finite-amplitude Hopf-slope balance, but it concerns a third-order scalar-feedback system and neither specializes to nor implies this planar predator–prey identity. Related cooperative-hunting papers use different vector fields.
+On (0,∞)^2 with positive parameters and e>0, the printed F1=x[r/(1+s1y)−a(1+s2s1y/(1+s1y))−bx−(c+ey)y], F2=y[−n+ε(c+ey)x] has exact Dulac multiplier B=1/(xy). Independent symbolic differentiation confirms ∂x(BF1)+∂y(BF2)=εe−b/y, no omitted x-dependent terms. A nonconstant positive periodic trajectory is a simple closed curve and its Jordan interior remains in the positive quadrant (convex positivity); BF has zero outward flux along Γ. Green gives εe|D|=b∬_D y^(−1), hence harmonic mean b/(εe). A continuous strictly increasing divergence integrand with a sole zero y_H forces minΓ y<y_H<maxΓ y. At any positive equilibrium, substituting both equilibrium equations into the trace reduces it to xbar(εe ybar−b), independently verified symbolically. No finite simulation proves cycle existence; statement is necessary only.
 
-Residual risk: the full text of Pal et al. (2019) could not be retrieved from its repository despite accessible metadata and abstract. Its model is a different modified Leslie–Gower system, so this access gap is not a decisive unresolved comparison.
+## originality
 
-## Value
-PASS. The result converts the paper's sign-changing Dulac divergence in the cooperative regime into an exact finite-amplitude constraint that applies simultaneously to stable and unstable limit cycles. It links the source's local Hopf level to the geometry of every positive cycle, including the multi-cycle regime shown numerically, and yields a parameter-only diagnostic independent of \(r,a,s_1,s_2,c,n\). This is a structural constraint on the model's recurrent dynamics rather than a numerical recomputation or a renamed local criterion.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The source model paper computes the same e=0 Dulac weight and the local e>0 Jacobian trace but does not state the e>0 enclosed-area harmonic-mean identity in the materially inspected full text. Green integration gives a finite-amplitude necessary invariant not equivalent to the local trace or no-cycle case. Other cooperative models use different vector fields, so the strong global identity is best-of-knowledge original for this exact model.
+
+## value
+
+PASS
+
+The source explicitly exhibits finite-amplitude oscillations and possible stable/unstable cycles. The identity turns the sign-changing cooperative Dulac divergence into an exact cycle-wide geometric observable, locating *every* positive periodic orbit on both sides of the same parameter-only level at which local Hopf trace vanishes. This bridges local and global dynamics across amplitudes and potentially across distinct cycles; it is substantively motivated beyond a routine no-cycle sign test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

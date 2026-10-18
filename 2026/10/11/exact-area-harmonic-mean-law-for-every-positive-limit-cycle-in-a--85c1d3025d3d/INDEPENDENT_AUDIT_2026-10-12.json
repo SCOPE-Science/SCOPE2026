@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T06:12:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md SHA a1152d970cc40201ee34009d10e5566c5f3914a4",
+        "independent SymPy derivatives/traces",
+        "Xue et al. (2024) printed model and no-cooperation Dulac calculation"
+      ],
+      "rationale": "On (0,∞)^2 with positive parameters and e>0, the printed F1=x[r/(1+s1y)−a(1+s2s1y/(1+s1y))−bx−(c+ey)y], F2=y[−n+ε(c+ey)x] has exact Dulac multiplier B=1/(xy). Independent symbolic differentiation confirms ∂x(BF1)+∂y(BF2)=εe−b/y, no omitted x-dependent terms. A nonconstant positive periodic trajectory is a simple closed curve and its Jordan interior remains in the positive quadrant (convex positivity); BF has zero outward flux along Γ. Green gives εe|D|=b∬_D y^(−1), hence harmonic mean b/(εe). A continuous strictly increasing divergence integrand with a sole zero y_H forces minΓ y<y_H<maxΓ y. At any positive equilibrium, substituting both equilibrium equations into the trace reduces it to xbar(εe ybar−b), independently verified symbolically. No finite simulation proves cycle existence; statement is necessary only.",
+      "residual_risks": [
+        "Only cycles wholly in (0,∞)^2, positive e; identity does not prove existence, stability, number or bifurcation transversality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xue et al. analyze exactly the model and give no-cooperation Bendixson-Dulac exclusion and local cooperative Hopf stability.",
+          "Pal et al. modified Leslie–Gower model and Bai–Tang separate cooperative hunting model have different F1/F2 algebra."
+        ],
+        "reasoning": "The source covers the relevant dynamical class but does not supply the global area law; different ecological models do not imply this exact parameter-only mean unless their weighted divergence reduces to the same expression.",
+        "searches": [
+          "DOI:10.3934/math.2024630",
+          "DOI:10.3934/mbe.2019258",
+          "DOI:10.3390/app13148178"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2024630 full primary text",
+        "DOI:10.3934/mbe.2019258 abstract",
+        "DOI:10.3390/app13148178",
+        "search query: Dulac divergence predator prey cooperative hunting limit cycle area harmonic mean inverse predator density Hopf threshold integral identity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source e=0 Dulac theorem deduces no cycles because divergence has fixed sign.",
+          "Source cooperative trace-zero condition requires ybar=b/(εe) locally at equilibria.",
+          "New statement requires e>0, a sign-changing Dulac divergence and Green theorem on the entire Jordan domain, giving exact mean over every positive cycle."
+        ],
+        "reasoning": "Neither an e=0 nonexistence theorem nor local trace-zero equality alone imposes a finite-amplitude average. Green flux step supplies an additional, motivated structural constraint.",
+        "searches": [
+          "Xue et al. §§2.1,2.2 and Example4.1",
+          "DOI:10.3934/math.2024630 full paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Area mean of 1/y equals εe/b; equivalently area harmonic mean y_H=b/(εe), and every cycle intersects y_H.",
+          "Dulac divergence equals εe−b/y, whereas original source e=0 divergence equals −b/y."
+        ],
+        "reasoning": "Searches compare Dulac flux balance, harmonic area means, cycle crossing, and Hopf zero-trace aliases as one mathematical statement, not as unrelated keywords.",
+        "searches": [
+          "Xue et al. DOI:10.3934/math.2024630 full text, Dulac and Hopf passages",
+          "search query: Dulac divergence predator prey cooperative hunting limit cycle area harmonic mean inverse predator density Hopf threshold integral identity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerical figures demonstrate possible multi-cycle behavior but give no exact enclosed area harmonic mean/parameter-only identity."
+        ],
+        "reasoning": "The result is a universal necessary geometric identity, not a particular simulation datum; source phase portraits do not imply exact ∫_D 1/y. An exact listed invariant from the same model would cover it, none materially found.",
+        "searches": [
+          "Xue et al. Example 4.1 parameter illustrations e=1/e=5",
+          "search query: Dulac divergence predator prey cooperative hunting limit cycle area harmonic mean inverse predator density Hopf threshold integral identity"
+        ]
+      },
+      "rationale": "The source model paper computes the same e=0 Dulac weight and the local e>0 Jacobian trace but does not state the e>0 enclosed-area harmonic-mean identity in the materially inspected full text. Green integration gives a finite-amplitude necessary invariant not equivalent to the local trace or no-cycle case. Other cooperative models use different vector fields, so the strong global identity is best-of-knowledge original for this exact model.",
+      "residual_risks": [
+        "Green theorem is standard; novelty is specifically its application to e>0 exact finite-amplitude model identity, not a new analytical method.",
+        "Full Pal 2019 paper inaccessible, but it studies different vector field; this alone does not negate O.",
+        "Mandatory Resultary search temporarily_unavailable/search_completed:false."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_AND_LOCAL_OVERLAP; no enclosed-area identity in inspected detailed source passages",
+          "evidence": [
+            "Dulac B=1/(xy) divergence −b/y (e=0), cooperative trace g(y)=εey−b, Example 4.1 stable/unstable oscillations"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/379658762_An_analysis_of_a_predator-prey_model_in_which_fear_reduces_prey_birth_and_death_rates",
+          "material_read": "Full-text model, Section 2.1 e=0 Dulac calculation ~pp12911, cooperative Hopf/trace passages and Example4.1 ~pp12922-12924, discussion; scanned for area/harmonic terms",
+          "method": "author-uploaded full-text displayed as HTML PDF transcription",
+          "title": "An analysis of a predator-prey model in which fear reduces prey birth and death rates",
+          "trigger": "Exact source vector field, numerical cycles and Hopf trace"
+        },
+        {
+          "assessment": "Different modified Leslie–Gower system; not an exact covering proof; remaining marginal literature risk",
+          "evidence": [
+            "Abstract concerns Hopf/cooperative hunting in a different model"
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/mbe.2019258",
+          "material_read": "Accessible abstract/bibliographic text only; repository full text inaccessible",
+          "method": "web article/abstract",
+          "title": "Fear effect in prey and hunting cooperation among predators in a Leslie-Gower model",
+          "trigger": "Same ecological mechanisms could give a stronger identity"
+        },
+        {
+          "assessment": "Different ODE; does not imply exact current weighted divergence",
+          "evidence": [
+            "Different model global classification and Hopf"
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/app13148178",
+          "material_read": "Publisher model/abstract/theorem overview read via source metadata",
+          "method": "publisher OA article material",
+          "title": "Global Dynamics of a Predator–Prey System with Cooperative Hunting",
+          "trigger": "Potential general global cycle theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Xue et al. 2024 Sections 2 and 4"
+      ],
+      "rationale": "The source explicitly exhibits finite-amplitude oscillations and possible stable/unstable cycles. The identity turns the sign-changing cooperative Dulac divergence into an exact cycle-wide geometric observable, locating *every* positive periodic orbit on both sides of the same parameter-only level at which local Hopf trace vanishes. This bridges local and global dynamics across amplitudes and potentially across distinct cycles; it is substantively motivated beyond a routine no-cycle sign test.",
+      "residual_risks": [
+        "The derivation uses a short textbook Green-theorem calculation, so novelty/value rests on its informative finite-amplitude consequence, not on sophistication of the method."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Necessary-only: no cycle existence or stability inferred.",
+    "Positive quadrant e>0 only.",
+    "Resultary published-findings search unsuccessful; no exhaustive novelty certification."
+  ]
+}

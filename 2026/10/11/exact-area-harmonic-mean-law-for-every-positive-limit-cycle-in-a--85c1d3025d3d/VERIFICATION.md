@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,42 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The finding is proved directly from the printed two-dimensional vector field. No finite simulation is used as evidence for an infinite statement.
+# Independent mathematical audit
 
-## Exact algebraic check
-With
-\[
-B(x,y)=\frac{1}{xy},
-\]
-the first weighted component has \(x\)-derivative \(-b/y\), while the second weighted component is
-\[
-BF_2=-\frac{n}{x}+\varepsilon(c+ey)
-\]
-and therefore has \(y\)-derivative \(\varepsilon e\). Thus
-\[
-\nabla\!\cdot(BF)=\varepsilon e-\frac{b}{y}.
-\]
+## correctness
 
-## Global step
-For a positive periodic orbit, ODE uniqueness makes the orbit a simple closed curve. Its interior is contained in the positive quadrant, where \(B\) is smooth. Since \(BF\) is tangent on the orbit, its normal flux is zero. Green's theorem therefore gives
-\[
-0=\iint_D\left(\varepsilon e-\frac{b}{y}\right)dx\,dy,
-\]
-which is equivalent to the claimed harmonic-mean identity.
+PASS
 
-Because the integrand has exactly one zero, at \(y=b/(\varepsilon e)\), a zero area integral is impossible if the entire Jordan domain lies on only one side of that line. Hence every cycle strictly straddles it.
+On (0,∞)^2 with positive parameters and e>0, the printed F1=x[r/(1+s1y)−a(1+s2s1y/(1+s1y))−bx−(c+ey)y], F2=y[−n+ε(c+ey)x] has exact Dulac multiplier B=1/(xy). Independent symbolic differentiation confirms ∂x(BF1)+∂y(BF2)=εe−b/y, no omitted x-dependent terms. A nonconstant positive periodic trajectory is a simple closed curve and its Jordan interior remains in the positive quadrant (convex positivity); BF has zero outward flux along Γ. Green gives εe|D|=b∬_D y^(−1), hence harmonic mean b/(εe). A continuous strictly increasing divergence integrand with a sole zero y_H forces minΓ y<y_H<maxΓ y. At any positive equilibrium, substituting both equilibrium equations into the trace reduces it to xbar(εe ybar−b), independently verified symbolically. No finite simulation proves cycle existence; statement is necessary only.
 
-## Source cross-check
-The publisher full text independently prints the equilibrium trace
-\[
-\operatorname{tr}J=\bar x(-b+e\varepsilon\bar y),
-\]
-so a positive equilibrium has zero trace exactly at the same level \(\bar y=b/(\varepsilon e)\).
+## originality
 
-## Example arithmetic
-For the source values \(b=0.9\) and \(\varepsilon=0.4\), the threshold is \(2.25\) at \(e=1\) and \(0.45\) at \(e=5\). These numerical values are illustrative only.
+PASS
 
-## Limits
-The verification does not establish that a periodic orbit exists, nor its uniqueness, stability, period, or shape. It does not classify nonperiodic recurrent sets. The proof applies only to nonconstant periodic orbits contained in the positive quadrant with \(e>0\).
+The source model paper computes the same e=0 Dulac weight and the local e>0 Jacobian trace but does not state the e>0 enclosed-area harmonic-mean identity in the materially inspected full text. Green integration gives a finite-amplitude necessary invariant not equivalent to the local trace or no-cycle case. Other cooperative models use different vector fields, so the strong global identity is best-of-knowledge original for this exact model.
+
+## value
+
+PASS
+
+The source explicitly exhibits finite-amplitude oscillations and possible stable/unstable cycles. The identity turns the sign-changing cooperative Dulac divergence into an exact cycle-wide geometric observable, locating *every* positive periodic orbit on both sides of the same parameter-only level at which local Hopf trace vanishes. This bridges local and global dynamics across amplitudes and potentially across distinct cycles; it is substantively motivated beyond a routine no-cycle sign test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
