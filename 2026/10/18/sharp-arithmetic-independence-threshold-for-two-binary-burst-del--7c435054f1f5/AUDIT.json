@@ -1,0 +1,172 @@
+{
+  "correctness": {
+    "rationale": "The full symbolic proof was reconstructed: equality of burst outputs iff periodicity over the shifted interval, exact D_k formula, independent vertex-spin variables, even-degree subgraph expectation, one-lag forest binomial law, covariance orthogonality, graph decomposition by adding b modulo b+c, first-cycle threshold and positivity of the pgf excess. The first-cycle has exactly c/g b-edges and b/g c-edges. The final pgf correction is the only nonempty even subgraph at n0. The packaged direct enumeration covers 165 cases n=3..11 and checks every joint coefficient at each critical n, but is not relied upon as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schoeny et al. (2016), equation (2) counts the fixed-burst ball for an individual word but studies code bounds, not the joint random sizes at two burst widths.",
+        "Xi, Sun, Ge (2025), Lemma 2.3 gives the b-run count formula; Theorem 3.3 concerns fixed-length burst Levenshtein balls, not the joint law of distinct deletion descendant counts.",
+        "Published published-finding corpus 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc concerns unrestricted two-deletion balls, not two contiguous-burst lengths."
+      ],
+      "reasoning": "The deterministic single-width formula, random one-lag marginal distribution, and unrestricted-deletion variance fail to imply the exact pair of distinct-width random variables is independent if and only if an arithmetic threshold holds. The current theorem is not a corollary of their asserted scopes.",
+      "searches": [
+        "Joint probability generating function of b-run counts at two distinct burst deletion lengths; first dependence from gcd-weighted cycle",
+        "Independence of deletion balls of different fixed burst sizes in Bernoulli random binary words; even subgraphs two shift graph",
+        "\"burst deletion\" \"b-run\" \"joint\" distribution"
+      ]
+    },
+    "checked_sources": [
+      "Mercer 2006 DOI 10.1017/S0963548306007589",
+      "Schoeny et al. 2016 arxiv:1602.06820v1",
+      "Xi, Sun, Ge 2025 arxiv:2506.07817v1",
+      "Liron and Langberg 2012 arxiv:1202.1644",
+      "2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+      "2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+      "2026/10/4/SCOPE-exact-binary-3-1-burst-code-sizes-through-length-8--531630cac2ea",
+      "2026/10/4/SCOPE-exact-mean-and-variance-of-b-symbol-corruption-under-independent--c9a49f782c6b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mercer 2006 Proposition 1.1 proves independent edge signs at a fixed shift (one forest).",
+        "Schoeny et al. 2016 equation (2) and Xi et al. 2025 Lemma 2.3 imply D_k=1+sum_i 1_{X_i!=X_{i+k}}, a known ingredient.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d analyzes a fixed-composition null with a different dependence mechanism."
+      ],
+      "reasoning": "Combining the prior deterministic counting formula with the known one-lag binomial law does not imply independence of different lag totals. At n=b+c-g+1 a single even cycle produces a nonzero joint-pgf correction, which directly contradicts naive extrapolation of marginal independence.",
+      "searches": [
+        "joint binomial distribution Hamming autocorrelations at different lags exact first dependence gcd",
+        "Joint probability generating function of b-run counts at two distinct burst deletion lengths; first dependence from gcd-weighted cycle",
+        "Independence of deletion balls of different fixed burst sizes in Bernoulli random binary words; even subgraphs two shift graph",
+        "\"Autocorrelations of Random Binary Sequences\" Mercer 2006",
+        "\"Codes Correcting a Burst of Deletions or Insertions\" 2016"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mercer (2006), Proposition 1.1, considers summands for one fixed autocorrelation shift; it does not assert independence of two different lag aggregates.",
+        "The two-lag graph is a union of paths up to length b+c-gcd(b,c) and contains its first cycle at the next length."
+      ],
+      "reasoning": "Spin products show that the problem is equivalent to simultaneous distribution of two aperiodic Rademacher autocorrelations. The single-lag folklore proposition cannot imply this joint law: at the first cycle their sums are dependent despite having independent marginal signs and zero covariance.",
+      "searches": [
+        "joint distribution burst deletion ball sizes at two burst lengths b c independent until n = b + c - gcd(b,c) + 1",
+        "b-run counts r_b and r_c independent threshold gcd forest cycles for random binary word",
+        "joint binomial distribution Hamming autocorrelations at different lags exact first dependence gcd",
+        "Exact finite-n independence threshold of two aperiodic autocorrelation sums for random Rademacher binary sequences at unequal lags a,b; cutoff n<=a+b-gcd(a,b)",
+        "\"autocorrelation\" \"different lags\" \"independence\" binary random sequences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published-finding corpus semantic hits include 2026/10/4/SCOPE-exact-binary-3-1-burst-code-sizes-through-length-8--531630cac2ea; that table is for correcting-code maxima in a delete-and-insert (3,1) model.",
+        "Independent exhaustive direct counts for all n<=11 were computed by the packaged checker and show the first dependence boundary for every pair of widths."
+      ],
+      "reasoning": "Neither a retrieved exact table nor a code-size profile gives the joint probability table of two pure deletion-burst cardinalities. The new theorem is for all n and all width pairs, rather than another table of isolated finite maxima.",
+      "searches": [
+        "joint distribution burst deletion ball sizes at two burst lengths b c independent until n = b + c - gcd(b,c) + 1",
+        "b-run counts r_b and r_c independent threshold gcd forest cycles for random binary word",
+        "Exact finite-n independence threshold of two aperiodic autocorrelation sums for random Rademacher binary sequences at unequal lags a,b; cutoff n<=a+b-gcd(a,b)",
+        "\"joint\" \"burst deletion\" \"ball\" \"distribution\""
+      ]
+    },
+    "rationale": "The known deterministic burst-ball identity and one-shift binomial distribution are explicitly excluded from the originality claim. The new assertion is the sharp two-distinct-shift independence cutoff and its first nonfactorizing joint law. Full relevant scientific statements from Mercer, Schoeny et al., Xi et al., and three closest retrieved published results were compared, as well as an independently checked published-finding corpus semantic search. None read asserts or implies the two-width threshold. Residual risk is an unindexed equivalent statement in random autocorrelation/graph-cycle terminology.",
+    "residual_risks": [
+      "An unindexed derivation under two-lag aperiodic autocorrelation statistics, cycle spaces or an Ising high-temperature expansion could cover the exact cutoff.",
+      "Search and reading can establish checked implication coverage, not absolute historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS one-lag marginal independence and binomiality; DOES NOT ASSERT independence between distinct lag aggregates or arithmetic cutoff",
+        "evidence": [
+          "Proposition 1.1 establishes independence of X_j=a_j a_{j+n-k} for one fixed k.",
+          "Published online 2006-07-31 per Cambridge Core."
+        ],
+        "identifier_or_url": "doi:10.1017/S0963548306007589",
+        "material_read": "Author-shared article text: introduction, Proposition 1.1 and its proof, the marginal moment/theorem section, and nearby results; publisher first-online-date record",
+        "method": "Direct reading and comparison of the proposition quantifiers and theorem statements",
+        "title": "Autocorrelations of Random Binary Sequences",
+        "trigger": "Exact same lagged-product variables; principal possible covering theorem"
+      },
+      {
+        "assessment": "COVERS deterministic one-width deletion-ball size; NOT COVERING cross-width joint distribution, independence threshold or gcd cycle",
+        "evidence": [
+          "Equation (2) identifies the ball size from run counts in b-column arrays.",
+          "Section IV concerns code cardinality upper bounds; sections V-VII concern constructions.",
+          "arXiv first public 2016-02-22."
+        ],
+        "identifier_or_url": "arxiv:1602.06820v1",
+        "material_read": "Complete full-text PDF made available; inspected abstract, preliminaries, equation (2), statements on code bounds and burst lengths, and concluding section structure",
+        "method": "Read relevant PDF text and inspected rendered pages",
+        "title": "Codes Correcting a Burst of Deletions or Insertions",
+        "trigger": "Original archival source for exact pure burst-deletion ball-size identity and code bounds"
+      },
+      {
+        "assessment": "COVERS b-run-count identity but concerns a deletion-then-insertion channel and fixed b; no cross-b,c joint size law in inspected statements",
+        "evidence": [
+          "Lemma 2.3 explicitly states |D_1^b(x)|=r_b(x)=1+#{i:x_i!=x_{i+b}}.",
+          "Theorem 3.3 computes fixed-length burst Levenshtein ball size rather than two-width random pure-deletion sizes."
+        ],
+        "identifier_or_url": "arxiv:2506.07817v1",
+        "material_read": "PDF abstract, Section 2 definitions and Lemma 2.3; Section 3 minimum and explicit size Theorem 3.3 with subsequent reference list",
+        "method": "Read text and inspected rendered PDF pages",
+        "title": "On the Fixed-Length-Burst Levenshtein Ball with Unit Radius",
+        "trigger": "Newer likely dominating extension to fixed-length b-burst balls"
+      },
+      {
+        "assessment": "Studies general subsequences after deletions; the relevant statements do not give two distinct fixed contiguous-burst-width random counts",
+        "evidence": [
+          "Its channel permits arbitrary deletion locations, while current D_b and D_c delete one contiguous block of a prescribed distinct width."
+        ],
+        "identifier_or_url": "arxiv:1202.1644",
+        "material_read": "ArXiv full-text main statement, setup and initial proof sections",
+        "method": "Read original arXiv PDF, compare deletion restrictions and quantified counting statistics",
+        "title": "A Characterization of the Number of Subsequences Obtained via the Deletion Channel",
+        "trigger": "General deletion-ball counting might imply the fixed-burst joint claim"
+      },
+      {
+        "assessment": "Not covering: variance of exactly two arbitrary deletions, whereas current statement compares two distinct contiguous burst lengths and derives a joint exact pgf",
+        "evidence": [
+          "The asserted variance is (n-1)(n-2)(2n-3)/32 under unrestricted two deletions."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+        "material_read": "Published RESULT.md Finding, Assumptions, Proof, Verification, and Relationship sections",
+        "method": "Read published source via authorized repository read",
+        "title": "Exact variance of binary two-deletion sphere size",
+        "trigger": "Closest published database result on randomness of deletion ball size"
+      },
+      {
+        "assessment": "Not covering: conditions on fixed numbers of zeros and ones and studies individual adjacent transitions, rather than cross-lag aggregate counts under uniform iid inputs",
+        "evidence": [
+          "Adjacent transition indicators independent only at certain square fixed-composition sizes; no statement on two lag sums or the gcd threshold."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+        "material_read": "Published RESULT.md Finding, Assumptions, Proof, Verification, and Relationship sections",
+        "method": "Read published source via authorized repository read",
+        "title": "Exact dependence phases of fixed-composition run transitions",
+        "trigger": "Nearby independence/dependence result for indicators of random binary words"
+      },
+      {
+        "assessment": "Not covering: finite optimal code cardinalities for a different deletion-and-insertion channel, not random pure burst-deletion degree at two widths",
+        "evidence": [
+          "Reports finite (3,1)-burst code size vector for lengths 3 to 8."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-binary-3-1-burst-code-sizes-through-length-8--531630cac2ea",
+        "material_read": "Published RESULT.md Finding, Assumptions, Proof, Verification, Relationship sections",
+        "method": "Read published source via authorized repository read",
+        "title": "Exact binary (3,1)-burst code sizes through length 8",
+        "trigger": "Exact finite burst-coded table as possible dominating prior data"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7c435054-f1f5-4490-91ee-6042884e1cc3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "In burst-deletion/synchronization modelling, two distinct burst widths induce two observations on the same random center. Although both counts have binomial marginals and identically zero covariance, their higher-order dependence begins at a sharp, gcd-controlled finite length. The closed first-dependent joint law reveals the exact deviation from independent modelling. This structural independent-to-dependent phase boundary answers a natural two-channel question rather than re-evaluating a standard one-channel mean or a finite arbitrary slice.",
+    "status": "PASS"
+  }
+}
