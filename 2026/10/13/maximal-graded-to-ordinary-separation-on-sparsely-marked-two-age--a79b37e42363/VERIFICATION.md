@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Computational checks and limits
+# Independent mathematical audit
 
-The standalone standard-library program `verify.py` directly builds the specified row/column equivalence frame and bidiagonal marking. It checks the exact finite-depth type formula for every \(n\) from \(3\) through \(70\), including the full-distinction threshold, and checks that ordinary type refinement stabilizes at two types.
+## correctness
 
-To avoid relying only on the same recursive signature calculation, a second finite algorithm constructs pairwise counting-bisimulation relations by iterated back-and-forth using explicit perfect matching between the successor lists, and constructs ordinary back-and-forth through existential matching. It verifies identical terminal partitions for both logics on \(n=2,3,4,5,6,7\).
+PASS
 
-A third algorithm independently enumerates definable Boolean subsets with direct graded-counting semantics for each threshold and both modalities, closes them under Boolean operations, and compares the actual depth filtration on \(n=2,3,4\) to the predicted type counts.
+The n×n S5 frame has reflexive named row and column equivalences, with atom p(i,j) iff j=i or j=i−1 and n≥3. At zero depth p has two types. Ordinary bisimulation never splits them because every row and column meets both colors. For graded depth t, a cell signature is exactly (p,previous row-type histogram,previous column-type histogram). The marked-edge graph is the alternating Hamilton path r0–c0–r1–…–r(n−1)–c(n−1), whose degree/histogram recursion peels one row and one column alternately. At depth 1≤t≤n−2, there are (t+1)² Cartesian histogram blocks and precisely three mixed-color blocks; hence K_t=(t+1)²+3, with K_{n−1}=n², and n−1 is minimal. Any nonconstant one-bit valuation has ≥2 ordinary classes, bounding G/B≤n²/2; the construction attains it. Independently written exact count-histogram refinement over every 3≤n≤17 reproduced the full spectrum, including n=5: 2,7,12,19,25; not used as infinite proof. The induction, not the finite experiment, supports the unrestricted quantifiers.
 
-**Executed command:** `python verify.py`
+## originality
 
-**Observed output:**
+PASS
 
-`VERIFY_OK 68 grid_sizes  2482 graded_levels  12 independent_pair_games  3 direct_boolean_semantics`
+The claim is the exact grid-specific maximum G/B=n²/2 and full graded-depth spectrum, not generic expressiveness of graded modalities. The p-marking is a path on row/column classes, hence this is distinct from Latin-square proper-cover constructions. Best-of-knowledge originality follows from actual semantic published-record searches and the specifically inspected primary theorem material; unsuccessful searching alone is not proof of novelty.
 
-**Boundaries:** \(n=2\) is intentionally outside the separation theorem, but is included in computational consistency checks. \(n=3\) is the smallest admitted value. Direct Boolean-set enumeration scales exponentially and was only performed for \(n\le4\). The proof for all \(n\ge3\) is analytic, not a statistical extrapolation. An independent mathematical audit has not been performed.
+## value
+
+PASS
+
+The exact contrast between ordinary and graded definability is a natural finite-model-theory separation problem. A sparse explicit path marking both attains the universal n²/2 ratio and determines the exact depth at which all grid worlds become distinguishable. The depth census and sharp endpoint are independently useful for counting refinement and model checking, not a mere renaming of general modal equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
