@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed Definition 4.1 exactly. Edge addition makes A_t={B_a p worlds} decrease. If consecutive A sets agree and nonempty, every agent/world row meets A after the update, so a further update is inert; this gives at most n strict steps. While A meets the false-p set, surviving A-rows have their original successors, so they survive iff they have an edge into A: the outgoing-sink recursion. The directed path with p false only at the source yields n strict steps, including n=1. Propositional truth sets do not change, giving one-step idempotence. The saved standalone checker gives 4,164 exhaustive and 50,000 sampled one-agent cases, 1,032 exhaustive and 30,000 sampled multi-agent cases, 4,164 propositional tests and 29 sharp-path checks. Finite checks do not replace the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Belardinelli–Zhang 2026 Theorem 4.2 is an axiomatization and reduction result, not an iteration theorem.",
+        "The conclusion explicitly lists iterative properties of GDEL for future work.",
+        "Related GLAL and 2003 iterated belief-change sources use different transition semantics."
+      ],
+      "reasoning": "Logical completeness does not state a uniform n-round bound; separate dynamic operators do not imply the exact threshold. No broader covering iteration theorem for this contraction was found.",
+      "searches": [
+        "Belief Contraction in Dynamic Epistemic Logic Belardinelli Zhang hedged announcement HPAL repeated update",
+        "Repeated edge-addition epistemic Kripke model transformation by modal formula B_a p with shrinking target worlds exact number of steps",
+        "2026 Belief Contraction in Dynamic Epistemic Logic iterative properties"
+      ]
+    },
+    "checked_sources": [
+      "Belardinelli and Zhang, EPTCS 447 (2026), arXiv:2606.31861, DOI 10.4204/EPTCS.447.8.",
+      "Belardinelli, van Ditmarsch and van der Hoek, A Logic for Global and Local Announcements, arXiv:1707.08735 (abstract and publication description only; different edge-removing/pointed update).",
+      "Roorda, van der Hoek and Meyer, Iterated Belief Change in Multi Agent Systems (2003; abstract/metadata only; different belief-change operator).",
+      "Published research-index semantic searches using the queries listed above; no matching theorem was identified."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Definition 4.1 immediately yields the row update but does not itself state decreasing counterexample sets, sharp n rounds or the sink-recursion equivalence.",
+        "The paper covers general reduction axioms, success, preservation, and generalized event models, rather than this sharp repeated-update invariant.",
+        "Repository hits with related keywords are not statements of this operator."
+      ],
+      "reasoning": "The theorem requires analyzing how modal truth changes under iteration, which does not follow from one-step success or preservation assertions alone. Its sharp path family distinguishes one-step propositional behavior from modal depth one. A future semantic implication from an uninspected broader study is a residual risk.",
+      "searches": [
+        "Belief Contraction in Dynamic Epistemic Logic Belardinelli Zhang hedged announcement HPAL repeated update",
+        "Repeated edge-addition epistemic Kripke model transformation by modal formula B_a p with shrinking target worlds exact number of steps",
+        "\"Belief Contraction in Dynamic Epistemic Logic\" \"iterative properties\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Belardinelli–Zhang 2026, Definition 4.1, uses exact edge-addition update; Sections 5-6 discuss preservation/success, not iteration.",
+        "Published research-index hits included unrelated finite dynamics and frame-logic work; no semantic equivalent was identified."
+      ],
+      "reasoning": "The equivalent formulation to seek is not generic edge addition but simultaneous row-wise addition of the current set of B_a p worlds conditioned on avoidance of that set; none of the inspected claims states the exact finite horizon or the directed sink recursion.",
+      "searches": [
+        "hedged public announcement logic HPAL contraction iterated modal formula possible not p exact stabilization depth pruning digraph sinks",
+        "Belardinelli Zhang belief contraction iterative dynamics repeated formula diamond not p modal frames length",
+        "\"hedged public announcement\" \"iteration\"",
+        "\"belief contraction\" \"sink pruning\" \"Kripke\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published repository searches surfaced no database of stabilization horizons under this operator.",
+        "Exact exhaustive computations in verify.py are new finite checks, not a claim to an unknown database."
+      ],
+      "reasoning": "The result is a theorem for every n, rather than a catalogue or recalculation of known finite entries.",
+      "searches": [
+        "hedged public announcement logic HPAL contraction iterated modal formula possible not p exact stabilization depth pruning digraph sinks",
+        "Repeated edge-addition epistemic Kripke model transformation by modal formula B_a p with shrinking target worlds exact number of steps",
+        "\"Belardinelli\" \"Zhang\" \"n rounds\" contraction"
+      ]
+    },
+    "rationale": "The 2026 originating article defines the operator and studies success, preservation, completeness, and generalized updates; the inspected Definition 4.1, Sections 5-6, conclusion and Appendix do not give this sharp iteration horizon, the sink-pruning characterization, or the modal-depth threshold. Earlier work on public/global/local announcements transforms models differently. Public semantic searches and prior-claim checks found no covering statement. Risk of differently named edge-addition dynamics is retained.",
+    "residual_risks": [
+      "A different terminology for repeated inflationary relational revisions or iterative belief contraction may contain an equivalent result outside inspected literature.",
+      "Generalized DEL event-model composition may yield a comparable bound for a more restricted subclass, but no decisive covering implication was found in inspected text.",
+      "The theorem is deliberately confined to the fixed one-modal operator, not all modal formulas."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides precise starting definition and related one-step laws, but inspected material contains no iterative upper bound, directed peeling characterization or sharp witnesses.",
+        "evidence": [
+          "Def. 4.1: add all counterexample worlds when the row avoids counterexamples.",
+          "Section 6: propositional success and other postulates.",
+          "Section 8: iterative properties of generalized DEL listed for future study."
+        ],
+        "identifier_or_url": "arXiv:2606.31861; https://www.researchgate.net/publication/408302467_Belief_Contraction_in_Dynamic_Epistemic_Logic",
+        "material_read": "Definition 4.1 and surrounding semantics; Section 5 preservation; Section 6 success and propositional postulates; Section 8 conclusion; Appendix proofs of reduction axioms and related propositions.",
+        "method": "Read web-rendered full article text, including selected appendix passages and theorem statements.",
+        "title": "Belief Contraction in Dynamic Epistemic Logic",
+        "trigger": "Identical edge-addition dynamics, plausible direct coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3488e39a-068a-4180-9eee-da83d1850695",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 source explicitly motivates studying iteration and defines a dynamics that can repeatedly change its own modal counterexamples. The new result gives an exact structural procedure (outgoing-sink peeling), a sharp uniform world-count bound valid for any number of agents, and a minimally modal one-atom family attaining every horizon. This separates modal depth zero from one and rules out the plausible assumption that adding every available counterexample at once makes repetition redundant. Its consequence is a complete finite-horizon answer for a natural fixed HPAL update, not an arbitrary census slice.",
+    "status": "PASS"
+  }
+}
