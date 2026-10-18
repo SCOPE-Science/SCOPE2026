@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,117 +19,24 @@
 }
 ---
 
-Define
-\[
-W(z)
-=
-\log\!\left(
-\frac{1-z^2}{1+z^2}
-\right).
-\]
-The source branch is analytic in
-\[
-\mathbb D,
-\]
-and
-\[
-u_*=(2/\pi)\operatorname{Im}W.
-\]
-Since
-\[
-W'(z)=-4z/(1-z^4),
-\]
-the Cauchy--Riemann equations give
-\[
-(u_*)_y(z)
-=
--\frac8\pi
-\operatorname{Re}\!\left(
-\frac{z}{1-z^4}
-\right).
-\]
+# Independent mathematical audit
 
-Therefore
-\[
-J_{F_M}(z)
-=
-1-
-\frac{8(M-1)}{\pi}
-\operatorname{Re}\!\left(
-\frac{z}{1-z^4}
-\right).
-\]
+## correctness
 
-For every
-\[
-|z|\le r<1,
-\]
-\[
-\operatorname{Re}\!\left(
-\frac{z}{1-z^4}
-\right)
-\le
-\frac{r}{1-r^4}.
-\]
-Equality holds uniquely at
-\[
-z=r>0.
-\]
-Thus
-\[
-\min_{|z|\le r}J_{F_M}(z)
-=
-1-
-\frac{8(M-1)}{\pi}
-\frac{r}{1-r^4}.
-\]
+PASS
 
-The defining equation
-\[
-8(M-1)r_M=\pi(1-r_M^4)
-\]
-therefore implies
-\[
-J_{F_M}>0
-\]
-throughout
-\[
-\mathbb D_{r_M},
-\]
-with the first centered-disk zero at the boundary point
-\[
-z=r_M.
-\]
+From the actual Git RESULT.md blob b26f24e194e2cfa019ce15b39e938b50223adc07, reconstruct W(z)=log((1−z²)/(1+z²)), which is analytic because the quotient maps the disk into the right half-plane. W′(z)=−4z/(1−z⁴); CR gives u_y=−8/π Re[z/(1−z⁴)], whence the claimed Jacobian. For |z|≤r, Re[z/(1−z⁴)]≤|z|/(1−|z|^4)≤r/(1−r⁴), and equality for r>0 forces |z|=r,z^4=r^4 and positive-real quotient, hence unique z=r. Strict radial increase yields J>0 inside r_M and J=0 at positive real r_M. F_M(x+iy)=x+iY_x(y) fixes x and each vertical disk slice is connected; ∂_yY_x=J>0 gives global injectivity. For r>r_M the larger disk contains a Jacobian zero, contradicting Lewy’s necessary nonzero-Jacobian theorem for injective harmonic maps. No finite grid is needed. Independently differentiated the rational kernel and checked the equality/radial monotonicity argument; separate Resultary fiber-valence analysis confirms the same explicit shear, without substituting for this full-disk proof.
 
-For fixed real coordinate
-\[
-x,
-\]
-the imaginary coordinate of
-\[
-F_M(x+iy)
-\]
-has derivative
-\[
-J_{F_M}(x,y)>0
-\]
-on the entire connected vertical slice of
-\[
-\mathbb D_{r_M}.
-\]
-Together with
-\[
-\operatorname{Re}F_M=x,
-\]
-this proves injectivity on
-\[
-\mathbb D_{r_M}.
-\]
+## originality
 
-Every larger centered disk contains the Jacobian-zero point
-\[
-r_M.
-\]
-Lewy's theorem therefore prevents univalence on any such disk.
+PASS
 
-The argument is exact and analytic; numerical sampling is not used to certify positivity, injectivity, or maximality.
+Best-of-knowledge: the source fold equation and published derivative-optimality result are not enough to prove the fold is the first point anywhere in every centered disk, nor global injectivity before it; the full-disk Jacobian extremum and vertical-fiber monotonicity supply genuinely additional conclusions. Original recent preprint full text was unavailable; residual risk is stated rather than an automatic failure.
+
+## value
+
+PASS
+
+It is a genuinely motivated exact boundary for a newly important explicit harmonic counterexample: distinguishing a single known axial fold from the first collapse anywhere plus global no-collision on the entire centered disk settles a meaningful geometry question. The exact Jacobian-minimum identity itself can be reused, and does not purport to solve the universal Landau problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
