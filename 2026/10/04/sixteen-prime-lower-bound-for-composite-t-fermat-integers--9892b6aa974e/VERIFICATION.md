@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal conclusion reduces to a finite exact census because any hypothetical composite T-Fermat integer with \(M\le15\) must have every prime divisor below \(2^M\), all divisors in one common \(\nu_2(p-1)\) class, and every ordered pair satisfying an odd multiplicative-order condition.
+# Independent mathematical audit
 
-`verify_tfermat_bound.py` performs the following checks with integer arithmetic only:
+## correctness
 
-1. Sieve every prime below \(2^{15}\).
-2. For each \(3\le M\le15\), retain primes below \(2^M\) and group them by \(\nu_2(p-1)\).
-3. Compute each required multiplicative order exactly by factoring the relevant Euler totient and reducing the order with modular exponentiation.
-4. Enumerate all \(M\)-cliques recursively in every common-valuation class.
-5. Confirm that the target-clique list is empty for \(3\le M\le14\), contains exactly one support for \(M=15\), and test that support against every Korselt divisibility condition.
+PASS
 
-The replay output is:
+PASS subject to the actual published structural lemmas. The source proves a composite T-Fermat n is an odd squarefree Carmichael number, p<d(n)=2^M for every p|n, ν₂(p−1) equal over p, and all mutual ord_{p−1}(q) odd. Therefore its M distinct prime divisors form an M-clique in the explicit FINITE graph of primes <2^M at common ν₂. Independently rebuilt graph without using the supplied order algorithm: odd order iff gcd(q,p−1)=1 and q^{oddpart(phi(p−1))}=1 mod(p−1). Reproduced all per-M vertex/edge data, no M-cliques for 3≤M≤14, exactly one 15-clique (331,631,751,991,2311,4951,7351,11251,11551,14851,17011,25411,26251,28351,30871), whose product N fails Korselt at (N−1) mod 330=90. M≤2 excluded for composite Carmichael. This is exhaustive finite exclusion due p<2^M, not an inference from sampling or a claim for M≥16.
 
-`VERIFY_OK M=3..14_no_compatible_cliques M=15_unique_compatible_clique_not_Carmichael`
+## originality
 
-`M15_CLIQUE 331 631 751 991 2311 4951 7351 11251 11551 14851 17011 25411 26251 28351 30871`
+PASS
 
-`M15_KORSELT_WITNESS ('331', 90)`
+PASS (best of knowledge). The full Hakobyan primary paper establishes pairwise prime restrictions and finite boundedness for each number of factors but does not give the explicit 16 factor cutoff in inspected theorems. The 2024 competition “almost prime” formulation uses same polynomial predicate but does not provide this compatibility-graph census in checked context. Distinct Deaconescu/Carmichael prime-factor lower bounds have different predicates and do not imply the T-Fermat bound. Residual risk is an unindexed stronger lower bound or publication after arXiv version.
 
-The accompanying `tfermat_bound_certificate.json` records the exact graph sizes, all target-size cliques, and the Korselt remainders. The finite computation proves only the exclusion needed for \(M\le15\); it does not test or certify any claim for \(M\ge16\). The cited structural lemmas from the primary source are premises of this reduction and were checked in the source text, not recomputed by the verifier.
+## value
+
+PASS
+
+PASS. An explicit ≥16 prime obstruction for hypothetical composite T-Fermat integers is a natural arithmetic size invariant: it transforms structural theorems to a sharp-for-tested-range exact finite restriction rather than a routine tiny check. The 15-clique obstruction is a nontrivial reproducible finite certificate with a Korselt exclusion. It is not a proof composite examples exist or a complete classification for M≥16.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

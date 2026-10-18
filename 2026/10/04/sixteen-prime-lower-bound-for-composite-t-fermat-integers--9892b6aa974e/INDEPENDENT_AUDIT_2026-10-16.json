@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T06:54:34.520043Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS subject to the actual published structural lemmas. The source proves a composite T-Fermat n is an odd squarefree Carmichael number, p<d(n)=2^M for every p|n, ν₂(p−1) equal over p, and all mutual ord_{p−1}(q) odd. Therefore its M distinct prime divisors form an M-clique in the explicit FINITE graph of primes <2^M at common ν₂. Independently rebuilt graph without using the supplied order algorithm: odd order iff gcd(q,p−1)=1 and q^{oddpart(phi(p−1))}=1 mod(p−1). Reproduced all per-M vertex/edge data, no M-cliques for 3≤M≤14, exactly one 15-clique (331,631,751,991,2311,4951,7351,11251,11551,14851,17011,25411,26251,28351,30871), whose product N fails Korselt at (N−1) mod 330=90. M≤2 excluded for composite Carmichael. This is exhaustive finite exclusion due p<2^M, not an inference from sampling or a claim for M≥16.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/2603.00679 source supplies Carmichael property, p<d(n), odd-order and ν₂ restrictions, but finite M cutoff left implicit",
+          "Published finiteness for each ω does not enumerate all graph cliques or give numeric ≥16 threshold"
+        ],
+        "reasoning": "Existing structural restrictions are necessary conditions which enable the new finite computation; no inspected broader theorem directly dominates ω≥16.",
+        "searches": [
+          "Hakobyan T-Fermat integers 2026 Theorems 1.x and Section 2",
+          "T-Fermat 2024 almost-prime IMC problem"
+        ]
+      },
+      "checked_sources": [
+        "Hakobyan arXiv:2603.00679v2 full primary PDF",
+        "Resultary T-Fermat semantic search and distinct number predicates",
+        "Git tfermat_bound_certificate.json and verify_tfermat_bound.py at frozen source tree",
+        "IMC 2024 Problem 10 almost-prime alias context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hakobyan statements imply any composite support must be a clique, not the absence of clique at M≤14 or Korselt failure of sole M=15 support",
+          "Other pseudoprime lower bound statements do not transfer without predicate implication, which is not established"
+        ],
+        "reasoning": "The numeric 16 threshold requires the complete graph search and Korselt test, so it is not already a corollary by direct printed parameter substitution; no dominating cross-predicate reduction found.",
+        "searches": [
+          "Hakobyan arXiv:2603.00679v2 exact lower-bound theorem comparison",
+          "Resultary Deaconescu prime factor 2859 different predicate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2603.00679 Corollary 2.4 and Lemma 2.7 give order restrictions for same T_n predicate",
+          "Resultary 2859 prime Deaconescu bound pertains a different number definition"
+        ],
+        "reasoning": "Equivalent formulations: minimum ω(n) among hypothetical composite squarefree numbers satisfying n|Σ_{d|n}x^d−d(n)x for all integer x, and exclusion M≤15. No inspected source supplies an equivalent bound.",
+        "searches": [
+          "Resultary: composite T Fermat numbers minimum number distinct prime factors Carmichael odd multiplicative order",
+          "Hakobyan arXiv:2603.00679v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact preexisting table of 3..15 order-compatible cliques found in inspected corpus",
+          "Source certificate contains all per-M vertex/edge counts, unique 15-clique; independently reproduced rather than merely accepting its table"
+        ],
+        "reasoning": "The finite graph certificate is a new derived table of a natural support obstruction; finite exhaustive verification is valid because every potential support is bounded by 2^M.",
+        "searches": [
+          "Resultary T Fermat sixteen prime",
+          "2024 almost-prime terminology and T_n polynomial exact searches"
+        ]
+      },
+      "rationale": "PASS (best of knowledge). The full Hakobyan primary paper establishes pairwise prime restrictions and finite boundedness for each number of factors but does not give the explicit 16 factor cutoff in inspected theorems. The 2024 competition “almost prime” formulation uses same polynomial predicate but does not provide this compatibility-graph census in checked context. Distinct Deaconescu/Carmichael prime-factor lower bounds have different predicates and do not imply the T-Fermat bound. Residual risk is an unindexed stronger lower bound or publication after arXiv version.",
+      "residual_risks": [
+        "Structural necessity of p<2^M and odd orders relies on Hakobyan published proofs",
+        "No conclusion for M≥16 or construction of composite T-Fermat numbers",
+        "An unindexed equivalent earlier almost-prime finite computation remains priority risk"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural premises are genuinely present and sufficient for finite support bounding; no numerical 16-prime census in inspected full paper",
+          "evidence": "https://arxiv.org/pdf/2603.00679 Section 2 Corollary 2.4, Lemma 2.7",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.00679",
+          "material_read": "Full 13-page arXiv article; definition, main statements, Corollaries 2.4–2.5 and Lemma 2.7 near page 6, finiteness argument",
+          "method": "Accessible lawful arXiv v2 PDF text and rendered page",
+          "title": "T-Fermat integers",
+          "trigger": "Exact defining predicate and structural necessary conditions"
+        },
+        {
+          "assessment": "Avoid claiming no solution ever derived a bound without full problem-solution review",
+          "evidence": "IMC 2024 Problem 10",
+          "identifier_or_url": "https://www.imc-math.org.uk/",
+          "material_read": "Published problem identification in primary paper and source bibliography, not full competition solutions",
+          "method": "Bibliographic/source-context reading",
+          "title": "IMC 2024 Problem 10 almost prime",
+          "trigger": "Alias for divisor-polynomial arithmetic predicate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. An explicit ≥16 prime obstruction for hypothetical composite T-Fermat integers is a natural arithmetic size invariant: it transforms structural theorems to a sharp-for-tested-range exact finite restriction rather than a routine tiny check. The 15-clique obstruction is a nontrivial reproducible finite certificate with a Korselt exclusion. It is not a proof composite examples exist or a complete classification for M≥16.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only necessary exclusion ω≤15, no claim that any composite T-Fermat exists",
+    "Depends on cited structural lemmas from Hakobyan",
+    "Priority search and source comparison non-exhaustive"
+  ],
+  "schema_version": 1
+}

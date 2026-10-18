@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. Hakobyan's stated results imply four necessary conditions for a composite T-Fermat integer with \(M\) prime factors: odd squarefree support, every \(p<2^M\), common \(\nu_2(p-1)\), and pairwise odd multiplicative orders. These conditions are encoded directly in the finite compatibility graphs. The exact verifier exhausts all target-size cliques for \(3\le M\le15\), finds none through \(M=14\), and finds one at \(M=15\). The product of that support has \(N-1\equiv90\pmod{330}\), so it fails Korselt's criterion and cannot be the required Carmichael number. This proves the stated lower bound.
+# Independent mathematical audit
 
-## Originality
-PASS. The motivating full text proves the necessary structural restrictions and fixed-\(M\) finiteness but does not state the explicit \(16\)-prime lower bound. Searches using “T-Fermat”, the earlier “almost prime” terminology, the compatibility-order formulation, Carmichael aliases, and the exact threshold found no equivalent or stronger covering statement. The closest literature concerns different pseudoprime predicates.
+## correctness
 
-## Value
-PASS. The existence of composite T-Fermat integers is posed as an open direction, so \(\omega(n)\) is a natural structural invariant. Raising the unconditional support floor to \(16\) sharply restricts any future construction or search and shows that the paper's local prime-divisor constraints have substantial global force rather than merely yielding fixed-\(M\) finiteness.
+PASS
 
-## Closest literature and limitations
-The closest source is Hakobyan, arXiv:2603.00679v2, which supplies the Carmichael, prime-bound, common-valuation, and odd-order lemmas but not the explicit threshold established here. A 2024 competition problem contains the older “almost prime” formulation of the same divisor-polynomial condition. The result does not address existence above the threshold, and an unindexed publication under another alias remains a residual originality risk.
+PASS subject to the actual published structural lemmas. The source proves a composite T-Fermat n is an odd squarefree Carmichael number, p<d(n)=2^M for every p|n, ν₂(p−1) equal over p, and all mutual ord_{p−1}(q) odd. Therefore its M distinct prime divisors form an M-clique in the explicit FINITE graph of primes <2^M at common ν₂. Independently rebuilt graph without using the supplied order algorithm: odd order iff gcd(q,p−1)=1 and q^{oddpart(phi(p−1))}=1 mod(p−1). Reproduced all per-M vertex/edge data, no M-cliques for 3≤M≤14, exactly one 15-clique (331,631,751,991,2311,4951,7351,11251,11551,14851,17011,25411,26251,28351,30871), whose product N fails Korselt at (N−1) mod 330=90. M≤2 excluded for composite Carmichael. This is exhaustive finite exclusion due p<2^M, not an inference from sampling or a claim for M≥16.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (best of knowledge). The full Hakobyan primary paper establishes pairwise prime restrictions and finite boundedness for each number of factors but does not give the explicit 16 factor cutoff in inspected theorems. The 2024 competition “almost prime” formulation uses same polynomial predicate but does not provide this compatibility-graph census in checked context. Distinct Deaconescu/Carmichael prime-factor lower bounds have different predicates and do not imply the T-Fermat bound. Residual risk is an unindexed stronger lower bound or publication after arXiv version.
+
+## value
+
+PASS
+
+PASS. An explicit ≥16 prime obstruction for hypothetical composite T-Fermat integers is a natural arithmetic size invariant: it transforms structural theorems to a sharp-for-tested-range exact finite restriction rather than a routine tiny check. The 15-clique obstruction is a nontrivial reproducible finite certificate with a Korselt exclusion. It is not a proof composite examples exist or a complete classification for M≥16.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
