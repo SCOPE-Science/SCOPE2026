@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact identity \(\sigma(p^j)\mid\sigma(p^a)\iff j+1\mid a+1\) follows from the gcd identity for powers minus one. For each prime-power block, there are \(a+1-\tau(a+1)\) distinct full-complement offending divisors, and the witnesses from separate blocks cannot coincide. This forces a lone repeated exponent of \(2\) or \(3\) for defect one. Cancellation and coprimality of successive prime-power divisor sums then yield the precise residue conditions on each squarefree cofactor prime. Every converse is checked, including \(m=1\) and \(n=1\). Infinitude follows from Dirichlet; zero density follows from reciprocal-prime divergence in the excluded progression and a square-divisibility tail bound. The final embedded verifier independently checks all integers through one million.
+## correctness
 
-## Originality
-PASS. The exact A173440 page records that squarefree inputs have zero defect but not the converse or the first positive fiber. A173439 gives only a complementary count, while the full Amdeberhan–Moll–Sharma–Villamizar paper treats valuations of a single divisor sum, not simultaneous divisor-to-host sum divisibility. No retrieved exact-form or alias statement implies the two congruence families or the blockwise lower bound. The residual risk is an unindexed elementary observation.
+PASS
 
-## Value
-PASS. The original sequence measures a natural divisibility defect across the divisor lattice. Resolving its first positive fiber is a complete unrestricted classification, not an arbitrary finite table slice: it pinpoints the unique bad divisor, exhibits two infinite congruence-parametrized families, proves their rarity, and gives a sharp general prime-power obstruction. The zero and one fibers have genuinely different density behavior.
+For 0≤j≤a the geometric sums satisfy sigma(p^j)|sigma(p^a) iff (j+1)|(a+1) by gcd(p^u−1,p^v−1)=p^gcd(u,v)−1. For each prime-power block choose d=p_i^j ∏_(k≠i)p_k^a_k; failures from distinct i are disjoint and count a_i+1−tau(a_i+1), proving bound. B=0 forces all a_i=1 and conversely all squarefree divisors have subproduct sigma. B=1 forces one exponent a=2 or3; exact cancellation makes d=p^(a−1)e bad iff M=σ(p^(a−1)) does not divide sigma(m/e). The unique unavoidable e=m gives n/p; excluding any other e forces M|q+1 for every q|m, conversely that suffices. Dirichlet gives infinitely many eligible cofactor primes, reciprocal-prime divergence in q≡1 mod M plus sum over large p of 1/p² yields zero density. Independently enumerated all 1≤n≤2500 and reproduced both fibers and unique bad divisor; finite checking not used to assert density/infinitude.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+OEIS A173440 defines exactly B(n) and already records that squarefree n have B=0; the present structural lower bound and complete iff B=0 and B=1 classes, exact unique bad divisor and arithmetic progression/density implications are not in the inspected public entry/table. The Amdeberhan–Moll–Sharma–Villamizar divisor-sum p-adic valuation theory concerns individual sigma values, not the simultaneous divisibility counts, without a direct implication.
+
+## value
+
+PASS
+
+An exact global first-nonzero fiber and sharp structural blockwise obstruction for a natural pre-existing divisor-sum statistic; uniquely identifies exceptional divisor and determines infinitude and density, useful independent of classifying all higher fibers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

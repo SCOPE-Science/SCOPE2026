@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T17:45:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md prime-power gcd/cancellation proof, Dirichlet density conclusion",
+        "Independent σ divisor sieve and complete n≤2500 fiber replay"
+      ],
+      "rationale": "For 0≤j≤a the geometric sums satisfy sigma(p^j)|sigma(p^a) iff (j+1)|(a+1) by gcd(p^u−1,p^v−1)=p^gcd(u,v)−1. For each prime-power block choose d=p_i^j ∏_(k≠i)p_k^a_k; failures from distinct i are disjoint and count a_i+1−tau(a_i+1), proving bound. B=0 forces all a_i=1 and conversely all squarefree divisors have subproduct sigma. B=1 forces one exponent a=2 or3; exact cancellation makes d=p^(a−1)e bad iff M=σ(p^(a−1)) does not divide sigma(m/e). The unique unavoidable e=m gives n/p; excluding any other e forces M|q+1 for every q|m, conversely that suffices. Dirichlet gives infinitely many eligible cofactor primes, reciprocal-prime divergence in q≡1 mod M plus sum over large p of 1/p² yields zero density. Independently enumerated all 1≤n≤2500 and reproduced both fibers and unique bad divisor; finite checking not used to assert density/infinitude.",
+      "residual_risks": [
+        "Higher B fibers not classified; density proof assumes classical divergence of reciprocal primes in fixed reduced residue class."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The OEIS sequence definition and finite terms do not imply the infinite congruence classification; individual σ valuation formulas do not directly enumerate all d|n and failures."
+        ],
+        "reasoning": "A generic arithmetic function divisibility theorem might imply the result, but no such dominating statement was identified in actual targeted queries.",
+        "searches": [
+          "OEIS A173440 number divisors sigma(d) does not divide sigma(n) classify one defect p squared cubed congruence",
+          "OEIS A173440 exact value table bad sigma divisor divisibility",
+          "OEIS A173439 good sigma divisor relation",
+          "Amdeberhan Moll Sharma Villamizar Arithmetic properties of the sum of divisors arxiv 2007.03088"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A173440 number divisors sigma(d) does not divide sigma(n) classify one defect p squared cubed congruence",
+        "OEIS A173440 exact value table bad sigma divisor divisibility",
+        "OEIS A173439 good sigma divisor relation",
+        "Amdeberhan Moll Sharma Villamizar Arithmetic properties of the sum of divisors arxiv 2007.03088",
+        "https://oeis.org/A173440",
+        "https://oeis.org/A173439",
+        "https://arxiv.org/abs/2007.03088"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source OEIS data imply B(n) for tabulated individual n but neither the full one-fiber if-and-only-if nor the unique n/p bad divisor for arbitrary prime factorizations."
+        ],
+        "reasoning": "The new proof uses cancellation of sigma(e) and coprimality of adjacent geometric sums to establish a global parametric family.",
+        "searches": [
+          "OEIS A173440 number divisors sigma(d) does not divide sigma(n) classify one defect p squared cubed congruence",
+          "OEIS A173440 exact value table bad sigma divisor divisibility",
+          "OEIS A173439 good sigma divisor relation",
+          "Amdeberhan Moll Sharma Villamizar Arithmetic properties of the sum of divisors arxiv 2007.03088"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A173440 exactly counts these bad divisors, while A173439 counts the complementary good divisors: B(n)=τ(n)−A173439(n). This is the identical pre-existing sequence, not a new named function."
+        ],
+        "reasoning": "The novel assertions are the all-n fiber classifications and blockwise inequality; the known squarefree sufficient direction is credited.",
+        "searches": [
+          "OEIS A173440 number divisors sigma(d) does not divide sigma(n) classify one defect p squared cubed congruence",
+          "OEIS A173440 exact value table bad sigma divisor divisibility",
+          "OEIS A173439 good sigma divisor relation",
+          "Amdeberhan Moll Sharma Villamizar Arithmetic properties of the sum of divisors arxiv 2007.03088"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact A173440 entry and available b-file/table through finite range were located; squarefree sufficient property already recorded, so it is not independently claimed as new."
+        ],
+        "reasoning": "The finite table does not give all p²/p³ congruence families, infinitude or zero natural density, and no equal-or-stronger complete fiber formula was verified.",
+        "searches": [
+          "OEIS A173440 number divisors sigma(d) does not divide sigma(n) classify one defect p squared cubed congruence",
+          "OEIS A173440 exact value table bad sigma divisor divisibility",
+          "OEIS A173439 good sigma divisor relation",
+          "Amdeberhan Moll Sharma Villamizar Arithmetic properties of the sum of divisors arxiv 2007.03088"
+        ]
+      },
+      "rationale": "OEIS A173440 defines exactly B(n) and already records that squarefree n have B=0; the present structural lower bound and complete iff B=0 and B=1 classes, exact unique bad divisor and arithmetic progression/density implications are not in the inspected public entry/table. The Amdeberhan–Moll–Sharma–Villamizar divisor-sum p-adic valuation theory concerns individual sigma values, not the simultaneous divisibility counts, without a direct implication.",
+      "residual_risks": [
+        "Unindexed OEIS commentary or an arithmetic paper might classify B=1 under a different symbol.",
+        "The Amdeberhan et al full mathematical article was not read completely."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_DATABASE_IDENTICAL_FUNCTION_BUT_NO_GLOBAL_ONE_FIBER",
+          "evidence": [
+            "A173440 defines B(n) and notes squarefree cases; its finite integer table is not the complete B=1 classification."
+          ],
+          "identifier_or_url": "https://oeis.org/A173440",
+          "material_read": "Original OEIS entry with definition, squarefree sufficiency and linked terms/table inspected",
+          "method": "open primary sequence page and mathematical comments",
+          "title": "OEIS A173440: divisors whose sigma values do not divide sigma(n)",
+          "trigger": "Exact same arithmetic function and known squarefree property"
+        },
+        {
+          "assessment": "COMPLEMENTARY_FUNCTION_NOT_CLASSIFICATION",
+          "evidence": [
+            "B(n)=τ(n)−A173439(n) is explicit; no stronger parametric B=1 theorem is verified from this relation alone."
+          ],
+          "identifier_or_url": "https://oeis.org/A173439",
+          "material_read": "OEIS entry and its defining complementary relation examined",
+          "method": "indexed sequence page",
+          "title": "OEIS A173439: complement count of divisors satisfying sigma divisibility",
+          "trigger": "Equivalent exact sequence definition by complementary divisor count"
+        },
+        {
+          "assessment": "DIFFERENT_LOCAL_VALUATION_TOPIC_FULL_TEXT_UNREAD",
+          "evidence": [
+            "Describes valuations of σ, not an inspected full-document noncoverage claim for B(n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.03088",
+          "material_read": "Primary arXiv abstract and indexed results overview; complete mathematical article not inspected in this run",
+          "method": "abstract and metadata source check",
+          "title": "Arithmetic properties of the sum of divisors",
+          "trigger": "Plausible p-adic divisibility theorem for σ"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://oeis.org/A173440",
+        "https://oeis.org/A173439",
+        "https://arxiv.org/abs/2007.03088"
+      ],
+      "rationale": "An exact global first-nonzero fiber and sharp structural blockwise obstruction for a natural pre-existing divisor-sum statistic; uniquely identifies exceptional divisor and determines infinitude and density, useful independent of classifying all higher fibers.",
+      "residual_risks": [
+        "The B=0 sufficient fact is known; value hinges on new converse and B=1 classification, not renaming the OEIS sequence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For B(n)=#{d|n: sigma(d) does not divide sigma(n)}, prove prime-power-block lower bound, characterize B=0 as squarefree, B=1 exactly p²m/p³m with squarefree cofactor q≡−1 modulo p+1 / p²+p+1, unique bad divisor n/p, infinite but zero-density fiber.",
+  "limitations": [
+    "Higher B fibers not classified; density proof assumes classical divergence of reciprocal primes in fixed reduced residue class.",
+    "Unindexed OEIS commentary or an arithmetic paper might classify B=1 under a different symbol.",
+    "The Amdeberhan et al full mathematical article was not read completely.",
+    "The B=0 sufficient fact is known; value hinges on new converse and B=1 classification, not renaming the OEIS sequence."
+  ],
+  "schema_version": 1
+}
