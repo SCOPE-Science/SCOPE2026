@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof independently derives the enclosure's maximum-of-minimum-gaps formula by choosing lower and upper witnesses for two diagonal endpoints. Dominance pruning preserves all pairwise maxima. For each lower point, strict opposite monotonicity of the two coordinate gaps makes the bottleneck score unimodal on the upper antichain, so only the adjacent crossing indices matter. The crossing moves monotonically across the sorted lower antichain. Empty and zero-width cases are covered; exhaustive integer, randomized integer, and exact-rational tests exercise the standalone implementation. The proof, not the tests, covers arbitrary finite real point sets.
+PASS
 
-## Originality — PASS, with residual literature risk
+The width identity follows by choosing a lower witness below z and an upper witness above z+t(1,1), with the converse attained by z=lower. Coordinatewise domination pruning preserves scores including negative infeasibility. On sorted antichains the two gaps c_j-a_i and d_j-b_i respectively increase and decrease, so their minimum rises up to the difference-threshold crossing and falls afterward. Checking the two straddling neighbors is sufficient, with equality cases harmless. Since both tau_i=a_i-b_i and delta_j=c_j-d_j increase, a single forward pointer gives the stated bound. Independent brute-force and independently coded front routines agreed on 3,316 exhaustive finite-input pairs and randomized tie/empty instances. The tests support but do not establish the all-real-domain proof.
 
-The motivating source's width representation and Pareto-front pruning are explicit prior results and are not claimed. The additional two-candidate sparsification and simultaneous monotone sweep do not follow as *stated* from the source's all-pairs formula. Material inspection of the motivating manuscript, its 2021 predecessor, and related enclosure algorithms located width definitions, stopping rules, and update schemes, but not this exact complexity reduction. Similarity searches located unrelated geometric-width and optimization results rather than an implication covering this planar merge. A prior specialized implementation, unindexed paper, or equivalent additive-indicator algorithm could still cover the result.
+## originality
 
-## Value — PASS
+PASS
 
-The result turns the repeatedly evaluated image-space stopping statistic for two-objective approximation algorithms from a potentially quadratic cross-product computation into a provably linear scan once Pareto fronts are stored in their natural sorted order. It also returns a checkable maximizing box, or an exact emptiness decision, with at most two candidates per lower-front point. This is an explicit algorithmic and structural gap tied to a documented numerical optimization primitive, not an arbitrary numerical constant. No solver-wide speedup or higher-dimensional extension is asserted.
+The published 2021/2025 width formula and minimax bound-front pruning are expressly prior results. A linear-size bracketing certificate and monotone two-front merge give additional complexity and witness conclusions not stated in the most relevant examined primary works. These could be independently rediscovered in unindexed Pareto-front scan implementations; novelty is best-of-knowledge and specifically limited to candidate sparsification, not enclosure width itself.
 
-## Closest literature and limits
+## value
 
-Eichfelder–Hoff (2025 public preprint, 2026 journal), Proposition 3.2 and equations (3.3)–(3.5), gives the familiar enclosure and width foundations. Eichfelder–Kirst–Meng–Stein (2021), Lemmas 3.2–3.3, provides the original pairwise width characterization; Eichfelder et al. (2025) use width tolerances in adaptive relax-and-refine methods. No independent replication or external mathematical validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Width is a recurring quantitative termination diagnostic in biobjective branch-and-bound. Replacing the Cartesian-pair scan by a tight candidate certificate and linear sorted-front merge is a motivated reusable primitive with a constructive optimum/emptiness witness. This is a bounded yet nontrivial algorithmic improvement; no whole-solver speedup or dimension>2 claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

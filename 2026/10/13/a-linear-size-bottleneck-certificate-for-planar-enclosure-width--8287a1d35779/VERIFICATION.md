@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Run `python3 verify_width.py` with standard Python 3 (no third-party packages). This executes direct pairwise exhaustive comparisons on all 16,900 pairs of at-most-three-point subsets of the nine-point grid, 96,000 randomized bounded-integer tests, and 1,500 exact-rational cases. The observed final line was:
+## correctness
 
-```text
-VERIFY_OK 16900 exhaustive subset pairs, 96000 random integer pairs, 1500 rational pairs
-```
+PASS
 
-The script also validates each returned box witness, distinguishes an empty enclosure from one of width zero, and includes a nontrivial witness example. It reads no external files and requires no machine-specific path.
+The width identity follows by choosing a lower witness below z and an upper witness above z+t(1,1), with the converse attained by z=lower. Coordinatewise domination pruning preserves scores including negative infeasibility. On sorted antichains the two gaps c_j-a_i and d_j-b_i respectively increase and decrease, so their minimum rises up to the difference-threshold crossing and falls afterward. Checking the two straddling neighbors is sufficient, with equality cases harmless. Since both tau_i=a_i-b_i and delta_j=c_j-d_j increase, a single forward pointer gives the stated bound. Independent brute-force and independently coded front routines agreed on 3,316 exhaustive finite-input pairs and randomized tie/empty instances. The tests support but do not establish the all-real-domain proof.
 
-The mathematical verification does **not** use finite enumeration as proof for arbitrary inputs. It relies on the four proof steps in `RESULT.md`: diagonal-endpoint reduction to pairs, dominance pruning, the two-candidate bottleneck lemma, and monotonicity of crossing indices. The claimed sorting and scan bounds count exact comparisons and arithmetic on finite real coordinates. They do not quantify floating-point roundoff or running times inside a full optimization solver.
+## originality
 
-Originality is assessed by comparisons with specified published formulas and inspected primary literature; this remains a self-review, not an independent audit. Unindexed equivalent work is a residual limitation.
+PASS
+
+The published 2021/2025 width formula and minimax bound-front pruning are expressly prior results. A linear-size bracketing certificate and monotone two-front merge give additional complexity and witness conclusions not stated in the most relevant examined primary works. These could be independently rediscovered in unindexed Pareto-front scan implementations; novelty is best-of-knowledge and specifically limited to candidate sparsification, not enclosure width itself.
+
+## value
+
+PASS
+
+Width is a recurring quantitative termination diagnostic in biobjective branch-and-bound. Replacing the Cartesian-pair scan by a tight candidate certificate and linear sorted-front merge is a motivated reusable primitive with a constructive optimum/emptiness witness. This is a bounded yet nontrivial algorithmic improvement; no whole-solver speedup or dimension>2 claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

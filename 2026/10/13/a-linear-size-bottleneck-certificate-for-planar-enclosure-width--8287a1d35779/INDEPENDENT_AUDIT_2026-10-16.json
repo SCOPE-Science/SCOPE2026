@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:47:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The width identity follows by choosing a lower witness below z and an upper witness above z+t(1,1), with the converse attained by z=lower. Coordinatewise domination pruning preserves scores including negative infeasibility. On sorted antichains the two gaps c_j-a_i and d_j-b_i respectively increase and decrease, so their minimum rises up to the difference-threshold crossing and falls afterward. Checking the two straddling neighbors is sufficient, with equality cases harmless. Since both tau_i=a_i-b_i and delta_j=c_j-d_j increase, a single forward pointer gives the stated bound. Independent brute-force and independently coded front routines agreed on 3,316 exhaustive finite-input pairs and randomized tie/empty instances. The tests support but do not establish the all-real-domain proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader multiobjective solvers establish width-based stopping criteria and general upper/lower bound constructions; their stated width formulas still compare bound points and do not specify this co-monotone candidate scan."
+        ],
+        "reasoning": "General dimension or optimization-framework coverage does not logically yield an explicit planar O(r+s) witness algorithm without additional order proof. A historical implementation could nonetheless contain one.",
+        "searches": [
+          "Resultary: enclosure width Pareto front two objective sorted front bounding set exact computational complexity",
+          "Eichfelder–Link–Volkwein–Warnow 2025, adaptive relaxation-refinement and width tolerance",
+          "2024 dual relaxations in multiobjective convex quadratic programming"
+        ]
+      },
+      "checked_sources": [
+        "https://optimization-online.org/wp-content/uploads/2025/09/Properties_of_Enclosures_in_Multiobjective_Optimization-1.pdf",
+        "https://doi.org/10.1007/s10898-020-00984-y",
+        "https://doi.org/10.1007/s12532-025-00299-7",
+        "https://doi.org/10.1007/s10898-024-01440-x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior sources give the exhaustive pair formula and dominated-front reduction but not an explicit proof that at most two bracketing upper points per lower suffice in sorted linear scan.",
+          "The new proof yields an all-input complexity guarantee and attainment witness from those credited premises."
+        ],
+        "reasoning": "Existing all-pairs expressions establish the same width value but are not a prior proof of the new candidate-sparsification complexity. There is derivability by elementary planar analysis, but derivability alone is not prior publication.",
+        "searches": [
+          "2025/2026 Properties of Enclosures in Multiobjective Optimization, Proposition 3.2 and (3.3)–(3.5)",
+          "2021 A general branch-and-bound framework for continuous global multiobjective optimization, Sections 3 and 7",
+          "Resultary planar width query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both primary sources establish the bottleneck maximum over all feasible lower/upper pairs; the later source also reduces to Pareto-minimal and -maximal bound points.",
+          "The classical additive epsilon-indicator has a different extremization order from the enclosure width and cannot be silently substituted."
+        ],
+        "reasoning": "The general pairwise identity does not itself assert a two-candidate per-lower vertex certificate or a joint linear-time merge. The proof of that extra assertion exploits strictly opposite order of planar antichain coordinates.",
+        "searches": [
+          "Resultary: Planar finite multiobjective upper lower Pareto enclosure width min coordinate gap linear sweep candidate pair algorithm",
+          "Eichfelder–Hoff 2025/2026, equations (3.3)–(3.5), Proposition 3.2",
+          "Eichfelder–Kirst–Meng–Stein 2021, Lemmas 3.2–3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Results were dominated by unrelated convex-body widths, polytopes and Pareto optimization problems, not an exact enclosure-width input/output table."
+        ],
+        "reasoning": "The result is a uniform symbolic algorithm over arbitrary real inputs rather than a fixed enumerated instance. An absent matching indexed table is weak evidence only.",
+        "searches": [
+          "Resultary: Planar finite multiobjective upper lower Pareto enclosure width min coordinate gap linear sweep candidate pair algorithm",
+          "Resultary: enclosure width Pareto front two objective sorted front bounding set exact computational complexity"
+        ]
+      },
+      "rationale": "The published 2021/2025 width formula and minimax bound-front pruning are expressly prior results. A linear-size bracketing certificate and monotone two-front merge give additional complexity and witness conclusions not stated in the most relevant examined primary works. These could be independently rediscovered in unindexed Pareto-front scan implementations; novelty is best-of-knowledge and specifically limited to candidate sparsification, not enclosure width itself.",
+      "residual_risks": [
+        "A prior specialized implementation could apply the same two-pointer principle without searchable terminology.",
+        "No claim about floating point stability, full solver complexity or higher-dimensional order; source pairing assumes exact real comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers pair formula and Pareto reduction; inspected mathematical results do not assert two-bracket monotone merge.",
+          "evidence": "Proposition 3.2; equations (3.3)–(3.5); width as longest shortest box edge.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2025/09/Properties_of_Enclosures_in_Multiobjective_Optimization-1.pdf",
+          "material_read": "Full publicly accessible primary PDF; definitions, Proposition 3.2, equations (3.3)–(3.5), associated width computation and algorithmic context around pp. 10–12, with representative rendered page",
+          "method": "Read page text and PDF page rendering",
+          "title": "Properties of Enclosures in Multiobjective Optimization",
+          "trigger": "Directly identical enclosure width object and Pareto pruning"
+        },
+        {
+          "assessment": "Covers width definition and stopping rules; inspected passages did not yield linear planar candidate certificate.",
+          "evidence": "Lemmas 3.2–3.3; bound-set computation and branch-and-bound termination.",
+          "identifier_or_url": "https://doi.org/10.1007/s10898-020-00984-y",
+          "material_read": "Accessible primary article relevant Sections 3, 4 and 7 and Lemmas 3.2–3.3",
+          "method": "Primary full-text HTML/text search and theorem reading",
+          "title": "A general branch-and-bound framework for continuous global multiobjective optimization",
+          "trigger": "Foundational width characterization and algorithmic use"
+        },
+        {
+          "assessment": "Uses width as a stopping statistic, but not the new bound-front candidate theorem in inspected sections.",
+          "evidence": "Adaptive method termination criterion and width tolerance.",
+          "identifier_or_url": "https://doi.org/10.1007/s12532-025-00299-7",
+          "material_read": "Primary publisher HTML: method, width tolerance and algorithmic sections",
+          "method": "Read relevant open full-text sections",
+          "title": "An adaptive relaxation-refinement scheme for multi-objective mixed-integer nonconvex optimization",
+          "trigger": "Recent solver with enclosure-width termination criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Width is a recurring quantitative termination diagnostic in biobjective branch-and-bound. Replacing the Cartesian-pair scan by a tight candidate certificate and linear sorted-front merge is a motivated reusable primitive with a constructive optimum/emptiness witness. This is a bounded yet nontrivial algorithmic improvement; no whole-solver speedup or dimension>2 claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all finite planar lower and upper bound sets, signed bottleneck width has an exact <=2r-pair candidate set after Pareto pruning; its crossing indices advance monotonically, yielding O(r+s) sorted-front comparisons, O((n+m)log(n+m)) unsorted time, and a maximizing witness or correct emptiness decision.",
+  "limitations": [
+    "Finite experiments do not prove all-real complexity; analytic order argument does.",
+    "Potential prior implementation alias is not conclusively excluded; source text is evidence not instruction."
+  ],
+  "schema_version": 1
+}
