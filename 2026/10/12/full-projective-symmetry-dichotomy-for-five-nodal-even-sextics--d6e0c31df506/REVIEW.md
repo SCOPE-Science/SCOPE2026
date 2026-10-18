@@ -1,9 +1,21 @@
-# Review: full projective symmetry dichotomy for five-nodal even sextics
+# Independent mathematical audit
 
-**Correctness — PASS.** Five distinct ordinary nodes include an intrinsic center and four peripheral points forming a projective frame. Their incidence relation bounds the projective stabilizer by eight. The quadratic tangent cone eliminates a potential antidiagonal symmetry with negative multiplier, and direct coefficient comparison gives the exact positive-multiplier criterion. The converse constructs the symmetry. The exact rational Gröbner and Hessian checks establish both explicit sharpness examples, together with axis and infinity checks; Bézout and the genus calculation then justify their Howe-curve interpretation. Finite computations are used for the two concrete examples, not as proof of the infinite classification.
+## correctness
 
-**Originality — PASS, with residual risk.** Moriya–Kudo (arXiv:2310.15993v1) supply the even normal form and complete five-node configuration, but do not state its projective stabilizer dichotomy or the three sharp coefficient equalities. Kudo (arXiv:2401.00760v1) concerns a different genus-five sextic representation and gives a known abstract Klein-four subgroup, which does not establish full projective stabilizers of the five-node presentation. Searches for equivalent dihedral/coordinate-swap formulations, published mathematical records, and available deduplication records found no dominating statement. The 2024 final journal presentation and possible unindexed classical results are residual bibliographic risks, not evidence of priority.
+PASS
 
-**Value — PASS.** The full embedded symmetry group and its jump locus are natural projective invariants of a published moduli family with five ordinary nodes. The coefficient criterion is necessary and sufficient on the entire five-node stratum, not just an example, and the pair of genus-five Howe curves with identical node positions but different projective stabilizers demonstrates that the enhanced symmetry is additional geometric structure beyond the singularity basket. It does not claim abstract automorphism groups or an answer for the three-node boundary.
+For an irreducible sextic with the specified five ordinary nodes, the center is the unique node incident to both three-node diagonal lines, while four peripheral nodes form a projective frame. Therefore every embedded projective automorphism injects into the eight permutations preserving opposite-pair incidence; the four coordinate sign changes are always present. An additional antidiagonal element must act on the tangent cone U(Y²−Z²) with λ^4=1, multiplier μ=−λ^{-2}; λ²=1 would make its projective fixed line a component, violating integrality, leaving λ²=−1, μ=1. Substitution (s,t)→(−t,−s) gives exactly G=−A,D=−B,H=C4, proving necessity and sufficiency of D8. Independent SymPy Groebner computations on the two rational explicit examples gave only (s,t)=(1,−1), Hessian determinants 20 and 28, correct axis restrictions, squarefree infinity, and swap symmetry only for ε=0. Bézout/reducedness exclude reducibility; genus=10−5=5; Riemann–Hurwitz gives quotient genera 2,2,1 and Howe parameter r=4. Examples are over C; classification works over odd characteristic under the stipulated existence/nodal assumptions. The finite computations do not certify the universal stabilizer theorem, which rests on the incidence-and-tangent argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Exact full embedded projective automorphism dichotomy, coefficient-level enhancement condition and two sharp five-node examples are not stated in the closely matched original Howe sextic papers. Their automorphism information is at the abstract curve/subgroup or singularity-model level, not complete projective stabilizer classification.
+
+## value
+
+PASS
+
+A complete embedded symmetry classification on a natural five-node family, including exact enhancement locus and explicit same-nodal-data witnesses, resolves which projective transformations of this singular model actually preserve the curve. This is geometrically distinct from abstract Howe automorphisms or mere normalization genus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
