@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is reduced to an exhaustive exact action of the four elements of \(\operatorname{Gal}(\mathbb Q(r,i)/\mathbb Q(\sqrt5))\) on all 16 conic planes. The packaged verifier reconstructs the source generators and equations, checks the complete 16-element projective orbit, and performs exact Plücker comparisons. The fixed-field deductions are then elementary and complete.
+## correctness
 
-## Originality — PASS
-Bonnafé--Sarti give the explicit Nikulin configuration but do not state its minimal descent field or the exact fields of its individual components. The later M20 projective-model paper of Comparin--Demelle and the group-action classification of Brandhorst--Hashimoto were inspected for equivalent or stronger coverage; none of the inspected material states this Galois profile. Semantic searches over field-of-definition, Galois-descent, and Nikulin-configuration aliases likewise found no implication-equivalent indexed result.
+PASS
 
-Residual risk: older or unindexed arithmetic Kummer-surface literature, or unpublished ancillary computations tied to the explicit model, could encode the same marked descent statement under different notation.
+Set K0=Q(sqrt5), r^2=phi=(1+sqrt5)/2, L=K0(r,i). Phi has norm -1 over Q so is nonsquare in K0; [Q(r):Q]=4, [L:Q]=8. Reconstructed the four source monomial matrices modulo projective scalars, their 16-element A/mu2 orbit and the 16 distinct conic planes; exact integer quotient-ring/Pluecker Galois comparison fixes exactly eight planes under i->-i, transposes four pairs, while both r->-r and combined maps send each plane outside that collection. Thus setwise stabilizer <complex conjugation> gives Q(r) and individual stabilizers give eight Q(r) and eight Q(r,i) conics. Independently reconstructed 16 planes from monomial action with exact K0(r,i)-equivalence; output 16/16/8/0/0. The curve equations and source-quadric restrictions are separately addressed in the inspected exact source verifier; not merely assumed from old PASS.
 
-## Value — PASS
-The 16 curves form a Nikulin configuration identifying a Kummer structure on a highly symmetric K3 surface. Determining the exact setwise field, the exact component fields, and the difference between the two is a natural arithmetic refinement of the source construction and can matter whenever the configuration is used over nonclosed fields.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bonnafé–Sarti exhibit the same embedded surface, initial smooth conic, projective A-group and 16 disjoint orbit curves (arXiv v1 Remark 5.13; later source numbering may differ). The explicit coefficients being in Q(r,i) establish only an upper field bound, not the exact Galois action, minimal unordered field Q(r), or component 8+8 split. Later M20/Kummer model literature describes global structures but supplies no inspected covering marked descent statement.
+
+## value
+
+PASS
+
+The exact arithmetic descent field of a singled-out 16-curve Nikulin configuration on a Kummer K3 surface, and the component-level Galois orbit profile, are intrinsic and potentially needed for arithmetic use of that explicit embedding. This is a motivated marked-configuration classification, not a claim about all abstract Nikulin configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
