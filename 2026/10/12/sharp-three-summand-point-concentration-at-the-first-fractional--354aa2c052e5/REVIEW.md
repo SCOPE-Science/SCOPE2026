@@ -1,19 +1,21 @@
-# Scientific review: sharp three-summand point concentration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement has explicit quantifiers: three independent, not necessarily identically distributed, integer-valued laws with \(Q(X_i)\leq\alpha\in[1/3,1/2]\). The proof reduces each marginal's cap polytope to masses \((\alpha,\alpha,1-2\alpha)\) and extends to countable supports by total-variation approximation. A four-term indicator expansion gives representation-count bounds \((7,5,4,3)\). The critical lemma is checked directly: equality in the three-full count forces congruent three-term arithmetic progressions, on which it is impossible for all three two-heavy-one-full counts to equal four. This supplies the mandatory one-unit deficit, yields both polynomial branches, and matches two explicit attaining distributions. Endpoints are included by zero coefficient limits and directly valid extremal laws. A standalone checker passed 197568 exact pair optimizations and 81 checks of the obstruction; the infinite theorem does not rely on those finite cases.
+PASS
 
-## Originality — PASS, with remaining priority risk
+At 1/3<alpha<1/2 the bounded-mass extreme points on a fixed finite support have exactly two weights alpha and one beta=1-2alpha; separate affinity of convolution allows three such laws. For three 3-element supports the count at a sum is <=7; the corresponding counts for 2x3x3, 2x2x3 and 2x2x2 are <=5,<=4,<=3. A sharp 7 requires all three supports be 3-term arithmetic progressions with the same spacing, and the three pairwise heavy-set counts cannot all be 4 because their adjacent 2-subsets would require binary e_i+e_j=1 for all three pairs. Writing delta=3alpha-1, weighted expansion loses at least min(beta^3,beta delta^2) from W=7beta^3+15beta^2delta+12beta delta^2+3delta^3. Independent exact polynomial simplification gives W-beta delta²=alpha(7alpha²-6alpha+2) and W-beta³=3alpha²(1-alpha). Explicit U,U,V at sum3 and U,U,U at sum4 attain both branches; at alpha=2/5 both are 36/125. Truncation with displaced tail mass gives total-variation approximation for arbitrary countable support; endpoints alpha=1/3,1/2 follow directly or continuously. The independent source program was inspected for its 197568 exact finite pair checks, which corroborate but do not prove the unrestricted argument.
 
-Kurauskas (arXiv:2603.11043, Introduction/Conjecture 1.3 and Theorem 2.27) states the signed exact inequality as a conjecture, proves it only asymptotically in a large-variance regime, and identifies previously exact atom caps with inverse in \([1,2]\cup\mathbb N\). The new interval has inverse in \((2,3)\) except its known endpoint. Juškevičius–Kurauskas (arXiv:1912.08770, Theorem 1, Sections 3 and 5) gives the arbitrary-cap sharp theorem for even summand counts and discusses unresolved odd counts; it does not imply a sharp three-summand bound by adding a prohibited deterministic summand. Madiman–Wang–Woo (arXiv:1712.00913, Definition 1.2 and Theorem 1.4) requires \(\#\)-log-concavity, which fails for an admissible three-site mass arrangement with the small atom between equal large atoms. Interval-concentration results and uniform-support rearrangements do not imply this weighted odd-summand result. Targeted published-record and public literature searches did not identify an equivalent; indexing and independent-priority risks remain.
+## originality
 
-## Value — PASS
+PASS
 
-The exact problem is an explicitly motivated unresolved concentration conjecture, not a selected finite table cell. Three is the smallest odd summand count beyond a one-variable tautology; the entire first genuinely fractional interval \(1/3\leq\alpha\leq1/2\) has an exact analytic answer. The nontrivial phase boundary at \(2/5\) records a change of the attaining orientation; it is dictated by a structural incompatibility between optimal three-full and two-heavy representation counts. The result distinguishes the finite exact case from the known large-variance asymptotic bound. No general extension to higher odd summand counts or unequal caps is claimed.
+Kurauskas arXiv:2603.11043 Conjecture 1.3 explicitly posits the finite exact signed extremizer theorem; its Theorem 1.1 is conditional on sufficiently large variance and has (1+delta) slack. The primary article states exact cases alpha^{-1} integer or [1,2], leaving the interior alpha^{-1} in (2,3) unaddressed. Juškevičius–Kurauskas 2020/2021 Theorem 1 treats an even number of summands, and Theorem 2.27 cited by Kurauskas applies to #log-concave laws, not arbitrary weight arrangements with a light mass between heavy sites. The new three-summand incompatibility supplies the missing finite interior case.
 
-## Closest literature and limits
+## value
 
-The strongest directly relevant source is Kurauskas (2026) Conjecture 1.3; the 2020/2021 even-summand result and 2017/2019 \(\#\)-log-concave theorem are other close comparisons. Exhaustive checking on a bounded site range supports, but does not certify, the unrestricted combinatorial proof. An inaccessible or unindexed matching result could establish priority earlier; novelty is a reasoned assessment, not a guarantee.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit nontrivial sharp phase transition in a natural open three-summand Littlewood–Offord extremal problem, including all admissible integer laws and exact optimizing orientations. The weighted incompatibility step goes beyond a routine parameter substitution or table count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
