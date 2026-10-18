@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T12:12:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With type frequencies 1/2, household fractions ((1-b)/2,b,(1-b)/2), and equal susceptibility weights, every contacted descendant household has the same pair-composition law as an ancestor. A type-i infective with partner j contributes Poisson mean beta_i or beta_i+beta_j according to Bernoulli p_ij local infection. This yields F_b=(1-b)F0+bF1 with F0=1/40u+19/40u^2+99/200u^5+1/200u^10 and F1=3/10u+99/200u^5+41/200u^6, u=e^(s-1). Means are 7/2 and 801/200, hence R*(b)=7/2+101b/200. On 0<=s<=1/5, u<=e^(-4/5)<1/2; rational upper bounds put F0,F1 below 1/5 at the endpoint, while F_b(0)>0, hence q_b is in (0,1/5). F1-F0=u(55-95u+41u^5-u^9)/200>0 throughout that strip (bracket >=3839/512), so the unique subunit fixed point q_b strictly increases with b and Pi=1-q_b strictly decreases. Strict compact uniform margins give perturbation stability for biological parameters. Independent rational coefficient/mean check and b=0,1/2,1 numerical roots confirmed without supplying an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ball--Critcher Section 4.1 and 4.4 give the general single-type household branching reduction under proportionate mixing.",
+          "Resultary quadratic frontier compares R* with individual reproduction number R_I, not with extinction probability Pi.",
+          "Ball--Critcher explicitly says R* can mislead when comparing different household structures and cites Ball--Sirl--Trapman Figure 7."
+        ],
+        "reasoning": "The broad modeling framework permits this special family but does not prove monotonic Pi(b) in the opposite direction to R*(b), and the R_I frontier concerns a different output statistic.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00285-026-02359-5",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-sharp-quadratic-frontier-for-reproduction-number-rank-reversal--3913071c0743",
+          "Ball Sirl Trapman 2010 Figure 7 R* risk clustering example",
+          "household epidemic assortative disassortative matching increases household reproduction number decreases outbreak probability type AB two type proportionate global mixing"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00285-026-02359-5",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-sharp-quadratic-frontier-for-reproduction-number-rank-reversal--3913071c0743",
+        "https://doi.org/10.1016/j.mbs.2009.12.003",
+        "https://arxiv.org/pdf/2505.17890"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ball--Critcher has R* = E[offspring] and Pi=1-p_ext but does not supply the stated continuous strict-reversal family.",
+          "Subtraction F1-F0=u(55-95u+41u^5-u^9)/200 is positive on roots below 1/5; means reverse with +101/200 b."
+        ],
+        "reasoning": "The general PGF framework allows derivation but does not imply an inverse trend for these specific rates without constructing and proving the strict sign estimates. Source R_I comparison is not a bound on Pi and so does not dominate.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00285-026-02359-5",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-sharp-quadratic-frontier-for-reproduction-number-rank-reversal--3913071c0743",
+          "household epidemic assortative disassortative matching increases household reproduction number decreases outbreak probability type AB two type proportionate global mixing",
+          "Ball Britton Neal household epidemic models revisited arxiv 2505.17890"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source branching-process law determines R* and extinction root for general household composition.",
+          "The submitted claim fixes every biological rate, varies only pairwise household assortativity b, and proves opposite strict trends across all b in [0,1]."
+        ],
+        "reasoning": "An existing observation that R* can mis-rank epidemic takeoff in network-clustering examples is not equivalent to a uniform fixed-marginal type-pairing reversal with finite positive local rates.",
+        "searches": [
+          "household epidemic assortative disassortative matching increases household reproduction number decreases outbreak probability type AB two type proportionate global mixing",
+          "two-type household matching b AA AB BB fixed marginals outbreak nonextinction increasing R* decreasing Pi",
+          "https://link.springer.com/article/10.1007/s00285-026-02359-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact coefficients F0=1/40u+19/40u^2+99/200u^5+1/200u^10, F1=3/10u+99/200u^5+41/200u^6, u=e^(s-1).",
+          "Independent extinction roots q0≈0.0927886681, q1/2≈0.1137241054, q1≈0.1338113438."
+        ],
+        "reasoning": "Illustrative three-point roots alone do not prove all-b monotonicity; the exact positive difference polynomial and rational root enclosure do. No containing numerical table for this all-b family was found.",
+        "searches": [
+          "household epidemic assortative disassortative matching increases household reproduction number decreases outbreak probability type AB two type proportionate global mixing",
+          "household outbreak probability beta1 beta5 matching probability AA AB BB 19/20 2/5 1/100"
+        ]
+      },
+      "rationale": "The highly relevant 2026 OA household epidemic paper already develops the full branching and takeoff model and warns qualitatively against reproduction-number ranking; no assessed source determines this particular all-b fixed-type-marginal strict reversal with the exact positive finite transmission rates. The Resultary R_I-vs-R_* frontier uses a different comparison. Earlier network-clustering Figure 7 remains a genuine unexamined overlap risk, not grounds to falsify this original quantified claim.",
+      "residual_risks": [
+        "Ball--Sirl--Trapman (2010), Figure 7, is relevant qualitative prior; its full text was not inspected here, and an exact parameter specialization therein cannot be excluded.",
+        "No claim for finite-population outbreak probabilities or conditional final outbreak size; only the limiting single-seed major-outbreak probability is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes branching-process limit, mixed-Poisson household offspring law and p_ext; does not present the exact b-parametrized pair family",
+          "evidence": [
+            "Sections 4.2.1, 4.4: R*=E[offspring], Pi=1-p_ext. Section 4.2.2 warns R* may misrank households and cites 2010 Figure 7."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-026-02359-5",
+          "material_read": "Full text sections 4.1, 4.2.1, 4.4 and the introductory comparison of household clustering, plus bibliographic scope",
+          "method": "lawful open-access publisher HTML full article",
+          "title": "Multitype SIR epidemics among a population partitioned into households with proportionate global mixing",
+          "trigger": "exact epidemic model, R* and extinction probability"
+        },
+        {
+          "assessment": "Different statistic: its rank reversal compares R_I against R_*, not Pi versus R_*",
+          "evidence": [
+            "Summary states R_I lies between R_* and sqrt(R_*) in supercritical ordering, but not a monotonic extinction-root theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-sharp-quadratic-frontier-for-reproduction-number-rank-reversal--3913071c0743",
+          "material_read": "Published title, summary and formula from semantic Resultary result, not full paper",
+          "method": "Resultary record search",
+          "title": "A sharp quadratic frontier for reproduction-number rank reversals in household epidemics",
+          "trigger": "nearby published Resultary risk-reproduction comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact sign reversal along an entire natural fixed-composition household-matching continuum is a substantive and interpretable counterexample to using R* rankings for outbreak probability. The strict parameter robustness makes it more than an accidental numerical pair or arbitrary tiny finite improvement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Asymptotic single initial uniformly chosen individual; no finite-N monotonicity.",
+    "At most household size 2, fixed infectious duration and susceptible weights; no general rates theorem.",
+    "2010 original Figure 7 was not available as full source in this pass; overlap risk stated."
+  ]
+}

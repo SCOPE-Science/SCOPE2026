@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The model assumptions match the published independent Poisson-contact household SIR model. The two mixtures of conditional Poisson household offspring are derived by conditioning on initial type and whether a partner becomes infected. Exact rational coefficient, mean and bounding-polynomial identities are reconstructed in `verify.py`; the inequalities imply \(q_b<1/5\) and strict growth of \(q_b\) for all \(b\). Standard supercritical Galton–Watson fixed-point uniqueness and the source's finite-to-infinite household coupling complete the argument. Strict inequalities uniformly on compact intervals also justify a small open parameter neighborhood. No infinite conclusion is extrapolated from finite simulation.
+## correctness
 
-## Originality — PASS, with disclosed precedent and residual access risk
-The broad warning that \(R_*\) may increase while outbreak probability decreases is already known: the source explicitly cites Ball, Sirl and Trapman (2010, Figure 7), and Britton–Pardoux (2019) describes its network-clustering example. This finding **does not** claim that broad effect. Its precise statement instead orders *every* member of a type-balanced AA/AB/BB household-matching continuum under fixed positive local rates and global infectivities, with an explicit closed PGF difference and perturbative robustness. Ball–Critcher (2026) gives general formulas, not the matched type-family theorem. Nishiura et al. (2011) vary between-individual assortative mixing, and Ball–Britton–Neal (2025) vary local-versus-global contact replacement, so neither implies this quantified family. Multiple close-query literature and published-record searches found no covering claim. The 2010 source full text remained inaccessible; the known earlier qualitative overlap has been accounted for, but a further special-case precedent is still possible.
+PASS
 
-## Mathematical value — PASS
-Holding host-type fractions and infection rates fixed while varying only *who shares a household* is a natural intervention in heterogeneous structured epidemics. The strict all-fraction reversal proves that the household reproduction number and major-outbreak risk give opposite comparative answers on a robust, fully specified continuum. This is more informative than a single numerical example, and the proof is an exact structural PGF comparison. It does not assert an effect for all parameters, finite populations or conditional outbreak sizes.
+With type frequencies 1/2, household fractions ((1-b)/2,b,(1-b)/2), and equal susceptibility weights, every contacted descendant household has the same pair-composition law as an ancestor. A type-i infective with partner j contributes Poisson mean beta_i or beta_i+beta_j according to Bernoulli p_ij local infection. This yields F_b=(1-b)F0+bF1 with F0=1/40u+19/40u^2+99/200u^5+1/200u^10 and F1=3/10u+99/200u^5+41/200u^6, u=e^(s-1). Means are 7/2 and 801/200, hence R*(b)=7/2+101b/200. On 0<=s<=1/5, u<=e^(-4/5)<1/2; rational upper bounds put F0,F1 below 1/5 at the endpoint, while F_b(0)>0, hence q_b is in (0,1/5). F1-F0=u(55-95u+41u^5-u^9)/200>0 throughout that strip (bracket >=3839/512), so the unique subunit fixed point q_b strictly increases with b and Pi=1-q_b strictly decreases. Strict compact uniform margins give perturbation stability for biological parameters. Independent rational coefficient/mean check and b=0,1/2,1 numerical roots confirmed without supplying an infinite proof.
 
-## Limits and closest references
-Primary model: Ball–Critcher (2026), doi:10.1007/s00285-026-02359-5, especially §§4.1–4.4 and electronic Supplement Theorem 9.1. Earlier qualitative ranking mismatch: Ball–Sirl–Trapman (2010), doi:10.1016/j.mbs.2009.12.003; see also Britton–Pardoux (2019). Other comparisons: Nishiura–Cook–Cowling (2011), doi:10.1155/2011/194507; Ball–Britton–Neal (2025), arXiv:2505.17890. The verification program checks the finite algebraic lemmas, not the cited general convergence theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The highly relevant 2026 OA household epidemic paper already develops the full branching and takeoff model and warns qualitatively against reproduction-number ranking; no assessed source determines this particular all-b fixed-type-marginal strict reversal with the exact positive finite transmission rates. The Resultary R_I-vs-R_* frontier uses a different comparison. Earlier network-clustering Figure 7 remains a genuine unexamined overlap risk, not grounds to falsify this original quantified claim.
+
+## value
+
+PASS
+
+An exact sign reversal along an entire natural fixed-composition household-matching continuum is a substantive and interpretable counterexample to using R* rankings for outbreak probability. The strict parameter robustness makes it more than an accidental numerical pair or arbitrary tiny finite improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

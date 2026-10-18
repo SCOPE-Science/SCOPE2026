@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the household-matching theorem
+# Independent mathematical audit
 
-Run `python3 verify.py` from this directory. The script checks with exact `Fraction` arithmetic each conditional partner-infection mixture, the displayed \(F_0\) and \(F_1\), the mean difference \(101/200\), both rational upper bounds at \(u=1/2\), and the polynomial difference lower bound \(3839/512\), together with the elementary rational bound on \(e^{4/5}\). The expected final line is `VERIFY_OK`.
+## correctness
 
-An illustrative numerical bisection in the script reports approximate extinction roots \(q_0pprox0.092789\), \(q_{1/2}pprox0.113724\), and \(q_1pprox0.133811\); numerical roots are **not** the proof of the all-parameter result. The proof instead uses the strict polynomial inequality and uniqueness of the Galton–Watson extinction root. The passage from branching-process survival to probability of a major epidemic relies on Ball–Critcher (2026), electronic supplementary Theorem 9.1, for a single uniformly selected index case. The script does not check that published theorem or make any claim of independent certification.
+PASS
+
+With type frequencies 1/2, household fractions ((1-b)/2,b,(1-b)/2), and equal susceptibility weights, every contacted descendant household has the same pair-composition law as an ancestor. A type-i infective with partner j contributes Poisson mean beta_i or beta_i+beta_j according to Bernoulli p_ij local infection. This yields F_b=(1-b)F0+bF1 with F0=1/40u+19/40u^2+99/200u^5+1/200u^10 and F1=3/10u+99/200u^5+41/200u^6, u=e^(s-1). Means are 7/2 and 801/200, hence R*(b)=7/2+101b/200. On 0<=s<=1/5, u<=e^(-4/5)<1/2; rational upper bounds put F0,F1 below 1/5 at the endpoint, while F_b(0)>0, hence q_b is in (0,1/5). F1-F0=u(55-95u+41u^5-u^9)/200>0 throughout that strip (bracket >=3839/512), so the unique subunit fixed point q_b strictly increases with b and Pi=1-q_b strictly decreases. Strict compact uniform margins give perturbation stability for biological parameters. Independent rational coefficient/mean check and b=0,1/2,1 numerical roots confirmed without supplying an infinite proof.
+
+## originality
+
+PASS
+
+The highly relevant 2026 OA household epidemic paper already develops the full branching and takeoff model and warns qualitatively against reproduction-number ranking; no assessed source determines this particular all-b fixed-type-marginal strict reversal with the exact positive finite transmission rates. The Resultary R_I-vs-R_* frontier uses a different comparison. Earlier network-clustering Figure 7 remains a genuine unexamined overlap risk, not grounds to falsify this original quantified claim.
+
+## value
+
+PASS
+
+An exact sign reversal along an entire natural fixed-composition household-matching continuum is a substantive and interpretable counterexample to using R* rankings for outbreak probability. The strict parameter robustness makes it more than an accidental numerical pair or arbitrary tiny finite improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
