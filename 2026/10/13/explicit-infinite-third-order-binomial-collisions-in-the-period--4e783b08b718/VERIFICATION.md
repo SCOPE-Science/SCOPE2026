@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-The verifier recomputes all binary subsequence counts of lengths \(1\), \(2\), and \(3\) for the two seed factors and checks their exact occurrence positions in \(\sigma^4(0)\). It also verifies a fourth-order coefficient that separates them.
+## correctness
 
-For \(0\le t\le10\), it directly constructs \(\sigma^t(u)\) and \(\sigma^t(v)\), checks their occurrence in \(\sigma^{t+4}(0)\), their distinctness, and equality of every subsequence count through order \(3\).
+PASS
 
-A separately implemented transfer formula groups subsequence occurrences in a morphic image by the source blocks they use. The verifier exhaustively compares that formula with direct dynamic-programming counts for all binary source words of length at most \(5\), all nonempty binary morphism images of length at most \(2\), and every binary target of length at most \(3\).
+PASS: Independent combinations-counting (not source saved log) confirms 10-letter u=0101010001 and v=1000101010 are distinct factors of σ⁴(0)=0100010101000100 at offsets 4,1 and have identical subsequence counts for every binary word of length 1..3, while binom(u,0001)=21 versus binom(v,0001)=15. For any morphism h and target subsequence length ≤k, group an occurrence across its r≤k nonempty source blocks, showing binom(h(w),x) is an integer linear combination of binom(w,y) with |y|≤k. Hence k-binomial equivalence is preserved. σ(0)=01, σ(1)=00 is injective and 2-uniform, so distinct factors persist under iteration at lengths 10·2^t for all t≥0. The certificate.json seed values were inspected independently of the proof, and the checker directly counted small images.
 
-The theorem for all \(t\) follows from the symbolic morphism-preservation argument, not from finite extrapolation.
+## originality
 
-Independent audit has not been performed.
+PASS
+
+PASS: Rigo–Stipulanti–Whiteland explicitly present strict third-order period-doubling binomial complexity as a COMPUTER EXPERIMENT observation while proving a second-order theorem; their inspected article does not give the 10-letter seed pair or an infinite constructive proof. General Thue–Morse morphism-preservation tools are prior. An unindexed equivalent seed pair remains possible.
+
+## value
+
+PASS
+
+PASS: A published statement previously supported by experiments becomes an unconditional infinite family of concrete third-order collisions, addressing a natural complexity gap in an extensively studied automatic word. This is not merely a finite table and does not overclaim the complete third-order function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
