@@ -1,19 +1,21 @@
-# Scientific review: sharp Paley fourth moments and phase rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise normalization is checked by the exact identity \(p^{-1}\sum_x|F_c(x)|^4=\sum_t|R(t)|^2\); every nonzero difference in the Paley support has multiplicity \((p-3)/4\). Cauchy–Schwarz and the sharp power-mean inequality give constant \((m^2+1)/(2m)\), attained by restricted additive characters. All equality cases are derived rather than guessed: at \(p=7\) the correlation classes are singletons; at \(p=11\) four necessary phase relations have exponent determinant of magnitude eleven; at \(p=19,23\) finite triple-intersection tables are exhaustively verified; and at \(p\ge31\) Weil's cubic sum bound guarantees every needed triple intersection. A package-local checker passed 335 indexed exact checks. The proof invokes the classical Weil bound as an external theorem, which is a disclosed dependency.
+PASS
 
-## Originality — PASS, with residual risk
+For skew Paley H⊂F_p each nonzero additive difference has exactly ℓ=(p-3)/4 ordered representations, while R(0)=S. Fourier orthogonality yields p^{-1}Σ|F_c|^4=Σ|R(t)|²; Cauchy over ℓ and equal-modulus inequality give (m²+1)/(2m) S² with sharp restricted additive characters. Equality requires |c_h| constant and pair-product u_a conjugate(u_b) depending only on a-b. For p>=31, the squarefree-cubic Weil bound |Σχ(b(b+x)(b-y))|<=2sqrt(p) guarantees each needed triple intersection H∩(H-x)∩(H+y) nonempty; this forces v(x+y)=v(x)v(y), hence additive characters. Independent exact enumeration confirms all (x,y) for p=19 histogram {1:126,2:162,3:18} (306 cases), p=23 {1:66,2:264,3:132} (462 cases); these fill the only remaining primes below 31. At p=11 the four valid equal-sum relations have integer exponent matrix determinant of absolute value 11, matching 11 character points and excluding other phases; p=7 ℓ=1 leaves arbitrary three equal-modulus phases, projective torus T². Exact small checks verify combinatorics but infinite-prime phase proof uses the standard Weil cubic bound.
 
-Paley difference-set multiplicities alone give the numerical norm bound but not the complete equality classification. The closest substantive source is Günther–Schmidt (arXiv:1503.05858), which treats aperiodic asymptotic merit factors of \(\pm1\) polynomials derived from these sets, not the unrestricted periodic fourth-moment maximum or all phases. Hanson–Petridis (arXiv:1905.09134) and Lev–Sonn (arXiv:1502.06833) treat sumset and difference-representation questions. González-Riquelme–Oliveira e Silva (arXiv:2405.16647) treats different Fourier support surfaces. Semantic searches of published mathematical-result records found phase classification results for different supports, not the present Paley support; searches cannot establish absolute novelty. A possible older difference-set norm-equality theorem or general Freiman-restriction theorem remains a specific residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The object is the canonical skew Paley difference set, so its sharp \(\ell^2\)-to-\(L^4\) Fourier-synthesis constant is a natural harmonic-analysis invariant. The meaningful contribution is not merely rederiving its constant: it completely classifies equality for an infinite prime family and locates the exact transition from continuum-many projective phases at \(p=7\) to only additive characters at \(p=11\) and thereafter. This exposes a nontrivial additive-phase rigidity structure relevant to sharp finite-field extension inequalities and Fourier extremizer geometry.
+Classical Paley difference-set counts and Cauchy can give the sharp constant without novelty, but complete complex equality classification and the arithmetic threshold from p=7 phase torus to p>=11 only additive characters are additional assertions. Günther–Schmidt 2015 study shifted ±1 aperiodic merit factors, Hanson–Petridis additive decompositions, Lev–Sonn differences, and related sharp Fourier extension on other surfaces; none of the inspected primary material has unrestricted periodic complex-amplitude extremizer phases on this exact Paley support. Resultary analogous parabola/conic results are distinct geometries. Residual possibility of older Freiman-phase/difference-set rigidity remains.
 
-## Boundaries and closest sources
+## value
 
-Prime fields \(p\equiv3\pmod4\), fourth moment only; no statement for arbitrary difference sets or other exponents. Compared against arXiv:1503.05858, 1905.09134, 1502.06833 and 2405.16647 and nearby published Fourier extremal results. An equivalent theorem hidden in early difference-set or Freiman literature has not been ruled out categorically.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Paley quadratic residues are a canonical skew difference set. The exact Fourier ℓ²→L⁴ sharp norm/equality locus is a natural analytic invariant and the complete threshold from continuous projective extremizers at p=7 to finitely many character phases for every larger allowed p is nontrivial quantitative additive rigidity; not merely a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
