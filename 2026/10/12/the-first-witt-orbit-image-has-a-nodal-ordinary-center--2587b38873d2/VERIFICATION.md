@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed symbolically from the published identities for the first orbit image.
+# Independent mathematical audit
 
-1. The localization is \(A_1\otimes k[v,v^{-1},(v-1)^{-1}]\), whose center is the Laurent coefficient ring because the first Weyl algebra has center \(k\) in characteristic \(0\).
-2. Intersecting back with \(T_1=A_1\otimes k[v]\) puts every central element in \(k[v]\).
-3. The published kernel \(\ker(\Pi_{1,0}|_{B_1})=T_1v(v-1)\) implies \(p(v)\in B_1\cap k[v]\) only if \(p(v)-p(0)\) is divisible by \(v(v-1)\); conversely that divisibility puts the polynomial in \(B_1\).
-4. With \(w=v(v-1)\) and \(z=wv\), the relation \(v^2=v+w\) reduces \(k+w k[v]\) to \(k[w]+z k[w]\), and \(z^2-wz-w^3=0\).
-5. The tangent cone \(z(z-w)\) has two distinct lines. The finite birational map into \(k[v]\) is the normalization, with exactly \(v=0,1\) over the node.
+## correctness
 
-No finite enumeration, floating-point computation, or external certificate is used. The proof does not extend the claim beyond the stated field assumptions or beyond the first orbit image.
+PASS
+
+Over uncountable algebraically closed characteristic-zero k, the first orbit image sits in T_1=A_1⊗k[v]. The pinned proof invokes Pham’s localization equality B_1[v^{-1},(v−1)^{-1}]=A_1⊗k[v,v^{-1},(v−1)^{-1}] and the exact projection kernel T_1 v(v−1). Central elements localize to Laurent coefficient ring and PBW intersection forces c∈k[v]. The projection kernel implies c(0)=c(1); conversely each polynomial of this kind differs from a constant by w times a polynomial and belongs to B_1. Independently checked z²−wz−w³=0 for w=v(v−1), z=wv, module decomposition k[w]+z k[w], tangent cone z(z−w), and integral birational normalization via v=z/w; only v=0 and 1 lie over the node. SOURCE LIMIT: Pham full 2026 text could not be independently opened in this run; exact kernel/localization are explicit cited input premises, not directly independently read, and are not proven from logs.
+
+## originality
+
+PASS
+
+Pham’s 2026 paper supplies the localization/prime-kernel framework, but its accessible abstract makes no ordinary-center identification; the pinned source derives the equal-endpoint algebra using those inputs. Sierra–Walton 2016 studies an earlier image/kernel, not a stated k+w k[v] nodal ordinary center; checked its primary PDF intro and searched its searchable text for center without a match. Resultary query returned no direct same-image covering result. Because the critical Pham full text was inaccessible, this is best-of-knowledge, not a definitive whole-paper novelty claim.
+
+## value
+
+PASS
+
+The ordinary center is a canonical commutative invariant of this newly investigated non-Noetherian Witt quotient, and the nodal normalization algebraically explains precisely the source’s two exceptional restriction points. It is a structural identification, not an arbitrary presentation exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

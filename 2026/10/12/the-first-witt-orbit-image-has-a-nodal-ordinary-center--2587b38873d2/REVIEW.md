@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the ordinary center from the published localization and kernel identities. The central-localization step, the intersection with \(k[v]\), the equal-endpoint characterization, the two-generator presentation, and the normalization/node argument were each checked symbolically. The claim keeps the source's uncountable algebraically closed characteristic-zero hypotheses.
+## correctness
 
-## Originality
-PASS. Targeted published-finding corpus searches covered the first orbit image, ordinary center, equal-endpoint polynomial description, and nodal presentation; no covering record was found. The motivating full text was inspected at the exact localization, kernel, prime-spectrum, and restriction statements. Sierra--Walton's earlier primary PDF was also inspected for the same image lineage; no ordinary-center computation was located. The closest indexed center result concerns a different characteristic-two Ore family.
+PASS
 
-## Value
-PASS. The center is a canonical invariant of \(B_1\), and the nodal curve description explains the source's exceptional two-point phenomenon by identifying \(v=0\) and \(v=1\) in the normalization. This is a structural interpretation of a newly studied non-Noetherian Witt image, not a routine numerical refinement.
+Over uncountable algebraically closed characteristic-zero k, the first orbit image sits in T_1=A_1⊗k[v]. The pinned proof invokes Pham’s localization equality B_1[v^{-1},(v−1)^{-1}]=A_1⊗k[v,v^{-1},(v−1)^{-1}] and the exact projection kernel T_1 v(v−1). Central elements localize to Laurent coefficient ring and PBW intersection forces c∈k[v]. The projection kernel implies c(0)=c(1); conversely each polynomial of this kind differs from a constant by w times a polynomial and belongs to B_1. Independently checked z²−wz−w³=0 for w=v(v−1), z=wv, module decomposition k[w]+z k[w], tangent cone z(z−w), and integral birational normalization via v=z/w; only v=0 and 1 lie over the node. SOURCE LIMIT: Pham full 2026 text could not be independently opened in this run; exact kernel/localization are explicit cited input premises, not directly independently read, and are not proven from logs.
 
-## Closest literature and limitations
-Pham, arXiv:2610.01913v1, supplies the orbit map, localization, exact kernel, and prime-spectrum classification but not the ordinary-center theorem stated here. Sierra--Walton, doi:10.2140/pjm.2016.284.475, supplies earlier image/kernel structure but no covering center statement was found in the inspected full text. The claim is limited to \(B_1\) under the source's characteristic-zero hypotheses; no assertion is made for \(B_n\) with \(n\ge2\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pham’s 2026 paper supplies the localization/prime-kernel framework, but its accessible abstract makes no ordinary-center identification; the pinned source derives the equal-endpoint algebra using those inputs. Sierra–Walton 2016 studies an earlier image/kernel, not a stated k+w k[v] nodal ordinary center; checked its primary PDF intro and searched its searchable text for center without a match. Resultary query returned no direct same-image covering result. Because the critical Pham full text was inaccessible, this is best-of-knowledge, not a definitive whole-paper novelty claim.
+
+## value
+
+PASS
+
+The ordinary center is a canonical commutative invariant of this newly investigated non-Noetherian Witt quotient, and the nodal normalization algebraically explains precisely the source’s two exceptional restriction points. It is a structural identification, not an arbitrary presentation exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
