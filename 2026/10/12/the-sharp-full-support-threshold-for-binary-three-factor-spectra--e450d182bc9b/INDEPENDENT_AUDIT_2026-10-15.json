@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T17:05:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md; Git blob 3639d9d1fdcaa190c9055840ca41f63579c33160",
+        "pinned verify_presence_dp.py and verify_presence_ie.py",
+        "independent freshly coded recurrence and exact rational tail"
+      ],
+      "rationale": "Fresh independently coded exact-state recurrence on four suffix-bit states and all 256 observed triple masks starts once from each two-bit word and appends both bits. For n=3..50, the 256 counts sum exactly to 2^n. It separately found at n=13: c(full)=934 versus two masks 0x7f,0xfe at 989; at n=14: full=2632 versus largest proper=2218; and strict full maximum every n=14..50. For n>=51, any missing triple e forces avoidance in t=floor(n/3) independent nonoverlapping triples, so each proper fiber <=2^n(7/8)^t, while full fiber >=2^n[1-8(7/8)^t]; strict since 9(7/8)^17=2093674625884863/2251799813685248<1. The 256-term inclusion-exclusion with four-state forbidden-edge matrices independently follows. Finite checks certify only specified finite range; tail is proven by exact rational bound.",
+      "residual_risks": [
+        "Exact for linear fixed-length binary words and presence-only length-three factors; not multiplicity or cyclic reads."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s00224-025-10240-z",
+          "arxiv:1912.11108 multiset spectrum comparison"
+        ],
+        "reasoning": "General set-based shortest-string algorithms do not give the exact count or modal maximizing support; multiset-based Euler-trail counts retain multiplicities and do not dominate presence-only modal counts.",
+        "searches": [
+          "Bernardini On Strings Having the Same Length-k Substrings 2026 theorem counting equivalence classes",
+          "Reconstruction Strings Substring Spectrum multiset fixed length"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00224-025-10240-z",
+        "https://pubmed.ncbi.nlm.nih.gov/7497132/",
+        "arxiv:1605.03319 k-abelian multiplicity model",
+        "arxiv:1912.11108 multiset spectrum model",
+        "Resultary semantic query for binary 3-mer fiber"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bernardini motivation/Section 2: set-valued k-spectrum counting distinguished from BEST theorem; Skiena 1995 abstract: interactive substring membership queries"
+        ],
+        "reasoning": "The ability to list shortest realizations and query membership does not mathematically yield the sharp modal fixed-length comparison; whether older unexamined text has a special binary case is the residual risk.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00224-025-10240-z",
+          "https://pubmed.ncbi.nlm.nih.gov/7497132/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s00224-025-10240-z",
+          "Four-state de Bruijn walk captures same factor-presence relation"
+        ],
+        "reasoning": "An equivalent statement is modal equivalence class under Substr_3 for fixed word length n. Bernardini et al. use exactly set-valued k-spectra but optimize shortest equivalent strings, not fixed n maximum fiber.",
+        "searches": [
+          "binary length n substring factor set exactly length three largest equivalence class all 8 k mers threshold 14 frequency free spectra",
+          "\"On Strings Having the Same Length-k Substrings\" counting equivalence classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source package has complete 3..50 finite table, but external Resultary hits concern different spectra or code capacities"
+        ],
+        "reasoning": "No external table listing all 256 fixed-three-mer fibers and a universal length-14 transition was located. Internal table was recomputed, not mistaken for prior published novelty.",
+        "searches": [
+          "Resultary: binary length n substring factor set exactly length three largest equivalence class all 8 k mers threshold 14 frequency free spectra",
+          "\"binary three factor\" \"threshold 14\"",
+          "Skiena Sundaram 1995 reconstructing strings substrings pdf"
+        ]
+      },
+      "rationale": "Set-of-k-substrings is a well-studied equivalence relation. The closest published full HTML source Bernardini et al. states and studies shortest equivalent strings and efficient listing, explicitly distinguishing general set-based counting as open. Its broader model does not provide this sharp *fixed-length* modal fiber comparison, while multiplicity-aware k-abelian and multiset-spectrum problems are distinct. Search of Resultary found related but non-covering binary reconstruction enumerations. Older 1995 exact source content is only abstract-available, leaving bounded priority risk.",
+      "residual_risks": [
+        "1995 Skiena–Sundaram full text and early 1975 hybridization literature not fully inspected; special-case prior enumeration cannot be categorically excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General shortest-realization/listing work; no inspected theorem dominating modal fixed-length 3-mer threshold",
+          "evidence": [
+            "Motivation: set-based counting open as BEST analogue",
+            "Sections 2 and 5 enumeration approach"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00224-025-10240-z",
+          "material_read": "Full accessible HTML sections: statement/problem setup, motivation and relation to counting, main algorithm/propositions and later privacy application",
+          "method": "public open-access publisher full HTML, text searched and read",
+          "title": "On Strings Having the Same Length-k Substrings",
+          "trigger": "Identical set-of-k-factors model"
+        },
+        {
+          "assessment": "Interactive queries and identification of S, not proof of no prior modal count; full-text priority risk remains",
+          "evidence": [
+            "PMID 7497132, DOI 10.1089/cmb.1995.2.333"
+          ],
+          "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/7497132/",
+          "material_read": "PubMed abstract and university research listing only; full primary text unavailable",
+          "method": "public index/abstract reading; bounded lawful OA search",
+          "title": "Reconstructing Strings from Substrings",
+          "trigger": "Foundational exact substring-membership model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00224-025-10240-z",
+        "independent complete 4*256 recurrence"
+      ],
+      "rationale": "The fixed-length presence-only observation model has meaningful worst-case ambiguity. All eight probes positive becomes uniquely worst only from n=14; the n=13 two-mask counterexample and exact all-length fiber count supply concrete sharp guidance for reconstruction and privacy analyses. This is a natural finite-automaton structural threshold, not an arbitrary code size census.",
+      "residual_risks": [
+        "Does not solve general k-mer count or nonuniform source."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact for linear fixed-length binary words and presence-only length-three factors; not multiplicity or cyclic reads.",
+    "1995 Skiena–Sundaram full text and early 1975 hybridization literature not fully inspected; special-case prior enumeration cannot be categorically excluded.",
+    "Does not solve general k-mer count or nonuniform source."
+  ],
+  "schema_version": 1
+}

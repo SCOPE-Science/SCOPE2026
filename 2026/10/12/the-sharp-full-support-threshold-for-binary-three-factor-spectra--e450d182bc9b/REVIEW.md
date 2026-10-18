@@ -1,15 +1,21 @@
-# Scientific review: binary three-factor presence spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is exactly about \(\{0,1\}^n\), contiguous factors of length three, and an unordered set recording presence only. The four-state/256-mask recurrence partitions all binary words by their complete observed masks: every word has a unique initial two-bit state and unique append sequence. An exact finite census checks the strict full-versus-each-proper-mask inequality for every length \(14\)–\(50\); it also verifies the sharp length-\(13\) counterexample and exact populations. Independent word-by-word enumeration through length \(18\), and a separate forbidden-transition inclusion-exclusion implementation, corroborate the critical numbers. For every \(n\ge51\), eight applications of the missing-triple bound and the exact inequality \(9(7/8)^{17}<1\) prove the strict global maximum, without extrapolating finite results. The 256-term matrix expression follows from inclusion-exclusion and precisely counts the entire maximizing fiber.
+## correctness
 
-## Originality — PASS, with bounded bibliographic risk
-The genuinely closest available full text is Bernardini et al. (2026), DOI 10.1007/s00224-025-10240-z: it defines the **same set-valued substring spectrum** and reduces representatives to walks traversing all edges, but optimizes the lengths of \(z\) shortest representatives and gives algorithms, not a theorem identifying the maximum **fixed-length** fiber across spectrum supports at binary factor length three. Its Section 2 notes that general counting is distinct from multiset Euler-trail counting. Karhumäki et al. (arXiv:1605.03319) preserve factor multiplicities and endpoints; Acharya et al. (arXiv:1403.2439) preserve composition multisets of all lengths; Marcovich–Yaakobi (arXiv:1912.11108) reconstruct from length-\(L\) **multispectra**. These are not equal measurements. Earlier Skiena–Sundaram (1995) studies adaptive existential substring queries and Pe'er et al. (2002) studies reference-guided hybridization sequencing; neither of their accessible statements implies a global fiber-size ranking. Historical 1975 adjacency-pattern papers and the complete 1995 full text remained inaccessible, so inadvertent prior publication of the precise finite threshold cannot be ruled out. Searches alone are not a novelty proof.
+PASS
 
-## Value — PASS
-This determines a naturally posed worst-case reconstruction uncertainty after a **complete three-mer presence-only assay**, including a sharp, surprising short-length transition and an all-length answer. The all-positive observation is not always most ambiguous, even once it is realizable: at length \(13\), it has only \(934\) preimages versus \(989\) for each of two almost-full spectra. The exact switch at \(14\) matters when evaluating the ambiguity of a saturated assay or designing membership-only sequence representations. It addresses a motivated special case of the set-valued equivalence problem, not an arbitrary numerical table or a claim about the general counting problem.
+Fresh independently coded exact-state recurrence on four suffix-bit states and all 256 observed triple masks starts once from each two-bit word and appends both bits. For n=3..50, the 256 counts sum exactly to 2^n. It separately found at n=13: c(full)=934 versus two masks 0x7f,0xfe at 989; at n=14: full=2632 versus largest proper=2218; and strict full maximum every n=14..50. For n>=51, any missing triple e forces avoidance in t=floor(n/3) independent nonoverlapping triples, so each proper fiber <=2^n(7/8)^t, while full fiber >=2^n[1-8(7/8)^t]; strict since 9(7/8)^17=2093674625884863/2251799813685248<1. The 256-term inclusion-exclusion with four-state forbidden-edge matrices independently follows. Finite checks certify only specified finite range; tail is proven by exact rational bound.
 
-## Boundaries and sources
-The result uses exhaustive finite verification plus a separate infinite proof and is not a general \(k\)-mer, multiplicity-aware, four-letter-DNA, or noisy-channel theorem. Closest full texts: Bernardini et al., DOI 10.1007/s00224-025-10240-z (Introduction, Theorems 1–4, Sections 2 and 7); Karhumäki et al., arXiv:1605.03319 (Introduction, Definition 2.1 and counting statements); Marcovich–Yaakobi, arXiv:1912.11108 (Introduction, Section II and theorem summaries); Acharya et al., arXiv:1403.2439 (Sections 1–3 and large-class results). Limited-access source risk: Skiena–Sundaram DOI 10.1089/cmb.1995.2.333 and Hutchinson–Wilf 1975, DOI 10.1016/0097-3165(75)90068-0.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Set-of-k-substrings is a well-studied equivalence relation. The closest published full HTML source Bernardini et al. states and studies shortest equivalent strings and efficient listing, explicitly distinguishing general set-based counting as open. Its broader model does not provide this sharp *fixed-length* modal fiber comparison, while multiplicity-aware k-abelian and multiset-spectrum problems are distinct. Search of Resultary found related but non-covering binary reconstruction enumerations. Older 1995 exact source content is only abstract-available, leaving bounded priority risk.
+
+## value
+
+PASS
+
+The fixed-length presence-only observation model has meaningful worst-case ambiguity. All eight probes positive becomes uniquely worst only from n=14; the n=13 two-mask counterexample and exact all-length fiber count supply concrete sharp guidance for reconstruction and privacy analyses. This is a natural finite-automaton structural threshold, not an arbitrary code size census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

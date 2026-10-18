@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-All attached programs use Python 3 standard library and operate independently on small exact integer state spaces. Run `python3 verify_presence_dp.py`, `python3 verify_presence_raw.py` and `python3 verify_presence_ie.py` from this directory. The complete numeric census of all 256 masks is represented in `finite_profiles_3_to_50.csv` by per-length maxima and the exact maximizing support masks. The full recurrence has 1024 states and 2048 binary transitions at each length; the computation checks exact partition totals \(2^n\) and strict dominance for every length \(14\) through \(50\). A separate exhaustive word-by-word reconstruction of masks through length \(18\) and independently evaluated matrix inclusion-exclusion at lengths \(13\) through \(25\) provide cross-checks of the boundary and full-spectrum counts.
+## correctness
 
-The general \(n\ge51\) case is not established by this table: it follows from the written union-bound proof and the exact rational check \(9(7/8)^{17}=2093674625884863/2251799813685248<1\). No tests were done for alphabets other than binary, cyclic words, other factor lengths, or noisy measurements. The scientific originality comparison is self-review only, not an independent audit.
+PASS
+
+Fresh independently coded exact-state recurrence on four suffix-bit states and all 256 observed triple masks starts once from each two-bit word and appends both bits. For n=3..50, the 256 counts sum exactly to 2^n. It separately found at n=13: c(full)=934 versus two masks 0x7f,0xfe at 989; at n=14: full=2632 versus largest proper=2218; and strict full maximum every n=14..50. For n>=51, any missing triple e forces avoidance in t=floor(n/3) independent nonoverlapping triples, so each proper fiber <=2^n(7/8)^t, while full fiber >=2^n[1-8(7/8)^t]; strict since 9(7/8)^17=2093674625884863/2251799813685248<1. The 256-term inclusion-exclusion with four-state forbidden-edge matrices independently follows. Finite checks certify only specified finite range; tail is proven by exact rational bound.
+
+## originality
+
+PASS
+
+Set-of-k-substrings is a well-studied equivalence relation. The closest published full HTML source Bernardini et al. states and studies shortest equivalent strings and efficient listing, explicitly distinguishing general set-based counting as open. Its broader model does not provide this sharp *fixed-length* modal fiber comparison, while multiplicity-aware k-abelian and multiset-spectrum problems are distinct. Search of Resultary found related but non-covering binary reconstruction enumerations. Older 1995 exact source content is only abstract-available, leaving bounded priority risk.
+
+## value
+
+PASS
+
+The fixed-length presence-only observation model has meaningful worst-case ambiguity. All eight probes positive becomes uniquely worst only from n=14; the n=13 two-mask counterexample and exact all-length fiber count supply concrete sharp guidance for reconstruction and privacy analyses. This is a natural finite-automaton structural threshold, not an arbitrary code size census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
