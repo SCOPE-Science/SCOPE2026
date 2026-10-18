@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For every m>=4 and s>=m-1, full-rank CountSketch maps require at least m-1 occupied active buckets. Zero collisions give identity Gram; one equal-sign collision kills a zero-sum difference; one opposite-sign collision gives an explicit orthogonal eigen-decomposition with eigenvalues 2,1 (m-3 copies),2/m. QR preserves the nonzero sketch condition number on isometric A. Independent occupancy/sign counting yields exact probabilities and the ratio of falling factorials establishes the Poisson birthday window. The included executable exhaustively checked 48,160 signs-and-hashes configurations (four cases), their eigenvalues, and a separate suite of QR-preconditioner instances; numeric checks are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li and Liu, arXiv:2112.10987: sharp general one-nonzero oblivious embedding lower bound of order d^2/(epsilon^2 delta), as described in abstract",
+        "Nelson and Nguyen, arXiv:1308.3280: foundational quadratic sparse embedding limits",
+        "Chen and Tan, arXiv:2409.15818: conditional bounded preconditioned condition number"
+      ],
+      "reasoning": "The quadratic row-count obstruction is not new and is implied by broader literature. These results do not by themselves fix the exact three outcome probabilities, the m-dependent nonsingular collision penalty or the finite-dimensional spectrum for this prescribed hyperplane. Conditional OSE guarantees cannot rule out the explicit unsuccessful sketch outcomes.",
+      "searches": [
+        "CountSketch QR preconditioned least squares sharp exact failure probability collision multirow orthogonal columns finite hash buckets singular",
+        "CountSketch QR randomized least squares exact probability of preconditioner singularity orthonormal sparse matrix lower bound sketch size",
+        "High precision randomized iterative methods random feature CSQRP-LSQR CSSVDP-LSQR collision graph rank deficiency",
+        "one-sparse signed hash sketch tree incidence subspace QR infinite conditioning birthday threshold Poisson limit probability e^-lambda(1+lambda/2)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2409.15818",
+      "arXiv:1308.3280",
+      "arXiv:2112.10987 (abstract only)",
+      "arXiv:1411.4357",
+      "Mathematical record searches corresponding to the nine exact queries enumerated in the four comparison checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Tan arXiv:2409.15818, source CountSketch-QR algorithm and conditional subspace embedding analysis",
+        "Nelson–Nguyen arXiv:1308.3280, generic embedding lower bounds",
+        "Li–Liu arXiv:2112.10987, generic optimal sparse embedding row-count lower bound"
+      ],
+      "reasoning": "The published algorithm and general lower bounds imply that a quadratic scale can be necessary in worst cases, but not an exact three-point QR condition law with a rank-preserving bad branch. The known three-active-row equilateral-frame result implies the m=3 rank-loss specialization but has no all-m spectral distribution or m-to-infinity Poisson conclusion. This finding excludes m=3 and does not re-claim its rank-loss equation.",
+      "searches": [
+        "CountSketch QR preconditioned least squares sharp exact failure probability collision multirow orthogonal columns finite hash buckets singular",
+        "exact singular spectrum CountSketch on zero sum hyperplane dimension n-1 single collision opposite hash signs eigenvalue 2/n and sqrt n condition",
+        "CountSketch signed collision on zero-sum hyperplane orthonormal columns single opposite-sign hash pair creates singular values sqrt(2), 1, sqrt(2/m), exact preconditioned condition sqrt(m)",
+        "CountSketch isometric m minus one frame single collision opposite signs exact conditional condition number square root dimension"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2409.15818, CountSketch signed-bucket definition and QR preconditioning",
+        "arXiv:1308.3280, sparse oblivious subspace embedding lower-bound arguments"
+      ],
+      "reasoning": "Equivalent formulations include a spectral compression of a signed bucket-incidence Gram matrix onto the sum-zero hyperplane and a three-point law for the condition of the QR right preconditioner. An exact statement of its nonzero-collision sqrt(m) eigenvalue ratio or three masses was not located in inspected primary texts or targeted mathematical record hits.",
+      "searches": [
+        "exact singular spectrum CountSketch on zero sum hyperplane dimension n-1 single collision opposite hash signs eigenvalue 2/n and sqrt n condition",
+        "signed one-sparse sketch incidence matrix tree collision QR preconditioner probability condition spectrum",
+        "CountSketch signed collision on zero-sum hyperplane orthonormal columns single opposite-sign hash pair creates singular values sqrt(2), 1, sqrt(2/m), exact preconditioned condition sqrt(m)",
+        "CountSketch isometric m minus one frame single collision opposite signs exact conditional condition number square root dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nelson–Nguyen 2013 and Li–Liu 2021 sparse embedding references",
+        "No exactly corresponding finite-moment or eigenvalue table identified among returned mathematical record summaries"
+      ],
+      "reasoning": "Finite occupancy tables determine hash-collision counts but not the eigenvalues 2,1,...,2/m of the compressed Gram matrix. Explicit comparison of the spectral statement with the source literature did not identify an exact table covering m>=4. This is not a completeness guarantee.",
+      "searches": [
+        "signed one-sparse sketch incidence matrix tree collision QR preconditioner probability condition spectrum",
+        "CountSketch birthday limit one collision opposite signs Euclidean hyperplane full rank probability falling factorial",
+        "one-sparse signed hash sketch tree incidence subspace QR infinite conditioning birthday threshold Poisson limit probability e^-lambda(1+lambda/2)"
+      ]
+    },
+    "rationale": "The exact all-dimensional distribution of QR conditioning, especially the rank-preserving opposite-sign collision with exact sqrt(m) conditioning and its explicit critical-window mass, is not stated or implied by the examined sources. The generic quadratic lower bound, the preconditioner algorithm, and the three-row rank-loss special case are acknowledged as older work. Comparisons are statement-level rather than title-level; residual bibliographic risk remains.",
+    "residual_risks": [
+      "The complete text of arXiv:2112.10987 was not inspected; specialized spectral statements could be present.",
+      "Very similar conditional spectra may appear in unindexed randomized numerical linear-algebra papers, even if no record matches the chosen terminology.",
+      "The event probabilities follow classical birthday occupancy combinatorics; only their rigorous spectral-conditioned interpretation is asserted as a distinct mathematical claim.",
+      "The three-row special case of rank-loss had already been considered elsewhere and is excluded from the new quantified domain."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines signed one-hot CountSketch and QR right preconditioning; proves conditional bounds for successful subspace embeddings rather than the exact three-point event law on the prescribed mean-zero family.",
+        "evidence": [
+          "Definition 2.3 (independent hash and signs); Algorithm 1 (QR right preconditioner); Theorem 3.2 (conditioning conditional on embedding)."
+        ],
+        "identifier_or_url": "arXiv:2409.15818; https://arxiv.org/abs/2409.15818",
+        "material_read": "Accessible author-manuscript HTML: CountSketch definition, algorithm, conditioning analysis, theorem assumptions, numerical section and appendices.",
+        "method": "Read the primary preprint text and compared algorithmic definitions and conditional spectral statements.",
+        "title": "High-precision randomized iterative methods for the random feature method",
+        "trigger": "Same CountSketch-QR right-preconditioning procedure as the finding"
+      },
+      {
+        "assessment": "Broad row-count lower bounds cover the quadratic-order phenomenon, not the prescribed exact finite probability law or nonsingular collision-conditioned spectrum.",
+        "evidence": [
+          "Sparse embedding model and lower bound discussion in full paper; initial arXiv version 2013."
+        ],
+        "identifier_or_url": "arXiv:1308.3280; https://arxiv.org/abs/1308.3280",
+        "material_read": "Accessible full manuscript via arXiv HTML, including sparse embedding lower-bound setup and ball-into-bins mechanism.",
+        "method": "Compared the broad sparse-embedding quantifiers against the precise hyperplane QR condition distribution.",
+        "title": "Lower Bounds for Oblivious Subspace Embeddings",
+        "trigger": "Strong broader-coverage concern from the known quadratic lower bound for one-sparse OSE"
+      },
+      {
+        "assessment": "Establishes a sharp quadratic embedding lower bound, with no exact hyperplane condition distribution visible in the inspected material; full-text coverage cannot be excluded.",
+        "evidence": [
+          "Abstract states one-sparse OSE requires Omega(d^2/(epsilon^2 delta))."
+        ],
+        "identifier_or_url": "arXiv:2112.10987; https://arxiv.org/abs/2112.10987",
+        "material_read": "Abstract and bibliographic metadata; full text was not reliably retrievable in this pass.",
+        "method": "Compared abstract-level exact lower bound statement to proposed exact probability and spectrum; recorded residual risk.",
+        "title": "Lower Bounds for Sparse Oblivious Subspace Embeddings",
+        "trigger": "Potentially stronger 2021 general sparse embedding results"
+      },
+      {
+        "assessment": "Surveys standard sketch embeddings and preconditioning, with no detected formula for the present all-dimensional trichotomy.",
+        "evidence": [
+          "Survey treatment of sketching-based regression and sparse subspace embeddings."
+        ],
+        "identifier_or_url": "arXiv:1411.4357; https://arxiv.org/abs/1411.4357",
+        "material_read": "Accessible full survey text including sketches, subspace embeddings, and lower-bound discussion.",
+        "method": "Read relevant OSE and sketched least-squares sections and compared to event-specific spectra.",
+        "title": "Sketching as a Tool for Numerical Linear Algebra",
+        "trigger": "General numerical linear-algebra background and sketching reductions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d6f0b03-b220-47fd-aed3-c4f610023eff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The mean-zero hyperplane is canonically the range of a connected tree incidence matrix, a natural linear constraint. This all-dimensional calculation measures a concrete and practically interpretable loss of preconditioning reliability on an exactly isometric system. The distinction between a nonsingular but sqrt(m)-ill-conditioned one-collision branch and catastrophic rank loss, with exact finite probabilities and sharp nondegenerate Poisson-window masses, provides a motivated spectral benchmark not supplied by a generic birthday count or OSE row-order lower bound. It does not claim improved algorithms or generic conditioning bounds.",
+    "status": "PASS"
+  }
+}
