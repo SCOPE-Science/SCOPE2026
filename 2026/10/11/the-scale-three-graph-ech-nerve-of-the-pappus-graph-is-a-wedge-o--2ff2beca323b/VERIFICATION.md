@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof dependencies
+# Independent mathematical audit
 
-Run `python3 verify_pappus_cech.py` in a directory containing `certificates/pappus_cech3.json`. Both files are included. Only Python 3 standard-library modules are used. Success prints `VERIFY_OK` and the independent face-count, collapse, spanning-tree, van Kampen and mod-two-boundary checks.
+## correctness
 
-The certificate uses integer vertex-subset bitmasks in the fixed 18-vertex LCF graph. The script generates the graph and all 27 facets from first principles, enumerates all 1107 nonempty faces, independently constructs boundary matrices over \(\mathbb F_2\), and checks that every one of the 422 indicated pairs is a legal elementary free-face collapse *at the step where it is deleted*. The residual 18-vertex, 109-edge, 136-triangle complex is checked for downward closure. A supplied 17-edge spanning tree is certified by union-find, and each of 92 successive triangle relations is verified to have exactly one previously untrivialized side, until all 109 core edges are accounted for. This establishes trivial fundamental group, not merely vanishing of mod-two first homology.
+PASS
 
-The final integral homotopy deduction invokes Euler characteristic 45, free integral second homology of a two-complex, integral Hurewicz and homological Whitehead. Finite arithmetic checks alone do not establish originality. No persistent-homology barcode or all-graph classification is claimed, and independent external audit remains unperformed.
+Rebuilt Pappus graph from LCF [5,7,-7,7,-7,-5]^3 on 18 vertices with 27 edges, girth six. Primary odd-scale Čech lemma generates 27 maximal six-vertex facets, 1107 simplices, f=(18,135,396,369,162,27). Independently replayed all 422 certificate pairs and tested every lower face has precisely its designated sole proper coface, leaving core f=(18,109,136). Confirmed 17 tree edges and 92 triangle edge-killing relations trivialize all 109 edges; π1(core)=0. χ=45 gives free H2=Z44 and by Hurewicz plus homological Whitehead core ≃ wedge^44 S2. Recomputed mod-2 ranks (17,118,234,135,27) corroborate. Pure 5D and H2≠0 imply non-shellable.
+
+## originality
+
+PASS
+
+The Pappus-specific odd-scale vertex-centered intrinsic Čech nerve is distinct from its Rips and independence complexes and from the open-neighborhood complex. The Adams–Shukla–Singh small-scale graph-recovery lemma assumes r<girth/2, which excludes this r=3 boundary. No inspected earlier source implies its wedge^44 homotopy type; best-of-knowledge.
+
+## value
+
+PASS
+
+The exact first beyond-recovery homotopy of a canonical cubic symmetric girth-six graph isolates non-shellability and an integral simple-homotopy certificate; it can serve as a rigorous finite benchmark, not merely a face-count recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

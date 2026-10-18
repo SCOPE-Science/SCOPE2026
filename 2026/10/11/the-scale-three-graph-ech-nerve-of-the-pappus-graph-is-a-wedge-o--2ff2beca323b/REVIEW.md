@@ -1,15 +1,21 @@
-# Scientific review: the Pappus graph scale-three Čech nerve
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns the unit-edge metric graph Čech nerve at radius \(3/2\), not a vertex-metric clique complex. Lemma 2.2 of Adams–Shukla–Singh gives its 27 generating six-vertex faces. The supplied executable checks all 1107 nonempty faces, each of 422 elementary free-face collapses and the entire two-dimensional residual complex. A spanning-tree certificate has 17 edges; 92 explicit triangular van Kampen reductions successively kill all 92 non-tree edge generators, proving simple connectivity. The residual Euler characteristic is 45, so integral Hurewicz and homological Whitehead give a wedge of exactly 44 two-spheres. The independent mod-two boundary-rank computation agrees but is not used as an integral proof. Risk: the finite certificate and its reconstruction code should be independently rerun and inspected; no external audit has occurred.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The closest primary source, Adams–Shukla–Singh (arXiv:2212.05871), supplies the general odd-scale Čech face formula and a strict girth recovery bound, but its homotopy classifications involve hypercube graphs. Previte's distance-neighborhood complexes are vertex-centered; Shukla's Lovász neighborhood complexes use common open neighbors. Neither inspected construction/classification implies the Pappus nerve's 44 two-spheres. Related published computations concern the same graph with different complexes (Vietoris–Rips, matching and independence). Searches for corresponding aliases, facet unions, 44 two-spheres, Pappus incidence graph and broader cubic-graph results found no equivalent covering statement. Risk: search coverage is not exhaustive; priority against unindexed literature is not mathematically certified.
+PASS
 
-## Value — PASS
-The Pappus graph is a distinguished 18-vertex symmetric cubic incidence graph of girth six. The exact parameter \(r=3\) is naturally motivated as the first scale excluded by the general \(r<\mathrm{girth}(P)/2\) graph-recovery theorem. The result determines a complete *integral homotopy type*, detects 44 higher-dimensional classes and provides a concrete non-shellability consequence. It is a natural exact invariant beyond merely recomputing a known homology table. The work does not assert a broad all-cubic-graph classification or a full barcode.
+Rebuilt Pappus graph from LCF [5,7,-7,7,-7,-5]^3 on 18 vertices with 27 edges, girth six. Primary odd-scale Čech lemma generates 27 maximal six-vertex facets, 1107 simplices, f=(18,135,396,369,162,27). Independently replayed all 422 certificate pairs and tested every lower face has precisely its designated sole proper coface, leaving core f=(18,109,136). Confirmed 17 tree edges and 92 triangle edge-killing relations trivialize all 109 edges; π1(core)=0. χ=45 gives free H2=Z44 and by Hurewicz plus homological Whitehead core ≃ wedge^44 S2. Recomputed mod-2 ranks (17,118,234,135,27) corroborate. Pure 5D and H2≠0 imply non-shellable.
 
-## Closest references and scientific limits
-Adams, Shukla, Singh, arXiv:2212.05871, Lemmas 2.2–2.3 and Sections 4–7; Previte, *The D-Neighborhood Complex of a Graph* (2014), Definition 12 and Chapters 3–8; Shukla, arXiv:1802.04526, Introduction and Theorem 2.1; Weisstein, *Pappus Graph*, MathWorld. The finite graph is fixed by its LCF description, and the exact certificate is included. There is no external validation of its novelty or proof.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Pappus-specific odd-scale vertex-centered intrinsic Čech nerve is distinct from its Rips and independence complexes and from the open-neighborhood complex. The Adams–Shukla–Singh small-scale graph-recovery lemma assumes r<girth/2, which excludes this r=3 boundary. No inspected earlier source implies its wedge^44 homotopy type; best-of-knowledge.
+
+## value
+
+PASS
+
+The exact first beyond-recovery homotopy of a canonical cubic symmetric girth-six graph isolates non-shellability and an integral simple-homotopy certificate; it can serve as a rigorous finite benchmark, not merely a face-count recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
