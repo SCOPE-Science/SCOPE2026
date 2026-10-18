@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Every bounded morphism satisfies f(T_x)=U_{f(x)}. For each child cone, every immediate target child v is covered precisely when that child cone root maps to t or v. The independent choices for source-child cones and inclusion-exclusion over uncovered target children yield the exact recurrence, with all base cases included. Induction on source subtree order proves it, and amortizing over all source edges gives the stated arithmetic-operation bound. Two distinct recurrences matched on 28,016 tree-type pairs, direct enumeration checked 22,132,644 total functions across 936 pairs, and isomorphism enumeration independently checked 2,807 equal-size pairs. Finite tests are corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A topological-minor criterion for bounded-morphic image existence between finite rooted trees is available, but contains no count of distinct maps.",
+        "Earlier multiplicity formulas for finite ordinal sums and height-three rooted trees cover strictly restricted shapes; arbitrary finite rooted trees have unbounded height and arbitrary uneven branches.",
+        "Bodirsky–Piguet, arXiv:1002.1557v1, concerns embeddings of plane binary trees and Ramsey phenomena, not counts of descendant-frame quotient maps."
+      ],
+      "reasoning": "The existence criterion and restricted-family formulas do not determine the count for arbitrary source/target tree pairs. A published stronger general homomorphism-counting result might imply it, but none was identified in the inspected searches.",
+      "searches": [
+        "finite rooted Kripke p morphism images are rooted topological minors embedding existence",
+        "surjective p morphism count branch use polynomial three level rooted trees",
+        "exact enumeration surjective bounded morphisms between layered Kripke frames"
+      ]
+    },
+    "checked_sources": [
+      "Endriss, Modal Logics of Ordered Trees (2003), sections 3.5–3.6",
+      "Goranko–Otto, Model Theory of Modal Logic (2006), section 2.2",
+      "Bodirsky–Piguet, Finite trees are Ramsey under topological embeddings, arXiv:1002.1557v1 (2010), full preprint",
+      "New and improved algorithms for unordered tree inclusion (2021), abstract/introduction excerpt; unresolved deeper comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bodirsky–Piguet (2010) considers leaf-preserving topological embeddings, which have a different domain and count than all rooted-frame bounded morphisms.",
+        "The finite-tree existence criterion yields a Boolean yes/no answer, whereas the recurrence gives exact arbitrary-precision cardinality for the set of functions.",
+        "Unordered tree inclusion algorithms consider node insertions and pattern embeddings; their published abstract does not assert enumeration of bounded morphisms."
+      ],
+      "reasoning": "No inspected stronger statement directly implies the exact arbitrary-tree recurrence with its counting complexity. The presence of related target-branching exponential algorithms for unordered tree inclusion is an originality risk, not sufficient to identify equivalence.",
+      "searches": [
+        "finite rooted Kripke p morphism images are rooted topological minors embedding existence",
+        "surjective p morphism count branch use polynomial three level rooted trees",
+        "exact enumeration surjective bounded morphisms between layered Kripke frames",
+        "New and improved algorithms for unordered tree inclusion ancestor-descendant relationships 2^d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goranko and Otto (2006), section 2.2, Definition 15: ordinary forth/back; equivalent here to every source cone mapping onto the corresponding target cone.",
+        "Endriss (2003), sections 3.5–3.6: immediate-successor / bidirectional tree morphisms, a different signature from a single reflexive descendant relation."
+      ],
+      "reasoning": "A forward-and-back map for the single reflexive-descendant relation has the cone-image equation. Counting all such functions is stronger than deciding whether any exist; the inspected semantic and tree-morphism results do not provide the stated recurrence.",
+      "searches": [
+        "exact number of surjective bounded morphisms between finite rooted trees under reflexive-descendant Kripke relations via subset inclusion exclusion dynamic programming",
+        "counting p morphisms of rooted trees target bounded outdegree recursion exact count",
+        "p-morphism finite rooted trees recursive count algorithm number of finite Kripke frame bounded morphisms source root target root tree child coverage inclusion exclusion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table, database, or enumeration of all finite rooted-tree bounded-morphism counts was identified in the inspected records or primary references.",
+        "The numerical tables within the present work are internal verification, not relied upon as external novelty evidence."
+      ],
+      "reasoning": "The claim is a parametric recurrence for every pair of rooted trees, not a new entry for particular small sizes. Absence of a table is not proof of absence of a previous general result.",
+      "searches": [
+        "exact number of surjective bounded morphisms between finite rooted trees under reflexive-descendant Kripke relations via subset inclusion exclusion dynamic programming",
+        "exact enumeration surjective bounded morphisms between layered Kripke frames",
+        "counting bounded morphisms finite rooted trees modal Kripke frames number surjective p-morphisms enumeration"
+      ]
+    },
+    "rationale": "The exact all-rooted-tree map multiplicity and target-branching arithmetic complexity bound are not implied by the sources inspected: standard semantic references define bounded morphisms, topology/Ramsey papers concern embeddings, and accessible earlier special cases count maps only for layered or height-three trees. A prior general topological-minor criterion settles existence, not multiplicities. Multiple targeted published-research searches did not surface a stronger equivalent theorem. Earlier specialized coverage remains a genuine uncertainty; self-review does not certify independent publication priority.",
+    "residual_risks": [
+      "A prior general counting formula may be published under an equivalent categorical or tree-homomorphism terminology not surfaced by the searches.",
+      "The related algorithm for unordered tree inclusion was only inspected at abstract/introduction level; any nontrivial implication from its full results is unverified.",
+      "This is self-review only, not independent priority or correctness certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_RELATION_AND_GOAL",
+        "evidence": "Concerns ordered tree structure and surjective bidirectional morphisms for successor-type accessibility, not exact counting under the single reflexive descendant relation.",
+        "identifier_or_url": "https://staff.science.uva.nl/u.endriss/pubs/files/otl.pdf",
+        "material_read": "Sections 3.5–3.6, including Definition 3.20 and Lemma 3.32",
+        "method": "Inspected document PDF text and relevant page image",
+        "title": "Modal Logics of Ordered Trees",
+        "trigger": "A directly relevant discussion of bounded morphisms and image lemmas for tree frames"
+      },
+      {
+        "assessment": "FOUNDATIONAL_NOT_COUNTING",
+        "evidence": "Defines bounded morphisms and truth preservation; the inspected section does not supply arbitrary finite-tree exact map enumeration.",
+        "identifier_or_url": "https://www.mathematik.tu-darmstadt.de/~otto/papers/Chapter5_02_05_06.pdf",
+        "material_read": "Section 2.2, including Definition 15 and Corollary 16",
+        "method": "Inspected document PDF text and relevant page image",
+        "title": "Model Theory of Modal Logic",
+        "trigger": "Standard reference for modal bounded morphisms and their preservation semantics"
+      },
+      {
+        "assessment": "EMBEDDING_RAMSEY_NOT_MORPHISM_COUNTS",
+        "evidence": "Studies a Ramsey theorem for finite plane binary rooted trees with topological leaf-preserving embeddings, a different object and conclusion.",
+        "identifier_or_url": "https://arxiv.org/abs/1002.1557",
+        "material_read": "Full eight-page arXiv preprint version arXiv:1002.1557v1 (submitted 2010-02-08)",
+        "method": "Inspected full PDF text and page images",
+        "title": "Finite trees are Ramsey under topological embeddings",
+        "trigger": "Potential structural comparison to known finite-tree embeddings and topological minor relations"
+      },
+      {
+        "assessment": "RELATED_ALGORITHM_UNRESOLVED_BUT_NOT_DECISIVE",
+        "evidence": "The viewed material specifies locating pattern inclusions via node insertions in node-labelled unordered trees, not modal p-morphism counts; a complete comparison would require reading its full theorems.",
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2021.06.013",
+        "material_read": "Publisher abstract and introduction excerpt, not the whole article",
+        "method": "Web preview; no full-text negative assertion",
+        "title": "New and improved algorithms for unordered tree inclusion",
+        "trigger": "Closest algorithmic concern, ancestor-descendant dynamic programming with exponential dependence on degree"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e532142d-4dde-47bf-9f62-fcff532f6878",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Modal bounded-morphism counts are natural exact quotient multiplicities of finite Kripke frames; the earlier existence criterion does not determine them. A uniform formula and target-branching fixed-parameter algorithm for every finite rooted-tree pair, with illustrative star and binary-chain specializations, give a structural invariant over an unrestricted infinite graph family rather than a routine isolated finite computation. Complexity is explicitly arithmetic-operation FPT only.",
+    "status": "PASS"
+  }
+}
