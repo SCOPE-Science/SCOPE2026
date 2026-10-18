@@ -1,15 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-With counting-measure coordinate normalization \(1/\sqrt{\varphi(N)}\), the squared Gram entries equal squared normalized Ramanujan sums. The prime-power trichotomy gives coefficients \(\beta_p=(p-1)^{-2}\) and \(\gamma_p=1-\beta_p\), both nonnegative, so the CRT product expands into a convex combination of divisibility kernels. Pair summation converts each kernel to a squared residue-count sum. Balanced integer counts achieve the sharp minimum simultaneously for a consecutive interval; the identity \(\sum(m-q)(m-q-1)\) proves nonnegative deficit and all equality conditions, including the vanishing \(\gamma_2\) channel. The exact independent divisor-sum checker passed 10,209 exhaustive small-set comparisons and 124 consecutive test cases. Finite tests do not substitute for the universal proof.
+## correctness
 
-## Originality — PASS, qualified
-The nearest primary general frame-potential results concern unrestricted frames (Benedetto–Fickus/Mixon et al.), translation-generated frame systems over additive subgroups (Johnson–Okoudjou and Fickus et al.), and Ramanujan expansions/filter banks (Vaidyanathan). The target rows are \(U_N\), ordinarily not an additive subgroup, and only a subset of rigid Fourier columns is selectable. None of the inspected theorems gives the exact weighted minimum, consecutive-band global optimality, or complete nonnegative deficit across all moduli and sizes. Searches included the equivalent squared Ramanujan-energy wording, frequency-subset frame-potential design, modular-balance aliases, and stronger constrained frame coverage. A historically equivalent combinatorial design or harmonic-frame statement remains possible, and a highly relevant journal article was not accessible in full.
+PASS
 
-## Value — PASS
-The family is dictated by primitive-unit sampling and the classical frame potential, not an arbitrary finite slice. The theorem solves its all-cardinality, all-moduli selection problem by one explicit arithmetic formula and gives a computable exact certificate and necessary-and-sufficient equality conditions for any proposed design. Simultaneous balance over divisors is nontrivial when the modulus has several prime factors. Its numerical values are exact, not experimental; no stronger condition-number claim is made.
+Using the CRT and c_(p^k)(h)=p^k 1_{p^k|h}-p^(k-1)1_{p^(k-1)|h}, the squared normalized Gram kernel is a nonnegative weighted sum of 1_{d_S|h}. Each term becomes sum_r m_{d,r}²; integer convexity gives minimum B_d(s) and the exact nonnegative deficit sum_r(m-q)(m-q-1). A cyclic interval balances counts for every divisor simultaneously, proving all-modulus minimum and iff equality conditions, including p=2 zero-weight caveat. Independent direct Fourier/Ramanujan enumeration over N=6,9,10,12 and s<=4 reproduced consecutive-set minima.
 
-## Closest literature and limitations
-Johnson–Okoudjou, arXiv:0801.3813, Theorem 4.2 and Corollary 4.3: translate-orbit frames from additive subgroups; distinct admissible family. Mixon–Needham–Shonkwiler–Villar, arXiv:2112.02916, Proposition 1 and Theorems 2.1, 3.1, 4.1: general frame-potential geometry, not rigid primitive-row column selection. Vaidyanathan, *Ramanujan-Sum Expansions for FIR Sequences*: Ramanujan bases and periodicity, not column-subset minimization. Restriction to the squared potential, not a maximum inner product or a condition number. A pre-existing equivalent formula in historical literature remains a priority risk; independent validation is not claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Exact prime-power Ramanujan square-factorization into nonnegative divisibility indicators gives a constrained Fourier-column energy minimization and complete modular equality test not stated by the checked general frame-potential/translation literature. The result is best-of-knowledge new; the standard Ramanujan identity and convex balancing are credited prior tools.
+
+## value
+
+PASS
+
+The sharp all-N formula and exhaustive equality criterion for a naturally fixed arithmetic Fourier sampling family provide concrete structural information unavailable from unconstrained Welch or generic tight-frame theory. It quantifies the exact discrete arithmetic obstruction, not just code reproducibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

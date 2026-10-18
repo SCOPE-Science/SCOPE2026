@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof reduces the entire statement to the exact prime-power Ramanujan formula and the integer-balancing identity. The contained `verify.py` independently implements the divisor/Möbius definition of Ramanujan sums, direct ordered-pair Gram energy, the weighted congruence decomposition, the sharp arithmetic minimum, and the complete equality/deficit condition. Run `python verify.py` in the extracted package directory.
+## correctness
 
-A successful run reported `VERIFY_OK moduli=18 consecutive_cases=124 exhaustive_sets=10209 nonoptimal_sets=5699 exact_rational_identity=PASS equality=PASS`. All tests use exact Python fractions and integers; none involves floating-point tolerance. No finite sweep is an infinite proof. The universal statement depends on the explicit prime-power identities and modular balancing proved in RESULT.md. Independent audit has not been performed.
+PASS
+
+Using the CRT and c_(p^k)(h)=p^k 1_{p^k|h}-p^(k-1)1_{p^(k-1)|h}, the squared normalized Gram kernel is a nonnegative weighted sum of 1_{d_S|h}. Each term becomes sum_r m_{d,r}²; integer convexity gives minimum B_d(s) and the exact nonnegative deficit sum_r(m-q)(m-q-1). A cyclic interval balances counts for every divisor simultaneously, proving all-modulus minimum and iff equality conditions, including p=2 zero-weight caveat. Independent direct Fourier/Ramanujan enumeration over N=6,9,10,12 and s<=4 reproduced consecutive-set minima.
+
+## originality
+
+PASS
+
+Exact prime-power Ramanujan square-factorization into nonnegative divisibility indicators gives a constrained Fourier-column energy minimization and complete modular equality test not stated by the checked general frame-potential/translation literature. The result is best-of-knowledge new; the standard Ramanujan identity and convex balancing are credited prior tools.
+
+## value
+
+PASS
+
+The sharp all-N formula and exhaustive equality criterion for a naturally fixed arithmetic Fourier sampling family provide concrete structural information unavailable from unconstrained Welch or generic tight-frame theory. It quantifies the exact discrete arithmetic obstruction, not just code reproducibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
