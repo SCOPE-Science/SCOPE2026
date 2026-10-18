@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal statement is established by the analytic proof in `RESULT.md`. The executable `artifacts/verify.py` is a corroborating algebra check only.
+# Independent mathematical audit
 
-It verifies the identities
-\[
-c=\frac{2g}{1+g^2},\qquad d=\frac{1-g^2}{1+g^2},
-\]
-checks that the positive filter sends the maximizing latitude \(z=-g\) to \(z=g\) with pure-state trace distance exactly \(g\), and tests the two averaged rotation inequalities for representative values on both sides of \(g=1/\sqrt3\). The script uses randomly generated rotations only to catch transcription or sign errors; random tests are not evidence for the universal quantifiers.
+## correctness
 
-The critical proof steps not delegated to computation are: the exact maximization of \(G(|T|)\); the exact rotation formula bounding \(x(R_{11}+R_{22})-yR_{33}\) when \(y\le x\); the equatorial average bound when \(g\ge1/\sqrt3\); and the implication from \(G(T)<1/2\) to the low-anisotropy branch.
+PASS
 
-Limit: no computational or analytic claim is made here about the exact optimal disturbance for arbitrary polar unitaries once \(G(T)\ge1/2\), and no higher-dimensional case is tested or inferred.
+For invertible qubit T=UA, Bloch normalization has c=2g/(1+g²), d=(1−g²)/(1+g²). Maximization of the pure-state postselection displacement gives G(A)=g=(a−b)/(a+b). When g≤1/√3, averaging the exact Bloch inner product along the latitude z=−g yields at least one input with disturbance≥g uniformly over SO(3) polar-unitary rotations; when g≥1/√3 the equator average gives G(T)≥g/sqrt(1+g²)≥1/2. Consequently G(T)<1/2 implies G(A)≤G(T). Nonzero singular operators have disturbance supremum one and are excluded. Completeness and equality of outcome probabilities follow from sum |M_y|²=I. Independently rechecked the rotation-angle algebra, boundary g=1/√3 and the trace-distance factor 1/2.
+
+## originality
+
+PASS
+
+Butucea–Johannes–Stein explicitly formulate polar-factor gentleness as a conjectural step, supported by numerical qubit experiments; their positive-operator lemma alone does not compare UA to A. Antieigenvalue/operator-angle prior work may compute G(A), but that extremum by itself does not prove the arbitrary left-polar-unitary inequality. Resultary search returned this exact claim but no distinct covering record. Risk of an alternative classical two-dimensional operator-angle theorem remains.
+
+## value
+
+PASS
+
+Resolves an explicitly posed qubit measurement conjecture in the strict alpha<1/2 regime, and permits the sharper gentle-to-quantum-differential-privacy parameter 2log((1+alpha)/(1−alpha)) without assuming positive Kraus operators. Its phase split is mathematically motivated by the threshold under which the comparison is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim reduces each qubit outcome to a single invertible operator \(T=U|T|\). The positive factor has exact worst-case disturbance \((a-b)/(a+b)\), obtained by an explicit Bloch-sphere calculation. Two rotation-averaging arguments then give \(G(T)\ge g\) for \(g\le1/\sqrt3\) and \(G(T)\ge1/2\) for \(g\ge1/\sqrt3\). Since the application assumes \(G(T)\le\alpha<1/2\), only the first regime can occur, yielding \(G(|T|)\le G(T)\). Completeness and equality of outcome probabilities follow from \(|T|^2=T^*T\). The singular-outcome boundary is also accounted for: a nonzero rank-one qubit outcome has worst-case disturbance one.
+## correctness
 
-## Originality
-PASS. The motivating paper explicitly conjectures that positive polar factors preserve or improve gentleness and says the qubit case is supported numerically, rather than proved. Its positive-operator Lemma 2 therefore does not imply the present arbitrary-operator result. Targeted searches under polar-factor gentleness, qubit measurement disturbance, operator angle, and antieigenvalue terminology found no statement implying the qubit comparison. Classical antieigenvalue theory covers the positive factor's own maximal turning, not the comparison with an arbitrary left polar unitary. The closest later gentle-measurement work inspected develops high-dimensional positive constructions and does not supply this qubit polar comparison.
+PASS
 
-## Value
-PASS. The result resolves an explicit recent conjectural step in the exact low-disturbance regime used by the source's strong data-processing theory. It removes the positivity assumption from the sharper qubit gentleness-to-differential-privacy constant and replaces numerical evidence by a short structural Bloch-sphere argument. The threshold split also isolates precisely why the proof needs only the operational \(\alpha<1/2\) regime rather than a global polar-factor theorem.
+For invertible qubit T=UA, Bloch normalization has c=2g/(1+g²), d=(1−g²)/(1+g²). Maximization of the pure-state postselection displacement gives G(A)=g=(a−b)/(a+b). When g≤1/√3, averaging the exact Bloch inner product along the latitude z=−g yields at least one input with disturbance≥g uniformly over SO(3) polar-unitary rotations; when g≥1/√3 the equator average gives G(T)≥g/sqrt(1+g²)≥1/2. Consequently G(T)<1/2 implies G(A)≤G(T). Nonzero singular operators have disturbance supremum one and are excluded. Completeness and equality of outcome probabilities follow from sum |M_y|²=I. Independently rechecked the rotation-angle algebra, boundary g=1/√3 and the trace-distance factor 1/2.
 
-## Closest literature and limitations
-The closest primary source is arXiv:2505.24587 / DOI 10.1214/26-EJS2562, which states the conjecture and proves the positive-operator differential-privacy lemma. Classical operator-angle work gives the positive-matrix extremum but does not address normalized quantum postselection after an arbitrary polar unitary. The proof does not settle the comparison at or above disturbance \(1/2\), nor dimensions above two. A residual bibliographic risk remains that an equivalent two-dimensional operator-angle comparison exists under older terminology, although targeted searches did not locate one.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Butucea–Johannes–Stein explicitly formulate polar-factor gentleness as a conjectural step, supported by numerical qubit experiments; their positive-operator lemma alone does not compare UA to A. Antieigenvalue/operator-angle prior work may compute G(A), but that extremum by itself does not prove the arbitrary left-polar-unitary inequality. Resultary search returned this exact claim but no distinct covering record. Risk of an alternative classical two-dimensional operator-angle theorem remains.
+
+## value
+
+PASS
+
+Resolves an explicitly posed qubit measurement conjecture in the strict alpha<1/2 regime, and permits the sharper gentle-to-quantum-differential-privacy parameter 2log((1+alpha)/(1−alpha)) without assuming positive Kraus operators. Its phase split is mathematically motivated by the threshold under which the comparison is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

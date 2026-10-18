@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T00:49:19.564667Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For invertible qubit T=UA, Bloch normalization has c=2g/(1+g²), d=(1−g²)/(1+g²). Maximization of the pure-state postselection displacement gives G(A)=g=(a−b)/(a+b). When g≤1/√3, averaging the exact Bloch inner product along the latitude z=−g yields at least one input with disturbance≥g uniformly over SO(3) polar-unitary rotations; when g≥1/√3 the equator average gives G(T)≥g/sqrt(1+g²)≥1/2. Consequently G(T)<1/2 implies G(A)≤G(T). Nonzero singular operators have disturbance supremum one and are excluded. Completeness and equality of outcome probabilities follow from sum |M_y|²=I. Independently rechecked the rotation-angle algebra, boundary g=1/√3 and the trace-distance factor 1/2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Positive Kraus-operator gentleness-to-DP lemma does not compare an arbitrary polar unitary.",
+          "Later high-dimensional work visibly studies estimation rates; full text of that work was not inspected for any hidden stronger comparison."
+        ],
+        "reasoning": "No actually inspected broader theorem implies the polar-unitary inequality; preserve risk for abstracts-only sources.",
+        "searches": [
+          "Sample-optimal learning of quantum states using gentle measurements, polar factor conjecture",
+          "Optimal estimation of high-dimensional quantum states using locally gentle measurements arXiv:2607.24491"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2505.24587 full PDF and rendered page",
+        "arXiv:2607.24491 abstract",
+        "Resultary qubit-gentleness semantic query",
+        "Gustafson 1968 DOI:10.1090/S0002-9904-1968-11974-3 bibliography; full text not checked"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A bound G(A)=g is insufficient to bound G(UA) below by g.",
+          "The latitude and equator averages furnish a separate minimax inequality uniform in the left unitary."
+        ],
+        "reasoning": "The new rotation-average proof bridges a genuine logical gap left conjectural by the primary paper.",
+        "searches": [
+          "arXiv:2505.24587 primary qubit polar-factor conjecture passage",
+          "Gustafson operator-angle antieigenvalue results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2505.24587 states the positive polar-factor reduction as conjectural.",
+          "The present proof gives G(UA)≥G(A) conditionally on G(UA)<1/2."
+        ],
+        "reasoning": "Searched qubit postselection disturbance, polar decomposition, antieigenvalues and gentle-to-DP reduction; the conditional nature matters.",
+        "searches": [
+          "polar factor gentle measurement qubit effects less than half disturbance optimal bound",
+          "qubit gentle measurement polar decomposition conjecture Butucea Johannes Stein positive factors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hit 2026/10/4/SCOPE-polar-factor-gentleness-for-qubit-measurements-below-the-one-hal--a60707ff429a is the current claim; other hits concern distinct qubit minimax and postselection tasks."
+        ],
+        "reasoning": "This operator inequality is not a finite table; no distinct exact-index statement was returned.",
+        "searches": [
+          "Resultary semantic query: polar factor gentle measurement qubit effects less than half disturbance optimal bound"
+        ]
+      },
+      "rationale": "Butucea–Johannes–Stein explicitly formulate polar-factor gentleness as a conjectural step, supported by numerical qubit experiments; their positive-operator lemma alone does not compare UA to A. Antieigenvalue/operator-angle prior work may compute G(A), but that extremum by itself does not prove the arbitrary left-polar-unitary inequality. Resultary search returned this exact claim but no distinct covering record. Risk of an alternative classical two-dimensional operator-angle theorem remains.",
+      "residual_risks": [
+        "No assertion for disturbance≥1/2 or Hilbert dimension>2.",
+        "A classical operator-angle formulation with a stronger bound may exist; the 1968 source was not read in full.",
+        "Later high-dimensional paper read only at abstract level and cannot support full-paper exclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly conjectures the missing general Kraus-to-positive comparison; therefore its positive-only lemma is not itself a solution.",
+          "evidence": [
+            "arXiv:2505.24587, polar decomposition discussion and positive-operator lemma."
+          ],
+          "identifier_or_url": "arXiv:2505.24587; DOI:10.1214/26-EJS2562",
+          "material_read": "Primary full PDF: gentleness definition and discussion around page 13 of conjectured reduction to positive polar factors, numerical qubit support and positive-operator differential-privacy bound.",
+          "method": "Full PDF text inspection and rendered original page image (zero-indexed page 12).",
+          "title": "Sample-optimal learning of quantum states using gentle measurements",
+          "trigger": "Original qubit polar-factor conjecture and positive-operator privacy lemma"
+        },
+        {
+          "assessment": "Different high-dimensional estimation/minimax statement visible at abstract level; uninspected sections remain a bounded originality risk.",
+          "evidence": [
+            "arXiv:2607.24491 abstract only"
+          ],
+          "identifier_or_url": "arXiv:2607.24491",
+          "material_read": "Primary arXiv abstract and publication metadata; full proof not read in this execution.",
+          "method": "Open primary abstract and metadata; no complete-text NOT_COVERING inference.",
+          "title": "Optimal estimation of high-dimensional quantum states using locally gentle measurements",
+          "trigger": "Potential later broad coverage by same authors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves an explicitly posed qubit measurement conjecture in the strict alpha<1/2 regime, and permits the sharper gentle-to-quantum-differential-privacy parameter 2log((1+alpha)/(1−alpha)) without assuming positive Kraus operators. Its phase split is mathematically motivated by the threshold under which the comparison is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Does not determine global G(UA) minimization for g>1/sqrt(3).",
+    "Random verification in existing artifacts, if used, does not prove the SO(3) universal bound."
+  ],
+  "schema_version": 1
+}
