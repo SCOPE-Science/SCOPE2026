@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The theorem is proved by the canonical two-denomination parametrization and the exact formula for lifts to three-denomination representations in `RESULT.md`. No finite census can establish this infinite statement; the algebraic steps in the proof are essential.
+## correctness
 
-Run `python3 verify.py` in the folder containing this file. The standalone checker uses unrestricted integer arithmetic. It performs independent dynamic-programming representation counts for 20 Pell parameter pairs; verifies 12,341 predicted residue crossings, 194 predicted global maxima, and 660 direct representations enumerations. The actual deterministic output is in `verification_output.txt`.
+PASS
 
-The checker does not inspect every integer parameter, and its success is not independent mathematical certification. Literature priority remains subject to unindexed sources.
+For u>=2, i>=2, A=P_i, B=P_{i+1}, C=A+uB, gcd(A,B)=1. Writing N=By+Aq with y in [0,A-1], the representations lift two-coin solutions (q-Bj,y+Aj) with 0<=z<=min(q-Bj,floor((y+Aj)/u)), giving exact count sum. For 0<=p<=K+1, K=floor(A/u), this proves first threshold q_p(y)=p if floor(y/u)>=p, otherwise B+p-floor(y/u)-1. Maximizing over residue classes proves g_p=B(A+up-1)-A for p<=K and the parity-dependent first break g_{K+1}=B(2A-1) if i even and B(2A-1)-A if i odd. Independent exhaustive coin-change dynamic programming checked residue crossing and maxima on bounded (u,i) grid; no inference beyond proved range.
+
+## originality
+
+PASS
+
+Known p=0 follows immediately from the Sylvester two-coin result and is not credited. The primary Komatsu–Mu Pell-triple theorem treats (P_i,P_{i+2},P_{i+k}), so the base generators are different; generalized Fibonacci/Jacobsthal triplets also have different generator conditions. The full first-crossing residue formula and sharp breakpoint for consecutive triples are not implied by those statements. Risk: a generic theorem for redundant third denomination A+uB could dominate the claim.
+
+## value
+
+PASS
+
+The representation count changes even when the third denomination is redundant for p=0. The first complete p-Apery phase, unique maximizing residues and parity-dependent exact first break supply useful sharp invariants of a naturally recurring coin family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

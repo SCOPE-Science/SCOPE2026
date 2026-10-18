@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T18:21:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For u>=2, i>=2, A=P_i, B=P_{i+1}, C=A+uB, gcd(A,B)=1. Writing N=By+Aq with y in [0,A-1], the representations lift two-coin solutions (q-Bj,y+Aj) with 0<=z<=min(q-Bj,floor((y+Aj)/u)), giving exact count sum. For 0<=p<=K+1, K=floor(A/u), this proves first threshold q_p(y)=p if floor(y/u)>=p, otherwise B+p-floor(y/u)-1. Maximizing over residue classes proves g_p=B(A+up-1)-A for p<=K and the parity-dependent first break g_{K+1}=B(2A-1) if i even and B(2A-1)-A if i odd. Independent exhaustive coin-change dynamic programming checked residue crossing and maxima on bounded (u,i) grid; no inference beyond proved range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General restricted partition functions and sufficiently-large-p quasi-polynomial formulas do not directly imply the exact initial layer and breakpoint; a special three-coin theorem remains an overlap risk."
+        ],
+        "reasoning": "Published broader results were checked for actual implication, not title similarity.",
+        "searches": [
+          "p-numerical semigroups Pell triples Komatsu Mu arxiv 2307.08998",
+          "three coin p Frobenius A B A+uB representations"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2307.08998",
+        "https://arxiv.org/abs/2304.00443",
+        "https://doi.org/10.37236/11161",
+        "Resultary semantic search: p Frobenius Pell triples consecutive P_i P_{i+1} P_{i+2} representation counts sharp phase break"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "p=0 is covered by two-coin Frobenius; p>=1 and parity break are not implied by the inspected Komatsu–Mu theorem owing to mismatched generator index spacing."
+        ],
+        "reasoning": "The exact hypotheses, target invariant, quantifiers and implication from inspected sources were compared.",
+        "searches": [
+          "p Frobenius Pell triples consecutive P_i P_{i+1} P_{i+2} representation counts sharp phase break",
+          "p-numerical semigroups Pell triples Komatsu Mu arxiv 2307.08998",
+          "three coin p Frobenius A B A+uB representations",
+          "generalized Fibonacci Jacobsthal triplets p-Apery early phase"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulation is exact p-Apery set threshold for generic coprime (A,B,A+uB), specialized to Pell adjacent terms. Checked Pell literature uses distinct gaps in generator indices."
+        ],
+        "reasoning": "Equivalent statement/aliases compared: Equivalent formulation is exact p-Apery set threshold for generic coprime (A,B,A+uB), specialized to Pell adjacent terms. Checked Pell literature uses distinct gaps in generator indices.",
+        "searches": [
+          "p Frobenius Pell triples consecutive P_i P_{i+1} P_{i+2} representation counts sharp phase break",
+          "p-numerical semigroups Pell triples Komatsu Mu arxiv 2307.08998"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table for full infinite initial phase found. The small examples such as (5,12,29) with g_0..g_3=(43,67,91,103) are finite checks only."
+        ],
+        "reasoning": "Numerical data and endpoint tables do not by themselves imply the full asserted theorem.",
+        "searches": [
+          "p Frobenius Pell triples consecutive P_i P_{i+1} P_{i+2} representation counts sharp phase break",
+          "three coin p Frobenius A B A+uB representations"
+        ]
+      },
+      "rationale": "Known p=0 follows immediately from the Sylvester two-coin result and is not credited. The primary Komatsu–Mu Pell-triple theorem treats (P_i,P_{i+2},P_{i+k}), so the base generators are different; generalized Fibonacci/Jacobsthal triplets also have different generator conditions. The full first-crossing residue formula and sharp breakpoint for consecutive triples are not implied by those statements. Risk: a generic theorem for redundant third denomination A+uB could dominate the claim.",
+      "residual_risks": [
+        "An unindexed general formula for three generators (A,B,A+uB) may give this as a corollary.",
+        "Only abstract of Woods general theorem was read; not a full-text exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_GENERATOR_TRIPLES",
+          "evidence": [
+            "Explicitly uses P_i,P_{i+2},P_{i+k} rather than P_i,P_{i+1},P_{i+2}"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.08998",
+          "material_read": "Full 29-page arXiv preprint; generator families and the principal theorem statements including Sections 3–5",
+          "method": "Full PDF text with rendered page inspection",
+          "title": "p-Numerical semigroups of Pell triples",
+          "trigger": "Same Pell recurrence and p-Frobenius invariant"
+        },
+        {
+          "assessment": "DIFFERENT_FAMILY",
+          "evidence": [
+            "Triples use a generalized Fibonacci/Jacobsthal parametrization not shown to imply the consecutive Pell representation thresholds"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.00443",
+          "material_read": "Main theorem generator structure and introduction in primary preprint",
+          "method": "Primary preprint, theorem-structure comparison",
+          "title": "p-numerical semigroup of generalized Fibonacci triples",
+          "trigger": "Potential stronger recurrence-family Frobenius formula"
+        },
+        {
+          "assessment": "NO_DIRECT_SMALL_P_FORMULA_FROM_INSPECTED_ABSTRACT",
+          "evidence": [
+            "Large-p asymptotic scope does not itself give explicit first break"
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/11161",
+          "material_read": "Official abstract and stated sufficiently-large-p scope; full text not read",
+          "method": "Official journal summary",
+          "title": "The Generalized Frobenius Problem via Restricted Partition Functions",
+          "trigger": "Potential general theorem on p-Frobenius values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The representation count changes even when the third denomination is redundant for p=0. The first complete p-Apery phase, unique maximizing residues and parity-dependent exact first break supply useful sharp invariants of a naturally recurring coin family.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2307.08998",
+    "https://arxiv.org/abs/2304.00443",
+    "https://doi.org/10.37236/11161",
+    "Exact fixed-source RESULT.md, REVIEW.md, METADATA.json, SLOGAN.txt and associated Git object tree",
+    "Independent regression file: independent_checks.py/output.txt"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only u>=2,i>=2 and p<=floor(P_i/u)+1; not a full all-p genus or distribution classification."
+  ],
+  "residual_risks": [
+    "An unindexed general formula for three generators (A,B,A+uB) may give this as a corollary.",
+    "Only abstract of Woods general theorem was read; not a full-text exclusion."
+  ],
+  "schema_version": 1
+}

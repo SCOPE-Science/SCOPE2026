@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the number of distinct nonnegative coefficient triples for three consecutive Pell-type recurrence values. Adjacent terms are coprime. The recurrence makes the third denomination \(A+uB\), allowing every triple to be counted by lifting a canonical two-coin representation. Formula (1) counts every lift with no duplication. Exact first crossings follow from its first two summands, and the residue maximizers follow from strict full-band increments \(uB-A>0\), and from the last truncated-band increment \(B-A>0\) when \(A\equiv1\pmod u\). The proof includes the zero-representation case, both parity classes, and the endpoint \(p=K+1\). Direct exact-arithmetic finite checks agree but are not the infinite proof.
+PASS
 
-## Originality — PASS relative to searched primary literature
+For u>=2, i>=2, A=P_i, B=P_{i+1}, C=A+uB, gcd(A,B)=1. Writing N=By+Aq with y in [0,A-1], the representations lift two-coin solutions (q-Bj,y+Aj) with 0<=z<=min(q-Bj,floor((y+Aj)/u)), giving exact count sum. For 0<=p<=K+1, K=floor(A/u), this proves first threshold q_p(y)=p if floor(y/u)>=p, otherwise B+p-floor(y/u)-1. Maximizing over residue classes proves g_p=B(A+up-1)-A for p<=K and the parity-dependent first break g_{K+1}=B(2A-1) if i even and B(2A-1)-A if i odd. Independent exhaustive coin-change dynamic programming checked residue crossing and maxima on bounded (u,i) grid; no inference beyond proved range.
 
-The nearest Pell paper (Komatsu–Mu, arXiv:2307.08998) treats the nonconsecutive indexing \((P_i,P_{i+2},P_{i+k})\), whereas the new threshold theorem treats \((P_i,P_{i+1},P_{i+2})\). The generalized Fibonacci/Jacobsthal polynomial paper (arXiv:2304.00443) uses a different three-generator parametrization. The 2023 Jacobsthal paper motivates Pell extensions but gives no such consecutive Pell representation threshold. Woods' asymptotic formulas concern sufficiently large representation thresholds and do not supply this initial exact phase and its first sharp break. Relevant semantic and statement-directed searches uncovered no dominating theorem, though completeness of unindexed literature is not established.
+## originality
 
-## Value — PASS
+PASS
 
-The first nontrivial generalized Frobenius phase of a natural recurrence-defined coin family is resolved at every parameter, not just one small instance. The theorem also computes an entire layer sequence of exact residue thresholds and proves the earliest parity-dependent failure of an otherwise uniform affine law. Ordinary Frobenius membership ignores the redundant third generator, whereas every representation count above zero must account for it.
+Known p=0 follows immediately from the Sylvester two-coin result and is not credited. The primary Komatsu–Mu Pell-triple theorem treats (P_i,P_{i+2},P_{i+k}), so the base generators are different; generalized Fibonacci/Jacobsthal triplets also have different generator conditions. The full first-crossing residue formula and sharp breakpoint for consecutive triples are not implied by those statements. Risk: a generic theorem for redundant third denomination A+uB could dominate the claim.
 
-## Risks and limitations
+## value
 
-The result does not cover \(p>K+1\), the \(p\)-genus, or arbitrary triples. A possible unindexed generalized three-coin representation theorem could imply the formulas; no independent literature audit or mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The representation count changes even when the third denomination is redundant for p=0. The first complete p-Apery phase, unique maximizing residues and parity-dependent exact first break supply useful sharp invariants of a naturally recurring coin family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
