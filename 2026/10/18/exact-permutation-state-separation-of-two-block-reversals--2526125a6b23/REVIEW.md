@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The automaton–group equivalence follows by selecting a point moved differently by two noncommuting products. Normal closures of powers classify all degrees: direct subgroup computations for \(S_3\) and \(S_4\), followed by simplicity of \(A_d\) for \(d\ge5\). Every parity and divisibility boundary is covered; the finite checker exhaustively corroborates 6,144 small-parameter cases. No assertion about unrestricted automata is made.
+
+**Originality — PASS within examined sources, with an explicit priority caveat.** The closest accessible full-text source, Xu and Regan (2026), proves a worst-case asymptotic lower bound rather than an exact all-exponents two-run separation threshold. Bulatov et al. (2016/2017) address general identity constructions. Xu and Regan cite Karpova and Shur (2021) for an exact identity family \( (ab)^u(ba)^v=(ba)^v(ab)^u \); the two group elements in that family are constrained to be conjugate, unlike the independent letter actions here. The accessible 2021 abstract and introduction do not state this formula, but its complete main text was not available. That close match represents a substantive residual priority risk; absence of a search hit does not establish originality. The claimed novelty is the *combined* exact parameter classification and prime-power consequence, not the known group-theory ingredients.
+
+**Value — PASS.** This answers a natural exactly specified word-separation problem at every pair of run lengths, including a genuine exceptional \(V_4\)-regime at four states and an unbounded sequence of sharp prime-power thresholds. It converts the general positive-identity perspective into a complete automata-theoretic complexity law for a simple, motivated family; isolated routine instances are not counted as findings.
+
+**Limitations.** Priority needs a complete check of the 2021 article; the result applies only to complete deterministic permutation automata and to the two-block reversal pairs. The verification code exhausts only degrees at most six and exponents at most 32, while the proof covers all positive exponents. The scientific review does not constitute independent certification.
+
+Self-review: passed. Independent audit: not yet performed.
