@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete source files are `artifacts/census_bfs.cpp`, `artifacts/census_floyd.cpp` and `artifacts/check_nine_profiles.cpp`. Each has a corresponding text output named `bfs_output.txt`, `floyd_output.txt` or `nine_profiles_output.txt` in the same directory. Only a standard C++17 compiler is required. For example, from the extracted package root:
+## correctness
 
-```
-g++ -O3 -std=c++17 artifacts/census_bfs.cpp -o census_bfs
-./census_bfs > replay_bfs.txt
-diff -u artifacts/bfs_output.txt replay_bfs.txt
+PASS
 
-g++ -O3 -std=c++17 artifacts/census_floyd.cpp -o census_floyd
-./census_floyd > replay_floyd.txt
-diff -u artifacts/floyd_output.txt replay_floyd.txt
+Independently coded BFS shortest-path multiplicities on all two-shore binary incidence masks for each n=7,8,9; all 2^20 four-by-five masks included and connectivity checked, not sampling. Reproduced maxima 49/74/105 and fixed-shore labeled profiles n7 {0 missing:1, one missing:12}, n8 {one missing:16, deleted disjoint 2-matching:72}, n9 {deleted 2-matching:120, 3-matching:240, 2 disjoint K1,2 stars:60}. All shore splits produced smaller maxima. BFS recurrence counts each geodesic exactly and includes n zero-length paths. Both original BFS/Floyd C++ source algorithms inspected for exhaustive bounds; independent program verifies table.
 
-g++ -O3 -std=c++17 artifacts/check_nine_profiles.cpp -o check_nine_profiles
-./check_nine_profiles > replay_nine_profiles.txt
-diff -u artifacts/nine_profiles_output.txt replay_nine_profiles.txt
-```
+## originality
 
-The first two counters exhaust every integer mask for every bipartition of orders \(5\) through \(9\). The main computation enumerates \(2^{20}\) masks of size \(4\times5\), with no graph-isomorphism pruning, heuristics, samples, random tests, or timeout-dependent exclusions. Connectivity and shortest-path multiplicity are computed independently via BFS and Floyd--Warshall with layer dynamic programming. The code paths are readable and contain no external or omitted dependencies. The third BFS-based classifier independently gives the three \(9\)-vertex maximizing profiles and counts \(120\), \(240\), \(60\).
+PASS
 
-Limits: these checks prove only the exhaustive finite-range graph statement. The externally reviewed status remains not performed, and no publication-level independent validation is claimed.
+Natural exact global finite first orders solving a portion of Knor et al. Problem 15, not implied by subfamily bounds. A new diameter-four two-disjoint-star coextremizer is outside prior matching-deletion results.
+
+## value
+
+PASS
+
+First complete finite exact equality layer for a published open bipartite extremal problem; small n are mathematically motivated thresholds and one 9-vertex diameter-four graph defeats a natural matching-only ansatz. Provides reproducible nontrivial global finite benchmark, not a generic table without purpose.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

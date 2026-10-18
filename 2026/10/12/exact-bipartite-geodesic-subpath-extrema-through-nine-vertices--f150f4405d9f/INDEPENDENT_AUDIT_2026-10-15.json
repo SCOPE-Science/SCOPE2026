@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T11:48:29.081531Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently coded BFS shortest-path multiplicities on all two-shore binary incidence masks for each n=7,8,9; all 2^20 four-by-five masks included and connectivity checked, not sampling. Reproduced maxima 49/74/105 and fixed-shore labeled profiles n7 {0 missing:1, one missing:12}, n8 {one missing:16, deleted disjoint 2-matching:72}, n9 {deleted 2-matching:120, 3-matching:240, 2 disjoint K1,2 stars:60}. All shore splits produced smaller maxima. BFS recurrence counts each geodesic exactly and includes n zero-length paths. Both original BFS/Floyd C++ source algorithms inspected for exhaustive bounds; independent program verifies table.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diameter-two theorem excludes geodesics length≥3, while candidates K_{4,5} minus matchings have diameter3 and two-star deletion has diameter4.",
+          "Knor et al. Problem15 openly seeks bipartite maximizing graphs."
+        ],
+        "reasoning": "Matching-deletion closed formula covers a proper subfamily. Diameter-two bound and asymptotic construction give neither global finite upper bound nor all equality types.",
+        "searches": [
+          "Resultary_Search: bipartite graphs geodesic subpath number exact maximum 7 8 9 vertices Knor Sedlar",
+          "arXiv:2604.04907 Problem 15",
+          "Resultary: geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f",
+          "Resultary: diameter-two-geodesic-subpath-extremum--d8fd04cc9d21",
+          "Resultary: boundary-tapered-geodesic-path-blowups--26120b82068c"
+        ]
+      },
+      "checked_sources": [
+        "Knor et al., Counting Geodesic Paths in Graphs, arXiv:2604.04907, full mathematical text Problem15",
+        "Resultary published matching-deletion 525c4067322f",
+        "Resultary published diameter-two d8fd04cc9d21",
+        "Resultary published boundary-tapered path blowups 26120b82068c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published matching-deletion formula does produce some values 49,74,105 for chosen matchings but says nothing about exceptional two-star deletion nor forbids other graphs.",
+          "Published diameter-two theorem compares graphs in disjoint diameter class."
+        ],
+        "reasoning": "Known family formulas do not imply the exhaustive global bound or completeness of 3 isomorphism types at n9.",
+        "searches": [
+          "Resultary_Search: bipartite graphs geodesic subpath number exact maximum 7 8 9 vertices Knor Sedlar",
+          "arXiv:2604.04907 Problem 15",
+          "Resultary: geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f",
+          "Resultary: diameter-two-geodesic-subpath-extremum--d8fd04cc9d21",
+          "Resultary: boundary-tapered-geodesic-path-blowups--26120b82068c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knor et al. define total shortest-path multiplicity including zero-length geodesics; same precise gpn here.",
+          "An incidence-matrix mask exhausts each connected bipartite graph by proper shore coloring."
+        ],
+        "reasoning": "Compared synonyms shortest-path/geodesic subpath counts with precise zero-length normalization; no previously published global n=7,8,9 equality census located.",
+        "searches": [
+          "Resultary_Search: bipartite graphs geodesic subpath number exact maximum 7 8 9 vertices Knor Sedlar",
+          "arXiv:2604.04907 Problem 15",
+          "Resultary: geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f",
+          "Resultary: diameter-two-geodesic-subpath-extremum--d8fd04cc9d21",
+          "Resultary: boundary-tapered-geodesic-path-blowups--26120b82068c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This finite search exhausts 2^(ab) incidence masks per shore split and specifies all equality degree profiles.",
+          "No corresponding global maximality/equality table found in published records queried."
+        ],
+        "reasoning": "Not arbitrary recomputation: specifically first exact finite portion of open bipartite extremal problem, with a structurally exceptional maximizer.",
+        "searches": [
+          "Resultary geodesic subpath semantic query",
+          "arXiv:2604.04907 extremal tables/families",
+          "Frozen artifact census_floyd.cpp/census_bfs.cpp"
+        ]
+      },
+      "rationale": "Natural exact global finite first orders solving a portion of Knor et al. Problem 15, not implied by subfamily bounds. A new diameter-four two-disjoint-star coextremizer is outside prior matching-deletion results.",
+      "residual_risks": [
+        "An unindexed independent finite graph census could have computed these same tiny-order values.",
+        "Published Resultary comparators were accessible as record summaries rather than all underlying proofs; implication comparison uses their exact advertised conclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines gpn and motivates global max; does not give global all-bipartite equality cases at orders 7-9 in material read",
+          "evidence": "Knor, Sedlar, Škrekovski and Zhang, arXiv:2604.04907, Problem 15",
+          "identifier_or_url": "https://arxiv.org/abs/2604.04907",
+          "material_read": "Full available arXiv mathematical article including geodesic definition, family formulas and Section 4 Problem 15 on bipartite extremality, checked against candidate claims",
+          "method": "Primary arXiv full-text reading and page inspection",
+          "title": "Counting geodesic paths in graphs",
+          "trigger": "Defines exact same invariant and poses bipartite maximizer problem"
+        },
+        {
+          "assessment": "Covers matching-deletion subfamily, including some candidate graph values; does not cover global n≤9 enumeration or two-disjoint-star diameter-four equality type",
+          "evidence": "Resultary record 525c4067322f",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f",
+          "material_read": "Published Resultary record summary: deleting t matching edges from K_ab changes gpn by t(ab−2a−2b+3−t); no global all-bipartite theorem in this result summary",
+          "method": "Semantic lookup of published research record and comparison of scope",
+          "title": "Geodesic subpath numbers of bicliques with a deleted matching",
+          "trigger": "High-ranking direct same-invariant subfamily"
+        },
+        {
+          "assessment": "Diameter-2 maximal theorem inapplicable to optimal diameter-3 and diameter-4 graphs of present result",
+          "evidence": "Resultary record d8fd04cc9d21",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-diameter-two-geodesic-subpath-extremum--d8fd04cc9d21",
+          "material_read": "Published abstract/summary and identity for diameter-2 max inspected",
+          "method": "Published Resultary semantic record summary",
+          "title": "Balanced complete bipartite graphs uniquely maximize geodesic subpaths at diameter two",
+          "trigger": "Possible dominating bipartite bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "First complete finite exact equality layer for a published open bipartite extremal problem; small n are mathematically motivated thresholds and one 9-vertex diameter-four graph defeats a natural matching-only ansatz. Provides reproducible nontrivial global finite benchmark, not a generic table without purpose.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Among all connected bipartite graphs on n=7,8,9 vertices, gpn maxima are respectively 49,74,105, with exactly 2,2,3 isomorphism types at equality. On 9 vertices, the K4,5 minus two disjoint 2-edge stars gives a diameter-4 coextremizer beyond matching deletion; fixed-shore labeled equality counts are 13,88,420.",
+  "limitations": [
+    "Finite orders 7,8,9 only, never a theorem for larger n.",
+    "Counts 13,88,420 refer to fixed named shore assignments, not all fully labeled graphs; equality descriptions up to isomorphism.",
+    "The repository connector did not support independent full recursive tree enumeration; individual frozen-commit blobs and assigned tree guard were checked."
+  ],
+  "schema_version": 1
+}
