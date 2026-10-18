@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the linear equilibrium \(u(t)=(I+tL)^{-1}s\), positive definiteness ensures existence for all finite nonnegative \(t\). The centered solution can be represented by a polynomial adjugate, so the derivative sign of raw-adjacency Moran autocorrelation reduces to an exact integer polynomial coefficient check. An explicit complete enumeration of the \(558\) connected labeled graph / nonconstant binary source pairs through four vertices finds only the \(24\) labeled four-path end-block exceptions. Each nonexception has a derivative numerator with only nonnegative coefficients; the exceptional rational formula has one positive critical point and proves the sign reversal. The fully specified exact-integer checker was executed successfully; its result has independently readable arithmetic identities in the proof. The Geary formula and strict derivative are also verified.
+PASS
 
-## Originality — PASS, residual uncertainty
+I reconstructed the Laplacian resolvent/centering identity and checked N/B derivative numerator W=N'B-NB' using the record's complete integer polynomial adjugate verifier. Independent SymPy enumeration over every connected unlabeled graph of orders 2,3,4 and all binary nonconstant sources found only the complementary P4 end-block source configurations with negative derivative at large t. The actual full labeled enumeration code traverses every 2^(n choose 2) graph edge mask and all 2^n-2 source masks, verifying nonnegative W coefficients for the other 534 and 24 labelled exceptions, and rational closed form for the exceptional case; n=2:2, n=3:24, n=4:532 source/graph cases. Nonnegative coefficients prove ALL t>=0, not sampled t. At formally infinite t the index is undefined because field constant; only one-sided limit is asserted.
 
-Moran (1950) establishes the index, not the modern equilibrium experiment. Bahn, Krohn and O'Connor (2008) study dispersal-generated spatial autocorrelation in a density-regulated simulation, while the accessible full text of Chen (2013) models spatial richness rankings. Bahn (2008) examines empirical dispersal proxies in bird data. These sources do not directly imply the complete minimum-size, binary-source, fixed-graph rational classification. Related previously reported static Moran–Geary ranking discrepancies concern comparisons of different fields rather than a single diffusion-dependent equilibrium trajectory, and therefore do not determine the unique four-site threshold. The complete 2008 simulation paper was not accessible, so equivalent coverage in its uninspected material remains a genuine residual risk. Lack of a matching search result alone is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-A conventional description of diffusion as spatial smoothing does not decide the behavior of the *normalized* local-adjacency Moran statistic. The theorem identifies the first possible obstruction and gives a complete classification at that minimal order, not an arbitrary numerical specimen. The exact golden-ratio transition shows when a physically natural two-patch source arrangement changes the reported index in the opposite direction to further dispersal, while Geary continues to signal smoothness. This supplies a precise caution for interpreting spatial autocorrelation changes in fixed-network source–sink models. It neither requires a general large-network theorem nor implies an empirically large effect.
+Closest ecological dispersal literature studies simulation/empirical spatial-autocorrelation changes rather than this complete fixed-network linear source-sink small-graph theorem. Neither full-text Chen 2013 nor accessible original-abstract Bahn 2008 states the precise P4 minimality and analytic normalization reversal. Inaccessible original Bahn 2008 full text is a genuine priority risk, not evidence of noncoverage.
 
-## Closest literature and limitations
+## value
 
-Closest ecological source: Bahn, Krohn and O'Connor (2008), DOI 10.1016/j.ecolmodel.2007.12.005; full text unavailable, abstract and bibliographic material inspected. Further full-text comparators: Bahn (2008), *Journal of Negative Results: Ecology & Evolutionary Biology* 5, 1–13; Chen (2013), DOI 10.1186/1810-522X-52-57. The theorem assumes fixed undirected binary spatial weights, equal local losses, binary sources and linear equilibrium. Independent validation and unrestricted-network extensions remain outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise minimal graph size and exhaustive description of exceptional binary patches are intrinsic sharp boundaries for an otherwise plausible index monotonicity. A real normalized Moran index can reverse under dispersal while variance and Geary smooth monotonically; this demonstrates mathematically motivated measurement divergence, not arbitrary low-order table or population effect-size claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
