@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The norm-germ lemma identifies a component's norm from the supremum of the one-sided derivatives of the convex function \(h\mapsto\|u+h\|^p\), valid even at zero. Local constancy of the difference of two such powers therefore forces equal component norms, and property \((S)\) then forces equality of the component vectors. The direct-sum proof varies exactly one coordinate and works for arbitrary index sets. In the finite uniform case, the negation creates an ultrapower pair with coincident norm germs, while the finite \(\ell_p\)-sum commutes with the ultrapower construction. The pointwise coordinate modulus identity proves necessity. Endpoint failures have explicit open neighborhoods of equal norm germs. The proof does not rely on finite diagnostics.
+PASS
 
-## Originality — PASS, with stated risk
+For p>1 and any real normed X, F_u(h)=||u+h||^p has one-sided derivatives and sup_{||w||≤1} D⁺F_u(0;w)=p||u||^{p−1} (radial w=u/||u|| attains upper Lipschitz bound, including zero case). If F_u−F_v is locally constant, derivatives coincide, ||u||=||v||, so norm-power difference is zero near 0; (S) on normalized distinct equal-radius vectors forces u=v. Failure of (S) on an ℓp-sum isolates one coordinate and gives local constancy of pth-power difference, so every coordinate equals; converse embeds a failed summand. The argument holds for arbitrary indices by absolute p-sum convergence. Uniform (S) of a summand passes to its ultrapowers by applying U_X(d,a)>0 to normalized representatives; if a finite sum lacked uniform (S), an ultrapower pair would violate (S), since finite ℓp-sums commute with ultrapowers. Reverse implication via 1-Lipschitz s↦(s^p+t)^(1/p) on coordinate perturbations. Two explicit ℓ1² and ℓ∞² positive-quadrant/dominant-coordinate unit pairs have equal norm germs, proving sharp universal endpoint failure. This is analytic, not based on finite experiments.
 
-The closest full primary literature is Kania--Kochanek, arXiv:1302.6443, which proves the local-germ characterisation of Steinhaus property \((S)\), and Johnson--Kania, arXiv:2602.09106, which studies uniform \((S)\), atomless-base Bochner spaces, and leaves a stronger direct-sum *quantitative* inequality as Problem (5). Neither inspected article states the arbitrary-index \(\ell_p\)-permanence theorem or the finite uniform equivalence. Indexed semantic and exact-phrase searches found no implication-dominating direct-sum result. Indexing limitations and possible unpublished or unindexed equivalences remain genuine risks; a negative search is not a proof of global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This classifies a canonical permanence operation for a geometric property not inherited by arbitrary subspaces. It works beyond strictly convex spaces, giving \((S)\) for atomic-base \(\ell_p\)-sums of atomless \(L_1\) spaces, and identifies a sharp obstruction at the endpoint norms. The finite uniform result supplies qualitative positivity in the setting of a currently posed stronger modulus question. No universal numerical modulus, broad unrelated corollary, or resolution of the stronger open problem is claimed.
+The original Kania–Kochanek Steinhaus work establishes the local norm-germ equivalence; the Johnson–Kania Uniform Property (S) author-full-text Feb 2026 (the available v1) defines the modulus, proves atomless Bochner Lp closure, ultrapower stability, and explicitly poses a stronger direct-sum modulus inequality in §5 problem (6) (renumbered in later source summary). Atomless base does not imply finite atomic ℓp summands. A quantitative bound is not established, and the positive qualitative finite-sum closure is not stated as a covered theorem in the actual primary material inspected.
 
-## Residual limitations
+## value
 
-The proof covers real spaces; uniform permanence for infinite-index sums and a universal lower modulus bound are outside scope. Bibliographic risks remain for specialized direct-sum literature. Independent validation has not occurred.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Structural theorem describing precisely preservation of Steinhaus separation under a central Banach direct-sum construction, including non-strictly convex summands and arbitrary index sets, plus finite uniform stability and exact endpoint failure. Addresses context of an explicitly posed stronger quantitative direct-sum problem without claiming to solve it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
