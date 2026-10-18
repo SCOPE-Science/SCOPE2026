@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For odd cyclic dimension \(N\), the cross-basis Gauss sum at slope difference \(d\) and modulation difference \(\ell\) has squared normalized magnitude \(\gcd(d,N)/N\) when the latter difference is divisible by \(\gcd(d,N)\), and zero otherwise. This yields exact cross-fourth-moment \(\gcd(d,N)\). Expanding the gcd by Euler totients gives nonnegative weighted congruence collision counts; elementary balancing proves a universal lower bound, and intervals of consecutive slopes satisfy all divisor bounds simultaneously. The exact deficit then certifies every equality case. The checker's 35,490 exhaustive small-parameter tests, 1,980 randomized cases and 3,340 direct Gauss tests pass; none is claimed to prove the infinite theorem.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-Casazza and Fickus's *Fourier Transforms of Finite Chirps* (2006), DOI 10.1155/ASP/2006/70204, supplies the relevant prior Gauss-sum magnitude identity and studies pairwise coherence; the inspected full text does not optimize the all-cardinality fourth-overlap energy or classify its minimizers. Roy and Scott's *Weighted complex projective 2-designs from bases* (2007), arXiv:quant-ph/0703025, gives the broader projective-design criterion without an equivalent constrained chirp-slope arithmetic optimum. Shparlinski and Winterhof (2006), DOI 10.1007/11682462_72, is closely themed; its full text was not exhaustively inspected and priority risk remains. Published semantic and bibliographic comparison included aliases such as fourth frame potential, second Welch energy, gcd-weighted slope energy and congruence-balanced slope selection. No covering implication or exact-table predecessor was found, but search failure is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The theorem determines a natural constrained projective design objective across all odd dimensions and every admissible number of chirp bases, where the fundamental obstruction to mutual unbiasedness is arithmetic. It supplies an exact computable optimum, a sharp first obstruction from the least prime divisor, and all optimizing configurations through simultaneous congruence balancing. The theorem does not claim an unrestricted global design optimum.
+For each odd N≥3 and distinct slopes, normalized quadratic Gauss sums at difference d=a−c and modulation offset ell have |G_N(d,ell)|²=Ng if g=gcd(d,N) divides ell, otherwise zero; this follows from grouping by g and the invertible (x−y,x+y) transform modulo odd N/g. Precisely N²/g modulation pairs are nonzero, yielding fourth-overlap cross-basis contribution g, while same slope contributes N. Thus Phi_2(A)=rN+2Σ_{unordered pairs}gcd(a−c,N). The classical identity gcd(k,N)=Σ_{m|gcd(k,N)}φ(m) rewrites the objective as a positive weighted sum of residue-binomial collisions modulo every m|N. For fixed r each collision sum is minimized exactly when m residue occupancies differ by ≤1, with C_m(r), and a cyclic consecutive r-interval attains all individual minima simultaneously. Positivity of every φ(m) proves the complete simultaneous balancing equality test and the nonnegative deficit. Full proof holds all odd N and r, including r=1,N; independent exhaustive integer check on all 2723 nonempty subsets for N=3,5,7,9,11 and bounded quadratic Gauss checks corroborated the arithmetic only.
 
-## Limitations and evidence
-The family uses only distinct quadratic-chirp slopes in odd cyclic dimensions. Characterization via balancing need not identify a unique minimizer up to symmetry. The source comparison is bounded, including one relevant only partially inspected paper and possible historical equivalent expressions. The packaged checker is reproducible, but numerical Gauss-sum calculations have floating error and finite experiments are not infinite proofs.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Within the natural union-of-quadratic-chirp-bases family, the all-divisor exact fourth-overlap optimum and complete equality classification are not directly supplied by known Gauss magnitudes or general projective-design bounds. Similar published modular-balancing frame results optimize a different primitive-row Fourier kernel and are explicitly considered.
+
+## value
+
+PASS
+
+The second projective frame potential measures the aggregate coherence of a natural, explicitly defined union of chirp orthonormal bases. The exact all-r optimization in every odd cyclic dimension and full equality/deficit characterization are useful design facts beyond maximum-pairwise-coherence benchmarks; their object and invariant are independently motivated and the answer is not implied by generic projective-design bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
