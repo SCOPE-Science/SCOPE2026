@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite theorem is established by the symbolic proof in `RESULT.md`. The crucial source inputs are the exact merge identity, the polynomial expansion of \(H_s\), and the endpoint fiber identity from arXiv:2609.29882v1. The new steps are elementary inequalities and an exact telescoping argument.
+# Independent mathematical audit
 
-`verify_quadratic_stability.py` performs an independent exact-rational sanity check. It directly enumerates \(F_d(\theta)=\mathbb E_\theta[M(T)]\) for \(2\le q\le4\), \(2\le d\le5\), and deterministic rational probability vectors including vertices, sparse laws, uniform laws, and skew laws. It checks the local pair-averaging lower bound and the global quadratic remainder, and it checks equality for every tested \(d=2\) case. The captured replay is:
+## correctness
 
-`VERIFY_OK global_cases=68 pair_cases=236`
+PASS
 
-These finite computations do not certify the all-parameter theorem and are not used as a substitute for proof. No claim of coefficient optimality is made for \(d>2\).
+The exact source merge identity and coefficient-positive polynomial H_s(c)=sum_j binom(s,2j)binom(2j,j)c^j imply pair averaging gain at least d(d-1)(theta_a-theta_b)^2/4, since the j=1 coefficient is s(s-1), E[S(S-1)]=d(d-1)m*m and M>=1. Max-min pair averaging drops squared distance to uniform by (theta_a-theta_b)^2/2, converges to uniform, and telescopes to the claimed global coefficient d(d-1)/2. At d=2, F_2=2-sum theta_i^2 gives equality. The published exact Fourier fiber identity then yields the 1/q normalized L2 amplitude remainder. Independently recomputed exact rational F_d for q=2,3 and d=2,3,4 including vertices and skew rational distributions, all passed; not infinite proof.
+
+## originality
+
+PASS
+
+Original arXiv:2609.29882 establishes the qualitative optimizer, pair merge and source exact endpoint identity, but no global Euclidean remainder. Gonçalves arXiv:2609.31979 proves componentwise majorization and qualitative strictness, not metric quadratic stability. A related published finding gives the exact LOCAL Hessian near uniform but not the asserted GLOBAL inequality valid on the whole simplex with coefficient d(d-1)/2. The all-simplex explicit remainder and transferred Fourier consequence remain noncovered by the compared statements.
+
+## value
+
+PASS
+
+Quantitative stability of the sharp endpoint extension constant gives a dimension-explicit global control on near-extremizers’ amplitude uniformity, a natural analytic question not answered by uniqueness of optimizers. The probability simplex inequality and Fourier counterpart provide a directly usable deficit estimate, not merely a numerical refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

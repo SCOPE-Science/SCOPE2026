@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. PASS. The proof reconstructs the source normalization and quantifiers. From the exact expansion of H_s in c=rho(1-rho), the j=1 term has coefficient s(s-1), giving H_s(1/2)-H_s(rho) at least s(s-1)(rho-1/2)^2. With M(tilde T) at least one and S binomial with parameters d and m, this gives the local gain d(d-1)(theta_a-theta_b)^2/4. Pair averaging decreases squared Euclidean distance to uniform by exactly half the squared coordinate gap. Max-min averaging converges to uniform, so telescoping yields the global coefficient d(d-1)/2. The exact source fiber identity then gives the Fourier remainder with the stated factor 1/q. Exact-rational enumeration independently checks 68 global and 236 local cases; finite checks are not used as proof.
+## correctness
 
-## Originality
-PASS. PASS. The primary source proves the sharp inequality and unique uniform maximizer and exposes the polynomial needed here, but its pinch proof establishes positivity/strictness only. The immediate follow-up gives a stronger component-wise majorization theorem but likewise states only the qualitative expectation inequality. Peskir's inspected theorem gives qualitative Schur concavity through Rinott. Targeted published-finding searches returned different stability problems rather than this moment-curve remainder. Residual risk from older strong-majorization literature is recorded.
+PASS
 
-## Value
-PASS. PASS. Sharp restriction results routinely distinguish identification of extremizers from quantitative stability. The remainder converts the source's uniqueness theorem into a uniform, dimension-explicit near-extremizer statement: small endpoint deficit forces the amplitude-squared law close to uniform. It is structural rather than a finite table or parameter substitution, is exact for all d=2 cases, and supplies a reusable coercive estimate for the newly settled endpoint problem. The coefficient is not oversold as optimal for d>2.
+The exact source merge identity and coefficient-positive polynomial H_s(c)=sum_j binom(s,2j)binom(2j,j)c^j imply pair averaging gain at least d(d-1)(theta_a-theta_b)^2/4, since the j=1 coefficient is s(s-1), E[S(S-1)]=d(d-1)m*m and M>=1. Max-min pair averaging drops squared distance to uniform by (theta_a-theta_b)^2/2, converges to uniform, and telescopes to the claimed global coefficient d(d-1)/2. At d=2, F_2=2-sum theta_i^2 gives equality. The published exact Fourier fiber identity then yields the 1/q normalized L2 amplitude remainder. Independently recomputed exact rational F_d for q=2,3 and d=2,3,4 including vertices and skew rational distributions, all passed; not infinite proof.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.29882v1, which proves the sharp endpoint theorem and supplies the exact pair-symmetrization formula used here. arXiv:2609.31979v1 strengthens the qualitative majorization comparison. Peskir's 1995 theorem supplies earlier qualitative Schur concavity through Rinott's multinomial transfer theorem. None of the inspected statements provides the metric remainder \(A-F_d(\theta)\ge d(d-1)\|\theta-u\|_2^2/2\). The certified coefficient is not claimed optimal for \(d>2\), and the result controls modulus rather than phase.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Original arXiv:2609.29882 establishes the qualitative optimizer, pair merge and source exact endpoint identity, but no global Euclidean remainder. Gonçalves arXiv:2609.31979 proves componentwise majorization and qualitative strictness, not metric quadratic stability. A related published finding gives the exact LOCAL Hessian near uniform but not the asserted GLOBAL inequality valid on the whole simplex with coefficient d(d-1)/2. The all-simplex explicit remainder and transferred Fourier consequence remain noncovered by the compared statements.
+
+## value
+
+PASS
+
+Quantitative stability of the sharp endpoint extension constant gives a dimension-explicit global control on near-extremizers’ amplitude uniformity, a natural analytic question not answered by uniqueness of optimizers. The probability simplex inequality and Fourier counterpart provide a directly usable deficit estimate, not merely a numerical refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
