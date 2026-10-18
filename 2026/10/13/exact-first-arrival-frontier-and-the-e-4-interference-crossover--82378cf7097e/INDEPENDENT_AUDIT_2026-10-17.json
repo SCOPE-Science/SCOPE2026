@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T13:06:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2, a vertex of Hamming radius w>=1 first becomes reachable in exactly w steps. Each shortest direction word is a permutation of w distinct flipped coordinates. Uniform coin is a +1 Grover eigenvector, so first-step amplitude 1/sqrt(n) and each subsequent distinct-direction transition amplitude 2/n; (w-1)! same-sign words end in each of w orthogonal coin channels. Squaring gives Pq=w!(w-1)!4^{w-1}/n^{2w-1}; classic Pcl=w!/n^w; ratio=4^{w-1}(w-1)!/n^{w-1}. Stirling for w/n->rho>0 yields exponent rho log(4rho/e), exact sign crossover e/4. At w=n the antipodal asymptotic follows from two-term Stirling. Independent full coined-walk unitary evolution for every w in n=2..6 matched the exact first-arrival probability. This does not infer the all-n theorem from finite evolution tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kokainis et al prove late-time strong dispersion near 0.866n; Kempe studies antipodal hitting times near pi n/2; neither result provides the shortest-time all-weight ratio or crossover."
+        ],
+        "reasoning": "Late-time dispersion, antipodal hitting and mixing bounds do not dominate a ballistic-frontier exact ratio for w varying through 1..n.",
+        "searches": [
+          "Kokainis et al arXiv:2201.11735 full text",
+          "Kempe arXiv:quant-ph/0205083 spectral antipodal transfer",
+          "Moore–Russell arXiv:quant-ph/0104137 mixing"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob c0f1f7d072bc869833e1bf793f5cd83ac2e5df08",
+        "Kokainis et al arXiv:2201.11735 full accessible preprint",
+        "Kempe 2002 abstract/source spectral description",
+        "Resultary quantum hypercube search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new ratio requires coherent counting of (w-1)! shortest paths per terminal coin and Stirling on the exact factorial ratio; the compared prior theorem statements concern different time regimes."
+        ],
+        "reasoning": "A recurrence from prior work can in principle compute this, but no inspected prior statement directly asserts or specializes to the submitted all-w frontier crossover; no false novelty is claimed for the Grover dynamics themselves.",
+        "searches": [
+          "Kokainis et al arXiv:2201.11735 late-time dispersion theorem",
+          "Kempe antipodal spectral amplitude study"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shortest-time point probability equals coherent sum of all geodesic coin paths, whereas classical probability sums path weights incoherently; first arrival means time w with Hamming distance w, not first-detection after repeated measurements."
+        ],
+        "reasoning": "Compared aliases geodesic frontier, ballistic shell, pointwise dispersion, hitting and mixing; only same Grover-coined dynamics are in scope.",
+        "searches": [
+          "Kokainis et al arXiv:2201.11735 same Grover coin/shift",
+          "Resultary: Grover quantum walk hypercube shortest first-arrival time Hamming vertex quantum classical crossover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant published-record semantic results concern different quantum-walk invariants, and Kokainis has Hamming-shell recurrences but no tabulated all-w closed first-arrival point probabilities in inspected text."
+        ],
+        "reasoning": "No exact same table was identified; failed novelty search is not proof of priority. An unstated geodesic counting formula might occur in another source.",
+        "searches": [
+          "Resultary hypercube Grover first-arrival quantum classical crossover query",
+          "Kokainis et al 2022 equations and numerical studies"
+        ]
+      },
+      "rationale": "The closest paper Kokainis et al 2022 analyzes time-dependent dispersion and Hamming-shell recurrences of the same Grover walk, but not the all-Hamming-weight ballistic first-arrival probability or its exponential comparison to the simple classical coordinate walk. Kempe provides late-time antipodal hitting results, not this frontier profile. The e/4 crossover is specific to comparing first-arrival point mass at linear Hamming distance, with no later-time or hitting-time claim.",
+      "residual_risks": [
+        "An earlier quantum-walk path-counting or shortest-time transition-amplitude identity could imply the point probability and its e/4 asymptotic as a direct corollary.",
+        "Critical window when w/n approaches e/4 more finely and measured-coin walks are outside the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the stated all-Hamming-weight t=w frontier ratio in inspected text",
+          "evidence": "Same model; source focuses on strong dispersion at time around 0.8663n, not earliest w-step geodesic mass.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.11735",
+          "material_read": "Complete accessible 2022 preprint, initial dynamics definitions, Hamming-shell recurrences and main late-time dispersion theorem",
+          "method": "Read arXiv full PDF and relevant theorem/proof",
+          "title": "Strong dispersion property for the quantum walk on the hypercube",
+          "trigger": "Same quantum coin, shift and initial condition"
+        },
+        {
+          "assessment": "INDETERMINATE for full contents; no claimed exhaustive noncoverage",
+          "evidence": "Antipode later-time spectral/hitting theorem, as quoted in frozen RESULT.md.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0205083",
+          "material_read": "Abstract and source-cited spectral expression; complete text not independently inspected in this run",
+          "method": "Limited bibliographic/statement comparison",
+          "title": "Quantum Random Walks Hit Exponentially Faster",
+          "trigger": "Known antipodal hitting result and potential stronger spectral coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp position-dependent quantum-versus-classical exponential crossover at rho=e/4 across the entire earliest-accessible hypercube shell provides a natural interpretation of shortest-path coherent interference, including a closed antipodal boundary. It is nontrivial despite the short path-counting proof and differs from known later-time quantum advantage.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md blob c0f1f7d072bc869833e1bf793f5cd83ac2e5df08",
+    "Kokainis et al arXiv:2201.11735 full accessible preprint",
+    "Kempe 2002 abstract/source spectral description",
+    "Resultary quantum hypercube search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An earlier quantum-walk path-counting or shortest-time transition-amplitude identity could imply the point probability and its e/4 asymptotic as a direct corollary.",
+    "Critical window when w/n approaches e/4 more finely and measured-coin walks are outside the theorem.",
+    "Not publication-ready because operational provenance was found in metadata and full source-tree/neutral-content guards were not independently verified.",
+    "Best-of-knowledge mathematical judgment, not certification, formal proof, or external attestation."
+  ],
+  "residual_risks": [
+    "An earlier quantum-walk path-counting or shortest-time transition-amplitude identity could imply the point probability and its e/4 asymptotic as a direct corollary.",
+    "Critical window when w/n approaches e/4 more finely and measured-coin walks are outside the theorem."
+  ],
+  "schema_version": 1
+}
