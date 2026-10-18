@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The two contact inequalities at \(j=m\) and \(j=m-1\) have positive elimination weights and yield the claimed upper bound exactly. The proposed \(b_m\) makes both contacts zero. Reindexing all samples gives two scalar quadratics; their root signs and monotonicity prove nonnegativity for every grid point. The equality case forces the same two contacts and therefore unique \(b_m\). The packaged finite replay is not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS.** The review compared the positive-definite and sampled-cosine formulations, broad singleton sampling results, exact fixed-harmonic tables, and the two primary Carathéodory–Fejér framework papers. The closest general result only detects whether sampling improves the continuous singleton constant; it does not give the anti-Nyquist value or extremizer. Exact fixed-harmonic formulas cover the excluded low diagonal cases \(m=2\) and \(m=3\), not the claimed family \(m\ge4\). A residual risk from older cyclic literature under different notation is recorded in `AUDIT.json`.
+PASS
 
-## Value
-**PASS.** The anti-Nyquist harmonic \(m=(N-1)/2\) is canonical on odd cyclic grids. Closing this entire diagonal gives a natural exact invariant, not a one-off numerical slice, and identifies a simple two-contact mechanism that quantifies the finite-sampling gain with an explicit \(N^-2\) asymptotic.
+For every integer m≥4 and N=2m+1, α=π/N, positivity at j=m,m−1 gives two inequalities with b coefficient signs s sin(α/2) and −s sin(3α/2), s=(−1)^m. Multiplying by positive complementary sine factors eliminates b and bounds a≤cos(α/2)/[cosα cos(3α/2)]. At equality b=s·2sinα/cos(3α/2) is forced. Set j=m−r, x_r=(2r+1)α/2∈(0,π/2], and y=sin x_r. Feasibility values split as q_+(y)=2Ay²+By+1−A (even r) and q_−(y)=2Ay²−By+1−A (odd r). The plus quadratic is increasing for y≥0 and vanishes at first even sample; the minus quadratic has roots of opposite sign and vanishes at first odd sample. Thus ALL sampled inequalities hold; finite tests are not the infinite proof. Independent floating-point tests passed m=4..200 (197 whole grids), two contacts and dual bound. Source RESULT has literal BEL control characters in place of LaTeX \alpha; semantic mathematics is recoverable, but the public text is malformed.
 
-## Closest literature and limitations
-Kolountzakis–Révész (arXiv:math/0302193v1) supplies the archive-era discretized Carathéodory–Fejér framework; Krenedits–Révész (arXiv:1304.0071v1) supplies the broader positive-definite/Fejér–Riesz formulation. Neither inspected source states this diagonal formula. The theorem is limited to real even sampled polynomials on odd grids with anti-Nyquist higher frequency.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact anti-Nyquist diagonal m=(N−1)/2 and unique higher-harmonic coefficient are not covered by inspected general positive-definite frameworks or previously published fixed-harmonic formula records. Earlier low-degree results give m=2 or m=3 only; sampling-rigidity implies strict improvement rather than the present exact value. All comparisons are best-of-knowledge because Resultary was unavailable.
+
+## value
+
+PASS
+
+On an odd cyclic grid, the largest nonredundant frequency m=(N−1)/2 is a canonical Nyquist boundary. The new theorem closes the full infinite diagonal with exact sharp value, unique coefficient, two-sample extremal certificate, and explicit N^(−2) sampling gain. This is a natural finite-group harmonic-analysis invariant rather than an arbitrary finite slice or a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

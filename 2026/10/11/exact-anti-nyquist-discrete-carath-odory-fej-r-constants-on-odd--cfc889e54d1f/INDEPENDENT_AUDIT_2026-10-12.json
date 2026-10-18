@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T06:12:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob ac1b2d3121aaf019ce27dce0022093514824cf40",
+        "independent checked m=4..200 sampled grids; verify.py blob 336cc98ca44326221baf327dd91161ea6452a263"
+      ],
+      "rationale": "For every integer m≥4 and N=2m+1, α=π/N, positivity at j=m,m−1 gives two inequalities with b coefficient signs s sin(α/2) and −s sin(3α/2), s=(−1)^m. Multiplying by positive complementary sine factors eliminates b and bounds a≤cos(α/2)/[cosα cos(3α/2)]. At equality b=s·2sinα/cos(3α/2) is forced. Set j=m−r, x_r=(2r+1)α/2∈(0,π/2], and y=sin x_r. Feasibility values split as q_+(y)=2Ay²+By+1−A (even r) and q_−(y)=2Ay²−By+1−A (odd r). The plus quadratic is increasing for y≥0 and vanishes at first even sample; the minus quadratic has roots of opposite sign and vanishes at first odd sample. Thus ALL sampled inequalities hold; finite tests are not the infinite proof. Independent floating-point tests passed m=4..200 (197 whole grids), two contacts and dual bound. Source RESULT has literal BEL control characters in place of LaTeX \\alpha; semantic mathematics is recoverable, but the public text is malformed.",
+      "residual_risks": [
+        "Requires exactly real even 2-frequency support {1,m} on odd grid, not arbitrary N,k or continuous positivity. Public RESULT.md contains U+0007 BEL before occurrences of lpha, a source-rendering/privacy deliverability blocker."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2003 paper develops general continuous/discrete equivalence and selected explicit cases, not a computed all-m diagonal in inspected relevant material.",
+          "2013/2015 Krenedits–Révész establish general LCA/finite group reductions; not the explicit two-contact value.",
+          "Git fixed-harmonic published source 2026/10/04/exact-discrete-carath-odory-fej-r-constant-for-the-isolated-thir--e309f8e59103 covers k=3 all N, not k=m variable for m≥4."
+        ],
+        "reasoning": "A general theory has a larger domain but does not automatically evaluate this moving-support extremum. The k=2,3 cases have no parameter implication for k=m≥4.",
+        "searches": [
+          "arxiv:math/0302193v1 §§1,7",
+          "arxiv:1304.0071v1 Theorem 5.3",
+          "Git SCOPE Oct 04 low-degree exact results"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:math/0302193v1",
+        "arxiv:1304.0071v1",
+        "Git 2026/10/04 exact fixed k=3 RESULT.md SHA 17283bfefaf8537b747fbcac987e62064354d63e",
+        "Git 2026/10/04 exact k=2 RESULT.md SHA d60a1955e9669cecf5ebf3205b3e9b09de780926",
+        "search query: finite cyclic group odd order N=2m+1 positive definite trigonometric polynomial frequency m anti Nyquist Caratheodory Fejer sharp coefficient"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A framework equivalence permits an exact computation but supplies no evaluated N=2m+1,k=m formula.",
+          "Prior sampling rigidity at singleton higher harmonic reports only equality/no gain criteria, not a sharp value when strict gain occurs."
+        ],
+        "reasoning": "Neither fixed degree nor rigidity theorem gives an implication chain to the two-active-contact value and unique b for all m≥4. A direct two-contact derivation is needed and supplied.",
+        "searches": [
+          "arxiv:math/0302193v1 Problem4, main equivalence",
+          "2026/10/04 fixed k=2 and k=3 published results",
+          "search query: finite cyclic group odd order N=2m+1 positive definite trigonometric polynomial frequency m anti Nyquist Caratheodory Fejer sharp coefficient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Discrete sampled positivity is Fourier dual to real even positive definite sequence on Z_(2m+1) supported at {0,±1,±m}; first coefficient differs by factor 2.",
+          "2003 Problem 4 explicitly uses sampled trigonometric polynomials with support H."
+        ],
+        "reasoning": "The formulation and normalized objective exactly match the discrete Carathéodory–Fejér framework; the new formula is for a moving isolated frequency rather than general positivity without the support constraint.",
+        "searches": [
+          "arxiv:math/0302193v1 Problems 3-4 §§1-2",
+          "arxiv:1304.0071v1 cyclic-group positive definite equivalence",
+          "search query: finite cyclic group odd order N=2m+1 positive definite trigonometric polynomial frequency m anti Nyquist Caratheodory Fejer sharp coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two frozen Git results give explicit singleton k=3 and k=2 values for every admissible modulus; both fixed degrees.",
+          "This diagonal includes infinitely growing k=m≥4 with N=2m+1 and is not a pre-tabulated degree-2 or degree-3 entry."
+        ],
+        "reasoning": "Checked exact tables for matching support versus mere matching modulus; no previously inspected table yields the infinite anti-Nyquist sequence. Wider unindexed cyclic tables remain possible.",
+        "searches": [
+          "Git 2026/10/04/exact-discrete-carath-odory-fej-r-constant-for-the-isolated-thir--e309f8e59103/RESULT.md",
+          "Git 2026/10/04/exact-degree-two-discretized-carath-odory-fej-r-constant-on-ever--d5cac1e2d9a6/RESULT.md",
+          "arxiv:math/0302193v1 case list"
+        ]
+      },
+      "rationale": "The exact anti-Nyquist diagonal m=(N−1)/2 and unique higher-harmonic coefficient are not covered by inspected general positive-definite frameworks or previously published fixed-harmonic formula records. Earlier low-degree results give m=2 or m=3 only; sampling-rigidity implies strict improvement rather than the present exact value. All comparisons are best-of-knowledge because Resultary was unavailable.",
+      "residual_risks": [
+        "Older discrete Fejér/finite group tables could already record a diagonal alias; no exhaustive coverage guarantee.",
+        "Mandatory Resultary search temporarily_unavailable/search_completed:false.",
+        "Source RESULT.md contains control BEL escapes causing invalid displayed α, preventing public deployment without corrected complete bytes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_FRAMEWORK_NOT_EXACT_DIAGONAL; sparse support problem defined but no derived moving anti-Nyquist value in inspected passages",
+          "evidence": [
+            "Problem 4 Eq.(9), Theorem 3, Theorem 5"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0302193",
+          "material_read": "Relevant full-PDF passages: §1 Problems 3/4, Theorem 3 and Theorem 5; page 4 image inspected; no assertion that every page was read",
+          "method": "arXiv lawful PDF text and page screenshot",
+          "title": "On pointwise estimates of positive definite functions with given support",
+          "trigger": "Same sampled sparse-harmonic extremal problem"
+        },
+        {
+          "assessment": "GENERAL_EQUIVALENCE_NOT_EXACT_ANTINYQUIST",
+          "evidence": [
+            "Theorem 5.3 finite cyclic LCA reduction, no all-m anti-Nyquist formula in inspected theorem"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1304.0071",
+          "material_read": "Full-text finite-group equivalence around Theorem 5.3, and paper abstract; page screenshot inspected",
+          "method": "arXiv PDF text and page image",
+          "title": "Carathéodory–Fejér type extremal problems on locally compact Abelian groups",
+          "trigger": "Finite cyclic positive-definite alias may subsume sampled problem"
+        },
+        {
+          "assessment": "NOT_COVERING m≥4: fixed k=3 while moving k=m",
+          "evidence": [
+            "theorem support {0,±1,±3} and N≥6"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/04/exact-discrete-carath-odory-fej-r-constant-for-the-isolated-thir--e309f8e59103/RESULT.md",
+          "material_read": "Complete frozen RESULT.md theorem and proof for k=3",
+          "method": "GitHub file blob read",
+          "title": "Exact discrete Carathéodory–Fejér constant for the isolated third harmonic",
+          "trigger": "Potential SCOPE exact table at matching finite cyclic grids"
+        },
+        {
+          "assessment": "NOT_COVERING m≥4: fixed k=2 despite all N",
+          "evidence": [
+            "theorem support {0,±1,±2} and N≥5"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/04/exact-degree-two-discretized-carath-odory-fej-r-constant-on-ever--d5cac1e2d9a6/RESULT.md",
+          "material_read": "Complete frozen RESULT.md theorem and proof for k=2",
+          "method": "GitHub file blob read",
+          "title": "Exact degree-two discretized Carathéodory–Fejér constant on every cyclic grid",
+          "trigger": "Potential low-degree exact table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2003 discretized CF framework",
+        "2013 cyclic positive-definite reformulation",
+        "fixed k=2 and k=3 comparison"
+      ],
+      "rationale": "On an odd cyclic grid, the largest nonredundant frequency m=(N−1)/2 is a canonical Nyquist boundary. The new theorem closes the full infinite diagonal with exact sharp value, unique coefficient, two-sample extremal certificate, and explicit N^(−2) sampling gain. This is a natural finite-group harmonic-analysis invariant rather than an arbitrary finite slice or a known-table recomputation.",
+      "residual_risks": [
+        "The two-contact algebra is elementary after the right positions are found, so a hidden classical extremal formula could reduce independent novelty/value; this is separately reflected in O risks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "RESULT.md contains literal U+0007 control characters in definitions/formulas (decoded KaTeX invalid); publication withheld pending full UTF-8 correction.",
+    "Resultary unavailable, prior exact tables not fully exhaustively searchable.",
+    "Scope only N=2m+1 m≥4, real even support {0,±1,±m}."
+  ]
+}
