@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:41:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Generalized CRT shows conditional on S=N mod gcd(a,b), the residual quotient remainders for a,b are independent uniform with conditional means independent of S, hence covariance [gcd(a,b)^2-1]/12. Summing all covariances yields double gcd sum, Jordan divisor decomposition gives exact alternative. The summatory J_2(x)=x^3/(3 zeta(3))+O(x^2) combined with sum_{t}(2t-1)/t^3 produces stated cubic constant and O(m^2 log m) error; Chebyshev yields O_epsilon(m^-1) concentration about 1/4. Verified all 400 residue covariance pairs a,b<=20 and all formulas by independently computing complete periods m<=10. Infinite asymptotic follows actual summation not finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaltenböck et al study averages of gcd-sum functions in different setting; full source not verified."
+        ],
+        "reasoning": "Classical Jordan/gcd convolution identities recover the finite algebra after the specific covariance calculation, but generic gcd-sum averages do not immediately provide E_m random-period variance or Chebyshev law.",
+        "searches": [
+          "Resultary semantic: modular energy function complete period variance gcd covariance Jordan totient E_m(n)",
+          "En-naoui 2025 modular energy function complete period variance covariance gcd Jordan",
+          "Sums of Averages of GCD-Sum Functions II Kaltenböck Kiuchi 2021",
+          "https://arxiv.org/html/2509.10592v1",
+          "https://doi.org/10.1007/s00025-021-01357-x"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2509.10592v1",
+        "https://doi.org/10.1007/s00025-021-01357-x",
+        "Resultary semantic: modular energy function complete period variance gcd covariance Jordan totient E_m(n)",
+        "En-naoui 2025 modular energy function complete period variance covariance gcd Jordan",
+        "Sums of Averages of GCD-Sum Functions II Kaltenböck Kiuchi 2021"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "En-naoui Proposition 9.8 periodicity; Section 10 future statistical questions."
+        ],
+        "reasoning": "En-naoui Proposition 9.8 gives periodicity but no second moment. This theorem adds variance coefficient and O(m^-1) concentration; neither follows from periodicity alone.",
+        "searches": [
+          "Resultary semantic: modular energy function complete period variance gcd covariance Jordan totient E_m(n)",
+          "En-naoui 2025 modular energy function complete period variance covariance gcd Jordan",
+          "Sums of Averages of GCD-Sum Functions II Kaltenböck Kiuchi 2021",
+          "https://arxiv.org/html/2509.10592v1",
+          "https://doi.org/10.1007/s00025-021-01357-x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditional generalized CRT decomposition and gcd(a,b)^2 covariance identity."
+        ],
+        "reasoning": "E_m and its complete L_m period distribution are the same observable introduced by En-naoui; the joint remainder covariance can equivalently be expressed via gcd^2 and Jordan totient.",
+        "searches": [
+          "Resultary semantic: modular energy function complete period variance gcd covariance Jordan totient E_m(n)",
+          "En-naoui 2025 modular energy function complete period variance covariance gcd Jordan",
+          "Sums of Averages of GCD-Sum Functions II Kaltenböck Kiuchi 2021",
+          "https://arxiv.org/html/2509.10592v1",
+          "https://doi.org/10.1007/s00025-021-01357-x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "En-naoui full HTML numerical diagonal table is not a complete period variance table; independently V_5=14/3, V_10=185/4."
+        ],
+        "reasoning": "Full-source primary paper has numerical diagonal examples, not a complete-period second-moment or table; exact independent m<=10 counts validate and do not prove asymptotic.",
+        "searches": [
+          "Resultary semantic: modular energy function complete period variance gcd covariance Jordan totient E_m(n)",
+          "En-naoui 2025 modular energy function complete period variance covariance gcd Jordan",
+          "Sums of Averages of GCD-Sum Functions II Kaltenböck Kiuchi 2021",
+          "https://arxiv.org/html/2509.10592v1",
+          "https://doi.org/10.1007/s00025-021-01357-x"
+        ]
+      },
+      "rationale": "En-naoui 2025 introduces exactly E_m(n) and establishes L_m-periodicity and elementary identities, but its fully inspected original v1 does not give second moment, gcd covariance, leading cubic constant or concentration; its conclusion presents statistical behavior as an open direction. Classical gcd/Jordan identities are properly credited.",
+      "residual_risks": [
+        "Equivalent covariance identity is classical and may have been applied to sums of residues in unindexed literature.",
+        "Concentration only over complete period L_m, no short-interval CLT or sharper tails."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines E_m and gives periodicity/identities/bounds but not complete-period covariance, cubic second moment, or Chebyshev concentration.",
+          "evidence": [
+            "Proposition 9.8 concerns lcm period; Section 10 flags distribution/statistics as future directions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.10592v1",
+          "material_read": "Complete arXiv HTML v1 pp/sections 1–10, including Proposition 9.8 and open questions, and targeted covariance/variance search",
+          "method": "Direct lawful arXiv HTML full text",
+          "title": "The Modular Energy Function: the Sum of Remainders (En-naoui, 2025)",
+          "trigger": "Identical arithmetic observable E_m and lcm periodicity"
+        },
+        {
+          "assessment": "Different weighted gcd-average regime; could contain the classical ingredient but not identified E_m complete-period variance.",
+          "evidence": [
+            "The studied gcd-sum averages do not explicitly identify random variable E_m(N) in examined material."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00025-021-01357-x",
+          "material_read": "Article bibliographic abstract and formulation compared, not complete full text",
+          "method": "Publisher abstract and named-function comparison",
+          "title": "Sums of Averages of GCD-Sum Functions II (Kaltenböck et al., 2021)",
+          "trigger": "Potential dominating Jordan-totient gcd-sum formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines the complete-period statistical scale and concentration for a naturally defined modular arithmetic observable; exact covariance kernel + cubic constant are reusable analytic invariants, beyond mere recomputation of an established known table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniform N modulo L_m=lcm(1,...,m), modular energy E_m(N)=sum_{k<=m}(N mod k) has exact gcd/Jordan-totient variance and leading coefficient [(2 zeta(2)-zeta(3))/(36 zeta(3))]m^3, hence O_epsilon(m^{-1}) relative-deviation probability.",
+  "limitations": [
+    "Equivalent covariance identity is classical and may have been applied to sums of residues in unindexed literature.",
+    "Concentration only over complete period L_m, no short-interval CLT or sharper tails."
+  ],
+  "schema_version": 1
+}
