@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The lexicographic-product Hamiltonian splits exactly into the uniform fiber sector, where it is \(2^dA_G+dI\), and its orthogonal complement, where only the hypercube acts. If full transfer occurs, the orthogonal-sector equation forces the hypercube transition amplitudes at Hamming distances zero and one to coincide. For real time and \(d\ge2\), this forces \(\cos t=0\), hence exact hypercube antipodal transfer. The remaining uniform-sector condition is \(e^{-i2^dtA_G}e_g=e_g\). Spectral decomposition then forces every supported eigenvalue to be rational; adjacency eigenvalues are algebraic integers, so the support is integral. The converse is immediate because \(2^{d-2}\) is integral for \(d\ge2\). The seven-vertex example is verified by exact characteristic polynomials and the diagonal resolvent identity.
+PASS
 
-## Originality
+PASS: In G[Q_d], d>=2, m=2^d, projection onto uniform hypercube fiber s and s^perp diagonalizes Hamiltonian into mA_G+dI and the independent Q_d walk, respectively. For same-fiber antipodal transfer, non-target amplitudes at distances zero and one must be equal; with cos t nonzero this forces cos t=-i sin t, impossible for real t. Thus cos t=0 and t=(2r+1)pi/2; phase (-i sin t)^d. Uniform-sector consistency then requires e^{-imtA_G}e_g=e_g. This is equivalent to 2^(d-2)(2r+1)theta integer for every locally supported adjacency eigenvalue theta. The theta are algebraic integers, and this condition makes them rational, hence integers. Conversely all locally supported integral theta return at *every* odd half-period. Independently reconstructed seven-vertex double-star tree characteristic x^3(x²-2)(x²-4), middle-deleted characteristic x²(x²-2)²; resolvent support precisely {-2,0,2}, while global spectrum has ±sqrt(2). The full algebra proves all finite connected G, not finite checker extrapolation.
 
-**PASS, narrowly scoped.** Ge et al. prove a global sufficient lexicographic-product condition and state the integral-\(G\) hypercube construction. Their inspected full text does not replace \(\operatorname{Spec}(G)\) by the support of one outer vertex, prove necessity, or give a connected nonintegral outer graph.
+## originality
 
-Godsil's state-transfer survey develops local eigenvalue support and periodicity, while the 2024 blow-up paper uses vertex support in the different special case where each fiber is independent. That paper explicitly describes the Ge lexicographic-product result as a sufficient condition requiring the fiber graph itself to have perfect transfer. Targeted semantic and web searches did not locate the displayed hypercube-fiber equivalence.
+PASS
 
-Residual risk is real because the theorem is a short synthesis of established product and support tools. The accepted originality claim is therefore restricted to the exact local equivalence, all transfer times, and the strict nonintegral example rather than to the underlying techniques.
+PASS, qualified: Ge et al. Lemma 5 supplies a sufficient global-spectrum period condition for G[H], notably G[Q_d] when all G eigenvalues are integers. Godsil develops local eigenvalue support, and later blow-up analyses use a distinct independent-set fiber. The submitted necessity argument from hypercube nonuniform amplitudes, vertex-local iff for every d>=2, exact all transfer times, and explicit nonintegral connected outer graph are not implied by a *global sufficient* condition. Resultary finds the same assigned record but no independent dominating local hypercube equivalence. Still relies on standard product decomposition/eigenvalue support, and an unindexed periodicity corollary remains risk.
 
-## Value
+## value
 
-**PASS.** The theorem identifies the precise information about \(G\) that the fiber transfer actually sees: the local support at \(g\), not the full spectrum. This enlarges the construction from globally integral outer graphs to connected nonintegral graphs, gives an exact time classification, and supplies a concrete smallest-small example found in a complete graph-atlas check through seven vertices. The resulting product is itself nonintegral, so the extension is mathematically substantive rather than a reformulation of the published sufficient condition.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS: Turns an established sufficient global integrality construction into a sharp necessary-and-sufficient *local* criterion with complete transfer-time set; the connected nonintegral tree proves the condition strictly enlarges the family. This answers a natural graph-quantum-walk transfer classification rather than a renamed parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
