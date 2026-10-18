@@ -1,0 +1,15 @@
+# Review of the anisotropic Hardy diagonal trace theorem
+
+## Correctness
+PASS. The target kernel fixes the monomial normalization; source homogeneous degrees are orthogonal and give exactly one nonzero Gram eigenvalue per degree. Uniform Dirichlet–multinomial composition counts both prove singular-value ordering and provide a conditional empirical average. Rational generating-function pole extraction proves the strict Schatten threshold and critical logarithmic residue. Conditional Jensen and the explicit Dirichlet covariance give the signed finite-degree bound; uniform Taylor expansion of the conditional log-Laplace transform yields its strictly positive first correction. The included checker passes 7,936 finite diagnostics. Risk: no independent external proof validation; the finite checker does not verify infinite-dimensional asymptotics.
+
+## Originality
+PASS on the available comparative evidence, not an independent priority certification. The closest classical diagonal-map paper, Ren–Shi (2004), identifies mixed-norm image spaces and a right inverse, but its relevant full-text statements do not supply anisotropic singular sequences, boundary-contact Schatten cutoffs, or a degree-dependent simplex-Laplace correction. Bayart–Dorval (arXiv:2601.19308v1, 2026) studies polydisc composition mapping criteria with source/target polydisc rather than the exact singular spectrum of the one-dimensional anisotropic trace. Kumari–Muthukumar–Sarkar (arXiv:2509.14655) concerns norm bounds on Hardy-space composition operators. Related spectral decompositions for weighted lattice backward shifts, radial Bergman trace estimates, and quotient-module self-commutators concern different operators and do not imply this trace theorem. Risk: older weighted-diagonal coefficient literature could subsume the formula under other terminology; some identified research results were available only in indexed summaries, not complete articles.
+
+## Mathematical value
+PASS. At fixed dimension, the number of unit coordinate radii gives a complete power-law/trace-ideal phase diagram with its sharp critical residue; subunit coordinates affect the leading constant but not the exponent. The scale \(1/N\) at the noncompact boundary has a full simplex-Laplace transition with a uniform signed error and exact first-order correction. This links operator approximation numbers, transverse boundary contacts, and Dirichlet interpolation rather than isolating an arbitrary numerical example.
+
+## Limits and evidence
+Full analytic proof is in `RESULT.md`; executable finite checks are in `checker.py`. Principal inspected literature: Bayart–Dorval 2026 (introduction, primary theorems and relevant text), Ren–Shi 2004 (introduction, Theorem 1.1, Section 2), and Kumari–Muthukumar–Sarkar 2025 (introduction and primary composition-norm theorem). Priority risks are documented in the structured audit. All claims concern the Hilbert case and fixed finite dimension.
+
+Self-review: passed. Independent audit: not yet performed.
