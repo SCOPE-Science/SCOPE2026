@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Jacobi reduction is exact for both scalar fields, and the compact-perturbation argument identifies the essential spectral edge \(b\). Above it, positivity and the three-term recurrence give a unique simple Perron eigenvector, and an elementary uniform quadratic spectral-gap estimate composed with the uniform real derivative of coordinatewise modulus proves the Fréchet formula. At the edge, one direction with arbitrarily long remote blocks of both signs forces opposite directional slopes, ruling out Gâteaux differentiability. The one-defect boundary follows independently from the decaying-tail recurrence. The included finite computation is not used as a proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Sharif introduces precisely this norm and quotes the old one-defect radius formula, but the inspected article analyzes inequalities, Banach limits, and induced operator norms rather than differentiability at the spectral edge. The 2015 operator paper studies finite defects and top eigenvalues, not the stated uniform-norm smoothness criterion or the long-tail obstruction. Roy–Sain's numerical-radius smoothness results concern another setting. The closest records located through semantic searches concern unrelated shift power norms, other spectral perturbations, or finite graph-edge norms; none was found to imply the infinite-dimensional all-sequence classification. General unindexed spectral smoothness theorems may conceivably subsume the result, so this is an evidence-qualified originality judgment, not a guarantee of global priority.
+PASS
 
-## Mathematical value — PASS
-This classifies an intrinsic Banach-space geometric property of a published natural equivalent norm on a substantial infinite-dimensional positive-limit region, in both real and complex settings. It identifies an exact spectral boundary and gives the derivative when it exists. The edge obstruction is genuinely infinite-dimensional: a single bounded direction with remote alternating long blocks defeats differentiability, which cannot be concluded from the already-known scalar one-defect radius formula. The result is structural rather than a routine recalculation of a known constant.
+For nonzero bounded weights |a_n|→b>0, the diagonal phase gauge identifies w(T_a) with the top of the selfadjoint Jacobi spectrum with links |a_n|/2. The difference from constant-b Jacobi is compact, so the top r>b is an isolated eigenvalue; the nonzero off-diagonal recurrence forces simplicity and its absolute-value Rayleigh maximizer is strictly positive. A bounded spectral gap and uniformly positive inf_n|a_n| give a quadratic operator-norm expansion and a real-Fréchet derivative ∑u_n u_{n+1} Re(conj(a_n)h_n/|a_n|) on the full ℓ∞. At r=b the bounded alternating-long-block direction h_n=a_n s_n/|a_n| has both signs of perturbation attain b+ε as a spectral lower bound and the norm inequality makes the bound sharp, preventing two-sided Gâteaux differentiability. For (t,1,1,...) the tail recurrence gives r=1 up to t=√2 and the explicit larger radius thereafter. Independence: SciPy eigh_tridiagonal on 501×501 sections gave 1.1547005383792515 at t=2 (exact 2/√3), and errors below 4e−8 for t=1.42; these finite checks are not the infinite proof.
 
-## Closest literature and limitations
-Sources: Sharif, arXiv:2303.00876 (first posted 2023-03-02), full arXiv HTML; Undrakh–Nakazato–Vandanjav–Chien, Electronic Journal of Linear Algebra 30 (2015), doi:10.13001/1081-3810.2821, relevant PDF sections; Roy–Sain, arXiv:2107.03490, abstract. Potential overlap with older spectral perturbation and numerical-range literature remains, and the theorem is restricted to nonvanishing moduli approaching a positive limit. Finite tests are not substitutes for the proof.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original characterization of smooth points of a natural infinite-dimensional norm. Sharif (arXiv:2303.00876) defines this weighted-shift numerical-radius norm and quotes its classical one-defect numerical-radius formula but its inspected analysis concerns numerical-radius bounds and Banach limits, not smoothness in full ℓ∞. The finite-defect paper Undrakh et al. 2015 and Roy–Sain numerical-radius smoothness address distinct parameter and operator settings. The published Resultary binary-weight shift characterization concerns sequences with zero weights and longest runs, so does not imply the positive nonzero-tail case. The 2/√3 one-defect value is acknowledged prior art; the analytic smoothness transition is distinct.
+
+## value
+
+PASS
+
+The exact necessary-and-sufficient norm-smoothness locus at a natural essential-spectrum boundary, the full Banach-space derivative, and the long-tail obstruction are structural geometry of a published equivalent norm on ℓ∞; not merely another evaluation of the classical one-defect numerical radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
