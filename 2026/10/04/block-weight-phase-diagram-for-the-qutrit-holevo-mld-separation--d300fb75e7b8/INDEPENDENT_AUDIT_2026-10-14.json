@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T22:53:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim fixes the Yamaguchi--Tajima three-parameter qutrit unitary model, real r=(p-q)/(p+q) in (0,1), kappa=4(p-q)^2/(p+q), and weights G=kappa diag_block(W,h) with W=[[a,c],[c,b]] positive definite (D=ab-c^2>0) and h>0. From the source's exact inverse beta-QFI, the upper 2x2 real correction X must obey X>=0 and det X>=beta^2 r^2; conversely those are precisely the upper Hermitian PSD block conditions. Weighted trace AM-GM gives tr(W X)>=2 sqrt(det W * det X)>=2 beta r s for s=sqrt D, attained at X_beta=beta r s W^{-1}; the independent third constraint is kappa V33>=1-beta^2 r^2 and is simultaneously tight. Thus exact fixed-beta cost is a+b+h+2 beta r s-h beta^2 r^2. Its supremum on 0<=beta<1 occurs at beta*=s/(hr) when s<hr and at beta->1^- when s>=hr, giving the stated two formulas. A single V feasible for ALL beta must satisfy det X>=r^2 and kappa V33>=1; both bounds are simultaneously attained by X*=r s W^{-1}, kappa V33=1, whose 2x2 determinant of the Hermitian slack equals r^2(1-beta^2)>=0 and whose third slack is beta^2 r^2>=0. This proves exact Holevo=a+b+h+2rs, with strictly positive gap hr^2 in boundary branch and s(2hr-s)/h in interior branch. At s=hr, both formulas match; at s>0, h>0, 0<r<1 no degeneracy. Read verifier file to check which assertions it actually tests; analytically checked the matrix conditions and both branches, not merely its dense beta grid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yamagata gives abstract MLD dual machinery and special d/d+1 invariant cases; Niu/Yu concerns d=2 qubit parameter models, while here d=3 qutrit."
+        ],
+        "reasoning": "Neither general definition nor distinct qubit theorem dominates the exact weighted qutrit feasible-region optimization. The new result specializes the source framework and classifies a nontrivial cone.",
+        "searches": [
+          "qutrit quantum Holevo maximum logarithmic derivative bound block weight phase diagram Yamaguchi Tajima",
+          "arXiv:2106.06294 §1 and MLD definitions",
+          "arXiv:2609.31601 qutrit section",
+          "Niu Yu weight-independent qubit two-parameter models"
+        ]
+      },
+      "checked_sources": [
+        "Yamaguchi--Tajima, arXiv:2609.31601v1, qutrit witness Eq.18--25",
+        "Yamagata, arXiv:2106.06294v1, MLD and Holevo dual formulation",
+        "Niu--Yu, two-parameter qubit weight-independent Holevo bounds, DOI 10.1088/1674-1056/ad117d",
+        "Resultary qutrit quantum Holevo MLD block-weight search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a=b=h=1,c=0, s=1>=hr the formula reduces exactly to source. General s/hr creates an interior optimizer regime not implied by an isotropic evaluation."
+        ],
+        "reasoning": "The local model and joint-beta characterization are preexisting, but the exact cone-wide scalar minimizations and optimizer phase boundary require the matrix determinant/trace argument.",
+        "searches": [
+          "qutrit quantum Holevo maximum logarithmic derivative bound block weight phase diagram Yamaguchi Tajima",
+          "arXiv:2609.31601 Eq.19 and qutrit witness",
+          "arXiv:2106.06294 §1 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yamaguchi--Tajima inverse beta-QFI Eq.(19) and G=kappa I3 in Eq.(20)ff. Yamagata defines scalar MLD optimization over beta, not the four-block-variable closed formula."
+        ],
+        "reasoning": "The block cone specializes to isotropic a=b=h=1,c=0; the source provides that one point, not the determinant-based family and optimizer transition s=hr.",
+        "searches": [
+          "qutrit quantum Holevo maximum logarithmic derivative bound block weight phase diagram Yamaguchi Tajima",
+          "Yamaguchi Tajima arXiv:2609.31601 qutrit Eq.19--25",
+          "Yamagata arXiv:2106.06294 maximum logarithmic derivative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source text has C^H=3+2r and C^MLD=3+2r-r^2 only at a=b=h=1,c=0; no exact block-weight table."
+        ],
+        "reasoning": "An isotropic single point cannot determine arbitrary 2x2 positive W and positive h, especially the interior-optimum branch not attained at isotropy.",
+        "searches": [
+          "qutrit quantum Holevo maximum logarithmic derivative bound block weight phase diagram Yamaguchi Tajima",
+          "Yamaguchi Tajima isotropic G=kappa I3 section",
+          "Resultary qutrit Holevo MLD block weight query"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for an entire four-dimensional positive-definite block-weight cone and exact piecewise optimizer. The September 2026 originating paper evaluates only isotropic weight; the earlier MLD theory is general framework, not this exact qutrit phase diagram.",
+      "residual_risks": [
+        "Nearby or later source versions may have independently extended the isotropic qutrit example to block weights.",
+        "Arbitrary weights coupling parameter three to first two are outside the reviewed cone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same beta inverse and all-beta characterization, but only isotropic G=kappa I3 evaluated; the block cone is a genuine parameter extension.",
+          "evidence": "arXiv:2609.31601v1 qutrit example, Eq.18--25",
+          "identifier_or_url": "https://arxiv.org/html/2609.31601v1",
+          "material_read": "Opened full primary arXiv HTML and read full qutrit example, equations 18--25, all-beta intersection/MLD distinction and isotropic numerical evaluation.",
+          "method": "Primary arXiv full HTML (accessible, not snippet-only)",
+          "title": "Exact Characterization of the Holevo Bound by a Quantum Fisher Information Family",
+          "trigger": "Identical three-parameter qutrit model and main feasibility theorem"
+        },
+        {
+          "assessment": "Defines the general MLD family; no identified formula for this later 2026 three-parameter qutrit block-weight witness. Broader framework acknowledged explicitly.",
+          "evidence": "arXiv:2106.06294 §1 and Eq.1.10",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.06294",
+          "material_read": "Opened full 21-page primary PDF and read abstract and §1, definitions of beta and weighted bound, Eq.1.10 and two-parameter reduction; page-1 image consulted.",
+          "method": "Primary arXiv PDF text and screenshot",
+          "title": "Maximum logarithmic derivative bound on quantum state estimation as a dual of the Holevo bound",
+          "trigger": "Earlier general MLD maximization may cover the exact block cone"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural block-compatible weight family is the largest simple cone respecting the source qutrit split, not an arbitrary numerical slice: it exhibits a global strict MLD/Holevo separation, a sharp optimizer regime boundary s=hr, and exact tradeoffs among weights including correlations c. It upgrades a single isotropic witness to a complete solvable family and clarifies which beta-bound dominates, of use in multiparameter quantum estimation. No claim for fully general coupled 3x3 weights or finite-copy implementability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only block-compatible real positive-definite weights, not arbitrary 3x3 cross-block coupling.",
+    "Asymptotic Holevo cost, no finite-copy attaining measurement."
+  ],
+  "schema_version": 1
+}
