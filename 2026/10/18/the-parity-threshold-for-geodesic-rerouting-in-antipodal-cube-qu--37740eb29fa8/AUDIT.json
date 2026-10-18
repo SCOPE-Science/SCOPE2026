@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Proof derives the complete geodesic word list from the two-element relation kernel, classifies all legal one-vertex changes using the length-at-most-four symmetric difference argument for n>=5, treats n=3,4 separately, and derives all metrics and counts. Program reproduces all endpoints and components in dimensions 3..10; finite checks support but do not replace infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Asplund et al., arxiv:1705.09385v1, Theorem 23 and Proposition 27 characterize grids and the ordinary-cube Cayley graph.",
+        "Bonsma, arxiv:1009.3217v2, addresses complexity and some chordal/claw-free connectivity.",
+        "Fang 2007 abstract addresses panconnectivity of folded hypercubes, not one-intermediate-vertex moves."
+      ],
+      "reasoning": "A result about the ordinary cube cannot cover the quotient by simply applying vertex identification: the quotient can join four geodesics into K4 in n=4 and split two permutahedral families in n>=6. General SPR complexity and existence of paths of various lengths do not imply component classification, counts, or distance metrics. The Fang full-text gap is an explicit risk.",
+      "searches": [
+        "Research-record search: shortest-path reconfiguration Cayley graph of symmetric group bubble sort folded cube antipodal quotient path homotopy",
+        "arxiv:1009.3217v2 sections 1–2 and PDF search for hypercube/folded",
+        "arxiv:1705.09385v1 Theorem 23 and Proposition 27",
+        "DOI:10.1016/j.tcs.2007.07.005 abstract and bibliographic record"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1009.3217v1/v2",
+      "arxiv:1705.09385v1",
+      "doi:10.1016/j.tcs.2007.07.005 (abstract only)",
+      "published research-record index 2026/10/4/SCOPE-a-parity-reduction-of-penultimate-hypercube-rips-complexes--7b869e8f79d9 (summary)",
+      "published research-record index 2026/10/4/SCOPE-exact-flip-distance-enumerator-of-cross-polytope-coherent-monoto--defb8aa48da1 (summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1705.09385v1, Proposition 27 treats S(Q_m,a,b) as Cay(S_m,T), not S(Q_m/antipodes,a,b).",
+        "arxiv:1009.3217v2 fixes exactly the one-vertex rerouting adjacency.",
+        "Published-record parity-reduction hit concerns Rips complexes of folded cubes, and coherent-path flip-distance hit concerns a cross-polytope, neither of which treats these geodesics."
+      ],
+      "reasoning": "The new necessary lemma that equal two-generator displacements in the antipodal quotient force the same pair for n>=5 blocks transitions between complementary geodesic supports. Neither the ordinary-cube result nor a different polytope-path graph supplies this dichotomy; n=4 shows that quotienting does not preserve the hypercube path-graph structure.",
+      "searches": [
+        "arxiv:1705.09385v1 Proposition 27",
+        "arxiv:1009.3217v2 introduction and preliminaries",
+        "Published-record hit: 2026/10/4/SCOPE-a-parity-reduction-of-penultimate-hypercube-rips-complexes--7b869e8f79d9",
+        "Published-record hit: 2026/10/4/SCOPE-exact-flip-distance-enumerator-of-cross-polytope-coherent-monoto--defb8aa48da1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Asplund et al. arxiv:1705.09385v1 proves ordinary Q_m, not antipodal quotients (Proposition 27, PDF p.14).",
+        "Published-record closest 2026/10/4/SCOPE-a-parity-reduction-of-penultimate-hypercube-rips-complexes--7b869e8f79d9 studies Vietoris–Rips/independence complexes, not shortest-path rerouting."
+      ],
+      "reasoning": "A folded cube may also be called an antipodal quotient, or in a shifted convention a cube with added antipodal edges. All were considered; the stated quotient with n coordinate generators and one length-n dependency has a different path graph from a hypercube and from the edge-augmented cube.",
+      "searches": [
+        "Research-record search: shortest path reconfiguration graphs of folded hypercubes FQ_n, paths between antipodal vertices disconnected, two adjacent-transposition permutahedra and parity obstruction",
+        "Research-record search: folded cube graph geodesics path rerouting between vertices at diameter, two components for even n, no cross-connections",
+        "Web query: folded hypercube shortest path reconfiguration rerouting disconnected geodesic components permutahedron",
+        "arxiv:1705.09385v1 Proposition 27 and search for folded"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact dimension-six prediction is two 6-cycles, dimension-eight is two 24-vertex adjacent-swap Cayley graphs; exact web/research-record searches returned no corresponding folded-quotient path-table entry.",
+        "Program verify_folded_geodesics.py independently enumerates quotient vertex paths for n=3..10."
+      ],
+      "reasoning": "Neither a search miss nor finite reproduction proves novelty; comparison was made against closest published graph-theoretic statements and records. No matching exact table was located. An indexed or private census could still exist.",
+      "searches": [
+        "Web query: folded cube shortest path reconfiguration permutahedron disconnected 2 Cayley graphs",
+        "Web query: folded hypercube geodesics path rerouting between vertices at diameter",
+        "Research-record search: folded cube graph geodesics path rerouting between vertices at diameter, two components for even n, no cross-connections"
+      ]
+    },
+    "rationale": "No inspected primary statement gives the all-endpoint antipodal-quotient rerouting classification. Ordinary-cube geodesic permutations do not by themselves determine what antipodal identification does: the n=4 K4 merger and even n>=6 two-component obstruction require separate local two-step analysis. Targeted exact/alias searches and available historical claims were checked, subject to stated access and indexing risks.",
+    "residual_risks": [
+      "A mathematically equivalent folded-cube rerouting result could be unindexed or hidden in a differently worded source.",
+      "Fang 2007 full text was not accessible with available authorization; its abstract alone cannot establish comprehensive noncoverage.",
+      "Some sources use added-antipodal-edge folded-cube notation rather than the quotient convention; aliases were compared but indexing may remain incomplete."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: supplies the rerouting operation and broad complexity classes, not quotient-cube classification.",
+        "evidence": "arxiv:1009.3217v2 pp.1–3, definitions and sections 1–2; arxiv:1009.3217v1 2010-09-16 public date.",
+        "identifier_or_url": "https://arxiv.org/pdf/1009.3217",
+        "material_read": "Full PDF was accessible. Introduction, preliminaries, connectivity discussion; searched entire PDF text for folded and hypercube.",
+        "method": "Primary PDF text and first-page visual inspection",
+        "title": "The Complexity of Rerouting Shortest Paths",
+        "trigger": "Original published rerouting framework and relevant connectivity problems"
+      },
+      {
+        "assessment": "Closest structural prior result; does not claim antipodal quotient, disconnected parity phase, or K4 exception.",
+        "evidence": "arxiv:1705.09385v1 pp.11–14, especially Proposition 27 (p.14).",
+        "identifier_or_url": "https://arxiv.org/pdf/1705.09385",
+        "material_read": "Full 16-page PDF accessible; inspected introduction, Theorem 23 discussion, Proposition 27 and references, and searched full PDF for folded.",
+        "method": "Primary PDF text with visual inspection of pp.3 and 14",
+        "title": "Reconfiguration graphs of shortest paths",
+        "trigger": "Direct theorem for ordinary hypercube geodesic permutation graph"
+      },
+      {
+        "assessment": "Abstract concerns existence of paths of prescribed lengths, not graph of optimal paths under local rerouting; cannot conclusively exclude content elsewhere in full text.",
+        "evidence": "TCS 385 (2007), 286–300; DOI 10.1016/j.tcs.2007.07.005; public abstract.",
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2007.07.005",
+        "material_read": "Only public title, abstract and bibliographic details; no lawful full text found in arXiv/open-access attempts, and institutional full-text retrieval required interactive authorization.",
+        "method": "Publisher/bibliographic abstract and arXiv/OA search",
+        "title": "The bipanconnectivity and -panconnectivity of the folded hypercube",
+        "trigger": "Same underlying folded-hypercube family and path phenomena"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "37740eb2-9fa8-4619-a75c-bc7787419c23",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a complete exact structural classification in a canonical distance-transitive graph family, with a sharp first disconnection at n=6 despite positive rerouting degree in both components, explicit metrics, and an all-pairs prevalence formula. This supplies natural local-routing information absent from the usual diameter and path-count results; it is not an arbitrary small parameter slice.",
+    "status": "PASS"
+  }
+}
