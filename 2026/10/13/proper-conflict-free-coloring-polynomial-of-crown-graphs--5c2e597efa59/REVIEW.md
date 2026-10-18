@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The counted objects are fully defined for every \(n\ge3\) and every palette size \(q\ge0\). Properness constrains each cross-shore color to one deleted matched pair. For a shore with \(s\) shared singleton colors, the puncture test has three exhaustive cases: arbitrary surjection if \(s\ge2\), at least one exclusive singleton if \(s=1\), and at least two singleton fibers or all fibers of size two if \(s=0\). The exponential coefficient counts follow from labeled blocks; summing over paired and exclusive palettes has no double-counting. Direct exhaustive graph-based checks cover 28,666,423 labeled maps; the proof itself is universal.
+## correctness
 
-## Originality: PASS
-The closest public crown-graph theorem determines the minimum number of colors and establishes the shared-color pair lemma, but explicitly leaves the full optimal-coloring classification untreated. The new statement counts **every palette size** and separates the doubleton-only puncture exception; it provides a full polynomial and an exact exceptional four-color census. The recent algorithmic literature concerns existence, hardness, and graph classes, not this complete count. Actual searches of the scientific literature and public mathematical records identified no stronger covering count. A residual risk is that a mathematically equivalent enumeration may exist in unindexed work.
+PASS
 
-## Value: PASS
-A complete coloring polynomial is a natural enumerative refinement of a chromatic-number result for an infinite graph family, not just another evaluation of that minimum. Its fiber-classification proof isolates the precisely exceptional no-singleton/doubleton mechanism. The first optimal palette shows structural rigidity from order five onward but has three distinct configurations at order four, making the exact count mathematically interpretable. The formula also determines all larger-palette counts.
+For a proper coloring of Cr_n=K_{n,n}-M_n, any shared color occupies precisely one deleted matching pair. If s such pairs are colored distinctly, remaining colors are shore-exclusive. Each open neighborhood equals an opposite shore minus its matched vertex: with s>=2 every puncture retains a singleton, with s=1 at least one extra exclusive singleton is needed, and with s=0 the shore has either at least two singleton fibers or all classes doubletons. The labeled-surjection counts S_{m,r}, B_{m,r}, E_{m,r}=r m B_{m-1,r-1}, H_{m,r}=m!/2^r when m=2r have exactly those meanings. Summing binomial choices and falling-factorial assignments proves the entire P_n(q) for all n>=3, q>=0; n=4,q=4 splits s=0,2,4 into 216+144+24=384 and for n>=5,q=4 only s=2 survives, yielding 24*binom(n,2). Direct independent brute-force counted (n,q)=(3,3):6, (3,4):96, (4,4):384, (5,4):240, recording their shared-color strata; all agree with the source, but finite checks are not the infinite proof.
 
-## Scope and limitations
-The theorem does not cover variants of conflict-free coloring or general bipartite graphs. Existing source claims are credited and not repackaged as new. Finite exhaustive tests supplement but do not imply the infinite statement. External independent audit remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full exact all-palette polynomial goes strictly beyond the published crown chromatic-number theorem. The published parity-odd crown result gives the same four-color count for odd n>=5, but uses a weaker parity condition and does not supply the entire proper-conflict-free polynomial, even-order four-color census, or n=4 exceptional decomposition. These overlaps are credited, not portrayed as new.
+
+## value
+
+PASS
+
+The complete proper conflict-free coloring polynomial of a standard dense bipartite test family is a natural and reusable graph-coloring enumerator, including a nontrivial rigidity classification and exceptional size-four count; it is neither just the known chromatic number nor a known table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
