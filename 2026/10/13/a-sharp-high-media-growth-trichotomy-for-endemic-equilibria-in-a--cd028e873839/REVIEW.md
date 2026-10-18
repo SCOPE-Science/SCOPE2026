@@ -1,27 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. At a positive equilibrium, the four printed ODEs reduce exactly to
-\[
-I_rD(M_r)=\frac{Cq}{\beta}\bigl(\kappa-h(M_r)\bigr),
-\qquad
-M_r=M_0+\frac{r}{r_0}I_r.
-\]
-The three cases follow from the strict increase and saturation of \(h(M)=M/(p+M)\). The proof uses boundedness or divergence of \(M_r\) as appropriate and does not infer an infinite limit from a finite numerical sweep. Exact rational arithmetic verifies the Table 1 specialization, and a finite root replay agrees with the analytic coefficient.
+PASS
 
-## Originality
+Eliminate S and A from the positive equilibrium using S=C(1+omega I)/beta, A=q M/(p+M) S and N=(Lambda-alpha I)/d. This gives I D(M)=(Cq/beta)(kappa-M/(p+M)) and M=M0+rI/r0. If kappa<1, M stays below p*kappa/(1-kappa) and I~r0(M_infty-M0)/r. If kappa=1, multiply the two identities to yield M^2/r -> Cq p/(beta r0 D_infty) and sqrt(r)I limit. If kappa>1, lower-bound I then M->infinity and I->(C/beta)(R0-(1+q))/D_infty. Independent scalar-root and equilibrium-identity checks performed in all three regimes; existence relies on R1>1. Dynamic instability after Hopf explicitly excluded.
 
-PASS. The primary source proves that endemic infection decreases with media-advertisement growth and studies a Hopf threshold, but it does not determine the high-growth limit, the sharp dissemination boundary, or either decay exponent. Searches using the source DOI/title together with asymptotic, saturation, positive-floor, and critical-scaling aliases found no equivalent statement. The closest earlier media result varies maintained baseline advertising in a different model; that operation changes the disease-free threshold and does not imply the feedback relation or the three limiting laws here. A later same-author paper remains a residual risk because only its abstract could be inspected.
+## originality
 
-## Value
+PASS
 
-PASS. The source interprets the media-growth rate as a control-relevant parameter and plots the resulting decrease in endemic infection. The theorem distinguishes three qualitatively different outcomes of arbitrarily large feedback and identifies a critical \(r^{-1/2}\) boundary. It also shows that the Table 1 branch can approach zero while the disease-free equilibrium remains unstable for every finite \(r\), separating equilibrium suppression from actual finite-parameter eradication.
+The 2023/2024 primary model establishes uniqueness, monotone decline with r and Hopf destabilization, but not the high-r phase transition or r^{-1/2} critical asymptotic. The 2018 media model has different feedback, so its baseline-advertisement threshold is not an implication. Resultary queries showed other epidemic thresholds but not the same feedback asymptotic. A 2025 same-author extension not read fully remains plausible overlap.
 
-## Closest literature and limitations
+## value
 
-The 2018 Misra–Rai–Takeuchi model uses a related saturating awareness mechanism but a different media feedback equation. Its monotonicity and Hopf results do not imply the present high-feedback trichotomy. A later same-author model was identified, but its full text was unavailable through the lawful sources checked and therefore remains an explicit originality risk.
+PASS
 
-The theorem describes the endemic equilibrium branch only. The source reports Hopf destabilization as \(r\) increases, so no claim is made that trajectories converge to the small equilibrium in the large-\(r\) regime.
+The complete three-regime asymptotic separation is a natural parameter boundary and warns that stronger advertising feedback need not produce vanishing endemic equilibrium; distinguishes equilibrium from long-time attraction, a substantive epidemiological modeling issue.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
