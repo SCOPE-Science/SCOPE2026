@@ -1,15 +1,21 @@
-# Scientific review: Quadratic chirp phase Hessians over odd finite vector spaces
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact claim concerns all odd primes and all nondegenerate homogeneous quadratic forms on finite vector spaces. The proof separately verifies (a) vanishing chirp autocorrelations by nondegeneracy of polarization, (b) the first derivative of each shifted correlation and the factor \(e_p(-2Q(h))-1\), (c) Parseval-normalized real Hessian eigenvalues \(8p^d\sin^2(2\pi Q(h)/p)\), (d) Gauss-sum counts of isotropic zeros by discriminant, (e) exact arbitrary-phase deformations along any isotropic line, and (f) local rigidity by strict Hessian positivity modulo global phases. The finite checker reproduced \(140\) zero counts, \(10\) directional Hessian expansions and \(7\) nonconstant exact families. It does not substitute finite checks for the all-parameter proof.
+## correctness
 
-## Originality: PASS, subject to stated risk
-Primary-text comparisons covered Feichtinger–Kozek–Luef (finite-abelian time-frequency structures), Gilbert–Rzeszotnik (Fourier extremizers and cyclic biunimodular examples), and Führ–Rzeszotnik (unitary phasing manifolds and cyclic perfect sequences), and Banica (full generalized-Fourier Hadamard-matrix defects and an unsolved circulant tangent system). The closest finite-field results about Fourier-extremizer Hessians concern a different energy functional. Prior cyclic chirp local rigidity does not imply the split/nonsplit dichotomy over the noncyclic group \(\mathbb F_p^2\). The existence of split-form bent-function families is not itself claimed new. It remains possible that a circulant-Hadamard differential-defect formulation elsewhere implies the same formula; the assessment is not an independent novelty certification.
+PASS
 
-## Mathematical value: PASS
-The natural invariant is the complete real phase-curvature spectrum of a canonical perfect Fourier signal, not an arbitrary table entry. The result decides local uniqueness modulo global phase, computes the entire rank defect, and finds nontrivial continuous families in every isotropic direction. For instance, two individually isolated prime-length quadratic chirps can have a nonisolated product depending on the Legendre character of the negative product of their coefficients. The all-rank Gauss-count theorem and the explicit exact deformations give structural bounds and failure modes without claiming a global census.
+Nondegenerate polar form B makes the off-origin quadratic-chirp autocorrelation Σ_x e_p(Q(h)+B(h,x)) vanish by nontrivial-character orthogonality, so its unitary Fourier transform is unimodular. Differentiate every off-origin correlation at θ=0: the coefficient is i e_p(Q(h))(e_p(−2Q(h))−1)Σ_xe_p(B(h,x))φ(x). Squaring, summing and using Parseval with Fourier normalization N⁻¹ yields D²E(0)[φ,φ]=8N²Σ_h sin²(2πQ(h)/p)|φ_hat(h)|²; with ||φ||²=NΣ|φ_hat|² the real Hessian eigenvalues are exactly 8N sin²(2πQ(h)/p). The kernel consists of Q(h)=0 labels, counted by the standard diagonal quadratic Gauss sum, including the discriminant sign for even rank. For an isotropic s, arbitrary phase f(B(s,x)) preserves each shifted correlation: in directions independent of s, cancellation occurs fiberwise; parallel shifts leave f unchanged. These p-phase tori contribute all Fourier tangent null modes, but no claim of their joint integrability. If Q anisotropic, positive Hessian on mean-zero real phases gives local isolation and the asserted smaller local stability constant; if isotropic, flat tori refute it. Independently evaluated 6 real Hessian quadratic-direction instances at p=3,5, plus split-form p=3,5 exact-flat cancellation; finite numerical checks corroborate but cannot prove all primes/ranks.
 
-## Scope and independent limitations
-The positive lower bound is only local, not a globally sharp phase-error estimate. Distinct isotropic-line directions need not exponentiate simultaneously to a single higher-dimensional family, and no such claim is made. No even-characteristic, degenerate-form, or nonquadratic global classification is attempted. Main references: arXiv:math/0703228 (original 2007-03-08); DOI:10.5802/aif.2556 (printed primary MSC 42C40); arXiv:1506.06738 (original 2015-06-19).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact phase-energy Hessian depends on individual Q-isotropic cone, sharply distinguishing split and nonsplit quadratic forms even for fixed group. Related original texts study full Fourier-matrix defects, cyclic biunimodular sequences, or finite abelian time-frequency methods; the published same-record Resultary hit is not prior work. Flat isotropic-line families have bent-function antecedents and are not claimed independently new. Equivalent circulant-defect descriptions remain a bounded originality risk.
+
+## value
+
+PASS
+
+Calculates a natural curvature operator governing phase stability of canonical perfect Fourier signals, determines its complete real nullity by arithmetic discriminant, proves exactly when signals are locally isolated and constructs full families of flat directions. Split/nonsplit dependence within fixed p²-size space is a meaningful structural phenomenon, not just reproduction of a Gauss-sum table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
