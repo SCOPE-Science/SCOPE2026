@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T05:13:44.998245Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Define t(x)=log log(x+e^e), h1(x)=1/(1+exp(−2t sin t)), h2(x)=1−h1(x). Both are strictly between 0 and 1, extend real analytically around [0,∞), and sum identically to one. Cumulative hazards Ri(x)=∫0^x hi and S_i=exp(−Ri) therefore yield independent min survival S1 S2=e^−x exactly and strictly positive analytic densities fi=hi exp−Ri. Along alternating log-log intervals s∈[7π/6+2πk,11π/6+2πk] and [π/6+2πk,5π/6+2πk], the designated hazard is at most e^−s. Under x=exp(exp s)−e^e the start/end coordinate ratio tends to zero, so each Ri(b_k)/b_k≤a_k/b_k+e^−A_k→0 on a subsequence. On opposite-sign intervals each hi≥1/2 over lengths →∞, hence Ri→∞ and each law is proper. For every λ>0, Ee^(λXi)≥e^(λb_k−Ri(b_k))→∞, proving heavy-tailed. Independently checked exact complement/hazard algebra and scale separation analytically; no finite tail simulation was misused as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foss–Tarasenko–Krivtsov 2025 target universal theorem is stronger in target scope, but available description permits piecewise/frozen hazards; Foss–Scheutzow–Tarasenko characterizes segmented tails."
+        ],
+        "reasoning": "General existence with weak regularity does not logically ensure simultaneous strictly positive real-analytic hazards; avoid claiming novelty for target universality.",
+        "searches": [
+          "analytic hazard smooth heavy-tailed independent factors exponential minimum light-tailed competing risks oscillatory hazard"
+        ]
+      },
+      "checked_sources": [
+        "Frozen 2026/10/13/real-analytic-heavy-tails-with-an-exactly-exponential-minimum--bf25f18dc742/RESULT.md at 40d46a820f74fdf355c691812bdc426ec204bde7, blob a87a57d106d983069ba8a81f0ff8596a2e571079",
+        "Frozen record tree 6305177141a5f904f5b200f76bb05fc58c3661ef inspected recursively",
+        "Resultary semantic query: analytic hazard smooth heavy-tailed independent factors exponential minimum light-tailed competing risks oscillatory hazard",
+        "https://doi.org/10.3934/math.2023658",
+        "https://arxiv.org/abs/2505.08954",
+        "https://arxiv.org/abs/2603.06452"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Segmented-tail characterization is compatible with long alternating intervals of almost-zero hazard; it does not require literal flat pieces or nonsmooth segments."
+        ],
+        "reasoning": "The current construction obeys rather than refutes segmented-tail theory, adding a regularity boundary beyond existing weaker existence statements.",
+        "searches": [
+          "analytic hazard smooth heavy-tailed independent factors exponential minimum light-tailed competing risks oscillatory hazard"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Leipus et al. construct heavy-tailed factors with light min via factorial-piecewise tails; Foss et al. provide a general target factorization, not known to demand strict analytic positive factors."
+        ],
+        "reasoning": "Both constructions may imply possibility with modifications, but the explicit analytic complement h1+h2=1 with individually sublinear subsequences is not a theorem found in available primary full text.",
+        "searches": [
+          "analytic hazard smooth heavy-tailed independent factors exponential minimum light-tailed competing risks oscillatory hazard"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Leipus et al. full example uses piecewise factorial-interval survivals rather than this explicit logistic analytic formula. Resultary analytic hazard/minimum query found only unrelated failure/minimum results."
+        ],
+        "reasoning": "A piecewise tabulated example cannot by itself determine analytic regularity; exact formula is an independently checkable witness.",
+        "searches": [
+          "analytic hazard smooth heavy-tailed independent factors exponential minimum light-tailed competing risks oscillatory hazard"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS ONLY for the positive real-analytic hazard/density construction, not for the 2023 discovery that two heavy tails can have light-tailed minimum or the 2025 universality theorem for arbitrary right-unbounded targets. Leipus–Šiaulys–Konstantinides give factorial/piecewise examples, and accessible summaries of Foss–Tarasenko–Krivtsov and Foss–Scheutzow–Tarasenko emphasize alternating cumulative-hazard construction and segmented tails, but do not explicitly document this analytic positive pair. Both later full papers inaccessible through arXiv/OA in this run; institutional retrieval reported VPN disconnected. A hidden smooth/analytic example in these plausible prior papers is the largest retained novelty risk, not grounds for automatic O failure absent decisive coverage.",
+      "residual_risks": [
+        "Full text of arXiv:2505.08954 and arXiv:2603.06452 unavailable; both highly relevant and could contain equivalent analytic smoothing in examples or appendices.",
+        "An unindexed real-analytic competing-risks example might already give the construction under hazard-splitting terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes existence with irregular/piecewise construction, not the present analytic-positive-density witness.",
+          "evidence": "Tail pieces switch across factorial intervals; the minimum can be light-tailed.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2023658",
+          "material_read": "Complete author/publisher accessible seven-page PDF text and pages 2–3 inspected: factorial-interval alternating-tail example and main proof.",
+          "method": "Primary full PDF and page image inspection",
+          "title": "Minimum of heavy-tailed random variables is not heavy tailed",
+          "trigger": "Earliest explicit light-tailed minimum of independent heavy tails"
+        },
+        {
+          "assessment": "Cannot certify whole-document noncoverage; general right-unbounded targets are handled, possibly via piecewise hazards.",
+          "evidence": "Universal right-unbounded target theorem, specifically acknowledged as prior.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.08954",
+          "material_read": "Abstract/journal description only. arXiv and OA full-text requests unsuccessful; authorized Oxford reports VPN disconnected.",
+          "method": "Abstract/landing inspection; full text inaccessible",
+          "title": "Any random variable with right-unbounded distributional support is the minimum of independent and very heavy-tailed random variables",
+          "trigger": "Stronger universality in target scope, closest plausible regularity coverage"
+        },
+        {
+          "assessment": "Compatible structural constraint, but cannot rule out an earlier explicit analytic smoothing in the full document.",
+          "evidence": "Necessary segmented-heavy-tail structure, not incompatibility with analytic hazards.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.06452",
+          "material_read": "Abstract/descriptive text only; arXiv and OA unavailable; institutional VPN disconnected.",
+          "method": "Abstract inspection; full text inaccessible",
+          "title": "Only Segmented Heavy Tails Can Produce a Light-Tailed Minimum",
+          "trigger": "Potential structural theorem subsuming analytic oscillations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives an explicit pair of proper, atom-free, everywhere-positive real-analytic-density/heavy-tailed factors with exactly exponential minimum. Earlier examples achieve a light minimum by piecewise alternation/flat hazards; this sharply demonstrates that the required tail segmentation can occur despite strong local regularity and without literal hazard zeros or nonsmooth corners. An exact self-contained regularity witness in a natural minimum-factorization paradox is independently useful.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen 2026/10/13/real-analytic-heavy-tails-with-an-exactly-exponential-minimum--bf25f18dc742/RESULT.md at 40d46a820f74fdf355c691812bdc426ec204bde7, blob a87a57d106d983069ba8a81f0ff8596a2e571079",
+    "Frozen record tree 6305177141a5f904f5b200f76bb05fc58c3661ef inspected recursively",
+    "Resultary semantic query: analytic hazard smooth heavy-tailed independent factors exponential minimum light-tailed competing risks oscillatory hazard",
+    "https://doi.org/10.3934/math.2023658",
+    "https://arxiv.org/abs/2505.08954",
+    "https://arxiv.org/abs/2603.06452"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Two independent Exp(1)-minimum factors only; does not supply analytic factorization for all target distributions, nor regular variation or long-tailed classes."
+  ],
+  "residual_risks": [
+    "Full text of arXiv:2505.08954 and arXiv:2603.06452 unavailable; both highly relevant and could contain equivalent analytic smoothing in examples or appendices.",
+    "An unindexed real-analytic competing-risks example might already give the construction under hazard-splitting terminology."
+  ],
+  "schema_version": 1
+}
