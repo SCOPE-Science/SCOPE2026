@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:03:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/seven-cases-are-the-sharp-f1-matthews-ranking-boundary--e1fbac7c9a99/RESULT.md",
+        "actual Git tree 3abdf9804db42b0692a8e7ff0e84d950a3fb1c1b",
+        "independent replay /mnt/data/scope_worker04_run150/checks.py"
+      ],
+      "rationale": "Fixed N and P give exactly (P−1)(N−P−1) positive-cell matrices with free TP and FP. Independently enumerated every pair at every P for N=4,5,6,7: matrix totals 1,4,10,20, within-prevalence pairs 0,2,12,42, and exactly 0,0,0,3 strict reversals, with all three claimed N=7 pairs reproduced. For witness A=(2,1,2,2), B=(3,2,1,1), F1 increases 4/7 to 2/3 while MCC decreases 1/6 to 1/sqrt(120), both positive. Independently symbolically factored odd/even infinite families: F1 differences 6/[(2k+7)(2k+9)] and 6/[(2k+9)(2k+11)]; positive squared-MCC cross products (k+3)(k+4)(2k+7)(3k²+11k+4) and 4(k+3)(k+4)²(k+5)(3k+2). Thus every N>=7 has an exact reversal. Positive-cell and same prevalence boundaries are essential.",
+      "residual_risks": [
+        "The threshold is under all-positive-cells and fixed actual P, not arbitrary classifiers or confidence intervals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published general disagreements are strictly weaker as classification results: no universal N<7 exclusion, exactly three first pairs, nor positive-MCC persistent pair from every N."
+        ],
+        "reasoning": "Published general disagreements are strictly weaker as classification results: no universal N<7 exclusion, exactly three first pairs, nor positive-MCC persistent pair from every N.",
+        "searches": [
+          "F1 Matthews correlation coefficient fixed prevalence positive confusion matrices minimum 7 cases ranking reversal",
+          "Chicco Jurman 2020 six synthetic scenarios rank disagreement",
+          "https://link.springer.com/article/10.1186/s12864-019-6413-7",
+          "https://doi.org/10.1016/0005-2795(75)90109-9"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/seven-cases-are-the-sharp-f1-matthews-ranking-boundary--e1fbac7c9a99/RESULT.md",
+        "https://link.springer.com/article/10.1186/s12864-019-6413-7",
+        "https://doi.org/10.1016/0005-2795(75)90109-9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Definitions alone enable a cheap algorithm, but do not state the minimum or enumerate all first-layer reversals; the infinite explicit family and sharp cutoff are additional exact analyses."
+        ],
+        "reasoning": "Definitions alone enable a cheap algorithm, but do not state the minimum or enumerate all first-layer reversals; the infinite explicit family and sharp cutoff are additional exact analyses.",
+        "searches": [
+          "F1 Matthews correlation coefficient fixed prevalence positive confusion matrices minimum 7 cases ranking reversal",
+          "MCC/F1 standard formulas imply finite comparison through brute enumeration",
+          "https://link.springer.com/article/10.1186/s12864-019-6413-7",
+          "https://doi.org/10.1016/0005-2795(75)90109-9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ICC/phi-coefficient identity reformulates MCC but does not supply the finite first reversal threshold; fixed actual margins leave prediction-positive marginals free."
+        ],
+        "reasoning": "The ICC/phi-coefficient identity reformulates MCC but does not supply the finite first reversal threshold; fixed actual margins leave prediction-positive marginals free.",
+        "searches": [
+          "F1 Matthews correlation coefficient fixed prevalence positive confusion matrices minimum 7 cases ranking reversal",
+          "phi coefficient Matthews Pearson contingency versus Dice/F1 fixed margins",
+          "https://link.springer.com/article/10.1186/s12864-019-6413-7",
+          "https://doi.org/10.1016/0005-2795(75)90109-9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper includes illustrative synthetic tables, not an exhaustion of all 42 same-prevalence comparisons at N=7. Fresh independent enumeration reproduced three cases."
+        ],
+        "reasoning": "The paper includes illustrative synthetic tables, not an exhaustion of all 42 same-prevalence comparisons at N=7. Fresh independent enumeration reproduced three cases.",
+        "searches": [
+          "F1 Matthews correlation coefficient fixed prevalence positive confusion matrices minimum 7 cases ranking reversal",
+          "full 2x2 positive confusion matrices seven examples F1 MCC comparison table",
+          "https://link.springer.com/article/10.1186/s12864-019-6413-7",
+          "https://doi.org/10.1016/0005-2795(75)90109-9"
+        ]
+      },
+      "rationale": "The 2020 Chicco–Jurman full open-access article examines discrepancies between F1 and MCC on six synthetic scenarios and genomics data, showing general disagreement. Its methods and case-study sections do not state a least integer N under both strict positivity and common prevalence; indexed text searches for seven and fixed prevalence found no matches. The accepted novelty scope excludes the well-known existence of reversal: it is the sharp 7-case threshold, three complete minimum-layer pairs and for-all-N construction. Resultary semantic search did not identify the same finite threshold; folklore exercise risk remains.",
+      "residual_risks": [
+        "The threshold is under all-positive-cells and fixed actual P, not arbitrary classifiers or confidence intervals.",
+        "A niche teaching note or code fixture might already enumerate the same 42 first-layer pairs despite no hit in literature search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The primary explicitly says rankings disagree and gives six synthetic use cases; no 7-case fixed-prevalence optimality asserted in searched content.",
+          "evidence": [
+            "Methods state F1/MCC formulas, general disagreements and six use cases; no occurrence of fixed prevalence or seven in indexed full text."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s12864-019-6413-7",
+          "material_read": "Complete accessible Springer HTML, inspected Background, Methods and use-case framing with search across full text for seven/fixed-prevalence; not a PDF.",
+          "method": "Read primary full-text HTML relevant mathematics and results sections",
+          "title": "The advantages of the Matthews correlation coefficient (MCC) over F1 score and accuracy in binary classification evaluation",
+          "trigger": "most relevant primary general metric-disagreement work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/d88a3b7e22a88836e8d5b4fb7ea02f6da9f123ec/2026/10/12/seven-cases-are-the-sharp-f1-matthews-ranking-boundary--e1fbac7c9a99/RESULT.md",
+        "https://link.springer.com/article/10.1186/s12864-019-6413-7",
+        "https://doi.org/10.1016/0005-2795(75)90109-9"
+      ],
+      "rationale": "Classifier scores can disagree even on the same sample with identical actual class prevalence. The sharp seven-observation boundary and exact first layer isolate how small the disagreement can be under nondegenerate confusion matrices. The all-larger-size positive-MCC reversal construction prevents this from being a purely artificial N=7 curiosity. It is a motivated finite cutoff for two widespread metrics, not a new evaluation metric or a claim of empirical reliability.",
+      "residual_risks": [
+        "The threshold is under all-positive-cells and fixed actual P, not arbitrary classifiers or confidence intervals.",
+        "A niche teaching note or code fixture might already enumerate the same 42 first-layer pairs despite no hit in literature search."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The threshold is under all-positive-cells and fixed actual P, not arbitrary classifiers or confidence intervals.",
+    "A niche teaching note or code fixture might already enumerate the same 42 first-layer pairs despite no hit in literature search."
+  ],
+  "schema_version": 1
+}

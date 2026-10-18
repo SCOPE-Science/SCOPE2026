@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite domain is completely parameterized by \(TP\) and \(FP\) once \(N\) and \(P\) are fixed. Exact enumeration covers every positive-cell table through \(N=7\), every within-prevalence pair, and compares Matthews coefficients without floating-point arithmetic. The counts are \(0,0,0,3\) strict reversals for \(N=4,5,6,7\). The positive-Matthews witness has \(F_1\) values \(4/7<2/3\) and Matthews squares \(1/36>1/120\). The odd and even all-larger-size families follow from explicit positive factorizations, and the packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: zero-cell matrices are outside the theorem, and changing that boundary condition creates a different finite problem.
+PASS
 
-## Originality
-**PASS.** Prior work directly compares Matthews correlation and \(F_1\), explains why they can disagree, exhaustively studies large confusion-matrix sets, and reports real classifier rankings that change with the metric. Those results dominate any claim that disagreement itself is new. The accepted statement is instead the sharp fixed-prevalence positive-cell support boundary: no reversal through six observations, exactly three first-layer pairs at seven, and a same-prevalence positive-Matthews family for every larger sample size. Targeted published-result and web searches did not locate this boundary or the exact witness.
+Fixed N and P give exactly (P−1)(N−P−1) positive-cell matrices with free TP and FP. Independently enumerated every pair at every P for N=4,5,6,7: matrix totals 1,4,10,20, within-prevalence pairs 0,2,12,42, and exactly 0,0,0,3 strict reversals, with all three claimed N=7 pairs reproduced. For witness A=(2,1,2,2), B=(3,2,1,1), F1 increases 4/7 to 2/3 while MCC decreases 1/6 to 1/sqrt(120), both positive. Independently symbolically factored odd/even infinite families: F1 differences 6/[(2k+7)(2k+9)] and 6/[(2k+9)(2k+11)]; positive squared-MCC cross products (k+3)(k+4)(2k+7)(3k²+11k+4) and 4(k+3)(k+4)²(k+5)(3k+2). Thus every N>=7 has an exact reversal. Positive-cell and same prevalence boundaries are essential.
 
-Risk: because the finite boundary is elementary once the two formulas are juxtaposed, an unindexed teaching exercise or software regression test could contain an equivalent seven-case example.
+## originality
 
-## Value
-**PASS.** Matthews correlation and \(F_1\) are widely used competing summaries for binary biomedical classification, and published work documents that they can rank real classifiers differently. Fixing both sample size and class prevalence removes the most obvious source of incomparable evaluations. The smallest nondegenerate sample on which the metrics can still reverse is therefore a natural structural benchmark. The first layer contains a reversal with both classifiers positively correlated with truth, and the explicit all-size family shows the conflict is not a one-off pathology.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 2020 Chicco–Jurman full open-access article examines discrepancies between F1 and MCC on six synthetic scenarios and genomics data, showing general disagreement. Its methods and case-study sections do not state a least integer N under both strict positivity and common prevalence; indexed text searches for seven and fixed prevalence found no matches. The accepted novelty scope excludes the well-known existence of reversal: it is the sharp 7-case threshold, three complete minimum-layer pairs and for-all-N construction. Resultary semantic search did not identify the same finite threshold; folklore exercise risk remains.
+
+## value
+
+PASS
+
+Classifier scores can disagree even on the same sample with identical actual class prevalence. The sharp seven-observation boundary and exact first layer isolate how small the disagreement can be under nondegenerate confusion matrices. The all-larger-size positive-MCC reversal construction prevents this from being a purely artificial N=7 curiosity. It is a motivated finite cutoff for two widespread metrics, not a new evaluation metric or a claim of empirical reliability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
