@@ -1,79 +1,21 @@
-# Review of Sharp power-weight phase diagram for Cauchy-pole Bergman commutators
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The power-weight Békolle--Bonami range is reconstructed exactly from the defining Carleson-box integrals. After normalizing the lower-half-plane pole, the weighted oscillation quotient is estimated in two exhaustive geometric regimes.
+PASS
 
-For boxes shorter than their distance scale from the pole, the derivative estimate gives
-\[
-\mathcal O_s(I)
-\lesssim
-L^{1-s}R^{-r-1}.
-\]
-For boxes comparable to that scale, direct integration of
-\[
-|z+i|^{-r}
-\]
-gives the required bound. Together these prove weighted BMO membership for
-\[
--r\le s\le1.
-\]
+Reconstructed exactly the source analytic-symbol Theorems 1.4 and 1.6 hypotheses on upper half-plane alpha>-1, power weights mu=y^u,lambda=y^v with |u|,|v|<alpha+1, Bloom weight nu=y^s where s=(u-v)/2 and |s|<alpha+1. For pole strictly below boundary b(z)=(z-zeta)^(-r), r>0, translate and dilate to (z+i)^(-r). The BMO oscillation denominator is proportional to L^(alpha+s+2). On boxes L<=R/4, derivative yields O(L^(1-s) R^(-r-1)); L>R/4, direct decay integration gives O(L^(-r-s)), with integrable-tail cases handled when r>=alpha+2. Small boxes with I=[0,L] have positive asymptotic c L^(1-s); boxes I=[L,2L] at infinity c L^(-r-s). Both directions give BMOA iff -r<=s<=1. Uniform vanishing in the two box regimes (small L and escaping center) holds iff strict -r<s<1, with the same witnesses giving nonvanishing at both endpoints. Theorem 1.4/1.6 convert these precisely into boundedness/compactness of both [b,P_alpha] and [b,P_alpha^+]. No false conclusion from discrete samples.
 
-Necessity is not inferred from those upper bounds. Shrinking boxes give the positive asymptotic
-\[
-\mathcal O_s(I_L)
-\sim
-cL^{1-s},
-\]
-while translated expanding boxes give
-\[
-\mathcal O_s(I_L)
-\sim
-c'L^{-r-s}.
-\]
-These same asymptotics prove failure of the two VMO conditions at the endpoints. Hence
-\[
-\operatorname{BMOA}_{y^s}
-\]
-holds exactly on the closed strip and
-\[
-\operatorname{VMOA}_{y^s}
-\]
-exactly on its open interior. Applying the source theorems then gives the claimed boundedness and compactness equivalences for both commutators.
+## originality
 
-## Originality
+PASS
 
-PASS. The lead source proves a general two-weight characterization for analytic symbols, but its statement remains in abstract weighted BMOA/VMOA form. Full-text inspection found no explicit power-weight/Cauchy-pole specialization and no formula equivalent to
-\[
--2r\le u-v\le2
-\]
-with compactness given by the strict inequalities.
+Prior Hu–Li–Wagner establishes abstract two-weight iff characterizations, not the particular exact two-scale Cauchy-pole and power-weight phase diagram. This is an evaluated special family with independent exact necessity/sufficiency calculations, not merely renaming the BMO criterion; acknowledge possible earlier equivalent power-weight Bloch/Hankel estimates.
 
-The closest earlier analytic literature characterizes Bergman Hankel operators through BMO, VMO, or Bloch-type spaces in unweighted or structurally different settings. Those results do not dominate this two-weight phase diagram: the lower threshold depends on the decay exponent
-\[
-r,
-\]
-whereas the upper threshold is a local first-order boundary effect independent of
-\[
-r.
-\]
+## value
 
-Searches using the source title, power-weight aliases, weighted BMOA/VMOA terminology, Cauchy-pole symbols, and equivalent boundedness/compactness formulations did not identify an implication-equivalent published result. A residual risk remains from older weighted Bergman literature using different normalizations.
+PASS
 
-## Value
+Natural homogeneous test family resolving two distinct boundary mechanisms (local first derivative and far-field pole decay) and both sharp compactness endpoints, useful for checking two-weight commutator characterizations; nontrivial but bounded specialization of established BMOA/VMOA theory.
 
-PASS. Power weights are the canonical scale-homogeneous test family for the Békolle--Bonami theory, and lower-half-plane Cauchy poles are natural bounded holomorphic symbols with tunable algebraic decay.
-
-The classification exposes a genuine two-scale phenomenon hidden by the abstract theorem. The sharp upper wall
-\[
-u-v=2
-\]
-is local and comes from boundary regularity, while the lower wall
-\[
-u-v=-2r
-\]
-is global and records decay at infinity. The endpoints are bounded but noncompact, so the result also gives an exact compactness gap rather than only a boundedness test.
-
-This supplies a reusable model for understanding how source/target weight imbalance interacts with symbol regularity and decay in two-weight complex commutator theory.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

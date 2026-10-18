@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,156 +19,24 @@
 }
 ---
 
-For
-\[
-q\in\mathbb R,
-\]
-the exact power-weight test is
-\[
-y^q\in\mathcal B_2
-\quad\Longleftrightarrow\quad
-|q|<\alpha+1.
-\]
-This follows directly from the integrability of
-\[
-y^{\alpha+q}
-\quad\text{and}\quad
-y^{\alpha-q}
-\]
-on
-\[
-(0,L).
-\]
+# Independent mathematical audit
 
-After translating and dilating the pole, the symbol may be taken as
-\[
-b(z)=(z+i)^{-r}.
-\]
-For a Carleson box of length
-\[
-L,
-\]
-the denominator of the weighted oscillation quotient for
-\[
-\nu=y^s
-\]
-is comparable to
-\[
-L^{\alpha+s+2}.
-\]
+## correctness
 
-On boxes short compared with their distance scale
-\[
-R
-\]
-from the pole,
-\[
-|b'(z)|
-\lesssim
-R^{-r-1}
-\]
-and therefore
-\[
-\mathcal O_s(I)
-\lesssim
-L^{1-s}R^{-r-1}.
-\]
-This is uniformly bounded when
-\[
-s\le1
-\quad\text{and}\quad
-r+s\ge0.
-\]
+PASS
 
-On the complementary boxes,
-\[
-\int_{Q_I}|b|\,dA_\alpha
-\lesssim
-\begin{cases}
-L^{\alpha+2-r},&r<\alpha+2,\\
-\log(2+L),&r=\alpha+2,\\
-1,&r>\alpha+2.
-\end{cases}
-\]
-After division by the denominator, the same conditions give uniform boundedness.
+Reconstructed exactly the source analytic-symbol Theorems 1.4 and 1.6 hypotheses on upper half-plane alpha>-1, power weights mu=y^u,lambda=y^v with |u|,|v|<alpha+1, Bloom weight nu=y^s where s=(u-v)/2 and |s|<alpha+1. For pole strictly below boundary b(z)=(z-zeta)^(-r), r>0, translate and dilate to (z+i)^(-r). The BMO oscillation denominator is proportional to L^(alpha+s+2). On boxes L<=R/4, derivative yields O(L^(1-s) R^(-r-1)); L>R/4, direct decay integration gives O(L^(-r-s)), with integrable-tail cases handled when r>=alpha+2. Small boxes with I=[0,L] have positive asymptotic c L^(1-s); boxes I=[L,2L] at infinity c L^(-r-s). Both directions give BMOA iff -r<=s<=1. Uniform vanishing in the two box regimes (small L and escaping center) holds iff strict -r<s<1, with the same witnesses giving nonvanishing at both endpoints. Theorem 1.4/1.6 convert these precisely into boundedness/compactness of both [b,P_alpha] and [b,P_alpha^+]. No false conclusion from discrete samples.
 
-For necessity at small scale, use
-\[
-I_L=[0,L]
-\]
-and
-\[
-L\downarrow0.
-\]
-The nonzero derivative of
-\[
-(z+i)^{-r}
-\]
-at the origin gives
-\[
-\mathcal O_s(I_L)
-\sim
-cL^{1-s}
-\]
-with
-\[
-c>0.
-\]
-Thus bounded mean oscillation forces
-\[
-s\le1,
-\]
-and vanishing mean oscillation forces
-\[
-s<1.
-\]
+## originality
 
-For necessity at infinity, use
-\[
-I_L=[L,2L]
-\]
-and
-\[
-L\to\infty.
-\]
-Scaling by
-\[
-z=Lw
-\]
-gives the nonconstant limiting profile
-\[
-w^{-r},
-\]
-hence
-\[
-\mathcal O_s(I_L)
-\sim
-c'L^{-r-s}
-\]
-with
-\[
-c'>0.
-\]
-Thus bounded mean oscillation forces
-\[
-s\ge-r,
-\]
-and vanishing mean oscillation forces
-\[
-s>-r.
-\]
+PASS
 
-Therefore
-\[
-b\in\operatorname{BMOA}_{y^s}
-\quad\Longleftrightarrow\quad
--r\le s\le1,
-\]
-and
-\[
-b\in\operatorname{VMOA}_{y^s}
-\quad\Longleftrightarrow\quad
--r<s<1.
-\]
+Prior Hu–Li–Wagner establishes abstract two-weight iff characterizations, not the particular exact two-scale Cauchy-pole and power-weight phase diagram. This is an evaluated special family with independent exact necessity/sufficiency calculations, not merely renaming the BMO criterion; acknowledge possible earlier equivalent power-weight Bloch/Hankel estimates.
 
-The cited analytic-symbol Bergman commutator theorems then give the operator conclusions. No numerical experiment, truncated search, or finite enumeration is used as proof.
+## value
+
+PASS
+
+Natural homogeneous test family resolving two distinct boundary mechanisms (local first derivative and far-field pole decay) and both sharp compactness endpoints, useful for checking two-weight commutator characterizations; nontrivial but bounded specialization of established BMOA/VMOA theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
