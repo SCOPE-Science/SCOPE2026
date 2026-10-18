@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed-component induction uses the negative intersection with the smooth line, and the source's boundary-class existence theorem gives a general smooth irreducible residual. The even/odd intersection numbers are zero/one. The first Fitting ideal calculation follows locally from differentiating \(u^r\) and \(u^rv\), and the embedded excess has quotient \(\mathbf C_q\). The proof covers every stated integer without extrapolating finite checks.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The initiating paper provides smooth residual existence and the setting but does not formulate the complete intrinsic Jacobian singular subschemes or the even/odd embedded-point defect for these systems. The fixed-part observation and local product-of-divisors Jacobian calculations are acknowledged as standard consequences; the new claim is the explicit full-family intrinsic scheme classification. Searches under Fitting, Jacobian, parity, residual quartic-K3 line systems, and embedded-point aliases found no matching full-family theorem. A prior equivalent formulation using general singular schemes of reducible curves may remain unrecognized.
+PASS
 
-## Value — PASS
-The exact Jacobian scheme detects a scheme-theoretic one-point defect invisible in the reduced singular locus and supplies a uniform parity classification in the source's explicitly discussed range, including all multiplicities and the \(r=1\) boundary. The invariant is natural for the nonreduced divisors and their deformation theory, though no deformation theorem is asserted.
+PASS: On very general quartic Pic(X)=ZH+ZL with H.L=1,L²=-2. For D=kH+mL with 1<=k<=2m-1, negative D.L repeatedly forces r=m-floor(k/2) copies of L. Residual B=kH+floor(k/2)L has B.L=k-2floor(k/2) in {0,1} and B.(H-L)=3(k+floor(k/2))>0, so Kleppe criterion quoted by Castorena–Vite Lemma 2.2 ensures smooth irreducible general A. Even k gives disjoint A,L; odd gives one transverse reduced point. In local parameters with L:u=0 and A:v=0, intrinsic Fitting Jacobian ideal from F=u^r (even) is (u^(r-1)) and from F=u^r v (odd) is u^(r-1)(u,v); quotient has length one for r>=2, and for r=1 records isolated node. Independently checked derivative algebra for r=1..11 and parameter parity; analytic proof covers all integers.
 
-## Limitations
-Requires a very general quartic and a general residual divisor; exceptional Picard lattices and special members may behave differently. Literature exhaustiveness and independent audit are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Castorena–Vite 2026 already proves smooth residual criterion and in Proposition 2.4 handles the k=2m-1 line-plus-curve boundary; related small decompositions appear in Section 3. The inspected source does not formulate the intrinsic Fitting Jacobian singular-ideal parity or embedded associated point defect for all m,k. Elementary product-derivative ideals alone are classical, but their global parity assembly over the entire specified K3 line-system family is the surviving claim.
+
+## value
+
+PASS
+
+The source identifies the decomposition and Hilbert-geometric behavior of general members kH+mL, 1<=k<2m, as a natural unresolved region. Determining their complete intrinsic singular schemes—including an embedded length-one defect controlled by parity—gives a geometric invariant rather than just a multiplicity count. The theorem is uniform and handles the node/nonreduced boundary carefully.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
