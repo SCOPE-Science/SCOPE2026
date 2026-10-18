@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The only non-elementary input is the published edge-contact lemma stating that a minimum enclosing parallelogram may be chosen with one side from each opposite pair containing an edge of the polygon. Once both adjacent side directions are polygon-edge directions, area is the product of the corresponding widths divided by the sine of their mutual angle. Regularity makes those widths constant. For even side count the width is twice the apothem; for odd side count the opposite support is a vertex, giving \(R(1+\cos(\pi/n))\). Maximizing the sine over the discrete edge-direction lattice gives exactly the three cases. The bundled checker replays every edge-direction candidate through \(n=300\).
+## correctness
 
-## Originality
-**PASS, with an older-notes residual risk.** The later full treatment of the Schwarz--Teich--Welzl--Evans algorithm was materially inspected, including its optimality lemmas and the explicit edge-contact lemma attributed to the 1994 report. It does not state the regular-polygon closed form. The 1985 minimum circumscribing-\(k\)-gon source is broader but optimizes over arbitrary convex \(k\)-gons rather than parallelograms. Searches using minimum/smallest enclosing parallelogram, regular-polygon aliases, pentagon/hexagon cases, residue classes, and the exact cosine fingerprints did not locate an implication-equivalent formula. The inaccessible 1994 primary report and unindexed older notes remain explicit historical risks.
+PASS
 
-## Value
-**PASS.** Minimum enclosing parallelograms are a classical geometric-optimization primitive with a dedicated linear-time algorithm. Regular polygons are the canonical symmetric test family, and the result gives a complete exact evaluation rather than one numerical example. The modulo-four/odd transition and the three different second-order convergence constants expose structure not visible from the general algorithm alone.
+For every n>=3, the external edge-contact lemma guarantees a global optimum with two polygon-edge directions. Exact support widths and discrete angle lattice give the three displayed cosine formulas; the proof does not confuse finite checks with all-n justification. Independently enumerating all pairs of edge directions for n=3..90 agreed with the formulas (floating error under 2e-15).
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+No decisive prior statement implying the exact final formula was found in materially inspected primary texts; this is explicitly best-of-knowledge, not novelty certification. Known structural ingredients are distinguished from exact claimed invariant; the failed Resultary service is separately recorded and not counted as negative evidence.
+
+## value
+
+PASS
+
+Canonical regular polygons and the classic enclosing-parallelogram optimization have a natural exact extremal area. The arithmetic three-class split and three distinct asymptotic second-order coefficients form a reusable infinite-family evaluation, not a single instance or a renamed algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

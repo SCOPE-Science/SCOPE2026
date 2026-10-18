@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For side directions separated by an angle \(\phi\), the smallest enclosing parallelogram with those directions has area
-\[
-\frac{w_1w_2}{\sin\phi}.
-\]
+# Independent mathematical audit
 
-The published edge-contact lemma reduces a global minimum for a convex polygon to pairs of polygon-side directions.
+## correctness
 
-For a regular \(n\)-gon of circumradius \(R\), the side-normal width is
-\[
-2R\cos(\pi/n)
-\]
-when \(n\) is even, and
-\[
-R(1+\cos(\pi/n))
-=
-2R\cos^2(\pi/(2n))
-\]
-when \(n\) is odd.
+PASS
 
-The maximum sine of an angle between two side directions is
-\[
-1,\qquad
-\cos(\pi/n),\qquad
-\cos(\pi/(2n))
-\]
-in the three cases
-\[
-n\equiv0\pmod4,\qquad
-n\equiv2\pmod4,\qquad
-n\ \text{odd},
-\]
-respectively. Substitution gives the theorem.
+For every n>=3, the external edge-contact lemma guarantees a global optimum with two polygon-edge directions. Exact support widths and discrete angle lattice give the three displayed cosine formulas; the proof does not confuse finite checks with all-n justification. Independently enumerating all pairs of edge directions for n=3..90 agreed with the formulas (floating error under 2e-15).
 
-`verify.py` reconstructs the regular polygon from vertices, computes side-normal widths by support maxima and minima, enumerates all edge-direction pairs through \(n=300\), and checks the formula to floating-point tolerance.
+## originality
 
-The finite sweep is diagnostic only. The quantified proof is the exact edge-contact reduction plus the trigonometric calculation.
+PASS
+
+No decisive prior statement implying the exact final formula was found in materially inspected primary texts; this is explicitly best-of-knowledge, not novelty certification. Known structural ingredients are distinguished from exact claimed invariant; the failed Resultary service is separately recorded and not counted as negative evidence.
+
+## value
+
+PASS
+
+Canonical regular polygons and the classic enclosing-parallelogram optimization have a natural exact extremal area. The arithmetic three-class split and three distinct asymptotic second-order coefficients form a reusable infinite-family evaluation, not a single instance or a renamed algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
