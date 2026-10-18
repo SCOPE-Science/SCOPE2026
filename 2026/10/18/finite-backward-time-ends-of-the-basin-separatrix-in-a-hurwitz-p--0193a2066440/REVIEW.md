@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The stated parameter range, reduced coordinates, and the boundary \(\mu=588/6575\) have been checked explicitly. The proof makes forward trajectories bounded using a radial barrier and linear height variation of constants. The source's computed divergence is nonpositive at the endpoint but has strictly negative integral on every nonempty open region, sufficient for Green's theorem and the absence of cycles. There is a single saddle in the positive-radius half-plane; its two stable branches cannot remain bounded backward, because compact alpha-limits would force a forbidden homoclinic orbit or backward approach to a sink. Upon crossing \(r=\sqrt5\), both branches are forced to infinity at finite backward time. The exact asymptotic coefficients follow by integrating \(r^{-4}\) and the linear height and angle equations. A proper embedded stable line separates precisely the two sink basins. The standalone executable checks exact algebra and eight illustrative backward integrations; no numerical test is substituted for a theorem.
+
+## Originality — PASS
+The original article proves the periodic-orbit counts, reduced equations, and local hyperbolicity. It also describes separatrix basin separation in a numerical illustration for one parameter. Those statements are not claimed new. The additional global backward completeness dichotomy, finite backward blow-up at both stable ends, and their universal three-coordinate asymptotics were not present in the inspected complete original version or in the targeted prior-result searches. Searches for equivalents, stronger general coverage, exact source tables, and claim implication were made using the paper identifier, the flow, and backward finite-time separatrix terms. The closest returned mathematical dynamical records concern different systems and do not imply these particular endpoint laws. Priority remains subject to outside expert literature review, including the possibility of an unindexed or more-general theorem.
+
+## Mathematical value — PASS
+The source family is a natural explicit three-dimensional Hurwitz counterexample where attracting stationary and periodic states coexist. Characterizing the basin boundary's global ends is a structural question directly suggested by its phase portrait. Finite-time backward blow-up with the exact \(1/4\) radius exponent and \(1/2\) height/angle corrections describes global geometry not supplied by local saddle stability or a numerical separatrix curve. The result is uniform over a nontrivial parameter interval; it does not claim a solution of the general Hurwitz-flow basin classification problem.
+
+## Literature and limitations
+Closest source: Castañeda and Rebollo-Perdomo, arXiv:2610.09176v1, Theorem 1, Lemma 1, proof of Lemma 1, and Section 4. Classical Bendixson–Dulac and Poincaré–Bendixson theory are essential standard inputs. We do not infer novelty from a failed search and do not assert independent audit or broader dynamical classifications. The result does not establish Hurwitz Jacobians for all real angular parameters.
+
+Self-review: passed. Independent audit: not yet performed.

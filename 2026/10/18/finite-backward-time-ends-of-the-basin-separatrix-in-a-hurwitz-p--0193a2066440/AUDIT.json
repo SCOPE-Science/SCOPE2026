@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For every \\(0<\\mu\\le588/6575\\), the radial barrier bounds all forward trajectories and the linear height equation bounds z; the reduced field has a saddle at (1,-1/10), sinks at (0,0) and (2,-2/5), with corrected exact \\(\\det J_2=600\\mu/21\\). Its divergence has strictly negative area integral even at the endpoint, excluding periodic and homoclinic recurrence. A backwards stable branch with bounded radius would yield an alpha-limit at a forbidden equilibrium or have divergent height forcing outward radial growth, so both cross sqrt(5). Thereafter quintic radial growth causes finite-time backward blow-up, while integrable squared radius makes z and theta converge. Integrating the radial inverse fourth power and linear z/theta equations gives all three coefficients, including the e-dependent angular one. Proper-line separation establishes the full two-basin classification. SymPy identities and eight finite integrations replay from the packaged verifier, but are not substituted for analytical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Castañeda–Rebollo-Perdomo (2026) source, Sections 2–4; classical Poincaré–Bendixson and Bendixson–Dulac results are part of the proof.",
+        "published-finding corpus closest 2026/9/20/SCOPE-rabinovich-fabrikant-recurrence-sign-selection--047ddc1ae9fc treats different polynomial vector fields and recurrence identities.",
+        "published-finding corpus closest 2026/10/4/SCOPE-one-sided-grazing-instability-and-logarithmically-corrected-esca--b0ee39ce3fb0 treats a different hysteresis map."
+      ],
+      "reasoning": "General planar recurrence theorems establish ingredients but do not directly provide the backwards finite-time behavior of both saddle branches or their exact asymptotic constants in this quintic radial field. No retrieved stronger prior theorem supplied this specialization without further analysis.",
+      "searches": [
+        "Hurwitz polynomial R3 periodic orbits three equilibria reduced planar global convergence bounded trajectories",
+        "Hurwitz polynomial vector fields R3 global basin attracting periodic orbit separatrix",
+        "global boundedness planar dissipative saddle two sinks proper stable manifold basin boundary three-dimensional polynomial",
+        "Hurwitz polynomial vector field radial flow two stable separatrix branches finite-time infinity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.09176v1 full HTML, main theorem, Lemma 1 and its proof, numerical section and references",
+      "arxiv:2209.06986 abstract only",
+      "published-finding corpus 2026/9/20/SCOPE-genesio-recurrence-balance-and-period-floor--05dd465b6b5b",
+      "published-finding corpus 2026/9/20/SCOPE-rabinovich-fabrikant-recurrence-sign-selection--047ddc1ae9fc",
+      "published-finding corpus 2026/10/4/SCOPE-one-sided-grazing-instability-and-logarithmically-corrected-esca--b0ee39ce3fb0",
+      "published-finding corpus 2026/9/18/SCOPE-exact-first-integral-memory-blowup-dichotomy--7383b48da300"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.09176v1, Lemma 1 proves local cycle hyperbolicity, exact two periodic circles, and the divergence obstruction; Section 4 explicitly says the separatrix divides two basins for one depicted parameter.",
+        "This finding uses those earlier facts and adds barriers for all forward orbits, backwards stable branches, finite backward blow-up and three-term endpoint geometry."
+      ],
+      "reasoning": "Local saddle hyperbolicity alone allows stable branches with infinite backward lifetime; an illustrative finite-window basin partition does not imply the claimed finite backward-time divergence. The additional asymptotic profiles are derived from the precise quintic dominant balance and coupled height/angle equations, with all boundary cases analyzed. Existing assertions about the cycles, including the full two-orbit count, are entirely prior coverage and not presented as new.",
+      "searches": [
+        "Castañeda Rebollo Perdomo 2610.09176 Hurwitz polynomial vector field global basin separatrix convergence all initial conditions",
+        "\"A family of Hurwitz polynomial vector fields\" periodic orbits Castañeda Rebollo",
+        "\"2610.09176\" separatrix finite backward blowup r(t) asymptotic",
+        "Castañeda Rebollo-Perdomo stable separatrix two branches finite-time explosion r inverse fourth-root",
+        "Hurwitz polynomial vector field radial flow two stable separatrix branches finite-time infinity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.09176v1, full HTML, proof of Lemma 1 and Section 4; explicitly describes a stable separatrix basin split but states no finite-time backward blow-up law.",
+        "published-finding corpus closest 2026/9/18/SCOPE-exact-first-integral-memory-blowup-dichotomy--7383b48da300 concerns a distinct exponential-memory differential system; not this polynomial Hurwitz flow."
+      ],
+      "reasoning": "Compared the actual flows and asserted conclusions. The source proves orbit counts and gives a numerical phase portrait and a separatrix description; neither entails that each complete backward stable branch reaches infinity at a finite endpoint or the exact inverse-fourth-root and square-root corrections. The exponential-memory source is not mathematically equivalent.",
+      "searches": [
+        "Castañeda Rebollo Perdomo 2610.09176 Hurwitz polynomial vector field global basin separatrix convergence all initial conditions",
+        "polynomial Hurwitz vector field basin boundary saddle periodic orbit rigorous separatrix",
+        "\"A family of Hurwitz polynomial vector fields\" periodic orbits Castañeda Rebollo",
+        "\"2610.09176\" separatrix finite backward blowup r(t) asymptotic",
+        "Castañeda Rebollo-Perdomo stable separatrix two branches finite-time explosion r inverse fourth-root"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2610.09176v1, Section 4 Figure 2 is a numerical phase portrait, not an endpoint-asymptotic table.",
+        "published-finding corpus closest 2026/9/20/SCOPE-genesio-recurrence-balance-and-period-floor--05dd465b6b5b is a different polynomial flow."
+      ],
+      "reasoning": "The desired result is an infinite-time/finite-endpoint continuous-flow classification, not a finite catalog. Neither the original paper’s figure nor the returned records provide exact tabulated endpoint exponents, coefficients or boundedness facts for this family.",
+      "searches": [
+        "Castañeda Rebollo Perdomo 2610.09176 Hurwitz polynomial vector field global basin separatrix convergence all initial conditions",
+        "global omega-limit classification cylindrical reduced planar polynomial rdot = -mu*r*(21*r^4-125*r^2+400*z^2+100)/21 zdot=-z-r^2/10",
+        "\"2610.09176\" separatrix finite backward blowup r(t) asymptotic"
+      ]
+    },
+    "rationale": "The source arxiv:2610.09176v1 already establishes two cycles, their stability and the reduced planar equation, and specifically describes a basin-dividing curve in a numerical example. The new conclusion is the rigorous parameter-uniform backward existence geometry: both stable branches terminate in finite backward time with \\(r(t)\\sim(4\\mu(t-t_*))^{-1/4}\\) and the exact height and phase square-root corrections. Material comparison of the same-paper full text and targeted published-finding corpus searches found no equivalent or dominating published item. Classical recurrence methods are credited as prior mathematical tools. Unindexed and more general work remains a real priority risk.",
+    "residual_risks": [
+      "A broader standard planar polynomial stable-manifold infinity theorem could imply the asserted rates upon specialization; no such decisive coverage was found in the checked sources.",
+      "The exact basin-dividing topology is explicitly described in the original paper for one displayed parameter; do not treat that source-covered observation alone as an original contribution.",
+      "arxiv:2209.06986 comparison based on abstract rather than complete primary manuscript; it concerns a different family and is not treated as whole-document noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exact two circles, local stability, divergence obstruction and a verbally described basin split for one numerical portrait; does not state or derive uniform backward finite-time ends or their exponents and coefficients.",
+        "evidence": [
+          "arxiv:2610.09176v1, Theorem 1; Lemma 1; Section 3 Proof of Lemma 1; Section 4 Figure 2 discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.09176v1",
+        "material_read": "Abstract and main theorem, full statement and proof of Lemma 1, cylindrical reductions, divergence and Jacobian calculation, Section 4 numerical illustration and references. Result-relevant material in Sections 2–4 was inspected; the full unrelated computer-assisted Hurwitz-polynomial proof was not evaluated as part of the new claim.",
+        "method": "Direct open-access HTML reading and statement-by-statement implication comparison; source arXiv v1 public 2026-10-06.",
+        "title": "A family of Hurwitz polynomial vector fields in R^3 having non-constant periodic orbits",
+        "trigger": "Exact same polynomial family; decisive source for both positive coverage and potential originality obstruction."
+      },
+      {
+        "assessment": "A different nilpotent family; not proof of noncoverage, retained as residual literature comparison risk.",
+        "evidence": [
+          "arxiv:2209.06986, abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.06986",
+        "material_read": "Abstract and bibliographic identification only, not entire manuscript.",
+        "method": "Accessible abstract-level comparison; no whole-document noncoverage inference.",
+        "title": "Discrete and continuous dynamics of real 3-dimensional nilpotent polynomial vector fields",
+        "trigger": "Related authors and three-dimensional polynomial global dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0193a206-6440-451d-b7f8-49b178a2415b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The basin boundary in the newly introduced three-dimensional polynomial Hurwitz counterexample is a natural global invariant, not a selected arbitrary numerical slice. The finite-backward-time stable-end property distinguishes a bounded forward attractor landscape from an unexpectedly finite-past singular stable cylinder; the exact 1/4 and 1/2 singular exponents and universal coefficients quantify geometry left open by a finite numerical phase portrait. The theorem covers a full positive parameter range with exact endpoint control and clarifies the complete basin partition. The problem is structural, not merely a consistency check; it does not claim wider Hurwitz-class results.",
+    "status": "PASS"
+  }
+}
