@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The package includes the standalone file `verify.py`. Run `python verify.py` with Python 3 and no third-party packages. It must print `VERIFY_OK` and the eight inspected field/twist cases. It checks finite-field arithmetic, complete commutator-fiber tables, centralizer-size distributions, exact proper centralizer subgroups, noncentral clique component counts, and a constructive additive intertwiner for two twists of \(\mathbb F_{32}\). All arithmetic is exact (bit-polynomial finite fields and integers).
+## correctness
 
-Computational coverage: characteristic \(2\) with \(q=4,8,16,32\), eight nontrivial field twists. The verifier does not enumerate all primes, field sizes or twists, and its checks do not replace the general proof. The arbitrary-characteristic statement uses the symbolic commutator formula and elementary linear algebra over finite fields. The older literature is used for context and distinctions; no independent audit or external certification was performed.
+PASS
+
+Directly recomputed multiplication and [a+bu,c+du]=(dΔσ(a)-bΔσ(c))u. Δσ kernel F gives center F. Noncentral centralizers Cλ (q of size q) and C∞ (size sq) intersect in F, yielding noncentral graph q copies K_{q-s} and one K_{s(q-1)}. For (a,c) outside F², surjective K-linear map in (b,d) has q fibers each; zero case receives extra q²s². For common fixed field, cyclic Galois generators σ,τ have imΔσ=imΔτ; an F-linear complement produces T with ΔτT=Δσ; thus pointwise radical-fixed additive commutator map. Ring isomorphism forces twists equal and anti-isomorphism inverse by radical bimodule relation. Independently rebuilt each of five source Git tree hashes including this one; finite-field verifier covers q=4..32 as finite checks, not infinite proof.
+
+## originality
+
+PASS
+
+Classical twisted matrix models, generic CC-graph clique theorem, and noncommuting-graph isoclinism implication are known. The precise fixed-field iff criterion with a pointwise additive commutator-preserving bijection and every exact commutator fiber are not supplied by these inspected statements.
+
+## value
+
+PASS
+
+Natural complete commutator-structure classification of a classical finite-ring family, distinguishing abstract isomorphism from finer additive commutator equivalence, yields exact centralizer and fiber invariants useful in ring graph/isoclinism theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
