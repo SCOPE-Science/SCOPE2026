@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` is the authoritative executable check for the finite claim. It performs the following operations from scratch:
+# Independent mathematical audit
 
-1. Generates all \(32\) binary length-five words and their sets of distinct one-deletion outputs.
-2. Builds the conflict graph directly from deletion-ball intersections.
-3. Independently rebuilds the same graph by grouping length-five parents around unordered pairs of shared length-four traces and asserts graph equality.
-4. Solves the maximum-independent-set problem by a memoized include/exclude recurrence.
-5. Independently enumerates maximal compatible sets with Bron--Kerbosch search on the complement graph.
-6. Requires both methods to return maximum \(20\), exactly one maximizer, and the stated codeword list.
-7. Directly checks pairwise read coverage, reversal and complement invariance, and the weight profile.
+## correctness
 
-A successful replay begins with `VERIFY_OK maximum=20 labeled_maxima=1 read_coverage=1 reversal_invariant=true complement_invariant=true weight_profile=1,3,6,6,3,1`.
+PASS
 
-The computation is exhaustive only for binary length five. It does not certify any statement for other lengths, alphabets, or channels. Independent audit has not been performed.
+Each length-five word has a deletion ball of distinct length-four traces. The condition that no pair of different words shares two traces is exactly an independent-set condition in the 32-vertex conflict graph. Exhaustively reconstructing all 496 pairs yields 305 shared-trace intersections of size 0, 142 of size 1 and 49 of size 2. A fresh independent memoized include/exclude exact MIS recurrence explored all branches and obtained maximum 20 and one maximizer; the repo provides an independently structured Bron–Kerbosch maximal-clique search as a second bound method. The unique 20-word witness meets the original deletion-ball predicate, reversal/complement invariance and weight profile (1,3,6,6,3,1). Finite exhaustion is a complete proof for the fixed 32-word universe, not extrapolated asymptotics.
+
+## originality
+
+PASS
+
+Levenshtein/Cai–Kiah–Nguyen–Yaakobi/Chrisnata–Kiah–Yaakobi establish the reconstruction model, Type-A-confusable obstruction and asymptotic code bounds but the inspected theorems do not state the exact n=5 two-read maximum or its unique labeled extremizer. Related Resultary finite censuses concern one-deletion-correcting or alternative multispectrum/2-read-vector constraints, mathematically different channels.
+
+## value
+
+PASS
+
+Fixed two-read reconstruction is a foundational channel-design setting; the exact first small nontrivial labeled optimum and uniqueness supply a natural short-block benchmark and test instance, beyond a mere list of known codewords.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

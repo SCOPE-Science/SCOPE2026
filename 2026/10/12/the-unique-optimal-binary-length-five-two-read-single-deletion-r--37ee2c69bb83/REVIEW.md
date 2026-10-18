@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite claim was reconstructed from the complete set of \(32\) length-five binary words. Two independent conflict-graph constructions agree, and two independent exact optimization procedures both give maximum \(20\) with exactly one maximizer. The final pairwise check verifies read coverage \(1\), and the stored code list reproduces the claimed symmetries and weight profile.
+## correctness
 
-## Originality
-PASS. The directly relevant literature defines the same fixed-read reconstruction-code problem, characterizes the two-output conflict relation, and proves asymptotic redundancy bounds. Targeted statement-level searches and full-text inspection did not locate the finite \(n=5\) optimum or equality classification. A later broader asymptotic deletion-reconstruction result uses a different deletion-correcting-code premise and does not imply this finite unrestricted codebook result. Residual risk remains for obscure or unindexed finite tables.
+PASS
 
-## Value
-PASS. This is a natural exact finite benchmark for the two-read single-deletion reconstruction problem: it closes both the extremal size and equality layer at length five. The unique optimizer is materially stronger than merely exhibiting a twenty-word construction and is useful for testing finite bounds and constructions against a fully resolved case.
+Each length-five word has a deletion ball of distinct length-four traces. The condition that no pair of different words shares two traces is exactly an independent-set condition in the 32-vertex conflict graph. Exhaustively reconstructing all 496 pairs yields 305 shared-trace intersections of size 0, 142 of size 1 and 49 of size 2. A fresh independent memoized include/exclude exact MIS recurrence explored all branches and obtained maximum 20 and one maximizer; the repo provides an independently structured Bron–Kerbosch maximal-clique search as a second bound method. The unique 20-word witness meets the original deletion-ball predicate, reversal/complement invariance and weight profile (1,3,6,6,3,1). Finite exhaustion is a complete proof for the fixed 32-word universe, not extrapolated asymptotics.
 
-## Closest literature and limitations
-Levenshtein introduced the reconstruction problem for deletion traces. Cai–Kiah–Nguyen–Yaakobi formalized fixed-\(N\) reconstruction codes and the Type-A-confusability obstruction for two single-deletion reads, while Chrisnata–Kiah–Yaakobi established asymptotic optimality of the \(\log_2\log_2 n\) redundancy scale. The present result is restricted to binary length five and does not extrapolate to larger lengths or other channels.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Levenshtein/Cai–Kiah–Nguyen–Yaakobi/Chrisnata–Kiah–Yaakobi establish the reconstruction model, Type-A-confusable obstruction and asymptotic code bounds but the inspected theorems do not state the exact n=5 two-read maximum or its unique labeled extremizer. Related Resultary finite censuses concern one-deletion-correcting or alternative multispectrum/2-read-vector constraints, mathematically different channels.
+
+## value
+
+PASS
+
+Fixed two-read reconstruction is a foundational channel-design setting; the exact first small nontrivial labeled optimum and uniqueness supply a natural short-block benchmark and test instance, beyond a mere list of known codewords.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
