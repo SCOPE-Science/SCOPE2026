@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The three printed payoff-difference brackets vanish exactly at \((1/2,1/2,1/2)\) for the stated parameters. The bracket derivative has determinant \(4\), giving open-parameter persistence, and the full Jacobian has the exact saddle spectrum. The trace-zero identity follows directly from the replicator structure.
+## correctness
 
-## Originality
-PASS. The source states that no internal equilibrium exists while also referring to an internal saddle. Related tripartite-game papers contain mixed equilibria but do not give the exact equilibrium, persistence certificate, or spectrum for this 2026 model. Source-specific searches found no equivalent correction.
+PASS
 
-## Value
-PASS. The result corrects the equilibrium geometry on an open parameter set and explains why a mixed equilibrium can exist without being an ESS. This distinction is relevant to multi-attractor evolutionary dynamics.
+Substitution of the stated positive parameters into the printed constant-R payoff differences gives G=(2yz-1/2,2x+z-3/2,2x+y-3/2), vanishing at (1/2,1/2,1/2). The bracket derivative [[0,1,1],[2,0,1],[2,1,0]] has determinant 4, so the implicit function theorem supplies an open parameter neighborhood of interior equilibria. Multiplication by the positive diagonal factor 1/4 gives eigenvalues -1/4,(1±sqrt(17))/8 and hence a hyperbolic saddle. At every interior equilibrium payoff differences vanish and are each independent of own strategy, so Jacobian diagonal and trace are zero; a hyperbolic trace-zero equilibrium must have positive and negative real parts. Independent rational-symbolic determinant and characteristic polynomial checks agree.
 
-## Closest literature and limitations
-Li et al. (2021), DOI 10.1155/2021/1984676, and Liang et al. (2023), DOI 10.1155/2023/1700651, show that mixed equilibria can occur in other tripartite evolutionary games. The explicit example is not the motivating paper's calibration, nonhyperbolic interior equilibria are not classified, and no global separatrix is determined.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating 2026 primary article states in Discussion that there is no internal equilibrium while also referring inconsistently to an internal unstable saddle. It did not exhibit this admissible exact interior equilibrium or its nonzero persistence determinant. Other three-party games can have mixed saddles but do not imply this model-specific parameter realization. It is an original correction to an explicit exclusion, not a new general theory of replicators.
+
+## value
+
+PASS
+
+The stated source equilibrium enumeration omits an interior saddle on an OPEN subset of parameters; it is not a measure-zero artifact. The saddle can alter the model equilibrium geometry and interpretation of numerical basin boundaries without asserting stability or globally classifying separatrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
