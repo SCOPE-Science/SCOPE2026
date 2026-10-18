@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T17:50:50.423380Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 25376a9627b9c3ee76505776b2df652af71f039d at tree 2562b8352b774af972c7115909f2a616befcafd1",
+        "Independent /mnt/data/_scope06_3cycle_check.py exact Gram calculation n=4..8",
+        "Scarabotti–Tolli arxiv:math/0701533 §3.2"
+      ],
+      "rationale": "Explicitly reconstructed the Hilbert-Schmidt coefficient isometry via Schur orthogonality, End(V)=[n]⊕[n−1,1]⊕[n−2,2]⊕[n−2,1,1], symmetric/alternating decomposition of 3-cycle matrices, triangle Laplacian with eigenvalues 3,3, and the four projection-norm averages. Independent exact integer Gram tests for n=4,…,8 reproduce all sector eigenvalues/multiplicities and first four traces. Boundaries n=4 degeneracy, n=5 positivity/coincident values and n≥6 extremal ratio were checked; these finite traces corroborate, not replace, the all-n proof.",
+      "residual_risks": [
+        "All parameter proof depends on standard multiplicity-free tensor-square Specht decomposition and correct Schur normalization; only n≤8 independently enumerated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic Schur-orthogonality and class-invariant averaging hold broadly; both source theorems predate the claim."
+        ],
+        "reasoning": "Their statements cover the representation-theoretic mechanism but do not furnish all four explicit projections or the n=5 threshold; the new computation is not a new general averaging theorem.",
+        "searches": [
+          "arxiv:math/0701533 §3",
+          "arxiv:1509.05739 §II",
+          "three cycle random walk spectrum symmetric group S_n sampling four eigenvalue levels representations character ratios"
+        ]
+      },
+      "checked_sources": [
+        "Harmonic analysis on a finite homogeneous space (https://arxiv.org/pdf/math/0701533)",
+        "Low-Coherence Frames from Group Fourier Matrices (https://arxiv.org/pdf/1509.05739)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scarabotti–Tolli general decomposition Eq.(3.32) does not imply raw values n(n−2)(n−4)^2/3,n(n−3),n−4,n absent geometric 3-cycle projection sizes."
+        ],
+        "reasoning": "There is no direct specialization from the identified published formulas giving this class frame; that projection computation and sharp boundary are the independent contribution.",
+        "searches": [
+          "arxiv:math/0701533 §3.2",
+          "arxiv:1509.05739 conjugacy discussion",
+          "three cycle random walk spectrum symmetric group S_n sampling four eigenvalue levels representations character ratios"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scarabotti–Tolli §3.2 identifies the four Specht types in an ordered-pair permutation module; it does not give the 3-cycle class frame spectrum in the inspected work.",
+          "Thill–Hassibi treats finite group Fourier frames/coherence, not the four eigenvalues of this specific concentration operator."
+        ],
+        "reasoning": "Equivalent formulations are the nonzero Gram eigenvalues of standard-representation 3-cycle matrices and sampling singular values. Generic group-frame theory and the ordered-pair module decomposition do not determine the displayed n-dependent spectral values without triangle-Laplacian projections.",
+        "searches": [
+          "arxiv:math/0701533",
+          "arxiv:1509.05739",
+          "three cycle random walk spectrum symmetric group S_n sampling four eigenvalue levels representations character ratios"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fixed-n character tables could give some rows; independent exact Gram checks n=4..8 are bounded only."
+        ],
+        "reasoning": "No all-n four-eigenvalue table was present in material actually inspected; an unindexed association-scheme table remains an actual residual risk.",
+        "searches": [
+          "arxiv:math/0701533 §3.2",
+          "arxiv:1509.05739 group-frame tables",
+          "three cycle random walk spectrum symmetric group S_n sampling four eigenvalue levels representations character ratios"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the explicitly derived 3-cycle concentration spectrum, not for general Schur theory; strongest identified original texts were read and compared by implication.",
+      "residual_risks": [
+        "An older association scheme or conjugation frame may have equivalent all-n eigenpolynomials.",
+        "Resultary service unavailable in this execution; cannot use failed query as novelty evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_DECOMPOSITION_PARTIAL_COVERAGE",
+          "evidence": "§3.2 Eq.(3.32) includes scalar, two standard, [n-2,2], [n-2,1,1] ordered-pair sectors, but the inspected application decomposes permutation modules and does not calculate the all-three-cycle restriction Gram eigenvalues.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0701533",
+          "material_read": "Full primary searchable text, introduction, §3.2 discussion and the two ordered-pair decompositions; checked for class-specific 3-cycle sampling and exact spectrum.",
+          "method": "arXiv original PDF text and first-page visual inspection; searched three-cycle and spectrum aliases.",
+          "title": "Harmonic analysis on a finite homogeneous space",
+          "trigger": "Same symmetric-group standard Specht factors and matrix-coefficient tools."
+        },
+        {
+          "assessment": "GENERIC_FRAME_PARTIAL_COVERAGE",
+          "evidence": "Text around p13–14 explains that frame inner products are constant on conjugacy classes, and work optimizes coherence of representations; no identified 4 Specht-sector n-polynomial restriction spectrum for standard S_n block.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.05739",
+          "material_read": "Full searchable PDF with introduction, conjugacy/characters §II, frame construction; checked all-three-cycle exact matrix restriction.",
+          "method": "arXiv PDF text search and page visual verification.",
+          "title": "Low-Coherence Frames from Group Fourier Matrices",
+          "trigger": "Possible stronger frame result on finite-group conjugacy selections."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Independent exact Gram results and complete claim/proof in RESULT.md",
+        "Thill–Hassibi 2015 frame motivation"
+      ],
+      "rationale": "The standard Fourier band and the entire conjugacy class are natural sampling objects; the four-sector classification yields a sharp nontrivial injectivity transition and exact condition number. The alternating sector of oriented three-cycles distinguishes it from obvious transposition formulas.",
+      "residual_risks": [
+        "Only complete-class uniform sampling; not arbitrary subsets or noisy weighted samples."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n≥4, concentration onto all three-cycles in the full standard matrix-coefficient Fourier block of S_n has four explicit normalized eigenvalue/multiplicity pairs; rank six at n=4, full rank exactly at n≥5, and sharp condition sqrt(n(n-2)(n-4)/3) for n≥6.",
+  "limitations": [
+    "Published-finding semantic Resultary search attempted with query: three cycle random walk spectrum symmetric group S_n sampling four eigenvalue levels representations character ratios. Returned temporarily_unavailable / search_internal_error, search_completed:false. No negative search inference.",
+    "Actual Git tree and all record blobs were fetched by frozen Git identities; old same-model PASS and VERIFY_OK logs were not treated as independent proof or originality evidence."
+  ],
+  "schema_version": 1
+}

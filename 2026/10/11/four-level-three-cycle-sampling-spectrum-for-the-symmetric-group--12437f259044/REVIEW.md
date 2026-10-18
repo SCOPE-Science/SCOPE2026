@@ -1,11 +1,21 @@
-# Scientific review: three-cycle standard-Fourier restriction
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reconstructs the normalized Fourier coefficient isometry, the multiplicity-free symmetric-group decomposition of endomorphisms, the triangle Laplacian of the symmetric part of a three-cycle, and the precise norms of all four conjugation projections. Each eigenvalue is class size times squared projection norm divided by representation dimension, with the uniform-group scale included. The exceptional rank loss at \(n=4\), level collisions at \(n=5\), and positive-definite regime thereafter were checked explicitly. The exact integer Gram checker tests the first four spectral moments and a full annihilator for \(4\le n\le8\), but the proof, not the bounded tests, establishes the full range.
+## correctness
 
-**Originality — PASS, with residual risk.** Scarabotti--Tolli's finite homogeneous harmonic analysis gives the relevant general module theory, while Thill--Hassibi gives group Fourier frame constructions and conjugacy-dependent coherence. The inspected sections do not state the complete standard-block three-cycle concentration eigenvalues, or imply the recovery threshold without new geometric projection calculations. Related transposition sampling has a different operator and does not cover oriented three-cycle sampling. Historical association-scheme formulas could possibly encode an equivalent answer; a universal priority claim is not made.
+PASS
 
-**Value — PASS.** The three-cycle conjugacy class is the natural next nontrivial even permutation support after transpositions, and the standard Fourier band is intrinsic. The result is a complete spectral classification, a sharp injectivity boundary, and a closed exact sampling condition number, all from a four-sector decomposition. The exterior sector makes the phenomenon more than a relabeling of symmetric sampling.
+Explicitly reconstructed the Hilbert-Schmidt coefficient isometry via Schur orthogonality, End(V)=[n]⊕[n−1,1]⊕[n−2,2]⊕[n−2,1,1], symmetric/alternating decomposition of 3-cycle matrices, triangle Laplacian with eigenvalues 3,3, and the four projection-norm averages. Independent exact integer Gram tests for n=4,…,8 reproduce all sector eigenvalues/multiplicities and first four traces. Boundaries n=4 degeneracy, n=5 positivity/coincident values and n≥6 extremal ratio were checked; these finite traces corroborate, not replace, the all-n proof.
 
-**Limits.** Claims are restricted to complete class sampling, ordinary scalar \(\ell^2\) norms and the standard Fourier block. No independent review has occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the explicitly derived 3-cycle concentration spectrum, not for general Schur theory; strongest identified original texts were read and compared by implication.
+
+## value
+
+PASS
+
+The standard Fourier band and the entire conjugacy class are natural sampling objects; the four-sector classification yields a sharp nontrivial injectivity transition and exact condition number. The alternating sector of oriented three-cycles distinguishes it from obvious transposition formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
