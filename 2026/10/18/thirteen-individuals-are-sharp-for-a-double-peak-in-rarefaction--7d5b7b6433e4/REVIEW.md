@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The hypergeometric absence-probability identity follows directly from counting labelled subsets and expanding the variance of the sum of represented-species indicators. The supplied standard-library verifier implements the unique positive-partition recurrence, checks the known partition counts for every total from 3 through 13, and independently recomputes each richness variance by multivariate hypergeometric convolution. The full rational witness sequence yields strict peaks at 3 and 6; every other census through the finite sharp boundary is checked exhaustively. There is no infinite-size conclusion based on finite experiments.
+
+**Originality — PASS, subject to stated bibliographic risks.** The 1975 rarefaction formulas and 2012 phylogenetic-diversity formulas calculate moments, but no inspected material gives the exact thirteen-individual threshold and uniqueness. Literature on species-richness expectation, coverage-based rarefaction, phylogenetic-diversity fluctuation, occupancy covariances, or monotonicity under abundance balancing is not a proof of the present two-local-peaks classification. The full technical content of Heck et al. (1975) and Tong (1983) was not accessible; possible earlier explicit profiles or stronger classifications remain a material residual risk. Absence of a search hit is not independently conclusive.
+
+**Mathematical value — PASS.** A single-peaked uncertainty curve would simplify selection of rarefaction sampling depth, but the precise counterexample and sharp census minimum show that uncertainty can fall and rise again even though mean richness is monotone. The proof identifies the smallest abundance profile and the unique first-layer extremizer, supplying a meaningful exact boundary for an established ecological sampling statistic rather than an arbitrary isolated calculation.
+
+**Scientific limits.** Conditional uniform-without-replacement sampling from fully known positive-integer species abundances. Neither larger-size classification nor with-replacement or estimated-richness analogues is asserted. Independent scientific validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
