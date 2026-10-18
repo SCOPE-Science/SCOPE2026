@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T17:18:17.777455Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Carmichael n, Korselt guarantees squarefree odd n. Write d_min for the least divisor with d*lcm_{p|d}(p−1)>n and p1>p2>... its descending prime factors. For j≥2, removing p_j from n leaves p1, giving lambda(n/p_j)≥p1−1>p_j because distinct odd primes differ by at least 2; hence n/p_j is stopping, so d_min≤n/p_j. But d_min≥p1...p_j>p_j^j, yielding p_j^(j+1)<n. The result is universal, not a finite exhaustive extrapolation. Independent integer enumeration of 16 Carmichael numbers through 100000 tested 18 depth inequalities and critical printed B=10^24 cutoffs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Advances in tabulating Carmichael numbers, DOI 10.1007/s40993-024-00598-3, Theorem 2 bounds primes in the complete factorization using partial products."
+        ],
+        "reasoning": "This does not refer to d_min nor yield the stated bound for factors of the minimal stopping divisor from that theorem alone; output is structurally new for the wavelet data structure.",
+        "searches": [
+          "Shallue Webster Carmichael tabulation prime factor upper bounds (B/P_k)^(1/(d-k))",
+          "Carmichael prime wavelet stopping divisor least d lambda(d)>n j-th prime depth cutoff"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.02550v1 primary full HTML Section 4.2",
+        "DOI 10.1007/s40993-024-00598-3 Theorem 2 as cited and bounded primary record",
+        "Resultary semantic query: Carmichael prime wavelet stopping divisor least d lambda(d)>n j-th prime depth cutoff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The motivating article proves exactly j=2; published older bounds require global partial-factor count and products, different hypotheses."
+        ],
+        "reasoning": "The j=2 corollary is covered and is expressly not claimed new. Cases j≥3 use the minimal stopping property and imply finer depth-specific storage restrictions, not mechanical restatement of the existing number-theory bound.",
+        "searches": [
+          "Carmichael prime wavelet stopping divisor least d lambda(d)>n j-th prime depth cutoff",
+          "Shallue Webster Advances in tabulating Carmichael numbers theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2610.02550v1 Section 4.2 uses n^(1/3) to bound the second-largest p of least stopping divisor; later depth positions are represented but not bounded analogously in the inspected encoder description."
+        ],
+        "reasoning": "Depth-2 inequality is covered by original; repeating the same minimality mechanism with p1 retained yields distinct j≥3 inequalities and strictly smaller search universes.",
+        "searches": [
+          "Carmichael prime wavelet stopping divisor least d lambda(d)>n j-th prime depth cutoff",
+          "Gupta Webster prime wavelet tree second largest prime cube root cutoff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Arxiv 2610.02550v1 describes a single universal B^(1/3) bitmap; depth-specific cutoffs B^(1/(j+1)) and the stated integer ceilings are new consequences of the proven hierarchy."
+        ],
+        "reasoning": "The B=10^24 values are illustrative specializations of an all-n structural statement, not an arbitrary fixed table; the bound is independent of empirical distribution or known Carmichael lists.",
+        "searches": [
+          "prime wavelet tree Carmichael number depth prime cutoffs 10^24 63096",
+          "Carmichael prime wavelet stopping divisor least d lambda(d)>n j-th prime depth cutoff"
+        ]
+      },
+      "rationale": "The directly motivating 2026 prime-wavelet article proves the depth-2 cube-root bound. Its construction explicitly orders prime factors of d_min and uses a single bitmap under B^(1/3), but no higher-depth p_j^(j+1)<n hierarchy was located in inspected Sections defining the encoder. An older Carmichael tabulation bound concerns complete factorizations and does not imply least-stopping-divisor minimality.",
+      "residual_risks": [
+        "The proof is short and older unpublished stopping-divisor coding notes may already state its depth generalization.",
+        "No guaranteed compression/decoding-speed improvements or sharpness at every depth are established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its published j=2 cube-root result is directly recovered; j≥3 hierarchy not located in inspected material.",
+          "evidence": [
+            "Section 4.2 proves the second prime less than n^(1/3), and bitmap uses B^(1/3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.02550v1",
+          "material_read": "Public arXiv HTML: definitions of lambda and stopping divisor, section 4.2 value-ordered representation, cutoff proof, relevant encoder description",
+          "method": "Direct primary HTML inspection of mathematical definitions, theorem context and pseudocode",
+          "title": "The Prime Wavelet Tree: Compressing the Carmichael Numbers",
+          "trigger": "Defines identical stopping divisor and depth-ordered wavelet representation"
+        },
+        {
+          "assessment": "Factorization controls P_k and total prime-count d do not identify d_min or prove the stopping bound.",
+          "evidence": [
+            "Theorem 2 p_{k+1}<(B/P_k)^(1/(d−k)) compares different ordered factorization."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40993-024-00598-3",
+          "material_read": "Theorem 2 bounds and full-factorization parameters as recorded in the audited research package; publisher indexed mathematical statement, not entire paper",
+          "method": "Primary DOI metadata and bounded theorem comparison, not a whole-document noncoverage claim",
+          "title": "Advances in tabulating Carmichael numbers",
+          "trigger": "Potential general prime-size cutoff stronger than the new statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The j-th prime of the canonical least stopping divisor occupies depth j in a concrete compression structure. The theorem gives a deterministic decreasing universe for later depths and potentially reduces exact encode/decode representation cost; it is a natural reusable structural refinement beyond the published depth-two base case, without invented measured performance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.02550v1 primary full HTML Section 4.2",
+    "DOI 10.1007/s40993-024-00598-3 Theorem 2 as cited and bounded primary record",
+    "Resultary semantic query: Carmichael prime wavelet stopping divisor least d lambda(d)>n j-th prime depth cutoff"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The proof is short and older unpublished stopping-divisor coding notes may already state its depth generalization.",
+    "No guaranteed compression/decoding-speed improvements or sharpness at every depth are established."
+  ],
+  "schema_version": 1
+}
