@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`python3 checker.py` uses only standard Python. For each case, it independently enumerates all allowed strict off-diagonal matrix entries, multiplies to test \(N^2=0\), computes \(\operatorname{rank}N\) by finite-field Gaussian elimination, and compares the entire histogram with the Gaussian-coefficient expression.
+## correctness
 
-Complete exhaustive cases and computed rank multiplicities:
+PASS
 
-- \((a,b,c,q)=(1,1,1,2)\): \((1,5)\).
-- \((1,2,1,2)\): \((1,13,6)\).
-- \((2,1,2,2)\): \((1,33,78)\).
-- \((2,2,1,2)\): \((1,33,78)\).
-- \((2,2,2,2)\): \((1,81,630,216)\).
-- \((1,1,1,3)\): \((1,14)\).
-- \((1,2,1,3)\): \((1,50,48)\).
-- \((1,1,1,4)\): \((1,27)\).
-- \((1,2,1,4)\): \((1,123,180)\).
-- \((2,2,1,4)\): \((1,555,7380)\).
+In characteristic 2, every diagonal of a square-one incidence-algebra element equals 1, so g=I+N, N=[0 A C;0 0 B;0 0 0] and N^2=0 iff AB=0. Choosing A of rank r and B: F_q^c->ker A of rank s yields M_ab(r) M_(b-r,c)(s). The quotient restriction C | ker B -> F_q^a/im A is uniformly surjective onto (a-r)(c-s)-dimensional targets with fiber q^(rc+(a-r)s); its rank t adds to rank N as r+s+t. Jordan blocks are only size 1 or 2. Independent exhaustive enumeration of all binary triples at a=b=c=2 gives (1,81,630,216), total 928, matching the formula; the all-field result follows from linear algebra.
 
-The tests over \(\mathbb F_3\) verify the general square-zero matrix count only. They do **not** claim that \(1+N\) is involutive in odd characteristic. The tests over \(\mathbb F_4\) use explicit arithmetic in \(\mathbb F_2[X]/(X^2+X+1)\). `VERIFY_OK` is emitted only if every rank count matches. The infinite family is established by a surjective linear-map fiber argument; exhaustive small-field cases cannot prove the universal quantifiers. No independent audit has been performed.
+## originality
+
+PASS
+
+Rank-refined square-one element counts in characteristic 2 for this three-level incidence zero pattern are distinct from characteristic-not-two involutions, anti-automorphism involutions and unconditioned triangular square-zero totals. The broad full upper-triangular 2026 paper was not fully accessible and remains a named comparison risk, not an automatic scientific failure.
+
+## value
+
+PASS
+
+The characteristic-two gap is natural because every sign-choice diagonal collapses; the complete Jordan multiplicity distribution for arbitrary 3-level antichain sizes is a meaningful structural refinement of an incidence-algebra element census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
