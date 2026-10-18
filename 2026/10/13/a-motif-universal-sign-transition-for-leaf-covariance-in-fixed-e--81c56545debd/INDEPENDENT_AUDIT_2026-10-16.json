@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:09:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Immutable Git RESULT.md at 40d46a820f74fdf355c691812bdc426ec204bde7",
+        "Stark–Wormald arXiv:1608.05193 fixed-edge motif counting setup and factorial moment expectations",
+        "Goldstein arXiv:1005.4390 degree count distribution in independent-edge graph model",
+        "Independent exact checker FIXED_EDGE_LEAF_TRIANGLE_EXHAUSTIVE_GNM_OK"
+      ],
+      "rationale": "Let n>=h+1, N=C(n,2), B=C(n-1,2), and H be a fixed non-induced h-vertex e-edge graph with minimum degree >=2. In G(n,m), if a specified vertex has degree one then no copy of H uses it; the induced nonincident edge set is uniformly G(n-1,m-1). By exact factorial moments, E X_H=(n)_h/aut(H)*(m)_e/(N)_e, and conditional E X_H=(n-1)_h/aut(H)*(m-1)_e/(B)_e. Combining the sum of leaf indicators and the unconditional motif mean yields Cov(L,X_H)=E L E X_H[(n-h)/n*(N)_e/(B)_e*(1-e/m)-1] for e<=m<=B+1, with zero covariance outside that range. Let R=(n-h)/n*(N)_e/(B)_e. The bracket is strictly increasing with m; if R<=1 all nondegenerate covariances are negative, while if R>1 the exact real sign cutoff is eR/(R-1) (with feasibility intersections taken). For fixed h,e and m/n->c>0 the normalized coefficient tends to 2c*exp(-2c)*(2e-h-e/c); for H=K_3 the cutoff is strictly between n and n+1 for n>=5, with n=4 real cutoff 15/4. G(n,p) instead has Cov=-(h/n)E L E X_H, always nonpositive. An independent exhaustive calculation of all G(n,m) through n=6 for triangles exactly matched the proposed rational identity; unrestricted result follows from the conditional hypergeometric argument, not the enumeration.",
+      "residual_risks": [
+        "Non-induced copies and min-degree(H)>=2 are essential; isolated vertices or leaves of H invalidate disjointness from host leaves.",
+        "If m<e or m>B+1 a factor mean is zero, not a sign reversal; cutoff may lie outside the feasible integer range.",
+        "Sparse asymptotic assumes H fixed and m/n->positive constant, not h growing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stark–Wormald estimates subgraph clusters in G(n,p) and G(n,m), but not mixed leaf count covariance sign.",
+          "Goldstein studies normal approximation of degree counts in G(n,p), not fixed-m mixed covariance."
+        ],
+        "reasoning": "Their general frameworks provide pieces of the calculation but no stronger parameter-universal sign threshold whose specialization would be this theorem. No artificial novelty assigned to standard hypergeometric factorial moments.",
+        "searches": [
+          "fixed edge G(n,m) leaf count covariance subgraph triangle copies sign threshold motif h e",
+          "joint subgraph counts and degree counts covariance fixed edge random graph factorial moments",
+          "arXiv:1005.4390"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1608.05193 Stark–Wormald",
+        "arXiv:1005.4390 Goldstein",
+        "Published mathematical-record semantic search fixed edge G(n,m) leaf count covariance subgraph triangle copies sign threshold motif h e",
+        "Exact conditional G(n-1,m-1) hypergeometric argument"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The factorial moment E X_H in a fixed-edge graph is prior input.",
+          "Conditioning on a host vertex of degree one yields a smaller fixed-edge graph and a new mixed moment.",
+          "The exact zero/nonzero range, R<=1 case, and triangle n/n+1 cutoff require combining and comparing those moments."
+        ],
+        "reasoning": "Published marginal results do not directly imply the mixed-covariance sign theorem without further derivation. The derivation is short but delivers a motivated global structural classification, not merely a tautology.",
+        "searches": [
+          "Stark–Wormald arXiv:1608.05193 introduction and G(n,m) subgraph expectations",
+          "Goldstein arXiv:1005.4390 degree-count theorem",
+          "\"G(n,m)\" \"degree one\" \"covariance\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent mixed statistic is Cov(N_1,N_H) with N_1 degree-one vertices and N_H noninduced subgraph embeddings in G(n,m).",
+          "The sign depends on h and e through R, rather than motif topology."
+        ],
+        "reasoning": "Alias searches by N_1, leaves, pendant structure, subgraph copies, and fixed-edge/hypergeometric random graphs were compared; no direct prior uniform sign theorem identified.",
+        "searches": [
+          "fixed edge G(n,m) leaf count covariance subgraph triangle copies sign threshold motif h e",
+          "degree-one vertex triangle covariance G(n,m) G(n,p) hypergeometric",
+          "arXiv:1608.05193"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The proposed result ranges over arbitrary n, m, and every fixed min-degree-two motif H, not a particular graph catalogue.",
+          "The checker exhausts the finite triangle instances through n=6, but these data are not published as an all-n theorem."
+        ],
+        "reasoning": "A tabulated covariance for a few n or specific H cannot cover the exact universal formula and sharp sign classification.",
+        "searches": [
+          "\"G(n,m)\" \"degree one\" \"triangle\" \"covariance\"",
+          "arXiv:1608.05193 subgraph statistics",
+          "graph census complete n<=6"
+        ]
+      },
+      "rationale": "Goldstein’s full 2013 article proves degree-count Gaussian approximations for G(n,p), not mixed leaf/motif covariance in G(n,m). Stark–Wormald’s full 2016/2021 work gives subgraph-cluster expansions and standard fixed-edge motif counts, but does not state the exact degree-one/motif covariance or its parameter-only sign transition. The conditional-moment identity uses classic counting and is not advertised as novel by itself; the claim is the complete sharp sign classification, including positive fixed-edge covariance for triangles above n edges versus always-negative binomial-model covariance. Inspected relevant original sources and searched natural aliases leaf count/degree-one, triangle covariance, G(n,m) factorial moments. Classical graph-statistics formulae could imply this with one conditional calculation; originality remains qualified rather than asserted absolutely.",
+      "residual_risks": [
+        "An older general joint factorial-moment identity may, by specialization, contain the same exact covariance and sign criterion.",
+        "Full 44-page primary was inspected via relevant sections and targeted search, not line-by-line audit of every appendix; no global uniqueness claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MOTIF_EXPECTATIONS_COVERED_MIXED_THRESHOLD_UNSTATED",
+          "evidence": [
+            "Paper discusses G(n,m) motif count distributions; no degree-one/motif covariance sign law in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1608.05193",
+          "material_read": "Complete 44-page arXiv PDF available; introduction, G(n,m)/G(n,p) definitions and fixed-edge subgraph-count framework, targeted checks for leaf and covariance terms",
+          "method": "Read primary PDF mathematical setup and searched degree-one and covariance occurrences",
+          "title": "The asymptotic distribution of the number of small subgraphs of a random graph",
+          "trigger": "Same random graph ensembles and motif factorial moments"
+        },
+        {
+          "assessment": "DEGREE_MARGINAL_NOT_MOTIF_COVARIANCE",
+          "evidence": [
+            "Goldstein proves degree-count approximation in independent-edge G(n,p); not fixed-edge mixed moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1005.4390",
+          "material_read": "Full 21-page original paper, abstract, theorem framework and G(n,p) degree counts; searched mixed subgraph occurrences",
+          "method": "Read PDF and rendered first page; targeted mathematical text searches",
+          "title": "A Berry–Esseen bound with applications to vertex degree counts in the Erdős–Rényi random graph",
+          "trigger": "Nearest degree-count random graph primary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact conditional-moment proof for all motifs with min degree >=2",
+        "Goldstein degree-count framework and Stark–Wormald motif-count framework",
+        "Independent all-G(n,m) exact checks for triangles through n=6"
+      ],
+      "rationale": "Degree-one counts measure pendant structure while H with min degree two measures cycles or dense motifs. Holding total edges fixed couples these statistics and produces a sharp positive/negative transition that is absent in G(n,p). The exact threshold depends only on motif vertices and edges, not detailed topology, and the triangle integer transition occurs precisely between m=n and m=n+1 for every n>=5. This is an interpretable, structurally universal covariance law for natural random-graph statistics.",
+      "residual_risks": [
+        "Not a claim for induced motifs, h growing with n, or arbitrary degree-one-containing patterns; value lies in sharp conditional classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only loopless simple G(n,m) and non-induced fixed H with delta(H)>=2, n>=h+1.",
+    "Positive covariance requires a nondegenerate feasible edge budget above the real sign cutoff.",
+    "Metadata privacy prevents publication without exact sanitized replacement files."
+  ],
+  "schema_version": 1
+}
