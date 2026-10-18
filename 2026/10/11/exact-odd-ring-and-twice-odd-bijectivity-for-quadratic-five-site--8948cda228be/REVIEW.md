@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The equal-output pair graph has 256 vertices and admits a length-\(N\) closed walk through an off-diagonal vertex exactly when a collision exists on the cyclic ring of size \(N\). Each cyclic strongly connected component has a rigorously determined period, allowing exact universal congruence-class certification. Independent Tarjan/modular-potential and Kosaraju/gcd procedures exhaustively agree on all 65,472 degree-two masks and reproduce the exact 32/8 mask lists. A direct state evaluator independently verifies three finite lengths. The previously proved eight elementary odd-ring reversible rules establish the listed examples, and the finite certificate establishes exclusivity. Finite tests of small rings alone would not prove this claim; the SCC period equivalence supplies the infinite-size bridge.
+## correctness
 
-## Originality — PASS
-Nobe–Yura (2004) covers the eight elementary odd-ring rules, not all 65,472 quadratic five-site rules. Haugland–Omland (2026) establishes no universally reversible degree-two proper liftings through diameter seven but does not classify maps reversible only in the odd or twice-odd congruence classes. Fu's September 2026 preprint treats the same exact-degree-two five-input family but its accessible abstract concerns rings divisible by four, which neither proves nor contradicts this complementary classification. The necessity statement and the complete split into 32 and 8 classes were not identified in the inspected sources; full-text inaccessibility of the motivating preprint remains a significant priority risk.
+PASS
 
-## Mathematical value — PASS
-The classification resolves a natural arithmetic finiteness question about a recently studied complete family of nonlinear finite-ring dynamical systems. Its striking rigidity shows that every rule surviving on all odd rings collapses to a three-site rule, and the passage to twice-odd rings removes all but the doubled-spacing placements. Exact graph-period certificates give a reusable explanation rather than an unbounded numerical scan. This is a complete natural classification, not a toy parameter substitution.
+The equal-output pair graph has 256 ordered 4-bit-window pairs; a length-N closed walk through an off-diagonal vertex is equivalent to two distinct ring configurations with equal output. For an off-diagonal cyclic SCC, eventual closed-walk lengths are the positive multiples of its gcd graph period; absence on all odd N iff every such period is even, and absence for N≡2 mod4 iff periods are multiples of four. This gives a FINITE exact criterion for the infinite quantified claim. Inspected entire shipped C verifier, then independently implemented and compiled an independent C graph-period census over all 65,472 degree-two coefficient masks, reproducing exactly 32/8 and ALL supplied mask identities. Independent Python truth tables mapped four 3-site progressions times the eight ECA rules to the accepted set. The positive cases are already known ECA reversibles, shifted/doubled on odd rings. The exact census, not sample finite sizes, certifies exclusion.
 
-## Closest literature and limitations
-The nearest sources are Fu (arXiv:2609.35921), Nobe–Yura (DOI:10.1088/0305-4470/37/22/006), Haugland–Omland (DOI:10.1007/s10623-026-01869-z) and Bhattacharjee–Das (arXiv:1903.06011). The scope is limited to binary, degree-exactly-two, spatially uniform, cyclic five-neighbor rules. The motivating source's complete text could not be inspected; prior-work comparison remains qualified rather than independently certified.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2004 primary Nobe–Yura result determines the eight odd-ring-reversible elementary three-site rules, not the exclusion of every other five-site degree-two rule. Haugland–Omland proper lifting asks invertibility for all sufficiently large ring lengths, a different property. Fu 2026 investigates exactly the quadratic five-site family but its accessible abstract treats noninjectivity at multiples of four; full manuscript inaccessible after lawful attempts, so possible supplementary coverage is a material risk. Best-of-knowledge originality passes with this specifically named risk.
+
+## value
+
+PASS
+
+Complete natural finite-alphabet classification with two infinite arithmetic congruence families and strong structural rigidity: every surviving genuinely quadratic five-site rule reduces to a 3-site classical reverser. SCC period certificate explains infinite quantification and identifies why doubled spacing alone survives twice-odd sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

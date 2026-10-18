@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-## Build and run
-From the directory containing `verify.c`:
+# Independent mathematical audit
 
-```sh
-cc -std=c11 -O2 -Wall -Wextra -pedantic verify.c -o verify
-./verify
-```
+## correctness
 
-Expected line:
+PASS
 
-`VERIFY_OK: 65472 exact-degree-two rules; odd=32; 2mod4=8; finite counts n9=42 n10=8 n15=32; two independent graph methods agree.`
+The equal-output pair graph has 256 ordered 4-bit-window pairs; a length-N closed walk through an off-diagonal vertex is equivalent to two distinct ring configurations with equal output. For an off-diagonal cyclic SCC, eventual closed-walk lengths are the positive multiples of its gcd graph period; absence on all odd N iff every such period is even, and absence for N≡2 mod4 iff periods are multiples of four. This gives a FINITE exact criterion for the infinite quantified claim. Inspected entire shipped C verifier, then independently implemented and compiled an independent C graph-period census over all 65,472 degree-two coefficient masks, reproducing exactly 32/8 and ALL supplied mask identities. Independent Python truth tables mapped four 3-site progressions times the eight ECA rules to the accepted set. The positive cases are already known ECA reversibles, shifted/doubled on odd rings. The exact census, not sample finite sizes, certifies exclusion.
 
-## Checked mathematical invariants
-The source program enumerates each of the 65,472 coefficient masks with nonzero quadratic part, independently computes two strong-component decompositions, and tests exact edge-potential congruences and cycle-period gcd constraints on a 256-vertex equal-output pair graph. Both graph procedures agree for every case and recover precisely the explicit 32 and eight accepted mask sets. The program also enumerates all finite states of rings of size 9, 10 and 15 and compares direct local-rule outputs to test bijectivity.
+## originality
 
-The full universal quantification over arbitrarily large ring lengths follows from the graph walk-period theorem and the exhaustive finite classification, not just those three direct tests. The eight classical odd-ring bijective elementary rules are a published theorem, not an independent discovery or external certification of the new classification.
+PASS
 
-## Limitations
-The code requires a C11 compiler providing the commonplace `__builtin_ctz` intrinsic (GCC or Clang) and enough memory for fixed-size arrays; no Internet, input files or nonstandard packages are required. Independent audit and independent scientific validation have not been performed. The motivational preprint's full text was not available for priority comparison.
+The 2004 primary Nobe–Yura result determines the eight odd-ring-reversible elementary three-site rules, not the exclusion of every other five-site degree-two rule. Haugland–Omland proper lifting asks invertibility for all sufficiently large ring lengths, a different property. Fu 2026 investigates exactly the quadratic five-site family but its accessible abstract treats noninjectivity at multiples of four; full manuscript inaccessible after lawful attempts, so possible supplementary coverage is a material risk. Best-of-knowledge originality passes with this specifically named risk.
+
+## value
+
+PASS
+
+Complete natural finite-alphabet classification with two infinite arithmetic congruence families and strong structural rigidity: every surviving genuinely quadratic five-site rule reduces to a 3-site classical reverser. SCC period certificate explains infinite quantification and identifies why doubled spacing alone survives twice-odd sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
