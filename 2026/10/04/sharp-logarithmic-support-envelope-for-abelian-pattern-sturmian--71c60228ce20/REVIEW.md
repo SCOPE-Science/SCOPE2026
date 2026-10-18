@@ -1,15 +1,21 @@
-# Same-model review of “Sharp logarithmic support envelope for Abelian pattern Sturmian words”
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim reduces to a direct edge count in the finite induced subgraph of the incidence forest on two copies of \(\{0,\ldots,N\}\). Each support value \(d\le N\) contributes exactly \(d+1\) different edges, while a forest on \(2N+2\) vertices has at most \(2N+1\) edges. The recurrence and logarithmic bound follow by induction and inversion. Sharpness uses the checked source proposition that \(d_{n+1}>2d_n\) implies forestness; \(d_n=2^n-1\) satisfies it exactly with one unit of slack.
+## correctness
 
-## Originality
-**PASS.** The closest inspected primary literature is arXiv:2609.28059v1. It proves the incidence-forest characterization and derives the weaker Sidon consequences \(\binom{h}{2}\le L-1\) and zero upper Banach density, and separately proves the sufficient condition \(d_{n+1}>2d_n\). Full-text inspection did not find the weighted prefix inequality, \(d_n\ge2^n-1\), or the exact logarithmic prefix count. Targeted searches for these equivalent formulations did not return a covering statement. The remaining risk is an equivalent elementary sum-graph observation under different terminology.
+PASS
 
-## Value
-**PASS.** The statement identifies an exact, sharp sparsity law for the new extremal class: the sparse symbol can occur only logarithmically often in an initial interval, with a canonical support attaining the envelope at every scale. This is substantially stronger than the source's Sidon-scale estimate and turns the forest characterization into a quantitative extremal profile.
+For any N, induced bipartite graph with vertices {0,...,N} on each side is a forest with <=2N+1 edges. Each support d<=N yields d+1 distinct edges, implying weighted prefix sum<=2N+1. With N=d_n, a_n=d_n+1>=1+sum_{j<n} a_j, inductively >=2^n. Thus positions d_n>=2^n-1 and prefix occupancy <=1+floor log2(N+1). D*={2^n-1} satisfies strict d_{n+1}>2d_n, hence source Proposition 7.12 v2 proves forest; exact saturation all N. Independently checked exact finite edge counts N=0,1,3,7,15,31, not used as infinite proof.
 
-## Closest literature and limitations
-The decisive source is Qingcheng Zeng, Yumei Xue and Cheng Zeng, arXiv:2609.28059v1, especially Theorem E, Lemma 7.5, Proposition 7.14 and Example 7.15. Kamae--Widmer--Zamboni (doi:10.1017/etds.2013.51) is foundational background. The theorem here is binary and does not extend merely from the Sidon condition or resolve the source's higher-alphabet questions.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The fully read Zeng–Xue–Zeng primary proves exact forest characterization, a Sidon/density consequence and a sufficient ratio >2 construction, but not the sharp weighted prefix edge count nor the exact envelope d_n>=2^n-1 and extremizer. The additional finite induced-forest edge count, recurrence and saturation yield a natural complete quantitative support sparsity law. Search yielded no previously formulated equivalent sharp envelope.
+
+## value
+
+PASS
+
+The exact logarithmic upper envelope and saturating support quantify how sparse the exceptionally low Abelian-pattern-complexity words must be. It upgrades qualitative Sidon/zero-density information into the sharp natural position/counting invariant, without requiring downstream applications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

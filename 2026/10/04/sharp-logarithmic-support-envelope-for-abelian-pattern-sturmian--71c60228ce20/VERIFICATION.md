@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked symbolically from the definitions.
+# Independent mathematical audit
 
-1. For each integer \(N\ge0\), the finite induced graph on left and right labels \(0,\ldots,N\) has \(2N+2\) vertices and at most \(2N+1\) edges because it is a forest.
-2. For every \(d\le N\) in the support, exactly \(d+1\) of those edges have endpoint-label sum \(d\). Different sums give different edges. Hence \(\sum_{d\le N}(d+1)\le2N+1\).
-3. Setting \(N=d_n\) gives \(d_n\ge\sum_{j<n}(d_j+1)\). With \(a_j=d_j+1\), induction gives \(a_n\ge2^n\), hence \(d_n\ge2^n-1\).
-4. If \(k=|D\cap[0,N]|\), then \(2^{k-1}-1\le d_{k-1}\le N\), yielding \(k\le1+\lfloor\log_2(N+1)\rfloor\).
-5. For \(D_*=\{2^n-1:n\ge0\}\), one has \(d_{{n+1}}=2d_n+1>2d_n\). The checked sufficient-gap proposition in arXiv:2609.28059v1 therefore makes \(\Gamma_{D_*}\) a forest, and the checked incidence-forest characterization makes its characteristic word Abelian pattern Sturmian.
+## correctness
 
-No finite experiment is used to infer an infinite statement. The external theorem inputs are limited to the two cited results from arXiv:2609.28059v1; the edge count, recurrence, induction and inversion are elementary and complete.
+PASS
+
+For any N, induced bipartite graph with vertices {0,...,N} on each side is a forest with <=2N+1 edges. Each support d<=N yields d+1 distinct edges, implying weighted prefix sum<=2N+1. With N=d_n, a_n=d_n+1>=1+sum_{j<n} a_j, inductively >=2^n. Thus positions d_n>=2^n-1 and prefix occupancy <=1+floor log2(N+1). D*={2^n-1} satisfies strict d_{n+1}>2d_n, hence source Proposition 7.12 v2 proves forest; exact saturation all N. Independently checked exact finite edge counts N=0,1,3,7,15,31, not used as infinite proof.
+
+## originality
+
+PASS
+
+The fully read Zeng–Xue–Zeng primary proves exact forest characterization, a Sidon/density consequence and a sufficient ratio >2 construction, but not the sharp weighted prefix edge count nor the exact envelope d_n>=2^n-1 and extremizer. The additional finite induced-forest edge count, recurrence and saturation yield a natural complete quantitative support sparsity law. Search yielded no previously formulated equivalent sharp envelope.
+
+## value
+
+PASS
+
+The exact logarithmic upper envelope and saturating support quantify how sparse the exceptionally low Abelian-pattern-complexity words must be. It upgrades qualitative Sidon/zero-density information into the sharp natural position/counting invariant, without requiring downstream applications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
