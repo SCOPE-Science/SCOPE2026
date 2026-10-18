@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Exact nIRK4 stage matrix inversion, positive stage determinant, explicit rational R, factored comparisons at ±1, uniqueness via F prime, all edge cases, large-a limit and exact rational a=25 verified; Gauss algebraic stability identities constructed independently and yield nonnegative-damping contraction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical algebraic-stability energy identity proves Gauss contractivity for all nonnegative node dampings (Hairer–Wanner background).",
+        "The nIRK4 matrix has negative and mixed-sign entries and fails the comparator identity, so Gaussian theorems do not transfer."
+      ],
+      "reasoning": "Broad B-stability gives a sufficient condition for general dissipative systems, and generic failure of B-stability does not imply the precise nIRK4 affine-profile threshold. The broad theorem covers the Gaussian comparator, not the claimed nIRK4 boundary.",
+      "searches": [
+        "A-stable implicit Runge Kutta same stability function Gauss three stages negative weights algebraic stability variable coefficient instability"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2404.16665v1",
+      "Hairer and Wanner, Solving Ordinary Differential Equations II (general background)",
+      "Ascher and Bader, Stability of collocation at Gaussian points (bibliographic comparison)",
+      "Published mathematical-record result on Fehlberg RK4(5) error-estimator resonance",
+      "Published mathematical-record result on [2/2] Padé Markov positivity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mizerová–Tvrdá, arXiv:2404.16665v1, Section 3 and Appendix A5: coefficients and A-stability; Section 4: finite-step stiff accuracy.",
+        "Ascher–Bader (1985), stability of Gaussian collocation: classical Gauss contractivity background."
+      ],
+      "reasoning": "The source fixes A and b and thereby permits direct calculation but does not state its scalar nonautonomous sharp threshold. General stability results cannot infer a universal one-step bound for nIRK4 because it is not algebraically stable; our exact inversion, root characterization and same-Padé comparison are the assessed statement.",
+      "searches": [
+        "nIRK4 Mizerová Tvrdá repeated integrals four stage Runge Kutta linearly decreasing damping a(1-t) threshold nonautonomous contractivity Gauss three stage same Pade",
+        "A-stable implicit Runge Kutta same stability function Gauss three stages negative weights algebraic stability variable coefficient instability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "nIRK4 is an A-stable four-stage method with [3/3] Padé autonomous function (arXiv:2404.16665v1, Appendix A5).",
+        "The new affine-in-time coefficient test gives a degree-three numerator and degree-two denominator, not the autonomous Padé function."
+      ],
+      "reasoning": "Aliases included contractivity, nonautonomous linear dissipative equations, affine-time damping, repeated-integral implicit RK and scalar stage amplification; the published homogeneous constant-coefficient map is mathematically different.",
+      "searches": [
+        "nIRK4 Mizerová Tvrdá repeated integrals four stage Runge Kutta linearly decreasing damping a(1-t) threshold nonautonomous contractivity Gauss three stage same Pade",
+        "non-autonomous scalar y'=-a(1-t)y four stage nIRK4 one step amplification 2(a^3-18a^2+158a-540)/(13a^2+224a+1080)",
+        "\"nIRK4\" \"time dependent\" \"contractivity\"",
+        "\"Mizerova\" \"Tvrda\" nIRK4 nonautonomous stability stiff damping counterexample",
+        "\"nIRK4\" \"Gauss\" \"[3/3]\" stability function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce: a distinct Fehlberg RK4(5) estimator resonance.",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab: Markov positivity under [2/2] Padé, not nonautonomous nIRK4 norm contractivity."
+      ],
+      "reasoning": "No returned table or archived exact formula matched the method, coefficient profile, or boundary. A failed exact-expression search is not itself proof of novelty.",
+      "searches": [
+        "nIRK4 Mizerová Tvrdá repeated integrals four stage Runge Kutta linearly decreasing damping a(1-t) threshold nonautonomous contractivity Gauss three stage same Pade",
+        "non-autonomous scalar y'=-a(1-t)y four stage nIRK4 one step amplification 2(a^3-18a^2+158a-540)/(13a^2+224a+1080)",
+        "\"nIRK4\" \"time dependent\" \"contractivity\"",
+        "\"Mizerova\" \"Tvrda\" nIRK4 nonautonomous stability stiff damping counterexample",
+        "\"nIRK4\" \"Gauss\" \"[3/3]\" stability function"
+      ]
+    },
+    "rationale": "Direct comparison with the entire primary arXiv v1 method and numerical-experiment sections, established Gaussian algebraic stability and semantically retrieved public research claims did not identify an implication yielding the sharp nIRK4 time-varying damping threshold. Generic warnings that A-stability is weaker than B-stability do not give the exact quantitative result. Some incompleteness of historical coverage persists.",
+    "residual_risks": [
+      "Older nonautonomous RK B-stability literature could include an equivalent specialized calculation under different terminology.",
+      "The Ascher–Bader collocation paper was available for bibliographic comparison rather than a full-text close reading; no claim of full-text exclusion is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS algorithm/autonomous Padé stability only; DOES NOT STATE nonautonomous affine damping threshold",
+        "evidence": "Appendix A5 four-row nIRK4 tableau and [3/3] stability map, Section 4.1-4.4 numerical results.",
+        "identifier_or_url": "https://arxiv.org/html/2404.16665v1",
+        "material_read": "Abstract; Section 2 RK definition and stability; Section 3 nIRK4 derivation; Section 4 experiments and conclusions; Appendix A5 nIRK4 tableau and autonomous stability function",
+        "method": "Full-text mathematical reading and symbolic reconstruction of the published tableau",
+        "title": "A new way of deriving implicit Runge-Kutta methods based on repeated integrals",
+        "trigger": "Original new method, all coefficients and likely prior stability claim"
+      },
+      {
+        "assessment": "Relevant classical background, no known implication for the published four-stage nIRK4 sharp threshold",
+        "evidence": "Different method class; identity \\(b_i a_{ij}+b_j a_{ji}=b_i b_j\\) reconstructed symbolically.",
+        "identifier_or_url": "Ascher and Bader (1985), Stability of collocation at Gaussian points",
+        "material_read": "Search-visible title and bibliographic/abstract-level context only; algebraic-stability comparison itself independently derived and verified from Gaussian tableau",
+        "method": "Bibliographic context plus exact independent symplectic identity proof",
+        "title": "Stability of collocation at Gaussian points",
+        "trigger": "Broader theory that may dominate Gaussian collocation comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "139b2b5e-9c58-4f6e-91c7-07a9e2d73c08",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An established A-stable stiff IVP method has unbounded amplification for a simple smooth exact contractive flow, with a sharp parameter frontier and a Gaussian comparator sharing precisely the autonomous [3/3] Padé multiplier. This distinguishes true time-varying reliability from constant-coefficient A-stability; strict model specificity is documented.",
+    "status": "PASS"
+  }
+}
