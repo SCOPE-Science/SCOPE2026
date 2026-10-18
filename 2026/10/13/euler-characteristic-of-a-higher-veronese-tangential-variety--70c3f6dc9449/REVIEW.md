@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The tangent space to the degree-\(d\) Veronese variety at \([\ell^d]\) is \(\mathbb P(\ell^{d-1}V)\). A diagonal one-parameter subgroup with weights \(1,B,\ldots,B^{n-1}\), where \(B=d+1\), separates every degree-\(d\) monomial by uniqueness of base-\(B\) expansion.
+## correctness
 
-A fixed tangential point is therefore a monomial of the form \(\ell^{d-1}m\). Unique factorization forces \(\ell\) to be a coordinate variable; total degree then leaves exactly \(x_i^d\) and \(x_i^{d-1}x_j\). There are \(n^2\) such points, and Euler localization gives the theorem without a smoothness assumption.
+PASS
 
-The bundled checker independently replays the monomial-weight separation and fixed-monomial classification over a finite regression range. Finite computation is not used as the infinite proof.
+For complex V dimension n≥2 and d≥3, τ(v_d(PV)) consists of [ℓ^(d−1)m]. A diagonal one-parameter subgroup with generator weights 1,(d+1),...,(d+1)^(n−1) has distinct weights on all degree-d monomials. A fixed monomial belongs to τ iff its exponent vector has some entry≥d−1; unique factorization leaves exactly n pure powers and n(n−1) ordered mixed x_i^(d−1)x_j, distinct for d≥3, for a total n². Torus Euler localization on the projective tangential variety proves χ_top=n². Independent exhaustive exponent vector enumeration for (n,d)=(2,3),(3,3),(4,5),(5,4) returned 4,9,16,25 fixed monomials, and quadratic d=2 has the separate binomial(n+1,2) count. A further geometric cross-check is the continuous bijective proper map P(V)×P(V)→τ(X) for d≥3, hence a homeomorphism; its χ is n·n. No smoothness is assumed.
 
-## Originality
-PASS. The archival same-object source determines the defining ideal and homogeneous coordinate ring of tangential Segre--Veronese varieties, but a full-document search found no “Euler” or “fixed point” occurrence. A later full-text source classifying Cohen--Macaulay and Gorenstein cases likewise contains no located occurrence of those terms.
+## originality
 
-Targeted semantic and literature searches for Euler, tangent-developable, torus-fixed, Poincaré, and equivalent formulations did not locate the \(n^2\) theorem. Residual risk remains because the localization proof is short and could be folklore or implicit in older motivic work.
+PASS
 
-## Value
-PASS. Tangential Veronese varieties are a classical singular family and a basic symmetric-tensor model. The theorem gives a uniform global invariant for all \(n\ge2\) and \(d\ge3\), showing that ordinary Euler characteristic is completely independent of the Veronese degree despite large changes in the ambient and defining geometry.
+The exact tangential Veronese projective family was previously studied in detail for defining ideals, coordinate rings, CM and Gorenstein conditions. Their stated topological invariant was not the ordinary Euler characteristic. The n² formula and explicit fixed monomial enumeration were not found as a published theorem; however the already classical bijective factorization parametrization readily implies the Euler value, an especially strong corollary/folklore risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An explicit uniform topological Euler invariant and a sharp degree-two exception for a natural, usually singular, projective tangential family are useful geometry. The formula is simple, and the existing parameterization yields another short proof, limiting its depth; nevertheless it gives a motivated exact invariant rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
