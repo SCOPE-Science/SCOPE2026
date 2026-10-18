@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object and facet definition agree with the standard total three-cut convention. Exhaustive independent-triple enumeration yields 276 facets and 64,900 augmented faces. The matching exhausts 32,432 disjoint cover pairs, has exactly 36 unpaired ten-faces, and is acyclic by topological sorting all 516,080 oriented Hasse incidences. Removing the empty-face match produces one critical vertex and 36 critical ten-cells, establishing the wedge homotopy type, not merely Betti ranks. The signed fixed-simplex trace identity accounts for orientations and the empty face; character orthogonality and the direct nine-cell-pair permutation calculation prove the abstract rational \(D_4\)-module isomorphism. The standalone verifier was run against its actual file bytes and completed successfully. The complex's pure dimension twelve makes positive degree-ten homology an obstruction to shellability.
+PASS
 
-## Originality — PASS
+The total cut convention uses complements of exactly the 276 independent triples of P4□P4 (16 vertices, 24 edges), giving 64,900 augmented faces and a pure 12-complex. Independently enumerated the face set and greedy vertex-wise Morse matching: 32,432 disjoint facet-cover pairs, with per-vertex counts [32232,53,46,21,17,13,10,12,11,7,4,6,0,0,0,0]. The full 516,080-arc matched-edge-reversed Hasse graph is a DAG by an independent complete 64,900-vertex topological sort; exactly 36 unmatched 10-faces survive and the empty face was paired, so ordinary Morse has one critical vertex plus 36 critical 10-faces. Standard discrete Morse then yields wedge^36 S^10 and integral Htilde_10=Z^36; pure dimension 12 implies non-shellability. Independently computed orientation-corrected reduced Lefschetz traces for the eight D4 elements [36,0,4,0,6,6,6,6]. The 9-square action on 36 unordered pairs has class traces [36,4,0,6,6], yielding abstract rational permutation module and D4 multiplicities (8,2,5,5,8). The computation is exhaustive for this one finite complex and does not extrapolate to larger grids.
 
-The specific rank \(\beta_{10}=36\) is present in Bayer et al., arXiv:2209.13503, Table 3, and **is excluded from the novelty claim**. That table has no homotopy-type certificate or rational dihedral action for this four-row example. The grid theorem of Chandrakar et al., arXiv:2408.07646, explicitly covers two-row total cut and three-row total three-cut complexes, rather than four rows. The ordinary three-cut graph-complex theorem in arXiv:2407.08158 concerns a larger complex: disconnected triples need not be independent. Carnero Bravo, arXiv:2602.21427, proves a Cartesian-product result for total two-cut complexes, while Question 51 leaves higher parameters open. The closest located public mathematical result for this precise grid concerns its ordinary ten-cut complex; no retrieved result computes this total three-cut homotopy type or the \(D_4\) homology character. An unindexed equivalent statement or overlooked appendix is a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural first square four-row case beyond the explicit two/three-row literature. A pure twelve-dimensional complex has a much lower-dimensional ten-sphere wedge type; an explicit matching establishes the homotopy conclusion beyond the previously tabulated Betti numbers. The rational action identifies all symmetry sectors, including an eight-dimensional invariant subspace and a two-dimensional alternating sector. Matching its character with the permutation action on unordered pairs of the nine elementary grid squares gives a concrete and motivated representation-theoretic description. There is no claim of a canonical cell-indexed basis or a general grid theorem.
+The exact rank beta_10=36 is previously published and is explicitly disclaimed as new. The remaining wedge homotopy type and D4 rational character/module identification require new acyclic-Morse and signed-Lefschetz certificates and were not found covered.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The 4×4 grid and total three-cut operation are natural objects in an active classification problem. Determining a full 36-sphere wedge homotopy type, rather than an already tabulated Betti rank, plus its complete D4 rational representation, answers two meaningful open finite invariants and can be compared with grid-family topology and symmetry conjectures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
