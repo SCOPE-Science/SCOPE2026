@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Legendre produces the exact valuation \\(s_2(n)+c_1+c_2\\) of every positive Strehl summand, where both c-values count binary carries and are nonnegative. Both vanish precisely when \\(a=n-k\\) selects adjacent-one positions in n. There are \\(2^{t(n)}\\) choices; reduction of the normalized sum mod 2 proves valuation equality exactly if \\(t(n)=0\\). Standard Fibonacci word counting and a binomial sparse-index bound prove the two corollaries. The standalone checker verifies every positive term through n=256 and does not substitute finite tests for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Malik–Straub, arXiv:1508.00297, Table 1 and Theorem 3.1 show Franel numbers as a Lucas-congruence sequence modulo primes.",
+        "A Lucas congruence modulo two implies parity information but not an exact valuation of f(n) relative to the popcount of n.",
+        "Schulte–VanSchalkwyk–Yang 2014 Sections 3–4 provide valuation patterns and conjectures without a universal lower-bound equality theorem."
+      ],
+      "reasoning": "A prime-modulus Lucas congruence is weaker than a valuation at an index-dependent power of two. The 2014 experimental valuation-tree formulas are not proved all-index theorems implying the adjacency condition. A general theorem outside the inspected literature could still cover this claim.",
+      "searches": [
+        "Divisibility properties of sporadic Apéry-like numbers Franel valuation binary digit sum",
+        "Malik Straub 2016 Franel numbers 2-adic valuations lower bound",
+        "Franel integers powers of two 2-adic valuation equals binary digit count iff fibbinary n, no adjacent ones"
+      ]
+    },
+    "checked_sources": [
+      "Sun, arXiv:1112.1034, 2011-12-05",
+      "Schulte, VanSchalkwyk and Yang, MSRI-UP Franel valuation report, August 2014",
+      "Malik and Straub, arXiv:1508.00297v1, 2015-08-03",
+      "OEIS A000172; Strehl identity recorded in 2013 comment"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Strehl identity gives a positive binomial sum but without the two-carry valuation analysis and parity count does not state the claimed equality characterization.",
+        "Schulte–VanSchalkwyk–Yang 2014 Theorem 2.9 proves precisely the prior identity and its Section 3 discusses conjectural binary valuation recurrences.",
+        "Sun 2011 Theorem 1.1 addresses prime p>3 sums and does not imply the digit-sum lower-bound classification at prime 2."
+      ],
+      "reasoning": "The new implication is obtained by deriving two simultaneous carry-free conditions for each Strehl summand. The resulting exact \\(2^{t(n)}\\) multiplicity and its parity establish the nontrivial if-and-only-if result. This step is not merely a parameter specialization of the named published claims.",
+      "searches": [
+        "Congruences for Franel numbers Zhi Wei Sun arxiv 1112.1034",
+        "On the divisibility and valuations of the Franel numbers 2014 2 adic tree",
+        "Strehl expansion Franel binomial cube minimum valuations summands exactly 2^{popcount(n & (n >> 1))}"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun 2011, arXiv:1112.1034, treats odd-prime aggregate congruences rather than parity of \\(f_n/2^{s_2(n)}\\).",
+        "Schulte–VanSchalkwyk–Yang 2014, Theorem 2.9 and Section 3, treats the same Franel sum and binary valuations but exhibits empirical tree relationships.",
+        "OEIS A000172 gives the Franel and Strehl identities without a sharpness classification."
+      ],
+      "reasoning": "The normalized oddness characterization, the minimum-summand multiplicity \\(2^{t(n)}\\), and the Fibonacci equality census were compared as mathematical statements. The inspected named results do not state these conclusions. Mere absence from searches is not considered proof of novelty.",
+      "searches": [
+        "Franel numbers valuation v2 greater than binary digit sum no consecutive ones equality Fibonacci",
+        "Franel numbers 2-adic valuation popcount binary adjacent ones s2(n) equality",
+        "Franel numbers f(n) binomial cube sum valuation v2 at least popcount s2(n) equality precisely indices with no adjacent binary ones, Fibonacci count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000172 comments include Strehl identity and the recurrence, but no valuation-equality census.",
+        "Schulte–VanSchalkwyk–Yang 2014 presents finite valuation-tree observations (Section 3), not the precise infinite equality set or its Fibonacci count."
+      ],
+      "reasoning": "An entry listing the original sequence or finite observations does not specify the exact infinite set of indices attaining the lower bound. Neither inspected table records this particular classification.",
+      "searches": [
+        "OEIS A000172 Franel sequence valuation binary adjacent ones",
+        "Franel numbers v_2 s_2(n) equality",
+        "Franel numbers valuation v2 greater than binary digit sum no consecutive ones equality Fibonacci"
+      ]
+    },
+    "rationale": "The new classification concerns equality in an index-dependent valuation inequality, not merely the underlying Franel sum. Inspected 2011, 2014 and 2015 primary works establish the Strehl identity, odd-prime congruences, empirical valuation trees or mod-p Lucas properties, none of which states or directly implies the two-carry minimum-term census and parity characterization. An unindexed dominating theorem is a residual risk, not ruled out by unsuccessful searches.",
+    "residual_risks": [
+      "A more general binomial-sum divisibility or 2-adic valuation theorem not indexed by these queries could cover the same parity characterization.",
+      "The entire full-text corpus is not exhaustively searchable; independent originality review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant Franel and binomial-sum definitions, but no all-index bit-adjacency valuation-equality classification.",
+        "evidence": [
+          "Section 1 and Theorem 1.1 formulate sums modulo odd primes p>3; the paper has no 2-adic valuation theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1112.1034",
+        "material_read": "PDF first-page definitions and primary classification, Theorems 1.1 and 2, later proofs and references through the end.",
+        "method": "Read accessible arXiv PDF full-text sections and search for 2-adic valuation and power-of-two implications.",
+        "title": "Congruences for Franel numbers",
+        "trigger": "Primary number-theoretic Franel congruence work, earliest dated source in this comparison."
+      },
+      {
+        "assessment": "Establishes a foundation but does not provide the two-carry minimal-valuation count or sharpness iff adjacent-one avoidance.",
+        "evidence": [
+          "Theorem 2.9: Strehl identity; Section 3 contains experimental 2-adic recurrence patterns; Proposition 4.1 establishes evenness for positive indices."
+        ],
+        "identifier_or_url": "https://legacy.slmath.org/system/cms/files/81/files/original/Research_Reports_2014_MSRI-UP_%28Single_File%29.pdf",
+        "material_read": "Report pages 129–136 for definitions, Strehl identity and carry formula; report pages 155–161 for Sections 3–4 on valuation trees, conjectures, and conclusions.",
+        "method": "Read primary PDF text including original identity proof, valuation-tree statements, cited limitations and final conjectures.",
+        "title": "On the divisibility and valuations of the Franel numbers",
+        "trigger": "Direct investigation of Franel 2-adic valuations and the precise Strehl expansion."
+      },
+      {
+        "assessment": "Lucas congruences modulo primes do not specify the order of divisibility by powers of two required by this claim.",
+        "evidence": [
+          "Franel appears as sequence (a) in Table 1; Section 3 establishes mod-p Lucas congruences for that sequence."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.00297",
+        "material_read": "First pages, primary theorem outline, Table 1 Franel row, proof of Lucas congruences for Franel numbers in Section 3, and relevant section descriptions.",
+        "method": "Read preprint PDF and compare prime-modulus conclusions to index-dependent 2-adic valuation statement.",
+        "title": "Divisibility properties of sporadic Apéry-like numbers",
+        "trigger": "Broad prime-wise congruences including the Franel sequence that could dominate a specialized congruence statement."
+      },
+      {
+        "assessment": "Provides source identity and Strehl formula, not an identical or dominating valuation-boundary classification.",
+        "evidence": [
+          "Entry comments credit Strehl for the positive binomial expansion; no binary digit-sum or valuation frontier comment is present."
+        ],
+        "identifier_or_url": "https://oeis.org/A000172",
+        "material_read": "Comments, linked references and formulas including Strehl identity and recurrence.",
+        "method": "Read public entry and check for valuation and binary-adjacency statements.",
+        "title": "OEIS A000172",
+        "trigger": "Exact sequence/database coverage and prior explicit binomial representations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b8d076e1-2405-4642-8c4a-6548fcffa45f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2014 work identifies nontrivial 2-adic valuation patterns as a motivating mathematical problem. The complete sharpness set of the natural digit-sum lower bound, exact minimum-summand multiplicities, and Fibonacci count are infinite structural classifications useful even though the larger valuations are unknown. The result is not a routine modulus table, numeric increment, or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
