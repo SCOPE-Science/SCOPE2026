@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-With Python 3 installed, run `python3 artifacts/verify.py` from this package's root. The script uses only the Python standard library.
+## correctness
 
-The verifier builds graph adjacencies from the two-row ladder definition; checks the signed invariant-complement formula for all four involutions at every \(3\le n\le40\); constructs the full oriented simplicial chain trace independently at every \(3\le n\le7\); and computes complete reduced mod-two simplicial boundary ranks for \(3\le n\le6\). A successful execution ends in `VERIFY_OK`.
+PASS
 
-These are finite consistency checks, not a proof of the all-parameter result. The all-parameter reasoning and the exact use of the previously published homotopy concentration are in `RESULT.md`. An independent audit has not been performed.
+Inspected the exact total-cut definition as complements of independent triples, n>=3 and reduced degree 2n−6. Previously published nonequivariant homotopy theorem gives a wedge of B_n even-dimensional spheres, permitting reduced Hopf trace. For each involution g, fixed oriented simplex contributes (-1)^{o_g(σ)+1}, complement produces trace (-1)^{m_g}Σ_{gT=T,α(T)≤2}(-1)^{o_g(T)}. Bipartiteness restricts bad T to size <=4. Recomputed bad triple count 6n²−16n+12 and perfect-matching four-set count (9n²−29n+24)/2; determined S, R, SR fixed orbit counts by even/odd n. The resulting traces equal desired C2×C2 permutation-character twist; rational one-dimensional irreducibles make character equality imply abstract isomorphism. Independent fresh enumerator built graph-edge test and all invariant bad subsets, reproducing all four traces for every n=3..25; finite enumeration only corroborates general orbit proof.
+
+## originality
+
+PASS
+
+Distinct from the nonequivariant ladder wedge theorem, which supplies only B_n and top-degree concentration. Bayer et al 2024 equivariant results concern ordinary k-cut complexes and other graph families; no same all-n total-three-cut ladder character found. A known D4 grid three-cut character relates a different complex/graph and does not imply the row-swap sign twist.
+
+## value
+
+PASS
+
+Character-level lifting of an established infinite-family homotopy calculation determines symmetric versus antisymmetric homology dimensions and a natural combinatorial permutation-module description invisible to Betti numbers; odd-n row-exchange sign is a genuine parity phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

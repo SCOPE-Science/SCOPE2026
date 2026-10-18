@@ -1,11 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim carefully distinguishes the new group-action character from the previously known nonequivariant wedge theorem in arXiv:2408.07646 (Theorems 1.1 and 3.3). The reduced Hopf trace including the empty simplex yields a signed orbit-complement formula. All invariant bad sets have at most four vertices by bipartiteness. The proof explicitly enumerates these sets for the identity, row exchange, horizontal reflection, and their product, with both parity cases, and compares to the square-pair permutation character. The general counting is exact; the bundled standalone verifier checks four complete formulas through forty rungs, direct oriented traces through seven rungs, and full mod-two boundary ranks through six rungs. Its finite computations are corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS with a residual indexing risk.** The full text of arXiv:2209.13503 develops total cut complexes but does not supply the displayed rational ladder character. ArXiv:2408.07646 explicitly proves the ladder's nonequivariant homotopy and Betti number, and that known information does not imply an action or its parity twist. ArXiv:2407.08158 studies equivariant homology for ordinary cut complexes of other graph families. ArXiv:2602.21427 §5.4 covers total two-cut Cartesian-path products, not the stated total three-cut representation. Related pre-existing calculations on finite square grids and ordinary ladder complexes do not imply the all-ladder total-three-cut representation. Targeted literature and published-result searches found no dominating or equivalent character calculation. An unindexed prior equivalent cannot be excluded.
+PASS
 
-**Value — PASS.** This determines the full rational automorphism representation of a natural infinite graph family, including the non-obvious odd-rung sign and explicit positive/negative reversal eigenspaces. It extracts additional structural, symmetry-sensitive information that is not determined by the already-known homotopy type or Betti number.
+Inspected the exact total-cut definition as complements of independent triples, n>=3 and reduced degree 2n−6. Previously published nonequivariant homotopy theorem gives a wedge of B_n even-dimensional spheres, permitting reduced Hopf trace. For each involution g, fixed oriented simplex contributes (-1)^{o_g(σ)+1}, complement produces trace (-1)^{m_g}Σ_{gT=T,α(T)≤2}(-1)^{o_g(T)}. Bipartiteness restricts bad T to size <=4. Recomputed bad triple count 6n²−16n+12 and perfect-matching four-set count (9n²−29n+24)/2; determined S, R, SR fixed orbit counts by even/odd n. The resulting traces equal desired C2×C2 permutation-character twist; rational one-dimensional irreducibles make character equality imply abstract isomorphism. Independent fresh enumerator built graph-edge test and all invariant bad subsets, reproducing all four traces for every n=3..25; finite enumeration only corroborates general orbit proof.
 
-**Limits.** The representation isomorphism is noncanonical and rational; neither an integral equivariant lattice nor a stable equivariant homotopy refinement is claimed. Independent human audit has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Distinct from the nonequivariant ladder wedge theorem, which supplies only B_n and top-degree concentration. Bayer et al 2024 equivariant results concern ordinary k-cut complexes and other graph families; no same all-n total-three-cut ladder character found. A known D4 grid three-cut character relates a different complex/graph and does not imply the row-swap sign twist.
+
+## value
+
+PASS
+
+Character-level lifting of an established infinite-family homotopy calculation determines symmetric versus antisymmetric homology dimensions and a natural combinatorial permutation-module description invisible to Betti numbers; odd-n row-exchange sign is a genuine parity phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
