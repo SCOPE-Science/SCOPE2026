@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical checks
+# Independent mathematical audit
 
-Execute `python verify_affine_rips.py` using only the Python standard library. The program enumerates graph-distance cliques and builds exact mod-two simplicial boundary matrices for the incidence graphs of the prime affine planes of orders \(2\) and \(3\). Each graph is reconstructed from coordinate incidence, and all shortest paths are independently computed. In order \(3\), the scale-two face vector is \((21,126,282,255,135,84,36,9,1)\); the boundary ranks are \((20,106,160,79,56,28,8,1)\); the only nonzero reduced Betti numbers are \(\widetilde\beta_2=16\) and \(\widetilde\beta_3=16\). In order \(2\), the scale-two reduced rank is \(\widetilde\beta_2=4\); that boundary order is deliberately excluded from the principal all-order statement. A point vertex has distance at most three from every vertex, so at scale three the complex is a cone; all pair distances are at most four, giving a full simplex at scale four. The checker verifies these statements without enumerating those large simplices.
+## correctness
 
-Successful execution ends with `VERIFY_OK affine_incidence_rips q=2,3 exact_GF2_scales=1,2; scales=3,4 cones`. Exact stdout is included in `verification_output.txt`. A finite check is corroboration, not a proof for arbitrary \(q\). The general proof depends on the explicit incidence axioms, a homotopy-pushout decomposition, and the join homotopy type for the parallel-class complex. Integer homotopy wedges justify all-field persistence, not merely the mod-two test.
+PASS
+
+Reconstructed exact distances: point-point 2, incident point-line 1/nonincident 3, intersecting lines 2/parallel lines 4. Every mixed scale-two clique lies in a line cone over its incident points or a point cone over its incident lines because two points share exactly one line. U (point simplex plus line cones) collapses to the point simplex; V (nonparallel-line flag complex plus point cones) collapses to B, the join of q+1 discrete q-element parallel classes. Their exact intersection is the original incidence graph G. Homotopy pushout and simply connected B yield B wedge suspension(G); B has (q-1)^(q+1) q-spheres and G cyclerank (q-1)^2(q+1). The scale-3 point apex is universal. This proves arbitrary existing affine planes including non-Desarguesian ones; the independent Hesse q=3 incidence count (21 vertices,36 edges,16 cycles) and package finite GF(2) Rips verifier only corroborate, not replace the symbolic all-order proof.
+
+## originality
+
+PASS
+
+The projective incidence-graph scale-two classification has a contractible line-only core because projective lines all meet; it cannot imply the affine parallel-class q-spheres. Kawamura 2011 proves homology comparison and inclusion equivalences for squares of general bipartite graphs, not the special mixed-dimensional affine wedge or full barcode. Adamaszek graph powers and edge-subdivision treatments do not specialize to the affine incidence graph with line degree at least 3. Exact affine order-three Hesse aliases and broader graph-square formulations were considered; no decisive covering source was found among the inspected primary statements, while the unavailable mathematical-index search remains an explicit residual uncertainty.
+
+## value
+
+PASS
+
+Determines an infinite natural incidence-geometry family, all positive-dimensional integer-scale persistence bars, and a structural explanation for an additional high-dimensional sphere family caused by parallelism. The exact formula applies without Desarguesian coordinatization and is not an arbitrary small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

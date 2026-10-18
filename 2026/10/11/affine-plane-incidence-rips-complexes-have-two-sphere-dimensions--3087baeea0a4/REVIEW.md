@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact affine incidence distances give a scale-two clique complex with a cover by a contractible point-core piece and a line-core piece retracting onto the join of the parallel classes. Their intersection is literally the incidence graph. The line-core join is a wedge of \((q-1)^{q+1}\) spheres in dimension \(q\) and is simply connected; consequently the homotopy cofiber splits off the suspension of the incidence graph, contributing \((q-1)^2(q+1)\) spheres in dimension two. The graph is the scale-one complex, and the scale-three complex is a cone. All assertions are proved for every existing affine plane of order \(q\ge3\); the finite boundary-matrix verifier corroborates the Hesse order-three case, not an infinite extrapolation.
+PASS
 
-## Originality — PASS
+Reconstructed exact distances: point-point 2, incident point-line 1/nonincident 3, intersecting lines 2/parallel lines 4. Every mixed scale-two clique lies in a line cone over its incident points or a point cone over its incident lines because two points share exactly one line. U (point simplex plus line cones) collapses to the point simplex; V (nonparallel-line flag complex plus point cones) collapses to B, the join of q+1 discrete q-element parallel classes. Their exact intersection is the original incidence graph G. Homotopy pushout and simply connected B yield B wedge suspension(G); B has (q-1)^(q+1) q-spheres and G cyclerank (q-1)^2(q+1). The scale-3 point apex is universal. This proves arbitrary existing affine planes including non-Desarguesian ones; the independent Hesse q=3 incidence count (21 vertices,36 edges,16 cycles) and package finite GF(2) Rips verifier only corroborate, not replace the symbolic all-order proof.
 
-The closest public calculation is for *projective* incidence graphs, where every line pair intersects and the line-core flag complex is contractible. Affine parallel classes make the corresponding core a noncontractible sphere wedge, so the published projective result does not imply this mixed-dimensional formula. Kawamura's bipartite-square homology comparisons and Adamaszek's graph-power and edge-subdivision theorems were inspected in their primary text. The latter covers the excluded order-two boundary, not order three or higher. The exact Hesse aliases, formula, line-join, and Rips graph-square formulations were checked against the indexed mathematical results. An obscure older equivalent calculation remains a documented possibility.
+## originality
 
-## Value — PASS
+PASS
 
-This supplies a complete infinite-family homotopy classification and positive-dimensional Rips barcode for canonical affine incidence structures, with a structural explanation of why the parallel classes create a new higher-dimensional sphere family. The smallest new case has \(16\) two-spheres and \(16\) three-spheres; the result is neither a scalar rank recomputation nor an arbitrary finite slice.
+The projective incidence-graph scale-two classification has a contractible line-only core because projective lines all meet; it cannot imply the affine parallel-class q-spheres. Kawamura 2011 proves homology comparison and inclusion equivalences for squares of general bipartite graphs, not the special mixed-dimensional affine wedge or full barcode. Adamaszek graph powers and edge-subdivision treatments do not specialize to the affine incidence graph with line degree at least 3. Exact affine order-three Hesse aliases and broader graph-square formulations were considered; no decisive covering source was found among the inspected primary statements, while the unavailable mathematical-index search remains an explicit residual uncertainty.
 
-## Scientific limitations
+## value
 
-No existence theorem for each order is claimed. The metric is unit-edge graph distance. Computation explicitly exhausts only prime orders two and three; all-order reasoning is a symbolic proof. The principal remaining risk is unindexed earlier incidence-complex literature.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Determines an infinite natural incidence-geometry family, all positive-dimensional integer-scale persistence bars, and a structural explanation for an additional high-dimensional sphere family caused by parallelism. The exact formula applies without Desarguesian coordinatization and is not an arbitrary small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
