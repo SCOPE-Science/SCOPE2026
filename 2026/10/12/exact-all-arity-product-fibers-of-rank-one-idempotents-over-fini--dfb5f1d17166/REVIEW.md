@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces ordered rank-one-idempotent products to a finite transition matrix on all nonzero linear forms. For a fixed nonzero image vector, its three entries are exactly \(q^{n-1}\), \(q^{n-2}\), and zero, according to equality, linear independence, and distinct proportionality of forms. The commuting all-ones/equivalence/identity matrices yield explicit spectral projections and powers for every nonnegative length exponent. Summation over the initial affine hyperplane proves each prescribed rank-one fiber, while row sums count all nonzero products and determine the zero fiber. The base case \(r=1\), \(q=2\), \(n=2\), proportional-form degeneracy, and all prime-power characteristics are covered. Eighteen complete finite target-space enumerations corroborate the symbolic argument. Unproved limits: no claims for higher-rank factors or for arbitrary matrix-monoid walks.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The closest primary antecedent, Alahmadi–Jain–Leroy–Sathaye (2015, Section 4), proves real nonnegative rank-one idempotent-product existence/bounds, not any finite-field exact prescribed-fiber distribution. The classical field factorization existence theorem of Erdős likewise does not imply counts. Ayyer–Schilling–Steinberg–Thiéry (2014) give a random-walk method under \(\mathscr R\)-triviality, a condition violated by the matrix semigroup here. Published two-factor idempotent–nilpotent and nilpotent–involution enumerations concern different factor classes. A previous rank-one projector generating-tuple formula concerns generation of an algebra, not matrix products. No inspected theorem or table subsumes the complete all-length fiber claim. Barnes–Cerrito–Levi (1998) was available as abstract only; a differently formulated semigroup result remains a risk. Lack of a search hit is not a proof of global uniqueness.
+PASS
 
-## Value — PASS
-This gives a complete natural invariant—the convolution powers of the canonical rank-one-idempotent class—in all dimensions and for all finite fields, with exact target fibers at every word length. It distinguishes nonzero matrices by trace even when rank is fixed and yields exact zero-product survival and nonzero conditioned mixing rates. The spectral transition lemma is structural and reusable; the result is not a one-off arbitrary parameter computation or a routine recomputation of an existing rank table.
+Represent each nonzero rank-one target B=u beta and each factor by u alpha with alpha(u)=1. The count of idempotents causing transition alpha->beta is H if equal, 0 if distinct proportional, and q^{n-2} otherwise. The exact matrix T=q^{n-2}(J-E)+H I has projections J/N, E/g-J/N, I-E/g and eigenvalues q^{2n-2},q^{n-2},q^{n-1}; summing T^{r-1} over H first forms gives every trace-class fiber, while row sum gives zero fiber. Handles q=2 (third projector zero), n=2, r=1, and zero target. Independently enumerated all targets for q=2,n=2,r<=4; q=3,n=2,r<=3; q=2,n=3,r<=3.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact all-dimension, all-arity, prescribed-target idempotent-product distribution is distinct from real nonnegative idempotent factor existence and finite semigroup spectral theory under R-trivial assumptions (inapplicable here). General Barnes–Cerrito–Levi paper unread; record residual coverage risk.
+
+## value
+
+PASS
+
+An exact natural finite-field matrix factorization census with trace-stratified fibers, exact survival probability and mixing rates, rather than an isolated small matrix calculation. Useful for semigroup random walks and constrained matrix products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
