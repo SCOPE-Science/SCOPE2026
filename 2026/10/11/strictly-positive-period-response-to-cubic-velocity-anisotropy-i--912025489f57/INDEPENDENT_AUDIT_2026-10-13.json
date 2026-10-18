@@ -1,0 +1,204 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T18:14:00.960812Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/strictly-positive-period-response-to-cubic-velocity-anisotropy-i--912025489f57/RESULT.md [Git blob 93da3a0dab9ac19bb35f8795ac75bee531c3ae9b]"
+      ],
+      "rationale": "At frozen RESULT.md blob 93da3a0dab9ac19bb35f8795ac75bee531c3ae9b, for fixed q>0 the polar change x=r cosφ, y=−r sinφ gives r'=−rS sin²φ and φ'=1−S sinφ cosφ, S=−q+r²[1+(β−1)sin²φ]. Independently verified both polar equations symbolically. At β=1, r=√q is an exact hyperbolic attracting cycle, multiplier e^(−2πq); analytic continuation is licensed for each fixed q. The first radial variation v yields w=2√q v+q sin²φ solving w'+2q sin²φ w=q sin2φ, which has a unique π-periodic solution since homogeneous multiplier e^(−πq)≠1. Differentiation of the ORIGINAL time-period integral gives T_β=1/2∫w sin2φ; multiplying w's equation by w, integrating, gives T_β=∫sin²φ w²>0, because zero would force w≡0 despite nonzero forcing. With w=q z and ∫_0^π sin²φ z=0, the q→0 limit z0=−1/4−(1/2)cos2φ gives exact coefficient ∫_0^(2π) sin²φ z0²=π/16, so T_β=π q²/16+O(q³). All q>0 only pointwise in β-neighborhood, not uniform/global monotonicity. Independent SymPy verification of polar identities and π/16 coefficient; numerical quadrature is not a universal proof.",
+      "residual_risks": [
+        "Near q=0 the hyperbolic multiplier tends to one, so continuation-neighborhood uniformity is not claimed.",
+        "The close primary 2024 oscillator literature was not fully accessible, an O limitation rather than a proof defect."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Xiao gives existence/uniqueness criteria and locations in available material; Chen–Wang–Zhang gives algebraic-cycle classification; Chen–Tang–Xiao analyzes global portraits/amplitudes.",
+          "None of the actually accessible statements entails derivative positivity for minimal period at β=1, but inaccessible appendices remain a risk."
+        ],
+        "reasoning": "A broader existence theorem is not a period derivative. No whole-document NOT_COVERING judgment is made on the inaccessible primary proofs.",
+        "searches": [
+          "DOI 10.1007/s10231-023-01312-3",
+          "DOI 10.1016/j.jde.2024.06.005",
+          "DOI 10.1016/j.physd.2021.133021"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1016/j.jde.2024.06.005",
+        "doi:10.1007/s10231-023-01312-3",
+        "doi:10.1016/j.physd.2021.133021",
+        "doi:10.3390/math9233004"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Circle at β=1 has T=2π, but the period derivative can be either sign a priori; the sign needs the radial-variation ODE plus positive-square identity.",
+          "The coefficient π/16 is from a singular q→0 limit with a weighted mean normalization, not an immediate cycle-existence corollary."
+        ],
+        "reasoning": "The new local sensitivity and weak-amplitude law are not implications of inspected pre-existing cycle-existence or algebraicity assertions.",
+        "searches": [
+          "DOI 10.1016/j.jde.2024.06.005",
+          "DOI 10.1007/s10231-023-01312-3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The q=−α reparametrization identifies the same circular algebraic cycle at β=1 in Chen–Wang–Zhang.",
+          "A frequency derivative has opposite sign to the claimed positive physical-period response; perturbing the orbit and the phase speed jointly is necessary."
+        ],
+        "reasoning": "Checked period/frequency susceptibility, cubic-velocity damping, and circular-cycle aliases to avoid calling an existing cycle definition new.",
+        "searches": [
+          "hybrid van der Pol Rayleigh oscillator polynomial cubic velocity anisotropy beta limit cycle period derivative monotonicity positive square",
+          "DOI 10.1016/j.jde.2024.06.005",
+          "DOI 10.1007/s10231-023-01312-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or formula for the derivative was observed in accessible database or source listings.",
+          "The full open 2021 Mathematics paper studies a different forced fast/slow oscillatory family, not the same autonomous cubic β-perturbation."
+        ],
+        "reasoning": "A potential period table could cover this narrow exact fact, but no positive instance was established; failed searches cannot certify originality.",
+        "searches": [
+          "Resultary semantic query: hybrid van der Pol Rayleigh oscillator polynomial cubic velocity anisotropy beta limit cycle period derivative monotonicity positive square [internal error]",
+          "GitHub SCOPE code query: hybrid van der Pol Rayleigh period derivative [no matches]",
+          "DOI 10.3390/math9233004"
+        ]
+      },
+      "rationale": "PASS on bounded best-of-knowledge: existing same-polynomial hybrid-oscillator work identifies cycle existence and the exact β=1 circular algebraic limit cycle; this does not logically imply the signed original-time period derivative of the moved cycle nor πq²/16 coefficient. Full primary 2023/2024/2021 papers were not all accessible, leaving genuine priority risk.",
+      "residual_risks": [
+        "Identical-family 2024 Journal of Differential Equations paper not inspected in full; possible unexamined period calculation is a real priority risk.",
+        "2023 and 2021 full manuscripts inaccessible; a corresponding formula in an appendix cannot be excluded.",
+        "Resultary semantic service failed internally; no-result SCOPE code search proves nothing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong same-object literature risk. The accessible material does not claim signed period derivative, but the unread full proof/appendices cannot be ruled out",
+          "evidence": [
+            "DOI and exact beta=1 algebraic circle identification; no displayed T derivative in accessible mathematical review."
+          ],
+          "identifier_or_url": "doi:10.1016/j.jde.2024.06.005",
+          "material_read": "Indexed MaRDI/zbMATH review and publisher abstract, including invariant algebraic cycle iff β=1 with relevant sign condition; FULL manuscript not obtained",
+          "method": "Theorem-level review and coefficient correspondence; preprint/OA search attempted",
+          "title": "A necessary and sufficient condition on algebraic limit cycles of a hybrid van der Pol-Rayleigh oscillator",
+          "trigger": "Identical polynomial vector field and β=1 circle"
+        },
+        {
+          "assessment": "Existing global cycle results do not visibly include derivative; do not conclude full-paper NOT_COVERING",
+          "evidence": [
+            "Accessible abstract focuses on cycle count and location."
+          ],
+          "identifier_or_url": "doi:10.1007/s10231-023-01312-3",
+          "material_read": "Publisher abstract, bibliography and available theorem summaries; paid complete technical manuscript not obtained",
+          "method": "Abstract-based implication comparison only",
+          "title": "On the existence and uniqueness of limit cycles for hybrid oscillators",
+          "trigger": "Nearby oscillator existence/uniqueness results"
+        },
+        {
+          "assessment": "Materially plausible overlap; no full-paper exclusion possible",
+          "evidence": [
+            "Global portrait and amplitude results are not themselves period-sensitivity identities."
+          ],
+          "identifier_or_url": "doi:10.1016/j.physd.2021.133021",
+          "material_read": "Author/publisher abstract on global phase portraits, amplitudes and cycle multiplicity; full text not obtained",
+          "method": "Abstract-level model/scope comparison",
+          "title": "Global dynamics of hybrid van der Pol–Rayleigh oscillators",
+          "trigger": "Older same oscillator family, global bifurcations"
+        },
+        {
+          "assessment": "Different externally forced/scaled system cannot specialize directly to exact q,β autonomous cubic family",
+          "evidence": [
+            "Source includes fast-slow external forcing and does not identify the β=1 isotropic circle."
+          ],
+          "identifier_or_url": "doi:10.3390/math9233004",
+          "material_read": "Open full technical article at forced fast-slow equations, bifurcation analysis and scope",
+          "method": "Direct equation/parameter contrast",
+          "title": "Fast-Slow Coupling Dynamics Behavior of the van der Pol-Rayleigh System",
+          "trigger": "Alternative family containing Rayleigh name and frequency analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/strictly-positive-period-response-to-cubic-velocity-anisotropy-i--912025489f57/RESULT.md"
+      ],
+      "rationale": "Period sensitivity is a natural dynamical invariant not determined by knowing exact cycle existence. A signed original-time derivative valid for every positive squared radius, with a positive-square formula and sharp weak-Hopf q² coefficient, constrains how cubic anisotropic damping shifts oscillatory frequency. The exact fact is independently useful for perturbation, stability and oscillator calibration, without requiring global monotonicity or a new phase portrait.",
+      "residual_risks": [
+        "The result is local in β and not an all-parameter frequency law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/strictly-positive-period-response-to-cubic-velocity-anisotropy-i--912025489f57/RESULT.md",
+    "doi:10.1016/j.jde.2024.06.005",
+    "doi:10.1007/s10231-023-01312-3",
+    "doi:10.1016/j.physd.2021.133021",
+    "doi:10.3390/math9233004"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Resultary semantic search failed internally for this record; no negative semantic-result claim is made.",
+    "GitHub code search with exact-topic wording returned no hits, not proof of absence.",
+    "This is a bounded independent mathematical reading of the assigned source, not formal proof, expert attestation, or a publication.",
+    "Public-facing source metadata contains internal operational provenance and the publication plan is not_ready; no scientific or administrative file was changed."
+  ],
+  "residual_risks": [
+    "Near q=0 the hyperbolic multiplier tends to one, so continuation-neighborhood uniformity is not claimed.",
+    "The close primary 2024 oscillator literature was not fully accessible, an O limitation rather than a proof defect.",
+    "Identical-family 2024 Journal of Differential Equations paper not inspected in full; possible unexamined period calculation is a real priority risk.",
+    "2023 and 2021 full manuscripts inaccessible; a corresponding formula in an appendix cannot be excluded.",
+    "Resultary semantic service failed internally; no-result SCOPE code search proves nothing.",
+    "The result is local in β and not an all-parameter frequency law."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Strong same-object literature risk. The accessible material does not claim signed period derivative, but the unread full proof/appendices cannot be ruled out",
+      "evidence": [
+        "DOI and exact beta=1 algebraic circle identification; no displayed T derivative in accessible mathematical review."
+      ],
+      "identifier_or_url": "doi:10.1016/j.jde.2024.06.005",
+      "material_read": "Indexed MaRDI/zbMATH review and publisher abstract, including invariant algebraic cycle iff β=1 with relevant sign condition; FULL manuscript not obtained",
+      "method": "Theorem-level review and coefficient correspondence; preprint/OA search attempted",
+      "title": "A necessary and sufficient condition on algebraic limit cycles of a hybrid van der Pol-Rayleigh oscillator",
+      "trigger": "Identical polynomial vector field and β=1 circle"
+    },
+    {
+      "assessment": "Existing global cycle results do not visibly include derivative; do not conclude full-paper NOT_COVERING",
+      "evidence": [
+        "Accessible abstract focuses on cycle count and location."
+      ],
+      "identifier_or_url": "doi:10.1007/s10231-023-01312-3",
+      "material_read": "Publisher abstract, bibliography and available theorem summaries; paid complete technical manuscript not obtained",
+      "method": "Abstract-based implication comparison only",
+      "title": "On the existence and uniqueness of limit cycles for hybrid oscillators",
+      "trigger": "Nearby oscillator existence/uniqueness results"
+    },
+    {
+      "assessment": "Materially plausible overlap; no full-paper exclusion possible",
+      "evidence": [
+        "Global portrait and amplitude results are not themselves period-sensitivity identities."
+      ],
+      "identifier_or_url": "doi:10.1016/j.physd.2021.133021",
+      "material_read": "Author/publisher abstract on global phase portraits, amplitudes and cycle multiplicity; full text not obtained",
+      "method": "Abstract-level model/scope comparison",
+      "title": "Global dynamics of hybrid van der Pol–Rayleigh oscillators",
+      "trigger": "Older same oscillator family, global bifurcations"
+    },
+    {
+      "assessment": "Different externally forced/scaled system cannot specialize directly to exact q,β autonomous cubic family",
+      "evidence": [
+        "Source includes fast-slow external forcing and does not identify the β=1 isotropic circle."
+      ],
+      "identifier_or_url": "doi:10.3390/math9233004",
+      "material_read": "Open full technical article at forced fast-slow equations, bifurcation analysis and scope",
+      "method": "Direct equation/parameter contrast",
+      "title": "Fast-Slow Coupling Dynamics Behavior of the van der Pol-Rayleigh System",
+      "trigger": "Alternative family containing Rayleigh name and frequency analysis"
+    }
+  ]
+}
