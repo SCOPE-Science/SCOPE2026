@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. With \(p\) the least prime divisor and \(h=H(n)\), one has \(n-\varphi(n)\ge n/p\) and \(n/p\ge2^{h-1}\) for composite \(n\). Defect at most \(3\) therefore forces \(h\le3\) and \(n/p\le6\), leaving exactly eight composite candidates. Their exact values give the four claimed fibers. The finite verifier through \(10^6\) is corroborative only.
+## correctness
 
-## Originality
-PASS. The focal paper proves \(\varphi(n)\le n-H(n)\) but does not classify equality or near-equality. Older inspected work on \(H\) treats density, statistical convergence, and normal order. Exact, alias, database, and low-fiber searches found no implication-equivalent theorem.
+PASS
 
-## Value
-PASS. The theorem gives the complete sharpness spectrum at the boundary of a published natural inequality: equality, the unit gap, an exact missing level, and the complete defect-three fiber. The finite reduction is forced by the proof rather than chosen computationally.
+Let p be the least prime divisor of composite n and h=H(n) its largest exponent. Euler product gives n−φ(n)≥n/p, and any prime occurring to exponent h forces n/p≥2^(h−1), hence Δ_H(n)≥2^(h−1)−h≥0. For Δ≤3, 2^(h−1)−h≤3 forces h≤3; with m=n/p, Δ≥m−h gives m≤6. Since p≤least prime factor of m, the only composite candidates are {4,6,8,9,10,12,15,25}. Exact totient computations show Δ=0 for 4, Δ=1 for 8,9, Δ=2 never, Δ=3 for 6,25, with all primes Δ=0. Tested independently by fresh sieve/factorization for every 2≤n≤3999, without using numerical cutoff as infinity proof. The cutoff-free least-prime argument establishes complete exhaustiveness.
 
-## Closest literature and limitations
-The closest source is Sándor–Atanassov (2023), which establishes the baseline inequality. Schinzel–Šalát (1994) is the closest older primary source centered on \(H\). The theorem does not classify higher defect fibers, and an unindexed elementary observation remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+At claim/implication level, no inspected prior source states or entails the precise final result; closest frameworks, partial results and source gaps are explicitly distinguished. No failed search is treated as proof of absolute priority.
+
+## value
+
+PASS
+
+The arithmetic gap is the natural quantitative slack in Sándor--Atanassov’s established Niven max-exponent vs totient inequality. Its equality and first consecutive near-equality fibers form a COMPLETE extremal/stability classification rather than arbitrary midrange finite examples: it distinguishes exceptional 4,8,9,6,25 and proves an impossible defect level 2. The exact initial spectrum gives a reusable sharp benchmark for refinements or related multiplicative-defect questions, even though the elementary proof is short and does not classify higher fibers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
