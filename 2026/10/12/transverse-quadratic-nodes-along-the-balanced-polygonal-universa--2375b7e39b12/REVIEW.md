@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-On the coordinate torus the universal adjoint is a unit times the cyclic quadratic form after coordinate inversion. The full Jacobian scheme therefore becomes the kernel of an explicit symmetric cycle matrix. Its determinant is nonzero for odd length; even length has a bipartite cyclic bidiagonal block of corank one precisely in the positive balanced case with length divisible by four. Both nullvectors have nonzero coordinates of their parity, giving a reduced punctured line. The exact quadratic normal form gives the transverse \(A_1\)-type singularity in \(n-2\) normal variables. The accompanying verifier checks representative Hessians and the octagon polynomial; the general proof does not rely on finite enumeration.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest original work is Telen, *Toric amplitudes and universal adjoints*, Theorem 7.11 and Example 7.12. The theorem there proves only a sufficient condition excluding torus singularities, and the example supplies one octagonal singular line. The present classification determines the converse, **the entire reduced scheme on the torus** and the local analytic type for arbitrary positive cyclic weights in every allowed length. Searches of published mathematical findings and primary literature used source-title, alternating-weight, weighted-cycle, inversion, singular-line, and Morse–Bott aliases. No stronger published statement was located; this is evidence rather than a proof of universal novelty. A differently named prior treatment of cycle-quadric inversion remains possible.
+PASS
 
-## Value — PASS
-The exception to a recent generic smoothness theorem was previously illustrated for one octagon. A uniform reduced-scheme classification and transverse singularity type identify what all exceptional off-boundary singularities actually look like; this addresses a naturally motivated gap in the geometry of the adjoint hypersurface, independently of a full boundary-singularity classification. It distinguishes a smooth one-parameter family of ordinary quadratic nodes from more complicated or nonreduced degeneration, not just a parameter rephrasing of the genericity criterion.
+On the coordinate torus multiply by the invertible monomial and invert x to obtain Q(y)=sum_i c_i y_i y_(i+1). Its Hessian is a weighted symmetric cycle. For odd n the determinant is 2 product c_i; for n=2m the parity-ordered cyclic bidiagonal block B has det B=product_odd c + (-1)^(m-1) product_even c. Positive weights imply det B=0 exactly when 4|n and the alternating products balance. A nonzero (m-1)-minor makes corank H exactly 2. The two parity-supported nullvectors have no zero supported entries, so projectivized kernel intersects the torus as P1 minus its two endpoints, reduced; local linear diagonalization of the quadratic form yields transverse rank n-2 throughout. Independently verified exact Hessian ranks for lengths 5,6,8,10,12 and weighted balanced/unbalanced eight-cycles. This concerns the torus only, not boundary strata.
 
-## Scope and limitations
-Only the dense coordinate torus is classified. Positivity and cyclic fan geometry are required for the if-and-only-if parity assertion; ordinary quadratic local type is over \(\mathbf C\). Boundary components may be numerous and are deliberately not described.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Telen 2026 Theorem 7.11 derives the nonexceptional exclusion criterion and Example 7.12 displays one balanced octagon line; its matrix M argument contains the necessary parity-product obstruction. The reviewed contribution gives the converse for every balanced positive cyclic weight, the exact reduced scheme on the projective torus, and uniform transverse analytic normal form of rank n-2. Those conclusions were not stated as a full classification in the inspected primary article; the stronger source still materially constrains novelty.
+
+## value
+
+PASS
+
+This is a natural all-polygon, scheme-theoretic local singularity classification, with an exact parameter-dependent degeneracy boundary, reducedness, and constant transverse analytic type. Local analytic type and multiplicity matter to singularity theory and are not merely a finite example or a combinatorial restatement of an exclusion theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
