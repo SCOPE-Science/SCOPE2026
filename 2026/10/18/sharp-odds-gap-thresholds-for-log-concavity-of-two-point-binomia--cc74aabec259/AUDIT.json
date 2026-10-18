@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Exact binomial factorization reduces the neighbor ratio to a baseline binomial factor times \\(1+\\Delta z/(1+z)^2\\). Cancellation gives pointwise necessary-and-sufficient ULC and LC inequalities. Since \\(z/(1+z)^2\\le1/4\\) with equality at \\(z=1\\), and every \\(z>0\\) is reachable by varying the mixing weight, maximizing \\(n-k\\) and \\(k(n-k)\\) over interior indices gives the sharp bounds including equality. Strictly concave log-profiles show that failure indices are consecutive. The exact witness and 12,285 supplementary rational checks pass; finite tests do not replace the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aravinda, Marsiglietti and Melbourne (2021), arXiv:2104.05054",
+        "Xia and Lv (2024), doi:10.1017/S0269964823000293",
+        "Gross, Mansour, Tucker and Wang (2014), arXiv:1407.6325, Section 2",
+        "Independent heterogeneous Bernoulli convolution is different from a common latent success-rate Bernoulli mixture."
+      ],
+      "reasoning": "General ULC concentration theorems assume rather than characterize ULC. Compound-binomial closure theorems convolve a random number of jumps, whereas this family fixes n and randomizes the conditional Bernoulli parameter. General synchronization yields a strictly narrower sufficient set: n=10, p=1/4, q=1/2 has odds ratio 3 and is not synchronized, yet the exact theorem guarantees LC for all weights.",
+      "searches": [
+        "Mixture of binomial distributions ultra log concavity Bernoulli dependence correlation",
+        "Ultra log-concavity of discrete two-component binomial mixture with fixed n and heterogeneous probabilities",
+        "arXiv:2104.05054v3",
+        "doi:10.1017/S0269964823000293"
+      ]
+    },
+    "checked_sources": [
+      "Kella and Löpker (2022), arXiv:2202.10296, Section 6",
+      "Aravinda, Marsiglietti and Melbourne (2021), arXiv:2104.05054",
+      "Gross, Mansour, Tucker and Wang (2014), arXiv:1407.6325, Section 2",
+      "Xia and Lv (2024), doi:10.1017/S0269964823000293",
+      "Badiella, del Castillo and Puig (2023), doi:10.1016/j.spl.2023.109900"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kella and Löpker (2022), arXiv:2202.10296, Section 6",
+        "Aravinda, Marsiglietti and Melbourne (2021), arXiv:2104.05054",
+        "Gross, Mansour, Tucker and Wang (2014), arXiv:1407.6325, Section 2",
+        "Xia and Lv (2024), doi:10.1017/S0269964823000293",
+        "At n=10, odds ratio 3 violates pairwise synchronicity at k=5 but satisfies Delta=4/3<44/25."
+      ],
+      "reasoning": "No inspected proposition provides both necessity and sufficiency for every weight. A synchronization condition cannot dominate the sharp robust classification, because an explicit non-synchronized pair lies within it. The mathematical objects of the compound-binomial comparison and order-statistic comparison differ, so neither entails the stated ratio identity and cutoff.",
+      "searches": [
+        "Universal logconcavity of convex combinations of binomial mass functions, explicit odds ratio criterion",
+        "Binomial mixture of two success probabilities with a fixed number of trials, exact log-concavity and ultra-log-concavity threshold",
+        "arXiv:2202.10296, Section 6",
+        "arXiv:2104.05054v3",
+        "arXiv:1407.6325, Section 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kella and Löpker (2022), arXiv:2202.10296, Section 6",
+        "Gross, Mansour, Tucker and Wang (2014), arXiv:1407.6325, Section 2",
+        "Exact identity: \\(a_{k-1}a_{k+1}/a_k^2=[k(n-k)/((k+1)(n-k+1))]\\,[1+\\Delta z/(1+z)^2]\\)."
+      ],
+      "reasoning": "The strongest plausible aliases are Bernoulli de Finetti two-atom mixtures, beta-binomial two-atom limits, and sums of conditionally independent exchangeable indicators. Section 6 of the motivating source defines the same conditional model but studies mixing/thinning and limit properties, not sharp pointwise log-concavity thresholds. The synchronization theorem is only sufficient; it does not imply the sharp iff criteria.",
+      "searches": [
+        "log-concavity ultra-log-concavity exchangeable Bernoulli mixture of two binomial laws common number of trials, odds ratio and mixing weight threshold",
+        "Two-point binomial success parameter mixing sharp log-concavity ultra-log-concavity odds gap robust in mixing weight consecutive failure indices",
+        "arXiv:2202.10296, Section 6",
+        "arXiv:1407.6325, Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kella and Löpker (2022), arXiv:2202.10296, Section 6",
+        "Gross, Mansour, Tucker and Wang (2014), arXiv:1407.6325, Section 2",
+        "Exact witness: \\(n=10\\), \\(p=1/3\\), \\(q=1/2\\), \\(w=524288/583337\\), and \\(a_1^2/(2a_0a_2)=80/81\\)."
+      ],
+      "reasoning": "Searches and inspected primary texts did not expose an exact table or parameter-bound catalog covering these two robust odds-gap cutoffs or the contiguous-violation-band statement. Failure to find a table is not a novelty certificate.",
+      "searches": [
+        "Sharp odds ratio condition for log concavity of a mixture of two Bin(n,p) distributions uniformly over mixing weights",
+        "Binomial mixture n trials two atoms Bernoulli parameter sharp odds ratio log concavity all convex weights",
+        "Exchangeable Bernoulli sum two point de Finetti mixture discrete ultra log concavity exact necessary sufficient",
+        "arXiv:2202.10296v3, Section 6"
+      ]
+    },
+    "rationale": "The closest primary source defines the same binomial-mixing object but investigates thinning and mixing rather than its sharp LC/ULC boundaries. Full material comparison with general ULC concentration, mixture synchronicity, and compound-binomial literature showed no theorem implying both iff cutoffs and the contiguous violation-band classification. Synchronization is demonstrably insufficient to recover necessity. Mathematical-record searches also returned no direct covering statement, though they cannot prove priority.",
+    "residual_risks": [
+      "Equivalent earlier characterization under different terminology could be unindexed, especially reliability theory or exchangeable Bernoulli models.",
+      "Only an abstract-level comparison was possible for the discrete-order-statistic paper; no whole-document NOT_COVERING inference is made.",
+      "Independent priority confirmation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and analyzes the mixture operation but does not prove the sharp necessary-and-sufficient LC/ULC odds-gap conditions for two-point mixing.",
+        "evidence": [
+          "Kella and Löpker (2022), arXiv:2202.10296, Section 6",
+          "Section 6 develops binomial mixing, admissibility, generalized mixing, thinning and limits; full-text searches for both curvature terms yielded no result."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.10296v3",
+        "material_read": "Full HTML body, particularly Section 6 on binomial mixing and generalized mixing, plus the result and proposition statements; searched entire HTML text for log-concavity and ultra-log-concavity.",
+        "method": "Read open-access primary article and compared theorem hypotheses, definition of mixing, and consequent distributional properties.",
+        "title": "On Binomial Thinning and Mixing",
+        "trigger": "Same conditional binomial-with-random-probability object and qualifying 2022 earliest version."
+      },
+      {
+        "assessment": "Applies concentration results conditional on ULC; provides no exact membership test for two-point exchangeable binomial counts.",
+        "evidence": [
+          "Aravinda, Marsiglietti and Melbourne (2021), arXiv:2104.05054",
+          "The main concentration theorem assumes ultra-log-concavity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2104.05054v3",
+        "material_read": "The open-access article’s ULC definitions, main concentration statement and proof ideas.",
+        "method": "Compared stated assumptions and implications, rather than title alone.",
+        "title": "Concentration Inequalities for Ultra Log-Concave Distributions",
+        "trigger": "Could a stronger general concentration or ULC characterization subsume the theorem?"
+      },
+      {
+        "assessment": "Sufficient synchronicity is strictly weaker than this sharp iff classification, as witnessed by n=10,p=1/4,q=1/2.",
+        "evidence": [
+          "Gross, Mansour, Tucker and Wang (2014), arXiv:1407.6325, Section 2",
+          "At k=5 the component odds ratio 3 exceeds required synchronicity upper bound 36/25, while Delta=4/3<44/25."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1407.6325",
+        "material_read": "Primary manuscript, particularly the Section 2 synchronicity condition and combination-preservation theorem; visually inspected theorem page.",
+        "method": "Compared the sufficient pairwise condition with the exact optimum across binomial mixing weights.",
+        "title": "Log-Concavity of Combinations of Sequences and Applications to Genus Distributions",
+        "trigger": "General log-concavity preservation under mixtures of two log-concave sequences might dominate the result."
+      },
+      {
+        "assessment": "Studies compound sums, not randomness of a common latent Bernoulli success probability, so does not imply the cutoff.",
+        "evidence": [
+          "Xia and Lv (2024), doi:10.1017/S0269964823000293",
+          "Compound binomial laws use a random binomial summand count and independent jump sizes."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0269964823000293",
+        "material_read": "Accessible primary HTML full text, its definitions, main theorems, and compound-binomial specialization.",
+        "method": "Compared mixture versus compound-convolution constructions and the respective curvature hypotheses.",
+        "title": "Log-concavity and relative log-concave ordering of compound distributions",
+        "trigger": "The closely named compound-binomial log-concavity theorem might imply mixture membership."
+      },
+      {
+        "assessment": "The described object is a fixed-size discrete order statistic, not a binomial law with two-atom latent success probability; uninspected text remains residual risk.",
+        "evidence": [
+          "Badiella, del Castillo and Puig (2023), doi:10.1016/j.spl.2023.109900",
+          "The stated preservation theorem concerns order statistics."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2023.109900",
+        "material_read": "Accessible bibliographic record, abstract and available main result description only; not the complete article.",
+        "method": "Limited abstract/theorem-scope comparison; no unsupported whole-paper exclusion.",
+        "title": "Ultra log-concavity of discrete order statistics",
+        "trigger": "Relevant other recent probability ULC preservation theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cc74aabe-c259-47aa-8352-b6bb94f64f7d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural complete sharp classification of LC and ULC under two-point binomial mixing gives distinct asymptotic robust odds-gap radii \\(2/\\sqrt n\\) and \\(4/\\sqrt n\\), an exact consecutive-failure-band structure for each weight, and usable ULC concentration hypotheses for positively dependent exchangeable Bernoulli counts. Both the sharp uniform cutoffs and their distinct scaling provide information beyond isolated examples and existing sufficient componentwise preservation criteria.",
+    "status": "PASS"
+  }
+}
