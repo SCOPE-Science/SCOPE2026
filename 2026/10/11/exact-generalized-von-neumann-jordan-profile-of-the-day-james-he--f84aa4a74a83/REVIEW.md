@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Homogeneity gives the exact scale reduction; joint convexity reduces each fixed scale to all vertex pairs of the hexagonal unit ball; symmetry exhausts the relative positions. The resulting one-variable derivative has exactly one zero for \(p>1\), and the critical equation simplifies the exact value. The \(p=1\) case is handled separately.
+## correctness
 
-## Originality
-PASS. The same-object 2006 source covers only \(p=2\). The 2015 defining source covers the same generalized invariant but calculates other spaces, while the broader Day--James paper remains quadratic. Exact alias, formula, and implication searches did not locate the complete exponent profile.
+PASS
 
-## Value
-PASS. The invariant is motivated by uniform non-squareness and fixed-point geometry, and the affine-regular Day--James hexagon is a classical exact benchmark. The result replaces an isolated quadratic value by the complete exponent family and identifies its unique scale.
+Homogeneity, exchange symmetry and the scale t=N(y)/N(x) reduce the arbitrary nonzero two-vector quotient to 0<=t<=1 and unit sphere u,v. For fixed t and p>=1, N(u+tv)^p+N(u-tv)^p is convex in both arguments on the product of two hexagon unit balls, so it attains its maximum at vertices. Inspecting six cyclic relative positions gives norm pairs (1+t,1-t),(1+t,1),(1,1+t),(1-t,1+t), hence exact upper and attained value 1+(1+t)^p. Independently checked all 36 vertex pairs at multiple distinct scales, including endpoints; this corroborates rather than replaces the symbolic six-position proof. The derivative of f_p(t) has sign H=t^(1-p)-(1+t)^(1-p)-1; for p>1 H strictly decreases from infinity to -2^(1-p), so the sole interior root is globally maximizing. The critical equation algebraically yields the displayed closed value. For p=1 f_1=(2+t)/(1+t), maximum 2 at t=0; for p=2 the golden-ratio result agrees with known prior exact value.
 
-## Closest literature and limitations
-Yang--Wang (2006) gives the \(p=2\) endpoint. Cui--Huang--Hudzik--Kaczmarek (2015) defines \(C_{\mathrm{NJ}}^{(p)}\) and computes Lebesgue spaces. The theorem does not treat the full Day--James family, and a differently notated equivalent endpoint computation remains a residual risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: 2006 Yang–Wang computes classical p=2 for the same Day–James endpoint; 2015 Cui et al. defines the exponent-p generalized constant and gives general scale theory, not this full endpoint profile; 2016 broader Day–James result is again classical quadratic. A complete p-profile is not implied by p=2 and a generic definition.
+
+## value
+
+PASS
+
+Full exponent-dependent nonlinear optimization of a canonical two-dimensional Day–James norm gives a natural exact function of p, not a single known-table recomputation. It recovers the old golden-ratio point while identifying unique optimal scale for all p>1, useful in Banach-space geometric comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
