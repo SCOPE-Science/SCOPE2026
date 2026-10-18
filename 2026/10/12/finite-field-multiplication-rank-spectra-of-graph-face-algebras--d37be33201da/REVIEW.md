@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The quotient has basis \(1\), vertices, and edge monomials. For each nonempty vertex support, the degree-one multiplication kernel is the direct sum of: unconstrained vertices outside the closed neighborhood, and one-dimensional alternating assignments on bipartite induced components (on every component in characteristic two). This proves each rank, the exact support weights, and the maximum-rank boundary. A separate cyclic-word transfer argument proves the four-state formula. All full multiplication matrices were independently enumerated in ten finite instances, including a nonprime field; the standalone checker succeeded. The finite check is corroboration rather than proof.
+## correctness
 
-**Originality — PASS (self-review, residual risk noted).** Cook–Nagel (2015) concern monomial Lefschetz phenomena; Boij et al. (2016) describe non-Lefschetz loci for complete intersections. Dao–Nair (2021, Section 3) is the closest same-algebra source, proving a generic-form incidence-matrix criterion; Holleben (2023) advances generic-form weak-Lefschetz criteria. The present theorem counts *every* element of the full algebra by multiplication rank for every finite field and supplies the fixed-size cycle transfer law. Neither of the inspected same-algebra works gives the full support-weighted distribution or the cycle formula. The signed incidence rank ingredient is classical, and the new theorem is deliberately distinguished from that ingredient. Equivalent independent formulations cannot be ruled out exhaustively.
+PASS
 
-**Value — PASS.** Rather than a generic yes/no Lefschetz test, the result determines every annihilator-size frequency of a graph-indexed Artinian local algebra. It recovers the number of bipartite connected components from an algebraic extremum, handles characteristic two sharply, and gives an efficient four-state computation for cycles of arbitrary length. These are natural structural invariants of a standard face-algebra family rather than an arbitrary finite slice.
+The quotient basis is {1,x_v,y_e}, d=1+n+m. A unit multiplier has rank d; nonzero degree-two multiplier rank1. For nonzero linear support S the degree-one multiplication kernel imposes a_i b_j+a_j b_i=0 on edges: free zero-neighborhood outside vertices contribute z_G(S); induced bipartite connected support components contribute one alternating dimension for odd p, while all connected components do for p=2. M_a(1) has a unique degree-one part, so rank=1+n−z−c_p independent of quadratic coefficients. Multiplicity q^m(q−1)^|S| yields exact histogram and annihilator sizes. Full support proves the maximum nonunit rank; the 4-state De Bruijn transfer weights 01 transitions and 000 triples, with correction at full one-support for p=2 or even n. Independently enumerated full F2 triangle multiplication matrices: ranks 0:1, 1:7, 3:56, 7:64, exactly the theorem. Only degree-three-truncated graph face algebra is covered.
 
-Limitations: arbitrary graphs require a finite support sum; no claim of graph reconstruction or extension to general face algebras is made. The literature comparison is substantial but not exhaustive, and no independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority for the precisely delimited contribution. Known subfamilies, classical inputs, and plausible stronger derivations separately documented; searches alone are not treated as a novelty proof.
+
+## value
+
+PASS
+
+The complete multiplication-rank/annihilator-size distribution is a canonical finite-algebra invariant, beyond generic Lefschetz behavior; the 4-state cycle transfer computes all ranks at arbitrary length and detects odd-cycle characteristic-two resonance. A natural classification and effective closed recurrence, not just a known incidence-rank restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
