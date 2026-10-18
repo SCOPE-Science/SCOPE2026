@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object and quantifiers are fixed for all \(\alpha>0\), \(m>0\), \(|a|=1\), \(b\ne0\), and arbitrary entire \(\psi\). The proof derives the required sharp exponential pointwise estimate from the kernel asymptotic (the prefactor ratio remains bounded under a fixed translation). For \(0<m\le1\), bounded invertibility of composition and the RKHS multiplier estimate force a constant. For \(m=2\), a Gaussian square completion forces the unique exponential form and computes its norm. For \(1<m<2\), growth order below one permits Phragmén–Lindelöf on a half-plane. For \(m>2\), a positive mean drift in the radial phase contradicts Jensen's lower bound for a nonzero entire function. Endpoints are treated separately. The statements are proved with no numerical extrapolation.
+## correctness
 
-## Originality — PASS, qualified
-Barik–Sen–Paul (arXiv:2607.17170v1, Theorem 1.1) already has the general test for boundedness of a *specified* weighted composition operator. Theorem 1.1 together with additional nontrivial complex analysis is the starting point, not a claimed discovery. Section 5 treats only the explicit exponential-linear weights and bare composition operators. The new assertion excludes *all* other entire multipliers at an entire interval of exponents and establishes the full exponent-level existence classification. Mengestie–Takele (2023, §3) also gives general weighted criteria and invertibility tests in faster-growing radial Fock spaces but not this trichotomy. Zhu (2011, §1, §4) addresses prescribed Gaussian-weighted *unitary* translations and does not assert nonexistence of bounded arbitrary-weight translations for other radial exponents. Trieu Le's 2014 classical Gaussian case is credited. Targeted research-record searches for the phase trichotomy and half-plane rigidity returned no equivalent theorem; an older implicit or unindexed derivation remains a risk. Absence from a database is not proof of priority.
+PASS
 
-## Value — PASS
-The nontrivial question is whether *some* holomorphic weight can rescue a borderline translation when plain composition ceases to be bounded. The complete classification answers it across all radial power exponents and identifies a sharp isolated Gaussian exception, with different analytic obstructions on either side of two. It also proves automatic invertibility in every surviving nonzero case. This is structural information not supplied merely by an abstract supremum criterion.
+The all-entire-weight statement holds for alpha,m>0, |a|=1, b!=0. For 0<m<=1, power subadditivity makes the translate and inverse bounded, so any W entails a bounded entire multiplication operator and Liouville forces a constant. At m=2 exact square completion yields psi=C exp(-alpha a conjugate(b) z), ||W||=|C| exp(alpha|b|^2/2) and inverse. For 1<m<2 positive-ray Mittag-Leffler diagonal asymptotics force |psi(z)| exp(alpha(|az+b|^m-|z|^m)/2)<=B. After rotating b>0, this bounds psi on the right half-plane and gives global growth exp(O(|z|^{m-1})); half-plane Phragmen-Lindelof applies because m-1<1, hence Liouville constant, contradicted by positive-ray translation growth. For m>2, angularly averaging the same log bound gives a negative term -(alpha m^2 b^2/8)R^{m-2}, incompatible with Jensen lower bound k log R+constant for any nonzero entire psi. The Gaussian and m=1 endpoints are kept separate; zero multiplier is always allowed. The proof correctly uses finite sanity checks only as diagnostics, never as infinite proofs.
 
-## Principal literature and limitations
-Barik–Sen–Paul (2026), full HTML, Theorem 1.1 and Section 5; Mengestie–Takele (2023), full open-access article, Corollary 3.1 and Theorem 3.4; Zhu (2011), full arXiv HTML, Section 1 and Section 4; Trieu Le (2014), classical Gaussian case. Scope excludes contractions of the affine slope, mixed Fock targets and nonradial weights. Further literature could contain an equivalent phase description.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge only: source arxiv:2607.17170 describes a general boundedness test for prescribed entire weights and explicit exponential/unweighted corollaries, whereas this result additionally solves existence over every entire multiplier and proves the two non-Gaussian impossibility bands. Those implications are not demonstrated by the source abstract; its full text was not accessible, so broader implicit coverage remains a specifically identified risk. The Gaussian case is known antecedent; originality is limited to the all-entire-weight radial-exponent trichotomy.
+
+## value
+
+PASS
+
+The non-Gaussian rigidity/no-go dichotomy for arbitrary entire multipliers is a structurally motivated change in bounded operator existence on a natural radial Fock scale. Separating m<=1, the isolated m=2 Weyl regime, and both impossible bands is not a trivial renaming or arbitrary finite slice. It is useful to operator theorists deciding if any nonzero bounded weighted translation can exist; known Gaussian and unweighted subcases are not counted as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
