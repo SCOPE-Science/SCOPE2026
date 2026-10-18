@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and both reflections are fixed by explicit vertex and edge formulas. The proof derives an orientation-sensitive signed orbit-graph Lefschetz identity, verifies each quotient graph for even and odd chain lengths, and converts alternating independent-set counts to homology traces using Chandrakar--Singh's published two-sphere-wedge theorem (arXiv:2512.21318v1, Theorem 3.1). The exceptional smallest odd case is checked separately. All rational representation multiplicities follow from the four characters of a Klein four-group. Independent finite verification uses 56 orbit-graph evaluations and 16 direct signed fixed-face computations. This checks but does not substitute for the infinite proof.
+## correctness
 
-## Originality — PASS (qualified)
-The nearest primary source is Chandrakar--Singh, which computes only the non-equivariant homotopy type of the same finite planar hexagonal chains (Sections 1 and 3, pp. 1--8); its PDF contains no treatment of automorphisms or equivariant characters. Jonsson's periodic-grid cross-cycle paper (DOI:10.1007/s00454-009-9224-9) has a distinct periodic setting and objective, although only its abstract was inspected. Moci--Pezzoli (arXiv:2001.03760) study matroid complexes, not the graph independent-set complex here. Searches of public mathematical records, indexed results, aliases, and own research history found no statement implying the full reflection character. The potential for overlooked unindexed work is recorded, and an unavailable full text is not misrepresented as completely excluded.
+PASS
 
-## Value — PASS
-The homotopy equivalence of the underlying space is insufficient to identify the symmetry action on its two top-degree classes. The finding supplies the complete rational character for a natural geometric Klein four-action across an infinite family, including which involution is scalar and the sign change as the number of hexagons grows. The method is structurally informative because the relevant signs come from folded orbit graphs and a local paired-leaf cancellation, rather than a numerical census. No assertion is made about integral lattices, equivariant homotopy types, or wider grids.
+PASS: The graph G_n is explicitly two rails j=1..2n+1 and rungs at odd columns. Involutions h(row exchange), v(end reversal), hv commute and preserve edges. For each automorphism, reject vertex orbits containing an edge, then graph Q_g connects conflicting orbits. Fixed independent faces correspond exactly to independent orbit sets, and orientation parity of 2-cycles yields reduced Lefschetz trace -I(Q_g;-1); with Chandrakar-Singh full Theorem 3.1 non-equivariant Ind(G_n)≃S^n∨S^n, the top trace is (-1)^(n+1) I(Q_g;-1). h quotient has n isolated vertices =>0. Even n=2k: v quotient G_k =>2(-1)^k, while hv has an adjacent-supported leaf pair =>0. Odd n=2k+1: v has leaf-pair cancellation =>0, hv quotient G_k plus triangular cap =>2(-1)^(k+1), with n=1 triangle explicitly checked. Character decomposition gives two one-dimensional rational sign reps. Independently built orbit graphs for n=1..12 and directly orientation-signed enumerated original fixed faces for n=1..4; all 64 targeted checks matched, but finite checks are not the all-n proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, best of knowledge: Chandrakar-Singh arXiv:2512.21318v1 proves only Ind(H_1x1xn)≃S^n∨S^n and computes no automorphism characters. Same 2D homology size permits multiple inequivalent Klein-four representations, so the source does not imply these trace signs. Jonsson 2010 treats cross-cycles in periodic quotient hex grids, not these finite linear chains; Moci-Pezzoli treats matroid rather than graph independent-set complexes. Resultary top self-hit excluded as prior and other equivariant examples concern different graphs. Accessible Jonsson abstract only, explicit residual risk retained.
+
+## value
+
+PASS
+
+PASS: Exact all-n rational reflection character refines a non-equivariant wedge decomposition by distinguishing which reflection fixes the two homology generators depending on n mod 4. This is a motivated structural representation invariant of the natural geometric symmetries, not a pure rephrasing of rank two homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
