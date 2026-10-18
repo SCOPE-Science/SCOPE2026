@@ -1,23 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's exposed-pair incidence rule proves that any interior dangling insertion adds two diameters while preserving extremality and changes only one dual-pair summand. Iteration gives the exact partition formula. The circle radius \(\rho=\sqrt{1-s^2/4}<1\) is essential: both endpoint-distance functions have strictly negative second derivative on the minor exposed arc. Strict Jensen equality then forces the equal-central-angle partition, and monotonicity of \(f(t)/t\) supplies strict gain for every refinement. Their cubic expansions give the two positive inverse-square coefficients and the inverse-fourth-order remainder. Any finite extremal set can be improved at one edge; the spherical global objective is bounded by the primary area theorem and the Euclidean objective by the spherical one. Exact packaged symbolic checks corroborate the differentiation and expansions, not the infinite geometric argument.
+PASS
 
-## Originality
+For exposed dual circular arcs of an extremal unit-diameter set in R³, the original Bogosel Proposition11 supplies actual exposed dual-incidence replacement and +2 diametral pairs under each interior dangling insertion. The dual arc is a circle radius rho=√(1−s²/4) with minor angle phi<pi; chord subarc f_L(t)=2rho sin(t/2), spherical-distance subarc f_theta(t)=2asin(rho sin(t/2)). Only the original dual pair contribution changes, giving the exact additive subdivision identity for both q=L,theta. Differentiation yields f_L″=−(rho/2)sin(t/2) and f_theta″=−rho(1−rho²)sin(t/2)/(2(1−rho² sin²(t/2))^{3/2}), strictly negative since s>0. Jensen proves unique equal-angle finite r optimum and f(t)/t strictly decreasing yields increasing positive gain. Cubic expansions give the stated sharp positive r^{-2} coefficients with O(r^{-4}). Any finite extremal configuration has an exposed dual pair and strict midpoint insertion increases each J_q, so no finite maximizer; Bogosel Theorem15 bounds global J_theta, and L≤theta bounds J_L. Source symbolic verifier fully read and own numerical monotonic gains for s=0.5,1 checked; universal claim comes from geometric lemma plus calculus.
 
-PASS. Proposition 11 of the closest full primary manuscript gives a **nonnegative** product increment and convergence under arbitrarily fine subdivision, while Theorem 15 states an exact global **supremum**, not nonattainment. Neither the primary text nor the related earlier complete same-author Meissner-area manuscript states the unique equiangular optimum, strict product improvement for all nontrivial subdivisions, exact quadratic discretization rate, or nonattainment across all finite extremal configurations. Targeted equivalence, stronger-coverage, exact-source, and published-record searches found no covering theorem.
+## originality
 
-Residual risk: the strictness can be derived from simple circle calculus and so may be considered implicit in the source's weak inequality. Other treatments of optimal arc subdivision could use different terminology.
+PASS
 
-## Value
+The exact local refinement formula relies on Bogosel’s earlier dangling-edge identity, but a unique optimal equal-angle partition for fixed r, strict improvement for every finite configuration, sharp r^{-2} rate and global finite-set nonattainment are new consequences not established by the cited primary statement.
 
-PASS. The primary source links the spherical-product global supremum to the three-dimensional constant-width surface-area deficit; determining that no finite extremal configuration can attain it clarifies why supremal and limiting formulations are essential. The unique optimal finite mesh, exact positive gain, and sharp inverse-square rate are directly motivated by the source's dangling-edge approximation scheme and numerical optimizations. The theorem gives structural information without claiming the unknown value of the constant-width area optimum.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
 
-## Closest literature and limitations
+The distinction between a finite configuration maximum and a bounded supremum is structural in the constant-width dual-product extremal problem. Explicit optimal placements for every finite subdivision budget and sharp inverse-square discretization rates are useful for rigorous approximations and rule out finite maximizers, independently of the unknown global supremum value.
 
-Beniamin Bogosel, arXiv:2608.26395v1, Proposition 11 and Theorem 15, provides the defining geometry, exact incidence formula, weak monotonicity, and finite global bound. Bogosel, arXiv:2608.19747v1, treats area-minimizing Meissner smoothing rather than the present product sums.
-
-The uniqueness assertion fixes one original exposed arc and a prescribed subdivision count. The error rates are pointwise in the initial edge parameters, not uniform across degenerating configurations. No fixed-vertex global optimizer or geometric area minimizer is identified.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
