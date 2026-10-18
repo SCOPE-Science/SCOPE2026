@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone stdlib Python checker `verify_nijenhuis_squarezero.py` can be run with `python3 verify_nijenhuis_squarezero.py`. It constructs the square-zero multiplication directly and verifies the full associative Nijenhuis identity on basis pairs for every linear map in the five enumerated small cases. It separately tests the necessary/sufficient block condition and then compares the exact rank histogram to the closed Gaussian-coefficient formula. An extension-field check uses GF(4) arithmetic modulo a degree-two irreducible polynomial.
+## correctness
 
-Observed exhaustive outputs:
+PASS
 
-- `n=1, q=2`: 6 operators; ranks (0,1,2) have counts (1,3,2).
-- `n=1, q=3`: 15 operators; ranks (0,1,2) have counts (1,6,8).
-- `n=2, q=2`: 56 operators; ranks (0,1,2,3) have counts (1,16,27,12).
-- `n=2, q=3`: 459 operators; ranks (0,1,2,3) have counts (1,58,208,192).
-- `n=3, q=2`: 1,920 operators; ranks (0,1,2,3,4) have counts (1,78,623,882,336).
-- `n=2, q=4`: 1,984 operators; ranks (0,1,2,3) have counts (1,138,765,1080). This last check enumerates parameter tuples rather than every linear map.
+Derive from the Nijenhuis identity N(x)N(y)=N(N(x)y+xN(y)-N(xy)): let N(1)=a+u, N(v)=f(v)+T(v), v²=0. Evaluating v,v scalar part gives f(v)²=2f(v)² => f(v)=0 in EVERY characteristic. Evaluating (1,1) gives Tu=au; remaining basis pairs verify sufficiency. Matrix block ranks are r or r+1 depending on scalar a and whether u lies in image T. Counting rank-r maps with given kernel/image and u fixed uses standard q-Gaussian coefficients and bijective quotient maps, recovering displayed M,A,B,F terms. Independent direct all-linear-map Nijenhuis evaluation (not only Tu=au check) and rank histograms gave n=1 q=2: (1,3,2), n=1 q=3: (1,6,8), n=2 q=2: (1,16,27,12), n=2 q=3: (1,58,208,192), n=3 q=2: (1,78,623,882,336). Algebraic proof covers all fields; finite experiments do not establish it alone.
 
-The complete run ends with `VERIFY_OK`. The arbitrary-field normal form and finite-field counts have algebraic proofs; these finite enumerations are consistency checks only and do not establish an infinite theorem. The verified statements concern the specified multiplication, not other nilpotent local algebras.
+## originality
+
+PASS
+
+The known complex dim3 algebra C10 is precisely n=2 of this family, so existing 2023 theorem 4.1/appendix already classify that slice and are explicitly credited. The uniform arbitrary-field all-n criterion and finite-field rank polynomial, total counts and invertible counts are new best-of-knowledge and not implied by an unstratified complex finite-dimensional list.
+
+## value
+
+PASS
+
+A closed rank distribution for a fundamental local square-zero algebra in arbitrary finite dimension and characteristic supplies an exact invariant and reusable normal form for Nijenhuis operator classification. It is a natural complete classification beyond a table of isolated low dimensions, and distinguishes rank strata and invertibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

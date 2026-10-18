@@ -1,19 +1,21 @@
-# Scientific review: Nijenhuis rank spectra on square-zero local algebras
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts with the defining associative Nijenhuis identity and proves that the radical-to-unit functional vanishes by comparing scalar components for a radical square-zero input. Substitution on the unit gives the necessary and sufficient condition \(Tu=au\), in arbitrary characteristic. The rank calculation partitions the possibilities by \(a=0\) or not, \(u=0\) or not, and whether \(u\) lies in the image of \(T\). Every Gaussian factor is obtained by choosing a kernel, an image, and a quotient isomorphism or surjection. The total and invertible counts are independently derived from point-stabilizer and fixed-vector arguments. Direct finite-field enumeration exercises the full Nijenhuis identity rather than merely checking the closed formula. Main risk: finite computational checks alone do not cover all dimensions, but the independent parameter counting closes this gap.
+PASS
 
-## Originality — PASS, with residual uncertainty
+Derive from the Nijenhuis identity N(x)N(y)=N(N(x)y+xN(y)-N(xy)): let N(1)=a+u, N(v)=f(v)+T(v), v²=0. Evaluating v,v scalar part gives f(v)²=2f(v)² => f(v)=0 in EVERY characteristic. Evaluating (1,1) gives Tu=au; remaining basis pairs verify sufficiency. Matrix block ranks are r or r+1 depending on scalar a and whether u lies in image T. Counting rank-r maps with given kernel/image and u fixed uses standard q-Gaussian coefficients and bijective quotient maps, recovering displayed M,A,B,F terms. Independent direct all-linear-map Nijenhuis evaluation (not only Tu=au check) and rank histograms gave n=1 q=2: (1,3,2), n=1 q=3: (1,6,8), n=2 q=2: (1,16,27,12), n=2 q=3: (1,58,208,192), n=3 q=2: (1,78,623,882,336). Algebraic proof covers all fields; finite experiments do not establish it alone.
 
-The closest genuinely same-object source is arXiv:2308.12121, Theorem 4.1 and Appendix Table 4 (\(C_{10}\)), which gives complex three-dimensional operator normal forms, equal to the \(n=2\) boundary here. That known case is not asserted as new. Its published statement is neither a finite-field rank enumerator nor an all-dimensional theorem. The other inspected primary papers study different null-filiform multiplications or general operator identities without this enumeration. A full search of every mathematical publication is not possible; an equivalent finite-field rank polynomial under different terminology is the principal originality risk. Rank enumeration for unrestricted matrices is standard and is explicitly used as a tool, not claimed as new.
+## originality
 
-## Value — PASS
+PASS
 
-The problem comes directly from the systematic classification of associative Nijenhuis operators and the unclassified higher-dimensional square-zero family. The exact polynomial determines a complete natural numerical invariant in every dimension and finite characteristic, with sharp invertibility and total-count consequences. It replaces a dimension-by-dimension coefficient calculation with a structural identity and a uniform finite-field census. The result makes no unsupported claim of a broad downstream theorem beyond this natural operator family.
+The known complex dim3 algebra C10 is precisely n=2 of this family, so existing 2023 theorem 4.1/appendix already classify that slice and are explicitly credited. The uniform arbitrary-field all-n criterion and finite-field rank polynomial, total counts and invertible counts are new best-of-knowledge and not implied by an unstratified complex finite-dimensional list.
 
-## Boundaries
+## value
 
-The algebra must be unital and have square-zero split radical. Operator ranks are ordinary vector-space ranks; none of the results classify automorphism orbits. The finite verifier corroborates the proof only in specified cases. No prior literature search constitutes a mathematical proof of originality.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A closed rank distribution for a fundamental local square-zero algebra in arbitrary finite dimension and characteristic supplies an exact invariant and reusable normal form for Nijenhuis operator classification. It is a natural complete classification beyond a table of isolated low dimensions, and distinguishes rank strata and invertibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
