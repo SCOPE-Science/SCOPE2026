@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:06:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n<=2 the first CG iterate alpha*b is nonnegative, while exact CG terminates at the inverse-positive Stieltjes solution in at most two steps. For n=3 the assigned rational A has SPD Sylvester minors (2,4,46) and A^{-1} positive; direct independent exact conjugate-gradient recurrences give x_2=(9076,9469,-32)/3219. Therefore its small-dimension/iteration threshold and concrete witness are mathematically correct.",
+      "risk": [
+        "Exact arithmetic and zero initialization only; the independently checked witness is finite and the universal half uses classical finite termination and inverse positivity."
+      ],
+      "sources": [
+        "Assigned RESULT.md immutable blob ee9fd2496febca17183132df148bd87403bd5b37",
+        "Hestenes and Stiefel 1952 DOI 10.6028/jres.049.044",
+        "independent1613_checks.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem additionally characterizes the sharp matrix parameter threshold a>4 for A_a=[[a,-1,0],[-1,2,-1],[0,-1,2]] and b_B=(1,0,B). It observes robustness to b>0."
+        ],
+        "reasoning": "The prior parameter family proves a strictly stronger structural account of positivity loss than another selected 3x3 example.",
+        "searches": [
+          "Resultary October 4 same-object full mathematical RESULT",
+          "Meijerink–van der Vorst 1977 symmetric M-matrix CG literature"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5/RESULT.md",
+        "Resultary: 2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5",
+        "doi:10.6028/jres.049.044",
+        "doi:10.1137/0727091"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: for A Stieltjes, b>=0, x0=0, n<=2 every iterate nonnegative, n=3 negativity possible at second iterate; new finding: identical quantifiers and boundary.",
+          "Prior already gives its own exact witness A_5,b_7 and an if-and-only-if a>4 threshold in that family."
+        ],
+        "reasoning": "Both universal half and minimal counterexample existence are directly asserted and proved in older work, so the original finding has no surviving independent mathematical claim.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5/RESULT.md",
+          "Assigned RESULT.md # Finding and ## Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary October 4 Finding and Proof: three-dimensional Stieltjes CG violates the positive cone at step two and no dimension <=2 does; inspect full RESULT.md."
+        ],
+        "reasoning": "The exact scope/quantifiers of the new main finding, not merely its name, are already present in this earlier published source.",
+        "searches": [
+          "Resultary search: conjugate gradient Stieltjes positive iterate coordinatewise negative second iteration minimal three dimensional",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously public RESULT.md contains explicit exact negative second iterate and the dimension-minimality statement."
+        ],
+        "reasoning": "An exact earlier published finding in the indexed research database covers the claimed boundary; a different exact rational witness does not escape coverage.",
+        "searches": [
+          "Resultary semantic first hit, id 2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL decisively: a previously published October 4 Resultary theorem proves the identical dimension<=2 protection and dimension-three second-iterate failure over Stieltjes systems, with a sharper one-parameter threshold a>4. The assigned October 13 witness and minimality are covered as a special case or parallel illustration, regardless of differing matrix entries or signs.",
+      "residual_risks": [
+        "None capable of restoring priority to the original dimension/iteration claim: the earlier published same-scope theorem is decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY_COVERING",
+          "evidence": "Identical dimension<=2/nonnegative and dimension3/iteration2 sign-loss assertions, stronger a>4 parameter threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5/RESULT.md",
+          "material_read": "Complete public RESULT.md: finding, full tridiagonal threshold proof, exact witness, references and limitations.",
+          "method": "GitHub connector fetched complete RESULT.md by path and read all sections.",
+          "title": "Three dimensions are minimal for positivity loss in conjugate gradients on Stieltjes systems",
+          "trigger": "Exact likely prior same-object minimality theorem"
+        },
+        {
+          "assessment": "FOUNDATIONAL",
+          "evidence": "Classical termination by dimension does not supply novelty once the stronger October 4 prior is present.",
+          "identifier_or_url": "doi:10.6028/jres.049.044",
+          "material_read": "Finite-step property and SPD solver scope as referenced in inspected sources.",
+          "method": "Bibliographic/main-theorem comparison.",
+          "title": "Methods of Conjugate Gradients for Solving Linear Systems",
+          "trigger": "Foundational finite-termination premise"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: the small dimension/iteration threshold and positive-cone escape are natural mathematical questions, but they were already fully classified and refined by the October 4 published theorem. Checking an additional rational witness supplies no independent structural lemma, sharp new invariant, or motivated boundary beyond known work.",
+      "risk": [
+        "The witness may remain an illustration or test example but not an independently valuable new scientific result."
+      ],
+      "sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-three-dimensions-are-minimal-for-positivity-loss-in-conjugate-gr--a3e3bd9186a5/RESULT.md",
+        "Assigned RESULT.md"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Finite-precision/preconditioned variants excluded.",
+    "Earlier October 4 result already implies the full main claim; scientific rejection is based on prior implication, not transport/access."
+  ],
+  "schema_version": 1
+}
