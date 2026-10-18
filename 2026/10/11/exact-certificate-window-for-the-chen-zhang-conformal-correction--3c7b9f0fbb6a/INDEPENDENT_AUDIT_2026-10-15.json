@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T04:39:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/11/exact-certificate-window-for-the-chen-zhang-conformal-correction--3c7b9f0fbb6a/RESULT.md",
+        "2026/10/11/exact-certificate-window-for-the-chen-zhang-conformal-correction--3c7b9f0fbb6a/verify.py",
+        "Independent SymPy exact differentiation/crossing/expansion check 2026-10-15 UTC",
+        "arXiv:2609.08119v1 abstract/source-formula comparison"
+      ],
+      "rationale": "Read actual RESULT.md blob 0e4da01a07100502bcc52430319c4ef3672ed0a8 and the source-used hypotheses explicitly stated: k_g≥ε⁴(1−s)/8−ε⁶/2 and Δ_g(z²)=(1+ε²)(2−6s). With e=ε², a=ε⁴/(1+ε²), s=z²∈[0,1], u=1+aτs, the conformal certificate reduces exactly to B(s)=(1−s)/8−τ(1−3s)/(1+aτs)−e/2. Independently differentiated B in SymPy: B′=−1/8+τ(3+aτ)/(1+aτs)^2 and B′′=−2aτ²(3+aτ)/(1+aτs)^3<0. Thus its minimum lies at s=0 or 1, with B(0)=1/8−τ−e/2 and B(1)=2τ/(1+aτ)−e/2, giving the claimed necessary-and-sufficient strict window for THIS LOWER BOUND, not actual curvature. u∈[1,1+aτ] gives uniform certified k_hat≥ε⁴min(B0,B1)/(1+aτ)^2. The two branches cross at 1+(a−24)τ−8aτ²=0; checked closed positive root and small-a expansion τ*=1/24+a/864+a²/62208+O(a³) symbolically. Below crossing, derivative of lower branch has positive numerator 2+a e+a² e τ−4aτ on allowed range; above crossing first branch decreases while denominator grows. The source coefficient τ=1/24 is interior for every 0<ε≤1/4. Numerical samples at ε²=1/16 and 1/100 corroborate order; the inequalities are analytic.",
+      "residual_risks": [
+        "Certification uses an inequality k_g≥..., not equality; failure of certificate outside the window says nothing about actual curvature sign."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pigazzini analyzes an affine connection with torsion on S²×T², not the Levi–Civita connection of the audited conformal metric. Bettiol addresses a different manifold S²×S²."
+        ],
+        "reasoning": "Same manifold/curvature words do not imply the precise τ-dependent Chen–Zhang metric certificate when the connection or manifold differs.",
+        "searches": [
+          "Resultary semantic search: Chen Zhang conformal correction biorthogonal curvature optimal parameter interval",
+          "arXiv:2502.11914",
+          "Bettiol 2014 S²×S² comparison",
+          "https://arxiv.org/abs/2609.08119"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.08119v1",
+        "arXiv:2502.11914",
+        "Bettiol 2014 Proceedings AMS 142, 4341–4353",
+        "Resultary query Resultary semantic search: Chen Zhang conformal correction biorthogonal curvature optimal parameter interval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed value τ=1/24 is strictly between the displayed endpoints for all 0<ε≤1/4; the new B(s) strict-concavity and positive-root derivative comparison characterize the full certificate range and unique optimizer."
+        ],
+        "reasoning": "Prior positivity at one coefficient logically supplies only a point in a range, not the sharp certificate-window endpoints or optimizer. Classical calculus after introducing τ gives genuinely additional exact statements, though their value must be assessed separately.",
+        "searches": [
+          "Resultary semantic search: Chen Zhang conformal correction biorthogonal curvature optimal parameter interval",
+          "arXiv:2609.08119v1",
+          "arXiv:2502.11914"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Zhang introduce the single conformal correction coefficient 1/24 for Riemannian biorthogonal curvature; the present analytic statement is specifically about a free τ and the positivity certificate endpoints."
+        ],
+        "reasoning": "A positive example at τ=1/24 does not determine the exact range of τ for the same proof estimate, still less the optimizer of the derived bound; conversely the new certificate does not claim the exact true-curvature threshold.",
+        "searches": [
+          "Resultary semantic search: Chen Zhang conformal correction biorthogonal curvature optimal parameter interval",
+          "https://arxiv.org/abs/2609.08119",
+          "Resultary exact certificate window Chen Zhang conformal correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed Resultary result matching the current assigned title is the SAME finding and cannot serve as external coverage; other semantically nearby returned records describe different scalar curvature certificates, function-space moduli, or parameter optimization problems."
+        ],
+        "reasoning": "This is a continuous parameter theorem; no exact independent published τ-window or table for the same metric family was found. Unsuccessful search alone is not a novelty proof.",
+        "searches": [
+          "Resultary semantic search: Chen Zhang conformal correction biorthogonal curvature optimal parameter interval",
+          "Resultary: Chen Zhang conformal correction biorthogonal curvature optimal parameter interval"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the primary cited construction fixes τ=1/24 and introduces the geometric conformal correction. Its available statement does not identify a global open robustness window for that precise lower-bound proof or optimize its finite-ε certificate. The external primary full text remained inaccessible; exact formulas are compared from the inspected source package with explicit residual risks.",
+      "residual_risks": [
+        "Full new Chen–Zhang primary article unavailable via inspected routes; original proof may implicitly contain a parameter interval/optimizer.",
+        "This is optimization of one *lower bound*, not true curvature, and alternate stronger curvature bounds may enlarge the actual positive τ range."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITED_RESIDUAL_RISK",
+          "evidence": "Abstract states metric existence but not a coefficient interval; full source may contain further calculations not read, so stronger-coverage risk is expressly retained.",
+          "identifier_or_url": "arXiv:2609.08119v1",
+          "material_read": "Primary arXiv abstract and bibliographic data verified; complete primary preprint PDF retrieval returned disabled and institutional Oxford reported disconnected VPN. Source formula citations (k_g lower bound, Δ_g z², coefficient 1/24) were reconstructed from the actual audited RESULT.md, not directly verified against inaccessible full text this run.",
+          "method": "Best-of-knowledge hypothesis and implication comparison with limited direct primary access, not a claim of full-text noncoverage.",
+          "title": "Positive biorthogonal curvature on S²×T²",
+          "trigger": "Direct source introducing the identical metric and z² correction, with potentially dominating stability argument."
+        },
+        {
+          "assessment": "DISTINCT_CONNECTION",
+          "evidence": "A torsion-affine positivity construction does not give the displayed Levi–Civita conformal τ certificate.",
+          "identifier_or_url": "arXiv:2502.11914",
+          "material_read": "Accessible abstract and primary Chen–Zhang contextual distinction as quoted in package; full text not read.",
+          "method": "Compared underlying geometric connection: torsion-affine vs Riemannian Levi–Civita.",
+          "title": "Positive Biorthogonal Curvature on S²×T²: An open problem no more?",
+          "trigger": "Potential same-manifold stronger prior result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.08119v1",
+        "2026/10/11/exact-certificate-window-for-the-chen-zhang-conformal-correction--3c7b9f0fbb6a/RESULT.md"
+      ],
+      "rationale": "The source’s conformal coefficient 1/24 is motivated by a difficult geometric positivity construction. Determining the exact robustness interval of the actual published certificate and its unique finite-ε optimal coefficient is a natural stability question; a reader reusing the construction can choose an admissible coefficient and a rigorous numerical lower bound. The value claim is explicitly limited to the certificate, not inflated to a new manifold classification or a sharp curvature positivity criterion. This narrowly useful non-implied coefficient fact meets the common structural/value threshold despite elementary endpoint calculus.",
+      "residual_risks": [
+        "The improvement τ*−1/24 is O(ε⁴) and may be small for small ε; value derives from exact robustness classification rather than numerical gain alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Using Chen–Zhang’s published curvature lower bound and conformal identity, the quadratic conformal coefficient τ>0 certifies strictly positive biorthogonal curvature exactly for ε²(1+ε²)/(4(1+ε²)−ε⁶)<τ<(1−4ε²)/8, and the resulting displayed uniform lower bound has a unique optimizer τ*=2/[24−a+sqrt((24−a)²+32a)], a=ε⁴/(1+ε²), for 0<ε≤1/4.",
+  "limitations": [
+    "The interval is necessary-and-sufficient ONLY for positivity of the explicit published-estimate certificate, not for actual k_hat>0, and τ* maximizes ONLY the explicitly derived uniform bound.",
+    "Recent Chen–Zhang full text unavailable; identified as residual coverage risk rather than a scientific rejection."
+  ],
+  "schema_version": 1
+}
