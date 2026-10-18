@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Every normalization and quantifier was checked: uniform pairings of 2n cyclic endpoints for n≥2, span=min of the two internal endpoint counts, n^{3/2} scaling. Edge inclusion probabilities yield S1,S2 and the span variance; conditioning on one chord yields the mixed covariance. Crossing variance is Flajolet–Noy's established formula. IID endpoints produce the matching law; total span is bounded below by the short-arc occupancy U-statistic with exact expected approximation gap n(n−1)/(2(2n−1))=O(n). The bounded first-order Hoeffding projections are 2q−1/2 and 2q(1−q)−1/3, q uniform (0,1/2), with exact covariance 1/12,1/24,1/45 and an O(n²) degenerate remainder. Bivariate iid CLT and Markov comparison prove the infinite limit, not merely finite simulation. An independent exact-rational script checked all five finite moments for n=2..7 (146,598 matchings), polynomial projection integrals, determinant 1/8640 and regression residual variance 1/720. No unsupported independence, exact finite Gaussianity, or rate of convergence is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Acan 2015 abstract, Section 2 and conclusion treat degree, core, directed components and evolutions https://arxiv.org/pdf/1501.01489",
+        "Flajolet–Noy 2000 crossing-number section contains a one-variable asymptotic https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "Young 2020 treats short chords and noncrossing ensembles rather than the sum of all shorter-arc spans https://arxiv.org/html/2004.06921v3"
+      ],
+      "reasoning": "A joint theorem could be implied by a general multivariate matching-statistic CLT or bounded U-statistic theorem if the discretized span approximation is supplied. Neither the cited marginal theorem nor local single-chord degree analysis by itself gives the positive-definite covariance or Gaussian residual. The present proof supplies the necessary approximation explicitly.",
+      "searches": [
+        "\"random chord diagram\" \"lengths\" \"central limit theorem\"",
+        "\"random matchings\" \"crossings\" \"spans\" asymptotic normal",
+        "\"random chord diagrams\" \"total length\" \"crossings\" asymptotic",
+        "\"chord diagram\" \"sum of chord lengths\" \"crossings\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1501.01489",
+      "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+      "https://etd.ohiolink.edu/acprod/odb_etd/ws/send_file/send?accession=osu1373310487&disposition=inline",
+      "https://arxiv.org/html/2004.06921v3",
+      "https://arxiv.org/abs/1501.01489"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Acan 2015, short-arc length definition and conditional crossing-degree computations https://arxiv.org/pdf/1501.01489",
+        "Flajolet–Noy 2000, crossing count variance and asymptotic Gaussian law https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "Acan 2013 thesis, chapter on crossing degree and short chord spans https://etd.ohiolink.edu/acprod/odb_etd/ws/send_file/send?accession=osu1373310487&disposition=inline"
+      ],
+      "reasoning": "Acan's conditional degree mean yields the finite mixed expectation after summing, so the finite covariance does not escape prior coverage merely by notation. Flajolet–Noy's crossing CLT yields only one marginal. The claim requiring independent reasoning is convergence of (total span, crossings) to the specified *joint* Gaussian vector and its regression residual variance, established with the paired Hoeffding projections.",
+      "searches": [
+        "Acan 1501.01489 theorem degree conditional chord length",
+        "Flajolet Noy analytic combinatorics chord diagrams crossing variance Gaussian",
+        "random perfect matching circle short chord lengths total span crossings regression correlation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acan 2015, Section 1.1 defines the same ℓ(c) shorter-arc span; Section 2 studies the degree of a chord https://arxiv.org/pdf/1501.01489",
+        "Flajolet and Noy 2000 give marginal crossing-count moments and scalar limit https://algo.inria.fr/flajolet/Publications/FlNo00.pdf"
+      ],
+      "reasoning": "Equivalent phrasings include total span, sum of chord lengths, and intersection-graph edge count paired with the sum of vertex chord spans. The first paper measures the same individual span but its inspected relevant theorem is a local degree statement; the second gives the marginal edge-count law, not this pair's bivariate law.",
+      "searches": [
+        "\"chord diagram\" \"total length\" \"crossings\" covariance",
+        "\"sum of chord lengths\" \"number of crossings\" chord diagrams",
+        "random chord diagram joint central limit theorem total length of shorter arcs and number of crossing chords",
+        "\"chord length\" \"crossing number\" \"joint\" \"normal\" matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Flajolet–Noy 2000 tabulates marginal crossing statistics, not a joint span–crossing table https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "Exact pairing enumeration here is used only for orders two through seven; the analytic proof is for every order and the limit"
+      ],
+      "reasoning": "No specialized published joint span–crossing table was located in targeted literature searches. Even a table of exact finite covariances, if found, would not by itself imply the bivariate Gaussian limit. The finite exact covariance is not positioned as a standalone claim of historical novelty.",
+      "searches": [
+        "\"uniform chord diagram\" \"sum of lengths\" correlation",
+        "\"total chord length\" \"crossings\" \"random chord diagram\" gaussian",
+        "\"random matching\" \"crossings\" \"length\" \"covariance\" central limit"
+      ]
+    },
+    "rationale": "The closest explicitly inspected primary article (Acan 2015) introduces the identical shorter-arc chord span and studies local crossing degree, not the joint Gaussian limit of the sum of all spans with the total number of crossings. Flajolet and Noy give marginal crossing-count moments and a scalar limit. The jointly nondegenerate two-statistic limit with explicit asymptotic regression was not identified in the primary sections or targeted searches checked. The exact finite mixed moment alone would not establish originality. Priority remains subject to unlocated general and specialized results.",
+    "residual_risks": [
+      "A more general bivariate U-statistic or permutation/matching functional theorem may previously imply this result after a specific parameter map.",
+      "The large 2013 chord-diagram thesis was not read cover to cover; potentially implicit global formulas may exist outside inspected chapters.",
+      "Earlier crossing count variance and Acan single-chord conditional means cover substantial prerequisites; finite covariance by itself is not claimed as independent novelty.",
+      "The search and inspection record is a bounded literature comparison, not a proof of historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes single-chord span and degree facts; relevant inspected core sections do not state a global joint Gaussian span–crossings theorem. Finite covariance is near a corollary of the local mean, and novelty is confined to joint fluctuation theory.",
+        "evidence": [
+          "Definition of length ℓ(c) as shorter arc; conditional degree distribution in Section 2; abstract lists other main results; https://arxiv.org/pdf/1501.01489"
+        ],
+        "identifier_or_url": "arXiv:1501.01489v1; https://arxiv.org/pdf/1501.01489",
+        "material_read": "Preprint abstract, introduction and chord-span definition (Section 1.1), the degree distribution/conditional crossing calculation (Section 2), and conclusion; targeted full-text term searches for total length, covariance, and joint law.",
+        "method": "Full lawful arXiv preprint, readable text and section inspection; compared hypotheses and outputs.",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Same uniform cyclic matching, exact same individual shorter-arc chord length and crossing-degree dependence"
+      },
+      {
+        "assessment": "Scalar crossing mean, variance and Gaussian limit are prior literature. The inspected crossing section does not pair crossings with total discrete chord span.",
+        "evidence": [
+          "Crossing-statistic moment and asymptotic section; https://algo.inria.fr/flajolet/Publications/FlNo00.pdf"
+        ],
+        "identifier_or_url": "INRIA-RR-3914; https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Abstract/introduction; crossing-number distribution, moments and Gaussian limit in the latter part; relevant PDF page rendered and inspected.",
+        "method": "Lawful institutional-author full-text PDF and page inspection, compared the scalar theorem with the proposed joint one.",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Exact same random matching model and scalar crossing-count variance/CLT"
+      },
+      {
+        "assessment": "Provides antecedent individual-chord material; the limited chapters reviewed did not display the aggregate bivariate theorem. Unreviewed parts of this long thesis are a residual coverage risk.",
+        "evidence": [
+          "Chapter overview and degree material, OhioLINK open thesis; https://etd.ohiolink.edu/acprod/odb_etd/ws/send_file/send?accession=osu1373310487&disposition=inline"
+        ],
+        "identifier_or_url": "OhioLINK thesis (2013); https://etd.ohiolink.edu/acprod/odb_etd/ws/send_file/send?accession=osu1373310487&disposition=inline",
+        "material_read": "Contents/overview and chord-degree discussion around pages 33–38; text searches for aggregate length and covariance.",
+        "method": "Lawful open repository thesis, selected relevant pages inspected.",
+        "title": "An Enumerative-Probabilistic Study of Chord Diagrams",
+        "trigger": "Earlier comprehensive treatment of chord-span terminology and crossing degrees"
+      },
+      {
+        "assessment": "Counts short adjacent chords and noncrossing variants, not the sum of all shorter-arc spans jointly with unrestricted crossing count.",
+        "evidence": [
+          "Definitions 1–3 and abstract scope https://arxiv.org/html/2004.06921v3"
+        ],
+        "identifier_or_url": "arXiv:2004.06921; https://arxiv.org/html/2004.06921v3",
+        "material_read": "Abstract, definitions, section overview and main stated results on short chords and noncrossing cases.",
+        "method": "Lawful public arXiv HTML full-text sections.",
+        "title": "Linear k-Chord Diagrams",
+        "trigger": "Alternate chord length/short chord pattern and Gaussian statements might dominate a span statistic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "25d00b41-e332-4de0-b346-5ccc9c7ee3b5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Total discrete shorter-arc span is the most direct global circular-length measure on labeled chord diagrams, while number of crossings is the intersection-graph edge count. Their global dependence is not determined by single-chord conditional degree distributions or one-variable crossing moments. The new bivariate law identifies exact asymptotic correlation sqrt(15)/4 and explains 15/16 of crossing fluctuation variance from chord spans, with an irreducible Gaussian residual of variance 1/720. This structural calibration has a concrete statistical interpretation and is not a mere reparameterization, trivial estimate, or unsupported tiny finite improvement.",
+    "status": "PASS"
+  }
+}
