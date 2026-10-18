@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The argument is entirely symbolic and relies on finite length, nilpotence of the local maximal ideal, Nakayama's lemma, the elementary ideal quotient, and the standard Artinian decomposition. Its key witness for a nonsimple local ideal is \([L:\mathfrak m C]\) with \(L\) simple and \(J=\mathfrak m C\); both \(L\) and \(J\) fail to contain \(C\). For distinct socle lines, \([L:0]=(0:\mathfrak m)\) supplies the witness. The unique simple socle is essential.
+## correctness
 
-`verify.py` uses finite \(\mathbb F_2\)-vector-space enumeration to list *all* ideals of nine explicit small finite rings and directly implements the coprime universal quantifier. Execution command: `python verify.py`; expected last line: `VERIFY_OK`. Count targets are one for a field; one for each of \(\mathbb F_2[t]/(t^2)\) and \(\mathbb F_2[t]/(t^3)\); zero for local split square-zero radicals of dimensions two and three and for the local algebra \(\mathbb F_2[x,y]/(x^3,xy,y^2)\); two for \(\mathbb F_2\times\mathbb F_2[t]/(t^2)\); and one each for a field times a dimension-two square-zero local ring or a non-Gorenstein cubic local ring.
+PASS
 
-This is finite testing, not an infinite proof. The proof in `RESULT.md` supplies the universal justification. No independent audit or external mathematical certification is claimed.
+For commutative unital Artinian A, write A=∏ A_i local. In a local factor all nonzero ideals contain a simple ideal in the socle S. If C is not simple, choosing a simple L and J=mC gives C⊆(J:ann L)=[L:J] although C is in neither L nor mC (Nakayama), hence not coprime. If socle dimension>1, each simple C is similarly excluded with another simple L and J=0. If socle dimension=1, unique simple S is essential in every nonzero ideal and is coprime. In products, a two-coordinate supported ideal C decomposes I+J and violates coprimality since C ann(I) ⊆J; one-coordinate coprime property reduces to the local factor. Thus exactly one coprime ideal per Gorenstein local component, and its annihilator is the corresponding maximal ideal. All subsets arise as V_c(I) so topology is finite discrete. Independently enumerated all six ideals of F2[x,y]/(x,y)^2 using explicit F2^3 multiplication and verified no coprime ideals. This is corroboration of the full proof, not its substitute.
+
+## originality
+
+PASS
+
+Murphy-Hernandez and Leon-Rodriguez 2026 define the coproduct and coprime spectrum and prove equivalence with ordinary prime spectrum for dual rings, with a non-Gorenstein square-zero local example. The present classification covers every commutative Artinian ring, including non-dual local factors and arbitrary mixed products, and identifies the exact Gorenstein local locus. The classical zero-dimensional Gorenstein socle criterion is used, not claimed novel. No matching classification found in Resultary semantics or prior ring-spectrum articles searched, but earlier lattice terminology remains a risk.
+
+## value
+
+PASS
+
+The theorem determines exactly when the newly defined spectrum is empty, partial or all of Spec(A) on the entire natural Artinian class, with homeomorphic Gorenstein-locus identification. This is a genuine structural characterization, not a renaming or one-off calculation; it clarifies where the new construction loses prime points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
