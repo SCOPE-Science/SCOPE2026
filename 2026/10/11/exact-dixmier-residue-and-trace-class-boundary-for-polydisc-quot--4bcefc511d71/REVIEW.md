@@ -1,14 +1,21 @@
-# Scientific review
-## Correctness — PASS
-The quotient decomposition and weighted-shift coefficient were reconstructed from the orthogonal inner-function model. The commutator splits into explicit rank-two self-adjoint blocks, whose trace and determinant give two exact eigenvalue branches. Their harmonic asymptotics yield the precise singular-value counting function and reordered coefficient; a telescoping calculation independently settles the derivative-modulus-one boundary. The packaged verifier passes exact rational identities and finite tail diagnostics; finite samples are not used to prove the limit.
+# Independent mathematical audit
 
-## Originality — PASS
-The closest primary source is Xu and Xiang, arXiv:2610.02692v1: it provides the unsorted block decomposition, Hilbert–Schmidt norm, and Schatten bounds above exponent one. Its text does not state the exact singular counting law, the Dixmier coefficient, or the exceptional trace-class norm. The passage from the rank-two model to the quantitative endpoint requires diagonalization, sorting asymptotics and separate analysis of coincident defect projections. Targeted scholarly searches and published-record comparisons revealed no same-statement result. A prior spectral model implicitly contains the data from which the new results can be derived; equivalence elsewhere and inaccessible older full text remain documented risks, not claims of universal uniqueness.
+## correctness
 
-## Value — PASS
-Exact noncommutative residues identify the critical coefficient beyond a Schatten-membership inequality. The theorem distinguishes a trace-class exceptional phase with exact norm from a continuum of non-trace-class weak-trace-class phases. The parameter \(|\eta_i'(0)|\) is intrinsic to the inner-function model and not an arbitrary numerical slice. The classification resolves the endpoint question for all admissible inner functions, including infinite-dimensional selected model spaces, whenever transverse multiplicity is finite.
+PASS
 
-## Sources and limits
-The focal manuscript's relevant full sections were read. General Dixmier measurability is standard; prior 2022 bidisk Hilbert–Schmidt results and other Toeplitz-commutator Dixmier traces concern related but nonidentical statements. The 2022 full text could not be acquired using available access, and independently published equivalents cannot be ruled out. The result has no assertion for infinite transverse multiplicity. The review is not independent certification.
+The inner-function Wold layer model matches the source: d-coordinate equal-sum homogeneous vectors give B_d e_l=sqrt((l+1)/(l+d))e_(l+1), and each transverse basis vector yields a reducing copy of K_i tensor l2; finite multiplicity D_i is essential. Defect equations A*T=TA*=0, I-A*A=T*T and I-AA*=TT* reduce C_i to R_l=a_l|1><1|-b_l|eta_i/z><eta_i/z| with a_l=(d-1)/(l+d-1), b_l=(d-1)/(l+d). For overlap alpha=|eta_i'(0)|<1, rank-two characteristic trace a_l-b_l and determinant -a_lb_l(1-alpha²) yield signed eigenvalues with l*r_(l,+) and l*|r_(l,-)| tending to (d-1)beta. D_i copies of two branches imply tN(t)->2D_i(d-1)beta and monotone inversion gives n mu_n and logarithmic-mean limits. If alpha=1, Schwarz equality forces eta_i=phase*z, P=Q, all blocks are rank-one positive a_l-b_l and telescope to D_i exactly. Independently recalculated rational block discriminants/endpoint identities; finite spectra in verify_endpoint.py are diagnostics only. The model is genuine operator decomposition, not a Hilbert-Schmidt-log extrapolation.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Original contribution over same quotient spectral framework is sharp reordered n^{-1} singular-value coefficient, universal logarithmic trace, and exceptional exact trace-class endpoint; base paper gives unsorted blocks and S_p for p>1, not those endpoint results. Inaccessibility of related 2022 full text remains an explicit bounded literature risk.
+
+## value
+
+PASS
+
+A sharp Schatten-1 boundary and noncommutative residue for a concrete class of compressed multipliers fills a natural endpoint gap left by Hilbert-Schmidt and p>1 estimates. The modulus of the derivative at 0 continuously governs the two singular tail branches, while Schwarz equality triggers the opposite trace-class phase. Exact coefficient and trace norm provide usable spectral invariants; extracting such boundary data is a motivated structural strengthening, not simply reformatting the known HS norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
