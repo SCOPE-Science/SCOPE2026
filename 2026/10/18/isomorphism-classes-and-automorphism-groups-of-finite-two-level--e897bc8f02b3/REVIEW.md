@@ -1,0 +1,11 @@
+# Review of the unlabelled S4bI two-level frame classification
+
+**Correctness — PASS.** The new proof is an equivariant enhancement of an already established labelled normal form: order automorphisms preserve both levels, and frame isomorphisms are exactly independent isomorphisms of the two preorders preserving the permitted source ideals. The stabilizer-product identity, Burnside ideal-orbit formula and top-class recurrences follow. The standalone Python verifier checked all constructed small relations against the confluence axioms and matched independent permutation counting through level size three; the independent C program directly exhausts *all* original-axiom relations for sizes \((2,2)\), \((2,3)\), \((3,2)\). Infinite-scope correctness rests on the proof, not on finite tests.
+
+**Originality — PASS, with explicit overlap and residual risks.** The earlier **labelled** result (identifier `e7e391a5-d9c0-4936-b7c0-2c4a3793fea7`) covers the whole normal-form premise and its labelled-count formula; those are NOT new here. The precise new result consists of complete isomorphism invariants, automorphism groups and the orbit-count formula and recurrences. Searches of related modal semantics, unlabelled preorders and historical research records did not identify the same statement. KR 2023 Definitions 4–5 and arXiv:2104.15053 support the semantic setup; OEIS A001930 supplies the already-known unlabelled preorder counts. A possibly unindexed two-colored-topology reformulation remains a novelty risk. Search absence is not a uniqueness proof.
+
+**Mathematical value — PASS.** Classifying finite model isomorphism types is a natural structural refinement of labelled modal-frame counting. The marked-ideal stabilizer decomposition handles nonfree permutation actions and gives a computable two-parameter census for every finite level size, not just an arbitrary sample. The work neither claims a general decision theorem nor treats code output as mathematical significance.
+
+The result covers only complete height-two underlying posets and does not count modal theories or bisimulation classes. No independent expert or external audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.
