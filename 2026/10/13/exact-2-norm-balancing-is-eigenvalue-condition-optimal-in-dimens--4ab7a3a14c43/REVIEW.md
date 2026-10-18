@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. In \(2\times2\), every positive diagonal similarity has one effective scale. Explicit left and right eigenvectors reduce the condition-number minimization to
-\[
-|b|^2s^2+|c|^2s^{-2},
-\]
-whose unique minimizer is exactly the Euclidean balancing scale. The minimizer is independent of the simple eigenvalue, so all simple eigenvalues are optimized simultaneously.
+## correctness
 
-For the \(3\times3\) family, the balanced matrix, spectrum, left and right eigenvectors, diagonal similarity, condition-number formulas, strict inequality, asymptotic factor, and Frobenius-norm decrease are all explicit. The packaged checker replays representative exact identities.
+PASS
 
-## Originality
-PASS with stated residual risks. Harmful balancing itself is prior work and is explicitly excluded. Watkins's full paper establishes that balancing can degrade eigenvalue condition numbers, while James, Langou, and Lowery provide the exact 2-norm balancing framework and discuss modern harmful cases.
+For any irreducible real 2x2 A with bc≠0, positive diagonal similarity scales b↦bs and c↦c/s. Left/right eigenvectors for each simple λ give χ² proportional to (|b|²s²+|τ|²)(|c|²/s²+|τ|²); AM-GM yields a common unique minimum at s²=|c/b|, precisely row/column 2-norm balance. For B_t (t>0) opposite off-diagonal absolute values match, so B_t is balanced; its spectrum is {1,2t+1,2t+2}. With D_t=diag(1,1,sqrt(2t+1)), A_t=D_t B_t D_t^-1 has χ_A=(2t+3)/(2t+1), χ_B=sqrt(3(4t²+4t+3))/(2t+1), hence squared difference 8t²/(2t+1)²>0, damage tending sqrt3. Frobenius squared norm difference 8t²/(2t+1)>0. Independently symbolically verified char polynomial, eigenvector identities and all rational comparisons; theorem only for exact balancing.
 
-The new statement is the sharp low-dimensional classification: simultaneous eigenvalue-condition optimality for every irreducible \(2\times2\) matrix, plus an exact \(3\times3\) harmful family with positive real spectrum. Targeted database and literature searches found no implication-equivalent theorem or this explicit family.
+## originality
 
-The main residual risk is older matrix-scaling literature that may encode the two-dimensional calculation under different terminology.
+PASS
 
-## Value
-PASS. Balancing is standard eigenvalue preprocessing, and the literature documents practical conditioning failures. Identifying dimension two as provably safe and optimal, with dimension three already harmful despite genuine norm reduction, gives a concise structural explanation of where the objectives separate.
+Watkins 2006 already demonstrates harmful balancing in larger numerical examples; James–Langou–Lowery 2014 explicitly distinguish norm reduction from improved eigenvalue conditioning. However inspected primary sources do not prove the exact simultaneous 2x2 optimum or identify 3x3 as minimal harmful dimension with this positive-spectrum analytic family and asymptotic factor. Prior harmful-balancing existence is explicitly credited.
 
-## Closest literature and limitations
-The closest inspected sources are Watkins's full harmful-balancing paper and James–Langou–Lowery's full treatment of exact balancing and modern stopping criteria. The theorem concerns exact Euclidean balancing and simple-eigenvalue absolute conditioning; practical power-of-two balancing, finite precision, eigenvector conditioning, and a global dimension-three worst factor are outside scope.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact smallest dimension and a closed-form continuous witness clarify a practical numerical-linear-algebra caveat. The comparison quantifies harm while a matrix norm strictly improves, and the universal 2x2 protection proves minimality—distinct useful structural facts not implied by large-dimensional experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
