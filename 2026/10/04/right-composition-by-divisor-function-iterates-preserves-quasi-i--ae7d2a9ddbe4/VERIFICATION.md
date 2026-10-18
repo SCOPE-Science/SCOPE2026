@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal claim is proved symbolically in `RESULT.md`; no finite enumeration is needed.
 
-The critical checks are:
+# Independent mathematical audit
 
-1. **Quantifiers.** Fix arbitrary \(a,b\) satisfying the composition equality for every \(n\), and then arbitrary \(k\). A prime \(p\nmid abk\) exists and may be held fixed while \(r\) ranges over every positive integer.
-2. **Amplification identity.** Coprimality gives
-\[
-\tau(akp^{r-1})=r\tau(ak),\qquad \tau(bkp^{r-1})=r\tau(bk).
-\]
-3. **Induction use.** With \(G=F\circ\tau^{(m-1)}\), the equality \(G(r\tau(ak))=G(r\tau(bk))\) for every \(r\) is exactly the hypothesis in the definition of quasi-injectivity of \(G\).
-4. **Final reduction.** The resulting equality \(\tau(ak)=\tau(bk)\) holds for every \(k\), so Pongsriiam's Corollary 6 gives \(a=b\).
-5. **Jordan specialization.** Pongsriiam's Theorem 15 proves that every \(J_s^{(k)}\) is quasi-injective, so it can be substituted for \(F\) without additional hypotheses.
+## correctness
 
-The source pages containing Theorem 15 and Questions 18–19 were inspected directly, including page images. No experimental evidence is promoted to proof.
+PASS
+
+For arbitrary fixed a,b satisfying (F∘tau^m)(an)=(F∘tau^m)(bn) for all n, fix any k and choose prime p outside the finite prime divisors of abk. Substituting n=k p^(r-1) for all r>=1 gives G(r tau(ak))=G(r tau(bk)), where G=F∘tau^(m-1). Inductive quasi-injectivity of G implies tau(ak)=tau(bk) for each k, and quasi-injectivity of tau gives a=b. Base m=0 is given. Theorem 15 of Pongsriiam supplies quasi-injectivity of Jordan-totient iterates. All quantifiers and multiplication identities are sound.
+
+## originality
+
+PASS
+
+Pongsriiam Corollary 6 proves quasi-injectivity of tau and Theorem 15 does so for Jordan totient iterates. Question 18 asks for mixed families and Question 19 for closure conditions. The general F∘tau^m closure is not explicitly in the inspected source; its proof generalizes the fresh-prime argument beyond the tau-only family. Resultary search returned only the assigned record as exact statement.
+
+## value
+
+PASS
+
+The theorem answers a concrete explicitly posed mixed-composition question for all iterate orders and supplies a reusable closure principle for an entire class of outer functions, even though its proof is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

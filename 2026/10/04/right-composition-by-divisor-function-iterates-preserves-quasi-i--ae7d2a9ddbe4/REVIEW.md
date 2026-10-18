@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The induction quantifiers are exact. For each arbitrary \(k\), one fresh prime \(p\nmid abk\) works for every \(r\ge1\), converting the assumed equality for \(F\circ\tau^{(m)}\) into the defining quasi-injectivity test for \(F\circ\tau^{(m-1)}\) at the fixed pair \(\tau(ak),\tau(bk)\). Published quasi-injectivity of \(\tau\) then closes the proof. The Jordan-totient corollary uses the published all-order theorem directly.
+## correctness
 
-## Originality
-PASS. The focal full text proves quasi-injectivity of \(\tau^{(m)}\) and \(J_s^{(k)}\) separately, but Question 18 still explicitly asks whether \(J_s^{(k)}\circ\tau^{(m)}\) is quasi-injective and highlights \(k,m>2\). Question 19 asks for weaker composition criteria than the stated surjective/completely-multiplicative sufficient condition. Targeted semantic, exact-phrase, later-author, and published-finding corpus searches found no implication-equivalent theorem.
+PASS
 
-## Value
-PASS. The closure lemma resolves the full parameter range of one named mixed family rather than a low-order slice, and simultaneously supplies a general sufficient condition for the adjacent composition problem. The proof isolates the structural reason: fresh prime powers let \(\tau\) realize an arbitrary multiplicative test parameter.
+For arbitrary fixed a,b satisfying (F∘tau^m)(an)=(F∘tau^m)(bn) for all n, fix any k and choose prime p outside the finite prime divisors of abk. Substituting n=k p^(r-1) for all r>=1 gives G(r tau(ak))=G(r tau(bk)), where G=F∘tau^(m-1). Inductive quasi-injectivity of G implies tau(ak)=tau(bk) for each k, and quasi-injectivity of tau gives a=b. Base m=0 is given. Theorem 15 of Pongsriiam supplies quasi-injectivity of Jordan-totient iterates. All quantifiers and multiplication identities are sound.
 
-## Closest literature and limitations
-The closest source is Pongsriiam's 2021 paper itself: Corollary 6 and Theorem 15 provide the two factorwise inputs, while Questions 18 and 19 identify the precise missing composition step. The result is directional and does not settle the other five mixed families or arbitrary compositions. Because the proof is elementary, equivalent unindexed observations remain a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Pongsriiam Corollary 6 proves quasi-injectivity of tau and Theorem 15 does so for Jordan totient iterates. Question 18 asks for mixed families and Question 19 for closure conditions. The general F∘tau^m closure is not explicitly in the inspected source; its proof generalizes the fresh-prime argument beyond the tau-only family. Resultary search returned only the assigned record as exact statement.
+
+## value
+
+PASS
+
+The theorem answers a concrete explicitly posed mixed-composition question for all iterate orders and supplies a reusable closure principle for an entire class of outer functions, even though its proof is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
