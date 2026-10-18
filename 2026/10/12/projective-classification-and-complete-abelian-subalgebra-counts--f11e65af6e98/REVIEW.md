@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The degree-two equation \(v\wedge w=0\) forces proportional first components; the degree-three equation identifies a two-dimensional wedge kernel. Direct substitution proves the resulting four-space is abelian. The distinguished four-space is self-centralizing, and comparing first components and degree-two cosets gives unique maximal containment. Counting subspaces outside the distinguished ideal uses this uniqueness, not inclusion–exclusion by assumption. A standalone finite-prime-field checker independently enumerated every subspace over \(\mathbf F_2\) and dimensions \(0,1,2\) over \(\mathbf F_3\); all counts matched. The all-field statement relies on the proof.
+## correctness
 
-## Originality (PASS, with stated residual risk)
-Saha–Towers (arXiv:2004.12110v1, full text inspected) supplies the multiplication table and general centralizer-as-ideal theorem. The full maximal-abelian classification, projective family, incidence description and complete Gaussian dimension distribution are not given there. Published-index comparisons concerned different algebras or different invariants. The 2018 *Centralizers in Lie Algebras* article was inspectable only through its abstract; some characteristic-three centralizer enumeration could overlap. That possibility is narrower than the full claim, but limits the certainty of priority.
+PASS
 
-## Value (PASS)
-The paper's natural smallest class-three example has an explicit entire abelian-subalgebra lattice census. It features a distinguished maximal ideal, a projective-family of other maximal subalgebras, and unique containment outside that ideal—structural information explaining the count, rather than a table of experimental values. The result is useful as a complete test case for abelian incidence in antiassociative/CB algebras, with no assertion of a larger classification.
+Use the actual Saha–Towers multiplication table e1e2=e4,e1e3=e5,e2e3=e6,e1e6=e7,e2e5=−e7,e3e4=e7 and anti-commutativity to identify A=V⊕Λ²V⊕Λ³V (dim 7), with product (v,a,c)(w,b,d)=(0,v∧w,v∧b−w∧a). An abelian subspace with nonzero V projection has that projection contained in a single line L=Kv because v∧w=0. For x=v+a+c with v nonzero, the centralizer consists of V components λv and Λ² components λa+v∧V, with unrestricted Λ³V, yielding a four-dimensional abelian subalgebra C(x). The ideal M=Λ²V⊕Λ³V is also maximal abelian and self-centralizing; every abelian H outside M belongs to a unique C(x), and its choice depends on one section over each L of Hom(L,Λ²(V/L)), a one-dimensional line bundle O(2) over P². Distinct C at same L meet in dimension3; different L meet in dimension2. For q odd, there are q(q²+q+1) of these plus M. Counting d-subspaces in M and then uniquely in each other maximal gives N_d=[4 d]_q+q(q²+q+1)([4 d]_q−[3 d]_q), 0<=d<=7. Over F3, independent RREF enumeration of 99,463 two-dimensional subspaces found exactly 4,693 abelian ones, agreeing with the formula; the all-field result is established by wedge relations, not the finite check. The source's Example4.6 sign convention was rechecked in its full arXiv manuscript page6.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Saha–Towers (2020) explicitly gives the seven-dimensional class-three CB algebra and its multiplication table; these are prior and not novel. Their paper proves broad properties of centralizers as ideals but does not supply the projective line-bundle classification of all maximal abelian subalgebras, intersection geometry, or full subalgebra-count polynomial. A 2018 Saffarnia–Moghaddam–Rostamyari paper on centralizer counts in Lie algebras is a plausible comparison for characteristic three but its full text remained inaccessible; its available abstract does not assert this exact all-characteristic algebra and Gaussian distribution. An inaccessible plausible article is expressly recorded as originality risk rather than treated as automatic failure.
+
+## value
+
+PASS
+
+This is a complete natural classification/count for the smallest nontrivial class-three example motivating a broad CB-algebra classification. It determines the entire abelian-subalgebra lattice profile over every odd finite field and its incidence strata. The geometric O(2) parametrization and finite-field distribution give structural understanding not implicit in merely knowing the multiplication table. Dimension-four extremal/complete counts are exact natural invariants, not arbitrary computation or an unsupported number sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
