@@ -1,12 +1,21 @@
-# Review of Minimum outer-independent double Roman functions of half graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The zero set is independent, so the positive support is a vertex cover of size at least \(n\). The proof writes weight as support size plus exact excess from labels \(2\) and \(3\), derives sharp excess lower bounds from the side distribution of zeros, and classifies every equality case. Interior size-\(n\) supports are the canonical staircase covers and the two leaves force labels \(3\) at the extremes. Size-\(n+1\) equality yields exactly the two endpoint functions; size-\(n+2\) equality is impossible. The finite boundary cases are exhaustive. Direct verification of \(1{,}118{,}464\) quaternary labelings for \(2\le n\le5\) matches every minimum and optimizer count.
+## correctness
 
-## Originality
-PASS. The 2019 introducing article is verified by bibliographic metadata and abstract, and the closely following primary preprint was inspected in searchable full text. The latter gives broad bounds, small-value characterizations, complexity, corona formulas, and complete-bipartite values, but no half-graph or chain-graph occurrence. Targeted semantic and exact literature searches under half graph, chain graph, Ferrers graph, and the exact invariant name did not retrieve an equivalent theorem. The scalar \(n+4\) is therefore not used alone as the originality basis; the complete staircase equality classification is.
+PASS
 
-## Value
-PASS. Half graphs are the canonical twin-free chain graphs and a natural structured family for domination parameters tied to vertex covers and independent zero sets. The theorem determines every optimum and reveals a stable \(n+1\)-member staircase from \(n=4\) onward, with two exceptional boundary multiplicities. This is structural equality information not supplied by the general bounds or complete-bipartite formula.
+Definitions: label 0 needs neighboring 3 or two distinct 2s; label 1 needs neighbor 2 or 3; zero set independent. Thus D={f>0} vertex cover; n disjoint diagonal matching edges give |D|>=n. Weight decomposes |D|+e, e=|V2|+2|V3|. Zeros on both sides require excess >=2 in each side (hence e>=4). All zeros on one side yield e>=n if |D|=n; if |D|=n+1 they force e>=3, and if |D|>=n+2 e>=2 (n>=4), giving lower bound n+4. At equality support size n corresponds to complement of maximal independent staircases S_t={b_1..b_t}∪{a_{t+1}..a_n}; leaves b1 and an when zero force labels 3 at a1 and bn, giving n−1 interior F_t. Support n+1 forces exactly endpoint choices F0/Fn; support n+2 cannot achieve equality. Source lists complete finite exception H2 four minima and H3 eight. Independent full 4^(2n) label enumeration n=2..5 confirmed exact weights/counts (5,4),(7,8),(8,5),(9,6). Analytic proof supplies arbitrary n; minor indexed tuple notation was decoded correctly.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for complete half-graph OIDR function classification and optimizer multiplicity; known general bounds and complete-bipartite n+4 branch neither include sparse nested half graphs nor determine every optimal labelling.
+
+## value
+
+PASS
+
+Half graphs are a standard chain/Ferrers graph test family with nested neighborhoods; exact OIDR domination and all optimum function counts are natural combinatorial invariants. The leaf-forced n+1 staircase classification for all n>=4 and exceptional H2/H3 minima provide a nontrivial full structural and finite-boundary result beyond coincidentally matching K_nn scalar bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
