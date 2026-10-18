@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,76 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof uses exact finite-sample formulas.
 
-For two observations, every admissible return sample has the form
-\[
-(-a,b),
-\qquad
-0<a<b.
-\]
-Writing
-\[
-r=\frac ba,
-\]
-the population-standard-deviation Sharpe ratio is
-\[
-S=\frac{r-1}{r+1},
-\]
-and lower-partial-second-moment Sortino is
-\[
-Q=\frac{r-1}{\sqrt2}.
-\]
-Both are strictly increasing in \(r\), proving the support-two obstruction.
+# Independent mathematical audit
 
-For the sharp witness
-\[
-A=(-1,1,9),
-\qquad
-B=(-2,5,6),
-\]
-the embedded verifier checks
-\[
-\mu(A)=\mu(B)=3,
-\]
-\[
-\sigma_A^2=\frac{56}{3},
-\qquad
-\sigma_B^2=\frac{38}{3},
-\]
-\[
-S(A)^2=\frac{27}{56},
-\qquad
-S(B)^2=\frac{27}{38},
-\]
-and
-\[
-Q(A)^2=27,
-\qquad
-Q(B)^2=\frac{27}{4}.
-\]
+## correctness
 
-It separately checks the denominator convention that averages downside squares only over below-target observations.
+PASS
 
-Padding both samples with their common mean gives, for every \(n\ge3\),
-\[
-\sigma^2(A_n)=\frac{56}{n},
-\qquad
-\sigma^2(B_n)=\frac{38}{n},
-\]
-and
-\[
-\delta^2(A_n)=\frac1n,
-\qquad
-\delta^2(B_n)=\frac4n.
-\]
+For a one-point empirical sample, mean>0 forces zero downside deviation; so no admissible single observation. For exactly two equally weighted observations positive mean and nonzero downside force (-a,b), b>a>0. Let r=b/a: S=(r-1)/(r+1), Q=(r-1)/sqrt(2), both strictly increasing in r, proving no strict opposition. Exact rational direct moments of A=(-1,1,9), B=(-2,5,6) give common mean 3, variances 56/3 and 38/3, downside moments 1/3 and 4/3, thus S(A)<S(B) but Q(A)>Q(B). Padding with the common mean 3 proves this for every n>=3; checked n3..12 independently. For (-a,b,c) with one negative observation, variance=(a+mu)^2/2+(b-c)^2/6 explains upside-dispersion mechanism. One-negative-observation alternative Sortino denominator gives same rankings. Infinite n family follows exact algebra, not finite checks.
 
-Run:
+## originality
 
-`python3 verify_sharpe_sortino_minimal_support.py`
+PASS
 
-The first output line must be:
+Sharpe defines total dispersion; Sortino uses downside semivariance. Lien (2002) proves normal-law ranking agreement and identifies reversal under specified nonnormal Edgeworth-Sargan distributions; this already covers qualitative possibility and must not be advertised as new. It does not imply a sharp *equally weighted empirical support size* of three; the two-point monotonicity and explicit equal-mean witness provide that missing boundary. Lien publisher abstract was read but full text remained inaccessible after lawful alternatives and an institutional VPN-disconnected response. This remains a named risk, not proof that Lien lacks every relevant detail.
 
-`VERIFY_OK`
+## value
 
-The script replays the persistent family through \(n=500\). The universal support-two obstruction and all-\(n\) formulas are proved algebraically in `RESULT.md`.
+PASS
+
+The exact first possible sample size for disagreement is a natural invariant of two commonly used risk rankings, rather than an unmotivated selected portfolio. It exposes the minimal structural mechanism: one downside magnitude determines Sortino at a fixed mean, but imbalance of the two nonlosses independently affects Sharpe. The result is a mathematically informative boundary for finite empirical scoring, not a claim that three returns are enough for statistical selection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
