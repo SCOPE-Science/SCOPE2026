@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Under the stated symmetric no-zero law, signs are independent Rademacher variables independent of magnitudes. Conditioning on the magnitudes makes any sign-blind ordering deterministic. Expanding the centered sum of squares shows that a run-change indicator correlates with exactly one quadratic sign product, producing \(-A_{\pi_j}A_{\pi_{j+1}}\) in the squared-sum term and hence the displayed positive covariance after the sample-mean subtraction. The conditional mean of the run count is constant, so no omitted covariance-of-conditional-means term remains. Exact arithmetic in `verify.py` reproduces the identity and its specializations.
+## correctness
 
-## Originality
-PASS. The closest full source, arXiv:1401.2377v1, defines McWilliams' absolute-value ordering and sign-run statistic and develops its invariance, null distribution, multivariate extension, and power properties. A full-text inspection found no sample-variance or covariance result. Claim-specific searches for McWilliams runs together with sample variance, absolute-rank runs with variance, and sign-run covariance returned no equivalent statement. The original McWilliams article was not available in full text through the lawful sources checked, so its body is retained as a residual risk rather than treated as negative evidence. The existing marginal distribution-free theory does not dominate the new claim: it fixes the law of the run count but does not determine the ordering-dependent mixed moment with centered variance.
+PASS
 
-## Value
-PASS. Runs after center-outward ordering are a canonical nonparametric symmetry statistic, and sample variance is a canonical centered scale statistic. The theorem identifies a sharp structural boundary: the runs statistic is independent of all magnitude-only scale summaries, yet centering at the random sample mean creates a strictly positive dependence whose exact size is an adjacent-magnitude functional. This explains how a distribution-free sign statistic can acquire distribution-dependent second-order coupling with a standard estimator, and it yields closed finite formulas for common parent laws.
+Reconstruct X_i=epsilon_i A_i with independent Rademacher signs. Conditional on magnitudes and the sign-blind permutation, I_j=(1-epsilon_j epsilon_{j+1})/2, while S²=(sum b_j²-Z²/n)/(n-1), Z=sum epsilon_j b_j. The only quadratic monomial in Z² correlated with I_j is 2b_jb_{j+1}epsilon_j epsilon_{j+1}, with covariance -b_jb_{j+1}. Summing and dividing n(n-1) gives exact covariance. Conditional E[R]=(n+1)/2 eliminates cross-conditional term. Changing signs are iid transition bits, yielding binomial runs independent of magnitudes. Independently enumerated all sign vectors on b=[1,3,2,4], giving 17/12 covariance in agreement with formula, and checked uniform beta-order-statistic moment. Finite second moment suffices for expected pair products by Cauchy-Schwarz.
 
-## Closest literature and limitations
-Dyckerhoff, Ley, and Paindaveine (arXiv:1401.2377v1) give a complete accessible description of the McWilliams statistic and its null theory. McWilliams (1990) is the originating source but its body was not accessible in the checked lawful channels. Corzo and Babativa's modified symmetry-runs paper supplies directly relevant nonparametric-testing context and is classified primarily under \(62G10\). The theorem here assumes a known symmetry center and does not cover sign-dependent orderings or asymmetric laws.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The McWilliams runs test and its distribution-free binomial law are established. This result asks a different joint-second-order question, displaying how sample centering creates covariance with R even though raw second moment is independent. Inspected later full-text runs work has no matching sample-variance covariance statement; original 1990 paper full PDF inaccessible, explicitly retained as priority risk. O is best-of-knowledge PASS.
+
+## value
+
+PASS
+
+Gives exact conditional and unconditional dependency between a distribution-free symmetry diagnostic and unbiased scale estimation, including arbitrary magnitude orderings and a closed benchmark under the uniform law. Changes in ordering produce different covariance despite identical marginal runs distribution; this is a substantive statistical characterization rather than routine recalculation of marginal binomial variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

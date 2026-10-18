@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T17:50:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstruct X_i=epsilon_i A_i with independent Rademacher signs. Conditional on magnitudes and the sign-blind permutation, I_j=(1-epsilon_j epsilon_{j+1})/2, while S²=(sum b_j²-Z²/n)/(n-1), Z=sum epsilon_j b_j. The only quadratic monomial in Z² correlated with I_j is 2b_jb_{j+1}epsilon_j epsilon_{j+1}, with covariance -b_jb_{j+1}. Summing and dividing n(n-1) gives exact covariance. Conditional E[R]=(n+1)/2 eliminates cross-conditional term. Changing signs are iid transition bits, yielding binomial runs independent of magnitudes. Independently enumerated all sign vectors on b=[1,3,2,4], giving 17/12 covariance in agreement with formula, and checked uniform beta-order-statistic moment. Finite second moment suffices for expected pair products by Cauchy-Schwarz.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General depth-based run test extends univariate symmetry tests to multivariate depth, while offering asymptotic null theory and power rather than adjacent-magnitude conditional covariance. Original McWilliams article published 1990; full text not recovered."
+        ],
+        "reasoning": "A broader class of runs tests does not by itself imply the exact covariance with unbiased centered variance; nevertheless the original uninspected source is a residual priority uncertainty, not a basis for asserting whole-document noncoverage.",
+        "searches": [
+          "Dyckerhoff Ley Paindaveine arXiv:1401.2377 Sections 1-3",
+          "DOI:10.1080/01621459.1990.10474985",
+          "Resultary symmetry run-covariance search"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 0dd000a9169f05153c7bc8513a1cfee7d6eb5512 and source tree 80ce1e7167aa6a965fac33a9d6fe01fcd252b528",
+        "Dyckerhoff, Ley, Paindaveine arXiv:1401.2377, main text",
+        "McWilliams JASA (1990) DOI 10.1080/01621459.1990.10474985 abstract only",
+        "Corzo and Babativa (2013) modified runs tests DOI 10.1080/00949655.2011.647026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior sign-run marginal distribution is binomial, independent of magnitude sample scale, but sample variance depends on the squared sample mean containing sign cross-products."
+        ],
+        "reasoning": "The covariance is a separate joint statistic, not a special case of distribution-free null laws; its derivation uses the sign quadratic decomposition. Original 1990 primary text not read, so exact prior-implication cannot be conclusively excluded for that one source.",
+        "searches": [
+          "arXiv:1401.2377",
+          "McWilliams 1990 JASA 85 1130-1133",
+          "Corzo Babativa DOI:10.1080/00949655.2011.647026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McWilliams/Dyckerhoff formulate sign-runs sorted by |X|, but the inspected result treats run-count null distribution, not Cov(R, unbiased centered sample variance)."
+        ],
+        "reasoning": "The submission’s sign-blind ordering includes McWilliams as a special case; the already known marginal binomial runs law alone does not specify dependence with S². Its covariance is determined by adjacent expected magnitudes.",
+        "searches": [
+          "Resultary: symmetry runs sign ordered absolute values covariance sample variance McWilliams",
+          "arXiv:1401.2377 depth-based runs central symmetry"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Order-statistic moments j(j+2)/[(n+1)(n+2)] and fourth-moment sample-variance formula are classical; the assembled joint moment was not found in the inspected full runs article."
+        ],
+        "reasoning": "There is no specific finite database/table for this all-n identity. The classical building-block moments are credited and do not by themselves constitute a table entry for the run/variance covariance.",
+        "searches": [
+          "arXiv:1401.2377 references and formula search",
+          "DOI:10.1080/01621459.1990.10474985"
+        ]
+      },
+      "rationale": "The McWilliams runs test and its distribution-free binomial law are established. This result asks a different joint-second-order question, displaying how sample centering creates covariance with R even though raw second moment is independent. Inspected later full-text runs work has no matching sample-variance covariance statement; original 1990 paper full PDF inaccessible, explicitly retained as priority risk. O is best-of-knowledge PASS.",
+      "residual_risks": [
+        "McWilliams 1990 full text unavailable even after OA/preprint and authorized institutional attempt; may discuss variance under alternate notation.",
+        "No full joint distribution or positive-association conclusion follows from covariance positivity.",
+        "Parent distribution must be symmetric with signs independent of magnitudes; a sign-based tie-break would violate the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_JOINT_COVARIANCE",
+          "evidence": "Source describes known runs test and marginal behavior; relevant inspected text does not give unbiased sample-variance covariance.",
+          "identifier_or_url": "arXiv:1401.2377v1",
+          "material_read": "Open PDF pages describing McWilliams absolute-sign ordering, distribution-free null runs and depth-based generalization, inspected page screenshots and surrounding section text",
+          "method": "Read relevant full-text sections and comparison formulas",
+          "title": "Depth-based Runs Tests for Bivariate Central Symmetry",
+          "trigger": "Full treatment of McWilliams sorted-absolute runs and bivariate extension"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT_PRIORITY_RISK",
+          "evidence": "Oxford returned no_pdf (no verified PDF), so do not assert full-document noncoverage.",
+          "identifier_or_url": "DOI:10.1080/01621459.1990.10474985",
+          "material_read": "Publisher abstract and bibliographic metadata only; arXiv/OA and authorized institutional attempt did not yield verified full text",
+          "method": "Web abstract and lawful OA attempts, then authorized institutional retrieval",
+          "title": "A Distribution-Free Test for Symmetry Based on a Runs Statistic",
+          "trigger": "Original 1990 McWilliams test, most plausible earlier priority source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives exact conditional and unconditional dependency between a distribution-free symmetry diagnostic and unbiased scale estimation, including arbitrary magnitude orderings and a closed benchmark under the uniform law. Changes in ordering produce different covariance despite identical marginal runs distribution; this is a substantive statistical characterization rather than routine recalculation of marginal binomial variance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For iid continuous-or-tied symmetric sign-magnitude observations with finite positive variance and no zero atom, any sign-independent magnitude-determined permutation has a binomial sign-run count R independent of every magnitude-only statistic, but Cov(R,S²)=E[sum of consecutive reordered magnitude products]/[n(n-1)]>0. McWilliams sorted uniform[-a,a] case gives a²(2n+5)/[6(n+1)(n+2)] and explicit correlation asymptotic sqrt(5)/n.",
+  "limitations": [
+    "McWilliams 1990 full text unavailable even after OA/preprint and authorized institutional attempt; may discuss variance under alternate notation.",
+    "No full joint distribution or positive-association conclusion follows from covariance positivity.",
+    "Parent distribution must be symmetric with signs independent of magnitudes; a sign-based tie-break would violate the proof."
+  ],
+  "schema_version": 1
+}
