@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof first derives Hausdorff continuity from the two order-continuity identities, then proves continuity of the unique symmetry center under Hausdorff convergence. For a fixed pair of times, a fine partition turns center motion into finitely many small increments. A dimension-\(d\) rounding lemma selects a subset of those increments whose doubled sum approximates the total center displacement within \(d\) times the largest increment. Each selected increment is implemented exactly by two legal central reflections, and nesting preserves membership between selected intervals. Taking the mesh to zero gives the desired recentered inclusion. The packaged checker independently verifies the exact rounding algorithm and reflection-composition identity.
+## correctness
 
-## Originality
-**PASS.** The closest primary source explicitly conjectures that Dawson's Figure 1 failure of recentered containment cannot arise in a continuously indexed strongly nested family. The associated Open Problem Session asks the stronger question whether recentering preserves *strong* nesting. The later 2010 full-text treatment of monotone and Čebyšev arcs develops convex hyperspace structure but does not state or imply the present nonconvex recentering theorem. Searches by the exact conjectural wording, centered-translate formulation, and equivalent inclusion statement found no covering result. The remaining risk is an unindexed later resolution.
+PASS
 
-## Value
-**PASS.** The result settles an explicit conjecture attached to a concrete obstruction in the motivating archive-era paper. It also sharpens the stronger open problem by showing that the only remaining possible failure is boundary contact after recentering, not loss of inclusion. The proof is structural and dimension-uniform and, notably, does not require convexity.
+For nested nonempty centrally symmetric compact A_t⊂R^d with both left-union and right-intersection order continuity, compactness gives Hausdorff-continuity of t↦A_t; uniqueness of bounded symmetry centers and limit preservation give continuity of c_t. For partition increments v_i=c_{t_i}-c_{t_{i-1}}, a fractional-dependence rounding lemma yields ε_i∈{0,1} with ||Σ(ε_i-1/2)v_i||<=d max||v_i||/2. Two legally sequential central reflections move a retained point by 2v_i without escaping A_{t_i}; nesting handles skipped increments. The final point lies in A_t within d max||v_i|| of c_t+y. Fine partitions and closedness prove A_s-c_s⊆A_t-c_t. Rounding is finite-dimensional; does not establish strict/strong nestedness.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The original 2009 Dawson source explicitly observes possible failure for one nested pair and conjectures that the Figure 1 noncontainment pathology cannot occur along continuously indexed strongly nested families. The current argument proves ordinary recentered nesting under order-continuity, even without convexity; it does not claim the stronger 2009 Open Problem Session strong-nesting question. Resultary returns the claim itself but no dominating later theorem. Residual historical indexing risk remains.
+
+## value
+
+PASS
+
+Directly resolves a stated mathematical conjecture about centrally symmetric hyperspace arcs and gives a broadly reusable exact center-tracking argument via vector discrepancy and successive reflections. The theorem covers nonconvex compact sets and separates ordinary from strong nesting, a meaningful structural distinction rather than a minor parameter tweak.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

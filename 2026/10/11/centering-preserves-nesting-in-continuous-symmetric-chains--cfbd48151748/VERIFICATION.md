@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has four logically separate components.
+# Independent mathematical audit
 
-First, the two order-continuity identities imply Hausdorff continuity of the nested compact family. The left-limit argument uses compact finite approximation of the increasing union; the right-limit argument uses compactness and the decreasing-intersection identity.
+## correctness
 
-Second, centers of compact centrally symmetric sets are continuous under Hausdorff convergence. Any subsequential center limit is a symmetry center of the limit set, and bounded central symmetry has a unique center.
+PASS
 
-Third, the finite vector-rounding lemma is exact. Starting with coefficients \(1/2\), nullspace moves preserve the represented vector while reducing the number of fractional coefficients to at most \(d\). Rounding those final coefficients costs at most
-\[
-\frac d2\max_i\|v_i\|.
-\]
-The packaged checker performs this reduction with rational arithmetic on several nontrivial families.
+For nested nonempty centrally symmetric compact A_t⊂R^d with both left-union and right-intersection order continuity, compactness gives Hausdorff-continuity of t↦A_t; uniqueness of bounded symmetry centers and limit preservation give continuity of c_t. For partition increments v_i=c_{t_i}-c_{t_{i-1}}, a fractional-dependence rounding lemma yields ε_i∈{0,1} with ||Σ(ε_i-1/2)v_i||<=d max||v_i||/2. Two legally sequential central reflections move a retained point by 2v_i without escaping A_{t_i}; nesting handles skipped increments. The final point lies in A_t within d max||v_i|| of c_t+y. Fine partitions and closedness prove A_s-c_s⊆A_t-c_t. Rounding is finite-dimensional; does not establish strict/strong nestedness.
 
-Fourth, two central reflections satisfy
-\[
-R_b(R_a(x))
-=
-x+2(b-a).
-\]
-Thus selected center increments can be realized by legal symmetry operations while remaining inside the nested family. The rounding error tends to zero because center continuity makes the maximum increment tend to zero.
+## originality
 
-The universal theorem is proved analytically; finite computation is used only to replay the algebraic certificates.
+PASS
+
+The original 2009 Dawson source explicitly observes possible failure for one nested pair and conjectures that the Figure 1 noncontainment pathology cannot occur along continuously indexed strongly nested families. The current argument proves ordinary recentered nesting under order-continuity, even without convexity; it does not claim the stronger 2009 Open Problem Session strong-nesting question. Resultary returns the claim itself but no dominating later theorem. Residual historical indexing risk remains.
+
+## value
+
+PASS
+
+Directly resolves a stated mathematical conjecture about centrally symmetric hyperspace arcs and gives a broadly reusable exact center-tracking argument via vector discrepancy and successive reflections. The theorem covers nonconvex compact sets and separates ordinary from strong nesting, a meaningful structural distinction rather than a minor parameter tweak.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
