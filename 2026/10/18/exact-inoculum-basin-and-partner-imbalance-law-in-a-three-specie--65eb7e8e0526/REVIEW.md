@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The frequency reduction is exact; the resident contrast obeys a scalar logistic equation in cumulative resident time, and the resident-to-invader odds obey a linear inhomogeneous equation with a closed integrating factor. Its strictly monotone numerator partitions all positive initial states into recovery, mixed-equilibrium separatrix, and complete extinction. The reciprocal-density identity yields the exact inverse-time decay. The beta-function singularity follows from a convergent dominated-limit integral. Symbolic calculations and independent numerical ODE tests were replayed from the accompanying checker; they are not substitutes for the infinite-time argument.
+
+**Originality: PASS (bounded evidence).** Primary full text for Arthur–Nicholson–Wilkinson (arXiv:2609.34956v1), especially model (2), Section 4, Figure 3, and the appendix, describes invasion-triggered total extinction but neither this exact inoculum/imbalance basin formula nor the beta-power sensitivity. Feng et al. (arXiv:2503.10865) cover perturbative post-invasion ecological equilibria, not this nonperturbative frequency-dynamics basin. Hale–Valdovinos (DOI:10.1002/ece3.8453) review two-taxon mutualism thresholds, not the stated three-taxon system. Relevant mathematical records and targeted scholarly searches showed conceptual similarities but no implication of the exact assertion. Potential independently known equivalent replicator reductions remain a residual risk.
+
+**Mathematical value: PASS.** The source identifies whole-community extinction after introductions without giving an analytic boundary. The theorem determines a unique sharp initial-inoculum threshold for every resident asymmetry, proves that a rare-invasion test misses finite-introduction collapse, and gives a meaningful singular sensitivity exponent as a partner is lost. It is an exact structural basin result, not just an arbitrarily chosen numerical parameter slice. No empirical probability of collapse is implied.
+
+**Limitations.** Deterministic, exchange-symmetric three-taxon interaction law only. No claim about random interaction prevalence, stochastic survival, or observational ecological dynamics. Independent verification has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
