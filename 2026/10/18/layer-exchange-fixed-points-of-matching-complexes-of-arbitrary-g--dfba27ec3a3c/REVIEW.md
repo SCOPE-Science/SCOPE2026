@@ -1,0 +1,21 @@
+# Self-review
+
+## Correctness (C): PASS
+The claim has a completely explicit fixed-orbit model: a rung is a singleton orbit and each original edge contributes one two-layer orbit. Compatibility of orbits is equivalent, not merely analogous, to disjointness of edges in the fully whiskered graph. Every orbit-compatible matching extends to a perfect prism matching by filling uncovered rungs, proving equality of the two geometric fixed loci.
+
+The recursive private-leaf toggle matches the augmented face poset in blocks partitioned by whether the smallest original vertex is matched along an original edge. Downward unmatched covers cannot cross from the zero block to an original-edge block, and no face-poset cover crosses between different original-edge blocks. Each zero block is paired without cycles, and all other blocks inherit the recursion. The unmatched faces are precisely original perfect matchings, each of dimension \(|V(G)|/2-1\). Removing the augmented empty-face pair yields one critical vertex and these higher-dimensional cells; the CW attachments are trivial by dimension. This proves the integral wedge formula even for disconnected graphs, isolated vertices, and the zero-dimensional sphere case.
+
+The included verifier separately checked the orbit identification, all Morse pairs, complete Hasse-diagram acyclicity, and critical-face identities on all 76 graphs up to four vertices, and performed full-poset tests for six larger examples. A finite verifier does not replace the universal proof.
+
+## Originality (O): PASS with residual bibliographic risk
+The full 19-page updated Agarwal–Basak manuscript (arXiv:2608.30601, September 2026) was inspected, including its main theorems and complete Section 5.2 on circular ladder perfect-matching complexes. Their results classify the nonequivariant homotopy type of two specific families. The original matching-complex fixed-point homotopy type for arbitrary \(G\square K_2\), equivalence of the two fixed loci, and an all-graph perfect-matching-count classification are not statements or direct implications of those theorems.
+
+The previously recorded \(G=C_n\) fixed-point case is covered by the current theorem and is excluded from the novelty claim; the general graph theorem is strictly broader, encompassing complete graphs, complete bipartite graphs and arbitrary disconnected graphs. Closest published ladder matching-complex representation calculations address homological traces of full complexes, which cannot in general determine geometric fixed-space homotopy. Searches of exact aliases, fully whiskered matching complexes, graph prisms, perfect-matching enumerators, and published mathematical records did not reveal a stronger theorem. An unindexed general whiskered-graph theorem remains possible; novelty cannot be certified by absence from search results.
+
+## Mathematical value (V): PASS
+This is a classification for an arbitrary input graph, not a computation for another fixed finite example. It links a geometric equivariant homotopy type to a classical and nontrivial graph invariant (the exact number of perfect matchings), giving an integral torsion-free wedge of spheres even when the full matching complex has more complicated topology. The formula simultaneously yields factorial and double-factorial families and explains vanishing in graphs without a perfect matching, including graphs with odd order. The proof supplies a uniform combinatorial Morse reduction, not merely homology ranks or a finite enumeration. Counting perfect matchings remains potentially computationally expensive, and no further equivariant classification is asserted.
+
+## Sources and limitations
+Closest source: A. Agarwal and B. Basak, arXiv:2608.30601 (v2, 19 pages), complete text inspected. Related primary sources: Matsushita (2019) on small grids and Bayer–Jelić Milutinović–Vega (2023) on honeycomb perfect-matching complexes. Closest published-record comparison: a six-rung ladder homology character calculation (full RESULT.md inspected); it does not imply the all-graph fixed-space classification. The mathematical claim is proved but independently unaudited. Unindexed prior work and differences between orbit-space and full equivariant homotopy remain limits.
+
+Self-review: passed. Independent audit: not yet performed.
