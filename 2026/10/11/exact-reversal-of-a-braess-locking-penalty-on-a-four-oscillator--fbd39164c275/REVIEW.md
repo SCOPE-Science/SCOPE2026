@@ -1,15 +1,21 @@
-# Scientific review: exact reversal of a Braess locking penalty
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the infimum of coupling strengths admitting a **strictly linearly stable** locked state, not stability at the limiting saddle-node. The node balance equations force equal sine flows on all three path edges. Every phase branch with a negative path cosine has an explicit negative Hessian direction, so these branches cannot lower the threshold. On the remaining branch, the Hessian is positive on the phase quotient exactly when the derivative of the scalar locking function is positive. Maximizing its exact cubic expression gives both closed formulas, and differentiation gives the unique maximum and crossing. The standalone Python checker passed 526 finite diagnostics; universal validity comes from the written proof.
+## correctness
 
-## Originality — PASS, residual priority risk
-Arches et al., arXiv:2608.03594v1 (2026), prove a first-order edge-addition criterion and illustrate nonlinear failure of its extrapolation, but do not give the full four-vertex closing-edge threshold curve here. Ottino-Löffler and Strogatz, arXiv:1610.00296 (2016), show that a four-node ring can have a worse locking threshold than its corresponding chain for a **different** cumulative-frequency vector \((1,-1,-1)\). Their theorem bounds ring/chain threshold ratios and does not provide this continuous closing-edge formula. Manik, Timme and Witthaut, arXiv:1611.09825v2 (2016), give general cycle-flow/stability methods and a different Braess example. No inspected source establishes the present all-weights formula, exact maximum, and switchback. Here the unclosed path has three transverse zero eigenvalues at its limiting critical state, so the derivative is computed directly and is not presented as a consequence of a regular simple-fold sensitivity formula. Since general cycle-flow methods can yield further small-graph cases, unknown equivalent treatments remain possible; this is not a claim of exhaustive priority certification.
+PASS
 
-## Mathematical value — PASS
-The recent local sensitivity theory poses a concrete design question: can a negative infinitesimal assessment of an edge be trusted at the intended finite weight? This theorem gives a complete sharp answer, not merely a numerical counterexample, for a natural four-oscillator path closed into a cycle. Its two algebraic regimes, unique maximum at \(1/6\), and exact crossover at the positive root above \(1/6\) identify distinct mechanisms and support further tests of sensitivity-based network design. It does not claim universal behavior for other graphs or frequency vectors; the multiply marginal unclosed path is not a generic fold example.
+At equilibrium the interior balances force equal sine flows on all path links. Branches with a flipped path cosine have explicit negative directions of the quotient Hessian, so cannot be strictly stable. The all-cohesive angle t has scalar flow (1+3a)s-4as^3 (s=sin t), with strict stability precisely 1+3a-12as^2>0. Maximizing on s in (0,1) gives sup=1-a for a<=1/9, and (1+3a)^(3/2)/(3 sqrt(3a)) beyond; reciprocal yields exact Kc, stable states approach but do not require inclusion at marginal endpoint. Independently symbolically differentiated log Kc=(1-6a)/(2a(1+3a)), located maximum a=1/6 and numerical larger crossing a=0.40889386563522584. The supplied verifier is a finite diagnostic rather than universal proof.
 
-## Limitations
-Only strict transverse linear stability and its existence infimum are treated. No basin size, global attraction, stability at the nonhyperbolic threshold, or heterogeneous-path analogue is established. Older general graph/cycle formulations might contain a reformulation of this small-network result. The literature comparison is substantive but not logically exhaustive. Independent scientific validation has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete all-a edge-weight threshold and exact beneficial switchback, distinguishing prior unweighted ring/chain comparisons and general perturbation formulas. A fully read primary 2016 four-oscillator counterexample uses a different cumulative frequency vector and only ring-vs-chain comparison. Arches et al and Manik et al supply general methods/qualitative Braess effects, but an exact formula at these frequencies is not inferred from accessible statements. Hidden routine specialization of general cycle-flow work is an explicit residual risk.
+
+## value
+
+PASS
+
+The mathematical question is naturally posed by adverse first-order edge sensitivity: can a qualitatively harmful infinitesimal edge eventually improve locking? A complete two-regime sharp threshold and unique inversion weight for the minimal cycle answer this exactly, including the multiply marginal path endpoint, not merely another simulated counterexample. Scope is strict transverse linear stability only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
