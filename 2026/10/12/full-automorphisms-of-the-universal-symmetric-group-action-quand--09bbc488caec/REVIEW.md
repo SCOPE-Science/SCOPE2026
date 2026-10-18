@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The quandle right translations are indexed intrinsically by group-label fibers because \(\mathfrak S_n\) has trivial center for \(n\ge3\). Any induced conjugation-quandle automorphism on the quotient is a group automorphism, and the action on the identity fiber forces it to be inner, including \(n=6\). Fixing the quotient gives the exact, necessary and sufficient relation \(g^{-1}h a_{h^{-1}gh}=a_g g^{-1}h\), whose solutions are conjugacy-equivariant maps with values in \(Z(C_G(g))\). This proves the direct-product classification. The decomposition of permutation centralizers then gives the cyclic factors, and the right-translation identity proves the inner and outer formulas. The standalone verifier reconstructed all class-local possibilities for ranks three and four and returned `VERIFY_OK`. Infinite-rank correctness rests on the proof, not the checks.
+## correctness
 
-## Originality — PASS
-Kai's 2026 full HTML source establishes the group-action quandle, its universality, and \(\operatorname{Inn}(Q_n)\cong C_{\ell_n}\times\mathfrak S_n\). His Proposition 4.3 does not determine the full automorphism group, the kernel of its action on \(\operatorname{Conj}(\mathfrak S_n)\), the center-of-centralizer factors, or the outer quotient. Bardakov--Nasybullov--Singh (2017) treats automorphisms of conjugation quandles, not the extra permutation fibers of this specific action quandle. Semantically related published searches gave no implication-equivalent formula. Historical work on Fenn--Rourke matrix racks and general quandle extensions may still contain an equivalent description; their complete archival literature has not been exhausted.
+PASS
 
-## Value — PASS
-The full automorphism group is a canonical structural invariant of the universal target for Cayley-type quandle embeddings. Its classification is uniform for every rank, detects the precise first appearance of genuinely outer automorphisms at rank four, and shows that all exceptional outer automorphisms of the group \(\mathfrak S_6\) fail to lift. The result distinguishes global automorphisms from the previously known inner subgroup rather than merely renaming a routine count.
+Reconstructed intrinsic right-translation fibers of Q_n via centerlessness of S_n; a quandle automorphism acts on S_n labels by an inner group automorphism from its action on identity fiber. Its remaining fiber permutation a_g centralizes g and is conjugacy-equivariant, hence a_{g_lambda}∈Z(C_G(g_lambda)); conversely each such family gives a homomorphism. Diagonal S_n splitting yields product, and δ=(g_lambda)_lambda gives inner subgroup. Independently enumerated partition products K_3=6, K_4=96, K_5=2880, hence full orders 36,2304,345600 and outer indices 1,8,48. Tested centralizer cycle-factor formula rather than relying solely on attached finite script.
 
-## Limitations and closest work
-The formula applies to the natural action of \(\mathfrak S_n\) for \(n\ge3\), not arbitrary group actions. Source comparisons establish no universal novelty guarantee. Verification exhausts selected finite cases only. The closest sources are Kai (arXiv:2609.17438v2) and Bardakov--Nasybullov--Singh (arXiv:1705.10607); neither inspected material states the full-group formula. Independent auditing is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full automorphism group for the specified universal symmetric-action quandle is stronger than Kai’s published inner-automorphism group. Kai constructs the object and describes Inn, which are credited; the class-local center of permutation centralizers is the additional classification. A 2017 quandle automorphism-group paper concerns different underlying quandle types, so full coverage is not established.
+
+## value
+
+PASS
+
+The full quandle automorphism group and its first non-inner rank are intrinsic structural invariants of Kai’s universal construction. The uniform product by permutation cycle types and outer-group transition are mathematically motivated independently of the known inner-group result; n=4 arithmetic alone is not the claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

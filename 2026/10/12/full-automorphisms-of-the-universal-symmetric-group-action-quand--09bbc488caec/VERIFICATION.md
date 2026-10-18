@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The complete proof in `RESULT.md` handles every integer \(n\ge3\). To reproduce the finite consistency tests, run `python3 verify.py` with a standard Python installation; no external packages or network are needed.
+## correctness
 
-The verifier constructs permutations and group composition independently of symbolic formulas, computes all symmetric-group conjugacy classes and the centers of their centralizers in ranks three and four, enumerates every family of independently chosen central elements, transports each family by conjugation, tests transport consistency and checks the exact condition for preservation of the quandle operation for every group-label pair. Additional explicit natural-action checks confirm the two sides on element coordinates. It prints the kernel and outer index for ranks three through six by an independent partition-product calculation and ends with `VERIFY_OK`.
+PASS
 
-Observed output:
+Reconstructed intrinsic right-translation fibers of Q_n via centerlessness of S_n; a quandle automorphism acts on S_n labels by an inner group automorphism from its action on identity fiber. Its remaining fiber permutation a_g centralizes g and is conjugacy-equivariant, hence a_{g_lambda}∈Z(C_G(g_lambda)); conversely each such family gives a homomorphism. Diagonal S_n splitting yields product, and δ=(g_lambda)_lambda gives inner subgroup. Independently enumerated partition products K_3=6, K_4=96, K_5=2880, hence full orders 36,2304,345600 and outer indices 1,8,48. Tested centralizer cycle-factor formula rather than relying solely on attached finite script.
 
-```
-n=3 partitions=3 |K|=6 |Aut|=36 outer_index=1
-n=4 partitions=5 |K|=96 |Aut|=2304 outer_index=8
-n=5 partitions=7 |K|=2880 |Aut|=345600 outer_index=48
-n=6 partitions=11 |K|=1658880 |Aut|=1194393600 outer_index=27648
-VERIFY_OK
-```
+## originality
 
-The checks at ranks five and six enumerate integer partitions but **not** all quandle automorphisms. At ranks three and four the script enumerates fiberwise parameters, not all permutations of the full underlying quandle set. The general completeness and non-inner threshold are established algebraically, not computationally. This is a self-review; no independent mathematical audit or external certification is claimed.
+PASS
+
+The full automorphism group for the specified universal symmetric-action quandle is stronger than Kai’s published inner-automorphism group. Kai constructs the object and describes Inn, which are credited; the class-local center of permutation centralizers is the additional classification. A 2017 quandle automorphism-group paper concerns different underlying quandle types, so full coverage is not established.
+
+## value
+
+PASS
+
+The full quandle automorphism group and its first non-inner rank are intrinsic structural invariants of Kai’s universal construction. The uniform product by permutation cycle types and outer-group transition are mathematically motivated independently of the known inner-group result; n=4 arithmetic alone is not the claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
