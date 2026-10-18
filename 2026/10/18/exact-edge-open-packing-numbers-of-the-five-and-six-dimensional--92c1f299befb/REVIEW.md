@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The theorem concerns two specific finite graphs, with explicit edge-open packings of cardinalities 12 and 24. The proof reduces upper bounds to fully exhaustive clique nonexistence in an exact compatibility graph, normalized to one edge by cube automorphisms. The proper-coloring bound and reverse branching are mathematically sound. `verify_eop.py` checks the witnesses and proves absence at thresholds 13 and 25 with exact integer arithmetic. Replaying the packaged executable reproduces `VERIFY_OK`. Finite exhaustiveness suffices for these exact finite statements; no infinite extrapolation is made.
+
+**Originality — PASS, with residual risk.** The closest inspected primary work, Brešar–Dravec–Hedžet–Samadi (arXiv:2406.04020, Section 5.1, Table 1), states \(\rho_e^{\mathrm{o}}(Q_5)\ge10\) and \(\rho_e^{\mathrm{o}}(Q_6)\ge24\), plus exact results only when dimension is a power of two. The prior general upper bound from Brešar–Samadi gives 16 and 32, respectively, so these are not pre-established equalities. Full-text and indexed-term comparisons distinguish vertex open packing and general edge-packing characterizations from these exact values. Related results records found no statement implying the claimed pair. Unindexed independent computation remains a priority risk; absence from search is not novelty proof.
+
+**Value — PASS.** These are the first two dimensions outside the power-of-two regime explicitly treated in the motivating hypercube section. The results both sharpen the available range to exact values, including improving the dimension-five constructive lower bound from 10 to 12, and supply a compact, reproducible finite optimality certificate for a natural edge-packing invariant on canonical cubic-Boolean networks. The significance is the pair of previously unresolved exact values, not an arbitrary subgraph slice or a small incidental arithmetic improvement.
+
+**Scientific limitations.** No theorem is claimed in other dimensions, and full historical priority is not certifiable through finite database searches. The computational upper bounds require replay of the provided exact checker; its completeness has a separate combinatorial explanation in the proof.
+
+Self-review: passed. Independent audit: not yet performed.

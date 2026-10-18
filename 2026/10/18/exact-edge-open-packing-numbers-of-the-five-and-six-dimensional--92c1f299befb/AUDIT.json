@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The 12- and 24-edge witnesses satisfy every pair constraint; explicit bitset clique search eliminates 13- and 25-edge packings. Edge transitivity reduces to fixed (0,1). Each greedy coloring consists of independent classes, so the colors bound clique size; reverse branching covers all remaining cliques. Standalone verifier exact arithmetic, replay VERIFY_OK, 59 and 54111 nodes. Limits exactly n=5,6.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2406.04020 Theorem 5.10 covers n a power of 2 (not 5 or 6)",
+        "arXiv:2403.00750 upper rho<=|E|/delta yields at most 16/32 in Q5/Q6",
+        "arXiv:2508.01935 establishes graph class characterizations without exact Q5/Q6"
+      ],
+      "reasoning": "The power-of-two classification is inapplicable. The known universal upper bound leaves both values unresolved. Generic characterizations alone do not establish a stronger exact covering statement.",
+      "searches": [
+        "published-finding corpus: graph edge packing hypercube maximum star induced subgraph Q5 Q6",
+        "web: \"edge open packing\" \"hypercubes\" \"small dimensions\" exact 2025 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.04020v2, section 5.1 and Table 1",
+      "arXiv:2403.00750v1 general bound",
+      "arXiv:2309.04963v1 vertex packings",
+      "arXiv:2508.01935v1 characterizations",
+      "published-finding corpus search records 2026/9/17/SCOPE008 and 2026/9/30/SCOPE-dominant-edge-metric-dimension-and-minimum-bases-of-hypercubes--7e3975f666de"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior Q5 bounds 10<=rho<=16 allow six integer values; new result narrows to 12",
+        "Prior Q6 bounds 24<=rho<=32 allow nine integer values; new result narrows to 24",
+        "Power-of-two dimension equality cannot apply to dimensions five or six"
+      ],
+      "reasoning": "The claimed exact values are not corollaries of the cited lower bounds or general upper bound. Indeed one new lower witness improves Q5 and exhaustive upper certificates are needed independently for both.",
+      "searches": [
+        "arXiv:2406.04020 section 5.1 Table 1 Theorem 5.10",
+        "arXiv:2403.00750 section 4 upper bound",
+        "published-finding corpus: Edge open packing set of hypercube graph Q5 and Q6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2406.04020 abstract defines edge open packing equivalently as maximum induced union of stars",
+        "arXiv:2309.04963 studies vertex open packing (different objects)"
+      ],
+      "reasoning": "Edge-open-packing is maximum number of edges whose induced endpoint graph is a star forest; fixed-dimension exact induced-star packing was searched under this synonym. Vertex open packing and edge multiset dimension do not imply the two edge numbers.",
+      "searches": [
+        "published-finding corpus: edge open packing number hypercube Q5 Q6 exact 12 24 induced star forest 2024",
+        "web: \"induced star forest\" \"hypercube\" five six \"maximum\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2406.04020 Table 1: lower bound 10 for Q5 and lower 24 for Q6, not equality",
+        "published-finding corpus closest related 2026/9/17/SCOPE008 concerns edge multiset dimension, not rho_e^o",
+        "published-finding corpus 2026/9/30/SCOPE-dominant-edge-metric-dimension-and-minimum-bases-of-hypercubes--7e3975f666de concerns dominant edge metric dimension"
+      ],
+      "reasoning": "The directly relevant published table is not a table of exact optimum values in these dimensions. Searches for exact 12/24 gave no covering table; database noncoverage alone is not proof of historical uniqueness.",
+      "searches": [
+        "web: \"edge open packing\" \"Q_5\" \"12\" hypercube",
+        "web: \"edge open packing\" \"Q_6\" \"24\" hypercube",
+        "published-finding corpus: rho_e^o(Q_5) equals 12 rho_e^o(Q_6) equals 24"
+      ]
+    },
+    "rationale": "Inspected primary arXiv:2406.04020 Table 1 supplies only 10<=rho(Q5), 24<=rho(Q6) and exact powers-of-two cases; arXiv:2403.00750 bound |E|/degree yields upper 16/32. These intervals do not force 12/24. Full-text comparisons distinguish vertex open packing arXiv:2309.04963 and generic edge-packing characterizations arXiv:2508.01935. Targeted published-finding corpus and indexed searches found no covering statement, without guaranteeing priority.",
+    "residual_risks": [
+      "Unindexed earlier explicit computations or unpublished work could match either finite exact value.",
+      "Later general algorithm could compute the instances without explicitly stating the values; this is not evidence of covering.",
+      "No independent audit of the exact verifier has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct prior; lower 10 for Q5 and 24 for Q6; exact values at power-of-two dimensions only, does not prove claim",
+        "evidence": [
+          "Section 5.1/Table 1 lower bounds for 5 and 6",
+          "Theorem 5.10 n a power of two"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.04020",
+        "material_read": "Full text 27 pages, including section 5.1, Table 1 and Theorem 5.10",
+        "method": "Lawful arXiv PDF text and page render examination",
+        "title": "Induced matching vs edge open packing: trees and product graphs",
+        "trigger": "Same invariant and explicit hypercube section, highest priority"
+      },
+      {
+        "assessment": "rho_e^o<=|E|/delta yields 16 and 32; not covering",
+        "evidence": [
+          "General upper bound in Section 4",
+          "No exact Q5/Q6 results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.00750",
+        "material_read": "Full text, bound and characterization sections",
+        "method": "Lawful arXiv PDF text and page render examination",
+        "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+        "trigger": "Original definition and strongest obvious general upper bound"
+      },
+      {
+        "assessment": "Concerns vertex open packing and 2-packings, not edge open packing",
+        "evidence": [
+          "Definitions of vertex packing in introduction and section 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.04963",
+        "material_read": "Full text introduction and relevant hypercube statements",
+        "method": "Lawful arXiv PDF text review",
+        "title": "Packings in bipartite prisms and hypercubes",
+        "trigger": "Similar title and hypercube packing parameters"
+      },
+      {
+        "assessment": "No exact Q5/Q6 values or stronger applicable closed formula stated",
+        "evidence": [
+          "Section 2 generic graph characterizations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2508.01935",
+        "material_read": "Full-text definitions and characterization results",
+        "method": "Lawful arXiv full-text PDF and page review",
+        "title": "Edge open packing: further characterizations",
+        "trigger": "Later direct edge-open-packing characterization may imply exact values"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "92c1f299-befb-4653-8a9c-b6165dd4a7c1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2024 motivating primary work singled out hypercubes and tabulated nonsharp bounds precisely for Q5 and Q6, the first two non-power-of-two dimensions after its solved regime. Exact values settle natural finite benchmark instances, show a 3/2 edge-open-packing/induced-matching ratio at both orders, and supply transparent witnesses and short exhaustive certificates. This is mathematical gap closure with canonical motivation rather than arbitrary parameter slicing.",
+    "status": "PASS"
+  }
+}
