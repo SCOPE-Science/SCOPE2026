@@ -1,15 +1,21 @@
-# Review: Tangent-line criterion for ternary two-qubit local unambiguous discrimination
+# Independent mathematical audit
 
-## Correctness
-PASS. For a fixed state, all possible product detectors lie in the two-dimensional orthogonal complement of the other two states. Linear independence makes the state-orthogonal part of that plane one-dimensional. In an adapted basis \((C,D)\), detector candidates have nonzero \(D\)-coordinate, while the product condition is the homogeneous quadratic \(\det(sC+tD)\). No detector exists exactly when its only projective zero is the state-orthogonal point with multiplicity two, which is equivalent to the three displayed scalar conditions. Chefles's criterion then converts the three individual tests into an iff criterion for the whole ensemble.
+## correctness
 
-## Originality
-PASS with a narrow scope. Chefles supplies the general product-detector criterion; Niu--Griffiths supply the two-dimensional two-qubit product-vector quadratic geometry; Yang et al. identify the ternary multiqubit exception and provide an explicit obstruction. The inspected sources do not state the complete ternary \(2\otimes2\) tangent-line classification or the adapted determinant test. Focused published-finding corpus and web searches for determinant-pencil, unique-product-vector, tangent-Segre, and implication-equivalent formulations did not locate a covering theorem. The remaining risk is an equivalent statement under matrix-pencil terminology.
+PASS
 
-## Value
-PASS. This is a natural complete classification of the smallest exceptional multipartite unambiguous-discrimination problem, not an arbitrary parameter slice. It replaces an existential product-state search by three explicit quadratic tests and identifies the obstruction geometrically as tangency to the product-state quadric. That makes the exceptional case directly checkable and separates generic transverse intersections from the precise nongeneric failure mechanism.
+Chefles gives the exact LOCC detection condition: product state in W_k=orthogonal to the other two but not psi_k. Independent triple makes W_k dim2, while psi_k functional has one-dimensional kernel spanned by nonzero C. With independent D, all candidates sC+tD detect iff t!=0, and are product iff det(sC+tD)=s²det C+st tr(adj(C)D)+t²detD=0. Over complex numbers this homogeneous quadratic has a projective zero at t!=0 unless its sole double root is t=0; that exceptional case is exactly det C=0, mixed term zero and detD nonzero. A line with this intersection is tangent to the smooth Segre quadric; the condition is invariant under changing adapted bases. Independent explicit C=[[1,0],[0,0]], D=[[0,1],[1,0]] gives determinant -t²; source Bell-pair example supplies a physical witness. This is exact algebra; random triples are not an infinite proof.
 
-## Closest literature and limitations
-Yang et al. are the anchor source for the sharp dimension threshold and the \(2\otimes2\) obstruction. Chefles gives the general detector criterion. Niu--Griffiths give the closest two-qubit subspace geometry. The claim is confined to linearly independent ternary pure-state ensembles on two qubits and does not address optimal success probabilities or higher-dimensional determinantal varieties.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chefles 2004 establishes product-detector necessity/sufficiency, and Niu–Griffiths describes product states in two-dimensional two-qubit subspaces using quadratic geometry. Yang et al. 2015 identify triple-state counterexamples. Neither inspected relevant primary theorem states the explicit iff triple scalar tangency test. The result is a synthesis/specialization of known detector and Segre concepts; equivalent matrix-pencil tangency formulation could preexist and is a clear residual risk.
+
+## value
+
+PASS
+
+Three pure two-qubit states are the smallest nontrivial case where LOCC unambiguous identification can fail despite linear independence. Converting an existential product-state search into an exact projective tangency condition and three explicit determinant tests is a motivated classification/decision procedure in this boundary case; it distinguishes tangent, secant and contained-line cases. No optimization of success probabilities is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

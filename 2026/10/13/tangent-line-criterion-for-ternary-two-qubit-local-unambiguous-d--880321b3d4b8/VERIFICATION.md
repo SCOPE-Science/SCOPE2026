@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal check is analytic. For each state, the orthogonal complement of the other two states is a two-dimensional plane. In an adapted basis \((C,D)\), the overlap with the target state is proportional to the \(D\)-coordinate, while the product-state condition is the homogeneous quadratic \(\det(sC+tD)\). The target is undetectable exactly when this quadratic has only the state-orthogonal point as a double projective root.
+# Independent mathematical audit
 
-The bundled `verify.py` was executed from its packaged path. It reconstructs the adapted plane data for the Bell-pair-plus-product obstruction and checks the coefficient criterion against direct roots of the determinant polynomial for one thousand random linearly independent complex triples. The execution returned:
+## correctness
 
-`VERIFY_OK random_triples=1000 known_obstruction=passed`
+PASS
 
-The random computation is a regression check only; it does not establish the universal statement. The proof in `RESULT.md` supplies the exact quantifiers and covers the degenerate case in which the determinant restriction vanishes identically.
+Chefles gives the exact LOCC detection condition: product state in W_k=orthogonal to the other two but not psi_k. Independent triple makes W_k dim2, while psi_k functional has one-dimensional kernel spanned by nonzero C. With independent D, all candidates sC+tD detect iff t!=0, and are product iff det(sC+tD)=s²det C+st tr(adj(C)D)+t²detD=0. Over complex numbers this homogeneous quadratic has a projective zero at t!=0 unless its sole double root is t=0; that exceptional case is exactly det C=0, mixed term zero and detD nonzero. A line with this intersection is tangent to the smooth Segre quadric; the condition is invariant under changing adapted bases. Independent explicit C=[[1,0],[0,0]], D=[[0,1],[1,0]] gives determinant -t²; source Bell-pair example supplies a physical witness. This is exact algebra; random triples are not an infinite proof.
+
+## originality
+
+PASS
+
+Chefles 2004 establishes product-detector necessity/sufficiency, and Niu–Griffiths describes product states in two-dimensional two-qubit subspaces using quadratic geometry. Yang et al. 2015 identify triple-state counterexamples. Neither inspected relevant primary theorem states the explicit iff triple scalar tangency test. The result is a synthesis/specialization of known detector and Segre concepts; equivalent matrix-pencil tangency formulation could preexist and is a clear residual risk.
+
+## value
+
+PASS
+
+Three pure two-qubit states are the smallest nontrivial case where LOCC unambiguous identification can fail despite linear independence. Converting an existential product-state search into an exact projective tangency condition and three explicit determinant tests is a motivated classification/decision procedure in this boundary case; it distinguishes tangent, secant and contained-line cases. No optimization of success probabilities is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
