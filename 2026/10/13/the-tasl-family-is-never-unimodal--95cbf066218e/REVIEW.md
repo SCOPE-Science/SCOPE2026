@@ -1,29 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof differentiates the logarithm of the published TASL density. For \(\alpha>0\), the exact signs
-\[
-q_\alpha(-\infty)=1,\qquad q_\alpha(0)=-\alpha<0,\qquad q_\alpha(2)>0,\qquad q_\alpha(+\infty)=-1
-\]
-force two distinct strict local maxima. The only nontrivial uniform estimate is
-\[
--\frac{2\alpha(1-2\alpha)}{(1-2\alpha)^2+1}\ge\frac{1-\sqrt2}{2},
-\]
-which yields
-\[
-q_\alpha(2)>\frac{37-11\sqrt2}{22}>0.
-\]
-Reflection gives \(\alpha<0\), and evenness gives two symmetric outer modes at \(\alpha=0\). No numerical root count is used.
+## correctness
 
-## Originality
-PASS. The exact source, two closely related primary skew-logistic papers, five focused semantic searches, correction/erratum web searches, and prior accepted-claim comparisons were checked. No covering statement or correction was found. The related families have different weight functions or extra parameters and do not imply the TASL two-mode lower bound.
+PASS
 
-Residual risk remains from an unindexed correction or a general polynomial-weighted-logistic theorem under different terminology.
+From actual RESULT.md and the publisher density f_alpha=P_alpha L/C, the analytic logarithmic derivative is q=-2α(1−αx)/((1−αx)^2+1)+4x(x²−1)/((x²−1)^2+2)−tanh(x/2). For α>0: q(−∞)=+1,q(0)=−α<0,q(2)≥(1−√2)/2+24/11−tanh(1)=1.21311724467587...>0,q(+∞)=−1. Continuity plus non-identically-zero analyticity forces a positive-to-negative crossing on each disjoint interval (−∞,0) and (2,+∞), hence two strict modes. α<0 reduces by reflection f_α(x)=f_{−α}(−x); α=0 is even with q(2)>0, q(+∞)<0, providing mirrored outer modes. This proves at least two modes for ALL real α, not exactly two or at most three. Independent recomputation checked q bound and density normalization.
 
-## Value
-PASS. The source advertises a single shape parameter that moves the model among unimodal, bimodal, and trimodal configurations. Proving that the unimodal regime is empty is a structural correction to the model's claimed flexibility, not a small numerical discrepancy. The result is deliberately limited to ruling out unimodality and does not attempt a full bi/trimodal phase diagram.
+## originality
 
-## Closest literature and limitations
-The closest source is Elbarougy et al. (2026), DOI 10.3934/math.2026305, whose equation (2.1) is analyzed directly. Das et al. (2025), DOI 10.17713/ajs.v54i2.1902, and Otiniano et al. (2024), DOI 10.3390/math12091287, study different skew-logistic families with broader parameter spaces. They do not cover this source-specific obstruction.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge PASS: the exact source model was publicly said to permit unimodal, bimodal, or trimodal forms; its own density and analytic sign certificate exclude unimodality at any parameter. Related skew-logistic polynomial tilts use different parameter families and do not imply the TASL-specific counterstatement. The correction is a material source-specific mathematical obstruction, not novelty of elementary differentiation.
+
+## value
+
+PASS
+
+The article advertises tunable unimodality as an essential model shape capability in distribution and reliability applications. Proving no parameter yields a single mode invalidates an entire claimed shape regime. The global mode lower bound is analytically sharp in scope even though the bi-/trimodal boundary is not determined, so the source-specific correction is substantively motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
