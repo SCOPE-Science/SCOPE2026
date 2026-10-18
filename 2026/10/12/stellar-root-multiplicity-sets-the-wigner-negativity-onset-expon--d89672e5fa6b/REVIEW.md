@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The normalized pure-loss Wigner function was reconstructed exactly from two independent finite representations: attenuator Kraus elements paired with generalized Laguerre Wigner matrix elements, and a derivative-square polynomial formula. Near every stellar zero, the first nonzero local Taylor order gives an ordinary Laguerre polynomial after the scaling \(z-z_j=\sqrt{2\eta-1}\,w\). The proof explicitly excludes negative contributions away from those disks, including the infinite exterior region. Dominated convergence on finitely many fixed rescaled disks produces the positive coefficient and establishes the claimed little-oh limit for all fixed finite-support input states. Independent Fock/Kraus comparisons and local integrals were executed successfully. No claim of uniformity in the state or degree is made.
+## correctness
 
-## Originality: PASS, with residual priority risk
-The exact one-half-negativity threshold is established in arXiv:2201.03257v1 and is not new. The use of zeros of the Husimi function and the concept of stellar multiplicity are established in arXiv:1907.11009v3. The older negative-volume functional and number-state Laguerre representations are in arXiv:quant-ph/0406015v1. The closest later quantitative source, Zinoghli–Salehi (2025), numerically plots Fock-state negative volume after additive Gaussian noise. The inspected primary results do not give the multiplicity-resolved integrated negative-volume onset for arbitrary finite stellar polynomials or its full rootwise coefficient. An equivalent result in specialized optics literature could remain undiscovered; this is a real publication-priority risk, not an independently certified originality claim.
+PASS
 
-## Value: PASS
-The exact integrated-negativity decay rate has an experimental/resource interpretation that the previously proved binary survival condition does not quantify. The exponent distinguishes generic squarefree optical superpositions from highly degenerate stellar configurations, and the explicit coefficient predicts the relative fragility among states sharing an exponent. The analysis covers all finite Fock-support pure single-mode states without restriction to parity, number state, or fixed low dimension; it also identifies a meaningful nonuniformity when stellar roots split.
+Reconstructed the exact finite Fock/Kraus representation W_eta=(2/pi)e^(-2|beta|^2) sum_l (-q)^l|f^(l)(2sqrt(eta)beta)|^2/l!, where q=2eta-1, and the exact Jacobian to z=2sqrt(eta)beta. For q>0 sufficiently small, polynomial nonzero away from its finitely many zeros and derivative bounds confine all negative support to disks radius R sqrt(q) about stellar zeros (including tails at infinity). Near an m-fold zero z_j, z=z_j+sqrt(q)w yields q^-m P_q -> |a_j|^2 (-1)^m m! L_m(|w|^2). Fixed-support dominated convergence plus d²w=pi dx gives coefficient m! C_m exp(-|z_j|²)|a_j|² at order q^(m+1); lowest multiplicity governs. The Laguerre sign intervals give C_m>0. Normalization uses half L1 excess convention and fixed finite nonvacuum state; not uniform in coalescing roots.
 
-## Scope and limitations
-Zero thermal excitations, one mode, finite Fock support, a fixed input while loss tends to 50%; not a uniform multi-parameter statement. Numerical tests do not prove the infinite set of allowed degrees. Database coverage does not certify unpublished literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge implication comparison of assigned exact claim against primary literature and semantic Resultary search. Pointwise minimum negativity (area-free) is not equivalent to the integrated negative volume: the region of negative Wigner values shrinks on scale sqrt(q) and contributes q. The submitted integral-coefficient theorem strictly refines pointwise survival. It does not deny the known half-loss positivity boundary, and the references do not logically give the coefficient without local asymptotic analysis.
+
+## value
+
+PASS
+
+This gives a quantitative critical exponent and positive coefficient for a natural operational nonclassicality measure at the known sharp 50-percent pure-loss boundary. Distinguishing smallest local stellar multiplicity from total stellar degree matters, and shrinking negative regions add one exponent beyond pointwise negativity. The all-finite-polynomial local-to-global asymptotic is a motivated structural theorem rather than an illustrative Fock-number calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
