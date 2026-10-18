@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T17:12:52.020971Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/0c9388fc1533d38ed91063a55c96c9c935f40448/2026/10/12/exact-residual-budget-optimal-sampling-sizes-for-symmetric-three--efae258a460c/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/0c9388fc1533d38ed91063a55c96c9c935f40448/2026/10/12/exact-residual-budget-optimal-sampling-sizes-for-symmetric-three--efae258a460c/VERIFICATION.md"
+      ],
+      "rationale": "For three exact normalized planar rows, after a nonterminal projection the error lies on one row-orthogonal line; squared norm transition factors are x=cos²θ or y=(2x−1)² and greedy residual ranking uses complementary factors. The resulting 3x3 weighted transition matrices M1,M2,M3, with a conditional preference swap at x=1/4, were inspected and their characteristic roots checked symbolically. The Perron eigenvalues yield λ1=(2+y+√(y²+8x²))/6; λ2 piecewise (y+√(y²+24x²))/6 or (y+√(y²+3x²))/3; λ3=min(x,y). Exact resultant factorizations of 3t²−y t−2x² with t³−x² and 3t²−2y t−x² with t³−y² give P5 and P9; Sturm variation counts isolate roots in (1/12,1/8) and (1/4,1/3). The sample-budget quantities λβ^(1/β) are then compared, and exact singleton lower bounds exclude unique β=1. The tie at x=1/4 and finite termination x=1/2 are handled. Independent symbolic identities and finite exact projections corroborate but do not replace Perron/Sturm proof.",
+      "residual_risks": [
+        "The initial error must access the Perron class; the stated nonalignment excludes some finite-termination cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary general convergence rate bounds do not identify the exact weighted Markov spectrum for this particular triple",
+          "Primary original method reports empirical time-vs-β optima"
+        ],
+        "reasoning": "Theorem bounds do not dominate an exact sample-budget minimizer since their constants need not be sharp nor equal to λβ.",
+        "searches": [
+          "sampling Kaczmarz Motzkin three symmetric rows exact sample size squared convergence residual budget",
+          "sampling Kaczmarz Motzkin optimal beta spectral radius exact"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1912.03544",
+        "https://arxiv.org/pdf/1605.01418",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "Resultary search: sampling Kaczmarz Motzkin three symmetric rows exact sample size squared convergence residual budget"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2019 preprint explicitly treats optimal beta as empirical/future research",
+          "Characteristic root/Sturm proof supplies new algebraic boundaries x± and beta1 nonuniqueness"
+        ],
+        "reasoning": "Experimental sample-size curves or worst-case convergence theorems cannot imply exact two crossover roots and three-way tie in a fixed 3x2 geometry.",
+        "searches": [
+          "sampling Kaczmarz Motzkin three symmetric rows exact sample size squared convergence residual budget",
+          "Haddock Ma Greed Works 1912.03544 optimal sample size"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Haddock–Ma SKM convergence bounds for general systems",
+          "De Loera–Haddock–Needell original method and computational beta effects"
+        ],
+        "reasoning": "Standard randomized Motzkin selection is the method alias, but the present exact root-asymptotic planar spectral optimization is not stated by generic parameter bounds.",
+        "searches": [
+          "sampling Kaczmarz Motzkin three symmetric rows exact sample size squared convergence residual budget",
+          "three row planar SKM squared solution error weighted Markov per sampled residual"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026-10-04 exact two-row relaxation finite-horizon cost has a different two-row cyclic model",
+          "Resultary coherence frontier for residual spikes addresses single-step residuals"
+        ],
+        "reasoning": "This is continuum algebraic phase table, not an exact previously tabulated invariant; no matched index item.",
+        "searches": [
+          "sampling Kaczmarz Motzkin three symmetric rows exact sample size squared convergence residual budget",
+          "Resultary Kaczmarz sampling phase diagram three symmetric normals"
+        ]
+      },
+      "rationale": "Haddock–Ma establish sample-size-dependent SKM bounds and explicitly leave precise tuning as a challenge; De Loera–Haddock–Needell supply the SKM method and empirical sample-size comparisons, not the special exact squared-error Markov exponents or two sharp algebraic cost crossovers. Related Resultary two-row Kaczmarz relaxation and residual-coherence notes concern different matrices/cost models. The new claim resolves a geometry-dependent exact three-size minimization with full ties in the smallest nontrivial three-row setting.",
+      "residual_risks": [
+        "The strongest claim is exact for the three-row symmetric planar instance and cost is per charged residual, not wall time or general randomized linear feasibility.",
+        "The initial error must access the Perron class; the stated nonalignment excludes some finite-termination cases.",
+        "Unindexed special 3x2 calculation in algorithm literature remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analyses bounds rather than exact three-row Perron cost phase diagram",
+          "evidence": "arXiv:1912.03544, statements on varying β and future optimization",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.03544",
+          "material_read": "full 33-page arXiv PDF abstract, convergence-rate theorem, complexity/β discussion, comments on optimal sample size",
+          "method": "arXiv full OA PDF text and page inspection",
+          "title": "Greed Works: An Improved Analysis of Sampling Kaczmarz–Motzkin",
+          "trigger": "closest general β-sensitive SKM proof"
+        },
+        {
+          "assessment": "Defines SKM and reports empirical β-dependent time; does not supply submitted exact 3-row solution-error spectral classification",
+          "evidence": "arXiv:1605.01418 §1.1 and section of sample-size experiment",
+          "identifier_or_url": "https://arxiv.org/pdf/1605.01418",
+          "material_read": "original paper introduction, definition and theorem in §1.1, sample-size numerical experiments Figures 4–9",
+          "method": "arXiv full OA PDF text and screenshot",
+          "title": "A Sampling Kaczmarz–Motzkin Algorithm for Linear Feasibility",
+          "trigger": "original method and beta tuning"
+        },
+        {
+          "assessment": "Different two-row algorithm and finite-horizon metric; no implication without changing model",
+          "evidence": "Resultary 2026-10-04 published index",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+          "material_read": "indexed title and scientific summary of 2-row cyclic relaxed sweeps",
+          "method": "Resultary summary-level read only",
+          "title": "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+          "trigger": "high-ranked published Kaczmarz finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1912.03544",
+        "https://arxiv.org/pdf/1605.01418"
+      ],
+      "rationale": "The three-row planar SKM system is the first genuinely nontrivial geometry where each β in {1,2,3} can be chosen. The two sharp transitions show that maximum greed is not always optimal per charged residual, but it becomes optimal in two disjoint regimes; this mathematical rate-budget phase diagram is a useful exact benchmark, even though it does not predict implementation wall time.",
+      "residual_risks": [
+        "The strongest claim is exact for the three-row symmetric planar instance and cost is per charged residual, not wall time or general randomized linear feasibility.",
+        "The initial error must access the Perron class; the stated nonalignment excludes some finite-termination cases.",
+        "Unindexed special 3x2 calculation in algorithm literature remains possible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The strongest claim is exact for the three-row symmetric planar instance and cost is per charged residual, not wall time or general randomized linear feasibility.",
+    "The initial error must access the Perron class; the stated nonalignment excludes some finite-termination cases.",
+    "Unindexed special 3x2 calculation in algorithm literature remains possible.",
+    "Published-source priority checked at the level of mathematical implication and given available lawful primary access; neither a universal priority certification nor publication authorization.",
+    "Source metadata sanitization is a distinct transport/publication blocker, not a scientific proof defect."
+  ],
+  "schema_version": 1
+}
