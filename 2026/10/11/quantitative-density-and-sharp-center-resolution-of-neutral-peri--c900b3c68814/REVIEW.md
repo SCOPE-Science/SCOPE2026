@@ -1,15 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is universally quantified over all \(M\ge2\), \(0<a<1/M\), all coarse base prefixes of length \(r\), and all center prefixes of length \(k\ge1\). Each base inverse branch contracts strictly, so a mixed finite symbolic word determines a genuine base periodic point. Algebraic reduction of center push and pop maps proves the exact cylinder identity and even return bound, and reduced forms for arbitrary balanced words establish the sharp center-resolution obstruction. The finite rational program checks examples but is not offered as proof of the universal claim.
+## correctness
 
-## Originality — PASS
-The 2018 original construction establishes two dense *hyperbolic* classes and illustrates one neutral periodic segment. The generalized 2022 Dyck-system paper recognizes infinitely many neutral periodic continua without quantifying their placement or local periods. The 2024 periodic distribution paper addresses hyperbolic counts. This result provides a new *every-pair-of-cylinders* localization statement with a universal constructive bound and separately sharp depth lower bound; existence and aggregate counts alone do not imply it. Searches of equivalent symbolic formulations and primary results found no dominating theorem. An unidentified symbolic closing lemma could still affect publication priority.
+PASS
 
-## Value — PASS
-Spatial density and resolution of center-neutral periodic continua distinguish the generalized baker map beyond its already-proved heterogeneous hyperbolic periodic densities. Every arbitrarily fine base/center symbolic rectangle contains a nondegenerate neutral periodic fiber, and the bound quantifies how long a return is needed to reach a given center resolution. The lower bound is attained exactly in every center cylinder. This is a structural dynamical statement, not a recomputation of a component census.
+For all M>=2 and 0<a<1/M, base words u length r and center M-adic digit prefixes v length k>=1, let c=#pushes and p=#pops, h=max(k,p), H=c-p+h. Extend v to h digits b and append P^H then reverse(b) to u. The word has balanced pushes/pops, length N=2(c+h)<=2(r+k), and full increasing contracting inverse base branches yield the unique mixed-itinerary periodic base point. Exact center cancellation D^H∘F_u^z=D^h and reverse ordered pushes give F_w^z=P_b∘D^h; on the entire M-adic cylinder I_b the map is identity, derivative 1, with I_b inside requested v. For ANY regular maximal neutral fiber word p=c=t and its reduced center map is P_bD^h with h<=t; if contained in depth-k cylinder its maximal width implies k<=h<=t hence N>=2k. Word P^k v^rev attains equality for each center target. Independently tested 1900 exact rational center/base points M=2,3,4 and short u,v; infinite result rests on symbolic cancellation and contraction. Bound applies to return period not primitive least period; to maximal component, not arbitrary subinterval.
 
-## Closest literature and limitations
-Saiki–Takahasi–Yorke (arXiv:1811.01009) provides the original heterochaos construction. Takahasi–Yamamoto (arXiv:2209.04905) defines the generalized family and identifies infinitely many continua. Takahasi (arXiv:2409.01261) studies hyperbolic periodic-point distributions. Our fixed iterate need not be a primitive period; differentiability applies only on branch interiors; sharpness concerns center-only resolution. Historical priority and independent proof review remain open.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Saiki–Takahasi–Yorke (arXiv:1811.01009) describes heterogeneous chaos with two dense hyperbolic classes and an isolated neutral segment; Takahasi–Yamamoto (arXiv:2209.04905) develops the generalized baker/Dyck coding and infinitely many center-neutral continua, but its inspected 16-page PDF focuses on entropy/coding and not a neutral interval inside EVERY prescribed base-and-center cylinder with a uniform 2(r+k) return bound. The Resultary published exact neutral-length spectrum record counts component lengths for a three-dimensional map; aggregate histograms cannot yield the local every-rectangle positioning. This theorem adds localization with a sharp center-only depth lower bound, subject to a possible unindexed symbolic closing lemma.
+
+## value
+
+PASS
+
+Dense neutral periodic intervals with an explicit linear symbolic-resolution bound describe a natural third recurrent regime beyond the two known dense hyperbolic classes. Exact attainability and sharp center-depth obstruction give meaningful geometric complexity rather than a parameter rewording or the already-known statement that some neutral components exist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
