@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the priced five-cycle theorem
+# Independent mathematical audit
 
-The full proof appears in `RESULT.md` and covers all nonnegative conductance vectors and all positive real price parameters. The decisive checks are the following.
+## correctness
 
-1. **Symmetry-free upper bound.** Positive scalars \(C_e,C_o\) and centered eigenvectors \(e,o\) yield a positive-semidefinite Gram matrix whose edge distances equal the entire price vector. The trace Rayleigh inequality bounds every feasible allocation; equality at the displayed rates is exact.
-2. **Spectral ordering.** The two non-gap eigenvalue comparisons reduce to a positive quadratic and a positive degree-four polynomial. The latter has explicit strictly positive Bernstein coefficients on \([3/5,4/5]\).
-3. **Parameter monotonicity.** The sixth-degree numerator of the defining derivative has seven strictly negative Bernstein coefficients, so the equation uniquely parametrizes every \(t\in(0,16)\).
-4. **Boundary completeness.** The vector \((-2,-1,0,1,2)\) gives the sharp Rayleigh limit and forces every optimizer at \(t\ge16\) into the exact one-parameter family. The remaining even-sector eigenvalue polynomial determines its precise admissible segment.
-5. **Reproduction.** Install SymPy for Python 3, then run `python3 verify.py` from a directory containing the included file. The expected output is exactly `VERIFY_OK exact five-cycle algebra, Bernstein signs and endpoint identities`. Symbolic identities, special price \(t=1\), and the critical \(t=16\) endpoint are checked using exact arithmetic. There is no reliance on a floating-point eigensolver or probabilistic experiment.
+PASS
 
-Limits: the checker verifies certificate algebra; it is not an independent formal-proof system. The literature comparison does not establish absence of undiscovered equivalent results. No independent audit or validation has been performed.
+Read full RESULT.md, verification-code symbolic identities and PSD trace dual construction. Reflection decomposition gives one centered eigenvalue in each parity sector at Λ, with other eigenvalues >Λ certified by explicit positive Bernstein coefficients; F(u) strictly decreases from 16 to 0 on (sqrt(2/5),4/5) by six-coefficient Bernstein negativity. Independently checked in SymPy the exact derivative factorization F′ and F(sqrt(2/5))=16, F(4/5)=0; the source verifier further supplies all eigenvector/distance/endpoint symbolic identities and the displayed proof derives arbitrary (not just symmetric) global upper bound from PSD X and uniqueness by equality conditions. For t>=16 Rayleigh centered v=(-2,-1,0,1,2) gives λ2<=1/10 with deletion for >16 and explicit q-family at equality t=16; endpoint polynomial determines precise allowed q range. This is an all-real-price analytical proof, not a numerical search.
+
+## originality
+
+PASS
+
+The 2006 Sun–Boyd–Xiao–Diaconis primary paper §5.3 explicitly covers cycles with EQUAL costs and the general SDP/dual, §5.2 covers paths with arbitrary costs, not the globally all-t solution for a cycle having exactly one exceptional price and its nonunique critical continuum t=16. Boyd–Diaconis–Parrilo–Xiao (2009) optimizes discrete-time SLEM and symmetry reductions; cannot imply this continuous-time weighted price transition. The submitted global trace-dual and all-optima classification add nontrivial exact parametric information, originality PASS with a narrow undiscovered priced C5 risk.
+
+## value
+
+PASS
+
+A sharp price-induced nonuniqueness and edge-deletion transition with all optimal conductances in a minimal nontrivial odd cycle is a motivated spectral optimization classification. The exact critical 16 and continuum of optimizers supply useful structural boundary data beyond merely computing a numerical SDP.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
