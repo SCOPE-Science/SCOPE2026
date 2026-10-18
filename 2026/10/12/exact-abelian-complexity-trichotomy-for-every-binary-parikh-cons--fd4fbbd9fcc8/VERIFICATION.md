@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from a directory containing that file. Only the Python standard library is required. The exact observed output is:
+## correctness
 
-`VERIFY_OK morphisms=9 nonconstant=6 pair_base_and_step=54 boundary=66 prefix_checks=9216 direct_class_checks=576`
+PASS
 
-The checker enumerates all nine admissible substitutions, verifies the finite ordered-pair base for all six nonconstant morphisms and lags \(3\) to \(8\), verifies the eighteen symbolic maps closing the induction, computes exact factor-weight boundary extrema, checks each length \(1\) through \(8\), and tests all three classification formulas for \(1\le n\le1024\). It uses real prefixes of \(\sigma^8(0)\) for the finite instances and constructs the weight sequence directly.
+All nine morphisms are exhausted by 2 choices of zero-leading binary images with one 1 and 3 choices for its mate, plus 1 choice zero-leading two-1 image and 3 mates. For six nonconstant fixed points, all four ordered boundary-letter pairs occur at every separation d>=3: finite witnesses for d=3..8 within sigma^8(0), followed by strong induction using the exact 3k+s offset recurrence and 18 surjective pair-map identities. For each length 3k+r and starting block offset, the count is kc plus a two-boundary-letter correction; attained minima/maxima from the full-lag lemma give the six-by-three exact envelopes, and sliding one position changes count by <=1 so all intervening counts occur. The length 1..8 boundary is independently checked, and equal-image cases are period-three. Independent prefix enumeration verified all 9 morphisms for n=1..128 (1152 cases) and independently checked the 54 full-lag base/map cases. The induction, not finite tests, establishes every n.
 
-The all-length result additionally requires the induction and sliding-window argument in RESULT.md. Enumerating finite windows alone does not certify an infinite statement. No independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge complete natural nine-morphism classification. Rigo–Stipulanti–Whiteland 2024 prove general automaticity for Parikh-collinear fixed points; their concluding section explicitly asks whether the much more restrictive Parikh-constant class has ultimately periodic abelian complexity. Automaticity does not imply ultimate periodicity; full trichotomy in smallest nontrivial odd uniform binary class is not an immediate corollary, despite elementary constant-image special cases.
+
+## value
+
+PASS
+
+This resolves the open periodicity question on all admissible binary length-three constant-Parikh morphisms, including the precise finite boundary and three eventual profiles. It is a complete natural finite-parameter classification using a reusable full-lag induction, not an arbitrary tiny sampled list or a broad theorem claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

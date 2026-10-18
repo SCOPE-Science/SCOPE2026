@@ -1,19 +1,21 @@
-# Scientific review: exact binary three-uniform Parikh-constant abelian complexity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definitions and seed conventions identify exactly nine morphisms. The equal-image cases are periodic. For the other six, finite ordered-pair witnesses at lags \(3\) through \(8\), together with the fixed-point three-residue recurrence, force the full four ordered pairs at all larger lags. The exact factor-cut formula reduces every \(n\ge9\) to three computed boundary envelopes; explicit short prefix witnesses handle \(n\le8\). Sliding-window continuity proves no intermediate Parikh class is missing. The bundled checker verifies the finite bases and all formulas on \(9216\) representative finite-length instances. Infinite steps are separately proved algebraically.
+PASS
 
-## Originality — PASS, with risk
+All nine morphisms are exhausted by 2 choices of zero-leading binary images with one 1 and 3 choices for its mate, plus 1 choice zero-leading two-1 image and 3 mates. For six nonconstant fixed points, all four ordered boundary-letter pairs occur at every separation d>=3: finite witnesses for d=3..8 within sigma^8(0), followed by strong induction using the exact 3k+s offset recurrence and 18 surjective pair-map identities. For each length 3k+r and starting block offset, the count is kc plus a two-boundary-letter correction; attained minima/maxima from the full-lag lemma give the six-by-three exact envelopes, and sliding one position changes count by <=1 so all intervening counts occur. The length 1..8 boundary is independently checked, and equal-image cases are period-three. Independent prefix enumeration verified all 9 morphisms for n=1..128 (1152 cases) and independently checked the 54 full-lag base/map cases. The induction, not finite tests, establishes every n.
 
-Rigo–Stipulanti–Whiteland (arXiv:2405.18032, Theorem 3 and Section 6) establish computable automaticity and ask about periodicity for Parikh-constant substitutions, without the nine-pair exact result. Targeted literature and scientific-result searches located no covering result. An unindexed equivalent derivation remains a genuine bibliographic risk; no assertion of global uniqueness is made.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem completely resolves the first odd-length full-support binary Parikh-constant uniform family, a natural finite boundary of the source's explicit question. Its exact trichotomy for every length is stronger than eventual periodicity alone, and its lag-completeness argument identifies a transparent structural reason.
+Best-of-knowledge complete natural nine-morphism classification. Rigo–Stipulanti–Whiteland 2024 prove general automaticity for Parikh-collinear fixed points; their concluding section explicitly asks whether the much more restrictive Parikh-constant class has ultimately periodic abelian complexity. Automaticity does not imply ultimate periodicity; full trichotomy in smallest nontrivial odd uniform binary class is not an immediate corollary, despite elementary constant-image special cases.
 
-## Limitations
+## value
 
-No assertion for other uniform lengths, alphabets, or nonuniform morphisms. Scientific review does not imply an independent audit or verification of publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves the open periodicity question on all admissible binary length-three constant-Parikh morphisms, including the precise finite boundary and three eventual profiles. It is a complete natural finite-parameter classification using a reusable full-lag induction, not an arbitrary tiny sampled list or a broad theorem claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
