@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` performs exact symbolic verification.
 
-It introduces independent two-dimensional structure constants for the three products and substitutes
-\[
-R=-\lambda I
-\]
-into the three Rota–Baxter equations printed in Definition 2.9.
+# Independent mathematical audit
 
-Coefficient comparison gives first defect
-\[
-\lambda^2(\vdash-\dashv),
-\]
-second defect
-\[
-\lambda^2(\dashv-\vdash),
-\]
-and zero third defect.
+## correctness
 
-The checker then instantiates the multiplication table in Example 2.10. At
-\[
-(x,y)=(e_2,e_1)
-\]
-it obtains first defect
-\[
--\lambda^2e_1,
-\]
-and verifies that all defects vanish after setting \(\lambda=0\).
+PASS
 
-The checker returns `VERIFY_OK`.
+Direct bilinear substitution R=-lambda I into the stated cross-coupled BiHom Rota-Baxter identities gives first defect lambda^2(x vdash y - x dashv y), second its negative, and identically zero perp defect, for all x,y over any field. For lambda nonzero, the field permits division by lambda^2, so iff dashv=vdash; lambda=0 gives the zero operator. The package quotes Example 2.10 with e2 dashv e1=e1, e2 vdash e1=0; on those quoted products the first defect is -lambda^2 e1. Independently checked the general algebra and inspected symbolic verifier, not merely VERIFY_OK. Limitation: the exact multiplication table and cross-coupled Definition 2.9 could not be corroborated in the inaccessible primary full preprint, so the attribution-specific example is conditional on faithful transcription of the cited source; no human certification is inferred.
 
-The verification is symbolic and exact; no finite sampling is used to justify the universal statement.
+## originality
+
+PASS
+
+A best-of-knowledge concise necessary-and-sufficient obstruction for scalar -lambda I under the specific cross-coupled trialgebra definition, together with a motivated proposed correction to a published example. Confirmation against the inaccessible primary remains a material residual risk, not an automatic O failure.
+
+## value
+
+PASS
+
+The universal scalar criterion determines whether a widely used natural Rota–Baxter ansatz is consistent with a cross-coupled trialgebra definition; the specific unequal-product example gives a meaningful falsification of a source illustration if the quoted table is accurate. This is a motivated structural boundary/correction, not merely a parameter rename or arbitrary table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
