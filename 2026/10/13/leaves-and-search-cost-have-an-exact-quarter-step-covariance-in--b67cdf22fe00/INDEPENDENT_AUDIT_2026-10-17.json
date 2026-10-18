@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T16:12:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md 161945aed64af23d87102cf8d283be8ec68c8920",
+        "Pinned verifier verify_rrt_leaf_path_covariance.py b30f49ef5cf00e88e395bac186017bb0aebf1bf7",
+        "Fresh independent enumeration and direct mathematical reconstruction in /mnt/data/scope05_run135_work/check.py"
+      ],
+      "rationale": "For independent uniform-parent growth, L_{n+1}=L_n+1-J_n and P_{n+1}=P_n+D_n+1. Conditioning gives E(D|T_n)=P_n/n, E(J|T_n)=L_n/n, E(JD|T_n)=Q_n/n; mixed old-tree contributions cancel, so c_{n+1}=c_n-q_n/n+ell_n p_n/n². The leaf-depth update Q_{n+1}=Q_n+(1-J)D+1 yields q_{n+1}=(1−1/n)q_n+H_n and q_n=n H_{n-1}/2−(n−2)/4. With ell_n=n/2 and p_n=nH_{n-1}−(n−1), covariance decrement is exactly −1/4, from c_2=0. Classical Var(L_n)=n/12 for n>=3 gives the regression slope and asymptotic Var(P_n) coefficient gives n^-1/2 correlation. Fresh exhaustive rational enumeration of all (n−1)! recursive trees for every n=2..10, total 409113, verified covariance, q_n and marginal moments.",
+      "residual_risks": [
+        "Only standard uniform recursive trees; weighted or Hoppe attachment breaks the conditional averages.",
+        "Negative covariance is not a theorem of full negative dependence; correlation asymptotic imports known path-length variance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoppe-tree work encompasses the uniform model for separate statistics, and Lundblad–Wagner study external path length; the accessible theorems do not determine the mixed count-versus-path-length second moment. Inaccessible full Hoppe-tree source is retained as priority risk, not scientific failure."
+        ],
+        "reasoning": "Hoppe-tree work encompasses the uniform model for separate statistics, and Lundblad–Wagner study external path length; the accessible theorems do not determine the mixed count-versus-path-length second moment. Inaccessible full Hoppe-tree source is retained as priority risk, not scientific failure.",
+        "searches": [
+          "Resultary: Exact covariance number of leaves binary search trees cost comparisons quarter step leaves searching random tree",
+          "random recursive tree covariance leaf count total path length exact n-2 over 4",
+          "arxiv:1202.2439 Asymptotic analysis of Hoppe trees",
+          "Lundblad Wagner Path Length and External Path Length in Random Trees 2026"
+        ]
+      },
+      "checked_sources": [
+        "Path Length and External Path Length in Random Trees (J. Lundblad and S. Wagner, LIPIcs AofA 2026, DOI:10.4230/LIPIcs.AofA.2026.2)",
+        "Asymptotic analysis of Hoppe trees (K. Leckey and R. Neininger, arxiv:1202.2439)",
+        "Total Path Length for Random Recursive Trees (R. P. Dobrow and J. A. Fill, DOI:10.1017/S0963548399003855 (1999))"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Marginal expectations and variances for leaves and P_n do not determine Cov(L_n,P_n). Lundblad–Wagner’s comparison of total and external path lengths also does not imply this mixed moment without an extra identity linking count and leaf depths, which the submitted growth recurrence supplies."
+        ],
+        "reasoning": "Marginal expectations and variances for leaves and P_n do not determine Cov(L_n,P_n). Lundblad–Wagner’s comparison of total and external path lengths also does not imply this mixed moment without an extra identity linking count and leaf depths, which the submitted growth recurrence supplies.",
+        "searches": [
+          "Resultary: Exact covariance number of leaves binary search trees cost comparisons quarter step leaves searching random tree",
+          "random recursive tree covariance leaf count total path length exact n-2 over 4",
+          "arxiv:1202.2439 Asymptotic analysis of Hoppe trees",
+          "Lundblad Wagner Path Length and External Path Length in Random Trees 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Looked for terminal vertices/leaves against internal path length/search cost, and for mixed moments/recursive-tree covariance. The source “external path length” is Q_n, the sum of leaf depths, mathematically different from L_n."
+        ],
+        "reasoning": "Looked for terminal vertices/leaves against internal path length/search cost, and for mixed moments/recursive-tree covariance. The source “external path length” is Q_n, the sum of leaf depths, mathematically different from L_n.",
+        "searches": [
+          "Resultary: Exact covariance number of leaves binary search trees cost comparisons quarter step leaves searching random tree",
+          "random recursive tree covariance leaf count total path length exact n-2 over 4",
+          "arxiv:1202.2439 Asymptotic analysis of Hoppe trees",
+          "Lundblad Wagner Path Length and External Path Length in Random Trees 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary search for quarter-step covariance and leaf count versus recursive-tree path length returned no same-parameter exact formula; this negative search is not treated as proof of priority."
+        ],
+        "reasoning": "The Resultary search for quarter-step covariance and leaf count versus recursive-tree path length returned no same-parameter exact formula; this negative search is not treated as proof of priority.",
+        "searches": [
+          "Resultary: Exact covariance number of leaves binary search trees cost comparisons quarter step leaves searching random tree",
+          "random recursive tree covariance leaf count total path length exact n-2 over 4",
+          "arxiv:1202.2439 Asymptotic analysis of Hoppe trees",
+          "Lundblad Wagner Path Length and External Path Length in Random Trees 2026"
+        ]
+      },
+      "rationale": "The closest primary literature and published-result searches were compared for statement implication and actual mathematical object, not just titles. Marginal expectations and variances for leaves and P_n do not determine Cov(L_n,P_n). Lundblad–Wagner’s comparison of total and external path lengths also does not imply this mixed moment without an extra identity linking count and leaf depths, which the submitted growth recurrence supplies. Looked for terminal vertices/leaves against internal path length/search cost, and for mixed moments/recursive-tree covariance. The source “external path length” is Q_n, the sum of leaf depths, mathematically different from L_n. Residual risks are retained; inaccessible full text alone is not equated to scientific failure.",
+      "residual_risks": [
+        "Leckey–Neininger manuscript concerning both variables could not be read fully through authorized channels; a mixed identity implicit in a formula remains a priority risk. Institutional access reported vpn_disconnected; no bypass attempted.",
+        "The older probability literature may encode the mixed covariance under terminal-node/search-cost terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_EXTERNAL_PATH_LENGTH_NOT_LEAF_COUNT_COVARIANCE",
+          "evidence": "External path length sums depths of leaves, not the number of leaves. Its average vertex versus leaf depth results do not state Cov(L_n,P_n)=−(n−2)/4.",
+          "identifier_or_url": "J. Lundblad and S. Wagner, LIPIcs AofA 2026, DOI:10.4230/LIPIcs.AofA.2026.2",
+          "material_read": "full publicly accessible 20-page primary PDF, objective statements, recursive-tree sections and searches for the leaf-count/path-length mixed covariance",
+          "method": "primary PDF reading and in-document terminology searches",
+          "title": "Path Length and External Path Length in Random Trees",
+          "trigger": "directly related statistic Q_n leaf depth sum and P_n total path length"
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "The paper studies leaf number and internal path length; no assertion of all-document noncoverage is made. Authorized institutional retrieval returned vpn_disconnected.",
+          "identifier_or_url": "K. Leckey and R. Neininger, arxiv:1202.2439",
+          "material_read": "accessible abstract and descriptions only; arXiv/PDF and lawful OA attempts did not yield full text",
+          "method": "abstract reading, arXiv and lawful OA attempts, followed by separately authorized institutional access request",
+          "title": "Asymptotic analysis of Hoppe trees",
+          "trigger": "highly relevant broader recursive-tree family and both marginals"
+        },
+        {
+          "assessment": "PATH_LENGTH_MARGINAL_ONLY_IN_ACCESSIBLE_MATERIAL",
+          "evidence": "Abstract states total-path-length moment recurrences, non-normal limit and distributional characterization, not joint leaf-count covariance.",
+          "identifier_or_url": "R. P. Dobrow and J. A. Fill, DOI:10.1017/S0963548399003855 (1999)",
+          "material_read": "full publicly available abstract and article bibliographic summary, not full paper",
+          "method": "publisher abstract inspection",
+          "title": "Total Path Length for Random Recursive Trees",
+          "trigger": "canonical path-length moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Path Length and External Path Length in Random Trees (J. Lundblad and S. Wagner, LIPIcs AofA 2026, DOI:10.4230/LIPIcs.AofA.2026.2)",
+        "Asymptotic analysis of Hoppe trees (K. Leckey and R. Neininger, arxiv:1202.2439)",
+        "Total Path Length for Random Recursive Trees (R. P. Dobrow and J. A. Fill, DOI:10.1017/S0963548399003855 (1999))"
+      ],
+      "rationale": "Determines an exact mixed second moment between leaf count and total search cost in a canonical random tree, together with a constant-per-step covariance mechanism, regression coefficient and asymptotic decorrelation. The relationship cannot be recovered from the known marginal laws alone.",
+      "residual_risks": [
+        "Leckey–Neininger manuscript concerning both variables could not be read fully through authorized channels; a mixed identity implicit in a formula remains a priority risk. Institutional access reported vpn_disconnected; no bypass attempted.",
+        "The older probability literature may encode the mixed covariance under terminal-node/search-cost terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Uniform random recursive trees and leaf outdegree zero only, not arbitrary rooted tree distributions.",
+    "The correlation rate uses the published path-length variance coefficient.",
+    "Leckey–Neininger manuscript concerning both variables could not be read fully through authorized channels; a mixed identity implicit in a formula remains a priority risk. Institutional access reported vpn_disconnected; no bypass attempted.",
+    "The older probability literature may encode the mixed covariance under terminal-node/search-cost terminology."
+  ]
+}

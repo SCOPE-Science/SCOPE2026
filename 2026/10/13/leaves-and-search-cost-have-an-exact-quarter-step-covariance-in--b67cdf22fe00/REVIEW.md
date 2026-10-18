@@ -1,26 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The growth coupling gives exact update identities for leaf count and total path length. Conditioning on the uniformly selected parent turns its depth into \(P_n/n\), its leaf indicator into \(L_n/n\), and their product into \(Q_n/n\). The two covariance terms involving the old tree cancel exactly.
+PASS
 
-The remaining auxiliary expectation \(q_n=\mathbb E Q_n\) satisfies a closed first-order recurrence. Solving it gives \(q_n=\frac n2H_{n-1}-\frac{n-2}{4}\), and substitution makes the covariance decrement exactly \(-1/4\) at every step. The base case is deterministic.
+For independent uniform-parent growth, L_{n+1}=L_n+1-J_n and P_{n+1}=P_n+D_n+1. Conditioning gives E(D|T_n)=P_n/n, E(J|T_n)=L_n/n, E(JD|T_n)=Q_n/n; mixed old-tree contributions cancel, so c_{n+1}=c_n-q_n/n+ell_n p_n/n². The leaf-depth update Q_{n+1}=Q_n+(1-J)D+1 yields q_{n+1}=(1−1/n)q_n+H_n and q_n=n H_{n-1}/2−(n−2)/4. With ell_n=n/2 and p_n=nH_{n-1}−(n−1), covariance decrement is exactly −1/4, from c_2=0. Classical Var(L_n)=n/12 for n>=3 gives the regression slope and asymptotic Var(P_n) coefficient gives n^-1/2 correlation. Fresh exhaustive rational enumeration of all (n−1)! recursive trees for every n=2..10, total 409113, verified covariance, q_n and marginal moments.
 
-The packaged checker independently enumerates every recursive tree through \(n=10\) and verifies all displayed finite identities with rational arithmetic.
+## originality
 
-## Originality
+PASS
 
-PASS, with a residual risk from older recursive-tree literature. Dobrow--Fill treat total path length, Zhang treats leaf count, and the full Leckey--Neininger manuscript treats both leaves and internal path length in the same broader Hoppe-tree paper. In that full manuscript the two quantities are analyzed in separate sections, and targeted searches found no covariance or joint-law statement.
+The closest primary literature and published-result searches were compared for statement implication and actual mathematical object, not just titles. Marginal expectations and variances for leaves and P_n do not determine Cov(L_n,P_n). Lundblad–Wagner’s comparison of total and external path lengths also does not imply this mixed moment without an extra identity linking count and leaf depths, which the submitted growth recurrence supplies. Looked for terminal vertices/leaves against internal path length/search cost, and for mixed moments/recursive-tree covariance. The source “external path length” is Q_n, the sum of leaf depths, mathematically different from L_n. Residual risks are retained; inaccessible full text alone is not equated to scientific failure.
 
-Lundblad--Wagner's work treats path length together with the sum of leaf depths, which is the auxiliary bridge used here, but its stated result compares average depths rather than leaf abundance against total path length.
+## value
 
-## Value
+PASS
 
-PASS. Leaf count is a canonical fringe-size statistic, while total path length is the canonical recursive-tree search cost. Their interaction is mathematically motivated and algorithmically interpretable.
+Determines an exact mixed second moment between leaf count and total search cost in a canonical random tree, together with a constant-per-step covariance mechanism, regression coefficient and asymptotic decorrelation. The relationship cannot be recovered from the known marginal laws alone.
 
-The identity is stronger than a sign calculation: every growth step contributes the same \(-1/4\) covariance increment. The exact linear-projection slope tends to \(-3\), quantifying how leaf-rich fluctuations align with reduced global search cost even though standardized correlation tends to zero.
-
-Self-review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK sizes=9 trees=409113 first_moment_checks=27 covariance_checks=9 leaf_variance_checks=8 slope_checks=8`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
