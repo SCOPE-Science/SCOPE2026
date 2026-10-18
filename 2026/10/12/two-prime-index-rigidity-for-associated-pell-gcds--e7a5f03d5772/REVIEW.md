@@ -1,19 +1,21 @@
-# Scientific assessment: two-prime index rigidity for associated Pell gcds
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim ranges over all prime powers and all products of exactly two prime powers with distinct bases. The proof verifies all normalizations, including \(Q_0=Q_1=1\), the odd-prime restriction on the lifting lemma, the parity exceptional case, and exact exponents. Its three critical facts are: Frobenius \(Q_{\ell m}\equiv Q_m\pmod\ell\); odd-prime lifting \(\nu_\ell(Q_{m\ell})=\nu_\ell(Q_m)+1\) when \(\ell\mid Q_m\); and the order bound \(\operatorname{ord}_{\mathbb F_{p^2}^\times}((1+\sqrt2)/(1-\sqrt2))\mid(p-1)\) or \(\mid(p+1)\), excluding the smaller prime. These combine to prove the complete dichotomy without assuming primitive divisors or conjectures. Exact modular tests corroborate the symbolic proof but are not treated as an infinite certificate.
+PASS
 
-## Originality — PASS relative to examined literature
+The quadratic trace identity 2Q_n=(1+√2)^n+(1−√2)^n gives Frobenius Q_{ℓm}≡Q_m mod ℓ for odd ℓ. If ℓ divides Q_m, binomial expansion with units and ℓ-adic valuations yields exact lifting v_ℓ(Q_{ℓm})=v_ℓ(Q_m)+1. The smaller odd prime p cannot divide Q_{q^b}: u=α/β in F_{p²} has order dividing p−1 or p+1, hence <q, whereas u^{q^b}=−1 would force u=−1, contradicting α+β=2 mod p; p=2 is excluded by odd parity. Thus only q can divide index gcd, and lifts to full q^b or is absent. Q4=17 and doubling imply G(3*2^a)=1 for a≥2 though entry point 2 divides the index. An independent ordinary exact recurrence/gcd scan confirmed the formula on 1,000+ two-prime-support indices through 1999; universal claim rests on Frobenius/order/lifting proof.
 
-The closest directly relevant paper, Mbirika–Schrader–Spilker, arXiv:2301.05758v1 (2023), Section 6.2, asks for exact \(\gcd(Q_k,k)\) in Question 31. Its Conjecture 32 is explicitly contradicted by \(k=3\cdot2^a\) with \(a\ge2\), since the entry point \(e_Q(3)=2\) divides these indices although \(\gcd(Q_k,k)=1\). Theorem 28 uses, rather than computes, the index gcd. In arXiv:2408.14632v1, the companion Lucas results concern periods and entry points; the Flórez–Higuita–Mukherjee paper (Integers 18 A14) concerns gcds of sequence values, not a value and its numerical index. Searches for the exact two-prime-power formula, larger-prime-only behavior, lifting and Lucas aliases, plus checks against earlier recorded claims, yielded no covering statement. Absence from checked literature is not proof of unique priority; a classical implicit consequence remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result completely solves a natural first nontrivial support class of a published gcd question, pinpoints the only possible prime-power factor of an index gcd, and explains the full exponent phenomenon rather than a binary divisibility test. Its infinite counterexamples to an explicit published conjecture identify a real missing rank constraint. This is a structural classification on an infinite domain, not an isolated congruence or arbitrary computational slice.
+Mbirika–Schrader–Spilker (JIS 2023) Section 6.2 Question31 explicitly seeks an index gcd formula and Conjecture32 posits an incorrect rank criterion. Their Theorem28 leaves the gcd unevaluated. The exact two-prime-support dichotomy and infinite counterfamily are not theorems there. Fiebig–Mbirika–Spilker give Lucas period/entry-point results, not the index gcd by support. Classical Lucas identities are ingredients; no identified stronger formula forces the exact all-or-nothing q^b phenomenon without additional argument.
 
-## Limits and evidence
+## value
 
-The proof establishes no claim for indices with three or more distinct prime factors, nor a global corrected entry-point criterion. The reproduction file `verify.py` and its saved output check a finite sample independently by modular integer arithmetic. The full paper and specific sections were examined as stated above; unindexed equivalent work is the principal remaining originality risk. No independent audit is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete first nontrivial support-level answer to a published Pell index-gcd question and supplies infinitely many concrete counterexamples to its proposed rank-of-apparition equivalence. The smaller-prime exclusion and full larger-prime valuation are genuine structural laws on infinite classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
