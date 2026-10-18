@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the footprint accounting from the definition. Once the first closed neighborhood contributes three vertices, maximal length forces every later term to contribute exactly one. The undominated vertices remain one interval, and the two-frontier/three-terminal analysis is exhaustive. The finite checker independently confirms all stated formulas through \(n=10\), including \(n=4\).
+## correctness
 
-## Originality
-PASS. The closest same-object source is Brešar et al. (arXiv:1607.00248), which explicitly uses the prior scalar fact \(\gamma_{\mathrm{gr}}(C_n)=n-2\) but does not give the maximum-sequence census or omitted-pair classification. The closest retrieved counting result concerns complete multipartite graphs, not cycles of order at least five. The 2026 uniqueness paper studies extremal-set uniqueness qualitatively rather than this enumeration. Residual risk remains for poorly indexed equivalent literature.
+PASS
 
-## Value
-PASS. The result gives a natural complete extremizer classification for a canonical graph family. It distinguishes the ordered process from its terminal support and shows that adjacent-pair and distance-two-pair supports have different ordering multiplicities. This is useful structural information not recoverable from the known scalar maximum length alone.
+Using the prior scalar maximum length gamma_gr(C_n)=n−2, the first closed neighborhood footprints three vertices and each of the n−3 following vertices footprints exactly one. The remaining undominated path has two distinct unselected dominated frontiers whenever its length≥2, allowing 2^(n−4) left/right words after v1. With one undominated vertex the legal last choice is that vertex or its two frontier neighbors, giving 3n2^(n−4) ordered maxima. The two unused vertices are an adjacent pair or distance-two pair. Dihedral transitivity yields 2^(n−3) sequences per adjacent omitted pair and 2^(n−4) per distance-two omitted pair for n≥5, with six sets and twelve sequences for n=4. Independent exhaustive search of actual legal sequences for n=4..9 recovered 12,30,72,168,384,864 maxima and set counts 6,10,12,14,16,18; arbitrary-n proof is frontier combinatorics.
 
-## Closest literature and limitations
-The scalar cycle value is prior work and is not claimed as new. The result is limited to ordinary closed-neighborhood Grundy domination on cycles. Exhaustive computation is corroborative only; the arbitrary-order theorem rests on the frontier proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brešar et al. supply the scalar cycle Grundy-domination number, and Brešar–Dravec study extremal-set uniqueness more generally. Neither inspected theorem gives the complete ordered sequence count, omitted-pair characterization, or multiplicities of each maximum set on an ordinary cycle. Resultary’s complete multipartite max-sequence census has a different graph family and does not dominate cycles. Possible older unindexed cycle combinatorics remains a residual risk.
+
+## value
+
+PASS
+
+Counting all maximum ordered Grundy sequences and their underlying set orbits answers a natural stronger extremal enumeration question beyond a known scalar parameter. The two different per-set multiplicities reveal combinatorial structure and are directly reusable as cycle base cases for graph products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
