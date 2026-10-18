@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:01:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated generator g(x)=2+x^2+2x^3+x^4+x^5 has degree five and unique six-symbol ternary messages, so exactly 3^6=729 distinct length-11 codewords without modular wraparound. Fresh direct polynomial multiplication and all eleven cyclic length-b windows for each of the 729 messages give b=2 weights (7:44,8:88,9:110,10:220,11:266), b=3 (8:22,9:44,10:132,11:530), b=4 (9:22,10:44,11:662), b=5 (10:22,11:706), plus the zero word in each case. All b>=6 nonzero words have weight11, agreeing with stabilizing run theory. The b=1 distribution (5:132,6:132,8:330,9:110,11:24) matches the known Hamming enumerator. Each tally sums to729. This is a complete exact finite census for the FIXED cyclic coordinate order, not an infinite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General cyclic dimension k stability yields W_b=1+728z11 for b>=6, while Guan and Panraksa reproduce the minimum distance hierarchy only."
+        ],
+        "reasoning": "The broad stability theorem does not give nonstable coefficients b=2..5; generic zero-run identity requires the code-specific gap census.",
+        "searches": [
+          "Shi Ozbudak Sole Geometric Approach b-symbol Hamming Weights Cyclic Codes 2021",
+          "Guan Luo Luo Fei Wang Generalized Repetition Codes and Application to HARQ 2025"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.17654/0972087126158",
+        "DOI:10.1109/TIT.2021.3069772",
+        "arXiv:2511.15207",
+        "Resultary: Resultary: ternary Golay code [11,6,5] complete cyclic b-symbol weight enumerator pair 44 88 110"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing min b-symbol weights (7,8,9,10,11) does not fix coefficient counts; Hamming spectrum does not fix ordered cyclic runs."
+        ],
+        "reasoning": "Neither stronger/minimum published statement mathematically determines the entire nonstable spectra absent additional run enumeration.",
+        "searches": [
+          "Panraksa 2026 Theorem 1.3 minimum b distances",
+          "Shi Ozbudak Sole 2021 stabilization dimension six"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Direct cyclic-window weight is determined by zero gaps via 11-sum_j (ell_j-b+1)_+. The same cyclic order is essential."
+        ],
+        "reasoning": "Compared equivalent names symbol-pair distribution, b-symbol weight enumerator, and symbol-block metric; no replacement of b-weight by simple Hamming weight was assumed.",
+        "searches": [
+          "Resultary: ternary Golay code [11,6,5] complete cyclic b-symbol weight enumerator pair 44 88 110",
+          "Panraksa 2026 Golay symbol-pair and b-symbol hierarchy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary code hit concerns another ternary [21,3,5] code; Panraksa full text has a distance table and ordinary weight enumerator but not the claimed nonstable coefficient table."
+        ],
+        "reasoning": "No exact indexed prior coefficient table found. Absence alone is not novelty proof and unindexed tables remain a risk.",
+        "searches": [
+          "Resultary: ternary Golay code [11,6,5] complete cyclic b-symbol weight enumerator pair 44 88 110",
+          "Golay ternary pair-symbol 44 88 110 220 266"
+        ]
+      },
+      "rationale": "Panraksa (2026) studies the same ternary Golay code and gives the full sequence of minimum b-symbol distances and ordinary Hamming enumerator. Inspecting the primary full-text theorem and weight discussion shows no all-code nonstable b=2..5 coefficient distribution in the read material. Shi/Ozbudak/Solé prove general stabilization once b reaches dimension six, which covers only the stabilized range here. A minimum-distance profile and ordinary Hamming enumerator cannot determine higher cyclic-window multiplicities, as zero runs matter. Exact alias and Resultary search found no matching coefficient table. Best-knowledge novelty is strictly the b=2..5 complete distributions, not the known hierarchy/stabilization.",
+      "residual_risks": [
+        "An unindexed Golay b-symbol full enumerator or prior numerical table could duplicate the four nonstable polynomials.",
+        "The 2021 general full text was not exhaustively reread; only its established dimension-stabilization implication is used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MINIMUM_HIERARCHY_NOT_ALL_NONSTABLE_COUNTS",
+          "evidence": "Theorem gives b=1..5 minima 5,7,8,9,10 and b>=6 minimum11; not the 44/88/... nonstable multiplicities.",
+          "identifier_or_url": "DOI:10.17654/0972087126158",
+          "material_read": "Lawful full-text primary HTML including Theorem 1.3, ordinary weight enumerator, finite enumeration, b-distance table and zero-gap arguments.",
+          "method": "primary full-text online HTML and targeted theorem/table reading",
+          "title": "On the cyclic symbol-pair and b-symbol distance of the ternary [11,6,5] Golay code",
+          "trigger": "Exactly same code, order and window weights."
+        },
+        {
+          "assessment": "PARTIAL_STABILIZATION_COVERAGE",
+          "evidence": "General k=6 stabilization gives b>=6 constant nonzero weight11, not finite b=2..5 coefficient counts.",
+          "identifier_or_url": "DOI:10.1109/TIT.2021.3069772",
+          "material_read": "Available theorem summary and paper bibliographic material describing stability for b>=dimension; whole full text not claimed inspected.",
+          "method": "primary indexed theorem/abstract inspection",
+          "title": "Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes",
+          "trigger": "Possible general theorem dominating the complete b-symbol profile."
+        },
+        {
+          "assessment": "PRIOR_DISTANCE_HIERARCHY_ONLY",
+          "evidence": "Golay example reports symbol-block distances without nonstable weight multiplicities.",
+          "identifier_or_url": "arXiv:2511.15207",
+          "material_read": "Accessible preprint description and Golay distance-hierarchy example, not an exhaustive review of all pages.",
+          "method": "primary preprint summary/example",
+          "title": "Generalized Repetition Codes and Their Application to HARQ",
+          "trigger": "Uses same Golay code in symbol-block framework."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete b-symbol weight enumerators are natural finite invariants governing cyclic read-window/channel distributions. Determining every multiplicity for the canonical ternary Golay code adds substantive data beyond the earlier minimum symbol distances and ordinary Hamming weights and provides an exact benchmark for future b-symbol enumerator identities or performance estimates.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.17654/0972087126158",
+    "DOI:10.1109/TIT.2021.3069772",
+    "arXiv:2511.15207",
+    "Resultary: Resultary: ternary Golay code [11,6,5] complete cyclic b-symbol weight enumerator pair 44 88 110"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed standard cyclic order of [11,6,5]_3 ternary Golay. No coordinate-permutation invariance, no novel claim about b>=6 stabilization or decoder performance.",
+    "Priority assessment is best-of-knowledge, not exhaustive literature or expert certification.",
+    "An unindexed Golay b-symbol full enumerator or prior numerical table could duplicate the four nonstable polynomials.",
+    "The 2021 general full text was not exhaustively reread; only its established dimension-stabilization implication is used."
+  ],
+  "residual_risks": [
+    "An unindexed Golay b-symbol full enumerator or prior numerical table could duplicate the four nonstable polynomials.",
+    "The 2021 general full text was not exhaustively reread; only its established dimension-stabilization implication is used."
+  ],
+  "schema_version": 1
+}
