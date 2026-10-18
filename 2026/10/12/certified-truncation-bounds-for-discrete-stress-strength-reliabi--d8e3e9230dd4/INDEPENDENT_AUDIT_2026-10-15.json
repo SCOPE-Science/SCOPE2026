@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:56:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent nonnegative integer variables, R=P(Y<X)=sum_{x>=0} p_X(x) F_Y(x-1). For every omitted x>=K+1 monotonicity of the CDF gives F_Y(K)<=F_Y(x-1)<=1; multiply by p_X(x)>=0 and sum to obtain the exact two-sided certificate F_Y(K)Pr(X>K)<=R-R_K<=Pr(X>K). The original DAPW PMF is S(x)-S(x+1) with S(k)=alpha/(alpha-1)*(1-alpha^{-theta^{k^beta}}) (continuous alpha=1 limit theta^{k^beta}). Checked the 2026 PDF (Sec 2 Eq 1–5, p4 line stating stopping condition |R_K-R_{K-1}|<10^-6, and Scenario 4 p14). At alpha=.3, theta1=.4, beta1=.2, theta2=.4, beta2=2, K=4041: independent stable expm1 arithmetic gives last term 9.99890871231611e-7, S_X(4042)=0.0041684145856391575, F_Y(1)=0.9865850241462029, and certified lower remainder 0.0041124954046241925. The finite high-cutoff checker is diagnostic, not the source of the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elkalzah et al 2026 paper Sec 2 truncates the reliability series at consecutive-partial-sum gap below 10^-6",
+          "2022 DAPW original contains survival and stress-strength reliability but no total series-tail bound"
+        ],
+        "reasoning": "Classical distribution-free probability identities do not automatically establish a numeric failure for the specified published DAPW parameter scenario without its survival and specific cutoff; source-specific result survives the generic theorem.",
+        "searches": [
+          "Birnbaum McCarty distribution free bound P(Y<X) discrete tail",
+          "numerical error certification infinite nonnegative probability series vs last term"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2026263 full 26-page publisher PDF pp 3-4 and 14",
+        "DOI:10.22075/ijnaa.2022.6301 original full text",
+        "Resultary query: DAPW discrete alpha power Weibull stress strength reliability series tail truncation numerical stopping successive increments error 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026 article defines the exact infinite R and prints only increment-based adaptive truncation",
+          "2022 paper defines S_X but does not compare it to the 2026 stopping criterion"
+        ],
+        "reasoning": "The prior sources supply components; the counterexample requires a new implication comparison showing the stopping rule cannot control omitted mass. Historical probability inequalities may establish the bound, not this numeric error allegation.",
+        "searches": [
+          "DOI:10.3934/math.2026263 Section 2 Eq (5) stopping paragraph",
+          "DOI:10.22075/ijnaa.2022.6301 Eq (2.5) Eq (3.9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R-R_K=E[1_{X>K}F_Y(X-1)]",
+          "Mohamed et al (2022), Eq (2.5), S_X(K+1) closed-form and Eq (3.9) stress-strength series"
+        ],
+        "reasoning": "The result is a conditional-expectation/CDF monotonicity bracket; existing elementary bounds cover the abstract inequality, but sources inspected do not apply it to the 2026 last-increment stopping rule or demonstrate the Scenario 4 gap.",
+        "searches": [
+          "DAPW discrete alpha power Weibull stress strength reliability series tail truncation numerical stopping successive increments error 2026",
+          "stress strength reliability tail survival truncation remainder CDF bound",
+          "DAPW x alpha theta beta survival closed form"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original 2026 PDF p14 Scenario 4 parameters agree exactly",
+          "Independent float values last term 9.99890871231611e-7 and tail 0.0041684145856391575 yield lower 0.0041124954046241925"
+        ],
+        "reasoning": "This is a model-specific published-parameter computation rather than a known numerical table value; target tables estimate parameters but do not certify this tail.",
+        "searches": [
+          "\"DAPW\" \"0.0041\" \"4041\" \"remainder\"",
+          "DAPW discrete alpha power Weibull stress strength reliability series tail truncation numerical stopping successive increments error 2026",
+          "Elkalzah Scenario 4 beta1 0.2 beta2 2 alpha 0.3 theta1 theta2 0.4"
+        ]
+      },
+      "rationale": "The 2022 DAPW paper gives the survival formula and an infinite stress–strength series but no printed truncation remainder bracket. The actual 2026 Elkalzah source prints a last-increment threshold below 10^-6 but no global error certificate. The distribution-free probability bound is elementary and not claimed as broadly new numerical analysis; the applied exact DAPW stopping-rule counterexample and certified closed-form replacement are not implied by either source’s stated result. Resultary and web comparison found no matching DAPW-specific explicit >0.0041 residual example; a general textbook tail inequality may predate all papers.",
+      "residual_risks": [
+        "The abstract monotonicity bound is an elementary identity and may appear elsewhere; originality rests on the source-specific quantitative audit.",
+        "The source reports empirical convergence in addition to a printed threshold; unpublished implementation safeguards are unknown.",
+        "No assertion that actual simulations necessarily stopped exactly at K=4041, only that the printed rule permits it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Printed criterion and settings match claimed counterexample; no global remainder certificate seen",
+          "evidence": "PDF page 4: |R_K-R_(K-1)|<10^-6. Page 14: alpha=.3, theta1=theta2=.4, beta1=.2, beta2=2.",
+          "identifier_or_url": "DOI:10.3934/math.2026263; https://www.aimspress.com/aimspress-data/math/2026/3/PDF/math-11-03-263.pdf",
+          "material_read": "Read full 26-page OA publisher PDF with Sec 2 equations, p 4 stopping paragraph, pp 14-15 simulation scenario",
+          "method": "Parsed PDF text and visually inspected pages 4 and 14",
+          "title": "Classical and Bayesian estimation of stress–strength reliability under the discrete Alpha-power Weibull distribution with incomplete and record data",
+          "trigger": "The exact target stopping criterion, distribution and Scenario 4 parameters"
+        },
+        {
+          "assessment": "Survival and stress-strength formulas match; no matching series cutoff certificate stated",
+          "evidence": "S(x)=P(X>=x)=alpha/(alpha-1)(1-alpha^{-theta^{x^beta}}), used at x=K+1.",
+          "identifier_or_url": "DOI:10.22075/ijnaa.2022.6301; https://www.researchgate.net/publication/359337353_Discrete_alpha-power_Weibull_distribution_Properties_and_application",
+          "material_read": "Read author-posted complete article text, including Sec 2 Eq (2.2)-(2.5), Sec 3.2 Eq (3.8)-(3.9), conclusions",
+          "method": "Full hosted text comparison of equations and results",
+          "title": "Discrete alpha-power Weibull distribution: Properties and application (Mohamed, Hassan, Abdelrahman)",
+          "trigger": "Source of exact survival and possible earlier tail results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an actionable precision failure in a published, repeated reliability-series computation: one term below 10^-6 coexists with a rigorously omitted positive probability >0.004112, over 4,100 times that term. Because the model’s survival is explicit, the replacement tolerance criterion can be implemented without a large extra sum. The material numerical gap supplies the specific motivation beyond an otherwise routine monotone-CDF inequality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only truncation error for known fixed DAPW parameters; does not validate Bayesian estimators themselves.",
+    "The tighter lower bound uses F_Y(K) (essentially 1 here), while F_Y(1) already suffices to show >0.0041."
+  ],
+  "schema_version": 1
+}
