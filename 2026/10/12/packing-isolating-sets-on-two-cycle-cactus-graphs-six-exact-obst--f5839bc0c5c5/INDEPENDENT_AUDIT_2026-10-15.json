@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:52:45.801609Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Packing means selected closed neighborhoods pairwise disjoint, equivalently selected vertices pairwise graph distance at least 3; isolation means N[S] covers at least one endpoint of each edge. A 3-subdivision of any edge preserves a packing-isolating set: add q at the middle new vertex when neither endpoint selected, or r/p near the unselected endpoint when one is selected, retaining mutual distance>=3 and all-edge coverage. A finite base with 3<=a<=b<=8,0<=d<=10 comprises 231 triples; independent exhaustive edge-coverage DFS recomputed all 225 satisfiable cases and the precise six no-solution cases (not mere random samples). Repeated 3-subdivision of cycle/bridge edges lifts every larger triple from a nonexceptional base; large parameters reduce into [6,8] for cycles/[8,10] for bridges so cannot fall into a listed exception. The proof needs the exact finite base plus structural lemma, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source proves every tree admits such an S and C5 itself does not; those are insufficient for graphs comprising two cycle blocks.",
+          "Related Resultary graph-complex/packing hits address other quantities."
+        ],
+        "reasoning": "No published spanning class subsumes the exact two-cycle obstruction set in inspected results.",
+        "searches": [
+          "arXiv:2606.18172",
+          "Resultary:packing-isolating set disjoint closed neighborhoods vertex-edge isolation two cycle cactus"
+        ]
+      },
+      "checked_sources": [
+        "Boyer/Goddard/Henning arXiv:2606.18172v1 (definition and Section3)",
+        "Bujtas et al arXiv:2507.18272v1 (scope)",
+        "Radhika and Vijayan DOI:10.17654/DM027020183 (abstract only)",
+        "Resultary packing-isolation and cactus searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "C5 failure alone does not force failure of a graph containing C5: added attachments can provide packing-isolating solutions.",
+          "Tree existence does not imply anything by monotonicity when adding cycles."
+        ],
+        "reasoning": "Specific six NO/225 YES base profiles and the 3-subdivision lift are not consequences of the known general claims.",
+        "searches": [
+          "arXiv:2606.18172 Sections 2-3",
+          "arXiv:2507.18272",
+          "DOI:10.17654/DM027020183"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyer-Goddard-Henning define packing-isolating as disjoint N[v] plus N[S] vertex cover, precisely the same notion.",
+          "Bujtas et al p-packing domination is a different all-vertex domination constraint."
+        ],
+        "reasoning": "Same named notion was compared to its actual definition; the general published facts C5 obstruction/all trees do not classify two-cycle cacti.",
+        "searches": [
+          "Resultary:packing-isolating set disjoint closed neighborhoods vertex-edge isolation two cycle cactus barbell graph subdivision classification",
+          "arXiv:2606.18172",
+          "arXiv:2507.18272"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching six-tuple exception table in the originating packing-isolation paper or indexed comparison.",
+          "The six base negatives are complete under independent exact search, not an unknown extrapolated sample."
+        ],
+        "reasoning": "Exact obstruction-list novelty is qualified by nonindexed graph-parameter tables; a search failure alone is not priority proof.",
+        "searches": [
+          "arXiv:2606.18172",
+          "Resultary:packing-isolating cactus graph six exceptions (5,5,0) (3,5,2)"
+        ]
+      },
+      "rationale": "Boyer-Goddard-Henning 2026 propose simultaneous packing-isolation and show C5 fails and trees admit sets; their inspected Section 3 lacks an exact classification of two-cycle cactus graphs. Related distance packings and barbell connected domination concern different predicates. This natural complete two-cycle extension is not implied by the tree theorem or single-cycle obstruction.",
+      "residual_risks": [
+        "Related barbell graph article full text unavailable; its abstract addresses connected domination, distinct predicate.",
+        "The independently searched finite base uses exact recursive covering branches; the proof of larger parameters still depends separately on 3-subdivision invariance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same concept but no two-cycle cactus classification",
+          "evidence": "C5 itself is a negative example, all trees are positive; interaction of two cycles not classified.",
+          "identifier_or_url": "arXiv:2606.18172",
+          "material_read": "Accessible original manuscript text, sections 2-3 definitions, C5 remark and tree existence Theorem 2",
+          "method": "primary preprint full-text section review",
+          "title": "On the Relationships between Domination, Isolation, and Packing",
+          "trigger": "Introduces exact simultaneous notion"
+        },
+        {
+          "assessment": "different domination condition",
+          "evidence": "Distance p-packing domination generally requires domination, whereas isolation only requires N[S] to cover edges.",
+          "identifier_or_url": "arXiv:2507.18272",
+          "material_read": "Accessible abstract and principal definitions/coverage",
+          "method": "indexed abstract/theorem comparison",
+          "title": "The d-distance p-packing domination number: complexity, cycles, and trees",
+          "trigger": "Related distance packing and cycles"
+        },
+        {
+          "assessment": "different connected selected-set requirement; cannot claim full-paper exclusion",
+          "evidence": "The chosen set is connected and vertex-edge dominating, not a mutually distance-three packing.",
+          "identifier_or_url": "DOI:10.17654/DM027020183",
+          "material_read": "Abstract only; full text not available",
+          "method": "publisher abstract comparison",
+          "title": "Connected Vertex-Edge Domination Polynomials of Some Graphs",
+          "trigger": "Barbell graph family and edge domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact six-exception classification for the first nontrivial two-cycle cactus family resolves a natural packing/isolation interaction, including nonmonotonicity in joining-path length. The all-size classification arises by a motivated three-subdivision lemma and complete reproducible base, with specific obstruction shapes useful in future cactus graph analysis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exactly six two-cycle cactus graphs B_(a,b,d), 3<=a<=b and d>=0, fail to admit a simultaneous packing-isolating set: (5,5,0),(5,5,1),(3,5,2),(5,5,3),(5,5,4),(5,5,7). Every other such graph has one.",
+  "limitations": [
+    "Related barbell graph article full text unavailable; its abstract addresses connected domination, distinct predicate.",
+    "The independently searched finite base uses exact recursive covering branches; the proof of larger parameters still depends separately on 3-subdivision invariance."
+  ],
+  "schema_version": 1
+}

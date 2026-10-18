@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-The data file `seed_table.csv` contains exactly 231 parameter triples. `build_seeds.py` constructs the table by complete backtracking of remaining edge coverage, choosing every potentially eligible center covering a currently uncovered edge subject to distance-two exclusions. `verify_seeds.py` independently reconstructs each graph; for each of the 225 positive rows it checks the exact displayed set, for each of the six negative rows it tests every vertex subset. Both scripts require only Python 3 and their own directory as working location.
+## correctness
 
-To replay from a directory with all extracted files: `python3 build_seeds.py > build_seeds.out` then `python3 verify_seeds.py > verify_seeds.out`. The recorded outputs are embedded in this package. Successful verification must reproduce `FINITE_BASE_CERTIFICATE_OK`, with 225 accepted witnesses, six negative cases, and zero valid packing-isolating subsets in each of the six negative cases. The six packing-subset totals, in listed order, are 22, 31, 26, 66, 97, and 304.
+PASS
 
-The finite certificate establishes the base cases only. The proof's three-vertex subdivision lemma and reduction argument establish the theorem for all integer cycle lengths and bridge lengths. The theorem excludes attached trees, chords, and additional cycles. Independent audit has not been performed.
+Packing means selected closed neighborhoods pairwise disjoint, equivalently selected vertices pairwise graph distance at least 3; isolation means N[S] covers at least one endpoint of each edge. A 3-subdivision of any edge preserves a packing-isolating set: add q at the middle new vertex when neither endpoint selected, or r/p near the unselected endpoint when one is selected, retaining mutual distance>=3 and all-edge coverage. A finite base with 3<=a<=b<=8,0<=d<=10 comprises 231 triples; independent exhaustive edge-coverage DFS recomputed all 225 satisfiable cases and the precise six no-solution cases (not mere random samples). Repeated 3-subdivision of cycle/bridge edges lifts every larger triple from a nonexceptional base; large parameters reduce into [6,8] for cycles/[8,10] for bridges so cannot fall into a listed exception. The proof needs the exact finite base plus structural lemma, not extrapolation.
+
+## originality
+
+PASS
+
+Boyer-Goddard-Henning 2026 propose simultaneous packing-isolation and show C5 fails and trees admit sets; their inspected Section 3 lacks an exact classification of two-cycle cactus graphs. Related distance packings and barbell connected domination concern different predicates. This natural complete two-cycle extension is not implied by the tree theorem or single-cycle obstruction.
+
+## value
+
+PASS
+
+Exact six-exception classification for the first nontrivial two-cycle cactus family resolves a natural packing/isolation interaction, including nonmonotonicity in joining-path length. The all-size classification arises by a motivated three-subdivision lemma and complete reproducible base, with specific obstruction shapes useful in future cactus graph analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
