@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-Run `python artifacts/verify.py artifacts/index_depth_profile.csv` in a Python 3 environment. No external packages are needed. The checker reads the complete certificate from the actual packaged path, regenerates all \(1307\) rows from Hilbert bases and Nash tangent cones, and asserts exact equality, the unique maximal depth at each index, every onset threshold, and the chain at index \(65\).
 
-The finite enumeration is exhaustive because all primitive index-\(q\) plane cones admit a standard representative \((1,0),(p,q)\) with \(0\le p<q\) and \(\gcd(p,q)=1\), and all values \(2\le q\le65\) are visited. Hilbert basis candidates cannot lie outside the stated finite rectangle by the fundamental-parallelogram subtraction lemma. Propositions 4.11–4.12 of arXiv:0910.5028 give the precise fan recursion. All calculations are over integers and rational numbers, not floating point.
+# Independent mathematical audit
 
-The recorded result is a finite-index theorem only. Neither the checker nor the reviewed proof asserts that the logarithmic depth profile persists at larger index. Independent audit has not been performed.
+## correctness
+
+PASS
+
+For every coprime 1≤p<q≤65, the normalized toric surface Nash blowup is computed by the Hilbert basis, consecutive adjacent sums, essential vertices of C+conv(sums), and primitive tangent cone normalizations using the cited exact 2D fan theorem. The Hilbert basis rectangle enumeration is exhaustive by the fundamental parallelogram decomposition, not mere sampling. The recursion is finite for the checked states, and all 1307 primitive representatives occur. Independently implemented Hilbert-basis/fan recursion and regenerated every depth: all 1307 agree with the complete artifact CSV, maxima ceil(log2 q) uniquely at p=q−1 for each q=2..65. Depth-seven first occurs q=65, with explicit seven-step chain (64,65)→(63,65)→(31,33)→(15,17)→(7,9)→(3,5)→(1,3)→(0,1). The range q>65 is unproved.
+
+## originality
+
+PASS
+
+The full Atanasov et al primary paper supplies the exact normalized Nash fan construction and termination. It does not state the checked finite indexed depth table or unique maximizer for q≤65. The 2025–26 computational Nash literature distinguishes ordinary non-normalized surface blowup from the normalized iteration here; its complete later manuscript was not retrieved.
+
+## value
+
+PASS
+
+The first determinant requiring seven normalized Nash rounds at 65 is an intrinsically motivated sharp finite complexity threshold, coupled to a complete primitive-cone classification rather than an arbitrary finite list; this does not claim the all-index trend.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
