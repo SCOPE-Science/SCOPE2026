@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T02:17:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A=[[a,c],[c,b]] SPD, the exact coordinate-1 then coordinate-2 residual update is r^+=(-c/b*(r_2−(c/a)r_1),0), with induced Euclidean norm |c|/b*sqrt(1+c²/a²). Normalizing eigenvalues to 1,kappa and u=tan²(rotation angle) yields the displayed rational Phi_kappa(u). Descartes sign analysis of the derivative quartic gives one positive stationary maximum for every kappa>1; boundary Phi(0)=Phi(infinity)=0. Independently used exact SymPy resultant elimination for Phi=1 and dPhi/du=0, reproducing precisely −kappa^6(kappa−1)^20(kappa²+kappa+1)P(kappa), where P=32kappa^6−131kappa^5−144kappa^4−362kappa^3−144kappa²−131kappa+32. Root isolation gives the unique >1 frontier kappa*=5.36076789614546. A=[[5,2],[2,2]] has eigenvalues 1,6 and maps residual (2,−5) to (29/5,0), proving expansion past the boundary. Continuity and uniqueness of tangency establish the iff statement, not numerical sampling alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hefny et al. study randomized coordinate-descent iterations and convergence",
+          "The related complete earlier theorem chooses between orders and studies solution-error, with nonexpansion threshold 8.3524"
+        ],
+        "reasoning": "Neither a randomized method nor a best-order solution-error guarantee mathematically dominates prescribed-order residual nonexpansion. Energy-norm convergence is also not Euclidean-residual monotonicity.",
+        "searches": [
+          "arXiv:1507.05844 Rows vs Columns Randomized Kaczmarz or Gauss-Seidel",
+          "Resultary/2026:2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1507.05844",
+        "Resultary/2026:2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+        "DOI:10.1137/19M1292473"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published earlier exact bound δ sqrt(1+δ²) controls best-order ||T_e||, not ||A T_e A^−1||",
+          "Submitted fixed-order operator maps residual (r1,r2) to (−(c/b)(r2−c*r1/a),0)"
+        ],
+        "reasoning": "Conjugating a nonnormal sweep by A can markedly change its induced Euclidean norm. The threshold 5.36077 is not implied by energy decrease, matrix spectral radius, or the earlier 8.3524 best-order error result.",
+        "searches": [
+          "Resultary/2026:two-coordinate-gauss-seidel-euclidean-transient-threshold RESULT.md",
+          "arXiv:1507.05844 convergence statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary/2026 previous best-order theorem is about Euclidean solution error ||e||, not Euclidean residual ||Ae||",
+          "Both derive from same GS sweep but induced operator norms are different"
+        ],
+        "reasoning": "Changing e to Ae is not an isometry unless A is scalar, so neither the earlier threshold 8.3524 nor its chosen-order quantifier establishes the present fixed-order 5.36077 threshold.",
+        "searches": [
+          "Resultary:two coordinate gauss seidel Euclidean transient ordering",
+          "Resultary:SPD 2x2 residual norm monotonicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant published Resultary record has a different quartic and the 8.35241 error frontier",
+          "No table for the degree-six reciprocal residual polynomial found in compared primary sources"
+        ],
+        "reasoning": "An unindexed classical stationary-iteration table could encode the same 2x2 residual condition; failed exact-term searches do not establish global novelty.",
+        "searches": [
+          "Resultary:2x2 SPD one sweep residual operator norm 5.360767896",
+          "Hefny Needell Ramdas 2015 residual monotonicity"
+        ]
+      },
+      "rationale": "Prior Resultary work completely classifies 2x2 Gauss–Seidel one-sweep Euclidean SOLUTION-ERROR amplification under choice of the better coordinate ordering, threshold about 8.35241. The audited theorem fixes an arbitrary prescribed order and measures the Euclidean RESIDUAL norm r=Ae, giving a mathematically distinct optimization and sharp frontier 5.36077. General randomized coordinate descent sources supply update formulas, not this residual amplification threshold.",
+      "residual_risks": [
+        "Older matrix-iterative-analysis literature may derive the same prescribed-order residual norm under a different matrix condition measure.",
+        "Exact resultant and unique stationary-point argument are essential; finite parameter grid alone is insufficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finds best-order Euclidean solution-error factor and distinct 8.35241 threshold; does not give fixed-order residual frontier",
+          "evidence": "Theorem, error matrices T12/T21 and sharp threshold",
+          "identifier_or_url": "Resultary/2026:2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+          "material_read": "Entire published RESULT.md including explicit error matrices, proof and examples",
+          "method": "GitHub published source fetched and read in full",
+          "title": "Sharp minimax Euclidean transient bound for two-coordinate Gauss-Seidel ordering",
+          "trigger": "Closest mathematically overlapping 2x2 SPD prior result"
+        },
+        {
+          "assessment": "Provides general update interpretation and randomized convergence context, not deterministic sharp 2x2 Euclidean residual nonexpansion",
+          "evidence": "Coordinate descent Gauss–Seidel algorithm and estimates",
+          "identifier_or_url": "arXiv:1507.05844",
+          "material_read": "Lawful arXiv primary PDF introduction and coordinate update derivation",
+          "method": "ArXiv PDF text/page inspection",
+          "title": "Hefny, Needell and Ramdas, Rows vs. Columns: Randomized Kaczmarz or Gauss-Seidel for Ridge Regression",
+          "trigger": "Underlying Gauss–Seidel/coordinate-descent identification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact condition-number frontier resolves a classical practical distinction: Gauss–Seidel is objective/energy decreasing on SPD matrices while its Euclidean residual can initially increase. The sharp 2D boundary and exact counterexample diagnose when residual-based stopping monitors need not be sweep-monotone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Real 2x2 SPD only; fixed prescribed forward order, one completed sweep, Euclidean residual and exact arithmetic; no best order, SOR, higher-dimensional or floating-point assertion."
+  ]
+}

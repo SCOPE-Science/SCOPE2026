@@ -1,29 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A complete forward sweep maps the incoming residual by an explicit rank-one operator. Its Euclidean norm reduces exactly to
-\[
-\sqrt{\Phi_\kappa(u)}
-\]
-after normalizing the SPD spectrum and parameterizing the eigendirection by
-\[
-u=\tan^2\theta.
-\]
-The derivative has exactly one positive stationary point for every \(\kappa>1\) by a one-sign-change argument, so the global maximum is unambiguous. Exact polynomial elimination at tangency gives the reciprocal degree-six frontier polynomial, whose reciprocal reduction has a unique root above one. The rational \(\kappa=6\) witness independently fixes the unsafe side.
+## correctness
 
-The packaged verifier replays the exact witness, isolates the root, and checks the scalar maximization numerically on both sides of the boundary.
+PASS
 
-## Originality
-PASS. The inspected full primary source connects Gauss-Seidel, coordinate descent, and residual convergence, but addresses randomized expected behavior rather than the deterministic one-sweep Euclidean residual norm. Later cyclic-coordinate-descent literature studies order-sensitive convergence rates.
+For A=[[a,c],[c,b]] SPD, the exact coordinate-1 then coordinate-2 residual update is r^+=(-c/b*(r_2−(c/a)r_1),0), with induced Euclidean norm |c|/b*sqrt(1+c²/a²). Normalizing eigenvalues to 1,kappa and u=tan²(rotation angle) yields the displayed rational Phi_kappa(u). Descartes sign analysis of the derivative quartic gives one positive stationary maximum for every kappa>1; boundary Phi(0)=Phi(infinity)=0. Independently used exact SymPy resultant elimination for Phi=1 and dPhi/du=0, reproducing precisely −kappa^6(kappa−1)^20(kappa²+kappa+1)P(kappa), where P=32kappa^6−131kappa^5−144kappa^4−362kappa^3−144kappa²−131kappa+32. Root isolation gives the unique >1 frontier kappa*=5.36076789614546. A=[[5,2],[2,2]] has eigenvalues 1,6 and maps residual (2,−5) to (29/5,0), proving expansion past the boundary. Continuity and uniqueness of tangency establish the iff statement, not numerical sampling alone.
 
-The closest published-record comparison concerns Euclidean *solution-error* amplification and selecting between the two coordinate orders. That does not imply the present result because the metric is \(r=Ae\), the order is prescribed, and norm-equivalence bounds are not sharp enough to recover the stated degree-six frontier.
+## originality
 
-Searches under Gauss-Seidel, coordinate descent, residual amplification, two-dimensional SPD, one-sweep, and exact-condition-number terminology found no implication-equivalent theorem. A residual risk remains that older iterative-method literature records the same low-dimensional calculation under different terminology.
+PASS
 
-## Value
-PASS. Euclidean residual is a standard stopping diagnostic. The theorem gives a natural complete two-dimensional classification of when one full cyclic sweep is guaranteed not to worsen that diagnostic, despite the separate classical fact that SPD coordinate descent decreases its quadratic energy. The exact witness shows that the distinction is not numerical noise.
+Prior Resultary work completely classifies 2x2 Gauss–Seidel one-sweep Euclidean SOLUTION-ERROR amplification under choice of the better coordinate ordering, threshold about 8.35241. The audited theorem fixes an arbitrary prescribed order and measures the Euclidean RESIDUAL norm r=Ae, giving a mathematically distinct optimization and sharp frontier 5.36077. General randomized coordinate descent sources supply update formulas, not this residual amplification threshold.
 
-## Closest literature and limitations
-The closest inspected literature concerns randomized residual convergence and cyclic coordinate-descent ordering. The theorem is limited to exact arithmetic, two coordinates, a prescribed forward order, and one completed sweep; it does not optimize the permutation or claim a higher-dimensional frontier.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact condition-number frontier resolves a classical practical distinction: Gauss–Seidel is objective/energy decreasing on SPD matrices while its Euclidean residual can initially increase. The sharp 2D boundary and exact counterexample diagnose when residual-based stopping monitors need not be sweep-monotone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

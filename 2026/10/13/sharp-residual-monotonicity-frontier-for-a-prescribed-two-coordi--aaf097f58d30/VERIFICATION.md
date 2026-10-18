@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,61 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal proof is analytic. This file records the finite replay checks.
 
-For the prescribed order \(1\to2\), the squared worst residual amplification at condition number \(\kappa\) and orientation parameter \(u\ge0\) is
-\[
-\Phi_\kappa(u)
-=
-\frac{(\kappa-1)^2u}{(\kappa+u)^2}
-\left(
-1+\frac{(\kappa-1)^2u}{(1+\kappa u)^2}
-\right).
-\]
+# Independent mathematical audit
 
-The frontier polynomial is
-\[
-P(\kappa)
-=
-32\kappa^6
--131\kappa^5
--144\kappa^4
--362\kappa^3
--144\kappa^2
--131\kappa
-+32.
-\]
-Its unique root above one is
-\[
-\kappa_*=5.36076789614546\ldots.
-\]
-The reciprocal reduction uses
-\[
-x=\kappa+\kappa^{-1}
-\]
-and
-\[
-Q(x)=32x^3-131x^2-240x-100.
-\]
+## correctness
 
-The embedded `verify.py` uses only the Python standard library to:
+PASS
 
-1. isolate the unique root of \(Q\) above \(2\);
-2. recover \(\kappa_*\) from that root and check \(P(\kappa_*)\);
-3. numerically maximize \(\Phi_\kappa\) at values just below and above the frontier;
-4. replay exactly the \(\kappa=6\) witness
-\[
-A=
-\begin{pmatrix}
-5&2\\
-2&2
-\end{pmatrix},
-\qquad
-r^-=(2,-5)^{\mathsf T},
-\qquad
-r^+=(29/5,0)^{\mathsf T}.
-\]
+For A=[[a,c],[c,b]] SPD, the exact coordinate-1 then coordinate-2 residual update is r^+=(-c/b*(r_2−(c/a)r_1),0), with induced Euclidean norm |c|/b*sqrt(1+c²/a²). Normalizing eigenvalues to 1,kappa and u=tan²(rotation angle) yields the displayed rational Phi_kappa(u). Descartes sign analysis of the derivative quartic gives one positive stationary maximum for every kappa>1; boundary Phi(0)=Phi(infinity)=0. Independently used exact SymPy resultant elimination for Phi=1 and dPhi/du=0, reproducing precisely −kappa^6(kappa−1)^20(kappa²+kappa+1)P(kappa), where P=32kappa^6−131kappa^5−144kappa^4−362kappa^3−144kappa²−131kappa+32. Root isolation gives the unique >1 frontier kappa*=5.36076789614546. A=[[5,2],[2,2]] has eigenvalues 1,6 and maps residual (2,−5) to (29/5,0), proving expansion past the boundary. Continuity and uniqueness of tangency establish the iff statement, not numerical sampling alone.
 
-The resultant factorization and one-positive-stationary-point argument are part of the analytic proof in `RESULT.md`; the numerical maximization here is corroborative, not exhaustive.
+## originality
 
-Unproved limits include best-order selection, dimensions above two, randomized or symmetric variants, SOR, asynchronous updates, and finite precision.
+PASS
+
+Prior Resultary work completely classifies 2x2 Gauss–Seidel one-sweep Euclidean SOLUTION-ERROR amplification under choice of the better coordinate ordering, threshold about 8.35241. The audited theorem fixes an arbitrary prescribed order and measures the Euclidean RESIDUAL norm r=Ae, giving a mathematically distinct optimization and sharp frontier 5.36077. General randomized coordinate descent sources supply update formulas, not this residual amplification threshold.
+
+## value
+
+PASS
+
+The exact condition-number frontier resolves a classical practical distinction: Gauss–Seidel is objective/energy decreasing on SPD matrices while its Euclidean residual can initially increase. The sharp 2D boundary and exact counterexample diagnose when residual-based stopping monitors need not be sweep-monotone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
