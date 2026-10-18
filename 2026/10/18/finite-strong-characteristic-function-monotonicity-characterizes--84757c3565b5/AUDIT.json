@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Finite support makes every real exponential tilt admissible. Writing the tilted characteristic function as e^(iat)H(re^(it))/H(r), any nonreal upper-half-plane zero of H would force zero modulus on the rest of its entire upper semicircle under monotonicity, contradicting polynomial finiteness. The nonnegative-coefficient polynomial has no nonnegative real zeros, so all roots must be strictly negative. Its normalized factors are Bernoulli PGFs; after any tilt each factor has squared modulus 1-2q(1-q)(1-cos t), strictly decreasing for 0<t<pi. In degree two, differentiate the exactly expanded squared modulus with respect to cos t to obtain p1(p0+p2)>=4p0p2 for ordinary monotonicity, while real roots require p1^2>=4p0p2. Exact-rational checks confirm the example and its unit-circle zero after tilt. The m=0 endpoint is treated separately. The code only checks exact finite examples; no computational extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aamand–Alon–Houen–Thorup, author manuscript, Section 1, Lemma 3.1 and Theorem 3.2 (doi:10.1214/22-ECP500).",
+        "Tang–Tang, The Poisson Binomial Distribution—Old & New, arxiv:1908.10024v1, Section 4, Theorem 4.1 (Aissen–Schoenberg–Whitney/Edrei theorem).",
+        "Tang–Tang Theorem 4.1 does identify all finite real-rooted probability polynomials, but does not impose the all-exponential-tilts Fourier condition."
+      ],
+      "reasoning": "Existing broader classes include infinite-support Poisson and geometric variables, so no finite-only theorem can purport to classify those. The source strong-monotonicity theorem applies to any strongly monotone variable and includes Bernoulli sufficiency, but has no necessity statement for finite support. Its implication direction does not subsume the present equivalence.",
+      "searches": [
+        "Aamand Alon Knudsen Thorup 2022 monotonicity strong monotonicity characteristic functions examples",
+        "radial angular modulus monotonicity generating polynomials all exponential tilts characterizes real-rootedness PF infinity Pólya frequency",
+        "Fourier modulus radially decreasing angle for every positive radius iff polynomial has negative real zeros",
+        "Aamand Alon Knudsen Thorup 2022 monotone variables strong converse Bernoulli sums"
+      ]
+    },
+    "checked_sources": [
+      "Aamand et al., arxiv:2104.03721v1 and doi:10.1214/22-ECP500 (author manuscript, relevant complete sections).",
+      "Tang and Tang, arxiv:1908.10024v1, Theorem 4.1 and adjacent discussion.",
+      "Aissen–Schoenberg–Whitney/Edrei characterization as stated in Tang and Tang, Theorem 4.1; classical paper original text not directly inspected.",
+      "2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda (published summary, cumulant inequalities).",
+      "2026/10/4/SCOPE-complete-kurtosis-phase-diagram-for-three-point-laws-with-fixed--4ff414e28fa1 (published summary, kurtosis).",
+      "2026/10/4/SCOPE-exact-two-crossing-transport-law-for-bernoulli-pair-balancing--952d735cb8e8 (published summary, distributional transport)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aamand–Alon–Houen–Thorup, author manuscript, Section 1, Lemma 3.1 and Theorem 3.2 (doi:10.1214/22-ECP500).",
+        "Tang–Tang, The Poisson Binomial Distribution—Old & New, arxiv:1908.10024v1, Section 4, Theorem 4.1 (Aissen–Schoenberg–Whitney/Edrei theorem).",
+        "Aamand et al. Lemma 3.1: Bernoulli variables are strongly monotone; Tang–Tang Theorem 4.1: real-rooted finite probability polynomial iff Poisson-binomial."
+      ],
+      "reasoning": "The combination of the two cited results proves only real-rooted => strong monotonicity; it does not show strong monotonicity => real-rootedness. The new zero-on-a-semicircle argument supplies precisely that missing implication. The explicit weak-versus-strong quadratic separation does not follow from either cited assertion alone. Earlier distributional/cumulant and transportation results assume Bernoulli sums and cannot imply the converse classification.",
+      "searches": [
+        "finite support strongly monotone integer variables exponential tilts if and only if real negative roots probability generating polynomial Poisson binomial convolution Bernoulli",
+        "All finitely supported integer-valued distributions satisfying strong characteristic-function monotonicity under every exponential tilt are exactly shifted Poisson-binomial distributions",
+        "Fourier modulus radially decreasing angle for every positive radius iff polynomial has negative real zeros",
+        "Tang Tang Poisson binomial real rooted polynomial theorem 4.1",
+        "Aamand Lemma 3.1 Theorem 3.2 strong monotone"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aamand–Alon–Houen–Thorup, author manuscript, Section 1, Lemma 3.1 and Theorem 3.2 (doi:10.1214/22-ECP500).",
+        "Tang–Tang, The Poisson Binomial Distribution—Old & New, arxiv:1908.10024v1, Section 4, Theorem 4.1 (Aissen–Schoenberg–Whitney/Edrei theorem).",
+        "The generating polynomial of the tilted finite law is H(rz)/H(r); all-tilts Fourier monotonicity therefore tests every upper semicircle, not just the original unit circle."
+      ],
+      "reasoning": "The necessary-condition claim can be restated as: a nonnegative-coefficient polynomial whose modulus is angularly nonincreasing on every positive-radius upper semicircle has no nonreal zero. Classical PF-infinity/strongly Rayleigh terminology characterizes negative-root polynomials, but does not by itself supply this angular-modulus converse. The focal paper proves the direction from Bernoulli factors to strong monotonicity, not the reverse.",
+      "searches": [
+        "monotone random integer variables characteristic function modulus decreasing [0,pi] mixtures zero inflated binomial",
+        "finite support strongly monotone integer variables exponential tilts if and only if real negative roots probability generating polynomial Poisson binomial convolution Bernoulli",
+        "strong monotonicity characteristic function finite support polynomial zeros nonreal obstruction Aamand 2021",
+        "All finitely supported integer-valued distributions satisfying strong characteristic-function monotonicity under every exponential tilt are exactly shifted Poisson-binomial distributions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record 2026/10/4/SCOPE-complete-kurtosis-phase-diagram-for-three-point-laws-with-fixed--4ff414e28fa1: fixed-mass kurtosis geometry, not the monotonicity criterion.",
+        "The exact three-point inequalities follow from a quadratic in cos(t), not from a numerical table.",
+        "No identical probabilities (8,7,2)/17 or matching angular criterion appeared in inspected records."
+      ],
+      "reasoning": "No inspected mathematical table or small finite classification supplies the all-degree equivalence. A kurtosis phase diagram for three atoms is not an angular characteristic-modulus monotonicity classification. The example is not used as independent novelty evidence without the theorem.",
+      "searches": [
+        "zero inflated binomial distributions monotone characteristic function exact parameter threshold",
+        "three point discrete distribution characteristic function modulus monotone not strongly monotone example probabilities 8 7 2",
+        "All finitely supported integer-valued distributions satisfying strong characteristic-function monotonicity under every exponential tilt are exactly shifted Poisson-binomial distributions",
+        "published record 2026/10/4/SCOPE-complete-kurtosis-phase-diagram-for-three-point-laws-with-fixed--4ff414e28fa1"
+      ]
+    },
+    "rationale": "The inspected original source gives strong-monotonicity sufficiency for Bernoulli variables and tilted local estimates, while the inspected Poisson-binomial survey gives the classical real-rooted factorization. Neither supplies the necessity from the all-tilts characteristic-modulus hypothesis; no equivalent statement surfaced in the targeted published-record/literature searches or accessible own historical claims. This is evidence-based, not an absolute novelty guarantee.",
+    "residual_risks": [
+      "Earlier analytic-polynomial or Fourier-decrease literature may contain an implicit or differently named all-circles characterization; targeted searches do not prove its absence.",
+      "The original 1952 Pólya-frequency paper was not directly examined; its factorization theorem is accounted for via the accessible 2019 survey.",
+      "Semantic search of published mathematical records is incomplete and rankings do not constitute a completeness theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Bernoulli/geometric/Poisson sufficiency and tilted local estimates are covered; finite-support necessity and a sharp quadratic ordinary/strong separation were not located in the inspected material.",
+        "evidence": "doi:10.1214/22-ECP500; arxiv:2104.03721v1; author manuscript pp. 1–3, 6–8.",
+        "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/sumofmon1.pdf",
+        "material_read": "Author-manuscript pages 1–3 and 6–8, including definitions, Section 2 examples, Lemma 3.1, Theorem 3.2, examples and references; checked the accessible arXiv version for first-public-date context.",
+        "method": "PDF text inspection with page-image inspection of pages 1, 6–8.",
+        "title": "On Sums of Monotone Random Integer Variables",
+        "trigger": "Exact definitions of monotone and strongly monotone variables and the main source for the new classification question."
+      },
+      {
+        "assessment": "Gives the classical equivalence of Poisson-binomial factorization and real-rooted generating polynomials, but not the equivalence with Fourier-modulus monotonicity under all exponential tilts.",
+        "evidence": "arxiv:1908.10024v1, Section 4, Theorem 4.1, Corollary 4.2.",
+        "identifier_or_url": "https://arxiv.org/pdf/1908.10024",
+        "material_read": "Introduction and Section 4, especially Theorem 4.1 and Corollary 4.2 on negative real roots, Pólya-frequency and Poisson-binomial laws; inspected root-location context on the following page.",
+        "method": "PDF text and page-image inspection of pages 1, 8–9.",
+        "title": "The Poisson Binomial Distribution—Old & New",
+        "trigger": "Potential stronger polynomial characterization that might automatically imply the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "84757c35-65b5-4a3d-8618-c7c6d6400e52",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Aamand et al. use strong monotonicity as a nontrivial assumption for tilted sharp point-probability estimates. The exact all-degree finite-support classification determines the complete scope of that hypothesis for bounded counts and prevents attempts to seek additional finite classes; the strict ordinary-versus-strong three-point distinction provides a sharp useful diagnostic. The result is a natural distributional class characterization, not a routine numeric recomputation or arbitrary slice; it does not claim a better local-limit constant.",
+    "status": "PASS"
+  }
+}
