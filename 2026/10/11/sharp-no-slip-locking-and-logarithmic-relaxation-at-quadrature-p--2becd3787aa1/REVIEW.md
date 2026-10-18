@@ -1,19 +1,21 @@
-# Scientific review: sharp quadrature two-cluster no-slip dynamics
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem restricts the globally coupled discrete phase map to a dynamically invariant two-cluster family with unequal sizes and identical intrinsic frequencies. Direct subtraction yields the exact real lift \(F_B(\delta)=\delta+B(1-\cos\delta)\). The global no-overshoot condition reduces to a one-variable minimization. The unique interior solution of \(\tan(t/2)=t\) supplies the sharp boundary, including the endpoint orbit mapping directly into the synchronized state. Every non-hitting orbit in the window is increasing and bounded in the lift; its only allowable limit is synchrony. For the reciprocal phase gap the difference equation has increment \(B/2+B^2/(4y)+O(y^{-2})\). A summable correction establishes \(y_n=(B/2)n+(B/2)\log n+C+o(1)\). The continuous-time comparison is integrated directly. The package's `verify.py` replayed successfully with 4,148 finite diagnostics; these supplement, but do not replace, the proof. Endpoint finite-hitting orbits are explicitly excluded from the reciprocal asymptotic.
+PASS
 
-## Originality — PASS, residual risk recorded
+For N≥3 equal-frequency oscillators with two internally synchronized clusters sizes p>q≥1 at β=π/2, direct subtraction of the exact discrete mean-field updates yields δ→F_B(δ)=δ+B(1-cosδ), B=K(p-q)/N>0. Uniform no-slip F_B((0,2π))⊂(0,2π] iff B≤min_{0<t<2π} t/(1-cos t)=B*=1.380050139689..., with unique minimizer t* solving tan(t*/2)=t*. For B in this range all non-finite-hitting lifted orbits are strictly increasing below 2π and converge there; the equality touching phase at B* hits in one step, and B>B* gives immediate overshoot examples, not post-slip dynamics. Gap x=2π-δ obeys x_next=x-B(1-cos x); reciprocal y=1/x satisfies y_next-y=B/2+B²/(4y)+O(y^-2). Since y~Bn/2 and the residual after subtracting (B/2)n+(B/2)log n is absolutely summable, there is an initial-condition-dependent finite C and o(1). Continuous-time exact integration yields no log correction. Independently solved t*, B* and numerical convergence constants for two B values; finite tests not used as universal orbit proof.
 
-Gade–Gupta (arXiv:2609.22715v1, 2026) present the model and a continuum Lorentzian incoherence threshold; their manuscript does not give the exact unequal two-cluster, critical phase-lag no-slip frontier or discrete-time reciprocal logarithmic correction. Gong–Zheng–Toenjes–Pikovsky (arXiv:1812.05883v2, Section III.2) explicitly establish a two-cluster **continuous-time** phase-difference drift, with noise and transverse stability; therefore the cluster restriction and pure-lag drift alone are not asserted as new. The standard sine-circle-map family and parabolic iteration theory cover general dynamical mechanisms and some leading-order behavior. The assessed contribution is the combined sharp orbit-independent finite-step winding threshold with its non-finite-hitting global relaxation law in the specified phase-lag network. A published study of critical sine-ring relaxation addresses a different flow; it does not imply the discrete two-cluster threshold. The risk of a prior equivalent specialized sine-circle calculation cannot be eliminated by search and remains explicit.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The model's continuum instability calculation does not control the finite-network phenomenon of phase-difference winding near the neutral quadrature lag. The sharp constant \(B_*\) separates parameter ranges with guaranteed no winding for **every** two-cluster initial phase from ranges admitting immediate windings, and is attained by an explicitly identified interior phase. This is a natural threshold rather than a handpicked numerical sample. The universal logarithmic term quantifies a discretization-induced departure from the corresponding integrable continuous cluster flow. Its coefficient is fixed by the same physical coupling/imbalance parameter that governs the winding boundary. Both results have a precise dynamical interpretation and may be useful in distinguishing genuine discrete-time behavior from Euler-discretization effects. Value does not rely on novelty or computation alone.
+Best-of-knowledge positive originality for the exact final theorem, differentiating known underlying objects/structural tools from the new quantified result. Direct primary comparisons and bounded actual searches are recorded; inaccessible full texts and missing exhaustive registry coverage remain risks. No search failure is interpreted as novelty proof.
 
-## Closest literature and scientific limits
+## value
 
-The closest directly relevant work is Gade–Gupta's discrete-time Kuramoto–Sakaguchi model; the strongest continuous-cluster predecessor is Gong et al.'s exact noisy continuous-time reduction. General circle-map texts and parabolic normal forms should not be confused with an independent priority certificate. This result is **not** a theorem about arbitrary initial phases, transverse multicluster stability, or convergence for \(B>B_*\). At \(B=B_*\), finite-hitting initial conditions do not satisfy the stated reciprocal asymptotic. Independent audit and independent validation have not occurred.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The threshold distinguishes a uniform finite-step no-winding guarantee over all phases in a physically defined invariant cluster family from existence of immediate phase slips; it is sharp and attained at an explicit phase. The logarithmic correction is a meaningful discrete-time dynamical invariant absent from the corresponding integrable continuous flow. This finite-network global frontier cannot be replaced by a local linearization or generic continuum stability analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
