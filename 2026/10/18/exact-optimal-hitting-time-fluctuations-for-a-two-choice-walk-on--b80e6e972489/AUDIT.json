@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Explicit Bellman value rises strictly with distance, implying mean-optimality of selecting the closer offered neighbour. The first and second moment recurrences with even/odd antipodal conditions yield the claimed formulas; subtracting squared mean yields variance. Exact transform satisfies first-step equations, and a uniform analytic expansion at z=1 yields the CLT and O(1) variance deviation. Checker passed 1778 exact-rational finite-chain/Bellman/transform comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1911.05170, full text (torus theorem establishes order-sharp times, not exact variance/CLT).",
+        "arxiv:2006.02475, full openly accessible version, model definition and results."
+      ],
+      "reasoning": "The order-sharp torus bound is asymptotic only, and neither exact target-distance moments nor Gaussian fluctuations follow from a Θ(diameter) estimate. The second paper permits a choice with fixed epsilon probability, a different proposal mechanism, so its statements do not dominate the present all-distance formulas.",
+      "searches": [
+        "The Power of Two Choices for Random Walks arxiv 1911.05170 torus Theorem 1.3 optimal policy",
+        "Time Dependent Biased Random Walks arxiv 2006.02475"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1911.05170, full open-access paper, 2019-11-12",
+      "arxiv:2006.02475, full open-access paper, 2020-06-03",
+      "Targeted web literature searches covering cycle two-choice hitting, greedy policy, exact moments, CLT, and classical reflected biased walks",
+      "Published semantic research-record comparisons for overlapping two-choice and random-walk hitting results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arxiv:1911.05170 the two-proposal mechanism and order-linear torus hitting are established, but an order estimate cannot imply the variance constant six or parity-specific exact coefficients.",
+        "In arxiv:2006.02475 the controller has a different opportunity for choice."
+      ],
+      "reasoning": "The current exact distributional refinement requires solving a reflected/holding birth-death chain and controlling the generating function uniformly in target distance. Known order bounds and general dynamic-programming existence do not imply the explicit formulas without new calculation. Historical birth-death formulas remain an unresolved priority caveat.",
+      "searches": [
+        "arxiv:1911.05170 torus choice walk optimal expected hitting time",
+        "arxiv:2006.02475 biased random walk probability epsilon"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Georgakopoulos et al., arxiv:1911.05170, sections on optimization, torus hitting-time bounds and proof of their hardness construction."
+      ],
+      "reasoning": "Two sampled neighbours generate downward probability 3/4 at internal distance states. The full model paper studies optimal expected hitting time and order bounds but no closed-form finite-cycle first-two-moment/CLT result was found in its actual treatment. Classical birth-death recurrences are acknowledged and could supply another expression.",
+      "searches": [
+        "\"choice random walk\" cycle exact hitting time 3/4 1/4 greedy",
+        "\"two-choice\" \"cycle\" \"hitting time\" exact random walk optimal",
+        "reflecting biased random walk cycle hitting time 3/4 1/4 variance CLT",
+        "arxiv:1911.05170 cycle and exact passage times"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results reviewed against primary arxiv:1911.05170 and arxiv:2006.02475; no matching exact finite-cycle table identified."
+      ],
+      "reasoning": "The statement is an analytic finite-state formula over arbitrary cycle length rather than a finite parameter table. A lack of a matching database hit is not evidence of definitive uniqueness.",
+      "searches": [
+        "two-choice random walk finite cycle exact expected hitting time fluctuations Gaussian parity distance",
+        "random walk cycle choose two neighbors minimum hitting time exact mean variance 3/4",
+        "target hitting time cycle C_n two-choice 3^d corrections"
+      ]
+    },
+    "rationale": "Compared with full primary arxiv:1911.05170, which gives two-choice dynamics and general order bounds but not exact all-cycle moments, parity corrections or Gaussian limit. Related arxiv:2006.02475 has different controller sampling mechanism. Previously known drift and birth-death techniques explicitly not claimed as independently new. Remaining equivalent older formulation risk disclosed.",
+    "residual_risks": [
+      "An earlier closed-form birth-death first-passage identity may imply one or more exact formulas under a change of variables.",
+      "Full historical priority and independent audit have not been completed; missing search hits do not prove global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Underlying process, drift 3/4 used in another construction, and Θ(diameter) results are prior; no explicit all-cycle distance variance and uniform CLT identified",
+        "evidence": [
+          "arxiv:1911.05170, initial publication 2019-11-12; relevant torus theorem and optimization analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1911.05170v2",
+        "material_read": "Full HTML text; introduction, optimization lemma, torus statement, hardness proof and searches for cycle/variance",
+        "method": "Open-access full-text reading with relevant mathematical statement comparisons",
+        "title": "The Power of Two Choices for Random Walks",
+        "trigger": "Foundational source defining the same two-proposal process with optimization and torus hitting-time statements"
+      },
+      {
+        "assessment": "Uses a different epsilon-biased action opportunity; does not directly supply present cycle two-proposal moment/limit formulas",
+        "evidence": [
+          "arxiv:2006.02475, posted 2020-06-03"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.02475v2",
+        "material_read": "Full HTML text, model/intro and theorem statements",
+        "method": "Open-access full-text reading and model/claim comparison",
+        "title": "Time Dependent Biased Random Walks",
+        "trigger": "Similar controlled random-walk hitting framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b80e6e97-2489-46f4-bfc4-0ea96a151d8a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite optimal hitting-time distributional uncertainty is material beyond order-sharp expected-time bounds. Uniform Gaussian fluctuations, variance coefficient and sharp parity boundary corrections quantify a natural stochastic control problem for every cycle size and starting distance.",
+    "status": "PASS"
+  }
+}
