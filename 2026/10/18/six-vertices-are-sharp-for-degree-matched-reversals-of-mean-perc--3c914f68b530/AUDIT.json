@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The exact nM edge-state identity is derived from conditional uniform seed choice. All labeled graphs through n=5, every permutation, and every open-edge subset are enumerated with exact integers. Both degree-ambiguous order-five pairs have fixed-sign factors. Independent pairwise unicyclic reliability and open-edge-state methods yield the same six-vertex polynomials; a monotone quadratic yields one interior crossing. See RESULT.md and verify.py/certificate.json.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stegehuis–Peron (2021), arxiv:2104.14776v1, Introduction and Sections III–IV: asymptotic clique networks and large-outbreak/critical approximations at matched degrees.",
+        "Miller (2009), PMCID:PMC2817154, §§1, 2.2, 3 and Discussion: clustering effects on epidemic sizes and estimates based on degree distributions.",
+        "Fountoulakis–Joos–Perarnau, SIAM J. Discrete Math. DOI:10.1137/20M1347607, accessible abstract: giant components of random graphs with prescribed degree sequences."
+      ],
+      "reasoning": "Asymptotic bounds, configuration model predictions, and degree-sequence averaged networks do not imply orderings between every pair of six-vertex fixed connected graphs, much less a sharp minimum or the exact crossing. The finite witness is not an instance where those general statements give the result.",
+      "searches": [
+        "Network processes on clique-networks with high average degree limited effect higher-order structure Stegehuis Peron 2021",
+        "Spread of infectious diseases through clustered populations Miller 2009 degree distribution",
+        "percolation on random graphs fixed degree sequence Fountoulakis Joos Perarnau"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:cond-mat/0001393v1",
+      "PMCID:PMC2215389",
+      "PMCID:PMC2817154",
+      "arxiv:2104.14776v1",
+      "DOI:10.1137/20M1347607 (abstract only)",
+      "DOI:10.1137/0405047 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stegehuis–Peron (2021) explicitly finds that large-degree asymptotic outbreak sizes can be nearly insensitive to clique decomposition at the same degrees.",
+        "Miller (2009) gives qualitative and approximate corrections related to clustering; both witness graphs here are triangle-free, with different cycle lengths, and their comparison changes sign.",
+        "Kenah–Robins (2007) makes generic random-infectious-period SIR a distinct probabilistic model."
+      ],
+      "reasoning": "Neither asymptotic insensitivity nor qualitative clustering reduction gives a strict opposite-sign pair in a finite same-degree class. The witness is an exact comparison of two distinct fixed unicyclic six-vertex graphs; the exhaustive four- and five-vertex classification is separate from all cited work. Claims of broader SIR equivalence are explicitly excluded.",
+      "searches": [
+        "same degree sequence graphs expected SIR epidemic outbreak size reversal infection transmissibility seven vertices",
+        "degree matched unicyclic graphs 4 cycle with two edge pendant path versus 5 cycle with leaf mean cluster size reversal",
+        "six vertex connected degree matched graphs uniform seed bond percolation expected component size crossing sqrt(17)-4 C4 tail C5 leaf",
+        "small graph susceptibility polynomial average component size order crossing 6 vertex",
+        "clustered vs unclustered bond percolation mean outbreak crossover same degree sequence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moore–Newman (2000), arxiv:cond-mat/0001393v1, defines uniform-root cluster sizes and generating functions on small-world networks.",
+        "Kenah–Robins (2007), PMCID:PMC2215389, Section 1 and counterexample distinguish independent edge retention from generic SIR."
+      ],
+      "reasoning": "Mean open-component size is also finite-graph susceptibility or the sum of all-pairs connection probabilities. Those equivalent descriptions were used in searches and proof; the classical model and its reliability expressions do not state the sharp degree-matched finite order and crossover.",
+      "searches": [
+        "same degree sequence graphs expected SIR epidemic outbreak size reversal infection transmissibility seven vertices",
+        "degree matched unicyclic graphs 4 cycle with two edge pendant path versus 5 cycle with leaf mean cluster size reversal",
+        "bond percolation cluster size reliability susceptibility polynomial fixed graph degree sequence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exhaustive in-package enumeration finds the connected graph classes \\(1,1,2,6,21\\) through order five and compares exactly the two duplicate degree-profile pairs.",
+        "Brown–Colbourn (1992), DOI:10.1137/0405047, concerns graph *all-terminal reliability* rather than a uniform-root expected component size."
+      ],
+      "reasoning": "All-terminal reliability is a different polynomial from the sum of vertex-pair connection reliabilities. No accessed exact small-graph table or database entry with the same entire claim was found; an obscure such table remains possible.",
+      "searches": [
+        "same degree sequence percolation susceptibility polynomial finite graphs 6 vertices table",
+        "graph reliability polynomials incomparable same degree sequence cycles with pendent path",
+        "small graph susceptibility polynomial average component size order crossing 6 vertex"
+      ]
+    },
+    "rationale": "Primary-text comparison distinguishes previously known percolation epidemic models, clustering effects, and degree-sequence random graph approximations from the exact sharp connected order-six crossover under fixed degree multiset, including the triangle-free witness. No checked source implies this full statement; alternate exact reliability tables remain a priority risk.",
+    "residual_risks": [
+      "Other literature under graph susceptibility, pair-connectivity polynomial, or small reliability-table terminology may predate the result.",
+      "Relevant non-open books and old network-reliability tables were not exhaustively inspected; independent priority audit remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Background not covering fixed small-graph degree-matched reversal",
+        "evidence": "Explicitly equates a uniform random seed epidemic cluster with an occupied component; solves large small-world network model, not pairs of fixed graphs with identical degrees.",
+        "identifier_or_url": "https://arxiv.org/html/cond-mat/0001393v1",
+        "material_read": "Full accessible HTML article; abstract, introduction, cluster interpretation and mean-outbreak generating-function derivation around equations 1–14",
+        "method": "Read article text and equations",
+        "title": "Exact solution of site and bond percolation on small-world networks",
+        "trigger": "Primary historical bond-percolation outbreak model and oldest motivating source"
+      },
+      {
+        "assessment": "Restricts model scope; does not subsume result",
+        "evidence": "A nondegenerate infectious-period distribution can correlate transmissions incident at a node, invalidating exact undirected bond-percolation law. The new theorem assumes independent edges directly.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2215389/",
+        "material_read": "Full HTML article; abstract, Introduction, finite counterexamples, percolation-network derivation and discussion of independent-edge failure",
+        "method": "Read full-text methods and cited counterexample in HTML",
+        "title": "Second look at the spread of epidemics on networks",
+        "trigger": "Potentially broader SIR-to-percolation correspondence"
+      },
+      {
+        "assessment": "Qualitative/asymptotic effects, not the exact six-vertex threshold",
+        "evidence": "Discusses degree-matched configuration-model comparisons, the effect of triangle-breaking edge swaps, and their correction terms; no exact finite minimum or the triangle-free cycle-length witness.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2817154/",
+        "material_read": "Full HTML article; Sections 1, 2.2, clustering correction through figure 7, and Discussion",
+        "method": "Compared mathematical object, degree-preserving changes, scope and quantitative conclusions",
+        "title": "Spread of infectious diseases through clustered populations",
+        "trigger": "Clustering and degree-preserving perturbations affecting outbreaks"
+      },
+      {
+        "assessment": "Does not imply fixed-graph finite cutoff or crossing",
+        "evidence": "Investigates random clique networks with large mean degree and approximations for giant components/thresholds, not exact uniform-root susceptibility polynomials on small connected unicyclic graphs.",
+        "identifier_or_url": "https://arxiv.org/html/2104.14776v1",
+        "material_read": "Full accessible HTML paper; Sections I, III–IV, approximations of largest component and percolation threshold, figures and conclusion",
+        "method": "Checked assumptions, target percolation statistic, asymptotic conclusions",
+        "title": "Network processes on clique-networks with high average degree: the limited effect of higher-order structure",
+        "trigger": "Plausible stronger results about matched degree sequences and bond percolation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3c914f68-b530-4914-8828-7fb3b912d4eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp smallest connected example isolates a consequential ambiguity in using degree summaries to compare epidemic risk across transmissibility, even at equal triangle counts. The natural risk functional has a nontrivial exact unique switching threshold, and five-vertex impossibility is established by complete classification. This is a motivated finite structural boundary, not a mere calculation or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
