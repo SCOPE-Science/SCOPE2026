@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published global paperfolding theorem reduces completeness to factors of length at most \(45\). The package certifies the exact regular-paperfolding factor language through that cutoff by consecutive-level stabilization of the four-letter uniform morphism, with a source-length induction proving no later factor can appear. It then enumerates every repetition factorization by exact period tests and dynamic programming. An independent odd-part generator recovers the same factor sets.
+## correctness
 
-## Originality
-PASS. The closest source proves uniqueness for Thue--Morse but, for paperfolding, gives shortest-width bounds and the global length cutoff without counting alternative factorizations. Focused semantic, exact-witness, cutoff, and broader algorithmic searches found no published ambiguity census. Claim-level overlap checks contain paperfolding results for different invariants only.
+PASS
 
-Residual risk remains for an unindexed or unpublished finite computation of the same catalogue.
+The published paperfolding theorem gives a global maximum factor length 45 for words admitting repetition factorizations. In the four-letter 2-uniform fixed point, factor sets of μ^9(0) and μ^10(0) agree through length 45. Any factor of μ(z) of length ℓ≤45 depends on a source factor of length at most ceil((ℓ+1)/2)≤23 and one parity offset, proving by induction no later factors appear at length ≤45. Coding yields a complete regular binary bounded factor language. Exact dynamic programming over every admissible prefix with period ≤ half its length finds 232 distinct factorizable factors, counts {1:112,2:94,3:12,4:2,5:10,6:2}, shortest ambiguous length 9 (four factors), longest unique length 30 (two), maximal multiplicity 6 (two). Distinct factors, not occurrences, are counted; the global cutoff is essential.
 
-## Value
-PASS. The result completes the natural uniqueness question for the regular paperfolding word over the entire finite universe forced by the source's theorem. It supplies a complete factor-level classification rather than an arbitrary prefix experiment: \(232\) factorizable factors, the exact uniqueness split, the full multiplicity distribution, and sharp first/last ambiguity landmarks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary theorem of Rampersad–Shallit–Xu supplies the length 45 cutoff and short-width work, but not a complete multiplicity-by-factor census of regular paperfolding. Exact 232-word classification and full per-factor catalogue are additional finite invariants of a natural automatic sequence, not the previously proved finiteness itself.
+
+## value
+
+PASS
+
+The ambiguity distribution is a natural exact classification of repetition factorizations of an extensively studied automatic word. It determines exactly when unique factorization fails, by how many decompositions and at what lengths, potentially serving future work on automatic-string factorization and decidable regularity cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

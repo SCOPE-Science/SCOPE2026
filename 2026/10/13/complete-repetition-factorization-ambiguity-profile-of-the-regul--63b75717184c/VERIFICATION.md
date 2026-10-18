@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `catalog.json` and `certificate.json`.
+# Independent mathematical audit
 
-The first engine reconstructs the regular paperfolding word from its four-letter \(2\)-uniform morphism. It verifies exact equality of every source factor set of lengths \(1\) through \(45\) at substitution levels \(9\) and \(10\). Because a target factor of length at most \(45\) depends on a source factor of length at most \(23\) and one alignment bit, this equality is an inductive stabilization certificate for the complete bounded factor language.
+## correctness
 
-Every binary factor in the coded language is then tested directly for all periods up to half its length. Dynamic programming enumerates every cut composition whose blocks are repetitions.
+PASS
 
-A second engine generates \(65536\) bits from the independent odd-part formula and checks the same factor sets through length \(45\). The recomputed exact catalogue must match `catalog.json` record by record.
+The published paperfolding theorem gives a global maximum factor length 45 for words admitting repetition factorizations. In the four-letter 2-uniform fixed point, factor sets of μ^9(0) and μ^10(0) agree through length 45. Any factor of μ(z) of length ℓ≤45 depends on a source factor of length at most ceil((ℓ+1)/2)≤23 and one parity offset, proving by induction no later factors appear at length ≤45. Coding yields a complete regular binary bounded factor language. Exact dynamic programming over every admissible prefix with period ≤ half its length finds 232 distinct factorizable factors, counts {1:112,2:94,3:12,4:2,5:10,6:2}, shortest ambiguous length 9 (four factors), longest unique length 30 (two), maximal multiplicity 6 (two). Distinct factors, not occurrences, are counted; the global cutoff is essential.
 
-The published global theorem that any paperfolding factor admitting a repetition factorization has length at most \(45\) converts this bounded exact census into the complete infinite-word classification.
+## originality
 
-Independent audit has not been performed.
+PASS
+
+The primary theorem of Rampersad–Shallit–Xu supplies the length 45 cutoff and short-width work, but not a complete multiplicity-by-factor census of regular paperfolding. Exact 232-word classification and full per-factor catalogue are additional finite invariants of a natural automatic sequence, not the previously proved finiteness itself.
+
+## value
+
+PASS
+
+The ambiguity distribution is a natural exact classification of repetition factorizations of an extensively studied automatic word. It determines exactly when unique factorization fails, by how many decompositions and at what lengths, potentially serving future work on automatic-string factorization and decidable regularity cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
