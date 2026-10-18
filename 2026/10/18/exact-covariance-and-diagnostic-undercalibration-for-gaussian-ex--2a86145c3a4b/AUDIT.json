@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Exact projector reduction makes every leave-one-out contribution \\(c[(k-1)+R_i]\\). Conditional Gaussian orthogonal projection gives marginal chi-square with \\(d=n-k+1\\) degrees of freedom. Conditioning on the other k-2 columns reduces each pair to two independent isotropic Gaussian vectors in \\(d+1\\) dimensions. Their Beta angular fourth moment gives \\(\\operatorname{Cov}(R_i,R_j)=2d/(d+3)\\), yielding exact variance and diagnostic formulas; k=1 and k=n+1 are separately checked. Rational identities, 528 direct Nyström computations and 750000 Gaussian samples corroborate but are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2603.05721v1 Theorems 3.3–3.5 give upper bounds on bias and MSE, not the stated exact covariance.",
+        "arXiv:2301.07825 Proposition 2 gives the algebraic diagnostic bias as a function of the contribution correlation, but does not supply its flat-spectrum value."
+      ],
+      "reasoning": "The earlier general identity does imply the displayed calibration ratio once the new model-specific correlation is supplied; by itself it does not imply the numerical dimension/probe-count factor. Existing residual normalization eliminates flat-spectrum variance, but applies to a different estimator and does not cover the raw scheme result.",
+      "searches": [
+        "XNysTrace isotropic matrix sample variance correlation Gaussian",
+        "FlexTrace matrix function identity full flat spectrum plug in error estimator underestimation n/(n-k) variance",
+        "exchangeable trace estimator equal eigenvalues leave one out covariance calibration"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.05721v1 (2026-03-05): Algorithm 3.1, Theorems 3.3–3.5",
+      "arxiv:2301.07825 (2023-01-19): Sections 2.2–2.3, 3.1, 5.3, 5.6",
+      "Published mathematical record search for FlexTrace, XNysTrace, Gaussian leave-one-out residual covariance, and exact isotropic variance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2603.05721v1 Algorithm 3.1 defines the raw finite-sketch estimator and its Theorems 3.3–3.5 do not determine the flat-spectrum covariance.",
+        "arXiv:2301.07825 Section 5.6 explains the general exchangeable variance/diagnostic relationship and Section 2.3 introduces normalized test vectors."
+      ],
+      "reasoning": "The new result is not a competing general error bound or a rediscovery of the estimator. It computes an exact angular two-residual moment and the resulting closed variance and calibration ratio on a natural flat-spectrum model. Existing normalization is credited and the new statement is restricted to unnormalized Gaussian FLEXTRACE.",
+      "searches": [
+        "FlexTrace exchangeable randomized trace estimation Algorithm 3.1 Theorem 3.5",
+        "XTrace Making the most of every sample in stochastic trace estimation Proposition 2 5.3 5.6",
+        "leave-one-out Gaussian projection residuals covariance chi-square n columns pair correlation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The FLEXTRACE Algorithm 3.1 identity on arXiv:2603.05721v1 reduces here to Gaussian orthogonal residuals.",
+        "arXiv:2301.07825 Section 3.1 provides the empirical dispersion estimator, Proposition 2 gives only a general function of correlation."
+      ],
+      "reasoning": "Equivalent formulations include the residual energy of two Gaussian columns after projection on their shared remaining span and the pair covariance of exchangeable Nyström trace contributions. The angular Beta moment evaluates their correlation as \\(1/(n-k+4)\\); neither primary source states this exact all-n,k specialization in inspected material.",
+      "searches": [
+        "FlexTrace exchangeable Nyström matrix function trace estimator full-rank sketch leave-one-out Gaussian isotropic identity exact variance covariance of residuals",
+        "Gaussian Nyström trace leave-one-out isotropic covariance chi square residual pair covariance 2d/(d+3) exact",
+        "FlexTrace identity matrix exact variance leave one out Gaussian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inspected arXiv:2301.07825 Sections 4.1–4.2 numerical spectral families and plots; the displayed flat example is a nonconstant linearly decreasing spectrum.",
+        "No exact numeric dimension/probe-count covariance table was found in primary text reviewed or in targeted result summaries."
+      ],
+      "reasoning": "The reported formulas are a complete symbolic classification rather than a known catalogued table entry located through these searches. Negative search results alone are not a proof of novelty.",
+      "searches": [
+        "Gaussian XNysTrace equal eigenvalues exact variance 2(n-k+1)(n+3)/(k(n-k+4))",
+        "XNystrace Gaussian leave-one-out trace estimator identity matrix n-by-n Gaussian sketch exact mean squared error degrees freedom"
+      ]
+    },
+    "rationale": "The specific pair-covariance law and complete dimension/probe-count calibration factor are absent from the inspected primary construction, bound, diagnostic, and normalization statements. Earlier work provides the estimators and abstract covariance relationship, but not this explicit evaluated angular law or sampling-rank transition. The novelty assertion is best-knowledge and is limited by uncatalogued equivalent calculations.",
+    "residual_risks": [
+      "Equivalent Gaussian projection-covariance formulas may exist in uncatalogued multivariate analysis literature.",
+      "The published general covariance formula implies the calibration factor after the spherical moment has been evaluated; originality lies in that model-specific evaluation and its rank-edge interpretation.",
+      "The analyzed raw Gaussian variant is not the already-recommended residual-normalized implementation, which exactly resolves the constant-spectrum example."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_METHOD_AND_GENERAL_BOUNDS; NO_EXPLICIT_FLAT_COVARIANCE_IDENTIFIED_IN_INSPECTED_MATERIAL",
+        "evidence": [
+          "Algorithm 3.1 uses f(N_full)-f(N_minus_i) and unnormalized Gaussian vectors.",
+          "Theorems 3.3–3.5 express general bias/MSE controls in Nyström residual norms."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.05721",
+        "material_read": "Abstract, definitions, Nyström construction, Algorithm 3.1, Theorems 3.1–3.6 and adjacent discussion through page 10; page 10 also inspected visually.",
+        "method": "Accessible arXiv PDF text, with a rendered-page cross-check.",
+        "title": "FlexTrace: Exchangeable Randomized Trace Estimation for Matrix Functions",
+        "trigger": "Motivating 2026 paper defining the estimator and general error bounds."
+      },
+      {
+        "assessment": "GENERAL_COVARIANCE_IDENTITY_COVERS_ERROR_BAR_STRUCTURE; SPECIFIC_GAUSSIAN_ANGLE_COVARIANCE_UNSPECIFIED_IN_INSPECTED_SECTIONS",
+        "evidence": [
+          "Section 3.1 defines the exact scaled sample-dispersion error proxy.",
+          "Proposition 2 relates expected proxy to true error through an unspecified inter-contribution correlation.",
+          "Section 2.3 already recommends residual vector normalization; no new claim to that modification."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2301.07825",
+        "material_read": "Sections 1.2, 2.2–2.3, 3.1–3.2, 4.1–4.2, 5.3 and 5.6, including equations (9), (16) and Proposition 2.",
+        "method": "Full preprint converted to accessible HTML and inspected by section, including relevant formulas and numerical-spectral discussion.",
+        "title": "XTrace: Making the most of every sample in stochastic trace estimation",
+        "trigger": "Closest earlier construction, diagnostic covariance identity, and normalization alternative."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a86145c-3a4b-4c96-8b61-193957e3fdea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp dimension/probe-count-dependent covariance gives a testable diagnostic-calibration factor for the raw exchangeable matrix-function trace estimator. The factor diverges near sample-rank saturation even while the true absolute variance remains positive and the empirical squared diagnostic vanishes in expectation. It is a motivated, exact all-dimension error-estimation boundary, with a precisely confined flat-spectrum scope and an explicit acknowledgement that prior residual normalization makes that particular model deterministic.",
+    "status": "PASS"
+  }
+}
