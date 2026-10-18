@@ -1,11 +1,21 @@
-# Scientific review: two-lowest-population reset threshold
+# Independent mathematical audit
 
-**Correctness — PASS.** The reference-output Choi matrix is \(J=s|\Omega\rangle\langle\Omega|+(1-s)I\otimes\sigma\). Every off-diagonal two-dimensional block of its partial transpose is positive exactly when \(s\le(1-s)\sqrt{p_i p_j}\); taking the smallest geometric mean yields necessity. Cubic phase averaging of the explicitly constructed product vectors recovers the maximally correlated term while leaving a diagonal residue with exactly the same inequalities as nonnegativity conditions, proving full separability in arbitrary dimension. The semigroup identity and explicit Lindblad jump operators independently verify the time conversion. The embedded verifier passes four spectra and nineteen reported test points (sixteen matrix conditions and three time crossings; each matrix test includes multiple assertions). There is no appeal to finite experiments as infinite proofs.
+## correctness
 
-**Originality — PASS, with residual risk.** The entanglement-breaking/Choi equivalence in Horodecki–Shor–Ruskai is background [1], the unital depolarizing threshold is already known [2], and the two-qubit replacement-product threshold belongs to the 2026 Bell-mixing work [3]. The 2024 shifted-depolarizing analysis [4] considers stationary states with at most two distinct eigenvalues; it is a genuine nearby predecessor, and its later full-text section could not be completely inspected. The present claim is expressly restricted to faithful spectra with at least three distinct eigenvalues in dimensions at least three, and provides a direct all-dimensional finite separable decomposition and exact two-smallest-population Gibbs lifetime. Targeted research-index, published-record, alias and implication searches did not exhibit this assertion or a stronger theorem; that is not proof of unique publication priority. A broader unseen separability classification could imply it.
+PASS
 
-**Value — PASS.** For a thermal reservoir with at least three distinct energy levels, the exact instant when **all** reference-system entanglement is broken is operationally significant. The theorem shows that it depends only on the two least populated levels, even though the channel has an arbitrary nondegenerate thermal population profile. Exact PPT-to-separability equivalence in high dimensions, accompanied by an explicit constructive witness, is stronger than generic qualitative convergence or a simple lower bound. This is a natural full-family classification, not a selected numerical parameter or a cosmetic reformulation.
+For Φ(X)=sX+(1−s)Tr(X)σ the unnormalized Choi matrix J=s|Ω〉〈Ω|+(1−s)I⊗σ. Partial transpose decomposes into diagonal sectors and 2×2 |ij〉,|ji〉 blocks with determinant (1−s)²p_i p_j−s², hence PPT iff s≤√(p_(1)p_(2))/(1+√(p_(1)p_(2))). To prove sufficiency (not generally implied by PPT), average 3^d explicit product projectors using independent cubic phases with weights p_i^(−1/4),√s p_j^(1/4), yielding s|Ω〉〈Ω|+sΣ_{i≠j}√(p_j/p_i)|ij〉〈ij|. The residual J−S is diagonal with coefficients (1−s)p_j−s√(p_j/p_i)≥0 under precisely that PPT condition; all d≥3 and endpoint s=0/equality work. Semigroup s=e^(−γt) and Lindblad operators √(γp_i)|i〉〈j| establish exact first EB time. Independent complex-tensor computations through d=4 checked this finite separable decomposition and PPT eigenvalue signs.
 
-**Closest literature and limits.** [1] proves the general channel/Choi criterion, [2] establishes general eventual breaking and unital examples, [3] handles qubit Bell mixing, and [4] studies the closely related two-eigenvalue stationary-state family. The scientific theorem does not extend to arbitrary generators or guarantee a previously unrecorded publication priority. The most consequential open comparison is whether [4] or another source contains a general mathematical lemma whose implications exceed the family explicitly defined there.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Choi separability and the ordinary unital depolarizing EB threshold are classical and explicitly excluded. The literature inspection did not show the all-spectrum anisotropic two-lowest-eigenvalue EB cutoff nor the explicit cubic-phase decomposition. Specialized shifted-depolarizing paper by Baitenov (2024) could not be read in full: open/preprint attempts failed and authorized access returned VPN disconnected; this risk is explicit and does not, by itself, negate a best-of-knowledge originality PASS.
+
+## value
+
+PASS
+
+Exact EB horizons are operational invariants for quantum noise channels. The full-rank arbitrary-dimensional reset model has a simple but previously unchecked dependence on the *two smallest* target populations; the proof provides an explicit separable Choi certificate establishing when PPT is sufficient despite generally failing at d≥3, not merely a generic threshold guess.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

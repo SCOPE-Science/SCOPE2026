@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify_reset.py` after installing the dependency in `requirements.txt` with Python 3. The script uses deterministic spectra of dimensions \(3\), \(4\) and \(5\), reconstructs \(J\) from the stated channel, verifies all partial-transpose block eigenvalue signs around the predicted exact transition, evaluates the \(3^d\)-term cubic-phase product-projector sum, and compares the diagonal remainder entry by entry against the analytically predicted coefficients. It also checks three time points straddling the semigroup transition, including the boundary.
+## correctness
 
-Expected and observed output:
+PASS
 
-`VERIFY_OK fullrank_PPT_and_phase_decomposition=16 Lindblad_thresholds=3`
+For Φ(X)=sX+(1−s)Tr(X)σ the unnormalized Choi matrix J=s|Ω〉〈Ω|+(1−s)I⊗σ. Partial transpose decomposes into diagonal sectors and 2×2 |ij〉,|ji〉 blocks with determinant (1−s)²p_i p_j−s², hence PPT iff s≤√(p_(1)p_(2))/(1+√(p_(1)p_(2))). To prove sufficiency (not generally implied by PPT), average 3^d explicit product projectors using independent cubic phases with weights p_i^(−1/4),√s p_j^(1/4), yielding s|Ω〉〈Ω|+sΣ_{i≠j}√(p_j/p_i)|ij〉〈ij|. The residual J−S is diagonal with coefficients (1−s)p_j−s√(p_j/p_i)≥0 under precisely that PPT condition; all d≥3 and endpoint s=0/equality work. Semigroup s=e^(−γt) and Lindblad operators √(γp_i)|i〉〈j| establish exact first EB time. Independent complex-tensor computations through d=4 checked this finite separable decomposition and PPT eigenvalue signs.
 
-The principal mathematical certificate is the fully spelled-out proof in `RESULT.md`, especially the exact phase-average identity and its diagonal residual inequalities. These checks do not independently certify originality or extend a finite computation to the infinite family. The theorem assumes positive stationary populations and at least three distinct eigenvalues in dimensions at least three. No independent audit has been performed.
+## originality
+
+PASS
+
+Choi separability and the ordinary unital depolarizing EB threshold are classical and explicitly excluded. The literature inspection did not show the all-spectrum anisotropic two-lowest-eigenvalue EB cutoff nor the explicit cubic-phase decomposition. Specialized shifted-depolarizing paper by Baitenov (2024) could not be read in full: open/preprint attempts failed and authorized access returned VPN disconnected; this risk is explicit and does not, by itself, negate a best-of-knowledge originality PASS.
+
+## value
+
+PASS
+
+Exact EB horizons are operational invariants for quantum noise channels. The full-rank arbitrary-dimensional reset model has a simple but previously unchecked dependence on the *two smallest* target populations; the proof provides an explicit separable Choi certificate establishing when PPT is sufficient despite generally failing at d≥3, not merely a generic threshold guess.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

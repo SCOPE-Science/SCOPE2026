@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T16:13:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Φ(X)=sX+(1−s)Tr(X)σ the unnormalized Choi matrix J=s|Ω〉〈Ω|+(1−s)I⊗σ. Partial transpose decomposes into diagonal sectors and 2×2 |ij〉,|ji〉 blocks with determinant (1−s)²p_i p_j−s², hence PPT iff s≤√(p_(1)p_(2))/(1+√(p_(1)p_(2))). To prove sufficiency (not generally implied by PPT), average 3^d explicit product projectors using independent cubic phases with weights p_i^(−1/4),√s p_j^(1/4), yielding s|Ω〉〈Ω|+sΣ_{i≠j}√(p_j/p_i)|ij〉〈ij|. The residual J−S is diagonal with coefficients (1−s)p_j−s√(p_j/p_i)≥0 under precisely that PPT condition; all d≥3 and endpoint s=0/equality work. Semigroup s=e^(−γt) and Lindblad operators √(γp_i)|i〉〈j| establish exact first EB time. Independent complex-tensor computations through d=4 checked this finite separable decomposition and PPT eigenvalue signs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hanson et al., arXiv:1902.08173, studies eventual EB and gives ordinary depolarizing examples, whereas σ=I/d has one distinct eigenvalue.",
+          "Baitenov (2024) DOI 10.4213/tm4375 describes shifted depolarizing with narrower stationary spectrum; its complete results could not be read."
+        ],
+        "reasoning": "The established unital threshold is recovered as a boundary specialization but does not imply the full arbitrary σ theorem; Baitenov may be stronger under an uninspected reduction, retained as a concrete residual risk.",
+        "searches": [
+          "entanglement breaking depolarizing channel mixing identity with arbitrary fixed full rank quantum state threshold smallest eigenvalue Choi PPT separable",
+          "Hanson Rouze Stilck Franca Eventually Entanglement Breaking Markovian Dynamics 1902.08173",
+          "Baitenov shifted depolarizing quantum channel tm4375"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/quant-ph/0302031",
+        "https://arxiv.org/abs/1902.08173",
+        "https://doi.org/10.4213/tm4375"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The PPT determinant condition is necessary for EB.",
+          "An explicit phase-product decomposition plus positive diagonal remainder proves sufficiency at equality in arbitrary dimension.",
+          "The known unital depolarizing threshold s≤1/(d+1) follows by substituting p_i=1/d."
+        ],
+        "reasoning": "The prior Choi criterion and depolarizing result are insufficient to establish that this particular high-dimensional PPT class is separable. Baitenov could cover more but full text was inaccessible, so that comparison is limited rather than falsely asserted negative.",
+        "searches": [
+          "Horodecki Shor Ruskai General Entanglement Breaking Channels theorem 4",
+          "Hanson Rouze Stilck Franca depolarizing Example 2.12",
+          "Baitenov DOI 10.4213/tm4375",
+          "entanglement breaking depolarizing channel mixing identity with arbitrary fixed full rank quantum state threshold smallest eigenvalue Choi PPT separable"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Identity–replacement channel has Choi matrix s|Ω〉〈Ω|+(1−s)I⊗σ, a maximally correlated rank-one plus diagonal state.",
+          "Horodecki–Shor–Ruskai, arXiv:quant-ph/0302031, proves general EB iff separable Choi (Theorem 4)."
+        ],
+        "reasoning": "General Choi EB equivalence is an ingredient; it does not furnish separability of the special anisotropic PPT Choi states. The audited phase-averaging identity is the missing nontrivial implication.",
+        "searches": [
+          "entanglement breaking depolarizing channel mixing identity with arbitrary fixed full rank quantum state threshold smallest eigenvalue Choi PPT separable",
+          "identity replacement channel p_min1 p_min2 entanglement breaking Choi separability",
+          "arxiv:quant-ph/0302031 entanglement breaking channels characterization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's 12 retrieved quantum-channel findings concern different channels (e.g. rank-one TCP cores, quantum erasure, two-cavity amplitude damping) and give no matching reset-σ EB table.",
+          "Hanson et al. gives known depolarizing threshold, which corresponds to all p_i=1/d, excluded from the novelty domain."
+        ],
+        "reasoning": "No exact fixed-dimensional table was used for novelty; independent numerical checks are only sanity checks. A table of unital cases cannot determine the universal two-smallest-population threshold.",
+        "searches": [
+          "entanglement breaking depolarizing channel mixing identity with arbitrary fixed full rank quantum state threshold smallest eigenvalue Choi PPT separable",
+          "entanglement breaking time reset channel arbitrary Gibbs stationary populations formula table"
+        ]
+      },
+      "rationale": "Choi separability and the ordinary unital depolarizing EB threshold are classical and explicitly excluded. The literature inspection did not show the all-spectrum anisotropic two-lowest-eigenvalue EB cutoff nor the explicit cubic-phase decomposition. Specialized shifted-depolarizing paper by Baitenov (2024) could not be read in full: open/preprint attempts failed and authorized access returned VPN disconnected; this risk is explicit and does not, by itself, negate a best-of-knowledge originality PASS.",
+      "residual_risks": [
+        "Baitenov (2024) full text inaccessible due to authorized institutional VPN disconnection; possible same-model stronger lemma cannot be excluded.",
+        "Other shifted-depolarizing or maximally-correlated-state separability criteria might re-express the exact threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General equivalence is prior input only; no stated arbitrary-output-population formula.",
+          "evidence": "Horodecki, Shor and Ruskai (2003), Theorem 4.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0302031",
+          "material_read": "Full open arXiv PDF with Theorem 4 and equivalences inspected.",
+          "method": "Read theorem and map normalized Choi convention to σ-interpolation.",
+          "title": "General Entanglement Breaking Channels",
+          "trigger": "General Choi separability characterization may dominate claim."
+        },
+        {
+          "assessment": "Unital and broad asymptotic framework, no located full anisotropic two-lowest law.",
+          "evidence": "Hanson, Rouzé and Stilck França, arXiv:1902.08173.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.08173",
+          "material_read": "Open manuscript, focused eventual EB theory and the standard depolarizing special example (Section 2).",
+          "method": "Read relevant PDF pages and compare generators/σ spectrum.",
+          "title": "Eventually Entanglement Breaking Markovian Dynamics: Structure and Characteristic Times",
+          "trigger": "Competing EB-time formulas for Markov semigroups."
+        },
+        {
+          "assessment": "Potential competing coverage remains unknown, but no direct scientific contradiction was found from read material.",
+          "evidence": "Baitenov (2024), DOI 10.4213/tm4375; full text unavailable.",
+          "identifier_or_url": "https://doi.org/10.4213/tm4375",
+          "material_read": "Publisher bibliographic abstract/metadata only; complete paper not obtained.",
+          "method": "Searched preprint and OA first, then authorized institutional retrieval returned VPN disconnected; no bypass.",
+          "title": "On Jensen Gap and Capacity of a Shifted Depolarizing Quantum Channel",
+          "trigger": "Plausible specialized shifted-depolarizing channel with EB calculation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact EB horizons are operational invariants for quantum noise channels. The full-rank arbitrary-dimensional reset model has a simple but previously unchecked dependence on the *two smallest* target populations; the proof provides an explicit separable Choi certificate establishing when PPT is sufficient despite generally failing at d≥3, not merely a generic threshold guess.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/quant-ph/0302031",
+    "https://arxiv.org/abs/1902.08173",
+    "https://doi.org/10.4213/tm4375"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact for identity–replacement interpolation and single-rate reset semigroup with faithful σ (at least three distinct eigenvalues), d≥3.",
+    "No arbitrary thermal Lindbladian, coherent Hamiltonian, or multirate result; finite numerics do not imply arbitrary d."
+  ],
+  "residual_risks": [
+    "Baitenov (2024) full text inaccessible due to authorized institutional VPN disconnection; possible same-model stronger lemma cannot be excluded.",
+    "Other shifted-depolarizing or maximally-correlated-state separability criteria might re-express the exact threshold."
+  ],
+  "schema_version": 1
+}
