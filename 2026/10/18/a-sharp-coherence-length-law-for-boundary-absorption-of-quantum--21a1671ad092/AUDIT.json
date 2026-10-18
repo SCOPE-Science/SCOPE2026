@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact Green-function/Parseval decomposition is reconstructed for arbitrary normalized finite-window sources, including both exterior energy branches. The universal exterior bound follows from Cauchy–Schwarz and 2η/(1+η²q²)≤1/q for n≥2. Pointwise optimality at η=1 reduces all normalized packets to the Hermitian Toeplitz maximum. The global multiplier inequalities x/4≤1−σ≤x/4+x²/8 are checked separately on positive and negative wave numbers, and Parseval plus the exact Dirichlet path eigenpair yields matching sharp inequalities, proving π²/[4(K+1)²]+O(K^{-3}). Direct numerical checks are independent corroboration, not a replacement for the arbitrary-K proof. The K=2 matrix and both eigenvalues are evaluated analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "S. V. Parter, On the Extreme Eigenvalues of Toeplitz Matrices (1961), DOI:10.1090/S0002-9947-1961-0138981-6 (bibliographic description inspected)",
+        "A. Böttcher and S. M. Grudsky, Spectral Properties of Banded Toeplitz Matrices, Chapter 10, DOI:10.1137/1.9780898717853.ch10 (chapter overview inspected)",
+        "arxiv:2605.08056v4, Appendix D, single-site absorption integral and finite-distance asymptotics"
+      ],
+      "reasoning": "Classical Toeplitz edge theory is directly relevant and could imply an extreme eigenvalue rate after the physical absorption effect has been identified as a Toeplitz compression. It does not, as inspected, state the combined Lindblad absorption preparation-length theorem or its uniform finite-distance control. The new finite-difference comparison supplies a self-contained coefficient proof; a general new Toeplitz theorem is not claimed.",
+      "searches": [
+        "extreme eigenvalues Toeplitz matrices smooth symbol unique nondegenerate maximum pi squared n squared Parter Widom theorem",
+        "Seymour Parter 1961 extreme eigenvalues Toeplitz matrices symbol maximum order 2 pi² coefficient proof pdf",
+        "Toeplitz coherent wave packet directional sink absorption finite spectral bandwidth localization rate 1/K^2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.08056v4",
+      "arxiv:2512.02186v2",
+      "Böttcher–Grudsky, Chapter 10: Extreme Eigenvalues",
+      "Parter, On the Extreme Eigenvalues of Toeplitz Matrices (1961)",
+      "Ambainis et al., One-dimensional quantum walks (2001)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2605.08056v4, exact Green function Eq. (D.11): all source-to-boundary amplitudes are accessible; Eq. (D.18): only localized-source probability is integrated",
+        "arxiv:2512.02186v2, initial coin-qubit state is at one spatial site; different discrete-time operator",
+        "Böttcher–Grudsky Chapter 10: known extreme-eigenvalue estimates for Hermitian Toeplitz matrices"
+      ],
+      "reasoning": "Linearity of the known Green function makes the packet absorption integral derivable, so the integral alone is not claimed as novel. The assessed statement adds an optimization over arbitrary phase-coherent K-site preparations and absorber strengths, a uniform n-and-eta comparison, and sharp explicit finite-K Dirichlet inequalities. A broader black-box Toeplitz theorem may cover the asymptotic eigenvalue step, but no inspected prior source explicitly supplies the entire physical conclusion; this remains the leading originality risk.",
+      "searches": [
+        "quantum walk Lindblad sink half line absorption coherent adjacent initial sites chirality probability 2/pi",
+        "quantum walk 2605.08056 exact absorption probability coherent initial wave packets finite support K",
+        "Toeplitz coherent wave packet directional sink absorption finite spectral bandwidth localization rate 1/K^2",
+        "nearest neighboring wavepacket absorbing boundary quantum walk phase 2/pi",
+        "quantum walk absorbing boundary initial state phase coherence two adjacent sites control total detection probability sink"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2605.08056v4, boundary resolvent Eq. (D.11) and localized initial-data absorption Eq. (D.18)",
+        "arxiv:2512.02186v2, Sections II-III: discrete-time coined walk with coin-state-dependent binary absorption"
+      ],
+      "reasoning": "A localized-site half-line Lindblad calculation cannot be rephrased as a fixed-support coherent-window optimum without using off-diagonal boundary-absorption effects and a spectral maximization. Discrete-time coined escape-probability work is not operator-equivalent to the coinless continuous-time Lindblad-loss process.",
+      "searches": [
+        "quantum walk Lindblad sink half line absorption coherent adjacent initial sites chirality probability 2/pi",
+        "quantum walk 2605.08056 exact absorption probability coherent initial wave packets finite support K",
+        "2605.08056 Riberi Lindblad absorbing quantum walk finite distant initial superposition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ambainis et al., One-dimensional quantum walks (2001), CaltechAUTHORS abstract: probability 2/π for a discrete-time Hadamard walk hitting an immediately adjacent boundary",
+        "arxiv:2605.08056v4, localized-site infinite-distance absorption 1−2/π at matched loss, Section 4"
+      ],
+      "reasoning": "The same numerical constant 2/π appears in a distinct coined discrete-time absorption problem; this is explicitly acknowledged as a coincidence, not independent evidence of novelty. The present K=2 limit in the Lindblad half-line model and the K-dependent coherence-window ceiling were not found in the examined source texts.",
+      "searches": [
+        "nearest neighboring wavepacket absorbing boundary quantum walk phase 2/pi",
+        "\"2/pi\" \"absorbing\" \"two site\" quantum walk",
+        "\"2/π\" \"absorption probability\" \"quantum walk\" phase",
+        "\"Riberi\" \"coherent\" \"absorption\" \"phase\""
+      ]
+    },
+    "rationale": "The contribution is the concrete, physically motivated finite-window absorption optimization: the exact K-by-K Toeplitz variational reduction, the uniform bound K/[2π n(n−1)] independent of loss rate and coefficients, the exact K=2 chiral ceiling 2/π, and explicit two-sided finite-K inequalities fixing the leading 1/K² deficit constant. Riberi gives the underlying rank-one boundary Green function and the localized-source absorption integral, but not coherent-window optimization. Parter-type extreme Toeplitz results may imply the leading coefficient after this new physical reduction; no claim is made to a general Toeplitz eigenvalue theorem. Relevant discrete-time coin-state absorption is a different walk. The mathematical and bibliographic residual risks are disclosed.",
+    "residual_risks": [
+      "Classical Parter-type Toeplitz extreme eigenvalue theorems may implicitly imply the leading K^{-2} coefficient; that coefficient is not claimed as a new generic Toeplitz phenomenon.",
+      "The original full boundary propagator makes the coherent-state response formally calculable by linearity; novelty rests on the exact constrained optimization, sharp finite-K bounds and uniform distance control.",
+      "No exhaustive full-text comparison was possible for older monograph and Parter paper; possibility of a stronger covering result remains.",
+      "Numerical similarity with 2/π absorption for a discrete-time Hadamard walk should not be conflated with same-model coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the forward Green function and localized source, not the evaluated K-window spectral optimum, uniform error and Dirichlet-law bounds",
+        "evidence": "arxiv:2605.08056v4, Eqs. (7), (9), (15), (D.11), (D.18), Discussion/Conclusions",
+        "identifier_or_url": "https://arxiv.org/pdf/2605.08056",
+        "material_read": "Full-text portions: model and resolvent in Sections 2–3, localized-source absorption in Section 4, boundary Parseval derivation in Appendix D.2 and final discussion",
+        "method": "Read the public preprint PDF text and inspected a rendered PDF page; compared equations (D.11), (D.15)–(D.18) and the stated future directions",
+        "title": "Boundary-localized non-Hermitian modes in an absorbing quantum walk",
+        "trigger": "Exact same continuous-time half-line Lindblad boundary-sink model; essential same-object and same-parameter comparison"
+      },
+      {
+        "assessment": "Different discrete-time coined dynamics and coin-qubit parameter estimation; no coverage of continuous-time Lindblad coherent spatial support K or its K→∞ ceiling",
+        "evidence": "arxiv:2512.02186v2, Eqs. (1)–(5), Sections I–III",
+        "identifier_or_url": "https://arxiv.org/pdf/2512.02186",
+        "material_read": "PDF abstract, Introduction and Sections II–III defining the coined discrete-time walk, boundary readout and initial coin qubit",
+        "method": "Read arXiv public full text in relevant model and formula sections",
+        "title": "Absorption-based qubit estimation in discrete-time quantum walks",
+        "trigger": "Phase-sensitive absorption of initial quantum states; possible broader absorption-control theorem"
+      },
+      {
+        "assessment": "Relevant generic theory, not an inspected statement of the full Lindblad application; residual implication risk remains",
+        "evidence": "Chapter 10 public abstract / section 10.1 excerpt",
+        "identifier_or_url": "https://doi.org/10.1137/1.9780898717853.ch10",
+        "material_read": "Public chapter abstract and preview of Section 10.1; full book chapter not obtained",
+        "method": "Examined bibliographic and mathematical excerpt of Toeplitz extreme-eigenvalue results",
+        "title": "Spectral Properties of Banded Toeplitz Matrices, Chapter 10: Extreme Eigenvalues",
+        "trigger": "Potential general-dominance theorem for K-dependent eigenvalue asymptotics"
+      },
+      {
+        "assessment": "Could cover the K^{-2} eigenvalue edge once symbol is known; no direct Lindblad absorption theorem verified",
+        "evidence": "Parter 1961 bibliographic and abstract record, DOI as given",
+        "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1961-0138981-6",
+        "material_read": "Public bibliographic abstract/excerpt only; complete full text not obtained",
+        "method": "Read accessible index summary and mathematical assumptions excerpt",
+        "title": "On the Extreme Eigenvalues of Toeplitz Matrices",
+        "trigger": "Classical Parter-style asymptotics potentially subsuming the spectral-rate component"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "21a1671a-d092-49d6-b04b-72a52e87e36c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For an actual quantum-transport control parameter—the number K of coherent preparation sites—this derives an exact nonunit absorption ceiling at every finite K and the sharp coherence resource required to approach total absorption. The K=2 chiral phase raises far-field eventual absorption from the known localized 1−2/π to 2/π, while its opposite phase gives only 2−6/π; the exact K-dependent Dirichlet gap and the uniform finite-distance bound permit meaningful preparation/design tradeoffs. This is neither a free renaming nor an arbitrary table entry; it is a complete natural fixed-window variational problem with physical interpretation.",
+    "status": "PASS"
+  }
+}
