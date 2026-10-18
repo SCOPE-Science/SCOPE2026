@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Two independent complete enumeration recursions agree on all 2,9,272 matchings for Q2,Q3,Q4; two independently generated move sets agree on each matching. BFS proves the stated component and radius/diameter counts; group enumeration proves the 8-frozen-state orbit. Explicit four frozen seeds and their cross-disjointness are directly checkable; the exhaustive three-type square analysis yields 2^(2^(d-4)) frozen matchings for each d>=4. The finite program was replayed successfully against its embedded output.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2304.10930 Theorem 5 shows positive minimum degree for D_{d-1}(Q_d) allowing alternating cycles up to length 2d-2; Theorem 6 shows connectedness for D_{2d-2}(Q_d), allowing cycles up to length 4d-4.",
+        "Fink 2009 establishes connectivity for a matching adjacency by spanning Hamiltonian cycles."
+      ],
+      "reasoning": "Statements about larger move sets cannot imply connectivity or lack of frozen states under the strictly smaller set of 4-cycle moves, nor yield a component histogram, distance values, or the particular parity-slice lower bound. The current result is logically compatible with those results.",
+      "searches": [
+        "arxiv:2304.10930 Theorems 3,5,6 and Sections 1.2,1.3,4 (full text inspected)",
+        "Fink 2009 DOI:10.1137/070697288 connectivity of matching graphs"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1404.6509 primary PDF Sections 1,2,6",
+      "arxiv:2304.10930 full PDF",
+      "Fink 2007 full author-hosted primary PDF DOI:10.1016/j.endm.2007.07.059",
+      "Fink 2009 full author-hosted primary PDF DOI:10.1137/070697288",
+      "OEIS A005271 scalar Q4 matchings",
+      "published-finding corpus id:2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098 full RESULT.md",
+      "Public four-cube forcing-polynomial results and separate graph-flip literature, checked for mathematical implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fink uses spanning-Hamiltonian-cycle union, not exactly one coordinate-square exchange.",
+        "Hartarsky–Lichev–Toninelli state D_2 on general 3D boxes may have isolates but prove higher-dimensional cube ergodicity only with cycles of lengths >=6 also allowed.",
+        "A published four-cube forcing-subset census studies forcing polynomials and alternating-cycle packing across 272 matchings, but does not state 4-cycle reconfiguration, 8-isolate connectivity or the parity-slice theorem."
+      ],
+      "reasoning": "Known static matchings, global Hamiltonian union connectivity, nonunit box frozen examples, and longer-cycle ergodicity leave the claimed 4-cycle-only freezing threshold and local graph metric undetermined. No stronger inspected theorem dominates the present claim.",
+      "searches": [
+        "Fink 2007 DOI:10.1016/j.endm.2007.07.059 full author manuscript",
+        "Fink 2009 DOI:10.1137/070697288 full author manuscript",
+        "arxiv:2304.10930 full 15-page pdf",
+        "own ledger claim item_id 41c6e4ae-810d-42cf-b461-676c15f1f537"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hartarsky–Lichev–Toninelli (arxiv:2304.10930) Definition D_l: local moves on alternating cycles of length <=2l; D_2 is the present single-square flip graph.",
+        "Fink DOI 10.1137/070697288 Definition of matching graph: adjacency when the two matchings unite into a spanning Hamiltonian cycle."
+      ],
+      "reasoning": "Square flips are equivalent to length-four alternating cycle switchings, i.e. D_2 on unit hypercubes. The closely named Fink matching graph instead uses Hamiltonian-cycle union and is not an equivalent move set. No inspected statement classifies D_2(Q4) or its higher-dimensional frozen set.",
+      "searches": [
+        "published-finding corpus: hypercube four-cube square flip perfect matching graph frozen 8 rigid",
+        "Web: hypercube perfect matchings local square flips frozen isolated four cube",
+        "arxiv:2304.10930, Definition D_ell, full pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A005271 tabulates the known scalar 272 perfect matchings for Q4, not the 4-cycle flip graph.",
+        "published-finding corpus record 2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098 counts 2,027,025 perfect matchings on all 16 binary vectors and their XOR-profile multiplicity spectrum, not 272 hypercube-edge matchings under 4-cycle flips. Its full RESULT.md was inspected."
+      ],
+      "reasoning": "The known matching total and complete-graph XOR profile enumerators do not determine the hypercube local-flip adjacency/connected components or the infinite sharp frozen construction. A published four-cube forcing-polynomial enumeration likewise does not tabulate the square-flip graph.",
+      "searches": [
+        "published-finding corpus: Q4 hypercube 272 perfect matchings 8 isolated under 4-cycle flips 264 connected component diameter 8",
+        "published-finding corpus: four-dimensional cube domino tilings perfect matchings 4-cycle flips disconnected",
+        "OEIS A005271 and own matching count comparison"
+      ]
+    },
+    "rationale": "The local four-cycle-only component theorem and sharp dimension-four frozen-matching transition are not implied by published Hamiltonian-cycle-union connectivity (Fink), longer-cycle dimer ergodicity (Hartarsky–Lichev–Toninelli), or a complete-graph XOR-difference matching census. Existing Q4 matching counts and an accessible forcing polynomial study are explicitly excluded as originality claims. Targeted searches and direct full-text checks support a best-knowledge distinction, with the risk of unindexed prior equivalent computations acknowledged.",
+    "residual_risks": [
+      "A differently indexed paper/code repository may have enumerated D_2(Q4) or implicitly included a parity-slice construction.",
+      "Published descriptions of local dimer dynamics in three-dimensional shapes demonstrate related frozen phenomena, so the substantive novelty is the exact unit-hypercube threshold plus quantitative classification and infinite lower bound, not the existence of frozen dimers in all settings.",
+      "No independent mathematical audit has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: only three-dimensional two-floor domains and selected box examples are classified, not square flips of Q4 or higher-dimensional unit hypercubes.",
+        "evidence": [
+          "arxiv:1404.6509 v1 submitted 2014-04-25 19:30:11 UTC, Sections 1, 2 and 6."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1404.6509",
+        "material_read": "Primary full-text sections 1–2 and 6, including tables of flip-connected components, plus arXiv original v1 submission date.",
+        "method": "Author preprint hosted on arXiv, PDF section reading and version-history check.",
+        "title": "Flip invariance for domino tilings of three-dimensional regions with two floors",
+        "trigger": "Historical archive source for the exact square-flip operation and disconnected dimer spaces."
+      },
+      {
+        "assessment": "NOT_COVERING the D_2(Q4) components/isolates or the all-dimension frozen lower bound. Their connectedness theorem permits cycles as long as 4d-4 and their positive-degree theorem permits lengths 2d-2.",
+        "evidence": [
+          "arxiv:2304.10930 pages 1–4 definitions D_l, Theorem 5 and 6; Section 4 proof of longer-cycle ergodicity."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.10930",
+        "material_read": "Full 15-page preprint, including introduction, definitions, Theorems 3–6 and their hypotheses, technical proofs, and references.",
+        "method": "Accessible arXiv PDF primary full text, checking definitions and actual cycle-length inequalities.",
+        "title": "Local dimer dynamics in higher dimensions",
+        "trigger": "Directly studies perfect matchings of unit hypercubes under short alternating-cycle moves; most relevant potential broader coverage."
+      },
+      {
+        "assessment": "NOT_COVERING: adjacency is Hamiltonian-cycle union, rather than an elementary four-cycle symmetric difference.",
+        "evidence": [
+          "Fink SIAM J Discrete Math 2009 DOI:10.1137/070697288, definitions and main theorem."
+        ],
+        "identifier_or_url": "https://kam.mff.cuni.cz/~fink/publications/kreweras2.pdf",
+        "material_read": "All 11 author-accessible PDF pages, including definition, statement and proof of connectivity and Q4 enumeration figure.",
+        "method": "Full author-hosted primary manuscript, textual and visual pages.",
+        "title": "Connectivity of Matching Graph of Hypercube",
+        "trigger": "Named hypercube matching graph connectivity could appear to contradict disconnected square-flip graph."
+      },
+      {
+        "assessment": "NOT_COVERING: global spanning-cycle flip relation is different; no 4-cycle flip component classification.",
+        "evidence": [
+          "Fink 2007 DOI:10.1016/j.endm.2007.07.059."
+        ],
+        "identifier_or_url": "https://kam.mff.cuni.cz/~fink/publications/eurocomb07.pdf",
+        "material_read": "Full seven-page author manuscript inspected.",
+        "method": "Primary author PDF, all seven pages.",
+        "title": "Matching graphs of hypercubes and complete bipartite graphs",
+        "trigger": "Earliest historical source for hypercube matching connectivity vocabulary."
+      },
+      {
+        "assessment": "NOT_COVERING: different underlying graph and invariant, with no local cycle flip operation.",
+        "evidence": [
+          "Record explicitly counts 2,027,025 unrestricted pairings and 20,295 admissible XOR profiles."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098",
+        "material_read": "Complete RESULT.md read; this counts arbitrary-edge complete-graph perfect matchings with prescribed XOR profiles.",
+        "method": "Public repository source file through approved read-only connector.",
+        "title": "Complete prescribed-difference matching multiplicity spectrum in dimension four",
+        "trigger": "Closest mathematical-record hit has same Boolean 4-cube vertex set and matchings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7ef858ee-b44f-44b3-8082-c3207b724ea5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural question of exact reachability under the smallest local dimer operation has a sharp freezing threshold at dimension four, complete first-exceptional component geometry, and an explicit doubly exponential family of higher-dimensional frozen states. This is a structural theorem with a clear distinction from existing long-cycle ergodicity or global Hamiltonian-union dynamics; it is not merely a known matching census or routine parameter substitution.",
+    "status": "PASS"
+  }
+}
