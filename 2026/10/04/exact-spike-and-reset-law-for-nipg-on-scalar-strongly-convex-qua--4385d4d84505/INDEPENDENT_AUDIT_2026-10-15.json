@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T14:56:49.195496Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For f(x)=a x²/2, g=0, exact NIPG1/2 prox has x_{k+1}=(1−at_k)x_k, source A1=A2=a|x_{k+1}−x_k|², and positive x_k,t_k makes strict curvature test equivalent to at_k>c0; then next step resets exactly t_{k+1}=c1/a. If at_k<=c0, expansion factor 1+gamma'_k is safe for NEXT iterate uniformly iff gamma'_k<=2/c0−1, sharp at at_k=c0 because objective ratio (1−at)^2>1 iff at>2. At source initialization t_-1=t_0=c0/a, test equality selects expansion, source ratio branch only caps gamma when t_k/t_{k-1}<1, so gamma'_0=gamma0. Any arbitrarily large finite gamma0 can be first entry of positive summable sequence; F(x2)/F(x1)=[1−c0(1+gamma0)]² is unbounded, while t2 resets to c1/a (take gamma avoiding accidental x2=0). Verified source Algorithm3.1 pp.6–7 including strict test and gamma conditional, and exact rational illustrative source replay; proof holds for all admissible scalars, finite checks are corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original NIPG 2026 Theorem4.1 guarantees objective monotonicity only for k>=k*_ell, explicitly leaving transient uncontrolled.",
+          "2024 NPG1 predecessor has similar adaptive method/effective eventual control but does not itself state arbitrary finite amplification and sharp scalar cap."
+        ],
+        "reasoning": "Eventual descent theorems are weaker than bounded initial objective ratios; they do not imply the audited unbounded finite-transient example. Previous generic proximal bounds assume step restrictions not imposed on gamma0.",
+        "searches": [
+          "Optimization Online 36519 NIPG Theorem 4.1 eventual monotonicity",
+          "Optimization Online 26741 NPG1 adaptive stepsize comparison"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, source artifacts/verify_nipg_spike.py exact rational computations",
+        "2026 Optimization Online paper full 28-page primary PDF Algorithm3.1 pp.6–7 and theorem §4",
+        "2024 Optimization Online predecessor source summary",
+        "Resultary query comparing neighboring scalar adaptive methods"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source explicit strict inequality (17) and t_{k+1} formula (18); it does not claim all-iteration descent.",
+          "Source Theorem4.1 makes post-threshold, not initial, descent claim, consistent with spike."
+        ],
+        "reasoning": "The algorithm equations imply the scalar law algebraically, so the mathematical novelty is a sharp quantified counterexample/boundary to a natural but unproved finite-transient intuition, not a new algorithm or asymptotic convergence theorem.",
+        "searches": [
+          "Optimization Online 36519 2026 Algorithm3.1 Lemma4.1 Theorem4.1",
+          "Optimization Online 26741 2024 NPG1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithm3.1 is the original exact-prox special case; nearby Resultary Padam/B-adaPG/MADGRAD scalar spikes use different stepsize memory and are not recurrence-equivalent."
+        ],
+        "reasoning": "The scalar NIPG specialization is not renaming a generic gradient step, because the exact strict post-step curvature test, ratio-dependent expansion and delayed reset jointly determine its behavior.",
+        "searches": [
+          "Resultary NIPG scalar quadratic spike reset curvature c0 c1",
+          "Optimization Online 36519 gamma ratio truncation t_k t_kminus1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original Algorithm3.1 formulas (17)–(19) identify exact update, but no source numerical table of worst possible second-step amplification."
+        ],
+        "reasoning": "A numerical convergence benchmark cannot certify an unbounded worst-case transient over admissible input sequences; absent same-method bound or example in original source, not a known-table recomputation.",
+        "searches": [
+          "\"NIPG\" \"scalar quadratic\" \"spike\" \"c0\" \"gamma0\"",
+          "Resultary post hoc curvature reset proximal expansion safety cap"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level comparison against original and broader sources, with explicit covered components and material-access residual risks. A failed search is not proof of novelty.",
+      "residual_risks": [
+        "Sharpness concerns allowing arbitrarily large first gamma term within a summable positive sequence; practical small preset gamma avoids the example.",
+        "The scalar quadratic mathematics is elementary once the concrete update is substituted; its value rests on the previously unstated quantified transient gap, not algebraic sophistication.",
+        "2024 NPG1 may have closely related implicit scalar boundary, even if no exact same NIPG claim found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ALGORITHM_KNOWN_TRANSIENT_BOUND_NEW",
+          "evidence": "Step3 (17)–(19) uses strict test, resets t_{k+1}, and gamma ratio cap ONLY if t_k/t_{k-1}<1; Theorem4.1 asserts nonincrease for k>=k*_ell, not k=0.",
+          "identifier_or_url": "Optimization Online 36519 (2026-08-31); https://optimization-online.org/wp-content/uploads/2026/08/NIPG_31-8_HoaiHaoYao.pdf",
+          "material_read": "Primary open 28-page PDF pp.5-7 Algorithm3.1 exact prox specialization, gamma ratio conditional, strict curvature test, pp.10–14 eventual convergence/descent lemmas",
+          "method": "Lawful OA full PDF and detailed text/screenshot comparison",
+          "title": "New inexact adaptive proximal gradient algorithms for nonconvex composite optimization problems",
+          "trigger": "Identical Algorithm 3.1 NIPG1/2"
+        },
+        {
+          "assessment": "PREDECESSOR_RISK",
+          "evidence": "Related NPG update architecture; no verified literal NIPG scalar spike/reset characterization; equivalence of specialist formulas is retained as priority risk.",
+          "identifier_or_url": "Optimization Online 26741 (2024-06-15)",
+          "material_read": "Abstract and accessible predecessor statements on adaptive stepsizes/eventual descent; no full manuscript inspection in this run",
+          "method": "Optimization Online summary/related original paper discussion",
+          "title": "Composite optimization problems via novel proximal gradient algorithms and applications",
+          "trigger": "Immediate algorithmic predecessor NPG1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit sharp one-step safety cap and arbitrarily large objective spike reveal a quantitatively important missing finite-transient guarantee of a concrete adaptive proximal algorithm whose convergence theorem only controls eventual descent. Even on a strongly convex quadratic, initial monotone descent does not preclude a huge next jump; the post-hoc curvature reset identifies why. This motivated failure mode can guide safe adaptive expansions; it does not purport to invalidate asymptotic convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Sharpness concerns allowing arbitrarily large first gamma term within a summable positive sequence; practical small preset gamma avoids the example.",
+    "The scalar quadratic mathematics is elementary once the concrete update is substituted; its value rests on the previously unstated quantified transient gap, not algebraic sophistication.",
+    "2024 NPG1 may have closely related implicit scalar boundary, even if no exact same NIPG claim found.",
+    "Publication not_ready is metadata/confidentiality transport, not scientific rejection or external expert/formal attestation."
+  ],
+  "schema_version": 1
+}

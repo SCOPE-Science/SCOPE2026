@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. On the scalar quadratic, the exact proximal step and both source curvature quantities are elementary and give a complete recurrence. The source's strict test is exactly equivalent to \(a t_k>c_0\), so a violation resets the next stepsize to \(c_1/a\). The objective ratio is exactly \((1-a t_k)^2\), making \(a t_k\le2\) the exact nonincrease condition. The boundary initialization \(a t_0=c_0\) therefore gives the stated expansion and arbitrary second-step spike when the admissible first expansion parameter is large.
+PASS
 
-The bundled exact-rational replay checks representative cases but is not used as an infinite proof.
+For f(x)=a x²/2, g=0, exact NIPG1/2 prox has x_{k+1}=(1−at_k)x_k, source A1=A2=a|x_{k+1}−x_k|², and positive x_k,t_k makes strict curvature test equivalent to at_k>c0; then next step resets exactly t_{k+1}=c1/a. If at_k<=c0, expansion factor 1+gamma'_k is safe for NEXT iterate uniformly iff gamma'_k<=2/c0−1, sharp at at_k=c0 because objective ratio (1−at)^2>1 iff at>2. At source initialization t_-1=t_0=c0/a, test equality selects expansion, source ratio branch only caps gamma when t_k/t_{k-1}<1, so gamma'_0=gamma0. Any arbitrarily large finite gamma0 can be first entry of positive summable sequence; F(x2)/F(x1)=[1−c0(1+gamma0)]² is unbounded, while t2 resets to c1/a (take gamma avoiding accidental x2=0). Verified source Algorithm3.1 pp.6–7 including strict test and gamma conditional, and exact rational illustrative source replay; proof holds for all admissible scalars, finite checks are corroborative.
 
-## Originality
+## originality
 
-PASS. The 2026 primary paper was inspected at the curvature definitions, exact-proximal reduction, Algorithm 3.1, and both nonconvex and convex convergence theorems. It proves objective descent only from a finite iteration and does not state a finite-transient amplification law. The 2024 NPG1 predecessor was also inspected in full around its algorithm, eventual gamma control, sufficient-decrease result, and convergence theorem. It likewise gives eventual rather than all-iterate descent and does not state the spike-and-reset formula or sharp scalar safety cap.
+PASS
 
-Targeted database searches for the algorithm names, scalar quadratic specialization, objective overshoot, post-hoc curvature tests, and summable expansion sequences returned only different adaptive or accelerated methods. The main residual originality risk is an older normalized-gradient observation under different terminology.
+Best-of-knowledge statement-level comparison against original and broader sources, with explicit covered components and material-access residual risks. A failed search is not proof of novelty.
 
-## Value
+## value
 
-PASS. The result identifies a structural distinction in the source algorithm: the curvature test repairs an oversized step only after that step has already affected the objective. The exact scalar law quantifies both the failure mode and the repair, while the sharp cap \(\gamma'_k\le2/c_0-1\) gives a concrete pre-step safeguard on the canonical strongly convex model. This directly explains the source's eventual-descent formulation and is not merely a numerical example.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+An explicit sharp one-step safety cap and arbitrarily large objective spike reveal a quantitatively important missing finite-transient guarantee of a concrete adaptive proximal algorithm whose convergence theorem only controls eventual descent. Even on a strongly convex quadratic, initial monotone descent does not preclude a huge next jump; the post-hoc curvature reset identifies why. This motivated failure mode can guide safe adaptive expansions; it does not purport to invalidate asymptotic convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
