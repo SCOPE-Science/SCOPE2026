@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The explicit integral cellular model has 28 vertices, 72 edges and 42 squares, and an exact determinant-one quotient calculation constructs the full integral first-homology basis. The natural total-motion map is surjective, its kernel is the single exchange generator, and all 48 induced automorphisms have been reconstructed exactly. Fifteen rational equivariance equations for the generator matrices have a unique solution with denominator three. An independent integral determinant checks the three top-homology torus generators. The standalone checker, including 2304 group-law checks and the antipodal index-four computation, executed successfully; finite exhaustive steps do not extrapolate to other graphs.
+
+**Originality — PASS, with literature risk.** The familiar abstract free homology rank and graph braid generators are credited. Primary material inspected includes the Barnett–Farber ordered two-particle results, Maciążek–Sawicki's abstract planar homology result, An–Maciążek graph presentations, and dated Abrams–Ghrist graph-model introduction. Comparisons also include published cuboctahedral rational modules and a different exchange-sign Borel–Moore calculation. Their statements do not imply a natural cube-graph ordinary integral extension of order three. Targeted searches for the specific cube, canonical exact extension, symmetry, alias and denominator found no directly covering result; an unindexed equivalent remains possible.
+
+**Mathematical value — PASS.** The two-point cube graph is a minimal and canonical three-dimensional, trivalent, non-cactus test of equivariant graph-braid topology. The exact three-primary non-splitting distinguishes natural integral group actions with identical abstract homology and the same rational representation; it pinpoints precisely the coefficient ring needed for equivariant splitting. The supplementary integral degree-two and antipodal lattice structures situate the obstruction inside a complete small natural example.
+
+**Limits.** No general dimension- or particle-uniform result, full cohomology ring, or independent review is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
