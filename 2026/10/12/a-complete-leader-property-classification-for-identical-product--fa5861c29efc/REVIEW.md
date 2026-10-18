@@ -1,15 +1,21 @@
-# Review: A complete leader-property classification for identical product marginals
+# Independent mathematical audit
 
-## Correctness
-PASS. For a fixed index and one coordinate, conditioning gives the exact tied-maximum probability \(u_n=\mathbb E[F(X)^{n-1}]\). If the upper endpoint has no atom, cutoffs with tail \(t\downarrow0\) give \(u_n\le(1-t)^{n-1}+t\); choosing \(n\asymp t^{-1}\log(1/t)\) makes \(u_n\le2t\). Coordinate independence gives fixed-index leader probability \(u_n^d\), and the union bound yields \(a_n\le n u_n^d\to0\) along the selected subsequence because \(d\ge2\). If a top atom of mass \(p>0\) exists, a sample point equal to the top vector occurs with probability tending to one. Definitions, ties, finite and infinite essential suprema, and all quantifiers are covered.
+## correctness
 
-## Originality
-PASS. The 2022 motivating paper states the broader infinite-value product question and handles continuous products plus several sufficient discrete conditions, but not this complete identical-marginal classification. Candidate-specific published-finding corpus searches under leader-property, common-marginal, maximum-multiplicity, essential-supremum, and top-atom aliases returned no covering statement. The closest own prior structural result gives an exact maximum-tie criterion for arbitrary two-dimensional products but explicitly leaves the infinite-support decision open; the present tail-cutoff theorem is the missing implication and extends to all \(d\ge2\). The 2022 quasi-unidimensional and 2025 graph-based follow-ups concern different dependence classes. Residual risk remains for an elementary equivalent result under older common-maximizer terminology.
+PASS
 
-## Value
-PASS. Equal marginals are the canonical symmetric subfamily of the published product conjecture, not an arbitrary numerical slice. The theorem gives a complete if-and-only-if classification for every dimension and every one-dimensional marginal, including continuous, mixed, discrete, bounded, and unbounded laws. It explains structurally that only a terminal atom can sustain positive leader probability uniformly in sample size.
+PASS: For fixed sample index and one marginal, u_n=E[F(X)^(n-1)] includes ties. Any law without a terminal upper atom admits cutoffs b_j with upper tails t_j downarrow 0. Split integral: u_n<=(1-t_j)^(n-1)+t_j; choosing n_j=ceil(log(1/t_j)/t_j)+1 gives u_n<=2t_j. With d independent coordinate samples, leader probability a_n<=n_j u_n^d<=2^d(t_j^(d-1)log(1/t_j)+2t_j^d)->0 since d>=2. If top atom p>0, chance of observing the all-top vector tends to one. Analytic argument covers arbitrary continuous, discrete, mixed marginals with finite/infinite supremum.
 
-## Closest literature and limitations
-The closest source is Răducan--Rădulescu--Rădulescu--Zbăganu (2022), which asks whether independent components with infinitely many values can have the leader property. The theorem settles the identical-marginal part only. It does not classify heterogeneous products, and in the no-terminal-atom branch it establishes zero liminf rather than convergence of the full sequence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): The new arbitrary-tail cutoff supplies a missing uniform subsequence that neither earlier result implies; terminal top atom is an exact sufficient criterion across d>=2. Known sufficient conditions and dependent-coordinate models do not force zero liminf for every arbitrary common marginal lacking a terminal atom. Residual literature/access risks are explicitly recorded.
+
+## value
+
+PASS
+
+PASS: This all-marginal iff for the canonical iid symmetric subfamily resolves a specifically posed independent-product leader-property question in a natural nontrivial setting. The threshold is a structural endpoint atom, not an arbitrary finite parameter. Prior two-dimensional random-tie criterion does not decide it, and lacunary example shows why liminf rather than full limit is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

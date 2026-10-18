@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:56:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For fixed sample index and one marginal, u_n=E[F(X)^(n-1)] includes ties. Any law without a terminal upper atom admits cutoffs b_j with upper tails t_j downarrow 0. Split integral: u_n<=(1-t_j)^(n-1)+t_j; choosing n_j=ceil(log(1/t_j)/t_j)+1 gives u_n<=2t_j. With d independent coordinate samples, leader probability a_n<=n_j u_n^d<=2^d(t_j^(d-1)log(1/t_j)+2t_j^d)->0 since d>=2. If top atom p>0, chance of observing the all-top vector tends to one. Analytic argument covers arbitrary continuous, discrete, mixed marginals with finite/infinite supremum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2022 motivating article analyzes continuous products and special discrete conditions and states the infinite-value product question in Conclusions.",
+          "The 2022 quasi-unidimensional and 2025 graph papers concern dependent coordinates."
+        ],
+        "reasoning": "Known sufficient conditions and dependent-coordinate models do not force zero liminf for every arbitrary common marginal lacking a terminal atom.",
+        "searches": [
+          "DOI:10.3390/math10101623",
+          "DOI:10.3390/math10224199",
+          "DOI:10.3390/math13193074"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/math10101623 Conclusions",
+        "Resultary 996b67664456 complete source",
+        "Resultary 3f46def64238 complete source",
+        "DOI:10.3390/math10224199 related article summary",
+        "DOI:10.3390/math13193074 related article summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tie-set theorem relates a_n to K_X,n K_Y,n/n but does not classify all iid common-marginal tails.",
+          "The lacunary-law prior example already shows liminf=0 alongside positive limsup, so a universal full convergence claim would be false."
+        ],
+        "reasoning": "The new arbitrary-tail cutoff supplies a missing uniform subsequence that neither earlier result implies; terminal top atom is an exact sufficient criterion across d>=2.",
+        "searches": [
+          "Resultary/2026:996b67664456 full RESULT.md",
+          "Resultary/2026:3f46def64238 full RESULT.md",
+          "DOI:10.3390/math10101623 §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2022 primary paper explicitly asks whether an independent product of infinite-value components can have the leader property.",
+          "The common-sample-maximizers reformulation appears in a distinct public record but not a terminal-atom all-marginal classification."
+        ],
+        "reasoning": "Equivalent terms leader, upper endpoint atom, tied maximum overlap and common maximizing index were compared. The stated symmetric iff theorem is not given in inspected prior claims.",
+        "searches": [
+          "Resultary: i.i.d. vectors identical independent coordinate distributions leader property terminal atom upper endpoint maximum tie probability",
+          "Resultary: identical product leadership property classification chain of product sets algebra",
+          "Web: On the Probability of Finding Extremes in a Random Set Conclusions leader infinite values independent product",
+          "DOI:10.3390/math10101623 §6 Conclusions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary hits 996b67664456 and 3f46def64238 are structural maximum-tie and one oscillating-law constructions, not the general iff."
+        ],
+        "reasoning": "This is an all-probability-law theorem rather than an exact finite table; the search provides overlap evidence only, not a novelty certificate.",
+        "searches": [
+          "Resultary: i.i.d. vectors identical independent coordinate distributions leader property terminal atom upper endpoint maximum tie probability",
+          "Resultary: identical product leadership property classification chain of product sets algebra"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): The new arbitrary-tail cutoff supplies a missing uniform subsequence that neither earlier result implies; terminal top atom is an exact sufficient criterion across d>=2. Known sufficient conditions and dependent-coordinate models do not force zero liminf for every arbitrary common marginal lacking a terminal atom. Residual literature/access risks are explicitly recorded.",
+      "residual_risks": [
+        "An elementary terminal-atom equivalence may exist under a different common-maximizer or tied-maximum term.",
+        "Heterogeneous marginals are not covered, and without a top atom only liminf zero is established; full convergence is false for some discrete laws.",
+        "The complete 2022 publisher article and follow-up appendices were not all freshly read end to end."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_STATED_IN_INSPECTED_SECTIONS",
+          "evidence": "Conclusions asks the heterogeneous infinite-value independent-component question; no general identical-marginal terminal-atom assertion in inspected material.",
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/10/10/1623",
+          "material_read": "Indexed primary paper Conclusions and introductory/model material; the entire publisher article not freshly accessible in a single continuous read",
+          "method": "Primary publisher indexed text and statement comparison",
+          "title": "On the Probability of Finding Extremes in a Random Set",
+          "trigger": "Primary 2022 source posing product question"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Classifies in terms of random maxima multiplicities for d=2; explicitly does not resolve infinite-value marginals.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-an-exact-maximum-tie-criterion-for-leaders-in-two-dimensional-pr--996b67664456/RESULT.md",
+          "material_read": "Complete public RESULT.md including full proof, limitations and prior work",
+          "method": "Connected GitHub full file retrieval",
+          "title": "An exact maximum-tie criterion for leaders in two-dimensional product samples",
+          "trigger": "Closest published same-object criterion"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "One lacunary example supports nonconvergence caution but has no if-and-only-if classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-oscillating-leader-probabilities-from-an-infinite-support-produc--3f46def64238/RESULT.md",
+          "material_read": "Complete public RESULT.md, proof of liminf=0 and positive limsup, limitations",
+          "method": "Connected GitHub full file retrieval",
+          "title": "Oscillating leader probabilities from an infinite-support product law",
+          "trigger": "Same iid common-marginal exceptional example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: This all-marginal iff for the canonical iid symmetric subfamily resolves a specifically posed independent-product leader-property question in a natural nontrivial setting. The threshold is a structural endpoint atom, not an arbitrary finite parameter. Prior two-dimensional random-tie criterion does not decide it, and lacunary example shows why liminf rather than full limit is essential.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3390/math10101623 Conclusions",
+    "Resultary 996b67664456 complete source",
+    "Resultary 3f46def64238 complete source",
+    "DOI:10.3390/math10224199 related article summary",
+    "DOI:10.3390/math13193074 related article summary",
+    "assigned source tree e33efbaf45502c4a83b61ec1c06ffac9337b9b32"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Does not decide distinct heterogeneous marginals.",
+    "In the no-top-atom case only zero liminf is established; full convergence may fail for lacunary laws."
+  ],
+  "residual_risks": [
+    "An elementary terminal-atom equivalence may exist under a different common-maximizer or tied-maximum term.",
+    "Heterogeneous marginals are not covered, and without a top atom only liminf zero is established; full convergence is false for some discrete laws.",
+    "The complete 2022 publisher article and follow-up appendices were not all freshly read end to end."
+  ],
+  "schema_version": 1
+}
