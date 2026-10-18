@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof establishes the claimed infinite sequence by an exact final-car decomposition, a Gaussian-binomial identity at \(q=-1\), and coefficientwise induction on formal power series. It neither presupposes analytic convergence of those series nor infers infinitely many cases from a finite computation.
+## correctness
 
-Run `python3 verify.py` from the supplied file collection using any current Python 3 installation; the script imports only the standard library. Direct simulation of the underlying preference lists covers every input through \(n=7\), with explicit successful-parking and sign checks. An independent sum over weighted outcome permutations uses Pinsky's formula through \(n=8\). Separate integer tests cover Gaussian-binomial alternating subset sums through ambient size \(12\), both parity-separated recurrences through \(m=14\), and the formal differential identity through \(m=14\). On the reviewed package, the checker printed `PASS: 209 exact assertions`.
+PASS
 
-The successful finite replay supports implementation integrity only; it does not independently establish priority, external certification, or the theorem's infinite extent. A final independent scientific audit has not been performed.
+Condition on last car n in space j: its choice is any of j preferences, previous labels split into independent left and right valid parking blocks, and cross-block inversions contribute (−1)^(n−j+I(L)). Summing over label subsets gives G(n−1,j−1)=[n−1 choose j−1]_{−1}. Thus S_n=Σ_j j(−1)^(n−j)G S_{j−1}S_{n−j}. Separating even/odd coefficients gives O=E²+2zEE′ and E′=E³+8zE²E′+4z²E²E″ (formal series E0=1). Coefficient induction uses only previous positive E_i and a strictly positive E³ contribution; O follows positive convolution. Independently enumerated preference tuples n=1..6 and confirmed totals (n+1)^(n−1) and signed counts 1,1,4,11,72,335; exact recurrence/formal equations corroborated to further coefficients. Infinite positivity comes from the algebraic formal-series proof, not finite enumerations. Preference word inversion is not outcome sign.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: relevant primary statement/implication comparisons do not cover the precisely stated contribution; no absolute priority certification. The signed aggregate is a nontrivial alternating sum; knowing atom weights formally determines it but does not mathematically imply strict positivity without an argument.
+
+## value
+
+PASS
+
+Uniform preference sampling induces a nonuniform permutation distribution, and parity is a canonical global invariant of the resulting occupied-space order. A strict all-size direction of bias with an efficient exact signed recurrence is a substantive distributional law, beyond knowing probabilities of individual permutations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

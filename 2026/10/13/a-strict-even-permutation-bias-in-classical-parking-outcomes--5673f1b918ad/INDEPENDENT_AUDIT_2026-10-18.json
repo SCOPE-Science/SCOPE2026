@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T02:00:05.901567Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on last car n in space j: its choice is any of j preferences, previous labels split into independent left and right valid parking blocks, and cross-block inversions contribute (−1)^(n−j+I(L)). Summing over label subsets gives G(n−1,j−1)=[n−1 choose j−1]_{−1}. Thus S_n=Σ_j j(−1)^(n−j)G S_{j−1}S_{n−j}. Separating even/odd coefficients gives O=E²+2zEE′ and E′=E³+8zE²E′+4z²E²E″ (formal series E0=1). Coefficient induction uses only previous positive E_i and a strictly positive E³ contribution; O follows positive convolution. Independently enumerated preference tuples n=1..6 and confirmed totals (n+1)^(n−1) and signed counts 1,1,4,11,72,335; exact recurrence/formal equations corroborated to further coefficients. Infinite positivity comes from the algebraic formal-series proof, not finite enumerations. Preference word inversion is not outcome sign.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pinsky describes complete point probabilities for outcomes but no universal parity imbalance theorem.",
+          "Paguyo/Yin cycles of the preference mapping are structurally different from parity of the final occupied-space permutation."
+        ],
+        "reasoning": "Neither identified broader distribution or cycle theory supplies the asserted all-n sign and q-binomial recursion as a straightforward consequence.",
+        "searches": [
+          "Pinsky 2024 preprint Theorem 1 Corollaries and proof",
+          "Paguyo and Yin arXiv:2502.07110 cycle distributions for random parking functions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 8950044aaf6d393455ca683f9b830c81bf11242d",
+        "Pinsky arXiv:2404.11529 Theorem 1 and proof PDF",
+        "Paguyo Yin arXiv:2502.07110 abstract/model",
+        "Celano et al arXiv:2508.11587 preference-word inversion definition",
+        "Resultary semantic query: parking function outcome parity sign Gaussian at minus one",
+        "Independent exact brute n=1..6, signed G and formal E/O coefficient checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The atom formula permits writing S_n as a factorial-size alternating sum, but does not establish that its sign is positive.",
+          "Inversion generating functions for preference words cannot be substituted for the outcome permutation."
+        ],
+        "reasoning": "The new final-car bijection and formal positivity induction add the universal sign not implied by the cited formulas alone.",
+        "searches": [
+          "Pinsky arXiv:2404.11529 exact law by permutation",
+          "Celano et al. arXiv:2508.11587 inversion of parking preferences",
+          "Paguyo/Yin arXiv:2502.07110 preference-map cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pinsky gives explicit probability of each individual outcome σ via consecutive-record lengths, not a signed parity convolution or sign evaluation across all n.",
+          "Celano et al. invert preference lists themselves, which may repeat and are not output permutations."
+        ],
+        "reasoning": "The signed aggregate is a nontrivial alternating sum; knowing atom weights formally determines it but does not mathematically imply strict positivity without an argument.",
+        "searches": [
+          "Resultary: parking functions outcome permutation sign even odd bias q=-1 Gaussian binomial strict positivity",
+          "arXiv:2404.11529 Pinsky Theorem 1 parking outcome probability",
+          "arXiv:2508.11587 inversion statistic preference words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first signed totals 1,1,1,4,11,72,… are finite enumerations, not a known table containing the infinite sign proof.",
+          "No retrieved database result states the same q=−1 final-car recurrence."
+        ],
+        "reasoning": "The contribution is a quantified infinite strict bias with a structural generating equation, not re-tabulating small n.",
+        "searches": [
+          "Resultary exact parking function outcome even-odd signed counts",
+          "Pinsky individual weight formula and computed first counts",
+          "FindStat parking outcome permutation parity"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: relevant primary statement/implication comparisons do not cover the precisely stated contribution; no absolute priority certification. The signed aggregate is a nontrivial alternating sum; knowing atom weights formally determines it but does not mathematically imply strict positivity without an argument.",
+      "residual_risks": [
+        "A differently named signed enumeration or algebraic specialization may predate the current comparison.",
+        "No asymptotic rate of normalized parity bias is proved; generating series are formal and need not analytically converge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_ATOMS_NOT_SIGN_CLASSIFICATION",
+          "evidence": [
+            "Theorem 1: outcome probability is weighted by record lengths; no stated global even-over-odd law."
+          ],
+          "identifier_or_url": "arXiv:2404.11529",
+          "material_read": "Original PDF Theorem 1, corresponding outcome-weight definition and proof context, checked page image",
+          "method": "Read primary PDF theorem and associated derivation",
+          "title": "The distribution on permutations induced by a random parking function",
+          "trigger": "Direct primary treatment of exact output permutation distribution"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC",
+          "evidence": [
+            "Cycles are of preference mapping, not the occupied-space permutation."
+          ],
+          "identifier_or_url": "arXiv:2502.07110",
+          "material_read": "Abstract, main statistic and model definitions; not full paper",
+          "method": "Checked accessible source description and model",
+          "title": "Limit distributions for cycles of random parking functions",
+          "trigger": "Same parking framework but possible parity duality"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC",
+          "evidence": [
+            "Preference list can repeat values and therefore its inversions differ from output-permutation parity."
+          ],
+          "identifier_or_url": "arXiv:2508.11587",
+          "material_read": "Definitions/abstract specifying inversions of preference word; not full-document read",
+          "method": "Inspected identified main observable in source description",
+          "title": "Inversions in parking functions",
+          "trigger": "Potential q=-1 inversion specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform preference sampling induces a nonuniform permutation distribution, and parity is a canonical global invariant of the resulting occupied-space order. A strict all-size direction of bias with an efficient exact signed recurrence is a substantive distributional law, beyond knowing probabilities of individual permutations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md Git blob 8950044aaf6d393455ca683f9b830c81bf11242d",
+    "Pinsky arXiv:2404.11529 Theorem 1 and proof PDF",
+    "Paguyo Yin arXiv:2502.07110 abstract/model",
+    "Celano et al arXiv:2508.11587 preference-word inversion definition",
+    "Resultary semantic query: parking function outcome parity sign Gaussian at minus one",
+    "Independent exact brute n=1..6, signed G and formal E/O coefficient checks"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A differently named signed enumeration or algebraic specialization may predate the current comparison.",
+    "No asymptotic rate of normalized parity bias is proved; generating series are formal and need not analytically converge."
+  ]
+}
