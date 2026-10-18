@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The proof has a complete and coherent chain. For an arbitrary compatible right-invariant metric, normalized distance bumps are Lipschitz and concentrate at the identity. Correlations \(u_n*u_n^*\) are nonnegative probability densities and retain the right-invariant Lipschitz bound. Their matrix Fourier coefficients are positive semidefinite, eventually positive definite in each irreducible representation. A positive summable mixture is consequently a Lipschitz probability kernel with every Fourier block invertible. Peter–Weyl forces convolution injectivity, and the classical connected locally compact Bebutov–Kakutani theorem supplies the initial continuous embedding. Scaling delivers an exact one-Lipschitz embedding. The necessity follows from the constant fixed functions. Exact finite-group checks test both abelian and nonabelian convolution orientation, but are not used as an infinite proof.
+
+**Originality: PASS, with bibliographic risk.** The closest source, Gutman–Huo–Ouyang (arXiv:2610.13091v1, §§1, 4–5), proves the Lipschitz criterion for connected Lie groups only; its open Problem 1.3 covers the compact connected non-Lie case. The earlier Jaworski–Chen statement handles continuous targets, not Lipschitz targets. Gutman–Huo–Tsukamoto (arXiv:2510.08706v1) concerns \(\mathbb R^n\), and Gutman–Huo (arXiv:2505.14653v2) gives a broad **Borel** representation, not the required continuous injection. Searches for convolution-based equivalents returned no exact covering theorem. Classical positive-definite kernels and Peter–Weyl theory are acknowledged ingredients; an older unnamed derivation is a residual risk.
+
+**Value: PASS.** This is a natural substantial branch of an explicitly stated 2026 open problem. It removes the Lie hypothesis for all compact connected metrizable groups, including infinite-dimensional compact abelian groups and solenoids, and supplies a group-independent smoothing device which works for every compatible right-invariant metric. The distinction between continuous and Borel universality is essential.
+
+The source statements do not settle noncompact locally compact groups. The result does not assert uniqueness in the literature or any independent certification.
+
+Self-review: passed. Independent audit: not yet performed.
