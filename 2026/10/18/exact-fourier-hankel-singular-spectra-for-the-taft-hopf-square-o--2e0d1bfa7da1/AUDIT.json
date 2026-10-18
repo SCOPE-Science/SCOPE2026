@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The proof starts from fixed Taft relations and coproduct and reconstructs all coefficients of \\(\\Psi_2(x^rg^b)\\) by the quantum binomial recurrence. It derives an exact unitary Fourier–Hankel block factorization; Fourier vectors give all \\(n^2\\) singular values including zeros. It proves the even/odd first-layer singular profiles via disjoint column pairing or a weighted cyclic shift with trivial monodromy. The original verification program, read from its actual packaged source, independently checks coproduct expansion for \\(2\\le n\\le8\\) and all-block factorization/SVD for \\(2\\le n\\le12\\). Finite tests are acknowledged as corroboration only. No unsupported higher-block nonvanishing or gauge invariance is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aguiar–Lauve, arXiv:1403.7584, Sections 1–2: main theorem assumes graded connected Hopf algebras and classifies operator eigenvalues/characteristic polynomials.",
+        "Taft coalgebra has the distinct group-likes \\(1,g,\\ldots,g^{n-1}\\), so is not connected; eigenvalue spectra do not determine singular spectra in general.",
+        "Appendix B extends a connected/cofree q-Hopf framework, not the present nonconnected Taft metric-specific SVD."
+      ],
+      "reasoning": "The strongest inspected general operator theorem cannot be specialized to Taft because its essential connectedness hypothesis fails, and it targets characteristic polynomial rather than metric singular values.",
+      "searches": [
+        "The characteristic polynomial of the Adams operators on graded connected Hopf algebras Marcelo Aguiar Aaron Lauve",
+        "arxiv:1403.7584",
+        "Hopf Adams operator Taft algebra degree one Jacobson radical layer singular values odd even root unity isometry"
+      ]
+    },
+    "checked_sources": [
+      "Taft 1971, DOI:10.1073/pnas.68.11.2631 (primary three-page article)",
+      "Kashina–Montgomery–Ng, arXiv:0910.1628 (original Taft indicators, Section 3)",
+      "Aguiar–Lauve, arXiv:1403.7584 (original connected-graded characteristic polynomial work, Appendix B)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Taft (1971) constructs and studies Hopf algebras with antipodes of high even order.",
+        "Kashina–Montgomery–Ng (2009 preprint) compute Taft antipode trace/indicators, and do not provide a full SVD of \\(\\mu\\circ\\Delta\\).",
+        "Aguiar–Lauve (2014 preprint) prove characteristic-polynomial results under graded-connectedness assumptions that Taft algebras do not satisfy.",
+        "The new proof derives a factorization \\(FB_r=D H_rD/\\sqrt n\\) and an even/odd condition-number dichotomy on the first nilpotent layer."
+      ],
+      "reasoning": "The claimed all-degree metric singular-spectrum formula and sharp first-layer condition numbers are not stated or logically forced by the inspected antipode/indicator results, by Taft’s algebra construction, or by the connected-graded Adams-operator theorem.",
+      "searches": [
+        "doi:10.1073/pnas.68.11.2631",
+        "arxiv:0910.1628",
+        "arxiv:1403.7584",
+        "Sweedler power maps Taft basis x^r g^b quantum binomial Hankel spectra"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kashina–Montgomery–Ng, arXiv:0910.1628, Section 3, Lemmas 3.1–3.2 and Corollary 3.3: Taft antipode eigenvalue/trace data and indicator sequences, not the singular spectrum of the second Sweedler power.",
+        "The explicit current matrix blocks and unitary Fourier–Hankel factorization imply singular values, not merely traces or eigenvalues."
+      ],
+      "reasoning": "The closest same-object literature concerns antipodes and indicator sequences. Neither determines the nonnormal second Hopf-power operator’s full singular-value data under the declared inner product, so the statements are not equivalent by implication.",
+      "searches": [
+        "Taft Hopf algebra Sweedler power map singular values Fourier quantum binomial n square spectral decomposition",
+        "Taft Hopf algebra second Sweedler power map Fourier diagonalization singular values Gauss sums",
+        "arxiv:0910.1628"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kashina–Montgomery–Ng, arXiv:0910.1628, Section 3, discusses indicators and a table for small orders up to 24, not all-degree singular values.",
+        "No directly matching Taft Hopf-square singular-value table appeared in the checked sources. Finite-table nonappearance alone cannot prove novelty."
+      ],
+      "reasoning": "The inspected finite indicator tabulations concern different scalar invariants, with no extraction of individual singular values or sharp parity conditioning. A specialized unlocated singular-value table remains a residual possibility.",
+      "searches": [
+        "Taft Hopf algebra powers convolution identity on x^j g^i fixed points rank spectra",
+        "Taft algebras Hopf-square matrices Jacobson radical spectral condition numbers",
+        "arxiv:0910.1628"
+      ]
+    },
+    "rationale": "The directly relevant original Taft construction, full Taft-indicator section, and relevant connected-graded Adams-operator primary theorems were inspected for actual implication. The closest results concern antipode order, trace/indicators, or connected-case eigenvalues, and do not cover the Taft Hopf-square SVD. Independent searches for matrix aliases, quantum-binomial Hankel spectra and first-layer parity gave no directly covering published claim. Absence of matching records is not a proof of global novelty; a specialized unlocated equivalent remains possible.",
+    "residual_risks": [
+      "A more specialized treatment of Taft Hopf-power matrix Fourier transforms or singular values outside the inspected primary works could already imply the formulas.",
+      "The metric is a chosen PBW-orthonormal normalization, so the result is not a categorical invariant; this is a scope limitation, not an originality claim.",
+      "The original 1971 Taft publication supplies only a month-resolution publication date in primary bibliographic records; it is not assigned a guessed calendar day."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Foundational construction and antipode-order results; not a singular-value classification for the Hopf square.",
+        "evidence": "Taft, PNAS 68 (1971), 2631–2633, DOI:10.1073/pnas.68.11.2631.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC389488/",
+        "material_read": "Available original scanned three-page article and accompanying abstract/metadata; publication month November 1971 (exact calendar day not established from primary record).",
+        "method": "Primary page images and publication record.",
+        "title": "The Order of the Antipode of Finite-dimensional Hopf Algebra",
+        "trigger": "Original source introducing the nonsemisimple Hopf-algebra family, potentially giving operator formulas."
+      },
+      {
+        "assessment": "Calculates Taft antipode traces and higher indicators, but not the complete singular spectrum of \\(\\Psi_2\\) or the Fourier–Hankel/first-layer parity condition result.",
+        "evidence": "arXiv:0910.1628, version first submitted 2009-10-08; Section 3 explicitly entitled Indicators of the Taft algebras.",
+        "identifier_or_url": "https://arxiv.org/abs/0910.1628",
+        "material_read": "Complete primary Section 3, including Lemmas 3.1–3.2, Corollary 3.3, Example 3.4, and the discussion of indicator sequences; preceding operator definitions and gauge-invariance discussion.",
+        "method": "Original freely accessible arXiv HTML transcription with section and equation inspection.",
+        "title": "On the trace of the antipode and higher indicators",
+        "trigger": "Exact Taft-family and Sweedler-power antecedent; strongest same-object risk."
+      },
+      {
+        "assessment": "Characteristic-polynomial results assume graded connectedness, which fails for Taft, and do not imply an SVD for a specified Hermitian metric.",
+        "evidence": "arXiv:1403.7584, first submitted 2014-03-29; 2010 MSC 16T05, 16T30.",
+        "identifier_or_url": "https://arxiv.org/abs/1403.7584",
+        "material_read": "Primary preprint introduction, statements and hypotheses in Sections 1–2, and relevant Appendix B q-Hopf discussion.",
+        "method": "Original arXiv HTML and PDF sections; matched hypotheses and quantities.",
+        "title": "The characteristic polynomial of the Adams operators on graded connected Hopf algebras",
+        "trigger": "Potentially dominating general theorem for Sweedler power maps, with q-Hopf appendix."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2e0d1bfa-7da1-4c28-aaab-e6d41cb86bc0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Nonsemisimple Taft algebras and their Sweedler powers are established natural objects. Complete singular-value data provide rank/conditioning information absent from scalar higher indicators or eigenvalue-only classifications. The all-degree formula is a nontrivial explicit unitary reduction from \\(n^2\\)-dimensional Hopf square to cyclic Fourier sums, and the first nontrivial nilpotent layer reveals an exact even–odd stability transition: condition number \\(1\\) versus \\(\\csc(\\pi/(2n))\\sim2n/\\pi\\). The result is meaningful within the explicitly fixed PBW metric and does not claim unavailable categorical invariance.",
+    "status": "PASS"
+  }
+}
