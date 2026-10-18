@@ -1,0 +1,12 @@
+# Scientific review: Gaussian-scale-mixture Zak zeros
+
+## Correctness
+The heat-kernel series has an explicitly positive value at the left boundary by Poisson summation; quasiperiodicity supplies a positive imaginary Dirichlet source at the right boundary for frequencies in the upper half-sector. The strict parabolic maximum principle gives the interior sign, while half-frequency antisymmetry and a second positive heat problem give the exact real-fiber sign. The Hopf lemma and a direct Gaussian derivative identity give two strictly negative Jacobian diagonal entries. Positive integration preserves these signs for any stated measure. The Zak frame fiber weight has no common zeros under distinct integer shifts. Convergence at small variance and large precision is controlled by the measure integrability and Gaussian/Poisson estimates. Finite checks provide corroboration rather than an infinite proof.
+
+## Originality
+The closest primary result is Sun--Zhou (arXiv:2602.06641), a unique-zero theorem for individual extended Gaussians. Janssen (2003, doi:10.1007/s00041-003-0011-3) includes single Gaussians and an even convex-window class; the explicit mixed window here has negative second derivative at the origin, excluding that convex class. The Kloos results (arXiv:1411.1539 and 1311.7359) assume total positivity; the exhibited mixture is not log-concave, hence not totally positive of order two. This comparison supports a genuine closure property for the full positive mixture cone, rather than a corollary of these cited classes. The averaged totally-positive article of Vinogradov--Ulitskaya (2017) was only accessible by abstract, not full text, and an earlier heat-semigroup formulation could remain unindexed; historical priority is accordingly not independently certified.
+
+## Value
+Exact Zak-zero geometry is a natural input to Gabor-frame analysis. Stability of a single zero under an arbitrary infinite-dimensional positive scale mixture is stronger than the individual-Gaussian theorem and is nontrivial because linear combinations of analytic functions with a common zero need not preserve other zeros or their Jacobian signs. The theorem supplies a scale-uniform construction of integer-oversampled frames that includes genuinely non-totally-positive and inverse-multiquadric examples. The quantitative sign sectors and regularity are usable beyond the numerical zero count.
+
+Self-review: passed. Independent audit: not yet performed.
