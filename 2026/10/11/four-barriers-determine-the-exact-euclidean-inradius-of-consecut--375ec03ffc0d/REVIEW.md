@@ -1,26 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof first establishes the exact cube-slab realization from the published vertex definition: a vertex of the cube intersected with integer sum bounds cannot have a fractional coordinate. A radius-\(r\) ball is then feasible exactly when its center satisfies the coordinate-distance and sum-wall-distance inequalities. These reduce to intersection of two scalar intervals for the coordinate sum, producing four and only four upper bounds on \(r\). Their minimum is attainable by a uniform center. Substitution at the optimal radius gives the complete incenter set, and the equality cases give the exact uniqueness/nonuniqueness classification.
+## correctness
 
-## Originality
-PASS. The primary S-hypersimplex paper was inspected at its definition and structural Section 2; it contains no inradius, Chebyshev-center, or Euclidean metric theorem. Direct and alias searches under S-hypersimplex, consecutive-layer, cube-slab, inradius, and largest-inscribed-ball terminology found no covering result. The closest published same-subfamily theorem concerns one-skeleton shortest-path distance and graph diameter, which does not imply an ambient Euclidean inradius or center locus. Own current and prior ledgers contain no S-hypersimplex metric-ball finding.
+PASS
 
-## Value
-PASS. Consecutive-layer S-hypersimplices form a natural subfamily of a named polytope class that unifies several classical examples. The result gives a complete Euclidean Chebyshev phase diagram:
-\[
-r_{\mathrm{in}}
-=
-\min\left\{
-\frac12,\,
-\frac{b}{d+\sqrt d},\,
-\frac{d-a}{d+\sqrt d},\,
-\frac{b-a}{2\sqrt d}
-\right\}.
-\]
-It also identifies all incenters and shows that nonuniqueness occurs in exactly one phase, where the incenter set has dimension \(d-1\).
+For integers a<b the cube intersected with integral sum slab has only 0/1 vertices: two fractional coordinates permit opposite perturbations, one fractional coordinate and an active sum equality forces its value integral. Hence it equals the consecutive-layer hull. A Euclidean r-ball center c is feasible iff r<=ci<=1-r and a+r sqrt(d)<=sum ci<=b-r sqrt(d). Intersecting the two possible coordinate-sum intervals [dr,d(1-r)] and [a+r sqrt(d),b-r sqrt(d)] gives exactly the four stated bounds. An all-equal center reaches any feasible sum. At optimum, first three active bounds force a unique center; when only strict fourth slab barrier is active, the feasible incenter locus is a nondegenerate (d-1)-dimensional hyperplane cut. All d>=2 and integer 0<=a<b<=d handled symbolically; enumeration to d<=100 is corroboration.
 
-## Closest literature and limitations
-The closest literature supplies the family definition, face structure, dissections, and a separate graph-metric result. None of these is an Euclidean largest-ball theorem. A residual risk remains for an equivalent formula in generic box-slab Chebyshev-center literature. The theorem is restricted to consecutive \(S\) and the standard Euclidean realization.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Full 2019 primary text of S-hypersimplices defines object and studies face structure and monotone paths, but not Chebyshev inradius/incenter locus; published graph-metric and minimum-enclosing-sphere studies address different invariants. A generic cube/slab optimization could yield the formula, but no earlier named explicit four-barrier and uniqueness theorem was found.
+
+## value
+
+PASS
+
+A motivated exact natural Euclidean invariant of consecutive Hamming-layer polytopes, with all optimal centers and a sharp dimension jump to a (d-1)-dimensional incenter family. Although the Chebyshev LP is short once the H-description is known, the explicit all-parameter phase diagram is an independently useful finite-dimensional geometry classification, not an arbitrary numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
