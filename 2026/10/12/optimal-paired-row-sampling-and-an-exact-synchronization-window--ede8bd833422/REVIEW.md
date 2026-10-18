@@ -1,19 +1,21 @@
-# Scientific review: optimal paired-row RK–RK sampling
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The update order is reconstructed from Ma–Needell–Ramdas, Algorithm 1: the second projection sees the first-stage **updated** intermediate coordinate. On nonzero diagonal factors this reduces to a two-event completion rule. Conditioning on the first occurrence of the first-stage row gives an exact coordinate failure probability; summing these probabilities with fixed squared target weights gives the stated mean-square law. Every admissible pairing is bounded by the Fréchet diagonal inequality, and the explicit leftover-mass transport realizes equality in all coordinates. The transition center and window follow by an elementary uniform logarithmic expansion. The actual embedded `verify.py` completes exhaustive exact-rational path comparisons and supplementary finite-asymptotic checks. Finite checks are not substituted for the analytic claims.
+PASS
 
-## Originality — PASS, with residual risk
+For nonzero diagonal U=diag(a_i), V=diag(b_i), the first row update sets x_i to y_i/a_i, and the second sees this same-iteration x_j and hence sets z_j to z_j^*=y_j/(a_j b_j) precisely after a J=i selection has preceded or coincided with a stage-two I=i selection. This two-event waiting-time decomposition gives the exact unfinished probability (1-p_i)^t+(p_i-pi_ii)*sum_{s=1}^t(1-p_i)^{s-1}(1-q_i)^{t-s} for every t>=0, with zero horizon correctly giving 1. The coefficient on pi_ii is nonpositive and strictly negative for t>=1, so optimizing all nonzero coordinate targets is equivalent to attaining the Fréchet diagonal bound min(p_i,q_i). The transport construction with residuals p_i-c_i and q_j-c_j is a valid nonnegative coupling; their supports are disjoint at each coordinate, hence it has exactly the proposed diagonal. Independent sampling has pi_ii=p_i q_i<min(p_i,q_i) for positive interior marginals. In balanced p=q=1/m, the risk reduces to m(1-1/m)^t[1+(1-theta)t/m], and uniform log-expansion about the unique solution c_m-log(1+(1-theta)c_m)=log m gives e^{-s} limit at t=floor(m(c_m+s)); synchronization theta=1 eliminates the loglog m correction. Independent exact enumeration of all two-coordinate row-pair paths for 0<=t<=4 and two distinct rational marginals matched every finite-horizon formula; algebra, not enumeration, establishes the universal assertions.
 
-The source algorithm [1] specifies two randomized row projections and develops convergence-rate bounds for the ordinary independent sampler. Du [2] studies a different regularized problem and explicitly identifies ordinary RK–RK as a special case. Neither inspected complete paper gives a sharp same-round coupling optimization across all right-hand sides and horizons or the exact balanced synchronization crossover. Indexed related results on randomized Gauss–Seidel delay, maximal-distance Kaczmarz residual spikes, and cyclic Kaczmarz order bias address different update mechanisms and do not imply the stated diagonal factorized two-stage result. The Fréchet coupling upper bound and ordinary coupon-collector ideas are known; the claim concerns their quantitative implication for these interlaced updates. A specialized unindexed derivation remains a possible priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result addresses a natural design freedom in a published interlaced solver: whether factor-row choices should be sampled independently when each factor's importance-sampling marginal must remain unchanged. It gives an exact universally optimal stationary coupling on a nontrivial family of all nonsingular diagonal factorizations, not merely one parameter example. It also identifies an order-\(m\log\log m\) delay in a fixed absolute error target that disappears under synchronization, and quantifies the complete crossover at partial synchronization. This is a useful structural benchmark; it does not transfer automatically to coupled rows of general matrices.
+The source two-stage RK-RK algorithm updates the intermediate vector before the second-stage selection, but its convergence bound assumes separately randomized rows; it does not optimize their within-step joint law. The assessed coordinatewise first-completion representation, globally optimal fixed-marginal coupling, and finite-size synchronization window have not been located in the examined source or closely related published work. Fréchet maximal coupling itself is classical and not claimed as newly invented; the new result is its exact role in this coordinated iterative algorithm and the associated threshold.
 
-## Scientific limitations
+## value
 
-The proof does not establish optimality under changing marginals, correlations across iterations, or non-diagonal factors. It assumes zero initialization and exact arithmetic. The scaling window describes expected absolute squared error rather than the distribution of first exact termination. Indexed-only comparisons do not exclude unindexed priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The pairing law is a natural algorithmic control variable when stage-wise row sampling distributions are prescribed and cannot be changed. The exact all-horizon optimizer and explicit sharp delayed-versus-synchronized threshold supply mathematically motivated performance information beyond a renaming of a familiar coupling inequality. The diagonal subclass is intentionally a solvable structural benchmark, not an unmotivated numerical slice; it exposes a logarithmic-logarithmic delay absent at full synchronization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T04:58:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonzero diagonal U=diag(a_i), V=diag(b_i), the first row update sets x_i to y_i/a_i, and the second sees this same-iteration x_j and hence sets z_j to z_j^*=y_j/(a_j b_j) precisely after a J=i selection has preceded or coincided with a stage-two I=i selection. This two-event waiting-time decomposition gives the exact unfinished probability (1-p_i)^t+(p_i-pi_ii)*sum_{s=1}^t(1-p_i)^{s-1}(1-q_i)^{t-s} for every t>=0, with zero horizon correctly giving 1. The coefficient on pi_ii is nonpositive and strictly negative for t>=1, so optimizing all nonzero coordinate targets is equivalent to attaining the Fréchet diagonal bound min(p_i,q_i). The transport construction with residuals p_i-c_i and q_j-c_j is a valid nonnegative coupling; their supports are disjoint at each coordinate, hence it has exactly the proposed diagonal. Independent sampling has pi_ii=p_i q_i<min(p_i,q_i) for positive interior marginals. In balanced p=q=1/m, the risk reduces to m(1-1/m)^t[1+(1-theta)t/m], and uniform log-expansion about the unique solution c_m-log(1+(1-theta)c_m)=log m gives e^{-s} limit at t=floor(m(c_m+s)); synchronization theta=1 eliminates the loglog m correction. Independent exact enumeration of all two-coordinate row-pair paths for 0<=t<=4 and two distinct rational marginals matched every finite-horizon formula; algebra, not enumeration, establishes the universal assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/1701.07453 pp.8-12",
+          "https://arxiv.org/abs/2204.10722"
+        ],
+        "reasoning": "The broader convergence analysis covers general factorized systems under prescribed stage-wise random draws, but does not imply superiority among dependent joint laws with the same marginals, a closed exact diagonal risk, or an asymptotic m loglog m synchronization penalty. Conversely the assessed diagonal result does not claim a general-matrix optimizer.",
+        "searches": [
+          "Ma–Needell–Ramdas arXiv:1701.07453 full Algorithm 1/Theorem 1",
+          "Du arXiv:2204.10722 factorized Kaczmarz convergence"
+        ]
+      },
+      "checked_sources": [
+        "Ma–Needell–Ramdas (arXiv:1701.07453) Algorithm1, Theorem1, proof pp.8–12",
+        "Du (arXiv:2204.10722) abstract",
+        "Resultary 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 1 reads the freshly updated x^t for the V-row update, whereas the cited theorem only bounds expectations for independent draws.",
+          "Resultary 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1 concerns a cyclic two-row spectral-radius choice."
+        ],
+        "reasoning": "Neither result implies the assessed joint-coupling optimizer or exact crossover as a special case. Fixed-marginal correlated sampling is a distinct policy; pre-existing convergence estimates should not be transferred to it without a new argument.",
+        "searches": [
+          "Ma–Needell–Ramdas arXiv:1701.07453 Algorithm 1 and Theorem 1",
+          "Resultary two-row Kaczmarz overrelaxation result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/1701.07453 pp.8-11",
+          "Resultary 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+        ],
+        "reasoning": "Equivalently this is a diagonal two-layer completion-time problem with a fixed pair-coupling matrix. A generic maximal-coupling theorem only bounds diagonal mass; it does not give the RK-RK unfinished-probability formula or the nontrivial finite-horizon sensitivity.",
+        "searches": [
+          "Resultary semantic query: Kaczmarz two-stage paired row coupling diagonal exact finite horizon synchronization mean-square",
+          "Ma–Needell–Ramdas arXiv:1701.07453, Algorithm 1 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+          "https://arxiv.org/pdf/1701.07453"
+        ],
+        "reasoning": "The closest published indexed two-row Kaczmarz result optimizes deterministic cyclic overrelaxation, not a time-independent joint law for two factorized stages. No exact indexed table of the present pairwise-completion risks was located; absence from search alone is not a proof of novelty.",
+        "searches": [
+          "Resultary semantic search: Kaczmarz two-stage paired row coupling diagonal exact finite horizon synchronization mean-square",
+          "Resultary semantic query: Kaczmarz two-stage paired row coupling diagonal exact finite horizon synchronization mean-square"
+        ]
+      },
+      "rationale": "The source two-stage RK-RK algorithm updates the intermediate vector before the second-stage selection, but its convergence bound assumes separately randomized rows; it does not optimize their within-step joint law. The assessed coordinatewise first-completion representation, globally optimal fixed-marginal coupling, and finite-size synchronization window have not been located in the examined source or closely related published work. Fréchet maximal coupling itself is classical and not claimed as newly invented; the new result is its exact role in this coordinated iterative algorithm and the associated threshold.",
+      "residual_risks": [
+        "The source’s diagonal-square example is a mathematically valid explicit iteration, but differs from the k<m,n assumptions of its general low-rank convergence theorem; these assumptions must not be silently imported.",
+        "The examined Du source was not read in full, so an unobserved coupling analysis is residual originality risk.",
+        "Only individual committed Git blobs rather than the complete recursive directory tree were independently fetched; source-tree SHA remains the exact assigned guard, not an independently recomputed tree certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source uses sequential RK-RK, independent row selection and general upper bounds; no exact optimized dependent pairing identified",
+          "evidence": "Algorithm1 first U projection then V projection using x^t; Theorem1 assumes low-rank conditions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.07453",
+          "material_read": "Algorithm 1, Theorem 1, and finite-error analysis on PDF pp.8–12",
+          "method": "Opened and read primary full-text relevant algorithm/proof sections",
+          "title": "Randomized Kaczmarz for factorized linear systems",
+          "trigger": "Exact originating two-stage algorithm and possible implication"
+        },
+        {
+          "assessment": "No evidence of the same dependent-coupling statement from inspected material; entire-paper exclusion NOT established",
+          "evidence": "Title and abstract discuss distinct randomized Kaczmarz variants; full comparison remains a residual risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.10722",
+          "material_read": "Abstract and accessible descriptive material only",
+          "method": "ArXiv bibliographic/abstract inspection",
+          "title": "Randomized Kaczmarz with averaging for factorized problems, Du",
+          "trigger": "Plausible stronger factorized-convergence analysis"
+        },
+        {
+          "assessment": "Inapplicable: cyclical deterministic relaxation parameter rather than two-stage coupling under fixed marginals",
+          "evidence": "Summary reports sharp transient amplification for asymptotically optimal two-row cyclic overrelaxation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+          "material_read": "Indexed title and scientific summary of two-row cyclic overrelaxation",
+          "method": "Resultary semantic search and statement comparison",
+          "title": "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+          "trigger": "Closest indexed published SCOPE result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The pairing law is a natural algorithmic control variable when stage-wise row sampling distributions are prescribed and cannot be changed. The exact all-horizon optimizer and explicit sharp delayed-versus-synchronized threshold supply mathematically motivated performance information beyond a renaming of a familiar coupling inequality. The diagonal subclass is intentionally a solvable structural benchmark, not an unmotivated numerical slice; it exposes a logarithmic-logarithmic delay absent at full synchronization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Reviewed actual individual Git blobs at immutable assigned commit; full recursive directory Git-tree SHA was not independently recomputed because read-only directory/tree endpoint was not available. The exact server-provided source_tree_sha is kept as a guard, not misrepresented as personally computed.",
+    "No code log, finite enumeration or source self-review is treated as sufficient proof of an unrestricted mathematical theorem; general conclusions were reconstructed analytically.",
+    "All publication and external acceptance actions withheld until private operational provenance in frozen potentially public AUDIT.json and METADATA.json can be sanitized with guarded complete replacement bytes; no neutralized public file or certificate is claimed.",
+    "The source’s diagonal-square example is a mathematically valid explicit iteration, but differs from the k<m,n assumptions of its general low-rank convergence theorem; these assumptions must not be silently imported.",
+    "The examined Du source was not read in full, so an unobserved coupling analysis is residual originality risk.",
+    "Only individual committed Git blobs rather than the complete recursive directory tree were independently fetched; source-tree SHA remains the exact assigned guard, not an independently recomputed tree certificate."
+  ],
+  "schema_version": 1
+}
