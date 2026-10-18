@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The semantic reduction from lax dependence splitting to vertex labels is bidirectional, including unused vertices. Two colors permit a universal opposite-side labeling. Pseudoforest edge orientations prove the positive case for every coloring. Every bicyclic connected graph has a theta, dumbbell, or figure-eight core; proper three-edge coloring settles the first two cases, while a two-cycle incompatible-center construction settles the third. The obstruction extends from a subgraph to the original graph. A standalone enumerator verifies all three-colored small bipartite graphs through \(K_{2,3}\) and a degree-four figure-eight core. The finite computation is not treated as the general proof.
+
+**Originality — PASS, residual risk noted.** The relevant full primary paper, Fröhlich–Kolaitis–Meier (2025), proves complexity/coherence trichotomies for these atoms, and pseudoforest equivalence for the different, two-variable formula. Its results do not state the all-colorings support-graph characterization with a sharp three-value threshold. Searches for equivalent graph-coloring/monochromatic-star/vertex-label formulations and relevant published research records revealed no identical theorem. A broad unnamed older edge-coloring result may still imply the result; priority is not independently certified.
+
+**Value — PASS.** Instead of repeating instancewise model checking, the result identifies the exact support graphs on which *every* functional database with a fixed consequent alphabet satisfies a genuinely nontrivial two-dependence-atom disjunction. The sharp transition at three values is uniform over arbitrarily high degrees; the non-subcubic shared-vertex cycle case requires a separate obstruction. This gives a structural universal test and explicit counterexample certificates, motivated directly by the database-integrity interpretation.
+
+Self-review: passed. Independent audit: not yet performed.
