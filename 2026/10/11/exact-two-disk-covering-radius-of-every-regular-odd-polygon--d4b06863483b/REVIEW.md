@@ -1,12 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The circumcircle intersection of a disk of radius below the circumradius is a single bounded arc. An arithmetic–geometric mean estimate on the center distance bounds this arc by twice the arcsine of the disk radius. A disk smaller than the proposed radius cannot cover a majority of vertices; with an odd number of vertices two disks would leave one uncovered. The constructive converse explicitly checks vertices in the two half-polygons and the vertical cutpoints, then uses disk convexity to cover the entire body. Equality yields a diameter pair of vertices in any majority disk, forcing that center to be their midpoint. Algebraic and finite regression checks replay these steps but are not mistaken for a universal proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest exact general algorithms for geodesic two-disk and Euclidean convex-polygon two-disk covering were materially inspected, without an exact odd-regular formula. The closest published regular-family result treats only **even** polygons and explicitly leaves odd polygons outside its theorem. A later open author preprint treats disk-covering bounds, large-disk-count asymptotics and numerical regular-polygon configurations; the inspected sections do not give an odd-regular two-disk formula. Queries covered disk-cover, two-center, radius, regular-pentagon/heptagon, discrete/continuous and exact trigonometric aliases. A particularly old or unindexed elementary derivation remains possible.
+PASS
 
-## Value — PASS
-The result completes a natural complementary odd family to the known exact even-family continuous two-center benchmark. The body-versus-vertices equality is a structural, not merely numerical, statement: in general disk coverage of polygon vertices does not imply coverage of edges and interior. The sharp majority-disk center rigidity furnishes an explicit finite optimizer constraint and explains the parity-sensitive lower bound.
+A disk of radius r<R intersects the polygon circumcircle in an arc of angular size ≤2 arcsin(r/R), by AM–GM on center distance. At radius below R cos(pi/(2n)), the arc cannot contain (n+1)/2 cyclically spaced vertices, so two disks cannot cover all n vertices. At the claimed radius, the polygons clipped by x=0 are convex hulls of original half-side vertices and the two cutpoints (0,±R cos(pi/n)/cos(pi/(2n))). The original vertices have |x|≥R sin(pi/(2n)); the cutpoints obey a strict squared-distance margin R² cos(pi/n) tan²(pi/(2n))>0. Each half lies in its chosen disk by convexity. At equality the majority-run extreme pair forms a diameter of its covering disk, forcing its midpoint center. All odd n≥3, including triangle; no uniqueness of second center claimed.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Claim-specific equivalence, implication, stronger-theorem and table checks were performed with actual Resultary/public primary searches. The novel remainder identified is not directly covered by inspected named theorems. This is a best-of-knowledge priority assessment, not exhaustive proof that no older equivalent exists.
+
+## value
+
+PASS
+
+The exact continuous two-center covering invariant of every regular odd polygon is a natural, unsolved-by-formula shape family benchmark. Pigeonhole majority-center rigidity and verification of the polygon’s clipped interior are substantive beyond a vertex-radius exercise; the family complements but is not inferred from the published even-polygon formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

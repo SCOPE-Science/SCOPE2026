@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:56:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A disk of radius r<R intersects the polygon circumcircle in an arc of angular size ≤2 arcsin(r/R), by AM–GM on center distance. At radius below R cos(pi/(2n)), the arc cannot contain (n+1)/2 cyclically spaced vertices, so two disks cannot cover all n vertices. At the claimed radius, the polygons clipped by x=0 are convex hulls of original half-side vertices and the two cutpoints (0,±R cos(pi/n)/cos(pi/(2n))). The original vertices have |x|≥R sin(pi/(2n)); the cutpoints obey a strict squared-distance margin R² cos(pi/n) tan²(pi/(2n))>0. Each half lies in its chosen disk by convexity. At equality the majority-run extreme pair forms a diameter of its covering disk, forcing its midpoint center. All odd n≥3, including triangle; no uniqueness of second center claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General planar two-center finite-point algorithms and full-convex-body algorithms have broader objects but no source theorem implying the claimed symbolic formula.",
+          "Existing published even-n regular-polygon result has incompatible parity hypothesis and a different formula."
+        ],
+        "reasoning": "Broader algorithms can calculate a concrete polygon, but no inspected universal theorem gives odd closed radius and center rigidity as a simple corollary. Even family cannot be specialized to odd n.",
+        "searches": [
+          "arXiv:2105.02483",
+          "DOI:10.4230/LIPIcs.SoCG.2024.40",
+          "Resultary: exact two-disk covering radius regular even polygon"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2105.02483",
+        "arXiv:1311.6033",
+        "doi:10.4230/LIPIcs.SoCG.2024.40"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2021 paper gives an O(n log n) exact optimizer algorithm for arbitrary convex polygon inputs.",
+          "Geodesic two-disk and point-set two-center methods do not supply a quantified characterization of every odd regular polygon in the inspected statements."
+        ],
+        "reasoning": "The new formula can be computed algorithmically for each n but is not directly stated as a consequence of those algorithmic bounds. Historical elementary equal-disk formulations might still exist.",
+        "searches": [
+          "Choi Jeong Ahn Covering Convex Polygons by Two Congruent Disks 2021",
+          "Vigan Packing and Covering a Polygon with Geodesic Disks 2013",
+          "Cho Oh Wang Xue Optimal Algorithm Planar Two-Center 2024"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General convex-polygon two-center is solved by an exact algorithm; the algorithm returns the optimum for an input polygon but gives no stated odd-n formula or forced majority-center orbit.",
+          "Geodesic polygon covering includes convex polygons but not this all-odd explicit classification."
+        ],
+        "reasoning": "An algorithmic solution of an input instance is not itself the same as an exact all-n closed form and boundary rigidity theorem. The proof explicitly checks the whole polygon, not just vertices.",
+        "searches": [
+          "arXiv:2105.02483",
+          "arXiv:1311.6033",
+          "two-center odd regular polygon vertex set vs whole polygon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact tabulated odd-n radius or complete majority-center locus found in searched published records.",
+          "Known regular-polygon vertex-only packing/covering tables do not establish whole-body inclusion."
+        ],
+        "reasoning": "The result is not merely a lookup of R cos(pi/(2n)): cutpoint control provides a full-body certificate and center rigidity uniformly for odd n.",
+        "searches": [
+          "regular polygon two disk optimal radius cos pi/(2n) search",
+          "Resultary even polygon closed two disk covering"
+        ]
+      },
+      "rationale": "Claim-specific equivalence, implication, stronger-theorem and table checks were performed with actual Resultary/public primary searches. The novel remainder identified is not directly covered by inspected named theorems. This is a best-of-knowledge priority assessment, not exhaustive proof that no older equivalent exists.",
+      "residual_risks": [
+        "An earlier exact odd-regular-polygon formula could be present in unindexed elementary covering geometry; failed search does not certify universal novelty.",
+        "All n are covered, but the complementary optimal disk center is not classified for arbitrary optimum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ALGORITHM_BROADER_OBJECT_NOT_EXACT_ODD_FORMULA",
+          "evidence": [
+            "Provides O(n log n) algorithm for each convex polygon, not all-odd regular closed radius or forced majority center."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.02483",
+          "material_read": "Original arXiv full-text introduction, exact algorithm statement, boundary subdivision and proof sections",
+          "method": "Lawful arXiv PDF, primary relevant sections",
+          "title": "Covering Convex Polygons by Two Congruent Disks",
+          "trigger": "Directly same full-body two-disk problem for all convex polygons"
+        },
+        {
+          "assessment": "ALGORITHM_NOT_ODD_REGULAR_CLASSIFICATION",
+          "evidence": [
+            "An algorithmic general convex-polygon covering result is not a quantified closed formula for odd regular polygons."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1311.6033",
+          "material_read": "Original preprint scope, definitions and main covering algorithms",
+          "method": "Lawful arXiv PDF relevant theorems",
+          "title": "Packing and Covering a Polygon with Geodesic Disks",
+          "trigger": "Geodesic disk cover reduces to Euclidean within convex polygons"
+        },
+        {
+          "assessment": "DIFFERENT_PARITY_HYPOTHESIS",
+          "evidence": [
+            "Even n requires central symmetry and yields a distinct expression; does not imply odd family."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-two-disk-covering-radius-of-every-regular-even-polygon--5ecef0f3d939",
+          "material_read": "Published mathematical title and exact even-n formula in indexed abstract; no whole-document coverage assessment inferred",
+          "method": "Published mathematical abstract/result snippet",
+          "title": "Exact two-disk covering radius of every regular even polygon",
+          "trigger": "Closest published explicit regular-polygon covering formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact continuous two-center covering invariant of every regular odd polygon is a natural, unsolved-by-formula shape family benchmark. Pigeonhole majority-center rigidity and verification of the polygon’s clipped interior are substantive beyond a vertex-radius exercise; the family complements but is not inferred from the published even-polygon formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An earlier exact odd-regular-polygon formula could be present in unindexed elementary covering geometry; failed search does not certify universal novelty.",
+    "All n are covered, but the complementary optimal disk center is not classified for arbitrary optimum.",
+    "The source package has not been sanitized for publication; evidence of a correct original valuable finding does not imply external certification or authorization to publish.",
+    "Numerical and finite exact checks were not used as proofs of all dimensions/parameter values; the inspected analytic argument is decisive."
+  ],
+  "schema_version": 1
+}
