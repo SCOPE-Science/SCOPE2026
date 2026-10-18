@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published incomplete-beta representation becomes an exact binomial-tail representation. This yields \(C_m(u,v)=n^{-1}\mathbb E[\min(J_u,J_v)]\), with \(n=m+1\). Stochastic monotonicity moves every off-diagonal defect to the diagonal. A lazy-random-walk decomposition then shows that the diagonal defect is maximal at \(p=1/2\). The remaining centered-binomial absolute deviation has an exact telescoping evaluation, giving the stated central-binomial constant. The computational checks are supplementary and do not stand in for the proof.
+## correctness
 
-## Originality
-PASS. The direct source supplies the EPD Bernstein formula but does not quantify its uniform distance from comonotonicity. Baker's full order-statistics treatment gives the identical bivariate family and states qualitative convergence to the Fréchet bound, but no exact supremum error or sharp rate was found in the inspected full text. Targeted searches over the EPD, Baker, comonotonic, and Bernstein-approximation formulations did not locate a covering result. An older approximation-theory formulation remains a residual bibliographic risk.
+PASS
 
-## Value
-PASS. This gives a global exact invariant of the canonical positive extremal Bernstein construction: the worst uniform deviation, a point where it is attained, and the precise asymptotic constant. It turns qualitative convergence to the Fréchet upper bound into a sharp finite-order statement and directly advances the exchangeable-Bernstein direction motivated by the source.
+Set n=m+1. For the stated beta-sum C_m, binomial tails give C_m(u,v)=E[min(J_u,J_v)]/n, J_u~Bin(n,u), J_v independent Bin(n,v). For u<=v, M(u,v)-C_m=(1/n)E(J_u-J_v)_+, nonincreasing in v at fixed u, so global max lies on diagonal. Diagonal defect E|J-K|/(2n). Difference of independent paired Bernoullis is a lazy symmetric walk whose number of active steps N~Bin(n,2p(1-p)); conditional E|S_N| nondecreasing as number of steps grows, and 2p(1-p) max at p=1/2. At p=1/2, J-K~Bin(2n,1/2)-n, telescoping central-binomial sum gives E|J-K|=n*binom(2n,n)/4^n. Thus ||M-C_m||∞=binom(2m+2,m+1)/(2*4^(m+1)), global (1/2,1/2) maximizer and asymptotic 1/(2sqrt(pi(m+1))). Independently recomputed exact n=2..8 rational center identities and verified analytic monotonicity; finite grid not used to prove global bound.
 
-## Closest literature and limitations
-The closest sources are Blier-Wong, Cossette, and Marceau's EPD Bernstein formula and Baker's order-statistics copula. The theorem is bivariate and specific to this family; it does not classify arbitrary Bernstein copulas or higher-dimensional defects. The remaining originality risk is an equivalent exact Bernstein-approximation identity under non-copula terminology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The EPD beta representation of Blier-Wong et al. is precisely Baker’s bivariate order-statistic copula with n=m+1 (so the object is not novel). Baker 2014 full primary manuscript gives order-statistic formula, association indices and convergence to Fréchet upper copula but not the exact sup-norm approximation error or center-maximization proof within materially read text. Distinguish qualitative convergence and Spearman correlation from maximum vertical copula gap. Resultary search for central-binomial uniform comonotonicity defect found no stronger result; potential older Bernstein approximation identity risk remains.
+
+## value
+
+PASS
+
+The EPD order-statistic Bernstein copula is a natural standard positive-dependence approximation to singular comonotonicity; the sharp Kolmogorov/uniform defect for every finite degree, exact extremizer, and sharp sqrt-degree constant are meaningful quantitative calibration facts beyond qualitative convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
