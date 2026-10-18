@@ -1,12 +1,21 @@
-# Scientific review: corrected cubic Fibonacci window-gcd law
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns all even lengths \(k\ge2\) and starting positions \(n\ge0\). Cassini and cubic congruences force the sharp modulus \(m_k=\gcd(F_{k+2}-1,3(F_{k+1}-1))\), including the delicate prime \(3\). Every cubic shift difference vanishes modulo that modulus, and the first two have exact gcd \(m_k\). An exact inductive identity for the first window shows divisibility by the odd part of \(m_k\), while a separate \(2\)-adic argument gives precisely one lost factor of two if and only if \(6\mid k\). The standalone integer checker passes all even \(2\le k\le600\) and 7,500 window comparisons. Finite checks supplement the full proof, rather than replace it. A reviewer should particularly check the lifting step at \(3\) and that the two contributing valuations in the initial-window identity differ.
+## correctness
 
-## Originality — PASS relative to investigated literature
-Section 6.1, Question 6.1 of Mbirika–Spilker, arXiv:2204.12626v2, explicitly prints the two opposite branches as an unproved cubic conjecture. Its \(k=2\) instance would be nonintegral, while \(k=6\) predicts \(4\) instead of \(2\). The corrected all-length proof is not in the materially inspected primary paper. Guyer–Mbirika, arXiv:2104.12262v2, proves analogous first-power results but does not supply the needed cubic norm reduction. Targeted mathematical-record searches found no dominating all-even cubic classification. The branch swap may be a typographical error. Frontczak (2018) was inspected at the third-order even-index summation proposition; Karcher–Michael (2021) and Bilu et al. (2016) treat different divisibility problems, not the exact all-window gcd. The Clary–Hemenway chapter was available only by abstract, so an implicit equivalent there is a residual risk, not an established overlap.
+PASS
 
-## Value — PASS
-This is a natural complete classification of the even-length case of an explicit open cubic-window gcd question, including a new linear-argument gcd identity and a sharp explanation of the parity factor. The proof has intrinsic content independent of the small counterexamples. It neither claims the unrestricted higher-power problem nor the Lucas or odd-window variants.
+Reconstructed modular proof: for even k, Cassini and u=F_{k+2},v=F_{k+1},a=F_k imply m=gcd(u³−1,v³−1)|u−1 and m=gcd(u−1,3(v−1)); modulo m, δ=v−1 satisfies 3δ=δ²=0, hence every cubic shift difference vanishes and its exact common gcd is m. The first-window identity 4S0=v³+a³−3(v−a)+2 gives m|4S0; Fibonacci parity and valuation at k≡0 (mod6) produce precisely one factor 2 loss, otherwise m odd. Independently checked even k=2..180: m formula and 12 consecutive exact integer window gcds all agree. Those finite checks supplement, not replace, the all-k Cassini/valuation proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The motivating Mbirika–Spilker open Question 6.1 prints the two divisibility-by-six branches in the opposite order. Complete exact gcd identities for all even k, including the 2-adic loss, are absent in the materially compared primary sections; other papers cover first powers or different index sets.
+
+## value
+
+PASS
+
+Resolves a concrete published open question for every positive even window length and corrects reversed branches with a nontrivial cubic norm-rigidity lemma; the exact all-starting-index gcd is an independently meaningful recurrence invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

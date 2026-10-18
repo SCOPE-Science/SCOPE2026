@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the corrected Fibonacci cube gcd classification
+# Independent mathematical audit
 
-The theorem's infinite domain is established symbolically in `RESULT.md` through modular norm rigidity, a first-window induction, and an exact \(2\)-adic argument. No finite computation certifies the infinite quantifiers.
+## correctness
 
-`verify.py` is a standalone Python 3 exact-integer checker; run `python3 verify.py` in the directory containing it. It checks each even \(2\le k\le600\), the first 25 sliding windows per length (7,500 window-gcd comparisons), the exact cubic-difference gcd, the first-window identity, and the \(2\)-adic factor for \(6\mid k\). The recorded stdout is in `verification_output.txt`.
+PASS
 
-The printed source conjecture has reversed case conditions. Concrete complete-window gcds are \(G_2=1\) with \(m_2=1\), and \(G_6=2\) with \(m_6=4\); neither example alone proves the unrestricted theorem.
+Reconstructed modular proof: for even k, Cassini and u=F_{k+2},v=F_{k+1},a=F_k imply m=gcd(u³−1,v³−1)|u−1 and m=gcd(u−1,3(v−1)); modulo m, δ=v−1 satisfies 3δ=δ²=0, hence every cubic shift difference vanishes and its exact common gcd is m. The first-window identity 4S0=v³+a³−3(v−a)+2 gives m|4S0; Fibonacci parity and valuation at k≡0 (mod6) produce precisely one factor 2 loss, otherwise m odd. Independently checked even k=2..180: m formula and 12 consecutive exact integer window gcds all agree. Those finite checks supplement, not replace, the all-k Cassini/valuation proof.
 
-Limits: no higher powers, odd-length windows, generalized initial data or Lucas-cube windows are covered. An independent audit and exhaustive literature review have not been carried out.
+## originality
+
+PASS
+
+The motivating Mbirika–Spilker open Question 6.1 prints the two divisibility-by-six branches in the opposite order. Complete exact gcd identities for all even k, including the 2-adic loss, are absent in the materially compared primary sections; other papers cover first powers or different index sets.
+
+## value
+
+PASS
+
+Resolves a concrete published open question for every positive even window length and corrects reversed branches with a nontrivial cubic norm-rigidity lemma; the exact all-starting-index gcd is an independently meaningful recurrence invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

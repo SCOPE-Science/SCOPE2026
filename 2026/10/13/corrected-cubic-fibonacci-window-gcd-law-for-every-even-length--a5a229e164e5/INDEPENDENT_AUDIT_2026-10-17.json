@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:59:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed modular proof: for even k, Cassini and u=F_{k+2},v=F_{k+1},a=F_k imply m=gcd(u³−1,v³−1)|u−1 and m=gcd(u−1,3(v−1)); modulo m, δ=v−1 satisfies 3δ=δ²=0, hence every cubic shift difference vanishes and its exact common gcd is m. The first-window identity 4S0=v³+a³−3(v−a)+2 gives m|4S0; Fibonacci parity and valuation at k≡0 (mod6) produce precisely one factor 2 loss, otherwise m odd. Independently checked even k=2..180: m formula and 12 consecutive exact integer window gcds all agree. Those finite checks supplement, not replace, the all-k Cassini/valuation proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2104.12262v2 treats first powers of Fibonacci/Lucas windows; it does not imply cubic norm rigidity.",
+          "Frontczak 2018 Proposition 3.5 handles even-index progressions; Bilu et al. 2016 cover Lucas divisibility, not all cubic-window gcds."
+        ],
+        "reasoning": "An all-powers or generalized recurrence result could dominate, but no such theorem was identified in the compared full texts. Material differences are exponent and all starting indices.",
+        "searches": [
+          "arXiv:2104.12262v2 first-power Fibonacci window gcd",
+          "Frontczak 2018 sums powers Fibonacci Lucas even-index arithmetic progression",
+          "Bilu Komatsu Luca Pizarro Madariaga Stanica 2016 divisibility Lucas power differences"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2204.12626v2",
+        "https://arxiv.org/html/2104.12262v2",
+        "https://nntdm.net/papers/nntdm-24/NNTDM-24-2-094-103.pdf",
+        "doi:10.1016/j.jnt.2015.11.011",
+        "doi:10.1007/978-94-011-2058-6_12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=2, m=1 and all-window gcd=1, versus printed m/2. At k=6, m=4 and gcd=2, versus printed m.",
+          "The new lemma m|F_{k+2}−1 and the nilpotent residue (F_{k+1}−1)²≡0(mod m) supply the missing infinite congruence."
+        ],
+        "reasoning": "Printed source does not imply the reversed, correct branches; standard Fibonacci first-power relations also do not imply required cubic congruences.",
+        "searches": [
+          "Mbirika Spilker 2022 Question 6.1 printed even k branch",
+          "Guyer Mbirika first powers cubic windows relation",
+          "Clary Hemenway 1993 sums cubes Fibonacci"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The printed conjecture says the opposite m vs m/2 divisibility-by-six rule, contradicted by k=2 and k=6.",
+          "The submitted modulus is also equal to gcd(F_{k+2}−1,3(F_{k+1}−1)), not a known first-power identity in Guyer–Mbirika."
+        ],
+        "reasoning": "Equivalent adjacent-window difference gcds and direct cubic sums were compared; first-power gcd results lack the cubic norm argument. An open question with reversed branches does not cover a corrected complete theorem.",
+        "searches": [
+          "arXiv:2204.12626v2 Section 6.1 Question 6.1 Fibonacci cubes k consecutive",
+          "Fibonacci cubic window gcd even k m_k 6|k",
+          "Resultary: Mbirika Spilker Fibonacci cubes consecutive k sums gcd even k branches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A210209 enumerates first-power cases rather than cubic windows.",
+          "The initiating paper has the conjectural cubic split and illustrative cases but not the correct all-even statement."
+        ],
+        "reasoning": "Finite tables cannot establish the infinitely quantified k classification; checked first-power databases do not give exact cubics.",
+        "searches": [
+          "OEIS A210209 Fibonacci sliding window gcd first powers",
+          "arXiv:2204.12626v2 Question 6.1 table",
+          "Fibonacci cubes window gcd sequence even lengths"
+        ]
+      },
+      "rationale": "The motivating Mbirika–Spilker open Question 6.1 prints the two divisibility-by-six branches in the opposite order. Complete exact gcd identities for all even k, including the 2-adic loss, are absent in the materially compared primary sections; other papers cover first powers or different index sets.",
+      "residual_risks": [
+        "A 1993 chapter on Fibonacci cube sums remains unread at full-text level; hidden equivalence is possible.",
+        "The printed split could be a simple editorial case reversal and later unindexed corrected edition may exist.",
+        "Only even k and standard Fibonacci initialization are proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_QUESTION_NOT_COVERING_CORRECTED_PROOF",
+          "evidence": "The two even-k cubic-window branches are interchanged relative to exact computation at k=2 and k=6.",
+          "identifier_or_url": "arXiv:2204.12626v2",
+          "material_read": "Full open-access text including Section 6.1 and Question 6.1, with source PDF page visually checked for 6|k branch assignments.",
+          "method": "Full statement and case-split comparison.",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Exact question being settled"
+        },
+        {
+          "assessment": "NOT_COVERING_CUBIC_CASE",
+          "evidence": "Its first-power identities lack the modular cube rigidity in the audited proof.",
+          "identifier_or_url": "arXiv:2104.12262v2",
+          "material_read": "Full open text, especially first-power gcd theorems and index assumptions.",
+          "method": "Statement and exponent comparison.",
+          "title": "GCD of sums of k consecutive Fibonacci, Lucas, and generalized Fibonacci numbers",
+          "trigger": "Potential stronger all-start window theorem"
+        },
+        {
+          "assessment": "NOT_COVERING_WINDOW_GCD",
+          "evidence": "Even-index spaced cube sums are not the exact gcd for all starting positions.",
+          "identifier_or_url": "https://nntdm.net/papers/nntdm-24/NNTDM-24-2-094-103.pdf",
+          "material_read": "Lawful OA PDF, selected full Proposition 3.5 and neighboring summation formulas.",
+          "method": "Index-set and theorem comparison.",
+          "title": "Sums of powers of Fibonacci and Lucas numbers: A new bottom-up approach",
+          "trigger": "Potential general cube sum identities"
+        },
+        {
+          "assessment": "UNCERTAIN_POTENTIAL_EQUIVALENT",
+          "evidence": "An implicit modular window-gcd lemma cannot be ruled out from abstract alone.",
+          "identifier_or_url": "doi:10.1007/978-94-011-2058-6_12",
+          "material_read": "Abstract and bibliographic record only; full source was not obtained.",
+          "method": "Bibliographic/abstract assessment.",
+          "title": "On sums of cubes of Fibonacci numbers",
+          "trigger": "Plausible earlier broad cube summation treatment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves a concrete published open question for every positive even window length and corrects reversed branches with a nontrivial cubic norm-rigidity lemma; the exact all-starting-index gcd is an independently meaningful recurrence invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only even k≥2 standard Fibonacci cubes; no odd lengths, other recurrences or higher powers.",
+    "At most 12 initial windows and k≤180 checked computationally; full quantification rests on independent Cassini/2-adic proof.",
+    "A 1993 chapter on Fibonacci cube sums remains unread at full-text level; hidden equivalence is possible.",
+    "The printed split could be a simple editorial case reversal and later unindexed corrected edition may exist.",
+    "Only even k and standard Fibonacci initialization are proved."
+  ],
+  "schema_version": 1
+}
