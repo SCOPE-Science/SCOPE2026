@@ -1,0 +1,21 @@
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Even n≥4: b maps each full parity class bijectively onto odd class, while a swaps parity; once the first b has image size n/2, all further letters preserve it, so no reset. n=2 b constant; n=3 b² constant. For odd n=2k+1≥5, replay explicit word against successive odd-state image sets yields singleton at length 2k²−k+1. For ANY reset word, inverse images from singleton under a,b are cyclic intervals, with b^(-1)(I_(L,s))=I_(L+α−β,s−α), α=1 if s=0 or odd, β=1 if end index even. The submitted length/start piecewise potential P on intervals has P(singleton)=0, P(Q_n)=2k²−k+1 and changes by at most +1 under either inverse letter, including wrap seam cases. Therefore every reset word has length at least P(Q_n). Independently reconstructed subset BFS n2..19 and interval potential inequalities odd n5..31, all matched; infinite bound follows from symbolic case analysis, not finite enumeration.
+
+## originality
+
+PASS
+
+Gusev Eulerian constructions have numerically identical odd polynomial threshold but two nonpermutation letters; this automaton has an invertible full n-cycle a, so those automata cannot be isomorphic and Gusev formula is not a direct implication for this transition semigroup. TheoremDB cyclic pair-compression problem uses an idempotent collapse map (odd index maps to previous), unlike the nonidempotent seam b here on odd n, and has different threshold. General bounds and Eppstein interval method do not explicitly give this exact parity/dichotomy/potential. Original Gusev full publisher paper inaccessible; Volkov technical lecture describes distinct maps in detail.
+
+## value
+
+PASS
+
+Sharp all-order classification, including nonsynchronizing even cases and quadratic optimal odd resets, for a natural cyclic permutation plus alternating mass-collapse alphabet. Distinguishes this nonidempotent-seam class from nearby Eulerian slow reset and idempotent pair compression; exact bounds require tailored inverse-interval potential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
