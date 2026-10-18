@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-From the extracted package root run `python3 artifacts/verify.py` with Python 3 standard library. No external data or packages are required. Expected end marker: `VERIFY_OK`.
+## correctness
 
-The program directly enumerates every eight-erasure graph, verifies that only the stated shapes have cycle-nullity three, and exhausts all seven-erasure graphs for parameters \((m,n)=(2,4),(2,6),(3,3),(3,4),(4,4)\). Separately it constructs a systematic generator matrix and enumerates every three-dimensional coefficient subspace in reduced row-echelon form, verifying their minimum supports and the bijection to the eight-erasure sets. The \((4,4)\) instance checks \(788035\) distinct three-spaces and finds exactly \(156\) minimum-support ones, with shape distribution \(6,144,6\) in the three cases.
+PASS
 
-These are exact finite calculations; the proof for unbounded \(m,n\) is the graph-theoretic argument in `RESULT.md`. This check is not a proof of literature uniqueness, and an independent audit has not been performed.
+For binary row-and-column parity checks, the erased-coordinate kernel is exactly the binary cycle space of the erasure bipartite graph with dimension e-v+c. Connected bipartite rank-1, rank-2 and rank-3 components need >=4, >=6, >=8 edges. At eight edges total rank >=3 requires a single connected six-vertex rank-3 graph; with 8 edges and bipartition sizes summing to six, the only possibilities are K_{2,4}, K_{4,2} or K_{3,3} minus one edge. Every edge lies on a cycle, so support(C(E))=E and exactly one three-space occupies each minimum support. Choosing row/column sets yields binom(m,2)binom(n,4)+binom(m,4)binom(n,2)+9binom(m,3)binom(n,3), with zero-binomial convention. No fewer-than-eight erasures can have rank three. Independent all-eight-edge bipartite graph enumeration returned predicted rank-three counts 1 at (2,4), 9 at (3,3), 39 at (3,4), 156 at (4,4). Uniform theorem rests on graph proof, not these finite tests.
+
+## originality
+
+PASS
+
+Ribeiro Alves and Cardell (2026, arXiv:2608.26457 Theorem 7) already prove the generalized Hamming weight d3=8, which is expressly not claimed new. Cardell–Climent 2016 count all uncorrectable eight-erasure patterns, without verified separate rank-three classification in accessible text; Cardell–Climent–López Martín 2019 Theorem 3 counts strict failure graphs by degree margins using Kostka numbers. Neither accessible inspected statement directly gives the cycle-rank-three multiplicity and complete three-shape/minimum-three-subcode bijection; the margin enumerator may imply counts after new graph analysis. Strong plausible implicit coverage remains in inaccessible 2016 and uninspected 2019 full details; best-of-knowledge qualified PASS, not an exhaustive priority certification.
+
+## value
+
+PASS
+
+An eight-erasure failure can have different ambiguity dimensions and hence 2,4 or 8 possible completions. The first eight-completion threshold and exact multiplicities of every extremal support across arbitrary rectangular SPC products distinguish this natural decoding-severity invariant from raw error counts; complete support geometries also classify every third-weight minimizing subcode. Structural classification rather than merely restating d3=8.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

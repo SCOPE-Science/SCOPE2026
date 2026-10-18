@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T07:05:16.640423Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary row-and-column parity checks, the erased-coordinate kernel is exactly the binary cycle space of the erasure bipartite graph with dimension e-v+c. Connected bipartite rank-1, rank-2 and rank-3 components need >=4, >=6, >=8 edges. At eight edges total rank >=3 requires a single connected six-vertex rank-3 graph; with 8 edges and bipartition sizes summing to six, the only possibilities are K_{2,4}, K_{4,2} or K_{3,3} minus one edge. Every edge lies on a cycle, so support(C(E))=E and exactly one three-space occupies each minimum support. Choosing row/column sets yields binom(m,2)binom(n,4)+binom(m,4)binom(n,2)+9binom(m,3)binom(n,3), with zero-binomial convention. No fewer-than-eight erasures can have rank three. Independent all-eight-edge bipartite graph enumeration returned predicted rank-three counts 1 at (2,4), 9 at (3,3), 39 at (3,4), 156 at (4,4). Uniform theorem rests on graph proof, not these finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2019 Theorem 3 general strict-uncorrectable margin/Kostka enumeration is broader for failure margins but not verified to rank stratify by cycle number.",
+          "2016 full eight-failure count is stronger in total-failure coverage but abstract does not imply eight-way ambiguity count."
+        ],
+        "reasoning": "Check whether the prior general theorem implies this exact claim and all its quantifiers; generic ingredients are credited, without asserting they supply missing new calculation.",
+        "searches": [
+          "Resultary: binary subspace eight erasures three dimensional ambiguity",
+          "Resultary: eight erasure patterns rank three ambiguity cycle rank three single parity check product",
+          "arXiv:2608.26457 Theorem 7",
+          "Cardell-Climent 2016 doi:10.3934/amc.2016.10.11",
+          "Cardell-Climent-Lopez Martin 2019 doi:10.1007/s13398-019-00698-1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: binary subspace eight erasures three dimensional ambiguity",
+        "Resultary: eight erasure patterns rank three ambiguity cycle rank three single parity check product",
+        "arXiv:2608.26457 Theorem 7",
+        "Cardell-Climent 2016 doi:10.3934/amc.2016.10.11",
+        "Cardell-Climent-Lopez Martin 2019 doi:10.1007/s13398-019-00698-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "d3=8 follows from 2026 theorem but not count of minimizers; all-failure totals do not algebraically determine rank-three subset.",
+          "2019 margin count could support derived rank-three tally only after identifying three possible graph types; no direct covering implication established."
+        ],
+        "reasoning": "Logical implication tests compare hypotheses, output invariants and scope rather than relying on title/parameter resemblance.",
+        "searches": [
+          "Resultary: binary subspace eight erasures three dimensional ambiguity",
+          "Resultary: eight erasure patterns rank three ambiguity cycle rank three single parity check product",
+          "arXiv:2608.26457 Theorem 7",
+          "Cardell-Climent 2016 doi:10.3934/amc.2016.10.11",
+          "Cardell-Climent-Lopez Martin 2019 doi:10.1007/s13398-019-00698-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent decoding language is three-dimensional cycle space of an eight-edge bipartite erasure graph; three generalized-weight minimizers are exactly C(E) for these supports.",
+          "The closest known d3=8 determines minimum support size but not all shape multiplicities."
+        ],
+        "reasoning": "Directly compare the mathematical object and invariant under alternate coding/form or terminology; same names do not establish equivalence.",
+        "searches": [
+          "Resultary: binary subspace eight erasures three dimensional ambiguity",
+          "Resultary: eight erasure patterns rank three ambiguity cycle rank three single parity check product",
+          "arXiv:2608.26457 Theorem 7",
+          "Cardell-Climent 2016 doi:10.3934/amc.2016.10.11",
+          "Cardell-Climent-Lopez Martin 2019 doi:10.1007/s13398-019-00698-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent four-grid ranks: (2,4):1, (3,3):9, (3,4):39, (4,4):156; includes 4-by-4 6+6+144.",
+          "Ribeiro Alves–Cardell Example 2 known weight hierarchy not table of minimum-subcode counts."
+        ],
+        "reasoning": "Distinguish known numerical/input tables from the new claimed full rank-, parameter-, or root-stratified census; searches not proof of nonexistence.",
+        "searches": [
+          "Resultary: binary subspace eight erasures three dimensional ambiguity",
+          "Resultary: eight erasure patterns rank three ambiguity cycle rank three single parity check product",
+          "arXiv:2608.26457 Theorem 7",
+          "Cardell-Climent 2016 doi:10.3934/amc.2016.10.11",
+          "Cardell-Climent-Lopez Martin 2019 doi:10.1007/s13398-019-00698-1"
+        ]
+      },
+      "rationale": "Ribeiro Alves and Cardell (2026, arXiv:2608.26457 Theorem 7) already prove the generalized Hamming weight d3=8, which is expressly not claimed new. Cardell–Climent 2016 count all uncorrectable eight-erasure patterns, without verified separate rank-three classification in accessible text; Cardell–Climent–López Martín 2019 Theorem 3 counts strict failure graphs by degree margins using Kostka numbers. Neither accessible inspected statement directly gives the cycle-rank-three multiplicity and complete three-shape/minimum-three-subcode bijection; the margin enumerator may imply counts after new graph analysis. Strong plausible implicit coverage remains in inaccessible 2016 and uninspected 2019 full details; best-of-knowledge qualified PASS, not an exhaustive priority certification.",
+      "residual_risks": [
+        "The complete 2016 paper was not accessible and authorized institutional tool returned vpn_disconnected; it could implicitly classify these small erasure graphs.",
+        "2019 complete theorem proof not freshly accessible in this run; a Kostka-based general formula could recover the count after nontrivial filtering.",
+        "Earlier coding theory or graph-cycle enumeration might already state the exact rank-three multiplicities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers d3=8 but not verified three-space counts",
+          "evidence": "Theorem 7 determines the third weight value 8.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.26457",
+          "material_read": "Public preprint statement of Theorem 7 and Example 2, as retrieved/compared; not asserted that every page was read",
+          "method": "primary arXiv theorem comparison",
+          "title": "Weight Distributions of Single Parity-Check Product Codes via Character Sums",
+          "trigger": "same SPC product codes/generalized weight"
+        },
+        {
+          "assessment": "Potentially overlapping 8-erasure census; cannot assert full text noncoverage",
+          "evidence": "2016 abstract mentions erasure failure counts; no rank-three theorem verified.",
+          "identifier_or_url": "https://doi.org/10.3934/amc.2016.10.11",
+          "material_read": "Accessible abstract/bibliographic information only; full paper unavailable",
+          "method": "publisher/author OA attempts; authorized institutional attempt blocked vpn_disconnected",
+          "title": "An approach to the performance of SPC product codes on the erasure channel",
+          "trigger": "2016 eight-erasure all-failure counting"
+        },
+        {
+          "assessment": "General degree-margin count is a substantial prior method; implicit coverage remains unexcluded",
+          "evidence": "2019 Theorem 3 counts strict patterns using Kostka numbers; rank-three filter not stated in inspected accessible material.",
+          "identifier_or_url": "https://doi.org/10.1007/s13398-019-00698-1",
+          "material_read": "Bibliographic page and theorem description in submitted source, not independently accessible complete full text",
+          "method": "OA institutional metadata / direct comparison to 2019 theorem description",
+          "title": "SPC product codes, graphs with cycles and Kostka numbers",
+          "trigger": "2019 general counting of strict uncorrectable graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An eight-erasure failure can have different ambiguity dimensions and hence 2,4 or 8 possible completions. The first eight-completion threshold and exact multiplicities of every extremal support across arbitrary rectangular SPC products distinguish this natural decoding-severity invariant from raw error counts; complete support geometries also classify every third-weight minimizing subcode. Structural classification rather than merely restating d3=8.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: binary subspace eight erasures three dimensional ambiguity",
+    "Resultary: eight erasure patterns rank three ambiguity cycle rank three single parity check product",
+    "arXiv:2608.26457 Theorem 7",
+    "Cardell-Climent 2016 doi:10.3934/amc.2016.10.11",
+    "Cardell-Climent-Lopez Martin 2019 doi:10.1007/s13398-019-00698-1"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Binary SPC product codes, exact eight-coordinate erasures and codeword completion count, not iterative decoder outcomes.",
+    "Finite graph census only corroborates the all-parameter combinatorial proof."
+  ],
+  "residual_risks": [
+    "The complete 2016 paper was not accessible and authorized institutional tool returned vpn_disconnected; it could implicitly classify these small erasure graphs.",
+    "2019 complete theorem proof not freshly accessible in this run; a Kostka-based general formula could recover the count after nontrivial filtering.",
+    "Earlier coding theory or graph-cycle enumeration might already state the exact rank-three multiplicities."
+  ],
+  "schema_version": 1
+}

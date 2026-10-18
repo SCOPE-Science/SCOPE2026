@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binary row/column parity constraints identify the ambiguity space with the binary cycle space of the bipartite erasure graph. The spanning-forest formula gives dimension \(|E|-|V_E|+c_E\). Connected simple bipartite graphs of cycle rank at least \(1,2,3\) require respectively at least \(4,6,8\) edges. On eight edges a rank-three graph must be connected on exactly six vertices; possible bipartition sizes and eight-edge cap uniquely give the three families. Direct counts and the correspondence with three-dimensional minimum-support subcodes then follow. This argument is uniform in \(m,n\) and handles rectangular/small-boundary cases through zero binomial coefficients. Exhaustive graph and independent subspace enumeration agrees for five finite instances, including \(788035\) three-spaces for the \(4\)-by-\(4\) code.
+PASS
 
-## Originality — PASS with disclosed literature risk
+For binary row-and-column parity checks, the erased-coordinate kernel is exactly the binary cycle space of the erasure bipartite graph with dimension e-v+c. Connected bipartite rank-1, rank-2 and rank-3 components need >=4, >=6, >=8 edges. At eight edges total rank >=3 requires a single connected six-vertex rank-3 graph; with 8 edges and bipartition sizes summing to six, the only possibilities are K_{2,4}, K_{4,2} or K_{3,3} minus one edge. Every edge lies on a cycle, so support(C(E))=E and exactly one three-space occupies each minimum support. Choosing row/column sets yields binom(m,2)binom(n,4)+binom(m,4)binom(n,2)+9binom(m,3)binom(n,3), with zero-binomial convention. No fewer-than-eight erasures can have rank three. Independent all-eight-edge bipartite graph enumeration returned predicted rank-three counts 1 at (2,4), 9 at (3,3), 39 at (3,4), 156 at (4,4). Uniform theorem rests on graph proof, not these finite tests.
 
-Theorem 7 of Ribeiro Alves–Cardell (2026) already fixes \(d_3=8\); this is not a novelty claim. The new assertion counts and classifies the exact eight-erasure rank-three kernel, a stronger invariant than the support threshold. The 2019 Cardell–Climent–López Martín complete manuscript was read: Theorem 3 counts strict uncorrectable erasure patterns by their row/column degrees using Kostka numbers. This strong prior margin-enumerator can count the relevant degree classes once cycle-rank-three structural restrictions are independently derived, but neither states nor proves the minimum three-space classification. The 2016 Cardell–Climent complete article was not obtained, although its abstract reports all-failure counts for eight erasures; an implicit graph classification there is the principal risk. No identical ranked count was found in focused published-index and database queries.
+## originality
 
-## Value — PASS
+PASS
 
-Binary erasure decoding failure severity distinguishes two, four and eight possible codeword completions; an aggregate uncorrectable-pattern count does not. The first support size allowing eight completions is a natural threshold already identified abstractly by the generalized-weight result; the complete \(K_{2,4}\), \(K_{4,2}\), and \(K_{3,3}-e\) classification and exact multiplicity quantify how often that threshold is attained across every rectangular parameter pair. They also determine all minimum-support third generalized-weight subcodes. This is a finite-configuration structural classification rather than a routine recomputation of the known minimum support size.
+Ribeiro Alves and Cardell (2026, arXiv:2608.26457 Theorem 7) already prove the generalized Hamming weight d3=8, which is expressly not claimed new. Cardell–Climent 2016 count all uncorrectable eight-erasure patterns, without verified separate rank-three classification in accessible text; Cardell–Climent–López Martín 2019 Theorem 3 counts strict failure graphs by degree margins using Kostka numbers. Neither accessible inspected statement directly gives the cycle-rank-three multiplicity and complete three-shape/minimum-three-subcode bijection; the margin enumerator may imply counts after new graph analysis. Strong plausible implicit coverage remains in inaccessible 2016 and uninspected 2019 full details; best-of-knowledge qualified PASS, not an exhaustive priority certification.
 
-## Scope and closest literature
+## value
 
-The proof covers binary single parity-check product codes and exactly eight erasures; it does not classify larger ambiguity dimensions at higher erasure sizes or particular iterative decoders. The 2026 arXiv Theorem 7 and Cardell graph papers (2016 and 2019) are the closest sources. The 2019 full text was read and its powerful Kostka margin enumeration explicitly compared; only the 2016 full article remains uninspected.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An eight-erasure failure can have different ambiguity dimensions and hence 2,4 or 8 possible completions. The first eight-completion threshold and exact multiplicities of every extremal support across arbitrary rectangular SPC products distinguish this natural decoding-severity invariant from raw error counts; complete support geometries also classify every third-weight minimizing subcode. Structural classification rather than merely restating d3=8.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
