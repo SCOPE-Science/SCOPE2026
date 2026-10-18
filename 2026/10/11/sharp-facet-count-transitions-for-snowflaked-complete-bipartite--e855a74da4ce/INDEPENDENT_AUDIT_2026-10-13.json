@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T14:11:16.660181Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For real M=A∪B with m,n≥2, cross distances 1, within-part t∈[1,2], the base-point-normalized dual Lip ball is full-dimensional. A feasible potential is a vertex iff its tight-edge graph spans, by the full-rank incidence/midpoint/slack criterion. For 1<t<2, osc_A=t forces A to consist precisely of both L and L+t and B to lie at L+t−1 or L+1; any intermediate point is isolated. This gives (2^m−2)2^n vertices, plus the disjoint symmetric B-saturated family (2^n−2)2^m. Without internal tight pairs, even cross-edge tight paths and part diameter t<2 force both parts to be constant at levels differing by 1: precisely two vertices. At t=1 nonconstant two-level assignments give 2^(m+n)−2; at t=2 internal tight-pair saturation constrains the other part to a midpoint and gives 2^m+2^n−2. Each converse candidate has a connected tight graph. Independently wrote a half-integer grid enumerator and found exactly predicted counts for (m,n)=(2,2),(2,3), t=1,3/2,2; code in actual package verify_snowflake_biclique_vertices.py uses exact rational active-constraint intersections, inspected without executing it. These finite checks corroborate, do not prove the all-cardinality theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gordon–Petrov generic f-vector theorem assumes simple Lip polytope, while these metrics have many symmetric tight four-cycles.",
+          "Alexander et al. study extreme molecules and finite Lip-free geometry, not a fixed-weight nongeneric facet enumeration."
+        ],
+        "reasoning": "Generic dimension-free face counts or extreme-molecule characterizations cannot imply the particular nongeneric vertex multiplicities without a separate exhaustive tight-potential classification.",
+        "searches": [
+          "Resultary semantic query: finite Lipschitz free space complete bipartite snowflake metric t 1<t<2 facet counts dual polytope extremal potentials",
+          "Gordon–Petrov Theorem 1 generic metrics",
+          "Alexander et al. arXiv:1911.10642 Section 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.07678v1 Prop 3.4",
+        "Gordon–Petrov Arnold Math J 2017 Lemma 1/Theorem 1",
+        "arXiv:1911.10642v2 Sections 1–2",
+        "Resultary 2026/10/11/SCOPE-sharp-facet-jumps-for-interpolated-complete-multipartite-lipschi--5c07b142df09",
+        "Resultary 2026/10/11/SCOPE-facet-enumeration-for-equilateral-metrics-with-independently-sho--3bd6d7048744"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known t=2 face structure is a graph-root polytope with only cross-edge molecules; for 1<t<2 within-part tight constraints also occur.",
+          "The separately indexed k≥3 multipartite interpolation theorem has a different number of parts, not a superset of the two-part theorem."
+        ],
+        "reasoning": "Neither endpoints nor the k≥3 family logically imply the biclique interior classification; the all-t theorem is strictly more than graph endpoint counts.",
+        "searches": [
+          "Gordon–Petrov full HTML 2017",
+          "Higashitani et al. 2018 Prop 3.4",
+          "Resultary semantic query: weighted complete multipartite graphs Lipschitz polytopes symmetric edge facets one parameter inner distances t"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gordon–Petrov Lemma 1 equates connected tight pairs to maximal face dimension; facets of primal KR ball correspond to vertices of its Lip polar.",
+          "Higashitani et al. formula 2^m+2^n−2 concerns unweighted K_mn graph, precisely t=2."
+        ],
+        "reasoning": "The aliases facet count/dual potential vertices/transport polytope faces were compared mathematically. The graph endpoint is included but its face description does not count the additional t<2 molecular constraints.",
+        "searches": [
+          "Resultary semantic query: finite Lipschitz free space complete bipartite snowflake metric t 1<t<2 facet counts dual polytope extremal potentials",
+          "Gordon–Petrov 2017, Lemma 1 and Theorem 1",
+          "Higashitani–Jochemko–Michałek arXiv:1807.07678 Proposition 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known graph endpoint equals 2^m+2^n−2.",
+          "Independent exact small checks give 14/18/6 for (2,2) and 30/42/10 for (2,3)."
+        ],
+        "reasoning": "The available exact endpoint table concerns t=2 only, and finite small-case enumeration does not itself yield the all-m,n strict-interior formula.",
+        "searches": [
+          "Resultary semantic query: finite Lipschitz free space complete bipartite snowflake metric t 1<t<2 facet counts dual polytope extremal potentials",
+          "Resultary semantic query: weighted complete multipartite graphs Lipschitz polytopes symmetric edge facets one parameter inner distances t",
+          "Higashitani et al. Proposition 3.4"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the strict snowflake interval and its exhaustive vertex families, not for either endpoint or the known tight-graph criterion. Compared dual Lip/Kantorovich–Rubinstein polarity, metric-snowflake and weighted graph aliases, stronger metric-polytope theory and published similarly titled findings. The cited graph results concern t=2; generic formulas assume nondegenerate metrics and do not imply this fixed nongeneric family.",
+      "residual_risks": [
+        "Nongeneric weighted transportation and tropical-polytopal literature may contain an independently derived equivalent interior enumeration not indexed by title.",
+        "Finite checks are restricted to two small size pairs and rational parameter values; universal proof is analytical."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains known tight-graph criterion and generic-metric theorem; not a count for this nongeneric two-distance family",
+          "evidence": "Theorem 1 assumes generic (simple) Lip polytope; Lemma 1 gives n−c face dimension.",
+          "identifier_or_url": "https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/17-63/index.html",
+          "material_read": "Full open HTML: abstract, definitions, Theorem 1, Lemma 1, Theorem 3, the face graph correspondence and the genericity hypothesis",
+          "method": "Open HTML full relevant theorem/lemma text",
+          "title": "Combinatorics of the Lipschitz Polytope",
+          "trigger": "General facial-combinatorial theorem could dominate count"
+        },
+        {
+          "assessment": "Covers t=2 endpoint, not strict t∈(1,2)",
+          "evidence": "Proposition 3.4 gives 2^m+2^n−2 for K_mn graph.",
+          "identifier_or_url": "arXiv:1807.07678v1",
+          "material_read": "Full relevant PDF introduction and Section 3.1 through Proposition 3.4–3.5, including rendered theorem page",
+          "method": "Open lawful arXiv PDF plus rendered page inspection",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Exact K_mn graph endpoint facial count"
+        },
+        {
+          "assessment": "Not a specific strict-interior biclique facet count",
+          "evidence": "Introduction describes convex hull of normalized molecules and extrema/volume-product; not a face-number specialization.",
+          "identifier_or_url": "arXiv:1911.10642v2",
+          "material_read": "PDF abstract, full introduction and Section 2 definitions and reported extreme-molecule scope",
+          "method": "Lawful arXiv PDF text",
+          "title": "Geometry and volume product of finite dimensional Lipschitz-free spaces",
+          "trigger": "General finite metric-polytopal theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The full combinatorial count of supporting facets for a canonical two-level metric is a natural exact polytope invariant, and its jump from 2^N−2 to 2(2^m−1)(2^n−1) then down to 2^m+2^n−2 is not a generic face-number exercise. It quantitatively describes how snowflaking a complete bipartite graph changes the dual extremes, useful for metric-polytope combinatorics; the endpoint formulas and general tight-graph criterion receive no separate novelty credit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real scalar metrics only; m,n≥2; 1≤t≤2; facets, not full f-vectors.",
+    "Graph endpoint and generic tight-graph lemma are known, not new."
+  ],
+  "schema_version": 1
+}

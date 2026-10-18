@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finding counts vertices of the real dual Lipschitz unit ball and transfers the count to facets by finite-dimensional polarity. The tight-edge connectedness equivalence is proved in both directions, with normalization at the base point and a finite positive slack argument. In the strict middle regime, the two one-part-saturated families are exhaustive and disjoint, and the remaining case has no tight within-part edges, forcing constant potentials on each side by parity of saturated cross paths. The endpoint changes are separately reconstructed, including \(t=1\), where all distances equal one, and \(t=2\), where every same-part edge is a two-step equality. The exact rational intersection checker agrees on all six finite instances, but is not used to prove arbitrary cardinalities. No nonstandard theorem is assumed beyond elementary finite-dimensional polarity and the proved tight-edge criterion.
+## correctness
 
-## Originality — PASS, with residual risk
-The motivating 2023 source of Cobollo–Guirao–Montesinos (arXiv:2304.13183v1), treats three-point numerical indices, not this family or invariant. Gordon–Petrov gives general face graph machinery and generic metric enumeration, but the present homogeneous two-level metrics have nongeneric four-cycles. Higashitani–Jochemko–Michałek fully covers the symmetric edge-polytope endpoint \(t=2\); the claimed new part, \(1<t<2\), includes extra within-class molecules absent at that endpoint. Alexander–Fradelizi–García-Lirola–Zvavitch provides structural results and no stated formula for the interior family. Four targeted published-record searches and full relevant source sections produced no equivalent interior enumeration. An equivalent unindexed combinatorial derivation is possible and is not ruled out merely by search failure.
+PASS
 
-## Mathematical value — PASS
-A fundamental invariant—the number of facets of a natural finite-dimensional Lipschitz-free unit ball—is determined completely for every size of both bipartition classes and the entire snowflake parameter. The abrupt increase from the equilateral endpoint and sharp drop at the graph-metric endpoint reflect genuine changes in extremal Lipschitz potentials and transport molecules, not a renaming or routine bound. The result makes a full combinatorial phase diagram explicit, with an exact constructive classification, rather than giving only small examples or preexisting endpoint counts.
+PASS. For real M=A∪B with m,n≥2, cross distances 1, within-part t∈[1,2], the base-point-normalized dual Lip ball is full-dimensional. A feasible potential is a vertex iff its tight-edge graph spans, by the full-rank incidence/midpoint/slack criterion. For 1<t<2, osc_A=t forces A to consist precisely of both L and L+t and B to lie at L+t−1 or L+1; any intermediate point is isolated. This gives (2^m−2)2^n vertices, plus the disjoint symmetric B-saturated family (2^n−2)2^m. Without internal tight pairs, even cross-edge tight paths and part diameter t<2 force both parts to be constant at levels differing by 1: precisely two vertices. At t=1 nonconstant two-level assignments give 2^(m+n)−2; at t=2 internal tight-pair saturation constrains the other part to a midpoint and gives 2^m+2^n−2. Each converse candidate has a connected tight graph. Independently wrote a half-integer grid enumerator and found exactly predicted counts for (m,n)=(2,2),(2,3), t=1,3/2,2; code in actual package verify_snowflake_biclique_vertices.py uses exact rational active-constraint intersections, inspected without executing it. These finite checks corroborate, do not prove the all-cardinality theorem.
 
-## Closest literature and limits
-Gordon–Petrov's connected tight-face graphs are acknowledged as established machinery; Higashitani–Jochemko–Michałek's complete bipartite endpoint is explicitly credited. Results about numerical indices, graph height-function counts and octahedrality concern distinct invariants and do not imply the claimed interior face count. The result is for real finite metrics and facet counts, not complete face lattices, infinite graphs, or complex scalars. No independent audit has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the strict snowflake interval and its exhaustive vertex families, not for either endpoint or the known tight-graph criterion. Compared dual Lip/Kantorovich–Rubinstein polarity, metric-snowflake and weighted graph aliases, stronger metric-polytope theory and published similarly titled findings. The cited graph results concern t=2; generic formulas assume nondegenerate metrics and do not imply this fixed nongeneric family.
+
+## value
+
+PASS
+
+PASS. The full combinatorial count of supporting facets for a canonical two-level metric is a natural exact polytope invariant, and its jump from 2^N−2 to 2(2^m−1)(2^n−1) then down to 2^m+2^n−2 is not a generic face-number exercise. It quantitatively describes how snowflaking a complete bipartite graph changes the dual extremes, useful for metric-polytope combinatorics; the endpoint formulas and general tight-graph criterion receive no separate novelty credit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
