@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** Each mode flattening of the polarized tensor is full rank because the first derivatives of its diagonal polynomial are independent. The displayed determinant-one one-parameter subgroups assign positive weight to every occupied coefficient, with a separately handled exceptional pair; hence the tensors lie in the special-linear null cone and are excluded by GIT from the positive-central semistable locus. For bilinear tensors, invertibility and transport to the identity prove polystability. The attached integer checker reproduces representative flattening ranks and weights but does not substitute for these general arguments.
+
+**Originality — PASS, with residual risk.** The three-qubit W-state null-cone phenomenon is classical and explicitly excluded from the novelty claim. The recent hyperquiver preprint makes an all-balanced-vector equivalence claim; the present theorem instead gives a sharp complete two-factor-versus-higher-factor characterization for **every** equal dimension, together with one algebraic witness family for all higher valences. Searches of mathematical records, the initiating full text, the hyperquiver representation literature and related SLOCC work identified no statement of this complete valence boundary. General Hilbert--Mumford theory provides the method and may allow an older implicit formulation; this is a residual risk rather than a claim of comprehensive bibliographic exclusion.
+
+**Value — PASS.** Semistability is what determines which tensors actually enter the projective Kähler/GIT quotient. This boundary shows that a superficially natural and recently asserted full-flattening-rank moduli description fails systematically, not merely at one exceptional parameter. The result sharply separates the matrix and multilinear settings even when the generic stabilizer is finite.
+
+**Closest literature and limits.** Bielawski (arXiv:2610.12261v1), Muller–Nanda–Seigal (arXiv:2305.05622v3) and Miyake (arXiv:quant-ph/0206111). The conclusion is not a description of the entire semistable locus or quotient; its novelty is limited to the all-format sharp sufficiency boundary.
+
+Self-review: passed. Independent audit: not yet performed.
