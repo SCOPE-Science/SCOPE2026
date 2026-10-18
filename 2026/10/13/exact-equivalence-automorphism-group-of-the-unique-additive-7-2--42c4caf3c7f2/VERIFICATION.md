@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` reconstructs the additive code over \(\mathbb F_4\) from the five rows printed in the primary source. It checks that the code has \(32\) words and weight distribution \(1+21z^5+7z^6+3z^7\).
 
-It then verifies that the \(21\) weight-\(5\) words have all \(21\) unordered coordinate pairs as their zero sets and that every nonzero field symbol occurs in every coordinate among those minimum words.
+# Independent mathematical audit
 
-For each of the \(7!=5040\) coordinate permutations, the verifier uses zero-pair uniqueness to force all seven local nonzero-symbol permutations, rejects inconsistent candidates, and directly checks every surviving transformation against all \(32\) codewords. Exactly \(21\) full source-equivalence automorphisms survive. Requiring all local maps to be the identity leaves exactly \(7\) coordinate permutations.
+## correctness
 
-The projected \(21\)-element set is checked for closure and has element-order census \(1^1,3^{14},7^6\). These exhaustive finite checks establish the claimed order and nonabelian \(C_7\rtimes C_3\) structure. No random sampling, floating-point arithmetic, timeout inference, or external algebra system is used.
+PASS
+
+Reconstructed exact F4=F2(w) additive closure from five printed seven-symbol generator rows, yielding 32 codewords with weight distribution 1+21z^5+7z^6+3z^7 and precisely 21 distinct zero pairs. Each of the 5040 candidate coordinate permutations maps a minimum word to the uniquely forced target, which fixes each of seven local permutations of nonzero F4 symbols. Directly checked full code membership under those local maps: exactly 21 extension automorphisms, 7 pure permutations, with projected order census 1 identity, 14 order three, 6 order seven. Faithfulness and nonabelian C7 semidirect C3 follow; the codewords provide an exhaustive finite proof.
+
+## originality
+
+PASS
+
+Compared implication strength across published primary same-object papers and related published-result hits; no dominating statement was found within the inspected material, with specific residual priority risks below.
+
+## value
+
+PASS
+
+The cited classification proves this length-seven code is unique at its extremal additive-code parameters and cyclic, making its full equivalence stabilizer and minimum-support incidence natural exact classification invariants. The order-21 semilinear symmetry is three times the previously displayed order-seven cyclic shift and explains local equivalence rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
