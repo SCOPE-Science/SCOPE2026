@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The quantified claim is confined to lengths \(3\le n\le16\), with fixed-position binary words and exact multiplicity vectors. Every word is encountered exactly once in each of two independently implemented enumerations. The first recurrence is justified by partitioning scattered triples according to whether their last index is the appended position; the second visits each increasing index triple directly. Both executed and agree on all maxima, the two extremal spectra and the complete length-sixteen histogram. The two histogram sum identities were checked. Limit: no all-length formula and no independent machine-formal proof.
+## correctness
 
-**Originality — PASS, with remaining bibliographic risk.** The most directly comparable full-text paper by Chrisnata et al. tabulates \(D_3(16)=36649\), the number of different decks, but not their preimage-size distribution. That number by itself neither implies \(L_3(16)=20\) nor identifies maximizers. Rigo–Salimov establishes the equivalence relation and class counts; Freydenberger et al. give equivalence-testing algorithms. Lejeune–Rigo–Rosenfeld focuses on binary \(2\)-binomial classes and other-alphabet phenomena, not the reported binary \(3\)-binomial exact boundary. No published result inspected establishes the same full statement. Unindexed prior computations and other publications could still overlap.
+PASS
 
-**Value — PASS.** Largest deck fibers are natural worst-case list sizes in subsequence-spectrum reconstruction. The exact first failure of the *unit-slope* worst-case list budget \(L_3(n)\le n\) is a meaningful finite boundary: \(L_3(n)\le n\) at every valid length through fifteen, but a twenty-word collision at length sixteen defeats that uniform bound. The result further gives a complete fiber-size distribution, the exact count and spectra of both worst-case observations, and two independent full enumerators. This is not inferred from the already published distinct-deck table.
+For n=3,...,16 the eight-component scattered length-three deck is enumerated for all 2^n distinct labeled binary words, not sampled. The append recurrence C_{abt}+=B_{ab}, B_{at}+=A_a, A_t++ has a bijection with all scattered increasing triples. Independently written exhaustive enumeration reproduced max fiber sizes (1,1,1,1,2,2,3,3,4,4,6,10,14,20), 36,649 different n=16 decks, and the full 16-length fiber histogram, totaling 65,536 words. The exactly two size-20 spectra are (56,85,82,85,57,82,57,56) and (56,57,82,57,85,82,85,56); independently recomputed those spectra by direct triple iteration on all forty maximal words. At n<=15 every maximum <=n, while at 16 maximum=20>16. This proves only the stated finite threshold, not any behavior at n>=17.
 
-**References and caveats.** See the full scientific citations in `RESULT.md`. The record available from 2013-05-27 fixes the archive-era subject; the closest detailed distinct-deck enumerations were published in 2019/2021. All possible source equivalences involving alternative terminology remain a bibliographic residual risk. The proof is finite exhaustive computational mathematics, not asymptotic theory.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The directly relevant k-binomial-equivalence literature discusses class-count complexity and algorithms, and the enumerated D_3(16)=36649 count is already known. A class-count total does not determine individual preimage multiplicities: many histograms sum to 36,649. The inspected finite-word class paper treats mostly binary k=2, whereas the contribution here is the exact k=3 multiplicity histogram, two maximizers and first superlinear threshold. No broader published table giving these exact values was located in the inspected materials; earlier unindexed computations remain possible.
+
+## value
+
+PASS
+
+The number of distinct words compatible with a given subsequence deck is a natural reconstruction ambiguity and inverse-list parameter. Its maximum, first superlinear length, and complete first extremal histogram answer specific finite combinatorial questions relevant to binomial-equivalence classes; these are not arbitrary chosen outputs or just a re-tabulation of the distinct-deck count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

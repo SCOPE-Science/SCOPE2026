@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T08:12:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=3,...,16 the eight-component scattered length-three deck is enumerated for all 2^n distinct labeled binary words, not sampled. The append recurrence C_{abt}+=B_{ab}, B_{at}+=A_a, A_t++ has a bijection with all scattered increasing triples. Independently written exhaustive enumeration reproduced max fiber sizes (1,1,1,1,2,2,3,3,4,4,6,10,14,20), 36,649 different n=16 decks, and the full 16-length fiber histogram, totaling 65,536 words. The exactly two size-20 spectra are (56,85,82,85,57,82,57,56) and (56,57,82,57,85,82,85,56); independently recomputed those spectra by direct triple iteration on all forty maximal words. At n<=15 every maximum <=n, while at 16 maximum=20>16. This proves only the stated finite threshold, not any behavior at n>=17.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known D_3(16)=36649 and general binomial-equivalence machinery were acknowledged. No stronger exact maximum class-size law covering n=16 was found."
+        ],
+        "reasoning": "A general enumeration of all decks does not bound individual fibers sharply; published k=2 classifications cannot be substituted for k=3.",
+        "searches": [
+          "Chrisnata et al. On the Number of Distinct k-Decks: Enumeration and Bounds Table",
+          "Rigo and Salimov binomial complexity infinite words",
+          "Binary binomial equivalence via hyperplane arrangements arXiv:2606.23426 abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://yaakobi.net.technion.ac.il/files/2020/07/105_K_Deck_ISCIT19.pdf",
+        "https://www.lirmm.fr/~mrosenfeld/LejeuneRigoRosenfeld.pdf",
+        "https://orbi.uliege.be/bitstream/2268/149313/1/binomial_final_short.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counting equivalence classes is summing multiplicity histogram over classes, not taking largest multiplicity."
+        ],
+        "reasoning": "No implication from the inspected prior total and 2-binomial results to this sharp class-size threshold without further computation.",
+        "searches": [
+          "Chrisnata et al. enumeration tables",
+          "Lejeune–Rigo–Rosenfeld full preprint",
+          "Resultary semantic class-size search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equal D_3(w) means binary 3-binomial equivalence at fixed length; direct all-three-pattern counts give class membership. k=2 papers analyze pair equivalence."
+        ],
+        "reasoning": "Exact fiber size is a more refined statistic than membership testing or total numbers of classes; those sources do not imply max=20 from their stated results.",
+        "searches": [
+          "Resultary semantic search: binary words 3-binomial equivalence classes maximum fiber size length 16 eight subsequence deck enumeration",
+          "Lejeune Rigo Rosenfeld On the Binomial Equivalence Classes of Finite Words",
+          "Freydenberger et al. Testing k-binomial equivalence arXiv:1509.00622"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "36649 is an independently published exact number of decks for n16, but neither it nor the OEIS total specifies the histogram or two twenty-word fibers."
+        ],
+        "reasoning": "The published total is a check rather than a covering exact fiber table.",
+        "searches": [
+          "Chrisnata et al. 2019 distinct 3-decks table",
+          "OEIS A258585 distinct 3-deck classes",
+          "Resultary binary 3-deck multiplicity query"
+        ]
+      },
+      "rationale": "The directly relevant k-binomial-equivalence literature discusses class-count complexity and algorithms, and the enumerated D_3(16)=36649 count is already known. A class-count total does not determine individual preimage multiplicities: many histograms sum to 36,649. The inspected finite-word class paper treats mostly binary k=2, whereas the contribution here is the exact k=3 multiplicity histogram, two maximizers and first superlinear threshold. No broader published table giving these exact values was located in the inspected materials; earlier unindexed computations remain possible.",
+      "residual_risks": [
+        "Unindexed earlier exhaustive enumeration of 3-binomial class sizes at length 16 could overlap; absence of a located table is not a proof of priority.",
+        "Only lengths 3 to 16 are proved; there is no universal all-length trend."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers D_3(16)=36649 distinct decks but not fibers of size 20 or this size histogram",
+          "evidence": "The D_k(n) quantity counts equivalence classes, which is sum_s H_n(s), not maximum_s(s) or H_n(s).",
+          "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2020/07/105_K_Deck_ISCIT19.pdf",
+          "material_read": "Entire accessible conference PDF, in particular table of D_k(n) and enumeration/bound sections",
+          "method": "Primary author-hosted PDF page/text inspection",
+          "title": "On the Number of Distinct k-Decks: Enumeration and Bounds",
+          "trigger": "Same binary 3-deck statistic, possible exact finite table"
+        },
+        {
+          "assessment": "Does not provide complete binary three-deck length-16 fiber multiplicities in the inspected analysis",
+          "evidence": "2-binomial class theory is weaker and cannot imply the 3-binomial histogram.",
+          "identifier_or_url": "https://www.lirmm.fr/~mrosenfeld/LejeuneRigoRosenfeld.pdf",
+          "material_read": "Primary accessible preprint, binary 2-binomial class algorithm and its discussion of larger k",
+          "method": "Full primary PDF; Section 3 and concluding material",
+          "title": "On the Binomial Equivalence Classes of Finite Words",
+          "trigger": "Same class-equivalence objects"
+        },
+        {
+          "assessment": "Studies binomial complexity and infinite words, not a finite length-16 3-binomial size-fiber histogram",
+          "evidence": "Binomial equivalence terminology supports the alias search, not numeric class-size coverage.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/149313/1/binomial_final_short.pdf",
+          "material_read": "Accessible author institutional preprint, definitions and complexity statements",
+          "method": "Full primary PDF with relevant text inspection",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "Foundational binomial equivalence aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of distinct words compatible with a given subsequence deck is a natural reconstruction ambiguity and inverse-list parameter. Its maximum, first superlinear length, and complete first extremal histogram answer specific finite combinatorial questions relevant to binomial-equivalence classes; these are not arbitrary chosen outputs or just a re-tabulation of the distinct-deck count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md blob 1748bb7550c79a8d62753080435a6cbd79e15a7a",
+    "Frozen Git tree 183de80ca457976ceb1039f55e24d13e0e8c5072",
+    "Independent bounded checker /mnt/data/run221/independent_checks.py",
+    "https://yaakobi.net.technion.ac.il/files/2020/07/105_K_Deck_ISCIT19.pdf",
+    "https://www.lirmm.fr/~mrosenfeld/LejeuneRigoRosenfeld.pdf",
+    "https://orbi.uliege.be/bitstream/2268/149313/1/binomial_final_short.pdf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No formal external certification; finite checks alone do not prove infinite assertions or originality.",
+    "Complete privacy sanitization of publicly destined source package is not verified.",
+    "Unindexed earlier exhaustive enumeration of 3-binomial class sizes at length 16 could overlap; absence of a located table is not a proof of priority.",
+    "Only lengths 3 to 16 are proved; there is no universal all-length trend."
+  ],
+  "residual_risks": [
+    "Unindexed earlier exhaustive enumeration of 3-binomial class sizes at length 16 could overlap; absence of a located table is not a proof of priority.",
+    "Only lengths 3 to 16 are proved; there is no universal all-length trend."
+  ],
+  "schema_version": 1
+}
