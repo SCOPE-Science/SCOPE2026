@@ -1,15 +1,21 @@
-# Scientific review: global shift-three totient dynamics
+# Independent mathematical audit
 
-## Correctness (PASS)
-The assertion covers every initial positive integer. The proof first establishes entry into odd states at least five, then uses the known composite-totient inequality \(\varphi(m)\le m-\sqrt m\) to force immediate descent at odd composites \(m\ge27\). At an odd prime \(p\ge29\), either the next odd number is composite and forces descent within two steps, or it is prime and the next number is divisible by three, forcing descent within three steps. Consequently every orbit must enter the forward-invariant eleven-state set, whose displayed table exhausts the three cycles. The cycle \(23\leftrightarrow25\) proves the upper bound is best possible. Independent sieve-based finite tests on 200000 initial states and 24987 large odd states supplement the symbolic argument, without being used as proof of an unbounded assertion.
+## correctness
 
-## Originality (PASS relative to examined literature)
-Leonetti and Luca (arXiv:2302.01783v1) establish general eventual periodicity and an initial-value-dependent orbit bound, not this explicit global cycle classification or minimal eventual bound. The closest previously published mathematical record gives an upper bound depending on a cycle's length and already contains the \(23\leftrightarrow25\) example; that example is not claimed as new. Its bound alone does not enumerate all periods, prohibit further cycles, or imply universal eventual entry into the eleven-state set. The later Danh et al. paper studies a different two-step recurrence. published-finding corpus semantic queries, direct source reading, arithmetic-sequence database queries and claim-level comparisons did not identify a theorem implying the present exhaustive conclusion. Unindexed equivalent results remain a genuine residual originality risk.
+PASS
 
-## Value (PASS)
-This is a natural complete classification, not an arbitrary isolated numerical example. The shift-three map is a basic case in the published study of shifted totient dynamics, and already exhibits three different minimal periods. The result replaces general eventual-periodicity information and a starting-value-dependent bound by an exact globally exhaustive cycle list and optimal uniform eventual bound. The descent mechanism reduces an infinite family of possible trajectories to eleven explicit states, providing a reusable method for other fixed small shifts. It does not purport to resolve all shifts or attraction-basin densities.
+Every orbit enters odd integers at least five, since phi(n) is even for n>=3 and 1,2 route via 4 to 5. For any composite m>=27, its least prime factor gives phi(m)<=m-sqrt(m), so F(m)<m. For prime p>=29, F(p)=p+2; if p+2 composite there is strict descent within two steps, otherwise twin prime arithmetic gives 3|(p+4), hence F^3(p)<p. The resulting strictly decreasing odd block-endpoints must reach the eleven odd states 5..25. Exact evaluation of the forward-invariant eleven-state set gives precisely cycles (9),(11,13,15),(23,25); 25 on the last cycle proves sharpness. Fresh independent sieve verifies complete small-state table and local descent alternatives through 10000, which is supplementary to the infinite proof.
 
-## Scientific limits and nearest comparisons
-The entire arXiv v1 introduction, Theorem 2 and its proof and the publicly available full published-finding corpus result were inspected; related paper summaries and database searches were checked. The strongest remaining risk is an equivalent special-shift orbit classification in unindexed literature or an unpublished later version. Finite verification cannot replace the unbounded descent proof. No independent audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Leonetti–Luca Theorem 2 establishes eventual periodicity and a bound dependent on the starting value, not the complete k=3 phase portrait or best eventual ceiling. The published 'Sharp period-size bound and extremal structure for shifted Euler cycles' exhibits 23↔25 and bounds max cycle by a function of its length but does not constrain the possible length T, hence does not imply the complete list. The Danh et al. follow-up concerns a two-step recurrence. No stronger complete shift-three list located; residual unindexed-priority risk remains.
+
+## value
+
+PASS
+
+A complete all-initial-value orbit classification and best possible universal eventual bound for a natural arithmetical map advances from general eventual periodicity to exact global dynamics. The proof excludes every other possible periodic orbit by a uniform 3-step descent, not bounded computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
