@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** In spin one, the Bloch matrix is \(\operatorname{diag}(1,T)\) for vanishing dipole, and every classical covariance \(S\succeq0\) with trace one is attainable after antipodal symmetrization. The explicit matrix \(T_*\) is feasible and satisfies the global variational projection inequality; the Frobenius factor \(1/2\), spectral boundaries, unique minimizer, three coherent weights, and partial-transpose negativity are all established in the analytic proof. An exact-rational nonaxial example and a direct 342-case rational spectral check corroborate the calculation. The computations do not substitute for the proof.
+## correctness
 
-**Originality: PASS, with residual risk.** The central 2015 source solves pure spin-one states and considers general mixed states numerically; a 2017 thesis by its lead author explicitly reports bounds and a partial mixed-state subclass, not the complete zero-dipole exact formula. The earlier classicality criterion concerns membership, not distance. An existing restricted-spin-projection-diagonal result cannot cover nonaxial states with three distinct quadrupole eigenvalues. Related unrestricted two-qubit Bell-diagonal Hilbert–Schmidt projection solves a different optimization. Focused literature and published-finding corpus searches did not locate the exact mixed-state identity or minimizer. An equivalent formulation may remain hidden in literature on Bell-triplet probability-simplex projections.
+PASS
 
-**Value: PASS.** This settles the full physically natural zero-first-moment, five-real-dimensional mixed spin-one class, motivated by unpolarized two-photon and nematic spin states. The exactly proportional geometric quantumness–negativity relation, the unique optimizer and its optimal three-coherent realization distinguish it from a mere spectral positivity test. The result does not solve the general mixed spin-one problem.
+The full zero-dipole sector has Bloch X=diag(1,T), trace T=1, each eigenvalue at most 1; at most one negative eigenvalue. Antipodal symmetrization strictly removes the dipole of any coherent mixture without changing second moments, and every trace-one PSD 3x3 matrix is realized. The original squared Hilbert-Schmidt distance equals one quarter the squared Frobenius difference, not its square root. For negative eigenvalue λ, T*=T+(λ/2)I-(3λ/2)vvᵀ is rank-two PSD trace-one; stationarity inequality (3λ/2)⟨v,Sv⟩≤0 for all trace-one PSD S proves the unique global projection and Q²=3λ²/8. The three direction/weight construction has mean zero, second moment T*, and its Bloch rank three precludes fewer coherent components. Similarity of the symmetric two-qubit partial transpose with Bloch X/2 gives exactly one possible negative eigenvalue λ/2, hence N=−λ/2 and Q=√(3/2)N. At λ≥0 the state is already classical. The nonaxial rational example has Q²=3/32 and N=1/4, matching the formula. The verifier samples only finite rational states; the variational proof is continuum-wide.
 
-**Closest literature:** Bohnet-Waldraff–Braun–Giraud (2015), Giraud–Braun–Braun (2008), Bohnet-Waldraff thesis (2017). The principal residual risk is a previously unindexed Bell-triplet/simplex equivalent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest directly relevant Bohnet-Waldraff–Braun–Giraud paper explicitly distinguishes its pure-state closed form from numerically studied mixed states and states mixed-state lower bounds; its partial-transpose similarity (Eq. 60) and classicality criterion do not by themselves evaluate the zero-dipole HS metric projection or its unique rank-two optimizer. The 2017 thesis is cited in the reviewed submission as reporting mixed-state bounds; that thesis was not re-read independently during this run, so its full overlap remains a specific residual risk. Primary-paper comparison of statements/feasible sets found no dominating implication from unrestricted two-qubit separability or axis-diagonal special cases. Best-of-knowledge originality with possible unindexed Bell-triplet simplex reformulation.
+
+## value
+
+PASS
+
+A natural full five-real-dimensional family of unpolarized spin-one/two-photon states has an exact operational distance, equality with scaled entanglement negativity, a unique nearest classical state, and a sharp minimal three-coherent-state realization. This fills the mixed-state optimization gap left by a central primary paper, beyond a mere membership test, without claiming a formula for nonzero spin dipoles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
