@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The unit ball is exactly a rectangular fiber system because each leaf-pair Lipschitz constraint follows from two hub inequalities. All active leaf-center inequalities with rho_i<2 admit uniquely active witnesses, proving the facet list. A vertex must select every leaf fiber endpoint and have its hub coordinate pinned by a cube bound or a double-active clipping event; the converse follows from m+1 independent active equations. Counting is exact because each leaf interval has two distinct endpoints, and generic maximality follows by union bounding 2k elementary anchoring events. The dual formula follows from independent leaf maximizations and piecewise-linear concavity; sorting breakpoint slope jumps gives O(m log m). The reproducibility program independently checked the candidate set against all active-set intersections for 13 length vectors, facet witnesses, and all three dual methods, reporting 897 exact-rational assertions. These checks are supplementary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gordon–Petrov, arXiv:1608.06848 / Arnold Mathematical Journal 3 (2017), Theorem 1 and Section 3, requires a generic strict metric.",
+        "Hille–Theewis, arXiv:2206.12234, Theorem 2.1 and Sections 3–4, gives general dimensional reduction and algorithms for positive differences.",
+        "Farmer, Proc. Amer. Math. Soc. 121 (1994), abstract describes intrinsic qualitative extremality in general Lipschitz balls."
+      ],
+      "reasoning": "For at least two leaves, the original star is non-strict because d(i,j)=d(i,o)+d(o,j); its augmented-apex representation is non-strict as well, so the Gordon–Petrov universal generic face vector does not cover it. A general linear/convex optimization method guarantees computability but does not furnish these exact combinatorial formulas or the one-dimensional sorted-breakpoint complexity. Farmer covers a general qualitative extremality criterion, not the stated explicit count or dual rule in material available.",
+      "searches": [
+        "finite metric space vector-valued Lipschitz maps strictly convex target extreme points path tree rank graphic free space exact face dimensions",
+        "\"Gordon\" \"Petrov\" \"Lipschitz polytope\" metric extremal graph vertices",
+        "\"Fortet Mourier\" \"tree\" fast algorithm bounded Lipschitz distance"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2206.12234 (primary full-text HTML, relevant Sections 1–4)",
+      "arXiv:2305.08500 (primary full-text HTML, relevant Sections 1, 2, 5 and 6)",
+      "Gordon–Petrov, arXiv:1608.06848 (journal primary HTML, generic-strict theorem and its assumptions)",
+      "Farmer 1994, DOI 10.1090/S0002-9939-1994-1195718-7 (published abstract only; full text unavailable)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hille–Theewis, arXiv:2206.12234, pp. Section 3/4: the two-Dirac and one-Dirac formulas are explicit, but more general signed cases use algorithms.",
+        "Hille–Theewis, arXiv:2305.08500, Section 6: finite-space extreme-point enumeration is a distinct problem from abstract norming-family existence.",
+        "Gordon–Petrov Theorem 1 assumes strictness, falsified by an exact metric triangle in any star."
+      ],
+      "reasoning": "The new statements are not equal to a named prior exact formula, nor a direct specialization of the generic-strict theorem. They require proving simultaneous clipping structure, pinning-condition sufficiency, collision inclusion–exclusion, and slope sweeping. The earlier abstract existence and general optimization frameworks may give ways to derive them, but do not logically assert the displayed closed counts or complexity bound without those additional arguments.",
+      "searches": [
+        "McShane extension bounded Lipschitz star Fortet Mourier dual weighted signed measures",
+        "\"Fortet Mourier\" \"star metric\" \"dual norm\"",
+        "\"Combinatorics of the Lipschitz polytope\" \"number of vertices\" generic metric"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hille–Theewis, arXiv:2305.08500, Sections 1, 5–6 distinguishes max-type FM and sum-type BL norm balls and discusses finite-space extreme points.",
+        "Hille–Theewis, arXiv:2206.12234, Section 4 describes convex optimization for general atomic FM measures without a weighted-star closed-form classification."
+      ],
+      "reasoning": "The max-type FM ball differs from the previously studied sum-normalized bounded-Lipschitz star ball: one has a fixed box with leaf-center difference inequalities, the other balances the sup norm against the Lipschitz seminorm. A coordinate rescaling cannot identify their parameter-independent facial and dual statements. Known qualitative descriptions of extreme points do not state the simultaneous exact phase count and signed dual algorithm. Equivalently, adjoining an apex with unit distance to each star point and truncating old distances at two realizes the FM ball as a pointed ordinary Lipschitz polytope; for at least two leaves the augmented metric still has equality triangles, so no generic-strict enumeration follows.",
+      "searches": [
+        "Fortet-Mourier max norm equidistant metric star extremal functions exact vertices combinatorial count phase transition rho 1 2",
+        "Fortet Mourier unit ball star finite metric diameter Lipschitz norm maximum sup norm polytope",
+        "\"bounded Lipschitz\" \"weighted star\" \"extreme points\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hille–Theewis, arXiv:2305.08500, Section 6 emphasizes determining finite metric extreme points but gives no tabulation matching the weighted-star anchor counting formula.",
+        "Gordon–Petrov, arXiv:1608.06848, tabulates face counts for generic strict metrics, an inapplicable class here."
+      ],
+      "reasoning": "No exact weighted-star FM count table or closed arbitrary signed-measure rule was found in the reviewed full texts or targeted records; this absence is a limited evidence report, not a claim of exhaustive indexing.",
+      "searches": [
+        "Fortet-Mourier max norm equidistant metric star extremal functions exact vertices combinatorial count phase transition rho 1 2",
+        "\"Fortet Mourier\" \"polytope\" \"vertices\" star",
+        "\"Fortet Mourier\" \"star\" \"tree\" exact signed measure"
+      ]
+    },
+    "rationale": "The new theorem gives a complete vertex/facet phase classification for every positive weighted star, including collision counts, and a closed finite-breakpoint signed-measure dual norm in O(m log m) arithmetic. Hille–Theewis 2022 proves general computational reductions but says explicit multi-Dirac formulas are not available at the corresponding level (Section 4); Hille–Theewis 2023 supplies general norming constructions rather than these counts. Gordon–Petrov requires generic strict metrics, violated by the augmented weighted-star metric whenever there are at least two leaves. The older Farmer intrinsic characterization may imply a qualitative criterion but not the explicit count and algorithm on its face; full text could not be examined. Search failure is not claimed as proof of absolute novelty.",
+    "residual_risks": [
+      "Older Farmer 1994 theorem was not checked in full text; a surprising star-specific worked example there is not excluded.",
+      "Equivalent finite weighted-star transport formulas may exist under flat-metric or capped transportation terminology in unindexed literature.",
+      "Generic algorithmic coverage in earlier papers should not be confused with an assertion of the exact phase counts; further bibliographic checking can still alter a priority conclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXPLICIT_COVERAGE",
+        "evidence": [
+          "Theorem 2.1 gives dimensional reduction; Section 3 gives a single-Dirac expression; Section 4 explicitly resorts to general algorithms for multi-Dirac measures. No exact weighted-star vertex/facet count or sorted-breakpoint signed dual formula in inspected sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.12234",
+        "material_read": "Primary full-text HTML: Introduction; Theorem 2.1 and Proposition 2.1; Section 3 and Section 4 including discussion around multi-Dirac explicit formulas and convex algorithms",
+        "method": "Read arXiv full-text HTML and compare support-function statements and optimization domains",
+        "title": "Explicit expressions and computational methods for the Fortet-Mourier distance to finite weighted sums of Dirac measures",
+        "trigger": "Direct older computational treatment of signed atomic Fortet–Mourier norms"
+      },
+      {
+        "assessment": "QUALITATIVE_CONTEXT_NOT_EXPLICIT_COVERAGE",
+        "evidence": [
+          "Introduction distinguishes ||f||∞+Lip from max(||f||∞,Lip), and Section 6 discusses finite-space extreme sets; no weighted-star all-length face count, collision law, or arbitrary-signed closed dual formula appears in the inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.08500",
+        "material_read": "Primary full-text HTML: Introduction and definitions; Section 2 norming; Section 5 norming/density; Section 6 finite metric spaces and extremal constructions",
+        "method": "Read full-text HTML relevant sections and compare exact objects, normalization and quantifiers",
+        "title": "Norming and dense sets of extreme points of the unit ball in spaces of bounded Lipschitz functions",
+        "trigger": "Direct unit-ball/extreme-point paper distinguishing max-type Fortet–Mourier and sum-type bounded-Lipschitz norms"
+      },
+      {
+        "assessment": "HYPOTHESES_INAPPLICABLE",
+        "evidence": [
+          "Definition 1 assumes generic strict metrics; for at least two leaves the augmented and original weighted-star metrics satisfy equality triangles; the original metric satisfies d(i,j)=d(i,o)+d(o,j), so no such metric meets the strictness hypothesis. The universal generic face formula therefore does not subsume these counts."
+        ],
+        "identifier_or_url": "https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/17-63/index.html",
+        "material_read": "Primary full-text HTML: Introduction, Definition 1, Theorem 1, and Sections 3–4 on stars/trees and generic face counts",
+        "method": "Read journal HTML and check metric assumptions against weighted-star equality triangles",
+        "title": "Combinatorics of the Lipschitz polytope",
+        "trigger": "Potentially stronger universal enumeration for finite Lipschitz polytopes"
+      },
+      {
+        "assessment": "PLAUSIBLE_QUALITATIVE_SOURCE_ACCESS_RISK",
+        "evidence": [
+          "Abstract advertises an intrinsic characterization of extreme Lipschitz functions; no star-specific explicit count or signed-mass algorithm is evidenced by the abstract. Full-text coverage cannot be ruled out."
+        ],
+        "identifier_or_url": "https://www.ams.org/proc/1994-121-03/S0002-9939-1994-1195718-7/",
+        "material_read": "AMS bibliographic record and public abstract only; full text not accessible through the attempted web retrieval (HTTP 403)",
+        "method": "Published AMS abstract and access attempt, not a full-text inspection",
+        "title": "Extreme points of the unit ball of the space of Lipschitz functions",
+        "trigger": "Older intrinsic characterization potentially covering qualitative extremality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "50f648f9-249f-4b0f-b377-53b6d6cd26ae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The invariant is the full face structure of the standard bounded Lipschitz/FM unit ball on an arbitrary weighted star, with no arbitrary metric slice. The generic maximum (m+2)2^m, exact collision-loss rule, and linear facet count quantify a natural class with permanent triangle equalities that falls outside generic-strict Lipschitz-polytope theory. Exact O(m log m) support-function evaluation for arbitrary signed masses is directly motivated by finite-measure norm computation and genuinely stronger as an explicit result than a general finite-dimensional optimization formulation. The entire family and degeneracy thresholds are classified, rather than adding a small isolated example.",
+    "status": "PASS"
+  }
+}
