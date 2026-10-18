@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:05:08.812674Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md exact displayed prime-progression proof at immutable commit",
+        "Pollack, arXiv:2007.09734 §1, criterion and unconditional global count",
+        "independent reconstruction of Brun--Titchmarsh and O(x^(2/3)) tail"
+      ],
+      "rationale": "For p<q, phi(pq)=(p-1)(q-1), so gcd(pq,phi(pq))>1 is equivalent exactly to p|(q-1). For fixed p, PNT in reduced residue class 1 mod p gives pi(x/p;p,1)~x/[p(p-1)log x]. With z fixed, the range z<p<=x^(1/3) is O(x/log x * sum_(p>z)1/[p(p-1)]) by Brun--Titchmarsh and log(x/p^2)>=log(x)/3. For x^(1/3)<p<sqrt x, writing q=kp+1, k<=x/p^2 gives O(x^(2/3)). Let z increase to infinity to obtain E(x)~A x/log x. Divide by Landau squarefree-semiprime count ~x loglog x/log x. The exact local condition and finite computations do not alone prove the asymptotic.",
+      "residual_risks": [
+        "Relies on standard prime-number theorem in arithmetic progressions, Brun--Titchmarsh, and Landau semiprime estimate; no effective error term claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pollack C(x)~e^-gamma x/logloglog x describes all integers",
+          "Kanungo classifies pq by divisibility but contains no growing-x semiprime counting result",
+          "Resultary nearest Almost all squarefree semiprimes are Duffinian concerns gcd(n,sigma(n)), not gcd(n,phi(n))"
+        ],
+        "reasoning": "A global number-theoretic theorem for all cyclic integers does not imply a sharp conditional semiprime asymptotic merely by restriction; Duffinian n are defined by a different function.",
+        "searches": [
+          "Pollack Numbers which are orders only of cyclic groups asymptotic series",
+          "Kanungo Classifying Groups of Certain Orders 2606.25230 Theorem 3.1",
+          "asymptotic counting of non-cyclic squarefree semiprimes p q with p dividing q-1 constant sum over primes 1/[p(p-1)]"
+        ]
+      },
+      "checked_sources": [
+        "Pollack arXiv:2007.09734 full HTML, Theorem 1.1 and §3",
+        "Kanungo arXiv:2606.25230v1 PDF, Example 3, Lemma 1, Theorem 3.1",
+        "Resultary query asymptotic counting of non-cyclic squarefree semiprimes p q with p dividing q-1 constant sum over primes 1/[p(p-1)]",
+        "OEIS A003277"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pollack counts C(x) without conditioning on Ω(n)=2",
+          "Kanungo Lemma 1 and Theorem 3.1 identify the semidirect-product obstruction"
+        ],
+        "reasoning": "Classical membership plus PNT-AP and the uniform tail yields a new statement; the source membership criterion does not by itself cover the sharp law as a known statement.",
+        "searches": [
+          "Pollack 2007.09734 proof p|(q-1) condition",
+          "Kanungo 2606.25230 pq group classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pollack arXiv:2007.09734 §1 and §§3.1-3.3 describe the cyclic-number criterion and unrestricted C(x); no semiprime-conditioned counting theorem",
+          "Kanungo arXiv:2606.25230 §2, Lemma 1 gives exactly f(pq)=2 if p|(q-1), not E(x)"
+        ],
+        "reasoning": "The equivalent formulations count pq admitting a nonabelian semidirect product or violating gcd(pq,phi(pq))=1. The local equivalence itself is old; the asymptotic summation with constant A is not in the inspected results.",
+        "searches": [
+          "asymptotic counting of non-cyclic squarefree semiprimes p q with p dividing q-1 constant sum over primes 1/[p(p-1)]",
+          "non-abelian group order pq counting p divides q minus 1 asymptotic",
+          "cyclic numbers p divides q-1 semiprime density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A003277 identifies cyclic numbers and classical condition",
+          "Resultary returned the distinct Duffinian semiprime record; not this exact count"
+        ],
+        "reasoning": "The exact membership database does not state the proven asymptotic or constant. Direct finite terms are not a proof of an infinite asymptotic.",
+        "searches": [
+          "OEIS A003277 cyclic numbers semiprime p divides q minus 1",
+          "Resultary asymptotic counting of non-cyclic squarefree semiprimes p q with p dividing q-1 constant sum over primes 1/[p(p-1)]"
+        ]
+      },
+      "rationale": "The local group-order criterion is explicitly classical; only the semiprime-conditioned first-order count and its convergent constant are assessed. Pollack proves a global asymptotic series at the different x/logloglog x scale, while Kanungo treats classification of groups of given pq order without a semiprime counting asymptotic. No searched source proved the specialized distribution law, but a short earlier note or exercise is a concrete priority risk.",
+      "residual_risks": [
+        "Possible unindexed elementary exercise or note deriving the p|q−1 semiprime asymptotic from PNT in progressions; searches do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Global C(x) asymptotic and local criterion cover general context; no conditioned squarefree semiprime asymptotic found in inspected text",
+          "evidence": "https://arxiv.org/abs/2007.09734; Theorem 1.1; §3.1",
+          "identifier_or_url": "arXiv:2007.09734",
+          "material_read": "Full arXiv HTML: introduction, Theorem 1.1, lemmata, proof §§3.1–3.3 and occurrence search for semiprime",
+          "method": "primary full-text read",
+          "title": "Numbers which are orders only of cyclic groups",
+          "trigger": "Exact same cyclic-group-order predicate and divisibility obstruction"
+        },
+        {
+          "assessment": "Confirms f(pq)=2 criterion; does not count such semiprimes asymptotically",
+          "evidence": "https://arxiv.org/pdf/2606.25230, pp.2–3,7–8",
+          "identifier_or_url": "arXiv:2606.25230v1",
+          "material_read": "Nine-page PDF: abstract, Example 3, Lemma 1, Theorem 3.1, concluding asymptotic comments",
+          "method": "primary PDF text and page images",
+          "title": "Classifying Groups of Certain Orders",
+          "trigger": "Same groups of order pq and group-count predicate"
+        },
+        {
+          "assessment": "Classical criterion is known; conditional asymptotic not established by database",
+          "evidence": "OEIS A003277 and Pollack 2007.09734 §1",
+          "identifier_or_url": "https://oeis.org/A003277",
+          "material_read": "Sequence definition/classical criterion and linked bibliographic source IDs as described in source package",
+          "method": "database record",
+          "title": "OEIS A003277 cyclic numbers",
+          "trigger": "Exact arithmetic aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pollack arXiv:2007.09734 global density",
+        "Resultary nearest Duffinian semiprime predicate for contrast"
+      ],
+      "rationale": "An explicit sharp first-order law for noncyclic group orders within squarefree semiprimes contrasts with their near-universality in this stratum and with scarcity of cyclic group orders globally. The convergent prime constant supplies a quantitative baseline for higher fixed-prime-factor strata, where obstructions interact; more than a restatement of the elementary pq criterion.",
+      "residual_risks": [
+        "Mathematical significance is restricted to the first nontrivial multiplicative layer, not a global new counting theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Asymptotic restricted to squarefree semiprimes; prime powers and >=3 distinct prime factors excluded.",
+    "No effective remainder term.",
+    "All potential publication metadata was inspected and contains operational provenance identifiers (scope_run_id).",
+    "Complete recursive Git tree inventory not independently retrievable by the available read-only connector; original assigned source-tree SHA retained, not re-certified."
+  ],
+  "schema_version": 1
+}

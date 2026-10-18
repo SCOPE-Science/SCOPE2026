@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,42 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two logically separate components.
+# Independent mathematical audit
 
-First, for distinct primes \(p<q\),
-\[
-\varphi(pq)=(p-1)(q-1),
-\]
-so
-\[
-\gcd(pq,\varphi(pq))>1
-\]
-is equivalent to
-\[
-p\mid q-1.
-\]
-This is the exact local reduction.
+## correctness
 
-Second,
-\[
-E(x)=\sum_{p<\sqrt x}\pi(x/p;p,1).
-\]
-For each fixed \(p\), the prime number theorem in arithmetic progressions gives the main term
-\[
-x/[p(p-1)\log x].
-\]
-The remaining moduli are controlled uniformly by Brun--Titchmarsh up to \(x^{1/3}\), while for larger \(p\) the representation
-\[
-q=kp+1,\qquad k\le x/p^2,
-\]
-gives the elementary bound \(O(x^{2/3})\). Since
-\[
-\sum_p\frac1{p(p-1)}
-\]
-converges, the cutoff can be removed.
+PASS
 
-The packaged checker verifies the local criterion against direct evaluation of \(\gcd(n,\varphi(n))\) for every squarefree semiprime through \(200000\), computes exceptional counts at several cutoffs, and computes a partial sum for the constant together with an elementary tail enclosure.
+For p<q, phi(pq)=(p-1)(q-1), so gcd(pq,phi(pq))>1 is equivalent exactly to p|(q-1). For fixed p, PNT in reduced residue class 1 mod p gives pi(x/p;p,1)~x/[p(p-1)log x]. With z fixed, the range z<p<=x^(1/3) is O(x/log x * sum_(p>z)1/[p(p-1)]) by Brun--Titchmarsh and log(x/p^2)>=log(x)/3. For x^(1/3)<p<sqrt x, writing q=kp+1, k<=x/p^2 gives O(x^(2/3)). Let z increase to infinity to obtain E(x)~A x/log x. Divide by Landau squarefree-semiprime count ~x loglog x/log x. The exact local condition and finite computations do not alone prove the asymptotic.
 
-These finite calculations corroborate the formulas but do not replace the infinite asymptotic proof.
+## originality
+
+PASS
+
+The local group-order criterion is explicitly classical; only the semiprime-conditioned first-order count and its convergent constant are assessed. Pollack proves a global asymptotic series at the different x/logloglog x scale, while Kanungo treats classification of groups of given pq order without a semiprime counting asymptotic. No searched source proved the specialized distribution law, but a short earlier note or exercise is a concrete priority risk.
+
+## value
+
+PASS
+
+An explicit sharp first-order law for noncyclic group orders within squarefree semiprimes contrasts with their near-universality in this stratum and with scarcity of cyclic group orders globally. The convergent prime constant supplies a quantitative baseline for higher fixed-prime-factor strata, where obstructions interact; more than a restatement of the elementary pq criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
