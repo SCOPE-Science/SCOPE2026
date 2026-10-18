@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:10:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two explicit five-by-eight code matrices match the original paper’s weak-flip column vectors. For any received output support Y, maximum likelihood is attained by the minimum-weight codeword containing Y (all 0<p<1). Complete independent 256-output enumeration gives 5P_rec=5-4p^3-2p^5+2p^7 and 5P_dis=5-p^2-2p^3-2p^5-p^6+2p^8. Their difference is p^2(1-p)^2(1+p)(2p^3+p-1). The cubic is strictly increasing with one zero rho about 0.5897545; for rho<p<1 the alternative strictly outperforms the conjectured recursive base. At p=9/10, exact gain in average success is 1044981/250000000, independently obtained with rational likelihood enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Lin–Moser prove M<=4 but label M=5 a conjecture. No inspected stronger theorem establishes the five-message recursive base as optimal."
+        ],
+        "reasoning": "A single strict improvement on length-eight five-message code disproves that conjectural component without touching proven smaller alphabet cases.",
+        "searches": [
+          "Z channel five codewords eight length ML decoding recursive construction Chen Lin Moser counterexample 2011 2013",
+          "https://moser-isi.ethz.ch/docs/papers/chen-lin-smos-2011-5.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://moser-isi.ethz.ch/docs/papers/chen-lin-smos-2011-5.pdf",
+        "https://moser-isi.ethz.ch/docs/papers/chen-lin-smos-2013-1.pdf",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/a-high-noise-counterexample-to-the-five-message-z-channel-recurs--684ac959b1e3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2013 source explicitly identifies Eq.(89) as a starting optimal codebook in a conjectural construction; its own formulas do not show another code beating it. The submitted polynomial subtraction provides a witness with opposite conclusion for all p>rho."
+        ],
+        "reasoning": "This is new counterevidence to a conjecture, not a corollary of the conjecture or prior optimality results.",
+        "searches": [
+          "Z channel five codewords eight length ML decoding recursive construction Chen Lin Moser counterexample 2011 2013",
+          "https://moser-isi.ethz.ch/docs/papers/chen-lin-smos-2011-5.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both codes lie in the weak-flip column family defined by Chen-Lin-Moser, with source code C_rec=(c1,c2,c3,c1,c2,c3,c4,c5). The alternative has disjoint middle supports (2,3,3). These are different codebooks; the different success polynomials exclude isometric equivalence for all p."
+        ],
+        "reasoning": "The comparison is within the same ML model; it cannot be dismissed as changing channel or decoder.",
+        "searches": [
+          "Z channel five codewords eight length ML decoding recursive construction Chen Lin Moser counterexample 2011 2013",
+          "https://moser-isi.ethz.ch/docs/papers/chen-lin-smos-2011-5.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The authors report the conjectured column construction but no ML polynomial for the proposed disjoint competing code. Independent complete enumeration of all 256 outputs yields the printed coefficients; no previously located same table."
+        ],
+        "reasoning": "This is an exact likelihood comparison, not a known-code table numerical recomputation.",
+        "searches": [
+          "Z channel five codewords eight length ML decoding recursive construction Chen Lin Moser counterexample 2011 2013",
+          "https://moser-isi.ethz.ch/docs/papers/chen-lin-smos-2011-5.pdf"
+        ]
+      },
+      "rationale": "Chen, Lin, and Moser expressly conjecture optimality for five Z-channel messages (2011 equations 25-29; 2013 equations 88-92). Their length-eight base is precisely the challenged column sequence; their proven M<=4 cases do not cover it. The competing code rearranges original weak-flip columns and establishes an exact, stronger-performance witness not in the inspected primary treatments. No located published or database statement supplies this high-noise falsifier.",
+      "residual_risks": [
+        "An unindexed earlier counterexample to the same five-message conjecture may exist.",
+        "The alternative is not claimed globally optimal and strict domination is proved only for rho<p<1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CHALLENGED_CONJECTURE",
+          "evidence": "The authors write Conjectured Optimal Codes for M=5, and Eq.(26) identifies repeated column base for n=8.",
+          "identifier_or_url": "https://moser-isi.ethz.ch/docs/papers/chen-lin-smos-2011-5.pdf",
+          "material_read": "Full five-page proceedings article; especially Section IV-B page 4 equations (25)-(29), visually inspected PDF page",
+          "method": "Read full primary PDF with visual equation and code-column verification",
+          "title": "Ultra-Small Block-Codes for Binary Discrete Memoryless Channels, Chen–Lin–Moser 2011",
+          "trigger": "Exact original five-column family and eight-length base"
+        },
+        {
+          "assessment": "CHALLENGED_CONJECTURE",
+          "evidence": "Paper proves M=2,3,4 but calls five-message construction conjectural; Eq.(89) gives precisely C_rec, not alternative C_dis.",
+          "identifier_or_url": "https://moser-isi.ethz.ch/docs/papers/chen-lin-smos-2013-1.pdf",
+          "material_read": "33-page author-hosted full paper; Abstract, Sec.VIII-E pp.7358-7359 Eq.(88)-(92), visually inspected PDF page 13",
+          "method": "Read relevant primary text and image of conjectured length-eight code",
+          "title": "Optimal Ultrasmall Block-Codes for Binary Discrete Memoryless Channels, Chen–Lin–Moser 2013",
+          "trigger": "Expanded possible dominance and corrected statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A constructive, exactly verified counterexample refutes the starting base case of a specific published recursive coding-optimality conjecture under precisely the original channel, blocklength, alphabet, uniform prior, and ML decoding. The interval of failure and exact fidelity/error gain are independently useful, despite not determining the globally best code.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed earlier counterexample to the same five-message conjecture may exist.",
+    "The alternative is not claimed globally optimal and strict domination is proved only for rho<p<1."
+  ]
+}
