@@ -1,12 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces every minimum candidate to one of two explicit configurations. For noncomplete complete multipartite graphs, ordinary zero forcing gives the lower bound \(N-2\), and leaving two unfilled vertices in distinct parts is the only size-\(N-2\) geometry that can succeed. The first-round and possible second-round weights are computed exactly, yielding \(T_\alpha(G)\). If that threshold fails, a size-\(N-1\) set succeeds exactly when \(\beta\le\Delta\alpha\). Exact-rational exhaustive simulation through order \(8\) agrees in every tested case and reproduces the published star and complete-bipartite formulas. The universal conclusion rests on the analytic proof, not finite enumeration.
+## correctness
 
-## Originality
-**PASS.** The closest primary source is Berliner et al., *Transmission Zero Forcing*, arXiv:2606.22246. Its full text was inspected at the definitions, the maximum-degree extremal theorem, and Section 4.1. It gives exact complete-graph, star, and complete-bipartite formulas, but not the arbitrary complete multipartite statement. The maximum-degree theorem determines only when the value is \(N\) and does not separate the \(N-2\) and \(N-1\) phases. Targeted searches under transmission zero forcing, complete multipartite, complete tripartite, Turan, and formula aliases found no stronger covering result. Search non-detection is not a proof of global novelty; recent unindexed material remains a residual risk.
+PASS
 
-## Value
-**PASS.** Complete multipartite graphs are a standard, broad family, and the initiating paper itself makes complete and complete-bipartite graphs central exact examples. The new formula closes the natural multipartite extension in one expression, identifies the precise threshold at which a minimum ordinary zero forcing set survives the weighted transmission rule, and immediately supplies exact Turan-graph specializations. The contribution is a complete structural classification, not an arbitrary finite slice.
+For noncomplete K_{n1,...,nr}, ordinary zero forcing requires at least N-2 seeds: with >=3 white vertices a first force either cannot occur or leaves >=2 whites of one part, after which no force is possible. A minimum complement must consist of vertices in distinct parts. For omitted x in part i,y in j, synchronous round-one weights are (nj-1)alpha and (ni-1)alpha; the only possible second round adds (N-nj-1)alpha+(nj-1)alpha^2 to y after x fills. Thus the size-N-2 criterion is beta<=max_{s>=2} min((s-1)alpha,(N-s-1)alpha+(s-1)alpha^2); N-1 succeeds iff beta<=Delta alpha. All-singletons K_N has N-1/N transition at (N-1)alpha. This is a symbolic proof for positive alpha,beta<=1, not an inference from finite tests; independent exact-rational direct subset testing of 592 small graph/parameter instances agreed. Boundaries beta=equality are included by >= threshold condition.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact three-phase arbitrary multipartite classification is not implied by the initiating paper's two-part subfamilies or its maximum-degree top phase, and the third-part second-round interaction is genuine. Resultary also indexes a simultaneous narrower r>=3 statement (record 2), which is equivalent on the new domain; originality of this broader canonical version is accordingly best-of-knowledge/priority-sensitive and NOT a claim that the two records are independent discoveries.
+
+## value
+
+PASS
+
+All complete multipartite graphs form a natural basic test family for a newly defined weighted one-shot propagation invariant. Classifying the entire N-2/N-1/N phase diagram in terms of exact part sizes (including r=2 and complete degeneracies) is a reusable structural classification, not a tiny finite computation. Its value is the family theorem; the simultaneous narrower record should not be counted a second independent contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
