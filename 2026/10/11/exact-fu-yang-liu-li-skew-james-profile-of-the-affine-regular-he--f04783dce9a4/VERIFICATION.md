@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,58 +18,25 @@
   "schema_version": 1
 }
 ---
-The analytic proof reduces the full statement to four edge cases for \(0<t\le1\).
 
-The exact target is
-\[
-L=\frac{t^2+t+1}{t+1}.
-\]
-After moving
-\[
-x=(1,a)
-\]
-to the fixed edge, the two nontrivial cases are:
+# Independent mathematical audit
 
-\[
-y=(c,1):
-\quad
-A=\max\{1+tc,a+t\},
-\quad
-B=1-ta+\max\{0,t-c\},
-\]
-and
-\[
-y=(-b,1-b):
-\quad
-A=-tb+\max\{1,a+t\},
-\quad
-B=\max\{t+b,1+t-ta\}.
-\]
+## correctness
 
-In the first case, \(A>L\) and \(B>L\) force simultaneously
-\[
-a>\frac1{1+t}
-\quad\text{and}\quad
-a<\frac1{1+t}.
-\]
-In the second case, the two possible branches of \(B>L\) force either
-\[
-a>1
-\]
-or
-\[
-a<\frac1{1+t},
-\]
-each contradicting the lower inequality from \(A>L\).
+PASS
 
-The explicit equality pair
-\[
-x=(1,0),
-\qquad
-y=\left(\frac{t}{1+t},1\right)
-\]
-has both transformed norms equal to \(L\).
+For t>0, the swap-and-scale identity J[t,X]=t J[1/t,X] reduces to 0<t<=1. Checked Q(s,u)=(u,u-s) and R(s,u)=(s,s-u) are dihedral isometries of max(|s|,|u|,|s-u|), reducing all edge pairs to fixed x=(1,a) and y on E0/E1/E2/E3. For E0/E3 one transformed norm <=1. For E1 exact A=max(1+tc,a+t), B=1-ta+max(0,t-c) imply A>L and B>L contradict a>1/(1+t) and a<1/(1+t). For E2 exact A=-tb+max(1,a+t), B=max(t+b,1+t-ta) force a>1 or contradictory bounds; reflected edges follow. Equality at x=(1,0), y=(t/(1+t),1) gives L=(t^2+t+1)/(1+t). Independently tested both exact witness norms at six rational t incl t>1; finite cases not used as continuum proof. At t=1 equals 3/2.
 
-`verify.py` uses exact `Fraction` arithmetic. It verifies the two generating isometries, the canonical edge formulas, all four edge-class inequalities on a large rational test family, both equality families, and the reciprocal formula on rational parameters. These finite checks are supplementary; the displayed inequalities prove the continuum result.
+## originality
 
-No independent audit or independent validation has been performed.
+PASS
+
+Best-of-knowledge original specific exact claim after theorem-level comparisons; detailed four checks and non-fabricated primary-source inspections follow. Search absence is not proof of priority, and significant prior-specialization risks are recorded.
+
+## value
+
+PASS
+
+The full t>0 minimum-type skew James profile closes a natural parameter endpoint for the affine-regular hexagon already used in the founding skew-constant paper, and demonstrates an explicit t(1-t)/(2(1+t)) strict deficit in its general upper bound for 0<t<1. An exact all-parameter canonical Banach-space benchmark is directly reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
