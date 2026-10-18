@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:52:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/cubic-logarithmic-deficit-for-cube-endings-in-the-fibonacci-word--d5a05d3c2258/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/cubic-logarithmic-deficit-for-cube-endings-in-the-fibonacci-word--d5a05d3c2258/verify.py",
+        "https://arxiv.org/pdf/2111.09253"
+      ],
+      "rationale": "The published iff run-start Zeckendorf regular expression has a unique decomposition into three nonnegative repetition parameters A,b,c and four middle/final choices. For t=A+b+c the four word lengths are 2t+6, 2t+7, 2t+7, 2t+8, each occurring binom(t+2,2) times. Hockey-stick summation proves R_L and L^3/12 leading term. For F_{L+1}<=N<F_{L+2}, each one-run start below F_{L+1} has a preceding nonempty zero-run and each zero-run is at most 13 positions, hence R_{L-1}<=Z(N)<=13(R_L+1). Fibonacci exponential growth gives Theta((log N)^3). Independent canonical-Zeckendorf counting for L=6..16 and direct 700-symbol cube ending check match; infinite claim relies on analytic bijection and published run lemmas.",
+      "residual_risks": [
+        "Published regex and zero-run classifications are imported, not reproved from morphism; relies on correct interpretation of canonical Zeckendorf representations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rampersad Theorems 1 and 2 give exact run language and bounded 0-run lengths; density Theorem 4 only controls proportion.",
+          "Shallit investigates guaranteed large-exponent suffixes of Fibonacci prefixes, not exact deficiency counts."
+        ],
+        "reasoning": "Published automaticity and density statements are essential premises but do not numerically imply the degree without additional combinatorial enumeration.",
+        "searches": [
+          "Fibonacci word cube endings no cube deficits growth log cubed Zeckendorf run start automata",
+          "https://arxiv.org/pdf/2111.09253",
+          "https://arxiv.org/abs/2302.04640"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/cubic-logarithmic-deficit-for-cube-endings-in-the-fibonacci-word--d5a05d3c2258/RESULT.md",
+        "https://arxiv.org/pdf/2111.09253",
+        "https://arxiv.org/abs/2302.04640"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the published regex, four length families 2t+6,2t+7,2t+7,2t+8 occur with binom(t+2,2) representations each.",
+          "The bounded zero-run theorem then sandwiches R_{L-1}<=Z(N)<=13(R_L+1), yielding cubic growth."
+        ],
+        "reasoning": "Novel statement is derived from prior structural results using a nonzero combinatorial calculation; density zero alone and the printed regex without enumeration do not state the sharp order. The classification of runs itself is correctly attributed as prior.",
+        "searches": [
+          "Fibonacci word cube endings no cube deficits growth log cubed Zeckendorf run start automata",
+          "https://arxiv.org/pdf/2111.09253"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cube-ending zeros are exactly exceptional Fibonacci prefixes lacking a cube suffix; the quantity Z(N) counts these exceptional positions.",
+          "The primary regex determines run starts, but its published asymptotic statement only establishes zero density."
+        ],
+        "reasoning": "Compared automatic-language growth, Zeckendorf-run counts, the no-cube suffix complement and number of one-runs; none of the inspected source statements gives cubic log order.",
+        "searches": [
+          "Fibonacci word cube endings no cube deficits growth log cubed Zeckendorf run start automata",
+          "https://arxiv.org/pdf/2111.09253"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "R_L counts all Zeckendorf words of length at most L matching the regex, not a finite table of selected prefixes.",
+          "Independent counts for L=6..16 match the symbolic binomial formula."
+        ],
+        "reasoning": "Finite automatic enumerations do not prove the asymptotic; the exact count follows from uniquely parameterizing three independent nonnegative loop counts.",
+        "searches": [
+          "Fibonacci word cube endings no cube deficits growth log cubed Zeckendorf run start automata",
+          "https://arxiv.org/pdf/2111.09253"
+        ]
+      },
+      "rationale": "Rampersad gives exact run-start regular language, six allowed zero-run lengths and density zero; the inspected complete seven-page primary paper does not count the language by length or establish the cubic-logarithmic deficit rate. The derived three-loop weak-composition count yields a new quantified sparsity law; a stronger indexed result was not found. Best-of-knowledge PASS.",
+      "residual_risks": [
+        "A later automatic-sequence counting paper might already identify the cubic-logarithmic rate.",
+        "No exact leading constant of Z(N) established; only Theta order with explicit sandwich."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The run regex and six zero-run lengths are prior; no explicit R_L cubic binomial formula or Theta((log N)^3) in the inspected theorem statements",
+          "evidence": "Theorem 1 language (10)^+0(0+10)(00)^*0w; zero-runs of lengths 1,2,3,7,8,13; density-zero conclusion.",
+          "identifier_or_url": "arXiv:2111.09253 / https://arxiv.org/pdf/2111.09253",
+          "material_read": "Full seven-page original PDF including Theorems 1,2,4, automata diagrams and density argument",
+          "method": "Opened and inspected complete accessible primary PDF; compared regex and density proof",
+          "title": "Prefixes of the Fibonacci word that end with a cube",
+          "trigger": "Exact original regular-language and finite run-length source"
+        },
+        {
+          "assessment": "Guaranteed exponent of suffixes does not quantify positions lacking cube endings",
+          "evidence": "Exponent approaching golden-ratio-square versus counting no-cube endings.",
+          "identifier_or_url": "arXiv:2302.04640",
+          "material_read": "Abstract and mathematical scope as available",
+          "method": "Read abstract and compared statements",
+          "title": "Prefixes of the Fibonacci word",
+          "trigger": "Plausible overlapping large-exponent suffix results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/cubic-logarithmic-deficit-for-cube-endings-in-the-fibonacci-word--d5a05d3c2258/RESULT.md",
+        "https://arxiv.org/pdf/2111.09253",
+        "https://arxiv.org/abs/2302.04640"
+      ],
+      "rationale": "The exact cubic-logarithmic deficit is a natural quantitative refinement of a known density-one cube-ending theorem. It identifies the polynomial degree of sparse exceptions and exact run count, a useful asymptotic invariant of the canonical Fibonacci word rather than an arbitrary finite slice.",
+      "residual_risks": [
+        "Does not compute Z(N) leading constant or classify general Sturmian words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Asymptotic order of Z(N), not an exact asymptotic coefficient.",
+    "Fibonacci word and its published run language, not every Sturmian word."
+  ],
+  "schema_version": 1
+}

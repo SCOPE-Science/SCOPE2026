@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact run-start language from the primary source is counted directly. After writing the three nonnegative repetition parameters with sum \(t\), the four middle/end choices have lengths \(2t+6\), \(2t+7\), \(2t+7\), and \(2t+8\), and there are \(\binom{t+2}{2}\) parameter triples. Summing gives the exact formula for \(R_L\). The source's zero-run bound then yields the upper side of the deficit sandwich, while distinct preceding zero-runs give the lower side. Fibonacci growth converts representation length to logarithmic numeric scale.
+## correctness
 
-The verifier independently checks the regex count, direct cube endings, the published zero-run length restriction on complete finite runs, and the stated sandwich.
+PASS
 
-## Originality
-PASS. The direct source proves only density zero, saying that the complement automaton accepts polynomially many representations; it does not identify the polynomial degree. Its earlier theorems provide the raw run language, but neither the exact cubic run-start formula nor the \(\Theta((\log N)^3)\) deficit law is stated. Targeted literature-index, web, and prior-result searches found no covering claim.
+The published iff run-start Zeckendorf regular expression has a unique decomposition into three nonnegative repetition parameters A,b,c and four middle/final choices. For t=A+b+c the four word lengths are 2t+6, 2t+7, 2t+7, 2t+8, each occurring binom(t+2,2) times. Hockey-stick summation proves R_L and L^3/12 leading term. For F_{L+1}<=N<F_{L+2}, each one-run start below F_{L+1} has a preceding nonempty zero-run and each zero-run is at most 13 positions, hence R_{L-1}<=Z(N)<=13(R_L+1). Fibonacci exponential growth gives Theta((log N)^3). Independent canonical-Zeckendorf counting for L=6..16 and direct 700-symbol cube ending check match; infinite claim relies on analytic bijection and published run lemmas.
 
-The later paper on Fibonacci prefixes concerns guaranteed suffix exponents approaching \(\varphi^2\), not the cube-ending exceptional counting function. Residual risk remains for an unindexed note extracting the same degree from the automaton.
+## originality
 
-## Value
-PASS. The source explicitly presents cube-ending frequency as a measure of periodic behavior. Replacing qualitative density zero by the sharp cubic polylogarithmic scale materially quantifies that measure, and the exact Fibonacci-cutoff run count explains where the exponent three comes from.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rampersad gives exact run-start regular language, six allowed zero-run lengths and density zero; the inspected complete seven-page primary paper does not count the language by length or establish the cubic-logarithmic deficit rate. The derived three-loop weak-composition count yields a new quantified sparsity law; a stronger indexed result was not found. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+The exact cubic-logarithmic deficit is a natural quantitative refinement of a known density-one cube-ending theorem. It identifies the polynomial degree of sparse exceptions and exact run count, a useful asymptotic invariant of the canonical Fibonacci word rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
