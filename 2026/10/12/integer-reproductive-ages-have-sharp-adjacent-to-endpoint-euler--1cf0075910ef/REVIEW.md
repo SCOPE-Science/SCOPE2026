@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For \(R_0\ne1\), the Euler–Lotka kernel \(x\mapsto\lambda^{-x}\) is strictly convex at the root, so convex-order comparison of reproductive ages translates into the same ordering of growth factors after using strict monotonicity of the Euler–Lotka left side in \(\lambda\). The adjacent-age law is the least element in convex order among integer-valued laws of a fixed mean, and the endpoint law is the greatest under a fixed support window. Equality cases and the neutral case \(R_0=1\) are stated explicitly. The packaged exact-rational verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the theorem assumes a strict age-class reduction and fixed \(R_0\) and \(\mu\); stage-structured systems need a separate argument.
+PASS
 
-## Originality
-**PASS.** The continuous Jensen benchmark is prior: Jonasson and coauthors prove \(\lambda\ge R_0^{1/\mu}\), and Cochran and coauthors derive broader constrained-moment Euler–Lotka bounds. The accepted claim does not relabel those facts as new. Its surviving contribution is the order-theoretic statement that mean-preserving reproductive spread raises \(\lambda\) at fixed \(R_0\) and mean, together with the exact integer-lattice lower extremizer on the two adjacent ages and the resulting strict lattice correction. Targeted source, alias, exact-structure, and implication searches did not locate this statement.
+For positive integer ages A in [L,U], lambda is unique positive root of R0 E[lambda^-A]=1 since the left side is strictly decreasing from infinity to zero. At a fixed lambda!=1, x->lambda^-x has strictly positive second derivative; convex-order larger A increases its expectation and hence its Euler-Lotka root, with strictness for distinct finite laws if R0!=1. Convex interpolation on integers makes the floor/ceil adjacent two-point law minimum in convex order; endpoint chord makes L/U law maximum. Strict noninteger mean Jensen comparison follows from strict convexity. Independently solved Euler-Lotka roots for several means and R0=0.5,2; for R0=2,L=1,U=4,mu=2.5 found min=1.324717957, max=1.380277569 matching analytic signs. R0=1 correctly gives lambda=1 for all laws.
 
-Risk: the argument uses standard convex-order ideas, so an unindexed probability exercise or textbook lemma could imply the same lattice extremizer even if it was not located in demographic literature.
+## originality
 
-## Value
-**PASS.** Age-class demographic models and microbial generation-time measurements naturally discretize reproductive timing. The usual Jensen lower benchmark is unattainable when the observed mean age is noninteger; the theorem replaces it with the exact attainable minimum and simultaneously identifies the maximum under a reproductive-age window. The result separates lifetime reproductive level, mean timing, and timing dispersion in a form directly usable for bounding growth from coarse life-history summaries.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Jonasson et al. 2022 explicitly prove continuous Jensen benchmark and compare generation-time definitions; Cochran et al. 2024 develop continuous moment extremizers. Neither inspected primary comparison yielded the sharp two-adjacent-INTEGER-ages lower extremizer, strict noninteger lattice correction and fixed-R0 convex-order growth monotonicity as this exact theorem. It is elementary convexity but a natural lattice-specific sharpened bound; priority risk noted.
+
+## value
+
+PASS
+
+Finite integer reproductive-age classes are the standard strict Leslie model. A noninteger observed mean makes the continuous Jensen extremizer impossible; the exact attainable adjacent-age lower rate, fixed-window endpoint upper rate and dispersion monotonicity give concrete sharp demographic bounds instead of generic approximations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

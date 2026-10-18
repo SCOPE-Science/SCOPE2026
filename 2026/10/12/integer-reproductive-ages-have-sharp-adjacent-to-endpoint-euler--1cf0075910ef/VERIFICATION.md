@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,53 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal theorem is analytic; the embedded script is an exact finite replay of its lattice inequalities.
 
-For integer supports with
-\[
-1\le L<U\le7
-\]
-and rational probability denominators through \(8\), the verifier enumerates every distribution and computes its exact mean. At each of
-\[
-z\in\left\{\frac12,\frac23,\frac32,2\right\},
-\]
-it verifies
-\[
-\mathbb E_{q_{\min}}[z^A]
-\le
-\mathbb E_q[z^A]
-\le
-\mathbb E_{q_{\max}}[z^A].
-\]
-Because \(z^x\) is strictly convex for \(z\ne1\), these are the expectation inequalities used in the proof.
+# Independent mathematical audit
 
-The replay performs \(76{,}416\) exact expectation comparisons and \(19{,}104\) strictness checks.
+## correctness
 
-For the worked case
-\[
-R_0=2,
-\qquad
-L=1,
-\qquad
-U=4,
-\qquad
-\mu=\frac52,
-\]
-it certifies by exact rational polynomial signs that the adjacent-age root obeys
-\[
-1.3247<\lambda_{\min}<1.3248
-\]
-and the endpoint root obeys
-\[
-1.3802<\lambda_{\max}<1.3803.
-\]
+PASS
 
-Run:
+For positive integer ages A in [L,U], lambda is unique positive root of R0 E[lambda^-A]=1 since the left side is strictly decreasing from infinity to zero. At a fixed lambda!=1, x->lambda^-x has strictly positive second derivative; convex-order larger A increases its expectation and hence its Euler-Lotka root, with strictness for distinct finite laws if R0!=1. Convex interpolation on integers makes the floor/ceil adjacent two-point law minimum in convex order; endpoint chord makes L/U law maximum. Strict noninteger mean Jensen comparison follows from strict convexity. Independently solved Euler-Lotka roots for several means and R0=0.5,2; for R0=2,L=1,U=4,mu=2.5 found min=1.324717957, max=1.380277569 matching analytic signs. R0=1 correctly gives lambda=1 for all laws.
 
-`python3 verify_euler_lotka_lattice_bounds.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+Jonasson et al. 2022 explicitly prove continuous Jensen benchmark and compare generation-time definitions; Cochran et al. 2024 develop continuous moment extremizers. Neither inspected primary comparison yielded the sharp two-adjacent-INTEGER-ages lower extremizer, strict noninteger lattice correction and fixed-R0 convex-order growth monotonicity as this exact theorem. It is elementary convexity but a natural lattice-specific sharpened bound; priority risk noted.
 
-The finite replay is not used as a substitute for the convex-order proof or for the universal equality conditions.
+## value
+
+PASS
+
+Finite integer reproductive-age classes are the standard strict Leslie model. A noninteger observed mean makes the continuous Jensen extremizer impossible; the exact attainable adjacent-age lower rate, fixed-window endpoint upper rate and dispersion monotonicity give concrete sharp demographic bounds instead of generic approximations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
