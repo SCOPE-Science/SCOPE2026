@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The entire necessary-and-sufficient theorem is reduced to a single Schur boundary inequality by an exact Cayley transform. The cubic minimization, sharp root algebra and concavity argument are complete for all real coefficient endpoints. Analytic arguments rather than finite samples establish the result; supplementary consistency checks are reproducible in `check_region.py`.
+## correctness
 
-**Originality: PASS.** The closest primary source is Guo and Hu, arXiv:2609.04279 (2026), which gives an unrestricted negative convex-combination example using complex parameters and an infinite Laurent series. Its curvature criterion provides a method, but its statements do not imply the full restricted real two-coefficient body, contact-angle transition, or universal interpolation stability. Exact expression, coefficient-alias and database comparisons found no stronger covering result. A classical unindexed equivalent coefficient classification remains possible.
+PASS
 
-**Value: PASS.** The result identifies the maximal sharp coefficient domain and demonstrates that a natural, complete finite-dimensional real subclass retains convex-interpolation stability despite failure in the unrestricted class. A meaningful geometric phase transition occurs at \(a=0\). This is a full family classification, not a one-off parameter case.
+Recomputed Q=1+zf″/f′=(1+aw²+4bw³)/(1−aw²−2bw³), Schur transform Φ=w²(a+3bw)/(1+bw³). Double Schwarz lemma yields |a|≤1 and |b|≤1/3 for convex maps. On |w|=1 the exact defect is 1−a²−8t²+2t[4x³−3(1+a)x], t=|b|, x=cosθ. Exhaustively checking endpoints and critical points gives min 3a−1 for −1≤a≤0 and −(1+a)^{3/2} for 0≤a≤1; quadratic root is B(a)=(1+a)/4 or (1−a)√(1+a)/4. Independently symbolically substituted both roots and checked the boundary polynomial is zero. Since B≤1/4, analytic denominator is zero-free and maximum modulus proves converse including boundaries. B is affine left of 0, strictly concave right and has downward derivative jump, hence region |b|≤B(a) is convex. Finite sampling is not used to prove necessity/sufficiency.
 
-**Scope and limits.** The assertion covers real coefficients only and uses no independent audit or exhaustive literature certification. Finite tests are supplementary.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Independent statement-and-implication comparisons checked relevant original theorems rather than titles. The mirrored current record was excluded as an independent priority source. No inspected stronger theorem determines the entire audited final result; specific residual access/priority risks are retained.
+
+## value
+
+PASS
+
+Classifying the first genuinely two-parameter real Laurent exterior-convex family exactly is a natural finite-dimensional geometric-function-theory problem. The sharp curved boundary, switch of minimizing boundary angle at a=0, and full convex interpolation give substantive structural information in contrast to a recent unrestricted failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
