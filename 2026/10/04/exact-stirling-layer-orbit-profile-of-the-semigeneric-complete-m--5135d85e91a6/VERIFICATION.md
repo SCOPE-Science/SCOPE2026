@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,29 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The bundled checker performs a direct finite test of the defining parity axiom rather than merely re-evaluating the closed formula.
+## correctness
 
-For each \(1\le n\le6\), it generates every set partition of \([n]\) as a restricted-growth string. For each partition it enumerates every orientation of every cross-block vertex pair. It then checks every choice of two vertices in one block and two vertices in another and rejects an orientation whenever the four directed edges have odd parity.
+PASS
 
-For every partition with \(k\) blocks, the brute-force accepted count is compared with
-\[
-2^{(k-1)n-\binom{k}{2}}.
-\]
-The checker then sums over partitions and compares the totals with the Stirling formula. It separately verifies the equivalent \(j=n-k\) layer formula and computes the Stirling transform for tuples with repeated coordinates.
+For each partition of [n] into k non-adjacency blocks of sizes s_i, even 2-by-2 orientation parity between blocks of sizes r,s is equivalent to X_uv=ρ_u+γ_v in F₂. Global simultaneous bit flip identifies exactly two parameter choices, giving 2^(r+s-1) distinct cross matrices. Choices across distinct block pairs are independent; exponent ∑(s_i+s_j-1)=(k-1)n-binomial(k,2), and summing S(n,k) proves a_n. Ultrahomogeneity identifies finite labeled induced structures with injective tuple orbits, and repetition partition yields b_n=∑S(n,r)a_r. For j=n-k the exponent equals binomial(n,2)-binomial(j+1,2). Bounding S(n,n-j) by binomial(binomial(n,2),j) yields log₂ correction ≤2(log₂n)^2+O(log n); j≈2log₂n disjoint pairs give matching lower 2(log₂n)^2-O(log n loglog n). The supplied n≤6 exhaustive finite checker checks small cases only; the analytic count proves all n.
 
-Replay command:
+## originality
 
-`python3 artifacts/verify.py`
+PASS
 
-Observed output:
+Coskey-Ellis Section 4 supplies the binary orientation rank-one/two-subset structure for a pair of antichains, so that local lemma is prior. Their conjugacy analysis does not itself enumerate every partition of n labeled vertices or state the Stirling transform/orbit asymptotic; those are the retained exact global statements. A best-of-knowledge novelty conclusion is limited to the complete final theorem, not prior equations/local lemmas/classical parameters. Targeted original searches were undertaken but Resultary returned temporarily_unavailable/search_completed:false, not zero matches; full-text access gaps are candid risks.
 
-```
-direct_a_n_1_to_6 [1, 3, 21, 313, 9585, 591841]
-formula_a_n_0_to_10 [1, 1, 3, 21, 313, 9585, 591841, 72906689, 17809866625, 8598208478977, 8188495841984001]
-all_tuple_b_n_0_to_8 [1, 1, 4, 31, 461, 13286, 757945, 86793311, 20019300954]
-VERIFY_OK
-```
+## value
 
-This finite computation checks the local parity-to-count conversion and the global summation independently on all labeled partitions through six points. The proof in `RESULT.md` establishes the formulas for all \(n\).
+PASS
+
+The semigeneric homogeneous digraph is a recognized natural Fraïssé structure; an exact all-n ordered orbit profile and leading asymptotic correction to tournament entropy are concrete combinatorial invariants. The nontrivial sum over partitions is not merely relabeling the known two-block parity lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For a fixed non-adjacency partition, each pair of blocks contributes an independent binary orientation matrix whose \(2\times2\) parity constraints are equivalent to the additive form \(X_{uv}=\rho_u+\gamma_v\) over \(\mathbb F_2\). This gives exactly \(2^{r+s-1}\) matrices between blocks of sizes \(r,s\). Multiplication over block pairs and summation over set partitions yield the stated formula. The automorphism-orbit interpretation follows from universality and ultrahomogeneity. The asymptotic bounds use elementary, correctly directed estimates on near-discrete set partitions.
+PASS
 
-## Originality
+For each partition of [n] into k non-adjacency blocks of sizes s_i, even 2-by-2 orientation parity between blocks of sizes r,s is equivalent to X_uv=ρ_u+γ_v in F₂. Global simultaneous bit flip identifies exactly two parameter choices, giving 2^(r+s-1) distinct cross matrices. Choices across distinct block pairs are independent; exponent ∑(s_i+s_j-1)=(k-1)n-binomial(k,2), and summing S(n,k) proves a_n. Ultrahomogeneity identifies finite labeled induced structures with injective tuple orbits, and repetition partition yields b_n=∑S(n,r)a_r. For j=n-k the exponent equals binomial(n,2)-binomial(j+1,2). Bounding S(n,n-j) by binomial(binomial(n,2),j) yields log₂ correction ≤2(log₂n)^2+O(log n); j≈2log₂n disjoint pairs give matching lower 2(log₂n)^2-O(log n loglog n). The supplied n≤6 exhaustive finite checker checks small cases only; the analytic count proves all n.
 
-**PASS, with residual folklore risk.** The two-block structural factorization is prior and is not claimed as new. The 2020 model-theory source lists the semigeneric structure and parity condition but does not enumerate finite labeled members. Coskey--Ellis's Section 4 provides the local bow-tie/subset description but no Stirling-layer age formula or orbit asymptotic. Targeted web and published-finding corpus searches did not locate the global formula, the block-count-only exponent, or the stated entropy correction. The current ledger contains no semigeneric or complete-multipartite-digraph finding.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result converts a canonical homogeneous digraph's parity geometry into a closed exact oligomorphic profile, gives a short independently replayable finite verifier, and quantifies the first asymptotic correction beyond tournament-scale \(2^{\binom n2}\) growth.
+Coskey-Ellis Section 4 supplies the binary orientation rank-one/two-subset structure for a pair of antichains, so that local lemma is prior. Their conjugacy analysis does not itself enumerate every partition of n labeled vertices or state the Stirling transform/orbit asymptotic; those are the retained exact global statements. A best-of-knowledge novelty conclusion is limited to the complete final theorem, not prior equations/local lemmas/classical parameters. Targeted original searches were undertaken but Resultary returned temporarily_unavailable/search_completed:false, not zero matches; full-text access gaps are candid risks.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The semigeneric homogeneous digraph is a recognized natural Fraïssé structure; an exact all-n ordered orbit profile and leading asymptotic correction to tournament entropy are concrete combinatorial invariants. The nontrivial sum over partitions is not merely relabeling the known two-block parity lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
