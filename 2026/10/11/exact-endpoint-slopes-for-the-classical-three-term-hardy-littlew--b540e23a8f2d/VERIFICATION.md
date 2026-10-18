@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify_endpoint_slopes.py` is a standalone exact-arithmetic checker. It verifies the Fourier convolution coefficients for \(G_\pm^2\), verifies the reduced reflected-root power sums used in the two derivative formulas, isolates the two algebraic roots by rational bisection, and certifies the signs using the positive expansion
-\[
-\log\frac{b}{a}=2\sum_{j\ge0}\frac{u^{2j+1}}{2j+1},
-\qquad
-u=\frac{b-a}{b+a},
-\]
-with an explicit rational geometric tail bound. No floating-point computation is used for the inequalities.
+# Independent mathematical audit
 
-The exact certificate proves \(\Delta'(2)>0\) and \(\Delta'(4)<0\). Decimal values printed by the checker are only renderings of rational enclosures. The checker does not prove the already known global interior inequality \(\Delta(p)>0\) for every \(2<p<4\); that theorem is cited as prior work rather than claimed here.
+## correctness
+
+PASS
+
+For P±=1+z±z³, check no unit-circle roots; reflect outside polynomial zeros to rho_j in |rho|<1 so log|P| has absolutely convergent cosine series. Convolution coefficients of |P±|² and its square and Newton power sums reduce by a³+a=1 and b³+b²=1 to the two boxed rational-polynomial plus log(a/b) forms. Differentiating p-moments under the integral is justified; exact rational root-bisection and artanh-tail bounds prove signs. Independent high-precision continuous integrals match both closed forms. Source verify_endpoint_slopes.py fully inspected; its arithmetic is exact, not a numerical sign guess.
+
+## originality
+
+PASS
+
+The pair of EXACT algebraic-log transversality slopes adds quantitative values beyond the known majorant inequality and endpoint-sign result; best-of-knowledge only because unavailable earlier Pan version might contain overlapping constants.
+
+## value
+
+PASS
+
+The classical counterexample already has fundamental interest in harmonic analysis; exact opening and closing slopes are natural endpoint transversality invariants, not a random numerical evaluation. Closing slope complements the published lower positivity result and quantifies both endpoints without claiming full inequality anew.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
