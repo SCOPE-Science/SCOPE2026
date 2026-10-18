@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone `verify.py` contains the complete standard 36-facet presentation of Kühnel's nine-vertex triangulation.
+# Independent mathematical audit
 
-It reconstructs the face vector \((9,36,84,90,36)\), verifies three-neighborliness, and enumerates all \(\binom94=126\) four-sets. The \(90\) present tetrahedra have zero tetrahedral-boundary class; the \(36\) missing tetrahedra all give the unique nonzero class in \(H_2(-;\mathbf F_2)\).
+## correctness
 
-An explicit integral two-cocycle is then checked on every oriented tetrahedron. It evaluates \(+1\) on \(18\) missing tetrahedral spheres and \(-1\) on the other \(18\), proving every one is a primitive integral class once the published identification \(H_2(K;\mathbb Z)\cong\mathbb Z\) is used.
+PASS
 
-Finally, all \(9!\) vertex permutations are tested. Exactly \(54\) preserve the facet set. Their carrier support orbits have sizes \(9\) and \(27\). Pushing forward a fixed primitive carrier and re-evaluating the cocycle gives \(27\) automorphisms acting by \(+1\) on \(H_2\) and \(27\) acting by \(-1\), with kernel of order \(27\).
+Independent finite reconstruction from all 36 supplied facets gives 84/84 triangles and 90 present/36 missing four-simplices; on at most three vertices no nonzero 2-cycle can occur. The explicit ±1 integral 2-cocycle annihilates all 90 oriented tetrahedral boundaries, pairs ±1 (18 each) with the 36 missing tetrahedral sphere boundaries, and so certifies every missing support as a primitive nonzero class in published H2(K;Z)≅Z. Every present tetrahedron boundary is nullhomologous. Independent exhaustive 9! permutation check yields Aut size54 and missing support orbit sizes 9,27; pairing the cocycle after each relabelling shows H2 signs 27 positive, 27 negative. These exhaustive finite facts follow from complete facets, not partial sampling.
 
-Exact successful output:
+## originality
 
-`VERIFY_OK f=9,36,84,90,36 H2_F2_dim=1 missing4=36 present4=90 missing4_mod2_nonzero=36 cocycle_nonzero=19 missing4_integral_evals=+1:18,-1:18 aut=54 carrier_orbits=9,27 H2_action=+1:27,-1:27 kernel=27`
+PASS
 
-All finite claims are exhaustive. No sampled computation is used as an infinite proof.
+Best-of-knowledge original inclusion-sensitive integral classification of all 36 shortest nonzero H2 carrier supports and their primitivity. The existence of the 9-vertex triangulation, the 54-element automorphism group and complex conjugation are known; these facts are not credited as new. Neither the inspected historic source portions nor targeted other references establish the integral cocycle evaluations for every missing tetrahedron and complete minimizing-carrier criterion.
+
+## value
+
+PASS
+
+For a vertex-minimal triangulation of CP², the minimum vertex support of a primitive nonzero integral middle-homology cycle is a natural discrete systolic invariant. A complete enumeration of all 36 minimal carriers and their inclusion-induced integral classes is useful for understanding embedded 2-spheres and symmetry, beyond a face table or mere computed homology. The old group size is acknowledged as background, and no generalization to other triangulations is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
