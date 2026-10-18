@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The target theorem's hypothesis is per index, while the controlled fusion-frame inequality is a sum over all indices. In the explicit four-block example, the original family is Parseval, every perturbation coordinate has norm at most \(\tfrac12\|f\|\), and all perturbed subspaces equal \(\operatorname{span}\{e_2\}\). The perturbed lower frame energy is therefore zero at \(e_1\), contradicting the claimed lower bound \(3/4\).
+## correctness
 
-The global square-sum repair follows from the exact identity between the original energy, perturbed energy, and the aggregate positive difference. For \(N\) finite indices, summing the source's pointwise estimates gives the sharp general loss \(N\varepsilon^2\).
+PASS
 
-## Originality
-PASS. Exact-source and theorem-number searches, the per-index and global-square-sum formulations, repeated-subspace aliases, closely related controlled \(K\)-fusion perturbation literature, and the checked scientific record were compared.
+Take H=R², C=C′=I, I={1,2,3,4}, v_i=1/2, W_i=H. Then E_W(f)=4(1/4)||f||²=||f||² so A=B=1. Replace all four subspaces by Z_i=span(e_2). Each difference D_i=P_{W_i}-P_{Z_i}=P_{e_1} is positive and the *per-index* theorem condition ||v_i D_i^{1/2}f|| <=(1/2)||f|| holds with eps=1/2<sqrt(A). Yet E_Z(e_1)=0, contradicting the printed positive lower A-eps²=3/4. The proof in the primary article treats an indexed difference as if it controlled the full sum. For a correct repair assume sum_i v_i²||D_i^{1/2}f||² <= eps²||f||² for all f and D_i>=0. Since E_W-E_Z equals this sum exactly, one has (A-eps²)||f||²<=E_Z(f)<=B||f||². With finitely many N indices only the per-index bound gives A-N eps². The N factor is sharp for N repeated copies of H weighted 1/sqrt(N) all compressed to a codimension-one subspace: eps=1/sqrt(N), A=1, E_Z vanishes on the missing direction. The source’s square-root positivity is explicitly retained.
 
-The closest related perturbation theorem uses an actual sum over the index set. It supports the aggregation mechanism but does not provide the present counterexample or the sharp finite-index factor.
+## originality
 
-## Value
-PASS. The theorem is a robustness statement, and robustness constants are meaningful only if they control the entire analysis energy. The counterexample shows that the printed criterion can certify a family with zero lower frame bound. The repair preserves the intended \(A-\varepsilon^2\) lower constant under the correct direct-sum hypothesis.
+PASS
 
-## Closest literature and limitations
-Assila--Kabbaj--Moalige use an aggregate perturbation condition in the closely related controlled \(K\)-fusion setting. That formulation is compatible with the repair.
+The source’s Theorem 4.9 erroneously promotes a pointwise error bound to a global frame perturbation constant. A checked related controlled-K-fusion theorem uses an actual sum over all indices; its sufficient hypothesis does not make Shakoory’s pointwise theorem correct and does not contain this four-block counterexample or the sharp N amplification. Resultary retrieved various independent K-fusion perturbation defects but no matching correction of this specific theorem. The computation is adapted to precise hypotheses, not a general rebranding of the triangle inequality.
 
-The repaired theorem assumes the positive operator differences required by the square-root notation. The finite-\(N\) result does not address stronger perturbation metrics or nonordered differences.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+A frame perturbation theorem is mathematically meaningful only if its hypothesis controls the total coefficient energy. This published result predicts a strictly positive lower frame bound for a collapsed one-dimensional family. The explicit minimal finite witness, plus sharp amplification factor N and a clean direct-sum correction, identify the actual stability requirement. This is substantive theory repair despite elementary linear algebra; the source statement concerns robustness of an entire indexed system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,91 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Take
-\[
-H=\mathbb R^2,\qquad
-I=\{1,2,3,4\},\qquad
-C=C'=I_H,\qquad
-v_i=\frac12.
-\]
-For
-\[
-W_i=H
-\]
-one has
-\[
-\sum_i v_i^2\|P_{W_i}f\|^2
-=
-4\cdot\frac14\|f\|^2
-=
-\|f\|^2.
-\]
-Thus \(A=B=1\).
+# Independent mathematical audit
 
-Let
-\[
-Z_i=\operatorname{span}\{e_2\}.
-\]
-Then
-\[
-P_{W_i}-P_{Z_i}
-=
-P_{\operatorname{span}\{e_1\}},
-\]
-so
-\[
-\left\|
-v_i(P_{W_i}-P_{Z_i})^{1/2}f
-\right\|
-=
-\frac12\|P_{\operatorname{span}\{e_1\}}f\|
-\le
-\frac12\|f\|.
-\]
-Hence the theorem's hypothesis holds with
-\[
-\varepsilon=\frac12<\sqrt A.
-\]
+## correctness
 
-The perturbed energy is
-\[
-\sum_i v_i^2\|P_{Z_i}f\|^2
-=
-\|P_{\operatorname{span}\{e_2\}}f\|^2,
-\]
-which equals \(0\) at \(f=e_1\). Therefore the claimed lower bound
-\[
-A-\varepsilon^2=\frac34
-\]
-is impossible.
+PASS
 
-For the repair, if
-\[
-D_i=C^*P_{W_i}C'-C^*P_{Z_i}C'\ge0,
-\]
-then
-\[
-E_W(f)-E_Z(f)
-=
-\sum_i v_i^2\langle D_i f,f\rangle
-=
-\sum_i v_i^2\|D_i^{1/2}f\|^2.
-\]
-A global bound by \(\varepsilon^2\|f\|^2\) therefore gives
-\[
-(A-\varepsilon^2)\|f\|^2
-\le
-E_Z(f)
-\le
-B\|f\|^2.
-\]
+Take H=R², C=C′=I, I={1,2,3,4}, v_i=1/2, W_i=H. Then E_W(f)=4(1/4)||f||²=||f||² so A=B=1. Replace all four subspaces by Z_i=span(e_2). Each difference D_i=P_{W_i}-P_{Z_i}=P_{e_1} is positive and the *per-index* theorem condition ||v_i D_i^{1/2}f|| <=(1/2)||f|| holds with eps=1/2<sqrt(A). Yet E_Z(e_1)=0, contradicting the printed positive lower A-eps²=3/4. The proof in the primary article treats an indexed difference as if it controlled the full sum. For a correct repair assume sum_i v_i²||D_i^{1/2}f||² <= eps²||f||² for all f and D_i>=0. Since E_W-E_Z equals this sum exactly, one has (A-eps²)||f||²<=E_Z(f)<=B||f||². With finitely many N indices only the per-index bound gives A-N eps². The N factor is sharp for N repeated copies of H weighted 1/sqrt(N) all compressed to a codimension-one subspace: eps=1/sqrt(N), A=1, E_Z vanishes on the missing direction. The source’s square-root positivity is explicitly retained.
 
-For \(N\) finite indices, the pointwise estimate sums to at most
-\[
-N\varepsilon^2\|f\|^2.
-\]
-The repeated-subspace family with weights \(1/\sqrt N\) has \(A=1\), \(\varepsilon=1/\sqrt N\), and zero perturbed lower bound, proving sharpness of the factor \(N\).
+## originality
 
-The primary theorem and proof were inspected directly in the publisher PDF and page image. The related aggregate perturbation theorem was inspected in the open controlled-\(K\)-fusion preprint. No numerical approximation or finite search is used.
+PASS
+
+The source’s Theorem 4.9 erroneously promotes a pointwise error bound to a global frame perturbation constant. A checked related controlled-K-fusion theorem uses an actual sum over all indices; its sufficient hypothesis does not make Shakoory’s pointwise theorem correct and does not contain this four-block counterexample or the sharp N amplification. Resultary retrieved various independent K-fusion perturbation defects but no matching correction of this specific theorem. The computation is adapted to precise hypotheses, not a general rebranding of the triangle inequality.
+
+## value
+
+PASS
+
+A frame perturbation theorem is mathematically meaningful only if its hypothesis controls the total coefficient energy. This published result predicts a strictly positive lower frame bound for a collapsed one-dimensional family. The explicit minimal finite witness, plus sharp amplification factor N and a clean direct-sum correction, identify the actual stability requirement. This is substantive theory repair despite elementary linear algebra; the source statement concerns robustness of an entire indexed system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
