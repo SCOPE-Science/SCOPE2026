@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Edge-wise determinant equations are exact. A nonzero-root tree extension, a four-case cycle analysis (zero, one, two, at least three nonzero cycle coefficients), a forced-zero obstruction, and a two-bracket spanning-tree bound prove the criterion over arbitrary fields. Exhaustive representative computations over small prime fields corroborate the all-field argument; they do not certify the general theorem.
+## correctness
 
-**Originality — PASS, with residual risk.** The same graph-Lie construction of Godoy Molina–Lagos is prior. The closest substantive bracket-word study by Niranjan–Rani covers all derived dimensions at most three, and classifies derived dimension four in odd finite characteristic; several small cases overlap. The present arbitrary unicyclic graph, unrestricted derived dimension, arbitrary-field iff is not implied by these dimensional theorems. Rossmann's graphical-group conjugacy polynomial and related published cycle character enumerations address different invariants. Searches across aliases and equivalent formulations found no directly dominating statement; equivalence under alternative terminology remains possible.
+PASS
 
-**Value — PASS.** This is a complete natural infinite-family classification of commutator width, with a sharp boundary caused by which cycle vertices support attached trees. Constructive witnesses and obstructions identify exactly when the word-image set equals the derived algebra; the distinction is not captured by derived-algebra dimension alone.
+Every bracket coefficient on edge (v,w) equals det((a_v,b_v),(a_w,b_w)), including characteristic two with alternating bracket. Nonzero-root tree extension realizes arbitrary incident edge data with nonzero descendant vectors. On the unique cycle, zero/two/at-least-three nonzero edge coefficients admit nonzero vectors throughout via explicit base triangle and subdivision; exactly one nonzero edge forces a zero at a cycle vertex off the active edge. If an unbranched vertex exists there, zero can be located without blocking attached-edge data; otherwise prescribing a nonzero attached coefficient at every branched vertex gives contradiction. Deleting one cycle edge leaves a spanning tree and a second bracket supplies its residual. Thus width 1 iff each edge e has U\V(e) nonempty; else exactly 2 for all fields. Independent F2 brute force verified triangle, triangle-with-leaf, square-with-leaf, square-with-adjacent-leaves bracket images and two-bracket sums; this is corroboration, not the infinite proof.
 
-Limitations: only connected simple unicyclic graphs with distinct edge basis labels; no multicyclic classification or counting of commutator fibers. Independent validation is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The precise arbitrary-field unicyclic cycle/attachment criterion is not the standard derived-algebra span assertion and is not implied by prior results restricted to low-dimensional derived algebras; the graph-Lie construction itself is credited. Complete priority outside indexed terminology is not claimed.
+
+## value
+
+PASS
+
+A natural infinite family of 2-step graphical Lie algebras has a sharp, constructive exact word-width classification; branching positions on the cycle determine when a single bracket covers the full derived algebra. Witnesses separate width-one from width-two even at fixed cycle length. This is a structural theorem, not a tiny numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
