@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:48:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/momo-momentum-has-an-exact-scalar-slowdown-law--221d377bff32/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/momo-momentum-has-an-exact-scalar-slowdown-law--221d377bff32/VERIFICATION.md"
+      ],
+      "rationale": "The exact MoMo source initialization yields x2=x1/2 and gamma_k=2 weighted_loss_k. From an uncapped previous step follows weighted_loss_(k-1)=x_k d_(k-1), yielding residual h_k=(1-beta)a*x_k^2/2. Inductively the iterate preserves its sign and d_k>=a*x_k ensures tau_k<=1/(2a). The dimensionless z_k evolves by F(z)=beta(1+z)^2/(z+1/2), with derivative beta*z*(z+1)/(z+1/2)^2<beta<1; its unique fixed point yields beta=q(2q-1), hence q=(1+sqrt(1+8beta))/4. At beta=0 the exact ratio is 1/2. The limiting normalized learning rate 2(1-q)/(2q+1) follows algebraically. Independent direct source recurrence and reduced recurrence agreed for 30 steps across 5 beta and 3 curvatures; long recurrence fixed points checked.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schaipp et al generic interpolation constant is sharpest beta=0 but does not determine exact asymptotic q_beta.",
+          "Wang et al ALR-HB methods have different recurrences and sometimes one-step scalar solutions."
+        ],
+        "reasoning": "A source upper bound on expected convergence does not imply the displayed exact deterministic ratio or rate-collapse constant.",
+        "searches": [
+          "arXiv:2305.07583 interpolation theorem",
+          "PMLR:v202:wang23l",
+          "arXiv:2406.04142"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2305.07583",
+        "https://proceedings.mlr.press/v202/wang23l.html",
+        "https://arxiv.org/abs/2406.04142"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact identity gamma_k=2 fbar_k and uncapped recursion are special to deterministic quadratic and source initialization.",
+          "Source rate bound says nothing quantitative equivalent to q_beta=(1+sqrt(1+8beta))/4."
+        ],
+        "reasoning": "Existing statements require substantial dynamical reduction and fixed-point proof; they do not entail this exact all-beta law as stated.",
+        "searches": [
+          "arXiv:2305.07583 Algorithm 1",
+          "PMLR:v202:wang23l",
+          "arXiv:2406.04142"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A scalar quadratic with beta=0 reduces exactly to uncapped stochastic Polyak step; beta>0 uses MoMo loss-and-gradient moving model.",
+          "Resultary top matches were other momentum optimizers, not MoMo source exact dynamics."
+        ],
+        "reasoning": "The exact rate is not an identity for generic heavy-ball or Polyak SGD; different update definitions prevent synonym substitution.",
+        "searches": [
+          "Resultary: MoMo momentum scalar quadratic exact asymptotic slowdown rate fixed point beta",
+          "arXiv:2305.07583 Algorithm 1",
+          "arXiv:2406.04142"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper supplies beta=.9 default but not a scalar exact benchmark table with q_beta."
+        ],
+        "reasoning": "The named numerical values are evaluations of the general solved fixed-point theorem, not claimed novel independent database entries.",
+        "searches": [
+          "Resultary: MoMo scalar exact convergence 0.9 0.965891",
+          "arXiv:2305.07583 default beta 0.9"
+        ]
+      },
+      "rationale": "The exact statement and its implications were compared against the defining primary source, nearest general theorems, differently named invariants and Resultary published records. No dominating prior result was found among genuinely examined material; any inaccessible or unindexed potential coverage is retained as a residual risk, not treated as evidence of novelty.",
+      "residual_risks": [
+        "Other later algorithm-specific scalar analyses not indexed in the focused searches could contain an equivalent closed form.",
+        "The claim excludes cap-binding, bias-correction, high-dimensional and stochastic MoMo; no general anti-momentum conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The defining algorithm supports our recurrence; its generic beta-dependent bound does not give the exact scalar deterministic asymptotic factor",
+          "evidence": "Model residual and EMA identities; interpolation comment beta=0 is strongest generic guarantee",
+          "identifier_or_url": "https://arxiv.org/abs/2305.07583",
+          "material_read": "Algorithm 1 equations, source initialization, capped learning-rate expression, main convex interpolation guarantee and remark beta=0 gives best generic constant",
+          "method": "Full publicly accessible arXiv PDF; mathematical text and Algorithm 1 page image",
+          "title": "MoMo: Momentum Models for Adaptive Learning Rates",
+          "trigger": "Exact source algorithm, momentum interpolation remark and cap required for C and O"
+        },
+        {
+          "assessment": "Heavy-ball-derived method differs from MoMo moving loss model; no assumption of source theorem covering MoMo",
+          "evidence": "Different update rule can solve scalar least squares in one step",
+          "identifier_or_url": "https://proceedings.mlr.press/v202/wang23l.html",
+          "material_read": "Abstract, algorithm distinctions, source package comparison",
+          "method": "Publisher abstract and contextual source references; full text not independently read this run",
+          "title": "Generalized Polyak Step Size for First Order Optimization with Momentum",
+          "trigger": "Other momentum Polyak methods may imply scalar rate"
+        },
+        {
+          "assessment": "Different SPS momentum variant; possible unseen related comparison noted",
+          "evidence": "No direct MoMo Algorithm 1 recurrence shown in inspected material",
+          "identifier_or_url": "https://arxiv.org/abs/2406.04142",
+          "material_read": "Abstract and described heavy-ball branch",
+          "method": "Public arXiv abstract/contextual source inspection, not full proof",
+          "title": "Stochastic Polyak Step-sizes and Momentum: Convergence Guarantees and Practical Performance",
+          "trigger": "Potential broader momentum-aware step-size theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2305.07583",
+        "https://proceedings.mlr.press/v202/wang23l.html",
+        "https://arxiv.org/abs/2406.04142"
+      ],
+      "rationale": "The defining MoMo mechanism and practical default beta=.9 are naturally benchmarked on the simplest strongly convex interpolating objective, where momentum can slow the objective factor from 1/4 to about .93295 and collapse the adaptive rate. The phenomenon isolates a genuine algorithmic limitation from stochasticity or conditioning.",
+      "residual_risks": [
+        "Value is confined to explicitly stated theorem scope and neither journal-level impact nor downstream use is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For deterministic source-form MoMo on scalar quadratic f(x)=a x^2/2 with exact lower bound zero, 0<=beta<1, no preconditioning and cap alpha>=1/(2a), the cap never binds, the iterate factor converges to (1+sqrt(1+8beta))/4, objective factor to its square, and the limit rate strictly worsens with beta.",
+  "limitations": [
+    "Other later algorithm-specific scalar analyses not indexed in the focused searches could contain an equivalent closed form.",
+    "The claim excludes cap-binding, bias-correction, high-dimensional and stochastic MoMo; no general anti-momentum conclusion.",
+    "No independent external certification or publication; `not_ready` is a transport/privacy restriction distinct from scientific decision."
+  ],
+  "schema_version": 1
+}
