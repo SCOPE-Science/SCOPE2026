@@ -1,17 +1,21 @@
-# Scientific review: One-bit information capacity at every attainable Sarmanov rank correlation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is proved for bounded centered separable copula densities, including both extreme rank values and both signs of dependence. For any nonindependent density, essential lower and upper kernel values produce nonnegative conditional densities and a Bernoulli Markov separator. The data-processing inequality bounds mutual information by binary entropy and hence by \(\log2\). Equality forces the separator to be deterministically recoverable from each margin; conditional independence then forces precisely an equal-measure bipartition density. Integration by parts establishes the Kendall–Spearman identity. A rearrangement argument proves the full rank interval, and the explicit sliding-set construction attains maximal information at every real rank value in that interval. The exact checker separately verifies twelve representative rational parameters, including boundary values and zero, but is not used to infer the general theorem.
+PASS
 
-## Originality — PASS, with priority limitations
+For every bounded centered rank-one copula density c=1+q(u)p(v), the essential extrema alpha<0<beta of q give a valid binary latent J with pi=-alpha/(beta-alpha), w=(q-alpha)/(beta-alpha), and conditional V densities 1+alpha p,1+beta p. Thus U->J->V is Markov, establishing 0<=I(U;V)<=H(J)<=log 2. Equality forces pi=1/2 and deterministic common J measurable from each coordinate; both margins are uniform and conditional independence gives exactly two equal-measure matching rectangles with density 2. Covariance through binary J bounds |rho_S|<=3/4; integration by parts for C=uv+g(u)h(v) proves tau=(2/3)rho_S. For t=1/4-r/3, A_t=[0,t] union [t+1/2,1], B=[1/2,1] have half measure, yield I=log 2, rho_S=3/4-3t=r and all r in [-3/4,3/4], including endpoints and zero. Independently recomputed exact sign first moments and rho for r=-3/4,-1/4,0,1/3,3/4; checked the analytical equality and boundary arguments. Does not extend beyond one separable bounded perturbation.
 
-The most closely related 2026 paper gives a Bernoulli representation and the sharp rank range, but does not assert an information-capacity envelope or its equality classification; the present result is a distinct constrained optimization and its proof is self-contained. Prior checkerboard papers under fixed Spearman or Kendall rank explicitly **minimize** information; minimization has no implication toward this theorem's rank-uniform maximum in a restricted density family. Full public text of a distinct 2023 Lancaster–Sarmanov random-field information paper concerns large-distance asymptotic decay rather than finite copula capacity. A related published copula-substitution result concerns higher-dimensional validity and entropy nonadditivity rather than rank-conditioned bivariate capacity.
+## originality
 
-The 2014 article by Ebrahimi, Jalali and Soofi analyzes information in some models of uncorrelated dependence, but its full text could not be inspected; the statement-level priority comparison remains uncertain. A 2022 Sarmanov-family information-measures article was also not fully accessible. Their inaccessibility has not been treated as evidence of noncoverage. These risks and the possibility of unindexed equivalent work remain.
+PASS
 
-## Value — PASS
+The sharp rank range and latent Bernoulli representation already occur in Blier-Wong; their accessible complete Sections 2 and 5 and appendices do not present mutual-information max at every fixed rank or the complete equality construction. Classical data processing supplies the log2 cap, not the flat conditional envelope and rank-prescribed maximizers. The 2014 Ebrahimi et al. mutual-information dependence paper could contain an equivalent model-specific comparison; only its abstract was available, so full-text noncoverage is NOT asserted. Best-of-knowledge priority qualified.
 
-The theorem gives a complete, sharp information envelope and equality classification for a structurally defined copula class over its **entire** attainable rank-correlation range. It reveals that a rank-correlation constraint, even simultaneous zero Spearman and Kendall correlation, does not reduce the maximal available dependence information below one full bit in this class. This is an interpretable boundary on statistical association measures, not merely another example of a dependent zero-correlation distribution. The condition of exactly one bounded separable perturbation is essential; the result does not extend its one-bit ceiling to arbitrary copulas.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The maximization of mutual information at fixed Spearman/Kendall rank in the natural rank-one Sarmanov family is motivated by interpreting correlation versus dependence strength. A uniform sharp information envelope with all extremizers, including zero-correlation maximum-information examples and endpoint attainable range, is a concrete structural classification potentially useful in copula modeling; not merely data-processing alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
