@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof fixes the intrinsic zero-sum Euclidean normalization and exact hypotheses \(n\ge5\), \(\Delta(H)=2\). Central symmetry permits an origin-centered maximal inball. Polar constraints are graph-unit-Lipschitz. Integral vertices follow from total unimodularity of a graph incidence system after gauge fixing. Graph diameter two restricts integral maximizers to three levels, and the forbidden-low/high edge condition reduces their level sizes to \(1\) or \(2\). The formula for their squared norm and the four-cycle criterion give the sharp radius. Strict convexity identifies all norm-maximizing polar vertices, so the tangent-facet enumeration is also complete. A standalone exact checker enumerates 404 component-type graphs through order 11, all their ternary feasible potentials, and both arithmetic cutoffs through order 59. The general proof does not depend on enumeration.
+## correctness
 
-**Originality — PASS with explicit residual search risk.** Higashitani–Jochemko–Michałek supply general facet descriptions; D'Alì–Delucchi–Michałek identify the Lipschitz polar; Addario-Berry–Janson–McDiarmid present graph spread and the existing integral-optimizer theorem. Those tools and their immediate identities are not claimed as new. Braun–Bruegge–Kahle establish shared facet-supporting planes in dense random graphs but neither exclude closer planes nor give the exact Euclidean contact spectrum. Indexed and primary-literature searches did not locate the deterministic degree-two deletion formula, its exact four-cycle obstruction, or both sharp thresholds. A previously studied five-cycle supplies one special self-complementary boundary instance, not an implication covering the infinite family. Unindexed exact spread identities remain a residual risk.
+PASS
 
-**Value — PASS.** The degree-two deletion class is a natural maximal sparse deletion class in dense graphs. A single four-cycle in the deletion graph changes the low-order Euclidean inradius regime; sharp thresholds at dimensions 12 and 16 establish precisely when all such deletions cease to affect the complete-graph inradius. The complete tangent-facet count detects a large geometric contact transition invisible to the mere inradius at the boundary dimension and gives exact polytope metric data, rather than a routine isolated parameter substitution or known enumeration.
+For G=complement H, Δ(H)=2 and n≥5 imply connected diameter≤2; the polar is the edge 1-Lipschitz polytope in the zero-sum subspace. Maximizing squared centered norm occurs at its TU-integral vertices, necessarily three levels 0,1,2. If a and b count extreme levels, every A×B edge must lie in H, forcing a,b≤2; squared norm is a+b−(b−a)²/n. The (1,2) case occurs per deleted degree-two vertex with value 3−1/n and the (2,2) case iff H has a C4 component with value 4; binary balanced cuts have norm Q_n/n. Norm comparison gives exact n=12 and n=16 cutoffs, equality at 16, plus tangent-facet counts by strictly convex polar maximizers. Independently enumerated all feasible ternary Lipschitz labelings for H=C_n,P_n,C4+isolates for n=5..8; max values and multiplicities equal theorem. This finite test is only a check; all-order proof uses TU and extremal levels.
 
-**Closest literature and limits.** arXiv:1807.07678 (facet functions); arXiv:1910.05193 (Lipschitz polar); arXiv:0902.1156 (graph spread); arXiv:2204.07239 (shared complete-graph facets); arXiv:2201.09835 (eligible symmetric-edge background). The result is canonical-Euclidean, only for \(n\ge5\) and \(\Delta(H)=2\), and classifies the origin-centered inball's tangent facets without asserting unique incenter or all possible incenter locations. The finite checker is corroborative and independent audit has not occurred.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Graph-spread optimization, Lipschitz integral vertex potentials and facet normals are prior art. The all-n radius/contact-count phase for complements of every degree-two graph, sole C4 obstruction and cutoffs 12/16 are not covered by Braun–Bruegge–Kahle random facet results or complete-multipartite special cases. This compares deterministic Euclidean distance-to-facet data rather than total number of facets.
+
+## value
+
+PASS
+
+The sharp robust Euclidean insphere/contact-facet phase under every degree-two edge deletion is a natural metric-polyhedral graph invariant, revealing a C4-only obstruction and universal stabilization thresholds. The formula unifies paths, cycles and their mixtures with nontrivial tangent multiplicity changes, rather than a gratuitous tiny numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

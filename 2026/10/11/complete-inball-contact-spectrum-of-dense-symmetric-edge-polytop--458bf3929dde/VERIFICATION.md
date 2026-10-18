@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The standalone `verify.py` runs with Python 3 and no external dependencies. It constructs all component-multiset graph types with maximum degree exactly two for orders from 5 to 11, checks the complementary graph has diameter at most two, exhausts the exactly feasible integer ternary Lipschitz labelings, and checks the predicted optimal centered squared norm and the exact number of tangent facet normals. The checker compares distinct implementations of the candidate formula and direct enumeration, without invoking a Euclidean optimizer. It also verifies both sharp thresholds arithmetically through order 59.
+# Independent mathematical audit
 
-Observed output:
+## correctness
 
-`VERIFY_OK max-degree-two dense-edge-polytope inradii component-profiles= 404 with-C4= 73 n=5..11; thresholds-checked=5..59; exact-polar=yes`
+PASS
 
-An all-orders proof is supplied in `RESULT.md` via central symmetry, polar duality, total unimodularity of incidence constraints, the diameter-two restriction, and exhaustive analysis of possible integral extremal levels. Numerical enumeration alone would not establish the infinite statement. No independent audit has been conducted.
+For G=complement H, Δ(H)=2 and n≥5 imply connected diameter≤2; the polar is the edge 1-Lipschitz polytope in the zero-sum subspace. Maximizing squared centered norm occurs at its TU-integral vertices, necessarily three levels 0,1,2. If a and b count extreme levels, every A×B edge must lie in H, forcing a,b≤2; squared norm is a+b−(b−a)²/n. The (1,2) case occurs per deleted degree-two vertex with value 3−1/n and the (2,2) case iff H has a C4 component with value 4; binary balanced cuts have norm Q_n/n. Norm comparison gives exact n=12 and n=16 cutoffs, equality at 16, plus tangent-facet counts by strictly convex polar maximizers. Independently enumerated all feasible ternary Lipschitz labelings for H=C_n,P_n,C4+isolates for n=5..8; max values and multiplicities equal theorem. This finite test is only a check; all-order proof uses TU and extremal levels.
+
+## originality
+
+PASS
+
+Graph-spread optimization, Lipschitz integral vertex potentials and facet normals are prior art. The all-n radius/contact-count phase for complements of every degree-two graph, sole C4 obstruction and cutoffs 12/16 are not covered by Braun–Bruegge–Kahle random facet results or complete-multipartite special cases. This compares deterministic Euclidean distance-to-facet data rather than total number of facets.
+
+## value
+
+PASS
+
+The sharp robust Euclidean insphere/contact-facet phase under every degree-two edge deletion is a natural metric-polyhedral graph invariant, revealing a C4-only obstruction and universal stabilization thresholds. The formula unifies paths, cycles and their mixtures with nontrivial tangent multiplicity changes, rather than a gratuitous tiny numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
