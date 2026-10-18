@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` tests the new support-theoretic deduction independently of the source construction internals.
 
-For every binary linear source code of every length
-\[
-1\le m\le4,
-\]
-it builds a surrogate extension satisfying exactly the two source-theorem premises used in the proof:
+# Independent mathematical audit
 
-- a linear embedding that doubles every Hamming weight;
-- all non-embedded nonzero words have weight strictly above the cutoff
-\[
-H=2m.
-\]
+## correctness
 
-Every source code and every relevant subcode dimension is exhausted exactly. The verifier computes the complete support-size histogram of source subcodes and the complete histogram of extension subcodes whose support is at most \(H\), then checks that the latter is obtained by doubling every source support size with identical multiplicity.
+PASS
 
-It also computes all generalized Hamming weights directly and verifies
-\[
-d_r(\text{extension})=2d_r(C)
-\]
-for every tested source code and every
-\[
-1\le r\le\dim C.
-\]
+Starting solely from the two exact clauses of Ostrovsky Main Theorem 1 (linear weight-doubling tau and isolation of ALL completed-code vectors of weight<=H as tau(C)), the binary support identity sum_(u in U) wt(u)=2^(r-1)|Supp(U)| follows because every active coordinate evaluates as a nonzero linear functional on an r-space. Hence tau doubles support size of every r-subcode. Because every vector of a completed-code subcode D with support<=H has weight<=H, D is contained in tau(C) and corresponds uniquely to a source subcode, proving the whole bounded-support spectrum bijection. A source minimizer maps into short support <=2m<=H; any completed-code minimizer must therefore be an image, giving exact d_r(A)=2d_r(C) for 1<=r<=dim C. This does not assert higher completed-code weights or establish the existence of the host independently of the published theorem. Independently checked binary support-sum for all 67 F2^4 subspaces and representative surrogate spectra; the finite surrogate is not the self-dual completion.
 
-Finally, for every enumerated binary subspace it verifies the counting identity
-\[
-\sum_{u\in U}\operatorname{wt}(u)=2^{r-1}|\operatorname{Supp}(U)|.
-\]
+## originality
 
-This finite replay checks the algebraic implication used in the result; the existence of the self-dual completion itself is the published premise from arXiv:2609.22669v1. Successful replay prints `VERIFY_OK`.
+PASS
+
+The 2026 primary Ostrovsky theorem explicitly isolates short vectors and doubles individual weights, and derives minimum distance; it does not itself state the bounded-support subcode bijection and entire generalized Hamming hierarchy. Classical Wei generalized weights and later design-specific higher-weight spectra do not supply that completion-specific consequence. The support identity is standard and could be viewed as an elementary corollary of the source, so the accepted novelty is the explicit structural all-r support-spectrum implication, not a new completion, isometry principle or foundational lemma.
+
+## value
+
+PASS
+
+A full bounded-support subcode spectrum is a natural invariant of the new metric self-dual embedding and determines all source generalized Hamming weights within the host, far richer than just d1. Its all-r bijection and exact support multiplicities can be used for enumerative coding, secret sharing and higher-weight analysis of completed self-dual codes. This is a motivated reusable structural corollary, not an arbitrary small numeric computation; short proof is acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

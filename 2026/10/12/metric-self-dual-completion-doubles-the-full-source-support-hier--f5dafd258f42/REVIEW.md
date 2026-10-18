@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source theorem explicitly gives linear weight doubling and identifies all completed-code words of weight at most \(H\) with the embedded source. For a binary \(r\)-space, each active coordinate is nonzero on exactly half of its vectors, so summing weights proves exact support doubling under the embedding. Any completed-code subcode with support at most \(H\) consists entirely of words in the embedded source, giving the converse and the exact short-spectrum bijection. A source generalized-weight minimizer maps to support at most \(2m\le H\), so every completed-code minimizer in the first \(\dim C\) dimensions is forced into the embedded source. Exhaustive finite replay checks the implication for all binary source codes through length \(4\).
+PASS
 
-## Originality
+Starting solely from the two exact clauses of Ostrovsky Main Theorem 1 (linear weight-doubling tau and isolation of ALL completed-code vectors of weight<=H as tau(C)), the binary support identity sum_(u in U) wt(u)=2^(r-1)|Supp(U)| follows because every active coordinate evaluates as a nonzero linear functional on an r-space. Hence tau doubles support size of every r-subcode. Because every vector of a completed-code subcode D with support<=H has weight<=H, D is contained in tau(C) and corresponds uniquely to a source subcode, proving the whole bounded-support spectrum bijection. A source minimizer maps into short support <=2m<=H; any completed-code minimizer must therefore be an image, giving exact d_r(A)=2d_r(C) for 1<=r<=dim C. This does not assert higher completed-code weights or establish the existence of the host independently of the published theorem. Independently checked binary support-sum for all 67 F2^4 subspaces and representative surrogate spectra; the finite surrogate is not the self-dual completion.
 
-PASS. The primary September 2026 article states vector-weight and coset-distance preservation and explicitly derives only minimum-distance preservation. Its inspected full text contains no generalized-Hamming-weight or higher-weight result. Exact-source, weight-hierarchy, support-spectrum, and isometry searches found no same theorem. Foundational and self-dual higher-weight literature supplies the invariant and code-specific theory but not this completion-specific preservation law.
+## originality
 
-## Value
+PASS
 
-PASS. The result upgrades a new self-dual embedding from preserving one distance parameter to preserving the full higher-dimensional support hierarchy of every input code, and in fact the complete short higher-weight spectrum. Generalized Hamming weights are standard structural and security-relevant invariants, so this gives a reusable property of the completion rather than a narrow example calculation.
+The 2026 primary Ostrovsky theorem explicitly isolates short vectors and doubles individual weights, and derives minimum distance; it does not itself state the bounded-support subcode bijection and entire generalized Hamming hierarchy. Classical Wei generalized weights and later design-specific higher-weight spectra do not supply that completion-specific consequence. The support identity is standard and could be viewed as an elementary corollary of the source, so the accepted novelty is the explicit structural all-r support-spectrum implication, not a new completion, isometry principle or foundational lemma.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A full bounded-support subcode spectrum is a natural invariant of the new metric self-dual embedding and determines all source generalized Hamming weights within the host, far richer than just d1. Its all-r bijection and exact support multiplicities can be used for enumerative coding, secret sharing and higher-weight analysis of completed self-dual codes. This is a motivated reusable structural corollary, not an arbitrary small numeric computation; short proof is acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
