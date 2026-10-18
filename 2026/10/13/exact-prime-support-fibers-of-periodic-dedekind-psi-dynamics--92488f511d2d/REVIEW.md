@@ -1,15 +1,21 @@
-# Scientific review: prime-support fibers of periodic Dedekind-psi dynamics
+# Independent mathematical audit
 
-## Correctness — PASS
-For a fixed ordered word of nonempty prime sets, the equality \(T(m)=mA_S/D_S\) is exact when \(\operatorname{supp}(m)=S\). Cyclic product balance is necessary, forces no prime outside the prescribed union, and gives the full integer valuation shifts. Those shifts force the absent-prime initial exponents uniquely and leave exactly one free nonnegative exponent for each prime present in every state. The constructive inverse verifies every proposed exponent vector yields the word and returns to its start. The least orbit period equals the least support-word period by positivity of a repeated multiplier block. The weighted-simplex argument verifies the polylogarithmic count. All parameter bounds and boundary cases are addressed in the proof. The standalone verifier independently enumerated \(n\leq25000\) and matched every two-step support-fiber count, in addition to testing examples; enumeration is not the proof of the universal statement.
+## correctness
 
-## Originality — PASS, with residual risk
-A. Guo's arXiv:2609.06332v1 proves density zero for each fixed period, not an exact feasibility/parameterization theorem for an arbitrary support word. S. I. Dimitrov's arXiv:2508.02318v2 proves density zero for \(\psi\)-amicable pairs and studies other tuple constructions, without the stated all-length criterion. OEIS A323329 lists the pair \((1330,1550)\) and related cases, while OEIS A033845 already determines all fixed points; these subcases are not asserted to be new. Searches for equivalent prime-support/valuation/itinerary formulations and related published-result records found no stronger covering theorem. The simple underlying identity permits an unindexed equivalent treatment, especially in older pseudo-aliquot literature; this cannot be excluded. The detailed named comparisons and source-inspection limits are recorded in AUDIT.json.
+PASS
 
-## Mathematical value — PASS
-The classification answers a natural exact question left open by aggregate density results: which prespecified cyclic patterns of prime divisors are realizable, and how many starts with that precise pattern lie below a bound? It distinguishes a balanced but impossible pattern from a genuine two-cycle, identifies a canonical minimal generator and a free lattice of dimension equal to the persistently present prime count, gives exact-period rigidity, and supplies a sharp fiberwise logarithmic-order counting law. It is a complete classification of conditional fibers, not a claim of a new global cycle census or a general density improvement.
+On support S, psi(m)-m=m(A_S/D_S), with A_S=product(p+1)-product(p), D_S=product p. Product balance around an r-cycle is necessary and excludes all new primes outside the prescribed support union. For each prime, all r valuations are initial valuation plus the stated integer shifts h_i,p. A zero valuation at any absent step uniquely fixes its starting exponent; primes present everywhere require only a sharp lower bound and so contribute independent nonnegative exponent shifts. Reconstructing the rational orbit from these shifts checks integrality, support and return after r steps. For a repeated shorter word of length s, its positive multiplier product c obeys c^(r/s)=1, hence c=1 and exact dynamical period is s. Counting lattice points in the weighted simplex sum t_p log p <= log(X/n*) yields the volume leading term and O(Y^(d-1)) boundary error. This reasoning covers r=1, rank0, nonprimitive words, and arbitrary primes and exponents.
 
-## Evidence and limits
-Primary full-text scientific comparisons: Guo (2026), https://arxiv.org/html/2609.06332v1; Dimitrov (2025), https://arxiv.org/html/2508.02318v2. Exact database comparisons: https://oeis.org/A323329 and https://oeis.org/A033845. Verification uses only standard Python and integer arithmetic. The number of tested initial integers and code's output are recorded in VERIFICATION.md and verify_output.txt. The general theorem has a complete written proof, whereas possible previously unindexed equivalent arguments remain an originality risk. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fixed-support two-cycle and fixed-point cases are acknowledged as previously tabulated; the claimed novel object is the exact all-r rooted support-word feasibility-and-fiber theorem, including free exponent rank and individual asymptotic. Guo proves density zero for fixed-period orbits rather than a conditional itinerary classification; Dimitrov analyzes psi-amicable pairs and density. Resultary queries found other arithmetic cycles/prime-support results but not an implication to this theorem. Guo full text remained inaccessible because authorized retrieval reported disconnected VPN, not evidence of noncoverage.
+
+## value
+
+PASS
+
+This is a natural conditional exact periodic-orbit problem left unaddressed by aggregate density theorems. It supplies a complete finite decision algorithm for a specified cyclic prime-divisor itinerary, explicit canonical generator, dimension of its infinite family, correct distinction between primitive and repeated itinerary lengths, and quantitatively sharp per-fiber point count. The examples reveal why product balance alone is insufficient. The result is not advertised as solving existence of cycles of unrestricted lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

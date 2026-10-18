@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing the embedded public files. No third-party modules, web access, or other data files are required.
+## correctness
 
-The standalone program factors integers exactly, computes \(T(n)=\psi(n)-n\) independently from prime factors, constructs the finite prime-support-word classifier, then directly enumerates all positive two-step periodic points with initial value from \(2\) through \(25000\). Each observed ordered support word is independently counted by direct enumeration and by the classifier's canonical-generator formula; all comparisons must agree. It additionally checks the known fixed support \(\{2,3\}\), rejects an impossible singleton word, verifies both orientations of the two-cycle \((1330,1550)\), checks the count through \(100000\) for that fiber, and directly checks \(25\) higher-exponent scalings of the two-cycle.
+PASS
 
-The expected output is the accompanying `verify_output.txt` obtained from the actual standard-library replay. All arithmetic verification uses integers; logarithms occur only in the written theorem's asymptotic formula and not in the exact finite computations.
+On support S, psi(m)-m=m(A_S/D_S), with A_S=product(p+1)-product(p), D_S=product p. Product balance around an r-cycle is necessary and excludes all new primes outside the prescribed support union. For each prime, all r valuations are initial valuation plus the stated integer shifts h_i,p. A zero valuation at any absent step uniquely fixes its starting exponent; primes present everywhere require only a sharp lower bound and so contribute independent nonnegative exponent shifts. Reconstructing the rational orbit from these shifts checks integrality, support and return after r steps. For a repeated shorter word of length s, its positive multiplier product c obeys c^(r/s)=1, hence c=1 and exact dynamical period is s. Counting lattice points in the weighted simplex sum t_p log p <= log(X/n*) yields the volume leading term and O(Y^(d-1)) boundary error. This reasoning covers r=1, rank0, nonprimitive words, and arbitrary primes and exponents.
 
-The general mathematical assertion for arbitrary length and arbitrary primes follows from the proved valuation-shift equivalence and lattice-volume argument. The exhaustive finite search is not a proof of an infinite classification, and the program does not certify originality or future source coverage. The parameterized result does not classify all possible support words without their being prescribed, nor does it sum its per-fiber counting estimates over all words.
+## originality
+
+PASS
+
+The fixed-support two-cycle and fixed-point cases are acknowledged as previously tabulated; the claimed novel object is the exact all-r rooted support-word feasibility-and-fiber theorem, including free exponent rank and individual asymptotic. Guo proves density zero for fixed-period orbits rather than a conditional itinerary classification; Dimitrov analyzes psi-amicable pairs and density. Resultary queries found other arithmetic cycles/prime-support results but not an implication to this theorem. Guo full text remained inaccessible because authorized retrieval reported disconnected VPN, not evidence of noncoverage.
+
+## value
+
+PASS
+
+This is a natural conditional exact periodic-orbit problem left unaddressed by aggregate density theorems. It supplies a complete finite decision algorithm for a specified cyclic prime-divisor itinerary, explicit canonical generator, dimension of its infinite family, correct distinction between primitive and repeated itinerary lengths, and quantitatively sharp per-fiber point count. The examples reveal why product balance alone is insufficient. The result is not advertised as solving existence of cycles of unrestricted lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
