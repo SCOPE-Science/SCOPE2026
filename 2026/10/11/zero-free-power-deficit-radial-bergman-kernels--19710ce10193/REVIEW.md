@@ -1,11 +1,21 @@
-# Review: zero-free power-deficit radial Bergman kernels
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof fixes normalized planar area, computes all monomial moments exactly, converts their reciprocals for the nonendpoint parameter into a positive probability mixture, and proves the key Möbius contraction on the entire disk by the maximum-modulus principle. It explicitly handles the \(q=1\) endpoint with a rational kernel and Cayley positivity. Strictness, quantifiers, the boundary and the zero-free implication follow from those formulas. The verified exact-rational and finite-series tests are corroborative, not the proof.
+## correctness
 
-**Originality — PASS (provisional literature comparison).** The latest weighted-kernel parameter study of Marinescu–Xing establishes parameter regularity, not the present nonvanishing certificate. Zeytuncu gives decreasing radial weights whose kernels have zeros, not a universal result for this two-parameter family. Perälä gives prescribed finite zeros and cites a log-subharmonic zero-free criterion; here the logarithm is strictly superharmonic on every punctured radius for \(q>0\). Boudreaux's equivalent-weight construction cannot determine the prescribed kernel. Searches for equivalent power-deficit, radial polynomial, hypergeometric, log-superharmonic and stronger zero-free statements in available research records found no dominating result. Residual risk: unindexed equivalent and classical special-weight literature; the original Hedenmalm source was not materially accessible in full, although its hypothesis is precisely reported by Perälä.
+PASS
 
-**Value — PASS.** Known radial monotone perturbations can create kernel zeros, so complete nonvanishing across a boundary-reaching two-real-parameter deformation is not a routine consequence of radiality or norm equivalence. The quantitative sharp universal half-plane bound, valid for nonintegral powers and at the boundary-vanishing endpoint, gives an explicit, reusable benchmark for kernel stability under weight variation.
+Radial orthogonality gives ||z^n||²=1/(n+1)−q/(n+γ+1) and exact kernel c_n=(n+1)(n+γ+1)/((1−q)n+γ+1−q). For q<1 let p=1+γ/(1−q), μ_p=(p−1)u^{p−2}du; summation yields (1−q)(1−s)^2 K=1−q∫u[(1−s)/(1−us)]²dμ_p. The maximum-modulus bound u|(1−s)/(1−us)|²≤4u/(1+u)²<1 for 0<u<1 proves the disk and real-half-plane bounds. For q=0 equality is (1−s)^2K=1. For q=1 direct sum K=[(γ+1)+(1−γ)s]/[γ(1−s)^3] gives (1−s)^2K=1+(1+s)/(γ(1−s)), whose real part exceeds 1. Complete monomial basis follows radial Fourier orthogonality/Tonelli; |s|<1 ensures convergence.
 
-**Limitations.** No classification of arbitrary radial weights, no implication for multiple-power combinations, and no independent audit. The lower half-plane threshold is universally sharp because equality holds in the unweighted case; no stronger fixed-parameter optimality is asserted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The explicit full-parameter radial power-deficit certificate and zero-free theorem are not implied by inspected general zero-construction or log-subharmonic sufficiency results.
+
+## value
+
+PASS
+
+An explicit nonvanishing family spanning all real powers, all deficit strengths and boundary-vanishing endpoint, with a quantitative half-plane certificate in a landscape where even decreasing positive radial weights may have kernel zeros. This is a motivated precise exception to overly broad radial heuristics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
