@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof in `RESULT.md` is exact.
 
-Critical checks:
-- the rhombic-dodecahedron graph is represented as cube-vertex/cube-facet incidence;
-- the displayed coordinate rows satisfy the adjacency eigen-equation with eigenvalue \(2\);
-- the three arrangement columns are orthonormal;
-- \(2\) is the second adjacency eigenvalue and has multiplicity \(3\);
-- the six degree-\(4\) rows have squared norm \(1/4\);
-- the eight degree-\(3\) rows have squared norm \(3/16\);
-- the outer antipodal octahedron gives the unique minimum-enclosing sphere of radius \(1/2\);
-- the twelve inequalities \(\pm x_i\pm x_j\le1/2\) are supporting facets and exhaust the facet count;
-- all facet distances from the origin equal \(1/(2\sqrt2)\);
-- opposite facet pairs force the incenter uniquely;
-- every graph edge has squared length \(3/16\).
+# Independent mathematical audit
 
-`verify.py` reconstructs all of these identities using exact rational arithmetic and exact symbolic characteristic-polynomial computation. The computation is a replay of the finite algebra in the proof and does not assess originality.
+## correctness
+
+PASS
+
+Represent the fourteen vertices by eight inner sign vectors (±1,±1,±1)/4 and six outer axis vectors ±e_i/2. The cube-vertex/face bipartite incidence adjacency matrix has characteristic polynomial z^6(z²-4)^3(z²-12), so eigenvalue 2 is second largest with multiplicity three. The 14x3 coordinate columns are exact orthonormal 2-eigenvectors. Independent SymPy/rational checks reconstructed all of this without relying on the packaged verify log. The eight inner vertex squared radii are 3/16 and six outer squared radii 1/4; outer axis contacts force the unique minimum enclosing sphere of radius1/2. Exactly twelve inequalities ±x_i±x_j≤1/2 (i<j) support four affinely independent facet vertices each, giving inradius 1/(2sqrt2) and, via the opposite facet pairs, a unique incenter. Every edge length is sqrt3/4; finite exact checks cover entire 14-vertex polyhedron.
+
+## originality
+
+PASS
+
+Winter shows the exceptional rhombic dodecahedron is second-eigenvalue spectral and not vertex transitive, and provides the orthonormal eigenpolytope definition. This fixes a canonical metric up to Euclidean isometry but does not state the twelve-facet inball nor the two exact radial shells in the examined sections. Licata–Powers had already shown self-reproduction; its full 1988 text was not accessible and remains a residual novelty risk.
+
+## value
+
+PASS
+
+The rhombic dodecahedron is a structurally exceptional non-vertex-transitive spectral polytope. Its exact failure of vertex cosphericity alongside common facet tangent sphere gives a motivated complete canonical metric profile for an exceptional graph-eigenpolytope example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
