@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:43:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct calculation from both blocks of M(u,u)=0 gives au+bu/2=0 and bᵀu/2+cu=0. Substituting into Δu=4b^{-1}ab^{-T}cu−u yields zero; reversing the calculation under invertible a,b establishes equivalence. The cited block-Schur factorization gives rank M=4+rank Δ. Four distinct eigenvalues and one forced zero give rank7 and ker M=span{(u,u)}. Exact SymPy recomputation of the displayed witness a=I,b=−2I found Δ eigenvalues {−4,0,4,8}, M rank7, M1=0 and indefinite directions. The witness checks only its finite instance; no analytic prime-counting consequence is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited full paper works with every indefinite pan-generic translation-invariant form and its rank at least seven, and explicitly motivates permitting zero as crucial for the translation-invariant case."
+        ],
+        "reasoning": "The candidate does not strengthen the admissible class or analytic conclusion. It extracts the exact rank and kernel directly from already-present general bound plus the paper’s defining kernel vector; this is a dominating logical implication of the same-source hypotheses.",
+        "searches": [
+          "arXiv:2610.01091v1 Theorem 1.3, Corollary 1.4, Introduction",
+          "Resultary: translation invariant 8 variable quadratic forms pan generic zero eigenvalue Δ forced by translation rank 7 Green primes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01091v1 full original mathematical Introduction and definition",
+        "arXiv:2108.10401 bibliographic abstract and quoted Theorem 1.1",
+        "Resultary indexed alias search for pan generic translation zero eigenmode"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source factorization gives rank M=4+rank Δ; source states rank M≥7; source defines translation invariance by M1=0; Green excludes Δ eigenvalue zero."
+        ],
+        "reasoning": "Within the identical hypotheses, nullity≥1 by translation invariance and nullity≤1 by the source’s rank≥7; exact rank/kernel follow. The displayed Schur factorization maps this one-dimensional nullspace to a Δ-zero mode. The incompatibility with Green’s generic class is consequently already implicit and explicitly motivated by the paper’s own comment that relaxing zero is crucial.",
+        "searches": [
+          "arXiv:2610.01091v1 lines 106–115",
+          "Green Theorem 1.1 as quoted by Pei et al."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pei–Tan–Zhang–Zhao state pan generic implies rank M≥7 and define translation invariance exactly by M1=0 in immediately adjacent lines."
+        ],
+        "reasoning": "Their statements give rank M≤7 automatically under translation invariance, hence rank M=7 and kernel exactly span(1). The equivalent discriminant zero eigenmode is the same assertion transported through their invertible Schur factors; difference in phrasing does not rescue novelty.",
+        "searches": [
+          "Resultary: translation invariant 8 variable quadratic forms pan generic zero eigenvalue Δ forced by translation rank 7 Green primes",
+          "arXiv:2610.01091v1, introductory block factorization and rank bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact parameter table is at issue; the identical general parameter class and implication are explicitly contained in the primary paper’s setup."
+        ],
+        "reasoning": "An unrelated index search failing to locate a formula cannot offset the much stronger same-paper logical coverage.",
+        "searches": [
+          "Resultary: translation invariant 8 variable quadratic forms pan generic zero eigenvalue Δ forced by translation rank 7 Green primes",
+          "arXiv:2610.01091v1 equations around its Definition 1.2"
+        ]
+      },
+      "rationale": "Direct same-paper implication of the exact claim; a source restatement is not an independently original theorem.",
+      "residual_risks": [
+        "The full older Green paper was not read in this run; this does not affect decisive same-paper coverage by Pei et al.",
+        "The counterexample witness can be checked exactly but is not a new theorem independent of the direct implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_THE_PROPOSED_RANK_AND_ZERO_MODE_AS_IMMEDIATE_IMPLICATION",
+          "evidence": [
+            "Prior states rank≥7 for pan generic Q, then M1=0 for translation invariance; their conjunction forces exact rank7/kernel span1. Their Schur factorization transports kernel to Δ, and their text says zero-permitting relaxation is crucial for these forms."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01091v1",
+          "material_read": "Complete accessible primary arXiv HTML Introduction, Green comparison, Definition 1.2, factorization (near lines 106–111), rank statement and translation-invariance equation (near lines 113–115), Corollary 1.4",
+          "method": "Read full primary statements and derived precise logical consequence from adjacent lines",
+          "title": "Translation invariant quadratic forms in 8 variables and dense sets of primes",
+          "trigger": "Same 4+4 matrix, Δ, pan-generic and translation-invariant hypotheses; most likely covering source"
+        },
+        {
+          "assessment": "OLDER_NONZERO_GENERICITY_NOT_INDEPENDENT_NEW_OBSTRUCTION",
+          "evidence": [
+            "Pei et al. Theorem 1.1 explicitly attributes the nonzero discriminant-eigenvalue exclusion to Green."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.10401",
+          "material_read": "Original arXiv abstract/bibliography, plus Theorem 1.1 exclusion of {−1,0} quoted in the complete 2026 primary paper",
+          "method": "Read accessible abstract and checked theorem through later primary quotation; not a full original 55-page inspection",
+          "title": "Quadratic forms in 8 prime variables",
+          "trigger": "Older prime-counting source with stricter genericity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The original paper already presents the same exact hypotheses and block factorization, states rank≥7 and immediately introduces translation invariance M1=0 as the reason for relaxing Green’s nonzero-eigenvalue restriction. Rank≤7 is then automatic from M1=0, and exact rank and one-dimensional kernel follow by one inequality. The Δ-zero conclusion is merely the source factorization rewritten for that known kernel. This transparent algebraic consequence, and a routine integral example, add no sufficiently independent motivated classification, cutoff or new obstruction beyond the published discussion; correctness and reproducibility do not supply separate value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For an invertible 4+4 quadratic-form block decomposition, translation invariance is equivalent to au+bu/2=0 and Δu=0 for u=(1,1,1,1), with Δ=4b^{-1}ab^{-T}c−I. Under pan-genericity Δ has simple zero and the eight-variable form has exact rank seven with the translation line as its entire kernel; this excludes Green’s zero-forbidden genericity.",
+  "limitations": [
+    "No new analytic number-theory estimates, non-split decomposition or singular-a/b results.",
+    "Rejection is scientific prior implication and insufficient independent value, not an operational access failure or a mathematical contradiction."
+  ],
+  "schema_version": 1
+}
