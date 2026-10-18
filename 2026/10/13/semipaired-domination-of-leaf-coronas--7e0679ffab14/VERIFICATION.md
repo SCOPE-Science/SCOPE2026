@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier constructs the leaf corona of a connected base graph and independently checks the definition of semipaired domination:
+# Independent mathematical audit
 
-1. the selected set dominates every corona vertex;
-2. the selected set has even cardinality;
-3. its vertices admit a perfect pairing in the graph whose edges join vertices at distance at most \(2\).
+## correctness
 
-For every connected labeled simple graph of orders \(2\) through \(5\), it enumerates all even corona subsets until it finds the true optimum. The total number of connected base graphs checked is \(771\), and every optimum equals
-\[
-2\left\lceil\frac n2\right\rceil.
-\]
+PASS
 
-The verifier separately implements the constructive proof. It checks the spanning-tree-square matching routine on all Prüfer-coded labeled trees of orders \(2\) through \(7\), totaling \(18{,}248\) trees, and checks deterministic connected graphs through order \(50\).
+For any finite connected n-vertex G (n>=2), the private leaf v-prime forces selecting at least one of {v,v-prime} for each v; a semipaired dominating set must have even size, yielding 2ceil(n/2) lower bound. In a tree T, repeatedly remove and pair either two leaf siblings at distance two or the unique terminal leaf and its adjacent support vertex at distance one, maintaining a tree; induction yields a matching saturating all or all but one vertex in T². A spanning tree of G transfers these distance<=2 pairs to G. Choose V(G) for even n or V(G) union unmatched leaf for odd n. Independent enumeration checked the exact minimum for all 771 labeled connected G of n=2..5.
 
-Recorded output:
+## originality
 
-```text
-VERIFY_OK
-n=2: connected_labeled_graphs=1, exact_corona_checks=1
-n=3: connected_labeled_graphs=4, exact_corona_checks=4
-n=4: connected_labeled_graphs=38, exact_corona_checks=38
-n=5: connected_labeled_graphs=728, exact_corona_checks=728
-n=2: prufer_trees_checked=1
-n=3: prufer_trees_checked=3
-n=4: prufer_trees_checked=16
-n=5: prufer_trees_checked=125
-n=6: prufer_trees_checked=1296
-n=7: prufer_trees_checked=16807
-connected_graphs_bruteforce_optimum_checked = 771
-labeled_trees_constructively_checked = 18248
-deterministic_construction_range = 2..50
-all checks matched least_even_at_least_n
-```
+PASS
 
-The finite checks do not prove the arbitrary-order theorem. The proof for all connected \(G\) is the private-leaf lower bound plus the longest-path matching induction in `RESULT.md`.
+The general exact semipaired leaf-corona invariant is not a published semitotal-corona formula: semitotal domination requires local partners but no global even pairing. The tree-square matching lemma is a known combinatorial phenomenon and is used as an ingredient rather than claimed as exclusive novelty.
+
+## value
+
+PASS
+
+A uniform sharp parity-dependent semipaired domination formula over every connected base graph is an exact classification of a natural graph product, with a constructive certificate and a meaningful distinction from semitotal domination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T06:15:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any finite connected n-vertex G (n>=2), the private leaf v-prime forces selecting at least one of {v,v-prime} for each v; a semipaired dominating set must have even size, yielding 2ceil(n/2) lower bound. In a tree T, repeatedly remove and pair either two leaf siblings at distance two or the unique terminal leaf and its adjacent support vertex at distance one, maintaining a tree; induction yields a matching saturating all or all but one vertex in T². A spanning tree of G transfers these distance<=2 pairs to G. Choose V(G) for even n or V(G) union unmatched leaf for odd n. Independent enumeration checked the exact minimum for all 771 labeled connected G of n=2..5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Henning et al. 2019 gives general semipaired complexity and tree algorithms, but no stated corona formula",
+          "Aniversario et al. 2019 Corollary 5 γ_t2(G◦H)=|V(G)| covers semitotal, not semipaired",
+          "Published SCOPE super-domination of leaf coronas is a different invariant"
+        ],
+        "reasoning": "Even a global algorithm for individual graphs does not imply a symbolic closed semipaired formula for every connected G; semitotal n is insufficient for odd n because semipaired size is even.",
+        "searches": [
+          "arXiv:1904.00964 semipaired trees interval bipartite",
+          "arXiv:2008.13491 semipaired block graph split graph",
+          "DOI:10.29020/nybg.ejpam.v12i4.3501 corona semitotal",
+          "Resultary minimum-super-dominating-sets-of-one-leaf-coronas--304999ba8c77"
+        ]
+      },
+      "checked_sources": [
+        "Haynes, Henning, Semipaired Domination in Graphs, J. Comb. Math. Comb. Comput. 104 (2018) 93-109; ETSU abstract only",
+        "arXiv:1904.00964; Henning, Pandey, Tripathi (2019), original semipaired definition, bipartite complexity and tree algorithms",
+        "arXiv:2008.13491; Henning, Pandey, Tripathi (2020/21), chordal subclasses, split and block graphs",
+        "DOI:10.29020/nybg.ejpam.v12i4.3501, Corollary 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known semitotal corona formula yields n rather than odd n+1 and cannot imply pairability",
+          "The square-of-tree near-perfect-matching theorem supplies a crucial but generic ingredient; the combined corona domination bound and parity bound are specialized"
+        ],
+        "reasoning": "Prior theorem implications assessed explicitly: standard matching property + leaf lower bound imply the conclusion once combined, but the actual all-connected-graph semipaired corona theorem was not identified in the inspected articles.",
+        "searches": [
+          "arXiv:1904.00964 semipaired domination trees",
+          "https://www.ejpam.com/ejpam/article/view/3501/815 Corollary 5",
+          "Haynes Henning Semipaired Domination in Graphs 2018 104 93-109"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Semipaired sets admit perfect matching in the square of the induced metric restricted to chosen vertices",
+          "Semitotal domination merely requires each chosen vertex have a distance<=2 witness, no global perfect pairing"
+        ],
+        "reasoning": "Semipaired, paired, semitotal and super domination on leaf coronas are mathematically different; the parity adjustment is essential and not implied by the semitotal result.",
+        "searches": [
+          "semipaired domination leaf corona G composition K1 tree square pairing",
+          "paired domination corona graph pendant vertex parity",
+          "semitotal domination graph corona G compose K1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted semantic search produced super-domination of coronas and general semipaired algorithms, but no exact semipaired corona result",
+          "No matching formula found in full-text search for corona in the two accessible semipaired algorithm articles"
+        ],
+        "reasoning": "No located exact table; unindexed introductory source or familiar folklore leaf-corona formula remains possible.",
+        "searches": [
+          "semipaired domination graph corona G K1 exact",
+          "Resultary semipaired domination leaf corona G composition K1 tree square pairing"
+        ]
+      },
+      "rationale": "The general exact semipaired leaf-corona invariant is not a published semitotal-corona formula: semitotal domination requires local partners but no global even pairing. The tree-square matching lemma is a known combinatorial phenomenon and is used as an ingredient rather than claimed as exclusive novelty.",
+      "residual_risks": [
+        "Original 2018 Haynes-Henning semipaired paper full text unavailable because institutional access reported disconnected VPN; could contain corona theorem.",
+        "Tree-square near-perfect matching is classical and not itself a novel theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No explicit all-connected-G leaf-corona formula in inspected full text",
+          "evidence": "arXiv:1904.00964",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.00964",
+          "material_read": "Definition, bipartite complexity, interval and tree algorithms; searchable PDF checked for corona/crown",
+          "method": "PDF sections read with full-text term searches",
+          "title": "Complexity and Algorithms for Semipaired Domination in Graphs",
+          "trigger": "Primary modern semipaired proof and potential corona theorem"
+        },
+        {
+          "assessment": "No explicit semipaired leaf-corona formula located",
+          "evidence": "arXiv:2008.13491",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.13491",
+          "material_read": "Definition, split-graph and block-graph sections, and word searches for corona and pendant",
+          "method": "PDF full-text search and targeted reading",
+          "title": "Semipaired Domination in Some Subclasses of Chordal Graphs",
+          "trigger": "Potential broad block-graph theorem covering all leaf coronas"
+        },
+        {
+          "assessment": "Corona theorem is for semitotal domination, not semipaired; does not imply even-parity correction",
+          "evidence": "DOI:10.29020/nybg.ejpam.v12i4.3501, Corollary 5",
+          "identifier_or_url": "https://www.ejpam.com/ejpam/article/view/3501/815",
+          "material_read": "Open full-text journal PDF, definitions and graph operations including corona Corollary 5",
+          "method": "Full text search and reading PDF sections",
+          "title": "On Semitotal Domination in Graphs",
+          "trigger": "Closest exact corona graph operation theorem"
+        },
+        {
+          "assessment": "Possible direct corona result cannot be excluded from unread article",
+          "evidence": "Haynes and Henning (2018), JCMCC 104:93-109; full text NOT read",
+          "identifier_or_url": "https://dc.etsu.edu/etsu-works/10335/",
+          "material_read": "Institutional abstract and bibliographic metadata only; full-text unavailable; authorized institutional download reported VPN disconnected",
+          "method": "Open abstract and lawful download attempt without bypass",
+          "title": "Semipaired Domination in Graphs",
+          "trigger": "Original defining paper, possible theorem overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform sharp parity-dependent semipaired domination formula over every connected base graph is an exact classification of a natural graph product, with a constructive certificate and a meaningful distinction from semitotal domination.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Haynes, Henning, Semipaired Domination in Graphs, J. Comb. Math. Comb. Comput. 104 (2018) 93-109; ETSU abstract only",
+    "arXiv:1904.00964; Henning, Pandey, Tripathi (2019), original semipaired definition, bipartite complexity and tree algorithms",
+    "arXiv:2008.13491; Henning, Pandey, Tripathi (2020/21), chordal subclasses, split and block graphs",
+    "DOI:10.29020/nybg.ejpam.v12i4.3501, Corollary 5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "G finite simple connected and |V(G)|>=2, one private leaf at each vertex",
+    "Disconnected or general G◦H products not covered",
+    "Independent exhaustive 771 base graphs n<=5 is corroboration"
+  ],
+  "residual_risks": [
+    "Original 2018 Haynes-Henning semipaired paper full text unavailable because institutional access reported disconnected VPN; could contain corona theorem.",
+    "Tree-square near-perfect matching is classical and not itself a novel theorem."
+  ],
+  "schema_version": 1
+}
