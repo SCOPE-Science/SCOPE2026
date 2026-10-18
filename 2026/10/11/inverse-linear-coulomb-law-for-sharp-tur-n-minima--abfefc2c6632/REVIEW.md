@@ -1,82 +1,21 @@
-# Review of Inverse-linear Coulomb law for sharp Turán minima
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The 2026 source gives, at each minimum, the exact identities
-\[
-b
-=
-\frac{1-\eta/a}{1+y}
-\]
-and
-\[
-ya^2-\eta(2y+1)a+(1+y)(y^2-\nu^2)=0.
-\]
-After
-\[
-\varepsilon=1/a,
-\qquad
-y=\varepsilon Y,
-\]
-the second equation has a regular implicit-function point at
-\[
-(\varepsilon,Y)=(0,\eta).
-\]
-Coefficient extraction gives
-\[
-y
-=
-\frac{\eta}{a}
-+
-\frac{2\eta^2+\nu^2}{a^2}
-+
-O(a^{-3}),
-\]
-and the exact formula for
-\[
-b
-\]
-then gives
-\[
-1-b
-=
-\frac{2\eta}{a}
-+
-\frac{\nu^2}{a^2}
-+
-O(a^{-3}).
-\]
+PASS
 
-The independently inspected McMahon expansion gives the required positive-zero law
-\[
-x_n=\pi n+\eta\log n+O(1).
-\]
-The minimizer lies between consecutive zeros, so it has the same two leading scales. Substitution proves both index limits.
+The exact assigned package defines the same source-dependent Riccati-normalized Coulomb minimum b=(1-eta/a)/(1+y) with stationary equation y*a^2-eta*(2y+1)*a+(1+y)*(y^2-nu^2)=0, nu=L+1/2. With eps=1/a and y=eps*Y, stationary equation reduces to G=Y-eta-2eta*eps*Y+eps*(1+eps*Y)*(eps^2*Y^2-nu^2)=0. G(0,eta)=0 and dG/dY=1, so IFT gives Y=eta+(2eta^2+nu^2)*eps+O(eps^2). An independent symbolic expansion of b then yields 1-b=2eta/a+nu^2/a^2+O(a^-3). The Coulomb phase rho-eta*log(2rho)-L*pi/2+sigma and 2024 McMahon zeros imply x_n=pi*n+eta*log n+O(1). Given the source-minimum a_n lies between consecutive zeros, the formula becomes 1-b_n=2eta/(pi*n)-2eta^2*log(n)/(pi^2*n^2)+O(n^-2), proving both displayed limits. Fixed L>=0, eta>0; eta->0 and joint limits intentionally excluded. Crucial source critical-point/uniqueness theorem is cited and reproduced in assigned RESULT/AUDIT; the fresh 2026 external primary full text could not be read in this execution, so independent authentication of its premises remains a limitation rather than a fabricated full-text check.
 
-## Originality
+## originality
 
-PASS. The fresh paper proves only monotone convergence of the regular-Coulomb minima and does not state a rate. Its Bessel and general-cylinder sections do not imply the Coulomb rate because the Coulomb equation contains the long-range
-\[
-2\eta/\rho
-\]
-term.
+PASS
 
-A previously known zero asymptotic supplies only the nodal geometry and has no Turán-minimum sequence. The earlier Coulomb Turán literature studies different order-shifted expressions. Searches under source-specific and implication-equivalent formulations did not locate the inverse-linear minimum law or its logarithmic index correction.
+Best-of-knowledge the quantitative inverse-linear Coulomb deficit and logarithmic second index term refine the fresh 2026 source, which publicly describes convergence of successive sharp minima but not a rate. The 2024 McMahon article provides zero locations but not this Riccati-minimum sequence; the earlier 2015 Coulomb inequality source concerns older order-shifted Turánians. The radius law requires combining the assigned critical-point equation with Coulomb phase. Full 2026 manuscript inaccessible this run and Oxford VPN disconnected: possible implicit rate in theorem proof is a material risk, not grounds alone for automatic originality rejection.
 
-A nearby same-source Bessel/cylinder asymptotic has inverse-square scale. It is not covering: the accepted claim is restricted to fixed
-\[
-\eta>0
-\]
-and identifies the new leading term created by Coulomb charge.
+## value
 
-## Value
+PASS
 
-PASS. The 2026 theorem makes the Coulomb sequence a new sharp-constant object but leaves its approach to the limiting sharp constant qualitative. The accepted result determines that approach and reveals a structural phase change: any fixed positive Coulomb charge slows inverse-square Bessel convergence to inverse-linear convergence.
+Quantifying convergence of a newly defined succession of sharp nodal constants is a natural mathematical question. The result identifies a singular transition: fixed positive Coulomb charge yields an inverse-linear sharpness deficit rather than the inverse-square Bessel law, with an explicit leading coefficient and a Coulomb logarithmic correction. Both directly describe asymptotic sharpness of this inequality sequence; they are not arbitrary precision improvements.
 
-The coefficient
-\[
-2\eta/\pi
-\]
-quantifies the sharp-constant deficit in nodal index, while the next logarithmic term records the Coulomb phase distortion of the zero lattice. These are natural asymptotic invariants of the new sharp inequalities rather than arbitrary numerical refinements.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
