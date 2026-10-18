@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Boolean squared-distance identity and Euclidean projection variational inequality prove the unique center, exact squared radius, and all contact vertices for every finite \(0/1\) configuration. Rank inequalities for matroid independence polytopes make the sharp rank--size envelope an exact feasibility question. Its low-rank equality class is uniform density; its high-rank class is a partition into two independent sets. The projection Pythagorean inequality plus Cauchy--Schwarz proves the quantitative defect, whose constant is attained by \(U_{1,3}\oplus U_{2,2}\). Symbolic all-parameter proof, not finite computation, establishes the result.
+## correctness
 
-## Originality
-PASS. The open-access full text of the geometry-classified Ferroni--McGinnis source and the earlier Ferroni same-object source was inspected through their relevant definitions, principal results, and applications. They cover Ehrhart theory and integral equivalence, not Euclidean minimum-sphere geometry. Devriendt--Mulas Theorem 1.1 already establishes uniform density iff constant base marginals, and Edmonds already proves the two-independent-set partition criterion; these antecedents are expressly credited. Candidate-specific published and indexed searches covered all-matroid independence polytopes, graphic forest indicators, Boolean projection, sphere radii, uniform density, and matroid arboricity. The closest earlier uniform-independence-polytope result is strictly a specialization; no implication-equivalent all-matroid metric statement was located.
+PASS
 
-## Value
-PASS. The theorem completely characterizes two sharply different natural classes of matroids by a Euclidean extremal property: uniform density for low rank and arboricity two for high rank, including distinct contact-vertex phases. The all-matroid projection formula and sharp rank-defect stability estimate give an exact structural metric profile, with graphic and direct-sum examples showing nonuniform scope and quantitative sharpness. It is not only a known uniform-matroid radius recomputation.
+The Boolean squared-norm identity ||v||²=<1,v> converts farthest distance into a linear support functional. For c=projection of cube midpoint u=1/2·1 onto P=conv(independent 0/1 vertices), the projection inequality shows max_v||v-c||²=m/4-||u-c||²; any other center z has a worst-case squared distance larger by ||z-c||², proving uniqueness. Comparing P with the uniform rank-r polytope gives Φ(m,r) and equality iff q=min(r/m,1/2)·1 belongs to P. Edmonds rank inequalities then give precisely uniform density r(S)≥r|S|/m for 2r<m, and |S|≤2r(S) (two-independent-set partition) for 2r≥m. The exposed-face rule gives bases vs every independent indicator as contacts. Projection Pythagorean inequality and Cauchy–Schwarz prove Φ-R²≥max_S(t|S|-r(S))_+²/|S|. Exact independent fractions for U_(1,3)⊕U_(2,2) give R²=7/6, loss=1/12 and 12 contacts, attaining its coefficient. General proof, not small examples, handles all loopless finite matroids, including boundary 2r=m.
 
-## Closest literature and limitations
-Prior sources establish important combinatorial ingredients and generic minimum-ball projection duality; neither is claimed as individually new. Euclidean geometry is not invariant under the integral equivalences used for Ehrhart theory. The statement uses the standard indicator realization and loopless matroids. Its general exact center is a unique projection, not a closed elementary expression for every matroid. The rank-defect inequality is not always equality; terminology and general Boolean-geometry indexing remain originality risks.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge positive originality for the exact final theorem, differentiating known underlying objects/structural tools from the new quantified result. Direct primary comparisons and bounded actual searches are recorded; inaccessible full texts and missing exhaustive registry coverage remain risks. No search failure is interpreted as novelty proof.
+
+## value
+
+PASS
+
+The all-matroid standard-indicator Euclidean minimum-sphere question has two genuinely different sharp equality classes matching important combinatorial structures—uniform density and arboricity at most two—and distinct complete contact patterns. Exact projection and sharp rank-violation stability are useful structural tools; the theorem is not a disguised uniform-matroid calculation. Generic Boolean projection is conceded classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

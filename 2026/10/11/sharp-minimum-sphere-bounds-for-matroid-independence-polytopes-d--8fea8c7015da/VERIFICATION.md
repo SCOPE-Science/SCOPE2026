@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof in `RESULT.md` establishes the theorem for all finite loopless matroids with at least two elements.
 
-Reproducibility: run `python verify.py` with Python 3, NumPy, and SciPy installed. The checker reconstructs representative uniform, partition/direct-sum, and graphic matroids from exact rank functions; enumerates all their independent indicator vertices and all subset-rank inequalities; and obtains a numerical Euclidean projection via a strongly convex quadratic program. It compares the resulting radius with the exact Boolean projection identity and uniform sharp envelope, tests both rank-inequality equality conditions, and checks the quantitative gap. A second optimizer solves the enclosing-ball epigraph directly for selected small cases, without using the projection formula. A five-element direct-sum example is verified by exact fractions.
+# Independent mathematical audit
 
-Critical all-parameter steps checked in the proof: Boolean norm identity \(\|v\|^2=\langle\mathbf1,v\rangle\); projection variational inequality; the unique minimizer via an explicit squared-displacement lower bound; the rank inequality description of matroid independence polytopes; rank-based feasibility of \(t\mathbf1\); Edmonds' partition criterion; strict rank-defect lower bound through Euclidean projection and Cauchy--Schwarz; contact-exposed-face characterization; coordinate down-closedness.
+## correctness
 
-The finite replay is corroborative only. It does not exhaust all matroids or establish worldwide novelty. Independent audit remains unperformed.
+PASS
+
+The Boolean squared-norm identity ||v||²=<1,v> converts farthest distance into a linear support functional. For c=projection of cube midpoint u=1/2·1 onto P=conv(independent 0/1 vertices), the projection inequality shows max_v||v-c||²=m/4-||u-c||²; any other center z has a worst-case squared distance larger by ||z-c||², proving uniqueness. Comparing P with the uniform rank-r polytope gives Φ(m,r) and equality iff q=min(r/m,1/2)·1 belongs to P. Edmonds rank inequalities then give precisely uniform density r(S)≥r|S|/m for 2r<m, and |S|≤2r(S) (two-independent-set partition) for 2r≥m. The exposed-face rule gives bases vs every independent indicator as contacts. Projection Pythagorean inequality and Cauchy–Schwarz prove Φ-R²≥max_S(t|S|-r(S))_+²/|S|. Exact independent fractions for U_(1,3)⊕U_(2,2) give R²=7/6, loss=1/12 and 12 contacts, attaining its coefficient. General proof, not small examples, handles all loopless finite matroids, including boundary 2r=m.
+
+## originality
+
+PASS
+
+Best-of-knowledge positive originality for the exact final theorem, differentiating known underlying objects/structural tools from the new quantified result. Direct primary comparisons and bounded actual searches are recorded; inaccessible full texts and missing exhaustive registry coverage remain risks. No search failure is interpreted as novelty proof.
+
+## value
+
+PASS
+
+The all-matroid standard-indicator Euclidean minimum-sphere question has two genuinely different sharp equality classes matching important combinatorial structures—uniform density and arboricity at most two—and distinct complete contact patterns. Exact projection and sharp rank-violation stability are useful structural tools; the theorem is not a disguised uniform-matroid calculation. Generic Boolean projection is conceded classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

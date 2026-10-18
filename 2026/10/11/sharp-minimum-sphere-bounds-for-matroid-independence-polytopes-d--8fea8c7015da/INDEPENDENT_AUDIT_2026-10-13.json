@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T18:12:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Boolean squared-norm identity ||v||²=<1,v> converts farthest distance into a linear support functional. For c=projection of cube midpoint u=1/2·1 onto P=conv(independent 0/1 vertices), the projection inequality shows max_v||v-c||²=m/4-||u-c||²; any other center z has a worst-case squared distance larger by ||z-c||², proving uniqueness. Comparing P with the uniform rank-r polytope gives Φ(m,r) and equality iff q=min(r/m,1/2)·1 belongs to P. Edmonds rank inequalities then give precisely uniform density r(S)≥r|S|/m for 2r<m, and |S|≤2r(S) (two-independent-set partition) for 2r≥m. The exposed-face rule gives bases vs every independent indicator as contacts. Projection Pythagorean inequality and Cauchy–Schwarz prove Φ-R²≥max_S(t|S|-r(S))_+²/|S|. Exact independent fractions for U_(1,3)⊕U_(2,2) give R²=7/6, loss=1/12 and 12 contacts, attaining its coefficient. General proof, not small examples, handles all loopless finite matroids, including boundary 2r=m.",
+      "risks": [
+        "Loopless matroids, standard Euclidean 0/1 embedding, m≥2; not affinely invariant.",
+        "Combinatorial equivalences and generic Boolean identity are acknowledged as pre-existing."
+      ],
+      "sources": [
+        "pinned RESULT.md Git blob 683ffa4917295add4d7d64940948e28f1403a737",
+        "pinned source verifier Git blob 84b6cb1ec10f6f425e4bb3f4f69e2939fc8cb726"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uniform density ⇔ constant basis marginals was already proved by Devriendt–Mulas; high-rank two independent sets ⇔ |S|≤2r(S) is Edmonds.",
+          "Ferroni gives independence-polytope Ehrhart, not metric sphere."
+        ],
+        "reasoning": "These stronger combinatorial criteria provide inputs, but neither supplies the exact Euclidean sphere saturation, center uniqueness, both contact sets, or rank-defect stability.",
+        "searches": [
+          "Devriendt Mulas Theorem 1.1 arXiv:2306.15267",
+          "Edmonds 1965 matroid partition",
+          "Ferroni arXiv:2012.04711 independence polytope"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2306.15267",
+        "https://arxiv.org/abs/2012.04711",
+        "https://doi.org/10.6028/jres.069B.004"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior equivalences are explicitly acknowledged; they imply the feasibility characterizations after a new Euclidean projection comparison.",
+          "The rank-deficit lower bound and all contact-vertex descriptions are additional exact metric information."
+        ],
+        "reasoning": "Known structural statements alone do not explicitly compute the minimum sphere; the combined geometric interpretation and quantitative loss survive as a motivated final claim.",
+        "searches": [
+          "Devriendt–Mulas Theorem 1.1 (constant basis point)",
+          "Edmonds matroid partition 1965",
+          "Ferroni arXiv:2012.04711"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a general Boolean polytope, squared-distance duality is equivalent to Euclidean minimum enclosing ball via its projection of the half vector.",
+          "Matroid independence polytope described by x(S)≤r_M(S), so equality in the uniform rank-size envelope is constant-vector feasibility."
+        ],
+        "reasoning": "Generic projection lemma is classical and not independently novel; the claim extends it to a structurally exhaustive matroid rank partition and sharp deficit.",
+        "searches": [
+          "minimum enclosing ball matroid independence polytope Euclidean circumradius uniform density partition into two independent sets projection",
+          "\"matroid independence polytope\" \"minimum enclosing\" ball sphere",
+          "matroid 0/1 polytope smallest enclosing Euclidean ball cube midpoint projection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier uniform matroid radius results would form only a special family; full nonuniform rank/circuit structure and contact phases not tabulated in checked works."
+        ],
+        "reasoning": "The theorem ranges over all finite matroids, not an entry from a finite atlas. No matching table retrieved; historical absence not proof.",
+        "searches": [
+          "minimum enclosing ball matroid independence polytope Euclidean circumradius uniform density partition into two independent sets projection",
+          "matroid independence polytope circumradius tables uniform graphic forest"
+        ]
+      },
+      "rationale": "Best-of-knowledge positive originality for the exact final theorem, differentiating known underlying objects/structural tools from the new quantified result. Direct primary comparisons and bounded actual searches are recorded; inaccessible full texts and missing exhaustive registry coverage remain risks. No search failure is interpreted as novelty proof.",
+      "residual_risks": [
+        "General 0/1 minimum-ball projection theorem is elementary and might be previously connected with matroid polytopes under convex optimization terminology.",
+        "Edmonds full historical scan not read; theorem wording is unambiguous and widely established.",
+        "Resultary semantic endpoint errored, and other negative searches do not certify worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the combinatorial uniform-density iff base marginals equivalence, NOT the Euclidean sphere, second contact phase and sharp deficit",
+          "evidence": [
+            "Devriendt–Mulas Theorem 1.1; arXiv:2306.15267, later AJC 94 (2026)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.15267",
+          "material_read": "Full accessible source with Theorem 1.1 and proof identifying uniform density with constant basis marginals, plus surrounding graph discussion",
+          "method": "Read original full PDF and visually checked Theorem 1.1",
+          "title": "Uniform density in matroids, matrices and graphs",
+          "trigger": "Very close low-rank equal-marginal condition"
+        },
+        {
+          "assessment": "NOT_COVERING metric sphere: concerns lattice enumeration and integral equivalence, which is not Euclidean isometry",
+          "evidence": [
+            "Ferroni 2020/2021, definition and uniform independence polytope results; no sphere result in inspected main theorems."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.04711",
+          "material_read": "Public full text with independence-polytope definitions, uniform members and Ehrhart results, not distance minimax",
+          "method": "Read complete open preprint with definitions and main theorems",
+          "title": "Integer point enumeration on independence polytopes and half-open hypersimplices",
+          "trigger": "Exact same independence-polytope ambient object"
+        },
+        {
+          "assessment": "COVERS |S|≤k r(S) iff partition into k independent sets, here k=2, not Euclidean contact geometry",
+          "evidence": [
+            "Edmonds 1965, Journal of Research NBS 69B."
+          ],
+          "identifier_or_url": "https://doi.org/10.6028/jres.069B.004",
+          "material_read": "NIST accessible abstract/main theorem wording and relevant indexed historical text; complete original scan not read",
+          "method": "Bibliographic record and theorem statement",
+          "title": "Minimum partition of a matroid into independent subsets",
+          "trigger": "Stronger classical two-independent-set criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-matroid standard-indicator Euclidean minimum-sphere question has two genuinely different sharp equality classes matching important combinatorial structures—uniform density and arboricity at most two—and distinct complete contact patterns. Exact projection and sharp rank-violation stability are useful structural tools; the theorem is not a disguised uniform-matroid calculation. Generic Boolean projection is conceded classical.",
+      "risks": [
+        "Projection is exact variational center, not always a closed-form vector; rank-deficit bound is one-sided."
+      ],
+      "sources": [
+        "https://arxiv.org/abs/2306.15267",
+        "https://arxiv.org/abs/2012.04711",
+        "https://doi.org/10.6028/jres.069B.004"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Loopless matroids, standard Euclidean 0/1 embedding, m≥2; not affinely invariant.",
+    "Projection is exact variational center, not always a closed-form vector; rank-deficit bound is one-sided.",
+    "Combinatorial equivalences and generic Boolean identity are acknowledged as pre-existing."
+  ]
+}
