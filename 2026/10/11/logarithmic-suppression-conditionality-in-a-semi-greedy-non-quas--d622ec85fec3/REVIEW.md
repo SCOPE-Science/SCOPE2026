@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is uniform in the finite coordinate set and the vector. The published block identities give the lower bound. The upper bound follows from a support-size entropy estimate for the exact logarithmic defect defining the source space, plus \(s|\log s|\le1/e\). The argument covers real and complex scalars and does not rely on numerical evidence.
+## correctness
 
-## Originality
-PASS. The focal paper proves only the lower projection-growth mechanism used to rule out Schauder orderings; it does not formulate suppression conditionality constants or an all-coordinate-set upper bound. Direct source searches found no “conditionality” or \(k_m\) statement. Classical \(O(\log m)\) conditionality theorems assume quasi-greedy Banach bases and therefore do not imply the claim for this explicitly non-quasi-greedy, nonlocally convex example.
+PASS
 
-## Value
-PASS. The claim determines the growth order of a standard basis invariant for a newly constructed counterexample. It shows that failure of quasi-greediness here is not accompanied by faster-than-logarithmic suppression conditionality, a structurally informative distinction from merely proving that some projections are unbounded.
+Read and reconstructed exact F_t,H and P_A quantifiers in RESULT.md. For disjoint m-blocks A,B, direct evaluation from definitions (not just source citation) gives H(1_A)=m log m, H(1_A−1_B)=0, hence lower ratio (1+θlog m)/2. For arbitrary finite A of k≤m indices, after ||P_A x||1=1 set r_i=|y_i| and u=|Σy_i|≤1. At t≥1 every logarithm is common log t and F_t(y)=0. At 0<t<1 weighted coordinate log magnitudes are bounded by Shannon entropy ≤log k and |u log max(u,t)|≤1/e. Therefore H(P_A x)≤||P_A x||1(log k+1/e); ||P_A x||1≤||x||1≤||x||θ yields upper for every x,A, including complex vectors; homogeneity and density extend to completion. m=1 lower max1 valid; no conjectured exact leading coefficient claimed.
 
-## Closest literature and limitations
-The closest literature is the focal arXiv:2610.05052v1 and the classical logarithmic conditionality theory for quasi-greedy bases, including arXiv:1702.06326 and arXiv:1301.4844. The focal source supplies the lower bound but not the upper bound; the classical theorems have inapplicable quasi-greedy/Banach hypotheses. The result does not determine the exact leading constant and does not transfer its explicit constants to arbitrary equivalent \(p\)-renormings.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The focal Berná paper arXiv:2610.05052 states a semi-greedy non-quasi-greedy basis and its lower projection growth; the newly audited global all-A entropy upper bound is not stated in the accessible abstract. Results for conditional quasi-greedy Banach bases do not imply it because both applicability hypotheses fail. Exact-source full text could not be read here, so a direct no-overlap assertion for its complete theorems would be unjustified; residual possibility of an unobserved upper bound is explicit. Best-of-knowledge value and originality rely on checked statement-level distinctions, not a failed-search novelty proof.
+
+## value
+
+PASS
+
+k_m is a standard quantitative invariant of basis coordinate projections. For the new semi-greedy but non-quasi-greedy example, global logarithmic upper bound is not supplied by classical quasi-greedy Banach theorems and shows the surprising phenomenon that severe greedy failure coexists with only borderline-logarithmic suppression growth. The full growth order, not merely an artificial finite norm, is a mathematically motivated basis benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
