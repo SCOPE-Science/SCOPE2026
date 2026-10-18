@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof requires positivity and total-mass conservation, a logarithmic coboundary, two linear balance laws, an eventual lower bound for the supercritical concentration, and a critical convolution-ratio lemma. All hypotheses and limits are stated in RESULT.md, and the crucial analytic estimates are proved there rather than inferred from simulations.
+## correctness
 
-Run \(\texttt{python verify_mean.py}\) after installing \(\texttt{sympy}\); the script asserts polynomial and rational identities for the exact four-species vector field and its equilibrium and prints \(\texttt{CHECK_OK}\) when successful. The symbolic replay performed on the embedded-file source returned this string. The checker verifies algebraic identities only; it does not serve as an independent formal proof of positivity, dominated convergence, global time averages, or mathematical novelty. A separate same-model correctness/originality/value review is recorded in REVIEW.md; no independent audit has been performed.
+PASS
 
-Known limits: the conserved-total parameter remains fixed, initial conditions must be strictly positive, and the \(O(T^{-1})\) estimate has an initial-condition-dependent constant. Bibliographic priority remains conditional on available literature and comparison of exact statements.
+C PASS: Independently used SymPy to expand the supplied four differential equations, verify x+y+z+w is conserved, verify (d/dt)(log x-(1+p)y/q-((1+p)/q+1/s)z)=C-r-Dx exactly, and verify y'+z'=rx-qy and z'=rx-sz. The scalar barrier for Phi implies eventual positive lower bound for x when C>r, hence O(1/T) mean-vector correction for each positive trajectory. At C=r, x'=-x(x+(1+p)y+z)<=-x^2 and stable linear convolution plus slow x decay yield z/x->r/s, y/x->r/q, then (1/x)'->D; logarithmic integral follows from the coboundary. At C<r the per-capita rate tends to C-r. This is an analytic all-trajectory argument, not just a symbolic script.
+
+## originality
+
+PASS
+
+PASS: Boros-Hofbauer Theorem 14 for precisely the normalized four-species equations proves unique positive equilibrium for C>r, bifurcation and coexistence of an attracting equilibrium and two limit cycles, plus permanence. The 22-page arXiv full text was inspected at Eq. (8), Theorem 14 and its proof; it does not determine exact trajectory-independent concentration time means, a bounded finite-time endpoint correction, or the critical full inverse-time and logarithmic cumulative-production laws. The new coboundary identity and threshold asymptotic analysis are additional, not contained in equilibrium/cycle statements. General dynamic ACR results are about pointwise robustness and differ.
+
+## value
+
+PASS
+
+V PASS: This naturally motivated chemical oscillator has coexistence of stable/unstable cycles and equilibria, so their full observable concentration barycenter being identical is not a trivial equilibrium calculation. The O(1/T) endpoint terms identify quantitative mean invariants across basins; the critical universal t^-1 profile and logarithmic cumulative-production centering describe the natural chemical total-mass bifurcation sharply. No paper-sized general theory is required for this specific motivated dynamical theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
