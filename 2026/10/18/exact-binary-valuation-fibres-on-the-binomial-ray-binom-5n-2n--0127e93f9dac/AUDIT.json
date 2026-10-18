@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The theorem counts each length-L binary input once. A three-component state tracks the previous digit and the separate multiplication and binomial-addition carries. Kummer counts only the latter; the explicit four-zero-bit terminal weights include all outstanding carries. This proves P_L=e1^T T^L w for all L, and exact rational matrix inversion proves F_0 and F_1. The accompanying verify.py confirms the symbolic identities by exact cancellation, plus independently compares all valuation histograms via binary digit sums for 0<=L<=15. The finite test is supplementary, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rowland arxiv:1001.1783, Introduction and Theorem 1: counts coefficients 0<=m<=N on a fixed row N.",
+        "Spiegelhofer–Wallner arxiv:1710.10884, Section 1 definitions of theta_p(j,N) count a full row; Theorem 2.1 concerns row distribution.",
+        "A distinct earlier dyadic ray (3n,n) has a four-state matrix and no valuation-one cases; it is not a theorem for arbitrary slopes."
+      ],
+      "reasoning": "Published row formulas sum over m for fixed N; the present ray fixes m=2n and N=5n while n ranges over a dyadic interval. These published theorems and the prior 3n,n specialized calculation do not directly imply the exact 5n,2n series by parameter renaming. A general transfer-machine theorem might subsume the technique, but exact specialization was not found.",
+      "searches": [
+        "Fine Rowland Kummer prime-power nonzero binomial coefficients on a fixed rational slope n to 5n,2n.",
+        "Rowland 1001.1783 theorem number nonzero binomial coefficients modulo p alpha",
+        "Spiegelhofer Wallner 1710.10884 divisible by powers of two binomial coefficient row distribution"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1001.1783, January 12 2010",
+      "arxiv:1710.10884, October 30 2017",
+      "OEIS:A130136, May 13 2007",
+      "OEIS:A130137, May 13 2007",
+      "Published research-record matches on binomial valuation and digit-word queries; no exact 5n,2n result found",
+      "Recoverable prior mathematics on the separate 3n,n binomial ray used strictly for deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier four-state calculation on binomial(3n,n) derives valuation-one count identically zero and uses an isolated binary addition; the current binomial(5n,2n) layer has positive exact counts starting at L=1, requires distinct carries for multiplication and addition, and has quartic-squared GF.",
+        "Rowland and Spiegelhofer–Wallner count across complete Pascal rows, which does not assert the fibre count restricted to the line N=5n, m=2n.",
+        "The nearest returned published research-record summaries concern Thue–Morse powers and separate binomial congruences rather than this ray."
+      ],
+      "reasoning": "The prior exact 3n,n ray formula is neither identical nor stronger: its variables have fixed numerical slope and its valuation-one shell is empty; no direct substitution turns its count into a nonempty 5n,2n shell. The current proof retains the general transfer-matrix method but explicitly treats the extra carry interaction, and establishes a new exact distribution. Unchecked implicit generality remains a residual risk.",
+      "searches": [
+        "Exact count of integers n below 2^L for which binomial coefficient choose(5n,2n) has 2-adic valuation one; rational generating function and carry automata.",
+        "Oddness and valuation distributions for the binomial ray binomial(5n,2n), including sequence 0,1,2,3,4,7,12,21,34 and growth 1.512876.",
+        "Fine Rowland Kummer prime-power nonzero binomial coefficients on a fixed rational slope n to 5n,2n."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kummer relates valuations to carries of 2n+3n; binary digit sums give s2(n)+s2(3n)-s2(5n).",
+        "The checked exact symbolic GF for the first valuation-one fibre is z(1-z^2)^2/Q(z)^2, where Q=1-z-z^2+z^3-z^4."
+      ],
+      "reasoning": "Queried the valuation, carry, digit-sum, rational-function and exact-prefix aliases. Kummer is an equivalent individual-valuation identity, not an evaluated distribution over all 2^L indexes. The searched variants did not return this exact distribution; absence alone does not establish priority.",
+      "searches": [
+        "Exact count of integers n below 2^L for which binomial coefficient choose(5n,2n) has 2-adic valuation one; rational generating function and carry automata.",
+        "binomial(5n,2n) valuation",
+        "number of carries 5n 2n distribution",
+        "Oddness and valuation distributions for the binomial ray binomial(5n,2n), including sequence 0,1,2,3,4,7,12,21,34 and growth 1.512876."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A130137 (Emeric Deutsch, May 13 2007): binary Fibonacci words avoiding 0110, generating function (1+z+z^3)/Q(z).",
+        "OEIS A130136: triangle counts 0110 occurrences in Fibonacci words, GF (1+z+(1-t)z^3)/(1-z-z^2+(1-t)z^3-(1-t)z^4).",
+        "Our zero layer obeys F_0(z)=1+z G_{A130137}(z). The valuation-one ray series differs from the OEIS A130136 variable-marking series."
+      ],
+      "reasoning": "The shared parity-count sequence is explicitly credited, including its exact OEIS record and GF. The OEIS triangle counts a different word statistic with different numerical fibres; no exact database entry with the claimed 5n,2n valuation-one interpretation or full matrix identity was identified.",
+      "searches": [
+        "OEIS A130136",
+        "OEIS A130137",
+        "0,1,2,3,4,7,12,21,34,56,90 valuation binomial 5n 2n",
+        "Oddness and valuation distributions for the binomial ray binomial(5n,2n), including sequence 0,1,2,3,4,7,12,21,34 and growth 1.512876."
+      ]
+    },
+    "rationale": "Specific exact complete distribution on a (5,2) binomial ray, including valuation-one function z(1-z^2)^2/Q^2, was not identified in examined primary sources, OEIS and published research records. Both the earlier zero-layer OEIS recurrence and a different four-state (3n,n) ray result are acknowledged. Their statements do not logically imply the present new eight-state mixed-carry result, although a general digital-enumeration framework might do so and remains a priority risk.",
+    "residual_risks": [
+      "Generic finite transducer methods readily guarantee rationality for a fixed slope; an unindexed specialization may already contain the explicit function.",
+      "The exact zero-valuation layer is an existing OEIS sequence under shift and is not new.",
+      "The same transfer method was used previously for 3n,n; value of the current finding depends on genuinely new mixed-carry interaction and nonzero valuation-one classification.",
+      "Searches cannot establish absolute priority; independent literature audit absent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its arithmetic index set is all entries of a fixed row; does not state this fixed-ratio binomial ray counting theorem.",
+        "evidence": [
+          "Theorem 1 counts a_p^alpha(N) for 0<=m<=N, unlike A_L(j) for m=2n,N=5n and 0<=n<2^L."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1001.1783",
+        "material_read": "Abstract, Introduction, Section 2 Theorem 1 and its proof mechanism, Section 3 relation to digit-word counts.",
+        "method": "Accessible HTML full primary text (not a search snippet only).",
+        "title": "The number of nonzero binomial coefficients modulo p^alpha",
+        "trigger": "The closest established combinatorial formula for prime-power divisibility of binomial coefficients."
+      },
+      {
+        "assessment": "Counts all binomial coefficients of row N, not the diagonal arithmetic ray.",
+        "evidence": [
+          "Section 1 defines theta_p(j,N) as 0<=m<=N counts and Theorem 2.1 is a row-distribution asymptotic."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1710.10884",
+        "material_read": "Introduction, definitions theta_p and Theta_p, Theorem 2.1, and the recurrence-section definitions.",
+        "method": "Accessible arXiv HTML primary text.",
+        "title": "Divisibility of binomial coefficients by powers of two",
+        "trigger": "Possible broader valuation distribution and transfer-method antecedent."
+      },
+      {
+        "assessment": "Related Fibonacci-word 0110 occurrence distribution; not a 5n,2n binomial valuation distribution.",
+        "evidence": [
+          "Its generating-function denominator is 1-z-z^2+(1-t)z^3-(1-t)z^4 and its layer-one values differ."
+        ],
+        "identifier_or_url": "https://oeis.org/A130136",
+        "material_read": "Sequence definition, first rows, generating function and author/date.",
+        "method": "Inspected full database entry.",
+        "title": "OEIS A130136",
+        "trigger": "Same quartic denominator and potentially stronger bivariate word-count enumeration."
+      },
+      {
+        "assessment": "The parity count sequence is already known with one-index shift; this overlap is acknowledged rather than claimed new.",
+        "evidence": [
+          "OEIS A130137 has GF (1+z+z^3)/Q and was authored May 13, 2007."
+        ],
+        "identifier_or_url": "https://oeis.org/A130137",
+        "material_read": "Sequence definition, values, generating function, author/date.",
+        "method": "Inspected full database entry.",
+        "title": "OEIS A130137",
+        "trigger": "Possible exact parity-count match."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0127e93f-9dac-425d-b34f-430d3a21e7d8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural 2-adic divisibility distribution of binomial(5n,2n) over dyadic intervals has an exact all-level answer, not merely one new term in a table. The first nonzero shell has explicit rational GF z(1-z^2)^2/Q^2, in contrast with the zero first shell of the simpler binomial(3n,n) ray. A second digit-carry mechanism makes the case structurally different, and its full exact fibres have potential uses in arithmetic digital statistics. This is a motivated self-contained natural invariant, not a claim of a new general matrix method.",
+    "status": "PASS"
+  }
+}
