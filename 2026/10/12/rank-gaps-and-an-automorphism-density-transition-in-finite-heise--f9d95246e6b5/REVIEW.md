@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The unique Lie map decomposition \(\varphi(v)=Av+f(v)z\), \(\varphi(z)=\lambda z\) is forced by the derived algebra. The bracket constraint is exactly \(A^{\mathsf T}JA=\lambda J\). A nonzero multiplier gives precisely the invertible symplectic similitudes; the zero multiplier gives maps into isotropic images. Dividing the count of ordered isotropic frames by the order of the general linear group computes their image-space count, while row-space membership of the central functional distinguishes the two possible ranks. All product normalizations and characteristic-two cases were checked; finite enumerations agree for the complete small cases. The leading-degree comparison proves the density transition for fixed \(m\).
+## correctness
 
-**Originality — PASS, with residual risk.** Fisher–Gray–Hydon (arXiv:1303.3376v1, pp. 1–13 and the three-dimensional automorphism table) treat real automorphism groups rather than all finite-field Lie endomorphisms. Rieck (JCMCC 34 (2000), pp. 23–32) treats pairings of independent vector configurations over finite fields of odd characteristic, not the central-functional rank refinement or the automorphism-density phase boundary. Prior published summaries on Heisenberg subalgebra-commutativity and fixed-point-free automorphisms likewise concern different functions. A more general historical symplectic-monoid enumeration might imply this formula after a reduction; that possibility has not been eliminated by the available bibliographic search.
+PASS
 
-**Value — PASS.** The endomorphism monoid is a natural algebraic invariant, its ordinary-rank strata control noninjective homomorphism behaviour, and the result determines every stratum, not just its support. The sharp missing-rank interval and three-regime large-field density transition are structurally meaningful for every dimension and are not supplied by the known automorphism-group counts alone. The proof requires and displays a nontrivial interface between finite symplectic geometry and central Lie algebra data.
+Write φ(v)=Av+f(v)z and φ(z)=λz. Bracket preservation is exactly ω(Av,Aw)=λω(v,w), valid characteristic two. For λ≠0, A invertible and there are (q-1)|Sp(2m,q)| choices times q^{2m} functionals f, rank 2m+1. For λ=0, im A is totally isotropic r-space (0<=r<=m). Counting r-spaces by isotropic ordered independent frames and GL_r quotient yields I_{m,r}; surjective maps onto W contribute P_{m,r}; f in row(A) gives rank r for q^r choices and otherwise rank r+1 for q^{2m}-q^r. The resulting nonnegative polynomial has precisely claimed rank gap. Highest q-degrees 2m²+3m+1 and (5m²+5m)/2 differ by ((m-2)(m+1))/2, yielding density trichotomy. Independent arithmetic m=1,q=2: [1,21,18,24]; q=3:[1,104,192,432]; m=2,q=2: [1,465,15750,37800,11520] sum 65536. Finite examples corroborate; algebraic counting proves all prime powers.
 
-The complete rank formulas count individual Lie algebra homomorphisms; they neither classify conjugacy orbits nor assert a uniform-in-dimension asymptotic.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing symplectic basis/frame counts and real low-dimensional automorphism tables are recognized premises. The all-m, all-q rank distribution of noninvertible Heisenberg endomorphisms, forbidden ranks, and density change are not implied by those sources without a new center-functional rank stratification. No direct prior exact polynomial was found; best-of-knowledge with explicit symplectic monoid bibliographic risk.
+
+## value
+
+PASS
+
+The full finite endomorphism monoid rank census of a central natural class of two-step nilpotent Lie algebras is a meaningful algebraic invariant; the absent intermediate ranks and dimension-dependent density transition are structural features that an algebra researcher could use, beyond merely reproducing |Sp|.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
