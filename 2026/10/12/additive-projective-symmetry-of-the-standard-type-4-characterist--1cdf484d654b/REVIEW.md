@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The normalization
-\[
-[u:v]\longmapsto[u^{4}:uv(u+v)^{2}:v^{4}]
-\]
-is checked directly and has an explicit rational inverse on a dense chart. The unique singular point is \([1:0:1]\). Every plane automorphism lifts to \(\mathbf P^{1}\), fixes its unique preimage \([1:1]\), and must preserve the pulled-back hyperplane series \(\langle u^{4},v^{4},uv(u+v)^{2}\rangle\). The coefficient equations reduce the normalization matrix uniquely to
-\[
-\begin{pmatrix}1+\lambda&\lambda\\ \lambda&1+\lambda\end{pmatrix},
-\]
-and the induced plane transformation is exactly the stated \(T_{\lambda}\). Exact symbolic verification checks preservation of the quartic and the additive group law. No finite experiment is used as an infinite-field proof.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2409.05464, supplies the type-(4) equation, its universal fibration, singularity multiplicity, and strange/non-ordinary-inflection tangent geometry. Its isomorphism and automorphism statements concern regular function fields over the original ground field and do not imply the subgroup of \(\operatorname{PGL}_{3}(k)\) preserving the singular geometric member after base extension. The predecessor arXiv:2306.08579 likewise treats different function-field classes. Exact-equation, normalization, projective-stabilizer, additive-action, strange-curve, and smooth-orbit searches found no covering statement. Indexed stabilizer results located in the comparison search concern unrelated characteristic-zero curves and do not dominate this claim.
+PASS
 
-Residual risk: an older, poorly indexed classification of singular plane quartic automorphisms in positive characteristic could contain an equivalent coordinate calculation. No such source was located in the checked literature.
+In characteristic two, the partial derivatives of F=y^4+xz^3+x^3z are z(x+z)^2, 0, x(x+z)^2; together with F=0 they yield precisely p=[1:0:1]. The explicit normalization [u:v]->[u^4:uv(u+v)^2:v^4] lands on F, is birational by t=Y(1+Z)/(1+Z+Y^2), and has unique preimage q=[1:1] of p. A projective stabilizer lifts to PGL2 preserving V=<u^4,v^4,uv(u+v)^2> and fixing q. For g=(a b;c d), fixing q gives d=a+b+c; the u^2v^2 coefficient is (ad+bc)(ab+cd), so invertibility forces (a+c)(b+c)=0. The a=c branch has determinant zero; hence b=c,d=a. Normalize a+b=1 to obtain the displayed g_lambda and induced T_lambda. Direct independent symbolic mod-2 checks confirm the normalization, rational inverse, condition factorization, F(T_lambda)=F, and T_lambda T_mu=T_(lambda+mu). On r=v/(u+v) outside q the action is r->r+lambda, proving simple transitivity on the smooth locus. Does not assess nonreduced group scheme or nonprojective curve automorphisms.
 
-## Value
-PASS. The source emphasizes that these quartics are strange and have highly nonclassical tangent behavior. Showing that the entire smooth locus is one simply transitive additive-group orbit provides a global structural explanation of that geometry and completely determines the plane symmetry group. This is not a renaming, a textbook deduction, or an arbitrary finite invariant.
+## originality
 
-## Limitations
-The theorem concerns the \(c=1\) type-(4) plane model over an algebraically closed field of characteristic \(2\). It identifies the group of projective \(k\)-automorphisms, not the possibly nonreduced stabilizer scheme and not abstract non-projective automorphisms of the singular curve. No claim is made for all five Hilario--Stöhr families.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Based on source-level and current-literature comparison, the complete surviving claim is not established by the named prior results. This is a best-of-knowledge priority judgment, not a guarantee of global novelty.
+
+## value
+
+PASS
+
+For the singled-out strange singular rational quartic in a published characteristic-two family, identification of the complete ambient PGL3 stabilizer and a free transitive open orbit is a structural geometric classification. The normalization-linear-series calculation is nonstandard and relevant to explicit symmetry and equivariant compactifications, not just arithmetic restatement of the singularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

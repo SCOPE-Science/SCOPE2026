@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact checker `verification/verify.py` uses symbolic polynomial arithmetic modulo \(2\). It verifies:
+# Independent mathematical audit
 
-1. the normalization map lands on \(C\);
-2. the displayed dense-chart rational inverse recovers the normalization parameter;
-3. the characteristic-two partial derivative formulas;
-4. for a general normalization matrix, the \(u^{2}v^{2}\) coefficient is \((ad+bc)(ab+cd)\);
-5. after fixing \([1:1]\), the remaining equality of the \(u^{3}v\) and \(uv^{3}\) coefficients is automatic;
-6. invertibility eliminates one factor of \((a+c)(b+c)=0\), leaving exactly \(b=c\) and \(d=a\);
-7. the normalized one-parameter matrices induce the stated \(T_{\lambda}\);
-8. \(T_{\lambda}\) preserves \(y^{4}+xz^{3}+x^{3}z\) identically;
-9. \(T_{\lambda}T_{\mu}=T_{\lambda+\mu}\);
-10. on the normalization complement of the singular preimage, \(r=v/(u+v)\) transforms as \(r\mapsto r+\lambda\).
+## correctness
 
-The checker is an algebraic identity verification. It does not infer an infinite-field theorem from a finite sample. The geometric steps that a projective curve automorphism lifts to the normalization and preserves the pulled-back hyperplane linear series are standard normalization/linear-series facts and are stated explicitly in the proof.
+PASS
 
-The verification does not test, and the claim does not address, infinitesimal nonreduced structure of the stabilizer group scheme.
+In characteristic two, the partial derivatives of F=y^4+xz^3+x^3z are z(x+z)^2, 0, x(x+z)^2; together with F=0 they yield precisely p=[1:0:1]. The explicit normalization [u:v]->[u^4:uv(u+v)^2:v^4] lands on F, is birational by t=Y(1+Z)/(1+Z+Y^2), and has unique preimage q=[1:1] of p. A projective stabilizer lifts to PGL2 preserving V=<u^4,v^4,uv(u+v)^2> and fixing q. For g=(a b;c d), fixing q gives d=a+b+c; the u^2v^2 coefficient is (ad+bc)(ab+cd), so invertibility forces (a+c)(b+c)=0. The a=c branch has determinant zero; hence b=c,d=a. Normalize a+b=1 to obtain the displayed g_lambda and induced T_lambda. Direct independent symbolic mod-2 checks confirm the normalization, rational inverse, condition factorization, F(T_lambda)=F, and T_lambda T_mu=T_(lambda+mu). On r=v/(u+v) outside q the action is r->r+lambda, proving simple transitivity on the smooth locus. Does not assess nonreduced group scheme or nonprojective curve automorphisms.
+
+## originality
+
+PASS
+
+Based on source-level and current-literature comparison, the complete surviving claim is not established by the named prior results. This is a best-of-knowledge priority judgment, not a guarantee of global novelty.
+
+## value
+
+PASS
+
+For the singled-out strange singular rational quartic in a published characteristic-two family, identification of the complete ambient PGL3 stabilizer and a free transitive open orbit is a structural geometric classification. The normalization-linear-series calculation is nonstandard and relevant to explicit symmetry and equivariant compactifications, not just arithmetic restatement of the singularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
