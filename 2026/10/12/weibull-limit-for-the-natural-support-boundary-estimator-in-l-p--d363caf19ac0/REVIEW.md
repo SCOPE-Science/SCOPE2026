@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof begins from the published independent radial-angular representation. The powered direction is Dirichlet, and the moving \(L_q\) support boundary has first-order radial deficit \(tH(W)/p\). The beta upper-tail expansion then gives a one-observation endpoint probability \(\kappa_{d,p}t^b+o(t^b)\). A uniform power-sum bound justifies averaging over directions. Standard iid maximum algebra yields almost-sure consistency and the displayed Weibull limit. Numerical work only replays the \(d=2,p=2\) specialization.
+## correctness
 
-## Originality
-PASS. The direct paper defines the same \(p^*\) statistic and calls it a natural estimator, but gives no consistency, convergence rate, or limiting distribution. Targeted searches over \(p^*\), support-boundary, Weibull, radial-beta, and Dirichlet formulations found no covering statement. Smith's general nonregular-likelihood theory is the closest broad framework, but the accessible material does not state this nonlinear copula statistic or its angular-entropy constant; lack of full-text access remains a residual risk. A later radial-Dirichlet preprint contains no searchable inference section.
+PASS
 
-## Value
-PASS. The result supplies the first performance law needed to use the source's proposed natural estimator: the exact non-root-sample-size rate, the full asymptotic distribution, and an explicit dimension/parameter-dependent scale. The angular Shannon entropy appearing in the constant identifies how support geometry controls statistical precision.
+For the positive L_p-spherical copula at fixed d>=2 and p>d−1, the radial-angular representation has Y=R^p~Beta(a=d/p,b=1−(d−1)/p) independent of W=(U_i^p)~Dirichlet(1/p,...,1/p). The boundary statistic is the maximum across samples of single-observation threshold roots Q(X). Conditional endpoint threshold satisfies r_t^p=(sum W_i^(1−t/p))^(−p/(p−t)), with 0<=z_t/t<=(log d)/(p−t) and z_t/t→H(W)/p. The beta upper tail is z^b/[bB(a,b)]+o(z^b), so bounded convergence yields P(Q>p−t)=κ t^b+o(t^b), κ=E[(H(W)/p)^b]/[b B(d/p,b)]. iid maxima then prove a.s. consistency and survival exp(−κ x^b) for M^(1/b)(p−p_hat). Independent high-precision quadrature gives κ_(2,2)=0.40611684413775677, agreeing with the claimed value. The numerical constant is not proof of the limit.
 
-## Closest literature and limitations
-The direct source is Bernard, Müller, and Oesting, arXiv:2206.10180v1 / DOI 10.1016/j.jmva.2023.105262. Smith (1985) is a generic nonregular-support comparison, not a model-specific calculation in the inspected material. The theorem assumes the exact positive \(L_p\)-spherical copula and does not address misspecification, regularized likelihood methods, or the boundary cases \(p=d-1\) and \(p=\infty\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct mathematical statement relative to the compared accessible primary results, with explicit access and broad-priority risks.
+
+## value
+
+PASS
+
+The direct copula source proposes the moving-support p-star statistic as a natural estimator, but this determines its nonregular convergence rate M^(−p/(p−d+1)), complete Weibull limiting distribution and angular-entropy scale for every fixed admissible parameter. This gives useful inferential calibration and a nontrivial geometric coefficient, rather than a generic textbook extreme-value theorem with an uncomputed model tail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

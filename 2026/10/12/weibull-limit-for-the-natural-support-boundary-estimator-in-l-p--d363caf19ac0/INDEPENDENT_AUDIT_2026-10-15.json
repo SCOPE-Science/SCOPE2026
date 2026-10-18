@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:08:01.467777Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the positive L_p-spherical copula at fixed d>=2 and p>d−1, the radial-angular representation has Y=R^p~Beta(a=d/p,b=1−(d−1)/p) independent of W=(U_i^p)~Dirichlet(1/p,...,1/p). The boundary statistic is the maximum across samples of single-observation threshold roots Q(X). Conditional endpoint threshold satisfies r_t^p=(sum W_i^(1−t/p))^(−p/(p−t)), with 0<=z_t/t<=(log d)/(p−t) and z_t/t→H(W)/p. The beta upper tail is z^b/[bB(a,b)]+o(z^b), so bounded convergence yields P(Q>p−t)=κ t^b+o(t^b), κ=E[(H(W)/p)^b]/[b B(d/p,b)]. iid maxima then prove a.s. consistency and survival exp(−κ x^b) for M^(1/b)(p−p_hat). Independent high-precision quadrature gives κ_(2,2)=0.40611684413775677, agreeing with the claimed value. The numerical constant is not proof of the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical nonregular endpoint theory supplies broad Weibull mechanisms; the direct copula paper gives a Beta radius and density but accessible statements do not give the angular derivative H(W)/p."
+        ],
+        "reasoning": "A general theorem can become applicable after deriving the nontrivial one-point tail, but it does not make the displayed model-specific κ and rate a mere already-tabulated statement. Smith full-body access remains a concrete priority risk.",
+        "searches": [
+          "R. L. Smith 1985 Maximum likelihood estimation in a class of nonregular cases, doi:10.1093/biomet/72.1.67",
+          "Bernard–Müller–Oesting arXiv:2206.10180",
+          "Sundgren 2024 Uniform and radial Dirichlet copulas doi:10.21203/rs.3.rs-3857082/v1"
+        ]
+      },
+      "checked_sources": [
+        "C. Bernard, A. Müller and M. Oesting, arXiv:2206.10180 / DOI:10.1016/j.jmva.2023.105262 (abstract and package context)",
+        "R. L. Smith, Biometrika 72 (1985), DOI:10.1093/biomet/72.1.67 (abstract)",
+        "D. Sundgren, doi:10.21203/rs.3.rs-3857082/v1 (context)",
+        "Resultary support boundary natural estimator Lp Weibull search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source paper characterizes Lp spherical copulas and discusses estimation; the novel claim concerns the precise asymptotic law of its support estimator. Smith studies a general likelihood setting rather than this exact p-star nonlinear boundary."
+        ],
+        "reasoning": "Neither a Beta radial law alone nor a generic upper-endpoint extreme value theorem produces κ without the Dirichlet entropy derivative and dominated averaging. However full original manuscript and Smith complete proof were not available here, leaving comparison risk explicitly open.",
+        "searches": [
+          "arXiv:2206.10180 source abstract and original-result description",
+          "Smith 1985 abstract about nonregular likelihood",
+          "source RESULT.md proof of entropy threshold and beta tail"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernard, Müller & Oesting 2022 provide radial distribution, statistical inference, and same support-boundary statistic p*; the available abstract does not state a limit distribution."
+        ],
+        "reasoning": "The statistic is the maximum of samplewise minimal admissible q exponents, a nonlinear endpoint extreme. Queried both p-star and Weibull support-boundary aliases, but limited primary body access prevents ruling out all implicit implications.",
+        "searches": [
+          "Resultary: positive Lp norm spherical copula natural estimator p star boundary asymptotic Weibull distribution Dirichlet radial beta",
+          "Resultary: Weibull limit for the natural support-boundary estimator in Lp spherical copulas",
+          "arXiv:2206.10180 Lp norm spherical copulas estimation p star"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent quadrature of the arcsine/Beta angular integral yields 0.40611684413775677 for d=p=2; neither checked published indexed summary nor direct source abstract gives this asymptotic constant."
+        ],
+        "reasoning": "One-dimensional numerical quadrature is auxiliary; exact Dirichlet expectation formula and all-parameter limit, not a numeric decimal, constitute the substantive finding. Index absence is not proof of novelty.",
+        "searches": [
+          "web search: Lp spherical copula p-star estimator Weibull constant 0.4061168441",
+          "Resultary: Dirichlet entropy support boundary estimator copula"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct mathematical statement relative to the compared accessible primary results, with explicit access and broad-priority risks.",
+      "residual_risks": [
+        "Full first-priority copula source body was not available for an exhaustive check of its inference section; p* might already have an asymptotic theorem or corollary not visible in abstract.",
+        "Full Smith 1985 source inaccessible and potentially stronger nonregular-support theorem was not audited word by word; no claim of absolute priority.",
+        "Excluded p=d−1 and infinite-p endpoints; exact model only; no misspecification robustness or efficiency claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible original source; no whole-document negative determination possible",
+          "evidence": [
+            "Abstract announces density, radial law and statistical inference, but not a support estimator Weibull limit; reproduced package attributes p* natural estimator to its inference section."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.10180",
+          "material_read": "Original arXiv abstract and title, model-related passages reproduced in actual frozen package; original full body inaccessible through attempted arXiv HTML and public full-text search",
+          "method": "arXiv original abstract + package reconstruction, no falsely claimed full primary reading",
+          "title": "L_p-norm spherical copulas",
+          "trigger": "Same law and exact estimator; highest relevance"
+        },
+        {
+          "assessment": "General moving-support context; complete implication risk unresolved",
+          "evidence": [
+            "Moving-support likelihood theory is qualitatively related, but no accessible statement supplies the specified Dirichlet-entropy mixture scale."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/biomet/72.1.67",
+          "material_read": "Title and accessible abstract only; full primary paper not obtained",
+          "method": "primary bibliographic abstract reading",
+          "title": "Maximum likelihood estimation in a class of nonregular cases",
+          "trigger": "Potential dominating endpoint-limit theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The direct copula source proposes the moving-support p-star statistic as a natural estimator, but this determines its nonregular convergence rate M^(−p/(p−d+1)), complete Weibull limiting distribution and angular-entropy scale for every fixed admissible parameter. This gives useful inferential calibration and a nontrivial geometric coefficient, rather than a generic textbook extreme-value theorem with an uncomputed model tail.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full first-priority copula source body was not available for an exhaustive check of its inference section; p* might already have an asymptotic theorem or corollary not visible in abstract.",
+    "Full Smith 1985 source inaccessible and potentially stronger nonregular-support theorem was not audited word by word; no claim of absolute priority.",
+    "Excluded p=d−1 and infinite-p endpoints; exact model only; no misspecification robustness or efficiency claim."
+  ],
+  "schema_version": 1
+}
