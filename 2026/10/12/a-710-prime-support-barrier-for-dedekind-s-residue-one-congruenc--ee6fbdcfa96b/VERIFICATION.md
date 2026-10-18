@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof is in `RESULT.md`. The attached `certify.py` checks all \(32\) subsets of \(\{3,5,7,11,13\}\), identifies all \(15\) compatible patterns, and computes the first \(709\) eligible prime factors for each using an exact Eratosthenes sieve through \(20{,}000\). All eligible lists have more than \(709\) entries below that cutoff, with the largest 709th eligible prime \(14{,}731\).
+# Independent mathematical audit
 
-For every pattern it checks, using arbitrary-precision integer multiplication,
-\[
-\prod_{j=1}^{709}(q_{S,j}+1)<3\prod_{j=1}^{709}q_{S,j}.
-\]
-The maximum exact rational ratio belongs to \(S=\{11,13\}\) and is strictly less than \(3\); its 710th factor passes the threshold, illustrating why 709 is the limit of this particular five-prime majorant.
+## correctness
 
-An independent, limited direct computation tests Dedekind-psi residue-one membership for every integer from \(2\) through \(100{,}000\), finding exactly the primes in that range. **This bounded scan is not the proof of the unbounded theorem.** The finite inequalities provide the certificate for the universal monotonic support argument.
+PASS
+
+Prime-power factors p^a, a>=2 make p divide psi(n), violating residue one; an even squarefree composite also contradicts parity. For any remaining odd squarefree composite n, (psi(n)-1)/n is an odd integer >=3, hence psi(n)/n>3. The pairwise obstruction q=-1 mod r forces support primes into one of fifteen explicitly compatible intersections S of B={3,5,7,11,13}. The t smallest eligible primes dominate the Euler factors of any t-element support. Exact integer products of the first 709 eligible primes for all fifteen S are <3; independently reproduced the prime sieve and rational comparisons, including maximum S={11,13}, ratio approximately 2.99970965505, q_709=6661 and the 710th q=6673. This establishes all n without size cutoff; a scan through n<=100000 is not the unbounded proof.
+
+## originality
+
+PASS
+
+The exact OEIS residue-one conjecture is public, and the squarefree reduction equates this equation to the sigma(n) residue-one equation, but the inspected database entries give no quantified 710-prime-support bound. The closest Resultary support-sieve records handle distinct arithmetic predicates. The Alzer–Kwong source studies multiplicative analytic inequalities; only its abstract, not its complete PDF, was read this run. Best-of-knowledge distinctive quantified local-residue plus abundancy exclusion survives.
+
+## value
+
+PASS
+
+A 710-prime-support necessary condition addresses an explicit natural open congruence primality criterion, not an arbitrary finite cutoff. The fifteen-branch rational certificate plus an unbounded domination argument yields information no finite n-range search could establish.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
