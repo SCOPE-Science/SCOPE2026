@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact checker `verify_schur_galois.py` was replayed from the packaged file. It verifies:
+# Independent mathematical audit
 
-1. for \(\alpha^4=-1\), the pullback of \(x_0^4-x_0x_1^3-x_2^4+x_2x_3^3\) under \((x_0,x_1,x_2,x_3)=(X,-Y,\alpha Z,-\alpha W)\) is exactly \(X^4+XY^3+Z^4+ZW^3\);
-2. the eight Miura--Taki Galois points map exactly to the four points of \(L\cap S\) and four points of \(M\cap S\) used by Rojas--Lira;
-3. all 16 joins \(\overline{p_iq_j}\) lie identically on the Schur quartic;
-4. their Plücker coordinates give 16 distinct projective lines; and
-5. their incidence degrees are four at each of the eight marked points, giving \(K_{4,4}\).
+## correctness
 
-Fresh replay output:
+PASS
 
-`VERIFY_OK transform=S8_to_Schur galois_points=8 join_lines=16 incidence=K4,4 each_galois_point_on_join_lines=4`
+The explicit coordinate change (X,-Y,alpha Z,-alpha W), alpha^4=-1, sends the maximal inner-Galois quartic X^4+XY^3+Z^4+ZW^3=0 to Schur's equation exactly. The Miura–Taki Proposition 3.3 eight points map to the four zeros on L: x0=x1=0 and four zeros on M: x2=x3=0 printed in Rojas–Lira Section 3. Because the Schur polynomial separates into quartics of disjoint coordinate pairs, each of the 4*4 joins P_iQ_j lies entirely on Schur; the 16 joins are distinct. Rojas–Lira Lemma 3.1 proves every Schur line meeting L or M is one of those sixteen; hence each of the eight points lies on precisely four lines and the 48 other lines avoid them. The global assertion that there are no *other* quadruple points uses the published full 64-line incidence census attributed to Nurowski, rather than the sixteen-line symbolic check. An accessible indexed technical summary of Nurowski explicitly states that the 64 lines have exactly eight quadruple points and sixteen distinguished join lines; the Nurowski full text could not be retrieved this run, so that literature-dependent global count was not independently enumerated; this is an explicit correctness residual dependence on a precise cited incidence theorem, not a fabricated independent 64-line verification.
 
-## Literature-dependent global steps
-The checker does **not** claim to enumerate all 64 lines. The proof separately uses Rojas--Lira, Lemma 3.1, for the theorem that these 16 joins are every Schur line meeting \(L\) or \(M\). It uses Nurowski's complete incidence census for the theorem that the full 64-line arrangement has exactly eight quadruple points and that its 16 distinguished lines are exactly those incident with two quadruple points. These are the precise boundaries between computation and cited global input.
+## originality
+
+PASS
+
+Best-of-knowledge originality judged against exact antecedent model, broader results, tables and mathematical implication. The new complete statement is not covered by the inspected sources; the named residual risks and incomplete full-text material prevent any claim of exhaustive priority or external certification.
+
+## value
+
+PASS
+
+The eight inner Galois points (an extremal function-field/projection structure) and Schur's quadruple line-concurrences (an extremal incidence geometry) are independently natural intrinsic loci on one quartic surface. Their exact identification and resulting canonical K4,4 skeleton gives a mathematically motivated bridge between two previously separated analyses, not an arbitrary coordinate renaming or merely a new count. The complete 64-line census is prior work and is not claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

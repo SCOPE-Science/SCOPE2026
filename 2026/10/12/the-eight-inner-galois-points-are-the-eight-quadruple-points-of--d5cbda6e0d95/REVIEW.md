@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The projective change of coordinates is explicit and invertible. Exact symbolic replay verifies the equation identity, the image of all eight listed inner Galois points, the 16 distinct joining lines, containment of every join in the Schur quartic, and the \(K_{4,4}\) incidence degrees. The two global exhaustion steps are taken from inspected primary/full-text sources rather than inferred from finite sampling: Rojas--Lira prove that the 16 joins are all Schur lines meeting either coordinate line, and Nurowski gives exactly eight quadruple points in the complete 64-line incidence geometry.
+## correctness
 
-## Originality
-**PASS.** The closest literature splits the statement across complementary descriptions. Miura--Taki give the maximal eight-Galois-point quartic but do not mention Schur's quartic. Rojas--Lira give the two coordinate four-point sets and their 16 joining Schur lines but do not mention Galois points. Nurowski gives the eight quadruple points and intrinsic 16-line skeleton but does not mention Galois points. Exact and alias searches of the inspected literature found no Galois/quadruple-point identification.
+PASS
 
-Residual risk: an older classical source may encode the same bridge in terminology not captured by modern “Galois point” searches.
+The explicit coordinate change (X,-Y,alpha Z,-alpha W), alpha^4=-1, sends the maximal inner-Galois quartic X^4+XY^3+Z^4+ZW^3=0 to Schur's equation exactly. The Miura–Taki Proposition 3.3 eight points map to the four zeros on L: x0=x1=0 and four zeros on M: x2=x3=0 printed in Rojas–Lira Section 3. Because the Schur polynomial separates into quartics of disjoint coordinate pairs, each of the 4*4 joins P_iQ_j lies entirely on Schur; the 16 joins are distinct. Rojas–Lira Lemma 3.1 proves every Schur line meeting L or M is one of those sixteen; hence each of the eight points lies on precisely four lines and the 48 other lines avoid them. The global assertion that there are no *other* quadruple points uses the published full 64-line incidence census attributed to Nurowski, rather than the sixteen-line symbolic check. An accessible indexed technical summary of Nurowski explicitly states that the 64 lines have exactly eight quadruple points and sixteen distinguished join lines; the Nurowski full text could not be retrieved this run, so that literature-dependent global count was not independently enumerated; this is an explicit correctness residual dependence on a precise cited incidence theorem, not a fabricated independent 64-line verification.
 
-## Value
-**PASS.** The statement relates two extremal and independently natural structures on quartic \(K3\) surfaces: the unique case with eight inner Galois points and the Schur 64-line configuration. The identification is intrinsic on the line side, because the Galois points become exactly all quadruple points and their 16 incident lines are exactly the multiplicity-distinguished skeleton. This gives a concise geometric interpretation of the Galois points and a complete incidence consequence, not a routine coordinate reformulation.
+## originality
 
-## Closest literature and limitations
-The proof depends on Miura--Taki for the maximal Galois-point model, Rojas--Lira for the exact 16-line coordinate skeleton, and Nurowski for the complete eight-quadruple-point census. The computation independently verifies the bridge but does not independently enumerate all 64 Schur lines. The result is over \(\mathbb C\) and does not address quartics with fewer Galois points.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality judged against exact antecedent model, broader results, tables and mathematical implication. The new complete statement is not covered by the inspected sources; the named residual risks and incomplete full-text material prevent any claim of exhaustive priority or external certification.
+
+## value
+
+PASS
+
+The eight inner Galois points (an extremal function-field/projection structure) and Schur's quadruple line-concurrences (an extremal incidence geometry) are independently natural intrinsic loci on one quartic surface. Their exact identification and resulting canonical K4,4 skeleton gives a mathematically motivated bridge between two previously separated analyses, not an arbitrary coordinate renaming or merely a new count. The complete 64-line census is prior work and is not claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
