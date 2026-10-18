@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In the Heisenberg algebra, commutation is exactly symplectic orthogonality in the central quotient. Any independent set therefore projects into a totally isotropic subspace, whose dimension is at most \(n\); counting all \(q\) central lifts gives the exact upper bound \(q(q^n-1)\). Equality forces the entire noncentral part of a maximal abelian subalgebra. The quotient of the vertex count by this independence number is \(q^n+1\). A Desarguesian symplectic spread of \(\mathbf F_{q^n}^2\) gives exactly \(q^n+1\) independent color classes, proving equality. Since an optimal coloring reaches the counting bound, every color class must be maximum independent, so optimal colorings are exactly symplectic spreads. The packaged checker verifies the exact extremal values for the \(5\)-dimensional cases over \(\mathbf F_2\) and \(\mathbf F_3\).
+PASS
 
-## Originality
+PASS: The Lie commutator of H_n(q)=V⊕Z equals nondegenerate alternating B on 2n-dimensional quotient. An independent vertex set projects into an isotropic span U of dimension ≤n, giving ≤q(q^n-1) central lifts; equality requires all lifts of a Lagrangian U. Counting vertices q(q^{2n}-1) and comparing to independence forces χ≥q^n+1. The trace-determinant form on F_{q^n}² has q^n+1 isotropic E-lines U_a,U_∞ partitioning all nonzero quotient vectors, so χ≤q^n+1. Tightness forces every optimal color class to have α members and hence yields precisely symplectic spreads. For n=1, q2 boundary values are α=2, χ=3. A fresh independent F2,n2 15-projective-point graph count found 15 maximal independent triples, αproj=3, element α=6, χ=5. Nonprime fields and unbounded n follow from the analytic trace-form construction.
 
-PASS. The 2024 source defines the element-level graph and proves broad graph properties but has no Heisenberg extremal calculation. The 2025 projective source proves the general equivalence between chromatic number and minimum abelian-subalgebra covers, but its inspected full text contains no Heisenberg or symplectic-spread specialization. Targeted semantic and literature searches found no exact formulas or classification of all extremal colorings. Finite-geometry literature under different terminology remains the main bibliographic risk.
+## originality
 
-## Value
+PASS
 
-PASS. The result computes two basic graph invariants on the canonical finite Heisenberg family and classifies all extremizers. The optimal-coloring classification is structural rather than merely numerical: it identifies colorings with symplectic spreads and maximum independent sets with maximal abelian subalgebras. This directly solves the abelian-cover minimization problem for a natural nilpotent Lie family.
+PASS (best of knowledge): The original element-level graph and the later general projective graph abelian-cover relation are prior; for Heisenberg Lie algebras the precise α=q(q^n-1), χ=q^n+1 and classification of all optimal colorings are not explicitly supplied by those works as inspected. Symplectic spreads are classical and their existence is not new; the graph-theoretic extremal identification is the distinct claim. A specialized graph-coloring paper under extraspecial/symplectic terminology could still cover it.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: Chromatic and independence numbers plus equality-case structure for all finite Heisenberg Lie algebras is a natural exact graph invariant, with a geometrically meaningful characterization of all optimal colorings. It upgrades the general covering interpretation to a sharp constructive classification; no broad conjecture is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
