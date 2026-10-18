@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Exact Gaussian differentiation gives J=delta I+a u^T. The symmetric rank-two eigenvalues are (u·a ± ||u||||a||)/2; g''(0)=0 makes the true objective locally isotropic, yielding the positive finite-step coefficient -h v^T Jv + (h^2/2)||Jv||^2 for every fixed h>0 when delta<delta_*. For the explicit globally smooth strongly convex example, c1=1/(2sqrt(2)), c2=100/101^(3/2), and the rational witness has v^T Jv<0 by exact elementary inequalities. Standalone standard-library verifier passed 63 independent differentiation, Gaussian-integration, matrix, and finite-step checks; no finite check is substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2002.03001, Appendix D Proposition 2: convergence on strongly convex functions with an explicit smoothing-error neighborhood.",
+        "arXiv:2302.06404, Section 4, Lemma 9 and Theorem 12: distance-to-solution bound with discrepancy term.",
+        "arXiv:2011.02009, Sections 1–3: adaptive line-search approach."
+      ],
+      "reasoning": "Convergence toward an error neighborhood does not imply monotone objective descent at each iterate. Adaptive line search is a different algorithmic action and does not assert the raw direction is always descending. None of these inspected assertions dominates an exact fixed-radius local one-step obstruction.",
+      "searches": [
+        "arXiv:2302.06404 directional Gaussian smoothing DGS gradient non-descent convex ridge objective uniform Gaussian radius",
+        "arXiv:2002.03001 DGS-ES strong convexity one-step objective increase ascent direction sharp regularization threshold",
+        "\"directional Gaussian smoothing\" \"descent\" \"convex\" \"counterexample\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2002.03001",
+      "arxiv:2011.02009",
+      "arxiv:2302.06404",
+      "MaRDI classification entry for the 2023 paper (MSC 90C26)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2002.03001, Section 3.1 and Appendix D: DGS definition and error-based rate.",
+        "arXiv:2302.06404, Section 4.1, bound (4.14): an additive discrepancy floor, not exact monotonicity."
+      ],
+      "reasoning": "The new statement is a sharp local negative symmetric-Jacobian threshold and an every-positive-fixed-step increase on one explicit smooth strongly convex objective. Neither source gives the cross-coordinate rank-two spectral comparison. Their convergence guarantees permit finite transient increases and so cannot imply or exclude this one-step classification.",
+      "searches": [
+        "arXiv:2302.06404 directional Gaussian smoothing DGS gradient non-descent convex ridge objective uniform Gaussian radius",
+        "arXiv:2002.03001 DGS-ES strong convexity one-step objective increase ascent direction sharp regularization threshold",
+        "nonlocal directional derivative Gaussian convolution gradient lacks descent objective convex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2002.03001, Section 3.1 (directional convolution/assembled operator); arXiv:2302.06404, equations (2.3)–(2.5) (same exact operator).",
+        "The distinction from full Gaussian convolution follows from the non-symmetric Jacobian J=delta I+a u^T when active coordinate Gaussian curvatures differ."
+      ],
+      "reasoning": "The result concerns the exact derivative of different one-dimensional convolutions assembled in one vector field. Its nonsymmetric Jacobian differs from the gradient of a single fully smoothed convex potential; a generic nonconservative observation alone does not imply the sharp local ascent threshold or failure for every fixed step, which are established separately.",
+      "searches": [
+        "Directional Gaussian smoothing DGS gradient non-descent strongly convex objective exact Gaussian expectation creates ascent direction despite convexity anisotropic ridge",
+        "Sharp monotonicity obstruction nonlocal directional Gaussian smoothing gradient Jacobian nonsymmetric symmetrized rank-one ridge convex smooth functions",
+        "Non-conservative directional smoothing gradient vector field curl or ascent for convex function Gaussian coordinate convolution",
+        "\"directional Gaussian smoothing\" \"non-conservative\" gradient",
+        "coordinatewise Gaussian smoothing gradient not conservative convex function counterexample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A prior-work scan of closely related published mathematical result summaries produced optimizer-specific objective monotonicity thresholds but no coordinate-DGS curvature threshold.",
+        "The natural quantity is the Gaussian ridge-curvature vector a; no pre-existing DGS table involving this exact object was identified."
+      ],
+      "reasoning": "This is a continuous-dimensional ridge-function classification, not a finite parameter census or a recomputation of a known table. Search results are not treated as proof that no prior table could exist.",
+      "searches": [
+        "coordinate-wise Gaussian convolution mismatched directional smoothing kernel rank-one Hessian loss of monotonicity",
+        "directional Gaussian smoothing gradient ascent convex counterexample not descent direction",
+        "\"directional Gaussian smoothing\" \"strongly convex\" \"ascent\""
+      ]
+    },
+    "rationale": "The inspected DGS sources establish the operator, a line-search variant and error-based convergence-to-neighborhood bounds. They do not state the derived sharp smallest eigenvalue of the coordinate-smoothing Jacobian, nor the smooth strongly convex every-fixed-step local objective-ascent construction. Searches of source identifiers, formulas, aliases and broader monotonicity results did not surface a dominating statement. This is a best-knowledge assessment, not a uniqueness certificate.",
+    "residual_risks": [
+      "A mathematically equivalent local ascent counterexample or rank-two criterion may exist in unexamined earlier derivative-free optimization or nonconservative smoothing literature.",
+      "The search index is not exhaustive, and absence of a matched summary does not certify novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the nonlocal operator and gives neighborhood convergence, not the sharp symmetric-Jacobian ascent law.",
+        "evidence": [
+          "Equation (5) assembles directionally smoothed gradients; Appendix D Proposition 2 allows smoothing-dependent error terms."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2002.03001",
+        "material_read": "Full accessible HTML: introduction, Section 3.1 operator definition and Appendix D Proposition 2 with strongly convex convergence bound.",
+        "method": "Direct reading of public full-text HTML and source-specific term searches.",
+        "title": "A Novel Evolution Strategy with Directional Gaussian Smoothing for Blackbox Optimization",
+        "trigger": "Original DGS definition and strongly-convex guarantee, plausible stronger coverage."
+      },
+      {
+        "assessment": "Introduces search over stepsizes but supplies no universal positive-step descent theorem for its raw DGS direction.",
+        "evidence": [
+          "Its search policy probes candidates along the DGS direction rather than proving every positive fixed step is descending."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2011.02009",
+        "material_read": "Full accessible HTML: introduction, Section 2 definition, Section 3 line-search policy and related-work discussion.",
+        "method": "Direct reading of source full-text HTML.",
+        "title": "AdaDGS: An adaptive black-box optimization method with a nonlocal directional Gaussian smoothing gradient",
+        "trigger": "Potential safeguard or descent criterion in the same algorithm family."
+      },
+      {
+        "assessment": "Provides discrepancy-based neighborhood convergence under strong convexity but no exact local monotonicity classification.",
+        "evidence": [
+          "Equation (2.5) matches the exact directionwise DGS convention; Lemma 9 (4.2) and Theorem 12 (4.14) include a nonzero error term."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.06404v1",
+        "material_read": "Public full text: Sections 1, 2.1, 2.3, 3 overview, 4 including Lemma 9 and Theorem 12 and their derivations; references examined.",
+        "method": "Direct HTML section reading, comparison of exact operators, hypotheses and theorem conclusions.",
+        "title": "Convergence analysis for a nonlocal gradient descent method via directional Gaussian smoothing",
+        "trigger": "Closest formal analysis for strongly convex DGS, with potentially dominating guarantee."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0df0ef18-1fc8-4496-a257-4d8b4b0e7956",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed-step derivative-free optimization routinely uses a smoothed surrogate direction; whether smooth strong convexity safeguards true objective descent is a natural algorithmic question. The result gives a sharp general ridge-local criterion and an explicit exact-integral counterexample valid against every positive fixed stepsize arbitrarily close to the unique minimizer. It separates intrinsic DGS direction geometry from quadrature noise, while making no global divergence or practical line-search claim.",
+    "status": "PASS"
+  }
+}
