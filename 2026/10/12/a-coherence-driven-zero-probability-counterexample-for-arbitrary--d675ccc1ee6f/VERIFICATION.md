@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The network matrix is checked for row orthonormality. The two input components are expanded with normalized bosonic creation operators into an output Fock basis carrying both spatial mode and internal label. For the spatial event \((1,1,1,0)\), the checker sums probabilities over the three orthogonal internal placements of the unique \(q=1\) photon and verifies the analytic law
-\[
-P_{1110}(\phi)=\frac{1+\cos\phi}{24}.
-\]
-It separately verifies \(P_{1110}(\pi)=0\), \(P_{1110}(0)=1/12\), and the incoherent-mixture value \(1/24\).
+# Independent mathematical audit
 
-The same checker verifies that the normalized two-photon amplitudes \(\sqrt2/4\) and \(1/(2\sqrt3)\) relevant to the two internal components are nonzero, and that the fully indistinguishable three-photon amplitude for \((2,1,0,0)\to(1,1,1,0)\) is \(\sqrt6/8\), with probability \(3/32\).
+## correctness
 
-The computation is finite replay of an analytic proof, not evidence for an unproved infinite claim. The scientific scope is the literal arbitrary fixed-occupation input class of arXiv:1410.1506; no statement is made about a conjecture narrowed to product internal states from independent sources.
+PASS
+
+PASS: The displayed real 4×4 matrix was checked symbolically to be orthogonal. The two input Fock components are normalized and mutually orthogonal. For each output with exactly one q=1 photon at i∈{1,2,3}, independent symbolic expansion gives amplitude (1+e^{iφ})/12; three orthogonal internal-resolved outcomes yield (1+cosφ)/24. The incoherent mixture gives 1/24 and φ=π gives zero. Relevant two-photon amplitudes √2/4 and 1/(2√3), and fully indistinguishable three-photon amplitude √6/8, are nonzero. This verifies suppression produced by coherence in the arbitrary internally correlated state, not independent-product sources.
+
+## originality
+
+PASS
+
+The exact three-photon internally entangled zero supplies a counterexample to the unrestricted arbitrary-fixed-occupation zero-probability conjecture in Shchesnovich 2015. It does not refute independent-product versions, and the original 2023 same-author source explicitly restricts its illustrative calculation to independent single-photon sources.
+
+## value
+
+PASS
+
+PASS: A small exact counterexample isolates a missing hypothesis in a published arbitrary-input mathematical conjecture. Its phase-only change switches an exact 3-photon output from 1/12 to zero while every fully indistinguishable subset transition remains nonzero. It clarifies a rigorous boundary between correlated and independent preparations; no broad theorem about arbitrary products is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
