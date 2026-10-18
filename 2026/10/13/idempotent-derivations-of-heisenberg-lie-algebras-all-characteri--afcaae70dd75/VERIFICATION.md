@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. The file enumerates the entire space of the pertinent endomorphism matrices, scalar center actions, and linear functionals for Heisenberg Lie algebras with parameter pairs `(m,q)=(1,2),(1,3),(1,4),(2,2)`, directly checks the derivation identity and idempotence, computes their linear ranks, and compares the resulting distributions with the theorem. It constructs the field of four elements explicitly. Additionally, it constructs and acts with every relevant automorphism in the dimension-three instances over the fields with 2 and 3 elements, and checks the predicted automorphism orbits.
+## correctness
 
-Recorded output from the packaged program:
-```
-H_3(F_2): rank_counts={0: 1, 2: 16}; central_multiplier_matrix_counts={0: 2, 1: 6}; total=17
-H_3(F_3): rank_counts={0: 1, 2: 36}; central_multiplier_matrix_counts={0: 1, 1: 12}; total=37
-H_3(F_4): rank_counts={0: 1, 2: 96}; central_multiplier_matrix_counts={0: 2, 1: 20}; total=97
-H_5(F_2): rank_counts={0: 1, 2: 80, 3: 480, 4: 16}; central_multiplier_matrix_counts={0: 22, 1: 120}; total=577
-VERIFY_OK
-H_3(F_2) automorphism-orbit sizes: [1, 12, 4]
-H_3(F_3) automorphism-orbit sizes: [1, 36]
-ORBIT_OK
-```
+PASS
 
-These finite checks are exhaustive only in the stated cases; they do not constitute proof over unbounded dimensions, arbitrary fields, or other extension degrees. The general results follow instead from the written symplectic linear-algebra argument. Literature comparisons have a residual risk of equivalences under alternate terminology. No independent mathematical audit has been performed.
+Every derivation D(v+az)=Av+(φ(v)+ac)z obeys A²=A, c²=c, φA+cφ=φ, A†=cI-A. For c=0, A†=-A and A²=A imply 2A=0. Outside characteristic two this leaves zero; in characteristic two, self-adjoint idempotent A has orthogonal nondegenerate symplectic image/ker, so dim im(A)=2r. φ|ker A=0 and the full D rank is 2r. For c=1, im and ker of A are complementary Lagrangians of dimension m and φ|im A=0, so rank D=m+1. Central shears eliminate φ, symplectic automorphisms make each allowed projection class transitive, and c and r separate orbits. Counting nondegenerate 2r-subspaces by |Sp(2m,q)|/[|Sp(2r,q)||Sp(2m-2r,q)|], transversely paired Lagrangians by ∏(q^i+1)q^{m(m+1)/2}, and φ choices q^{2r},q^m yields the stated rank polynomial. Independent matrix enumeration confirmed H_1(F2)={0:1,2:16}, H_1(F3)={0:1,2:36}, H_2(F2)={0:1,2:80,3:480,4:16}. Finite tests corroborate but do not prove all fields/dimensions.
+
+## originality
+
+PASS
+
+The complex conformal-symplectic derivation block is known, and symplectic counting formulas are classical; the simultaneous composition-idempotent conjugacy classification, characteristic-two extra branch, and explicit labeled q-rank polynomial are not among the inspected primary results. Best of knowledge, with stated equivalence risks.
+
+## value
+
+PASS
+
+The Heisenberg family is the central model of nonabelian two-step nilpotent Lie algebras. The theorem resolves exact conjugacy and labeled idempotent-operator ranks for every field, with a genuine characteristic-two phase change from two to m+2 orbits. Both the orbit census and finite-q polynomial provide structural data not contained in the general derivation presentation; small m=2,q=2 already shows three nonzero full ranks 2,3,4.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
