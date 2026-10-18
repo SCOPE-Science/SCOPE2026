@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T15:16:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two distinct pure qubit Bloch vectors, C=cos²(θ/2), V=sin²(θ/2)>0 and τ=2η−1, the source contractions give utility (1+Cλ_z+Vλ_x)/2 and fidelity divergence −log(1−Vλ_x²). Every channel has λ_z≤1; |λ_x|≤t makes τ≤C+tV necessary, and I/Z mixing with λ_x=t, λ_z=1 attains it. Group Pauli outcomes into {I,X} and {Y,Z}: q=p_Y+p_Z=(1−λ_x)/2. Entropy chain rule H(Pauli)≥h₂(q)≥h₂((1−t)/2); the two-gate distribution attains equality. This proves feasibility and exact entropy for every θ∈(0,π], t∈[0,1], η∈[0,1], including η and θ boundary cases. At t=1, θ=π, the permitted divergence bound is +infinity; no finite bound is implied. The source optimal contraction a* gives the privacy-optimal specialization. Independent exact 1/10-grid test covers 286 probability vectors and corroborates, but the unrestricted assertion uses the entropy grouping proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bouda–Ziman prove one-bit perfect privacy for a non-full qubit plaintext set and study whole-Bloch-sphere approximate privacy.",
+          "Ambainis–Smith approximate randomization is for arbitrary messages, not the specified pairwise fidelity/utility constraint."
+        ],
+        "reasoning": "Broader plaintext universality is paired with inequivalent privacy/utility constraints, so the older results do not imply the continuous frontier under this two-state cap; the one-bit endpoint is credited as known.",
+        "searches": [
+          "Resultary query: Pauli qubit fidelity binary privacy Shannon entropy key randomization two-state optimal resource entropy",
+          "doi:10.21203/rs.3.rs-10148794/v1",
+          "arXiv:0710.2004"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.21203/rs.3.rs-10148794/v1",
+        "arXiv:0710.2004",
+        "Resultary mathematical published semantic search: Pauli qubit fidelity binary privacy Shannon entropy key randomization two-state optimal resource entropy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source optimum is a statement about λ_x, not the Shannon entropy over all channels.",
+          "Bouda–Ziman supply the one-bit endpoint, but do not imply the utility-dependent two-gate Shannon minimum."
+        ],
+        "reasoning": "The source contraction optimization plus the genuinely separate Shannon grouping step gives the full resource frontier. This is close to an immediate corollary, so exact implicit prior coverage is a residual risk but no stated prior theorem dominates the triple constraint.",
+        "searches": [
+          "Resultary query: Pauli qubit fidelity binary privacy Shannon entropy key randomization two-state optimal resource entropy",
+          "doi:10.21203/rs.3.rs-10148794/v1",
+          "arXiv:0710.2004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source gives λ_x and λ_z contraction optimizer but no entropy minimization; grouping sign classes reduces any four-Pauli distribution to binary entropy.",
+          "The pure-pair fidelity cap is equivalent to |λ_x|≤t, but this equivalence by itself does not minimize key entropy."
+        ],
+        "reasoning": "Compared two-state quantum one-time-pad, Pauli phase damping, and binary fidelity aliases; searched findings did not supply the all-Pauli key-entropy minimum at fixed utility.",
+        "searches": [
+          "Resultary query: Pauli qubit fidelity binary privacy Shannon entropy key randomization two-state optimal resource entropy",
+          "doi:10.21203/rs.3.rs-10148794/v1",
+          "arXiv:0710.2004"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The anchor gives the optimal sensitive contraction a*, not the minimum Shannon key for every feasible t.",
+          "The earlier approximate-private-channel entropy graph concerns uniform approximate privacy of the entire qubit Bloch ball."
+        ],
+        "reasoning": "Neither the primary formula nor available database results tabulate the claimed all-t three-way constrained entropy minimum.",
+        "searches": [
+          "Resultary query: Pauli qubit fidelity binary privacy Shannon entropy key randomization two-state optimal resource entropy",
+          "doi:10.21203/rs.3.rs-10148794/v1",
+          "arXiv:0710.2004"
+        ]
+      },
+      "rationale": "The Shannon-key extremal frontier is an exact constrained resource theorem for a fixed pure binary ensemble, not just the previously known one-bit perfect-privacy endpoint or the source optimal fidelity contraction; the primary 2026 preprint discusses key budgets without a Shannon optimum. The result is mathematically simple once the Pauli sign partition is recognized, so implicit-corroIary and folklore risks remain.",
+      "residual_risks": [
+        "Entropy grouping is standard and an uncited equivalent corollary may exist.",
+        "No optimum over all non-Pauli channels or all input ensembles is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No Shannon-key minimization stated; gives λ_x utility/privacy frontier",
+          "evidence": "Adapted utility (1+Cλ_z+Vλ_x)/2, Theorem 4.3 smallest feasible contraction.",
+          "identifier_or_url": "doi:10.21203/rs.3.rs-10148794/v1",
+          "material_read": "Accessible public preprint equations for Pauli contractions, fidelity line, Lemma 4.1 and Theorem 4.3, plus key-budget context",
+          "method": "Primary text comparison",
+          "title": "Utility-Constrained Pauli–Weyl Randomization for Robust Quantum α-z Rényi Privacy",
+          "trigger": "Identical binary pure-qubit utility/fidelity setting"
+        },
+        {
+          "assessment": "Provides exact-private endpoint, not this fixed-pair utility-fidelity continuum",
+          "evidence": "Prior exact 1-bit bound; approximate formulation differs.",
+          "identifier_or_url": "arXiv:0710.2004",
+          "material_read": "Relevant complete-paper key-entropy sections, exact-private one-bit conclusion, approximate whole-Bloch-sphere setting and Eq.(19)",
+          "method": "Open-access primary PDF, mathematical statement comparison",
+          "title": "Optimality of private quantum channels",
+          "trigger": "Closest qubit classical-key entropy result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shannon key entropy directly measures the classical randomness resource for Pauli concealment. Optimizing it across all four Pauli gates at every pair-specific fidelity/utility cap, with explicit feasibility and two-gate achievers, resolves a motivated joint resource frontier; it does not claim a non-Pauli optimum or physical fractional single-use key.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.21203/rs.3.rs-10148794/v1",
+    "arXiv:0710.2004",
+    "Resultary mathematical published semantic search: Pauli qubit fidelity binary privacy Shannon entropy key randomization two-state optimal resource entropy"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Entropy grouping is standard and an uncited equivalent corollary may exist.",
+    "No optimum over all non-Pauli channels or all input ensembles is established."
+  ],
+  "residual_risks": [
+    "Entropy grouping is standard and an uncited equivalent corollary may exist.",
+    "No optimum over all non-Pauli channels or all input ensembles is established."
+  ],
+  "schema_version": 1
+}
