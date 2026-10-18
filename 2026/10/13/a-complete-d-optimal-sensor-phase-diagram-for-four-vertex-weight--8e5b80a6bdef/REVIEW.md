@@ -1,15 +1,21 @@
-# Scientific review: exact D-optimal weighted-path sensor classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For every strictly positive triple of conductances and every positive finite observation horizon, the symmetric irreducible Jacobi generator has four distinct eigenvalues. The finite-horizon exponential Gramian is strictly positive definite in the eigenvalue basis. Its determinant separates into an observation-site-independent positive factor and the square of a four-column Krylov determinant. The four Krylov determinants are exact degree-six polynomials, verified by direct algebra and the included exact seven-value-per-variable interpolation certificate. Comparing their four squares yields each phase, including the exceptional three-way tie and the equal-outer-weight four-way tie. The three-vertex obstruction is a strict elementary inequality. No part of the continuum argument relies on a numerical grid.
+## correctness
 
-## Originality
-**PASS, with a substantial general-method precedence acknowledged.** Summers and Lygeros (arXiv:1306.2491) prove modularity of a *trace*-type Gramian placement objective. Summers, Cortesi and Lygeros (arXiv:1404.7665), Section III-D, give a general log-determinant submodularity result, without a weighted-path phase classification. Dilip (DOI:10.1109/LCSYS.2019.2919278), Lemma 2 and Theorem 3 with Remark 7, is substantially closer: it already supplies the determinant's spectral-product factorization, a general exact selection rule for symmetric single-actuator/sensor systems, and the fact that the ranking is independent of the horizon. These foundational conclusions are **not claimed as new**. Its worked path is an unweighted six-node example, not a complete symbolic description of all positive edge weights on the four-node path. The distinct claimed content is the explicit parameter-space partition at the critical ratio \(2+\sqrt3\), exact complete boundary-tie sets, and the proof that four nodes are the minimum size allowing a strictly D-optimal interior sensor. The classification is a nontrivial specialization of the general method rather than a new general single-sensor theorem.
+PASS
 
-## Value
-**PASS.** The all-weight phase diagram makes a graph-constrained placement decision without spectral decomposition or time integration. The sharp bifurcation says that after the central link becomes sufficiently conductive, the best site jumps from the strong-edge endpoint to a neighboring site or to the site adjoining the *weaker outer edge*, depending on the outer-edge ratio. For equal outer conductances, every vertex ties at all central conductances, an exact robustness property not apparent from intuitive vertex centrality. The four-node minimality and explicit examples distinguish this from a routine evaluation at an arbitrary point.
+The real symmetric irreducible Jacobi generator has simple spectrum and positive exponential Gram H_T for every T>0. Spectral Vandermonde factorization gives det W_j=F(T,p,q,r)(det K_j)^2 with site-independent F>0. Direct exact symbolic independent computation of four Krylov determinants gives pq²r*(p²,-A,-B,r²); signs match. Comparing affine A=p(p-2r)-(p-r)q, B=r(r-2p)+(p-r)q, A+B=Delta and threshold displacement theta-2p=-Delta/(p-r) proves every p/r regime including Delta=0 and p=r ties; reflection handles p<r. Three-vertex middle score (p-q)^2 is strictly smaller than max(p²,q²), and explicit four-node positive witnesses show minimality. A 7^3 rational interpolation checker gives an exact polynomial identity; finite phase trials only corroborate the analytic continuum inequalities.
 
-## Closest prior work and limits
-Dilip (2019) is the closest and strongest source. Its algorithm already solves each fixed-weight instance and therefore the present formula is *not* a new general placement algorithm; remaining priority risk is that a weighted-path-specific derivation under different terminology gives this same partition. The result is confined to one scalar, equal-noise sensor on a symmetric four-node path, strictly positive conductances and a positive finite time horizon. No claim concerns general graphs, robustness to noise variations, or multi-sensor placement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dilip 2019 completely predates the site-independent determinant factorization, spectral-product sensor comparison, and time-horizon cancellation. Its fully inspected author text does not explicitly classify the continuum of all weighted four-path conductances by the two sharp thresholds and critical ratio 2+sqrt(3), their exact tie sets, and minimal interior-optimal path order. Resultary normalized-path endpoint theorem covers an unweighted normalized adjacency and consecutive discrete samples, not the positive-weight Laplacian family. The novel remainder is a parameter-space classification, not the general algorithm.
+
+## value
+
+PASS
+
+This is the smallest weighted path where a strictly interior sensor can optimize the full-information determinant. A complete positive-parameter placement map with all critical tie boundaries and the sharp ratio 2+sqrt(3) is a natural closed-form design invariant; it supplies useful exact decisions beyond a fixed-parameter worked example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

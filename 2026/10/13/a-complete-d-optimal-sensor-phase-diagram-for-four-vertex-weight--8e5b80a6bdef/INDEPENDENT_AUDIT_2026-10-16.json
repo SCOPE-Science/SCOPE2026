@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T22:10:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Fixed source RESULT.md 16d70018523d04eb739140aa9e65d70d00354b1f / verify.py 4c9a73874d9ea53b00cfea41ad1ff35d8a9deb98",
+        "Fresh SymPy independent Krylov computation: WEIGHTED_PATH_EXACT_KRYLOV_AND_PHASE_WITNESSES_OK",
+        "Dilip DOI:10.1109/LCSYS.2019.2919278 general symmetric-system determinant factorization"
+      ],
+      "rationale": "The real symmetric irreducible Jacobi generator has simple spectrum and positive exponential Gram H_T for every T>0. Spectral Vandermonde factorization gives det W_j=F(T,p,q,r)(det K_j)^2 with site-independent F>0. Direct exact symbolic independent computation of four Krylov determinants gives pq²r*(p²,-A,-B,r²); signs match. Comparing affine A=p(p-2r)-(p-r)q, B=r(r-2p)+(p-r)q, A+B=Delta and threshold displacement theta-2p=-Delta/(p-r) proves every p/r regime including Delta=0 and p=r ties; reflection handles p<r. Three-vertex middle score (p-q)^2 is strictly smaller than max(p²,q²), and explicit four-node positive witnesses show minimality. A 7^3 rational interpolation checker gives an exact polynomial identity; finite phase trials only corroborate the analytic continuum inequalities.",
+      "residual_risks": [
+        "Single direct equal-noise scalar sensor, four-node symmetric positive conductance path, positive finite horizon; no multi-sensor or alternate criterion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dilip proves arbitrary symmetric-system spectral-product ranking and horizon independence, including an unweighted six-node path example.",
+          "Summers-Lygeros develop general network placement criteria, not four-node exact phase boundaries."
+        ],
+        "reasoning": "A generic algorithm decides each parameter point but does not algebraically classify all (p,q,r)>0 and exact transitions; no theorem asserting the complete regions was found.",
+        "searches": [
+          "D optimal sensor placement four vertex weighted path graph Gramian single vertex horizon independent Jacobi controllability determinant phase diagram",
+          "Dilip 2019 Theorem 3 and Remark 7",
+          "Summers-Lygeros arXiv:1306.2491"
+        ]
+      },
+      "checked_sources": [
+        "Dilip 2019 DOI:10.1109/LCSYS.2019.2919278",
+        "Summers-Lygeros arXiv:1306.2491",
+        "Resultary weighted-path-related query D optimal sensor placement four vertex weighted path graph Gramian single vertex horizon independent Jacobi controllability determinant phase diagram"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Det W_j is known to be proportional to the square of a Krylov determinant, so factorization alone is not original.",
+          "Explicit Krylov polynomials and sign-threshold inequalities are required for the claimed three-regime all-conductance classification."
+        ],
+        "reasoning": "Prior general theorem materially reduces the calculation but its statement does not explicitly imply exact tie-phase formulas without additional graph-specific symbolic work; the new theorem is the complete classification of that natural minimal path.",
+        "searches": [
+          "Dilip 2019 Lemma 2 Theorem 3 Remark 7",
+          "D optimal sensor placement four vertex weighted path graph Gramian single vertex horizon independent Jacobi controllability determinant phase diagram"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D-optimal observability is dual to determinant-based controllability/leader selection for symmetric Q.",
+          "The normalized unweighted path theorem uses a different state generator and temporal samples and cannot cover weighted diffusion inner optimizers."
+        ],
+        "reasoning": "Compared sensor/actuator duality, Laplacian/Jacobi methods and normalized discrete sampling. The site-independent general formula is known; its all-weight four-node phase is the tested remainder.",
+        "searches": [
+          "D optimal sensor placement four vertex weighted path graph Gramian single vertex horizon independent Jacobi controllability determinant phase diagram",
+          "Dilip 2019 DOI:10.1109/LCSYS.2019.2919278",
+          "Resultary: universal endpoint optimality for dynamical sampling on normalized paths"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A single fixed-weight table cannot determine continuously parameterized tie hypersurfaces; exact identities vary with p/r and q.",
+          "No compared source enumerated all equality sets at p=r or Delta=0."
+        ],
+        "reasoning": "No finite database can certify the full continuum; the candidate phase diagram was tested against known concrete examples and stronger method-level results.",
+        "searches": [
+          "D optimal sensor placement four vertex weighted path graph Gramian single vertex horizon independent Jacobi controllability determinant phase diagram",
+          "Dilip 2019 weighted/unweighted path example",
+          "Resultary normalized paths"
+        ]
+      },
+      "rationale": "Dilip 2019 completely predates the site-independent determinant factorization, spectral-product sensor comparison, and time-horizon cancellation. Its fully inspected author text does not explicitly classify the continuum of all weighted four-path conductances by the two sharp thresholds and critical ratio 2+sqrt(3), their exact tie sets, and minimal interior-optimal path order. Resultary normalized-path endpoint theorem covers an unweighted normalized adjacency and consecutive discrete samples, not the positive-weight Laplacian family. The novel remainder is a parameter-space classification, not the general algorithm.",
+      "residual_risks": [
+        "A prior explicit four-node weighted Jacobi path phase classification under different sensor or interpolation terminology may exist.",
+        "General D-optimal spectral-product algorithm is not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FACTORIZATION_COVERED_PHASE_NOT_EXPLICIT",
+          "evidence": "Identical determinant factorization and horizon independence are known; complete symbolic p/r and q regions and first interior-optimal path size are absent from the inspected treatment.",
+          "identifier_or_url": "DOI:10.1109/LCSYS.2019.2919278; author posted complete manuscript",
+          "material_read": "Accessible complete author-uploaded manuscript, with Lemma 2, Theorem 3, Remark 7 and concrete unweighted six-node path example inspected.",
+          "method": "Complete lawful author manuscript text and theorem-level implication comparison",
+          "title": "The Controllability Gramian, the Hadamard Product, and the Optimal Actuator/Leader and Sensor Selection Problem",
+          "trigger": "Potentially dominating general symmetric-system D-optimal sensor theorem"
+        },
+        {
+          "assessment": "DIFFERENT_OPERATOR_AND_OBSERVATION_DESIGN",
+          "evidence": "Uses unweighted degree-normalized adjacency, finite number of discrete samples, and endpoint equality; does not imply arbitrary-weight continuous-time generator phase transitions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+          "material_read": "Entire fixed Git RESULT.md of 2026-10-11 Resultary finding, including hypotheses, full spectral-cosine proof and scope.",
+          "method": "GitHub immutable textual source read",
+          "title": "Universal endpoint optimality for dynamical sampling on normalized paths",
+          "trigger": "Resultary near-match for D-optimal path observability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/13/a-complete-d-optimal-sensor-phase-diagram-for-four-vertex-weight--8e5b80a6bdef/RESULT.md",
+        "Dilip 2019 DOI:10.1109/LCSYS.2019.2919278",
+        "Summers-Lygeros arXiv:1306.2491"
+      ],
+      "rationale": "This is the smallest weighted path where a strictly interior sensor can optimize the full-information determinant. A complete positive-parameter placement map with all critical tie boundaries and the sharp ratio 2+sqrt(3) is a natural closed-form design invariant; it supplies useful exact decisions beyond a fixed-parameter worked example.",
+      "residual_risks": [
+        "Specific to symmetric path, no extension to heterogeneous noise or multiple sensors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Single direct equal-noise scalar sensor, four-node symmetric positive conductance path, positive finite horizon; no multi-sensor or alternate criterion.",
+    "A prior explicit four-node weighted Jacobi path phase classification under different sensor or interpolation terminology may exist.",
+    "General D-optimal spectral-product algorithm is not claimed as new.",
+    "Specific to symmetric path, no extension to heterogeneous noise or multiple sensors."
+  ],
+  "schema_version": 1
+}
