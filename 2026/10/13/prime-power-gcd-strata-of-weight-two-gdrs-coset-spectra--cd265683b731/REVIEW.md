@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The only external mathematical premises are the explicitly read GDRS subset-sum and coset-enumerator reductions in Davydov–Marcugini–Pambianco, Theorems 3.4 and 5.1, and the classical Li–Wan–Kosters finite-group subset-sum formula, Theorem 2.3. Specializing the character formula to prime-power divisors gives the stated class polynomials. The sign analysis treats odd primes, positive final binary coefficient and negative final binary coefficient separately; the last case places the final stratum strictly between the preceding two strata. Positivity and strictness use a proven injection on subsets. The multiplier \(\binom{q+1}{2}(q-1)\) counts symbol choices per discrete-log ratio and the minimum-distance assumption ensures unique leaders. `verify.py` exhausts 33 selected finite instances independently and returns `VERIFY_OK`. Infinite scope relies on proof, not enumeration.
+## correctness
 
-## Originality — PASS, with limited synthesis risk
-The 2026 origin paper explicitly leaves strict separation across orbit representatives unresolved outside special tables (Conjecture 4.8 and subsequent discussion). Kosters 2011 gives the general subset-sum formula, so the character expression is cited as existing prior work, not advertised as new. The new statement proves exactly \(a+1\) *distinct* complete spectra for every prime-power gcd, gives their class-by-class closed forms and counts all cosets in those strata; neither inspected source states or proves this global strictness. The 2022 twisted-cubic code article concerns a separate generalized weight-five family and a different invariant. Residual risk: an older derivation not found by the searches may already make the strict prime-power comparison explicit; the result is a short synthesis of two strong published ingredients rather than a new algebraic counting principle.
+PASS
 
-## Value — PASS
-The 2026 paper identifies strictness of orbit values as an unresolved mathematical question and exhibits parameter-by-parameter tables. This exact, all-parameter classification converts a nonuniformity possibility into precise spectral strata for infinitely many codes, including cases with arbitrarily large \(a\), and supplies class multiplicities relevant to coset error statistics. The strictness and multiplicities carry mathematical information not contained in the classical subset-sum formula alone without analyzing its cancellation pattern. No general downstream theorem or broad novelty for subset sums is claimed.
+For M=q−1,k=d−2,gcd(M,k)=p^a>1, the known exact cyclic subset-sum character formula N_{M,k}(λ)=M^(−1)∑_{e|p^a}(−1)^(k+k/e) binom(M/e,k/e)c_e(λ), together with prime-power Ramanujan values, yields the displayed F_s for p-adic valuation strata s=0..a. Differences are p^s(A_s−A_{s+1})/M (1≤s<a) and p^a A_a/M at the top; strict binomial magnitudes ensure no collision, including the exceptional p=2 negative final A_a: for a=1 the last difference p A_1/M is nonzero; for a≥2 one has F_{a−2}<F_a<F_{a−1}. Each leader is unique since d≥5; selecting support, nonzero first symbol and log ratio gives exact class multiplicities. Davydov et al Theorem5.1 turns distinct weight-(d−2) counts into distinct full coset spectra. Independent direct subset enumeration across 41 small (M,k) combinations confirms formulas, including q9,d6 F=(8,10,9); infinite theorem is algebraic.
 
-## Closest literature and limitations
-The precise overlap comparison is against arXiv:2605.10594v1 Theorems 3.4, 4.6, 5.1, Table 5.1 and Conjectures 4.8, 4.12, 5.3; arXiv:1112.6294v1 Theorem 2.3; and the 2022 twisted-cubic coset-leader paper. The statement applies only where \(\gcd(q-1,d-2)\) is a positive prime power, and the verifier is finite. An earlier unlocated all-prime-power classification remains the main originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kosters/Li–Wan already prove the full group-subset-sum character formula, and Davydov et al already prove its application to GDRS coset distributions, including particular prime and index-4 families. The present quantified contribution is strict spectral noncollision and exact numbers of entire cosets for EVERY prime-power gcd p^a; Davydov §4.2 explicitly notes distinctness between different orbits is generally unknown, so that extra universal strictness is not just a change of names for known formulas. Caveat: specialization of known universal formula gives the numbers mechanically, but the no-collision classification requires the new signed binomial separation argument.
+
+## value
+
+PASS
+
+Complete coset spectra and multiplicities are natural code invariants tied in the primary article to MDS cosets and bounded-distance decoding. This establishes the natural p-power gcd layer for all q,d in a motivated open orbit-collision question, including p=2 reordered strata. It is a meaningful exact infinite-family classification beyond a few finite instances, though much formula infrastructure is explicitly credited to known papers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

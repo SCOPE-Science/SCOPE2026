@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:47:29.718510Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For M=q−1,k=d−2,gcd(M,k)=p^a>1, the known exact cyclic subset-sum character formula N_{M,k}(λ)=M^(−1)∑_{e|p^a}(−1)^(k+k/e) binom(M/e,k/e)c_e(λ), together with prime-power Ramanujan values, yields the displayed F_s for p-adic valuation strata s=0..a. Differences are p^s(A_s−A_{s+1})/M (1≤s<a) and p^a A_a/M at the top; strict binomial magnitudes ensure no collision, including the exceptional p=2 negative final A_a: for a=1 the last difference p A_1/M is nonzero; for a≥2 one has F_{a−2}<F_a<F_{a−1}. Each leader is unique since d≥5; selecting support, nonzero first symbol and log ratio gives exact class multiplicities. Davydov et al Theorem5.1 turns distinct weight-(d−2) counts into distinct full coset spectra. Independent direct subset enumeration across 41 small (M,k) combinations confirms formulas, including q9,d6 F=(8,10,9); infinite theorem is algebraic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosters universally covers finite-abelian k-subset counts; Davydov explicitly handles two-orbit prime gcd and three-orbit gcd4 examples, and asks whether different orbits always have different values"
+        ],
+        "reasoning": "The prior computational reduction is algebraically broader, but does not resolve all-power strictness; prime-power restriction is targeted to an actual unresolved GDRS classification rather than arbitrary truncation. Other gcd structures excluded.",
+        "searches": [
+          "Kosters arXiv:1112.6294 Thm2.3",
+          "Davydov et al arXiv:2605.10594 Thms4.11,4.13,5.1 and §4.2",
+          "Resultary semantic: GDRS doubly extended Reed Solomon weight two cosets prime-power gcd coset spectra Ramanujan sum"
+        ]
+      },
+      "checked_sources": [
+        "Davydov–Marcugini–Pambianco, Weight distributions of cosets of weight 2 of the generalized doubly extended Reed–Solomon codes, arXiv:2605.10594v1, §§3–5, Thm5.1 and §4.2 open questions",
+        "Kosters, The subset sum problem for finite abelian groups, arXiv:1112.6294v1, Thm 2.3",
+        "Blokhuis–Pellikaan–Szőnyi, extended coset leader weight enumerator of twisted cubic code, DCC 90 (2022)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kosters yields every N_{M,k}(λ); Davydov turns one such count into complete coset distribution. Strict inequality |A_j|>|A_{j+1}| and the p2 last-sign analysis remain necessary to infer precisely a+1 distinct classes"
+        ],
+        "reasoning": "The submitted statement logically follows from known identities PLUS a new elementary but nontrivial binomial separation lemma and leader multiplicity accounting. Claim novelty only for classification and strictness; neither source's reduction is attributed to this record.",
+        "searches": [
+          "Davydov et al arXiv:2605.10594 Theorem5.1 §4.2 unknown distinct orbits",
+          "Kosters arXiv:1112.6294 Theorem2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GDRS weight-(d−2) coset coefficient equals cyclic group k-subset sum count with λ=log_β(−γ2/γ1)"
+        ],
+        "reasoning": "The coding statement and cyclic subset sums are equivalent for the normalized GDRS ratio map, but the general Fourier character formula only outputs counts, not the strict a+1 class separation and coset multiplicity theorem.",
+        "searches": [
+          "Resultary semantic: GDRS doubly extended Reed Solomon weight two cosets prime-power gcd coset spectra Ramanujan sum",
+          "Davydov et al arXiv:2605.10594 §3, Thm5.1",
+          "Kosters arXiv:1112.6294 Thm2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "GDRS article lists selected finite and parametric pairs; no all-a table of a+1 distinct spectra and class counts found in reviewed sections"
+        ],
+        "reasoning": "A tabulated q=9,d=6 instance with F=(8,10,9) does not prove all prime-power gcds; formulas for arbitrary q,d need new noncollision analysis.",
+        "searches": [
+          "Resultary semantic: GDRS doubly extended Reed Solomon weight two cosets prime-power gcd coset spectra Ramanujan sum",
+          "Davydov et al arXiv:2605.10594 Tables4.1–4.3,5.1"
+        ]
+      },
+      "rationale": "Kosters/Li–Wan already prove the full group-subset-sum character formula, and Davydov et al already prove its application to GDRS coset distributions, including particular prime and index-4 families. The present quantified contribution is strict spectral noncollision and exact numbers of entire cosets for EVERY prime-power gcd p^a; Davydov §4.2 explicitly notes distinctness between different orbits is generally unknown, so that extra universal strictness is not just a change of names for known formulas. Caveat: specialization of known universal formula gives the numbers mechanically, but the no-collision classification requires the new signed binomial separation argument.",
+      "residual_risks": [
+        "A published universal noncollision corollary may exist unindexed despite checked open question",
+        "All finite enumerations check small M only; analysis assumes Davydov normalization and q prime-power parameter existence"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains reduction, selected gcd families and unsolved general distinctness, not all-p^a strict spectra theorem",
+          "evidence": "§4.2 states distinct orbits might have equal values and no general separation known; Thm5.1 gives full enumerator from F.",
+          "identifier_or_url": "https://arxiv.org/html/2605.10594v1",
+          "material_read": "Entire HTML paper navigated, especially Sections3–5, Theorems4.6–4.13 and5.1, Tables4.1–4.3 and5.1",
+          "method": "Full arXiv HTML primary text and explicit theorem/table comparison",
+          "title": "Weight distributions of cosets of weight 2 of the generalized doubly extended Reed–Solomon codes",
+          "trigger": "Exact same normalized code, leader-ratio transfer, orbit collision question"
+        },
+        {
+          "assessment": "General character-count formula is prior; no claim of new N_{M,k} character formula",
+          "evidence": "Theorem2.3 provides cyclic Ramanujan sum expansion used unchanged in this work.",
+          "identifier_or_url": "https://arxiv.org/abs/1112.6294",
+          "material_read": "Short arXiv full-text mathematical theorem and proof, especially Theorem2.3",
+          "method": "Lawful arXiv PDF theorem inspection",
+          "title": "The subset sum problem for finite abelian groups",
+          "trigger": "General finite group subset-sum theorem could dominate numerical part"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete coset spectra and multiplicities are natural code invariants tied in the primary article to MDS cosets and bounded-distance decoding. This establishes the natural p-power gcd layer for all q,d in a motivated open orbit-collision question, including p=2 reordered strata. It is a meaningful exact infinite-family classification beyond a few finite instances, though much formula infrastructure is explicitly credited to known papers.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Davydov–Marcugini–Pambianco, Weight distributions of cosets of weight 2 of the generalized doubly extended Reed–Solomon codes, arXiv:2605.10594v1, §§3–5, Thm5.1 and §4.2 open questions",
+    "Kosters, The subset sum problem for finite abelian groups, arXiv:1112.6294v1, Thm 2.3",
+    "Blokhuis–Pellikaan–Szőnyi, extended coset leader weight enumerator of twisted cubic code, DCC 90 (2022)"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A published universal noncollision corollary may exist unindexed despite checked open question",
+    "All finite enumerations check small M only; analysis assumes Davydov normalization and q prime-power parameter existence"
+  ],
+  "schema_version": 1
+}
