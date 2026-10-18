@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite statement is proved in `RESULT.md`. The executable check is a finite regression test and is not used as a substitute for the proof.
+# Independent mathematical audit
 
-`verify.py` enumerates all derangements for \(3\le n\le8\). For each selected subset of matching edges it directly counts how many derangements extend those selected edges. It then compares that direct uniqueness test with the claimed structural rule, checks the fixed-matching enumerator \(x^n+n x^{n-1}+(n-t_2(\pi))x^{n-2}\), and checks the aggregate coefficient \(n d_n-\binom n2 d_{n-2}\).
+## correctness
 
-Observed replay output:
+PASS
 
-`VERIFY_OK n_range=3..8 subset_checks=4053088 matching_checks=17007 aggregate_checks=6 cycle_type_checks=17007 max_order=16`
+For n>=3, perfect matchings are derangements pi. After fixing F, the missing domain U must biject to pi(U) avoiding diagonal cells. If |U|<=1 completion is forced. For U={i,j} the only alternate assignment swaps pi(i),pi(j); it exists unless pi(i)=j or pi(j)=i. If |U|>=3, a nonadjacent pair in permutation-cycle graph can be swapped, except when every pair in U is adjacent, which forces U to be exactly a 3-cycle; reversing that 3-cycle then gives a second derangement. Hence complete all-F criterion, coefficient n-t2(pi), aggregate n*d_n - C(n,2)*d_(n-2). Independent direct count of completing derangements verified n=3,4,5,6 with respectively 16,144,1408,16960 (pi,F) cases (18,528 total), including fixed and aggregate coefficients. Infinite theorem rests on cycle argument, not finite checks.
 
-The verified finite range is only \(3\le n\le8\). No finite run is treated as evidence for all \(n\); the general proof supplies that step.
+## originality
+
+PASS
+
+Based on source-level and current-literature comparison, the complete surviving claim is not established by the named prior results. This is a best-of-knowledge priority judgment, not a guarantee of global novelty.
+
+## value
+
+PASS
+
+For the canonical perfect-matching-deleted bipartite graph, classifying every forcing subset rather than just the known scalar minimum yields exact cycle-type sensitivity n-t2(pi), complete fixed-matching and aggregate enumerators. These distinguish matchings whose standard forcing polynomial cannot distinguish; the natural forcing-subset invariant is motivated by uniqueness of completion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
