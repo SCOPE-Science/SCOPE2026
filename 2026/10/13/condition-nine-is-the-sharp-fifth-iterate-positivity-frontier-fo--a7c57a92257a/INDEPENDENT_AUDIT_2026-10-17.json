@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T03:40:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: B=I-A/L is simultaneously entrywise nonnegative and PSD for SPD Stieltjes A with L spectral maximum. From x_(m+1)=p_m(B)b/L, the exact polynomial recurrence gives p0=1, p1=1+(1+β)z, p2=1+z+(1+β)^2 z^2, p3=1+z+(1-β²)z²+(1+β)^3 z³, p4=1+z+z²+(1+β)²(1-2β)z³+(1+β)^4z⁴. All coefficients through p3 nonnegative; p4 likewise for β<=1/2 iff κ<=9. For κ>9, the PSD nonnegative four-path block C with (C³)_14=1,(C⁴)_14=6 embedded as Bε=diag(εC,1-1/κ) has exact spectral endpoints and a negative order-ε³ x5_1 for sufficiently small ε (despite positive ε⁴ term). Independently iterated the stated rational κ16 five-by-five matrix and found x5_1=-77/31250000000, with earlier first-coordinate values nonnegative. All-real κ sharpness rests on ε inequalities, not that sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghadimi et al give constant-parameter acceleration/rates; published Resultary heavy-ball theorem gives diagonal all-iteration and Stieltjes second-iterate positivity for a different recurrence."
+        ],
+        "reasoning": "Neither Nesterov rate theorem nor heavy-ball sign theorem entails universal fifth-iterate Stieltjes positivity or exact first failure at step five.",
+        "searches": [
+          "https://arxiv.org/abs/1412.7457",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-condition-nine-is-the-sharp-positivity-frontier-for-optimally-tu--b9a86b72a2c2/RESULT.md",
+          "Resultary semantic search 2026-10-17: Nesterov positivity cone condition number nine Stieltjes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1412.7457",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-condition-nine-is-the-sharp-positivity-frontier-for-optimally-tu--b9a86b72a2c2/RESULT.md",
+        "Resultary semantic search 2026-10-17: Nesterov fifth iterate Stieltjes cone condition nine"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Heavy-ball sign failure on highest curvature diagonal component appears already at k=2 when κ>9, whereas Nesterov first possible cone loss is k=5 and requires Stieltjes offdiagonal paths."
+        ],
+        "reasoning": "The mechanisms and quantifiers are different, so a prior theorem with same κ9 does not logically dominate the final claim.",
+        "searches": [
+          "https://arxiv.org/abs/1412.7457",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-condition-nine-is-the-sharp-positivity-frontier-for-optimally-tu--b9a86b72a2c2/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The actual recurrence is look-ahead Nesterov (gradient at y), not heavy-ball (gradient at x), nor a projected method; B=I-A/L is the positivity-preserving base operator."
+        ],
+        "reasoning": "Comparison uses update and iterate polynomials, not shared name “momentum” or numerical threshold. Heavy-ball p2 sign change and Nesterov p4 change are not equivalent by renaming.",
+        "searches": [
+          "Resultary semantic search 2026-10-17: Nesterov Stieltjes positive fifth iterate kappa 9 accelerated gradient first four nonnegative",
+          "https://arxiv.org/abs/1412.7457",
+          "https://arxiv.org/abs/1408.3595"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published table/specified fourth-degree Nesterov polynomial boundary in the relevant searched results; direct exact κ16 witness is independently reproduced."
+        ],
+        "reasoning": "This is an all-Stieltjes continuum threshold, not an exact database query; a finite rational witness alone cannot replace the all-κ proof. Search remains bounded.",
+        "searches": [
+          "Resultary semantic search 2026-10-17: Stieltjes accelerated Nesterov first negative fifth step κ9",
+          "https://arxiv.org/abs/1412.7457"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Nesterov constant-parameter accelerated recurrence and rate are standard in Ghadimi–Feyzmahdavian–Johansson, but no finite-iterate entrywise Stieltjes cone statement there. A published heavy-ball result happens to have threshold nine yet uses different update and fails already at step two, so it does not imply this fifth-iterate Nesterov threshold. Published-finding search did not find an equivalent Nesterov positive-cone iff theorem.",
+      "residual_risks": [
+        "Some older nonnegative polynomial iterations/positive-systems literature might reproduce the same fourth-degree coefficient sign criterion under an alias.",
+        "Exact spectral endpoints, zero initial velocity and Stieltjes structure are essential; later iterates and arbitrary SPD matrices are not proved positive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_RECURRENCE_AND_RATE_NOT_CONE_CLASSIFICATION",
+          "evidence": "Eq. (4) gives the accelerated scheme; text analyzes global rates, not the coefficient sign of fifth iterate p4(B) on Stieltjes matrices.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.7457",
+          "material_read": "Full ar5iv HTML of source arXiv:1412.7457 inspected, including algorithm recurrence and parameter/rate discussion.",
+          "method": "Lawful arXiv full-text HTML",
+          "title": "Global convergence of the Heavy-ball method for convex optimization — Ghadimi, Feyzmahdavian and Johansson",
+          "trigger": "Same look-ahead Nesterov scheme appears as Eq. (4) in the initiating paper"
+        },
+        {
+          "assessment": "DIFFERENT_RECURRENCE_NON_COVERING",
+          "evidence": "It has xnext=x+β(x-xprev)+α(b-Ax) and second-step boundary, not y-lookahead gradient step; it does not establish p4(B) or Stieltjes fifth-iterate threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-condition-nine-is-the-sharp-positivity-frontier-for-optimally-tu--b9a86b72a2c2/RESULT.md",
+          "material_read": "Complete published RESULT.md read, including theorem, Chebyshev diagonal proof and Stieltjes second-step analysis.",
+          "method": "GitHub Resultary published full primary finding via GitHub read-only connector",
+          "title": "Condition nine is the sharp positivity frontier for optimally tuned heavy-ball",
+          "trigger": "Exact same numerical κ=9 under momentum could create prior-coverage issue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Identifies the first sharp nonnegative-cone violation iteration for exact spectrally tuned look-ahead Nesterov on an important inverse-positive SPD matrix class. The fifth-iterate threshold and explicit weak-coupling Stieltjes counterfamily matter for feasibility/positivity interpretation of accelerated solvers; not an objective-rate restatement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For zero-initialized constant-parameter look-ahead Nesterov acceleration on SPD Stieltjes quadratics, iterates 1..4 always stay nonnegative and the universal fifth-iterate cone threshold is exactly condition number κ=9; every κ>9 has a five-dimensional Stieltjes counterexample.",
+  "limitations": [
+    "Some older nonnegative polynomial iterations/positive-systems literature might reproduce the same fourth-degree coefficient sign criterion under an alias.",
+    "Exact spectral endpoints, zero initial velocity and Stieltjes structure are essential; later iterates and arbitrary SPD matrices are not proved positive.",
+    "Publication status not_ready is privacy/transport only, independent of completed C/O/V decision; existing package and all broken historical ledger rows preserved."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. With \(B=I-A/L\), the Stieltjes sign pattern and spectral interval make \(B\) entrywise nonnegative and positive semidefinite. The Nesterov iterate polynomials were reconstructed from the recurrence. Their coefficients are nonnegative through \(p_3\); in \(p_4\) the sole sign-changing coefficient is \((1+\beta)^2(1-2\beta)\), yielding \(\kappa=9\). For every \(\kappa>9\), the explicit weak-coupling construction forces a negative distance-three fifth-iterate entry. The rational witness was replayed independently by the packaged checker.
+## correctness
 
-## Originality
-PASS. The closest inspected primary source states the method and convergence parameter but not componentwise positivity. Published-finding-index searches across Stieltjes, \(M\)-matrix, positive-cone, nonnegative-iterate, fifth-iterate, and condition-number aliases returned a Nesterov objective-spike result as the closest Nesterov-specific statement. Objective spikes do not imply coordinatewise sign loss. A heavy-ball positivity result shares the number nine but uses a different recurrence and does not imply this Nesterov polynomial theorem. Residual risk remains from older monotone inertial literature using different terminology.
+PASS
 
-## Value
-PASS. The result identifies the first universally vulnerable Nesterov iterate and an exact conditioning boundary on a canonical inverse-positive class. It separates spectral convergence guarantees from componentwise state preservation and supplies a quantified counterexample family for every supercritical condition number.
+PASS: B=I-A/L is simultaneously entrywise nonnegative and PSD for SPD Stieltjes A with L spectral maximum. From x_(m+1)=p_m(B)b/L, the exact polynomial recurrence gives p0=1, p1=1+(1+β)z, p2=1+z+(1+β)^2 z^2, p3=1+z+(1-β²)z²+(1+β)^3 z³, p4=1+z+z²+(1+β)²(1-2β)z³+(1+β)^4z⁴. All coefficients through p3 nonnegative; p4 likewise for β<=1/2 iff κ<=9. For κ>9, the PSD nonnegative four-path block C with (C³)_14=1,(C⁴)_14=6 embedded as Bε=diag(εC,1-1/κ) has exact spectral endpoints and a negative order-ε³ x5_1 for sufficiently small ε (despite positive ε⁴ term). Independently iterated the stated rational κ16 five-by-five matrix and found x5_1=-77/31250000000, with earlier first-coordinate values nonnegative. All-real κ sharpness rests on ε inequalities, not that sample.
 
-## Closest literature and limitations
-Ghadimi, Feyzmahdavian, and Johansson, arXiv:1412.7457, equation (4), state the constant-step Nesterov method and its strongly convex momentum parameter. The present claim is limited to exact spectral tuning, zero initialization, SPD Stieltjes quadratics, and the first five iterates; later-iterate behavior and minimal counterexample dimension are not classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Nesterov constant-parameter accelerated recurrence and rate are standard in Ghadimi–Feyzmahdavian–Johansson, but no finite-iterate entrywise Stieltjes cone statement there. A published heavy-ball result happens to have threshold nine yet uses different update and fails already at step two, so it does not imply this fifth-iterate Nesterov threshold. Published-finding search did not find an equivalent Nesterov positive-cone iff theorem.
+
+## value
+
+PASS
+
+PASS: Identifies the first sharp nonnegative-cone violation iteration for exact spectrally tuned look-ahead Nesterov on an important inverse-positive SPD matrix class. The fifth-iterate threshold and explicit weak-coupling Stieltjes counterfamily matter for feasibility/positivity interpretation of accelerated solvers; not an objective-rate restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
