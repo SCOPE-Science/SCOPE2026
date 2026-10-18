@@ -1,12 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The polar is reconstructed by two generating-face support inequalities. Its horizontal slices are explicit homothetic copies of the polar base, giving a directly integrated polar-volume identity without symmetry assumptions. Because the base is Santaló-centered, the horizontal polar centroid vanishes at every axial point. Strict convexity and the exact axial derivative identify the unique full Santaló center. A positive beta-mixture expansion of the actual frustum height distribution proves strict separation of the centroid from the Santaló center, including both endpoints. Jensen's inequality and the envelope derivative prove the strict volume-product monotonicity in every dimension. The supplied checker independently reconstructs several polar volumes from polytope vertices and verifies diagnostic symbolic/numerical cases; these finite checks are not substituted for the universal proof.
+## correctness
 
-## Originality — PASS
-The closest primary article, Meyer--Reisner, is materially inspected at its full section on shadow systems and Lemma 11, which already gives the apex-pyramid Santaló point and Mahler factor. Those endpoint facts are explicitly credited and excluded from novelty. The inspected general algebraic Santaló framework of Pavlov--Telen and the projective-center treatment of Izmestiev give no exact homothetic-frustum factor, strict centroid comparison, or monotonicity as a consequence of a stated theorem. Targeted searches use Santaló/polar-volume/Mahler terminology and frustum/truncated-pyramid/trapezoid/homothetic-prismatoid aliases. Residual risk: an equivalent elementary projective-calculus identity may be buried in older literature not indexed under these names.
+PASS
 
-## Value — PASS
-The Santaló point and Mahler volume product are canonical affine-geometric invariants and difficult to compute for general convex bodies. A natural interpolation between a pyramid and a cylinder with arbitrary base has a universal exact solution independent of all base-specific geometry except its own volume product. Strict movement relative to the ordinary centroid and strict Mahler-product growth supply genuine structural information, and the theorem generalizes the known pyramid endpoint to an entire continuously varying all-dimensional class.
+For d≥2 and any convex (d−1)-base K at its Santaló point, horizontal polar sections of F_a(K)-(0,t) are min(1+ts,(1−(1−t)s)/a) K°; integrating across s*=b/(1−bt) yields vol(K°)/[d t(1−t)(1−bt)^{d−1}], including the a=0 limit. The horizontal first polar moment vanishes because centroid K°=0; derivative of log polar volume has unique zero satisfying (d+1)b t²−(2+db)t+1=0 and positive second derivative. Height density (1−bz)^{d−1} has normalized mixture of Beta(1,k+1) laws; their variance decomposition proves Q(g)=b[(d+2)Var Z−g(1−g)]>0 for 0<a<1, giving t<g and endpoints equality. Volume slicing gives factor Pi_d=Pi_(d-1)*Φ_d; envelope differentiation gives d logΦ/da=(d−1)(E[Z/(1−bZ)]−t/(1−bt))>0 by Jensen and g>t. Fresh SymPy exact independent verification of centroid identities for d=2..9; checked limits d=2, a=0/1 and non-symmetric base logic. Finite dimensions are diagnostic, general proof is the analytic beta-mixture.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison of original claim, aliases and stronger coverage: The new statement requires polar integrations, a quadratic root and strict mixture variance/Jensen argument beyond prior endpoint/classical geometric characterizations.
+
+## value
+
+PASS
+
+A base-shape-independent Santaló center and strictly monotone Mahler factor for every homothetic frustum is a motivated interpolation between two classical convex-geometric extremal constructions. Strict centroid separation and all-base shape independence extend beyond the known pyramid endpoint and general computational polar-volume procedures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
