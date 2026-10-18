@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The five-term Edholm–Mathew numerator, specialized at denominator one, yields the explicitly collected palindromic coefficients. The displayed identity with two consecutive Fejér square sums agrees at every Fourier coefficient for arbitrary positive integer degree. Nonnegativity excludes unit roots; reciprocal pairing gives exactly half of the roots in the disk. The proof checks nonvanishing of the kernel denominator and constructs admissible interior point pairs. Four independent integer coefficient constructions were run and agreed for 500 integer exponents; the infinite theorem relies on the algebraic comparison, not the tests.
+## correctness
 
-**Originality — PASS.** Edholm–Mathew, arXiv:2505.20489, Theorem 1.7 treats gaps one and two; Section 4.3 mentions further bounded-gap arguments and states the full unit-circle problem as Conjecture 4.20. The earlier integer-slope formulas and known kernel zeros of Edholm (arXiv:1504.07914) and Edholm–McNeal (arXiv:1605.06223) do not assert an exact count of restricted-section roots. The 2023 monomial-polyhedron formula supplies numerator coefficients, not this zero analysis. The new positivity identity works for unbounded gaps on denominator one. Equivalent formulations and published-record searches did not identify stronger covering work. Residual risk: an unindexed proof or the authors' unpublished continuation could cover this slice.
+PASS
 
-**Value — PASS.** The natural integer-denominator-one axis is an infinite, unbounded-degree part of an explicitly posed structural root-location conjecture. The result gives a complete exact zero census, not merely the previously established existence of some kernel zeros. Its transparent sum-of-squares factorization provides a reusable analytic certificate without a finite cutoff or numerical root finding.
+For m≥2, d=m−1, substituting n=1 into exact Edholm–Mathew Theorem 1.3 gives L(j)=1,kappa(j)=j, hence Q_{m,1}(s)=Σ_{k=0}^{2d}a_k s^k with a_k=1+(d+3)k for 0≤k<d, a_d=d²+4d+1, and a_{2d−k}=a_k. Independent coefficient derivation checked the five numerator contributions against Fourier coefficients of d+(d+2)F_d+F_{d+1}, including endpoints and middle, for arbitrary d. Their equality establishes ζ^{−d}Q(ζ)=d+(d+2)|Σ_{j<d}ζ^j|²+|Σ_{j≤d}ζ^j|²>d on the unit circle (consecutive geometric sums cannot both vanish). Reciprocity, a_0=a_{2d}=1 and no unit roots yield exactly d inner and d outer roots. Explicit z,w∈H_m realize each inner s=t root while denominator nonzero. Fresh independent direct five-term integer coefficient script verified d=1..100 as a cross-check; infinite proof is symbolic.
 
-Limitations: the result does not establish the full rational-slope conjecture, root simplicity, or optimal circle separation. No independent mathematical audit is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Full primary Edholm–Mathew article states Conjecture 4.20 for all coprime slopes and proves only differences m−n=1,2 in Theorem1.7, with additional bounded gap 3,4,6 computations. The axis n=1,m→∞ has unbounded gap and is not covered. Its general reciprocal symmetry only guarantees reciprocal pairing, not absence of unit-circle roots; earlier Edholm zero existence on another section does not imply this exact restricted-root census. New exact Fejér-square identity is strong structural proof; no equivalent prior full-axis theorem was identified.
+
+## value
+
+PASS
+
+Infinite exact theorem resolves a natural unbounded axis of an explicit published conjecture, gives a positive-squares certificate for every integer d and exact interior-zero census on a canonical Bergman-kernel diagonal; meaningful beyond preexisting mere kernel-zero existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

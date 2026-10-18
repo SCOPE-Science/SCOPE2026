@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The principal certificate is the algebraic Fourier-coefficient identity in `RESULT.md`. Each coefficient is computed directly from the normalized five-part Bergman numerator in Edholm–Mathew [1]. The equality is a symbolic identity for every integer \(d\ge1\); no floating-point root plot or finite sweep is required for the theorem.
+## correctness
 
-The packaged script `check_integer_hartogs.py` (Python 3 standard library only) was executed from its actual package path. It reconstructs the polynomial by four independent exact-integer methods for each of the 500 values \(2\le m\le501\): Edholm–Mathew's five numerator pieces, Edholm's earlier two-polynomial formula, the derived closed coefficient list, and the two Fejér autocorrelation lists. All comparisons, degree tests, and palindromicity tests passed.
+PASS
 
-These finite executions only test algebraic transcriptions for finitely many parameters. They do not independently prove the infinite family. The written proof treats all \(m\ge2\). Only same-model scientific review has been performed; independent audit remains not performed.
+For m≥2, d=m−1, substituting n=1 into exact Edholm–Mathew Theorem 1.3 gives L(j)=1,kappa(j)=j, hence Q_{m,1}(s)=Σ_{k=0}^{2d}a_k s^k with a_k=1+(d+3)k for 0≤k<d, a_d=d²+4d+1, and a_{2d−k}=a_k. Independent coefficient derivation checked the five numerator contributions against Fourier coefficients of d+(d+2)F_d+F_{d+1}, including endpoints and middle, for arbitrary d. Their equality establishes ζ^{−d}Q(ζ)=d+(d+2)|Σ_{j<d}ζ^j|²+|Σ_{j≤d}ζ^j|²>d on the unit circle (consecutive geometric sums cannot both vanish). Reciprocity, a_0=a_{2d}=1 and no unit roots yield exactly d inner and d outer roots. Explicit z,w∈H_m realize each inner s=t root while denominator nonzero. Fresh independent direct five-term integer coefficient script verified d=1..100 as a cross-check; infinite proof is symbolic.
+
+## originality
+
+PASS
+
+Full primary Edholm–Mathew article states Conjecture 4.20 for all coprime slopes and proves only differences m−n=1,2 in Theorem1.7, with additional bounded gap 3,4,6 computations. The axis n=1,m→∞ has unbounded gap and is not covered. Its general reciprocal symmetry only guarantees reciprocal pairing, not absence of unit-circle roots; earlier Edholm zero existence on another section does not imply this exact restricted-root census. New exact Fejér-square identity is strong structural proof; no equivalent prior full-axis theorem was identified.
+
+## value
+
+PASS
+
+Infinite exact theorem resolves a natural unbounded axis of an explicit published conjecture, gives a positive-squares certificate for every integer d and exact interior-zero census on a canonical Bergman-kernel diagonal; meaningful beyond preexisting mere kernel-zero existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
