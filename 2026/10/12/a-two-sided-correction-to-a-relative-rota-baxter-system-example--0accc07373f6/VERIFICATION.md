@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,64 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` reconstructs the algebra and representation from first principles.
 
-For the Leibniz bracket
-\[
-[x,y]=x_2(y_1+y_2)e_1,
-\]
-it builds
-\[
-L_x^\ast
-\]
-and
-\[
--L_x^\ast-R_x^\ast
-\]
-and expands both relative Rota–Baxter identities on all four ordered basis pairs.
+# Independent mathematical audit
 
-It separately encodes the fourteen scalar equations printed in Example 2.3 of arXiv:2101.04831v1.
+## correctness
 
-For
-\[
-R=\begin{pmatrix}-2&0\\2&0\end{pmatrix},
-\qquad
-S=\begin{pmatrix}-1&0\\2&0\end{pmatrix},
-\]
-all fourteen printed equations vanish, while the true \(S\)-defect at
-\[
-(e_1^\ast,e_1^\ast)
-\]
-is
-\[
-2e_1.
-\]
+PASS
 
-For
-\[
-R=\begin{pmatrix}-2&-2\\2&0\end{pmatrix},
-\qquad
-S=\begin{pmatrix}-2&2\\2&0\end{pmatrix},
-\]
-all defining defects vanish, while the source's third printed equation has residual
-\[
--8.
-\]
+Independently reconstructed the stated Leibniz bracket [x,y]=x_2(y_1+y_2)e1, dual matrices L_x*=((-x2,0),(-x2,0)) and R_x*=((0,0),(-(x1+x2),0)), and both Definition 2.1 identities on four ordered basis pairs. The printed e1*,e1* S equation replaces required S(-a21(e1*+e2*)) by R of that part; this is visible on the original primary PDF page of Example 2.3. Rational false-positive matrices R=[[-2,0],[2,0]], S=[[-1,0],[2,0]] satisfy all printed polynomials yet actual S defect 2e1. False-negative R=[[-2,-2],[2,0]], S=[[-2,2],[2,0]] satisfies all eight vector identities yet printed third polynomial evaluates -8. In branch a22=b22=t!=0, exact true coordinate equations force a12=a21=b12=b21=-t and 2t(a11-t)=2t(b11-t)=0, hence a11=b11=t in characteristic !=2; direct substitution confirms sufficiency. Independent SymPy symbolic basis reconstruction reproduced witnesses/branch; finite F3,F5,F7 enumeration in package is corroboration, not universal proof.
 
-The checker also verifies symbolically the repaired branch
-\[
-R=S=t\begin{pmatrix}1&-1\\-1&1\end{pmatrix}
-\]
-and exhaustively checks the branch over
-\[
-\mathbf F_3,\quad\mathbf F_5,\quad\mathbf F_7,
-\]
-finding exactly
-\[
-q-1
-\]
-solutions in each case.
+## originality
 
-It returns `VERIFY_OK`.
+PASS
 
-The finite-field enumeration is a replay check. The branch theorem for arbitrary characteristic different from \(2\) is proved symbolically in `RESULT.md`.
+Comparison is against the exact erroneous original source, rather than unrelated Rota–Baxter algebra results. Inspecting the posted v1 primary PDF confirms the printed 14-equation system and inconsistent branch, making this a genuine two-sided correction and exact repaired nonzero branch for that v1. No published erratum surfaced in targeted searches. Journal 2023 full text was not inspected, so no claim that the journal publication retained the error.
+
+## value
+
+PASS
+
+A wrong iff polynomial system creates both spurious and omitted solutions, invalidating classifications built from it. Two explicit witnesses and a complete characteristic-not-2 nonzero branch supply a useful verifiable correction to a concrete published algebraic worked example, not a routine sign typo alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
