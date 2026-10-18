@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source sharp bound is exactly an \(L^{1/(1-p)}\)-norm. Its endpoint density is a finite power-log expansion dominated by the minimal parameter with logarithmic degree one less than its multiplicity. The logarithmic change of variables converts the singular norm into a Gamma integral, and a two-sided endpoint sandwich controls the replacement rigorously. The \(\delta=1\) case follows from the same sandwich plus Stirling's formula. Exact repeated-minimum examples independently reproduce both constants.
+## correctness
 
-## Originality
-PASS. The directly motivating full text supplies the premises but does not state a critical asymptotic for its sharp constant. The closest record-value paper reports only that numerical bounds become extremely large near the border. Candidate-specific searches did not locate the multiplicity-dependent exponents or leading constants. A general regular-variation theorem may subsume the analytic method, and an older restricted-access existence paper remains a residual bibliographic risk, but neither provides decisive coverage in the inspected material.
+PASS
 
-## Value
-PASS. The result quantifies the source's critical finiteness boundary, turning a binary finite/infinite classification into an exact conditioning law. The power \(d-\delta\) for \(\delta<1\) and \(d-1\) at \(\delta=1\) show precisely how repeated minimal GOS parameters amplify near-critical sharp moments.
+PASS: The source sharp bound equals the L^q norm of uniform GOS density, q=(1-p)^(-1). For minimal parameter δ<=1 of multiplicity d, g(1-e^-t)~b exp((1-δ)t)t^(d-1). At δ<1 the dx Jacobian gives Laplace rate β=(δ-p)/(1-p); Gamma integral with shape 1+(d-1)q yields exponent d-p and, at p→δ, d-δ and source-leading b. For δ=1,d>=2, q→∞ and Stirling gives b((d-1)/(e(1-p)))^(d-1); δ=d=1 gives L^∞ limit b. A fixed tail sandwich plus bounded compact contribution controls the replacements. Checks on the exact two-equal-γ case gave normalized ratios tending to one (δ=0.4,0.8,1). Restricted to p<δ<=1, r>=2, fixed positive parameters, positive finite baseline mean.
 
-## Closest literature and limitations
-The closest source is Bieniek and Rychlik, DOI 10.1007/s00362-023-01482-5. Rychlik and Szymkowiak, DOI 10.1007/s10687-022-00449-3, give a closely related qualitative near-border observation for record values. The theorem here is restricted to \(\delta\le1\) and does not analyze the source's different \(\delta>1\) variational regime.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original as precise final theorem, after distinguishing stronger priors and genuine access limitations. Failed search is not proof of novelty; see mathematical implication checks and source inspections.
+
+## value
+
+PASS
+
+PASS: It quantifies a mathematically natural critical threshold already identified by a sharp distribution-free moment theorem; the multiplicity of the extremal GOS parameter controls a genuinely nontrivial blow-up exponent and leading constant, and separates subunit and unit parameter phases. Useful for near-critical sharpness and conditioning of risk bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

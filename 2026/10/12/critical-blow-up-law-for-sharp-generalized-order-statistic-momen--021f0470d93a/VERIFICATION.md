@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,45 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For the exactly solvable repeated-minimum family
-\[
-\boldsymbol\gamma=(\delta,\delta),
-\]
-the uniform-GOS density is
-\[
-g(x)=\delta^2(1-x)^{\delta-1}[-\log(1-x)].
-\]
-Thus, with
-\[
-q=\frac1{1-p},
-\]
-the source's sharp bound evaluates exactly to
-\[
-B((\delta,\delta),p)
-=
-\delta^2\Gamma(q+1)^{1-p}
-\left(\frac{1-p}{\delta-p}\right)^{2-p}.
-\]
-The standalone checker evaluates this identity in logarithmic form and verifies convergence to the predicted normalized constant when \(0<\delta<1\).
+# Independent mathematical audit
 
-At \(\delta=1\), the same family gives
-\[
-B((1,1),p)=\Gamma(q+1)^{1-p},
-\]
-so the checker verifies
-\[
-(1-p)B((1,1),p)\to e^{-1}.
-\]
+## correctness
 
-It also checks the single-parameter exact source formula
-\[
-B((\delta),p)=\delta\left(\frac{1-p}{\delta-p}\right)^{1-p}
-\]
-against the general \(d=1\) limiting constant.
+PASS
 
-Expected successful output begins with:
-`VERIFY_OK subunit_ratio=`.
+PASS: The source sharp bound equals the L^q norm of uniform GOS density, q=(1-p)^(-1). For minimal parameter δ<=1 of multiplicity d, g(1-e^-t)~b exp((1-δ)t)t^(d-1). At δ<1 the dx Jacobian gives Laplace rate β=(δ-p)/(1-p); Gamma integral with shape 1+(d-1)q yields exponent d-p and, at p→δ, d-δ and source-leading b. For δ=1,d>=2, q→∞ and Stirling gives b((d-1)/(e(1-p)))^(d-1); δ=d=1 gives L^∞ limit b. A fixed tail sandwich plus bounded compact contribution controls the replacements. Checks on the exact two-equal-γ case gave normalized ratios tending to one (δ=0.4,0.8,1). Restricted to p<δ<=1, r>=2, fixed positive parameters, positive finite baseline mean.
 
-The numerical tests validate special cases and constants only. The general theorem is established by the analytic endpoint sandwich in `RESULT.md`.
+## originality
+
+PASS
+
+Best-of-knowledge original as precise final theorem, after distinguishing stronger priors and genuine access limitations. Failed search is not proof of novelty; see mathematical implication checks and source inspections.
+
+## value
+
+PASS
+
+PASS: It quantifies a mathematically natural critical threshold already identified by a sharp distribution-free moment theorem; the multiplicity of the extremal GOS parameter controls a genuinely nontrivial blow-up exponent and leading constant, and separates subunit and unit parameter phases. Useful for near-critical sharpness and conditioning of risk bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
