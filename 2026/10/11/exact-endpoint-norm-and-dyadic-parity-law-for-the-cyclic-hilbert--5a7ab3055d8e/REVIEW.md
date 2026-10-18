@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the finite Fourier multiplier, derives the odd/even kernels from finite sine sums, and obtains both endpoint norms from exact circulant row/column sums with explicit equality witnesses. The dyadic identity is an exact reindexing. The asymptotic coefficients follow from a smooth cotangent remainder, harmonic-number expansion, and midpoint Euler--Maclaurin. The bundled verifier checks the finite formulas independently over many sizes.
+## correctness
 
-## Originality
-PASS. The closest inspected finite-length source gives the DFT Hilbert phase prescription but not the sharp endpoint operator norm, dyadic equality, or residue-class asymptotics. The closest infinite-lattice and continuous-quadrature sources concern different operators. Exact-fingerprint and alias searches did not locate an equivalent or stronger statement. Residual risk remains for older signal-processing literature under different terminology.
+PASS
 
-## Value
-PASS. The result determines a natural sharp stability invariant of the canonical finite DFT Hilbert transform for every cycle size, and the exact relation \(L_{2N}=L_N\) for odd \(N\) gives a non-obvious structural sampling law. The three asymptotic classes quantify finite-size effects that are invisible in the leading \((2/\pi)\log N\) growth.
+Frozen RESULT.md SHA 3d4f266fe934b6b71acae252a4070412ea028c9a and verifier SHA 91ea71f6b486b040dfb2c2e329b7437d5d8df5a0 reconstructed for all integers N≥3. Inverse DFT of multiplier -i on positive and +i on negative non-Nyquist modes yields real sine kernel: odd N, K(r)=cot(πr/2N) for odd r and -tan(πr/2N) for even r; even N, K(r)=2cot(πr/N) for odd r and 0 for even r. Circulant normalized convolution has both endpoint ℓ¹,ℓ∞ norms exactly (1/N)Σ|K(r)|, with point mass/sign-pattern equality witnesses. Pair r,N-r to derive claimed odd and even finite cotangent sums; reindex the even N=2m formula for odd m to show L_(2m)=L_m. Smooth g(x)=cot x−1/x, half-integer harmonic sums and midpoint Euler–Maclaurin justify the stated leading log and N^-2 terms in three congruence classes (odd −7π/36, divisible by 4 +2π/9, congruent 2 mod 4 −7π/9), O(N^-4). Separately evaluated these exact formulas and predicted coefficients at selected N with high precision; finite numerics only corroborate general derivation.
 
-## Closest literature and limitations
-Gold--Oppenheim--Rader (1969) supplies the finite DFT phase-shifter construction; De Carli--Samad (arXiv:1506.03362v1) treats the infinite lattice; Fermo--Loi (DOI:10.1007/s10915-025-03044-3) treats circular Hilbert-transform quadrature. None of the inspected material states the all-cycle endpoint norm theorem. The present result does not address sharp intermediate-exponent norms and does not claim novelty for the elementary kernel identity in isolation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Gold–Oppenheim–Rader 1969 already derives finite-length phase and cotangent impulse responses, so such kernel identities are PRIOR, not claimed independently original. Best-of-knowledge novel composite is exact sharp endpoint norm, odd-doubling invariance and three-class second-order asymptotics; accessible older source pages do not state these. Failed Resultary not negative evidence; full older DSP literature remains a plausible exact-priority risk.
+
+## value
+
+PASS
+
+Sharp endpoint amplification factors for a canonical finite DFT Hilbert phase shifter are naturally needed in signal processing and harmonic analysis; exact odd-doubling invariance and arithmetic-residue finite-size errors add meaningful structure beyond a generic ℓ^p boundedness estimate. This specific sequence/invariant has a recognizable mathematical reason, unlike a random finite constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

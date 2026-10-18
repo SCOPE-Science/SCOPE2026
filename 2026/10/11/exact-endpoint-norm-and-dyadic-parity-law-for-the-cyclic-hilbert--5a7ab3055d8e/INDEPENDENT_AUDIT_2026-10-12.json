@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T12:20:06.610322Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frozen RESULT.md SHA 3d4f266fe934b6b71acae252a4070412ea028c9a and verifier SHA 91ea71f6b486b040dfb2c2e329b7437d5d8df5a0 reconstructed for all integers N≥3. Inverse DFT of multiplier -i on positive and +i on negative non-Nyquist modes yields real sine kernel: odd N, K(r)=cot(πr/2N) for odd r and -tan(πr/2N) for even r; even N, K(r)=2cot(πr/N) for odd r and 0 for even r. Circulant normalized convolution has both endpoint ℓ¹,ℓ∞ norms exactly (1/N)Σ|K(r)|, with point mass/sign-pattern equality witnesses. Pair r,N-r to derive claimed odd and even finite cotangent sums; reindex the even N=2m formula for odd m to show L_(2m)=L_m. Smooth g(x)=cot x−1/x, half-integer harmonic sums and midpoint Euler–Maclaurin justify the stated leading log and N^-2 terms in three congruence classes (odd −7π/36, divisible by 4 +2π/9, congruent 2 mod 4 −7π/9), O(N^-4). Separately evaluated these exact formulas and predicted coefficients at selected N with high precision; finite numerics only corroborate general derivation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gold provides finite-length sign-multiplier construction, a dominating kernel formula; other works address ℤ and circle approximations respectively."
+        ],
+        "reasoning": "Published cotangent formula implies the finite row sums mechanically once endpoint operator equality is observed, so kernel by itself is not original. Combined closed cotangent sums, identity L_(2N)=L_N for N odd, and three asymptotic residues require separate exact summation and Euler–Maclaurin and were not found explicitly established.",
+        "searches": [
+          "Resultary search: finite cyclic discrete Hilbert transform endpoint l1 infinity norm cotangent sum odd even dyadic [search_internal_error; search_completed=false; NOT negative evidence]",
+          "Gold–Oppenheim–Rader 1969",
+          "De Carli–Samad arXiv:1506.03362",
+          "Fermo–Loi DOI:10.1007/s10915-025-03044-3"
+        ]
+      },
+      "checked_sources": [
+        "Gold–Oppenheim–Rader (1969), full paper PDF located in earlier primary search",
+        "arXiv:1506.03362 / https://arxiv.org/abs/1506.03362",
+        "DOI:10.1007/s10915-025-03044-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For odd N kernel cot(πr/2N) or −tan; even N nonzero 2cot(πr/N) on odd r. Exact L_(2N)=L_N derives by cotangent index reparametrization. Euler–Maclaurin produces -7π/36,2π/9,-7π/9 coefficients."
+        ],
+        "reasoning": "General multiplier and kernel are covered, but neither a general ℓ^p theorem on ℤ nor finite kernel display alone states the complete endpoint parity law + asymptotic three-way classification without added analysis. Priority may exist in older DSP norm literature.",
+        "searches": [
+          "Resultary search: finite cyclic discrete Hilbert transform endpoint l1 infinity norm cotangent sum odd even dyadic [search_internal_error; search_completed=false; NOT negative evidence]",
+          "Gold–Oppenheim–Rader 1969",
+          "De Carli–Samad arXiv:1506.03362"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite DFT phase shifter has a circulant cotangent/tangent kernel, and ℓ¹/ℓ∞ norms both equal normalized absolute kernel row sum; 1969 primary source has kernel-level cotangent expressions."
+        ],
+        "reasoning": "Kernel reconstruction and phase convention are prior, but the complete exact row-sum values and dyadic parity/explicit residue corrections were not in inspected 1969 passages. Infinite discrete Hilbert ℤ is not ℤ_N.",
+        "searches": [
+          "Resultary search: finite cyclic discrete Hilbert transform endpoint l1 infinity norm cotangent sum odd even dyadic [search_internal_error; search_completed=false; NOT negative evidence]",
+          "Gold–Oppenheim–Rader 1969 Eq.17–18",
+          "De Carli–Samad arXiv:1506.03362"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact norm depends on N and parity; source contains kernel samples but not a tabulated full parity-sensitive endpoint norm and N^-2 coefficients in inspected material."
+        ],
+        "reasoning": "A signal processing impulse-response table is not itself a sharp operator norm theorem with all parity asymptotics; prior kernel values clearly credited.",
+        "searches": [
+          "Resultary search: finite cyclic discrete Hilbert transform endpoint l1 infinity norm cotangent sum odd even dyadic [search_internal_error; search_completed=false; NOT negative evidence]",
+          "Gold–Oppenheim–Rader 1969 Eq.17–18"
+        ]
+      },
+      "rationale": "Gold–Oppenheim–Rader 1969 already derives finite-length phase and cotangent impulse responses, so such kernel identities are PRIOR, not claimed independently original. Best-of-knowledge novel composite is exact sharp endpoint norm, odd-doubling invariance and three-class second-order asymptotics; accessible older source pages do not state these. Failed Resultary not negative evidence; full older DSP literature remains a plausible exact-priority risk.",
+      "residual_risks": [
+        "Gold et al 1969 supplies same cotangent kernel; exact norm could have appeared under DSP “gain” or Lebesgue-constant terminology.",
+        "Unindexed finite DFT row-sum tables/second-order asymptotics may predate this statement.",
+        "Resultary returned search_internal_error, no completed coverage search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the underlying discrete Hilbert kernel/phase construction. Inspected pages do not state the induced endpoint ℓ¹/ℓ∞ norm, odd-to-double endpoint invariant, or three residue-class N^-2 asymptotic coefficients.",
+          "evidence": "Eq. (17)–(18) finite odd-index cotangent kernels (normalization conventions checked before comparing).",
+          "identifier_or_url": "Gold–Oppenheim–Rader (1969), full paper PDF located in earlier primary search",
+          "material_read": "Primary full PDF pages 5–6 individually rendered and read; the published Eq. (17)–(18) includes finite odd-index cotangent response and zero even entries for even cycles.",
+          "method": "Lawful PDF page-text and page-image inspection",
+          "title": "Theory and Implementation of the Discrete Hilbert Transform — Gold, Oppenheim and Rader",
+          "trigger": "Exact same finite-length DFT Hilbert phase samples and cotangent sequence may dominate claimed kernel"
+        },
+        {
+          "assessment": "Infinite-lattice discrete Hilbert transforms differ from finite cyclic DFT operator with DC/Nyquist zeros. Full possible reductions remain priority risk.",
+          "evidence": "Object is infinite ℤ and one-parameter groups, not fixed finite ℤ_N endpoint convolution constants.",
+          "identifier_or_url": "arXiv:1506.03362 / https://arxiv.org/abs/1506.03362",
+          "material_read": "Primary arXiv paper abstract and description of infinite-lattice ℤ operators and ℓ^p properties; not entire full text.",
+          "method": "Lawful arXiv public abstract and indexed primary content",
+          "title": "One-parameter groups of operators and discrete Hilbert transforms — De Carli and Samad",
+          "trigger": "Potential general Hilbert norm theorem with stronger parameter ranges"
+        },
+        {
+          "assessment": "Concerns quadrature approximation of circle Hilbert principal-value operator; no identified exact finite sign-DFT endpoint three-class formula.",
+          "evidence": "Different continuous principal-value approximation and discretization.",
+          "identifier_or_url": "DOI:10.1007/s10915-025-03044-3",
+          "material_read": "Lawful 2025 open-access article HTML abstract and operator setup, read accessible relevant introduction.",
+          "method": "Primary open-access journal HTML",
+          "title": "Approximation of the Hilbert Transform On The Unit Circle — Fermo and Loi",
+          "trigger": "Possible more general circular Hilbert quadrature norm bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp endpoint amplification factors for a canonical finite DFT Hilbert phase shifter are naturally needed in signal processing and harmonic analysis; exact odd-doubling invariance and arithmetic-residue finite-size errors add meaningful structure beyond a generic ℓ^p boundedness estimate. This specific sequence/invariant has a recognizable mathematical reason, unlike a random finite constant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gold–Oppenheim–Rader (1969), full paper PDF located in earlier primary search",
+    "arXiv:1506.03362 / https://arxiv.org/abs/1506.03362",
+    "DOI:10.1007/s10915-025-03044-3"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "N≥3; normalized counting measure, zero DC and Nyquist; only endpoint p=1,∞, no intermediate exponents.",
+    "Asymptotics rely on analytic Euler–Maclaurin; sampled tests cannot establish O(N^-4)."
+  ],
+  "residual_risks": [
+    "Gold et al 1969 supplies same cotangent kernel; exact norm could have appeared under DSP “gain” or Lebesgue-constant terminology.",
+    "Unindexed finite DFT row-sum tables/second-order asymptotics may predate this statement.",
+    "Resultary returned search_internal_error, no completed coverage search."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS the underlying discrete Hilbert kernel/phase construction. Inspected pages do not state the induced endpoint ℓ¹/ℓ∞ norm, odd-to-double endpoint invariant, or three residue-class N^-2 asymptotic coefficients.",
+      "evidence": "Eq. (17)–(18) finite odd-index cotangent kernels (normalization conventions checked before comparing).",
+      "identifier_or_url": "Gold–Oppenheim–Rader (1969), full paper PDF located in earlier primary search",
+      "material_read": "Primary full PDF pages 5–6 individually rendered and read; the published Eq. (17)–(18) includes finite odd-index cotangent response and zero even entries for even cycles.",
+      "method": "Lawful PDF page-text and page-image inspection",
+      "title": "Theory and Implementation of the Discrete Hilbert Transform — Gold, Oppenheim and Rader",
+      "trigger": "Exact same finite-length DFT Hilbert phase samples and cotangent sequence may dominate claimed kernel"
+    },
+    {
+      "assessment": "Infinite-lattice discrete Hilbert transforms differ from finite cyclic DFT operator with DC/Nyquist zeros. Full possible reductions remain priority risk.",
+      "evidence": "Object is infinite ℤ and one-parameter groups, not fixed finite ℤ_N endpoint convolution constants.",
+      "identifier_or_url": "arXiv:1506.03362 / https://arxiv.org/abs/1506.03362",
+      "material_read": "Primary arXiv paper abstract and description of infinite-lattice ℤ operators and ℓ^p properties; not entire full text.",
+      "method": "Lawful arXiv public abstract and indexed primary content",
+      "title": "One-parameter groups of operators and discrete Hilbert transforms — De Carli and Samad",
+      "trigger": "Potential general Hilbert norm theorem with stronger parameter ranges"
+    },
+    {
+      "assessment": "Concerns quadrature approximation of circle Hilbert principal-value operator; no identified exact finite sign-DFT endpoint three-class formula.",
+      "evidence": "Different continuous principal-value approximation and discretization.",
+      "identifier_or_url": "DOI:10.1007/s10915-025-03044-3",
+      "material_read": "Lawful 2025 open-access article HTML abstract and operator setup, read accessible relevant introduction.",
+      "method": "Primary open-access journal HTML",
+      "title": "Approximation of the Hilbert Transform On The Unit Circle — Fermo and Loi",
+      "trigger": "Possible more general circular Hilbert quadrature norm bounds"
+    }
+  ]
+}
