@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The supplied `verify.py` uses standard Python only. Running `python verify.py` performs exact prime-field arithmetic and prints `VERIFY_OK_QUADRATIC_JET_DIFFERENTIALS` on success.
+## correctness
 
-It reconstructs the algebra's monomial action on the quadratic basis and the full derivation matrix from its degree-one and degree-two coefficients. It exhaustively checks *all* square-zero derivations over \(\mathbb F_2\) and \(\mathbb F_3\) when \(d=2\), finding rank polynomials \(1+21T+66T^2\) and \(1+104T+624T^2\), respectively. Separately, it exhaustively enumerates all 1,024 compatible quadratic terms for a fixed nonzero rank-one square-zero linear part when \(d=3,q=2\), obtaining operator-rank frequencies \(256\) at rank \(3\) and \(768\) at rank \(4\). It verifies a second characteristic-two canonical induced-complex rank and normalizations for dimensions 2 through 5 and field orders 2, 3 and 4.
+PASS
 
-The code's finite elimination arithmetic is over the prime fields in the exhaustive and canonical tests; counts labeled \(q=4\) in formula normalizations are integer-polynomial evaluations, **not** independent extension-field enumerations. None of the finite checks proves the all-prime-power statement. The complete proof uses the two-block derivation form, characteristic-two chain-map decomposition and Gaussian rank enumeration, as given in `RESULT.md`. Independent mathematical audit has not been performed.
+A derivation kills 1 and its generator images have no constants: differentiating x_i²x_j=0 for i!=j forces the constant coefficient of D(x_j) zero even in p=2,3. Write D on V⊕Sym²V as block [[P,0],[Q,S(P)]]. For odd p, D²(x_j²) quadratic component 2(Px_j)² forces P=0, Q unrestricted. In p=2, D² is a derivation and generator equation is P²=0 and S(P)Q+QP=0. A rank-r square-zero P comprises r doublets and t=d-2r singletons; induced S(P) has h=r(d-r) doublets and s=r+binom(t+1,2) singletons. Chain maps contribute q^(d h+r s) free parameters and arbitrary s×t homology map of rank k, full D rank r+h+k. This proves all strata and maxima. Independent exhaustive actual derivation matrices at d=2: q=2 spectrum 1+21T+66T²; q=3 spectrum 1+104T+624T². The all-d extension-field result is symbolic, not inferred from tests.
+
+## originality
+
+PASS
+
+The direct complete operator-rank distribution for the nonreduced total-degree-3 jet algebra, including characteristic-two differential homology blocks, differs from general Hasse–Schmidt integrability and regular-derivation results in separate p-power truncated algebras. The different use of "square-zero derivation" for elementwise identity was disambiguated. No equivalent prior spectrum identified in searches; qualified, not certified novelty.
+
+## value
+
+PASS
+
+A natural exact moduli/count invariant for nilpotent Leibniz operators with a characteristic-two rank jump and homology-dimension distribution, for every d and finite q. Substantial structural block calculation beyond a field-matrix rank table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

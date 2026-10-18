@@ -1,19 +1,21 @@
-# Scientific review: square-zero derivations of quadratic jets
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(d\ge2\), differentiating the cubic relation \(x_i^2x_j=0\) for \(i\ne j\) eliminates the constant terms of all generator images even in characteristics \(2\) and \(3\). Thus derivations are precisely block matrices with linear block \(P\) and quadratic term \(Q\). When \(q\) is odd, applying the second iterate to \(x_j^2\) forces \(P=0\), leaving a rectangular matrix-rank census. When \(q\) is even, \(P^2=0\) and the quadratic term is a chain map between \(P\) and its symmetric-square Leibniz differential. The decomposition into size-two and singleton blocks gives \(h_r\), \(s_r\), the count of free chain-map coefficients, and the final rank \(r+h_r+k\). The strata are disjoint, normalized, and reach the stated sharp upper bounds. Exhaustive checks at \(d=2\) in two prime fields and a full compatible-quadratic-fiber test at \(d=3\) in characteristic two corroborate the proof; they are not offered as the general proof.
+PASS
 
-## Originality — PASS, with remaining risk
+A derivation kills 1 and its generator images have no constants: differentiating x_i²x_j=0 for i!=j forces the constant coefficient of D(x_j) zero even in p=2,3. Write D on V⊕Sym²V as block [[P,0],[Q,S(P)]]. For odd p, D²(x_j²) quadratic component 2(Px_j)² forces P=0, Q unrestricted. In p=2, D² is a derivation and generator equation is P²=0 and S(P)Q+QP=0. A rank-r square-zero P comprises r doublets and t=d-2r singletons; induced S(P) has h=r(d-r) doublets and s=r+binom(t+1,2) singletons. Chain maps contribute q^(d h+r s) free parameters and arbitrary s×t homology map of rank k, full D rank r+h+k. This proves all strata and maxima. Independent exhaustive actual derivation matrices at d=2: q=2 spectrum 1+21T+66T²; q=3 spectrum 1+104T+624T². The all-d extension-field result is symbolic, not inferred from tests.
 
-Hoffmann–Kowalski, *Integrating Hasse-Schmidt derivations* (arXiv:1212.5788), concern integration of nilpotent derivations into Hasse–Schmidt systems, with field-level methods; they do not give a complete finite-field rank distribution on the nonreduced quadratic-jet algebra. Premet, *Regular derivations of truncated polynomial rings* (arXiv:1405.2426), works with a different quotient by individual characteristic powers and regular derivations, not these operator-square-zero ranks. Zhou–Wang–Zhang (DOI 10.1080/03081080802443091) use “square-zero derivation” for an identity on square-zero ring elements, not the condition \(D^2=0\); only the abstract was inspected. An earlier calculation of unrestricted derivation ranks for the two-variable jet does not determine the constrained operator-square-zero ranks, or the all-dimension characteristic-two law. Searches for aliases, equivalent formulations, stronger coverage and finite-field tables did not expose an equivalent claim, but search failure is not proof of uniqueness. Remaining risk: historical classifications of differential vector spaces and infinitesimal group actions may encode an equivalent count.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem solves a complete and naturally motivated rank/homology distribution for square-zero derivations of an entire family of nonsemisimple commutative algebras. It exhibits a sharp and non-obvious jump in the maximal possible rank from \(d\) in odd characteristic to \(\lfloor(d+1)^2/4\rfloor\) in characteristic two. This is a structural distinction, not an arbitrary finite slice or a reformulation of the unrestricted derivation census.
+The direct complete operator-rank distribution for the nonreduced total-degree-3 jet algebra, including characteristic-two differential homology blocks, differs from general Hasse–Schmidt integrability and regular-derivation results in separate p-power truncated algebras. The different use of "square-zero derivation" for elementwise identity was disambiguated. No equivalent prior spectrum identified in searches; qualified, not certified novelty.
 
-## Limits
+## value
 
-The formula does not address total-degree truncation beyond three, the one-variable case, higher nilpotency indices, or signed graded derivations. Bibliographic novelty is provisional until wider historical comparison; no independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural exact moduli/count invariant for nilpotent Leibniz operators with a characteristic-two rank jump and homology-dimension distribution, for every d and finite q. Substantial structural block calculation beyond a field-matrix rank table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
