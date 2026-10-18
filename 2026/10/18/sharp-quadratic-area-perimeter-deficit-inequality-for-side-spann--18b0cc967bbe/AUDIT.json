@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact corner decomposition holds when every open side is represented. For \\(x,y>0\\), \\(d/(x+y)\\) is at least \\(\\sin(\\theta/2)\\), and the ratio \\(v/u^2\\) increases strictly in \\(d/(x+y)\\), proving \\(v\\ge\\kappa u^2\\). The algebraic corner slack is an exact identity, including zero gaps by continuity. Weighted Cauchy gives \\(\\Delta_A\\ge C\\Delta_P^2\\) and the displayed variance identity. All nontrivial equality cases require balanced positive cuts and equal \\(\\kappa u\\); a single small common parameter makes them geometrically feasible on every given polygon, proving sharpness. A standalone checker independently verified 1800 random hull instances and 3 equality examples. Numerical checks are not offered as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Indrei, arXiv:1502.05978, Theorem 1.1 and main proof concern shape deviation of one polygon from a regular polygon. Reitzner–Schütt–Werner, arXiv:1911.05917, concern expected random-polytope face counts and volume deficits."
+      ],
+      "reasoning": "A theorem allowing arbitrary inscribed sets with the same angle-sharp constant would dominate this result; none appeared in the examined primary full text. The inequality is not a direct consequence of the polygonal isoperimetric bound because the latter relates area and perimeter of one body, not simultaneous losses relative to a prescribed outer body.",
+      "searches": [
+        "bonnesen inequality polygon nested perimeter deficit squared area deficit angular weighted cauchy schwarz",
+        "inscribed polygon area deficit perimeter deficit sharp quadratic inequality"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1911.05917",
+      "arxiv:2404.02870",
+      "arxiv:1502.05978",
+      "Schütt–Werner 2003 boundary-random polytopes PDF",
+      "semantic mathematical-record searches on nested deficits, corner clipping, and polygon approximation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Reitzner–Schütt–Werner (arXiv:1911.05917) gives expected random-polytope volume and combinatorial asymptotics. Prochno–Schütt–Sonnleitner–Werner (arXiv:2404.02870) gives Hausdorff error laws. Earlier one-functional corner decomposition results explain exact u and v but do not state or optimize \\(\\Delta_A/\\Delta_P^2\\), provide the angle-specific best constant or classify all finite-configuration extremizers."
+      ],
+      "reasoning": "Although the exact corner decomposition is shared background and should not be claimed as new, a separate sharp optimization and quantitative rigidity analysis is required. Results for expectations or marginal distributions do not imply a deterministic best possible inequality or explicit attainable equality configuration. Residual risk: an elementary inequality or previous nested-polygon theorem may cover it under different terminology.",
+      "searches": [
+        "random polytope Hausdorff approximation polygon boundary iid points angular vertex law",
+        "boundary-uniform iid points convex polygon joint limit law rescaled missing perimeter and missing area exponential vertex gaps covariance full Laplace transform",
+        "convex polygon Poisson sampled boundary missing perimeter angle deficit fluctuation independent exponential pairs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In the result, each corner obeys \\(v\\ge\\kappa u^2\\) and weighted Cauchy gives the unique optimal global coefficient. The source arXiv:1502.05978 studies \\(\\delta(P)=P(P)^2-4m\\tan(\\pi/m)A(P)\\), not paired deficits P(K)-P(H), A(K)-A(H)."
+      ],
+      "reasoning": "The likely alias is a quadratic or Bonnesen-type nested-polygon deficit bound; existing standalone-polygon isoperimetric inequalities do not identify this fixed-outer polygon, side-spanning class or its angular equality patterns.",
+      "searches": [
+        "sharp inequality area deficit at least angle-dependent constant times squared perimeter deficit for inscribed convex polygons with at least one vertex on each polygon side; equality configuration",
+        "\"perimeter deficit\" \"area deficit\" polygon chord truncation sharp inequality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The coefficient is explicitly \\(C(K)=[\\sum_i 8(1-\\sin(\\theta_i/2))^2/\\sin\\theta_i]^{-1}\\), which depends on all angles. Semantic mathematical-record matches concerned polygon isoperimetric stability or boundary-hull one-functional statistics, not a table of these exact constants for fixed outer polygons."
+      ],
+      "reasoning": "The new coefficient is not an entry in an examined exact-value table; a general isoperimetric coefficient or one-corner trigonometric identity cannot itself certify global attainment with independently constrained cuts at all vertices.",
+      "searches": [
+        "corner clipping convex polygon area loss versus perimeter shortening chord ratio bound, optimal constant, balanced cut off lengths",
+        "sharp inequality area deficit at least angle-dependent constant times squared perimeter deficit for inscribed convex polygons with at least one vertex on each polygon side; equality configuration"
+      ]
+    },
+    "rationale": "The sharp finite nested-polygon comparison between area deficit and the square of perimeter deficit, its exact optimal angle coefficient, globally attainable equality pattern, and two-term quantitative slack are not statements or consequences of the examined primary theorems on boundary-random expectation/Hausdorff error or on the shape-isoperimetric deficit. Actual semantic database and published-source searches found no equivalent statement. The elementary geometric corner decompositions are standard and not presented as new; the global sharp variational law is the claimed result.",
+    "residual_risks": [
+      "An earlier nested-polygon Bonnesen-type bound under another name, a geometry contest treatment, or a less indexed source may already contain the same sharp coefficient.",
+      "The very long classical boundary sampling chapter was examined selectively rather than in full.",
+      "Originality is a self-review, not an independent exhaustive priority determination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the angle-specific sharp finite-configuration nested deficit inequality.",
+        "evidence": [
+          "Theorems address expected faces and expected volume deficit of random hulls, not all side-spanning inscribed polygons or joint area/perimeter stability."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+        "material_read": "Full accessible arXiv HTML theorem statements, introduction, proof sections and appendix context",
+        "method": "Compared observables and quantifiers to paired deterministic area/perimeter deficits",
+        "title": "The convex hull of random points on the boundary of a simple polytope",
+        "trigger": "Same boundary-sampled polygon approximation model"
+      },
+      {
+        "assessment": "Different functional and asymptotic law; not a deterministic best angle coefficient.",
+        "evidence": [
+          "Fixed-polygon Hausdorff error law measures a maximal vertex-to-hull distance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.02870",
+        "material_read": "Open-access full journal HTML, introductory theorem, proof, limitations",
+        "method": "Compared Hausdorff vertex-distance limit to chord-perimeter shortening and removed corner area",
+        "title": "Random approximation of convex bodies in Hausdorff metric",
+        "trigger": "Fixed polygon boundary-sampled hulls and corner geometry"
+      },
+      {
+        "assessment": "Noncoverage: one-polygon shape stability is not the two-polygon nested deficit statement.",
+        "evidence": [
+          "The paper defines a standalone n-gon isoperimetric deficit and controls shape variance; it does not quantify simultaneous losses from a fixed polygon under side-spanning inscription."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1502.05978",
+        "material_read": "Full open-access HTML: introduction, Theorem 1.1, proof and the isoperimetric deficit definition",
+        "method": "Compared δ(P)=P(P)²-4m tan(π/m)A(P) with \\(\\Delta_A\\ge C(K)\\Delta_P^2\\) for nested fixed outer K",
+        "title": "A sharp lower bound on the polygonal isoperimetric deficit",
+        "trigger": "Potentially dominating sharp area/perimeter inequality"
+      },
+      {
+        "assessment": "Examined material does not assert the finite angle-specific area/perimeter inequality; rest of long paper is a residual coverage risk.",
+        "evidence": [
+          "Abstract proves an asymptotic expected volume law involving curvature and positive boundary sampling densities."
+        ],
+        "identifier_or_url": "https://case.edu/artsci/math/werner/publications/rpbd.pdf",
+        "material_read": "Original PDF title, abstract, detailed contents, and volume-approximation introductory statements; entire 185-page text not exhaustively compared",
+        "method": "Identified the primary asymptotic symmetric-difference volume objective and smooth-body sampling regularity",
+        "title": "Polytopes with vertices chosen randomly from the boundary of a convex body",
+        "trigger": "Classical boundary-random-approximation framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "18b0cc96-7bbe-4d94-aa5e-42389a61d555",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For any fixed outer convex polygon this solves a natural finite approximation question: how little area can an inscribed side-spanning hull lose for a given perimeter loss? The optimal constant is explicit for every angle pattern and is attained at genuine nondegenerate sample configurations. The exact two-term nonnegative deficit identity gives a quantitative rigidity interpretation distinguishing within-corner imbalance from between-corner allocation, useful for evaluating deterministic or randomly sampled approximants. This is not merely a numerical table, parameter substitution, or an asymptotic restatement of one marginal limit.",
+    "status": "PASS"
+  }
+}
