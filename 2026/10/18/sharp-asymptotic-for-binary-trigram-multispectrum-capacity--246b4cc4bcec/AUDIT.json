@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The de Bruijn representation has incidence rank 3 and one independent total constraint, leaving four flow dimensions. Each of 13 distinct endpoint divergences has asymptotic unrestricted count \\(m^4/288+O(m^3)\\). The balanced series is exactly \\(\\frac{1+z^3}{(1-z)^2(1-z^2)(1-z^3)(1-z^4)}\\), yielding \\(m^4/288+O(m^3)\\); adding two-edge paths sandwiches other sectors. Disconnected supports lie in a union of eight codimension-at-least-one boundary faces because a strictly positive solution exists for large m, hence at most O(m^3). Exact independent computational set comparisons pass for n=3..15 and balanced coefficient checks for m=0..60. Computations are only corroborative, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jacquet-Szpankowski (2004), §3.4, specifies an m^r by m sparse transition representation and formulas for words in a fixed type, not an enumeration of all types.",
+        "Jacquet-Knessl-Szpankowski (2009), opening remarks and Theorem 1, addresses cyclic unrestricted first-order alphabet matrices; its complete four-symbol chain would have 16 potential edges, not the eight valid binary trigrams.",
+        "Gabrys-Milenkovic (2018), Theorem discussions and §II–IV, focuses read-length regimes near logarithmic in n and generic upper bounds."
+      ],
+      "reasoning": "A more general Markov theorem would cover the result only if it counts all sparse de Bruijn edge-flow types with exact leading coefficients and handles free linear endpoints. The inspected theorems do not provide that specialization. The 2009 informal instruction to replace m with m^r does not preserve the de Bruijn allowed-edge matrix and cannot supply the coefficient 13/288 by direct substitution.",
+      "searches": [
+        "Markov Types Again Revisited Jacquet Knessl Szpankowski arxiv 2009",
+        "Jacquet Szpankowski 2004 markov types minimax redundancy full text pdf Szpankowski",
+        "Counting Markov Types Balanced Matrices Eulerian Graphs preprint pdf",
+        "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+        "Second order Markov type counting binary de Bruijn 3-gram frequency vectors 13/288 n^4 maximum exact 3-read reconstruction code"
+      ]
+    },
+    "checked_sources": [
+      "https://dmtcs.episciences.org/en/articles/2768",
+      "https://www.cs.purdue.edu/homes/spa/papers/markov-types.pdf",
+      "https://www.cs.purdue.edu/homes/spa/papers/red-f-markov.pdf",
+      "https://arxiv.org/abs/1804.04548",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jacquet-Szpankowski (2004): class occupancy generating functions and Euler-path counts are conditioned on a fixed type; summing over all different types requires an additional distinct-flow enumeration not evaluated there.",
+        "Jacquet-Knessl-Szpankowski (2009): their cyclic first-order m-symbol complete directed graph has m^2 allowed transitions; taking m=4 changes the edge system and would not count binary three-mers.",
+        "Gabrys-Milenkovic (2018): L-multispectrum code definitions imply an optimal code has one representative per observed class, but their bounds do not evaluate the exact fixed L=3 feasible-profile leading constant.",
+        "Indexed L=2 count contributes one example of a different flow polytope, not a recurrence for L=3.",
+        "The composition-spectrum r=2 result merges 01 with 10 and has no three-letter observation, so it cannot imply the present trigram counting theorem."
+      ],
+      "reasoning": "The present claim requires four-dimensional sparse binary second-order balanced flows, the pole coefficient \\(1/288\\), twelve distinct nonbalanced linear endpoint sectors, and a proof disconnected boundary vectors contribute at most order \\(n^3\\). These steps are not jointly present or implied in inspected results. Risk remains of an unindexed earlier calculation or a broad lattice-flow formula not seen in the checked material.",
+      "searches": [
+        "Number of distinct length-three substring multisets bigram trigram spectra binary words Markov type Euler trail reconstruction code exact",
+        "Unique Reconstruction of Coded Strings from Multiset Substring Spectra 2018 arxiv 1804.04548 April 2018",
+        "count number types second order Markov chains binary alphabet n^4 constant",
+        "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jacquet-Szpankowski (2004), https://www.cs.purdue.edu/homes/spa/papers/red-f-markov.pdf, §3.4: order-two contexts form sparse de Bruijn transitions, but enumerated objects are strings per prescribed type.",
+        "Jacquet-Knessl-Szpankowski (2009/2010), https://www.cs.purdue.edu/homes/spa/papers/markov-types.pdf, §1–2: counts balanced cyclic first-order transition matrices; states a higher-order extension only informally.",
+        "Gabrys-Milenkovic, https://arxiv.org/pdf/1804.04548, §II: defines the same linear complete L-multispectrum but not the displayed Q_3(n) asymptotic.",
+        "The published r=2 length-limited composition reconstruction result treats only unordered length-one and length-two substring compositions, not ordered contiguous trigrams."
+      ],
+      "reasoning": "Equivalent names include length-three contiguous substring multiplicity vector, binary second-order empirical Markov type, binary trigram profile, and Euler-flow type of the order-two de Bruijn digraph. The proposed invariant counts distinct feasible edge vectors with free endpoints; none of the inspected source theorems gives the thirteen-sector asymptotic constant 13/288.",
+      "searches": [
+        "Binary length-three k-mer profile number distinct spectra 13 over 288 fourth degree asymptotic",
+        "Trigram spectrum number of distinct k-mer multisets binary words length n asymptotic order n^4 Euler trails",
+        "count number types second order Markov chains binary alphabet n^4 constant",
+        "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+        "Sharp asymptotic binary trigram multispectrum capacity Q3(n)=13/288 n^4+O(n^3) 13 endpoint flow sectors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus finding 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71: exact L=2 count of order n^2, with stated L>2 out of scope.",
+        "Other nearby published-finding corpus result 2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e observes unordered two-substring compositions, not contiguous three-bit word patterns.",
+        "Exact finite checks here: Q_3(10)=363, Q_3(15)=1880, Q_3(20)=6123, Q_3(23)=10876; these were verified directly or dynamically, not copied from a published table.",
+        "Full RESULT.md of 2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e was inspected; its formulas count unordered pair compositions, not ordered length-three factors."
+      ],
+      "reasoning": "Queries for the literal coefficient, cubic/trigram Markov type, Euler-flow and reconstruction synonyms did not return an indexed table or database entry asserting the full asymptotic coefficient. A failed search alone is not a proof of novelty; detailed primary-source implications were separately checked.",
+      "searches": [
+        "Number of distinct length-three substring multisets bigram trigram spectra binary words Markov type Euler trail reconstruction code exact",
+        "Markov types number of different empirical triple distributions binary sequences 13/288",
+        "\"13/288\" binary trigram Markov types",
+        "De Bruijn graph 2 binary words 3 gram types enumeration four degree Ehrhart",
+        "Binary trigram multiset profiles count dimension four disconnected Eulerian support 13/288"
+      ]
+    },
+    "rationale": "The strongest accessible original sources were inspected at their relevant theorem and higher-order sections. The 2004 Markov analysis gives class multiplicities and redundancy, not the number of distinct linear order-two types. The 2009/2010 first-order cyclic Markov enumeration concerns complete transition graphs and omits sparse binary second-order endpoints. Gabrys and Milenkovic give a general multispectrum code framework without the fixed three-mer capacity constant. The closest indexed result is for two-mers, not three-mers. No checked primary theorem states or implies the rational balanced-flow series and thirteen-sector coefficient. Standard counting methods themselves are not claimed as original.",
+    "residual_risks": [
+      "An unindexed enumeration under second-order empirical distributions, flow polytopes, or de Bruijn Markov types might already give 13/288.",
+      "General Ehrhart/flow counting frameworks could imply the coefficient after a nontrivial specialization, but no checked theorem provides the specialization outright.",
+      "A self-review does not replace external mathematical peer review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_COVER_CLAIM",
+        "evidence": "The higher-order section defines sparse context edges kw,j and evaluates how many strings of a given k arise, followed by redundancy; no theorem evaluates distinct k as a function of n, much less the exact leading coefficient for binary second-order linear k.",
+        "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/red-f-markov.pdf",
+        "material_read": "Full 22-page author-hosted manuscript, specifically definitions, §3.2–3.4 and pp. 18–19 higher-order Markov section.",
+        "method": "Primary full-text PDF and page inspection.",
+        "title": "Markov Types and Minimax Redundancy for Markov Sources",
+        "trigger": "Exact order-two Markov de Bruijn transition types might dominate the claimed fixed-length trigram enumeration."
+      },
+      {
+        "assessment": "DOES_NOT_COVER_CLAIM",
+        "evidence": "Its theorem counts cyclic first-order balanced complete m-by-m transition matrices with coefficient d(m); the short higher-order comment neither evaluates sparse de Bruijn type count nor open-end 13-sector constant.",
+        "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/markov-types.pdf",
+        "material_read": "Full 14-page author-hosted PDF, especially pp. 1–7, first-order matrix formulas, theorem and the higher-order remark.",
+        "method": "Primary full-text PDF and page inspection.",
+        "title": "Markov Types Again Revisited / Counting Markov Types",
+        "trigger": "Published asymptotic Markov-type enumeration, including a remark about higher orders."
+      },
+      {
+        "assessment": "DOES_NOT_COVER_CLAIM",
+        "evidence": "Their defined M_L is the same multiset of contiguous length-L strings, but results concern construction, noisy spectra and larger L, with no polynomial Q_3(n) coefficient.",
+        "identifier_or_url": "https://arxiv.org/pdf/1804.04548",
+        "material_read": "Full 17-page open-access preprint, especially §§I–IV and reconstruction bounds, appendix scan for fixed L=3.",
+        "method": "Primary full-text PDF and page inspection.",
+        "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+        "trigger": "Primary source defining precisely the observed L-multispectra and coding optimum."
+      },
+      {
+        "assessment": "DOES_NOT_COVER_CLAIM",
+        "evidence": "The theorem counts adjacent-pair profiles M_2 with quadratic formulas; its limitations explicitly exclude larger read lengths.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+        "material_read": "Complete published RESULT.md, including exact theorem, proof and stated read-length-two limitations.",
+        "method": "Public primary repository file read.",
+        "title": "Exact binary two-multispectrum code size and singleton classification",
+        "trigger": "Closest published indexed count of complete binary substring multispectra."
+      },
+      {
+        "assessment": "DOES_NOT_COVER_CLAIM",
+        "evidence": "Records unordered compositions of contiguous substrings of lengths one and two. Pair orientations 01 and 10 are merged and no length-three content is observed, so neither the statistic nor the quartic capacity is addressed.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+        "material_read": "Complete published RESULT.md, including definitions, proof, relationship to prior work and limitations.",
+        "method": "Public primary repository file read.",
+        "title": "Exact binary r=2 length-limited composition reconstruction",
+        "trigger": "Potential dominating result about length-constrained substring multisets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "246b4cc4-bcec-4c06-9abb-df60954b563a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "\\(Q_3(n)\\) is the precise natural maximum size of a binary linear length-three read-spectrum reconstruction code. Its quartic growth and sharp coefficient \\(13/288\\) distinguish feasible sparse Markov types from unconstrained eight-component compositions and reflect twelve additional boundary endpoint sectors. A general lower-order formula is not required for this practically motivated fixed-read invariant.",
+    "status": "PASS"
+  }
+}
