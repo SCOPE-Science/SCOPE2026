@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The general proof explicitly identifies the entire Alexander dual using the absence of short cycles; each connected \(k\)-set induces a tree and removing an internal vertex provides a codimension-one face contained in no other connected \(k\)-simplex. The resulting unit diagonal in the integral boundary map ensures independent, primitive top attachments. Integral dual homology and Alexander duality give exact ranks; the complete two-skeleton of the cut complex supplies simple connectivity, making Hurewicz and Whitehead applicable. The provided executable reproduces the relevant dual face and boundary tests for 23 finite graph/parameter pairs, including noncactus graphs. These computations are corroborative, not a general proof. Boundaries \(k\ge3\), \(N\ge k+4\), and graph girth \(\ge k+2\) are explicit.
+## correctness
 
-**Originality — PASS, with residual risks.** Bayer et al., arXiv:2304.13675, Theorem 6.1 and Proposition 6.2, already show the lower skeleton, the Euler characteristic, and homology possibly in two degrees. Their Theorem 6.4 treats only \(k=2\), and their forest/cycle results are special cases. Bayer et al., arXiv:2407.08158, covers special squared paths and grids, not general high-girth graphs. Chandrakar, arXiv:2512.21755, proves only three-cut shellability for hexagonal grids and poses higher-cut questions. The new private-face lemma eliminates the remaining homological degree and yields the unrestricted high-girth sphere-wedge homotopy type. Targeted mathematical-index searches and comparisons to related published mathematical findings did not identify the theorem. A search miss cannot prove novelty, and unindexed/unfinished equivalent results remain possible.
+PASS
 
-**Value — PASS.** The finding answers a natural topological part of the higher-cut hexagonal-grid direction by computing all four-cut homotopy types throughout an infinite family, and works for arbitrary high-girth graphs (including noncactus graphs) at every sufficiently large \(k\), not merely an isolated example or a numerical table. The degree formula makes the four-cut sphere count computable directly from graph degrees. The structural primitive-boundary argument is reusable. Shellability remains open where not already known; the result does not claim it.
+Reconstructed ordinary (not total) k-cut complex with facets complements of disconnected k-sets, k≥3,N≥k+4 and girth≥k+2 (forests have infinite girth). Every (k+1)-set induces a forest; deleting a suitable vertex leaves a disconnected k-subset, establishing the full (N-k-2)-skeleton. The Alexander dual consists exactly of all faces of cardinality ≤k−1 plus top (k−1)-simplices indexed by connected k-sets. Each connected k-set is a tree; remove a degree≥2 vertex to get a disconnected (k−1)-set S. Any different connected S∪{z} must join two original components, producing a cycle inside k+1 vertices, forbidden. Thus each top simplex has its own private lower face, giving a diagonal ±1 minor and split injection of top boundary columns into integral cycles of the full (k−2)-skeleton. Consequently dual reduced cohomology is free in degree k−2 with rank binom(N−1,k−1)−c_k; Alexander duality gives the claimed sole nonzero integral homology of Δ in dimension d=N−k−1. Since its full (d−1)-skeleton with d≥3 makes it simply connected, Hurewicz then homology Whitehead identifies the wedge of d-spheres (including rank0 contractible). For k=4, every connected induced four-set is a P4 or 3-star by girth; unique middle edge or center gives exact degree formula. Independently enumerated C9 k4 connected sets 9 (47 spheres); two-/three-hex chains have c4=20/34, predicted 64S5 and 252S9, matching degree sums. Finite checks corroborate but are not the proof for all graphs.
 
-The closest literature is Bayer et al. (2024), Theorem 6.1 and Proposition 6.2; Bayer et al. (2025), Sections 4–5; Chandrakar (2025), Question 5.1. All are materially inspected in the publicly accessible full preprints. A competing unindexed proof, and stronger conclusions outside the hypothesis range, are residual risks.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for all-k (especially k≥4) homotopy classification under girth ≥k+2, distinct from Bayer et al. 2023 existing complete-skeleton and Euler-characteristic results. The decisive new assertion is top-dimensional integral homology concentration and consequent wedge without shellability, proved by a private codimension-one face for every connected k-set. The indexed three-cut high-girth published SCOPE statement is explicitly a k=3 special case, and does not imply the universal k≥4 assertion. Previously known forest, cycle and k=2 cases are credited, not treated as new.
+
+## value
+
+PASS
+
+Meaningful general natural structural theorem: removes the unresolved lower-degree homology allowed by the prior general face-lattice theorem and yields unconditional integral homotopy type on a broad class of high-girth graphs for every k≥3, without proving shellability. Explicit k4 degree-invariant formula covers any girth-six graph and precise hex-chain benchmarks. The private-face lemma is nonstandard and mathematically useful, not a routine rescaling of Euler characteristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
