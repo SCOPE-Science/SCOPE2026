@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Nonempty selected original edges meet at least two parts, so every unused original vertex has a permanently observed edge into the selected endpoint set. The initially unseen line-graph vertices are precisely edges among unused vertices. A cycle cannot be forced, because the first observed edge of that cycle would require forcing from a vertex adjacent to two unobserved cycle edges. Conversely leaf elimination in an unused-edge forest works using the observed boundary edge at the leaf. The complete-multipartite forest classification is exactly one nonempty part or two with a part of size one. Inclusion–exclusion on used vertices yields the polynomial. Minimum-size rook and triangular sets are exhaustively classified by row-support and matchings/one wedge, respectively. An independent direct forcing simulation agreed for 27 graph profiles and 255318 subsets.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Girish–Asiri–Somasundaram 2026, Theorem 2.1, induces a line-graph PDS from a vertex PDS but does not characterize all line-graph PDSs.",
+        "Brimkov et al. 2018 Section 4 examines paths, cycles, stars, block/threshold constructions, not line graphs of arbitrary complete multipartite graphs."
+      ],
+      "reasoning": "The more general source theorem about power-domination polynomials is an algorithmic identity, and the general line-graph transformation is one-way. Neither gives this equivalence or all-set count as a corollary. Potential unindexed coverage is retained as risk.",
+      "searches": [
+        "Power domination of line graphs of complete multipartite graphs is equivalent to complement of edge-support inducing a forest, equivalently no 2-core; counting power dominating sets via inclusion-exclusion",
+        "Power dominating set on rook graph K_m □ K_n exact polynomial and minimum m-1 with m n^(m-1) configurations",
+        "https://www.nature.com/articles/s41598-026-54352-z"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1805.10984 (full HTML)",
+      "doi:10.1016/j.akcej.2016.02.004 (public indexed text; original full page restricted)",
+      "doi:10.1080/09728600.2014.12088762 (indexed theorem and second-hand primary citation; full original inaccessible)",
+      "doi:10.1038/s41598-026-54352-z (full HTML)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Soh and Koh 2014 established rook-graph power domination number min(m,n)-1, recovered here but explicitly prior.",
+        "Brimkov et al. 2018, Theorem 5 gives a general characterization involving zero forcing within arbitrary graphs, not the cycle/forest reduction or the explicit coefficients.",
+        "Koh–Soh 2016 studies power domination numbers in Cartesian products, not minimum-set multiplicity or complete power-domination polynomials."
+      ],
+      "reasoning": "The 2014 scalar minimum neither specifies all minimum sets nor every feasible size. The 2018 universal identities can be specialized only after proving the nonstandard forest characterization; they do not already entail the explicit claimed formula or optimal multiplicities. The new 2026 fault-tolerance relation likewise does not entail it.",
+      "searches": [
+        "arxiv:1805.10984",
+        "doi:10.1080/09728600.2014.12088762",
+        "doi:10.1016/j.akcej.2016.02.004",
+        "doi:10.1038/s41598-026-54352-z",
+        "Power domination of line graphs of complete multipartite graphs is equivalent to complement of edge-support inducing a forest, equivalently no 2-core; counting power dominating sets via inclusion-exclusion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2018 article defines the polynomial and shows general zero-forcing and fort-based characterizations (Theorem 5 and Proposition 7), without deriving residual-forest equivalence for complete multipartite line graphs.",
+        "The 2026 line-graph paper studies transfer of a PDS from a source graph, which is a sufficient construction rather than an equivalence for arbitrary selected edge sets."
+      ],
+      "reasoning": "The statement can be reformulated as an edge-endpoint-supported feedback vertex set in a complete multipartite graph; no matching necessary-and-sufficient edge-support/forest statement was found in those inspected works or database results. Generic forcing tests do not imply a closed complete-multipartite characterization without additional argument.",
+      "searches": [
+        "Power domination polynomial of triangular graph line graph complete graph L(K_n); count subsets with at most two isolated vertices in edge support",
+        "Power domination polynomial of rook graph K_m Cartesian K_n line graph complete bipartite graph; edge sets touch all but one row or column",
+        "Power domination of line graphs of complete multipartite graphs is equivalent to complement of edge-support inducing a forest, equivalently no 2-core; counting power dominating sets via inclusion-exclusion",
+        "https://arxiv.org/html/1805.10984v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research records returned book-graph, spider-tree, threshold and chain-graph power domination results; these are non-isomorphic families with distinct propagation behavior.",
+        "Published earlier scalar rook-graph power domination values are acknowledged separately."
+      ],
+      "reasoning": "No found database/table gives the full multipartite-line-graph polynomial, or the displayed closed counts of all minimum placements for rook and triangular graphs. Absence from indexed results is evidence of limited coverage, not proof of priority.",
+      "searches": [
+        "Power domination polynomial of rook graph K_m Cartesian K_n line graph complete bipartite graph; edge sets touch all but one row or column",
+        "Power domination of triangular graphs line graphs of cliques, exact enumeration of minimum power dominating sets",
+        "Power dominating set on rook graph K_m □ K_n exact polynomial and minimum m-1 with m n^(m-1) configurations",
+        "Power domination of triangular graph T(n)=J(n,2) counted by graphs with at most two isolated vertices; exponential generating function and optimal matching plus path"
+      ]
+    },
+    "rationale": "No inspected primary text or closest published record implies the new forest characterization and exact enumerator. The 2014 scalar result, 2018 general polynomial identities, 2016 Cartesian product studies and 2026 sufficient line-graph transformation are each logically weaker or address a different object. See comparison checks and explicit source material; some priority risk persists.",
+    "residual_risks": [
+      "The 2014 original primary article full PDF was inaccessible; its theorem was checked via indexed excerpts and the full 2016 follow-up, but unindexed additional claims remain possible.",
+      "A semantically equivalent, unindexed power-domination or zero-forcing result may cover some cases.",
+      "No independent expert priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides generic polynomial and zero-forcing characterization, not exact complete-multipartite line graph family or forest equivalence",
+        "evidence": [
+          "2018 Theorem 5 and Proposition 7 give generic zero-forcing/fort descriptions.",
+          "2018 Section 4 concentrates on other families including threshold graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1805.10984v1",
+        "material_read": "Full 2018 version 1 HTML, especially Introduction, Sections 3 and 4, Theorem 5 and Proposition 7, family formulas, references",
+        "method": "Read full HTML and checked line graph, Cartesian, and complete bipartite terminology and theorem content",
+        "title": "Power domination polynomials of graphs",
+        "trigger": "Foundational polynomial paper with possibly dominating enumeration methods"
+      },
+      {
+        "assessment": "Studies power domination numbers for products; cites earlier scalar rook-graph result, not polynomial classification",
+        "evidence": [
+          "Abstract states survey and Vizing-like inequality.",
+          "Text explicitly attributes complete-graph Cartesian-product power domination number to Soh–Koh 2014."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.akcej.2016.02.004",
+        "material_read": "Accessible public full-article indexed text including introduction, observations, and Theorem 2.9 context; direct full-page access was restricted",
+        "method": "Read indexed primary excerpts and compared the stated problem, results and 2014 theorem citation",
+        "title": "Power domination of the cartesian product of graphs",
+        "trigger": "Potential coverage of rook graph minimum and its enumerator"
+      },
+      {
+        "assessment": "Previously settles the scalar optimum for rook graphs, acknowledged; cannot exclude additional unstated original content because full PDF inaccessible",
+        "evidence": [
+          "2016 subsequent source cites this paper as determining the complete-graph Cartesian-product power domination number."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/09728600.2014.12088762",
+        "material_read": "Indexed theorem statement and abstract only; primary full text unavailable",
+        "method": "Compared indexed Theorem 3.3 statement and independent citation in the 2016 sequel",
+        "title": "A note on power domination problem in diameter two graphs",
+        "trigger": "Decisive earlier scalar value for rook graphs"
+      },
+      {
+        "assessment": "Its sufficient construction and fault-tolerant optimization do not classify arbitrary edge-selected PDSs or derive the complete multipartite polynomial",
+        "evidence": [
+          "Theorem 2.1 maps vertex PDS to an incident-edge line-graph PDS.",
+          "Authors explicitly describe objective as fault-tolerance amplification rather than minimum-cardinality placement."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s41598-026-54352-z",
+        "material_read": "Full 2026 article HTML including abstract, introduction, all main line-graph results and examples",
+        "method": "Compared its induced monitoring-set definition, Theorem 2.1, and fault-tolerance amplification with exact arbitrary-edge-set enumeration",
+        "title": "Fault-tolerance amplification in line graphs: a framework for resilient PMU placement in power networks",
+        "trigger": "Direct line-graph power domination result, potentially broader coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8970aa05-470f-47eb-84b3-064f82eb92c8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Theorem translates a dynamic graph-observation process into an exact induced-forest obstruction for every line graph of a complete multipartite graph, providing the complete cardinality distribution rather than only the minimum. The same structure yields closed counts of minimum PMU placements for every rook graph and every triangular graph, independently motivated by sensor-placement multiplicities and graph polynomial enumeration. The formula is a genuine structural refinement of the known scalar rook value; arbitrary part profiles and all sizes are treated.",
+    "status": "PASS"
+  }
+}
