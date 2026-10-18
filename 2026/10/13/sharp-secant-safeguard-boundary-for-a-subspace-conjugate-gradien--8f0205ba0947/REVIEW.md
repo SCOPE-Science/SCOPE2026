@@ -1,15 +1,21 @@
-# Review of the Case-I secant-safeguard finding
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact decomposition of a secant-accepted direction yields a two-by-two symmetric form with sharp uniform minimum \(1-1/(4\xi)\). Principal minors establish the universal bound; an explicit positive-definite matrix family attains the infimum asymptotically. At \(\xi=1/4\), strict fixed-instance descent coexists with zero best uniform coefficient. The separate rational affine example independently reconstructs an accepted first trial, projection, guarded update, positive direction/residual inner product and nonexistence of a subsequent admissible line-search step. The included checker was replayed successfully using exact rational arithmetic. Finite computation is used solely for the explicit witness, not the universally quantified theorem.
+## correctness
 
-## Originality — PASS
-The original paper (Li et al., Axioms 2026, DOI 10.3390/axioms15050351), equations (6), (10), (11) and Lemma 1, claims the positive sufficient-descent guard works for every positive threshold. Its complete algorithm and proof sections were inspected, including the Case-I coefficient and proof; numerical comparison tables were not required for this statement-level comparison. The close predecessor Tang et al. (2025), DOI 10.1051/ro/2025106, has a different direction construction and does not show the exact sharp coefficient, the boundary \(1/4\), or the source-specific reachable ascent witness. Published research-record searches for the source, aliases, secant equivalences and dominating results yielded only distinct general optimization bounds. Negative search results are not a novelty proof, and uninspected historical equivalents remain a residual risk.
+PASS
 
-## Value — PASS
-Uniform sufficient descent is the hypothesis used to justify the existence of the derivative-free line search and convergence of this new algorithm. The sharp safeguard classification resolves when that key premise is valid for Case I, and the exact source-compliant first iteration shows the issue is operational: the next search has no possible accepted step. This is a motivated structural boundary, not a benchmark tweak or isolated rounding effect.
+For SPD B, nonzero s, y=Bs and guarded Case I of Li et al s^Ty>=xi||y||², the quadratic descent form of -g^Td reduces in span{s,Bs} to Q=[[1/b,-||h||/(2b)],[-||h||/(2b),1]], with e=s/||s||, b=e^TBe>0, h=(I-ee^T)Be and guard b>=xi(b²+||h||²). Positivity of Q-(1-1/(4xi))I from principal minors proves universal lower bound; SPD B_b with b->0 attains sharp limit. For xi=1/4 each fixed guarded pair strictly descends but no positive uniform coefficient; xi<1/4 yields negative eigenvalue. Fully rational reachable example A=[[99/100,3],[3,999/100]] SPD, initial g0=(-1,-300/251), accepted alpha0=2/25 and projection s0=(2/25,0), guard xi=1/100 margin 18/3125, next direction has g1^T d1=86467011299/98439062500>0, making monotone-affine line-search rejection for all positive steps. Independent exact fractions verify this witness; no claim about Cases II/III or all algorithm runs.
 
-## Scientific limits
-The conclusion is only about the Case-I formula under the stated secant and SPD assumptions; it does not establish the other branches' behavior or repair the entire convergence theorem. The two-dimensional certificate is exact but not a proof that all parameter choices fail. Historical predecessor formula extraction is imperfect; publication novelty is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Original Li et al 2026 paper specifies identical Case-I direction, guard and claimed sufficient-descent lemma for all positive xi, but its proof neglects how s/y secant cross terms can defeat descent. The exact minimax coefficient, sharp xi=1/4 threshold and reachable projected affine counterexample contradict that stronger original claim below threshold. Prior 2025 Tang et al subspace CG has different direction, so cannot supply same exact source-specific bound. Relevant Resultary numerical algorithm counterexamples are to different methods.
+
+## value
+
+PASS
+
+The theorem establishes a mathematically sharp missing hypothesis in a published convergence argument, supplies explicit strong-monotonicity reachable ascent trajectory, and identifies a repairable safeguard threshold for the specific branch; this is substantive theorem validation, not a cheap type check or isolated numerical observation. It explicitly does not establish full algorithm global convergence when xi>1/4.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

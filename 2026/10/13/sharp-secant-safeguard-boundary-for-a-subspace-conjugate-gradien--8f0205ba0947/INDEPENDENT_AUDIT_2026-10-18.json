@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T01:50:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For SPD B, nonzero s, y=Bs and guarded Case I of Li et al s^Ty>=xi||y||², the quadratic descent form of -g^Td reduces in span{s,Bs} to Q=[[1/b,-||h||/(2b)],[-||h||/(2b),1]], with e=s/||s||, b=e^TBe>0, h=(I-ee^T)Be and guard b>=xi(b²+||h||²). Positivity of Q-(1-1/(4xi))I from principal minors proves universal lower bound; SPD B_b with b->0 attains sharp limit. For xi=1/4 each fixed guarded pair strictly descends but no positive uniform coefficient; xi<1/4 yields negative eigenvalue. Fully rational reachable example A=[[99/100,3],[3,999/100]] SPD, initial g0=(-1,-300/251), accepted alpha0=2/25 and projection s0=(2/25,0), guard xi=1/100 margin 18/3125, next direction has g1^T d1=86467011299/98439062500>0, making monotone-affine line-search rejection for all positive steps. Independent exact fractions verify this witness; no claim about Cases II/III or all algorithm runs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original sufficient-descent lemma is stronger as a claim but false in the accepted xi=1/100 witness; it cannot validly dominate the corrected sharp coefficient.",
+          "General positive-definite secant observations do not fix the uniform coefficient without controlling h."
+        ],
+        "reasoning": "Any purported stronger universal descent theorem must satisfy source formula and guard; exact rational ascent refutes it in that claimed domain. No correct relevant broader theorem inspected.",
+        "searches": [
+          "Li et al Axioms 2026 eqs (6),(10),(11), Lemma 1 full original HTML",
+          "Tang et al RAIRO 2025 different subspace CG direction",
+          "Resultary SCOPE cgaos-two-mode-transient-amplification and Stieltjes CG positivity results"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob a150d7be3c520166905b17f2e363abf6f5878794 and exact verifier 5b0e2af29c25fe7d4b294a531b38c16c77ef7009",
+        "DOI:10.3390/axioms15050351 primary HTML eq6,10,11 Lemma1",
+        "DOI:10.1051/ro/2025106 accessible material",
+        "Resultary 2026-10-18 semantic query and nearest numeric-optimization results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li original purported positive descent for 0<xi<1 is contradicted by xi=0.01 input satisfying its branch and first line search.",
+          "Tang uses another sufficient-descent construction, does not imply same-case sharp Q eigenvalue."
+        ],
+        "reasoning": "The new result corrects an invalid prior implication, rather than quoting it as an accepted stronger theorem; SPD extremizers and an actual algorithmic trajectory add nontrivial value.",
+        "searches": [
+          "DOI 10.3390/axioms15050351 eq(6) Case-I, eq(10) safeguard, eq(11) line-search, Lemma1",
+          "Tang et al DOI 10.1051/ro/2025106 alternate CG method"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Li et al method is the exact Case-I direction and asserts descent on the full guard range, in conflict with explicit rational example.",
+          "Resultary top hits include CG/Stieltjes positivity and related but distinct optimization safeguards, not same direction."
+        ],
+        "reasoning": "Matched exact equations/operator not just algorithm name. No equivalent sharp 1/4 universal coefficient in read source or nearest result summaries; 2025 predecessor branch uses a different formula.",
+        "searches": [
+          "Resultary 2026-10-18 query subspace derivative free conjugate gradient Li Fang Cao Yang Mei 2026 Case I sufficient descent secant safeguard xi 1/4 counterexample",
+          "DOI:10.3390/axioms15050351 full original Eq6 and Eq10",
+          "doi:10.1051/ro/2025106 Tang 2025 predecessor subspace minimization direction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerical examples choose safeguard xi1=1/100 in original source, not an exact safety table.",
+          "Resultary no same explicit 1/4 boundary among top hits."
+        ],
+        "reasoning": "Continuous minimax descent coefficient and reachable rational counterexample are not conventional combinatorial table data; primary lemma and parameter specification are decisive comparisons.",
+        "searches": [
+          "Resultary exact xi=1/4 secant safeguard query, 2026-10-18",
+          "Axioms 15 (2026) article numerical parameter table and Lemma1"
+        ]
+      },
+      "rationale": "Original Li et al 2026 paper specifies identical Case-I direction, guard and claimed sufficient-descent lemma for all positive xi, but its proof neglects how s/y secant cross terms can defeat descent. The exact minimax coefficient, sharp xi=1/4 threshold and reachable projected affine counterexample contradict that stronger original claim below threshold. Prior 2025 Tang et al subspace CG has different direction, so cannot supply same exact source-specific bound. Relevant Resultary numerical algorithm counterexamples are to different methods.",
+      "residual_risks": [
+        "Other source algorithm branches and any stronger convergence assumptions were not analyzed; positive xi>1/4 uniform Case-I descent alone does not establish convergence.",
+        "Tang et al complete 2025 paper not read; similarly named algebraic safeguard may exist in older literature.",
+        "Results hinge on exact choice of source Case-I formula, secant SPD B and the specified projection/line-search convention, not arbitrary subspace CG.",
+        "Frozen METADATA.json retains private scope_run_id; publication withheld."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original all-parameter descent assertion fails for reachable xi1=1/100 example; no valid sharp 1/4 discussion in read source.",
+          "evidence": [
+            "Eq(6) Case-I direction; Eq(10) positive-definite safeguard; Eq(11) line search; Lemma 1 universal sufficient descent."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/axioms15050351",
+          "material_read": "Read publisher full HTML method and proof sections, equations (6),(10),(11), Lemma 1, parameter specification and references.",
+          "method": "Full lawful publisher HTML text and formula passages.",
+          "title": "A Subspace Derivative-Free Conjugate Gradient Method for Solving Nonlinear Monotone Equations with Convex Constraints",
+          "trigger": "Exact method, flawed claimed lemma and line-search guard"
+        },
+        {
+          "assessment": "Related concept, but direction is not the identical source Case-I rational secant correction.",
+          "evidence": [
+            "2025 article describes distinct subspace-minimization direction and its own descent condition."
+          ],
+          "identifier_or_url": "https://doi.org/10.1051/ro/2025106",
+          "material_read": "Read available abstract, indexed direction and sufficient-descent summary; complete primary paper not fully read this run.",
+          "method": "Publisher/indexed partial text.",
+          "title": "A subspace minimization conjugate gradient method for nonlinear monotone equations with convex constraints",
+          "trigger": "Close predecessor could contain equivalent source-independent descent theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem establishes a mathematically sharp missing hypothesis in a published convergence argument, supplies explicit strong-monotonicity reachable ascent trajectory, and identifies a repairable safeguard threshold for the specific branch; this is substantive theorem validation, not a cheap type check or isolated numerical observation. It explicitly does not establish full algorithm global convergence when xi>1/4.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob a150d7be3c520166905b17f2e363abf6f5878794 and exact verifier 5b0e2af29c25fe7d4b294a531b38c16c77ef7009",
+    "DOI:10.3390/axioms15050351 primary HTML eq6,10,11 Lemma1",
+    "DOI:10.1051/ro/2025106 accessible material",
+    "Resultary 2026-10-18 semantic query and nearest numeric-optimization results"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Other source algorithm branches and any stronger convergence assumptions were not analyzed; positive xi>1/4 uniform Case-I descent alone does not establish convergence.",
+    "Tang et al complete 2025 paper not read; similarly named algebraic safeguard may exist in older literature.",
+    "Results hinge on exact choice of source Case-I formula, secant SPD B and the specified projection/line-search convention, not arbitrary subspace CG.",
+    "Frozen METADATA.json retains private scope_run_id; publication withheld."
+  ],
+  "schema_version": 1
+}
