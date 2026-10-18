@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem follows from the exact dichotomy for radical subspaces containing the socle generator or forming graphs over totally isotropic spaces. This proves the entire containment relation, not simply numerical agreement. The polar-space lift formula, nondegenerate isotropic recursions, quadratic zero counts, and characteristic-two alternating-hyperplane argument establish the reconstruction classification for every finite field and all dimensions. A standalone verifier independently enumerates all radical subspaces and checks multiplication closure across multiple field orders, including an extension field. Finite tests corroborate but do not replace the proof.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+All unital subalgebras of k1⊕V⊕kz arise uniquely from radical subspaces containing z, Z(U)=k1⊕U⊕kz, or graph subspaces avoiding z, I(U,f), whose multiplication closure is exactly B(U,U)=0; graph inclusions give the asserted complete partial order. Counting gives P_A(t)=sum_d([n choose d-1]_q+q^d I_d(B))t^d. Projecting isotropic spaces through radical s=n-r contributes [s choose a]_q q^{b(s-a)}I_b(nonsingular quotient). In odd characteristic, zero counts recover even-rank Witt type and rank, and maximum isotropic dimension distinguishes odd ranks, determining similarity. In characteristic two, nonalternating square-map zero hyperplane H has alternating B|H and ranks r=2h-1 and 2h induce the SAME isotropic-poset structure, whereas alternating forms are distinguishable by I_1; this yields exact rank-pair collision classification. Small n=2 diagonal forms diag(1,0), diag(1,1) are nonisomorphic by socle dimensions 2 vs1, but their subalgebra lattice polynomial is 1+(q+1)t+(q+1)t²+t³ for all q=2^e. Source verifier implemented direct RREF subspaces over q=2,3,4,5,7 and was inspected; its finite checks are not used to infer all ranks.
 
-The nearest structural antecedents concern local Gorenstein classification and finite-dimensional maximal subalgebras. Known symplectic isotropic-space enumerations are explicitly credited, while element-level symmetry statistics alone do not establish full lattice isomorphism. No inspected source supplied the exact all-rank subalgebra-poset theorem and its sharp reconstruction/char-two ambiguity. A mathematically equivalent finite polar geometry description elsewhere remains possible; database searches do not constitute a proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete invariant problem for short local algebras: which ring structure is remembered by its subalgebra lattice? The general formula and explicit order relation give a usable classification, and the result determines exactly when the invariant recognizes the algebra or fails. The rank-one/rank-two characteristic-two pair has different socle dimensions and therefore separates lattice equivalence from the Gorenstein property. This is structural information not supplied by a routine count or low-dimensional numerical table.
+Best-of-knowledge PASS: finite-field symmetric bilinear form and polar-space isotropic counts are standard, but the inspected maximal-subalgebras and short Gorenstein classification works do not supply the exact full poset of ALL unital subalgebras, nor the characteristic-two 'two adjacent nonalternating ranks same lattice' iff classification. The small example is not the sole result: the full n and q family answers a natural algebra-invariant reconstruction question. A potentially equivalent lattice treatment in finite-ring literature remains a priority risk.
 
-## Closest literature and limitations
+## value
 
-Elias–Rossi (2012) concern short Gorenstein analytic isomorphism with socle degree three; Jelisiejew (2015) studies Gorenstein inverse-system classification including quadrics; Iovanov–Sistko (2017) treat maximal subalgebras. Specialized symplectic subalgebra counts and standard finite orthogonal polar-space incidence formulas are prior input. The new statement is restricted to finite split commutative local algebras with one-dimensional nonzero radical square, and to unital base-field-linear subalgebras. Independent verification and complete bibliographic priority checks remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The complete subalgebra lattice and exact reconstruction obstruction for split short local rings are mathematically natural structural invariants. The characteristic-two construction exhibits two nonisomorphic algebras with IDENTICAL full unital-subalgebra lattice but distinct Gorenstein property, across every even q and n with eligible ranks; this is independently useful invariant-theory information, not merely a small exact count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
