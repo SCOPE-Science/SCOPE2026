@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses the symmetric irreducible Metzler growth matrix, the strict Rayleigh monotonicity of its Perron eigenvalue, and two directly verified tridiagonal determinant identities. Exact small-d asymptotics order all three profiles; the common-end determinant comparison excludes ties for two pairs and confines the third pair to one explicit candidate threshold. Monotonicity shows that the candidate root is the Perron root, and implicit differentiation proves a transverse sign change. A standalone SymPy script checks the critical identities and exact witness with rational root intervals. No finite search is treated as a proof of the universal classification.
+## correctness
 
-**Originality — PASS, subject to identified coverage risk.** Gourley and Kuang (2005) consider birth-rate placement strategies with dispersal; their displayed three-patch discrete example has all-to-all symmetric connections, where rate permutations are conjugate and cannot yield the path comparison. Flather and Bevers (2002) examine different nonlinear population and habitat-arrangement simulations, not the three-vertex path spectral phase diagram. Lin et al. (2014) study nonlinear two-patch competition and cannot supply the explicit three-path ranking. Nadin (2016) treats spatial rearrangements in continuous periodic environments. The present contribution is limited to the complete exact three-site classification, constrained-layout reversal threshold, and smallest order, not general diffusion or rearrangement theory. Residual risk remains from graph spectral rearrangement results that might imply it, and from incompletely accessible articles.
+PASS
 
-**Value — PASS.** When conservation or management fixes the medium-quality patch at a particular endpoint, only two placements of the high- and low-growth habitat values remain; the theorem determines exactly which one increases initial linear population growth as dispersal changes. It also establishes that the unconstrained optimum does not change, making the constraint scientifically explicit. The three-site phase diagram and topology threshold give a sharp diagnostic benchmark for spatial growth models, rather than a single numerical comparison.
+Pinned theorem treats 3-vertex path L=[[1,-1,0],[-1,2,-1],[0,-1,1]], h>m>ell>0, linear H_r=diag(r)-dL for every finite d>0; Perron max eigenvalue is simple, decreases strictly with d, lies strictly between the mean and h. Independently expanded tridiagonal F_{a,b,c}=det(zI-H) and verified F_{a,b,c}-F_{a,c,b}=d(z-a)(b-c) and F_{a,b,c}(a)=d[(a-b)(a-c)+d(2a-b-c)]. A tie between reflected placements requires eigenvalue equal the shared endpoint rate. Small-d first/second perturbations select medium-center as unique optimum; absence of admissible Perron ties proves its global superiority. The two nonoptimal layouts with common m endpoint meet only if 2m>h+ell and then at exact d*=(h-m)(m-ell)/(2m-h-ell), common principal eigenvalue m and opposite derivative signs; when 2m<=h+ell they never meet. Transversality verified by nonzero derivative of common characteristic determinant; n=1,2 or triangle permutation symmetry rules out smaller reversal. Independent exact characteristic calculation and spectral numerics for (h,m,ell)=(6,5,1) verified d*=4/3, and opposite orders d=1 vs 2. The parameter-uniform proof is analytic.
 
-**Limitations.** The result treats linear single-species growth, distinct rates, symmetric conservative nearest-neighbor movement, and the three-vertex path. It does not establish finite-population extinction probabilities or nonlinear outcomes. The literature searches and checked source sections do not rule out an unknown stronger spectral ordering theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary ecological competition literature models diffusion, growth and asymptotic fitness, but the inspected Gourley–Kuang (2005) full paper builds a nonlinear two-species, primarily two-patch model and does not classify permutations of three rates on an unweighted path. General graph principal-eigenvalue rearrangement literature could conceivably dominate special placement comparisons; no directly implying published theorem emerged from targeted searches, a stated residual risk.
+
+## value
+
+PASS
+
+Exactly classifying the three distinct-rate placements of a canonical minimal connected habitat path explains a sharply located dispersal-driven ranking reversal and rules out any smaller connected unweighted network. The crossing layouts are globally nonoptimal without further constraints, but under realistic fixed-endpoint placement they become the two relevant choices; this motivation is explicit and mathematically substantive despite the three-vertex setting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

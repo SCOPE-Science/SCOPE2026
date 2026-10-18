@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:01:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob ecfb4534a4a6269651f4ad120d24f6105cc9f318",
+        "Gourley–Kuang model https://www.aimspress.com/aimspress-data/mbe/2005/2/PDF/1551-0018_2005_2_345.pdf",
+        "/mnt/data/scope_worker04_science_independent.out symbolic and witness checks"
+      ],
+      "rationale": "Pinned theorem treats 3-vertex path L=[[1,-1,0],[-1,2,-1],[0,-1,1]], h>m>ell>0, linear H_r=diag(r)-dL for every finite d>0; Perron max eigenvalue is simple, decreases strictly with d, lies strictly between the mean and h. Independently expanded tridiagonal F_{a,b,c}=det(zI-H) and verified F_{a,b,c}-F_{a,c,b}=d(z-a)(b-c) and F_{a,b,c}(a)=d[(a-b)(a-c)+d(2a-b-c)]. A tie between reflected placements requires eigenvalue equal the shared endpoint rate. Small-d first/second perturbations select medium-center as unique optimum; absence of admissible Perron ties proves its global superiority. The two nonoptimal layouts with common m endpoint meet only if 2m>h+ell and then at exact d*=(h-m)(m-ell)/(2m-h-ell), common principal eigenvalue m and opposite derivative signs; when 2m<=h+ell they never meet. Transversality verified by nonzero derivative of common characteristic determinant; n=1,2 or triangle permutation symmetry rules out smaller reversal. Independent exact characteristic calculation and spectral numerics for (h,m,ell)=(6,5,1) verified d*=4/3, and opposite orders d=1 vs 2. The parameter-uniform proof is analytic.",
+      "residual_risks": [
+        "Only h>m>ell>0, d>0, linear three-site path, symmetric nearest-neighbor dispersal; no larger graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gourley–Kuang section 2 is a two-patch nonlinear competition model; Nadin 2016 is periodic nonsymmetric PDE rearrangement; Slavík 2019 concerns graph Lotka–Volterra competition."
+        ],
+        "reasoning": "Their quoted settings and available results do not yield the exact d* formula, unique Perron crossing and complete three-rate path ordering; an unexamined stronger finite-graph rearrangement theorem remains an explicit risk.",
+        "searches": [
+          "https://www.aimspress.com/aimspress-data/mbe/2005/2/PDF/1551-0018_2005_2_345.pdf",
+          "arXiv:1609.01442v1",
+          "doi:10.1137/19M1276285"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/mbe/2005/2/PDF/1551-0018_2005_2_345.pdf",
+        "arXiv:1609.01442v1",
+        "doi:10.1086/324120",
+        "doi:10.1137/19M1276285"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2005 competition analysis has two patches, so equal-multiset rate placements there are graph automorphic and their principal eigenvalues do not reverse; the 2002 landscape model uses nonlinear discrete reaction diffusion."
+        ],
+        "reasoning": "A competition-model motivation does not logically imply a three-layout principal-eigenvalue ordering or unique transversality. Finite-graph stronger theorem would have to imply the shared-endpoint characteristic identity; none was confirmed.",
+        "searches": [
+          "https://www.aimspress.com/aimspress-data/mbe/2005/2/PDF/1551-0018_2005_2_345.pdf",
+          "doi:10.1086/324120"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Principal eigenvalue of discrete Schrödinger operator diag(r)-dL(P3) equals the Malthusian exponent of a positive linear dispersal population; path reversal identifies three layouts."
+        ],
+        "reasoning": "Permutation-similar triangle and two-vertex cases offer no reversal; the three-patch nonsymmetric path reduces precisely to three inequivalent rate permutations, not a generic continuous-domain resource rearrangement result.",
+        "searches": [
+          "three patch path graph dispersal principal eigenvalue optimal habitat resource ordering eigenvalue crossing",
+          "https://www.aimspress.com/aimspress-data/mbe/2005/2/PDF/1551-0018_2005_2_345.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The parameter threshold is an exact algebraic formula for arbitrary real h>m>ell, not a finite graph table or sampled growth simulation."
+        ],
+        "reasoning": "Classifying P3 is a natural minimal-order theorem rather than a recomputation of numerical spectra of three-by-three matrices for a few parameter values.",
+        "searches": [
+          "three patch path graph dispersal principal eigenvalue optimal habitat resource ordering eigenvalue crossing",
+          "https://www.aimspress.com/aimspress-data/mbe/2005/2/PDF/1551-0018_2005_2_345.pdf"
+        ]
+      },
+      "rationale": "The primary ecological competition literature models diffusion, growth and asymptotic fitness, but the inspected Gourley–Kuang (2005) full paper builds a nonlinear two-species, primarily two-patch model and does not classify permutations of three rates on an unweighted path. General graph principal-eigenvalue rearrangement literature could conceivably dominate special placement comparisons; no directly implying published theorem emerged from targeted searches, a stated residual risk.",
+      "residual_risks": [
+        "General graph-Schrödinger spectral-rearrangement inequality may imply one or more rankings without naming the habitat problem; no exhaustive implication exclusion is claimed.",
+        "The Slavík paper was not read in full; only public abstract/theme information was considered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Main discrete model has two patches and nonlinear interspecies interactions; cannot contain this three-vertex path fixed-multiset permutation crossing as a specialization of section 2.",
+          "evidence": "Section 2 Eq.(2.1), Lemmas 2.1–2.3; introduction pp. 345–346.",
+          "identifier_or_url": "doi:10.3934/mbe.2005.2.345; https://www.aimspress.com/aimspress-data/mbe/2005/2/PDF/1551-0018_2005_2_345.pdf",
+          "material_read": "Actual publisher full 18-page PDF accessed; read introduction, section 2 two-patch equations and stability lemmas, and scope/discussion",
+          "method": "lawful publisher full-text PDF with page image inspection",
+          "title": "Two-Species Competition with High Dispersal: The Winning Strategy",
+          "trigger": "Strongly plausible near-match in habitat resource allocation and dispersal"
+        },
+        {
+          "assessment": "Continuous periodic nonsymmetric elliptic setting differs from finite path rearrangement; incomplete full comparison remains a risk.",
+          "evidence": "Title and abstract describe periodic elliptic principal eigenvalue under Schwarz rearrangement.",
+          "identifier_or_url": "arXiv:1609.01442v1",
+          "material_read": "Source abstract and stated periodic PDE operator, not the entire proof text",
+          "method": "arXiv discovery/statement-level comparison",
+          "title": "The Effect of the Schwarz Rearrangement on the Periodic Principal Eigenvalue of a Nonsymmetric Operator",
+          "trigger": "Potential dominant spectral rearrangement theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/mbe/2005/2/PDF/1551-0018_2005_2_345.pdf",
+        "arXiv:1609.01442v1",
+        "doi:10.1086/324120",
+        "doi:10.1137/19M1276285"
+      ],
+      "rationale": "Exactly classifying the three distinct-rate placements of a canonical minimal connected habitat path explains a sharply located dispersal-driven ranking reversal and rules out any smaller connected unweighted network. The crossing layouts are globally nonoptimal without further constraints, but under realistic fixed-endpoint placement they become the two relevant choices; this motivation is explicit and mathematically substantive despite the three-vertex setting.",
+      "residual_risks": [
+        "The reversing placements are not globally optimal among three unconstrained permutations; decision significance requires fixing an endpoint or similar spatial constraint.",
+        "Only linear, three-site symmetric uniform dispersal; no nonlinear growth or epidemiological inference."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only h>m>ell>0, d>0, linear three-site path, symmetric nearest-neighbor dispersal; no larger graphs."
+  ],
+  "schema_version": 1
+}
