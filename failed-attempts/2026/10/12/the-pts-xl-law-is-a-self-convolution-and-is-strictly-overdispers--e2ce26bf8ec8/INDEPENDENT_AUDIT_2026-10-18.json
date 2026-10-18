@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T16:55:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent Y1,Y2~XLindley(theta), let Ni|Yi~Poisson(Yi) independently. Conditional Poisson additivity proves N in law equals N1+N2 and G_PTS(z)=G_PXL(z)^2. The source’s exact squared PGF confirms identity. Mixed-Poisson total variance Var N=E(Y1+Y2)+Var(Y1+Y2)>EN for any nondegenerate finite theta, so DI>1. Independent symbolic algebra confirmed printed rational formula DI(theta)-1=(theta^4+4theta^3+8theta^2+8theta+2)/(theta(1+theta)^2(theta^2+2theta+2))>0 and EN~2/theta as theta→infinity; dispersion approaches 1 only as mean tends to 0. Holds theta>0, not an assertion about observed sample dispersion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Var N=EΛ+VarΛ applies to all Poisson mixtures; strict overdispersion follows for any nondegenerate Λ."
+        ],
+        "reasoning": "Published/general stronger theorem dominates the proposed strict-overdispersion conclusion without naming XLindley parameters.",
+        "searches": [
+          "doi:10.1111/j.1751-5823.2005.tb00250.x mixed Poisson variance identity",
+          "Poisson two-sum XLindley PTS-XL self convolution PXL overdispersion Fano factor"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.20261122",
+        "doi:10.1155/2022/6503670",
+        "doi:10.1111/j.1751-5823.2005.tb00250.x",
+        "Resultary semantic search: Poisson two-sum XLindley PTS-XL self convolution PXL overdispersion Fano factor"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given PTS=N|Y1+Y2 and known PXL=N_i|Y_i, independence yields the convolution automatically; source has squared PGF. Variance identity gives strict overdispersion; large theta mean-to-zero from printed mean formula."
+        ],
+        "reasoning": "The published stronger constructions directly entail the final submitted finding; no novelty rescue through absence of identical sentence or supplementary algebra.",
+        "searches": [
+          "Haj Ahmad El-Awady 2026 two-sum definition",
+          "Ahsan-ul-Haq et al 2022 PXL mixing definition",
+          "classical Poisson sum and law of total variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source defines two independent XLindley summands and gives exact squared PGF, which is mathematically equivalent to distribution being PXL*PXL."
+        ],
+        "reasoning": "Changing words from squared PGF to convolution is a probability generating function restatement of the already specified law.",
+        "searches": [
+          "Poisson two-sum XLindley PTS-XL self convolution PXL overdispersion Fano factor",
+          "doi:10.3934/math.20261122 PGF square",
+          "doi:10.1155/2022/6503670 PXL definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source already prints a rational dispersion index for each theta and a squared PGF."
+        ],
+        "reasoning": "The fact DI(theta)>1 is an elementary coefficient-positivity check on a known formula rather than an unknown exact table entry.",
+        "searches": [
+          "doi:10.3934/math.20261122 printed DI(theta) expression",
+          "Poisson two-sum XLindley PTS-XL self convolution PXL overdispersion Fano factor"
+        ]
+      },
+      "rationale": "FAIL: the 2026 originating paper explicitly defines the mixing variable as the sum of iid XLindley variables and prints the squared PGF; the 2022 PXL model already is a Poisson–XLindley mixture. Classical Poisson additivity immediately implies the self-convolution, while generic mixed-Poisson total variance automatically gives strict overdispersion of any nondegenerate mixture. These are direct consequences of stronger published definitions, despite no verbatim use of the phrase self-convolution. Thus it is not independently original.",
+      "residual_risks": [
+        "Exact primary 2026 full text not independently read; however the published source definition and squared PGF alone already mathematically imply the finding.",
+        "No claim about fitted predictive efficiency or a nondegenerate equal-dispersion limit; those require separate investigation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITIVE mathematical implication: two-sum Poisson mixture and squared PGF entail convolution.",
+          "evidence": [
+            "Source builds distribution from two independent XLindley summands; PGF explicitly a perfect square."
+          ],
+          "identifier_or_url": "doi:10.3934/math.20261122",
+          "material_read": "Publisher abstract explicitly defines sum of two independent XLindley variables, plus complete Git RESULT.md quotation of source PGF, mean and dispersion. Original full paper not independently read in this run.",
+          "method": "Publisher abstract and claim-source formulas",
+          "title": "The Poisson two-sum XLindley distribution: Statistical properties, estimation, regression modeling, and applications",
+          "trigger": "same exact PTS-XL definition and printed squared PGF"
+        },
+        {
+          "assessment": "Each PTS summand count is exactly the earlier PXL law.",
+          "evidence": [
+            "PXL is a Poisson mixed law with single XLindley rate."
+          ],
+          "identifier_or_url": "doi:10.1155/2022/6503670",
+          "material_read": "Published bibliographic/abstract and frozen research discussion of model definition, not fully independently read this run.",
+          "method": "Source identification and model-definition comparison",
+          "title": "Poisson XLindley Distribution for Count Data",
+          "trigger": "prior Poisson-one-XLindley model"
+        },
+        {
+          "assessment": "VarN=EΛ+VarΛ is already a standard mixed Poisson property.",
+          "evidence": [
+            "Variance decomposition applies to all nondegenerate mixed Poisson laws."
+          ],
+          "identifier_or_url": "doi:10.1111/j.1751-5823.2005.tb00250.x",
+          "material_read": "Bibliographic abstract/background; classical identity derived directly, no need paper-specific lemma.",
+          "method": "General probability-theory comparison",
+          "title": "Mixed Poisson Distributions",
+          "trigger": "general variance decomposition"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: the convolution and variance are standard textbook deductions from the source generative model and existing PXL family; the statement adds no motivated nontrivial invariant, bound or boundary beyond a routine positivity check. While interpretation of equidispersion is useful pedagogy, it does not survive the scientific-value bar as an independent finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Only iid equal-parameter two-sum PTS-XL for finite theta>0.",
+    "Correctness of algebra does not establish originality or independent mathematical value; no repaired claim provided."
+  ],
+  "schema_version": 1
+}
