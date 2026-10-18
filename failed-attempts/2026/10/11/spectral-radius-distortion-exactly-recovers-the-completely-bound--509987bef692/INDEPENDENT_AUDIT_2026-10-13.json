@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T21:12:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let C=||id:E1→E2||cb. The n-fold Haagerup/minimal tensor functoriality gives ||S_n(T)||E2≤C^n||S_n(T)||E1, so after roots and limits both spectral radii satisfy ρE2(T)≤CρE1(T). For each nonzero X∈M_m(C^d), Tornes Corollary 3.2 constructs the same infinite-dimensional tuple T_X simultaneously for all structures E with ρE(T_X)=ρE^min(T_X)=||X||E. Hence its nonzero ratio equals the m-level norm ratio; sup_m,X=C, yielding both equalities. This is correct but its mathematical ingredients are previously published, and finite matrices need not suffice as witnesses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tornes universal tuples work for arbitrary operator-space structures, arbitrary X and both radius types, so there is no missing matrix level or domain parameter.",
+          "The earlier cb inequality gives the universal bound with the exact same constant."
+        ],
+        "reasoning": "The combination already gives broader ingredient-level coverage of every pair E1,E2 and both spectral-radius variants; the candidate does not enlarge these hypotheses.",
+        "searches": [
+          "arXiv:2610.00816 Corollaries 3.2–3.3",
+          "arXiv:2605.09354 Lemma 3.13"
+        ]
+      },
+      "checked_sources": [
+        "Maximilian Tornes, arXiv:2610.00816v1 original PDF Theorem 3.1, Corollaries 3.2–3.3",
+        "M. Scherer, O.M. Shalit, E. Shamovich, arXiv:2605.09354v1, proof of Lemma 3.13",
+        "O.M. Shalit and E. Shamovich, arXiv:2501.01325 definitions and tensor functoriality"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scherer–Shalit–Shamovich: ρE2(v(x))≤||v||cb ρE1(x).",
+          "Tornes: for any operator tuple X, there is T with ρE(T)=ρE^min(T)=||X||E for all E."
+        ],
+        "reasoning": "Apply first fact for ≤||id||cb; apply second at each matrix level for ≥ each norm ratio; by definition sup norm ratios is ||id||cb. Thus the prior statements jointly imply every part of the final claim, including its minimal-radius variant, without further proof.",
+        "searches": [
+          "https://arxiv.org/pdf/2605.09354 Lemma 3.13 lines 1329–1335",
+          "https://arxiv.org/pdf/2610.00816v1 Corollary 3.2 PDF p.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier lemma provides the universal inequality for all cb maps.",
+          "The later corollary provides the equality ρE(T_X)=ρE^min(T_X)=||X||E simultaneously across all E."
+        ],
+        "reasoning": "These two same-quantifier claims are an equivalent formulation of the exact multiplicative distortion formula after taking a supremum. The combination is mathematically decisive regardless of whether the formula is printed verbatim.",
+        "searches": [
+          "arXiv:2605.09354 §3 Lemma 3.13 proof",
+          "arXiv:2610.00816 Corollary 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate published table is needed: the norm ratios are already exactly represented in Corollary 3.2 for each m and X.",
+          "All five current Resultary queries failed internally; GitHub code search yielded no result, neither is novelty evidence."
+        ],
+        "reasoning": "Rather than treating lack of exact database wording as originality, exact parameter coverage follows from primary published theorems.",
+        "searches": [
+          "Operator space Shalit Shamovich spectral radius distortion completely bounded norm Tornes universal tuples quantitative identity",
+          "GitHub Resultary/2026 code search: spectral radius completely bounded norm distortion"
+        ]
+      },
+      "rationale": "Decisive theorem-level prior implication: Scherer–Shalit–Shamovich arXiv:2605.09354 Lemma 3.13 proof already states the cb upper inequality, and Tornes arXiv:2610.00816 Corollary 3.2 already states a single universal tuple simultaneously realizes every operator-space matrix norm for both ordinary and minimal radii. Taking the ratios and supremum—exactly as the manuscript does—gives the full audited claim with no new lemma or obstruction. The absence of the displayed quotient identity in those papers is not originality under the owner’s implication-based rule.",
+      "residual_risks": [
+        "Scientific failure is prior coverage, not proof incorrectness or lack of literature access.",
+        "The two earlier theorems are from distinct papers; the very short conjunction is still prior implication, not an independently established new theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Corollary 3.2 covers the entire reverse inequality as a direct specialization.",
+          "evidence": [
+            "Corollary 3.2 on PDF page 6 identifies both radii with ||X||E for all E using the same T_X."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00816v1",
+          "material_read": "Full 10-page original PDF: Theorem 3.1 construction, Corollaries 3.2 and 3.3, discussion of infinite-dimensional witness restrictions.",
+          "method": "ArXiv original PDF, text plus physical page 6 screenshot.",
+          "title": "On the Shalit–Shamovich Spectral Radius",
+          "trigger": "Same radius, universal witness and exact cb distortion quantifiers."
+        },
+        {
+          "assessment": "Its completely bounded map inequality is the full upper half of the claimed formula.",
+          "evidence": [
+            "Lemma 3.13 proof explicitly states ρE2(v(x))≤||v||cbρE1(x)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.09354",
+          "material_read": "Original PDF introduction/definitions, Lemma 3.13 and proof at PDF page 15 and surrounding operator-space discussion.",
+          "method": "Full original PDF, primary theorem and page inspection.",
+          "title": "On the spectral radius of operator tuples",
+          "trigger": "Independent exact universal upper bound."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact cb distortion identity has a useful interpretation but here it is the immediate two-line corollary of the already published upper estimate and simultaneous exact witnesses. No additional operator-space phenomenon, motivated exceptional case, sharp new tool, or mathematically nonroutine inference is supplied; a restatement of the forced supremum is insufficient independently under the shared value bar.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Covers identity between two fixed coordinates on C^d, all Hilbert-space operator tuples, not exclusively finite-dimensional tuples.",
+    "Supremum need not be attained."
+  ]
+}
