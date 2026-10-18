@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The root-even vertices determine a unique bipartition. The weighted spanning-tree polynomial of the complete bipartite graph factors as two sums of vertex variables raised to class-dependent powers. After normalization this is precisely the probability-generating function for two independent multinomial vectors, and it gives the root's shifted binomial law and the exact color-size count. The conditional adjacent-mass ratio is strictly decreasing as the size increases and the supports are nested; this proves reverse monotone-likelihood-ratio ordering and hence negative regression. The standard binomial-to-Poisson theorem proves the interior limit. The independent exhaustive Prüfer-sequence verifier passed 340 exact checks through seven vertices.
+
+## Originality — PASS, with historical-priority risk
+The complete bipartite spanning-tree formula and its degree refinement are known tools rather than novel findings. The inspected full text of Janson's depth-congruence results treats unconditional asymptotics, not a degree law conditional on root-even color-class size. Scoins's 1962 abstract and the related complete bipartite tree-count literature give the older counting structure; full original text of Scoins could not be accessed. The closest mathematical index comparisons involved conditioning root degree on the distance to a fixed marked vertex, a different event that does not imply conditioning on the count of *all* even-distance vertices. The exact all-size likelihood-ratio order and consequent strict covariance inequalities were not located in the available sources. An implicit older derivation remains possible, and priority requires outside checking.
+
+## Mathematical value — PASS
+The global bipartition size is a natural root-depth parity statistic of Cayley trees; root degree is its simplest local observable. A complete likelihood-ratio order, stronger than mean covariance, supplies an exact conditional coupling and sign theorems for every increasing local degree score. The independent conditional multinomial structure extends the relation to the full tree degree profile; its interior Poisson limit supplies a complementary large-tree description. This is a natural stochastic-order result, not an arbitrary special case or merely a restatement of a tree count.
+
+## Sources and limitations
+Relevant historical foundations are Scoins (1962), Hartsfield and Werth (1990), and Janson (arXiv:math/0509471, 2005). The comparison with a separately published single-marked-vertex distance regression was based on its publicly available abstract. The Scoins original full text was unavailable through both open-access search and authorized institutional access; its text was **not** certified as noncovering. The present proof is self-contained apart from the standard weighted matrix-tree theorem and the binomial-to-Poisson limit. This review is not an independent historical certification.
+
+Self-review: passed. Independent audit: not yet performed.
