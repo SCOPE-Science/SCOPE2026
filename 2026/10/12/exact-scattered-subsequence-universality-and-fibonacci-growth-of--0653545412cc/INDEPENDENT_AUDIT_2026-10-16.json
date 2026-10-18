@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T11:00:11.327730Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The binary Baum–Sweet prefix starts b(0)=1 and b(n)=1 precisely when ordinary binary zero runs have even lengths. Adjacent ones occur iff n=4^t-1, with no triple ones, by following even last-zero-run parity under increment. The standard shortest complete-two-letter greedy arch decomposition exactly computes scattered-subsequence universality, as its constructive lower embedding and missing length-(a+1) word upper bound show. After initial word 110110 (four ones, two arches), a further one completes an arch unless it ends a pair of adjacent ones, when the second one requires the next zero. The only trailing pairs occur at prefix N=4^t+1; small N=0..6 checked. Thus for all N>=4, U=B-2-1_exception. The accepted positive binaries form 1(1|00)*, yielding count F_ell at bit-length ell and B(2^m)=F_{m+2}; monotonicity brackets all N to give Θ(N^log2φ), with exact dyadic limit φ²/sqrt5. Independently regenerated bits and greedy arches agreed for each N<=16384 and Fibonacci dyadic levels through 14; these are bounded checks supporting a full symbolic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schnoebelen–Veron study compressed arbitrary words and signatures; Adamson et al. study regular languages (families of accepted words), not prefixes of a fixed automatic word."
+        ],
+        "reasoning": "General-purpose algorithms can compute U for any fixed N given the word; they do not imply the explicit all-N Fibonacci law or exceptional prefixes by an immediate parameter substitution.",
+        "searches": [
+          "https://arxiv.org/pdf/2304.11932",
+          "https://arxiv.org/abs/2311.10658",
+          "Baum Sweet sequence binary subsequence universality arch factorization Fibonacci prefix"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2304.11932",
+        "https://arxiv.org/abs/2311.10658",
+        "Baum and Sweet, Annals of Mathematics 103 (1976), 593–610",
+        "Resultary semantic query: Baum Sweet sequence binary subsequence universality arch factorization Fibonacci prefix"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schnoebelen–Veron prove greedy arch interpretation; classical Baum–Sweet binary automaton counts F_ell by accepted runs."
+        ],
+        "reasoning": "Combining these with a new no-triples and trailing-pair argument yields the formula; no inspected source states the full correction 1_{N=4^t+1}, so no established theorem directly covers the final claim.",
+        "searches": [
+          "https://arxiv.org/pdf/2304.11932",
+          "https://arxiv.org/abs/2311.10658",
+          "Baum Sweet sequence binary subsequence universality arch factorization Fibonacci prefix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schnoebelen–Veron characterize k-universality via arches for arbitrary words. Baum–Sweet runs follow accepted binary language 1(1|00)*."
+        ],
+        "reasoning": "Neither classical fact alone is equivalent to the stated exceptional all-prefix formula; the adjacent-one classification and prefix arch-count offset are specific nontrivial linking steps.",
+        "searches": [
+          "Baum Sweet sequence binary subsequence universality arch factorization Fibonacci prefix",
+          "https://arxiv.org/pdf/2304.11932",
+          "Baum Sweet arch factorization universality 4^t+1 exact prefix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary finding \"Closed-form law for binary subsequence universality\" concerns distribution over all binary words, not Baum–Sweet prefixes. No checked OEIS entry of this exact U(N) was identified."
+        ],
+        "reasoning": "Tables of Baum–Sweet bits/ones are insufficient alone to determine arch universality, so recurrence for B is not an exact indexed U answer.",
+        "searches": [
+          "Baum Sweet sequence binary subsequence universality arch factorization Fibonacci prefix",
+          "Baum Sweet prefix universality OEIS",
+          "Resultary semantic query: Baum Sweet sequence binary subsequence universality arch factorization Fibonacci prefix"
+        ]
+      },
+      "rationale": "The general greedy-arch universality correspondence and the automatic Baum–Sweet sequence are classical. The inspected Schnoebelen–Veron work develops compressed input arch algorithms but does not provide a symbolic all-prefix closed form or sublinear exponent for this named sequence. The fixed regular-language universality problem of Adamson et al. is a distinct quantifier pattern. Resultary returned related general binary universality and Fibonacci SAS results, not a Baum–Sweet prefix formula. This specific all-N correction and dyadic count survive as mathematical specialization with new structural work.",
+      "residual_risks": [
+        "Older or unindexed work on Baum–Sweet prefix arches may supply the same all-prefix identity; a negative search is not proof of absolute novelty.",
+        "Only prefixes from index zero with b(0)=1; no claim for arbitrary factors/circular subsequences or bit-complexity O(log N)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic arch correspondence prior; not a Baum–Sweet all-prefix formula",
+          "evidence": "Arch signatures and compressed-word algorithms do not resolve the specific positions of adjacent accepted bits.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.11932",
+          "material_read": "Accessible complete arXiv PDF including definitions, arch factorization and algorithmic/structured-word sections",
+          "method": "read complete PDF via scholarly text and selected pages",
+          "title": "On arch factorization and subword universality for words and compressed words",
+          "trigger": "Closest general theory for the same exact universality invariant"
+        },
+        {
+          "assessment": "Different family-wise language quantifiers; document-wide absence not asserted",
+          "evidence": "k-universality of languages is not the U(N) of one canonical infinite automatic word.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+          "material_read": "Public title, abstract and main problem summary; no complete paper reading verified",
+          "method": "available abstract/overview",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "Possible stronger automata-theoretic statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact sparse subsequence universality in a canonical 2-automatic binary sequence links digital regular-language counting, greedy arch factorization and Fibonacci growth. The exceptional 4^t+1 prefix correction and explicit O(log N) digit-DP make it a usable sharp combinatorial invariant for all prefixes, beyond merely applying a generic finite-input algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent finite scan does not itself establish infinitely many exceptional positions; digit-run argument assessed separately.",
+    "Only individual pinned Git blobs read; complete recursive tree guard not independently recomputed."
+  ],
+  "schema_version": 1
+}

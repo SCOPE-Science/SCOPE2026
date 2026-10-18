@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The binary zero-run case split proves adjacent accepted indices are exactly the starts of the pairs at \(4^t-1\). The greedy-arch lemma is supplied with both constructive universality and an explicit shortest absent subsequence witness. The initial six-symbol arch offset, the single correction at a trailing doublet, and the Fibonacci count give the claimed formula with all initial boundaries handled. A standalone direct generator checked every prefix through \(2^{20}\) and exhaustive target subsequences through length 29. The infinity result relies on the symbolic argument, not test coverage.
+## correctness
 
-**Originality — PASS with residual risk.** Full-text reading of the main relevant arch-factorization paper (arXiv:2304.11932v1) and introductory/theorem material of the regular-language universality paper (arXiv:2311.10658v1) found general methods but no Baum–Sweet all-prefix identity, Fibonacci dyadic formula or exponent statement. Literature and indexed research comparisons sought equivalent sparse automatic-word, factorization and counting formulations. A generic algorithm that can compute each finite prefix does not automatically imply a uniform explicit formula. An unindexed prior specialization remains a live risk and no absolute novelty guarantee is asserted.
+PASS
 
-**Value — PASS.** The complete invariant for every prefix of a canonical automatic sequence is naturally motivated by subword-universality theory, with a structural characterization and precise sublinear exponent; its behaviour is unlike the linear-density examples. The exact formula and logarithmic digit algorithm supply a reusable benchmark for sparse automatic words rather than an arbitrary finite sample.
+The binary Baum–Sweet prefix starts b(0)=1 and b(n)=1 precisely when ordinary binary zero runs have even lengths. Adjacent ones occur iff n=4^t-1, with no triple ones, by following even last-zero-run parity under increment. The standard shortest complete-two-letter greedy arch decomposition exactly computes scattered-subsequence universality, as its constructive lower embedding and missing length-(a+1) word upper bound show. After initial word 110110 (four ones, two arches), a further one completes an arch unless it ends a pair of adjacent ones, when the second one requires the next zero. The only trailing pairs occur at prefix N=4^t+1; small N=0..6 checked. Thus for all N>=4, U=B-2-1_exception. The accepted positive binaries form 1(1|00)*, yielding count F_ell at bit-length ell and B(2^m)=F_{m+2}; monotonicity brackets all N to give Θ(N^log2φ), with exact dyadic limit φ²/sqrt5. Independently regenerated bits and greedy arches agreed for each N<=16384 and Fibonacci dyadic levels through 14; these are bounded checks supporting a full symbolic proof.
 
-The shortest-absent-subsequence census and exact interior-factor universality are outside scope. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general greedy-arch universality correspondence and the automatic Baum–Sweet sequence are classical. The inspected Schnoebelen–Veron work develops compressed input arch algorithms but does not provide a symbolic all-prefix closed form or sublinear exponent for this named sequence. The fixed regular-language universality problem of Adamson et al. is a distinct quantifier pattern. Resultary returned related general binary universality and Fibonacci SAS results, not a Baum–Sweet prefix formula. This specific all-N correction and dyadic count survive as mathematical specialization with new structural work.
+
+## value
+
+PASS
+
+Exact sparse subsequence universality in a canonical 2-automatic binary sequence links digital regular-language counting, greedy arch factorization and Fibonacci growth. The exceptional 4^t+1 prefix correction and explicit O(log N) digit-DP make it a usable sharp combinatorial invariant for all prefixes, beyond merely applying a generic finite-input algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
