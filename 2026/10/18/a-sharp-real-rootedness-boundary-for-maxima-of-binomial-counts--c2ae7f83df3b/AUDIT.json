@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For iid Bin(n,p) samples, exact CDF powers yield the maximal count PGF. The degree-two discriminant is nonnegative (strict for sample size at least two) by strict convexity. For every higher n, scaling the small-p PGF gives \\(m(1+t)^n-(m-1)\\), which has a simple nonreal root and transfers via root continuity. For n=3,m=2, a complete exact cubic discriminant factorization gives a strictly increasing threshold polynomial and hence the iff law. The bundled checker recomputed the cubic discriminant as an integer-polynomial identity and passed 2615 exact finite/algebraic checks. No finite enumeration is used to establish the infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Badiella, del Castillo, Puig (2023), Theorem 2: ultra-log-concavity for every discrete order statistic.",
+        "Kim, Kim, Lee (2018): strong unimodality for discrete order statistics (abstract inspected only).",
+        "Tang and Tang (2019), Theorem 4.1: general PF/real-rooted equivalence."
+      ],
+      "reasoning": "Ultra log-concavity and log-concavity do not imply the root factorization: e.g. the new binomial \\(n=3,m=2\\) law at \\(p=1/10\\) is ultra log-concave by the 2023 theorem yet has a negative cubic discriminant. The ASW equivalence characterizes PB laws abstractly, but cannot give the exact family-specific cutoff without the new discriminant and rare-event analysis. The inaccessible 2018 full text is a residual risk rather than an assumed noncoverage.",
+      "searches": [
+        "real-rootedness of discrete order statistic maximum of iid binomial distributions Poisson binomial; non-real roots rare-event limits",
+        "\"Ultra log-concavity of discrete order statistics\" real rooted polynomial strong Rayleigh",
+        "\"binomial\" \"maximum\" \"real-rooted\" probability generating polynomial order statistics"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1016/j.spl.2023.109900",
+      "https://portal.mardi4nfdi.de/wiki/Publication:6178692",
+      "https://arxiv.org/abs/1908.10024",
+      "https://doi.org/10.1016/j.spl.2018.04.018",
+      "https://portal.mardi4nfdi.de/wiki/Strong_unimodality_of_discrete_order_statistics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2 of Badiella et al. guarantees ULConcavity of the maximum even when \\(p=1/10\\) and the cubic discriminant is negative.",
+        "Tang and Tang Theorem 4.1 guarantees Bernoulli factorization only conditional on real zeros, not for this particular transformed distribution.",
+        "The closest mathematical-record hits on effective-trial counts assume a Poisson-binomial input; other hits concern exchangeable Bernoulli exact-count bounds and different binomial-tail tests."
+      ],
+      "reasoning": "Neither weaker ULC preservation nor the generic PF equivalence implies that all \\(n\\le2\\) maxima are PF, every \\(n\\ge3\\) has a small-p non-PF regime, or the \\(n=3,m=2\\) exact algebraic phase boundary. The direct implication comparisons are on mathematical hypotheses and conclusions, not just titles.",
+      "searches": [
+        "Binomial maxima probability generating function as convolution of independent Bernoulli variables iff n up to 2 universally, for n three threshold p",
+        "Order statistics of discrete strongly Rayleigh (Poisson binomial) laws not closed under maximum, sharp 3-success Bernoulli case",
+        "\"real rooted\" \"maximum of\" \"binomial\" random variables distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tang and Tang (arXiv:1908.10024), Theorem 4.1: Poisson-binomial ↔ real-rooted PGF ↔ Pólya-frequency sequence.",
+        "The new statement explicitly tests all these mathematically equivalent formulations for the maxima distribution."
+      ],
+      "reasoning": "Changing the terms to strongly Rayleigh, PF-infinity, real-rooted probability generating function, and Bernoulli-sum decomposition does not produce an identified earlier exact n=2 preservation cutoff or n=3,m=2 threshold.",
+      "searches": [
+        "Order statistics of discrete strongly Rayleigh (Poisson binomial) laws not closed under maximum, sharp 3-success Bernoulli case",
+        "Binomial maxima probability generating function as convolution of independent Bernoulli variables iff n up to 2 universally, for n three threshold p",
+        "\"binomial order statistics\" \"Poisson binomial\" representation maximum",
+        "\"real-rootedness\" \"order statistics\" discrete distributions maximum binomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact discriminant factor sought: \\(108p^6(1-p)^{12}(4p^6+8p^3+3p^2+6p-1)\\).",
+        "No matching specific polynomial or success-threshold table was returned by the completed searches; this absence does not establish uniqueness."
+      ],
+      "reasoning": "The analytic parameter cutoff and the n-dependent universal preservation boundary were compared to actual indexed hits, including related but different Bernoulli extreme-count and Poisson-binomial cumulant statements. No exact database/table coverage was located.",
+      "searches": [
+        "Sharp real-rootedness phase diagram for maximum of two Binomial(3,p) variables: cubic discriminant 4p^6+8p^3+3p^2+6p-1 threshold 0.150732",
+        "\"maximum of binomial\" \"complex roots\" generating function",
+        "\"binomial\" \"maximum\" \"real-rooted\" probability generating polynomial order statistics"
+      ]
+    },
+    "rationale": "The inspected 2023 preservation theorem proves ultra log-concavity (a strictly weaker property); Tang and Tang give the generic real-rootedness/Bernoulli decomposition equivalence, not this family classification; 2018 abstract gives only strong unimodality. Targeted mathematical-record searches and accessible prior-claim comparisons found no same-parameter threshold or broad dominating theorem. This is a best-knowledge originality judgment with residual unindexed and full-text-access risks.",
+    "residual_risks": [
+      "The full 2018 Kim--Kim--Lee paper was not accessible in this research pass; only its abstract and later citation were examined.",
+      "Equivalent binomial-maximum PF phase classifications might exist in older unindexed reliability or total-positivity literature.",
+      "Direct publisher-page opening for the 2023 article returned a redirect error, although indexed article text including its theorem and proof was examined.",
+      "No independent external mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2 yields ultra log-concavity but neither an all-real-zero guarantee nor a binomial-maximum success-probability threshold.",
+        "evidence": [
+          "Theorem 2: discrete order statistics preserve log-concavity and ultra log-concavity; proof uses synchronized log-concave sequences.",
+          "Article history indexed at institutionally hosted manuscript: publicly available online on 2023-06-26."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2023.109900",
+        "material_read": "Indexed full article text: introduction, statements and derivation in sections 2–4, Theorem 2 proof and corollary. Direct publisher-link opening redirected unsuccessfully; this is not claimed as a successfully opened PDF.",
+        "method": "Read the indexed complete publisher-page article text and compared Theorem 2 and its proof to polynomial-root requirements.",
+        "title": "Ultra log-concavity of discrete order statistics",
+        "trigger": "Most directly related modern preservation theorem for discrete maxima."
+      },
+      {
+        "assessment": "Supplies the general equivalence, not the root location of the PGF of maxima of iid binomial counts or the exact cubic boundary.",
+        "evidence": [
+          "Theorem 4.1 equates real zeros, Bernoulli-sum laws and Pólya-frequency sequences.",
+          "No maximum-of-binomial order-statistic classification located in examined article."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.10024",
+        "material_read": "Full available arXiv HTML, sections 1–4, especially Theorem 4.1 and its classical Aissen–Schoenberg–Whitney equivalence; document search for maximum/order statistics.",
+        "method": "Examined definitions, Theorem 4.1, strongly Rayleigh discussion and examples for explicit maximum-of-binomial treatment.",
+        "title": "The Poisson binomial distribution -- Old & New",
+        "trigger": "Relevant general equivalence between independent Bernoulli sums and real-rooted generating polynomials."
+      },
+      {
+        "assessment": "The accessible assertion is preservation of strong unimodality (log-concavity), not Poisson-binomial representability; lack of full-text inspection remains a named uncertainty.",
+        "evidence": [
+          "2018 abstract: all discrete order statistics preserve strong unimodality.",
+          "2023 paper cites Kim et al. for the earlier log-concavity theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2018.04.018",
+        "material_read": "Abstract and indexed zbMATH/MaRDI metadata only; publisher article full text was not read.",
+        "method": "Compared abstract-level assertion with the new stronger real-rootedness requirement and consulted the 2023 paper citation/discussion.",
+        "title": "Strong unimodality of discrete order statistics",
+        "trigger": "Earlier order-statistic shape theorem cited by the 2023 paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c2ae7f83-df3b-4a17-95d9-391febcb505e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Independent-Bernoulli representation enables exact factorized probability computations, PF/strongly Rayleigh consequences, and distributional inequalities. The natural operation of taking discrete maxima is known to preserve only ultra log-concavity. The theorem finds the largest binomial support parameter n permitting Bernoulli-factor preservation uniformly for arbitrary sample sizes, proves its failure in every larger dimension, and determines the complete success-probability boundary at the smallest failing dimension and sample size. This is a structural and exact parameter classification, not an isolated finite counterexample or arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
