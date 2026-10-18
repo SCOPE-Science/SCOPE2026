@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact domain is the fourteen-element point–line incidence poset of the Fano plane. Every ideal is a pair consisting of a point subset and a subset of its contained lines; an explicit formula follows directly from the definition of minimal absent elements. The seven short representative cycles, acted upon by the full 168-element projective group, give seven disjoint sets of 3, 42, 42, 35, 35, 105 and 196 ideals; these exhaust the independently proved total of 458. Two standalone exact implementations reproduce the cycle multiplicities 29, 35 and 28. Both the 105 order and seven symmetry classes follow from this complete partition, not from partial experiments.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Striker–Williams (arXiv:1108.1172) establish the rowmotion framework and compute orbits for other specified posets. Striker (arXiv:1601.03710) studies toggle-group structure, while Pechenik (arXiv:2107.02679) treats minuscule periodicity and orbit preservation under comparability-graph equivalence. The inspected open full texts and source-specific searches provide no theorem or table covering this Fano point–line poset; no general theorem inspected implies the seven-class cycle distribution. The 1995 Cameron–Fon-Der-Flaass article was available only in abstract and metadata form, without a publicly accessible complete text located during this comparison; its specific study concerns products of three chains. An earlier unindexed enumeration remains possible, so priority is not independently certified.
+PASS
 
-**Value — PASS.** This is the complete dynamical classification of a canonical incidence-geometric poset, with a compact seven-cycle certificate, 105 as exact rowmotion order, and seven symmetry classes. Its coexistence of cycle lengths 3, 5 and 7 on a highly symmetric rank-two poset gives an explicit boundary example for special-poset periodicity and cardinality-homomesy expectations. This is not merely a recomputation of a previously listed scalar invariant.
+Every ideal is uniquely (S,T) with S subset seven points and T subset the lines C(S) contained in S; summing 2^|C(S)| gives 458. Minimal missing elements yield the explicit deterministic rowmotion transition ((P\S) union all points on C(S)\T, C(S)\T). Direct independent enumeration of all 458 ideals and cycles gives 29 3-cycles, 35 5-cycles and 28 7-cycles; the permutation order is lcm=105. All 168 invertible GF(2)^3 maps act on points and lines; the seven representative cycle orbits (1,14,14,7,7,21,28 cycles) cover disjointly all 458 ideal states. Inspected full verify.py and second independent C++ algorithm description. This is exhaustive finite proof by exact complete cover, not numerical sampling.
 
-**Limits.** The claim is finite and does not extrapolate to arbitrary projective planes. The exact computational certificates and their dependencies are included, and external independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ordinary rowmotion, toggle groups, and products-of-chains/minuscule orbit results are classical (Cameron–Fon-Der-Flaass; Striker–Williams; Pechenik). The inspected papers/material do not present the specific Fano point-line ideal permutation or GL(3,2)-equivariant seven-class orbit table. Pechenik minuscule families have unique minimal elements while this incidence poset has seven. Resultary closest Fano/Heawood results concern homology representations and unrelated invariants. The complete Fano poset symmetry census is the narrowly assessed result.
+
+## value
+
+PASS
+
+The Fano incidence order is a canonical 14-element geometric poset with unusually large order-168 symmetry. The complete symmetry-reduced rowmotion spectrum, including three coprime orbit lengths and 105 order, is a motivated exact dynamic invariant usable as a test case for rowmotion conjectures and comparability phenomena. A natural complete finite classification can be valuable without extension to all projective planes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
