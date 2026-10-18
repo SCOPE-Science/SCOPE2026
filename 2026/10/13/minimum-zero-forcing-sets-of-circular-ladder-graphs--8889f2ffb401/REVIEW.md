@@ -1,13 +1,21 @@
-# Review
-## Correctness
-PASS. For \(n\ge5\), the prism is cubic and triangle-free. Any first force from a hypothetical three-vertex set forces the three initial blue vertices to form a three-vertex path, and the two symmetry classes both stall after one force, proving the lower bound \(Z(Y_n)\ge4\). Two adjacent full rungs give a four-vertex forcing set. For an arbitrary four-vertex forcing set, fixing an actual first force leaves only four possible locations for the fourth initial blue vertex in each of the two local first-force geometries; these possibilities are exactly the four stated families. Each family is then reduced constructively to two adjacent full rungs. The count \(n+8n+2n+2n=13n\) is disjoint for \(n\ge5\). The packaged checker independently verifies the criterion for every subset of size at most four for \(5\le n\le11\).
+# Independent mathematical audit
 
-## Originality
-PASS. Prism-specific prior work located during the review addresses the scalar zero forcing number and process, not an all-minimum-set classification. A full-text generalized-Petersen paper states exact zero forcing results for \(k=2\), \(k=3\), and a special \(P(2k+1,k)\) family, but not a classification of the \(k=1\) prism bases. Full-text searches in the zero forcing polynomial paper and the zero forcing reconfiguration paper found no “prism” or “circular ladder” occurrence. A 2022 full-text article explicitly about minimum zero forcing sets treats several standard graph families but does not treat prisms. Targeted searches for the \(13n\) count and circular-ladder minimum sets found no covering statement.
+## correctness
 
-Residual bibliographic risk remains for an unindexed source or alternate prism notation, but no decisive covering result was found.
+PASS
 
-## Value
-PASS. Minimum zero forcing sets are themselves the vertices of the zero forcing reconfiguration graph, so their exact classification is a natural structural object rather than a cosmetic refinement of the scalar invariant. Circular ladders are a canonical cubic family and the \(13n\) law gives an exact optimal-placement multiplicity together with four explicit local types. The result can therefore serve directly in reconfiguration, randomized optimal placement, and propagation studies on prism networks.
+Each Y_n for n>=5 is cubic and triangle-free. With three initially blue vertices, any first force must center at a blue three-vertex path; the two possible rail-rail or rail-rung local shapes stall after the force, proving Z>=4. Two adjacent complete rungs force around both rails, so Z=4. For a size-four zero forcing set choose an actual first force. A fourth initially blue vertex permitting continuation must lie at one of four local neighboring positions for each of the two first-force shapes; these cases reduce to four disjoint families: adjacent full rungs (n); full rung plus two same-rail offsets (8n); full rung plus opposite-rail adjacent neighbors (2n); four consecutive same-rail vertices (2n). Constructive forcing sequences establish sufficiency and no wraparound identifications for n>=5; total exactly 13n. An entirely independent direct color-change enumerator compared all size <=4 subsets and families on n=5..11 (65,78,91,104,117,130,143), with no mismatches.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The same family may be called prism Y_n, circular ladder or generalized Petersen P(n,1); the scalar forcing number was already known. The result instead classifies every size-four basis and counts 13n, which is absent from inspected zero-forcing polynomial, graph-class min-set and generalized-Petersen sources. Best-of-knowledge novelty with residual notation/atlas risk.
+
+## value
+
+PASS
+
+This is a natural full basis classification for the prism family, central in graph zero forcing and reconfiguration: the exact 13n coefficient counts all starting sets of minimum cardinality and explicitly separates four distinct local forcing mechanisms. It goes beyond the already known scalar Z=4 and supports future study of prism basis-reconfiguration adjacency.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
