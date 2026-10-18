@@ -1,0 +1,11 @@
+# Scientific review: Heawood zero forcing and minimal forts
+
+**Correctness — PASS.** The graph is fixed by seven explicit Fano triples. The finite, exhaustive proof enumerates all \(16384\) vertex sets. Ordinary forcing and independently constructed dot-product incidence/fort hitting agree; the latter exhaustively tests every proper submask for fort minimality. Full \(336\)-element symmetry enumeration verifies each certificate orbit, rather than inferring completeness from sample configurations. The fort–forcing equivalence is proved directly and all boundary cases, including empty seeds, are included.
+
+**Originality — PASS with residual historical-priority risk.** The same-graph matrix-theory paper by Deaett–Hall discusses ordinary forcing/rank bounds and a distinct positive-semidefinite invariant. The polynomial framework of Boyer *et al.*, the fort-covering methods of Brimkov–Fast–Hicks, and the tree-oriented well-forced theory of Grood *et al.* are acknowledged. Inspected full texts give no complete Heawood minimal-fort and forcing-set orbit classification. Queries for aliases and exact counts found no dominating statement; this search does not prove global novelty, and supplementary enumerations could predate this result. The ordinary forcing number itself is not claimed as new.
+
+**Value — PASS.** The two-orbit classification gives a complete irredundant obstruction system of only \(70\) forts for a canonical finite incidence structure. It supports exact fort-hitting formulations, explains well-forcedness, and separates five optimal symmetry types and two propagation-time strata. These are full natural classifications, not a narrow parameter perturbation or a statement obtained merely by naming a known counting formula.
+
+**Scientific limitations.** Scope is the fourteen-vertex Heawood graph, not arbitrary projective planes; binary brute-force witnesses are finite exhaustive proofs only because all \(2^{14}\) cases and all automorphisms are covered. Independent human or external mathematical audit remains outstanding. The 2008 original definition and previously discussed bounds are credited. Earlier unindexed published or unpublished tables remain a priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
