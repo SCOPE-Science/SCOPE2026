@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For A=pi(n^2)>1, h=pi((n+1)^2)-A, a block-of-six coprimality count gives h <= (2n+7)/3. Rosser--Schoenfeld gives A>n^2/(2 log n) for n>=100, whence n log(1+h/A) < (69/50) log n; an independent calculus inequality gives log A>(3/2)log n. The 97 omitted indices 3<=n<=99 were exactly checked with two independent prime indicators and arbitrary-precision powers, using VERIFY.py and FINITE_CASES.csv as embedded. The n=2 reverse inequality is exact. The finite table is not used to justify unbounded cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun Conjecture 2.7(i), https://arxiv.org/html/1402.6641v12",
+        "Hassani (2006) interval-prime counting, https://arxiv.org/html/math/0607096v1",
+        "Rosser--Schoenfeld (1962), doi:10.1215/ijm/1255631807"
+      ],
+      "reasoning": "The neighboring Sun assertion compares pi(kn)^(1/k) across k for fixed n; it does not compare pi(n^2) and pi((n+1)^2) under changing n and exponent. Hassani studies separate lower bounds on h(n)=pi((n+1)^2)-pi(n^2), not this global root inequality. The classical Rosser--Schoenfeld bound is a lower bound for pi(x); alone it does not assert the increment/root conclusion. No stronger directly covering theorem was found.",
+      "searches": [
+        "Conjecture 2.14(ii) Sun 2014 prime counting function squared-argument monotonic nth roots",
+        "Prime counting function asymptotic log pi(n squared) / n strictly decreasing",
+        "\"prime counting\" \"square\" \"nth root\" \"decreasing\" Sun",
+        "\"prime counting\" \"root\" \"monotonic\" prime counts",
+        "\"Zhi-Wei Sun\" \"Conjecture 2.14\" resolved monotonic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1402.6641 (2014), especially Conjecture 2.14(ii)",
+      "OEIS A038107",
+      "arXiv:math/0607096 (2006)",
+      "OEIS A014085",
+      "Rosser--Schoenfeld, Illinois J. Math. 6 (1962), DOI:10.1215/ijm/1255631807"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun 2014 paper Sections 2.7 and 2.14, https://arxiv.org/html/1402.6641v12",
+        "Hassani 2006 Theorem 2.3, https://arxiv.org/html/math/0607096v1"
+      ],
+      "reasoning": "Sun 2.14(ii) matches the present conclusion but is explicitly conjectural; 2.7(i) holds a block length fixed and varies its multiplier, whereas 2.14(ii) varies both. Substituting either adjacent block length into 2.7(i) leaves an intermediate pi(n(n+1)) on the wrong side for an immediate implication. Hassani 2.3 is an infinitely-often lower bound on the increment, with opposite direction and quantifier from the needed global upper control. Neither inspected result subsumes the new proof.",
+      "searches": [
+        "Conjecture 2.7(i) prime counting root monotonicity fixed n k",
+        "Conjecture 2.14(ii) pi(n^2) power 1/n",
+        "For all n>=3 pi(n^2)^(n+1) exceeds pi((n+1)^2)^n, prime-counting inequalities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhi-Wei Sun, arXiv:1402.6641, Conjecture 2.14(ii), https://arxiv.org/html/1402.6641v12",
+        "OEIS A038107, February 2014 conjecture comment, https://oeis.org/A038107"
+      ],
+      "reasoning": "The exponentiated equivalent is pi(n^2)^(n+1)>pi((n+1)^2)^n, equivalently log(pi(n^2))/n strictly decreases. The exact statement is explicitly an unproved conjecture in the inspected primary source and OEIS comment. Searches for all three formulations identified no prior proof; this is evidence of a gap, not a uniqueness certificate.",
+      "searches": [
+        "The sequence pi(n^2)^(1/n) for integer n>=3 is strictly decreasing (Sun conjecture 2.14(ii))",
+        "For all n>=3 pi(n^2)^(n+1) exceeds pi((n+1)^2)^n, prime-counting inequalities",
+        "Monotonicity of log(pi(n squared)) divided by n for n at least three",
+        "\"pi(n^2)\" \"decreasing\" \"Sun\" conjecture",
+        "\"prime counting\" \"pi(n^2)\" \"root\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A038107 conjecture and initial terms https://oeis.org/A038107",
+        "OEIS A014085 interval prime counts https://oeis.org/A014085"
+      ],
+      "reasoning": "A038107 explicitly labels the same monotonic-root assertion a conjecture. A014085 enumerates interval counts only. Finite listings are not global theorems and do not imply the unbounded result without the analytical tail.",
+      "searches": [
+        "OEIS A038107 pi(n squared) conjecture root decrease",
+        "OEIS A014085 primes between successive integer squares",
+        "\"Conjecture 2.14\" \"Sun\" \"prime\" \"decreasing\""
+      ]
+    },
+    "rationale": "The precise statement was published as a conjecture by Sun in the 2014 paper and appears again in OEIS A038107, without a known proof in the inspected sources. The published interval-count literature and Sun's separately indexed fixed-n Conjecture 2.7(i) have different logical conclusions. Multiple dedicated statement/equivalence and stronger-coverage searches did not yield a dominating theorem. The incompleteness of scholarly indexing is explicitly retained as a residual risk.",
+    "residual_risks": [
+      "Literature and semantic search cannot exclude a prior equivalent but unindexed full proof.",
+      "The full 1962 journal PDF was not material-read; the exact classical inequality was cross-checked from reliable secondary reproduction.",
+      "No independent audit of this proof or the finite checker has yet occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The claim is explicitly posed as a conjecture; no proof supplied there. The related fixed-parameter root conjecture is different.",
+        "evidence": [
+          "Conjecture 2.14(ii): pi(n^2)^(1/n) is strictly decreasing from n=3",
+          "Conjecture 2.7(i): pi(kn)^(1/k) strictly decreases in k at fixed n"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1402.6641v12",
+        "material_read": "HTML original work: introduction, Conjectures 2.7 and 2.14 and surrounding remarks, numbered sections and reference material",
+        "method": "Full-text accessible arXiv HTML, reading relevant numbered claims and adjacent sections",
+        "title": "Problems on combinatorial properties of primes",
+        "trigger": "Exact Conjecture 2.14(ii); comparison with 2.7(i)"
+      },
+      {
+        "assessment": "No proof stated; original conjecture restated; sequence values match finite certificate.",
+        "evidence": [
+          "Comment labels a(n)^(1/n) (n=3,4,...) strictly decreasing as conjecture",
+          "Formula a(n)=pi(n^2)"
+        ],
+        "identifier_or_url": "https://oeis.org/A038107",
+        "material_read": "Complete accessible OEIS entry, especially February 2014 comment, formulas and references",
+        "method": "HTML table and commentary inspection",
+        "title": "A038107: Number of primes below a square",
+        "trigger": "Exact database table and explicit historical conjecture"
+      },
+      {
+        "assessment": "Proves an infinitely-often lower bound on interval prime count, not universal upper control or rooted prime-counting monotonicity.",
+        "evidence": [
+          "Theorem 2.3 asserts an inequality for infinitely many n",
+          "Its lower bound concerns pi((n+1)^2)-pi(n^2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0607096v1",
+        "material_read": "All three sections of full accessible HTML including Theorem 2.3 and proof",
+        "method": "Full text arXiv HTML inspection",
+        "title": "Counting Primes in the Interval (n^2,(n+1)^2)",
+        "trigger": "Plausible exact same objects in primary paper"
+      },
+      {
+        "assessment": "Finite counts and Legendre-type conjectures, not proof of the root inequality.",
+        "evidence": [
+          "a(n)=pi((n+1)^2)-pi(n^2)"
+        ],
+        "identifier_or_url": "https://oeis.org/A014085",
+        "material_read": "Full HTML entry including definitions, formulas, comments, bibliography",
+        "method": "Database/table inspection",
+        "title": "A014085: Number of primes between consecutive squares",
+        "trigger": "Table of precise increment used in equivalent formulation"
+      },
+      {
+        "assessment": "Standard established lemma used with correct threshold; not evidence of the new monotonicity claim.",
+        "evidence": [
+          "Rosser--Schoenfeld (1962) x/log(x) lower bound for pi(x), x>=17",
+          "Journal record identifies Illinois J. Math. 6(1):64--94"
+        ],
+        "identifier_or_url": "https://doi.org/10.1215/ijm/1255631807",
+        "material_read": "Published journal bibliographic record and independently reproduced x>=17 lower-bound statement; article full text was not inspected",
+        "method": "Bibliographic verification and theorem-statement cross-check",
+        "title": "Approximate formulas for some functions of prime numbers",
+        "trigger": "Classical lower bound used as proof input"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "167e1369-11e1-4d85-8959-6d0e41a154e3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result completely resolves an explicitly published 2014 all-index conjecture rather than an arbitrary finite slice: the prime-counting function along squares has strictly decreasing index roots starting at the sharp n=3 threshold. The finite certificate is logically joined to a quantitative infinite estimate, yielding a complete theorem independent of unproved prime-gap hypotheses. Its natural object, normalization, and mathematical gap are documented in Sun 2014 and OEIS A038107.",
+    "status": "PASS"
+  }
+}
