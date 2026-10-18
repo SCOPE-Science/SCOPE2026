@@ -1,15 +1,21 @@
-# Scientific assessment: exact type-B conjugacy-class Fourier spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem applies to all \(n\ge3\) and every *single* conjugacy class of \(B_n\) with normalized counting measure. The matrix coefficient identification is fixed by the exact finite-group Schur factor \(\sqrt n\). The conjugation representation is multiplicity-free: scalars, traceless diagonals, off-diagonal symmetric matrices, and skew-symmetric matrices. Their projected signed-monomial energies are exactly \(s^2/n\), \(f-s^2/n\), \((n-f)/2+\tau\), and \((n-f)/2-\tau\), accounting for all \(n\) squared Frobenius units. Orbit averaging and the sector dimensions yield the four concentration eigenvalues. Equality of all levels to the density forces and is forced by \(f=1,\tau=0\); strict positivity gives the full-rank criterion. The full exact class operators for all \(66\) signed cycle classes in dimensions \(3\), \(4\), and \(5\) were checked, not just their moments. These finite checks support but do not replace the proof for all ranks.
+## correctness
 
-## Originality — PASS, residual priority risk
-The closest directly inspected sources are Thill–Hassibi's group-frame papers (arXiv:1509.05087, arXiv:1509.05739), Cherniavsky–Sklarz's unsigned permutation conjugacy result (arXiv:math/0411554), and the hyperoctahedral representation notes of Arun Ram. The group-frame literature includes general harmonic construction and conjugacy-control machinery, but the inspected relevant text does not give the complete signed-conjugacy-class sampling spectrum, the sign-sensitive two-cycle split, or the precise tightness criterion. Cherniavsky–Sklarz studies matrix similarity and characters for \(S_n\), a logically different question. The decomposition and Schur-averaging method are standard ingredients and not claimed as new; the explicit signed-cycle spectral law and its complete tight/injective classification are the assessed contribution. An earlier equivalent orbit-frame or association-scheme formula remains possible, so universal priority is not certified.
+PASS
 
-## Mathematical value — PASS
-Conjugacy-class restriction is an invariant sampling problem in noncommutative Fourier analysis, and its conditioning depends on the class. The theorem yields the *complete* spectral answer for every class of every rank, a necessary-and-sufficient reconstruction boundary, and infinite exactly tight single-class sampling families (beginning at rank four). The signed two-cycle imbalance distinguishes symmetric and skew spectral sectors; neither the unsigned case nor a generic statement of Schur's lemma supplies the full classified result without analysis of signed cycle geometry. The result therefore gives a natural structural sampling classification rather than a lookup, parameter renaming, or isolated numerical improvement.
+For B_n signed permutation matrices U, the Schur-orthogonal coefficient embedding sends the reflection-matrix block to Mat_n with √n normalization. The adjoint-conjugation action on Mat_n splits multiplicity-free as scalar I (dim1), traceless diagonal (n−1), symmetric off-diagonal and skew off-diagonal (each n(n−1)/2). For a signed cycle type with f=f_++f_− fixed coordinates, s=f_+−f_− and τ=t_+−t_−, the squared projection energies of U are s²/n, f−s²/n, (n−f)/2+τ, (n−f)/2−τ, totaling n. Conjugacy averaging by sector Schur gives claimed w-scaled four eigenvalues including multiplicities. Solving equality of all four eigenvalues to w yields f=1,τ=0, and strictly positive levels yield the specified injectivity criterion: s≠0 and a long cycle or both 2-cycle signs. Checked the branch n=3 has no tight classes, n≥4 examples. Independently enumerated all 10 rank-three and all 20 rank-four signed conjugacy types and evaluated every basis vector of all four exact rational orbit operators; all agree, distinct from source’s rank-3-to-5 checker.
 
-## Sources, qualifications, and risks
-The primary published source dates are 2004-11-24, 2015-09-17, and 2015-09-18. The checker exhausts only ranks three through five; the theorem for all ranks is analytic. The sources examined do not rule out differently phrased results in older signed association-scheme or monomial-frame literature. No claims are made for multi-class sets, nonreflection representations, or mathematically independent validation. The per-source comparison and surviving priority risks are specified in `AUDIT.json`.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The original group Fourier-frame method and general conjugacy-character argument are strong nearby theory, but inspected full sections of Thill–Hassibi do not give the sign-sensitive reflection-block restriction spectrum for every single B_n class, its four exact levels or tight/injective signed-cycle classification. A general group-frame representation does not determine the claimed explicit orbit Gram eigenvalues without the signed 1/2-cycle energy and representation splitting. Best-of-knowledge priority, subject to other hyperoctahedral representation sources.
+
+## value
+
+PASS
+
+The reflected-permutation group is a canonical Weyl type-B family, and restriction to a single conjugacy class is a natural exact sampling/identifiability question. The complete all-class eigenvalue census compresses to signed 1/2-cycle statistics and settles both frame tightness and Fourier block injectivity in all ranks; sign-sensitive obstructions provide structural information beyond an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
