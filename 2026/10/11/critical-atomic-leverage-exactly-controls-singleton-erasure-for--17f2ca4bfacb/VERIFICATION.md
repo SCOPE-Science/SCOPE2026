@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,40 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let
-\[
-F_0=F(\omega_0),
-\qquad
-m=\mu(\{\omega_0\}),
-\qquad
-\ell=m\langle F_0,S^{-1}F_0\rangle.
-\]
-The critical hypothesis \(\ell=1\) implies \(m>0\). Therefore no measurable set containing \(\omega_0\) can have measure zero.
+# Independent mathematical audit
 
-The erased frame operator is obtained by subtracting exactly the singleton contribution:
-\[
-S_{-0}=S-m\theta_{F_0,F_0}.
-\]
-With
-\[
-u=\sqrt m\,S^{-1/2}F_0,
-\]
-conjugation gives
-\[
-S^{-1/2}S_{-0}S^{-1/2}=I-\theta_{u,u}.
-\]
-The only nontrivial eigenvalue of this rank-one perturbation is
-\[
-1-\|u\|^2=1-\ell.
-\]
-Since \(S_{-0}\ge0\), \(0\le\ell\le1\). Since \(S^{1/2}\) is invertible, the erased mapping is a continuous frame exactly when \(1-\ell>0\).
+## correctness
 
-At \(\ell=1\),
-\[
-S_{-0}S^{-1}F_0=(1-\ell)F_0=0.
-\]
-Thus \(S^{-1}F_0\ne0\) is an explicit witness to loss of the lower frame bound.
+PASS
 
-The source's full proof was inspected. Its almost-everywhere conclusion off \(\omega_0\) is compatible with the calculation above, but the set it defines contains the positive-measure atom, so its total measure is \(m\), not zero. The earlier 2006 robustness theorem was also checked and supplies only the noncritical branch.
+The frame operator after one atomic deletion is S_-=S-m theta_{F0,F0}. Positive congruence yields S^-1/2 S_- S^-1/2=I-theta_{u,u} with u=sqrt(m)S^-1/2F0 and ||u||²=ell. Positivity forces ell<=1, while bounded invertibility, hence the lower frame bound, holds exactly when ell<1. At ell=1, direct substitution gives S_- S^-1F0=0 and F0 nonzero; the atom must have m>0. Thus any measurable set containing omega0 has positive measure. The source's proposed null set contains the atom, so its measure cannot be 0.
+
+## originality
+
+PASS
+
+The 2006 continuous-frame robustness theorem handles the noncritical sufficient condition only. The exact 2017 theorem attempts the equality case but draws an impossible measure-zero conclusion. Fresh indexed searches for the exact theorem, canonical leverage, and critical singleton erasure yielded no source-specific published correction or theorem covering this critical measure-theoretic repair. The rank-one identity is standard algebra and is not independently claimed as a new operator technique.
+
+## value
+
+PASS
+
+Corrects a genuinely false published statement at its exact critical hypothesis and determines the sharp preservation/failure dichotomy for erasing a positive-mass singleton, with explicit loss-of-lower-bound witness. This is a natural boundary case of robustness rather than a random sign check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

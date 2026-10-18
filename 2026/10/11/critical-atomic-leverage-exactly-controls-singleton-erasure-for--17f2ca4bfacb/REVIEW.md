@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The critical equality forces \(\mu(\{\omega_0\})>0\), so a zero-measure set containing \(\omega_0\) cannot exist. Independently, the erased frame operator is
-\[
-S^{1/2}(I-\theta_{u,u})S^{1/2},
-\qquad
-\|u\|^2=\ell.
-\]
-Thus it is invertible exactly for \(\ell<1\), while at \(\ell=1\) the vector \(S^{-1}F(\omega_0)\) lies in its kernel.
+## correctness
 
-## Originality
-PASS. The exact theorem, critical equality, canonical leverage, atom-erasure aliases, null-set language, and minimal-redundancy formulations were searched. The 2006 predecessor was materially inspected and proves only the complementary noncritical branch. No checked indexed source supplied an explicit correction of the 2017 critical theorem.
+PASS
 
-Closest semantic results concern excess of orbit frames, finite-frame dual geometry, controlled \(K\)-frame perturbations, or unrelated dual \(g\)-frame criteria; they do not imply this exact atomic erasure boundary.
+The frame operator after one atomic deletion is S_-=S-m theta_{F0,F0}. Positive congruence yields S^-1/2 S_- S^-1/2=I-theta_{u,u} with u=sqrt(m)S^-1/2F0 and ||u||²=ell. Positivity forces ell<=1, while bounded invertibility, hence the lower frame bound, holds exactly when ell<1. At ell=1, direct substitution gives S_- S^-1F0=0 and F0 nonzero; the atom must have m>0. Thus any measurable set containing omega0 has positive measure. The source's proposed null set contains the atom, so its measure cannot be 0.
 
-## Value
-PASS. The source itself identifies equality as the unresolved boundary of robustness. The correction gives an exact if-and-only-if answer, an explicit critical kernel vector, and a measure-theoretically consistent replacement for the impossible null-set statement.
+## originality
 
-## Limitations
-The result concerns one positive-measure atom and the canonical leverage. It does not classify multiple or arbitrary measurable erasures. Pointwise completeness can depend on null modifications, so the robust conclusion is framed in terms of the continuous-frame lower bound.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The 2006 continuous-frame robustness theorem handles the noncritical sufficient condition only. The exact 2017 theorem attempts the equality case but draws an impossible measure-zero conclusion. Fresh indexed searches for the exact theorem, canonical leverage, and critical singleton erasure yielded no source-specific published correction or theorem covering this critical measure-theoretic repair. The rank-one identity is standard algebra and is not independently claimed as a new operator technique.
+
+## value
+
+PASS
+
+Corrects a genuinely false published statement at its exact critical hypothesis and determines the sharp preservation/failure dichotomy for erasing a positive-mass singleton, with explicit loss-of-lower-bound witness. This is a natural boundary case of robustness rather than a random sign check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
