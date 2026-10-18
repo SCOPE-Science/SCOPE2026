@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem concerns every integer \(n\ge2\), \(1\le c<n\), and all connected two-row binary incidence networks with \(n+c\) links and no isolated species. Its proof uses exact column types, the global Barber community-partition objective, and an integer quadratic comparison; finite tests do not establish the unbounded quantifiers on their own.
 
-The embedded standalone `verify_nested_modularity_pareto.py` uses only Python 3 standard-library modules `fractions`, `itertools`, and `math`.
+# Independent mathematical audit
 
-To verify independently, run `python3 verify_nested_modularity_pareto.py`. The first output line must be `VERIFY_OK`.
+## correctness
 
-The script enumerates all allowed matrices with \(2\le n\le8\), including 9,322 labeled cases, and for each recomputes NODF directly from pairwise row/column overlaps. The global Barber optimum is checked against explicit community assignments of the columns and, for \(n\le5\), against **all unrestricted vertex set partitions**, independently of the proof's modularity simplification. The latter enumeration evaluates 198,158 network/partition combinations, while the two-row-label checker evaluates 1,927,648 assignments. All arithmetic is exact `Fraction` arithmetic.
+PASS
 
-The script additionally compares every attainable score pair in each small dimension for Pareto dominance and tests the sharp joint-maximizer threshold and concrete low-connectance example. The global theorem is proved in `RESULT.md`, not inferred from these bounded tests.
+Counting shared columns gives c; the remaining s=n-c exclusive columns split as a+b=s. Classical NODF zeroes equal-degree pairs, producing N=(cs+1_{2x>s} c/(n-x))/(1+binom(n,2)). If both row vertices are in same Barber community, all column contributions cancel; if separate, each degree-one column contributes k_other, and each shared column contributes |k1-k2| to E²Q at optimum. Each choice is simultaneously achievable, even when arbitrary other communities allowed; Q*=2x(n-x)/(n+c)². N is strictly increasing in x; the concave quadratic first rises then falls, yielding Pareto x>=min(s,ceil(n/2)). Ferrers x=s compared with x=s-1 yields threshold n-2s+1=2c-n+1>=0; s=1 boundary is singleton. Independently enumerated all unrestricted vertex set partitions for every admissible labeled matrix n=2..5, with exact fraction arithmetic, and rederived every NODF and Barber optimum. This is bounded corroboration; all-n proof uses direct column/partition reduction.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the final specific quantitative/mathematical statement after semantic published-finding search and primary source comparisons; precise coverage and residual risks are recorded. No literature search is represented as exhaustive or as independent priority certification.
+
+## value
+
+PASS
+
+The two classical ecological metrics have competing objectives. Their complete joint feasible locus, exact Pareto frontier and common-maximizer connectivity threshold are mathematically natural at the smallest nontrivial connected bipartite guild size, and improve on empirical metric-correlation comparisons by optimizing global modularity exactly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

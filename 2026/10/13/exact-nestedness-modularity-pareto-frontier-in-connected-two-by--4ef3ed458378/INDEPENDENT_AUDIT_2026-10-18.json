@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:58:32.002008Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Counting shared columns gives c; the remaining s=n-c exclusive columns split as a+b=s. Classical NODF zeroes equal-degree pairs, producing N=(cs+1_{2x>s} c/(n-x))/(1+binom(n,2)). If both row vertices are in same Barber community, all column contributions cancel; if separate, each degree-one column contributes k_other, and each shared column contributes |k1-k2| to E²Q at optimum. Each choice is simultaneously achievable, even when arbitrary other communities allowed; Q*=2x(n-x)/(n+c)². N is strictly increasing in x; the concave quadratic first rises then falls, yielding Pareto x>=min(s,ceil(n/2)). Ferrers x=s compared with x=s-1 yields threshold n-2s+1=2c-n+1>=0; s=1 boundary is singleton. Independently enumerated all unrestricted vertex set partitions for every admissible labeled matrix n=2..5, with exact fraction arithmetic, and rederived every NODF and Barber optimum. This is bounded corroboration; all-n proof uses direct column/partition reduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fortuna et al 2010 studies empirical correlations across ecological networks, not exact constrained attainable pairs.",
+          "Hoeppke–Simmons maxnodf optimizes a single nestedness metric at dimensions/connectance, not the Barber modularity maximum."
+        ],
+        "reasoning": "Broader ecological network datasets do not mathematically imply the global two-score tradeoff or common-optimum transition at the exact two-row constraints.",
+        "searches": [
+          "Fortuna nestedness versus modularity in ecological networks 2010",
+          "Hoeppke Simmons maxnodf 2021",
+          "Barber community detection bipartite networks 2007"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0707.1616",
+        "DOI:10.1103/PhysRevE.76.066102",
+        "DOI:10.1111/j.2008.0030-1299.16644.x",
+        "DOI:10.1111/j.1365-2656.2010.01688.x",
+        "DOI:10.1111/2041-210X.13545"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Barber supplies objective Q but not maximization over 2-by-n edge-count classes; Almeida-Neto supplies NODF objective but not joint optimization.",
+          "Single-metric NODF maximum does not imply the lower Pareto classes nor threshold for joint maximum."
+        ],
+        "reasoning": "The decisive implication requires the columnwise optimization identity Q*=2x(n-x)/(n+c)^2 and integer Pareto comparison, neither merely index definition.",
+        "searches": [
+          "Barber DOI 10.1103/PhysRevE.76.066102",
+          "Almeida-Neto et al DOI 10.1111/j.2008.0030-1299.16644.x",
+          "Hoeppke Simmons DOI 10.1111/2041-210X.13545"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "M. J. Barber (2007), arXiv:0707.1616 / DOI 10.1103/PhysRevE.76.066102 introduces bipartite modularity; it is not an exact two-metric frontier.",
+          "Almeida-Neto et al (2008) defines strict-degree-order NODF; source of the convention, not this all-parameter frontier.",
+          "Resultary nearest hits concerned other bipartite graph invariants rather than NODF/Barber co-optimization."
+        ],
+        "reasoning": "The exact fixed-2-by-n locus is not equivalent to defining either index or observing correlations; same normalization and unrestricted global optimum are needed for comparability.",
+        "searches": [
+          "Resultary semantic: Barber bipartite modularity NODF exact two row network Pareto frontier connected",
+          "Barber modularity two plant species n pollinators fixed edge count exact",
+          "NODF Barber exact nestedness modularity Pareto bipartite 2 xn"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct n=6,c=1 sample scores N=(1/3,11/32,3/8) and Q=(18/49,16/49,10/49) form a triple Pareto frontier.",
+          "Independently enumerated exact bounded n=2..5 full vertex partitions; no competing published exact joint-score table found."
+        ],
+        "reasoning": "Numerical empirical network tables do not fix global optimum over all network vertex partitions. The absence of an indexed table is not priority proof.",
+        "searches": [
+          "fixed n c exhaustive 2 x n binary NODF Barber modularity Pareto table",
+          "two guild species exact nestedness modularity seven links 2x6"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the final specific quantitative/mathematical statement after semantic published-finding search and primary source comparisons; precise coverage and residual risks are recorded. No literature search is represented as exhaustive or as independent priority certification.",
+      "residual_risks": [
+        "Other network-connectance exact joint index formulations may cover some or all results outside inspected sources.",
+        "Dependence on strict equal-degree-zero classical NODF and unconstrained global Barber partitions: variants do not have the same theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source of metric, no assertion of whole-paper noncoverage",
+          "evidence": "Barber bipartite null-model formula uses row and column degrees and community coincidences; optimization in proof is new to this two-row constraint.",
+          "identifier_or_url": "arXiv:0707.1616; DOI:10.1103/PhysRevE.76.066102",
+          "material_read": "Original preprint/publication abstract, definition and frozen source mathematical normalization; full primary PDF not independently examined in this execution",
+          "method": "Original article lookup and bibliographic/definition comparison",
+          "title": "Modularity and community detection in bipartite networks",
+          "trigger": "Defines exact bipartite modularity globally optimized in the claim"
+        },
+        {
+          "assessment": "Classical NODF ingredient; no verified covering joint-Pareto theorem",
+          "evidence": "Equal-degree pairs have zero credit; normalization includes 1+binom(n,2) comparisons.",
+          "identifier_or_url": "DOI:10.1111/j.2008.0030-1299.16644.x",
+          "material_read": "Accessible title, abstract, metric definition as documented in frozen source; body not independently retrieved",
+          "method": "Published article lookup and normalized metric comparison",
+          "title": "A consistent metric for nestedness analysis in ecological systems: reconciling concept and measurement",
+          "trigger": "NODF strict degree-order convention pivotal to first score"
+        },
+        {
+          "assessment": "Empirical correlations are not the exact constrained full locus; not a full-text exclusion",
+          "evidence": "Literature reports ecological connectivity tradeoff but not the exact n,c threshold in read portions.",
+          "identifier_or_url": "DOI:10.1111/j.1365-2656.2010.01688.x",
+          "material_read": "Accessible publication description/abstract and data-analytic scope",
+          "method": "Targeted primary literature lookup",
+          "title": "Nestedness versus modularity in ecological networks: two sides of the same coin?",
+          "trigger": "Plausible source of both-index joint compatibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two classical ecological metrics have competing objectives. Their complete joint feasible locus, exact Pareto frontier and common-maximizer connectivity threshold are mathematically natural at the smallest nontrivial connected bipartite guild size, and improve on empirical metric-correlation comparisons by optimizing global modularity exactly.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0707.1616",
+    "DOI:10.1103/PhysRevE.76.066102",
+    "DOI:10.1111/j.2008.0030-1299.16644.x",
+    "DOI:10.1111/j.1365-2656.2010.01688.x",
+    "DOI:10.1111/2041-210X.13545"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Other network-connectance exact joint index formulations may cover some or all results outside inspected sources.",
+    "Dependence on strict equal-degree-zero classical NODF and unconstrained global Barber partitions: variants do not have the same theorem."
+  ]
+}

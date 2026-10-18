@@ -1,16 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The incidence count forces \(c\) shared and \(s=n-c\) exclusive columns. The NODF numerator separates into exactly \(cs\) nested column pairs plus the possible unequal-degree row pair. Barber modularity is genuinely optimized across *all* vertex partitions: co-clustered rows yield zero, while distinct row clusters reduce each column to an independent three-way choice. This yields the exact quadratic in \(x\), from which the full Pareto frontier and the threshold \(2c\ge n-1\) follow. The embedded verifier checked all 9,322 labeled admissible small matrices and, in smaller dimensions, all vertex set partitions, with exact rational comparisons.
+## correctness
 
-Risk: conclusions rely on the classical zero-contribution convention for equal-degree NODF pairs and on global Barber modularity, not an approximate community-detection optimizer.
+PASS
 
-## Originality — PASS
-The two index definitions are established and related ecological literature discusses their empirical correlation and how NODF optima depend on link count. The inspected primary papers do not give an exact two-by-\(n\) attainable joint-score locus, a complete two-index Pareto frontier, or the precise common-maximizer threshold at \(2c\ge n-1\). Published semantic searches of equivalences, parameterized bipartite extremal results, matrix nestedness, connectance, and Barber-modularity/NODF co-optimization did not recover a stronger statement. Existing ecological maximum-NODF facts alone cannot imply optimized Barber modularity or the entire tradeoff curve.
+Counting shared columns gives c; the remaining s=n-c exclusive columns split as a+b=s. Classical NODF zeroes equal-degree pairs, producing N=(cs+1_{2x>s} c/(n-x))/(1+binom(n,2)). If both row vertices are in same Barber community, all column contributions cancel; if separate, each degree-one column contributes k_other, and each shared column contributes |k1-k2| to E²Q at optimum. Each choice is simultaneously achievable, even when arbitrary other communities allowed; Q*=2x(n-x)/(n+c)². N is strictly increasing in x; the concave quadratic first rises then falls, yielding Pareto x>=min(s,ceil(n/2)). Ferrers x=s compared with x=s-1 yields threshold n-2s+1=2c-n+1>=0; s=1 boundary is singleton. Independently enumerated all unrestricted vertex set partitions for every admissible labeled matrix n=2..5, with exact fraction arithmetic, and rederived every NODF and Barber optimum. This is bounded corroboration; all-n proof uses direct column/partition reduction.
 
-Risk: an analytical modularity result for very narrow bipartite degree families outside the inspected literature could imply part of the quadratic formula; empirical modularity/nestedness studies use varied metric conventions and are not directly comparable.
+## originality
 
-## Value — PASS
-Connectance constrains both ecological nestedness and modular organization, and the common practice of optimizing one network index can conflict with improving another. This theorem supplies the exact feasible tradeoff for the smallest nontrivial connected bipartite guild size and resolves the precise link-density threshold at which maximizing both is possible. The classification includes every network and every globally optimized partition, not only an exhibited witness or a numerical heuristic.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality of the final specific quantitative/mathematical statement after semantic published-finding search and primary source comparisons; precise coverage and residual risks are recorded. No literature search is represented as exhaustive or as independent priority certification.
+
+## value
+
+PASS
+
+The two classical ecological metrics have competing objectives. Their complete joint feasible locus, exact Pareto frontier and common-maximizer connectivity threshold are mathematically natural at the smallest nontrivial connected bipartite guild size, and improve on empirical metric-correlation comparisons by optimizing global modularity exactly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
