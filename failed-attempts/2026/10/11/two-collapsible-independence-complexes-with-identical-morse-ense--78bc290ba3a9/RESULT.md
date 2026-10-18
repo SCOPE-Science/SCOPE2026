@@ -75,7 +75,7 @@ Zheng [1], first posted May 23, 2026, defines the independence Morse ensemble \(
 
 ## Limitations
 
-The theorem concerns two specified graphs of order eleven. It does not assert that they are smallest possible, that their higher homotopy data differ (both independence complexes are contractible), or that \(\Phi\) fails to recover all graph-coloring invariants: the exhibited pair has the same chromatic number. The claim depends on the definition of \(\Phi\) used in [1], and assumes ordinary simple graph coloring. Literature searches and same-model review do not amount to independent scholarly refereeing or a guarantee against unindexed equivalent work.
+The theorem concerns two specified graphs of order eleven. It does not assert that they are smallest possible, that their higher homotopy data differ (both independence complexes are contractible), or that \(\Phi\) fails to recover all graph-coloring invariants: the exhibited pair has the same chromatic number. The claim depends on the definition of \(\Phi\) used in [1], and assumes ordinary simple graph coloring. Literature searches and self-review do not amount to independent scholarly refereeing or a guarantee against unindexed equivalent work.
 
 ## References
 
