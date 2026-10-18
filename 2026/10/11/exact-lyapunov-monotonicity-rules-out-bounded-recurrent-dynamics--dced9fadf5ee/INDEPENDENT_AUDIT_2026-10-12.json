@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T18:11:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the exact slice xdot=r(y-x), zdot=gmx²-g(1+m)xy, so H=z+g(1+m)x²/(2r) has Hdot=-gx². For bounded forward orbit H is bounded below and decreasing; x∈L², xdot bounded, so x->0. Then z->H∞ and omega-limit invariance forces x=0 -> y=0 -> v=0 -> u=0, hence convergence to the single equilibrium (0,0,H∞,0,0). A compactly supported invariant measure obeys 0=∫LH=-g∫x² and support invariance yields exactly the same equilibrium line. Independently reconstructed the exact 5x5 source-parameter Jacobian over rational numbers; charpoly λ²(10λ³+82λ²+61λ+6100)/10 and roots -11.95668, 1.87834±6.89125i. These rates describe transverse variational instability, not a moving orbit from the exact stationary origin.",
+      "residual_risks": [
+        "Convergence assumes global existence and boundedness of forward trajectory; no claim all initial conditions bounded.",
+        "Finite-time FTLE implementation in 2019 paper not independently replayed."
+      ],
+      "sources": [
+        "Frozen RESULT.md blob 029e987a55d126c4685675a9e2810be1923108ce",
+        "Frozen verify.py blob 5a15fcfcae4a86d00291c911afabf40ef2ca89c9",
+        "Bao et al 2019 source full-text pp6054,6057",
+        "Independent SymPy exact determinant from published parameters"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jafari–Sprott concerns distinct quadratic flows in which line equilibria can coexist with chaos.",
+          "The published SCOPE equilibrium-line stationary-shell result (2026/10/04 path ...7337833fb76b) is a DIFFERENT 5D memristive vector field, with equations xdot=a(w-x), ydot=-w, zdot=xw-bz, not Bao dynamics."
+        ],
+        "reasoning": "The previously published global line-equilibrium and invariant-measure claims do not dominate the exact Bao vector field: different ODE coefficients, state variables and observables.",
+        "searches": [
+          "Jafari Sprott 2013 Simple chaotic flows with a line equilibrium",
+          "Liu Bao Chen Deng 2019 related segmented disc dynamo curve of equilibria",
+          "SCOPE 2026/10/04 equilibrium-line-correction-and-an-exact-stationary-shell-law"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/dcdsb.2019130; authorized full text, 17 pages",
+        "DOI:10.1016/j.chaos.2013.08.018"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original printed p.6057 asserts chaotic numerical attractor from (21,.1,1,0,0) and a hyperchaotic case from (0,0,0,0,0), which is exactly stationary.",
+          "The new dissipative identity, once checked, rules out non-equilibrium compact recurrent exact solutions regardless of finite-time exponents."
+        ],
+        "reasoning": "The primary numerical observations do not imply, and in their stated interpretation contradict, the monotone-exact-dynamics conclusion; general line-equilibrium statements cannot imply it.",
+        "searches": [
+          "Bao et al. 2019 eq.(2.2) vs global Hdot=-g*x²",
+          "Jafari Sprott line equilibrium chaos vs specific dynamo slice"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under k1=k3=k4=k5=0, k2=g, the identity is precisely a global LaSalle/Barbalat obstruction to non-equilibrium compact recurrence.",
+          "Source 2019 §2.3 instead labels two numerical trajectories on this exact slice chaotic/hyperchaotic."
+        ],
+        "reasoning": "Searched the energy-dissipation and invariant-measure aliases, not just chaos keywords. LaSalle principle is a general method, not this model-specific exact H.",
+        "searches": [
+          "\"5D segmented disc dynamo\" \"Lyapunov function\" line equilibria",
+          "Bao Chen Liu Deng 2019 eq.2.2 and §2.3",
+          "equilibrium line x² integral x(t)->0 invariant probability measure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original source publishes FTLE numerical table for the same parameter slice and two initial conditions but no Lyapunov H table.",
+          "Resultary semantic batch could not complete due to transient service error."
+        ],
+        "reasoning": "A published numerical exponent table is not a table of global invariant measures or omega-limit classifications.",
+        "searches": [
+          "\"segmented disc dynamo\" \"H\" \"gx^2\"",
+          "2019 published p6057 section 2.3 exact parameters",
+          "Resultary batch query: Bao Chen Liu Deng 5D segmented disc dynamo line equilibria monotone Lyapunov z plus x squared no bounded chaos"
+        ]
+      },
+      "rationale": "A new exact obstruction and stationary-measure classification for the specific published five-dimensional dynamo, directly stronger than its finite-time numerical interpretation.",
+      "residual_risks": [
+        "A related same-author dynamo paper was not read in full; possible secondary algebraic balance remains to be checked.",
+        "Semantic published-findings service transiently unavailable; unindexed earlier derivation cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source reports line-equilibrium chaos from (21,0.1,1,0,0) and hyperchaos from the exact equilibrium origin under the same slice, but does not state a decreasing H, convergence for bounded trajectories or measure classification.",
+          "evidence": [
+            "p.6054 eq.(2.2) contains the precise 5D vector field.",
+            "p.6057 §2.3 gives (m,r,g,k1,k2,k3,k4,k5,k6)=(1.1,6.1,12,0,12,0,0,0,-100) and both finite-time Lyapunov examples."
+          ],
+          "identifier_or_url": "DOI:10.3934/dcdsb.2019130; authorized full text, 17 pages",
+          "material_read": "All 17 pages read via authorized full text. Especially published pp.6054 equation (2.2), p.6055 line-equilibrium criterion, pp.6057 §2.3 with both initial conditions and FTLE, pp.6065–6069 conclusion and references.",
+          "method": "Authorized institutional PDF extraction with source retained under institutional authentication; compared verbatim vector field and numerical parameters.",
+          "title": "Coexisting hidden attractors in a 5D segmented disc dynamo with three types of equilibria",
+          "trigger": "Identical governing ODE and numerical line-equilibrium example claimed to exhibit chaos/hyperchaos"
+        },
+        {
+          "assessment": "Different flow with line equilibria; general co-existence does not imply a Lyapunov identity for Bao et al. vector field.",
+          "evidence": [
+            "Bao et al. source bibliography identifies Jafari–Sprott 2013 as different dynamical systems."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.chaos.2013.08.018",
+          "material_read": "Bibliographic abstract and the reference in Bao et al. 2019 (p.6067).",
+          "method": "Primary-source reference and abstract context, not a full-text claim of noncoverage.",
+          "title": "Simple chaotic flows with a line equilibrium",
+          "trigger": "Broad equivalence risk: chaos can coexist with equilibrium lines"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A substantively motivated correction to a specific published chaotic-attractor interpretation: excludes all bounded nonstationary recurrence on an entire parameter slice, proves a convergence theorem and classifies compact invariant measures, rather than merely observing that the origin is stationary.",
+      "residual_risks": [
+        "Does not rule out off-slice attractors or unbounded solutions."
+      ],
+      "sources": [
+        "Bao et al 2019 p.6057 §2.3",
+        "Exact source ODE/parameter identification"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Convergence assumes global existence and boundedness of forward trajectory; no claim all initial conditions bounded.",
+    "Finite-time FTLE implementation in 2019 paper not independently replayed.",
+    "A related same-author dynamo paper was not read in full; possible secondary algebraic balance remains to be checked.",
+    "Semantic published-findings service transiently unavailable; unindexed earlier derivation cannot be excluded.",
+    "Does not rule out off-slice attractors or unbounded solutions."
+  ]
+}

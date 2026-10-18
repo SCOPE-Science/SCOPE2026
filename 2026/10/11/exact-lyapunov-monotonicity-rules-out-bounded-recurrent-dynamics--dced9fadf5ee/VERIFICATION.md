@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` performs the following dependency-free checks with exact rational arithmetic where applicable:
+# Independent mathematical audit
 
-1. It verifies that the source parameter values give \(g(1+m)/(2r)=126/61\).
-2. It expands the derivative of \(H=z+(126/61)x^2\) from the differential equations and verifies exact cancellation of the mixed term, leaving \(\dot H=-12x^2\).
-3. It constructs \(\lambda I-J\) for the source's line-equilibrium parameters at the origin and computes the determinant as a polynomial over rational numbers, obtaining
-\[
-\lambda^5+\frac{41}{5}\lambda^4+\frac{61}{10}\lambda^3+610\lambda^2
-=\frac{\lambda^2}{10}(10\lambda^3+82\lambda^2+61\lambda+6100).
-\]
-4. It solves the nonzero cubic numerically by an independent Durand–Kerner iteration and checks the roots against \(-11.9566842997\) and \(1.87834214986\pm6.89124944793i\).
+## correctness
 
-Run `python verify.py`; successful replay prints `VERIFY_OK`.
+PASS
 
-The script checks algebraic and finite-dimensional spectral calculations. It does not replace the analytic arguments that bounded forward trajectories converge or that invariant probability measures are supported on the equilibrium line. Those conclusions follow from the exact monotonicity identity, uniform continuity of \(x\), omega-limit invariance, and the invariant-measure generator identity. No claim is made that all forward trajectories are bounded.
+On the exact slice xdot=r(y-x), zdot=gmx²-g(1+m)xy, so H=z+g(1+m)x²/(2r) has Hdot=-gx². For bounded forward orbit H is bounded below and decreasing; x∈L², xdot bounded, so x->0. Then z->H∞ and omega-limit invariance forces x=0 -> y=0 -> v=0 -> u=0, hence convergence to the single equilibrium (0,0,H∞,0,0). A compactly supported invariant measure obeys 0=∫LH=-g∫x² and support invariance yields exactly the same equilibrium line. Independently reconstructed the exact 5x5 source-parameter Jacobian over rational numbers; charpoly λ²(10λ³+82λ²+61λ+6100)/10 and roots -11.95668, 1.87834±6.89125i. These rates describe transverse variational instability, not a moving orbit from the exact stationary origin.
+
+## originality
+
+PASS
+
+A new exact obstruction and stationary-measure classification for the specific published five-dimensional dynamo, directly stronger than its finite-time numerical interpretation.
+
+## value
+
+PASS
+
+A substantively motivated correction to a specific published chaotic-attractor interpretation: excludes all bounded nonstationary recurrence on an entire parameter slice, proves a convergence theorem and classifies compact invariant measures, rather than merely observing that the origin is stationary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

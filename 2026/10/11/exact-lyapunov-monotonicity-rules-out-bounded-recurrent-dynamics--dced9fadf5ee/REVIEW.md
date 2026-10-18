@@ -1,15 +1,21 @@
-# Same-model review of “Exact Lyapunov monotonicity rules out bounded recurrent dynamics on the line-equilibrium slice of a 5D segmented disc dynamo”
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The cancellation is exact: on \(k_1=0\), \(k_2=g>0\), and \(k_3=k_4=k_5=0\), differentiating \(H=z+g(1+m)x^2/(2r)\) gives \(\dot H=-gx^2\). For a bounded forward orbit, \(H\) has a finite limit and \(x\in L^2(0,\infty)\); bounded \(\dot x\) makes \(x\) uniformly continuous, so \(x(t)\to0\). The omega-limit set is invariant, and the tangency conditions \(x=0\Rightarrow y=0\Rightarrow v=0\Rightarrow u=0\) leave only the equilibrium line. Since \(z(t)\) also converges, the omega-limit set is one point. The invariant-measure argument follows from the same generator identity and invariance of the support. Exact arithmetic separately checks the source-parameter coefficient and the characteristic polynomial. No finite-time computation is used as an infinite-time proof.
+## correctness
 
-## Originality
-**PASS.** The introducing article (DOI 10.3934/dcdsb.2019130) was inspected through the exact equations, the line-equilibrium example, bifurcation sections, and conclusion. It reports the numerical chaotic/hyperchaotic cases but not the monotone function, convergence theorem, or invariant-measure classification. A related same-author segmented-disc-dynamo paper (DOI 10.1186/s13662-019-2284-0) uses a different five-dimensional vector field. General line-equilibrium work by Jafari and Sprott (DOI 10.1016/j.chaos.2013.08.018) shows that chaos can occur with an equilibrium line in other systems and therefore does not subsume this system-specific obstruction. Targeted searches by title, equations, parameters, aliases, and invariant-measure/Lyapunov formulations did not locate a statement implying the result. Residual risk remains that an unindexed secondary source contains the same identity.
+PASS
 
-## Value
-**PASS.** The exact law rules out non-equilibrium compact recurrence on an entire natural parameter slice that the source uses to illustrate both chaos and hyperchaos. It also distinguishes a stationary state with unstable transverse variational dynamics from a hyperchaotic state-space trajectory, and classifies all compact stationary statistical states. That combination is structurally informative for interpreting numerical attractor claims in line-equilibrium systems and is not a generic consequence of having an equilibrium line.
+On the exact slice xdot=r(y-x), zdot=gmx²-g(1+m)xy, so H=z+g(1+m)x²/(2r) has Hdot=-gx². For bounded forward orbit H is bounded below and decreasing; x∈L², xdot bounded, so x->0. Then z->H∞ and omega-limit invariance forces x=0 -> y=0 -> v=0 -> u=0, hence convergence to the single equilibrium (0,0,H∞,0,0). A compactly supported invariant measure obeys 0=∫LH=-g∫x² and support invariance yields exactly the same equilibrium line. Independently reconstructed the exact 5x5 source-parameter Jacobian over rational numbers; charpoly λ²(10λ³+82λ²+61λ+6100)/10 and roots -11.95668, 1.87834±6.89125i. These rates describe transverse variational instability, not a moving orbit from the exact stationary origin.
 
-## Closest literature and limitations
-The closest source is the introducing 2019 DCDS-B article, because it contains the same equations and the exact line-equilibrium parameter example. Jafari–Sprott is the closest general line-equilibrium comparison, but its examples are different systems. The theorem assumes boundedness for forward-orbit convergence and does not classify unbounded trajectories or off-slice dynamics. The numerical finite-time exponent implementation itself was not reconstructed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+A new exact obstruction and stationary-measure classification for the specific published five-dimensional dynamo, directly stronger than its finite-time numerical interpretation.
+
+## value
+
+PASS
+
+A substantively motivated correction to a specific published chaotic-attractor interpretation: excludes all bounded nonstationary recurrence on an entire parameter slice, proves a convergence theorem and classifies compact invariant measures, rather than merely observing that the origin is stationary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
