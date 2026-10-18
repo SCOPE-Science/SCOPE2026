@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement fixes the Fourier convention, four distinct frequencies, unnormalized determinant, all integer moduli at least four, and literal-set counting. The proof derives the six-chord determinant, uses strict concavity twice to balance opposite gaps, proves the opposite-pair sum gap cannot exceed two, resolves all four congruence classes including the strict alternating advantage for the half-offset case, and counts translation stabilizers. The finite independent Leibniz computation tests 53,130 cases but is not used as an infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Ferguson–Mayeli–Sothanaphan define the relevant exponential-determinant tightness invariant; Dubickas–Pritsker recall the unrestricted continuous-circle Fekete extremizers. Neither statement specifies the exact finite-cyclic four-point determinant profile or its complete optimizer census. Published work on determinant optimization for a subgroup-plus-one-point family, four-point spectral multiplicities, and binary Kronecker radii was compared at the level of objects and quantifiers; none implies this claim. The divisible-by-four continuous Hadamard equality case is explicitly acknowledged as prior coverage. An unindexed general discrete-Fekete theorem remains the main originality risk.
+PASS
 
-**Value — PASS.** For four consecutive Fourier samples, the determinant is a natural finite-dimensional volume measure of exponential-basis nondegeneracy. The result gives sharp design parameters for every cyclic ambient size and an exact multiplicity count, distinguishing two different near-equispaced configurations in the first parity regime where placement matters. This is a complete natural classification rather than an arbitrary numerical threshold; no condition-number claim is made.
+Rows 0,1,2,3 give a Vandermonde determinant whose modulus is 64 sin(πa/N)sin(πb/N)sin(πc/N)sin(πd/N)sin(π(a+b)/N)sin(π(b+c)/N) for positive cyclic gaps totaling N. The strictly concave even-about-N/2 function f(t)=log sin(πt/N) gives opposite-gap balancing |a−c|,|b−d|≤1; transferring one unit between opposite pair sums when they differ by ≥3 improves L strictly. Enumerating the remaining balanced integer cases proves gaps (q,q,q,q), three q and one q+1, alternating q and q+1, or one q and three q+1, for N mod4=0,1,2,3. For N≡2 adjacent large gaps have smaller diagonal sine product cos(π/N)<1 than alternating; Hadamard covers divisible-by-four case. Orbit-stabilizer gives N/gcd(N,4) literal optimizers. Independently enumerated all 118755 four-subsets for N=4..28, checking independent six-chord product, maximal values and all predicted sets. Finite census is corroboration only; concavity and case analysis establish all N≥4.
 
-**Closest literature and scope.** Dubickas–Pritsker (arXiv:1902.08348), Ferguson–Mayeli–Sothanaphan (arXiv:1904.04487); related public exact-determinant and finite-Fourier classifications concern different sample families/objectives. The theorem covers four consecutive sample points and unnormalized determinant only. Float computations corroborate the analytic proof, not independent validation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of statements/implications from genuinely inspected primary material and the audited claim. Resultary returned temporarily_unavailable/search_completed:false; this failed search supplies NO negative novelty evidence. A continuous four-node Fekete theorem proves the r=0 perfect-square case and an upper bound, but does not imply exact arithmetic gap spacing, the strict difference between adjacent and alternating longer gaps for N≡2, or N/gcd(N,4) maximizer multiplicities on every discretized grid.
+
+## value
+
+PASS
+
+The determinant D(E) is a natural volume measure of nondegeneracy for four-frequency exponential bases on a fixed cyclic sampling grid. An all-N exact optimum, optimizer multiplicity and strict alternating gap requirement in N≡2 mod4 provide a complete natural design classification, not an arbitrary numerical slice. The even-parity distinction changes the actual optimal frequency set.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

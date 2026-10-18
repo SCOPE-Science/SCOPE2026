@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T16:14:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rows 0,1,2,3 give a Vandermonde determinant whose modulus is 64 sin(πa/N)sin(πb/N)sin(πc/N)sin(πd/N)sin(π(a+b)/N)sin(π(b+c)/N) for positive cyclic gaps totaling N. The strictly concave even-about-N/2 function f(t)=log sin(πt/N) gives opposite-gap balancing |a−c|,|b−d|≤1; transferring one unit between opposite pair sums when they differ by ≥3 improves L strictly. Enumerating the remaining balanced integer cases proves gaps (q,q,q,q), three q and one q+1, alternating q and q+1, or one q and three q+1, for N mod4=0,1,2,3. For N≡2 adjacent large gaps have smaller diagonal sine product cos(π/N)<1 than alternating; Hadamard covers divisible-by-four case. Orbit-stabilizer gives N/gcd(N,4) literal optimizers. Independently enumerated all 118755 four-subsets for N=4..28, checking independent six-chord product, maximal values and all predicted sets. Finite census is corroboration only; concavity and case analysis establish all N≥4.",
+      "residual_risks": [
+        "The result is for fixed four consecutive rows and the unnormalized determinant; no claim of general condition-number optimality."
+      ],
+      "sources": [
+        "Frozen RESULT.md and verify.py at Git tree",
+        "Independent chord-pair enumeration N=4..28, 118755 subsets",
+        "Hadamard inequality and strict concavity of log sin on (0,N)"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferguson–Mayeli–Sothanaphan arXiv:1904.04487v6 Definitions 3.9–3.10, D(E)=max_B |det T(E,B)|; continuous-circle Fekete bound 16."
+        ],
+        "reasoning": "The finite-group determinant tightness D(E) is defined in the quantitative spectrality literature, but the general existence/Hadamard bounds do not furnish a closed formula, gap optimizer classification or literal-set count for E={0,1,2,3} in every Z_N.",
+        "searches": [
+          "Four consecutive cyclic Fourier rows max absolute 4x4 determinant over columns discrete Fekete N-th roots alternating gaps optimum",
+          "arXiv:1904.04487v6 Definitions 3.9–3.10"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1904.04487v6 primary Fourier determinant invariant definition",
+        "arXiv:1902.08348v1 introductory continuous Fekete setting",
+        "Frozen source different published records identified but not independently read",
+        "Resultary attempted with unavailable search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fourier chord identity and N mod4 case analysis independently checked in finite instances; continuous uniform circle theorem only has unconstrained nodes."
+        ],
+        "reasoning": "A continuous four-node Fekete theorem proves the r=0 perfect-square case and an upper bound, but does not imply exact arithmetic gap spacing, the strict difference between adjacent and alternating longer gaps for N≡2, or N/gcd(N,4) maximizer multiplicities on every discretized grid.",
+        "searches": [
+          "Four consecutive cyclic Fourier rows max absolute 4x4 determinant over columns discrete Fekete N-th roots alternating gaps optimum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vandermonde/chord product from RESULT.md; Dubickas–Pritsker arXiv:1902.08348 continuous weighted Fekete setting."
+        ],
+        "reasoning": "The Fourier determinant is exactly a grid-restricted unit-circle four-point Vandermonde or discrete Fekete optimization. A continuous-circle square gives only |det|≤16 and equality when 4|N, not exact nondivisible residue losses or the all-maximizer cyclic gap census.",
+        "searches": [
+          "Four consecutive cyclic Fourier rows max absolute 4x4 determinant over columns discrete Fekete N-th roots alternating gaps optimum",
+          "discrete Fekete points fourth order unit circle Nth roots of unity optimal node selection Vandermonde volume"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search incomplete; frozen AUDIT.json identifies 2026/10/4/SCOPE-exact-determinant-tightness-of-the-subgroup-plus-one-point-famil--b28ebdc89b58 as distinct group family."
+        ],
+        "reasoning": "Indexed-check service returned search_internal_error, not a negative result; inspected primary determinant tightness and continuous Fekete sources do not themselves tabulate this all-N family. Frozen source bibliography names different subgroup-plus-point and four-point spectral-pair records, but these were not independently full-read during this turn.",
+        "searches": [
+          "Four consecutive cyclic Fourier rows max absolute 4x4 determinant over columns discrete Fekete N-th roots alternating gaps optimum",
+          "2026/10/4/SCOPE-exact-determinant-tightness-of-the-subgroup-plus-one-point-famil--b28ebdc89b58"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of statements/implications from genuinely inspected primary material and the audited claim. Resultary returned temporarily_unavailable/search_completed:false; this failed search supplies NO negative novelty evidence. A continuous four-node Fekete theorem proves the r=0 perfect-square case and an upper bound, but does not imply exact arithmetic gap spacing, the strict difference between adjacent and alternating longer gaps for N≡2, or N/gcd(N,4) maximizer multiplicities on every discretized grid.",
+      "residual_risks": [
+        "A classical discrete-circle Fekete or optimal-design theorem could dominate the gap optimization under another name, especially without a completed published-corpus search.",
+        "Primary source inspections were bounded to relevant portions rather than certified full-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INVARIANT_DEFINED_NOT_EXACT_SPECIAL_FORMULA_IN_INSPECTED_MATERIAL",
+          "evidence": [
+            "Definition 3.10 introduces D(E), not a value for the four consecutive rows on all moduli; absence from uninspected parts is not asserted."
+          ],
+          "identifier_or_url": "arXiv:1904.04487v6",
+          "material_read": "Primary 51-page PDF opened, read mathematical discussion of Riesz bases, Definitions 3.9–3.10 (rendered page 16), contextual general determinant quantities and comparison to present E. Did not independently inspect every page.",
+          "method": "Primary PDF text plus rendered definition page",
+          "title": "Riesz bases of exponentials and multi-tiling in finite abelian groups",
+          "trigger": "Defines exact D(E) quantitative determinant invariant for finite Fourier matrices."
+        },
+        {
+          "assessment": "CONTINUOUS_DOMAIN_ONLY_IN_READ_MATERIAL",
+          "evidence": [
+            "The work treats weighted real-line and continuous unit-circle Fekete points, not a discretized Nth-root enumeration in the pages inspected."
+          ],
+          "identifier_or_url": "arXiv:1902.08348v1",
+          "material_read": "Primary 20-page PDF opened; title, abstract, introduction and initial continuous weighted-circle setup (rendered first page).",
+          "method": "Primary PDF direct inspection",
+          "title": "Weighted Fekete points on the real line and the unit circle",
+          "trigger": "Same Vandermonde maximization on the continuous circle."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The determinant D(E) is a natural volume measure of nondegeneracy for four-frequency exponential bases on a fixed cyclic sampling grid. An all-N exact optimum, optimizer multiplicity and strict alternating gap requirement in N≡2 mod4 provide a complete natural design classification, not an arbitrary numerical slice. The even-parity distinction changes the actual optimal frequency set.",
+      "residual_risks": [
+        "No best singular-value ratio or arbitrary four-row sampling theorem follows."
+      ],
+      "sources": [
+        "Ferguson–Mayeli–Sothanaphan arXiv:1904.04487v6 determinant tightness invariant",
+        "Frozen RESULT.md analytic classification"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Restricted to E={0,1,2,3}, unnormalized determinant and distinct frequencies; numerical 118755-subset check is finite."
+  ]
+}
