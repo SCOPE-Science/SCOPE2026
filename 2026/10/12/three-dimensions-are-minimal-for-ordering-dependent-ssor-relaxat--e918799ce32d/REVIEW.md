@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two-dimensional generalized eigenvalue product is independent of \(\omega\), while the sum is its \(\omega=1\) value plus \(\rho^2(\omega-1)^2\); this proves the complete all-matrix optimum after diagonal normalization. For the natural three-node path, exact factorization and implicit differentiation show the smallest generalized eigenvalue increases at \(\omega=1\) while the maximal branch is stationary, so the condition number decreases under slight overrelaxation. For center-first ordering, a fixed eigenvalue \(1\) and a two-root fixed-product argument prove a strict global minimum at \(\omega=1\).
+## correctness
 
-## Originality
-PASS with explicit residual risks. Generic ordering effects for SSOR are prior work. Kuo and Chan's full paper already compares red/black and natural ordering and derives an \(\omega=1\) optimum for its red/black SSOR model. Ortega's accessible abstract also establishes that ordering can degrade preconditioned convergence.
+PASS
 
-The accepted claim is narrower: every \(2\times2\) SPD matrix is forced to have its SSOR condition-number optimum at \(\omega=1\), and dimension three is the first place where a permutation can change whether \(\omega=1\) is optimal. Targeted exact-statement searches did not locate this minimal-dimensional classification or the displayed three-node mechanism. The inaccessible body of Ortega and older SSOR literature remain residual risks.
+For every real non-diagonal 2x2 SPD system, positive diagonal congruence and sign conjugacy reduce to A=[[1,rho],[rho,1]]. Generalized SSOR eigenvalues have constant product 1-rho² and sum 2-rho² omega(2-omega), uniquely minimized at omega=1, giving unique smallest eigenvalue ratio. Diagonal 2x2 matrices are omega-independent. On the SPD 3-node path with 0<r<1/sqrt2 the natural order at omega=1 has one maximal generalized eigenvalue 1 and two roots in (0,1); implicit derivative gives lambda_min'(1)>0, lambda_max'(1)=0, so kappa'(1)<0. Center-first permutation has a fixed eigenvalue 1 and two roots with fixed product and sum minimized uniquely at omega=1, making omega=1 globally optimal. Independent exact SymPy rebuilt all three determinant identities and F_omega; at r=1/2 the condition derivative equals -1/8-23sqrt(17)/136.
 
-## Value
-PASS. Ordering and relaxation are both standard SSOR design decisions. Knowing that they cannot interact in dimensions one or two but already do on a three-node path gives a clean structural boundary and a minimal test problem for reasoning about finite-dimensional SSOR tuning.
+## originality
 
-## Closest literature and limitations
-The closest full source is Kuo and Chan's two-color Fourier analysis; it covers broad ordering effects and red/black SSOR optimization. Ortega supplies the closest primary numerical-linear-algebra ordering source but was available only through publisher-level material. The theorem does not solve the global optimal \(\omega\) for every three-dimensional SPD matrix and does not address implementation cost or finite precision.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classical SSOR studies already show significant ordering effects and red/black omega=1 optimality for specific elliptic model problems. The new statement isolates a universal 2D no-bifurcation theorem and an explicit same-matrix minimal 3D order pair with opposite relaxation behavior. Checked Kuo–Chan primary text and Ortega bibliographic material plus Resultary/web aliases; no equivalent exact minimal-dimension boundary retrieved. Full Ortega 1991 body was inaccessible and is a material residual originality risk.
+
+## value
+
+PASS
+
+The smallest dimension at which ordering affects optimal SSOR relaxation is a natural structural boundary in SPD preconditioning. Proving an unconditional n=2 impossibility and a transparent 3-node path witness explains that ordering-dependent tuning is not merely large sparse-grid behavior; the exact spectrum also supplies a reusable test case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

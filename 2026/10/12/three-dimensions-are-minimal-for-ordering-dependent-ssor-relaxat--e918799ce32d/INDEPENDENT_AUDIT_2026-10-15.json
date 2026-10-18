@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:13:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "C.-C. J. Kuo and T. F. Chan, Two-Color Fourier Analysis of Iterative Algorithms for Elliptic Problems with Red/Black Ordering, SIAM J. Sci. Stat. Comput. 11 (1990) 767–793, DOI:10.1137/0911045",
+        "James M. Ortega, Orderings for Conjugate Gradient Preconditionings, SIAM J. Optimization 1 (1991) 565–582, DOI:10.1137/0801034 (bibliographic abstract only)",
+        "frozen RESULT.md and verify.py",
+        "Resultary semantic SSOR searches"
+      ],
+      "rationale": "For every real non-diagonal 2x2 SPD system, positive diagonal congruence and sign conjugacy reduce to A=[[1,rho],[rho,1]]. Generalized SSOR eigenvalues have constant product 1-rho² and sum 2-rho² omega(2-omega), uniquely minimized at omega=1, giving unique smallest eigenvalue ratio. Diagonal 2x2 matrices are omega-independent. On the SPD 3-node path with 0<r<1/sqrt2 the natural order at omega=1 has one maximal generalized eigenvalue 1 and two roots in (0,1); implicit derivative gives lambda_min'(1)>0, lambda_max'(1)=0, so kappa'(1)<0. Center-first permutation has a fixed eigenvalue 1 and two roots with fixed product and sum minimized uniquely at omega=1, making omega=1 globally optimal. Independent exact SymPy rebuilt all three determinant identities and F_omega; at r=1/2 the condition derivative equals -1/8-23sqrt(17)/136.",
+      "residual_risks": [
+        "Ortega 1991 full publisher article was not obtained; a hidden 2x2/3x3 minimality observation cannot be excluded.",
+        "Other preconditioner normalizations or convergence criteria are not the spectral condition number of the SPD SSOR-preconditioned pair.",
+        "The natural-order example gives a local improving direction, not an exact globally optimal omega in that ordering."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuo–Chan broadly proves that SSOR spectra depend on ordering and finds omega=1 optimal for a special red/black PDE model.",
+          "A general theorem proving omega=1 for every 2D SPD system or a minimal-dimensional 3D counterexample did not appear in material actually inspected."
+        ],
+        "reasoning": "Classical broad ordering effects are not novel; the precise all-matrix dimension-two barrier and three-node extremal onset are not logically implied by a PDE-specific red/black optimum. The uninspected Ortega full text remains a risk.",
+        "searches": [
+          "Kuo and Chan 1990 DOI 10.1137/0911045 full text",
+          "Ortega 1991 DOI 10.1137/0801034 abstract",
+          "SSOR preconditioner relaxation omega minimizing spectral condition number orderings 2x2 SPD 3x3 path ordering dependence"
+        ]
+      },
+      "checked_sources": [
+        "C.-C. J. Kuo and T. F. Chan, Two-Color Fourier Analysis of Iterative Algorithms for Elliptic Problems with Red/Black Ordering, SIAM J. Sci. Stat. Comput. 11 (1990) 767–793, DOI:10.1137/0911045",
+        "James M. Ortega, Orderings for Conjugate Gradient Preconditionings, SIAM J. Optimization 1 (1991) 565–582, DOI:10.1137/0801034 (bibliographic abstract only)",
+        "frozen RESULT.md and verify.py",
+        "Resultary semantic SSOR searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proving omega=1 optimal for a lattice's red/black ordering does not prove omega=1 for arbitrary 2x2 SPD or guarantee local suboptimality for a 3x3 natural path.",
+          "The frozen determinant calculation explicitly shows a natural-order improving derivative and a center-first global minimum for one SPD matrix."
+        ],
+        "reasoning": "Prior generic ordering dependence only implies there exist different spectra, not necessarily distinct optimal relaxation factors or their minimal possible dimension; the source adds these stronger exact assertions.",
+        "searches": [
+          "Kuo–Chan 1990 red/black model optimality theorem versus all 2x2 SPD",
+          "Ortega 1991 abstract on orderings of conjugate-gradient preconditioners"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Returned SOR/SSOR and generic preconditioning results did not state universal 2D omega=1 optimality paired with a same-system 3D ordering counterexample.",
+          "Kuo–Chan describes red/black and natural orderings on elliptic grids, not the all-SPD small-dimension theorem."
+        ],
+        "reasoning": "Queries considered minimal dimension, permutation dependence, 2x2 all-matrix optimum, 3x3 path spectra, and relaxation parameter aliases to avoid missing an equivalent theorem under another title.",
+        "searches": [
+          "SSOR preconditioner relaxation omega minimizing spectral condition number orderings 2x2 SPD 3x3 path ordering dependence",
+          "web: \"SSOR\" \"smallest dimension\" \"optimal relaxation\" ordering",
+          "web: \"three dimensional\" SSOR \"ordering\" \"omega=1\" condition number"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table/source among checked hits gives the pair of small path orderings and exact derivative -1/8-23sqrt17/136.",
+          "A specialized numerical preconditioning benchmark could supply a dominating exact example, but none was retrieved."
+        ],
+        "reasoning": "This is a symbolic minimality classification, not a generic numerical table; queries targeted exact 3x3 spectra and comparison of order permutations.",
+        "searches": [
+          "SSOR preconditioner relaxation omega minimizing spectral condition number orderings 2x2 SPD 3x3 path ordering dependence",
+          "web: \"three dimensional\" SSOR \"ordering\" \"omega=1\" condition number"
+        ]
+      },
+      "rationale": "Classical SSOR studies already show significant ordering effects and red/black omega=1 optimality for specific elliptic model problems. The new statement isolates a universal 2D no-bifurcation theorem and an explicit same-matrix minimal 3D order pair with opposite relaxation behavior. Checked Kuo–Chan primary text and Ortega bibliographic material plus Resultary/web aliases; no equivalent exact minimal-dimension boundary retrieved. Full Ortega 1991 body was inaccessible and is a material residual originality risk.",
+      "residual_risks": [
+        "Ortega 1991 full publisher article was not obtained; a hidden 2x2/3x3 minimality observation cannot be excluded.",
+        "Other preconditioner normalizations or convergence criteria are not the spectral condition number of the SPD SSOR-preconditioned pair.",
+        "The natural-order example gives a local improving direction, not an exact globally optimal omega in that ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ORDERING_EFFECT_AND_SPECIAL_RED_BLACK_OPTIMUM_NOT_MINIMAL_2D_3D_BOUNDARY",
+          "evidence": "The analyzed orderings concern elliptic-grid problems; omega=1 can optimize its red/black case but it does not give the general two-dimensional SPD spectral theorem or the 3-node path sign reversal.",
+          "identifier_or_url": "DOI:10.1137/0911045",
+          "material_read": "Lawful full PDF accessed, abstract, SSOR order sections, red/black and natural condition-number analysis, and relevant theorem pages read/visually inspected",
+          "method": "Primary mathematical text and spectral-criterion comparison",
+          "title": "Two-Color Fourier Analysis of Iterative Algorithms for Elliptic Problems with Red/Black Ordering",
+          "trigger": "Highly relevant earlier analysis of SSOR ordering and optimal omega"
+        },
+        {
+          "assessment": "PLAUSIBLE_BUT_FULL_TEXT_UNREAD",
+          "evidence": "The abstract addresses ordering effects in preconditioned conjugate-gradient methods. Presence or absence of the precise small-dimensional example in the full paper remains unknown.",
+          "identifier_or_url": "DOI:10.1137/0801034",
+          "material_read": "Publisher abstract, bibliographic record, scope and cited references; full article body NOT obtained or read",
+          "method": "Abstract-level comparison with explicit access limitation",
+          "title": "Orderings for Conjugate Gradient Preconditionings",
+          "trigger": "Relevant preconditioning ordering paper that could hide a small example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "C.-C. J. Kuo and T. F. Chan, Two-Color Fourier Analysis of Iterative Algorithms for Elliptic Problems with Red/Black Ordering, SIAM J. Sci. Stat. Comput. 11 (1990) 767–793, DOI:10.1137/0911045",
+        "James M. Ortega, Orderings for Conjugate Gradient Preconditionings, SIAM J. Optimization 1 (1991) 565–582, DOI:10.1137/0801034 (bibliographic abstract only)",
+        "frozen RESULT.md and verify.py",
+        "Resultary semantic SSOR searches"
+      ],
+      "rationale": "The smallest dimension at which ordering affects optimal SSOR relaxation is a natural structural boundary in SPD preconditioning. Proving an unconditional n=2 impossibility and a transparent 3-node path witness explains that ordering-dependent tuning is not merely large sparse-grid behavior; the exact spectrum also supplies a reusable test case.",
+      "residual_risks": [
+        "Ortega 1991 full publisher article was not obtained; a hidden 2x2/3x3 minimality observation cannot be excluded.",
+        "Other preconditioner normalizations or convergence criteria are not the spectral condition number of the SPD SSOR-preconditioned pair.",
+        "The natural-order example gives a local improving direction, not an exact globally optimal omega in that ordering."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Global natural-path optimal relaxation parameter is not computed; a strictly decreasing direction at omega=1 is sufficient.",
+    "Full-text Ortega 1991 may contain overlooked small examples; no claim of entire-document exclusion is made.",
+    "Preconditioner scalar normalization does not affect the spectral ratio, but other algorithmic metrics may differ."
+  ]
+}

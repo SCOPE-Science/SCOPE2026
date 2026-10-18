@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal statements are proved analytically in `RESULT.md`. The checker replays exact algebraic identities at rational parameters and verifies the concrete \(r=1/2\) derivative sign.
 
-For every normalized \(2\times2\) test matrix, the generalized characteristic polynomial has product
-\[
-1-\rho^2
-\]
-and sum
-\[
-2-\rho^2+\rho^2(\omega-1)^2.
-\]
-The checker confirms this identity at several rational values of \(\rho\) and \(\omega\).
+# Independent mathematical audit
 
-For the natural three-node path at \(r=1/2\), it verifies
-\[
-F(\lambda,1)
-=-(\lambda-1)
-\left(
-\lambda^2-\frac{23}{16}\lambda+\frac12
-\right)
-\]
-and the exact derivative
-\[
-\frac{d}{d\omega}\kappa(M_\omega^{-1}A_{1/2})\bigg|_{\omega=1}
-=-\frac18-\frac{23\sqrt{17}}{136}<0.
-\]
+## correctness
 
-For the center-first ordering, it verifies that the nontrivial generalized roots have product \(1-2r^2\) and sum
-\[
-2-2r^2+2r^2(\omega-1)^2,
-\]
-so \(\omega=1\) is the unique optimum whenever \(r\ne0\).
+PASS
 
-Finite replay is corroborative only. The minimal-dimension theorem follows from the analytic all-\(2\times2\) proof and the exact three-dimensional family.
+For every real non-diagonal 2x2 SPD system, positive diagonal congruence and sign conjugacy reduce to A=[[1,rho],[rho,1]]. Generalized SSOR eigenvalues have constant product 1-rho² and sum 2-rho² omega(2-omega), uniquely minimized at omega=1, giving unique smallest eigenvalue ratio. Diagonal 2x2 matrices are omega-independent. On the SPD 3-node path with 0<r<1/sqrt2 the natural order at omega=1 has one maximal generalized eigenvalue 1 and two roots in (0,1); implicit derivative gives lambda_min'(1)>0, lambda_max'(1)=0, so kappa'(1)<0. Center-first permutation has a fixed eigenvalue 1 and two roots with fixed product and sum minimized uniquely at omega=1, making omega=1 globally optimal. Independent exact SymPy rebuilt all three determinant identities and F_omega; at r=1/2 the condition derivative equals -1/8-23sqrt(17)/136.
 
-Unproved limits include the global optimal relaxation for arbitrary \(3\times3\) SPD matrices, higher-dimensional classifications, finite-precision effects, and cost-aware ordering choices.
+## originality
+
+PASS
+
+Classical SSOR studies already show significant ordering effects and red/black omega=1 optimality for specific elliptic model problems. The new statement isolates a universal 2D no-bifurcation theorem and an explicit same-matrix minimal 3D order pair with opposite relaxation behavior. Checked Kuo–Chan primary text and Ortega bibliographic material plus Resultary/web aliases; no equivalent exact minimal-dimension boundary retrieved. Full Ortega 1991 body was inaccessible and is a material residual originality risk.
+
+## value
+
+PASS
+
+The smallest dimension at which ordering affects optimal SSOR relaxation is a natural structural boundary in SPD preconditioning. Proving an unconditional n=2 impossibility and a transparent 3-node path witness explains that ordering-dependent tuning is not merely large sparse-grid behavior; the exact spectrum also supplies a reusable test case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
