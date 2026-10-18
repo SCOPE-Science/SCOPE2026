@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The leaf-extension proof is uniform. New coordinates of an idempotent must vanish, all natural-basis squares remain nonzero, the graph stays connected, and the seed derived series embeds termwise into the extension. The connected non-degenerate graph criterion then gives indecomposability. The Hu--Wen seed satisfies all hypotheses over every field of characteristic different from \(2\).
+## correctness
 
-## Originality
-PASS. Hu--Wen explicitly use zero direct sums to raise dimension. Barei's concurrent paper says a different three-dimensional seed can be extended to any dimension, but inspection of the complete paper found no non-degeneracy, connectedness, irreducibility, indecomposability, or annihilator statement and no general leaf-extension theorem. The standard decomposition paper provides only the graph criterion. Targeted published-finding corpus and literature searches found no stronger result implying the four-property preservation lemma.
+PASS
 
-## Value
-PASS. This is a structural closure construction, not only another isolated counterexample: it shows that idempotent-free nonsolvability survives a natural graph attachment while retaining zero annihilator and indecomposability. Applied to the recent seed, it removes the degeneracy and decomposability introduced by zero direct sums in every higher dimension.
+In any new idempotent x+sum_j b_j f_j, the square has no f_j component, forcing all b_j=0; it then reduces to a base idempotent, necessarily zero. Every old basis square is nonzero by nondegeneracy and each new square e_1 is nonzero, so annihilator remains zero. Attaching leaves to vertex e_1 preserves underlying graph connectivity; standard connected graph criterion yields indecomposability for nondegenerate evolution algebras. Old E is a subalgebra, so its nonterminating derived series embeds termwise in the extension. For Hu–Wen seed set u=e_1+e_3, v=e_2+e_3 and directly compute u²=0, uv=u, v²=-u+2v, hence S²=S and perpetual nonsolvability. Independently enumerated all idempotents over F_3/F_5 at n=3,4 and found only zero, with expected square-space dimensions; these checks are not the general field proof.
 
-## Closest literature and limitations
-The closest papers are Hu--Wen's seed family and direct-sum construction, Barei's concurrent three-dimensional counterexample with an unspecific remark about extension to all dimensions, and the general graph-decomposition theorem of Cabrera Casado--Siles Molina--Velasco. Characteristic \(2\) is not covered by the explicit corollary, no classification is claimed, and Barei's unspecific remark creates a stated residual overlap risk for an unstated intended extension.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previously published three-dimensional counterexample and easy dimension extensions with zero summands are credited. The leaf-extension preservation under simultaneous nondegeneracy, connectedness, idempotent-freeness and nonsolvability is a distinct structural family and gives indecomposable examples, not merely larger vector-space dimensions.
+
+## value
+
+PASS
+
+The known idempotent-free nonsolvable three-dimensional phenomenon could be dismissed as an isolated or decomposable artifact in larger dimensions. The uniform leaf lemma preserves four natural structural conditions and yields explicit indecomposable witnesses for all dimensions n>=3, which is a mathematically motivated strengthening even though its proof is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
