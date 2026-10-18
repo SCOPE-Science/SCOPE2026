@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(E(c,Q)\), the affine image of a unit-ball slice gives the exact formula
-\[
-V_E(u)=\kappa_{n-1}\sqrt{\det Q}\,\frac{[u^TQu-(r-u\cdot c)^2]^{(n-1)/2}}{(u^TQu)^{n/2}}.
-\]
-The odd part of the transformed data yields a polynomial identity whose irreducible quadratic factors force proportional shape forms; the unpowered identity then recovers the center exactly. The even part removes the remaining scalar. The centered case is handled separately, including the spherical subcase. Strict containment of the inner ball supplies all positivity hypotheses. The packaged verifier confirms the slice Jacobian and parity identities on independent numerical examples but is not the proof.
+## correctness
 
-## Originality
-PASS, with a stated historical-access risk. The closest full-text sources are Yaskin–Zhang (2015), which formulates the one-ball problem and gives different partial results, and Makai–Martini (2016), which explicitly calls the hyperplane case unsolved and proves local first-order determination only. Matthews (2026) proves a global polygon result in the plane and identifies extension beyond the polyhedral class as a further direction. Targeted published-finding corpus searches for ellipsoids, tangent inner-ball sections, sectional-volume injectivity, and Barker–Larman special cases returned no statement implying the theorem. The 2001 Barker–Larman full article could not be lawfully inspected in full during the bounded access attempt, so an older unindexed ellipsoid-specific argument remains a residual risk rather than being treated as absent.
+PASS
 
-## Value
-PASS. Ellipsoids are the canonical smooth finite-dimensional class in convex geometry, but the data here are noncentral and encode both translation and anisotropy. A global injectivity theorem for arbitrary centers and axes gives a natural nonperturbative benchmark inside an open tomography problem and complements the known local-smooth and polygonal cases.
+For ellipsoid E(c,Q) containing the closed ball B_r(0) strictly, let s(u)=u^TQu, y(u)=u·c, D=det Q. Affine hyperplane slicing gives V(u)=κ_{n-1}√D [s(u)-(r-y(u))²]^{(n-1)/2}/s(u)^{n/2}, radicand strictly positive. Raise to 2/(n-1); odd part under u↦-u is 4r D^{1/(n-1)} y/s^{n/(n-1)}. If one center vanishes equality forces both to vanish. For two nonzero centers, homogenize odd equality, raise to n-1 and apply UFD to the positive-definite real quadratic forms in n>=3, irreducible there, to force Q'=λQ; the unpowered odd formula forces c'=c. Even part then forces λ=1. For centered nonspherical Q, homogeneity and irreducibility of s and s-r²||x||² likewise force Q'=λQ and λ=1; for Q scalar the transformed data are constant and the only way Q' can have constant t↦(t-r²)t^{-n/(n-1)} on its Rayleigh interval is Q' scalar, with identical radius. These exhaust all centers and shapes. Dimension n>=3 is essential to irreducibility; no n=2 claim. Finite numerical checks do not replace polynomial factorization.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Yaskin--Zhang's noncentral-section question and Makai--Martini's local smooth determination do not imply global all-center ellipsoid rigidity. Polygonal determination is a different object class. Published later planar ellipse results apply n=2 only, and cannot be used to predate this n>=3 theorem. The original Barker--Larman 2001 article was not obtained in full; an institutional request returned a different paper in the same journal issue, not the desired one. This is a real older-overlap risk but not, without evidence, a reason to reject best-of-knowledge originality.
+
+## value
+
+PASS
+
+Determination of a general ellipsoid from noncentral supporting-ball sections is a natural exact inverse problem inside the longstanding Barker--Larman question. Unlike centered or perturbative cases it simultaneously identifies arbitrary translation, orientations and principal semiaxes, proving a sharp global injectivity benchmark for geometric tomography.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
