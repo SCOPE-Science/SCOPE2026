@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces rank-one upper triangular matrices to projective factorizations \(xy^{\mathsf T}\), proves the exact support criterion \(\max\operatorname{supp}(x)\le\min\operatorname{supp}(y)\), and reduces the twisted zero equation to isotropy of \(x\). Prefix zero counts and summation by parts yield the displayed formula. Direct exhaustive enumeration confirms the two \(\mathbf F_3\) counts.
+## correctness
 
-## Originality
-PASS. The closest primary source treats \(U^{\mathsf T}U=0\) and explicitly lists \(U^{\mathsf T}GU=0\) for nondegenerate \(G\) as future work. Searches for aliases and equivalent formulations did not locate the prefix-discriminant formula. The globally isometric \(44\) versus \(80\) example also shows that the result is not a corollary of a classification by global Witt type.
+PASS
 
-## Value
-PASS. The formula settles the first nonzero-rank stratum of a stated open extension and identifies a necessary flag-relative invariant. The counterexample is structurally useful because it rules out global Witt type as a sufficient parameter for the desired triangular recurrence.
+A rank-one factorization U=xy^T gives upper triangular iff max supp(x) <= min supp(y) and U^TGU=0 iff x is G-isotropic. Summing projective y choices against nondegenerate prefix quadratic-form zero counts and performing summation by parts yields N1=n q^(n-1)-(q^n-1)/(q-1)+(q-1) sum_(m=1..floor(n/2)) chi((-1)^m product_(i<=2m) g_i) q^(n-m-1), odd q. Direct independent projective enumeration over F3 gives 44 for diag(1,1,1,2) and 80 for permutation-congruent diag(1,2,1,1). The proof is all n, odd prime powers, diagonal nonsingular G; no general higher-rank claim.
 
-## Closest literature and limitations
-Wu–Zhou, arXiv:2609.00533v1, supplies the standard-form recurrence and the quadratic-form zero count used in the proof, and explicitly poses the twisted problem in its conclusion. The present result does not solve higher ranks or arbitrary non-diagonal twists. Classical isotropic-flag literature remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wu–Zhou give the U^TU zero-fiber rank distribution and standard finite-field quadratic zero counts and pose twisting by G as a further problem. The submitted formula singles out flag-prefix characters, and a pair of globally isometric G giving different rank-one counts refutes any global-Witt-only rank-one classification; this is not obtained by a flag-preserving congruence from the untwisted case.
+
+## value
+
+PASS
+
+The rank-one stratum is a natural first structural layer of the expressly proposed twisted finite-field Cholesky problem. The flag-sensitive 44/80 pair changes the invariants any higher-rank recurrence must track and disproves an attractive global Witt-type reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

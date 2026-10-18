@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and valid for every odd prime power in the stated diagonal setting. Its critical steps are: the projective factorization of a rank-one matrix; the equivalence between upper triangularity and the support inequality; the equivalence between the twisted zero equation and isotropy of the left factor; and the standard finite-field zero count for each nondegenerate prefix quadratic form.
+# Independent mathematical audit
 
-`verify.py` performs independent finite checks over prime fields. It exhaustively enumerates all upper triangular matrices for the two four-dimensional examples over \(\mathbf F_3\), computes rank by modular Gaussian elimination, tests \(U^{{\mathsf T}}GU=0\), and recovers \(44\) and \(80\). It also checks smaller standard-form examples over \(\mathbf F_3\), \(\mathbf F_5\), and \(\mathbf F_7\). The recorded output terminates with `VERIFY_OK`.
+## correctness
 
-The finite enumeration is not an exhaustive proof for arbitrary field order or dimension. The infinite statement rests on the exact counting proof in `RESULT.md`; the verifier is a reproducibility and boundary check.
+PASS
+
+A rank-one factorization U=xy^T gives upper triangular iff max supp(x) <= min supp(y) and U^TGU=0 iff x is G-isotropic. Summing projective y choices against nondegenerate prefix quadratic-form zero counts and performing summation by parts yields N1=n q^(n-1)-(q^n-1)/(q-1)+(q-1) sum_(m=1..floor(n/2)) chi((-1)^m product_(i<=2m) g_i) q^(n-m-1), odd q. Direct independent projective enumeration over F3 gives 44 for diag(1,1,1,2) and 80 for permutation-congruent diag(1,2,1,1). The proof is all n, odd prime powers, diagonal nonsingular G; no general higher-rank claim.
+
+## originality
+
+PASS
+
+Wu–Zhou give the U^TU zero-fiber rank distribution and standard finite-field quadratic zero counts and pose twisting by G as a further problem. The submitted formula singles out flag-prefix characters, and a pair of globally isometric G giving different rank-one counts refutes any global-Witt-only rank-one classification; this is not obtained by a flag-preserving congruence from the untwisted case.
+
+## value
+
+PASS
+
+The rank-one stratum is a natural first structural layer of the expressly proposed twisted finite-field Cholesky problem. The flag-sensitive 44/80 pair changes the invariants any higher-rank recurrence must track and disproves an attractive global Witt-type reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
