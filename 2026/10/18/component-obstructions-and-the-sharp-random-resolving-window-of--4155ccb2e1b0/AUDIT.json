@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The Kneser diameter-two rule is valid for every n>=5, including the Petersen boundary. Intersecting target pairs fail separation iff the two differing endpoints form two isolates or an isolated K2. Disjoint targets fail iff the four endpoints are edge-closed and admit a balanced bipartition with no selected within-side edges; after the first obstructions, precisely P3 plus isolate, P4 and C4 are possible. The if-and-only-if is exhaustive. At p=(log n+c)/n, isolated-vertex factorial moments converge to Poisson(e^{-c}), while expected numbers of components of orders 2, 3, 4 vanish using a spanning-tree union bound. Monotonicity extends the fixed-c result to drifting windows. The independent C++ direct-distance checker agreed on 2130944 exhaustive small cases and 150000 reproducible random cases; the proof does not infer infinite truth from finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "R. F. Bailey and P. J. Cameron (2011), Theorem 3.32 and Corollary 3.33; author manuscript https://maths.qmul.ac.uk/~pjc/preprints/bsod.pdf; a scalar minimum metric dimension formula as a function of n mod 3.",
+        "A. Bonato, M. A. Huggan and T. Marbach (2020), The localization number and metric dimension of graphs of diameter 2, Sec. 2, arXiv:2008.04896v1, https://arxiv.org/html/2008.04896v1; links graph resolving sets with hypergraph detectability and establishes metric-dimension estimates."
+      ],
+      "reasoning": "Scalar optima and general bounds do not specify every feasible resolving set or its Bernoulli measure. The full component structural criterion specializes the k=2 case but adds complete recognition and a probabilistic consequence. General Kneser uniformity results inspected do not dominate the present claim.",
+      "searches": [
+        "metric dimension threshold of Kneser graphs KG(n,2) all k vertex subsets resolving adjacency diameter two distinguishability",
+        "metric dimension threshold for symmetric graphs complete bipartite complements identifying vertex pairs",
+        "metric dimension and localization of Kneser graphs Bonato Huggan Marbach arXiv:2008.04896",
+        "Bailey Cameron Theorem 3.32 metric dimension KG(n,2) mod 3"
+      ]
+    },
+    "checked_sources": [
+      "R. F. Bailey and P. J. Cameron (2011), Theorem 3.32 and Corollary 3.33; author manuscript https://maths.qmul.ac.uk/~pjc/preprints/bsod.pdf",
+      "R. F. Bailey et al. (2013), Resolving sets for Johnson and Kneser graphs, Lemmas 2 and 5; full OA https://arxiv.org/pdf/1203.2660",
+      "A. Bonato, M. A. Huggan and T. Marbach (2020), The localization number and metric dimension of graphs of diameter 2, Sec. 2, arXiv:2008.04896v1, https://arxiv.org/html/2008.04896v1",
+      "published-finding corpus Search: six exact semantic query strings recorded in the private prior-check envelope; closest IDs and implication comparisons above."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "R. F. Bailey and P. J. Cameron (2011), Theorem 3.32 and Corollary 3.33; author manuscript https://maths.qmul.ac.uk/~pjc/preprints/bsod.pdf addresses minimum cardinality.",
+        "R. F. Bailey et al. (2013), Resolving sets for Johnson and Kneser graphs, Lemmas 2 and 5; full OA https://arxiv.org/pdf/1203.2660 contains general pairwise intersection criterion.",
+        "A. Bonato, M. A. Huggan and T. Marbach (2020), The localization number and metric dimension of graphs of diameter 2, Sec. 2, arXiv:2008.04896v1, https://arxiv.org/html/2008.04896v1 provides broader detectability viewpoint.",
+        "The standard Erdős–Rényi isolate Poisson theorem determines X_n but has no direct bearing on Kneser resolution without the new exact component-obstruction equivalence."
+      ],
+      "reasoning": "The strongest related statements do not logically yield the all-set component classification merely by changing notation. The present proof identifies and exhausts the possible closed 4-vertex balanced partitions; only then can the existing classical Poisson theorem be applied. None of these sources states the resulting e^{-e^{-c}}(1+e^{-c}) limit for random KG landmarks.",
+      "searches": [
+        "Kneser graph KG(n,2) resolving set if selected edges form graph with at most one isolated vertex, no isolated edges, P3 plus isolate, P4 or C4 component",
+        "Erdos Renyi G(n,p) selected edge probes resolve vertices of Kneser graph KG(n,2) sharp threshold p=(log n+c)/n isolated vertices Poisson",
+        "Kneser graphs K(n,2) metric resolving sets selected probes as edges graph component forbidden P4 C4 random Poisson window",
+        "Bailey et al 2013 resolving sets Johnson Kneser graph Lemma 5 full-text",
+        "Bailey Cameron KG(n,2) exact metric dimension full-text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "R. F. Bailey et al. (2013), Resolving sets for Johnson and Kneser graphs, Lemmas 2 and 5; full OA https://arxiv.org/pdf/1203.2660; Lemma 2 says metric resolving sets coincide for the complementary diameter-two Johnson and Kneser graphs; Lemma 5 supplies the general intersection-profile test.",
+        "A selected ground-edge probe distinguishes intersecting targets exactly when it crosses the symmetric-difference pair; disjoint targets impose a separate balanced-cut obstruction."
+      ],
+      "reasoning": "Complementary distance profiles and hypergraph detectability are equivalent formulations of the raw separation problem. The contribution is the explicit if-and-only-if forbidden connected-component list and the random threshold, which are not present in that general test. A general algorithm to check every target pair is not a statement of the component classification.",
+      "searches": [
+        "Kneser graph KG(n,2) resolving set if selected edges form graph with at most one isolated vertex, no isolated edges, P3 plus isolate, P4 or C4 component",
+        "metric dimension of Kneser graph on pairs: hypergraph 2-detectability connected components random resolving set",
+        "Johnson J(n,2) resolving sets versus Kneser KG(n,2): Bailey et al. (2013), Lemmas 2 and 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest record 2026/10/4/SCOPE-metric-dimension-threshold-of-semisimple-annihilating-ideal-grap--9935a26fc889 concerns annihilating-ideal graphs, not KG(n,2).",
+        "published-finding corpus nearest record 2026/10/4/SCOPE-resolving-sets-and-the-resolving-polynomial-of-chain-graphs--30553b031b4a concerns chain graphs, not Kneser pair graphs.",
+        "published-finding corpus searches returned no exact KG(n,2) all-resolving-set component table or random threshold among examined ranked findings."
+      ],
+      "reasoning": "Checked mathematical research records for exact graph family, component aliases, relevant probe problems, and the Poisson limit; no matching exact database/table was found in returned results. This is bounded negative search evidence, not proof of uniqueness.",
+      "searches": [
+        "metric dimension threshold of Kneser graphs KG(n,2) all k vertex subsets resolving adjacency diameter two distinguishability",
+        "Kneser graph KG(n,2) resolving set if selected edges form graph with at most one isolated vertex, no isolated edges, P3 plus isolate, P4 or C4 component",
+        "Erdos Renyi G(n,p) selected edge probes resolve vertices of Kneser graph KG(n,2) sharp threshold p=(log n+c)/n isolated vertices Poisson",
+        "Kneser graphs K(n,2) metric resolving sets selected probes as edges graph component forbidden P4 C4 random Poisson window",
+        "published-finding corpus Search semantic retrieval: KG(n,2) metric resolving component obstruction and random Poisson limit"
+      ]
+    },
+    "rationale": "The claim is the exact four-component characterization of every metric resolving probe set of KG(n,2), plus its distinct random-critical Poisson tail. The inspected closest primary literature establishes metric-dimension scalars, broad intersection equivalences and hypergraph detectability but does not state or imply the exact classified obstruction list or the specific critical-window probability without nontrivial additional structural argument. Six actual semantic database searches, targeted general-literature searches and primary full-text inspections located no dominating theorem. This is same-model best-knowledge originality only, with stated residual risk.",
+    "residual_risks": [
+      "A previous exact component characterization might be hidden in an unindexed or inaccessible journal article, thesis, appendix, or equivalent Johnson-graph formulation.",
+      "The general 2013 intersection condition is a close logical predecessor; originality depends specifically on the explicit exact component list and new random asymptotic, not on inventing the generic resolving test.",
+      "The zero-one threshold for isolates is classical; only the distinct Kneser application and nontrivial one-isolate survival law are claimed as new.",
+      "No independent bibliographic or scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides optimal-cardinality results for pair Kneser graphs, not all resolving sets or component obstructions/random critical window.",
+        "evidence": "Theorem 3.32 and Corollary 3.33 give metric dimension by congruence class of n.",
+        "identifier_or_url": "https://maths.qmul.ac.uk/~pjc/preprints/bsod.pdf",
+        "material_read": "Author-hosted manuscript, relevant Section 3.8 and Theorem 3.32/Corollary 3.33 on pp. 22-24, with page-image inspection.",
+        "method": "Direct full-text and PDF page inspection; theorem-implication comparison.",
+        "title": "Base size, metric dimension and other invariants of groups and graphs",
+        "trigger": "Exact scalar metric dimension of KG(n,2) is potentially broader than a chosen random-resolving statement."
+      },
+      {
+        "assessment": "Gives general intersection test and Johnson/Kneser equivalence, not the explicit four forbidden components or binomial-probe limiting law.",
+        "evidence": "Lemmas 2 and 5 and subsequent constructions classify usable test formulations, not random-failure obstructions.",
+        "identifier_or_url": "https://arxiv.org/pdf/1203.2660",
+        "material_read": "Open-access primary PDF, introduction, Lemmas 2 and 5, constructions and metric dimension discussions on relevant early pages; full-document text search for component, isolate and random vocabulary.",
+        "method": "Full-text PDF reading of relevant sections, page-image checks, targeted full-document searches.",
+        "title": "Resolving sets for Johnson and Kneser graphs",
+        "trigger": "Direct graph family and resolving-set equivalence could subsume new structural theorem."
+      },
+      {
+        "assessment": "Establishes connections to hypergraph detectability and broader estimates, but not this exact pair-case component condition or Bernoulli threshold.",
+        "evidence": "Section 2 lemmas giving hypergraph general test and bounds, rather than component enumeration or random law.",
+        "identifier_or_url": "https://arxiv.org/html/2008.04896v1",
+        "material_read": "Open-access arXiv v1 HTML, introductory theorem statements and Section 2 on hypergraph resolvability/detectability; verified version public date 2020-08-11.",
+        "method": "Full-text primary reading of relevant sections and result comparison.",
+        "title": "The localization number and metric dimension of graphs of diameter 2",
+        "trigger": "Time-eligible 2020 research basis; diameter-two Kneser resolving via uniform hypergraph detectability may cover the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4155ccb2-e1b0-4cf5-a493-6d609b655837",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural distance-transitive graph has a full recognizing characterization of every resolving landmark set, not merely a known metric dimension. The four small ground-component obstructions permit linear-time membership recognition and reveal the exact sharp random sensor density and critical-window reliability e^{-e^{-c}}(1+e^{-c}). This is a genuine global structural lemma and motivated asymptotic network observability statistic, rather than a routine parameter recomputation. It demonstrates that one ground isolate is tolerable even though ordinary random-graph connectivity forbids all isolates.",
+    "status": "PASS"
+  }
+}
