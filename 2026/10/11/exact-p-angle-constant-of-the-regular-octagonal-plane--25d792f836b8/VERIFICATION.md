@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the eight supporting linear functionals of the regular octagonal norm. By dihedral symmetry one boundary edge for the first unit vector is fixed, while the second unit vector ranges over all eight edges. For each pair of active support functionals, the feasible parameter region is a convex polygon in \([0,1]^2\).
+# Independent mathematical audit
 
-On such a cell, \(a=N(x+y)\) and \(b=N(x-y)\) are affine. The required inequality is
-\[
-a^2+b^2-(\sqrt2-1)ab-4\le0.
-\]
-The quadratic form in \((a,b)\) is positive definite, hence its pullback to the cell is convex and its maximum is attained at a cell vertex. The bundled `verify.py` enumerates those vertices exactly in \(\mathbb Q(\sqrt2)\).
+## correctness
 
-A successful replay prints `VERIFY_OK`, `feasible_cells 126`, and `checked_cell_vertices 176`. It also verifies exactly that the adjacent-vertex witness has \(a=2\), \(b=2(\sqrt2-1)\), and P-angle cosine \((\sqrt2-1)/2\).
+PASS
 
-The computation is finite and exhaustive for the stated octagonal plane. It does not certify any infinite family of regular polygons.
+Octagonal P-angle reduces to Q(A,B)=A²+B²−(√2−1)AB−4≤0 for all unit boundary pairs. Dihedral symmetry fixes x on one edge. For all eight y edges, eight support choices for A and for B, the exact Q(√2) algorithm intersects supporting halfspaces, generates 126 nonempty active-support cells, checks 176 cell vertices and finds maximal Q=0; convexity on each cell supplies the continuum inequality. The independent reconstruction executed the inspected code algorithm and reproduced 126/176/max=0 and adjacent-vertex witness A=2,B=2(√2−1). The source code for the finite reduction was fully inspected; the local verifier reproduction is algorithmically equivalent, not byte-for-byte the frozen blob.
+
+## originality
+
+PASS
+
+Best-of-knowledge no independently published same P-angle constant or dominating octagonal all-separation upper chord profile was found. The checked same-space complete modified-vNJ parameter profile and one-separation smoothness invariant have different admissibility/functional information; their statements do not entail this nonlinear P-angle supremum.
+
+## value
+
+PASS
+
+The Yang–Li P-angle is a natural Banach-space geometric invariant, and the regular octagon is a canonical non-Hilbert polyhedral test space. The exact sharp value requires a genuine all-unit-pair optimization (126 active-support polyhedral cells), separates this invariant from previously known octagon vNJ/angle-modulus values, and includes a sharp geometric maximizing pair. The result is a useful exact benchmark not mechanically implied by checked constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

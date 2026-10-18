@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reconstructed from the Yang--Li definition. The active-support reduction is exhaustive after dihedral symmetry, and `verify.py` checks every cell vertex over \(\mathbb Q(\sqrt2)\). Convexity of the target quadratic on each cell justifies vertex checking. The adjacent-vertex witness attains the claimed value exactly.
+## correctness
 
-## Originality
-PASS. The defining full text gives general theory and classical-space examples but no regular-octagon computation. Targeted database and literature searches and the closest exact octagon papers were compared at the statement level. The closest prior findings concern \(S_P(\ell_p)\) and the different angle-modulus quantity \(\rho_X^a(1)\); neither implies the present claim.
+PASS
 
-## Value
-PASS. The P-angle constant is designed to measure deviation from Hilbert geometry and has direct links to uniform non-squareness. The regular octagon is a standard benchmark in the exact-geometric-constant literature, so an exact value and extremizer for this invariant form a natural, reusable reference point.
+Octagonal P-angle reduces to Q(A,B)=A²+B²−(√2−1)AB−4≤0 for all unit boundary pairs. Dihedral symmetry fixes x on one edge. For all eight y edges, eight support choices for A and for B, the exact Q(√2) algorithm intersects supporting halfspaces, generates 126 nonempty active-support cells, checks 176 cell vertices and finds maximal Q=0; convexity on each cell supplies the continuum inequality. The independent reconstruction executed the inspected code algorithm and reproduced 126/176/max=0 and adjacent-vertex witness A=2,B=2(√2−1). The source code for the finite reduction was fully inspected; the local verifier reproduction is algorithmically equivalent, not byte-for-byte the frozen blob.
 
-## Closest literature and limitations
-The closest primary source is Yang--Li's introduction of \(S_P\). The closest same-object papers compute generalized or modified von Neumann--Jordan constants and \(L_{YJ}\), not this P-angle ratio. The result is limited to the displayed real regular-octagonal plane; no all-polygon generalization is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge no independently published same P-angle constant or dominating octagonal all-separation upper chord profile was found. The checked same-space complete modified-vNJ parameter profile and one-separation smoothness invariant have different admissibility/functional information; their statements do not entail this nonlinear P-angle supremum.
+
+## value
+
+PASS
+
+The Yang–Li P-angle is a natural Banach-space geometric invariant, and the regular octagon is a canonical non-Hilbert polyhedral test space. The exact sharp value requires a genuine all-unit-pair optimization (126 active-support polyhedral cells), separates this invariant from previously known octagon vNJ/angle-modulus values, and includes a sharp geometric maximizing pair. The result is a useful exact benchmark not mechanically implied by checked constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
