@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published Eq. (39) right-hand side equals \(S(\rho_A)\) because its displayed \(C^2\) is exactly \(4\det\rho_A\). Direct partial traces give \(\det\rho_B-\det\rho_A=(q_0^2-q_2^2)^2\). The source's own coarse-graining theorem requires \(E_{MB}\) to be at least every bipartite reduced entropy, so strict asymmetry \(q_0\ne q_2\) forces a contradiction. The explicit witness uses exact normalized coefficients and exact rational determinants.
+## correctness
 
-## Originality
-PASS. Statement-level searches of the defining paper, its accepted bibliographic record, the earlier minimal-measurement-entropy paper, targeted web searches, candidate-specific semantic searches, and both owned ledgers located no correction that identifies this determinant gap or restricts Eq. (39) to the symmetric locus. The closest source is the defining paper itself: it contains both the coarse-graining theorem and the later incompatible whole-family formula, but it does not perform the comparison proved here.
+PASS
 
-## Value
-PASS. Eq. (39) is used to claim an exact entanglement-measurement value and then an exact tripartite relative-entropy value for a stated family. The obstruction removes every asymmetric member from that equality argument and gives a codimension-one necessary boundary. This is a substantive correction of a structural claim, not a normalization check or numerical discrepancy.
+Actual partial traces give rho_A=[[2q0²,q0 q4],[q0 q4,2q2²+q4²]] and rho_B/rho_C spectra from [[q0²+q2²,q2q4],[q2q4,q0²+q2²+q4²]]. Hence det B−det A=(q0²−q2²)² exactly, while published C²=4det rho_A, so Eq39's right-hand side is S(rho_A). Jiang–Chen–Ye's coarse-graining theorem lower-bounds EMB by every pure bipartition entropy. Qubit entropy is strictly increasing in determinant for determinant in [0,1/4], proving contradiction for all q0≠q2. The explicit 3/10, sqrt39/10, 1/5 state is normalized: det A=18/125, det B=117/500, entropy ≈0.6677247<0.9533283. Recomputed using exact fractions rather than numerical-only script output.
 
-## Closest literature and limitations
-The defining paper is the decisive prior source. Chernyavskiy's earlier measurement-entropy paper concerns independent local measurements and does not imply the adaptive-family obstruction. The result here does not replace Eq. (39) with an exact formula and does not determine the relative entropy of entanglement away from \(q_0=q_2\). An obscure or poorly indexed correction remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2011 primary paper itself contains both the generic coarse-graining lower bound and its inconsistent whole-family Eq39, but does not derive the asymmetric determinant-gap obstruction. The contribution is an explicit mathematically motivated correction to a claimed equality, isolating precisely the family locus where that *obstruction* disappears; it does not claim the original general entropy bound or an exact replacement EMB.
+
+## value
+
+PASS
+
+Exhibiting a concrete all-asymmetric family obstruction to a published multipartite entanglement equality is a motivated mathematical correction; it identifies an explicit gap between the original article's main calculation and its own theorem. The exact symbolic determinant identity and normalized example make the falsification unambiguous and useful even though the remaining exact EMB is open; not a gratuitous cheap test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:42:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Actual partial traces give rho_A=[[2q0²,q0 q4],[q0 q4,2q2²+q4²]] and rho_B/rho_C spectra from [[q0²+q2²,q2q4],[q2q4,q0²+q2²+q4²]]. Hence det B−det A=(q0²−q2²)² exactly, while published C²=4det rho_A, so Eq39's right-hand side is S(rho_A). Jiang–Chen–Ye's coarse-graining theorem lower-bounds EMB by every pure bipartition entropy. Qubit entropy is strictly increasing in determinant for determinant in [0,1/4], proving contradiction for all q0≠q2. The explicit 3/10, sqrt39/10, 1/5 state is normalized: det A=18/125, det B=117/500, entropy ≈0.6677247<0.9533283. Recomputed using exact fractions rather than numerical-only script output.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General bipartition lower bounds already exist and are credited; no published theorem located in those sources explicitly compares rho_A to rho_B on the Omega_1 family.",
+          "Chernyavskiy's nonadaptive measurement quantity has different definition and does not settle this adaptive Eq39 correction."
+        ],
+        "reasoning": "A strong general lower bound becomes decisive only after the new family-specific strict determinant inequality. It is not a prior theorem already asserting the counterexample or the failure for every asymmetrical family member.",
+        "searches": [
+          "arXiv:1104.3280 coarsening theorem and Omega_1 calculation",
+          "arXiv:0905.0201 minimal measurement entropy",
+          "PhysRevA.84.042308"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1104.3280 full PDF Eq. 9 and Eq. 39",
+        "DOI:10.1103/PhysRevA.84.042308",
+        "arXiv:0905.0201",
+        "Resultary semantic search: Jiang Chen Ye Omega1 entanglement measurement bound Eq 39 asymmetric q0 q2 coarse graining bipartition entropy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original paper implies EMB>=max{S(rho_A),S(rho_B),S(rho_C)} and separately Eq39 = S(rho_A) for the whole family; the two cannot both hold when q0≠q2.",
+          "The algebra det rho_B−det rho_A=(q0²−q2²)² is the missing strictness check absent from the original argument."
+        ],
+        "reasoning": "The original broad bound logically helps refute its later equality, but does not state or already explicitly prove the general asymmetric obstruction. The audited fact isolates a genuine erroneous claim, not a replacement formula for the exact EMB.",
+        "searches": [
+          "arXiv:1104.3280 full paper Section III coarse-graining and Section IV Eq. 39",
+          "arXiv:0905.0201 independent-minimal measurement entropy theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq39 identifies EMB with an expression exactly equal to S(rho_A) for all printed Omega_1 members.",
+          "The same source proves EMB is at least each bipartition entropy, but does not calculate the determinant gap or state a restriction q0=q2."
+        ],
+        "reasoning": "The apparent contradiction is not a mere alternate name for the general coarse-graining inequality: the exact reduced determinant comparison supplies a new false-family witness and a sharp necessary condition.",
+        "searches": [
+          "arXiv:1104.3280 Eq. 9 Eq. 26 Eq. 39",
+          "Jiang Chen Ye Omega1 entanglement measurement bound Eq 39 asymmetric q0 q2 coarse graining bipartition entropy",
+          "Jiang Chen Ye entanglement bound multipartite pure states Omega 1 equation 39 correction asymmetric"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted searches returned the original 2011 article and broader multipartite entanglement results, not a published correction or matching normalized witness.",
+          "The source formula is a symbolic statement, not a numerical database table."
+        ],
+        "reasoning": "No indexed exact correction was found. This is not presented as a definitive priority search; the proof of mismatch relies on direct comparison with the original full paper.",
+        "searches": [
+          "Jiang Chen Ye Omega1 entanglement measurement bound Eq 39 asymmetric q0 q2 coarse graining bipartition entropy",
+          "Jiang Chen Ye entanglement bound multipartite pure states Omega 1 equation 39 correction asymmetric",
+          "Entanglement bound for multipartite pure states based on local measurements Eq39 correction"
+        ]
+      },
+      "rationale": "The 2011 primary paper itself contains both the generic coarse-graining lower bound and its inconsistent whole-family Eq39, but does not derive the asymmetric determinant-gap obstruction. The contribution is an explicit mathematically motivated correction to a claimed equality, isolating precisely the family locus where that *obstruction* disappears; it does not claim the original general entropy bound or an exact replacement EMB.",
+      "residual_risks": [
+        "A subsequent correction/erratum not retrieved through indexed searches might independently contain the same determinant witness.",
+        "Only necessity is proved: q0=q2 does not establish sufficiency; exact EMB for asymmetrical states is not computed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONTRADICTED_WHOLE_FAMILY_FORMULA",
+          "evidence": "The source itself states EMB bipartition lower bound and Eq39 for general q0,q2; asymmetric reduced states have strictly different entropy.",
+          "identifier_or_url": "arXiv:1104.3280; DOI:10.1103/PhysRevA.84.042308",
+          "material_read": "Full eight-page lawful arXiv PDF: adaptive measurement definition, coarse-graining proof/inequalities and printed Eq. 39 with Omega_1 coefficient normalization",
+          "method": "primary full-text PDF reading",
+          "title": "Entanglement bound for multipartite pure states based on local measurements",
+          "trigger": "Same article and precise challenged Eq39"
+        },
+        {
+          "assessment": "RELATED_DISTINCT_QUANTITY",
+          "evidence": "Independent/uncorrelated local measurement entropy is not the adaptive EMB Omega_1 formula; no analogous determinant-gap correction in inspected text.",
+          "identifier_or_url": "arXiv:0905.0201",
+          "material_read": "Accessible preprint abstract, definition and bipartite-entropy relation",
+          "method": "primary mathematical text reading",
+          "title": "Entanglement measure for multipartite pure states and its numerical calculation",
+          "trigger": "Earlier minimal measurement entropy and possible overlapping adaptive formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exhibiting a concrete all-asymmetric family obstruction to a published multipartite entanglement equality is a motivated mathematical correction; it identifies an explicit gap between the original article's main calculation and its own theorem. The exact symbolic determinant identity and normalized example make the falsification unambiguous and useful even though the remaining exact EMB is open; not a gratuitous cheap test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the normalized three-qubit Jiang–Chen–Ye Omega_1 family, their Eq. (39) can never equal the adaptive entanglement-measurement bound when q0≠q2: the claimed value is S(rho_A), but coarse-graining forces EMB>=S(rho_B)>S(rho_A), with exact gap det(rho_B)−det(rho_A)=(q0²−q2²)²; an explicit normalized witness separates 0.6677 and 0.9533 bits.",
+  "limitations": [
+    "The invalidated claim is the whole-family adaptive EMB equality Eq39; no exact alternative EMB value is asserted.",
+    "The symmetric q0=q2 locus merely avoids this determinant obstruction; sufficiency is not shown.",
+    "A subsequent correction/erratum not retrieved through indexed searches might independently contain the same determinant witness.",
+    "Only necessity is proved: q0=q2 does not establish sufficiency; exact EMB for asymmetrical states is not computed."
+  ],
+  "schema_version": 1
+}
