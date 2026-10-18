@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the stated classification
 
-The included `verify.py` uses only Python's standard library. It reconstructs \(G_s\) directly and computes characteristic polynomials by exact-rational Newton identities, without using the quotient determinant formula as an input. It independently computes exact nullity by rational Gaussian elimination for \(1\le s\le20\), checks the integer-root identity and candidate roots over \(1\le s\le2000\), and checks the \(s=6\) relation-parity parameterization on an integer coefficient grid.
+# Independent mathematical audit
 
-Observed result from executing the included script:
+## correctness
 
-`VERIFY_OK exact_graph_charpolys=20 exact_nullities=20 integer_root_scope=2000 exceptional_roots=[(6, 3)] exceptional_integer_relations=1681`
+PASS
 
-Reproduction: `python3 verify.py` in the directory containing the extracted files.
+Reconstructed adjacency J_2 tensor A(G_s), symmetric/antisymmetric clone decomposition and amplitude bound 1/2 for different-base pairs. Cubic x^3-x^2-(s+2)x+s, additional -1 on edge vertices and zero on leaves for s>=2 give exact support. Continuous Kronecker parity criterion follows from convex combinations of spectral phases; zero-eigenvalue prevents PGST for s>=2 leaves. Rational-root reduction shows sole reducible s=6, f_6=(x-3)(x^2+2x-2); parity of all rational relations is even in both cases. Irreducible case Galois 3-cycle and nonzero trace force Q-linear independence. Irrational root ratios exclude PST, including s=6. Independently symbolically factored f_6; finite script logs not used to prove all s.
 
-**Proof boundaries.** The infinite graph-family classification is established in `RESULT.md` by a complete quotient decomposition, the rational-root theorem, the irreducible-cubic Galois argument, exact treatment of \(s=6\), and continuous Kronecker phase approximation. Finite enumerations are corroboration only. No claim of independently certified correctness, exhaustive literature uniqueness, or quantitative transfer time is made. Independent audit has not been performed.
+## originality
+
+PASS
+
+The exact all-vertex, all-s nonregular-cone blow-up classification is not supplied by the inspected general blow-up PGST criterion or the literature on cones over regular graphs. The parameter s=6 arithmetic exception and zero-mode restriction require special argument; novelty is best-of-knowledge, not priority certification.
+
+## value
+
+PASS
+
+This infinite family directly addresses the published question about nonregular cones; the exact transferring-pair classification, reducible s=6 treatment and impossibility of PST form a motivated spectral quantum walk result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
