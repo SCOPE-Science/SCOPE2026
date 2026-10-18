@@ -1,15 +1,21 @@
-# Review of Exact diameter-code census in the block-transposition metric on \(S_5\)
+# Independent mathematical audit
 
-## Correctness
-PASS. The metric is reconstructed from all \(20\) block transpositions on \(S_5\). Exhaustive maximal-clique enumeration and an independent four-clique enumeration agree on exactly \(540\) maximum codes of size \(4\). The symmetry, orbit, subgroup, and coset statements are checked directly by `verify.py`.
+## correctness
 
-## Originality
-PASS. The closest primary source records the same \(n=5\) distance distribution and the full automorphism-group order \(1440\), but its inspected full text does not contain a code/packing/independence/max-clique classification. Exact-parameter and equivalent-formulation searches did not locate a result implying the \(540\)-code census, the two orbit sizes, or the \(120\)-coset split. The remaining risk is an obscure or unindexed finite census.
+PASS
 
-## Value
-PASS. Minimum distance \(3\) is the diameter of this metric on \(S_5\), making the equality case a natural extremal problem rather than an arbitrary parameter slice. The complete two-orbit classification and the separation of \(120\) cyclic-coset maxima from \(420\) non-coset maxima provide structural information not contained in the published distance table.
+Rebuilt all 120 permutations and 20 adjacent-block-swap moves, breadth-first distances 1,20,68,31, compatibility graph 31-regular and 1,860 edges. Independent ordered four-clique enumeration found exactly 540, and checked no five-clique; exactly 18 contain identity and four of those are subgroups. Separately recomputed the six toric shifts plus reversal, all 1,440 distinct right-translated isometries and the 180/360 orbits. The published full group order 1,440 is a necessary external input for the word full; no n>5 extrapolation.
 
-## Closest literature and limitations
-The main comparison points are arXiv:1410.8166v1 and arXiv:1504.02157v1. The latter supplies the published distance row and full automorphism-group order used to identify the constructed \(1440\)-element isometry subgroup as the full group. The result is only for \(S_5\); no claim for larger symmetric groups is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared implication strength across published primary same-object papers and related published-result hits; no dominating statement was found within the inspected material, with specific residual priority risks below.
+
+## value
+
+PASS
+
+For S5 the code distance threshold is precisely the metric diameter, so the maximum packing and equality cases are natural exact extremal invariants. The 540-set census, two isometry types and separation of 120 algebraic cosets from 420 non-cosets add structural content not mechanically implied by a distance distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

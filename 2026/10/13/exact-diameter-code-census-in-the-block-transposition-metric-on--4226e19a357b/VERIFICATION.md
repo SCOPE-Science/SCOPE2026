@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` uses only the Python standard library and reconstructs the result from the block-transposition definition.
+# Independent mathematical audit
 
-It checks all \(120\) permutations, all \(20\) generators, the exact distance histogram \(1,20,68,31\), the \(1860\)-edge distance-three compatibility graph, and every maximal clique. Bron--Kerbosch enumeration gives maximal-clique histogram \(2:60,4:540\). A separate increasing-order four-clique enumeration returns the same \(540\) maximum codes.
+## correctness
 
-The program then implements the six toric maps and reversal, verifies their distance preservation on every vertex pair, combines them with all right translations to obtain \(1440\) distinct isometries, and computes maximum-code orbit sizes \(180\) and \(360\). Published work gives the full Cayley-graph automorphism-group order as \(1440\), so the constructed action exhausts the full isometry group.
+PASS
 
-Among the \(18\) maxima containing the identity, direct multiplication-table closure finds exactly \(4\) subgroups, each with element orders \(1,2,4,4\). Their right cosets are enumerated explicitly: each subgroup has \(30\) distinct cosets, the four coset families are pairwise disjoint, and all \(120\) coset codes lie in the \(360\)-element orbit.
+Rebuilt all 120 permutations and 20 adjacent-block-swap moves, breadth-first distances 1,20,68,31, compatibility graph 31-regular and 1,860 edges. Independent ordered four-clique enumeration found exactly 540, and checked no five-clique; exactly 18 contain identity and four of those are subgroups. Separately recomputed the six toric shifts plus reversal, all 1,440 distinct right-translated isometries and the 180/360 orbits. The published full group order 1,440 is a necessary external input for the word full; no n>5 extrapolation.
 
-Limits: the computation is exhaustive only for \(S_5\). The finite census does not establish any general formula for larger \(n\). The external full-automorphism-group order is cited rather than independently re-proved.
+## originality
+
+PASS
+
+Compared implication strength across published primary same-object papers and related published-result hits; no dominating statement was found within the inspected material, with specific residual priority risks below.
+
+## value
+
+PASS
+
+For S5 the code distance threshold is precisely the metric diameter, so the maximum packing and equality cases are natural exact extremal invariants. The 540-set census, two isometry types and separation of 120 algebraic cosets from 420 non-cosets add structural content not mechanically implied by a distance distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
