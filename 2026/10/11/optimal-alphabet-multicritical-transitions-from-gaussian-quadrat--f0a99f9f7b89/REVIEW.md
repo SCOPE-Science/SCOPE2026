@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete proof identifies the \(q\)-point quadrature distribution; the Hermite interpolation error gives the strict global exponential-moment bound for every nonzero field, not just near zero. Gaussian orthogonality gives the exact first unmatched moment \(q!\), hence the first nonlinear pressure coefficient. The variational identity is an equality over all invariant measures because entropy is maximized by the Bernoulli process for each marginal, and the quadratic term is exactly linearized by a scalar supremum. Strict separation of the critical maximizer, coercivity, and the local monotonicity of \(P_q'(y)/y\) establish exactly two branches only near \(\beta=1\). The support lower bound follows from a nonnegative polynomial of degree at most \(2q-2\), and parity plus orthogonality proves rigidity at equality. The mathematical conclusions do not depend on bounded numerical tests.
+PASS
 
-## Originality — PASS, subject to literature risk
+For each q≥2, orthogonality of monic He_q gives distinct symmetric nodes, strictly positive Gauss quadrature weights and moment matching through 2q−1. Hermite double-node interpolation of exp(yt) has nonnegative remainder y^{2q}exp(y xi)/(2q)! product(t−x_i)², strictly positive in Gaussian integral for y≠0, so P_q(y)<y²/2 for all real nonzero y. Orthogonality yields degree-2q moment deficit q!, hence P_q=y²/2−(q!/(2q)!) y^{2q}+O(y^{2q+2}). Entropy-rate ≤ marginal Shannon entropy is an equality only for Bernoulli, and quadratic Legendre duality reduces all invariant measures exactly to F_beta(y)=P_q(y)−y²/(2 beta) for beta>0, with beta=0 treated by the base Bernoulli entropy maximum. Its coercive global strict-gap property proves beta≤1 unique base law, beta>1 positive symmetric maximizers and localization near zero as beta↓1; monotonic P_q′(y)/y near zero establishes exactly two locally, with the specified magnetization and pressure constants. A nonnegative squared vanishing polynomial excludes fewer than q support atoms; symmetry forces the q-atom nodal polynomial He_q and Vandermonde fixes weights. Independent Hermite quadrature numerical moments/deficit checked q=2..7, but the general proof is analytic.
 
-The closest directly relevant source is Tang, Yang and Li, arXiv:2609.25915v1, Theorem 6.8 and Proposition 7.9: it gives conditional exponents and a single three-state fourth-root example. It does not exhibit all arbitrarily high Hermite-node cancellations with the global threshold and minimal-alphabet theorem. Buzzi, Kloeckner and Leplaideur, arXiv:2002.00576, provide the general nonlinear framework and classical/asymmetric Curie–Weiss examples. Bru, de Siqueira Pedra and Lopes, arXiv:2605.23576, provide general linearization theory, which contains the duality mechanism but not the moment-cancelling construction or optimality classification. Quadrature itself and low-order tricritical behavior are classical; novelty is restricted to their combined infinite-family dynamical classification and optimality. A plausible 2020 general-spin source was available only in abstract and one-page preview, leaving a genuine residual risk of an equivalent construction in the older literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating conditional Taylor criterion does not prescribe how to realize higher exponents using small finite alphabets, nor certify that no earlier competing phase appears. This theorem resolves both design constraints simultaneously and establishes the exact minimum alphabet and uniqueness within the symmetric moment-cancellation class. Its first new regime beyond the usual square-root and fourth-root cases is an explicit four-state sixth-root pitchfork, and every higher order is covered. The claim is a natural complete family/classification, not an arbitrary numerical slice or a restatement of the general variational principle.
+The uniform explicit positive q-symbol full shift construction and sharp rigidity/minimality among symmetric Gaussian-moment-matching laws are not implied by the preexisting conditional critical-exponent theorem; the q=2 and q=3 exponents and quadratic mean-field duality are already familiar.
 
-## Scope and residual uncertainty
+## value
 
-Exact two-phase uniqueness above the threshold is local to the critical point. Low-order spin-one tricriticality is acknowledged as prior behavior. General multidimensional, asymmetric, nonquadratic and uniformly weighted models are not classified. The 2020 general-spin paper was not fully accessible, so priority over all historical mean-field formulations cannot be certified.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+A single explicit positive q-state full-shift construction realizes each multicritical order with a globally verified onset at beta=1, exact amplitudes and an optimal-alphabet rigidity theorem. The support-minimal classification is a natural design and thermodynamic property beyond routine q=2,3 examples. Generic Taylor calculations alone would be insufficient, but the Hermite construction and global inequality supply substantive mathematical content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

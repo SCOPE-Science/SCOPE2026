@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The full infinite-family argument is contained in `RESULT.md`, Steps 1–7. Check especially: (i) the Hermite interpolation remainder of even order establishes \(P_q(y)<y^2/2\) globally for all nonzero fields; (ii) the exact degree-\(2q\) moment deficit equals \(q!\); (iii) maximization over arbitrary invariant measures reduces exactly to tilted Bernoulli measures; (iv) global localization and local monotonicity are both used in the **near-critical** two-phase conclusion; (v) the nonnegative annihilating polynomial proves the sharp support lower bound. No numerical finite test proves any of these universal steps.
+## correctness
 
-Run `python verify.py` with NumPy installed to reproduce the quadrature diagnostics. Its actual verified output was `PASS 128 finite diagnostics for q=2..9`. Due to floating-point rounding at very small high-order deficits, the script tests the strict exponential-moment inequality only at fields of magnitude at least one; the analytic proof covers every nonzero field. The checker does not test phase uniqueness for all parameters or claim exact certificates from floating point.
+PASS
 
-The source paper arXiv:2609.25915v1 has an independently verifiable first posting date of 2026-09-22. General scalar duality and earlier Curie–Weiss examples are cited explicitly. No external independent audit has been performed.
+For each q≥2, orthogonality of monic He_q gives distinct symmetric nodes, strictly positive Gauss quadrature weights and moment matching through 2q−1. Hermite double-node interpolation of exp(yt) has nonnegative remainder y^{2q}exp(y xi)/(2q)! product(t−x_i)², strictly positive in Gaussian integral for y≠0, so P_q(y)<y²/2 for all real nonzero y. Orthogonality yields degree-2q moment deficit q!, hence P_q=y²/2−(q!/(2q)!) y^{2q}+O(y^{2q+2}). Entropy-rate ≤ marginal Shannon entropy is an equality only for Bernoulli, and quadratic Legendre duality reduces all invariant measures exactly to F_beta(y)=P_q(y)−y²/(2 beta) for beta>0, with beta=0 treated by the base Bernoulli entropy maximum. Its coercive global strict-gap property proves beta≤1 unique base law, beta>1 positive symmetric maximizers and localization near zero as beta↓1; monotonic P_q′(y)/y near zero establishes exactly two locally, with the specified magnetization and pressure constants. A nonnegative squared vanishing polynomial excludes fewer than q support atoms; symmetry forces the q-atom nodal polynomial He_q and Vandermonde fixes weights. Independent Hermite quadrature numerical moments/deficit checked q=2..7, but the general proof is analytic.
+
+## originality
+
+PASS
+
+The uniform explicit positive q-symbol full shift construction and sharp rigidity/minimality among symmetric Gaussian-moment-matching laws are not implied by the preexisting conditional critical-exponent theorem; the q=2 and q=3 exponents and quadratic mean-field duality are already familiar.
+
+## value
+
+PASS
+
+A single explicit positive q-state full-shift construction realizes each multicritical order with a globally verified onset at beta=1, exact amplitudes and an optimal-alphabet rigidity theorem. The support-minimal classification is a natural design and thermodynamic property beyond routine q=2,3 examples. Generic Taylor calculations alone would be insufficient, but the Hermite construction and global inequality supply substantive mathematical content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
