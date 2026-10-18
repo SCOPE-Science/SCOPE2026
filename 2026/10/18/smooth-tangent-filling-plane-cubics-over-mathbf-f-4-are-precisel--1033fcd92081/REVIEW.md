@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The claim is a precise classification of geometrically smooth embedded plane cubics over \(\mathbf F_4\). The finite universe has \((4^{10}-1)/3=349525\) normalized nonzero cubic equations. The supplied code computes values, gradients and all rational tangent-line point unions at the full \(21\) projective points, and the resulting tangent-filling profiles are exhaustive: \((9,8):5040\), \((9,9):280\), \((10,10):6048\). The Hasse bound restricts geometrically smooth cubics to at most nine rational points. Each of the \(280\) candidates is explicitly recognized, up to scalar, as a nonsingular Hermitian form; the matrix gradient identity proves smoothness over the algebraic closure. Standard Hermitian congruence and exact unitary group orders give one orbit and stabilizer \(216\). The code was executed successfully. A maximal but non-filling smooth cubic is verified separately. Neither finite-extension sampling nor raw logs are being treated as infinite proofs.
+
+## Originality — PASS, with residual bibliographic risk
+The main source, Asgarli–Ghioca, arXiv:2302.13420, introduces tangent-filling and proves its Hermitian example for every square field; it neither claims a converse nor enumerates plane cubic equations over \(\mathbf F_4\). Grundhöfer–Stroppel–Van Maldeghem (DOI:10.1007/s00022-022-00636-4) prove an embedding theorem assuming an existing Hermitian unital; that hypothesis is not a consequence of merely being tangent-filling. Searches for cubic tangent Gauss images, dual blocking sets, finite-geometry characterizations, equivalent Hermitian normal forms, and exact enumeration tables found no covering result in accessible indexed literature or examined prior claims. This is not a proof of global bibliographic uniqueness: an old or unindexed finite-geometric theorem might conceivably imply the result.
+
+## Value — PASS
+The theorem upgrades a distinguished example in a motivating 2023 source to a complete classification for the first square field with positive-genus smooth plane cubics. It gives the exact number of equations, a single projective orbit and its stabilizer, and a counterexample showing that the maximal elliptic point count is insufficient. These are natural embedded-geometric invariants, not an arbitrary small parameter slice or an incremental count of examples.
+
+Self-review: passed. Independent audit: not yet performed.
