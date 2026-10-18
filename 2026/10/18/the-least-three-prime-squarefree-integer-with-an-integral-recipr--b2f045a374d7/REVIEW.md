@@ -1,0 +1,15 @@
+# Review of the least three-prime reciprocal-gcd solution
+
+## Correctness: PASS
+The divisor-sum identity reduces squarefree three-prime integrality to a directed cycle of prime divisors of \(F(t)=t^2-t+1\). The proof establishes the absence of loops and two-cycles by integer descent, so every qualifying triple must produce a three-cycle. A witness bounds any smaller counterexample by \(B=411612748708891\). The smallest prime \(p\) then satisfies \(p^3\le B\), and any next edge \(p\to u\) satisfies \(u\mid F(p)\) and \(pu(p+1)\le B\); the closing prime \(v\) must divide \(F(u)\) and satisfy the remaining exact inequalities. Both factorization stages are complete because every required trial divisor lies in the relevant deterministic sieve. Executing the packaged certificate yields \(7339\) first-prime candidates, \(1948\) qualifying first edges, and precisely the exhibited closing three-cycle. The script verifies the prime factors and the integral value. No finite experiment is used as an unqualified proof of an infinite claim; the logical proof provides the exhaustive bound.
+
+## Originality: PASS
+The closest primary work is De Koninck--Letendre (2026), which gives the divisor formula, prime-divisibility graph and asymptotic counting bound, but not the smallest three-prime product. OEIS A317480 lists early integer members and a membership formula but not this globally minimal three-prime product. A previous calculation established that \(349\) is the smallest *least vertex* of a three-cycle and furnished the same three primes. It explicitly did not establish the globally least product. A larger least vertex could in principle yield a smaller product; the complete new enumeration resolves precisely that independent comparison. Targeted searches for equivalent prime-cycle product minima, reciprocal-gcd integrality records, and cyclotomic divisor cycles identified no stronger matching result. Residual possibility: an unindexed numerical minimization might predate this finding. This is not a claim of exhaustive world-literature novelty.
+
+## Mathematical value: PASS
+The prime-support size three is the first natural squarefree case in which an integral reciprocal-gcd sum can arise from a genuinely nontrivial directed cycle. Determining its least solution is a natural exact invariant of the arithmetic set introduced in recent work. The distinction between minimizing a vertex and minimizing the full product is mathematically essential; the complete product cutoff supplies a sharp benchmark and a reusable exhaustive enumeration method. The finding is not an artificial slice chosen after computation, nor a merely repeated verification of an existing example.
+
+## Closest literature and limitations
+Primary comparison: J.-M. De Koninck and P. Letendre, arXiv:2610.10572v1, Sections 1, 2 and 7; OEIS A317480; earlier least-vertex calculation. No claim is made about higher prime support, the least unrestricted nontrivial element, or general infinitude. The result has not received independent audit.
+
+Self-review: passed. Independent audit: not yet performed.

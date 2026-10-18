@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For squarefree n=abc, the primary divisor formula gives H(n)=F(a)F(b)F(c)/(abc). Every prime requires an incoming edge; integer descent forbids loops and 2-cycles, so a 3-cycle is necessary and sufficient. The witness B=411612748708891 reduces the global minimum to primes p with p³≤B, divisors u|F(p) with pu(p+1)≤B, and divisors v|F(u) with p<v≤B/(pu) and p|F(v). The packaged exact sieve-and-factor certificate counts 7339 p, 1948 first edges, and exactly one closing triple. Both sieves cover every possible trial factor and primality of 349,121453,9710803 is checked; H(B)=410433300314317 exactly. No heuristic step enters the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.10572v1, Theorem 1, provides an upper bound for the count of ALL integrality solutions; Section 7 provides a heuristic cycle construction.",
+        "An earlier least-vertex computation proves the minimum possible least vertex is 349, but expressly leaves global product minimization unclaimed."
+      ],
+      "reasoning": "A global upper bound on counting and the constructive existence of a given cycle do not locate the first squarefree three-prime solution. The least-vertex threshold leaves open smaller products arising from cycles with a larger least vertex, so neither previous statement dominates this one.",
+      "searches": [
+        "Exact least squarefree integer with exactly 3 distinct prime factors for integral reciprocal gcd sum sum_{j=1}^n 1/gcd(n,j), De Koninck Letendre",
+        "Reciprocal gcd harmonic integers squarefree three prime minimum OEIS A317480",
+        "Prime cyclic triples p divides q²−q+1 q divides r²−r+1 r divides p²−p+1 minimal product"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.10572v1, accessible full primary HTML, Sections 1–7",
+      "OEIS A317480, entry with table and computation formulas",
+      "Previous least-vertex result, opaque reference 97e5f42c-d82d-4270-8891-479153f5cc00"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier note opaque ID 97e5f42c-d82d-4270-8891-479153f5cc00: least vertex of any directed 3-cycle is 349, with unique 349-minimum witness; it explicitly disclaims global product optimality.",
+        "arXiv:2610.10572v1 Sections 2 and 7: graph model, cycle construction, and general counting bound; no exact first three-factor product."
+      ],
+      "reasoning": "The new result does not claim first discovery of the three primes or minimality of the least vertex. It proves no cycle with least vertex >349 can have product below the known witness, via complete bounded search. This is not a logical corollary of the earlier least-vertex assertion. No stronger published result implying the product minimum was found in the actual targeted queries.",
+      "searches": [
+        "Smallest product of primes forming 3-cycle under q divides p²−p+1, directed Phi6 graph; minimum n=411612748708891",
+        "349 121453 9710803 411612748708891 prime cycle least product",
+        "Prime cyclic triples p divides q²−q+1 q divides r²−r+1 r divides p²−p+1 minimal product"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For distinct primes, integrality of the reciprocal-gcd sum is equivalent to a directed three-cycle for divisors of F(t)=t²−t+1; this equivalence is proved directly in RESULT.md.",
+        "De Koninck–Letendre, arXiv:2610.10572v1, Sections 1, 2, 7, supplies the same prime-divisibility setup but no three-prime product minimum."
+      ],
+      "reasoning": "The comparison explicitly includes the alternate formulation as the least product of three distinct prime vertices in a directed cyclotomic divisibility 3-cycle. No inspected source supplies a product-minimum theorem.",
+      "searches": [
+        "Exact least squarefree integer with exactly 3 distinct prime factors for integral reciprocal gcd sum sum_{j=1}^n 1/gcd(n,j), De Koninck Letendre",
+        "Smallest product of primes forming 3-cycle under q divides p²−p+1, directed Phi6 graph; minimum n=411612748708891",
+        "Prime cyclic triples p divides q²−q+1 q divides r²−r+1 r divides p²−p+1 minimal product"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A317480 lists initial integrality-set terms and its membership formula; its displayed table ends far below 411612748708891.",
+        "De Koninck–Letendre, arXiv:2610.10572v1, Section 1, quotes the same small-term data, without a three-prime threshold."
+      ],
+      "reasoning": "Membership formulas and short tables are not exact minimality certificates for three-prime entries through 4.116e14. No inspected table establishes the stated minimum.",
+      "searches": [
+        "Reciprocal gcd harmonic integers squarefree three prime minimum OEIS A317480",
+        "349 121453 9710803 411612748708891 prime cycle least product"
+      ]
+    },
+    "rationale": "The primary source's counting theorem and cycle construction neither state nor imply the least three-prime PRODUCT; OEIS A317480 gives early terms and a membership test, not an exhaustive global minimization; an earlier result's least-vertex threshold at 349 and its explicit example are materially weaker than global product optimality. Five focused published-mathematics semantic queries found no matching result. There remains a risk of an unindexed prior numerical computation.",
+    "residual_risks": [
+      "An unindexed earlier exact three-prime product enumeration may exist.",
+      "The former least-vertex claim was compared only from its recoverable statement, not independently audited. This has no effect on the standalone proof of the present product minimum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper establishes counts and cycle constructions but does not certify the first squarefree three-prime product.",
+        "evidence": [
+          "Sections 1–2 define h(n), F(p), and the graph; Theorem 1 is a global counting bound.",
+          "Section 7 uses cycles for existence heuristics but contains no globally minimal three-prime product statement."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.10572v1",
+        "material_read": "Complete accessible HTML text, including the divisor formula and preliminary bounds (§1), dependency graph construction (§2), cycle bounds (§§4–5), constructive heuristics and example (§7), and references.",
+        "method": "Read primary full text and compare theorem, parameter domain, and implications, not merely abstract or snippets.",
+        "title": "The Integer Values of the Reciprocal-GCD Sum",
+        "trigger": "The motivating paper studies precisely the same integer-valued arithmetic function and prime-divisibility graph."
+      },
+      {
+        "assessment": "Entry records initial unrestricted terms and the membership predicate, not an exhaustive three-prime minimization at this bound.",
+        "evidence": [
+          "The shown values reach only billions; the certificate threshold exceeds 411 trillion.",
+          "The code tests individual integers and does not entail a bound-complete prime triple classification."
+        ],
+        "identifier_or_url": "https://oeis.org/A317480",
+        "material_read": "Visible sequence terms, comments, linked table description, original source reference, and Mathematica/PARI membership formulas.",
+        "method": "Directly inspected the complete public entry and compared the table scope with the claimed 4.116e14 cutoff.",
+        "title": "OEIS A317480, reciprocal-gcd integrality numbers",
+        "trigger": "An exact database might contain the claimed initial value or an exhaustive computation."
+      },
+      {
+        "assessment": "It identifies the same witness, but expressly does not assert that its product is globally least.",
+        "evidence": [
+          "Least vertex 349 is necessary for cycles, but larger least vertex does not by itself force a larger three-prime product.",
+          "A new exhaustive bound-complete enumeration eliminates all smaller products."
+        ],
+        "identifier_or_url": "97e5f42c-d82d-4270-8891-479153f5cc00",
+        "material_read": "Recoverable exact scientific claim text, including its express qualification about product minimization; no full-text inspection claimed.",
+        "method": "Compared the prior theorem on minimum least vertex with the new theorem on minimum product.",
+        "title": "Previous least-vertex result for cyclotomic prime three-cycles",
+        "trigger": "Same prime triple and arithmetic function; decisive implication comparison required."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b2f045a3-74d7-43bb-a93d-6d5f9b694cd8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural exact least-element invariant for the first allowable squarefree prime-support class of the recent reciprocal-gcd integrality problem. The global product minimum is mathematically stronger than the preexisting sharp minimum least-prime bound, and closes the corresponding exact computation with a fully reproducible exhaustive certificate. No broader theorem or artificial additional parameter is claimed.",
+    "status": "PASS"
+  }
+}
