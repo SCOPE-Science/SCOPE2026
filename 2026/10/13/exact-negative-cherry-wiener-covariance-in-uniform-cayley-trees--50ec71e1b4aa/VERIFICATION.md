@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing this file and the standalone checker. It uses only the Python standard library, with arbitrary-size integers and `fractions.Fraction`; no data downloads, random sampling, or mathematical packages are required.
+## correctness
 
-The verifier checks exactly all \(624\) sizes \(3\le n\le626\), including the zero boundary and every negative-case size \(4\le n\le626\). The independent Prüfer-enumeration comparison counts \(3+16+125+1296+16807=18{,}247\) complete uniform-labelled trees for \(3\le n\le7\), computing their leaf pairs, all-pair distances, means and exact covariance separately from the closed formula. A few sizes \(n\ge627\) are additionally checked as sanity tests, without pretending that they certify an infinite range. The infinite tail inequality and asymptotic Gaussian-product estimates are mathematically derived in `RESULT.md`, not inferred from these checks.
+PASS
 
-Expected success ending: `CHECKER_OK`. Deterministic sample exact covariances: \(n=4\), \(-9/16\); \(n=5\), \(-696/625\); \(n=6\), \(-440/243\). These are tests, not substitutes for the proof. Independent audit has not been performed.
+A prescribed pair of leaves adjacent to a chosen center corresponds bijectively to any Cayley tree on r=n−2 remaining labels, with probability r^{r−2}/n^{n−2}; the conditional reduced tree is uniform. Exactly W_n=W_r+2Σ_x d(c,x)+2r+2; exchangeability gives EΣ_xd=2μ_r/r. Count all n binom(n−1,2) cherry indicators to derive mixed moment. The path between two labeled vertices has tail Pr(D_m≥k)=∏_{j=2}^k(1−j/m), from fixed-path forest-extension Laplacian, so μ_m exact. Q_n=2(n−1)−3d_{n−2}−binom(n,2)(d_n−d_{n−2}). For n≥627, K=floor(sqrt(n−2))≥25 and telescoping products give d_n−d_{n−2}>(4/n), forcing Q_n<−3d_{n−2}<0. Independent Fraction arithmetic checked every 4≤n≤626, while independent BFS over ALL 18,247 Prüfer-labelled trees for n=3..7 reproduced the covariance (n4 −9/16, n5 −696/625, n6 −440/243). Gaussian-product/Riemann sums give Δ_n∼√(π/2)/√n and EC_n∼e^−2 n/2, hence stated asymptotic. Certificates finite only for explicitly complete 4..626 interval; analytic tail handles infinitely many.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty assessment compares identical mathematical statements and implications, not titles or a lack of search hits. Neither a cherry marginal nor Janson’s Wiener–internal-path joint moments determines their exact covariance. Comparison risks remain explicitly recorded; noncoverage is not asserted from abstracts of unread whole papers.
+
+## value
+
+PASS
+
+Relates a canonical local symmetry-bearing motif (pair of sibling leaves) to a canonical global metric index on all uniform labelled trees, with exact finite covariance, strict universal sign and nontrivial n^{5/2} asymptotic constant. The cross-statistic dependence is not determined by either separately-known marginal; meaningful structural probability theorem, not a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

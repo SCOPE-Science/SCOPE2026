@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The defining probability of a prescribed cherry follows bijectively from deleting two leaves and applying Cayley's count to the uniform reduced tree. Conditioning and pair counting yield the exact mixed moment, with mean Wiener distance obtained from path enumeration. The remaining all-size sign is proved by exact rational checks for every \(4\le n\le626\) plus an independent analytic bound for every \(n\ge627\); the analytic argument also gives the asymptotic leading term. The numerical checks are not used to claim a result for unchecked sizes.
+## correctness
 
-**Originality — PASS (qualified).** Erdős–Rényi's cherry theorem supplies the one-point marginal of the local indicator, not its joint moment with Wiener distance. Janson's full 2003 study proves Wiener/mixed internal-path-length results in simply generated trees, not the named cherry covariance. Wagner's index-correlation preprint concerns different indices and rooted ordered tree models. Current literature searches and mathematical implication comparisons found no stronger implication for the exact same objects. An older generating function not indexed under these terms remains a risk, and the 1994 Wiener-index source was not completely read.
+PASS
 
-**Value — PASS.** The local cherry count measures a symmetry-bearing branching motif and the Wiener index measures global metric spread. Their sharp opposite-direction dependence across every nontrivial tree size, plus its explicit polynomial-order leading constant, is a substantive structural complement to separate marginal enumerations.
+A prescribed pair of leaves adjacent to a chosen center corresponds bijectively to any Cayley tree on r=n−2 remaining labels, with probability r^{r−2}/n^{n−2}; the conditional reduced tree is uniform. Exactly W_n=W_r+2Σ_x d(c,x)+2r+2; exchangeability gives EΣ_xd=2μ_r/r. Count all n binom(n−1,2) cherry indicators to derive mixed moment. The path between two labeled vertices has tail Pr(D_m≥k)=∏_{j=2}^k(1−j/m), from fixed-path forest-extension Laplacian, so μ_m exact. Q_n=2(n−1)−3d_{n−2}−binom(n,2)(d_n−d_{n−2}). For n≥627, K=floor(sqrt(n−2))≥25 and telescoping products give d_n−d_{n−2}>(4/n), forcing Q_n<−3d_{n−2}<0. Independent Fraction arithmetic checked every 4≤n≤626, while independent BFS over ALL 18,247 Prüfer-labelled trees for n=3..7 reproduced the covariance (n4 −9/16, n5 −696/625, n6 −440/243). Gaussian-product/Riemann sums give Δ_n∼√(π/2)/√n and EC_n∼e^−2 n/2, hence stated asymptotic. Certificates finite only for explicitly complete 4..626 interval; analytic tail handles infinitely many.
 
-**Scientific limitations.** The result uses uniform labelled unrooted trees and permits cherry centers of any degree. No full joint law, alternate tree model, or independent audit is claimed. Reproducibility is supplied by a source-only exact checker and the complete proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty assessment compares identical mathematical statements and implications, not titles or a lack of search hits. Neither a cherry marginal nor Janson’s Wiener–internal-path joint moments determines their exact covariance. Comparison risks remain explicitly recorded; noncoverage is not asserted from abstracts of unread whole papers.
+
+## value
+
+PASS
+
+Relates a canonical local symmetry-bearing motif (pair of sibling leaves) to a canonical global metric index on all uniform labelled trees, with exact finite covariance, strict universal sign and nontrivial n^{5/2} asymptotic constant. The cross-statistic dependence is not determined by either separately-known marginal; meaningful structural probability theorem, not a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

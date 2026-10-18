@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:54:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exact-negative-cherry-wiener-covariance-in-uniform-cayley-trees--50ec71e1b4aa/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/exact-negative-cherry-wiener-covariance-in-uniform-cayley-trees--50ec71e1b4aa/VERIFICATION.md"
+      ],
+      "rationale": "A prescribed pair of leaves adjacent to a chosen center corresponds bijectively to any Cayley tree on r=n−2 remaining labels, with probability r^{r−2}/n^{n−2}; the conditional reduced tree is uniform. Exactly W_n=W_r+2Σ_x d(c,x)+2r+2; exchangeability gives EΣ_xd=2μ_r/r. Count all n binom(n−1,2) cherry indicators to derive mixed moment. The path between two labeled vertices has tail Pr(D_m≥k)=∏_{j=2}^k(1−j/m), from fixed-path forest-extension Laplacian, so μ_m exact. Q_n=2(n−1)−3d_{n−2}−binom(n,2)(d_n−d_{n−2}). For n≥627, K=floor(sqrt(n−2))≥25 and telescoping products give d_n−d_{n−2}>(4/n), forcing Q_n<−3d_{n−2}<0. Independent Fraction arithmetic checked every 4≤n≤626, while independent BFS over ALL 18,247 Prüfer-labelled trees for n=3..7 reproduced the covariance (n4 −9/16, n5 −696/625, n6 −440/243). Gaussian-product/Riemann sums give Δ_n∼√(π/2)/√n and EC_n∼e^−2 n/2, hence stated asymptotic. Certificates finite only for explicitly complete 4..626 interval; analytic tail handles infinitely many.",
+      "residual_risks": [
+        "Model uses all degree-one sibling pairs, NOT phylogenetic cherry with degree-three center, and uniform unrooted labeled trees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson 2003 full 22 pages explicitly treats joint (W, rooted internal path length P, ancestral path Q) and Cayley as a special case, no cherry variable anywhere in all pages.",
+          "Wagner 2006 PDF studies correlations Wiener vs other rooted ordered tree indices and differing tree measure; no cherry-count covariance theorem."
+        ],
+        "reasoning": "Although Janson is broader in simply generated tree families and Wagner is broader in variety of tree indices, neither includes cherry C_n in the analyzed joint law. No direct implication of the exact mixed moment.",
+        "searches": [
+          "Svante Janson The Wiener Index of simply generated random trees 2003 full text",
+          "Stephan Wagner Calculating the correlation coefficients of graph-theoretical indices arxiv math/0608753"
+        ]
+      },
+      "checked_sources": [
+        "https://static.renyi.hu/~p_erdos/1963-04.pdf",
+        "https://doi.org/10.1002/rsa.10074",
+        "https://arxiv.org/pdf/math/0608753",
+        "Entringer, Meir, Moon, Székely, Australas J Combin 10 (1994) 211–224"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Erdős–Rényi (1963) eq. (5.1) one-cherry probability r^{r−2}/n^{n−2}.",
+          "Janson (2003) Theorem 3.4 is mixed moments of P,Q,W, none cherry; Wagner different tree distribution."
+        ],
+        "reasoning": "Neither separate cherry moments nor general Wiener–internal-path-length moments supply the conditional Wiener-index shift after cherry contraction, which is the crucial extra combinatorial step.",
+        "searches": [
+          "Erdos Renyi Asymmetric graphs 1963 section 5 Theorem 6 cherry probability",
+          "Janson The Wiener Index of Simply Generated Random Trees Theorem 3.4 mixed moments",
+          "Wagner calculating correlation coefficients graph-theoretical indices Wiener"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Erdős–Rényi Theorem 6 defines precisely unordered sibling degree-one vertices in uniform Cayley trees, and gives incidence probability and marginal moments.",
+          "Resultary SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae treats a marked endpoint degree-distance covariance, not cherry pair count with global distance sum."
+        ],
+        "reasoning": "Cherry covariance with total W is a second-order motif/global moment and cannot be obtained from only a one-cherry marginal or from one-vertex degree–distance covariance.",
+        "searches": [
+          "negative covariance cherry count Wiener index uniformly labeled Cayley random trees exact asymptotic",
+          "Erdos Renyi Asymmetric graphs cherry random labelled trees theorem 6",
+          "Wiener index correlation with number of cherries uniform labelled Cayley trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Erdős–Rényi 1963 p.313 equations (5.1)–(5.3) give exact cherry indicator probabilities and pair moments, not joint moments with Wiener distance.",
+          "No published table of same C-W covariance was found among inspected matching tree-model sources."
+        ],
+        "reasoning": "The classic cherry marginal tables do not determine C-W covariance; exact enum n≤7 serves audit evidence only. A source with a full multivariate tree-parameter generating function might cover it without matching title.",
+        "searches": [
+          "random Cayley tree cherry Wiener covariance exact n 4 5 6",
+          "Asymmetric graphs Erdős Rényi Theorem 6 cherry mean variance labelled tree",
+          "Resultary exact negative covariance cherry count Wiener index uniformly labeled Cayley random trees exact asymptotic"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty assessment compares identical mathematical statements and implications, not titles or a lack of search hits. Neither a cherry marginal nor Janson’s Wiener–internal-path joint moments determines their exact covariance. Comparison risks remain explicitly recorded; noncoverage is not asserted from abstracts of unread whole papers.",
+      "residual_risks": [
+        "Potential broader unpublished joint tree-motif generating functions; 1994 Entringer–Meir–Moon–Székely full original text not read.",
+        "Model uses all degree-one sibling pairs, NOT phylogenetic cherry with degree-three center, and uniform unrooted labeled trees.",
+        "Janson OCR extraction garbles formulas but section identities and index variables were legible; no extrapolated noncoverage of unread sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines exactly same cherry event and its incidence probability; no covariance with Wiener index",
+          "evidence": "Theorem 6 asserts high-probability existence; (5.1) gives P(cherry)=(n−2)^{n−4}/n^{n−2}.",
+          "identifier_or_url": "https://static.renyi.hu/~p_erdos/1963-04.pdf",
+          "material_read": "Primary full PDF §5 pp.312–313 scanned and screenshots, Theorem 6, eqs. (5.1)–(5.3); remainder skimmed",
+          "method": "Original author-hosted PDF read, pages 17–18 image verified",
+          "title": "Asymmetric graphs",
+          "trigger": "Original unrooted labelled tree cherry count"
+        },
+        {
+          "assessment": "Covers Cayley trees and joint W/internal path P/ancestor-path Q; does not introduce C(cherries) or calculate C-W covariance",
+          "evidence": "Section 2 case (ii) Cayley, §3 eq (3.2) W=nP−Q, Thm 3.4 joint mixed moments of P,Q,W; no cherry occurrence across 22 pages.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.10074",
+          "material_read": "Oxford-authorized full 22-page paper including §§1–7, Theorems 3.1,3.4, proofs §§4–6; all pages inspected via extracted text",
+          "method": "arXiv and lawful author-hosted OA access attempted but failed; authorized Oxford institutional full text retrieved and read",
+          "title": "The Wiener Index of Simply Generated Random Trees",
+          "trigger": "Strong same model/same global invariant, plausible joint-moment coverage"
+        },
+        {
+          "assessment": "Rooted ordered tree model and other indices; not uniform unrooted labelled Cayley cherry-Wiener covariance",
+          "evidence": "Different measures and no cherry variable in searched full text.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0608753",
+          "material_read": "Primary arXiv PDF first page image, index list, Sections 2–3 and Wiener occurrences, searched cherry",
+          "method": "Primary OA PDF reading",
+          "title": "Calculating the correlation coefficients of graph-theoretical indices",
+          "trigger": "Other correlations of Wiener index with tree statistics"
+        },
+        {
+          "assessment": "Could provide µ_n as marginal input; whole-paper noncoverage not asserted",
+          "evidence": "Janson 2003 introduction cites this work for E W(T_n), not for cherry covariance.",
+          "identifier_or_url": "Entringer, Meir, Moon, Székely, Australas J Combin 10 (1994) 211–224",
+          "material_read": "Bibliographic/title/secondary description in Janson 2003; original full text not obtained",
+          "method": "Primary not inspected; honest bibliographic comparison only",
+          "title": "The Wiener index of trees from certain families",
+          "trigger": "Potential exact mean for W in Cayley trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://static.renyi.hu/~p_erdos/1963-04.pdf",
+        "https://doi.org/10.1002/rsa.10074",
+        "https://arxiv.org/pdf/math/0608753",
+        "Entringer, Meir, Moon, Székely, Australas J Combin 10 (1994) 211–224"
+      ],
+      "rationale": "Relates a canonical local symmetry-bearing motif (pair of sibling leaves) to a canonical global metric index on all uniform labelled trees, with exact finite covariance, strict universal sign and nontrivial n^{5/2} asymptotic constant. The cross-statistic dependence is not determined by either separately-known marginal; meaningful structural probability theorem, not a routine substitution.",
+      "residual_risks": [
+        "Janson OCR extraction garbles formulas but section identities and index variables were legible; no extrapolated noncoverage of unread sources."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniform unrooted labelled Cayley trees T_n, the cherry count C_n (every unordered pair of leaves sharing a center, no center-degree restriction) has exact covariance with Wiener index W_n equal to EC_n[((n+2)/(n−2))μ_{n−2}+2(n−1)−μ_n], with EC_n=n binom(n−1,2)(n−2)^{n−4}/n^{n−2} and μ_m=binom(m,2)d_m for d_m=Σ_{k=1}^{m−1}∏_{j=2}^k(1−j/m). It is zero at n=3, negative for every n≥4, and asymptotic to −(e^−2/4)√(π/2) n^{5/2}.",
+  "limitations": [
+    "Potential broader unpublished joint tree-motif generating functions; 1994 Entringer–Meir–Moon–Székely full original text not read.",
+    "Model uses all degree-one sibling pairs, NOT phylogenetic cherry with degree-three center, and uniform unrooted labeled trees.",
+    "Janson OCR extraction garbles formulas but section identities and index variables were legible; no extrapolated noncoverage of unread sources."
+  ],
+  "schema_version": 1
+}
