@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof reconstructs the source Gauss--Seidel proximal ADMM update on the scalar three-state identity-dynamics chain and reduces the resulting five-dimensional map to an exact characteristic factorization. Necessary-and-sufficient Schur conditions then give the stated frontier.
+# Independent mathematical audit
 
-`artifacts/verify_multiblock_admm_frontier.py` uses only Python standard-library rational arithmetic. It builds the iteration matrix directly from the sequential block updates for rational parameter pairs, computes its characteristic polynomial by the Faddeev--LeVerrier recurrence, checks the quadratic-times-cubic factorization, and verifies the exact \(\chi=4,\ p=1/10\) boundary identities.
+## correctness
 
-The finite replay is not the proof of the all-parameter statement. Unequal parameters, nonlinear dynamics, higher-dimensional noncommuting blocks, and inexact solves are outside scope.
+PASS
+
+Reconstructed the source five-state Gauss–Seidel proximal ADMM map for x1=x0, x2=x1, costs (+a,-a,+a)/2 times x^2, with equal rho and eta. The exact characteristic polynomial splits into Q(r)=[1+(1+chi)p]r^2-(2+chi p)r+1 (always Schur for chi,p>0), and P(r)=(1+3p-dp^2)r^3+[(chi^2-2)p^2-3p-3]r^2+3r-1. Schur reduction of the cubic produces dp<3-sqrt(chi) and ep^2-6p-8<0; other Jury inequalities follow in the stated feasible domain. Independently formed the five-variable matrix and exact rational characteristic polynomials for chi,p=(4,1/10),(4,1/5),(1/2,10),(8,1/100), matching Q*P and eigenvalues. At (4,1/10) cubic factors (6r-5)(5r^2-9r+5)/25, unit-modulus complex roots; for (4,1/5) blocks remain strongly convex but full map unstable. The finite rational cases supplement the algebraic all-parameter proof.
+
+## originality
+
+PASS
+
+Li–Yuan primary work supplies the nonlinear-chain proximal multiblock algorithm and a conservative sequential sufficient parameter procedure, not the exact equal-penalty/equal-proximal scalar spectral frontier. Other direct three-block ADMM results have different block curvature or update architecture (third variable updated twice, fewer proximal terms). The explicit two Schur inequalities, chi=4 convexity/stability separation and chi>=9 obstruction have not been identified as prior corollaries. Residual risk: prior multi-block quadratic spectral analysis under a different method alias.
+
+## value
+
+PASS
+
+The result isolates a real coupling issue in a natural minimal three-block nonconvex model: individual proximal subproblems can be well posed and strongly convex while the globally coupled ADMM map diverges. Exact parameter frontiers and a no-stabilization region inform algorithm design and clarify sufficiency-vs-necessity of existing convergence criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

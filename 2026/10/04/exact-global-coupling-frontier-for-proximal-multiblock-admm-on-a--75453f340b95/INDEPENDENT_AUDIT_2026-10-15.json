@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T09:53:17.098679Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the source five-state Gauss–Seidel proximal ADMM map for x1=x0, x2=x1, costs (+a,-a,+a)/2 times x^2, with equal rho and eta. The exact characteristic polynomial splits into Q(r)=[1+(1+chi)p]r^2-(2+chi p)r+1 (always Schur for chi,p>0), and P(r)=(1+3p-dp^2)r^3+[(chi^2-2)p^2-3p-3]r^2+3r-1. Schur reduction of the cubic produces dp<3-sqrt(chi) and ep^2-6p-8<0; other Jury inequalities follow in the stated feasible domain. Independently formed the five-variable matrix and exact rational characteristic polynomials for chi,p=(4,1/10),(4,1/5),(1/2,10),(8,1/100), matching Q*P and eigenvalues. At (4,1/10) cubic factors (6r-5)(5r^2-9r+5)/25, unit-modulus complex roots; for (4,1/5) blocks remain strongly convex but full map unstable. The finite rational cases supplement the algebraic all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The alternative extended proximal ADMM updates block three twice, unlike the audited single GS sweep.",
+          "Quadratic block-convex direct ADMM and randomized strongly convex QP analyses exclude the weakly convex middle block."
+        ],
+        "reasoning": "General convergence theorems for another update map or another parameter-selection method do not imply the exact spectral radius test for this equal-parameter specialization.",
+        "searches": [
+          "arXiv:2506.17405",
+          "DOI:10.1016/j.cam.2021.113681",
+          "Resultary query: three block proximal ADMM quadratic linear Schur stability exact equal penalty Gauss Seidel weak convex negative middle objective"
+        ]
+      },
+      "checked_sources": [
+        "Assigned Git RESULT.md/artifacts/verify_multiblock_admm_frontier.py tree 37b8abc089eecdc2788d52b4a2ab0305a1b65392",
+        "arXiv:2506.17405 defining method",
+        "DOI:10.1016/j.cam.2021.113681 abstract (different algorithm)",
+        "Resultary query three block proximal ADMM quadratic linear Schur stability exact equal penalty Gauss Seidel weak convex negative middle objective"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source method allows unequal proximal/penalty choices and guarantees convergence under a procedure rather than all equal settings.",
+          "The independently constructed Jacobian with chi=4 p=1/5 is unstable despite convex primal blocks."
+        ],
+        "reasoning": "This counterexample is not prohibited by source sufficient theory. No examined stronger theorem equates blockwise convexity to GS primal-dual stability or yields the chi>=9 threshold.",
+        "searches": [
+          "Li and Yuan arXiv:2506.17405 algorithm and convergence statements",
+          "DOI:10.1016/j.cam.2021.113681 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Yuan sequential updates reproduce the audited five-state map after restricting identity scalar chain and equal parameters.",
+          "Cubic Schur region is stricter than the middle-block convexity bound 1+(2-chi)p>0."
+        ],
+        "reasoning": "The algorithm is an actual specialization of the source, not a separate eponymous ADMM. Original source gives sufficient asymmetric parameter choices, not these necessary-and-sufficient equal-parameter eigenvalue boundaries.",
+        "searches": [
+          "three block proximal ADMM quadratic linear Schur stability exact equal penalty Gauss Seidel weak convex negative middle objective",
+          "arXiv:2506.17405 proximal multiblock dynamics algorithm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a two-real-parameter analytic spectral stability region, not an exact invariant recorded in a finite table.",
+          "Related Resultary critical-damping graph or convex scalar ADMM results use different transfer matrices."
+        ],
+        "reasoning": "No eligible direct database entry gives both source-specific cubic factors and all-parameter frontier; absence of a match leaves bibliographic residual uncertainty.",
+        "searches": [
+          "three block proximal ADMM quadratic linear Schur stability exact equal penalty Gauss Seidel weak convex negative middle objective",
+          "three block ADMM Schur Jury chi 4 p 1/10 nonlinear chain"
+        ]
+      },
+      "rationale": "Li–Yuan primary work supplies the nonlinear-chain proximal multiblock algorithm and a conservative sequential sufficient parameter procedure, not the exact equal-penalty/equal-proximal scalar spectral frontier. Other direct three-block ADMM results have different block curvature or update architecture (third variable updated twice, fewer proximal terms). The explicit two Schur inequalities, chi=4 convexity/stability separation and chi>=9 obstruction have not been identified as prior corollaries. Residual risk: prior multi-block quadratic spectral analysis under a different method alias.",
+      "residual_risks": [
+        "Parameter frontier is for equal proximal parameters/penalties on scalar chain; does not invalidate source sequential sufficient choices.",
+        "Cannot infer eigenvalue behavior for all higher-dimensional or nonlinear dynamics from this exact scalar test.",
+        "Potential direct spectral analysis of nonconvex 3-block ADMM under another author/terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_METHOD_SPECIALIZATION_NOT_EXACT_SCHUR_FRONTIER",
+          "evidence": [
+            "Algorithm 1.6 update and convergence theorem use general chain and individually selected parameters; audited equal-parameter scalar five-state Schur analysis is not specified."
+          ],
+          "identifier_or_url": "arXiv:2506.17405",
+          "material_read": "Full text at defining algorithm, three-stage multiplier/primal ordering, bounded-level assumptions and sequential parameter selection discussion.",
+          "method": "Read relevant primary full-text sections with equations; compared theorem hypotheses and conclusions, not just titles or abstracts.",
+          "title": "Convergent Proximal Multiblock ADMM for Nonconvex Dynamics-Constrained Optimization",
+          "trigger": "Defines exact proximal Gauss–Seidel dynamics-chain update and penalty/proximal terms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result isolates a real coupling issue in a natural minimal three-block nonconvex model: individual proximal subproblems can be well posed and strongly convex while the globally coupled ADMM map diverges. Exact parameter frontiers and a no-stabilization region inform algorithm design and clarify sufficiency-vs-necessity of existing convergence criteria.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Identity scalar three-state dynamics and costs (+a,-a,+a) only, rho>0, eta>0.",
+    "Local block positive Hessian and full global Schur stability must not be conflated.",
+    "Finite rational eigenvalue samples are consistency checks only."
+  ],
+  "schema_version": 1
+}
