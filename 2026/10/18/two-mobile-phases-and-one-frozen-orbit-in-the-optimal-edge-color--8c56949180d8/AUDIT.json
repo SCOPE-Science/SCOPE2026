@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "A constructive degree-three obstruction proves four colors optimal. Two exhaustive, independent state enumerations agree on 2080 unnamed matchings partitions and 49920 labeled states; direct endpoint and edge-neighbor legality checks agree. Flood-fill and union-find independently establish the 962 components; orbit and parity statements verified over all group elements and all frozen states by deterministic checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "McDonald, Mohar, Scheide arxiv:1005.2248 Theorem 3: all 4-edge-colorings of any subcubic graph are Kempe equivalent.",
+        "CoRe 2019 Open Problems p.5: frozen Petersen coloring uses five edge colors; k_min=2 Delta for universal guaranteed single-edge recoloring connectivity.",
+        "The palette uses four colors here, and moves recolor only one edge, not an alternating path."
+      ],
+      "reasoning": "General Kempe connectivity allows a strictly larger move set and therefore cannot imply single-edge recoloring connectivity. A five-color frozen example cannot imply exact four-color component sizes or the group action. Results requiring k>=2 Delta do not cover four colors at Delta=3.",
+      "searches": [
+        "published-finding corpus: Petersen graph proper four-edge-coloring exact Kempe reconfiguration graph diameter edge coloring 4 colors shortest path",
+        "published-finding corpus: edge recoloring Petersen graph 4-colorings Kempe versus Glauber isolated states orbit parity automorphisms",
+        "web: Petersen graph 4 edge coloring Kempe reconfiguration graph diameter number colorings",
+        "web: frozen edge-colorings of Petersen graph 4 colors 2010 2020"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1005.2248 (2010-05-13, full HTML inspected, Theorem 3)",
+      "OEIS:A159233 (author entry 2009-04-06, four-color static count 49920)",
+      "CoRe2019 Open Problems p.5 (Petersen five-color frozen example, full page read)",
+      "arxiv:1307.2348 (2013-07-09, abstract only, interval-spectrum parameters)",
+      "OEIS:A270842",
+      "published-finding corpus: 2026/10/11/SCOPE-the-heawood-to-c-5-hom-complex-is-a-circle--572236c77c82",
+      "published-finding corpus: 2026/10/4/SCOPE-the-petersen-matching-complex-is-a-wedge-of-five-two-spheres-and--80050a324367"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1005.2248 Theorem 3 establishes one Kempe class but its moves may change multiple edges.",
+        "CoRe2019 p.5 describes one particular five-color frozen coloring and no four-color decomposition.",
+        "arxiv:1307.2348 abstract defines interval-spectrum extremal parameters, not adjacency, paths, or connected components.",
+        "Current ledgers contain a Mobius-Kantor three-edge-coloring Kempe quotient and Grotzsch vertex four-coloring reconfiguration; neither is the Petersen single-edge-coloring claim."
+      ],
+      "reasoning": "Logical implication was checked at the level of feasible states and permitted moves. Existing stronger Kempe moves do not force one-edge paths. Previously studied other graphs and a different coloring parameter do not entail the exact Petersen classification. The partly accessible Petersen interval-spectrum paper remains a named, low-to-moderate risk, not proof of noncoverage.",
+      "searches": [
+        "published-finding corpus: edge coloring reconfiguration snark Class 2 Petersen graph colorings single edge changes",
+        "web: \"Petersen\" \"edge colourings\" \"reconfiguration\"",
+        "web: \"Petersen\" \"edge recoloring\" \"isolated\"",
+        "arxiv:1307.2348 On the mu-parameters of the Petersen graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A four-edge-coloring of P is exactly a proper four-vertex-coloring of its line graph L(P).",
+        "arxiv:1005.2248 sections 1-2 explains the line-graph correspondence but studies Kempe moves.",
+        "published-finding corpus nearest retrieved 2026/10/11/SCOPE-the-heawood-to-c-5-hom-complex-is-a-circle--572236c77c82 concerns a different target graph and vertex homomorphisms."
+      ],
+      "reasoning": "The precise equivalent is one-vertex recoloring on L(P); neither the inspected Kempe paper nor the retrieved database entries supplies its exact 962-component profile or S5 parity action.",
+      "searches": [
+        "published-finding corpus: line graph of Petersen graph proper vertex four colorings recoloring single vertex connected components frozen",
+        "web: \"Petersen graph\" \"reconfiguration graph\" \"4-edge-colorings\"",
+        "web: \"single edge recoloring\" \"line graph\" Petersen"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A159233 expressly gives 49,920 as the number of proper four-edge-colorings; this is a known count, not claimed as a novelty.",
+        "OEIS A270842 enumerates all edge assignments up to graph automorphism without requiring adjacent edges to differ, not the relevant reconfiguration graph.",
+        "No inspected table records 109,440 one-edge transitions, the two 24,480-state connected components, the 960 frozen assignments, or their symmetry orbits."
+      ],
+      "reasoning": "The static coloring number is completely covered and is expressly excluded as a new contribution. The full adjacency decomposition and group action are not implied by a chromatic polynomial or unconstrained coloring orbit counts.",
+      "searches": [
+        "published-finding corpus: the Petersen graph has 49920 four-edge-colorings and 960 isolated edge recolorings two components each 24480",
+        "web: \"49920\" \"Petersen\" \"edge coloring\"",
+        "web: \"24480\" \"Petersen\" \"coloring\"",
+        "web: \"960\" \"Petersen\" \"frozen\" \"4\"",
+        "OEIS A159233; OEIS A270842"
+      ]
+    },
+    "rationale": "The OEIS count 49920 is known and excluded. The 2010 universal Kempe equivalence theorem uses strictly stronger path/cycle exchanges; the 2019 Petersen frozen example uses five colors. Neither yields strict four-color single-edge connectivity, two giant component sizes or the symmetry parity action. Exact database and alias searches found no covering theorem or table; incompletely accessible interval-spectrum work is expressly noted as residual risk.",
+    "residual_risks": [
+      "Unindexed or unpublished exact single-edge recoloring tables may exist.",
+      "arxiv:1307.2348 full primary text inaccessible; abstract about different invariant is not proof of whole-paper noncoverage.",
+      "The result is a finite classification, not a new general recoloring theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the strict one-edge component classification; Theorem 3 covers Kempe changes only",
+        "evidence": "Theorem 3 states all four-edge-colorings of a subcubic graph are Kempe equivalent; Section 1 identifies swaps along entire alternating paths/cycles.",
+        "identifier_or_url": "https://arxiv.org/html/1005.2248v2",
+        "material_read": "Full HTML Introduction, statements and proofs, especially Theorem 3 and its definition of alternating-path Kempe changes",
+        "method": "Primary arXiv full HTML reading",
+        "title": "Kempe equivalence of edge-colourings in subcubic and subquartic graphs",
+        "trigger": "Same object class and potentially stronger connectivity theorem"
+      },
+      {
+        "assessment": "NOT_COVERING the four-color classification; the displayed construction uses five colors",
+        "evidence": "The 2019 update calls the displayed Petersen edge coloring with five colors frozen and discusses the universal k_min=2 Delta threshold.",
+        "identifier_or_url": "https://hoanganhduc.github.io/events/CoRe2019/CoRe_2019_Open_Problems.pdf",
+        "material_read": "Entire entry on printed page 5, including figure, checked as page image and PDF text",
+        "method": "Primary open PDF, text plus page image",
+        "title": "CoRe 2019 Open Problems, Marc Heinrich edge-coloring item",
+        "trigger": "Direct Petersen frozen edge-coloring example with a closely related single-edge operation"
+      },
+      {
+        "assessment": "COVERS the 49,920 static count, explicitly excluded from the novelty claim, not the reconfiguration graph",
+        "evidence": "The entry gives a(4)=49920 and identifies it as the proper edge-coloring count / line-graph chromatic polynomial.",
+        "identifier_or_url": "https://oeis.org/A159233",
+        "material_read": "Full entry including sequence, comments and formula",
+        "method": "Open OEIS record",
+        "title": "OEIS A159233: Number of edge colorings of the Petersen graph",
+        "trigger": "Potential preexisting exact table of the complete state set"
+      },
+      {
+        "assessment": "NOT_COVERING; the entry explicitly does not require proper edge colorings",
+        "evidence": "Entry comment states adjacent edges may have the same color, unlike the present proper-coloring state space.",
+        "identifier_or_url": "https://oeis.org/A270842",
+        "material_read": "Full entry and comments",
+        "method": "Open OEIS record",
+        "title": "OEIS A270842: nonisomorphic edge colorings of the Petersen graph",
+        "trigger": "Possible orbit-classification database under graph automorphisms"
+      },
+      {
+        "assessment": "NOT_DECISIVE_FULL_TEXT_UNAVAILABLE; the abstract concerns interval spectra rather than reconfiguration",
+        "evidence": "The abstract defines counts of vertices whose incident color sets form intervals, with no stated reconfiguration results.",
+        "identifier_or_url": "https://arxiv.org/abs/1307.2348",
+        "material_read": "Abstract and available metadata; full HTML unavailable",
+        "method": "Primary arXiv abstract and bibliographic record",
+        "title": "On the mu-parameters of the Petersen graph",
+        "trigger": "Petersen proper edge-colorings studied for another exact invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c569491-80d8-4b19-a063-be53cddab1da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural exact reconfiguration classification for optimal edge-colorings of the canonical smallest snark, separating 960 genuinely frozen configurations from two large mobile phases, and identifying an S5 parity obstruction and complete automorphism orbit of frozen states. The precise connectivity/symmetry information is not implied by the known chromatic-polynomial count or Kempe connectivity and is a benchmark for constrained dynamics.",
+    "status": "PASS"
+  }
+}

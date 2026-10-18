@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The complete edge-coloring space has been independently enumerated as lexicographic color assignments and as partitions into four matchings, yielding identical \(2{,}080\) palette-unlabeled classes. Two locally equivalent but separately implemented recoloring tests agree on all relevant pairs. Flood-fill and disjoint-set union agree on the two connected components of \(24{,}480\) vertices each and the \(960\) singleton components. The symmetry actions and their parity effect were exhaustively tested. The verifiable code and output are included, and only the finite Petersen graph is claimed.
+
+**Originality — PASS (self-review).** The established coloring count from OEIS A159233 is excluded from the novelty assertion. The 2010 subcubic edge-coloring theorem proves connectedness under *Kempe* operations, not the single-edge rule. The 2019 Petersen frozen example uses five colors and cannot imply the four-color census or parity action. The primary text for these nearest reconfiguration sources was inspected; records and keyword searches found no prior description of this exact decomposition. There remains risk from unpublished/unindexed computations and from the partly inaccessible interval-spectrum paper of Davtyan.
+
+**Value — PASS.** This is a complete classification of connectivity for *optimal* edge-colorings of the smallest snark under the most restrictive natural recoloring step. It distinguishes globally mobile phases from an entire automorphism orbit of locally immobile optima, and identifies a parity obstruction to moving between the large phases. Neither the static coloring count nor general Kempe-connectedness captures that structure. The natural line-graph formulation makes the result a reproducible finite benchmark for constrained graph-coloring dynamics.
+
+**Closest literature and limits.** McDonald–Mohar–Scheide, arXiv:1005.2248 (Kempe equivalence); CoRe 2019 Open Problems, p. 5 (five-color frozen Petersen assignment); OEIS A159233 (static four-color count); Davtyan, arXiv:1307.2348 (interval-spectrum invariant, abstract inspected only). No general graph-family theorem or independent audit is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
