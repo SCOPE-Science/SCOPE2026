@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and valid for every integer \(n\ge1\). Its critical steps are: the bipartition-side independence of legality, the exact length-\(n\) classification on each side, and the binomial interleaving count. No finite experiment is used to extend a claim beyond the range checked.
+# Independent mathematical audit
 
-The bundled `verify.py` independently reconstructs \(B_n\) from its edges, applies the open-neighborhood definition directly, and uses memoized dynamic programming on dominated-vertex masks. For each \(1\le n\le7\), it verifies the maximum length, counts all maximum ordered sequences, reconstructs all underlying maximum sets, and compares those sets with the claimed complements of one vertex from each bipartition class.
+## correctness
 
-Expected replay output:
+PASS
 
-`VERIFY_OK n_range=1..7 maximum_sets=203 dp_states=21844 n7_sequences=348713164800`
+Bipartition L={u,b_i},R={v,a_i} separates the open-neighborhood legality constraints, because L choices footprint only R and vice versa. On L, either choose all n b_i in arbitrary order or n-1 b_i then u last (if u chosen earlier it exhausts R); these are all length-n side sequences and there are n!+n(n-1)!=2n!. Symmetric for R. Any interleaving preserves legality and total domination; thus at most 2n, equality sets omit one vertex per part and count (n+1)^2. Ordered sequences count binom(2n,n)(2n!)^2=4(2n)!. Independent full sequence enumeration for n=1,2,3 gives (length,sets,ordered)=(2,4,8),(4,9,96),(6,16,2880), not proof of general n.
 
-The computation is a finite corroboration only. It does not constitute a proof for arbitrary \(n\); the all-orders proof is given in `RESULT.md`.
+## originality
+
+PASS
+
+Foundational Brešar–Henning–Rall paper defines the open-neighborhood process; their later graph-products article bounds path/cycle Cartesian products, not star prisms or all maximum set/count. Published Resultary complete-multipartite result concerns ordinary closed-neighborhood Grundy domination of different graphs. Skew-zero-forcing scalar duality does not enumerate ordered sequences.
+
+## value
+
+PASS
+
+Complete natural extremizer and ordering classification for the standard book family; the closed formula 4(2n)! and structural bipartition complement are independent combinatorial facts stronger than the scalar value, useful for graph-sequence enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

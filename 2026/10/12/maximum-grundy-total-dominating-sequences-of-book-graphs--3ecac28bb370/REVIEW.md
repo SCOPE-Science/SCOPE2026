@@ -1,13 +1,21 @@
-# Correctness
-PASS. The proof separates every legal open-neighborhood sequence into its two bipartition-side subsequences. On one side, the neighborhood family consists of one universal set and \(n\) two-element sets with distinct private vertices, which forces length at most \(n\) and gives exactly the two stated equality forms. The two sides are independent because their neighborhoods lie in disjoint bipartition classes, so lengths add and arbitrary interleavings preserve legality. This proves the value, all maximum sets, and the exact ordered count. The standalone checker independently verifies the definition for \(1\le n\le7\).
+# Independent mathematical audit
 
-# Originality
-PASS with residual bibliographic risk. The 2016 foundational full text defines Grundy total domination and studies broad structural classes, but targeted full-text searches found no book or Cartesian-product treatment. The 2017 product paper is the closest broader source: its Cartesian section treats path/cycle factors and targeted full-text searches found no “book,” “star,” or \(K_{1,n}\) specialization. Semantic database searches for the claim, product alias, maximum-sequence enumeration, and skew-zero-forcing equivalent terminology returned no matching book-graph theorem. The closest indexed results concern ordinary Grundy domination on complete multipartite graphs and skew zero forcing on chain graphs, neither of which implies this book-graph classification or the ordered count.
+## correctness
 
-# Value
-PASS. The scalar maximum length alone discards the extremizer geometry. Here the full witness structure is unusually rigid: each maximum set is the complement of one vertex from each bipartition class, while the ordered extremizers admit a closed factorial count. The side-decomposition argument also provides a compact benchmark for enumeration algorithms and exposes why the book graph behaves differently from the path/cycle Cartesian products emphasized in the product literature.
+PASS
 
-# Closest literature and limitations
-The closest inspected sources are the foundational 2016 paper on total dominating sequences and the 2017 preprint on Grundy total domination in graph products. The latter gives Cartesian-product bounds for paths and cycles, not star prisms or extremizer counts. The known skew-zero-forcing identity can recover scalar information once a skew forcing number is known, but no located source supplied the book-graph minimum-set structure or the ordered Grundy-sequence enumeration. Residual risk remains from unindexed literature and terminology variants.
+Bipartition L={u,b_i},R={v,a_i} separates the open-neighborhood legality constraints, because L choices footprint only R and vice versa. On L, either choose all n b_i in arbitrary order or n-1 b_i then u last (if u chosen earlier it exhausts R); these are all length-n side sequences and there are n!+n(n-1)!=2n!. Symmetric for R. Any interleaving preserves legality and total domination; thus at most 2n, equality sets omit one vertex per part and count (n+1)^2. Ordered sequences count binom(2n,n)(2n!)^2=4(2n)!. Independent full sequence enumeration for n=1,2,3 gives (length,sets,ordered)=(2,4,8),(4,9,96),(6,16,2880), not proof of general n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Foundational Brešar–Henning–Rall paper defines the open-neighborhood process; their later graph-products article bounds path/cycle Cartesian products, not star prisms or all maximum set/count. Published Resultary complete-multipartite result concerns ordinary closed-neighborhood Grundy domination of different graphs. Skew-zero-forcing scalar duality does not enumerate ordered sequences.
+
+## value
+
+PASS
+
+Complete natural extremizer and ordering classification for the standard book family; the closed formula 4(2n)! and structural bipartition complement are independent combinatorial facts stronger than the scalar value, useful for graph-sequence enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
