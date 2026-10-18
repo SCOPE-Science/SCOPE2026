@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The two necessity invariants are inductively preserved by every basic operation: all term values come from input entries or endpoints, and all term zero sets belong to the Boolean algebra of initial positivity signatures. Distinct codes construct crisp coordinate masks; global maximum then extracts every occurring truth value as a diagonal constant. Explicit reconstruction establishes sufficiency. Counting and rank are exact finite combinatorics. Independent algebra-closure and combinatorial verifiers passed, with the infinite-parameter proof independent of them.
+## correctness
 
-**Originality — PASS, with residual historical risk.** The primary source arXiv:2006.10180v1 was inspected through its preliminaries, finite-chain representation, and Section 4.3 on free algebras and generation of *chains*. That covers relevant general algebraic background but not an exact census of generators for the powers \(C_k^n\) with global min/max quantifiers. Nonmonadic finite Gödel coproduct and spectrum literature concerns different operations. A prior related result on retractions of Heyting powers counts idempotent endomorphisms rather than generating tuples; neither implies the code-and-coverage theorem. No equivalent was found in targeted primary-source searches, research-record searches, or both available cumulative ledgers. An older universal-algebra theorem may implicitly subsume the finding; the search cannot rule that out.
+PASS
 
-**Mathematical value — PASS.** The question is a natural sharp generator-rank problem for a concrete, widely studied finite monadic Gödel family. The solution integrates two genuinely different obstructions—Boolean coordinate identifiability and intermediate truth-value coverage—into an exact structural test, a closed inclusion-exclusion count and a finite Hamming-weight optimization. It recovers the Boolean case and supplies precise many-valued rank transitions beyond the existence of free algebras or generic finite generation.
+The sole operations are bounded Heyting lattice/implication and global min/max. The set of all term entries stays within endpoints plus initial entries; Boolean zero sets are preserved by meet, join, implication and global quantifiers. Distinct positivity words make every crisp coordinate selector definable by Godel negation/double negation; applying existential maximum to a masked generator entry produces the required diagonal scalar constant. The selectors and these constants construct every element. Inclusion-exclusion over k-2 intermediate levels with n distinct Hamming words gives N_{k,n,r}, and maximizing positive slots gives the exact rank capacity T_r(n). Independently enumerated actual generated subalgebras agree with criterion and counts, including N_{5,2,2}=24.
 
-**Scope and reproducibility.** All positive integers \(n\), all chain cardinalities \(k\ge2\), and all tuple lengths \(r\ge0\) are covered. The standalone verifier exhaustively checks the specified finite test families but is not an independent proof of unbounded claims. Literature inspection is substantial but not exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Castaño-Cimadamore-Díaz Varela-Rueda characterize monadic Gödel chains, their free algebras and chain-mapping structures; full text Section 4.3 does not identify this exact global-quantifier power-generator census. Nonmonadic Gödel coproduct/spectrum results and published free-Gödel automorphism-order results concern different invariants. The direct positivity-code criterion is not obtained simply by substituting n into their free-algebra theorem. Best-of-knowledge originality, not a guarantee against older universal-algebra equivalents.
+
+## value
+
+PASS
+
+An exact structure theorem and full ordered-tuple census for a canonical finite monadic Godel power answer a motivated generator-rank question; the Boolean coordinate-code and many-valued level-coverage constraints combine nontrivially. The exact rank transitions and finite inclusion-exclusion formula are useful beyond a single numeric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

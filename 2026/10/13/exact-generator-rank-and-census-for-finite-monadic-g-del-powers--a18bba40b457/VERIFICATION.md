@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The standalone standard-library script `verify.py` was executed in an ordinary Python 3 environment. It computes closure of every tested tuple under coordinatewise meet, join, Gödel implication in both argument orders, global minimum, global maximum, and the endpoint constants. Its direct closure is independent of the structural zero-code criterion.
+# Independent mathematical audit
 
-It exhaustively checks 8,800 ordered tuples across 17 small chain-size/coordinate-count/generator-count parameter combinations. A separate combinatorial enumeration of distinct positivity-code assignments independently checks 102 coefficient-formula cases, and 272 rank-boundary instances are checked. The final marker is:
+## correctness
 
-`VERIFY_OK direct_generation_tests 8800 parameter_cases 17 independent_code_enumerations 102 rank_boundary_tests 272`
+PASS
 
-Run with `python3 verify.py` after extracting the embedded file. No external dependencies, network requests, or external certificates are required. Finite enumeration is corroboration, not a proof of a theorem quantified over all parameters.
+The sole operations are bounded Heyting lattice/implication and global min/max. The set of all term entries stays within endpoints plus initial entries; Boolean zero sets are preserved by meet, join, implication and global quantifiers. Distinct positivity words make every crisp coordinate selector definable by Godel negation/double negation; applying existential maximum to a masked generator entry produces the required diagonal scalar constant. The selectors and these constants construct every element. Inclusion-exclusion over k-2 intermediate levels with n distinct Hamming words gives N_{k,n,r}, and maximizing positive slots gives the exact rank capacity T_r(n). Independently enumerated actual generated subalgebras agree with criterion and counts, including N_{5,2,2}=24.
+
+## originality
+
+PASS
+
+Castaño-Cimadamore-Díaz Varela-Rueda characterize monadic Gödel chains, their free algebras and chain-mapping structures; full text Section 4.3 does not identify this exact global-quantifier power-generator census. Nonmonadic Gödel coproduct/spectrum results and published free-Gödel automorphism-order results concern different invariants. The direct positivity-code criterion is not obtained simply by substituting n into their free-algebra theorem. Best-of-knowledge originality, not a guarantee against older universal-algebra equivalents.
+
+## value
+
+PASS
+
+An exact structure theorem and full ordered-tuple census for a canonical finite monadic Godel power answer a motivated generator-rank question; the Boolean coordinate-code and many-valued level-coverage constraints combine nontrivially. The exact rank transitions and finite inclusion-exclusion formula are useful beyond a single numeric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
