@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The Nijenhuis torsion was reconstructed directly and gives exactly two affine \(5\)-space components when \(2\ne0\). The full automorphism group follows from the hyperbolic bilinear form on the two-dimensional quotient by \(A^2\). Explicit conjugation formulas reduce each distinct-eigenvalue fiber to four normal forms and each repeated-eigenvalue fiber to five. Rankwise inclusion--exclusion proves the arithmetic formulas, and exhaustive conjugacy computations over \(\mathbf F_3\) and \(\mathbf F_5\) independently reproduce the canonical representatives.
+PASS
 
-## Originality
+For char(K)≠2, expanding N(x)N(y)-N(N(x)y+xN(y)-N(xy)) on all basis pairs first forces upper-right coordinates p=q=0 and then b(a-f)=c(d-f)=0 and bc+(a-f)(d-f)=0. The locus is precisely C1∪C2, two affine 5-spaces with common affine 3-space. On A/A² the bilinear product x1y2+x2y1 forces diagonal or anti-diagonal automorphisms (2q²(q−1)² over Fq). Exact conjugation separates four classes for each distinct repeated/simple eigenvalue pair and five for the equal-eigenvalue fiber, giving q(4q+1). Direct rank-one determinantal classification and inclusion–exclusion produce the published rank distribution and zeta function. Independently derived torsion identities, direct raw point/rank enumeration over F3 and F5, and full F3 conjugation gave 459/6125 raw points, 39 orbits; finite tests corroborate the symbolic proof, not substitute for it.
 
-PASS. The 2021 and 2026 literature already cover the raw complex Nijenhuis matrices, so no novelty is claimed for that list. The later complete classification explicitly states that a full \(\operatorname{Aut}(A)\)-orbit analysis is beyond scope. Focused searches found no automorphism quotient or finite-field orbit theorem for this algebra. A specialized differently indexed finite-field calculation remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. Conjugacy is the natural moduli question left open after a complete parametric operator list. Here it collapses a large \(2q^5-q^3\) raw space to exactly \(q(4q+1)\) classes with transparent normal forms, while the rank distribution and zeta function quantify the underlying variety. This is a substantive structural refinement rather than a routine recount of known matrices.
+2021 complete complex Nijenhuis matrices for this exact multiplication and 2026 all-3D complex classification are prior; the surviving finite-field automorphism quotient, normal forms and rank arithmetic are absent from inspected statements. 2026 Remark 3 explicitly says a full orbit analysis is beyond its scope. Best-of-knowledge rather than priority certification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Automorphism conjugacy is the natural moduli refinement of the complete previously known operator locus. The exact four/five normal forms for nonisomorphic fibers, finite-field q(4q+1) orbit polynomial, rank distribution, and zeta function encode nontrivial geometry of a canonical minimal nilpotent algebra; not merely a renaming of raw families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
