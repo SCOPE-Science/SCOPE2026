@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T06:18:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On A=lambda I_2, both naive XTrace and XNysTrace basic estimators reduce to B_i=lambda rank(P_-i)+lambda||(I-P_-i)omega_i||^2; Nyström with Moore-Penrose pseudoinverse equals lambda times the range projector even for repeated sign columns. Independent sign probes have exactly two unoriented mutually orthogonal lines. For k>=3, all k lines equal (2 of 2^k line patterns) yields all B=lambda; exactly one minority (2k patterns) yields one B=3lambda and k-1 B=2lambda; all remaining patterns yield B=2lambda. Hence the exact joint law for (T_hat,e_hat), MSE lambda^2 2^(1-k)(1+1/k), proxy E e_hat²=lambda²2^(1-k)/k, basic-estimator pair correlation 1/2, calibration k+1 and strict one-stage false-stop formula for 0<delta<1/2. Independent exact Fraction enumeration for k=3..8 reproduces the three masses and statistics. A zero proxy is not a certificate; no extrapolation to normalized probes or multistage stopping.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source proves abstract exchangeable error estimates and adaptive rule, not a per-instance tail/false-stop guarantee. Its first arXiv version permits isotropic sign probes and naive rank-aware orthogonalization."
+        ],
+        "reasoning": "A broader algorithm/theory framework is not a stronger exact quantitative result for the stated singular sketch probability.",
+        "searches": [
+          "XTrace arXiv:2301.07825 Prop 3.1 and §3.2",
+          "Resultary: XTrace Rademacher signs scalar identity rank 2 posterior error false stopping joint law"
+        ]
+      },
+      "checked_sources": [
+        "Epperly-Tropp-Webber arXiv:2301.07825 preprint full text pp.4-5 §§3.1,5.6",
+        "Epperly-Tropp arXiv:2207.06342 (abstract/context)",
+        "Resultary: XTrace Rademacher signs scalar identity rank 2 posterior error false stopping joint law",
+        "Git blob RESULT 2df68a8e0f1680783ddbcb5da7d7111cee312cc4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reduction B_i to projector rank plus held-out residual and partition into three sign-multiplicity classes determine the specific law; Prop 3.1 alone does not partition sign patterns."
+        ],
+        "reasoning": "Some consequences are algebraic after the joint-law discovery, but not verbatim present in the source; the novelty is the complete calibrated law and tolerance interval.",
+        "searches": [
+          "Epperly-Tropp-Webber Eqs (1.5),(1.8),(1.9), Prop 3.1",
+          "Resultary: XTrace Rademacher signs scalar identity rank 2 posterior error false stopping joint law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General variance/covariance relation is compatible with Corr(B_i,B_j)=1/2, but joint distribution is specific to unnormalized two-dimensional Rademacher lines."
+        ],
+        "reasoning": "General error-proxy bias identities do not fix the distribution, the k+1 ratio or the one-stage false-stop event for a particular discrete input.",
+        "searches": [
+          "Resultary: XTrace Rademacher signs scalar identity rank 2 posterior error false stopping joint law",
+          "Epperly-Tropp-Webber arXiv:2301.07825 Eqs (1.4)-(1.9), §3.1 Prop 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table of the 2^k line-pattern counts, the k+1 mean-square ratio or the false-stop probability in inspected defining source."
+        ],
+        "reasoning": "The result is a closed-form probability mass function at every integer k>=3, not a previously known table value; simple finite examples alone would not certify its general-k assertion.",
+        "searches": [
+          "XTrace source §§1.2,3.1,5.6",
+          "Resultary: XTrace Rademacher signs scalar identity rank 2 posterior error false stopping joint law"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Epperly-Tropp-Webber 2023/24 defines the naive algorithms, error proxy, adaptive stop, and general Proposition 3.1 relating pairwise correlations to expected posterior error. It does not calculate the discrete two-line full joint law or one-stage false-stop probability on lambda I_2. The known general covariance relation helps interpret the factor k+1 but does not itself determine correlation 1/2 or frequency of false stops. Other Hutch++ and jackknife methods have different dependencies.",
+      "residual_risks": [
+        "The calculation uses unnormalized discrete Rademacher probes on exactly rank-two scalar matrix, not the recommended spherical normalization or full-rank numerical implementation.",
+        "False-stop result is one fixed probe stage only; source offers a heuristic proxy, not a per-instance high-confidence guarantee.",
+        "Later published SIAM revision not compared line-by-line with earliest preprint."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITIONS/GENERAL RELATION COVERED, JOINT LAW NOT GIVEN",
+          "evidence": "The source uses isotropic test vectors (including Rademacher), same normalization of posterior squared error, and discusses positive correlations but not the three-atom law.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.07825",
+          "material_read": "Full accessible 31-page preprint; specifically pp.4-5 original eqs (1.4)-(1.9), naive Algorithm 1.2/1.3; §3.1 Prop 3.1 and §5.6 error proof",
+          "method": "Text inspection plus visual reading of PDF pages 4 and 5",
+          "title": "Epperly, Tropp and Webber, XTrace: Making the most of every sample in stochastic trace estimation",
+          "trigger": "Exact same naive algorithms and posterior error stopping rule"
+        },
+        {
+          "assessment": "DIFFERENT RANDOMIZED MATRIX ESTIMATORS",
+          "evidence": "Jackknife variance for randomized matrix outputs is not the coupled naive XTrace/XNysTrace residual-probe law; residual priority risk retained.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.06342",
+          "material_read": "Title/abstract/secondary methodological comparison; not full article read",
+          "method": "Bibliographic comparison only",
+          "title": "Epperly and Tropp, Efficient error and variance estimation for randomized matrix computations",
+          "trigger": "Plausible earlier jackknife-error principle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a deliberately minimal but natural supported input/discrete sampling scenario, exposing a zero posterior proxy with 50% trace error at explicit positive probability even though the mean estimate is unbiased. The exact full joint law calibrates a widely used heuristic estimator, identifies a concrete failure mode of an advertised adaptive test, and defines the precise boundary of that example. Not merely a code check or arbitrary matrix entry.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Epperly-Tropp-Webber arXiv:2301.07825 preprint full text pp.4-5 §§3.1,5.6",
+    "Epperly-Tropp arXiv:2207.06342 (abstract/context)",
+    "Resultary: XTrace Rademacher signs scalar identity rank 2 posterior error false stopping joint law",
+    "Git blob RESULT 2df68a8e0f1680783ddbcb5da7d7111cee312cc4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The calculation uses unnormalized discrete Rademacher probes on exactly rank-two scalar matrix, not the recommended spherical normalization or full-rank numerical implementation.",
+    "False-stop result is one fixed probe stage only; source offers a heuristic proxy, not a per-instance high-confidence guarantee.",
+    "Later published SIAM revision not compared line-by-line with earliest preprint.",
+    "Best-of-knowledge scientific assessment, not formal proof certification or verification/attestation.",
+    "No Git source modification; publication withheld due to inspected public provenance and unreviewed generated public files."
+  ],
+  "schema_version": 1
+}

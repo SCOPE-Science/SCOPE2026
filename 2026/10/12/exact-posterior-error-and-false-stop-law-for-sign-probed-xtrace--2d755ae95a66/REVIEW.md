@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Both naïve estimators specialize to the same range-projection formula, including rank-deficient sample matrices. Two independent sign lines yield a complete three-case classification for every \(k\ge3\); exact counting proves the joint law and all moments. The posterior error and stopping formulas use precisely the normalization and threshold printed in the defining paper. The standalone rational verifier independently enumerates all test-vector sequences for \(3\le k\le8\), without using finite enumeration as a proof for all \(k\).
+PASS
 
-Limitation: the naïve rank-aware definitions, not optimized formulas assuming full column rank, are being analyzed.
+On A=lambda I_2, both naive XTrace and XNysTrace basic estimators reduce to B_i=lambda rank(P_-i)+lambda||(I-P_-i)omega_i||^2; Nyström with Moore-Penrose pseudoinverse equals lambda times the range projector even for repeated sign columns. Independent sign probes have exactly two unoriented mutually orthogonal lines. For k>=3, all k lines equal (2 of 2^k line patterns) yields all B=lambda; exactly one minority (2k patterns) yields one B=3lambda and k-1 B=2lambda; all remaining patterns yield B=2lambda. Hence the exact joint law for (T_hat,e_hat), MSE lambda^2 2^(1-k)(1+1/k), proxy E e_hat²=lambda²2^(1-k)/k, basic-estimator pair correlation 1/2, calibration k+1 and strict one-stage false-stop formula for 0<delta<1/2. Independent exact Fraction enumeration for k=3..8 reproduces the three masses and statistics. A zero proxy is not a certificate; no extrapolation to normalized probes or multistage stopping.
 
-## Originality
+## originality
 
-PASS. The defining XTrace paper already gives the error-proxy formula, adaptive test and generic correlation identity; those are not claimed new. Its experimentally observed mild correlations do not fix the exact \(1/2\) correlation of the sign-probed rank-two identity family or the complete three-point joint law. The predecessor jackknife paper concerns different replicates, and the Hutch++ separate-sketch estimator does not include the coupled leave-one-out posterior error. Focused indexed and primary-text comparisons did not locate the exact law or false-stop probability.
+PASS
 
-Residual risk: unindexed special-instance analyses might exist.
+PASS best-of-knowledge: Epperly-Tropp-Webber 2023/24 defines the naive algorithms, error proxy, adaptive stop, and general Proposition 3.1 relating pairwise correlations to expected posterior error. It does not calculate the discrete two-line full joint law or one-stage false-stop probability on lambda I_2. The known general covariance relation helps interpret the factor k+1 but does not itself determine correlation 1/2 or frequency of false stops. Other Hutch++ and jackknife methods have different dependencies.
 
-## Value
+## value
 
-PASS. The exact output/proxy law quantifies an observable diagnostic limitation in an algorithm explicitly intended for adaptive tolerance decisions: a zero posterior error can falsely certify a 50% trace error with probability \(2^{1-k}\), and the expected squared proxy can be a factor \(k+1\) below the true mean-squared error. The smallest positive-definite flat-spectrum example is natural and the complete all-\(k\) distribution gives sharp budgets and tolerance cutoffs. Absolute error nevertheless decays exponentially in \(k\), and the source did not promise a per-run confidence certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a deliberately minimal but natural supported input/discrete sampling scenario, exposing a zero posterior proxy with 50% trace error at explicit positive probability even though the mean estimate is unbiased. The exact full joint law calibrates a widely used heuristic estimator, identifies a concrete failure mode of an advertised adaptive test, and defines the precise boundary of that example. Not merely a code check or arbitrary matrix entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
