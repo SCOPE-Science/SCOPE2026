@@ -1,14 +1,21 @@
-# Same-model review
-## Correctness
-PASS. The source-defined facet set is reconstructed rather than imported from a derived table. Exact row reduction gives \(\dim Z^1=16\), \(\dim B^1=14\), and hence \(\dim H^1=2\). Exhaustion of all \(2^{{16}}\) cocycles proves the three minima and uniqueness counts. Alexander--Whitney products and the surface Wu identity identify the weight-ten class as \(w_1\). The explicit supports and carrier sets are independently checked by the verifier.
+# Independent mathematical audit
 
-## Originality
-PASS. The exact primary source states the two exceptional five-vertex sets and the Klein-bottle triangulation but does not give cohomology-support minima, cup squares, or a Stiefel--Whitney cosystole. Exact-label, alias, and implication searches found no covering result. Primal edge-width and shortest-homology-cycle results do not determine this cochain invariant. Residual risk remains from an unindexed historical finite computation under different terminology.
+## correctness
 
-## Value
-PASS. The object is one of the source's classified small degree-regular Klein-bottle triangulations, and the invariant is canonical. The result links the precise combinatorial asymmetry used in the original classification to the two square-nonzero cohomology directions and shows that the characteristic class \(w_1\) is forced to use both exceptional blocks. This is stronger than merely recomputing \(H^1(K;\mathbf F_2)\cong\mathbf F_2^2\).
+PASS
 
-## Closest literature and limitations
-Datta--Upadhyay, arXiv:math/0403433v1, is the decisive exact-object source. It defines \(Q_{{5,3}}\) and identifies the two five-vertex blocks but does not state the new cohomological support result. The finding is finite and object-specific; no all-parameter claim is made.
+PASS. Independently reconstructed the 15 vertices, 45 edges and 30 triangles directly from Datta–Upadhyay Example 7 with m=2,n=3. Every edge lies in two triangles. The 30 mod-two triangle equations have rank29, hence dim Z1=16; the 15 vertex stars have rank14, giving dim H1=2. Enumerated all 2^16=65,536 cocycles, exactly 4 classes of 2^14 representatives. The three nonzero class minima/counts are (5,1),(5,1),(10,1), not sampled. Alexander–Whitney cup squares of unique minima are respectively 1,1,0, invariant under coboundary; Wu identity <w1∪x,[K]>=<x²,[K]> uniquely identifies the weight10 class as w1. The two weight5 representatives have disjoint edge supports, their XOR is the unique weight10 representative, and both support simple 5-cycles on exactly the two Datta–Upadhyay exceptional 5-vertex carriers. Recomputed via independent bitset kernel/coboundary implementation /mnt/data/scope08_independent_20261015.py, not source logs.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS. Exact source Datta–Upadhyay Example 7 constructs Q5,3 and explicitly lists the two exceptional blocks for a local regularity test, but does not compute mod-two simplicial cohomology minima, minimizer uniqueness, cup-square strata, or w1. The new statement connects these known carriers to a specific intrinsic cohomological optimization problem; the original blocks alone cannot imply uniqueness over 65,536 cocycles. Searches for Q5,3/Klein bottle cosystolic/cup square aliases and related indexed records found other triangulations, not stronger coverage.
+
+## value
+
+PASS
+
+PASS. On a natural degree-regular 15-vertex Klein-bottle triangulation, the complete cosystolic spectrum and cup-square stratification identify geometrically distinguished nonorientability carriers and w1 uniquely. This is a motivated exact natural invariant of a specific nontrivial simplicial complex, not a generic small finite enumeration; the 5+5=10 decomposition is structural. No general family formula is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
