@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:07:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified symmetric two-mutualist one-substrate Monod system, total mass obeys a linear dissipative bound and the log biomass ratio satisfies d/dt log(x1/x2)=f(S,x2)-f(S,x1), opposite in sign to x1-x2. This rules out nonsymmetric interior periodic orbits and forces equal biomasses at positive equilibria. On x1=x2=x, solving f(S,x)=d yields a strictly convex scalar feed S_in=H(x) with one nondegenerate minimum and 0,1,2 equilibria. The antisymmetric Jacobian eigenvalue is -u where u=xf_x in (0,d); symmetric trace=-D-v+u, determinant=dv-Du, v=2xf_S. Positive determinant and trace>=0 would force (d-D)u>dD, impossible if d<=2D. Thus upper branch stable and no spectral Hopf for d<=2D. For each d>2D an explicit one-parameter positive Monod family has positive determinant, zero trace and nonzero trace derivative, proving spectral Hopf feasibility. At exact (D,d,Sin,K,L,m)=(1,5,11,3/5,19,160) the anti eigenvalue is -19/4, planar pair ±i sqrt(14); an independently reconstructed cubic Hopf normal form gives l1=-40879/532480<0 and transversal stable positive cycles for K<3/5 near threshold with m=100(1+K). Dulac factor 1/(x f) in the symmetric plane gives strictly negative weighted divergence for d<=D, excluding all positive nonconstant periodic orbits. No assertion of absence of large cycles for D<d<=2D.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "d=D classical nonoscillatory chemostat regime is recognized; current finding proves uniform upper-branch Hopf exclusion up to 2D and explicit feasibility beyond."
+        ],
+        "reasoning": "The older restricted d=D case does not dominate the full sharp d/D transition.",
+        "searches": [
+          "obligate mutualist chemostat equal removal rate Hopf bifurcation common biomass dilution threshold",
+          "doi:10.1080/17513750902915978"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.11002v1",
+        "doi:10.1080/17513750902915978",
+        "doi:10.1038/s41598-020-63772-4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 11 gives parameterwise Routh-Hurwitz inequalities, but does not assert that no positive parameter choice crosses for d<=2D or all d>2D admit a crossing."
+        ],
+        "reasoning": "Deriving these uniform quantifier statements uses strict 0<u<d constraints and a constructive transversal family; different quantifiers than earlier criteria.",
+        "searches": [
+          "obligate mutualist chemostat equal removal rate Hopf bifurcation common biomass dilution threshold",
+          "arXiv:2603.11002v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same model with x1=x2 and common d; generic Routh–Hurwitz predicates specialize to trace and determinant."
+        ],
+        "reasoning": "The trace/determinant algebra is related to prior general criteria, but exact sharp universal Hopf existence/no-existence and l1 witness require further mathematics.",
+        "searches": [
+          "obligate mutualist chemostat equal removal rate Hopf bifurcation common biomass dilution threshold",
+          "arXiv:2603.11002v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact example has irrational ±sqrt14 eigenpair and rational first Lyapunov coefficient -40879/532480, independently computed, not identified in source tables inspected."
+        ],
+        "reasoning": "It is not an arbitrary recomputation of known example: the rational nondegeneracy and every-ratio construction establish sharp thresholds. No exhaustive database of all parameters is claimed.",
+        "searches": [
+          "obligate mutualist chemostat equal removal rate Hopf bifurcation common biomass dilution threshold",
+          "arXiv:2603.11002v1"
+        ]
+      },
+      "rationale": "The initiating Mtar–Fekih-Salem model and generic equilibrium Routh–Hurwitz criteria are prior science, including d=D mortality-free special case. Exact common-removal d>2D feasibility threshold, symmetric-ratio global obstruction, parameter-uniform crossing construction and certified nondegenerate rational Hopf example were not found as stated in the primary source sections inspected. Those generic criteria imply some local algebra after specialization but do not immediately deliver the all-parameter sharpness and cycle witness without the new argument. Risk: a more general Hopf feasibility theorem may implicitly imply part of the claim.",
+      "residual_risks": [
+        "Generic Routh–Hurwitz paper may implicitly contain derivable special-case local implication; all-regime quantitative synthesis and exact Hopf example distinguished."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_SOME_IMPLICATIONS_NOT_SHARP_GLOBAL",
+          "evidence": [
+            "The source provides general local-stability criteria and numerical Hopf examples, not the stated uniform d/D sharp feasibility equivalence with exact nondegenerate witness."
+          ],
+          "identifier_or_url": "arXiv:2603.11002v1",
+          "material_read": "Accessible full arXiv HTML: system equations, removal definitions, Proposition 11 Routh–Hurwitz, and equal-removal/mortality-free and numerical-bifurcation sections inspected",
+          "method": "arXiv full HTML relevant sections and formulas",
+          "title": "Mtar and Fekih-Salem, Global dynamics and bifurcation analysis of a chemostat model with obligate mutualism and mortality",
+          "trigger": "Identical exact model and possible earlier higher coverage."
+        },
+        {
+          "assessment": "RISK_PARTIAL_READ",
+          "evidence": [
+            "Equal hydraulic washout d=D is a subregime consistent with the new global result; does not imply the d>2D parameter-uniform construction."
+          ],
+          "identifier_or_url": "doi:10.1080/17513750902915978",
+          "material_read": "Public article abstract and relevant results described in sources, not complete original text in this run",
+          "method": "publisher metadata/abstract",
+          "title": "El Hajji, Harmand, Chaker and Lobry, Association between competition and obligate mutualism in a chemostat",
+          "trigger": "Prior symmetric d=D chemostat stability and global behavior."
+        },
+        {
+          "assessment": "DIFFERENT_MODEL",
+          "evidence": [
+            "Multiple nutrient/metabolite variables prevent direct equivalence to the single-nutrient Monod equation under study."
+          ],
+          "identifier_or_url": "doi:10.1038/s41598-020-63772-4",
+          "material_read": "Accessible abstract and model description, different cross-feeding substrate species",
+          "method": "public publisher abstract",
+          "title": "Vet, Gelens and Gonze, Mutualistic cross-feeding in microbial systems generates bistability via an Allee effect",
+          "trigger": "Alternative dominating mutualist system."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Separates three mathematically distinct regimes—global nonoscillation at d<=D, local Hopf impossibility at d<=2D and constructive Hopf feasibility above 2D—and supplies an exact supercritical stable-cycle witness. This resolves a genuine interpretation gap in a motivated chemostat model rather than merely substituting equal parameters.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2603.11002v1",
+    "doi:10.1080/17513750902915978",
+    "doi:10.1038/s41598-020-63772-4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Sharp d>2D means existence of a spectral Hopf crossing for some positive parameters at each ratio; it does not mean every chemostat with d>2D oscillates. Nonzero cubic coefficient and stable cycles proved at one exact parameter family only.",
+    "Global nonoscillation proved for d<=D; large orbits in D<d<=2D not covered; unequal growth functions/biomass removals not covered."
+  ],
+  "residual_risks": [
+    "Generic Routh–Hurwitz paper may implicitly contain derivable special-case local implication; all-regime quantitative synthesis and exact Hopf example distinguished."
+  ],
+  "schema_version": 1
+}

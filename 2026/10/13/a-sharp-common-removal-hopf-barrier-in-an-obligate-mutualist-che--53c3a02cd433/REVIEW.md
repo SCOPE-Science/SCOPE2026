@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model is an exact positive-parameter specialization of the cited original system. The nonnegative domain and finite bounds follow from mass balance. Strictly monotone log-biomass ratio forces periodic trajectories onto the symmetric plane. A strictly convex scalar nutrient–biomass intersection function proves the exact fold census; the determinant of the symmetric Jacobian has the sign of the branch derivative. The antisymmetric eigenvalue is strictly negative. On the upper branch, any hypothetical nonnegative trace requires \((d-D)u>dD\) although \(0<u<d\), yielding the sharp \(d>2D\) necessity. A positive family realizes every greater ratio with transversal imaginary eigenvalues. The rational example has exactly computed transversality and negative cubic normal form coefficient, proving a small stable periodic orbit. The global no-cycle proof for \(d\le D\) uses a strictly negative Dulac divergence and planar omega-limit alternatives. Exact symbolic derivative checks were replayed from the included verifier. The proof does not confuse a spectral crossing with a nondegenerate Hopf event.
+PASS
 
-## Originality — PASS, within the stated scope
+For the specified symmetric two-mutualist one-substrate Monod system, total mass obeys a linear dissipative bound and the log biomass ratio satisfies d/dt log(x1/x2)=f(S,x2)-f(S,x1), opposite in sign to x1-x2. This rules out nonsymmetric interior periodic orbits and forces equal biomasses at positive equilibria. On x1=x2=x, solving f(S,x)=d yields a strictly convex scalar feed S_in=H(x) with one nondegenerate minimum and 0,1,2 equilibria. The antisymmetric Jacobian eigenvalue is -u where u=xf_x in (0,d); symmetric trace=-D-v+u, determinant=dv-Du, v=2xf_S. Positive determinant and trace>=0 would force (d-D)u>dD, impossible if d<=2D. Thus upper branch stable and no spectral Hopf for d<=2D. For each d>2D an explicit one-parameter positive Monod family has positive determinant, zero trace and nonzero trace derivative, proving spectral Hopf feasibility. At exact (D,d,Sin,K,L,m)=(1,5,11,3/5,19,160) the anti eigenvalue is -19/4, planar pair ±i sqrt(14); an independently reconstructed cubic Hopf normal form gives l1=-40879/532480<0 and transversal stable positive cycles for K<3/5 near threshold with m=100(1+K). Dulac factor 1/(x f) in the symmetric plane gives strictly negative weighted divergence for d<=D, excluding all positive nonconstant periodic orbits. No assertion of absence of large cycles for D<d<=2D.
 
-The complete 2026 source (arXiv:2603.11002v1) develops the broader chemostat, generic Routh–Hurwitz inequalities, and numerical oscillations, but does not isolate identical Monod mutualists with equal biomass removal \(d\ne D\) and derive the sharp \(d>2D\) feasible-Hopf boundary or provide the exact cubic-sign example. The full 2009 El Hajji et al. study concerns common hydraulic removal (\(d=D\)), and thus its endpoint convergence and Dulac ideas are antecedents, not new contributions here. The 2020 Vet–Gelens–Gonze work addresses metabolite-mediated cross-feeding, a different nutrient system. Direct semantic comparisons to chemostat findings in the published mathematical research database revealed only a sequential two-reactor AM2 no-Hopf result and a reversible mutation chemostat, neither implying the present result. Generic source-local spectral inequalities are acknowledged as already available; novelty is not assigned to their routine reformulation, but to the exact sharp threshold plus constructive supercritical witness and global synchronization/non-oscillation structure.
+## originality
 
-## Value — PASS
+PASS
 
-A major point of the 2026 ecological paper is that mortality and distinct removal introduce oscillations. This classification answers a more precise mechanistic question: are **different** removal rates necessary, or is a common rate exceeding dilution enough? It proves the latter, supplies the exact necessary-and-feasible Hopf inequality, the broad global no-cycle subregime, and an explicit stable-cycle witness. These are natural structural distinctions for the same ecologically motivated parameter family rather than an unmotivated numerical slice. The result does not purport to be an experimental prescription.
+The initiating Mtar–Fekih-Salem model and generic equilibrium Routh–Hurwitz criteria are prior science, including d=D mortality-free special case. Exact common-removal d>2D feasibility threshold, symmetric-ratio global obstruction, parameter-uniform crossing construction and certified nondegenerate rational Hopf example were not found as stated in the primary source sections inspected. Those generic criteria imply some local algebra after specialization but do not immediately deliver the all-parameter sharpness and cycle witness without the new argument. Risk: a more general Hopf feasibility theorem may implicitly imply part of the claim.
 
-## Closest literature and residual limitations
+## value
 
-Mtar–Fekih-Salem (2026) is the motivating complete primary text; El Hajji et al. (2009) is the strongest endpoint global precedent. General chemostat stability inequalities overlap elementary local arguments. The 2020 cross-feeding model and literature on mortality-driven cycles in predator–prey systems provide conceptual context, not the same equations. Unindexed or inaccessible transferable general bifurcation theory remains an originality risk. The theorem proves no global no-cycle result in \(D<d\le2D\), and full Hopf nondegeneracy is asserted only for the checked rational example.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Separates three mathematically distinct regimes—global nonoscillation at d<=D, local Hopf impossibility at d<=2D and constructive Hopf feasibility above 2D—and supplies an exact supercritical stable-cycle witness. This resolves a genuine interpretation gap in a motivated chemostat model rather than merely substituting equal parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
