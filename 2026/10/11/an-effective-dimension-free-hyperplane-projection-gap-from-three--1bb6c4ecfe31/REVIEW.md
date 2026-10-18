@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed-hyperplane lemma follows from the rank-one identity \((I-T)^2=\lambda(I-T)\), an exact fourth-power contradiction for \(\lambda\le1/5\), and controlled finite Cesàro averages when \(\lambda>1/5\). The graph compression of a hyperplane projection to an isometric summand preserves a hyperplane of fixed vectors, has norm at most the original projection, and has displacement norm at least one. The three- and four-dimensional inputs are explicitly established literature, with the five-dimensional base given by the same Kobos theorem. The attached checker passes exact arithmetic inequalities; it is not a proof of the published computer-assisted seed theorem.
+## correctness
 
-## Originality — PASS, with residual risk
-Epperlein's theorem provides the 3D input, and Kobos's earlier theorem gives dimension-dependent 4D/5D bounds. Kobos's 2026 full paper proves qualitative uniform existence and the graph embedding, but explicitly says its argument leaves the numerical constant ineffective. This finding restricts its novelty claim to the explicit rank-one modulus \(r^2/10^6\) and the rational dimension-free gap \(\varepsilon_0\). Semantic searches of mathematical records, comparisons of available owned claim histories, and the three inspected primary papers found no effective covering theorem. The 1976 Gleit–Lazar paper was not inspected in full, so an antecedent effective lemma cannot be ruled out absolutely.
+PASS
 
-## Value — PASS
-Uniform numerical control of hyperplane projection norms was a natural explicit quantitative problem following the dimension-dependent estimates. The effectivity of the transfer, rather than the very small numerical size of the coefficient, is the structural point: the modulus depends only on a component's projection gap and not its dimension or the number of direct summands. It supplies a complete worked effective construction in every integer dimension starting at three.
+For a bounded T fixing a hyperplane with S=I-T rank one, S²=lambda S and ||S||>=1. If lambda<=1/5, the polynomial expression for T^4 and norm reverse triangle contradict ||T||<=1+r²/10^6. Otherwise P=I-S/lambda is a projection. The bounded-power Cesaro mean B_m=beta I+(1-beta)P with m=ceil(200/r) yields |beta|<r/19 and ||B_m||<1+r/2000, forcing ||P||<1+r<=c, contradicting the seed lower bound. For an l_infinity sum of finite seeds, choose a maximal coordinate of a nonzero kernel vector x, a norming functional on that coordinate, and the isometric graph embedding U with U(x_i)=x; the compressed map pi_i R U fixes a hyperplane and annihilates x_i. Indeed this compressed map is itself a hyperplane projection, yielding the stronger direct estimate ||R||>=min_i c_i and independently checking the weaker displayed uniform epsilon bound. Kobos 2015 Cor 1.2 proves alpha_j=(8(j+3)^5)^(-30(j+3)^2) for explicit E4 and E5, and Epperlein 2025 Thm 1.2 certifies c3>=1.01. The dimensions n>=6 split as 3a+4b, while n3,4,5 are seeded. Inspected exact-rational checker and independently verified the underlying algebra and parameter comparisons; no claim that the prior computer-assisted seed certificate was independently reproduced.
 
-## Scope and closest literature
-This is not the first existence theorem for a dimension-free gap, nor a classification of optimal constants. The published 2025 seed certificate and 2015 estimates remain external premises; neither an independent audit nor a rederivation of those certificates is claimed. Possible unindexed effective antecedents remain a literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2015 Kobos corollary provides an effective lower bound that depends and decays on dimension n; 2025 Epperlein provides explicit n=3 seed only. Kobos Oct-2026 establishes uniform positive qualitative existence but the publicly accessible statement gives no explicit absolute rational value. Constructing explicit models for all n by finite l_infinity sums and deriving a numerical absolute floor is a distinct effective assertion, subject to a substantial source-comparison risk because the complete 2026 paper could not be read. The compression/graph argument is elementary once found, but no inspected previous source states the current all-dimensional rational bound.
+
+## value
+
+PASS
+
+Effective dimension-free projection separation addresses a motivated quantitative strengthening of a known uniform existence theorem in finite-dimensional Banach geometry. Its explicit rational constant is small and nonoptimal, but the universal, constructive numerical certificate and explicit fixed-hyperplane transfer settle a real effective version rather than selecting arbitrary slices. The much sharper direct projection-compression observation does not invalidate the stated weaker theorem, and is documented as a value/optimality limitation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

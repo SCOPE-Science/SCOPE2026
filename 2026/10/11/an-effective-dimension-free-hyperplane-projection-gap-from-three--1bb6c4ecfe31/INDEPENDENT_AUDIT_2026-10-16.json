@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:51:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a bounded T fixing a hyperplane with S=I-T rank one, S²=lambda S and ||S||>=1. If lambda<=1/5, the polynomial expression for T^4 and norm reverse triangle contradict ||T||<=1+r²/10^6. Otherwise P=I-S/lambda is a projection. The bounded-power Cesaro mean B_m=beta I+(1-beta)P with m=ceil(200/r) yields |beta|<r/19 and ||B_m||<1+r/2000, forcing ||P||<1+r<=c, contradicting the seed lower bound. For an l_infinity sum of finite seeds, choose a maximal coordinate of a nonzero kernel vector x, a norming functional on that coordinate, and the isometric graph embedding U with U(x_i)=x; the compressed map pi_i R U fixes a hyperplane and annihilates x_i. Indeed this compressed map is itself a hyperplane projection, yielding the stronger direct estimate ||R||>=min_i c_i and independently checking the weaker displayed uniform epsilon bound. Kobos 2015 Cor 1.2 proves alpha_j=(8(j+3)^5)^(-30(j+3)^2) for explicit E4 and E5, and Epperlein 2025 Thm 1.2 certifies c3>=1.01. The dimensions n>=6 split as 3a+4b, while n3,4,5 are seeded. Inspected exact-rational checker and independently verified the underlying algebra and parameter comparisons; no claim that the prior computer-assisted seed certificate was independently reproduced.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kobos 2026 gives uniform dimension-free existence for all n; Epperlein and Kobos give explicit finite dimensional seeds with positive gaps."
+        ],
+        "reasoning": "The broader qualitative theorem covers existence but does not numerically dominate the epsilon0 formula in the accessible abstract. Combined with graph-compression this paper supplies computable data; hidden proof calculations may already imply it.",
+        "searches": [
+          "RESULTARY: dimension independent explicit hyperplane projection norm gap real Banach spaces Epperlein Kobos 2026 shadiness quantitative rank-one",
+          "arXiv:2610.09113",
+          "arXiv:2509.14819",
+          "arXiv:1508.03518"
+        ]
+      },
+      "checked_sources": [
+        "A uniform estimate of the relative projection constant — arXiv:1508.03518",
+        "Lower Bounds for the Shadiness Constant of Finite-Dimensional Normed Spaces — arXiv:2509.14819",
+        "Finite-dimensional normed spaces without small-norm hyperplane projections — arXiv:2610.09113"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 statement is ∃c>1 independent of n; this numerical claim fixes c0=1+10^-6*(8·7^5)^-2940 and explicit Xn."
+        ],
+        "reasoning": "The new quantitative result implies the prior qualitative existence. The reverse implication does not furnish this particular numerical c0 without an effective construction. Unread full Section 3 is material risk; simple compressed-projection lemma can sharpen proposed constant.",
+        "searches": [
+          "RESULTARY: dimension independent explicit hyperplane projection norm gap real Banach spaces Epperlein Kobos 2026 shadiness quantitative rank-one",
+          "arXiv:2610.09113",
+          "arXiv:1508.03518"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kobos 2015 Cor1.2 gives alpha_n with n-dependent exponent; Kobos 2026 abstract says exists c>1, not an explicit known numerical c0."
+        ],
+        "reasoning": "Uniform qualitative lower bound and an explicitly specified universal rational c0 are different effective claims: merely existential c does not imply the displayed rational value for the constructed Xn. It may follow from published proofs with quantitative extraction; full 2026 text inaccessible.",
+        "searches": [
+          "RESULTARY: dimension independent explicit hyperplane projection norm gap real Banach spaces Epperlein Kobos 2026 shadiness quantitative rank-one",
+          "arXiv:1508.03518",
+          "arXiv:2610.09113"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kobos 2015 lists alpha_j; Epperlein 2025 lists c3=101/100 for its 12-point polytope; no all-dimensional epsilon0 table was located."
+        ],
+        "reasoning": "The exact published finite seed constants are used rather than recomputed and do not independently include an n-uniform rational table; future extraction from 2026 primary may alter coverage.",
+        "searches": [
+          "RESULTARY: dimension independent explicit hyperplane projection norm gap real Banach spaces Epperlein Kobos 2026 shadiness quantitative rank-one",
+          "arXiv:1508.03518",
+          "arXiv:2509.14819"
+        ]
+      },
+      "rationale": "The 2015 Kobos corollary provides an effective lower bound that depends and decays on dimension n; 2025 Epperlein provides explicit n=3 seed only. Kobos Oct-2026 establishes uniform positive qualitative existence but the publicly accessible statement gives no explicit absolute rational value. Constructing explicit models for all n by finite l_infinity sums and deriving a numerical absolute floor is a distinct effective assertion, subject to a substantial source-comparison risk because the complete 2026 paper could not be read. The compression/graph argument is elementary once found, but no inspected previous source states the current all-dimensional rational bound.",
+      "residual_risks": [
+        "High-priority source risk: complete arXiv:2610.09113 unavailable, so Section 3 might already contain an extractable explicit constant, invalidating some novelty.",
+        "Existing simple projection-compression argument appears to prove stronger min seed c_i, reducing the novelty/value of the specific tiny numerical constant; retained honestly.",
+        "Published finite-dimensional seed bounds, especially the computer-assisted Epperlein case, not independently certified; their stated mathematical theorems were directly inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides seed E4,E5 and dimensions n>=4 but alpha_n decays with n",
+          "evidence": "Corollary 1.2 states (8(n+3)^5)^(-30(n+3)^2), Section 5 m=n+2 and p=ceil((n+2)/2).",
+          "identifier_or_url": "arXiv:1508.03518",
+          "material_read": "Full 16-page primary PDF relevant Theorem 1.1, Corollary 1.2 and Section 5 construction including equations for fi",
+          "method": "arXiv text and p2 screenshot",
+          "title": "A uniform estimate of the relative projection constant",
+          "trigger": "Verify explicit finite-dimensional seed inequalities and norm formulas"
+        },
+        {
+          "assessment": "Confirms c3>=101/100 for specified norm, not an all-dimensional bound",
+          "evidence": "Theorem 1.2 says twelve-vertex three-dimensional polytope shadiness constant at least 1.01.",
+          "identifier_or_url": "arXiv:2509.14819",
+          "material_read": "Theorem 1.2, 12 vertices a=-3/5,b=-1/5,c=1/10, Sections describing proof certificate",
+          "method": "arXiv full PDF text and page 2 screenshot",
+          "title": "Lower Bounds for the Shadiness Constant of Finite-Dimensional Normed Spaces",
+          "trigger": "Verify explicit E3 n=3 input and certificate"
+        },
+        {
+          "assessment": "Abstract covers ∃ uniform c; complete text inaccessible; cannot conclude no stronger covered numeric result from snippets",
+          "evidence": "2026-10-06 abstract explicitly asserts absolute c>1 for all dimensions n>=3; authorized institutional retrieval status vpn_disconnected, no human bypass.",
+          "identifier_or_url": "arXiv:2610.09113",
+          "material_read": "Abstract/readable landing page; full PDF not obtained",
+          "method": "arXiv PDF and alternate OA attempts followed by authorized institutional retrieval",
+          "title": "Finite-dimensional normed spaces without small-norm hyperplane projections",
+          "trigger": "Directly relevant 2026 qualitative uniform theorem and possible hidden effective transfer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Effective dimension-free projection separation addresses a motivated quantitative strengthening of a known uniform existence theorem in finite-dimensional Banach geometry. Its explicit rational constant is small and nonoptimal, but the universal, constructive numerical certificate and explicit fixed-hyperplane transfer settle a real effective version rather than selecting arbitrary slices. The much sharper direct projection-compression observation does not invalidate the stated weaker theorem, and is documented as a value/optimality limitation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Restricted to real spaces and hyperplane projections; no universal sharp constant or higher-codimension result.",
+    "The 2025 Epperlein computer-assisted certificate and Kobos finite-seed estimates were used as published inputs, not re-certified; verifier checks rational transfer inequalities only.",
+    "A highly plausible complete 2026 Kobos source could not be inspected: arXiv and alternative OA text retrieval failed and authorized institutional request returned vpn_disconnected; priority and exact hidden quantitative content remain residual risks.",
+    "The asserted constant is extremely conservative; direct compressed-projection reasoning may allow stronger explicit lower bounds."
+  ],
+  "schema_version": 1
+}
