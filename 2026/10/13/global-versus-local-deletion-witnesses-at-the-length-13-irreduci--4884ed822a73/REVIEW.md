@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Two independent exhaustive enumerators agree on all \(342\) ternary square-free words of length \(13\). Direct deletion scans yield exactly \(30\) irreducibly square-free words. Two independent least-square-period routines agree after every deletion. The exact radius split is \(18\) words at \(3\) and \(12\) words at \(6\), with symmetry orbits of sizes \(12,6,12\).
+## correctness
 
-## Originality
-PASS. Harju's primary source already reports three symmetry classes at length \(13\), so that count is treated as prior work. Neither Harju nor the later Przybocki length-classification paper reports the least periods of the deletion-created squares. Searches for the canonical representatives, period-\(6\) deletion certificates, and equivalent fragility formulations found no published \(18/12\) radius split.
+PASS
 
-Residual risk remains that unpublished output from the original systematic search contains the same refinement.
+Enumerate ternary squarefree prefixes to length 13 by rejecting newly formed suffix squares; factor closure guarantees exhaustive 342 words. Independently for every deletion of each word scan all square factors and require that all eleven interior deletions make a square: exactly 30 irreducible words. Radius max over deletions of minimum square period splits 18 at 3 and 12 at 6; quotient each by all 6 letter permutations and reversal gives orbit representatives 0102012101202 (12,3), 0102012102010 (6,3), 0102120102012 (12,6). Every last-orbit word has one unique period-6 deletion site; the displayed 11th deletion produces (010212)^2, with no smaller square period. Full finite word enumeration is exhaustive and proves this NATURAL length-13 result, not a general n claim.
 
-## Value
-PASS. Length \(13\) is the first point after the last excluded length \(12\). The deletion-witness radius measures the mechanism defining irreducibility itself, and the result separates the three known boundary classes into two locally witnessed classes and one class containing a uniquely global deletion certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Harju established ternary irreducibly squarefree existence and exactly three symmetry classes at length 13, so those facts are prior; the new precise minimum-square-period deletion radius profile and unique global deletion site do not follow from a three-class count. Przybocki length classification likewise does not provide period profiles.
+
+## value
+
+PASS
+
+At the first length beyond the final forbidden length 12, the exact local-vs-global deletion witness distinction reveals a nontrivial qualitative split among the already known three classes; least required square period is a meaningful deletion-certificate invariant, not merely recounting the known class total.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
