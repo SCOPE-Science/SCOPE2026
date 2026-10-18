@@ -1,24 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** At fixed order \(n\) and size \(m\), Freeman degree centralization is an affine increasing function of maximum degree:
-\[
-C_F=\frac{n d_{\max}-2m}{(n-1)(n-2)}.
-\]
-Degree Gini has fixed denominator and is ordered by
-\[
-\sum_{i<j}|d_i-d_j|.
-\]
-The packaged verifier enumerates every labeled simple graph through five vertices, filters for connectivity, canonically quotients by relabeling, reproduces the standard connected-unlabeled counts, and checks every common-\((n,m)\) pair. Exactly one reversal exists through five vertices, at \(n=5\), \(m=6\), between the stated two degree multisets. Both multisets have unique connected unlabeled realizations at that layer. The verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: changing graph size, density, directedness, weights, loops, or the vertex-centrality input to Freeman's general construction changes the problem.
+PASS
 
-## Originality
-**PASS.** Freeman supplies the classical network-centralization construction. Hu and Wang establish Gini as a network-heterogeneity measure. Badham is the closest conceptual comparison: it directly contrasts Freeman centralization with degree Gini, notes the mean-degree dependence of Freeman's feasible range, and stresses that Freeman centralization is driven by the highest degree relative to the average while Gini reflects the fuller degree distribution. The accepted result does not claim that the measures differ in general. It fixes both order and mean degree and identifies the exact smallest connected simple networks giving opposite strict rankings, with a unique first isomorphism-class pair. Exact-vector, fixed-density, smallest-network, and ranking-reversal searches did not locate this boundary.
+At common n,m the centralization order is exactly the order of maximum degree, since its numerator is n*d_max-2m; degree-Gini order is that of L=sum_{i<j}|d_i-d_j|. The supplied proof identifies d_max=4,L=8 versus d_max=3,L=10, so C_F=2/3>1/4 while Gini=2/15<1/6. Independently enumerated the networkx graph atlas of ALL connected unlabeled simple graphs with 2<=n<=5 (counts 1,2,6,21) and compared every pair with identical m; precisely one reversal occurred, at n=5,m=6. The two degree sequences each have one connected class. Finite exhaustive enumeration is valid here precisely because the n<=5 domain is finite; there is no extrapolation to larger n.
 
-Risk: because the sharp case has only five vertices, an unindexed worked example or software fixture could contain the same pair without framing it as the fixed-density minimum.
+## originality
 
-## Value
-**PASS.** Degree centralization and degree Gini are both used as network-level summaries of heterogeneity or concentration. Badham's critique makes fixed mean degree the natural controlled comparison. The theorem shows that even after density is held constant, the measures separate at the smallest possible nontrivial order, and it pinpoints the unique first pair. This gives a compact benchmark for interpreting or testing network-heterogeneity calculations rather than an arbitrary numerical slice.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge acceptance follows the actual statement-versus-implication comparisons above; the strongest inspected primary sources establish a general framework, different problem, or strictly narrower subcase, not this final full claim. The explicitly listed plausible full-text access/implicit-coverage risks remain open; lack of search hits alone is not novelty evidence.
+
+## value
+
+PASS
+
+The graph order and edge-count restrictions eliminate the confounding change of average degree in comparisons of widely used heterogeneity measures. Identifying the sharp smallest counterexample and its unique graph classes is a natural finite boundary, not an arbitrary numerical slice, and the reversal illustrates a genuine distinction between maximum-driven and full-dispersion indices. Its mathematical significance is necessarily modest and specific to these two measures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

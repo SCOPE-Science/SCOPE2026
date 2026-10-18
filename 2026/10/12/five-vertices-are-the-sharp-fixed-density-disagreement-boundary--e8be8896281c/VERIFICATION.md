@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,84 +18,25 @@
   "schema_version": 1
 }
 ---
-For a connected simple graph with order
-\[
-n
-\]
-and size
-\[
-m,
-\]
-Freeman degree centralization is
-\[
-C_F
-=
-\frac{n d_{\max}-2m}{(n-1)(n-2)}.
-\]
 
-At fixed
-\[
-n
-\]
-and
-\[
-m,
-\]
-its ordering is therefore exactly the ordering by maximum degree.
+# Independent mathematical audit
 
-Degree Gini is
-\[
-G_d
-=
-\frac{\sum_{i<j}|d_i-d_j|}{2nm},
-\]
-so at fixed order and size its ordering is exactly the ordering by pairwise degree spread.
+## correctness
 
-The embedded `verify_freeman_gini_boundary.py` enumerates every labeled simple graph on
-\[
-2\le n\le5,
-\]
-filters for connectivity, and canonically quotients by all vertex relabelings.
+PASS
 
-It recovers connected unlabeled graph counts
-\[
-1,\ 2,\ 6,\ 21
-\]
-and checks every pair of isomorphism classes with common order and common size.
+At common n,m the centralization order is exactly the order of maximum degree, since its numerator is n*d_max-2m; degree-Gini order is that of L=sum_{i<j}|d_i-d_j|. The supplied proof identifies d_max=4,L=8 versus d_max=3,L=10, so C_F=2/3>1/4 while Gini=2/15<1/6. Independently enumerated the networkx graph atlas of ALL connected unlabeled simple graphs with 2<=n<=5 (counts 1,2,6,21) and compared every pair with identical m; precisely one reversal occurred, at n=5,m=6. The two degree sequences each have one connected class. Finite exhaustive enumeration is valid here precisely because the n<=5 domain is finite; there is no extrapolation to larger n.
 
-Exactly one strict reversal exists through five vertices. It occurs at
-\[
-n=5,\qquad m=6
-\]
-between degree multisets
-\[
-(2,2,2,2,4)
-\]
-and
-\[
-(1,2,3,3,3).
-\]
+## originality
 
-For the first sequence,
-\[
-C_F=\frac23,
-\qquad
-G_d=\frac2{15}.
-\]
+PASS
 
-For the second,
-\[
-C_F=\frac14,
-\qquad
-G_d=\frac16.
-\]
+Best-of-knowledge acceptance follows the actual statement-versus-implication comparisons above; the strongest inspected primary sources establish a general framework, different problem, or strictly narrower subcase, not this final full claim. The explicitly listed plausible full-text access/implicit-coverage risks remain open; lack of search hits alone is not novelty evidence.
 
-Run:
+## value
 
-`python3 verify_freeman_gini_boundary.py`
+PASS
 
-The first output line must be:
+The graph order and edge-count restrictions eliminate the confounding change of average degree in comparisons of widely used heterogeneity measures. Identifying the sharp smallest counterexample and its unique graph classes is a natural finite boundary, not an arbitrary numerical slice, and the reversal illustrates a genuine distinction between maximum-driven and full-dispersion indices. Its mathematical significance is necessarily modest and specific to these two measures.
 
-`VERIFY_OK`
-
-The lower bound and first-layer uniqueness are finite exhaustive statements, so the complete graph census is a proof rather than an extrapolation.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
