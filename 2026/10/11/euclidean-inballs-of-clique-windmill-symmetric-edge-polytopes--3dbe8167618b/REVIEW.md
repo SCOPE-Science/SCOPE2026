@@ -1,19 +1,21 @@
-# Same-model scientific review: Euclidean inballs of clique-windmill symmetric edge polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof correctly identifies polar vertices as tight-edge-connected signed binary patterns, explicitly derives their intrinsic squared norm \(k-s^2/(mq+1)\), excludes partial patterns by a strict positivity argument for \(m\ge3\) and a sharp equality argument for \(m=2\), and minimizes the remaining full-blade signed sum by parity. Convex polarity and central symmetry prove the global inradius. Contact-polar annihilation plus strict slack at all noncontact vertices proves the affine hull of **all** optimal centers. Balanced sign vectors have ranks \(m-1\) for even \(m\) and \(m\) for odd \(m\). No unproved extension from finite data is used.
+PASS
 
-## Originality — PASS, with residual risk
+In the polar Q the coordinate potential differences satisfy |xij|≤1 and each blade has pairwise differences ≤1. At vertices the tight-edge graph must be connected, forcing each blade to contain nonzero signed {0,1} potential values of only one sign; the converse active-edge spanning criterion supplies all (2^(q+1)−2)^m facet labels. After orthogonal mean subtraction the squared polar norm is k−s²/(mq+1). Any maximizing assignment with |s|>q can flip a concordant blade and decrease |s| without changing k, contradiction. For m≥3 adding a missing same-sign blade leaf raises squared norm by at least (m−2)q/(mq+1)>0; for m=2 the bound k−s²/N≤2q with balanced full leaves settles equality. Thus maximizers have k=mq and balanced signs, yielding the radius and exact binomial contacts. Central symmetry shows no offset ball can be larger. Antipodal contact inequalities force optimal centers perpendicular to all farthest polar vertices; the remaining finite inequalities have strict slack at zero, proving full relative interior in that complement. Contact sign vectors span rank m−1 (even) or m (odd), giving stated dimensions. Independently enumerated six (m,q) pairs using exact fractions, agreeing with max squared norms and contact counts; the unbounded proof comes from the sign-flip and rank arguments.
 
-Chen, Davis and Korchevskaia (`arXiv:2107.12315`, Theorem 3) identify general facet subgraph structures. Mori, Mori and Ohsugi (`arXiv:2312.11287`, Proposition 2.1 and one-sum theorem) supply the integral facet criterion and total facet-number product, but these do not imply the Euclidean closest-facet selection or full optimal-center dimension without an additional extremization. Ohsugi and Tsuchiya (`arXiv:2008.08621`) study volume/Ehrhart rather than Euclidean inradius. Maximum graph Lipschitz variance is a potential equivalent formulation; checked general spread literature does not explicitly supply the present evaluation. A differently indexed equivalent remains possible, and the full text of `arXiv:1910.05193` could not be inspected. These limitations are not treated as proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The family interpolates the classical star and friendship graphs and has an established facet theory. The theorem determines three linked and natural geometric invariants in every pair of parameters: largest inscribed-ball radius, the exact tangent-facet set, and the affine dimension and uniqueness criterion for all optimal-ball centers. Their parity dependence and the independence of contact count from blade size give structural information beyond routine known facet enumeration.
+The exact Euclidean polar-radius, contact-facet, and center-dimension parity results are not implied by the already known one-sum facet count. Search also considered graph Lipschitz spread (maximum variance) as dual alias; an undiscovered specialization is a residual risk.
 
-## Checks and limits
+## value
 
-The self-contained exact-integer/rational script `verify.py` passed 18 parameter cases comprising 126,256 polar-vertex tests, including facet contact ranks, and five independent direct tight-edge facet enumerations. Only the fully stated proof establishes all dimensions. The metric must be inherited from the original standard coordinates; arbitrary affine transformations need not preserve it. Individual prior papers and database search results cannot certify global novelty.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Gives exact metric radius, all touching facets and the entire optimal-center affine dimension for an unbounded natural graph family of symmetric edge polytopes. The parity jump, q-independent contact count, and uniqueness threshold q=1 and odd m are geometric structure not supplied by standard facet enumeration and can be reused in optimization and polytope geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

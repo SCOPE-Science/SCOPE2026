@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T01:06:14.909275Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob 049a7ac7a34965e0d4e1883482e215be716e9fbb",
+        "frozen verify.py blob d979a787c21d7521fcdc9c33ac0c316a50e0e281",
+        "Mori–Mori–Ohsugi arXiv:2312.11287 Proposition 2.10 (facet count under one-sums)",
+        "Chen–Davis–Korchevskaia arXiv:2107.12315 (facet subgraph structure)",
+        "independent small-parameter signed-binary-potential enumeration"
+      ],
+      "rationale": "In the polar Q the coordinate potential differences satisfy |xij|≤1 and each blade has pairwise differences ≤1. At vertices the tight-edge graph must be connected, forcing each blade to contain nonzero signed {0,1} potential values of only one sign; the converse active-edge spanning criterion supplies all (2^(q+1)−2)^m facet labels. After orthogonal mean subtraction the squared polar norm is k−s²/(mq+1). Any maximizing assignment with |s|>q can flip a concordant blade and decrease |s| without changing k, contradiction. For m≥3 adding a missing same-sign blade leaf raises squared norm by at least (m−2)q/(mq+1)>0; for m=2 the bound k−s²/N≤2q with balanced full leaves settles equality. Thus maximizers have k=mq and balanced signs, yielding the radius and exact binomial contacts. Central symmetry shows no offset ball can be larger. Antipodal contact inequalities force optimal centers perpendicular to all farthest polar vertices; the remaining finite inequalities have strict slack at zero, proving full relative interior in that complement. Contact sign vectors span rank m−1 (even) or m (odd), giving stated dimensions. Independently enumerated six (m,q) pairs using exact fractions, agreeing with max squared norms and contact counts; the unbounded proof comes from the sign-flip and rank arguments.",
+      "residual_risks": [
+        "Correctness specific to ordinary ambient norm on zero-sum space, not deleting hub coordinate.",
+        "The asserted complete optimal-center set is characterized only by affine dimension/relative interior, not all inequalities or volume."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mori–Mori–Ohsugi Proposition 2.10 gives multiplicative total facet counts for one-sums.",
+          "Their formula (2^(q+1)−2)^m alone gives neither polar farthest-vertex norm nor annihilator rank."
+        ],
+        "reasoning": "Known general graph-polytope structural theorems strictly cover the combinatorial facet-count subclaim; the metric and complete contact/rank conclusions require extra optimization not implied by total count.",
+        "searches": [
+          "\"one-sum\" \"symmetric edge polytope\" facets",
+          "symmetric edge polytope clique windmill inradius Chebyshev centers polar graph facet"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob 049a7ac7a34965e0d4e1883482e215be716e9fbb",
+        "frozen verify.py blob d979a787c21d7521fcdc9c33ac0c316a50e0e281",
+        "Mori–Mori–Ohsugi arXiv:2312.11287 Proposition 2.10 (facet count under one-sums)",
+        "Chen–Davis–Korchevskaia arXiv:2107.12315 (facet subgraph structure)",
+        "independent small-parameter signed-binary-potential enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior one-sum formula yields N_facets but no Euclidean r or center dimension.",
+          "Centered graph-potential squared norm k−s²/N is an extra metric invariant not determined by facet number."
+        ],
+        "reasoning": "Prior graph structure is used as setting, not a stronger radius theorem. Remaining possible dominant theorem is exact graph spread on windmills, which was actively considered but not established.",
+        "searches": [
+          "Mori Mori Ohsugi 2312.11287 Proposition 2.10",
+          "symmetric edge polytope clique windmill inradius Chebyshev centers polar graph facet"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A polar vector is a centered 1-Lipschitz graph potential, so its squared norm is the unnormalized variance/spread objective.",
+          "The displayed clique-windmill family is a 1-sum of complete graphs; known facet labels give the feasible discrete patterns but not which have maximal variance."
+        ],
+        "reasoning": "Potentially equivalent formulation: exact maximum centered 1-Lipschitz variance on a windmill graph, together with all equality patterns and Chebyshev-center degeneracy. This substantive alias was searched; no located full same-family result resolves it.",
+        "searches": [
+          "symmetric edge polytope clique windmill inradius Chebyshev centers polar graph facet",
+          "\"windmill graph\" spread maximum variance Lipschitz function clique"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected table gives the Euclidean inradius as a function of both blade size q and count m.",
+          "The contact-facet count is parity-specific and independent of q, unlike the known total facet count."
+        ],
+        "reasoning": "Facet enumeration database would have to also encode polar distances and contact ranks to imply this result; nothing consulted supplies these quantities.",
+        "searches": [
+          "\"clique windmill\" symmetric edge polytope inradius center",
+          "symmetric edge polytope clique windmill inradius Chebyshev centers polar graph facet"
+        ]
+      },
+      "rationale": "The exact Euclidean polar-radius, contact-facet, and center-dimension parity results are not implied by the already known one-sum facet count. Search also considered graph Lipschitz spread (maximum variance) as dual alias; an undiscovered specialization is a residual risk.",
+      "residual_risks": [
+        "Graph spread/maximum Lipschitz variance under alternate normalization could be earlier known.",
+        "Resultary same-object semantic search returned temporarily_unavailable/search_completed=false.",
+        "Facet-subgraph paper arXiv:2107.12315 was not fully inspected across its entire results/appendices; available theorem does not supply metric formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: yields total number (2^(q+1)−2)^m but not intrinsic Euclidean inradius/contact normals/optimal-center dimension.",
+          "evidence": [
+            "One-sum factorization multiplies number of facets, not their Euclidean support distances."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.11287",
+          "material_read": "Full open arXiv PDF, statements on symmetric edge polytope facets and Proposition 2.10 one-sum multiplication.",
+          "method": "Read arXiv PDF relevant definitions, facet-count theorem and one-sum proof.",
+          "title": "Number of Facets of Symmetric Edge Polytopes Arising from Join Graphs",
+          "trigger": "Same graph-polytope operation: clique one-sums and exact total facet count."
+        },
+        {
+          "assessment": "GENERAL_FACET_STRUCTURE may be usable as lemma but is not documented to yield the claimed radius and affine-center rank.",
+          "evidence": [
+            "The prior paper’s topic is facet subgraph structure, rather than the metric inball and center affine hull."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.12315",
+          "material_read": "Available manuscript identification and relevant theorem/abstract description on facets; whole-paper detailed inspection not established for this run.",
+          "method": "Compared the reported facet-subgraph characterization with Euclidean norm extremum and center-dimension consequences.",
+          "title": "Facets and facet subgraphs of symmetric edge polytopes",
+          "trigger": "General polar facet-label and tight subgraph theory could potentially dominate windmill calculation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md blob 049a7ac7a34965e0d4e1883482e215be716e9fbb",
+        "frozen verify.py blob d979a787c21d7521fcdc9c33ac0c316a50e0e281",
+        "Mori–Mori–Ohsugi arXiv:2312.11287 Proposition 2.10 (facet count under one-sums)",
+        "Chen–Davis–Korchevskaia arXiv:2107.12315 (facet subgraph structure)",
+        "independent small-parameter signed-binary-potential enumeration"
+      ],
+      "rationale": "Gives exact metric radius, all touching facets and the entire optimal-center affine dimension for an unbounded natural graph family of symmetric edge polytopes. The parity jump, q-independent contact count, and uniqueness threshold q=1 and odd m are geometric structure not supplied by standard facet enumeration and can be reused in optimization and polytope geometry.",
+      "residual_risks": [
+        "Result does not handle unequal blade sizes or arbitrary graph joins; broad graph-spread equivalence remains important to check."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For G=K1∨(m Kq), m≥2,q≥1, the symmetric edge polytope in the standard Euclidean zero-sum space has radius [mq−(m mod2)q²/(mq+1)]^(−1/2), precisely the balanced full-blade-sign tangent facets, and full optimal-center affine dimension m(q−1)+1 for even m or m(q−1) for odd m.",
+  "limitations": [
+    "Standard metric on H essential; no arbitrary affine metrics.",
+    "No full inequality representation of the center set, only affine hull dimension.",
+    "Priority risk under maximum 1-Lipschitz variance alias.",
+    "Temporarily unavailable Resultary search was not treated as a novelty-negative result.",
+    "All source Git tree SHAs verified against Git REST trees with truncated=false; all seven package blobs inspected by content or metadata; independent mathematical checks do not supply formal Lean or expert attestation."
+  ],
+  "schema_version": 1
+}
