@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-`python3 verify.py` was executed using the Python standard library, and returned `VERIFY_OK`.
+## correctness
 
-The executable exhaustively constructs the 35 size-three subsets, checks that there are exactly 840 unordered XOR-zero quadruples, and checks the class-wise XOR pair multiplicities and all 1225 entries of the graph identity \(A^2=9(I+J)\). It separately evaluates finite examples on all 128 uniform sign vectors, reproduces their exact fourth-moment expansion, verifies the corresponding stability inequalities using rational arithmetic, and evaluates the flat extremizer fourth moment to exactly \(97/5\).
+PASS
 
-These exact finite checks establish the combinatorial conditions in the fixed-size statement, not a theorem for all dimensions. The universal coefficient inequality and Banach--Mazur optimization follow from the symbolic arithmetic--geometric mean and group-averaging proof given in `RESULT.md`; checks of sample arrays alone are not presented as an infinite-domain certificate. The coefficient \(14\) is certified as admissible but not optimal. Independent audit has not been performed.
+PASS: Walsh products survive expectation exactly at zero symmetric difference. Distinct triple quadruples number 840, and two-triple completion multiplicity is 9/8/9 for intersection 2/1/0. Pairwise AM-GM bounds each four-product by one sixth the six squared-pair products. The relation graph on 35 triples with |S cap T|=1 has degree18 and A²=9I+9J, yielding minimal nonconstant eigenvalue -3. The resulting bound EQ^4<=97/5 B² -14 sum(a_S²-B/35)² is attained by uniform coefficient signs induced by vertex switches. The sign-switch and S7 permutation isometries force optimal Euclidean ellipsoid to be scalar l2; exact Banach-Mazur distance is (97/5)^(1/4). Independent recomputation verified all 1225 graph matrix-square entries and rational stability on six nonuniform arrays, not merely a VERIFY_OK message.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Major Theorem2 gives an unsharp dimension-free homogeneous-polynomial moment bound, not the finite-level 35-character sharp ratio. Pass–Spektor studies pairwise independent Rademacher VECTOR linear forms, not the joint higher-order triple-product dependence. Other indexed published Walsh spaces are lower degree, different supports, or different ambient dimensions; neither 97/5 nor the exact stability remainder/Banach–Mazur invariant follows. Residual risk of historical Krawtchouk or Johnson-scheme exact norms remains.
+
+## value
+
+PASS
+
+PASS: The canonical homogeneous degree-three level in seven Boolean coordinates is a natural 35-dimensional Banach space. Its Johnson-type strongly regular intersection graph identifies a sharp ratio, explicit stability of coefficient magnitudes, and exact optimal Euclidean position, which are nontrivial precise invariants not mechanically furnished by hypercontractivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
