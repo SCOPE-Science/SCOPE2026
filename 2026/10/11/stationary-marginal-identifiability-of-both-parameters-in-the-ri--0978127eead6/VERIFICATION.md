@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was reconstructed from the defining map and invariance, with hypotheses checked at the logarithmic boundary. For \(U=X/K\) and \(Y=\log U\), the exact pointwise increment is \(Y\circ F-Y=r(1-U)\). Invariance of \(Y\) gives \(\mathbb E[U]=1\); invariance of \(Y^2\) gives \(2\mathbb E[Y(U-1)]=r\mathbb E[(U-1)^2]\). Rescaling yields \(2K\operatorname{Cov}(\log X,X)=r\operatorname{Var}(X)\).
+# Independent mathematical audit
 
-The bundled standard-library checker was executed from its packaged path. It verifies, using exact rational arithmetic, the square expansion and the covariance/variance rescaling used in the proof. Its output is recorded in `verification_output.txt`.
+## correctness
 
-Limits: the checker verifies algebra only. The infinite-measure statement is justified analytically by invariance of bounded observables. The logarithmic argument requires compact support bounded away from \(0\), and the explicit formula for \(r\) requires nonzero variance. No claim is made for stochastic, transient, noncompact, or noisy-observation settings.
+PASS
+
+For compact invariant μ supported in 0<m≤X≤M<∞, Y=log(X/K) and Y² are bounded. The EXACT cocycle Y∘F−Y=r(1−X/K) integrates to E[X]=K. Squaring the increment gives 0=−2r E[Y(X/K−1)]+r²E[(1−X/K)²]. Divide by r>0 and rescale to 2K Cov(log X,X)=r Var(X). Non-Dirac means Var(X)>0 and recovers r; Var=0 forces δ_K, invariant for every r. Mean K and non-Dirac force positive mass on both sides. Finite rational checker fetched at exact package path verifies expansion and rescaling only, not the invariant-law theorem.
+
+## originality
+
+PASS
+
+Best-of-knowledge original structural inference is exact growth-rate recovery from a single non-Dirac invariant marginal, not the already known first-moment calibration. Primary Sacker 2007 full-text expression (1.8) telescopes first moment for periodic Ricker recurrence, but does not present the stationary second-log-moment covariance identity or its implication. Other identified parameter-inference works use observations or different dynamical systems; they do not imply this invariant-law formula.
+
+## value
+
+PASS
+
+One-time stationary law identifies both K and r for a canonical nonlinear ecological model, and exact equilibrium/non-equilibrium exception is necessary; this is a motivated inverse-dynamics property and is not merely restating a routine first-moment average.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

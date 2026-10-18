@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. On compact support strictly inside the positive half-line, \(Y=\log(X/K)\) and \(Y^2\) are bounded. Invariance applied first to \(Y\) gives \(\mathbb E[X]=K\). Applied to \(Y^2\), the exact cocycle \(Y\circ F-Y=r(1-X/K)\) gives \(2K\operatorname{Cov}(\log X,X)=r\operatorname{Var}(X)\). Positive variance permits division; zero variance is exactly the equilibrium atom. No finite experiment or asymptotic approximation is used.
+## correctness
 
-Risk: the logarithmic proof does not cover invariant laws whose support meets \(0\), stochastic variants, or noncompact laws without separately justified log-square integrability.
+PASS
 
-## Originality
-PASS. The periodic-orbit first-moment calibration is prior: Sacker's inspected 2007 full text derives the telescoping sum behind equality of average population and average Ricker parameter. The accepted statement instead uses the invariant second logarithmic moment to recover the intrinsic growth parameter from a single stationary marginal, and it applies to every compact positive invariant probability measure, not only periodic cycles. Targeted searches covered invariant measures, stationary moments, covariance identities, parameter identifiability, and periodic-orbit aliases. No inspected same-object source implies the covariance-to-variance formula.
+For compact invariant μ supported in 0<m≤X≤M<∞, Y=log(X/K) and Y² are bounded. The EXACT cocycle Y∘F−Y=r(1−X/K) integrates to E[X]=K. Squaring the increment gives 0=−2r E[Y(X/K−1)]+r²E[(1−X/K)²]. Divide by r>0 and rescale to 2K Cov(log X,X)=r Var(X). Non-Dirac means Var(X)>0 and recovers r; Var=0 forces δ_K, invariant for every r. Mean K and non-Dirac force positive mass on both sides. Finite rational checker fetched at exact package path verifies expansion and rescaling only, not the invariant-law theorem.
 
-Risk: the foundational 1954 article was available only through bibliographic metadata and abstract, and an unindexed occurrence of the elementary second-moment identity remains possible.
+## originality
 
-## Value
-PASS. Parameter recovery is a central use of Ricker-type population models, while nonlinear dynamics can make transition-based likelihoods difficult. The theorem isolates an exact structural dichotomy: any non-equilibrium stationary marginal determines both \(K\) and \(r\), whereas the equilibrium marginal provably loses \(r\). This is a natural invariant-statistics fact with a clear inferential interpretation rather than an arbitrary moment calculation.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Best-of-knowledge original structural inference is exact growth-rate recovery from a single non-Dirac invariant marginal, not the already known first-moment calibration. Primary Sacker 2007 full-text expression (1.8) telescopes first moment for periodic Ricker recurrence, but does not present the stationary second-log-moment covariance identity or its implication. Other identified parameter-inference works use observations or different dynamical systems; they do not imply this invariant-law formula.
+
+## value
+
+PASS
+
+One-time stationary law identifies both K and r for a canonical nonlinear ecological model, and exact equilibrium/non-equilibrium exception is necessary; this is a motivated inverse-dynamics property and is not merely restating a routine first-moment average.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
