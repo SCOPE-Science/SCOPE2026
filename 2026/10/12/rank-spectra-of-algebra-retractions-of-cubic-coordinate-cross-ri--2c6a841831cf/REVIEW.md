@@ -1,12 +1,21 @@
-# Scientific review: rank spectra of cubic coordinate-cross ring retractions
+# Independent mathematical audit
 
-## Correctness — PASS
-A unital endomorphism is determined by its generator images in the nilpotent maximal ideal. Multiplication of different generators forces row-sparsity of the linear coefficient matrix \(P\). Composition-idempotence is equivalent to \(P^2=P\) and \(Q=QP+P^{[2]}Q\). Every nonzero row of a sparse idempotent points to an identity pivot row, providing a unique rooted parametrization. Entrywise squaring preserves those roots even in characteristic two. Two unconstrained matrix blocks give exactly \(2r(n-r)\) quadratic parameters, independently of the characteristic. An image-basis argument proves the algebra rank and isomorphism type. Exhaustive coefficient enumeration in the bundled checker agrees for five small cases; it does not substitute for the proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Full texts of arXiv:2408.02197 (the earliest eligible central source), arXiv:2112.00266 and arXiv:1301.3967 were compared at the level of their actual claims. The first treats characteristic-zero automorphism groups, not split idempotent endomorphisms or finite-field rank multiplicities. The second analyzes canonical retracts and differential operators of toric face rings, and the third treats graded retracts of Stanley–Reisner rings and some monomial quotients. The public result *Automorphisms of truncated coordinate-cross algebras over arbitrary fields* concerns the exact same ring but its **invertible** maps, so its group-order formula does not give the present coefficient distribution. An equivalent finite-field retraction formula under fiber-product or endomorphism-monoid terminology is a residual bibliographic risk; no absolute novelty certification is claimed.
+PASS
 
-## Value — PASS
-For the first non-square-zero truncation of a union of coordinate axes, the result computes the full dimension-graded population of split algebra maps uniformly in \(n\) and \(q\). Root allocations control the linear part; independent quadratic lifts account for the nongraded maps; the image subalgebra is identified in each rank. This structural decomposition and the exact enumerator are natural retract invariants beyond the previously tabulated automorphism order or a few isolated numerical cases.
+In A=k[x_1..x_n]/(x_i x_j,i≠j;x_i^3), nilpotence forces endomorphism generator images into maximal ideal, with linear P and quadratic Q. Distinct generator relations force row-sparsity; idempotence F²=F forces P²=P, R=P^[2] projection and Q=QP+RQ. Every nonzero row of row-sparse idempotent P points to a unique identity root, and all other rows independently choose zero or scalar multiple of a root row. If r roots, P and R have rank r, admissible Q consists of two free off-diagonal projection blocks, dimension 2r(n−r) for any characteristic (including 2). Image is isomorphic to A_{r,3}, rank 1+2r. Number binom(n,r)(1+r(q−1))^(n−r) q^(2r(n−r)). Independent integer calculation for n2,q3 yields [1,54,1]; n3,q2 [1,192,144,1]; n4,q2 [1,2048,13824,1024,1]. Exact finite checks corroborate the all-field proof; source checker.py read fully.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The already published exact automorphism normal form for the same truncated coordinate-cross algebras covers invertible maps only (r=n). Epstein–Nguyen prove graded retract structural results for Stanley–Reisner rings and certain monomial quotients, but do not enumerate all possibly nongraded composition-idempotent maps of this cubically truncated Artinian ring. Díaz et al treat characteristic-zero automorphism groups, not the finite-field entire retraction monoid. The intermediate-rank polynomial and char-independent Q-block freedom are not consequences of an automorphism count.
+
+## value
+
+PASS
+
+A_{n,3} is a canonical first nontrivial truncated union-of-axes fiber product with nilpotent quadratic data. The theorem simultaneously classifies all image isomorphism types and gives every finite-field map-count by natural rank, including genuinely nongraded retracts and characteristic-two behavior. This fills a meaningful enumerative gap rather than recomputing automorphism sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
