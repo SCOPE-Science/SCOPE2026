@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3's standard library. The program uses no input files or external packages and prints `EXACT_CERTIFICATE_OK indices=2,3,6,7,8,18 checked=2..60 independent_apery=59 oeis_F=29 universal_cutoff=61` before listing the five genuine three-generator witness certificates and the two-generator special case.
+## correctness
 
-The exact finite check loops over all 59 indices from 2 through 60. Each candidate pair is tested with its integer gcd; for every factorization under consideration, it loops over all possible nonnegative first coefficients, determines the second coefficient by divisibility, and concludes membership or nonmembership without heuristic truncation. Separately, Dijkstra's shortest paths on the residue graph modulo the smallest generator obtain the complete Apéry set, yielding exact Frobenius number and genus for every one of the 59 indices. The first 29 Frobenius numbers reproduce OEIS A069758. In both independent tests precisely indices 2,3,6,7,8,18 satisfy symmetry. The n=3 case uses the two-generator reduction rather than the three-minimal-generator criterion.
+PASS
 
-To verify the infinite step, use the elementary gcd identities and inspect the strict inequalities at n=61: the four positive polynomials in the proof are increasing on [61, infinity). The g=3 pair tests are impossible by the two adjacent integer bounds; in the g<=30 case any factorization forces x+y=g and x=g/2+g/(4n+3), which cannot be integral. The finite checker verifies relevant boundary inequalities but cannot certify infinitely many values on its own; that is done algebraically in the proof.
+For H_n=n(2n-1), n>=2, gcd of consecutive generators is controlled by 3 and the long pair by gcd(n,2)gcd(n,3)gcd(2n-1,5)<=30, ensuring gcd of all is one. The triple is minimal except n=3 where H_5=3H_3 and the remaining coprime pair gives a symmetric numerical semigroup. For n>=61 the four explicit positive quadratic differences exclude representations of the remaining generator in each pair/its gcd; for the (a,c) pair, any candidate forces x+y=d and x=d/2+d/(4n+3), nonintegral for d<=30. Hence published minimal-three-generator symmetry criterion excludes all n>=61 without experimental extrapolation. For 2<=n<=60, the three possible pair-gcd representations are decided by finite exhaustive integer loops; separately implemented exact Apéry shortest paths yield 2g=F+1 only for n=2,3,6,7,8,18, agreeing with the source five explicit witnesses and the n=3 exception. Thus the exact all-index classification is correct within the established semigroup criterion.
 
-There has been no independent external audit, no Lean verification, and no assertion that finite source searches establish publication priority.
+## originality
+
+PASS
+
+The natural family occurs in OEIS Frobenius-number data, and a classical general symmetry criterion is available, but no inspected source establishes the all-index hexagonal symmetry list or its n>=19 exclusion.
+
+## value
+
+PASS
+
+A complete natural symmetry/Gorenstein-property classification of an established consecutive-hexagonal numerical-semigroup family, including a sharp last positive index 18. The result adds structural information not contained in Frobenius values alone and an all-index algebraic cutoff beyond any tabulated range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
