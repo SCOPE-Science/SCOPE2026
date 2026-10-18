@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3.8 or newer. No third-party dependencies are needed.
+## correctness
 
-The executable checks the exact Laurent-symbol factorization and calculates binary adjacency ranks by Gaussian elimination for each of the \(529\) pairs with \(3\leq m,n\leq25\). It also checks the independent diagonal-orbit parity calculation for every pair and verifies that six explicitly oriented instances satisfy \(A+A^{\mathsf T}=Q\) and the rank formula.
+PASS
 
-The output from the included checker is:
+The six-neighbor adjacency is exactly (XY)^(-1)(1+X)(1+Y)(1+XY) over F2; the row/column-even image of the first two factors has dimension (m−1)(n−1), and diagonal-shift-fixed functions meet it in one parity hyperplane of dimension gcd(m,n)−1 since m/g and n/g are coprime. Rank-nullity therefore gives rank=mn−m−n−g+2 and nullity=m+n+g−2 for all m,n≥3. Alternating binary rank is even. Independently reconstructed bitwise elimination gave ranks 2,6,6,8,14,34 for (m,n)=(3,3),(3,4),(4,4),(3,5),(4,6),(6,8), matching the formula. The ancillary interpretation explicitly depends on Riera–Parker–Stănică Lemma 4.1, not the finite tests.
 
-```text
-VERIFY_OK symbolic_factorization=1 all_parity_rank_tests=529 diagonal_orbit_parity_tests=529 orientation_tests=6 m_n_each_3_to_25=true
-```
+## originality
 
-Each finite equality uses exact binary integer bit operations, not floating-point tolerances. Enumeration does not establish an unbounded theorem; the proof in `RESULT.md` proves the statement for every integer pair in scope. The half-rank-to-ancilla step is the mathematical theorem cited from DOI 10.3934/amc.2021015. Independent audit has not been performed.
+PASS
+
+Best-of-knowledge new closed gcd-sensitive rank for this six-neighbor torus. The earlier generic half-rank ancillary theorem leaves graph rank to be calculated, while Cartesian torus Lights Out uses four, not six, displacements. Semantically searched published Resultary findings and primary literature; no statement-level equivalent identified.
+
+## value
+
+PASS
+
+Exact characteristic-two rank and commuting-extension ancilla requirement for an infinite, geometrically motivated triangular torus family, with nontrivial winding/gcd defect. The number is a natural invariant needed when constructing mixed graph stabilizer extensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
