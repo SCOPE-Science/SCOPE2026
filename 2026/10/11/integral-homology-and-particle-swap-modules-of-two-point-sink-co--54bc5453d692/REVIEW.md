@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The discrete sink-configuration equivalence identifies the specified ordered two-particle space with the graph-product cubical subcomplex obtained by deleting the equal-edge squares. The relative long exact sequence computes all integral homology from the coordinatewise product of two integer cycle lattices. Intersecting pairs of signed rectangles construct every deleted-square unit when both graph parts have at least three vertices; in the thin case they construct the entire saturated equal-row sublattice; the four-cycle case has a primitive single generator. Consequently the relative map has the claimed rank and torsion-free cokernel. The graph-product factor-swap carries the requisite degree-two Koszul minus sign, and the Cauchy identities with the coordinatewise multiplication modules give the stated rational eigenspaces. The proof is valid for all integers \(m,n\ge2\). The self-contained checker recreates the cellular complexes and independently verifies chains, finite-field ranks, and every available symmetry case for seven finite graph sizes; its finite checks are not substituted for the proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+PASS. Read actual RESULT.md 8e3d8aae5aee92344e839eec9b3a2906b71be3d4 and verifier c3458ae331d40c6f79599172813a2d85effd49f5. Ramos sink model allows all graph-vertex collisions but removes E diagonal square interiors. Relative LES on D subset GxG yields 0→H2(D)→C⊗C→Z^E→H1(D)→C^2→0 with C the integral zero-row/zero-column cycle lattice of K_mn rank b=(m-1)(n-1). Phi is coordinatewise product of cycles. For m,n>=3, rectangles sharing exactly one chosen edge map to each edge standard unit so im(Phi)=Z^E, saturated. For m=2,n>=3 products of (z,-z) span exactly primitive equal-row units, rank n; for m=n=2 their one cycle square gives primitive rank one image. Thus rho=E, max(m,n),1 respectively, H1 free 2b+E-rho, H2 free b²-rho. Degree 2 particle swap is negative factor exchange, deleted squares -id; rational exact splitting implies H2+=wedge²U, H2-=ker(Sym²U→P_m⊠P_n) with U=W_m⊠W_n, H1+=U, H1-=U⊕coker Phi. Cauchy identities and pointwise multiplication Sym²W_t→P_t (onto for t>=3) yield displayed modules, including thin t=2 exceptions. Independently checked numerical boundary values K2,2:(1,5,0), K2,3:(1,7,1), K3,3:(1,8,7), K3,4:(1,12,24). Inspected complete script reconstructs matrices for 7 finite size pairs, signs and group characters (not independently executed); finite cases cannot prove infinite presentation.
 
-The closest foundational works are Chettih--Lütgehetmann, *The Homology of Configuration Spaces of Trees with Loops* (arXiv:1612.08290, first public 2016-12-25), and Ramos, *Configuration Spaces of Graphs with Certain Permitted Collisions* (arXiv:1703.05535, first public 2017-03-16). These give the sink model and broad graph-theoretic results, not the full computed integral ranks and particle-swap/vertex-symmetry module decomposition for complete bipartite graphs. Ramos--Yun, *Computing Stable Homology Representations of Graph Configuration Spaces* (arXiv:2606.13813), computes highly relevant complete-bipartite representations but for **ordinary collision-free** configuration spaces. In particular its ordinary \(K_{3,3}\) second rational homology dimension is \(1\), whereas the specified sink-space dimension is \(7\). Prior cycle-graph sink results cover the \(K_{2,2}\) boundary case, not the overlapping-cycle infinite families. Literal, alias, graph-product, symmetric-power, and implication searches located no dominating published theorem for the full statement. Unindexed equivalent treatments remain possible, and this does not constitute a claim to uniqueness over inaccessible or unpublished work.
+## originality
 
-## Value — PASS
+PASS
 
-The question is motivated by two natural distinctions: vertex collisions versus fully prohibited collisions, and the behavior of the coordinatewise cycle-product image as one bipartition class falls from three vertices to two. The solution classifies integral homology for an infinite, canonical non-cactus family and identifies the complete \(S_m\times S_n\times C_2\) rational symmetry representation, revealing a sharp thin-side transition not visible in the abstract cubical model. The decomposition has nontrivial Specht \((t-2,2)\), alternating-square, and particle-swap modes, rather than only numerical Betti ranks. This is a structural calculation with clear graph-topological motivation, not an arbitrary small enumeration. It does not claim a cohomology-ring determination or a general theorem for other graphs.
+PASS best knowledge. Ramos–Yun 2026 was inspected via lawful complete source text (pages 14–24): it explicitly defines Conf2 as collision-free ordered points and computes stability of ordinary K_n,n modules under only the diagonal S_n action, not all-vertex sink collisions nor the full S_m×S_n×swap representation for unequal sides. Ramos's earlier sink theorem is a modeling result without this cycle-product saturation and all-size module decomposition. Resultary earlier cycle-sink special K2,2 and other complete-graph sink results do not dominate the proposed all-bipartite m,n formula.
 
-## Limits and independent status
+## value
 
-The scalar homology computation is integral; the equivariant splitting is only rational. When the two graph parts have equal size, an additional side-exchange action is not separately described. The model requires all vertices to be designated sinks and exactly two ordered particles. Published-literature coverage cannot be excluded with absolute certainty, and numerical examples are secondary checks of a uniform argument.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS. This fully determines an all-size integral topological invariant and rational automorphism-plus-particle symmetry for a natural biclique family, identifying the sharp structural transition at min(m,n)=2 and a nontrivial m=n=2 boundary. The character decomposition is useful beyond Betti numbers; deriving saturated image and Cauchy kernel is not a mere formal renaming of collision-free stable tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
