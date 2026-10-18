@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Finite exact verification
+# Independent mathematical audit
 
-The sole executable artifact is `verify.cpp`, a self-contained standard C++17 program. Compile with `g++ -O3 -std=c++17 verify.cpp -o verify` and run `./verify`. The checker creates the affine evaluation code independently of the parity-check construction and checks that all thirty-two affine words are distinct, annihilated by the parity checks, and have nonzero Hamming weight at least eight. It computes the exact joint coset distance at **every** one of the \(2^{22}\) pairs of syndromes twice: first by a sixteen-step syndrome dynamic program, and second by forming canonical representatives and minimizing over all pairs of thirty-two affine words. Direct search prunes only if a proven per-row lower bound is reached or a first-row mask already meets the current best joint support.
+## correctness
 
-Recorded output after compilation and execution:
+PASS
 
-```text
-VERIFY_OK
-code=[16,5,8]_2; number_of_two_row_cosets=4194304
-R_2=9; distance_9_cosets=336; witness_syndrome=(373,207)
-distribution=1,48,1080,15120,144585,858144,2359602,798000,17388,336
-```
+Read immutable RESULT.md and verify.cpp. Affine [16,5,8] code has 11 parity-check rows from pivot coordinates 0,1,2,4,8; pair of 11-bit syndromes labels every ordered coset pair. At each of 16 positions two binary errors give precisely four transitions of minimum joint union-support: D_{j+1}(s)=min(D_j(s),1+D_j(s+e_j),1+D_j(s+f_j),1+D_j(s+e_j+f_j)). This inductive recurrence is exhaustive on 2^22 syndromes. Independently implemented recurrence in C++17, executed all 4,194,304 states and recovered exact histogram (1,48,1080,15120,144585,858144,2359602,798000,17388,336), first distance-nine syndrome=(373,207), total 4194304 and radius nine. First four counts also equal binom(16,j)3^j (j=0..3) because minimum codeword support eight, independent consistency check. This proves the finite fixed-code statement, NOT an infinite Reed–Muller family or orbit classification.
 
-The two algorithms agree for each syndrome pair individually, not merely on their aggregate histograms. The histogram sums to 4,194,304. The verifier uses only finite integer operations; there are no floating-point tolerances, randomized choices, or external libraries. Its correct execution and the recurrence proof certify this finite case only, without asserting any infinite-parameter theorem or independent audit. No external validation has been performed.
+## originality
+
+PASS
+
+Elimelech–Wei–Schwartz (arXiv:2107.09902) Table I reports known exact order extremes and bounds for intermediate Reed–Muller generalized covering radii; r=1,m=4 is not an exact case in the table. The submitted much stronger invariant is the ENTIRE two-row ordered-coset distance histogram, not merely radius. Ordinary RM(1,4) deep-hole/weight-enumerator results are single-row, and a binary-to-F4 scalar-extension restatement does not make published scalar one-row distributions imply all ten joint coefficients. Resultary covering-radius findings searched and nearest hits for unrelated BCH families did not dominate this code. No matching full spectrum found within inspected material; novelty is best-of-knowledge, not proof from failed search.
+
+## value
+
+PASS
+
+Natural generalized covering-radius invariant measures minimum joint support for simultaneous two-query retrieval; its complete fixed-code distribution gives farthest-coset counts and all distance layers, independently reusable as an exact benchmark. Enumeration is exhaustive over a canonical small natural Reed–Muller instance with 4,194,304 ordered cosets, not an arbitrary slice or incomplete census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

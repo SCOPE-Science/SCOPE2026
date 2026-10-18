@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T02:54:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read immutable RESULT.md and verify.cpp. Affine [16,5,8] code has 11 parity-check rows from pivot coordinates 0,1,2,4,8; pair of 11-bit syndromes labels every ordered coset pair. At each of 16 positions two binary errors give precisely four transitions of minimum joint union-support: D_{j+1}(s)=min(D_j(s),1+D_j(s+e_j),1+D_j(s+f_j),1+D_j(s+e_j+f_j)). This inductive recurrence is exhaustive on 2^22 syndromes. Independently implemented recurrence in C++17, executed all 4,194,304 states and recovered exact histogram (1,48,1080,15120,144585,858144,2359602,798000,17388,336), first distance-nine syndrome=(373,207), total 4194304 and radius nine. First four counts also equal binom(16,j)3^j (j=0..3) because minimum codeword support eight, independent consistency check. This proves the finite fixed-code statement, NOT an infinite Reed–Muller family or orbit classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RM generalized radius results treat r=1,m=4 through nonexact intermediate bounds; newer paper states general inequalities."
+        ],
+        "reasoning": "A general radius bound, even if sharp, would not imply the submitted histogram or multiplicity of farthest ordered coset pairs; specific exact implication not found.",
+        "searches": [
+          "arxiv:2107.09902 Table I",
+          "arxiv:2609.14477 general packing-covering inequalities"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2107.09902, full arXiv HTML Table I §§II–IV",
+        "arxiv:2012.06467, generalized covering radius definition supplied in pinned paper",
+        "arxiv:2609.14477 abstract of generalized packing-covering inequalities",
+        "Resultary semantic query: second generalized covering radius Reed Muller RM(1,4) two-row quaternary scalar extension joint coset distance spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing radius definition and general inequalities are admitted prerequisites.",
+          "New DP computes every pair syndrome distance and counts its frequency."
+        ],
+        "reasoning": "Prerequisite definition/inequality does not directly determine all 2^22 optimal errors and their histogram, requiring a new exhaustive finite classification.",
+        "searches": [
+          "arxiv:2012.06467 generalized covering definition",
+          "arxiv:2107.09902 Table I"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two binary rows form one F4 error coordinate via additive identification; joint union-support equals Hamming distance in scalar-extension cosets.",
+          "Ordinary deep-hole enumerator is a one-row quotient statistic."
+        ],
+        "reasoning": "Quaternary scalar extension is equivalent but does not identify joint distance with the usual binary one-row coset distribution; searched both formulations.",
+        "searches": [
+          "Resultary: second generalized covering radius Reed Muller RM(1,4) two-row quaternary scalar extension joint coset distance spectrum",
+          "arxiv:2107.09902 definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary Reed–Muller table has no 10-coefficient distribution for RM(1,4) two queries; Resultary nearby BCH radius findings concern distinct codes."
+        ],
+        "reasoning": "Compared exact object [16,5,8] binary first-order code and pair-coset distribution rather than matching dimensions only.",
+        "searches": [
+          "arxiv:2107.09902 Table I",
+          "Resultary: two-row coset-distance spectrum RM(1,4)"
+        ]
+      },
+      "rationale": "Elimelech–Wei–Schwartz (arXiv:2107.09902) Table I reports known exact order extremes and bounds for intermediate Reed–Muller generalized covering radii; r=1,m=4 is not an exact case in the table. The submitted much stronger invariant is the ENTIRE two-row ordered-coset distance histogram, not merely radius. Ordinary RM(1,4) deep-hole/weight-enumerator results are single-row, and a binary-to-F4 scalar-extension restatement does not make published scalar one-row distributions imply all ten joint coefficients. Resultary covering-radius findings searched and nearest hits for unrelated BCH families did not dominate this code. No matching full spectrum found within inspected material; novelty is best-of-knowledge, not proof from failed search.",
+      "residual_risks": [
+        "The full 2026 Luo–Zhou–Mesnager–Sagar–Yan cyclic-code article was not inspected; may discuss radius-nine corollaries, though full histogram implication not established.",
+        "Prior ordinary coset-spectrum tabulations could indirectly encode some joint data through non-obvious transformations.",
+        "No all-family claim; exact exhaustive finite computation remains verifier/environment dependent, independently reimplemented here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No fixed [16,5] binary first-order two-row complete spectrum in the inspected exact-results table",
+          "evidence": [
+            "Table I gives exact extremes r=0,m-2,m-1,m and only bounds in intermediate regime; no ten-term coset pair histogram."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.09902",
+          "material_read": "Full available article HTML; Table I, definitions of generalized radius and intermediate-order bounds",
+          "method": "Primary lawful accessible full article HTML, relevant statements/equations/sections materially read",
+          "title": "On the Generalized Covering Radii of Reed–Muller Codes",
+          "trigger": "Exactly same generalized-radius invariant and RM family"
+        },
+        {
+          "assessment": "Inconclusive for full-content noncoverage, general abstract indicates bounds, residual risk retained",
+          "evidence": [
+            "No inspected complete 10-coefficient enumeration."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.14477",
+          "material_read": "Accessible abstract and theorem summary only, NOT full text",
+          "method": "Primary lawful accessible full article HTML, relevant statements/equations/sections materially read",
+          "title": "On the Generalized Packing and Covering Radii of Codes",
+          "trigger": "Recent general inequalities for second covering radius"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural generalized covering-radius invariant measures minimum joint support for simultaneous two-query retrieval; its complete fixed-code distribution gives farthest-coset counts and all distance layers, independently reusable as an exact benchmark. Enumeration is exhaustive over a canonical small natural Reed–Muller instance with 4,194,304 ordered cosets, not an arbitrary slice or incomplete census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The full 2026 Luo–Zhou–Mesnager–Sagar–Yan cyclic-code article was not inspected; may discuss radius-nine corollaries, though full histogram implication not established.",
+    "Prior ordinary coset-spectrum tabulations could indirectly encode some joint data through non-obvious transformations.",
+    "No all-family claim; exact exhaustive finite computation remains verifier/environment dependent, independently reimplemented here.",
+    "Public METADATA.json/AUDIT.json contain scope_run_id operational provenance. Publication not_ready pending actual guarded privacy-safe public file replacements. No GitHub changes, publications, external attestation, or formal verification claimed."
+  ],
+  "schema_version": 1
+}

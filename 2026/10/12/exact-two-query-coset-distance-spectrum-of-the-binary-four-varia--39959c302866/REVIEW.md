@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact statement is finite: the binary affine-evaluation code on sixteen coordinate points, two ordered received rows, and the union-of-residual-support metric. The rank-eleven parity checks are explicitly reconstructed from five pivot coordinates. The four-choice recurrence follows from the four possible two-bit error columns, and induction over sixteen coordinates proves it enumerates all possible errors. Two distinct exact implementations—syndrome convolution and direct minimization over all affine codeword pairs for each coset pair—agree state by state on all \(2^{22}\) ordered coset pairs. Both yield a radius of nine and the same ten coefficient counts. The first four counts are independently forced by distance eight and disjoint low-radius balls. Scope does not extend to infinitely many Reed–Muller parameters.
+PASS
 
-## Originality — PASS, subject to documented source-access risk
+Read immutable RESULT.md and verify.cpp. Affine [16,5,8] code has 11 parity-check rows from pivot coordinates 0,1,2,4,8; pair of 11-bit syndromes labels every ordered coset pair. At each of 16 positions two binary errors give precisely four transitions of minimum joint union-support: D_{j+1}(s)=min(D_j(s),1+D_j(s+e_j),1+D_j(s+f_j),1+D_j(s+e_j+f_j)). This inductive recurrence is exhaustive on 2^22 syndromes. Independently implemented recurrence in C++17, executed all 4,194,304 states and recovered exact histogram (1,48,1080,15120,144585,858144,2359602,798000,17388,336), first distance-nine syndrome=(373,207), total 4194304 and radius nine. First four counts also equal binom(16,j)3^j (j=0..3) because minimum codeword support eight, independent consistency check. This proves the finite fixed-code statement, NOT an infinite Reed–Muller family or orbit classification.
 
-The complete twenty-two-bit syndrome-pair distance histogram was compared by mathematical implication, not just title, against the generalized covering-radius definition (Elimelech–Firer–Schwartz, 2021), the Reed–Muller exact-value table and bounds (Elimelech–Wei–Schwartz, 2022), the full recent packing–covering article (Yu–Schwartz, arXiv:2609.14477v1), and Ozeki’s ordinary \(\operatorname{RM}_2(1,4)\) coset classification. Those sources give a definition, bounds, general inequalities, or **one-row** distributions, respectively; none of the inspected statements determines the listed **two-row joint support** histogram. Searches also considered its equivalent quaternary field-extension coset distribution. The 2026 cyclic-code article by Luo and collaborators and the 2026 finite-geometric article by Alfarano and collaborators could not be examined in full; possible preexisting radius consequences or a more obscure full histogram remain residual risks. No global novelty certification is implied by unsuccessful indexing searches.
+## originality
 
-## Value — PASS
+PASS
 
-The exact distance spectrum is a complete natural invariant for the smallest four-variable first-order Reed–Muller case beyond the known extreme-order families, not an arbitrary selected coefficient. It quantifies the number of joint coset classes requiring each possible number of coordinate accesses, including all 336 worst cases; this information is unavailable from ordinary covering radius six or its ordinary deep-hole table. The result supplies a finite benchmark for joint-access algorithms and for future generalized-covering constructions. Although the argument is finite and computational, two exhaustive and mathematically justified enumerations recover the whole invariant, rather than a partial numerical search.
+Elimelech–Wei–Schwartz (arXiv:2107.09902) Table I reports known exact order extremes and bounds for intermediate Reed–Muller generalized covering radii; r=1,m=4 is not an exact case in the table. The submitted much stronger invariant is the ENTIRE two-row ordered-coset distance histogram, not merely radius. Ordinary RM(1,4) deep-hole/weight-enumerator results are single-row, and a binary-to-F4 scalar-extension restatement does not make published scalar one-row distributions imply all ten joint coefficients. Resultary covering-radius findings searched and nearest hits for unrelated BCH families did not dominate this code. No matching full spectrum found within inspected material; novelty is best-of-knowledge, not proof from failed search.
 
-## Scientific limits and related literature
+## value
 
-This result is confined to two ordered binary rows and length sixteen; it gives no all-length closed formula, orbit classification, or independent validation. Primary references: Elimelech–Firer–Schwartz (2021), Elimelech–Wei–Schwartz (2022), Ozeki (2012), Yu–Schwartz (2026); relevant incompletely accessible comparator: Luo–Zhou–Mesnager–Sagar–Yan (2026).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural generalized covering-radius invariant measures minimum joint support for simultaneous two-query retrieval; its complete fixed-code distribution gives farthest-coset counts and all distance layers, independently reusable as an exact benchmark. Enumeration is exhaustive over a canonical small natural Reed–Muller instance with 4,194,304 ordered cosets, not an arbitrary slice or incomplete census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
