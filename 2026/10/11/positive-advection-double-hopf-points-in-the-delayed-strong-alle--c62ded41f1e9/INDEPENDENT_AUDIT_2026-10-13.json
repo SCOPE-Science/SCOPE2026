@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T02:50:12.216420Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md; verify_double_hopf.py; Liu–Wei AIMS Mathematics 2026 DOI 10.3934/math.2026476, Eq.2.7 and Eq.2.14"
+      ],
+      "rationale": "At α=0 the Neumann/Dirichlet spatial spectrum gives μ_n=d((2n−1)π/(2L))²; normalizing x=μ1/3 yields μ2/3=9x and μ3/3=25x. The source modal characteristic equation λ+μ+3exp(−λτ)=0 yields Hopf functions H_j(y)=(acos(−y)+2πj)/sqrt(1−y²) and G(x)=H1(x)−H0(9x). G(1/25)>0 and G→−∞ at 1/9; differentiating gives H1′(x)<2.1 and 9H0′(9x)>10 on (1/25,1/9), hence one simple zero. At that zero 9x<1<25x, two simple imaginary pairs and no higher-mode pair; scalar characteristic derivative cannot vanish since that would force sin(ωτ)=0, contradicting sin(ωτ)=ω/3>0. Spatial gauge φ=e^(αx/(2d))y leads to y′(0)=α y(0)/(2d), y(L)=0 with simple spatial roots; implicit function theorem and nonzero G′ carry the point to all sufficiently small α>0. Independent high precision root/characteristic substitution checked displayed numerical values but is not the existence proof.",
+      "residual_risks": [
+        "Does not establish a nonlinear double-Hopf unfolding, resonances, maximal advection range, or nearby attractors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Du–Niu–Guo–Wei, Double Hopf bifurcation in delayed reaction-diffusion systems, arXiv:1804.03775, works with different systems and spatial boundary assumptions.",
+          "Liu–Wei, Nonlinear Analysis: Modelling and Control 26 (2021), DOI 10.15388/namc.2021.26.20561, has a different diffusive predator/prey system with two delays."
+        ],
+        "reasoning": "General two-frequency existence in distinct systems does not imply this exact single-species Robin/Dirichlet delay/advection spectral intersection.",
+        "searches": [
+          "Delay reaction diffusion advection strong Allee population model simultaneous diffusion delay double Hopf bifurcation Liu Wei mode Hopf branches",
+          "delay reaction diffusion advection strong Allee Hopf-Hopf"
+        ]
+      },
+      "checked_sources": [
+        "Liu–Wei 2026 DOI 10.3934/math.2026476 full text",
+        "Du–Niu–Guo–Wei arXiv:1804.03775 bibliographic/abstract",
+        "Liu–Wei 2021 DOI 10.15388/namc.2021.26.20561 bibliographic/model comparison",
+        "Resultary searches Delay reaction diffusion advection strong Allee population model simultaneous diffusion delay double Hopf bifurcation Liu Wei mode Hopf branches; delay reaction diffusion advection strong Allee Hopf-Hopf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full Liu–Wei 2026 §2 Lemma 2.5 excludes simultaneous imaginary pairs by comparing first critical delays, whereas candidate matches higher j for n=1 and first j for n=2.",
+          "First Hopf threshold comparison does not imply an all-branch comparison."
+        ],
+        "reasoning": "The theorem asserted in the source is inconsistent with explicit two-mode solution satisfying the source’s own spectral equations, so prior result neither covers nor invalidates the counterexample.",
+        "searches": [
+          "Delay reaction diffusion advection strong Allee population model simultaneous diffusion delay double Hopf bifurcation Liu Wei mode Hopf branches",
+          "delay reaction diffusion advection strong Allee Hopf-Hopf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Wei AIMS Mathematics 2026 Eq.2.14 supplies all branches τ_n^(j), not the universal no-double-Hop-f conclusion when branch j differs by mode.",
+          "Resultary matching self-index is the same assigned result, excluded as independent prior."
+        ],
+        "reasoning": "Searched Hopf–Hopf, double imaginary roots, branch crossings and delayed reaction-diffusion-advection strong-Allee variants; the source’s first-boundary ordering is not equivalent to a prohibition across all branch indices.",
+        "searches": [
+          "Delay reaction diffusion advection strong Allee population model simultaneous diffusion delay double Hopf bifurcation Liu Wei mode Hopf branches",
+          "delay reaction diffusion advection strong Allee Hopf-Hopf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Target paper gives modal characteristic equation and Hopf-delay branches but no table documenting the second-index crossing x*=0.104159…; its Lemma 2.5 asserts nonexistence."
+        ],
+        "reasoning": "An exact numerical pair absent in prior tables is not itself novelty: the mathematical counterexample to the target universal nonexistence statement and the transverse persistence are the substantive comparisons.",
+        "searches": [
+          "Resultary search Delay reaction diffusion advection strong Allee population model simultaneous diffusion delay double Hopf bifurcation Liu Wei mode Hopf branches",
+          "Resultary search delay reaction diffusion advection strong Allee Hopf-Hopf",
+          "AIMS 2026 DOI 10.3934/math.2026476"
+        ]
+      },
+      "rationale": "The primary source asserts absence of simultaneous d/τ Hopf–Hopf after only comparing the earliest stability boundary. Its own entire modal Hopf ladder admits a higher-first-mode/first-second-mode transverse intersection; this is logically different from and contradicts the source’s blanket exclusion.",
+      "residual_risks": [
+        "No exhaustive check for all indexed corrections or nonlinear unfolding; this is a best-of-knowledge statement-level comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers characteristic equation but incorrectly asserts all modal crossings absent",
+          "evidence": "Eqs.2.7,2.14 and Lemma 2.5: only earliest stability boundary ordered; branch j=1 of mode1 intersects j=0 of mode2.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/4/PDF/math-11-04-476.pdf",
+          "material_read": "Full 21-page AIMS paper, particularly characteristic Eq.2.7, Hopf branch Eq.2.14, Lemma 2.5 on page 8 and parameter plots",
+          "method": "Opened full PDF and visually inspected Lemma 2.5 page and formulas",
+          "title": "Liu and Wei, Hopf bifurcation analysis in a reaction-diffusion-advection model with strong Allee effect and delay",
+          "trigger": "Same PDE and boundary conditions; source theorem claims no Hopf–Hopf"
+        },
+        {
+          "assessment": "Relevant general setting but not a theorem implying this fixed scalar advection boundary-value result",
+          "evidence": "Different system and boundary/parameter assumptions.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.03775",
+          "material_read": "Bibliographic abstract/model and scope, not an asserted full-document negative comparison",
+          "method": "Search and abstract/mathematical scope comparison",
+          "title": "Du et al., Double Hopf bifurcation in delayed reaction–diffusion systems",
+          "trigger": "Potential broader double-Hopf coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Source Lemma 2.5; candidate exact G monotonicity and IFT proof"
+      ],
+      "rationale": "An explicit transverse two-frequency point contradicts a strong published spectral exclusion for the identical PDE and changes its codimension-two bifurcation landscape. Modes, branch indices, and advection persistence are structural rather than arbitrary numerics; no nonlinear normal-form results are claimed.",
+      "residual_risks": [
+        "Local spectral existence does not automatically classify actual nonlinear double-Hopf bifurcations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For r=1,K=4,L=8, a unique transverse intersection of zero-advection modal Hopf branches (n,j)=(1,1) and (2,0) at x≈0.104159188955685 continues to sufficiently small positive advection, producing exactly two simple distinct imaginary conjugate pairs, without an assertion about nonlinear normal form.",
+  "limitations": [
+    "Numerical x*, d*, τ* are supporting checks, not exhaustive/infinite proofs.",
+    "Result covers local linearized spectrum, not nonlinear normal form or advection intervals beyond some ε>0."
+  ],
+  "schema_version": 1
+}

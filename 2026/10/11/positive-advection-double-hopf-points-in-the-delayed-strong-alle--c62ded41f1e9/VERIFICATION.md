@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof uses the exact characteristic equation and the mixed-boundary spatial eigenproblem. At \(\alpha=0\), the first three dimensionless spatial eigenvalues are \(x\), \(9x\), and \(25x\). The branch-difference function \(G\) is positive at \(x=1/25\), tends to \(-\infty\) as \(x\uparrow1/9\), and has strictly negative derivative throughout that interval. Hence it has exactly one root there. The inequalities \(9x_*<1<25x_*\) prove that precisely two spatial modes can be imaginary at the intersection.
+# Independent mathematical audit
 
-The characteristic derivative cannot vanish at an imaginary root because that would force \(\sin(\omega\tau)=0\), contradicting \(\sin(\omega\tau)=\omega/3>0\). Thus both conjugate pairs are simple.
+## correctness
 
-For positive advection, the substitution \(\phi=e^{\alpha x/(2d)}y\) reduces the spatial problem to \(y''+k^2y=0\) with \(y'(0)=\alpha y(0)/(2d)\) and \(y(L)=0\). The zero-advection spatial roots are simple, so the spatial eigenvalues and Hopf curves vary smoothly. The zero-advection branch intersection is transverse, and the strict mode-separation inequalities persist; the implicit-function theorem therefore yields nearby positive-advection intersections with exactly two imaginary pairs.
+PASS
 
-The standalone checker `verify_double_hopf.py` uses only the Python standard library. It bisects the zero-advection scalar equation and substitutes the resulting frequencies into the characteristic equation. A successful replay prints `VERIFY_OK`. The numerical calculation is not used to prove existence, uniqueness, or continuation.
+At α=0 the Neumann/Dirichlet spatial spectrum gives μ_n=d((2n−1)π/(2L))²; normalizing x=μ1/3 yields μ2/3=9x and μ3/3=25x. The source modal characteristic equation λ+μ+3exp(−λτ)=0 yields Hopf functions H_j(y)=(acos(−y)+2πj)/sqrt(1−y²) and G(x)=H1(x)−H0(9x). G(1/25)>0 and G→−∞ at 1/9; differentiating gives H1′(x)<2.1 and 9H0′(9x)>10 on (1/25,1/9), hence one simple zero. At that zero 9x<1<25x, two simple imaginary pairs and no higher-mode pair; scalar characteristic derivative cannot vanish since that would force sin(ωτ)=0, contradicting sin(ωτ)=ω/3>0. Spatial gauge φ=e^(αx/(2d))y leads to y′(0)=α y(0)/(2d), y(L)=0 with simple spatial roots; implicit function theorem and nonzero G′ carry the point to all sufficiently small α>0. Independent high precision root/characteristic substitution checked displayed numerical values but is not the existence proof.
 
-Limits: no nonlinear center-manifold coefficients are checked or claimed, and no sharp upper bound on the continued advection interval is asserted.
+## originality
+
+PASS
+
+The primary source asserts absence of simultaneous d/τ Hopf–Hopf after only comparing the earliest stability boundary. Its own entire modal Hopf ladder admits a higher-first-mode/first-second-mode transverse intersection; this is logically different from and contradicts the source’s blanket exclusion.
+
+## value
+
+PASS
+
+An explicit transverse two-frequency point contradicts a strong published spectral exclusion for the identical PDE and changes its codimension-two bifurcation landscape. Modes, branch indices, and advection persistence are structural rather than arbitrary numerics; no nonlinear normal-form results are claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
