@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T23:16:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Sylvester determinant reduction on the hypersimplex x1+x2+x3=2 yields D=1+2(b+k)+B e2+H e3, with b=gamma(1-a)-1, k=gamma a, B=b(b+2k), H=b^2(b+3k). On the newly found lower interval B,H>=0, e2 and e3 are concave on the feasible slice, so log D is concave. The two PSD spectral scale regimes cover the other sufficient intervals. Throughout the excluded middle B<0, a strictly interior point x=(delta,1-delta/2,1-delta/2) has positive second logdet derivative along (0,1,-1), so the endpoints are necessary. Symmetry gives the center optimum and strict scale monotonicity. Strong negative slice-Hessian margin implies small non-equicorrelated perturbation stability. Independent symbolic determinant and rational sign checks confirm key algebra, not arbitrary-parameter theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Two standard spectral PSD intervals follow from general logdet; Theorem 17 gives a narrower special sufficient case a<1/3."
+        ],
+        "reasoning": "The broader n-dimensional model contains the instance but supplies only sufficient, not exact necessary-and-sufficient, concavity on Delta_{3,2}.",
+        "searches": [
+          "arXiv:2609.01214v1 Sections 2-5",
+          "arXiv:2511.04350v3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2609.01214v1",
+        "https://arxiv.org/html/2511.04350v3",
+        "DOI:10.1007/s101070050055"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original remark expressly warns full-space Hessian conditions do not decide cardinality-slice convexity; later MESP/0–1 D-opt equivalences do not yield new curvature inequalities."
+        ],
+        "reasoning": "The sharp lower endpoint 1/(1+a) improves upon 1/(1+2a) for every a>0, and cannot be obtained merely by substituting into the published PSD spectral condition.",
+        "searches": [
+          "arXiv:2609.01214v1 Remark 16",
+          "arXiv:2511.04350v3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Paper formulates the same scaled NLP-Id objective; evaluates Hessians on the ambient cube rather than complete affine cardinality-two slice."
+        ],
+        "reasoning": "Identical objective does not imply identical domain: restricted-slice concavity can hold where cube concavity fails; all-scale necessity is new in the inspected source.",
+        "searches": [
+          "Resultary: Maximum entropy sampling NLP-Id scaled equicorrelation 3 variables cardinality 2 affine slice concavity phase thresholds",
+          "arXiv:2609.01214v1 Theorem 17 Remark 16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously published conditions are parameter inequalities, not a tabulated complete sharp phase diagram for all 0<a<1 at n=3,s=2."
+        ],
+        "reasoning": "There is no relevant known finite database: this is a continuum of real scales and covariance parameters, with proof of necessity and robust perturbation.",
+        "searches": [
+          "Resultary: Maximum entropy sampling NLP-Id scaled equicorrelation 3 variables cardinality 2 affine slice concavity phase thresholds",
+          "arXiv:2609.01214v1 Theorem 17"
+        ]
+      },
+      "rationale": "Anstreicher–Fampa–Lee–Li–Ponte (arXiv:2609.01214v1) establishes spectral sufficient regimes and a restricted equicorrelation cube theorem, and distinguishes affine slice curvature. The present theorem gives all a in (0,1), a sharp necessary-and-sufficient scale phase classification specifically on Delta_{3,2}, exact optimal bound and stable non-symmetric perturbations; the earlier cube conditions do not entail the extra concave scales. No Resultary claim matched this exact NLP-Id phase classification.",
+      "residual_risks": [
+        "Historical 1996/1999 maximum entropy sampling relaxations were identified but complete originals not read.",
+        "Exact endpoints proved only for positive equicorrelation in n=3,s=2, not arbitrary C."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not provide all-scale Delta_{3,2} necessity or the off-spectral strong-concavity perturbation assertion",
+          "evidence": [
+            "arXiv:2609.01214v1 Sections 2–5, Theorem 17 and Remark 16"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.01214v1",
+          "material_read": "Full accessible arXiv HTML, including definitions, spectral conditions, Theorem 17, Remark 16 and scope of ambient-cube Hessian analysis",
+          "method": "Read primary full-text HTML and compared formulas/theorem assumptions",
+          "title": "New insights into the NLP-Id bound for maximum-entropy sampling",
+          "trigger": "Same exact scaled objective and original Theorem 17"
+        },
+        {
+          "assessment": "Related objective equivalence, not evidenced as an exact affine-slice Hessian phase theorem",
+          "evidence": [
+            "arXiv:2511.04350v3, Sections 3.1 and 3.3 cited in source"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.04350v3",
+          "material_read": "Available author abstract and objective-relationship statement, not complete paper body",
+          "method": "Targeted bibliographic and primary-page contextual inspection",
+          "title": "On the relationship between MESP and 0/1 D-Opt and their upper bounds",
+          "trigger": "Possible alternate relaxation implying result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp concavity ranges determine when the actual constrained relaxation admits global convex optimization. Extending a sufficient spectral region with necessity and a uniform curvature margin gives a natural robust optimization insight, beyond a coincidental determinant identity; the discrete symmetric instance is degenerate but the perturbation neighborhood is not.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Positive equicorrelation n=3,s=2 only; near-equicorrelation robustness for fixed strictly interior scales.",
+    "All integer selections have equal determinant at exactly C_a; usefulness comes from relaxation and perturbations."
+  ]
+}

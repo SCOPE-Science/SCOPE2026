@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim uses \(0<a<1\), \(\gamma>0\), and the exact slice \(\Delta=\{x\in[0,1]^3:\sum_i x_i=2\}\). Reconstructing the determinant through Sylvester's identity gives the coefficient identity \(D=1+2(b+k)+b(b+2k)e_2+b^2(b+3k)e_3\), which was independently checked against direct rational determinants. Positivity holds at the boundary as well as in the interior. Spectral log-determinant concavity proves the two outer ranges; slice concavity of \(e_2\) and \(e_3\) closes the additional low interval. In the excluded gap, the exact second derivative \(-2(B+H\delta)/D>0\) at \((\delta,1-\delta/2,1-\delta/2)\) disproves concavity. Symmetry and Jensen establish the exact optimum. A concave quadratic derivative numerator proves strict low-branch scale monotonicity, and a uniform negative Hessian margin proves robustness to covariance perturbations. The checker verified 770 rational determinant identities and additional parameter, boundary and curvature identities, but the real-parameter theorem rests on the analytic proof.
+PASS
 
-## Originality — PASS with residual risks
+Sylvester determinant reduction on the hypersimplex x1+x2+x3=2 yields D=1+2(b+k)+B e2+H e3, with b=gamma(1-a)-1, k=gamma a, B=b(b+2k), H=b^2(b+3k). On the newly found lower interval B,H>=0, e2 and e3 are concave on the feasible slice, so log D is concave. The two PSD spectral scale regimes cover the other sufficient intervals. Throughout the excluded middle B<0, a strictly interior point x=(delta,1-delta/2,1-delta/2) has positive second logdet derivative along (0,1,-1), so the endpoints are necessary. Symmetry gives the center optimum and strict scale monotonicity. Strong negative slice-Hessian margin implies small non-equicorrelated perturbation stability. Independent symbolic determinant and rational sign checks confirm key algebra, not arbitrary-parameter theorem.
 
-The closest direct source, Anstreicher–Fampa–Lee–Li–Ponte (arXiv:2609.01214v1), introduces scaled NLP-Id and gives spectral-region concavity on the cube, a sufficient but nonsharp equicorrelation condition in Theorem 17, and a remark that affine-slice curvature is an additional problem. Its results do not classify necessity and sufficiency on the exact three-variable, size-two slice. Ponte–Fampa–Lee (arXiv:2511.04350v3) gives the related D-optimality equivalences at spectral scaling, not all-scale curvature. Ponte–Fampa–Lee (Algorithmica, DOI:10.1007/s00453-026-01373-9) works with generalized factorization and dual relaxations rather than the scaled NLP-Id determinant. Relevant published-record searches revealed no same-claim record; they do not establish novelty. The full 1996/1999 classical formulations were not obtained; an equivalent result hidden there or elsewhere cannot be excluded without further human examination.
+## originality
 
-## Value — PASS
+PASS
 
-The exact two-range classification resolves a natural minimal nontrivial affine-cardinality case raised by the motivating analysis, not an arbitrary grid slice. It permits convex solution of a parameter interval beyond the eigenvalue sufficient bound and provides a closed-form decreasing upper-bound profile. Its explicit strong-concavity modulus establishes stability for open families of nonequicorrelated matrices with genuinely different pairwise selection objectives. No higher-dimensional generalization, quantitative perturbation radius or end-to-end algorithmic speedup is claimed.
+Anstreicher–Fampa–Lee–Li–Ponte (arXiv:2609.01214v1) establishes spectral sufficient regimes and a restricted equicorrelation cube theorem, and distinguishes affine slice curvature. The present theorem gives all a in (0,1), a sharp necessary-and-sufficient scale phase classification specifically on Delta_{3,2}, exact optimal bound and stable non-symmetric perturbations; the earlier cube conditions do not entail the extra concave scales. No Resultary claim matched this exact NLP-Id phase classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Sharp concavity ranges determine when the actual constrained relaxation admits global convex optimization. Extending a sufficient spectral region with necessity and a uniform curvature margin gives a natural robust optimization insight, beyond a coincidental determinant identity; the discrete symmetric instance is degenerate but the perturbation neighborhood is not.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
