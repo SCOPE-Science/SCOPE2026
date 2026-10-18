@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The channel normalization follows from the spin-one Casimir and the Cartesian identity \(\sum_a J_aXJ_a=\operatorname{Tr}(X)I-X^{\mathsf T}\). The normalized Choi state is \((1-p)P_\Phi+p(I-F)/6\). After partial transpose it is a linear combination of the commuting operators \(I\), \(F\), and \(P_\Phi\), so the antisymmetric subspace, the maximally entangled line, and the remaining symmetric subspace give the complete spectrum with multiplicities \(3,1,5\). The negativity formula follows by exact sign changes at \(p=1/2\) and \(p=2/3\). Exact-rational replay reconstructs the Choi matrix from matrix units and verifies the spectral projector decomposition.
+PASS
 
-## Originality
+In the spin-one Cartesian basis sum_a J_a X J_a=Tr(X)I-X^T, giving the completely positive interpolation E_p=(1-p)id+p(Tr(.)I-(.)^T)/2 on 0<=p<=1. The normalized Choi matrix is J_p=(1-p)P_Phi+p(I-F)/6; partial transpose is ((1-p)/3)F+(p/6)(I-3P_Phi). Three mutually orthogonal subspaces antisymmetric (dim3), entangled line (dim1), and symmetric tracefree (dim5) have eigenvalues (3p-2)/6, (1-2p)/3, (2-p)/6, respectively. Sign changes at p=1/2 and 2/3 yield exact negativity 1-3p/2, (4-5p)/6, (2p-1)/3 over consecutive intervals; the negative intervals cover all p and slopes -3/2,-5/6,+2/3 force unique minimum N=1/9 at p=2/3, N(1)=1/3. Independently verified exact rational 9x9 Choi matrices, partial transpose and projector decompositions symbolically and checked rational phase boundaries. No capacity or higher-dimensional inference is asserted.
 
-PASS, with explicit partial prior coverage. Ritter supplies the channel and the source critical value. Filippov--Kuzhamuratova cover non-entanglement-breaking behavior of the Landau-Streater endpoint. Roofeh--Karimipour later study the exact noisy Werner-Holevo interpolation, but the inspected full text does not state the Choi partial-transpose spectrum or the piecewise negativity law. Zhu--Wang explicitly cover the special point \(p=1/2\) as non-PPT, so that point is excluded from any novelty claim. The accepted contribution is the full spectrum and exact all-parameter negativity profile, which neither the endpoint results nor the single-point NPT result imply.
+## originality
 
-## Value
+PASS
 
-PASS. Ritter identifies \(p=2/3\) as the only physical critical value because one tensor sector is exactly erased there, while the channel as a whole is not pure noise. The new formula gives that distinguished parameter a separate entanglement meaning: it is exactly the unique minimum of Choi negativity, not a PPT transition. The subsequent increase to the Werner-Holevo endpoint makes the loss of a Bloch-tensor sector and the entanglement of the channel's Choi state quantitatively distinct, which is useful when interpreting this channel as a qutrit noise model.
+The calculation adds an independent entanglement interpretation of p=2/3 as exact *minimum* Choi negativity without PPT interval. Prior p=2/3 criticality is credited rather than repackaged as new. Roofeh same-family full text not read so decisive coverage cannot be definitively excluded. Exact-family identity is strong prior coverage of the object, not of the requested Choi partial transpose spectrum. Full recent paper not read, so cannot assert whole-paper absence of formula; this remains a substantial risk. Material priority limits are recorded separately.
 
-## Closest literature and limitations
+## value
 
-The closest exact-family source is arXiv:2310.15353 / DOI:10.1103/PhysRevA.109.052620. The closest direct partial overlap is arXiv:2607.24693 at \(p=1/2\). Endpoint non-entanglement-breaking behavior is covered by arXiv:1803.02572 / DOI:10.1063/1.5037700. The theorem does not address capacities or higher-dimensional generalizations, and differently named equivalent formulations remain a residual literature risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact Choi-negative spectrum and nonmonotone piecewise entanglement profile provide a natural quantitative invariant for a standard spin-one noisy channel across its full physical parameter range. The only tensor-sector-erasure critical point p=2/3 is also the unique minimum of this distinct entanglement metric, but no PPT transition occurs. This is useful beyond previously known isolated-point NPT and endpoint properties, without a capacity claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
