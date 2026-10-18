@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses exact differentiation and algebra. In the published SODE phase variables \(x,v,z,w\), the defect \(Q=w+cz-hx^2\) has Lie derivative \(cQ\). Therefore \(Q=0\) is invariant and every off-constraint defect equals \(Q(0)e^{ct}\).
+# Independent mathematical audit
 
-The reconstruction \(y=x+v/a\) recovers \(\dot x=a(y-x)\) and \(\dot y=bx-kxz\); imposing \(Q=0\) recovers \(\dot z=-cz+hx^2\). The explicit family \(x=v=0\), \(z=Ae^{ct}+Be^{-ct}\) verifies that the full SODE has extra solutions whenever \(A\ne0\).
+## correctness
 
-At the origin, the physical Liu characteristic polynomial is \( (\lambda+c)(\lambda^2+a\lambda-ab)\). The extended SODE characteristic polynomial is \((\lambda^2-c^2)(\lambda^2+a\lambda-ab)\), so the extension adds exactly the eigenvalue \(+c\) while retaining \(-c\).
+PASS
 
-The packaged `verify.py` checks these algebraic identities symbolically with a small dependency-free polynomial engine and returned `VERIFY_OK`. No finite numerical experiment is used as evidence for the general statement.
+From the actual source SODE xdot=v, vdot=−ax(kz−b)−av, zdot=w, wdot=−c(hx²−cz)+2hxv, direct symbolic differentiation of Q=w+cz−hx² gives Qdot=cQ exactly. Thus physical original flow exactly equals invariant Q=0 and is not equivalent to the unrestricted four-dimensional SODE. x=v=0 admits extraneous z=A exp(ct)+B exp(−ct) with A≠0, while physical z follows only exp(−ct). Origin SODE block has ±c, physical flow −c only. Reviewed packaged polynomial verifier; independently checked algebra. Source printed δ2(E)=c in instability analysis: matches rate of nonphysical +c mode, without claiming all Jacobi instabilities spurious.
+
+## originality
+
+PASS
+
+Specific invariant constraint and exponentially repelling extra Liu-system direction correct the published equivalence interpretation; no equivalent Liu-specific diagnosis found in inspected source or semantically nearby published records.
+
+## value
+
+PASS
+
+Exhibits an explicit exponentially repelling spurious degree of freedom that changes interpretation of published local deviation dynamics. The invariant-manifold equivalence condition and counterexample are motivated structural corrections for the specific applied model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
