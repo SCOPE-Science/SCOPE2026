@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T01:11:00.721755Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/13/random-bipartite-type-counts-persist-exactly-through-the-first-a--669309f61ec2/RESULT.md @ 40d46a820f74fdf355c691812bdc426ec204bde7",
+        "Conant–Kruckman arXiv:1709.09626, Definition 2.13, Proposition 2.14, Corollary 2.15",
+        "independent_1793_checks.py"
+      ],
+      "rationale": "In T_(m,n), complete types are classified by incidence-isomorphism of the algebraic closure of their marked tuple (Conant–Kruckman). At injective arity k=min(m,n), any mixed-sort tuple has fewer than m points and n lines and triggers no incidence closure. If m=k and the tuple consists of m points, exactly n-1 common lines are algebraically added; since n-1<n, no dual rule can trigger. The dual case applies if n=k; when m=n, both same-sort shapes are exceptional. Their unlabelled new common elements are unique up to marked incidence isomorphism, so the injective k-type count remains a_k=sum_p binom(k,p)2^[p(k-p)], while a_k-(1 or 2) types have trivial closure. Arbitrary equality patterns give sum_j Stirling2(k,j)a_j. Independent integer checks reproduced a_0..7, the Stirling transform, and the closure-size exception schema for all 49 pairs m,n in [2,8]. The finite checks are not a substitute for the model-theoretic closure theorem.",
+      "residual_risks": [
+        "This proof uses the model-companion existence and exact saturation of n-1 lines common to each m-set of points, not arbitrary K_mn-free structures.",
+        "No claim for arities k+1 or more; interacting closure triggers may produce additional complete types."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary theorem gives the necessary full structural acl classification.",
+          "Resultary one-line extension enumeration is equivalent to an independence polynomial of a saturated hypergraph, a different parameter-dependent extension problem."
+        ],
+        "reasoning": "The general acl theorem is a stronger structural result, but deriving the explicit first-boundary complete-type census and exceptional-closure sizes still requires this additional simple orbit computation. No enumerator directly subsumes the stated formula in inspected sources.",
+        "searches": [
+          "Conant–Kruckman arXiv:1709.09626 model-companion and acl theorems",
+          "Resultary 2026/10/4 one-line extension polynomial generic K_mn-free incidence"
+        ]
+      },
+      "checked_sources": [
+        "Conant–Kruckman arXiv:1709.09626, primary model-theoretic closure results inspected",
+        "Resultary 2026/10/4 one-line extension-polynomial result (summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower-arity formula uses trivial closure and stops one arity before the first nontrivial threshold.",
+          "At k, exactly one or two injective type templates have nontrivial closure of size m+n-1, but their complete types still do not bifurcate."
+        ],
+        "reasoning": "The primary closure theorem allows this calculation, but does not by itself state persistence of the random-bipartite numerical profile. The difference between acl being nontrivial and types splitting is the mathematical content.",
+        "searches": [
+          "Conant–Kruckman Proposition 2.14, Corollary 2.15",
+          "Source-mentioned lower-arity random-bipartite formula r<min(m,n)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cor 2.15 says complete types determined by incidence-isomorphism of marked algebraic closures.",
+          "The random bipartite pattern count a_k alone would be insufficient without checking newly created common-line/point closure objects."
+        ],
+        "reasoning": "The equivalent formulation is an orbit count of finite marked algebraic closures; using the primary closure theorem shows one or two nontrivial closure types do not split. It is a boundary enumeration not explicitly supplied as a formula in the inspected source.",
+        "searches": [
+          "Resultary semantic query: generic K_mn free bipartite incidence model theory complete types boundary arity algebraic closure random bipartite count",
+          "Conant–Kruckman arXiv:1709.09626 Prop 2.14/Cor 2.15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "New count a_k and Stirling transform supply all boundary arities for all m,n>=2.",
+          "Prior related one-line counting concerns extensions over a parameter structure, not a database table for S_k(T_mn) over the empty set."
+        ],
+        "reasoning": "This is not recomputation of a known complete-type table for specified small m,n; the natural threshold arity and sizes vary without bound.",
+        "searches": [
+          "Conant–Kruckman arXiv:1709.09626 finite-type discussion",
+          "Resultary one-line extension polynomial count 2026/10/4"
+        ]
+      },
+      "rationale": "Conant–Kruckman establish the incidence-closure and marked-closure-isomorphism theory, including the exact m-point/n-1-common-line rule. They do not explicitly count complete types at k=min(m,n) in the inspected primary sections. The boundary enumeration follows simply but nontrivially from identifying a first algebraically nontrivial closure that nevertheless causes no type splitting. A related published extension-count result is a different finite-parameter problem, not coverage of the empty-parameter k-type count.",
+      "residual_risks": [
+        "The boundary count is an elementary corollary of the published marked-closure criterion, and might already be recorded as folklore without an independent publication.",
+        "No independent proof of Conant–Kruckman’s model-companion and closure theorems is attempted; these are stated imported hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines acl as incidence closure and type as marked-closure isomorphism; inspected theorem does not give the k=min(m,n) counting formula.",
+          "evidence": "Each m-point set has n-1 common lines, dual n-line/m-1 common points; types coded by closure structures.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.09626",
+          "material_read": "Full 25-page primary PDF, Definition 2.13, Proposition 2.14, Corollary 2.15 and surrounding saturation discussion",
+          "method": "PDF text and first-page screenshot",
+          "title": "Independence in generic incidence structures",
+          "trigger": "Exact T_mn language, model companion, saturation rule and type classification"
+        },
+        {
+          "assessment": "Different finite-parameter one-line extension-counting object; no claim about empty-set boundary k-types in summary, full text not read.",
+          "evidence": "One-line neighborhoods correspond to independent sets of a saturated m-uniform hypergraph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-independence-polynomials-as-one-line-extension-polynomials-of-fi--cf168127ba2b",
+          "material_read": "Resultary published summary only",
+          "method": "Resultary semantic search",
+          "title": "Independence polynomials as one-line extension polynomials of finite K_mn-free incidence structures",
+          "trigger": "Same generic forbidden-incidence family in Resultary search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Conant–Kruckman arXiv:1709.09626 acl and type-isomorphism classification"
+      ],
+      "rationale": "The number of complete k-types and first nontrivial algebraic-closure threshold are natural invariants of this established family of generic K_mn-free incidence structures. The theorem gives a uniform exact count at the first arity where trivial-closure enumeration no longer applies, and a complete classification of the exceptional boundary type templates and their closure sizes. This is a useful first boundary in the finite-type census rather than an arbitrary finite slice. It does not pretend to solve all higher-arity types.",
+      "residual_risks": [
+        "The derivation is short; its value is chiefly an exact natural threshold census, and extension to higher arities is unresolved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only arity k=min(m,n) and smaller; closure patterns beyond threshold can interact."
+  ],
+  "schema_version": 1
+}
