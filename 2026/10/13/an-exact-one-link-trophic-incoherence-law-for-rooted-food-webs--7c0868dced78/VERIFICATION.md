@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-The formulas concern a rooted out-tree of \(n\ge3\) binary food-web links with one additional nonloop link directed into a nonbasal vertex.
 
-The embedded standalone `verify_single_edge_trophic.py` reconstructs the *entire* augmented trophic-level linear system with exact fractions for every test. Its Gaussian elimination is separate from the formula used in the theorem. All edge differences are recomputed from these independently solved levels; the two formulas, the sharp feedback bound, and the complete zero-cost-link count are checked.
+# Independent mathematical audit
 
-Run:
+## correctness
 
-`python3 verify_single_edge_trophic.py`
+PASS
 
-Expected output includes:
+For every rooted out-arborescence the only changed indegree is that of the new target. The non-target descendants receive one common trophic-level shift, so every old link except the original parent edge of the target keeps trophic difference 1. For an acyclic chord, solving s(v)=1+(s(parent)+s(u))/2 yields deviations ±(d(v)-d(u)-1)/2, hence q²=(d(v)-d(u)-1)²/(2n). If the source is a descendant, its shifted level enters its own target equation, giving deviations ±(ell+1), hence q²=2(ell+1)²/n. The basal root remains fixed and the linear system has a unique solution in both cases. The sharp feedback gap, acyclic minimum and zero-cost count ∑ a_h(a_(h-1)-1) follow with no omitted source-target cases. A separate rational direct solution checks 1,602 allowed additions across all rooted labelled trees on 3,4,5 vertices (144 rooted trees) and 144 zero counts; finite work is corroboration, not the unbounded proof.
 
-`VERIFY_OK`
+## originality
 
-`rooted_tree_cases 1740`
+PASS
 
-`additional_arc_cases 40322`
+The original trophic-level/incoherence definitions and ensemble cycle approximations were published, but the exact one-arc response of every rooted out-tree and the full zero-cost edge count were not found in the primary material or the published-finding search. The 2020 Laplacian-based directedness is a different functional. Originality is best-of-knowledge rather than exclusive priority.
 
-`acyclic_arc_cases 29303`
+## value
 
-`feedback_arc_cases 11019`
+PASS
 
-Trees are enumerated exhaustively through six vertices using Prüfer codes with fixed root; trees of orders seven through nine are sampled reproducibly. The displayed counts are verification coverage, not a proof of validity for larger trees. The manuscript includes the independent all-orders algebraic argument.
+Trophic incoherence is a motivated food-web hierarchy invariant tied to feedback structure. The theorem gives an exact edge-insertion cost independent of branching topology, a sharp feedback-versus-acyclic separation, and a complete coherence-preserving link enumeration. These are substantive universal structural assertions, not recitations of the metric definition or arbitrary small examples.
 
-Originality remains provisional without independent audit and complete inspection of all historical scientific literature. The calculations apply to the original prey-averaged trophic-level metric, not alternate directedness scores or ecological dynamics.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

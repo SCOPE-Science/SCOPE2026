@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The classical unweighted trophic level and standard-deviation normalization are fixed explicitly, including the unique basal root, the one-new-edge constraint, and the prohibition against making that root nonbasal. Both exhaustive cases follow from the level equation at the sole indegree-two vertex: either the new source is outside the target's shifted descendant subtree, or it is inside and forms one directed cycle. In each case only two arc differences depart from one; their deviations are opposite. The proof yields the asserted depth formulas and sharp lower bounds for every finite rooted tree. Counting sources at the preceding depth proves the zero-cost enumeration without assumptions about branch sizes. The independent exact-rational linear-system verifier checked 40,322 modifications across 1,740 rooted-tree instances and returned `VERIFY_OK`.
+## correctness
 
-Risk: weighted or differently normalized trophic measures do not obey the claimed expressions. The proof, not the finite test, is the all-orders certificate.
+PASS
 
-## Originality — PASS
-The foundational 2014 full article material establishes classical trophic level and incoherence definitions, the 2015/2017 full article develops a statistical coherence ensemble and cycle predictions, and the 2020 full article introduces a different symmetric-Laplacian definition. These do not present a closed one-edge rooted-arborescence perturbation law, the universal feedback cost, or the full zero-cost-link count. Searches for arborescence, rooted food-web tree, trophic shortcut, added feedback link, and equivalent depth-difference formulas did not locate the same statement. Published mathematical records and relevant previous claims were compared by scientific implication.
+For every rooted out-arborescence the only changed indegree is that of the new target. The non-target descendants receive one common trophic-level shift, so every old link except the original parent edge of the target keeps trophic difference 1. For an acyclic chord, solving s(v)=1+(s(parent)+s(u))/2 yields deviations ±(d(v)-d(u)-1)/2, hence q²=(d(v)-d(u)-1)²/(2n). If the source is a descendant, its shifted level enters its own target equation, giving deviations ±(ell+1), hence q²=2(ell+1)²/n. The basal root remains fixed and the linear system has a unique solution in both cases. The sharp feedback gap, acyclic minimum and zero-cost count ∑ a_h(a_(h-1)-1) follow with no omitted source-target cases. A separate rational direct solution checks 1,602 allowed additions across all rooted labelled trees on 3,4,5 vertices (144 rooted trees) and 144 zero counts; finite work is corroboration, not the unbounded proof.
 
-Risk: the two-case formulas are elementary once the special one-indegree-two structure is identified, so an unindexed teaching note or supplementary worked example could contain them; failure of search alone cannot establish novelty.
+## originality
 
-## Value — PASS
-Trophic coherence is a published structural index for food-web stability and feedback studies. Adding predation edges is a natural mechanism in food-web construction. The theorem supplies a reusable local response law without recomputing a network-wide linear system, sharply distinguishes feedback cycles from acyclic omnivory and across-branch links, and counts every exactly coherence-preserving new link from the layer profile alone. The quadratic feedback penalty is independent of remote branching, a structural fact useful as an analytic calibration of this ecological statistic.
+PASS
 
-The claim does not elevate trophic coherence to a stability theorem; the model assumes equal prey weights and one link modification.
+The original trophic-level/incoherence definitions and ensemble cycle approximations were published, but the exact one-arc response of every rooted out-tree and the full zero-cost edge count were not found in the primary material or the published-finding search. The 2020 Laplacian-based directedness is a different functional. Originality is best-of-knowledge rather than exclusive priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Trophic incoherence is a motivated food-web hierarchy invariant tied to feedback structure. The theorem gives an exact edge-insertion cost independent of branching topology, a sharp feedback-versus-acyclic separation, and a complete coherence-preserving link enumeration. These are substantive universal structural assertions, not recitations of the metric definition or arbitrary small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

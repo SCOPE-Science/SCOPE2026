@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:14:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every rooted out-arborescence the only changed indegree is that of the new target. The non-target descendants receive one common trophic-level shift, so every old link except the original parent edge of the target keeps trophic difference 1. For an acyclic chord, solving s(v)=1+(s(parent)+s(u))/2 yields deviations ±(d(v)-d(u)-1)/2, hence q²=(d(v)-d(u)-1)²/(2n). If the source is a descendant, its shifted level enters its own target equation, giving deviations ±(ell+1), hence q²=2(ell+1)²/n. The basal root remains fixed and the linear system has a unique solution in both cases. The sharp feedback gap, acyclic minimum and zero-cost count ∑ a_h(a_(h-1)-1) follow with no omitted source-target cases. A separate rational direct solution checks 1,602 allowed additions across all rooted labelled trees on 3,4,5 vertices (144 rooted trees) and 144 zero counts; finite work is corroboration, not the unbounded proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2014 paper proves network-stability/coherence relations, 2017 paper derives a loop-exponent approximation for ensembles, 2020 replaces trophic levels with a symmetric-Laplacian minimizer."
+        ],
+        "reasoning": "Generic graph equations, random-ensemble moments and a differently normalized coherence functional do not contain or imply the stated branch-independent exact perturbation cost without additional calculation.",
+        "searches": [
+          "arXiv:1404.7728",
+          "arXiv:1505.07332",
+          "doi:10.1098/rsos.201138"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1073/pnas.1409077111",
+        "arXiv:1505.07332",
+        "doi:10.1098/rsos.201138",
+        "Resultary semantic search on rooted-tree single-edge q², cycle, trophic-level aliases",
+        "Assigned RESULT.md, AUDIT.json, METADATA.json, SLOGAN.txt, verify_single_edge_trophic.py at frozen tree b11aba09231bb6fa7754a0244125e554429011e2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical papers fix the q definition and address stability or stochastic cycle counts; the submitted theorem computes deterministic q² for every permissible arc and a sharp 8/n feedback separation."
+        ],
+        "reasoning": "Definitions are necessary premises, not a stronger theorem implying the new universal depth-only and enumeration statements.",
+        "searches": [
+          "arXiv:1505.07332",
+          "doi:10.1073/pnas.1409077111",
+          "doi:10.1098/rsos.201138"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Johnson et al 2014 define basal/prey averaging; Johnson–Jones 2017 eqs (4)-(5) give edge mean and q²; query aliases included tree arc/chord augmentation."
+        ],
+        "reasoning": "The same q is used, but no matching arbitrary rooted-tree one-edge closed formula was found in inspected primary sections.",
+        "searches": [
+          "trophic coherence rooted directed tree adding single feedback edge exact q^2 2(l+1)^2/n",
+          "trophic incoherence single added edge tree chord feedback cycle exact formula",
+          "Johnson Dominguez-Garcia Donetti Munoz trophic coherence determines food-web stability PMC 2014 pdf",
+          "arXiv:1505.07332"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned trophic budget/flux and unrelated network results, not a table of classical q² for all one-link rooted trees."
+        ],
+        "reasoning": "No covering exact motif table was identified; negative retrieval alone is not a novelty proof.",
+        "searches": [
+          "trophic coherence rooted directed tree adding single feedback edge exact q^2 2(l+1)^2/n",
+          "trophic incoherence single added edge tree chord feedback cycle exact formula",
+          "Johnson Dominguez-Garcia Donetti Munoz trophic coherence determines food-web stability PMC 2014 pdf",
+          "trophic incoherence rooted tree single edge depth profile table"
+        ]
+      },
+      "rationale": "The original trophic-level/incoherence definitions and ensemble cycle approximations were published, but the exact one-arc response of every rooted out-tree and the full zero-cost edge count were not found in the primary material or the published-finding search. The 2020 Laplacian-based directedness is a different functional. Originality is best-of-knowledge rather than exclusive priority.",
+      "residual_risks": [
+        "An older exact response theorem for hierarchical digraphs might imply the formulas under other nomenclature.",
+        "Classical unweighted, equally averaged and fixed-basal-root normalization essential; no dynamical stability implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_MATCH_IN_INSPECTED_MAIN_MATERIAL",
+          "evidence": "Inspected article definitions, Results and Discussion concern coherence and ecological stability rather than a one-edge rooted-tree exact cost; uninspected supplements are not cleared.",
+          "identifier_or_url": "doi:10.1073/pnas.1409077111; PMCID:PMC4273378",
+          "material_read": "Accessible PMC full-text article: classical trophic definition, Results on coherence/stability and Discussion; supplemental material not used",
+          "method": "Primary lawful OA HTML reading",
+          "title": "Trophic coherence determines food-web stability",
+          "trigger": "Foundational classical q definition and food-web interpretation"
+        },
+        {
+          "assessment": "NO_MATCH_IN_INSPECTED_ENSEMBLE_SECTIONS",
+          "evidence": "Inspected pp.3–8 equations for expected loop counts rely on random/coherence-ensemble approximations, not all one-edge rooted-tree exact formulas; other sections are not globally excluded.",
+          "identifier_or_url": "arXiv:1505.07332",
+          "material_read": "Primary preprint definitions (pp.3–4), ensemble cycle derivation (pp.4–8), context on loops; no whole-document exclusion inferred",
+          "method": "Lawful primary arXiv PDF text and page-image reading",
+          "title": "Looplessness in networks is linked to trophic coherence",
+          "trigger": "Closest treatment of loops and q in directed graphs"
+        },
+        {
+          "assessment": "DIFFERENT_FUNCTIONAL",
+          "evidence": "Uses an improved graph-Laplacian hierarchy/directedness index, explicitly replacing basal-node classical prey averaging.",
+          "identifier_or_url": "doi:10.1098/rsos.201138",
+          "material_read": "Abstract, primary repository description and definition change",
+          "method": "OA primary landing and repository abstract",
+          "title": "How directed is a directed network?",
+          "trigger": "Potential alternative equivalence via Laplacian directedness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Trophic incoherence is a motivated food-web hierarchy invariant tied to feedback structure. The theorem gives an exact edge-insertion cost independent of branching topology, a sharp feedback-versus-acyclic separation, and a complete coherence-preserving link enumeration. These are substantive universal structural assertions, not recitations of the metric definition or arbitrary small examples.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1073/pnas.1409077111",
+    "arXiv:1505.07332",
+    "doi:10.1098/rsos.201138",
+    "Resultary semantic search on rooted-tree single-edge q², cycle, trophic-level aliases",
+    "Assigned RESULT.md, AUDIT.json, METADATA.json, SLOGAN.txt, verify_single_edge_trophic.py at frozen tree b11aba09231bb6fa7754a0244125e554429011e2"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An older exact response theorem for hierarchical digraphs might imply the formulas under other nomenclature.",
+    "Classical unweighted, equally averaged and fixed-basal-root normalization essential; no dynamical stability implication."
+  ],
+  "schema_version": 1
+}
