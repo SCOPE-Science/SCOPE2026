@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The singleton layer is graph-theoretically characterized by maximum degree, and every vertex is recovered from the singleton vertices to which it is nonadjacent. Hence every automorphism is a coordinate permutation. A family fixes all coordinate permutations exactly when the coordinate-incidence words are pairwise distinct. The lower bound \(2^{|D|}\ge n\), the explicit binary-code construction, and the injection count are all exact. Exhaustive enumeration through \(n=7\) matches the closed formula, including the decisive \(n=5\) obstruction to any two-vertex determining set.
+PASS
 
-## Originality
+The vertices are all nonempty proper subsets of [n], edges denote disjointness; degree 2^(n-|S|)-1 identifies singleton vertices. Singleton nonadjacency reconstructs every S, hence Aut(B_n)=S_n. Pointwise stabilizers of k chosen subsets act on [n] by coordinate permutations preserving each k-bit signature, so they are trivial exactly when the n signatures are pairwise distinct. The pigeonhole lower bound k>=ceil(log2 n) is attained because n>2^(k-1), so choosing n distinct k-bit words creates nonconstant and pairwise distinct subset rows. Injective word assignments number (2^k)!/(2^k-n)!, each unordered minimum family has k! row orderings. Thus exact count (2^k)!/((2^k-n)! k!); for n=5 k=3 gives 1120 and no pair determines. Independently reviewed finite exhaustive checker for 2<=n<=7 (counts 2,12,12,1120,3360,6720); no finite test substituted for the combinatorial arbitrary-n proof.
 
-PASS. The 2020 fixing-number paper is direct prior work on the same Boolean zero-divisor graph and therefore covers the numerical invariant at least in broad scope; the accessible abstract does not state a classification or enumeration of minimum fixing sets. The 2026 semisimple-ring paper gives a Boolean formula and a two-vertex \(n=5\) construction, but that claim is contradicted by the elementary signature lower bound. Database searches under determining, fixing, base-size, Boolean graph, zero-divisor, and annihilating-ideal terminology returned no published finding that classifies and counts all minimum determining sets in this family.
+## originality
 
-## Value
+PASS
 
-PASS. The minimum-set classification is a natural strengthening of a studied algebraic-graph invariant, reduces every basis to an explicit separating-system object, yields an exact closed count, and exposes a concrete failure in a recent Boolean-case construction. The result is uniform in \(n\), structurally transparent, and supplies reusable language for other support-defined ring graphs.
+The numerical fixing number is known or claimed in earlier work for the same graph, and the n=5 two-vertex statement in the 2026 Boolean section is contradicted. The surviving contribution is classification of EVERY minimum set by distinct incidence columns, the exact multiplicity, and a proof correcting the n=5 statement. General symmetric-group bases use the same signature principle, but no located primary source supplies this exact graph-family enumeration; novelty is best-of-knowledge and limited by Ou et al inaccessible full text.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Determining/fixing sets are a natural symmetry-breaking invariant of a canonical annihilating-ideal graph. The formula classifies all optimal landmark configurations, not just a known integer, and supplies a decisive small-rank obstruction to a published incorrect bound. The exact multiplicity can be used for optimal-set enumeration and random selection; meaningful despite elementary proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

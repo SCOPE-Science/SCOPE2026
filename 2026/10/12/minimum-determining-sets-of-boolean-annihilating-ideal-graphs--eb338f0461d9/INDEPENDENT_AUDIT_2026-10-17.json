@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:18:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The vertices are all nonempty proper subsets of [n], edges denote disjointness; degree 2^(n-|S|)-1 identifies singleton vertices. Singleton nonadjacency reconstructs every S, hence Aut(B_n)=S_n. Pointwise stabilizers of k chosen subsets act on [n] by coordinate permutations preserving each k-bit signature, so they are trivial exactly when the n signatures are pairwise distinct. The pigeonhole lower bound k>=ceil(log2 n) is attained because n>2^(k-1), so choosing n distinct k-bit words creates nonconstant and pairwise distinct subset rows. Injective word assignments number (2^k)!/(2^k-n)!, each unordered minimum family has k! row orderings. Thus exact count (2^k)!/((2^k-n)! k!); for n=5 k=3 gives 1120 and no pair determines. Independently reviewed finite exhaustive checker for 2<=n<=7 (counts 2,12,12,1120,3360,6720); no finite test substituted for the combinatorial arbitrary-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ou et al abstract claims numerical fixing value; zero-divisor/annihilating-ideal graphs coincide for Boolean ring.",
+          "Resultary returned resolving domination and total domination, different invariants."
+        ],
+        "reasoning": "A broader theorem enumerating all minimum bases on this graph would cover the finding; none verified. Numerical results alone do not imply optimizer counts; full 2020 article is inaccessible and is recorded as material novelty risk.",
+        "searches": [
+          "Ou et al DOI:10.1080/03081087.2020.1815639",
+          "Resultary related domination/metric records"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md blob bcdf8f22d182b73dc86c185bfa481653fd48ed6d",
+        "GitHub verify.py blob 4fd77ac0fb11e833d569c6e3cd7fb788735db40d",
+        "arXiv:2308.00796 Boolean Theorem 5",
+        "DOI:10.1080/03081087.2020.1815639 abstract",
+        "Resultary semantic search: minimum determining sets Boolean annihilating ideal graph zero divisor graph F2 n fixing number incidence binary signatures enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "n signatures distinct iff the pointwise coordinate permutation stabilizer is trivial.",
+          "2020 abstract states it obtains the fixing number; not the exact set classification."
+        ],
+        "reasoning": "Earlier fixing-number coverage is acknowledged; a proof of the count would need control of all injective signature assignments and row orbits, absent from the inspected published claims. The full 2020 article might contain it undisclosed.",
+        "searches": [
+          "Ou et al abstract and DOI",
+          "Paramasivam et al arXiv:2308.00796 Theorem 5",
+          "Resultary semantic search: minimum determining sets Boolean annihilating ideal graph zero divisor graph F2 n fixing number incidence binary signatures enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "These papers explicitly examine fixing/determining numbers on the same semisimple Boolean support graph.",
+          "Pinned RESULT.md identifies stabilizers with S_n acting on coordinate incidence words."
+        ],
+        "reasoning": "Fixing and determining refer to the same pointwise stabilizer invariant; changing terminology does not give novelty. The complete family-of-optima theorem and count are stricter than just a numerical fixing number. The 2026 formula floor(n/2) is actually false at n=5.",
+        "searches": [
+          "Resultary semantic search: minimum determining sets Boolean annihilating ideal graph zero divisor graph F2 n fixing number incidence binary signatures enumeration",
+          "Ou et al DOI:10.1080/03081087.2020.1815639 abstract",
+          "Paramasivam et al arXiv:2308.00796 Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "n=5: the pinned proof gives exactly 1120 three-sets and no two-set because 5>2^2.",
+          "Theorem 5 of the later article predicts 2 at n=5, so cannot supply a correct optimizer table."
+        ],
+        "reasoning": "The evaluated small case is new counterevidence to a published numeric table; counting formula, not isolated 1120, is the claim. No exact tabulation of minimum-family counts found.",
+        "searches": [
+          "Resultary semantic search: minimum determining sets Boolean annihilating ideal graph zero divisor graph F2 n fixing number incidence binary signatures enumeration",
+          "Paramasivam et al Boolean-case Theorem 5"
+        ]
+      },
+      "rationale": "The numerical fixing number is known or claimed in earlier work for the same graph, and the n=5 two-vertex statement in the 2026 Boolean section is contradicted. The surviving contribution is classification of EVERY minimum set by distinct incidence columns, the exact multiplicity, and a proof correcting the n=5 statement. General symmetric-group bases use the same signature principle, but no located primary source supplies this exact graph-family enumeration; novelty is best-of-knowledge and limited by Ou et al inaccessible full text.",
+      "residual_risks": [
+        "2020 Ou et al primary full text inaccessible: its proof may include an optimizer classification not visible in abstract.",
+        "The general setwise-stabilizer signature argument is standard for S_n; originality applies to explicit optimal-family enumeration and correction of the published graph formula, not abstract group theory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Claims determining number floor(n/2) for Boolean product, contradicted by five distinct 2-bit signatures impossibility",
+          "evidence": [
+            "Theorem 5 (Boolean case) n=5 two-point assertion; five coordinates cannot embed injectively in four signatures."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.00796",
+          "material_read": "arXiv full text Boolean section and stated Theorem 5 including formula floor(n/2), its n=5 assertion, and the graph model",
+          "method": "Public PDF/HTML text + mathematically check n=5",
+          "title": "On determining number and metric dimension of zero-divisor graph of semisimple rings",
+          "trigger": "Same graph and exact determining invariant"
+        },
+        {
+          "assessment": "Numerical fixing-number subject covered, any hidden all-optima classification not ruled out; retain risk",
+          "evidence": [
+            "Abstract reports fixing-number results for finite products of Z_2; full-body theorem/proof not read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2020.1815639",
+          "material_read": "Accessible abstract only; full PDF unavailable, Oxford institutional retrieval reported vpn_disconnected",
+          "method": "Open abstract + arXiv/OA attempts then authorized Oxford retrieval",
+          "title": "Fixing number and metric dimension of a zero-divisor graph associated with a ring",
+          "trigger": "Same Boolean graph and fixing invariant"
+        },
+        {
+          "assessment": "Introduces annihilating-ideal graph rather than optimizer enumeration",
+          "evidence": [
+            "Pinned RESULT.md identifies support/intersection model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0808.3187",
+          "material_read": "Definition and object identification as described in reviewed mathematical package; not used for novelty exclusion",
+          "method": "Source-context matching to pinned graph definition",
+          "title": "The Annihilating-Ideal Graph of Commutative Rings I",
+          "trigger": "Original graph definition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining/fixing sets are a natural symmetry-breaking invariant of a canonical annihilating-ideal graph. The formula classifies all optimal landmark configurations, not just a known integer, and supplies a decisive small-rank obstruction to a published incorrect bound. The exact multiplicity can be used for optimal-set enumeration and random selection; meaningful despite elementary proof.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub RESULT.md blob bcdf8f22d182b73dc86c185bfa481653fd48ed6d",
+    "GitHub verify.py blob 4fd77ac0fb11e833d569c6e3cd7fb788735db40d",
+    "arXiv:2308.00796 Boolean Theorem 5",
+    "DOI:10.1080/03081087.2020.1815639 abstract",
+    "Resultary semantic search: minimum determining sets Boolean annihilating ideal graph zero divisor graph F2 n fixing number incidence binary signatures enumeration"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality only; absence of search hits is not proof of priority.",
+    "Public source privacy needs sanitized replacements, so complete science assessment does not authorize publication or an accepted import.",
+    "All mathematical hypotheses, normalizations and bounded/infinite scope are as stated in reconstructed correctness rationale."
+  ],
+  "residual_risks": [
+    "2020 Ou et al primary full text inaccessible: its proof may include an optimizer classification not visible in abstract.",
+    "The general setwise-stabilizer signature argument is standard for S_n; originality applies to explicit optimal-family enumeration and correction of the published graph formula, not abstract group theory."
+  ],
+  "schema_version": 1
+}
