@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the vertex Gauss-image criterion. A direction \(d\) X-rays a polytope vertex when all incident outward facet normals have dot products with \(d\) of one strict sign. Covering all vertices then covers every proper face because a face normal cone is contained in the normal cone of each of its vertices.
+# Independent mathematical audit
 
-For the tetrahedron, the verifier checks the exact Gram relations
-\[
-v_i\cdot v_j=-1\quad(i\ne j)
-\]
-and verifies both the four upper-bound directions and the pairwise antipodal supporting-plane witnesses used with the weakly-neighbourly-antipodal lower bound.
+## correctness
 
-For the cube, it verifies the four body-diagonal directions and exhausts all eight coordinate sign cells. Each direction sign cell X-rays exactly one antipodal vertex pair, certifying the four-line lower bound.
+PASS
 
-For the dodecahedron and icosahedron, `verify.py` implements \(\mathbb Q(\sqrt5)\) exactly as rational pairs. It checks the support values, facet cardinalities, vertex-facet incidences, edge counts, equality of all edge lengths, and every strict normal-dot-direction sign condition used in the proof. The reconstructed counts are
-\[
-(V,E,F)=(20,30,12)
-\]
-for the dodecahedron and
-\[
-(V,E,F)=(12,30,20)
-\]
-for the icosahedron.
+The polytope Gauss criterion says d works at a vertex iff all incident outward facet normals have strictly one sign on d. T tetra vertex-radius lines work and weak-neighborly antipodal lower bound forces four. C each non-coordinate-zero line sees only one antipodal vertex pair, so four body diagonals are sharp. O axes cover six signed-coordinate vertices. D exact golden-ratio model has 20 vertices, 12 pentagonal normal facets; (1,1,0),(1,−1,0),(0,0,1) strictly separate every vertex cone. I has 12 vertices and 20 triangular normal facets; three coordinate axes cover all. Universal dimension lower bound X≥3 completes O,D,I. Exact Q(√5) verifier reconstructs facets, edges and all cone tests.
 
-For the octahedron, exact sign-vector facet normals verify that each coordinate axis X-rays its antipodal vertex pair.
+## originality
 
-No random sampling, floating-point geometry, or partial enumeration is used in the proof certificates. The lower bound \(X(K)\ge3\) and the weakly-neighbourly-antipodal proposition are external theorems cited in the result.
+PASS
+
+Whole five-solid optimal X-ray classification is best-of-knowledge additional coverage; the I entry is fully prior known and not separately new.
+
+## value
+
+PASS
+
+A natural complete classification of all five classical convex regular polyhedra for the line X-ray invariant, including a non-obvious three-line solution for the dodecahedron and the sharp 4 versus 3 phase split. The separately known I entry is not misrepresented as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

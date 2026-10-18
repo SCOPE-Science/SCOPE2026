@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces X-raying of a polytope to strict sign separation of each vertex normal cone. The tetrahedron has four explicit vertex-radius X-ray lines and a four-line lower bound from the weakly-neighbourly-antipodal proposition. The cube has a sharp four-line lower bound because one direction can cover at most one antipodal vertex pair. The octahedron, dodecahedron, and icosahedron have explicit three-line covers, which meet the universal dimension-three lower bound. The exact checker reconstructs the dodecahedral and icosahedral facet incidences over \(\mathbb Q(\sqrt5)\), verifies all strict sign certificates, and confirms the regular edge structures.
+## correctness
 
-## Originality
-**PASS, with residual historical-terminology risk.** The complete 2009 X-ray paper was materially inspected. It supplies the general lower bound, Gauss-image criterion, almost-smooth theorem, and weakly-neighbourly-antipodal lower bound, but full-text searches find no Platonic, tetrahedral, octahedral, dodecahedral, or icosahedral statement. The complete 1991 affine-subspace illumination paper was also inspected; its two-external-line theorem is a different illumination invariant and does not imply fixed-direction X-ray numbers. Exact classification searches and individual-solid searches did not locate the \(4,4,3,3,3\) classification. One component, the icosahedral value, is separately obtainable from the same normal-fan method; the assessed claim is the complete five-solid classification with optimal line sets and lower bounds in all five cases.
+PASS
 
-## Value
-**PASS.** The five Platonic solids form the canonical complete family of regular convex polyhedra. Determining one classical convex-geometric invariant on the entire family is a natural classification rather than a routine single-object increment. The result also exhibits a clean structural split: the simplex and parallelotope need four lines, while the three remaining Platonic solids attain the absolute three-dimensional minimum.
+The polytope Gauss criterion says d works at a vertex iff all incident outward facet normals have strictly one sign on d. T tetra vertex-radius lines work and weak-neighborly antipodal lower bound forces four. C each non-coordinate-zero line sees only one antipodal vertex pair, so four body diagonals are sharp. O axes cover six signed-coordinate vertices. D exact golden-ratio model has 20 vertices, 12 pentagonal normal facets; (1,1,0),(1,−1,0),(0,0,1) strictly separate every vertex cone. I has 12 vertices and 20 triangular normal facets; three coordinate axes cover all. Universal dimension lower bound X≥3 completes O,D,I. Exact Q(√5) verifier reconstructs facets, edges and all cone tests.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Whole five-solid optimal X-ray classification is best-of-knowledge additional coverage; the I entry is fully prior known and not separately new.
+
+## value
+
+PASS
+
+A natural complete classification of all five classical convex regular polyhedra for the line X-ray invariant, including a non-obvious three-line solution for the dodecahedron and the sharp 4 versus 3 phase split. The separately known I entry is not misrepresented as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
