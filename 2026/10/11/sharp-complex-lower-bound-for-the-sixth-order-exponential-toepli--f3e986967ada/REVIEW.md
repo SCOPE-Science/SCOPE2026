@@ -1,89 +1,21 @@
-# Review of Sharp complex lower bound for the sixth-order exponential Toeplitz determinant
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The cited source reduces the complex exponential problem to
-\[
-T_6(1)=D^2,
-\qquad
-D=
-\frac{
-(4-s)^2-w^2
-}{16},
-\]
-where
-\[
-s=v_1^2
-\]
-and
-\[
-|w|\le1-|s|.
-\]
-Writing
-\[
-t=|s|,
-\]
-the reverse triangle inequality and
-\[
-|4-s|\ge4-t
-\]
-give
-\[
-16|D|
-\ge
-(4-t)^2-(1-t)^2
-=
-15-6t
-\ge9.
-\]
-Thus
-\[
-|T_6(1)|
-\ge
-81/256.
-\]
+PASS
 
-Every equality condition is controlled. Equality forces
-\[
-t=1,
-\]
-then
-\[
-w=0,
-\]
-and equality in
-\[
-|4-s|\ge4-|s|
-\]
-forces
-\[
-s=1.
-\]
-Thus
-\[
-v_1=\pm1,
-\]
-and Schwarz's lemma gives
-\[
-v(\zeta)=\pm\zeta.
-\]
-The converse is immediate. The source supplies the sharp upper constant
-\[
-625/256.
-\]
+For f odd with zf′/f=e^{v(z²)}, coefficients are a3=v1/2 and a5=(v1²+v2)/4, so T6=D² with 16D=(4-s)²-w², s=v1² and w=v2, |w|<=1-|s|. Therefore 16|D|>=|4-s|²-|w|² >=(4-t)²-(1-t)²=15-6t>=9 for t=|s|<=1. Equality forces t=1, w=0 and equality |4-s|=4-|s|, so s=1 and Schwarz equality gives v(zeta)=±zeta. This yields |T6|>=81/256 with precisely those extremizers. The matching upper endpoint 625/256 is cited from the full primary article Proposition 5.3, independently confirmed on its original printed p7 and not reclaimed. This proof is analytic for every Schwarz function; no sampling shortcut.
 
-## Originality
+## originality
 
-PASS. The full 2026 primary source was inspected through its parity factorization, real exponential specialization, complex exponential proposition, and final remarks. The complex proposition proves only the sharp upper modulus bound and does not state a positive lower complex modulus floor.
+PASS
 
-Targeted searches used the exact constants, the source DOI and title, the complex exponential specialization, and lower-bound/nonvanishing formulations. They located the primary source and older lower-order or different-class Toeplitz literature, but no statement implying the lower bound.
+The 2026 source fully determines the real two-sided interval and the complex UPPER endpoint, but not the complex lower modulus. The new exact nonzero floor is a separate extremal direction even though its numerical constant matches the real floor.
 
-The result is not a corollary of the source's real theorem because complex Schwarz coefficients invalidate the real-order argument. The proof instead uses the source's separate complex Schur-parameter reduction.
+## value
 
-## Value
+PASS
 
-PASS. The source explicitly uses the complex exponential class to show that the real upper bound fails. The new theorem shows that complexification is asymmetric: it enlarges the upper endpoint but leaves the lower modulus endpoint completely rigid.
+The previously open natural invariant is whether the complex sixth-order Toeplitz determinant can vanish, and its exact minimum modulus in the same class whose complex maximum was studied. The result rules out zero and completes the two-sided sharp complex picture, with full optimizer classification. This is a bounded exact endpoint in a motivated analytic-function class, not an arbitrary numerical slice, notwithstanding the elementary final inequalities.
 
-This gives a sharp nonvanishing theorem for the determinant, completes both extremal modulus endpoints for the fresh complex specialization, and separates the two linear Schwarz phases: real linear maps attain the lower endpoint while the source's purely imaginary linear maps attain the upper endpoint.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

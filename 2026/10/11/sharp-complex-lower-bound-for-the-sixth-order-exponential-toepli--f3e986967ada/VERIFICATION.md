@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,103 +19,24 @@
 }
 ---
 
-The source reduction for the complex exponential class is
-\[
-T_6(1)=D^2,
-\qquad
-D=
-\frac{
-(4-s)^2-w^2
-}{16},
-\]
-where
-\[
-s=v_1^2,
-\qquad
-w=v_2,
-\qquad
-|w|\le1-|s|.
-\]
+# Independent mathematical audit
 
-Set
-\[
-t=|s|.
-\]
-Then
-\[
-16|D|
-=
-\left|
-(4-s)^2-w^2
-\right|
-\ge
-|4-s|^2-|w|^2.
-\]
-The coefficient constraint and the ordinary triangle inequality give
-\[
-|4-s|^2-|w|^2
-\ge
-(4-t)^2-(1-t)^2
-=
-15-6t.
-\]
-Since
-\[
-0\le t\le1,
-\]
-\[
-15-6t\ge9.
-\]
-Therefore
-\[
-|D|\ge\frac9{16}
-\]
-and
-\[
-|T_6(1)|\ge\frac{81}{256}.
-\]
+## correctness
 
-For equality, the last inequality forces
-\[
-t=1.
-\]
-Then
-\[
-w=0,
-\]
-and equality in
-\[
-|4-s|\ge4-|s|
-\]
-forces
-\[
-s=1.
-\]
-Thus
-\[
-v_1=\pm1.
-\]
-Schwarz's lemma gives
-\[
-v(\zeta)=\pm\zeta.
-\]
-Conversely these two maps give
-\[
-D=\frac9{16}
-\]
-and hence equality.
+PASS
 
-The source proves the complementary sharp upper bound
-\[
-|T_6(1)|
-\le
-\frac{625}{256}.
-\]
+For f odd with zf′/f=e^{v(z²)}, coefficients are a3=v1/2 and a5=(v1²+v2)/4, so T6=D² with 16D=(4-s)²-w², s=v1² and w=v2, |w|<=1-|s|. Therefore 16|D|>=|4-s|²-|w|² >=(4-t)²-(1-t)²=15-6t>=9 for t=|s|<=1. Equality forces t=1, w=0 and equality |4-s|=4-|s|, so s=1 and Schwarz equality gives v(zeta)=±zeta. This yields |T6|>=81/256 with precisely those extremizers. The matching upper endpoint 625/256 is cited from the full primary article Proposition 5.3, independently confirmed on its original printed p7 and not reclaimed. This proof is analytic for every Schwarz function; no sampling shortcut.
 
-A large random sample of admissible pairs
-\[
-(s,w),
-\qquad
-|w|\le1-|s|,
-\]
-was evaluated only as a consistency check and approached the lower endpoint from above. The proof is exact and does not rely on numerical sampling.
+## originality
+
+PASS
+
+The 2026 source fully determines the real two-sided interval and the complex UPPER endpoint, but not the complex lower modulus. The new exact nonzero floor is a separate extremal direction even though its numerical constant matches the real floor.
+
+## value
+
+PASS
+
+The previously open natural invariant is whether the complex sixth-order Toeplitz determinant can vanish, and its exact minimum modulus in the same class whose complex maximum was studied. The result rules out zero and completes the two-sided sharp complex picture, with full optimizer classification. This is a bounded exact endpoint in a motivated analytic-function class, not an arbitrary numerical slice, notwithstanding the elementary final inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
