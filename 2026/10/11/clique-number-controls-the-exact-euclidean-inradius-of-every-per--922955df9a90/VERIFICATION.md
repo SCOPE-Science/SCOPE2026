@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-The arbitrary-graph-family claim is proved symbolically in `RESULT.md`; finite experiments are corroborative only.
 
-Verified premises and steps:
-- For perfect \(G\), nonnegativity together with maximal-clique inequalities is the complete H-description of \(\operatorname{STAB}(G)\).
-- Coordinate inequalities and maximal-clique inequalities are facet-defining; explicit affinely independent stable-set vertices are supplied in the proof.
-- The Euclidean distance from \(c\) to \(x_v=0\) is \(c_v\), while the distance to \(x(C)=1\) is \((1-c(C))/\sqrt{|C|}\).
-- A maximum clique gives the sharp upper bound \(r(\omega+\sqrt{\omega})\le1\).
-- The uniform center attains that bound simultaneously for every defining halfspace.
-- The optimal-radius halfspace conditions are exactly the displayed complete incenter set.
-- Equality on maximum cliques forces all covered coordinates to the uniform value, and strict slack gives the converse nonuniqueness construction.
+# Independent mathematical audit
 
-`verify.py` checks representative perfect graph families by explicit stable-set and maximal-clique enumeration, including graphs with and without maximum-clique coverage. It does not assess originality and is not used as proof of the all-graph statement.
+## correctness
+
+PASS
+
+PASS: Chvátal's perfect-graph description yields all halfspaces x_v≥0 and x(C)≤1 for maximal cliques. Both classes are facets: coordinate faces have affinely independent 0 and singletons except v; for maximal C, singleton e_c (c∈C) plus stable pair e_u+e_{c(u)} for each u∉C with c(u) nonadjacent to u yield |V| affinely independent on x(C)=1. A Euclidean radius-r ball at center c is contained exactly when c_v≥r and c(C)+r sqrt(|C|)≤1. A maximum clique and c_v≥r force r≤1/(ω+sqrt ω). Uniform c=r*1 attains all inequalities since k+sqrt k increases with k. At r*, these inequalities themselves give the complete incenter set. Every maximum clique forces c_v=r* on its vertices; hence unique iff all vertices are in max cliques, otherwise a vertex outside every maximum clique has finite positive slack and can be perturbed. At the uniform incenter every coordinate facet and only maximum clique facets touch. Algebraically invert r* to recover ω and, for perfect G, χ. The n=1 and edgeless graph boundaries satisfy the argument. Small independent instances corroborated, not proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge with a significant immediate-corollary caveat. Chvátal's perfect-graph H-description, quoted by Hu–Laurent, supplies the full defining inequalities; the metric formula and center set follow using generic Euclidean inscribed-ball optimization. Kohl–Olsen–Sanyal put stable-set polytopes in a broader anti-blocking geometry context, but no explicit same-metric radius, full optimal-center locus, max-clique cover uniqueness, or tangent facet census was identified. The related same-week Hansen polytope radius result concerns a different higher-dimensional centrally symmetric lift and does not imply this particular Euclidean result via isometry. No Resultary result available; unindexed Chebyshev-center folklore remains a real priority risk.
+
+## value
+
+PASS
+
+PASS: Even though the calculation uses the known clique H-description and elementary distance-to-hyperplane geometry, it determines a natural canonical geometric optimization quantity for every perfect graph, its complete optimizer polytope, a sharp uniqueness criterion equivalent to maximum-clique coverage, and all tangent facets. These geometric equality data translate core clique/coloring information into an exact metric invariant, providing more than a one-off substitution or single tiny numeric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

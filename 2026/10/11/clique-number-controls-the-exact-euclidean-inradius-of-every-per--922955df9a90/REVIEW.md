@@ -1,23 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The full perfect-graph stable-set H-description was independently checked. The Euclidean ball constraints are then exact: \(c_v\ge r\) for coordinate facets and \(c(C)+r\sqrt{|C|}\le1\) for maximal-clique facets. A maximum clique yields the universal bound \(r\le1/(\omega+\sqrt{\omega})\), while the uniform center attains it for every clique size. Substituting the optimal radius gives the complete center locus. Equality on maximum cliques proves uniqueness when maximum cliques cover the ground set, and strict slack at a vertex outside all maximum cliques constructs a distinct incenter. Facet-defining status and the tangent-facet equality cases are proved explicitly.
+## correctness
 
-## Originality
-PASS. The closest exact-object literature was compared at statement and implication level. Kohl--Olsen--Sanyal place perfect-graph stable-set polytopes in a broad convex-geometric anti-blocking framework; Hu--Laurent explicitly quote the complete nonnegativity-plus-maximal-clique description and study extension complexity. Neither inspected source states the Euclidean inradius, complete Chebyshev-center set, maximum-clique-cover uniqueness criterion, or tangent-facet classification. Published-result searches using direct, alias, and exact-formula terminology returned no covering theorem. The own ledger contains a perfect-graph Hansen-polytope radius theorem, but that concerns a distinct centrally symmetric lift and has a different metric formula.
+PASS
 
-## Value
-PASS. The canonical Euclidean metric of \(\operatorname{STAB}(G)\) recovers a central graph invariant:
-\[
-\omega(G)
-=
-\left(
-\frac{\sqrt{1+4/r_{\mathrm{in}}}-1}{2}
-\right)^2.
-\]
-For perfect graphs this also recovers \(\chi(G)\). The theorem additionally identifies all largest-ball centers and converts maximum-clique coverage into an exact geometric uniqueness property. Those equality structures give more than the routine evaluation of a single centered distance.
+PASS: Chvátal's perfect-graph description yields all halfspaces x_v≥0 and x(C)≤1 for maximal cliques. Both classes are facets: coordinate faces have affinely independent 0 and singletons except v; for maximal C, singleton e_c (c∈C) plus stable pair e_u+e_{c(u)} for each u∉C with c(u) nonadjacent to u yield |V| affinely independent on x(C)=1. A Euclidean radius-r ball at center c is contained exactly when c_v≥r and c(C)+r sqrt(|C|)≤1. A maximum clique and c_v≥r force r≤1/(ω+sqrt ω). Uniform c=r*1 attains all inequalities since k+sqrt k increases with k. At r*, these inequalities themselves give the complete incenter set. Every maximum clique forces c_v=r* on its vertices; hence unique iff all vertices are in max cliques, otherwise a vertex outside every maximum clique has finite positive slack and can be perturbed. At the uniform incenter every coordinate facet and only maximum clique facets touch. Algebraically invert r* to recover ω and, for perfect G, χ. The n=1 and edgeless graph boundaries satisfy the argument. Small independent instances corroborated, not proof.
 
-## Closest literature and limitations
-The strongest prior theorem used is the perfect-graph H-description. It is an input rather than a metric conclusion. A residual risk remains that the short radius formula is folklore or follows from a very general anti-blocking Chebyshev-center theorem not found under the searched terminology. The result is restricted to the canonical Euclidean realization and does not extend unchanged to nonperfect graphs.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge with a significant immediate-corollary caveat. Chvátal's perfect-graph H-description, quoted by Hu–Laurent, supplies the full defining inequalities; the metric formula and center set follow using generic Euclidean inscribed-ball optimization. Kohl–Olsen–Sanyal put stable-set polytopes in a broader anti-blocking geometry context, but no explicit same-metric radius, full optimal-center locus, max-clique cover uniqueness, or tangent facet census was identified. The related same-week Hansen polytope radius result concerns a different higher-dimensional centrally symmetric lift and does not imply this particular Euclidean result via isometry. No Resultary result available; unindexed Chebyshev-center folklore remains a real priority risk.
+
+## value
+
+PASS
+
+PASS: Even though the calculation uses the known clique H-description and elementary distance-to-hyperplane geometry, it determines a natural canonical geometric optimization quantity for every perfect graph, its complete optimizer polytope, a sharp uniqueness criterion equivalent to maximum-clique coverage, and all tangent facets. These geometric equality data translate core clique/coloring information into an exact metric invariant, providing more than a one-off substitution or single tiny numeric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
