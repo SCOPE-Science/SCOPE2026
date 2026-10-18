@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact normalized identities A^TA=A1^T(I+Y^TY)A1 and G=A1^T(I+W^TW)A1; completed-square identity for phi yields both generalized Rayleigh bounds. A single diagonal 2x2 pair realizes both endpoints, condition ratio, and spectral iteration norm. SPD conjugation proves uniform contraction and unique minimax step, including epsilon=0 and convergence endpoints. Exact null-residual vector establishes iff factor-through-normal-residual; explicit scalar inconsistent system establishes ascent and bias. The separate symbolic identity simplification and 15198 reproducible numerical assertions support but do not prove universal claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Garrison–Ipsen arXiv:2603.16644v1 Theorems 3, 4, 6, Section 5.2 concern randomized preconditioner/roundoff perturbations and not-normal residual-dependent error bounds.",
+        "Scott–Tůma arXiv:2603.28642v1 Sections 3.1–3.2 are construction and solver experiments, not the present sharp extremal spectral/step frontier."
+      ],
+      "reasoning": "None of the inspected relevant mathematical statements dominates the exact uniform error-only envelope plus attainability and the matched method contrast. Broader generic perturbation or singular-value shear results may imply the scalar envelope, so no claim of exhaustive global uniqueness is made.",
+      "searches": [
+        "sharp bound condition number (I+W^T W)^{-1}(I+Y^T Y) for ||W-Y||=epsilon phi sqrt(epsilon^2+4) exact spectral equivalence",
+        "regularized Gram matrices sharp relative perturbation bound 4 epsilon ratio graph transformation",
+        "\"2/(2+epsilon^2)\" preconditioned least squares spectral"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.28642v1 Sections 3.1–3.2, Algorithm 3",
+      "doi:10.1137/23M161851X Sections 1–2",
+      "arXiv:2603.16644v1 Sections 1,3–5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Scott–Tůma arXiv:2603.28642v1 Eq. (3.4), Eq. (3.5), Algorithm 3 define antecedent row-split correction and approximate factor.",
+        "Wathen DOI:10.1137/23M161851X Section 2, Eqs. (2.2)–(2.3) establish column-space matching in general.",
+        "Garrison–Ipsen arXiv:2603.16644v1 Sections 3–5 prove distinct perturbation/error results for mixed-precision PNE, HPNE and not-normal systems."
+      ],
+      "reasoning": "The new conclusion does not follow from the published row-splitting recipe alone, from the qualitative column-space equivalence alone, or from the different mixed-precision error bounds without deriving the sharp absolute-error scalar inequality and simultaneous extremizer. These deductions are supplied explicitly. Subsumption by classical unitriangular shear estimates remains possible and is recorded as a risk.",
+      "searches": [
+        "row splitting incomplete LU least squares correction preconditioner residual kernel A transpose approximate factors nonlinear inconsistent preconditioned CGLS stationary point",
+        "inexact left preconditioned LSQR residual-space map fails factor through normal gradient nonzero at least-squares solution",
+        "least squares approximate pseudoinverse mismatched range nullspace spurious update exact minimizer",
+        "sharp bound condition number (I+W^T W)^{-1}(I+Y^T Y) for ||W-Y||=epsilon phi sqrt(epsilon^2+4) exact spectral equivalence",
+        "row-splitting ILU approximate Y leakage irreducible least squares residual exact stationary gradient obstruction corrected normal-equation preconditioner",
+        "regularized Gram matrices sharp relative perturbation bound 4 epsilon ratio graph transformation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wathen DOI:10.1137/23M161851X Section 2, Eq. (2.3) already identifies the necessary column-space match.",
+        "Scott–Tůma arXiv:2603.28642v1 Algorithm 3 uses an approximate trailing factor in a residual-block computation; its Section 3.1 gives the exact formula."
+      ],
+      "reasoning": "The normal-residual preservation criterion is acknowledged as pre-existing. The assessed additional content is the simultaneous sharp two-sided graph-Gram eigenvalue envelope and minimax stepsize under absolute trailing-factor error, connected to a full residual-channel counterexample. Shear-matrix norm equivalences are a genuine remaining bibliographic uncertainty.",
+      "searches": [
+        "inexact left preconditioned LSQR residual-space map fails factor through normal gradient nonzero at least-squares solution",
+        "least squares approximate pseudoinverse mismatched range nullspace spurious update exact minimizer",
+        "\"1 + X^*X\" \"1 + Y^*Y\" perturbation sharp bound singular values",
+        "\"arsinh\" \"least squares\" \"preconditioner\" Gram difference"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source comparison focused on the continuous matrix classes, not an exact finite database or catalog.",
+        "The explicitly constructed two-dimensional pair gives sharpness for every positive error budget; it is not a census or database lookup."
+      ],
+      "reasoning": "No database/table covers this continuously parameterized claim. A known table with the same exact two-sided envelope could subsume the bound; none was identified in the accessed sources.",
+      "searches": [
+        "row splitting incomplete LU least squares correction preconditioner residual kernel A transpose approximate factors nonlinear inconsistent preconditioned CGLS stationary point",
+        "sharp bound condition number (I+W^T W)^{-1}(I+Y^T Y) for ||W-Y||=epsilon phi sqrt(epsilon^2+4) exact spectral equivalence",
+        "row-splitting ILU approximate Y leakage irreducible least squares residual exact stationary gradient obstruction corrected normal-equation preconditioner",
+        "row-splitting ILU approximate Y leakage irreducible least squares residual exact stationary gradient obstruction corrected normal-equation preconditioner"
+      ]
+    },
+    "rationale": "The exact joint sharp absolute-error spectral envelope and its global worst-case relaxation rule for a graph-Gram row-split preconditioner, paired with an exact residual-channel counterexample, were not found in three materially inspected closest full texts. The original split construction and classical column-space criterion are expressly acknowledged and not claimed new. A classical shear-norm equivalence might imply the envelope, leaving genuine bibliographic risk.",
+    "residual_risks": [
+      "Exact shear-block operator-norm formulas in older matrix perturbation theory may imply the displayed phi constants without matching notation.",
+      "The global published and unindexed literature was not exhaustively searchable; a broader result could subsume the special graph-Gram statement.",
+      "The conclusion applies only to exact top-block and fixed W, not the full inexact ILU or flexible Krylov implementation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_OBJECT_AND_METHOD; NOT_SEEN_SHARP_ERROR_ENVELOPE",
+        "evidence": [
+          "Defines Y=A2 A1^-1 and approximate tilde Y, then computes a residual-based approximate correction. No explicit sharp eigenvalue enclosure of (I+Y^TY,I+W^TW) at fixed norm(Y-W) or minimax Richardson stepsize in material read."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.28642v1",
+        "material_read": "Introduction, Sections 3.1–3.2, exact equations (3.4)–(3.7), approximate-factor equations (3.8)–(3.9), and Algorithm 3 including its residual updates.",
+        "method": "Accessible full HTML text, direct equation and algorithm comparison.",
+        "title": "Row-Splitting ILU Preconditioners for Sparse Least-Squares Problems",
+        "trigger": "Direct motivating source and mathematically identical split notation"
+      },
+      {
+        "assessment": "COVERS_GENERAL_COLUMN_SPACE_REQUIREMENT; NO_SHARP_ROW_FACTOR_ENVELOPE_SEEN",
+        "evidence": [
+          "States B^T A x=B^T b yields ordinary least-squares solutions when B and A have the same column span. This general principle subsumes the qualitative residual-kernel condition, which is therefore not claimed original."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/23M161851X",
+        "material_read": "Full available HTML of Sections 1–2, especially equations (2.2), (2.3), and column-space discussion.",
+        "method": "Full HTML section read and logical implication checked.",
+        "title": "Least Squares and the Not-Normal Equations",
+        "trigger": "Potential dominating earlier result for preservation of least-squares solutions under perturbed left multipliers"
+      },
+      {
+        "assessment": "DIFFERENT_PERTURBATION_MODEL; NO_SHARP_ROW_GRAPH_FRONTIER_SEEN",
+        "evidence": [
+          "Analyzes randomized preconditioner error/roundoff and dependence on original least-squares residual; its stated bounds are not the optimal absolute ||W-Y|| graph-Gram spectral envelope or a worst-case fixed-step relaxation rule."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.16644v1",
+        "material_read": "Full HTML Sections 1, 3, 4, and 5; Theorems 3–6 and Section 5.2 on not-normal perturbations.",
+        "method": "Theorem hypotheses and target quantities compared directly via full HTML.",
+        "title": "Perturbation Analysis for Preconditioned Normal Equations in Mixed Precision",
+        "trigger": "Plausibly broader perturbation/conditioning coverage in same numerical linear algebra area"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "029f60e6-1b0f-4f4d-87ab-783272fded07",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An approximated trailing factor is naturally available in row-split sparse least squares. A quantitative, sharp spectral and step-size frontier valid without conditioning assumptions is directly useful for reliable fixed-step design. The matched residual-map calculation shows a separate, qualitative failure that an arbitrarily good factor approximation cannot repair unless the true normal residual is used; thus the result gives an actionable distinction, not merely a scalar example or a restatement of classical least-squares stationarity. Explicit extremizers show the rate cannot be tightened without further assumptions.",
+    "status": "PASS"
+  }
+}
