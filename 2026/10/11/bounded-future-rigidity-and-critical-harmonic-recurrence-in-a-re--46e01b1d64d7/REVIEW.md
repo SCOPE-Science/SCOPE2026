@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact differential identity \(\dot L=2x^2(1-y)^2-a z^2\) is reproduced algebraically by `check.py`. For \(a<0\), its invariant zero set has only three equilibria. For \(a=0\), that set has only the invariant oscillator plane plus the two nonzero equilibria. A connected omega-limit argument and the logarithmic-growth contradiction exclude convergence of sign-preserving, nonzero-\(x\) trajectories to the plane. The harmonic boundary and invariant-measure classification follow from exact linear dynamics and rotation invariance. No numerical experiment is used as an infinite proof.
+## correctness
 
-## Originality — PASS
-The author-hosted 2014 original paper presents local equilibrium/Hopf and numerical positive-parameter bifurcations, not a global monotone identity or bounded-future and stationary-measure classification on the closed half-line \(a\le0\). The 2023 full-text preprint/review repeats this precise reflection-symmetric equation for symmetry/attractor geometry but gives no negative/zero-parameter convergence theorem. The closest mathematical research records concern distinct vector fields (notably the Rucklidge flow and hyperbolic-sine jerk flow), so their parameter-sign or recurrence restrictions do not imply this statement. Search does not establish historical uniqueness; an unindexed analysis could precede this result.
+PASS
 
-## Mathematical value — PASS
-The source investigates coexistence of symmetric chaotic attractors at positive damping and identifies the local Hopf change at \(a=2\). The exact critical/negative-damping global classification answers the natural complementary question of what bounded recurrence is possible outside that explored parameter regime, distinguishing the entire harmonic invariant plane at \(a=0\) from complete equilibrium convergence for \(a<0\), and eliminating nonzero-\(x\) bounded recurrence on both sides. Compact invariant probability measures are fully described at the same boundary; this is more than local linearization, a numerical plot or a sign check.
+Direct independent SymPy differentiation of the explicit polynomial L=(z^2+(1-y)^2)/2+(x^2-1)(1-y) yields Ldot=2 x^2(1-y)^2-a z^2. For a<0, nonnegative Ldot=0 requires z=0 and x(1-y)=0; imposing invariance leaves exactly E0,Eplus,Eminus. For a=0, its largest invariant zero set is x=0 with harmonic y,z oscillator plus Eplus/Eminus. Forward boundedness ensures global continuation and a compact connected invariant omega-limit set on which L is constant; connectedness and zero-set dynamics leave either an equilibrium or the plane. Off the plane x(t) retains its sign. If its omega-limit lay in the plane, x(t)->0; integrating zdot=x^2-y and bounded z gives Cesaro mean y->0, contradicting (log|x(T)|-log|x(0)|)/T->1 and boundedness. Invariant compactly supported probabilities integrate nonnegative Ldot to zero and disintegrate into uniform angular measures on periodic harmonic orbits. All claims are conditional on forward boundedness; no false global bound on all initial states is needed.
 
-## Closest literature and limitations
-J. C. Sprott (2014), DOI 10.1142/S0218127414500096, Eq. (8), Section 4, is the exact source of the ODE. Li et al. (2023), DOI 10.3390/sym15081564, Section 2.2 Eq. (3), discuss the same system in a symmetry survey. The global theorem is restricted to bounded forward solutions when \(a\le0\); it neither classifies all compact invariant sets nor establishes positive-parameter recurrence. An unindexed or differently worded earlier global result remains a residual priority risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The original Sprott article and Li et al. symmetry review were available in full relevant text; both emphasize local equilibrium and positive-parameter chaotic/coexistence regimes. The exact monotone polynomial and complete nonpositive-a bounded-future/invariant-measure classification did not appear in inspected directly relevant sections. This is a qualified best-of-knowledge original global damping-sign result, with an honest unindexed older-analysis risk.
+
+## value
+
+PASS
+
+This exact flow is an established model for reflection-symmetric chaotic behavior at positive parameter values, so proving the sharp complementary nonpositive damping bounded-recurrence regime is a natural dynamical boundary. The explicit globally polynomial Lyapunov identity, forced convergence on open half-spaces, harmonic critical plane, and complete stationary-measure characterization are mutually reinforcing structural results, not a numerical sweep.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T21:07:39.573842Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct independent SymPy differentiation of the explicit polynomial L=(z^2+(1-y)^2)/2+(x^2-1)(1-y) yields Ldot=2 x^2(1-y)^2-a z^2. For a<0, nonnegative Ldot=0 requires z=0 and x(1-y)=0; imposing invariance leaves exactly E0,Eplus,Eminus. For a=0, its largest invariant zero set is x=0 with harmonic y,z oscillator plus Eplus/Eminus. Forward boundedness ensures global continuation and a compact connected invariant omega-limit set on which L is constant; connectedness and zero-set dynamics leave either an equilibrium or the plane. Off the plane x(t) retains its sign. If its omega-limit lay in the plane, x(t)->0; integrating zdot=x^2-y and bounded z gives Cesaro mean y->0, contradicting (log|x(T)|-log|x(0)|)/T->1 and boundedness. Invariant compactly supported probabilities integrate nonnegative Ldot to zero and disintegrate into uniform angular measures on periodic harmonic orbits. All claims are conditional on forward boundedness; no false global bound on all initial states is needed.",
+      "risk": [
+        "Proof classifies forward-bounded trajectories, not all orbits; some may be unbounded or have finite forward existence.",
+        "Invariant measure classification does not classify every compact invariant set, which could contain nonrecurrent connecting orbits."
+      ],
+      "sources": [
+        "Frozen tree e9778021022120d124177cf1457aa7b7dcad9121; RESULT.md blob 5436034aeeb2353f142578a907ec646702fd0197; check.py blob c75865eb4d1981b07c2f53f81507230c5a7db782",
+        "Independent symbolic differentiation of L and exact analysis of zero-derivative invariant sets",
+        "Sprott 2014 original flow equation Eq. (8) and Li et al. 2023 same model section 2.2"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original model source gives equilibria, the positive-parameter Hopf threshold and numerical examples.",
+          "The later full-text review describes symmetry-breaking and coexisting attractors in different positive-parameter regimes, without stating the nonpositive global convergence theorem in inspected relevant text."
+        ],
+        "reasoning": "Broader studies of attractor geometry and bifurcation for this vector field do not logically yield bounded-forward-orbit rigidity for a<=0; comparisons with other jerk-equation systems are not dominating unless their hypotheses encompass this exact nonlinearity, which was not found.",
+        "searches": [
+          "J C Sprott Simplest Chaotic Flows with Involutional Symmetries 2014 Eq 8 full",
+          "Li et al 2023 Symmetric Strange Attractors review section 2.2",
+          "negative damping reflection symmetric quadratic oscillator bounded omega limit"
+        ]
+      },
+      "checked_sources": [
+        "Sprott 2014 author-hosted full primary PDF Eq. (8) and adjacent results",
+        "Li et al 2023 full primary review Section 2.2",
+        "SCOPE published-record code search on same flow (no hits; non-exhaustive)",
+        "Attempted Resultary semantic search unavailable, not negative novelty evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A polynomial observable has derivative 2x²(1-y)²-a z², strictly restricting bounded recurrence when a<=0 but not when a>0.",
+          "The Sprott and Li results are in primarily positive-a regimes and do not use this nonnegative derivative invariant-zero-set argument in the inspected relevant full text."
+        ],
+        "reasoning": "Local stability, numerical chaotic regimes and symmetry observations do not imply the global classification of bounded omega-limits and all compactly supported stationary distributions. Independent LaSalle and logarithmic-growth arguments are needed to establish the exact a<=0 statement.",
+        "searches": [
+          "Sprott doi:10.1142/S0218127414500096 Eq (8) and local Hopf discussion",
+          "Li et al doi:10.3390/sym15081564 Section 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sprott (2014) Eq. (8) states exactly the vector field but discusses local stability and chaotic attractor-merging regimes at positive parameter values.",
+          "Li et al. (2023), Section 2.2, revisits this exact system for symmetry and coexistence phenomena, not a proven monotone-function negative-damping classification in the inspected passage."
+        ],
+        "reasoning": "Equivalent formulations concern LaSalle invariance at nonpositive damping, absence of bounded off-plane recurrent dynamics, and classification of compact invariant measures. These are more precise than the familiar local Hopf threshold and are not implied by phase portraits at positive a.",
+        "searches": [
+          "\"Sprott\" \"xdot=x(1-y)\" \"zdot=-y-a z+x^2\" bounded trajectories",
+          "reflection symmetry quadratic flow negative damping Lyapunov bounded omega limit",
+          "critical harmonic recurrence reflection symmetric jerk flow"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite table of attractors for positive a is an exact analytic classification of *all* forward-bounded orbits at a<=0.",
+          "The harmonic family at a=0 is an exact invariant linear plane, not a tabulated finite sample."
+        ],
+        "reasoning": "Exact-database/table comparison is inapplicable to a continuum family of global ODE solutions and stationary measures; positive-parameter numerical attractor catalogs cannot imply the stated all-trajectory theorem.",
+        "searches": [
+          "Sprott reflection symmetric quadratic flow a=0 harmonic plane invariant measures",
+          "\"xdot=x(1-y)\" a<0 global Lyapunov"
+        ]
+      },
+      "rationale": "The original Sprott article and Li et al. symmetry review were available in full relevant text; both emphasize local equilibrium and positive-parameter chaotic/coexistence regimes. The exact monotone polynomial and complete nonpositive-a bounded-future/invariant-measure classification did not appear in inspected directly relevant sections. This is a qualified best-of-knowledge original global damping-sign result, with an honest unindexed older-analysis risk.",
+      "residual_risks": [
+        "An unindexed or differently formulated historical global ODE analysis could contain the same a<=0 Lyapunov identity and measure classification.",
+        "Resultary service error leaves mathematical-record duplicate comparison uncompleted, not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains exact equation and positive-parameter dynamical numerical work, but no nonpositive-a global monotone classification in the inspected relevant sections",
+          "evidence": "Eq. (8) specifies xdot=x(1-y), ydot=z, zdot=-y-a z+x²; text discusses Hopf and positive damping attractors.",
+          "identifier_or_url": "DOI:10.1142/S0218127414500096; author-hosted https://sprott.physics.wisc.edu/pubs/paper407.pdf",
+          "material_read": "Author-hosted full PDF, especially Eq. (8) on pp. 8--9 and stability/bifurcation discussion",
+          "method": "Primary PDF text reading plus visually inspected original equation",
+          "title": "Simplest Chaotic Flows with Involutional Symmetries",
+          "trigger": "Original source of exact flow and local parameter classification"
+        },
+        {
+          "assessment": "Revisits symmetry/chaotic attractors, not a global nonpositive-damping bounded omega-limit classification in material read",
+          "evidence": "Section 2.2 repeats the exact reflection-symmetric model and investigates symmetry/coexistence of attractors.",
+          "identifier_or_url": "DOI:10.3390/sym15081564; https://www.preprints.org/manuscript/202307.0510",
+          "material_read": "Full-text accessible review, Section 2.2 and its explicit system Eq. (3) plus coexistence discussion",
+          "method": "Lawful HTML/preprint reading of the directly relevant model section",
+          "title": "Symmetric Strange Attractors: A Review of Symmetry and Conditional Symmetry",
+          "trigger": "Same vector field in later review"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exact flow is an established model for reflection-symmetric chaotic behavior at positive parameter values, so proving the sharp complementary nonpositive damping bounded-recurrence regime is a natural dynamical boundary. The explicit globally polynomial Lyapunov identity, forced convergence on open half-spaces, harmonic critical plane, and complete stationary-measure characterization are mutually reinforcing structural results, not a numerical sweep.",
+      "risk": [
+        "The theorem does not assert global boundedness, general compact invariant set classification, or dynamics for a>0."
+      ],
+      "sources": [
+        "Sprott (2014) original exact model/parameter dynamics",
+        "Li et al (2023) same-model symmetry and attractor review",
+        "Independent polynomial Lyapunov identity and LaSalle omega-limit proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the reflection-symmetric quadratic flow xdot=x(1-y), ydot=z, zdot=-y-a z+x^2 at every a<=0, every forward-bounded off-plane solution converges to its same-sign nonzero equilibrium; on the symmetry plane a<0 only the origin is forward bounded and a=0 all trajectories are harmonic circles. The compactly supported invariant probabilities are precisely mixtures of those equilibria and, at a=0, uniform measures on the harmonic circles.",
+  "limitations": [
+    "Forward-boundedness is essential: not every initial condition is known globally bounded.",
+    "Compactly supported invariant probability measures need not exhaust nonrecurrent compact invariant sets.",
+    "No claims for a>0 or other nonlinear jerk flows."
+  ],
+  "schema_version": 1
+}
