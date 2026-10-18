@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T18:50:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Simple spectrum follows from the nonvanishing Jacobi recurrence. The eigenprojector Hadamard sum gives B B^T with B consisting of squared normalized eigenvector components. Backward polynomials have parity and nonzero leading coefficients, yielding a Vandermonde in squared eigenvalues, hence rank equals count of distinct eigenvalue squares. Product of eigenvector norms comes from continuant resultants; cancellation yields det Mhat=prod_{i<j}(lambda_i+lambda_j)^2/Disc(chi). With chi_tau=P-tau Q and opposite parities, opposite-root resultant and chi_tau(0) produce L tau^{2floor(n/2)}/D0. At tau=0 the path is bipartite and squared eigenvalues have ceil(n/2) distinct values; at tau!=0 opposite pairs cannot occur. Independent SymPy exact-rational diagonal-moment Gram calculations reproduced determinant and rank for six separate small weighted signed/zero-potential cases; the all-n conclusion is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weighted-path Jacobi/orthogonal-polynomial theory and general average-mixing rank bounds cover ingredients, but cited weighted-path work studies state-transfer fidelity, not infinite-time Cesaro mixing determinant."
+        ],
+        "reasoning": "A broad algebraic framework can imply basic Gram representations without automatically giving the submitted positive prefactor and determinant exponent for every path weight configuration.",
+        "searches": [
+          "Resultary semantic search: one endpoint potential continuous quantum walk weighted path determinant average mixing",
+          "Kirkland et al., Perfect quantum state transfer in weighted paths with potentials using orthogonal polynomials, arXiv:1708.03283",
+          "Coutinho et al., A New Perspective on the Average Mixing Matrix, DOI:10.37236/7867"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md, SLOGAN.txt and verify.py",
+        "Godsil arXiv:1103.2578 Sections 4–5 (relevant full text)",
+        "Coutinho et al arXiv:1709.03591 (available statements)",
+        "Kirkland et al arXiv:1708.03283 (available statements)",
+        "Resultary semantic search: one endpoint potential continuous quantum walk weighted path determinant average mixing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary dynamical-sampling endpoint result is a consecutive-time sensor Gram determinant; Godsil average-mixing path formula is for no endpoint perturbation."
+        ],
+        "reasoning": "The prior endpoint optimality result has a different measured matrix; known unweighted marked-path rank observations cannot settle the new full weighted determinant in this theorem.",
+        "searches": [
+          "Resultary semantic search: one endpoint potential continuous quantum walk weighted path determinant average mixing",
+          "2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+          "arXiv:1103.2578",
+          "arXiv:1708.03283"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Standard projector formula Mhat=sum E_r circ E_r is prior; Godsil supplies explicit zero-potential unweighted path mixing, not the all-weights endpoint-potential discriminant determinant."
+        ],
+        "reasoning": "Equivalence via the commutant Gram matrix is a general method, but evaluating the all-order weighted endpoint determinant and precise zero/nonzero rank remains an additional special calculation.",
+        "searches": [
+          "Resultary semantic search: one endpoint potential continuous quantum walk weighted path determinant average mixing",
+          "Godsil, Average Mixing of Continuous Quantum Walks, arXiv:1103.2578, Sections 4–5",
+          "Coutinho et al., A New Perspective on the Average Mixing Matrix, arXiv:1709.03591"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Godsil treats zero-potential unweighted paths, while the Resultary P8 finding concerns randomized readout times, not Cesaro time-average with one endpoint potential."
+        ],
+        "reasoning": "Neither finite P8 readout table nor standard path zero-potential closed form subsumes a universal weighted all-n determinant.",
+        "searches": [
+          "Resultary semantic search: one endpoint potential continuous quantum walk weighted path determinant average mixing",
+          "Godsil arXiv:1103.2578 path examples",
+          "Resultary:2026/10/4/SCOPE-uniform-average-mixing-on-the-eight-vertex-path-p-8--606431707242"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for arbitrary weighted couplings and exact determinant formula; projectors and zero-potential unweighted path rank are established earlier. Godsil, Coutinho and weighted-path state-transfer literature lack the same endpoint-only determinant calculation in inspected material. Potential Jacobi-resultant reinterpretations and prior unweighted marked-path rank findings remain explicit risks.",
+      "residual_risks": [
+        "A stronger unlocated identity for squared Jacobi eigenvector matrices might imply the determinant.",
+        "Known unweighted one-site marked-path rank results restrict novelty claims: accepted novelty is weighted all-parameter determinant and rank in that setting, not general formula Mhat=BB^T."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known zero-potential unweighted path formulas and generic spectral-projector identity; not the submitted all-weight one-endpoint determinant",
+          "evidence": "Path rank/entries are for zero potential and symmetric special loops; general weighted one-end endpoint discriminant ratio is not provided in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/pdf/1103.2578",
+          "material_read": "Read the full accessible paper with emphasis on path computation and symmetric endpoint-loop sections (Sections 4–5)",
+          "method": "open-access arXiv PDF text and page inspection",
+          "title": "Average Mixing of Continuous Quantum Walks",
+          "trigger": "Foundational exact path average mixing and potential treatment"
+        },
+        {
+          "assessment": "General formula not exact weighted endpoint determinant",
+          "evidence": "Projector/commutant framework describes the matrix; full all-order determinant is an extra identity.",
+          "identifier_or_url": "arXiv:1709.03591; DOI:10.37236/7867",
+          "material_read": "Accessible abstract and statements/summaries; no claim of having read inaccessible entire journal version",
+          "method": "open scholarly metadata/arXiv record",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "Broader general commutant method"
+        },
+        {
+          "assessment": "Different temporal Gramian and object",
+          "evidence": "Sampling-trajectory determinant is not the Cesaro eigenprojector square Gram matrix.",
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+          "material_read": "Resultary title and entire result summary",
+          "method": "Resultary result",
+          "title": "Universal endpoint optimality for dynamical sampling on normalized paths",
+          "trigger": "Nearest published endpoint/path determinant result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The average-mixing rank is a natural structural invariant of continuous quantum walks. This exact all-order weighted-path formula proves that any arbitrarily small endpoint defect removes the bipartite squared-eigenvalue degeneracy, quantitatively determining the vanishing determinant exponent and prefactor. That sharp classification is useful for perturbation/spectral mixing analysis independent of transfer-fidelity claims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any n>=2, positive weighted path couplings a_j and one first-endpoint diagonal potential tau, Cesaro quantum average mixing has determinant (prod a_j^{2(n-j)}/D0) tau^{2 floor(n/2)} / Disc(chi_tau) and rank n iff tau!=0, else ceil(n/2); D0 is product of squared odd-index couplings for even n and squared even-index couplings for odd n.",
+  "limitations": [
+    "Only endpoint potential; nonzero couplings; interior diagonal zero; Cesaro time averaging.",
+    "Determinant tends to zero as tau tends to zero, so no uniform spectral gap is claimed."
+  ],
+  "schema_version": 1
+}

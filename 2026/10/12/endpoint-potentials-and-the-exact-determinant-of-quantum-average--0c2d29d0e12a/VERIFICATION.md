@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the endpoint-potential mixing identity
+# Independent mathematical audit
 
-The exact symbolic verifier is `verify.py` (requires Python 3 and `sympy>=1.12`). Run `python3 verify.py` from the same directory as the script. The checker constructs a rational Hamiltonian for each instance, computes its traces of powers, and forms \(VG^{-1}V^{\mathsf T}\), where \(V\) comprises diagonals of powers and \(G\) is their trace Gram matrix. This is an exact reconstruction of the Cesàro mixing matrix, independent of numerical eigenvalue approximations.
+## correctness
 
-Checks include 48 instances, orders \(2,3,4,5,6,7\), both unit and varying positive integer couplings, potentials \(0,1,-1,1/2\); a total of 1,112 matrix entries. For each, the code verifies Gram invertibility, mixing-matrix symmetry, exact unit row sums, the claimed rank, positive characteristic discriminant and the exact closed determinant formula.
+PASS
 
-Observed output:
+PASS: Simple spectrum follows from the nonvanishing Jacobi recurrence. The eigenprojector Hadamard sum gives B B^T with B consisting of squared normalized eigenvector components. Backward polynomials have parity and nonzero leading coefficients, yielding a Vandermonde in squared eigenvalues, hence rank equals count of distinct eigenvalue squares. Product of eigenvector norms comes from continuant resultants; cancellation yields det Mhat=prod_{i<j}(lambda_i+lambda_j)^2/Disc(chi). With chi_tau=P-tau Q and opposite parities, opposite-root resultant and chi_tau(0) produce L tau^{2floor(n/2)}/D0. At tau=0 the path is bipartite and squared eigenvalues have ceil(n/2) distinct values; at tau!=0 opposite pairs cannot occur. Independent SymPy exact-rational diagonal-moment Gram calculations reproduced determinant and rank for six separate small weighted signed/zero-potential cases; the all-n conclusion is analytic.
 
-```text
-VERIFY_OK exact_cases=48 exact_mixing_entries=1112 orders=2..7 including_zero_and_signed_field
-```
+## originality
 
-This finite experiment is not an exhaustive check of arbitrary real couplings or all graph orders. The all-order assertions rely on the Vandermonde/resultant argument in `RESULT.md`; the determinant formula must not be inferred merely from this check.
+PASS
+
+PASS best-of-knowledge for arbitrary weighted couplings and exact determinant formula; projectors and zero-potential unweighted path rank are established earlier. Godsil, Coutinho and weighted-path state-transfer literature lack the same endpoint-only determinant calculation in inspected material. Potential Jacobi-resultant reinterpretations and prior unweighted marked-path rank findings remain explicit risks.
+
+## value
+
+PASS
+
+PASS: The average-mixing rank is a natural structural invariant of continuous quantum walks. This exact all-order weighted-path formula proves that any arbitrarily small endpoint defect removes the bipartite squared-eigenvalue degeneracy, quantitatively determining the vanishing determinant exponent and prefactor. That sharp classification is useful for perturbation/spectral mixing analysis independent of transfer-fidelity claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
