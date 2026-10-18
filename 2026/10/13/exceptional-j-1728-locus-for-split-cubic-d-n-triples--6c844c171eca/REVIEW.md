@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The Legendre \(j\)-factorization is exact, the ordering forces \(\lambda>1\), and the equivalence between \(\lambda=2\), the harmonic-mean identity, and arithmetic progression of the three defining squares is algebraic in both directions. The family \(\{6s,8s,12s\}\) is verified symbolically for all \(s\). The finite-field part follows from the fourth-power isomorphism criterion for \(j=1728\) twists and a direct quadratic-character pairing. The included finite computation checks representative cases but is not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS.** The closest source, arXiv:2610.03121v1, supplies the split-cubic Legendre normalization and explicitly flags exceptional-\(j\) twist isomorphism as a caveat, but does not classify that exceptional locus or resolve it at \(\lambda=2\). Earlier Diophantine-triple elliptic-curve and K3 literature inspected uses different aims or different elliptic objects. Targeted searches for the harmonic-mean, arithmetic-progression, \(j=1728\), and \(D(-47)\) formulations did not reveal a statement implying this claim. A residual risk remains that an older equivalent observation exists under a different normalization.
+PASS
 
-## Value
-**PASS.** The finding closes a mathematically meaningful exceptional case in the source's finite-field twist logic. It gives a complete criterion, demonstrates that the boundary occurs infinitely often among integral \(D(n)\)-triples, and determines exactly when nonsquare twisting collapses over finite fields. This changes how records on the exceptional locus must be interpreted and yields an immediate exact order/cofactor consequence.
+PASS: With a<b<c the Legendre parameter λ=b(c−a)/[c(b−a)] is >1. Exact polynomial identity 256(1−λ+λ²)^3−1728λ²(1−λ)²=64(λ+1)²(λ−2)²(2λ−1)² forces λ=2, equivalent to 2/b=1/a+1/c and ab+bc=2ac. Adding 2n gives an arithmetic progression of the three integral squares. λ²−λ+1 has no rational roots, ruling out j=0 over Q. The family (6s,8s,12s), n=−47s², gives shifted squares s²,25s²,49s². At p≥5 of good reduction, j=1728 nonsquare quadratic twist is isomorphic precisely when p≡3 mod4 since nonsquare d has d² a fourth power exactly then. The quadratic character pairing x↔−x gives trace zero for y²=x³−x at p≡3 mod4 and thus group order p+1. Exact new checker verified factorization and small-prime trace, not infinity.
 
-## Closest literature and limitations
-The lead preprint is the closest literature because it uses exactly the same split cubic and Legendre parameter. The 2000 Dujella paper supplies historical context for elliptic curves induced by Diophantine triples, while the 2022 K3 paper is a broader but non-dominating comparison. The result does not classify all integral harmonic \(D(n)\)-triples, prove fixed-\(n\) infinitude, or establish prime-density results.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge, limited structural novelty): The closest split-cubic paper gives the λ normalization and explicitly warns about exceptional j and twist equality but leaves its ordered positive locus and arithmetic interpretation unclassified. Standard Legendre j and quartic twist facts are prior; their specific simultaneous application gives an exact exceptional-fiber criterion and an infinite integral D(n) family, thereby interpreting the source finite-field census correctly. The full criterion is near-elementary and could already follow as a routine corollary from literature; no priority certification.
+
+## value
+
+PASS
+
+PASS: The exceptional case is a natural ambiguity in the primary finite-field classification: its exact locus and arithmetic progression characterization explain where nonsquare twists cease distinguishing curves, with explicit nonempty integral witnesses and prime-by-prime consequence. The scientific content is the complete exception handling, not merely a numeric identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
