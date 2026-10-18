@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The theorem itself is proved algebraically in `RESULT.md`. The critical steps are that the common fixed field is \(\mathbb F_{q^d}\), both the image map and trace adjoint are linear over that field, and a nonzero kernel of a two-term Frobenius map is a one-dimensional \(\mathbb F_{q^d}\)-space.
 
-`artifacts/verify.py` performs finite exact stress tests over \(\mathbb F_{2^m}\) for several pairs \((m,k)\) with \(d>1\). It enumerates every projective parameter, constructs the two binary linear maps, and computes the hull as an exact intersection. The observed hull dimensions and counts are checked against `artifacts/certificate.json`.
+# Independent mathematical audit
 
-The finite tests do not certify the infinite theorem; they are boundary checks for the algebraic proof. No floating-point arithmetic or solver is used.
+## correctness
+
+PASS
+
+Let K=F_{q^d}, d=gcd(k,m). The q^k and q^{m-k} Frobenius maps fix K. Therefore both phi=lambda Id+mu F^k and its trace adjoint phi†=lambda Id+mu^{q^{m-k}}F^{m-k} are K-linear. The trace pairing is nondegenerate for all prime powers, including characteristic dividing m; hence Hull(im phi)=im phi cap ker phi†. If lambda or mu=0 the adjoint is bijective. Otherwise any nonzero u,v in ker phi† satisfy (u/v)^{q^{m-k}}=u/v, so the kernel is one-dimensional over K or zero. A K-linear image meets a K-line only in 0 or that line; F_q hull dimension is 0 or d. This algebra handles all m>=2,1<=k<m, all projective parameters; viewed binary finite enumerator is a stress test only.
+
+## originality
+
+PASS
+
+Found no earlier explicit full-projective parameter 0-or-d hull theorem despite full-text comparison with the defining source; originality relies on recognizing the shared fixed subfield for the image as well as adjoint kernel.
+
+## value
+
+PASS
+
+Eliminating all intermediate residual hull dimensions across the whole full-field projective family completes a natural parameter classification in a recent codes paper; hull dimensions govern LCD behavior and code properties. The result is short but fills the source’s expressly remaining dimension interval rather than renaming a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T13:22:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let K=F_{q^d}, d=gcd(k,m). The q^k and q^{m-k} Frobenius maps fix K. Therefore both phi=lambda Id+mu F^k and its trace adjoint phi†=lambda Id+mu^{q^{m-k}}F^{m-k} are K-linear. The trace pairing is nondegenerate for all prime powers, including characteristic dividing m; hence Hull(im phi)=im phi cap ker phi†. If lambda or mu=0 the adjoint is bijective. Otherwise any nonzero u,v in ker phi† satisfy (u/v)^{q^{m-k}}=u/v, so the kernel is one-dimensional over K or zero. A K-linear image meets a K-line only in 0 or that line; F_q hull dimension is 0 or d. This algebra handles all m>=2,1<=k<m, all projective parameters; viewed binary finite enumerator is a stress test only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary source gives im(phi) cap ker(phi†), proves nonzero adjoint kernel is an F_{q^d}-line and develops a trace criterion, but its full-parameter discussion retains 0<=δ<=d; simpler base-field coefficient slices have 0/d."
+        ],
+        "reasoning": "A base-field restricted dichotomy does not dominate the all-parameter projective extension. General code-hull theory supplies intersections but not automatically the K-linear image observation.",
+        "searches": [
+          "arXiv:2604.23097 Sections 5,6 full parameter Theorem 6.8 6.12",
+          "DOI:10.3934/amc.2026.101087 full text Frobenius hull"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.23097v1",
+        "DOI:10.3934/amc.2026.101087",
+        "Lidl--Niederreiter Finite Fields",
+        "trace hull of linearized polynomial image codes lambda x plus mu x Frobenius q power gcd dichotomy hull dimension",
+        "Resultary:2026/9/18/SCOPE-grl-galois-hulls-arbitrary-index--313d3312e276"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing K=F_{q^gcd(m,k)}, a in K is fixed by both q^k and q^{m-k}, so phi and phi† are K-linear. For nonzero adjoint kernel, ratio u/v lies in K; thus it is a single K-line, and im(phi) intersect this line is zero or the entire line."
+        ],
+        "reasoning": "The source already supplies crucial premises; the explicit missing subfield-linear-image step resolves its advertised full-parameter interval. This is a direct, short strengthening of the known result, not novelty in the adjoint formula.",
+        "searches": [
+          "Bartoli Grimaldi Stanica arXiv:2604.23097 Theorem 6.8 adjoint kernel line",
+          "gcd fixed field of Frobenius x->x^{q^{m-k}}"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bartoli--Grimaldi--Stănică publisher/primary arXiv treatment explicitly bounds the full-parameter remaining δ between 0 and d and gives the adjoint intersection and K-line kernel ingredients. Resultary has only the identical claim for this same family, distinct GRL Galois hulls for another code family."
+        ],
+        "reasoning": "Any statement of K-subspace intersection with K-line implies the dichotomy, even without numerical wording. Such a stand-alone full-parameter implication was not located.",
+        "searches": [
+          "trace hull of linearized polynomial image codes lambda x plus mu x Frobenius q power gcd dichotomy hull dimension",
+          "Frobenius image code hull dimension a multiple of gcd(k,m)",
+          "On the hull of linearized polynomial codes no intermediate δ 0 or d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate matching parameter-stratum table for all nonzero pairs was found; published examples in q=2 extension fields are slices, and other hull census results refer to other code families."
+        ],
+        "reasoning": "The claim classifies possible dimensions for the entire family, not a table recomputation at a fixed field.",
+        "searches": [
+          "trace hull of linearized polynomial image codes lambda x plus mu x Frobenius q power gcd dichotomy hull dimension",
+          "full projective Frobenius image code hull spectrum {0,d}",
+          "Resultary published hull linearized polynomial code full parameter dimension"
+        ]
+      },
+      "rationale": "Found no earlier explicit full-projective parameter 0-or-d hull theorem despite full-text comparison with the defining source; originality relies on recognizing the shared fixed subfield for the image as well as adjoint kernel.",
+      "residual_risks": [
+        "Another contemporaneous note or corrigendum could state the short K-linearity consequence.",
+        "Only binomial Frobenius family, not arbitrary linearized polynomial codes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_HAS_PREMISES_BUT_RETAINS_INTERVAL",
+          "evidence": "Source treats full-field case as 0<=δ<=d and gives extremal trace-isotropy test; special coefficient regime has stronger separate 0/d conclusions.",
+          "identifier_or_url": "arXiv:2604.23097v1; https://doi.org/10.3934/amc.2026.101087",
+          "material_read": "Lawful accessible full article HTML: family definition, adjoint and kernel lemmas, Theorem 6.8 intersection, residual all-parameter range, Theorem 6.12 and concluding scope.",
+          "method": "Primary full-text theorem comparison (lawful publisher/arXiv content)",
+          "title": "On the hull of linearized polynomial codes",
+          "trigger": "Same binomial Frobenius image-code family and direct candidate for stronger prior coverage"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "Standard finite-field algebra, not a published full-parameter coding hull classification.",
+          "identifier_or_url": "Lidl and Niederreiter, 2nd ed. 1997",
+          "material_read": "Standard fixed field F_{q^gcd(m,s)} and K-linearity facts.",
+          "method": "Textbook lemma/background fact",
+          "title": "Finite Fields",
+          "trigger": "Frobenius fixed-field identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Eliminating all intermediate residual hull dimensions across the whole full-field projective family completes a natural parameter classification in a recent codes paper; hull dimensions govern LCD behavior and code properties. The result is short but fills the source’s expressly remaining dimension interval rather than renaming a known table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The proof gives dimension alternatives, not counts or explicit location of non-LCD parameters without the existing trace criterion.",
+    "Source contains main ingredients; short implication may already be observed informally."
+  ],
+  "schema_version": 1
+}

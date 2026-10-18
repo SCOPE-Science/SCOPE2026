@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source adjoint formula and hull-intersection theorem are combined with an independent fixed-subfield argument. Both \(\phi_{\lambda,\mu}\) and \(\phi_{\lambda,\mu}^{\dagger}\) are \(\mathbb F_{q^d}\)-linear because \(d=\gcd(k,m)\) divides both Frobenius exponents. A nonzero adjoint kernel is exactly one-dimensional over \(\mathbb F_{q^d}\): the ratio of any two nonzero kernel elements is fixed by the \(q^{m-k}\)-Frobenius. Therefore the hull, an intersection of an \(\mathbb F_{q^d}\)-subspace with an \(\mathbb F_{q^d}\)-line, has \(\mathbb F_q\)-dimension only \(0\) or \(d\). Finite exhaustive checks are supplementary and reproduce the dichotomy.
+PASS
 
-## Originality
+Let K=F_{q^d}, d=gcd(k,m). The q^k and q^{m-k} Frobenius maps fix K. Therefore both phi=lambda Id+mu F^k and its trace adjoint phi†=lambda Id+mu^{q^{m-k}}F^{m-k} are K-linear. The trace pairing is nondegenerate for all prime powers, including characteristic dividing m; hence Hull(im phi)=im phi cap ker phi†. If lambda or mu=0 the adjoint is bijective. Otherwise any nonzero u,v in ker phi† satisfy (u/v)^{q^{m-k}}=u/v, so the kernel is one-dimensional over K or zero. A K-linear image meets a K-line only in 0 or that line; F_q hull dimension is 0 or d. This algebra handles all m>=2,1<=k<m, all projective parameters; viewed binary finite enumerator is a stress test only.
 
-PASS. The closest source is the 2026 paper defining the same family. Its current abstract states only that the full-parameter singular hull dimension lies between \(0\) and \(d\), and its self-adjoint theorem retains \(0\le\delta\le d\) while characterizing the extremal case. Focused published-finding corpus and web searches found no prior statement that the full-field hull has no intermediate dimensions. The closest indexed hull finding concerns a different generalized Roth--Lempel family. Residual risk remains that a very recent unindexed note observes the same subfield argument.
+## originality
 
-## Value
+PASS
 
-PASS. Hull dimension is the central invariant of the source paper and controls the associated entanglement requirement. Eliminating every intermediate value completes the source's remaining full-parameter dimension range and upgrades its extremal trace-isotropy condition to a complete non-LCD criterion in that case. The statement holds uniformly for all prime powers and all projective parameters of the Frobenius binomial family.
+Found no earlier explicit full-projective parameter 0-or-d hull theorem despite full-text comparison with the defining source; originality relies on recognizing the shared fixed subfield for the image as well as adjoint kernel.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Eliminating all intermediate residual hull dimensions across the whole full-field projective family completes a natural parameter classification in a recent codes paper; hull dimensions govern LCD behavior and code properties. The result is short but fills the source’s expressly remaining dimension interval rather than renaming a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
