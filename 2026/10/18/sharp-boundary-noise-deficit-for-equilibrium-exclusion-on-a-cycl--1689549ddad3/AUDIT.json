@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For the finite irreducible fixed-k SSEP, the exact one-site second-difference potential lifts to a solution of the full interacting Poisson equation on the canonical configuration space. The centered integrated block occupation differs by a bounded corrector from a square-integrable martingale; its asymptotic variance equals the stationary bracket. Exact hypergeometric particle-vacancy occupancy gives w_i = 2k(n-k)d_i^2/[r n(n-1)]. Summing explicitly evaluated squared cycle gradients yields the claimed polynomial variance. Strict gradient inequalities identify the two unique dominant bonds, prove the 6m(n-m)/(n[m(n-m)+2]) fraction, and bound any K retained bonds by 3K/n. The n>=12 strict-majority cutoff and n=11,m=5 witness are direct exact consequences. The packaged standard-library script separately solves 94 full interacting configuration-space Poisson systems, 219 single-site Poisson systems, and 10098 edge weights. Finite checks supplement, not replace, the general proof. No statement beyond stated n,k,m,r boundaries is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2018 Methods frames N_tot individuals moving randomly and independently among n states, with first-order per-capita transition rates.",
+        "2013 §2.1 uses Poisson processes with intensity alpha_k N_i and an OU approximation; §3 theorem imposes random-graph ensemble assumptions.",
+        "2018 paper explicitly supplies PSD edge decomposition and examples of hidden-edge dominance; the conceptual phenomenon and decomposition are not new."
+      ],
+      "reasoning": "The cited general spectral framework motivates this calculation and may formally cover the k=1 independent-walker special case. It does not itself give the interacting 1<k<n-1 exclusion chain, its canonical density factor, optimal-bond fraction uniform over k, or the sharp n=12 threshold. No claimed novelty is assigned to general additive martingale identities or to hidden-edge dominance alone.",
+      "searches": [
+        "doi:10.1371/journal.pcbi.1006206 full text §Materials and methods, §Power spectral density",
+        "arxiv:1308.5179v2 full text §2 and §3, Appendix B",
+        "stochastic shielding finite cycle occupancy integral variance boundary transitions bulk noise"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0804.2590v1 (complete primary HTML)",
+      "doi:10.1103/PhysRevLett.109.118101 (abstract only)",
+      "arxiv:1308.5179v2 (complete primary HTML)",
+      "doi:10.1371/journal.pcbi.1006206 (complete primary HTML)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2008 periodic SSEP deals with Q(t) as total integrated displacement and K(t) as number of configuration changes.",
+        "2013 and 2018 spectral formulations acknowledge optimality of retaining high-ranked edges and possible important hidden transitions, so these notions are not claimed as new.",
+        "2018 model explicitly has independently moving particles and first-order transitions; finite-size exclusion suppresses adjacent-bond occupation activity by the k(n-k)/(n(n-1)) hypergeometric factor.",
+        "2012 published abstract states stochastic shielding heuristic, not a block-residence low-frequency all-size fraction."
+      ],
+      "reasoning": "No known prior theorem from the inspected articles entails the displayed finite interacting SSEP exact formulas without additional computation and a new model-specific Poisson identity. The independent k=1 case is potentially implicit in general spectral machinery, so the assessed claim relies on the interacting-k density-uniform optimum and precise sharp finite-size geometric cutoff. Remaining risk: full 2012 source unavailable, other SSEP occupation-time studies not exhaustively indexed.",
+      "searches": [
+        "arxiv:0804.2590v1 full HTML §II integrated current and activity",
+        "arxiv:1308.5179v2 full HTML §2.1 population and Lemma 1; §3 random graph",
+        "doi:10.1371/journal.pcbi.1006206 full HTML §Materials and methods and PSD",
+        "doi:10.1103/PhysRevLett.109.118101 published abstract and related arXiv/OA search",
+        "stochastic shielding cycle n boundary transition importance low frequency variance simple exclusion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Appert-Rolland et al. 2008 sections I, II and conclusion define integrated current as total particle displacement and activity as jump count, not time-integrated local block density.",
+        "Schmidt and Thomas 2013 sections 1-3 quantify edge contributions to OU-model stationary error on random and ion-channel graphs.",
+        "Schmidt et al. 2018 sections Introduction/Methods distinguish stationary covariance from PSD and treat linear first-order independent population networks."
+      ],
+      "reasoning": "The centered integral of total occupation inside a fixed spatial block is not a jump count, total displacement, static covariance, or the OU steady instantaneous state. The present full finite canonical SSEP includes hard-core interactions for 1<k<n-1. The Poisson-corrector edge bracket yields a zero-frequency observable; no inspected source states the exact all-n,k,m formula under an equivalent representation.",
+      "searches": [
+        "symmetric simple exclusion process periodic ring integrated block occupation time variance edge noise contributions stochastic shielding finite size",
+        "finite particle simple exclusion process cycle integrated density block fluctuation Poisson equation edge current martingale",
+        "low frequency zero frequency occupation fluctuations SSEP ring canonical number particles exact edge noise variance",
+        "arxiv:0804.2590v1 full HTML: occupation / integrated current; arxiv:1308.5179v2 full HTML: spectral / observable",
+        "doi:10.1371/journal.pcbi.1006206 full HTML: power spectral"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published 2013 edge-importance work develops spectral importance formulas rather than an evaluated finite-periodic interacting-exclusion table.",
+        "Published 2008 SSEP preprint provides formulas for jump activity and integrated displacement current, not integrated block occupation noise.",
+        "Published 2018 study evaluates special three-state first-order independent-population examples, not exact canonical periodic exclusion edge fractions."
+      ],
+      "reasoning": "Searched publicly indexed primary material and relevant full-text equations; no exact pretabulated canonical SSEP edge fraction was located. This is limited evidence and not a uniqueness proof.",
+      "searches": [
+        "symmetric simple exclusion process periodic ring integrated block occupation time variance edge noise contributions stochastic shielding finite size",
+        "finite particle simple exclusion process cycle integrated density block fluctuation Poisson equation edge current martingale",
+        "low frequency zero frequency occupation fluctuations SSEP ring canonical number particles exact edge noise variance",
+        "cycle random walk occupation time asymptotic variance boundary noise edge martingale decomposition stochastic shielding",
+        "stochastic shielding finite cycle occupancy integral variance boundary transitions bulk noise",
+        "Poisson equation edge influence nearest-neighbor ring occupation time fluctuations block exact ratio"
+      ]
+    },
+    "rationale": "Inspected 2008 full arXiv SSEP article targets integrated particle displacement current and activity, not occupation-residence fluctuations; inspected 2013 full arXiv article targets OU and first-order independent populations with static edge importance; inspected 2018 complete PLOS study gives generic power-spectral edge decompositions and acknowledges hidden-edge importance but assumes independent first-order population dynamics and does not give fixed-k interacting exclusion exact fractions or the sharp all-block n=12 cutoff. General stochastic-shielding ideas and possibility of hidden-edge dominance are explicitly credited. Searches of the published literature and related records located no exact claim or dominating implication among the inspected material. The 2012 foundational article was available only via abstract and publisher metadata after lawful routes to its full text were unsuccessful. This and possibly unindexed older occupation-time calculations remain acknowledged residual risks, not novelty guarantees.",
+    "residual_risks": [
+      "The full text of the 2012 foundational shielding paper could not be obtained; the publisher abstract cannot establish whole-paper noncoverage.",
+      "Exact finite-cycle residence-time variance might have appeared in earlier SSEP/hydrodynamic or control literature under different terminology.",
+      "Generic resolvent and martingale decomposition are classical; novelty is only asserted for the explicit interacting all-size evaluation, density independence, and sharp two-bond threshold.",
+      "No independent scientific or comprehensive bibliographic audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the specific integrated block occupation / canonical bond allocation: Q counts particle displacement and K counts jumps. General SSEP framework is prior work.",
+        "evidence": [
+          "§II defines Q(t) as integrated current and K(t) as number of changes; conclusion reiterates exact cumulants of these two observables."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0804.2590v1",
+        "material_read": "Full arXiv HTML introduction, SSEP setup, §II current/activity definitions, and conclusion; relevant formulas for observables.",
+        "method": "Read publicly accessible arXiv complete HTML and inspect defined tilted observables.",
+        "title": "Universal cumulants of the current in diffusive systems on a ring",
+        "trigger": "Same finite periodic SSEP particle dynamics and exact cumulant methodology"
+      },
+      {
+        "assessment": "ACCESS_LIMITED, originality residual risk; credits origin of stochastic shielding, no unsupported full-paper negative conclusion.",
+        "evidence": [
+          "Published abstract describes shielding noise on transitions between unobserved states and ion-channel simulation, without evaluated finite SSEP ring formulas."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.109.118101",
+        "material_read": "Publisher abstract and bibliographic metadata only; full text not obtained after arXiv, open-access, and lawful institutional access attempts.",
+        "method": "Inspected publisher abstract and source metadata; did not infer full-text absence of overlap.",
+        "title": "Stochastic-Shielding Approximation of Markov Chains and its Application to Efficiently Simulate Random Ion-Channel Gating",
+        "trigger": "Foundational source for directly observable versus hidden transition noise"
+      },
+      {
+        "assessment": "General optimal-noise-ranking framework COVERS concept and independent-population special cases, but not evaluated exact finite interacting canonical SSEP boundary fraction.",
+        "evidence": [
+          "§2.1 intensity alpha_k N_i and subsequent OU approximation; §3 Theorem 2 random-graph assumption; Lemma 1 spectral edge measure."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1308.5179v2",
+        "material_read": "Full arXiv HTML abstract, §§1-3, hypothesis statement in §3, population-model setup §2, Appendix B themes; compared scope and modeled observables.",
+        "method": "Read publicly accessible primary arXiv full HTML and parsed mathematical assumptions of graph transition rates and OU noise.",
+        "title": "Measuring edge importance: a quantitative analysis of the stochastic shielding approximation for random processes on graphs",
+        "trigger": "Highly relevant general optimal edge-importance spectral framework"
+      },
+      {
+        "assessment": "COVERS general PSD edge decomposition and hidden-transition dominance; not full finite canonical interacting exclusion or the evaluated all-n majority cutoff.",
+        "evidence": [
+          "Abstract explicitly mentions hidden transitions dominating in some 3-state models; Methods defines independently moving individuals with first-order per-capita rates and spectral PSD decomposition."
+        ],
+        "identifier_or_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006206",
+        "material_read": "Full OA HTML abstract, Introduction, edge importance reversal section, Materials and methods/PSD paragraphs and model assumptions.",
+        "method": "Read publisher open-access full HTML comparing time-frequency treatment and independent-population assumptions.",
+        "title": "Stochastic shielding and edge importance for Markov chains with timescale separation",
+        "trigger": "Later broader PSD edge decomposition and known hidden-edge dominance examples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1689549d-dad3-491a-a0db-4829e91683e2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The physically motivated measurable invariant is the zero-frequency variance of residence time in a contiguous block, important to low-frequency transport and noise-reduction fidelity. The exact theorem shows that the two unique best individual noise sources nevertheless have only 6/n of total variance asymptotically, independent of occupation density, and exhibits a sharp universal n=12 majority-loss threshold. All k and m are classified with a natural finite-volume correction, not arbitrary isolated parameter values. This distinguishes source ranking from fidelity with a fixed source budget. No general downstream theorem or thermodynamic transition is asserted.",
+    "status": "PASS"
+  }
+}
