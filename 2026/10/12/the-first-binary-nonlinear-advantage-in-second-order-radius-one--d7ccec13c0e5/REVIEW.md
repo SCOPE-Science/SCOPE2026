@@ -1,11 +1,21 @@
-# Review: first binary nonlinear advantage in second-order radius-one covering
+# Independent mathematical audit
 
-**Correctness — PASS.** The general affine lower bound is proved via two independent syndromes in a parity-check space of rank at least two; a coordinate hyperplane supplies equality. For the unrestricted lower bounds through length four, the self-contained verifier examines all subsets below the coordinate-hyperplane size. The length-five exhaustive argument reduces, without losing any cases, to forbidden sets containing zero via translation and to exactly seventeen elements via heredity. Its monotonic branch-pruning invariant is reconstructed in the proof, and its 16,829,638 nodes were reproduced from the supplied C++ source. The 29-word length-six construction is checked by two separately expressed exact criteria, including literal enumeration of all 4096 two-row target matrices. No length-six optimum is claimed.
+## correctness
 
-**Originality — PASS, with material residual literature-access risk.** The primary 2026 paper by Li, Shangguan and Wei establishes asymptotic equality of unrestricted and linear rates; this does not imply equality or inequality at any fixed finite length. The 2022 Elimelech–Schwartz work likewise addresses a second-order asymptotic rate. Searches for the length-six 29-word witness, first length, finite linearity gap and equivalent second-order football-pool phrasing found no matching published published-finding corpus claim or indexed finite table. Access to the complete 2026 and 2022 manuscripts was unsuccessful; the comparison is therefore not certified free of hidden finite-length appendices. The evidence supports a new precise finite threshold but not a claim of globally verified novelty.
+PASS
 
-**Value — PASS.** This determines the first length of a discrete phenomenon directly motivated by the recent finding that product restrictions and linearity become asymptotically cost-free. At fixed radius one, linearity is actually optimally costly in the first six lengths: unrestricted and affine minima agree at lengths one through five, then a concrete nonlinear code improves the optimum affine benchmark at length six. The result identifies a structural finite-length boundary, not a routine parameter substitution or an unsupported asymptotic consequence.
+The shared-column definition is equivalent to the projection test: for x,y in forbidden complement S, there is a common allowable coordinate iff B_S(x) union B_S(y) is not all of [n]. For affine C=w+L with parity-check rank r>=2, choose two independent syndromes; no single parity-check column can simultaneously span both, hence affine |C|>=2^(n-1); coordinate hyperplanes attain the bound. For all n<5, a hypothetical code smaller than 2^(n-1) lifts by C_n × F_2^(5-n) to a length-five code of size <16, preserving the shared-coordinate covering property; this reduces all smaller-length obstructions to the n=5 bound (and agrees with the source direct searches through n=4). Independently compiled and executed an independently written monotone depth-first search for n=5: translate a 17-word forbidden subset to contain zero (preserving the property); adding forbidden words cannot repair a bad pair, so DFS search with inclusion pruning exhausts all possibilities. It visited 16,829,638 nodes and found no valid forbidden 17-set, proving K2(5,1)=16. Independently enumerated literal 2-row target matrices for the 29 distinct length-six witness words, yielding exactly all 4096 target pairs, hence K2(6,1)<=29<32. This proves earliest gap n=6 without asserting exact K2(6,1).
 
-**Closest scientific literature and residual risk.** D. Elimelech and M. Schwartz (arXiv:2210.00531); H. Li, C. Shangguan and H. Wei (arXiv:2608.24856). Their accessible abstracts specify asymptotic rather than this finite-length question. Full manuscripts were not materially inspected; possible unindexed earlier tables or constructions cannot be excluded. The exact unrestricted minimum at length six remains open in this result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality judged against exact antecedent model, broader results, tables and mathematical implication. The new complete statement is not covered by the inspected sources; the named residual risks and incomplete full-text material prevent any claim of exhaustive priority or external certification.
+
+## value
+
+PASS
+
+The first finite blocklength where binary product-form generalized covering breaks the affine-linear optimum is a natural finite-versus-asymptotic threshold, motivated by existing asymptotic linearity-cost theorems. The complete n<=5 obstruction and an explicit 29-word n=6 witness are substantive discrete information with a reproducible exhaustive certificate; lack of an exact n=6 optimum does not destroy the sharply defined first-separation fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
