@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The incidence graph of the two equivalences is a simple side-coloured 2-regular bipartite graph, so all components are alternating even cycles. The full set of models of the counted formulas has exactly this structure; uniform refinement stays monochromatic, and the standard \(C^2\) correspondence proves both directions of the exact logical fibre. The partition bijection, side-preserving dihedral edge transitivity, and extremal distinct-part sum are elementary but complete and handle every allowed even domain size. Independently executed finite graph-isomorphism and automorphism checks support the boundary cases. No computational enumeration is used as an infinite proof.
+
+**Originality — PASS, qualified.** The 2015 general \(C^2\)-identification classification applies to arbitrary finite binary structures; it gives a decision criterion, not the present explicit fibre multiplicities, orbit stratification and sharp ten-point orbit split. The previous eight-point alternating-cycle ambiguity and finite acyclic two-equivalence identification are known and not claimed as new. Actual semantic overlap comparisons found no prior statement implying the complete all-order count and orbit maximum without further argument. Residual risk: an existing specialized two-matching or two-equivalence classification may make these results known; independent priority verification is needed.
+
+**Value — PASS.** The size-two case is the smallest regular regime where two named equivalences lose connectivity information under \(C^2\). The result gives the full logical fibre for every allowed domain size, counts every isomorphism type, distinguishes logical identification from orbit refinement with a sharp first threshold, and quantifies maximal information loss as an exact function of order. This is a natural complete classification of the first nontrivial regular locus, not an arbitrary finite slice.
+
+The established eight-point ambiguity is background rather than part of the novelty claim. The proof applies only in the pure two-equivalence signature and publication priority has not been independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
