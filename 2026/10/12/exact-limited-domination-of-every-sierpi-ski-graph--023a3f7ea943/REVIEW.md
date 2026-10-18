@@ -1,15 +1,21 @@
-# Scientific review: exact limited domination of Sierpiński graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof verifies the full parameter range \(n\ge1\), \(m\ge2\), \(1\le k\le m-1\). It handles a subtle case excluded by a naive per-clique argument: an entire base row may be empty. For each two-level block, two empty rows would leave an off-diagonal vertex undominated, and one empty row forces all other rows to exceed their minimum occupancy by one. This proves at least \(m(m-k)\) selected vertices per block. A symmetric row-regular relation with constant diagonal produces a matching upper-bound construction; its last-symbol selection is preserved along every linking edge. The complete-graph base case is checked separately. Finite checks (69 constructions; 36 exact small minima) corroborate the analytic proof.
+PASS
 
-## Originality — PASS
+Independently reconstructed full n,m,k proof. Put r=m−k. In each base m² block a nonempty row clique must have c_i≥r; two empty rows force undominated off-diagonal vertex (i,j) because its sole external neighbor (j,i) is likewise unselected. If one row empty, domination forces a selected cross-link in all other rows and hence c_j≥r+1; block occupancy ≥(m−1)(r+1)≥mr. Every block contributes ≥mr, giving ≥r m^(n−1). For the upper bound, a symmetric r-regular residue relation with either uniform present or absent diagonal selects exactly r elements per row; every extra link connects vertices with both membership equal, so selected vertices have exactly k excluded neighbors inside own clique. n=1 is K_m. Independently brute-forced n=2,m=2,3 with feasible optima 2,6,3 for (m,k)=(2,1),(3,1),(3,2), corroborating but not replacing universal proof.
 
-The closest paper is Božović, *On \(k\)-limited domination: complexity and Sierpiński graphs*, arXiv:2610.01584v1. Its Section 5 proves the \(k=1\) and \(m=3,k=2\) instances and its Section 6 states the general formula verbatim as Conjecture 12. The present proof does not assume that conjecture and covers all its remaining cases. Earlier general work on \(k\)-limited domination and its equivalent \((0,k)\)-pitchfork terminology supplies definitions/bounds but not the inspected exact result. Search-index incompleteness and lack of full-text access to one more general graph-product paper leave an explicit residual literature risk.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem answers an explicit, newly stated conjecture for an entire recursively defined graph family. The two-level lower-bound mechanism is substantive because blank row cliques can be dominated from outside; the proof identifies and compensates those configurations instead of assuming each row contains selected vertices. The construction is valid uniformly, with no exceptional congruence classes. Only the claimed minimum and one family of extremizers are established, not a full census.
+Primary Božović (October 2026) explicitly labels general exact formula Conjecture12; existing proofs handle only k=1 or m=3,k=2. Submitted two-level block mechanism and all-parameter symmetric construction resolve genuinely remaining cases; related complete multipartite Resultary finding concerns another class.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Closes an explicit natural graph-domination conjecture in its complete parameter range. Handles empty-row domination and extra inter-row links in a substantive extremal mechanism; uniform optimal extremizers beyond earlier cases are mathematical value independent of computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
