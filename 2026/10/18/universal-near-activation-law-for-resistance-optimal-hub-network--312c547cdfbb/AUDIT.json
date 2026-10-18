@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes strict convexity and symmetry reduction without an invariant-only assumption, computes the full weighted join spectrum including disconnected peripherals, derives moment identities for degrees and triangles, and obtains all onset coefficients by explicit Taylor and implicit-function calculations at a strictly positive curvature. The full near-critical result is analytical, not extrapolation from 120 exact finite checks. Positive prices and fixed-graph quantifiers are explicit; no global subcritical closed form is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi 2006 section IV-B establishes generic KKT stationarity and uniqueness; 2008 sections 2.7 and 4.2 establish strict convexity and a universal gradient criterion.",
+        "Ghosh–Boyd–Saberi 2008 section 5 analyzes wheels and barbells with fixed unit prices; Johnson–Chertkov 2010 develops nonconvex price/sparsity heuristics."
+      ],
+      "reasoning": "The generic optimality theorem does imply the already-known star activation price after elementary specialization, and analogous wheel-specific linear-onset results exist. Those statements do not imply the degree-only two-term onset uniformly across nonisomorphic transitive peripheral graphs, nor the explicit triangle-sensitive correction without an additional spectral-moment calculation. The claim is carefully restricted to those refinements.",
+      "searches": [
+        "Minimizing Effective Resistance of a Graph Ghosh Boyd Saberi 2006 MTNS pdf",
+        "optimality conditions strict convexity total effective resistance Ghosh Boyd Saberi 2008",
+        "A Majorization-Minimization Approach to Design of Power Transmission Networks 2010"
+      ]
+    },
+    "checked_sources": [
+      "Ghosh, Boyd & Saberi, MTNS 2006, proceedings version, URL above",
+      "Ghosh, Boyd & Saberi, SIAM Review 2008, DOI 10.1137/050645452",
+      "Johnson & Chertkov, arXiv:1004.2285",
+      "Predari et al., 2023, DOI 10.1007/s13278-023-01137-1",
+      "Relevant accessible prior mathematical claim IDs 17feee4e, a94e8c60, f760e265, 623da493"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General first-order KKT implications for a star are prior work, not accepted as the contribution.",
+        "The new coefficient uses the cubic moment of the peripheral Laplacian, Tr(L_H^3)=Nd^3+3Nd^2-6T(H), together with the implicit-function expansion of the exact quotient-spectrum objective.",
+        "Predari et al. (2023) address fixed-cardinality edge insertion into fixed base weights, unlike unconstrained continuous allocation on hub joins."
+      ],
+      "reasoning": "Neither a general convex KKT theorem nor a wheel-specific solution logically yields the claimed formula for arbitrary vertex/edge-transitive peripherals without additional expansion and spectral-moment identities. The assertion is an explicit new structural refinement, not a claim that the general optimization formulation or price threshold itself was unknown.",
+      "searches": [
+        "Minimizing Effective Resistance of a Graph 2006 tree barbell strict convexity optimality conditions",
+        "Windmill graphs Kirchhoff index weighted optimum edge costs near threshold",
+        "Greedy optimization resistance based graph robustness 2023 fixed k edge insertion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The objective is the Kirchhoff index, equal to network order times the trace of the Laplacian pseudoinverse.",
+        "The weighted windmill/friendship viewpoint is equivalent when the peripheral graph is a union of equal complete graphs; the formula treats all edge- and vertex-transitive peripheral graphs."
+      ],
+      "reasoning": "Known convex resistance optimization and star-chord screening provide the activation threshold, which is expressly not novel. The refined expansion for the ratio of optimal conductances through quadratic order and its triangle count dependence is not supplied by these equivalent formulations in inspected material.",
+      "searches": [
+        "Kirchhoff index hub graph spoke chord price threshold optimal resistance",
+        "minimum total effective resistance windmill vertex transitive near critical conductance triangle count",
+        "arxiv:1004.2285 resistance network sparse conductance allocation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible claim 17feee4e-7fc8-46f8-97bb-dfb51bf4a836 explicitly provides general tree-chord price screening.",
+        "Accessible claim a94e8c60-7b92-422c-a82c-b8b30e89c763 provides a wheel-specific linear rim onset.",
+        "Accessible claims f760e265-faef-4d5a-a849-9c2b7c2e5e0d and 623da493-ba70-4f5b-b0f9-cb56fe0c7e2d give heterogeneous friendship and pineapple allocations."
+      ],
+      "reasoning": "These closest accessible prior claims cover the baseline price criterion and some special graph families, but no recovered claim states the general vertex/edge-transitive family with its triangle-count coefficient. The literature search did not identify an exact published table of these near-critical coefficients.",
+      "searches": [
+        "weighted wheel Kirchhoff index edge price threshold 2(n+1)/n spoke rim resistance optimal",
+        "universal hub graph join K1 H optimal effective resistance price threshold independent topology",
+        "windmill friendship graph weighted resistance optimization internal clique conductance phase transition"
+      ]
+    },
+    "rationale": "The recoverable prior tree-chord screen and wheel-specific onset have been excluded from the novelty claim. The new statement is a degree-universal critical slope, a common quadratic optimized-value curvature, and a triangle-count next term across all vertex-/edge-transitive peripheral graphs. Comparison with primary 2006/2008 generic optimization papers and related applied-network work identified no explicit theorem implying these refined coefficients. This is qualified best-knowledge originality, not bibliographic uniqueness.",
+    "residual_risks": [
+      "An equivalent near-critical expansion may occur in specialized sparsification or network-design literature not fully indexed.",
+      "The general chord threshold is explicitly prior; interpreting it alone as the new finding would not satisfy originality.",
+      "The 2023 comparator was accessible only in abstract/introduction excerpt; its full document was not confirmed non-covering."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers convex objective, KKT, uniqueness, and tree/barbell-related formulations, not the degree-universal second-order or triangle-sensitive local law",
+        "evidence": "MTNS 2006 sections I and IV-B, equations (27)–(29), TuP12.2; conference July 24–28, Tuesday session dated July 25",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Title/abstract and introduction, sections on convex optimization and section IV-B first-order necessary/sufficient conditions, pages 1 and 7–8; date and session code on the cover",
+        "method": "Read full-text extracted passages and inspected PDF cover image",
+        "title": "Minimizing Effective Resistance of a Graph (conference version)",
+        "trigger": "earliest archival optimization source and potentially covering exact tree criteria"
+      },
+      {
+        "assessment": "Supplies strict convexity, KKT and wheel analysis, but not the general transitive peripheral moment expansion",
+        "evidence": "SIAM Review 50 (2008), sections 2.7, 4.2, 5",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Sections 2.7, 4.2 and 5 (especially wheel and barbell examples) through full-text extraction; PDF page 17 also visually inspected",
+        "method": "Primary full-text mathematical passages and page image",
+        "title": "Minimizing Effective Resistance of a Graph (expanded journal version)",
+        "trigger": "plausible stronger coverage for wheel and convexity results"
+      },
+      {
+        "assessment": "Uses resistive convex design plus combinatorial sparsity heuristic and robustness models; no stated exact hub threshold curvature",
+        "evidence": "arXiv:1004.2285, Introduction and contributions",
+        "identifier_or_url": "https://arxiv.org/pdf/1004.2285",
+        "material_read": "Introduction, abstract, contributions and section map, full-text lines 0–125",
+        "method": "Primary arXiv full-text paragraphs",
+        "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+        "trigger": "heterogeneous line costs and selection may imply a stronger allocation theorem"
+      },
+      {
+        "assessment": "Different fixed-cardinality, fixed-base-weight augmentation objective; not grounds to claim entire paper non-covering",
+        "evidence": "Predari et al., 2023, abstract and opening introduction",
+        "identifier_or_url": "doi:10.1007/s13278-023-01137-1",
+        "material_read": "Accessible abstract and introduction excerpt only; full-text endpoint inaccessible",
+        "method": "Open-access indexed excerpt and publication metadata",
+        "title": "Greedy optimization of resistance-based graph robustness with global and local edge insertions",
+        "trigger": "possible graph-augmentation near-activation comparator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "312c547c-dfbb-4355-94a7-12313908604e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Once a peripheral link price crosses the established activation threshold, a design engineer needs the actual newly activated conductance and expected marginal improvement. The linear activation and quadratic value gain, independent of topology at fixed order/degree, and the first triangle-sensitive correction are meaningful structural design information for all vertex- and edge-transitive peripheral networks. This refines rather than repeats the known screening threshold; the two disjoint-triangle and six-cycle graphs demonstrate distinct next-order behavior despite identical leading laws.",
+    "status": "PASS"
+  }
+}
