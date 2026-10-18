@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Eq. (25) is undefined when two successive values of a compartment are both zero. The support calculation for Eq. (26) is exact: old-time nearest-neighbor diffusion expands the initially localized exposed/infected support by at most one lattice edge in the first step, and the sequential progression terms do not create population beyond that expanded support. Remote nodes therefore produce the exact \(0/0\) quotient before step two. The accompanying checker reproduces this mechanism.
+## correctness
 
-## Originality
-PASS. Searches of the exact DOI, the ratio formula, zero-compartment aliases, broader NSFD literature, and the available prior ledger found no implication-equivalent source-specific statement. The motivating article itself identifies a different consistency defect in its original skew Laplacian, but does not discuss the simultaneous-zero singularity introduced by Eq. (25). General NSFD literature emphasizes positivity and dynamic consistency without supplying this missing value.
+PASS
 
-## Value
-PASS. The obstruction affects the corrected scheme that the paper says is used for its numerical experiments, and it occurs on the localized nonnegative initialization described for the two-dimensional simulation. Whether the update is defined is a prerequisite for reproducibility and for a claimed positivity-preserving method on biologically natural states with empty compartments.
+Eq. (25) defines ν(U^n)=-(U^n-U^(n-1))/(k U^n) at n>=1, with special ν(U^0)=0 only. For localized central E,I source and initially empty remote E,I,Q,R, the explicit four-neighbor old-time stencil in Eq. (26) leaves all four compartments zero at a point beyond graph distance one after the first step. Hence the second-step correction must evaluate 0/0. Algebraically 1+kν=U^(n-1)/U^n has no path-independent limit at (0,0): approaching along U^(n-1)=U^n gives 1, along U^(n-1)=2U^n gives 2. Independent exact-rational stencil and ratio checks reproduced these facts. This is a failure of the PRINTED discrete map for the specified nonnegative initialization, not a claim that simulations used no hidden convention or that the continuous PDE is ill-posed.
 
-## Closest literature and limitations
-The closest literature is the motivating article itself, together with general NSFD work by Mickens and by Anguelov, Dumont, Lubuma and Shillor. The finding does not challenge the continuous PDE model or claim that the published figures are false; an undocumented implementation convention could regularize the zero state. The public materials inspected did not specify such a convention.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original narrow result after comparing actual mathematical implications with primary source and adjacent literature: The original consistency amendment concerns accuracy, while the new claim concerns definability on nonnegative localized data; general NSFD positivity results do not specify the paper's ν(0,0) continuation.
+
+## value
+
+PASS
+
+A specific missing state-space rule prevents the published corrected, positivity-motivated epidemiological numerical recurrence from being defined on its own stated localized zero compartments. This affects reproducibility of long-time trajectories, gives an explicit support-propagation witness and identifies the minimal mathematical issue (nonremovable zero denominator). It is more substantive than generic division-by-zero checking because the zero case is forced by the reported data and stencil.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
