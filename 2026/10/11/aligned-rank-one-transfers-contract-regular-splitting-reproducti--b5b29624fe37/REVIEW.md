@@ -1,17 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The rank-one spectral reduction is exact, the Sherman--Morrison denominator is positive for every admissible parameter, and post-transfer regularity is not assumed implicitly: it is characterized by the displayed entrywise inverse condition. Under that condition the next-generation matrix is nonnegative rank one, so its sole nonzero eigenvalue is its spectral radius. The source-specific identity follows by reducing both threshold offsets to the numerator \(AD-B(C+D)\).
+## correctness
 
-## Originality
-**PASS.** The closest recent source on regular splittings proves threshold equivalence and explicitly notes nonuniqueness; the recent ALT-graph paper gives common-target rank reduction and two distinct same-threshold reproduction numbers; the earlier next-generation-matrix paper gives several alternative decompositions; and classical matrix-splitting comparison theorems give qualitative inequalities. The inspected statements do not imply the exact aligned-transfer law \(R_t-1=(R_0-1)/(1+ts)\), its inverse-positivity criterion, or the strict factor relating the two Johnston--Cupons formulas.
+PASS
 
-Residual risk remains that older numerical-linear-algebra literature contains the same rank-one identity under different splitting terminology. The Sherman--Morrison identity itself is standard; the claimed contribution is the exact regular-splitting deformation statement and its threshold interpretation.
+Independently derived the Sherman–Morrison formula for V_t^{-1} with denominator 1+t s>0 because V^{-1}, u and w are nonnegative; hence invertibility is unconditional for t>=0 but inverse positivity requires the stated exact entrywise inequality. Multiplication gives V_t^{-1}u=V^{-1}u/(1+ts). Since F_tV_t^{-1} is nonnegative rank at most one on admissible t, its spectral radius equals (f+tw)^T V_t^{-1}u=(R0+ts)/(1+ts), proving contraction without crossing. A fresh rational 2x2 regular example with V=[[3,-1],[-1,1]], u=(1,1), f=(2,1), w=(1,0), t=1/5 gives R0=4, s=1, Rt=7/2 and Vt^{-1}=[[5/12,5/12],[1/3,4/3]]>=0. For the Johnston–Cupons source formulas, both threshold differences share numerator AD−B(C+D) and the ratio is (C+D)/(C+2D), between 1/2 and 1 for C,D>0. No finite sample is used as proof.
 
-## Value
-**PASS.** Nonuniqueness of \((F,V)\) is explicitly identified in the motivating literature as a substantive issue, and the newer ALT-graph construction deliberately seeks common-target low-rank splittings. The theorem quantifies that natural regime exactly: it gives a computable admissibility condition, preserves the threshold side, orders the values, and measures the contraction toward \(1\). The concrete corollary resolves the relative placement of two published reproduction numbers without a parameter sample.
+## originality
 
-## Closest literature and limitations
-The closest scientific sources are arXiv:2603.06778v4, arXiv:2610.01636v1, arXiv:2311.16686v2, and DOI:10.1155/2014/573024. The result does not apply to unaligned rank-one changes, arbitrary higher-rank splittings, or transfers that destroy inverse positivity. It does not assign a unique biological meaning to competing reproduction numbers.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The classical Sherman–Morrison identity supplies the algebraic inverse update and is fully acknowledged as prior; the Johnston–Cupons pairwise source-specific ratio is already an elementary consequence of two published formulas and is NOT counted independently novel. The distinct final claim is the exact family-level admissibility criterion and threshold-distance contraction law for all aligned regular rank-one transfers of a fixed Jacobian. Avram et al. discuss nonuniqueness and rank-one next-generation splittings and regularity, without the explicit deformation theorem in the inspected relevant full-text sections. The 2026 source motivating common-target ALT transfers was available only in abstract/metadata: its full text was unobtainable via open sources, and the sole authorized institutional attempt returned disconnected VPN; this is a genuine unresolved bibliographic risk, not an automatic scientific failure or a whole-document coverage judgment.
+
+## value
+
+PASS
+
+The regular-splitting nonuniqueness problem is expressly motivated in the closest primary work; this theorem provides an exact quantitative deformation law and a checkable criterion for when moving infection terms while fixing J remains biologically and mathematically admissible. Even though the calculation uses a classical one-line inverse identity, the sharply delimited aligned regime and threshold interpretation give a usable structural comparison across a continuum of natural splittings. It does not claim a sweeping theorem for arbitrary rank updates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

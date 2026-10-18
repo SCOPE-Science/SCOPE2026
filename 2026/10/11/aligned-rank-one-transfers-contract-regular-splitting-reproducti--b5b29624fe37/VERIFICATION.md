@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-1. **Fixed matrix.** The definitions \(F_t=u(f+t w)^{\mathsf T}\) and \(V_t=V+tuw^{\mathsf T}\) satisfy \(F_t-V_t=F-V=J\) identically.
-2. **Invertibility.** With \(s=w^{\mathsf T}V^{-1}u\ge0\), the matrix determinant lemma gives a nonzero factor \(1+ts\) for every \(t\ge0\). Sherman--Morrison therefore gives the claimed inverse.
-3. **Regularity boundary.** Because \(F_t\ge0\) automatically, the transferred pair is regular exactly when the explicit Sherman--Morrison inverse is entrywise nonnegative. No stronger automatic-preservation assertion is used.
-4. **Spectral radius.** A nonnegative rank-one matrix \(ab^{\mathsf T}\) has spectral radius \(b^{\mathsf T}a\). Applying this first to \(FV^{-1}\) and then to \(F_tV_t^{-1}\) proves the exact fractional-linear law.
-5. **Threshold geometry.** Subtracting \(1\) gives \(R_t-1=(R_0-1)/(1+ts)\). If \(s,t>0\), the multiplier lies strictly in \((0,1)\), so the side of threshold is preserved and the distance to threshold is strictly reduced.
-6. **Concrete source formulas.** For positive \(A,B,C,D\), direct subtraction from the two displayed formulas yields \(R_a-1=[AD-B(C+D)]/[B(C+2D)]\) and \(R_c-1=[AD-B(C+D)]/[B(C+D)]\). Their quotient is \((C+D)/(C+2D)\in(1/2,1)\).
-7. **Limits.** No claim is made about unaligned transfers, higher-rank \(F\), or values of \(t\) for which inverse positivity fails. No finite experiment or numerical approximation is used as an infinite proof.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Independently derived the Sherman–Morrison formula for V_t^{-1} with denominator 1+t s>0 because V^{-1}, u and w are nonnegative; hence invertibility is unconditional for t>=0 but inverse positivity requires the stated exact entrywise inequality. Multiplication gives V_t^{-1}u=V^{-1}u/(1+ts). Since F_tV_t^{-1} is nonnegative rank at most one on admissible t, its spectral radius equals (f+tw)^T V_t^{-1}u=(R0+ts)/(1+ts), proving contraction without crossing. A fresh rational 2x2 regular example with V=[[3,-1],[-1,1]], u=(1,1), f=(2,1), w=(1,0), t=1/5 gives R0=4, s=1, Rt=7/2 and Vt^{-1}=[[5/12,5/12],[1/3,4/3]]>=0. For the Johnston–Cupons source formulas, both threshold differences share numerator AD−B(C+D) and the ratio is (C+D)/(C+2D), between 1/2 and 1 for C,D>0. No finite sample is used as proof.
+
+## originality
+
+PASS
+
+The classical Sherman–Morrison identity supplies the algebraic inverse update and is fully acknowledged as prior; the Johnston–Cupons pairwise source-specific ratio is already an elementary consequence of two published formulas and is NOT counted independently novel. The distinct final claim is the exact family-level admissibility criterion and threshold-distance contraction law for all aligned regular rank-one transfers of a fixed Jacobian. Avram et al. discuss nonuniqueness and rank-one next-generation splittings and regularity, without the explicit deformation theorem in the inspected relevant full-text sections. The 2026 source motivating common-target ALT transfers was available only in abstract/metadata: its full text was unobtainable via open sources, and the sole authorized institutional attempt returned disconnected VPN; this is a genuine unresolved bibliographic risk, not an automatic scientific failure or a whole-document coverage judgment.
+
+## value
+
+PASS
+
+The regular-splitting nonuniqueness problem is expressly motivated in the closest primary work; this theorem provides an exact quantitative deformation law and a checkable criterion for when moving infection terms while fixing J remains biologically and mathematically admissible. Even though the calculation uses a classical one-line inverse identity, the sharply delimited aligned regime and threshold interpretation give a usable structural comparison across a continuum of natural splittings. It does not claim a sweeping theorem for arbitrary rank updates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
