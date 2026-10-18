@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed from the cited full-text statements rather than from a numerical experiment.
+# Independent mathematical audit
 
-For a positive integer \(m\), Proposition 6.12(2) of arXiv:2610.01354v1 gives a finite flat surjective multiplication map on the Néron model. Therefore the kernel is finite flat over the connected valuation spectrum and has constant scheme-theoretic length equal to the generic degree \(m^{2g-t_\eta}\).
+## correctness
 
-At a fiber \(s\), the identity component is semi-abelian of dimension \(g\) and torus rank \(t_s\), so its multiplication kernel has length \(m^{2g-t_s}\). The algebraically closed residue field permits a point in each component. For every \(m\)-torsion component, surjectivity of multiplication on the identity component adjusts such a point to an actual \(m\)-torsion point. Hence the full fiber kernel is the disjoint union, indexed by \(\Phi_s[m]\), of translates of the identity-component kernel. Comparing lengths yields
-\[
-|\Phi_s[m]|=m^{t_s-t_\eta}.
-\]
-This length argument remains valid when the residue characteristic divides \(m\); no étaleness or reducedness assumption is used.
+PASS
 
-Lemma 5.11 of the same source gives divisibility of \(\Phi_s\). The classification of divisible abelian groups then determines the torsion subgroup from the prime-torsion cardinalities as \((\mathbf Q/\mathbf Z)^{t_s-t_\eta}\). A torsion-free divisible summand is not determined.
+Kaib–Werner Lemma 5.11 gives divisibility and Proposition 6.12(2) finite flat surjective multiplication for every m≠0. The constant finite-flat kernel length is m^(2g-t_eta); the identity special-fiber length is m^(2g-t_s). Over algebraically closed residue fields, divisibility on the identity component moves each m-torsion component representative into N_s[m], and translation shows every occupied component has exactly the connected kernel length. Their ratio proves the exact formula even when residue characteristic divides m; divisibility then identifies each Prüfer rank. Neither the torsion-free divisible summand nor nonclosed-F cases are determined.
 
-The closest classical comparison checked is Grothendieck's rank-one ramified direct-limit theorem, as explicitly summarized in Conrad's notes. It concerns a different object: a direct limit of component groups after finite extensions, rather than the actual component group over the arbitrary-rank valuation ring.
+## originality
+
+PASS
+
+Best-of-knowledge distinct quantified component-torsion description, though it is a close and relatively short consequence of Kaib–Werner’s strong finite-flat and divisibility inputs; a hidden earlier formulation as a standard corollary is the main priority risk.
+
+## value
+
+PASS
+
+The Prüfer rank identifies exactly how far torus rank rises in every fiber of an arbitrary-rank valuation spectrum, turning a qualitative component-divisibility result into a quantitative intrinsic structural law useful for reduction-theoretic comparisons. It handles all m scheme-theoretically rather than just point-count heuristics, although the deduction after the source inputs is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is a direct scheme-theoretic consequence of two checked theorems from the initiating source, but it is not merely a point-counting argument. Proposition 6.12(2) makes \(N[m]\) finite flat over the connected valuation base, so its fiber length is the generic degree \(m^{2g-t_\eta}\) even in residue characteristic dividing \(m\). The special identity component has torsion length \(m^{2g-t_s}\). Algebraic closedness of the residue field and surjectivity of multiplication on the semi-abelian identity component show that the torsion kernel meets exactly the \(m\)-torsion components, each in a translate of \(N_s^0[m]\). This gives the exact ratio. Lemma 5.11 supplies divisibility, and the standard classification of divisible abelian groups converts the prime-torsion counts into \((\mathbf Q/\mathbf Z)^{t_s-t_\eta}\). The proof explicitly leaves any torsion-free divisible summand undetermined.
+## correctness
 
-## Originality
-PASS. The full Kaib--Werner source was inspected at Lemma 5.11, its torsion-rank argument under the extra quasi-compactness assumption, and Proposition 6.12. The paper states divisibility and finite-flat-surjective multiplication but does not state the exact formula for \(\Phi_s[m]\) or the Prüfer-rank conclusion. Targeted published-finding corpus searches found no covering published finding. Web searches located Grothendieck's classical rank-one theorem, summarized in Conrad's semistable-reduction notes, that a direct limit of component groups under ramified extensions is \(\operatorname{Hom}(X(T),\mathbf Q/\mathbf Z)\). That is a genuine close analogue, but it does not imply the stated arbitrary-rank actual-component formula with a semi-abelian generic fiber of torus rank \(t_\eta\). Current and prior ledgers contain no Néron-model or abeloid claim overlapping this statement.
+PASS
 
-## Value
-PASS. The component group is one of the basic discrete invariants of a Néron model. Kaib--Werner establish its divisibility and use torsion qualitatively to characterize quasi-compactness; the exact formula identifies a structural invariant that their results leave implicit: every unit of torus-rank jump contributes exactly one copy of \(\mathbf Q/\mathbf Z\) to component torsion, uniformly at every point of an arbitrary-rank valuation spectrum. This also supplies a quantitative higher-rank analogue of the classical ramified direct-limit phenomenon and is relevant to tracking degeneration through chains of valuation points.
+Kaib–Werner Lemma 5.11 gives divisibility and Proposition 6.12(2) finite flat surjective multiplication for every m≠0. The constant finite-flat kernel length is m^(2g-t_eta); the identity special-fiber length is m^(2g-t_s). Over algebraically closed residue fields, divisibility on the identity component moves each m-torsion component representative into N_s[m], and translation shows every occupied component has exactly the connected kernel length. Their ratio proves the exact formula even when residue characteristic divides m; divisibility then identifies each Prüfer rank. Neither the torsion-free divisible summand nor nonclosed-F cases are determined.
 
-## Closest literature and limitations
-The closest prior statement is Grothendieck's SGA 7 I, Exposé IX, §11.9 theorem on the direct limit of component groups after ramified extensions in the classical rank-one abelian setting. A modern accessible summary was inspected in Conrad's notes. The primary SGA 7 text was not independently reread in full during this run; this is a residual bibliographic risk, not an unresolved implication comparison, because the available statement explicitly concerns a direct limit under extensions rather than the actual component group over the arbitrary-rank valuation ring. The claim assumes algebraically closed fraction field and does not classify any torsion-free divisible summand.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct quantified component-torsion description, though it is a close and relatively short consequence of Kaib–Werner’s strong finite-flat and divisibility inputs; a hidden earlier formulation as a standard corollary is the main priority risk.
+
+## value
+
+PASS
+
+The Prüfer rank identifies exactly how far torus rank rises in every fiber of an arbitrary-rank valuation spectrum, turning a qualitative component-divisibility result into a quantitative intrinsic structural law useful for reduction-theoretic comparisons. It handles all m scheme-theoretically rather than just point-count heuristics, although the deduction after the source inputs is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
