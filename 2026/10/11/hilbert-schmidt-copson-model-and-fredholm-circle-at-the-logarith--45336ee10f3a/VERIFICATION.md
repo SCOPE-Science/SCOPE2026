@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of analytic calculations
+# Independent mathematical audit
 
-For the critical matrix, two square-sum bounds establish \(T-L\in\mathcal S_2\): below the strict upper triangle, \(\sum_{n\ge m}|T_{nm}|^2\le C/[m(\log m)^2]\); above it, the same upper bound holds for \(\sum_{2\le n<m}|T_{nm}-L_{nm}|^2\). Their total converges.
+## correctness
 
-For the discretization of the integral operator, the upper-triangle matrix error has squared sum bounded by a constant multiple of \(\sum_{m\ge3}[m(\log m)^2]^{-1}\); the diagonal is square summable. For the operator-kernel discrepancy, upper-triangle block variances sum to at most \(C\sum_m h_m^3/(\log m)^3\), and diagonal contributions to at most \(C\sum_m h_m^2/(\log m)^2\), both finite. These prove the Hilbert–Schmidt identification analytically.
+PASS
 
-The unitary logarithmic change of variables sends \(A\) to the explicit half-line exponential convolution. Its norm and essential norm are exactly \(2\), with normalized long-support test vectors as witnesses. The index is obtained from \(u'+(\lambda^{-1}-1/2)u=h/\lambda\). Interior and exterior cases use opposite integration directions. Boundary oscillatory packets are weakly null singular sequences; at zero, normalized matrix columns tend to zero.
+For n,m>=2, diagonal normalization gives T_nm=sqrt(m/n)/[(n+m+1)log m]. Relative to L_nm=1_{m>n}/sqrt(nm)log m, the two exact difference formulas have column squared sums bounded by C/[m(log m)^2]; thus T-L is Hilbert–Schmidt. With h_n=log(1+1/n), phi_n=h_n^(-1/2)1_[log n,log(n+1)), J embeds l2 into L2([log 2,infinity)), and A f(s)=int_s^infty f(t)/t dt: off-diagonal rectangle oscillations, diagonal area bounds and summable errors show L-J*AJ and A-PAP are Hilbert–Schmidt, so A-JTJ* is HS. The unitary log(s) plus s^(1/2) change converts A to one-sided exponential convolution B with L1 kernel mass 2; broad weakly-null packets attain essential norm 2. For lambda!=0 the first-order resolvent equation u'+(lambda^{-1}-1/2)u=h/lambda gives Fredholm index 1 inside |lambda-1|<1 and 0 outside, with Weyl packets on the circle. At lambda=0, original T has weakly null columns with squared norms O((m log m)^(-1)), ensuring non-Fredholm independent of the zero extension. The original two-space map has no intrinsic Fredholm spectrum. Analytic estimates, not finite truncation, establish infinite-dimensional statements.
 
-No numerical sample, finite-rank truncation, or unexamined software output is treated as an infinite-dimensional proof. No independent audit was performed. The coefficient-space normalization and the inability to infer the raw two-space Fredholm spectrum are explicit scientific limitations.
+## originality
+
+PASS
+
+Norrbo establishes the critical bounded map, Bergman endomorphism sources analyze other operators, and a related public result gives essential norm 2 for the logarithmic integral-weight Bergman endpoint. The present exact coefficient weights have a distinct normalization, and no located source determines their diagonal T Fredholm circle/index or the all-space Hilbert–Schmidt Copson bridge. The essential-norm number alone has overlap with the related endpoint publication, but the full spectral statement survives. Norrbo full text remained inaccessible this run, so originality is qualified best-of-knowledge with an explicit primary-access risk.
+
+## value
+
+PASS
+
+At the borderline between compact and noncompact Hilbert-matrix mappings, the model identifies an entire Fredholm essential spectrum with winding index, a structural invariant not captured by the boundedness phase transition or an essential-norm estimate alone. The normalization is motivated by the natural exact coefficient weights; the HS comparison is strong and quantitatively useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
