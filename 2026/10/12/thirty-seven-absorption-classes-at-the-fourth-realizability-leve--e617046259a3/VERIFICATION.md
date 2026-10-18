@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The packaged `verify_absorption.py` was executed from its actual path before assembly. It implements Kihara's hierarchy recursion and the proved finite absorption normal form.
+# Independent mathematical audit
 
-The exhaustive counts are
-\[
-\begin{array}{c|rrrrrrrr}
-\text{length}&1&2&3&4&5&6&7&8\\
-\hline
-\text{level at most }4&4&14&38&56&40&14&2&0\\
-\Sigma_4&0&1&10&23&19&7&1&0\\
-\Pi_4&0&1&10&23&19&7&1&0.
-\end{array}
-\]
-Hence there are \(61\) normalized fourth-level patterns on each side.
+## correctness
 
-The checker then computes the full absorption relation using optional expansion of each infinite quantifier, ordinary duplicate contraction, and subsequence containment. Its symmetric quotient has \(37\) classes for \(\Sigma_4\) and \(37\) for \(\Pi_4\). It also reproduces the source's \(17\) normalized \(\Sigma_3\) patterns.
+PASS
 
-The exact replay is bundled as `verification_output.txt` and ends with `VERIFY_OK`.
+Kihara's Definition 2.6 right-to-left hierarchy recursion, with adjacent duplicate ordinary E/A quantifiers contracted, yields exactly 61 normalized Sigma_4 and 61 normalized Pi_4 patterns through length 7. The length-8 normalized level<=4 enumeration is empty and prepending never lowers level, proving the finite cutoff. The absorption rewrite (two infinite-quantifier expansions, ordinary contraction and arbitrary insertion) has a descendant/subsequence normal form. Independent generation of the complete 61x61 mutual absorption relations gives exactly 37 classes on each side (class sizes 1,2,4,8); the source's Sigma_3 sanity count 17 matches. Observation 2.22 gives an implication to di-many-one reducibility and hence upper bounds N_m and N_dm<=37. Crucially distinct absorption classes may still be semantically equivalent; NO equality or full semantic fourth-level classification is claimed.
 
-## Limits
+## originality
 
-The executable check certifies the finite syntactic quotient after the mathematical cutoff and normal-form proofs. It does not prove semantic inequivalence between distinct absorption classes. Therefore \(37\) is an upper bound, not an asserted exact many-one or di-many-one count.
+PASS
+
+Kihara defines the absorption preorder and supplies third-level results plus fourth-level open semantic questions. The frozen result derives a finite length cutoff and computes a natural syntactic quotient at level four; the semantic open class count is not asserted solved. Source comparisons and semantic/digit searches returned no previous table of 61 normalized and 37 absorption classes, with an explicit unindexed-literature caveat.
+
+## value
+
+PASS
+
+The fourth level is singled out by actual open realizability-theoretic questions. Computing the complete finite quotient and rigorous upper bounds for their semantic class counts gives a meaningful reusable obstruction ceiling and search-space simplification. It remains independently useful even without distinguishing the 37 classes semantically.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
