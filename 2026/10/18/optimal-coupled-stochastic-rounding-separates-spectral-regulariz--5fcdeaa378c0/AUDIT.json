@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The four-atom Bernoulli model yields exact moments. Strong-law convergence follows because rows are IID bounded. The 2x2 eigenvalue formula proves the clipped unique optimizer; a 2x2 PSD covariance comparison proves a factor 2, with exact midpoint attainment. There are exactly three distinct positive rays in the midpoint family, so rank deficiency is equivalent to all n rows occupying one ray, and strict convexity gives the unique equal-probability optimum for n>=2. The included standard-library checker passed 58,566 independent exact-rational and sampled checks; finite tests supplement but never replace these universal steps.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dexter et al. Section 4 random-matrix bounds require independent entries, whereas coupling violates their hypothesis",
+        "Ma et al. Section 2.2 explicitly uses diagonal expected noise Gram; the new cross covariance may be nonzero",
+        "Results for general antithetic variance reduction do not automatically optimize least eigenvalues and exact rank occupancy at fixed marginals"
+      ],
+      "reasoning": "Prior independent-entry random-matrix bounds cover the independence baseline, not the off-diagonal covariance or tradeoff in admissible couplings. Broader matrix probability and coupling theory might imply components (Fréchet and Loewner), but no identified primary text states this exact joint spectral/rank classification.",
+      "searches": [
+        "stochastic quantization unbiased rounding coupled noise antithetic spectral least squares matrix rank",
+        "three-ray one-third coupling row vectors rank deficiency versus minimum eigenvalue stochastic rounding",
+        "\"stochastic rounding\" \"rank deficiency\" \"correlated\" rows",
+        "\"coupled stochastic rounding\" \"singular values\" covariance"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.00312, Sections 2.2 and 5, accessed as accessible full-text preprint",
+      "arxiv:2403.12278, Sections 2 and 4, read full arXiv PDF",
+      "Published mathematical findings searched using seven specified source, alias, coupling and parameter query forms; compared the closest claim statements",
+      "Targeted published web literature searches for correlated stochastic rounding, dependent noise and finite-rank probabilities"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ma et al., arxiv:2606.00312, Section 2.2 states E entries independent across (i,j), and E[E^T E] is diagonal; our E has within-row dependence and E[E^T E] off-diagonal",
+        "Dexter et al., arxiv:2403.12278, Section 2.2 explicitly declares E entries independent",
+        "Classical Fréchet bounds determine admissible tau only and do not themselves state Gram eigenvalue maximization, universal sharp factor 2 or competing finite-rank optimum"
+      ],
+      "reasoning": "Neither paper implies the dependent-rounding optimizing statements because both fix an independent joint law. Taking d=2 and identical rows in their general bounds yields a claim at tau=pq only, with no comparison among tau values. The three-ray occupancy phenomenon is additional finite-n content absent from their bounds.",
+      "searches": [
+        "coupled stochastic rounding Bernoulli Frechet Fréchet two-column least singular spectral factor two rank failure",
+        "Ma Yu Drineas Stochastic Rounding Increases Small Singular Values 2606.00312 coupling dependence",
+        "\"stochastic rounding\" \"rank deficiency\" \"correlated\" rows"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2606.00312 Section 2.2 assumes independent entry errors; covariance noise expected Gram diagonal",
+        "arxiv:2403.12278 Section 2.2 explicitly describes independent entries of E",
+        "Closest published comparisons address row coherence in primal-dual diagonal step initialization and posterior ellipsoid scalar calibration, not within-row coupled stochastic rounding."
+      ],
+      "reasoning": "Feasible two-Bernoulli couplings are classical; checked for the equivalent object of optimizing a repeated-row rounded matrix by within-row dependence, plus the competing finite-row rank failure objective. Neither of two inspected papers allows this dependence in its theorems. The closest published mathematical records concern unrelated objectives. There remains a nonzero possibility of an unindexed equivalent quantization result.",
+      "searches": [
+        "optimal Fréchet antithetic coupling of two stochastic rounding Bernoulli entries maximize least singular value of rank one repeated row matrix factor two",
+        "correlated stochastic rounding spectral regularization Gram covariance dependence independent versus countermonotone",
+        "coupled stochastic rounding Bernoulli Frechet Fréchet two-column least singular spectral factor two rank failure",
+        "\"stochastic rounding\" \"anticorrelated\" \"singular values\" matrix coupling",
+        "antithetic rounding two columns smallest singular value finite sample rank probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published two-by-two determinant identity for Adafactor concerns second-moment reconstruction rather than rounding of rank-one matrices.",
+        "A published Bernoulli singleton-slice identifiability theorem concerns recovering distribution parameters, not row-ray occupancy in numerical linear algebra.",
+        "Full primary texts give theorem-level spectral bounds, not a table of optimal within-row coupling for two-column repeated rows"
+      ],
+      "reasoning": "No exact row-state table, coupling minimizer or three-ray rank-failure census was located. The present finite-sample probabilities follow from fully enumerated three row rays rather than an external numerical database.",
+      "searches": [
+        "smallest eigenvalue of 2 by 2 Bernoulli Gram Fréchet covariance minimum absolute correlation",
+        "Ma Yu Drineas Stochastic Rounding Increases Small Singular Values 2606.00312 coupling dependence",
+        "\"stochastic rounding\" \"anticorrelated\" \"singular values\" matrix coupling"
+      ]
+    },
+    "rationale": "Targeted published mathematical-record and primary-literature searches distinguish the new dependent-within-row coupling optimization and spectral-versus-finite-rank conflict from the motivating and predecessor sources, which assume independent entrywise rounding. Fréchet bounds and elementary occupancy methods are explicitly credited as standard. Novelty remains bibliographically qualified.",
+    "residual_risks": [
+      "A specialized antithetic stochastic quantization paper or combinatorial matrix-occupancy treatment may contain an equivalent statement not indexed in searches.",
+      "Coupled within-row rounding need not be supported by independently randomized hardware; physical relevance of coupling requires separate implementation analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the new dependent rounding optimization: explicitly assumes independent entries and diagonal expected noise Gram",
+        "evidence": "Section 2.2 equations (5)-(6) independent E_(i,j) and E[E^T E] diagonal; conclusions concern independent SR spectral lifting.",
+        "identifier_or_url": "https://www.researchgate.net/publication/405685346_Stochastic_Rounding_Increases_Small_Singular_Values",
+        "material_read": "Full accessible text: abstract, model Section 2.2 (rounding/noise, Gram), theorem-level bounds, conclusions and bibliography",
+        "method": "Read accessible full-text HTML rendering of the preprint; compared assumptions and conclusions",
+        "title": "Stochastic Rounding Increases Small Singular Values",
+        "trigger": "Fresh recent numerical linear algebra source with same singular-value regularization objective"
+      },
+      {
+        "assessment": "NOT_COVERING coupling optimization: Section 2.2 defines independently rounded matrix entries",
+        "evidence": "Section 2.2 equation (6) explicitly states entries of E are independent; Theorem 2 assumes entrywise noise model.",
+        "identifier_or_url": "https://arxiv.org/pdf/2403.12278",
+        "material_read": "29-page lawful arXiv paper, including abstract, full Section 2 (precise SR model), Section 4 randomized lower bounds, proof strategy and discussion",
+        "method": "Read arXiv PDF extracted text and rendered pages 3 and 7; inspected independence definitions and comparison conditions",
+        "title": "Stochastic Rounding Implicitly Regularizes Tall-and-Thin Matrices",
+        "trigger": "Direct earlier precursor with rank-deficiency and least-singular-value aims"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5fcdeaa3-78c0-45bc-8f5a-67b20bcca083",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharply quantified conflict between condition-based spectral regularization and exact finite-sample full-rank reliability addresses an intrinsic choice in low-precision rank-deficient matrix processing. The factor-two ceiling is globally optimal over all Bernoulli couplings, and the independent/antithetic/three-ray family gives mathematically distinct optimal decisions with exact attainable values; it is not a numerical-table increment or arbitrary slicing.",
+    "status": "PASS"
+  }
+}
