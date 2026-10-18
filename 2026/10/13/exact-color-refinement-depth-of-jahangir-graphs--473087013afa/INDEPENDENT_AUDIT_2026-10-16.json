@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T15:49:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=4 degrees m,3,2 separate hub, spoke attachments and sector interiors after one round; further 1-WL rounds propagate color information inward by distance from equally colored sector endpoints, one layer each step, with final split at floor(n/2). For m=3 the hub shares degree 3 with spoke vertices at round one, but neighbor-degree multisets separate them at round two; sector distance propagation remains unaffected. Dihedral rotations/reflections across the identical m paths put precisely vertices of the same nearest-spoke distance in one orbit, and the color classes separate all other orbit types. Independently implemented one-WL and orbit formulas and checked n=2..18 and m=3..12 (170 pairs), including small n and m=3 boundaries. This finite check is supporting evidence for the all-parameter inductive distance-wave argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Universal-cover lower/upper round bounds for arbitrary graphs are much broader but do not force the family-specific equality case.",
+          "Graph domination/metric literature reports different invariants, not an implication to color refinement."
+        ],
+        "reasoning": "A general framework to perform the calculation does not imply the exact sharp m=3 exception without the sector distance-wave proof.",
+        "searches": [
+          "Resultary semantic query: Jahangir graph ordinary color refinement one Weisfeiler Leman stabilization depth orbit partition",
+          "arXiv:1407.3175 Krebs–Verbitsky",
+          "Jahangir metric/graph-burning papers"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1407.3175 (Krebs–Verbitsky)",
+        "arXiv:1502.01255 (Arvind et al.)",
+        "Mojdeh–Ghameshlou 2007 on domination",
+        "Bhatti 2007 on chromatic properties",
+        "Resultary Jahangir color-refinement semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generalized-color-refinement framework cannot derive sharp equality without identifying degree-collision and sector-distance propagation.",
+          "For m=3, deg(hub)=deg(attachments)=3, so at n=2,3 the round-2 hub split genuinely exceeds floor(n/2)=1."
+        ],
+        "reasoning": "The m=3 boundary illustrates nontrivial family-specific information absent from prior general refinement bound statements.",
+        "searches": [
+          "arXiv:1407.3175 general color-refinement depth",
+          "Jahangir J_(2,m) domination/chromatic literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1-dimensional color refinement is equivalent to coarsest equitable partition; its general stabilization rules apply to Jahangir graphs but do not itself calculate floor(n/2) rounds.",
+          "Classical automorphism orbit partition is always equitable but need not equal 1-WL stable coloring in arbitrary graphs."
+        ],
+        "reasoning": "The exact Jahangir result is a family-specific equality and depth, not a renaming of generic color-refinement equivalence.",
+        "searches": [
+          "Resultary semantic query: Jahangir graph ordinary color refinement one Weisfeiler Leman stabilization depth orbit partition",
+          "arXiv:1407.3175",
+          "arXiv:1502.01255",
+          "Jahangir equitable partition 1-WL"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant direct Jahangir color-refinement result in published-result semantic search; nearby hits are other graph families and unrelated coloring invariants."
+        ],
+        "reasoning": "No fixed-parameter graph-invariant table for stabilization rounds at all n,m was identified. The theorem is symbolic/all-parameter rather than an entry of a census; unsuccessful search is not affirmative proof of novelty.",
+        "searches": [
+          "Resultary semantic query: Jahangir graph ordinary color refinement one Weisfeiler Leman stabilization depth orbit partition",
+          "Resultary Jahangir exact color refinement depth",
+          "Jahangir 1-WL Weisfeiler Leman stabilization orbit partitions"
+        ]
+      },
+      "rationale": "Named Jahangir graph literature found concerns domination/chromatic/Ramsey/burning invariants; Krebs–Verbitsky characterize general 1-WL refinement and universal covers but do not state the exact 1-WL stabilization for this spoke-even cycle family in inspected material. No Resultary mathematical record or queried primary title establishes the m=3 exception or all-n formula. Originality remains best-of-knowledge; unindexed equitable-partition computation could be equivalent.",
+      "residual_risks": [
+        "Generic path propagation may appear as a folklore specialization of equitable-partition refinement; unindexed proof could subsume this statement.",
+        "Primary 2007 graph-family papers were not completely obtained in this execution; their visible topics do not by themselves prove noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General universal-cover/round-depth framework; not shown to imply a Jahangir closed formula.",
+          "evidence": [
+            "Color refinement uses neighborhood multiset iteration and stabilizes to coarsest equitable partition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.3175",
+          "material_read": "Public title, abstract, general local-propagation statements, and cited theorem descriptions; no complete 2014 PDF was asserted read.",
+          "method": "Public arXiv article summary and relevant abstract",
+          "title": "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth",
+          "trigger": "Closest methodological result on refinement depth"
+        },
+        {
+          "assessment": "Studies domination, not claimed to contain all-n 1-WL depth and orbit identity.",
+          "evidence": [
+            "The case J_(2,m) is a standard named Jahangir graph."
+          ],
+          "identifier_or_url": "doi:10.12988/IJCMS.2007.07122",
+          "material_read": "Bibliographic record, object definition, topic, and theorem summary only; no whole-document noncoverage assertion.",
+          "method": "Public source metadata/search",
+          "title": "Domination in Jahangir Graph J_(2,m)",
+          "trigger": "Named-family primary paper with n=2 case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Jahangir graphs form a standard well-studied infinite family. Stabilization round depth and whether 1-WL detects every automorphism orbit are natural computational graph invariants, and this theorem determines both exactly for all permitted parameters. The m=3 hub/spoke degree-collision introduces a genuine sharp structural exception; more than a finite table or a relabeling of generic universal-cover bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For standard Jahangir graph J_(n,m), n>=2 and m>=3, 1-dimensional color-refinement stabilization from uniform coloring is floor(n/2) for m>=4 and max(2,floor(n/2)) for m=3, and its stable equitable partition equals the automorphism-orbit partition.",
+  "limitations": [
+    "Only ordinary 1-WL from uniform coloring on equally spaced spoke Jahangir graphs n>=2,m>=3; no irregular wheel or 2-WL claim.",
+    "Some older named-family literature was available only at metadata/abstract level; no whole-document negative coverage inferred."
+  ],
+  "schema_version": 1
+}

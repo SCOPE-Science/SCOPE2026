@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(m\ge4\), round \(1\) distinguishes the center, attachment vertices, and internal sector vertices by degrees \(m\), \(3\), and \(2\). Thereafter every sector is an equal-endpoint path, so refinement propagates inward one distance layer per round and stops exactly at \(\lfloor n/2\rfloor\). For \(m=3\), the center and attachments both have degree \(3\) in round \(1\), but their round-\(1\) neighbor-color multisets differ, forcing separation in round \(2\); this extra split does not create new sector-position classes. Hence the maximum of the hub split time and the sector split time is exact. Rotations and reflections realize every predicted stable class as an orbit, and the distance layers distinguish different classes. A direct checker verifies the formula and orbit partition on 1652 parameter pairs.
+## correctness
 
-## Originality
-PASS with residual priority risk. Published-result searches using Jahangir, generalized-wheel, color-refinement, \(1\)-WL, Weisfeiler--Leman, equitable-partition, and orbit terminology returned no matching theorem. Web searches found the standard Jahangir literature on domination, chromatic properties, Ramsey numbers, metric indices, and burning, but no color-refinement calculation. The general color-refinement literature supplies the local-propagation framework rather than this family-specific formula. The current and prior research ledgers were searched for Jahangir terminology and contained no overlapping claim.
+PASS
 
-## Value
-PASS. Jahangir graphs are a standard named generalized-wheel family with a large literature on exact graph invariants. The theorem gives a complete all-parameter value for a natural finite-model-theoretic invariant and identifies a sharp structural exception at exactly three spokes, where the hub and rim attachments have the same degree. The result is not a finite table or an arbitrary slice: it explains the entire family by the competition between sector length and the unique degree-collision case.
+For m>=4 degrees m,3,2 separate hub, spoke attachments and sector interiors after one round; further 1-WL rounds propagate color information inward by distance from equally colored sector endpoints, one layer each step, with final split at floor(n/2). For m=3 the hub shares degree 3 with spoke vertices at round one, but neighbor-degree multisets separate them at round two; sector distance propagation remains unaffected. Dihedral rotations/reflections across the identical m paths put precisely vertices of the same nearest-spoke distance in one orbit, and the color classes separate all other orbit types. Independently implemented one-WL and orbit formulas and checked n=2..18 and m=3..12 (170 pairs), including small n and m=3 boundaries. This finite check is supporting evidence for the all-parameter inductive distance-wave argument.
 
-## Closest literature and limitations
-The closest object-specific sources are Mojdeh--Ghameshlou (2007) on domination, Bhatti (2007) on chromatic properties, and Ali--Baskoro (2007) on Ramsey questions for Jahangir graphs. Krebs--Verbitsky (2014) is the closest methodological source for color-refinement depth. None of the inspected or retrieved material states the present formula. Irregular spoke placements and higher-dimensional refinement are not covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Named Jahangir graph literature found concerns domination/chromatic/Ramsey/burning invariants; Krebs–Verbitsky characterize general 1-WL refinement and universal covers but do not state the exact 1-WL stabilization for this spoke-even cycle family in inspected material. No Resultary mathematical record or queried primary title establishes the m=3 exception or all-n formula. Originality remains best-of-knowledge; unindexed equitable-partition computation could be equivalent.
+
+## value
+
+PASS
+
+Jahangir graphs form a standard well-studied infinite family. Stabilization round depth and whether 1-WL detects every automorphism orbit are natural computational graph invariants, and this theorem determines both exactly for all permitted parameters. The m=3 hub/spoke degree-collision introduces a genuine sharp structural exception; more than a finite table or a relabeling of generic universal-cover bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
