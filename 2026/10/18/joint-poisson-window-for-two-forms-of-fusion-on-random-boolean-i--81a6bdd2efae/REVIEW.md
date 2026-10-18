@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The claim has exact definitions of the two random valuation sets, the ordered mixed and distinct unordered self-join witness variables, and the diagonal exception. The witness incidence degrees are \(2^{|u|}\); summing their first and second powers yields the exact means, variances, and cross-covariance. In the pooled dependency graph, \(\sum d^2\le5\cdot5^k\), and every pair of distinct dependent witness indicators shares only one basic Bernoulli bit. The published multivariate dependency-neighborhood theorem then yields the stated joint total-variation bound. Since \(5<3\sqrt3\), that bound decays exponentially in the claimed window. The critical and off-critical assertions follow from these estimates. Standalone exhaustive rational checks corroborate the finite equations for \(k\le3\), without being used to prove the infinite assertions.
+
+## Originality — PASS, qualified
+The principal semantics of binary fusion and its join-semilattice setting are pre-existing (Knudstorp 2022, especially introduction/Chapter 6, and 2023). The general multivariate Poisson approximation theorem is pre-existing (Arratia–Goldstein–Gordon 1989, Theorem 2); a related random-subset intersection problem with fixed family sizes was solved by Goldstein–Reinert 2006. Those works do not supply the identified two-color Boolean-join witness graph, its exact bivariate second moments, or the differing self/mixed intensities and asymptotic independence. A search of published mathematical research records found no stronger covering statement. Residual risk: analogous union-cover statistics may occur in older probabilistic-combinatorics literature under terminology not exposed by the consulted search indexes. This assessment does not certify worldwide publication priority.
+
+## Mathematical value — PASS
+The question measures whether random propositions fuse into a prescribed information state, the very semantics of the binary modality. The answer identifies an exponential critical scale and quantitatively distinguishes repeated and independent atoms; the shared atom yields nonzero exact finite covariance yet asymptotically independent fusion truths. The exact covariance, joint total-variation rate, and strict overlap inequality \(5<3\sqrt3\) are substantive combinatorial information not obtainable by treating the \(3^k\) decompositions as independent events. The result does not purport to solve general random-semilattice or correlated-valuation semantics.
+
+## Closest work and limitations
+The closest sources are the 2022 thesis by Knudstorp, the 2023 journal article on modal information logics, and the 1989 multivariate Chen–Stein theorem. Goldstein–Reinert (2006) treats intersections of fixed-size random subsets, not unions of randomly selected subsets of a Boolean lattice. The result concerns unrestricted Bernoulli valuations at a fixed world; no simultaneous all-world or persistence claim is made. Full bibliographical uniqueness remains unverified.
+
+Self-review: passed. Independent audit: not yet performed.

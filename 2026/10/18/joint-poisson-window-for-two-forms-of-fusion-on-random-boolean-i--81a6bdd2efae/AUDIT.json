@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "All events use distinct independent basic Bernoulli bits except documented shared-bit overlaps. Ordered joins have cardinality 3^k; unordered off-diagonal joins (3^k-1)/2; per-vertex partner counts 2^r yield exact bivariate moment identities using 5^k and 2^k. The dependency graph has sum of squared bit degrees <=5*5^k; its pair-overlap terms satisfy b1<=5*5^k p^4, b2<=5*5^k p^3, b3=0. Theorem 2 of Arratia--Goldstein--Gordon (1989) gives a joint total-variation error at most 20*5^k(p^3+p^4), yielding the critical independent Poisson limit since 5/(3 sqrt(3))<1. The diagonal self-witness has probability p, negligible at criticality; Markov and exact-variance Chebyshev arguments establish the sub/supercritical limits. Exhaustive independent rational moment and covariance checks passed for dimensions 0 through 3 with p=1/2 and 1/3, plus dependency graph checks. Finite enumerations are not treated as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arratia--Goldstein--Gordon 1989, Theorem 2, https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/AGG-1.pdf",
+        "Goldstein--Reinert 2006, Theorem 2.1, https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/10/poisson_subset.pdf"
+      ],
+      "reasoning": "AGG gives a general multivariate error inequality in b1,b2,b3, not the application-specific count of overlapping Boolean join decompositions or exact covariance. Goldstein--Reinert samples fixed-size subsets and counts their intersection, not random sets of Boolean-lattice worlds whose join equals the top. Neither supplies an already-verified stronger instance.",
+      "searches": [
+        "Arratia Goldstein Gordon 1989 Theorem 2 multivariate Chen Stein dependency graph",
+        "Goldstein Reinert 2006 poisson subset numbers fixed sizes",
+        "\"random\" \"join\" \"Boolean lattice\" \"Stein Chen\""
+      ]
+    },
+    "checked_sources": [
+      "https://eprints.illc.uva.nl/id/eprint/2226/1/MoL-2022-24.text.pdf",
+      "https://doi.org/10.1007/s10992-023-09724-5",
+      "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/AGG-1.pdf",
+      "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/10/poisson_subset.pdf",
+      "https://ora.ox.ac.uk/objects/uuid:f27da31f-aafb-440a-9ceb-29cef637b2d2",
+      "published-finding corpus IDs 2026/9/20/SCOPE-rare-pairwise-independent-bernoulli-limit-classification--81d03613e25b; 2026/10/4/SCOPE-tie-collision-phase-transition-for-ordered-boolean-full-products--902c9356c25e; 2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knudstorp 2022 Chapter 6 gives semantic/axiomatization assertions not stochastic laws.",
+        "AGG Theorem 2 needs b1 and b2; our proof supplies separate 3^k and 5^k incidence sums and distinguishes self from mixed witness pairings.",
+        "Goldstein--Reinert Eq. (1) counts intersections of random subsets of a fixed ground set, not decompositions u union v = X."
+      ],
+      "reasoning": "The logical source does not probabilistically sample valuations. The general probabilistic tool is applicable only after establishing the nontrivial dependency structure and the strict rate inequality 5 < 3 sqrt(3); the intersection-size paper uses a different statistic. The exact cross-covariance and the two different Poisson means follow from newly specified witness sets rather than by a direct parameter substitution into those works.",
+      "searches": [
+        "Knudstorp 2022 Modal Information Logics Chapter 6",
+        "Knudstorp 2023 Modal Information Logics Axiomatizations and Decidability",
+        "Arratia Goldstein Gordon 1989 two moments suffice Theorem 2",
+        "Goldstein Reinert 2006 Poisson subset numbers Theorem 2.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Knudstorp 2022, Chapter 6, treats join-semilattice fusion semantics, not random witness distributions.",
+        "https://eprints.illc.uva.nl/id/eprint/2226/1/MoL-2022-24.text.pdf",
+        "published-finding corpus hit 2026/10/4/SCOPE-tie-collision-phase-transition-for-ordered-boolean-full-products--902c9356c25e treats tuple-orbit collisions, not Boolean joins of independently valued formulas."
+      ],
+      "reasoning": "Queries considered modal fusion, truthmaker combination, Boolean-family union covers, random join convolutions and Poisson witnesses. The closest related algebraic and probability records have different random objects/claims; no equivalent direct statement recovered.",
+      "searches": [
+        "Poisson threshold and two-color joint distribution of random join-decompositions in Boolean lattice, supremum modal logic existential binary join modality valuations",
+        "Random join convolution of subsets of Boolean lattice. Two independent Bernoulli random families union covers universal set. Poisson law and critical 3^{-n/2}",
+        "Random truthmaker semantics on finite join semilattice: probability a world satisfies binary supremum modality of independent random propositions",
+        "\"random\" \"fusion\" \"modality\" \"Poisson\" semilattice",
+        "\"random\" \"truthmakers\" \"Poisson\" \"fusion\"",
+        "random families full union subsets Boolean lattice Poisson approximation decompositions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hit 2026/9/20/SCOPE-rare-pairwise-independent-bernoulli-limit-classification--81d03613e25b studies weak limits of pairwise-independent Bernoulli variables, not Boolean join witness counts.",
+        "published-finding corpus hit 2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1 studies one-types of the random poset."
+      ],
+      "reasoning": "No exact table or published finding recovered with the five moment formulas or the two-dimensional Poisson product law. These searches do not establish global novelty; the result may be in older unindexed literature.",
+      "searches": [
+        "Poisson threshold and two-color joint distribution of random join-decompositions in Boolean lattice, supremum modal logic existential binary join modality valuations",
+        "Random join convolution of subsets of Boolean lattice. Two independent Bernoulli random families union covers universal set. Poisson law and critical 3^{-n/2}",
+        "Random truthmaker semantics on finite join semilattice: probability a world satisfies binary supremum modality of independent random propositions",
+        "modal information logics supremum fusion semilattice Knudstorp random valuations Poisson witness counts",
+        "Poisson limit of Boolean-lattice union decompositions random set families: distinct same-family versus independent-family witnesses",
+        "\"3^n\" \"5^n\" \"Poisson\" \"union\" random subsets"
+      ]
+    },
+    "rationale": "The primary 2022 thesis introduces and axiomatises join-semilattice supremum fusion but does not model random valuations; the 2023 journal article is about axiomatization and decidability. The 1989 AGG process theorem is general and requires an application-specific dependency graph; the new distinct/ordered Boolean-join combinatorics, exact bivariate covariance and critical independence comparison are not contained there. Goldstein--Reinert 2006 concerns intersections of fixed-size random subsets and does not imply these random-union witness identities. published-finding corpus searches and accessible published-source comparisons recovered no stronger matching claim. Priority outside indexed sources is uncertain.",
+    "residual_risks": [
+      "Analogous Boolean-union cover witness Poisson laws may appear in older random-set or semigroup literature under different indexing terms.",
+      "The general AGG theorem is prior and must be correctly credited as the probabilistic tool; new contribution is the exact Boolean-join count and comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Framework and axiomatization, not probabilistic witness counts",
+        "evidence": [
+          "2022 thesis PDF pp. 6-7, contents pp. 1-2; repository deposit 2022-10-31."
+        ],
+        "identifier_or_url": "https://eprints.illc.uva.nl/id/eprint/2226/1/MoL-2022-24.text.pdf",
+        "material_read": "Introduction, contents, semantic definition and Chapter 6 coverage checked, including text search for random and Poisson; these terms were absent.",
+        "method": "Lawful institutional repository PDF opened and inspected via pages and searchable text",
+        "title": "Modal Information Logics",
+        "trigger": "Primary source on fusion over join-semilattices, especially Chapter 6"
+      },
+      {
+        "assessment": "Axiomatization and decidability; not random Boolean-join statistics",
+        "evidence": [
+          "DOI 10.1007/s10992-023-09724-5, published 2023-11-03; theorem summary pp. 1725-1727."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10992-023-09724-5",
+        "material_read": "Title/abstract, motivation, modal satisfaction clauses on pp. 1724 and 1727, summary of results/sections.",
+        "method": "Open-access full-text PDF read via searchable page text and screenshots",
+        "title": "Modal Information Logics: Axiomatizations and Decidability",
+        "trigger": "Plausible journal expansion of thesis with stronger results"
+      },
+      {
+        "assessment": "Generic multivariate dependency bound adopted as proof ingredient; no Boolean-join instance",
+        "evidence": [
+          "Annals of Probability 17 (1989) 9-25, Theorem 2 (p. 11)."
+        ],
+        "identifier_or_url": "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/AGG-1.pdf",
+        "material_read": "Theorem 2 on p. 11, process and b1/b2/b3 definitions, independence-neighborhood discussion, examples.",
+        "method": "Author-hosted lawful PDF opened and inspected via text and page screenshot",
+        "title": "Two Moments Suffice for Poisson Approximations: The Chen-Stein Method",
+        "trigger": "Potential general theorem subsuming Poisson law"
+      },
+      {
+        "assessment": "Fixed-size random subset intersection cardinality, not joined-world pair witnesses; not covering",
+        "evidence": [
+          "Goldstein and Reinert 2006, pp. 1-6, Eq. (1) and Theorem 2.1."
+        ],
+        "identifier_or_url": "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/10/poisson_subset.pdf",
+        "material_read": "Full primary-text sections 1 and 2, especially problem definition (1) and Theorem 2.1.",
+        "method": "Author-hosted lawful preprint PDF inspected via searchable text",
+        "title": "Total Variation Distance for Poisson Subset Numbers",
+        "trigger": "Strongly plausible random-set Poisson comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "81a6bdd2-efae-476b-bfc9-4cce9f302b25",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The binary supremum fusion connective is a motivated qualitative-information operation, and typical random valuation truth at a prescribed information state is an intrinsic previously unresolved statistic in the inspected literature. The result gives an exact finite covariance, a sharp exponential critical density, different self/mixed Poisson intensities and joint asymptotic independence despite a common atom, with a quantitative rate. These require counting overlapping Boolean-join decompositions, not an arbitrary unmotivated finite parameter slice. It does not claim a general new Poisson approximation theorem or extrapolate to persistence and all-world probabilities.",
+    "status": "PASS"
+  }
+}
