@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Path stable-set facets are precisely x_i>=0 and x_i+x_(i+1)<=1. The primitive facet matrix becomes a rooted-graph incidence matrix after row sign changes, proving total unimodularity and smoothness of every simplicial cone. Its graphic circuits are root-to-root paths; feasibility forces even-length alternating 0,1,0, giving exactly the n-2 minimal nonsimplicial rank-three cones. Their dual Hilbert bases give uv-wz, and their orbit closures form the claimed component products. Face intersection is nonempty exactly for independent center sets. Standard-library rational-rank checker exhaustively corroborates n=3,...,7; the proof covers all n>=3 and all characteristics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lakshmibai--Mukherjee, arXiv:0706.2686, Theorem 6.9, determines singular loci of affine Hibi varieties obtained from distributive-lattice order-ideal semigroup algebras.",
+        "Matsuda--Ohsugi--Shibata, arXiv:1603.01850, §1--§3, prove normality and toric-ideal results; those are distinct from the primitive cones of the normal fan."
+      ],
+      "reasoning": "Affine Hibi cones and normal-fan projective toric varieties differ, even where their defining polytopes might be lattice equivalent. Normality and quadratic Gröbner bases do not imply the location, geometry, or intersection nerve of projective fan singular strata.",
+      "searches": [
+        "Singular locus of toric variety of stable set polytope of path graph P_n; torus invariant orbit closures, local conifold singularities, n-2 components, independence complex intersection nerve",
+        "arxiv:0706.2686",
+        "arxiv:1603.01850"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1504.01706 (2015-04-07, inspected arXiv full-text HTML)",
+      "arxiv:1603.01850 (2016-03-06, inspected arXiv full-text HTML)",
+      "arxiv:0706.2686 (2007-06-18, inspected related affine-Hibi theorem)",
+      "Mathematical-record index: six targeted exact scientific queries listed in the checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hibi et al. describe order/chain polytopes and affine lattice-equivalence questions; Matsuda et al. prove normality/ideal statements of stable-set rings; neither full text contains a fan singular-locus theorem.",
+        "The affine Hibi locus classification quantifies over affine toric orbit closures, whereas the claim concerns faces and cones of a projective normal fan."
+      ],
+      "reasoning": "The asserted result is not a stated theorem or direct corollary of the checked primary results; recovering it requires the new incidence-matroid circuit classification of all feasible coactive facets and the face-intersection argument. A stronger yet unlocated theorem remains possible.",
+      "searches": [
+        "arxiv:1504.01706",
+        "arxiv:1603.01850",
+        "arxiv:0706.2686",
+        "Singular locus of toric variety of stable set polytope of path graph P_n; torus invariant orbit closures, local conifold singularities, n-2 components, independence complex intersection nerve",
+        "Fence poset chain polytope normal fan toric geometry singular orbit closure nerve independence complex of path"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The path stable-set polytope is the chain polytope of a height-two alternating/fence poset; Hibi et al., arXiv:1504.01706, §1 and §3, study chain polytopes and equivalences, not the complete fan singularity arrangement."
+      ],
+      "reasoning": "The same object is indexed under stable-set/independence and chain/fence terminology. The inspected equivalence results do not imply the enumerated singular components and their pairwise-to-higher incidence.",
+      "searches": [
+        "Normal fan stable-set polytope path graph singularities, chain poset toric variety, coactive facet cycles",
+        "Fence poset chain polytope normal fan toric geometry singular orbit closure nerve independence complex of path",
+        "\"chain polytope\" \"fence\" singularities toric variety",
+        "arxiv:1504.01706"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant indexed hits concerned other toric singularities, generic path-independence complexes or unrelated polytopal invariants; none stated this singular support and incidence theorem.",
+        "The completed exact arithmetic enumeration in verify_path_stable.py yields candidate singular component counts 1,2,3,4,5 for n=3,...,7, consistent with the symbolically proved formula."
+      ],
+      "reasoning": "No identified database or table in the retrieved records tabulates the components for all path lengths. These negative hits and finite counts do not establish bibliographic uniqueness.",
+      "searches": [
+        "toric varieties of path stable set polytopes singular components ordinary double points",
+        "Path stable set polytope P_n projective toric singular locus components indexed by internal vertices triple 0-1-0; codimension three conifolds",
+        "Singular locus path graph independent set polytope normal fan n minus two components products conifold"
+      ]
+    },
+    "rationale": "The primary articles by Hibi et al. (2015) and Matsuda et al. (2016) define and study chain and stable-set polytopes, but their inspected theorem statements and sections address lattice equivalence, volumes, normality and toric ideals, not the complete normal-fan singular locus or its incidence nerve. The affine Hibi singular-locus theorem of Lakshmibai--Mukherjee does not apply to this different projective normal-fan construction. Targeted full-claim searches of a mathematical record index found no equivalent singular-locus theorem. Originality is qualified by incomplete global indexing and possible equivalent formulations.",
+    "residual_risks": [
+      "An unpublished, unindexed, or terminology-shifted explicit singular locus computation for path chain polytopes may exist.",
+      "The 2007 affine Hibi orbit theorem is not directly applicable; a further independently proved equivalence or conversion might be relevant but was not found.",
+      "No independent bibliographic audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the complete proposed singular-component and incidence theorem.",
+        "evidence": [
+          "Sections 1 and 3 concern chain-polytope definitions, order-chain polytope equivalence, face/volume questions; no projective normal-fan singular-component classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.01706",
+        "material_read": "ArXiv full-text HTML introduction, definitions of chain polytopes, and Section 3 on unimodular equivalence and zigzag posets.",
+        "method": "Read mathematical statements and compared the studied lattice equivalences/face counts with the claimed normal-fan singular locus and nerve.",
+        "title": "Order-Chain Polytopes",
+        "trigger": "Path stable-set polytopes are chain polytopes of alternating height-two posets."
+      },
+      {
+        "assessment": "NOT_COVERING for the claimed normal-fan singular-component and nerve classification.",
+        "evidence": [
+          "Proposition 1.5 concerns compression and normality, Proposition 1.9 faces from induced subgraphs, Sections 2--3 normality and toric ideal generators, not projective fan singularity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1603.01850",
+        "material_read": "ArXiv full-text HTML Sections 1, 2, 3 including propositions on normality, Gröbner bases, and induced subgraph faces.",
+        "method": "Compared each theorem scope and object (homogeneous semigroup ring, toric ideal) against orbitwise singularity of the normal fan.",
+        "title": "Toric rings and ideals of stable set polytopes",
+        "trigger": "Same stable-set polytope construction and closest toric-ring background."
+      },
+      {
+        "assessment": "Different affine Hibi variety; no direct implication of the projective normal-fan component formula.",
+        "evidence": [
+          "Introduction defines the affine variety from a distributive lattice; Theorem 6.9 describes singular Hibi orbit strata of that affine cone."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0706.2686",
+        "material_read": "ArXiv full-text HTML introduction and main theorem 6.9 with stated ambient variety, plus fan/cone descriptions in the article.",
+        "method": "Checked the algebraic construction and whether the singularity theorem applies to the normal-fan projective variety.",
+        "title": "Singular Loci of Hibi toric varieties",
+        "trigger": "Plausible stronger general singular-locus theorem for poset toric varieties."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2594d254-a1ea-427a-bd88-f7fe0eaddc1e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The path family simultaneously encodes elementary stable sets and fence-poset chain polytopes, and its toric fan is singular in every n>=3. A complete exact decomposition into n-2 codimension-three conifold strata with explicit component products and path-independence incidence nerve is structural geometric information beyond compressed-polytope/normality properties or finite counts. It supplies a usable stratification across an infinite family, with exact higher intersection counts.",
+    "status": "PASS"
+  }
+}
