@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The degree partition separates the clique interface immediately for \(m\ge4\), after which a symmetric two-ended path wave peels off one pair of path positions per strict round, giving \(\max\{1,\lceil k/2\rceil\}\). For \(m=3\), the proof explicitly handles the degree-\(2\) collision between ordinary triangle vertices and path vertices. The cases \(k=0,1,2\) are checked separately, and for \(k\ge3\) the collision persists through round \(2\), breaks in round \(3\), and then reduces to the same path-wave induction. The orbit-partition claim follows from the explicit final classes and the triangle/nontriangle obstruction in \(B(3,2)\). A direct standalone implementation verifies the depth formula for \(1458\) parameter pairs.
+## correctness
 
-## Originality
-PASS with residual priority risk. published-finding corpus searches for the exact barbell stabilization formula, the \(\lceil k/2\rceil\) law, the triangle exception, and the \(B(3,2)\) orbit anomaly returned no matching result. Web searches combining “barbell graph” with “color refinement” and “Weisfeiler--Leman” likewise produced no family-specific theorem. Krebs--Verbitsky gives only the general stabilization/universal-cover framework, while the standard barbell references define the graph family but concern other invariants.
+PASS
 
-## Value
-PASS. Barbell graphs are a standard symmetric benchmark family, so an exact iteration count is a natural invariant rather than an arbitrary slice. The formula shows that for every clique size \(m\ge4\), refinement time is controlled entirely by half the connector length, while the triangle boundary produces a genuinely different local-equitability phenomenon. The case \(B(3,2)\) is structurally sharper than a depth formula alone: color refinement reaches a stable equitable partition that provably fails to recover automorphism orbits.
+The degree partition immediately separates clique interiors, distinguished bridge vertices and connecting path for m>=4; symmetric distance-from-end refinement separates one reflected path layer per round, ending when the middle has at most two vertices. For m=3, degree-two clique interiors can merge with path vertices, explaining k=1 splitting at round 2, k=2 stable erroneous six-cell at round 1, and the k>=3 delayed split at round 3. Direct independent 1-WL code built B(m,k) and checked all 506 combinations 3<=m<=13,0<=k<=45, plus the six-cell at B(3,2). All-m,k correctness rests on the round-by-round wave argument rather than this finite enumeration.
 
-## Closest literature and limitations
-The closest methodological source is Krebs--Verbitsky, arXiv:1407.3175, especially its definition of \(\operatorname{Stab}(G)\) and its refinement/universal-cover correspondence. Immerman--Lander supplies the older counting-logic framework. Standard barbell references establish the graph convention but do not discuss refinement depth. The theorem does not cover unequal cliques or higher-dimensional WL.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact five-branch depth and unique equitable-versus-orbit anomaly are not a mere parameter renaming of the universal-cover formulation. Krebs--Verbitsky supplies correspondence with truncated neighborhood-unfoldings and general bounds, but the barbell-specific path symmetry and triangle collision require a separate analysis. Bounded family-specific searches and Resultary did not uncover an identical exact formula; residual priority risk retained.
+
+## value
+
+PASS
+
+A common parameterized graph family admits a complete and structurally interpretable 1-WL depth classification, with a sharp exceptional failure of orbit recovery. The exact k,m boundary is motivated by local-information propagation, not a gratuitous small-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
