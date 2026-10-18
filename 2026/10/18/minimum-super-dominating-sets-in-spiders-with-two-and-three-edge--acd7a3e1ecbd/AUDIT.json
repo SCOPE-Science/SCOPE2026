@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For the stated a+b>=3, arm-state case analysis is complete: when the hub is black a one-black long arm is uniquely WWB and forces all other first vertices black; when white, every three-edge arm costs two black vertices and at least one BBW pattern is necessary at the optimum. The sharp lower bounds, construction lists and disjoint counts prove the claim at all integer parameters. A standalone checker independently enumerated all subsets on 24 small profiles and compared complete minimizer families, then checked 66549 constructions in 78 larger profiles. Finite tests are corroborative rather than proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1016/j.tcs.2023.114137 settles numerical super domination for every tree; this is explicitly prior coverage of the value.",
+        "Minimum super dominating sets of one-leaf coronas (published record 2026-10-04) treats one-leaf coronas, not these spiders.",
+        "https://doi.org/10.1007/978-3-031-73365-9_6 names explicit formulas for some families but accessible abstract does not specify those families."
+      ],
+      "reasoning": "The general tree matching theorem strictly dominates the minimum-cardinality component, which is included only to index the enumerator. It does not itself imply a count of optimum sets, since a value does not encode equality cases. Short-arm spiders are not one-leaf coronas, since their hub has no leaf neighbor. The 2024 polynomial chapter might contain a covered special coefficient; full-text absence remains a stated risk, not negative evidence.",
+      "searches": [
+        "Enumerating minimum super dominating sets of subdivided stars and trees; counting super domination of spiders 2-subdivided arms and 3-subdivided arms",
+        "Super domination number and number of minimum super dominating sets for spider trees or starlike trees; 2022 Ghanbari Jäger Lehtilä open problem count trees",
+        "\"super domination polynomial\" \"spider\" Kaidash",
+        "\"super domination\" \"starlike trees\" minimum sets enumeration"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2209.01795",
+      "https://doi.org/10.1016/j.tcs.2023.114137",
+      "https://doi.org/10.1007/978-3-031-73365-9_6",
+      "Minimum super dominating sets of one-leaf coronas (published record 2026-10-04)",
+      "Super Domination in Trees (Zhuang, arXiv:1911.02203; abstract reviewed)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2209.01795 §7 explicitly raises counting minimum super dominating sets in trees.",
+        "https://doi.org/10.1016/j.tcs.2023.114137 implies the stated minimum cardinalities, not the count or classification.",
+        "Minimum super dominating sets of one-leaf coronas (published record 2026-10-04) has constant number of optimum sets in a different graph operation."
+      ],
+      "reasoning": "The asserted new implication is exact structural multiplicity: 2^a+a if all arms have two edges; otherwise 3^b-2^b+b2^(b−1), invariant under adding short arms. Matching-number theorems, tree bounds, and unrelated enumerators lack an implication to this number without new equality-case analysis. Full relevant primary sections were compared; unindexed overlap remains possible.",
+      "searches": [
+        "Minimum super dominating sets of spider trees with arms length 2 and 3; exact number N_sp=3^b-2^b+b*2^(b-1) for b arms length three and any a arms length two; b>=1; gamma=a+2b; when b=0 N=2^a+a.",
+        "Enumerating minimum super dominating sets of subdivided stars and trees; counting super domination of spiders 2-subdivided arms and 3-subdivided arms",
+        "Super domination polynomial and minimum super dominating set enumeration of mixed starlike tree with a arms of two edges b arms three edges; optimal sets count independent of a",
+        "\"number of minimum\" \"super dominating\" \"tree\" 2024"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2209.01795, §6: enumeration of paths, cycles, and friendship graphs; §7 proposes counting minimum sets in trees.",
+        "https://doi.org/10.1016/j.tcs.2023.114137, Theorem 3.1: tree minimum value equals order minus maximum matching."
+      ],
+      "reasoning": "A super dominating set is equivalently a complement whose vertices each have a unique-neighbor witness in the selected set. The enumeration is the lowest nonzero coefficient of the super domination polynomial, but existing numerical minimum formulas do not determine the number of optima; the inspected enumeration article treats different listed families.",
+      "searches": [
+        "Minimum super dominating sets of spider trees with arms length 2 and 3; exact number N_sp=3^b-2^b+b*2^(b-1) for b arms length three and any a arms length two; b>=1; gamma=a+2b; when b=0 N=2^a+a.",
+        "Super domination polynomial and minimum super dominating set enumeration of mixed starlike tree with a arms of two edges b arms three edges; optimal sets count independent of a",
+        "\"super dominating sets\" \"subdivided star\" enumeration",
+        "\"spiders\" \"super domination\" \"minimum\" \"sets\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2209.01795, Theorems 6.2–6.5: published counts for other named classes.",
+        "https://doi.org/10.1016/j.tcs.2023.114137, Corollary 3.2 supplies a number, not a table of minimum sets.",
+        "Search results returned no table of the two-parameter optimal-set counts; no exhaustive database is claimed to have been checked."
+      ],
+      "reasoning": "No observed exact table listed these coefficients or an equivalent two-/three-arm classification. A negative search does not certify nonexistence, and the 2024 chapter is not conclusively assessed.",
+      "searches": [
+        "Minimum super dominating sets of spider trees with arms length 2 and 3; exact number N_sp=3^b-2^b+b*2^(b-1) for b arms length three and any a arms length two; b>=1; gamma=a+2b; when b=0 N=2^a+a.",
+        "Exact minimum super domination enumerator for vertex glued paths P3 and P4 at an endpoint; 3^b - 2^b + b 2^{b-1}",
+        "\"super domination\" \"spider\" tree number minimum sets",
+        "\"super domination polynomial\" \"trees\" Kaidash"
+      ]
+    },
+    "rationale": "The nontrivial new component is the complete enumeration and classification. General tree matching theorems cover the numerical minimum only; the 2022 enumeration paper explicitly asks to count minimum sets in trees and treats other families. Comparison with nearby published records yields no implication to the stated count. The potentially related 2024 all-size polynomial paper was inaccessible beyond its abstract and is a residual risk, not asserted absent.",
+    "residual_risks": [
+      "Kaidash (2024) gives graph-class formulas for a super-domination polynomial; full chapter not read, so it could contain a covering coefficient.",
+      "An equivalent two-/three-arm spider enumeration could exist in unindexed literature or graph-polynomial treatments.",
+      "Published-record comparison with the one-leaf-corona result used its abstract summary, not its full manuscript."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts complete graphs, paths, cycles, friendship graphs, but does not include the specified two-/three-edge mixed spiders in the inspected sections.",
+        "evidence": "arXiv:2209.01795v3 §§1,6,7; first posted 2022-09-05.",
+        "identifier_or_url": "https://arxiv.org/abs/2209.01795",
+        "material_read": "Accessible complete arXiv HTML, including definitions, §6 theorem statements and proofs for relevant graph classes, and §7 concluding questions.",
+        "method": "Read and compared the full relevant primary-paper sections and theorem domains.",
+        "title": "Super Domination: Graph Classes, Products and Enumeration",
+        "trigger": "The central 2022 paper that first defined and enumerated the number of minimum super dominating sets and asked for tree counts."
+      },
+      {
+        "assessment": "Establishes exact values through maximum matching for all trees, hence covers the numerical part, but provides no formula for counting the minimum subsets in the inspected arguments.",
+        "evidence": "Theoretical Computer Science 975 (2023) 114137, Theorem 3.1 and Corollary 3.2.",
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2023.114137",
+        "material_read": "Open-access full research PDF, especially §2 Lemma 2.4, §3 Theorem 3.1 and Corollary 3.2, and subdivision discussion.",
+        "method": "Read primary PDF text and visually inspected page 4; checked whether numerical coverage extends to counting optimum subsets.",
+        "title": "Computational complexity aspects of super domination",
+        "trigger": "Contains a stronger general theorem for numerical super domination of trees and subdivided stars."
+      },
+      {
+        "assessment": "Connected corona theorem gives two optima for a graph obtained by adding one private leaf at every base vertex; short-arm spiders have no leaf neighbor at the hub, so the result does not cover this class.",
+        "evidence": "Published record titled Minimum super dominating sets of one-leaf coronas, 2026-10-04.",
+        "identifier_or_url": "Minimum super dominating sets of one-leaf coronas (published mathematical record, 2026-10-04)",
+        "material_read": "Published record title and scientific summary, not a full research manuscript.",
+        "method": "Compared the graph operation and claimed implication from the record summary.",
+        "title": "Minimum super dominating sets of one-leaf coronas",
+        "trigger": "Nearest mathematically related published optimum-count result."
+      },
+      {
+        "assessment": "Could conceivably include the present family; cannot certify noncoverage on abstract evidence. Recorded as residual bibliographic risk.",
+        "evidence": "Communications in Computer and Information Science 2239 (2024), pp. 85–95; DOI 10.1007/978-3-031-73365-9_6.",
+        "identifier_or_url": "https://doi.org/10.1007/978-3-031-73365-9_6",
+        "material_read": "Published abstract and bibliographic record only. Full chapter not obtained; later conference-slide PDF also failed to load.",
+        "method": "Searched for arXiv and lawful open text and sought authorized institutional retrieval; no full-text review possible.",
+        "title": "Super Domination Polynomial of a Graph",
+        "trigger": "Potentially stronger coefficient-generating result published in 2024."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "acd7a3e1-ecbd-41de-8ad1-2cf23373da58",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural two-parameter spider subclass solves a concrete portion of the prior stated problem of enumerating tree optima. The complete structural classification explains a sharp counting transition: with a long arm present, arbitrarily many added two-edge arms do not change optimum multiplicity, while with only short arms multiplicity is exponential in their number plus a correction. This is more than a numerical minimum recomputation or a parameter relabeling and provides a local-pattern method for other trees.",
+    "status": "PASS"
+  }
+}
