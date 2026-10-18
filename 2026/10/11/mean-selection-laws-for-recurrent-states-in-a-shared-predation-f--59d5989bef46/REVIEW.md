@@ -1,18 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reconstructed directly from the printed linear-response equations. Invariance of the compact interior measure legitimizes the logarithmic balance laws. The reciprocal term is decomposed by an exact identity, and substitution into the weighted predator balance gives the displayed formula for \(\bar v-v_*\). Strictness is not inferred from a finite experiment: if predator variance vanished, invariant support would lie in a constant-\(v\) slice, reducing each prey coordinate to a scalar logistic equation; compact complete positivity forces both prey coordinates to be constant, hence uniqueness forces the equilibrium Dirac measure. The equal-fear sorting rule follows from a strictly positive weighted average and an exact cancellation in \(q_1-q_2\).
+## correctness
 
-Risk: the theorem requires compact support bounded away from the coordinate planes and a unique positive equilibrium. It is not claimed for boundary recurrence.
+PASS
 
-## Originality
-PASS. The complete motivating paper was compared at statement level. It proves existence and local stability of the positive equilibrium in the linear-response system and explicitly conjectures its global stability, but it does not state the invariant-measure identities, strict predator-mean uplift, or equal-fear prey sorting law. The full one-prey precursor was also inspected and gives a planar global-stability result rather than a two-prey mean-selection theorem. The conceptually closest older shared-predation cycling article was available only at abstract level, so its possible stronger content remains a named residual risk rather than being treated as absent.
+With all parameters positive and μ compactly supported strictly inside the positive octant, log(u1), log(u2), log(v) are bounded C¹ observables on a neighborhood of invariant support. Their invariant integrals give r_i E[(1+k_i v)^−1]−d_i−a_i ū_i−p_i vbar=0 and A1 ū1+A2 ū2=m. The exact reciprocal identity 1/(1+kv)=1/(1+k vbar)−k(v−vbar)/(1+k vbar)^2+k²(v−vbar)²/[(1+k vbar)^2(1+kv)] produces J_i≥0. Subtracting the equilibrium equations gives a_i(ū_i−u_i*)=r_i J_i−(p_i+r_i C_i)(vbar−v*) and the claimed strictly positive denominator quotient. If any J_i=0 then v is constant on invariant support; each prey follows a scalar logistic equation, whose only complete orbit confined to a compact positive interval is its equilibrium, so uniqueness of the positive equilibrium gives μ=δ_E*. Thus nontrivial μ has J_i>0 and vbar>v*. If k1=k2, the quotient/J is a positive weighted mean of q_i=r_i/(p_i+r_i C), and q1−q2 has sign r1 p2−r2 p1, proving opposite prey-shift sorting. An independent SymPy check verified the reciprocal identity; reviewed supplied verification/check.py. Nothing asserts that nontrivial compact interior recurrence actually exists.
 
-Risk: incomplete full-text access to that 1998 article leaves a bounded but genuine possibility of an older equivalent formulation.
+## originality
 
-## Value
-PASS. Any non-equilibrium compact recurrent obstruction to the source's global-stability conjecture must satisfy a strict and exact mean geometry, not merely a small-amplitude approximation: predator mean is above coexistence equilibrium and the weighted prey mean is conserved. Under equal fear sensitivity, the prey redistribution has a distribution-independent direction determined by \(r_1p_2-r_2p_1\). This is a motivated long-run density statement for apparent competition, not an arbitrary parameter computation.
+PASS
 
-The theorem does not prove recurrence or resolve the global-stability conjecture; that limitation is explicit.
+Best-of-knowledge original model-specific conditional measure theorem. The full 21-page Wang–Smit article specifies exactly the linear-response vector field and proves coexistence equilibrium existence and local stability (Theorems 3.6–3.7), while Remark 1 explicitly leaves global stability as conjecture; it does not present the J_i Jensen-defect formula or equal-fear sign sorting. Published Resultary analogues concern different predator–prey systems or discrete fear maps, not this exact vector field and identities. Abrams–Holt–Roth (1998) is highly relevant conceptually on mean population densities in cycling shared predation; only its abstract was accessible despite lawful attempts, so the unresolved text-level priority risk remains explicit and does not by itself invalidate originality.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An exact finite-amplitude predator mean uplift law and equal-fear prey shift direction across arbitrary compact invariant statistical states are mathematically meaningful constraints on recurrent dynamics for a specific open-stability ecological model. The formulas expose how nonlinear fear curvature enters and could constrain potential periodic/ergodic states without assuming small amplitude. This is more than a textbook equilibrium restatement despite being conditional; no assertion of actual non-equilibrium recurrence is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
