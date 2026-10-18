@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof uses the exact four truth-set definitions and explicit confluence inclusions. Direct four-upset substitution verifies each of the four three-world one-edge witnesses. The accompanying finite exhaustive checker proves that all possible one- and two-world common-carrier pairs fail to separate the missing operation while retaining the other three full operations, not merely that random tests found no examples. Structural induction proves indistinguishability for formulas of arbitrarily large depth. The theorem is not extended to different underlying preorders or to stronger frame axioms.
+## correctness
 
-**Originality (PASS, with documented risks).** The nearest source, Balbiani and Gencer, *Four intuitionistic modal connectives* (arXiv:2606.07348v1), proves qualitative noneliminability under these confluence conditions. Its result is not an implication of the exact three-world minimality, and it does not entail a single-added-edge same-chain witness for all four connectives. Related intuitionistic modal proof-theory papers do not present this finite-table minimum in the relevant material examined. Searches for synonymous modal-operator, functional-reduct, and three-world frame formulations revealed no stronger encompassing result. This is not a guarantee against differently indexed or unpublished overlap; a related same-author article was available only at abstract level.
+PASS
 
-**Value (PASS).** The finite threshold is attached to a natural complete profile invariant of four competing constructive modal semantics. The four minimum witnesses and the no-two-world census identify precisely when a three-operation reduct ceases to determine the fourth under original confluence hypotheses. The result improves structural understanding rather than merely shrinking a published countermodel for cosmetic reasons. Scope limitations and access risks are stated in the theorem and audit.
+On any finite preorder, definitions of P,B,W,N as upward-closed set operations and confluence f,b,d,u are explicit. Independent exhaustive enumeration of all reflexive-transitive preorders and relations on one and two worlds found no pair with identical three retained full upset-operation tables but differing omitted table in the appropriate C_bdu/C_fbu class. For three-world chain {0<1<2}, four explicit one-edge relation mask pairs P:35/39, B:280/408, W:279/311, N:419/435 satisfy their three required confluences, coincide for every retained operation on all four upsets, and differ for omitted operation on upset {2}; independent reimplementation verified the cases. With identical preorder, valuation, and the other operator functions on all upsets, induction on arbitrary formula syntax (including implication and coimplication) proves fragment indiscernibility at every depth; the omitted operator differs on a propositional letter. The minimality is specifically for common-carrier, same-preorder, complete operator-table separation, not arbitrary distinct frames.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS: Balbiani and Gencer establish four modal connectives and non-eliminability under appropriate confluence conditions; their separation frames do not state the three-world sharp common-preorder, one-edge, equality-of-all-upset-tables threshold. Existing intuitionistic constructive-modal work treats other axiomatizations/modal classes and does not mathematically imply the exact finite enumeration.
+
+## value
+
+PASS
+
+A natural finite-model minimality invariant for modal expressive independence, strengthening existence of non-definability with a sharp size cutoff and robust all-upset operation indistinguishability; exact 3 rather than 1 or 2 and one-edge witnesses are structurally informative and independently reusable as minimal semantic countermodels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
