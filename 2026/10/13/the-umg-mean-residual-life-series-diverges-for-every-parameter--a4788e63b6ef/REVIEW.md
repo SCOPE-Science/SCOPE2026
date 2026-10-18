@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source explicitly inserts the Taylor expansion of \((1+u)^{-2}\), valid only for \(|u|<1\), into an integral over \([\xi,\infty)\). The resulting integrated series independently fails the term test: a lower bound through \(\Gamma(k+3,\theta\xi)\) proves that its term magnitudes tend to infinity for every \(\theta>0\) and \(0<y<1\). Partial-fraction decomposition gives a finite exact formula in \(E_1\), and direct quadrature agrees with it to high precision.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the transformation, MRL definition, unbounded integral, Taylor-series substitution, and Eq. (3.5). Five focused published-result searches, exact DOI/correction searches, current/prior owned-ledger checks, and the parent 2025 Mgamma MRL paper found no model-specific correction or equivalent \(E_1\) representation.
+PASS
 
-Residual risk remains from a very recent unindexed correction and from typographical inconsistencies in the source's intermediate gamma notation; these do not alter the final series divergence.
+Checked S_X(u)=(1+θu+θ²u²/(2(1+θ)))exp(−θu), ξ=y/(1−y), and the UMg MRL integral ∫_ξ^∞ S_X(u)/(1+u)^2 du. Expanding (1+u)^−2=Σ(k+1)(−1)^k u^k outside |u|<1 gives the source Eq. (3.5), whose incomplete-gamma k-term has positive Γ(k+3,θξ) contribution. Bounding this gamma integral below on [k+2,k+3] proves magnitude→∞ at every θ>0, 0<y<1. Polynomial division and three elementary exponential integrals yield the displayed E1 formula: exp(−θξ)[θ+(2−θ²)(1−y)]/[2(1+θ)]+θ³exp(θ)E1(θ/(1−y))/[2(1+θ)]. Independent symbolic differentiation checks the antiderivative and quadrature agrees; finite term values only illustrate the all-parameter term-test proof.
 
-## Value
-PASS. Mean residual life is a central reliability property of the proposed unit model. The source says Eq. (3.5) enables numerical evaluation, but that series diverges throughout the admissible domain. The replacement formula is exact, globally valid, and directly computable, so the correction repairs a substantive reliability quantity rather than a cosmetic derivation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ruidas et al. Eq. (3.5) directly claims an analytic series for the unit-transformed Mgamma MRL. Earlier parent-distribution MRL is a different integral without the (1+u)^−2 factor, so it does not correct the erroneous unit series. No model-specific E1 replacement or all-parameter term-test theorem was found in inspected original source.
+
+## value
+
+PASS
+
+Every admissible parameter in the proposed UMg reliability model is affected: its printed mean-residual-life evaluation series diverges and cannot be numerically used. The globally valid E1 expression computes the corrected MRL exactly, a nontrivial source-specific practical correction to a standard reliability invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
