@@ -1,19 +1,21 @@
-# Same-model scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement covers every triangle contained in the *fixed* unit disk with the origin interior. The proof first radially extends vertices without losing this condition, then integrates the fourth radial power of each unit-circle chord sector. For \(\theta_1+\theta_2+\theta_3=\pi\), an exact trigonometric identity reduces the fourth radial moment to \(\frac23(\sum\sin\theta_i-\prod\sin\theta_i)\). The nonnegative product factorization determines the sharp bound and all boundary equality shapes, without relying on finite testing. The normalization \(c_1(2,4)=\pi\) is taken directly from the primary source. Cubic behavior at the regular triangle follows from exact differentiation. The included checker supplies independent finite corroboration, not a proof of continuous inequalities.
+PASS
 
-## Originality — PASS, with identified literature risk
+For fixed-origin triangles T⊂B₂, radial vertex extension to the circle enlarges T strictly when any vertex is interior and preserves origin-inside condition. With circular gaps 2α_i (0<α_i<π/2, Σα=π), wedge integration gives I₄(α)=sin(2α)(2+cos 2α)/3. Setting θ_i=π−2α_i (Σθ=π), ∫ρ⁴=2/3(Σs_i−s1s2s3) for s_i=sinθ_i∈[0,1]; exact factorization 2−Σs_i+s1s2s3=(1−s1)(1−s2)+(1−s3)(1−s1s2)≥0 forces fourth radial moment≤4/3. Equality closure requires two θ_i=π/2, third zero: only right-isosceles triangle with diameter edge, disallowed because origin on edge; strict inf π−2/3 approached by admissible triangles. Differentiation independently verified I₄″(π/3)=0, I₄‴(π/3)=8, giving signed cubic −8t³ along (t,t,−2t); equilateral is a saddle. Finite barycentric moment checks verify normalization, not continuum optimality.
 
-The closest primary paper is Hoehner--Schütt--Werner (arXiv:2608.02554v1), whose Theorem 3.7 gives general dimension-dependent estimates; its Section 4 proves them via spherical caps and does not settle the sharp three-vertex fourth moment. The earlier Besau--Hoehner--Kur paper (arXiv:1905.08862) defines the dual extension and analyzes general/asymptotic approximation, but its full text could not be inspected; only the accessible abstract and publisher excerpts were compared. Targeted mathematical-literature comparisons did not identify an exact equivalent theorem. An unindexed older maximum-polar-moment inequality remains possible, and search absence is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The case \((d,M,q)=(2,3,4)\) is a natural post-dimensional dual-radial approximation objective with only three vertices. Its exact optimum is attained only in the excluded limit where the disk center hits a diameter side, whereas the familiar second-order area objective selects the regular triangle. The explicit sharp gap and cubic symmetry-breaking identify a structural boundary mechanism, not merely an approximate counterexample.
+The full relevant Hoehner–Schütt–Werner 2026 primary paper gives general nonasymptotic q-dual-volume approximation bounds, not the exact sharp three-vertex q=4 value, unique boundary nonattainment geometry, or cubic equilateral instability. Besau–Hoehner–Kur gives the dual deviation framework and broad approximation results; no inspected statement implies this exact special low-N optimization. The well-known equilateral q=2 area theorem differs essentially in extremizer.
 
-## Scope and limits
+## value
 
-The theorem does not classify other exponents, numbers of vertices, or dimensions. The independent scientific audit has not been performed. Sources and residual equivalence risks are enumerated in `AUDIT.json`.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The first natural finite-polytope case (unit disk, exactly three vertices) has a surprising sharply determined q=4 radial moment: no admissible minimizer, diameter-edge right-isosceles limit, and equilateral cubic saddle despite classical area-maximization at q=2. This is an independently worthwhile exact invariant and boundary phenomenon, not just a tiny correction to an arbitrary table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
