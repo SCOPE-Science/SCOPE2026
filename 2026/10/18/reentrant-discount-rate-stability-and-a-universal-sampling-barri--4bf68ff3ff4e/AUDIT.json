@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Exact strict-convexity minimization gives the feedback multiplier; the stability inequality reduces to a scalar global maximum. An explicit entire-series coefficient sign reversal proves one unique maximum; a separate derivative-sign argument proves unique hold-length threshold. The witness is algebraically exact. Replayed symbolic/high-precision code cross-checks formulas and examples but does not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Granzotto et al. 2021 studies discrete-stage discounts and general horizon guarantees",
+        "Schwenkel et al. 2024 addresses economic MPC and discount functions, not the one-interval within-hold scalar classification"
+      ],
+      "reasoning": "Inspected the broader literature for the possibility of an implication by specialization: a one-step *discrete-time* discount multiplies an entire stage cost and hence cancels, whereas this theorem concerns varying weighting inside the held interval. General sufficient conditions and long-horizon results do not give the exact necessary-and-sufficient phase diagram.",
+      "searches": [
+        "\"Finite-Horizon Discounted Optimal Control Stability and Performance\" Granzotto Postoyan Busoniu Nesic Daafouz",
+        "\"On discount functions for economic model predictive control without terminal conditions\" arxiv 2405.14361",
+        "finite-horizon discounted MPC scalar integrator exact sampled-data stability"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2407.18769v1",
+      "https://www.researchgate.net/publication/340573124_Finite-Horizon_Discounted_Optimal_Control_Stability_and_Performance",
+      "https://arxiv.org/abs/2405.14361"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact running-cost integration is prior work; the universal maximum/unique two-crossing theorem is the new result assessed",
+        "Existing general discounted control stability theorems impose distinct hypotheses or weight complete discrete stages"
+      ],
+      "reasoning": "Prior exact-discretization machinery supports the feedback formula but does not algebraically imply the sign structure or unique peak. Published general MPC statements are neither contradicted nor a stronger direct covering assertion for this scalar no-terminal one-hold controller.",
+      "searches": [
+        "arxiv:2407.18769v1 exact exponential running cost ZOH and numerical discretization",
+        "Granzotto et al. 2021 first theorem and discounted discrete cost definition",
+        "arxiv:2405.14361 no-terminal discounted economic MPC"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2407.18769v1 gives discounted exact stage-cost integration, not a sampled feedback band",
+        "The exact one-step policy uses discount inside each hold; a one-stage discrete discount cancels"
+      ],
+      "reasoning": "Checked both equivalent one-step discounted LQR, receding horizon, and exact ZOH quadratic cost phrasing. The source supplies the discretization mechanism, but not the derived sharp universal root or intermediate nonmonotone stability window.",
+      "searches": [
+        "\"one-step\" \"discounted\" \"zero-order hold\" scalar integrator receding-horizon stability",
+        "\"reentrant\" discount-rate stability sampled-data predictive control",
+        "source: Zhang–Hørsholt–Jørgensen arXiv:2407.18769v1, sections II–IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No covering exact constant or relevant catalogued sampling threshold located in the inspected public literature and mathematical records",
+        "The natural invariant is defined by the unique global maximum of an explicit scalar stability function"
+      ],
+      "reasoning": "Searched for the root constant and exact universal threshold in both parameter and conceptual language; no independently published table implying the theorem was located. Absence of a hit cannot certify priority.",
+      "searches": [
+        "\"5.6301346164\" sampled discounted control",
+        "\"7.6636051835\" control discount stability",
+        "\"reentrant\" \"discount\" \"one-step\" MPC threshold"
+      ]
+    },
+    "rationale": "The inspected 2024 exact-discretization and 2021 discounted finite-horizon results do not state or imply the sharp scalar reentrant discount phase diagram. Targeted equivalent-claim and broader-coverage search found no exact antecedent; less indexed scalar-control literature remains a priority risk.",
+    "residual_risks": [
+      "Exhaustive priority cannot be proven from searched literature or indexed mathematical records; equivalent unindexed analyses may exist.",
+      "Closest older source was inspected through a public full-manuscript transcription, not an independently paginated publisher PDF."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same discretization mechanism; does not cover unique scalar reentrant stability boundary",
+        "evidence": [
+          "2024-07-26 first public arXiv version 2407.18769v1",
+          "Exact discounted quadratic stage cost for piecewise-constant controls"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.18769v1",
+        "material_read": "Abstract; discounted matrix-control problem formulation; exact stage-cost derivation and discretization methods in Sections II–IV; conclusions and literature context",
+        "method": "Primary full-text HTML inspection, including equations and stated theorem scope",
+        "title": "Numerical Discretization Methods for the Discounted Linear Quadratic Control Problem",
+        "trigger": "Establishes the exact discounted ZOH quadratic discretization used as motivation"
+      },
+      {
+        "assessment": "Discrete-time horizon discount and general sufficient conditions; not the exact within-hold discount instability classification",
+        "evidence": [
+          "One-stage discrete discount multiplies one stage and cancels from its argmin",
+          "No exact universal one-step sampled-integrator threshold in inspected definitions and theorem"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/340573124_Finite-Horizon_Discounted_Optimal_Control_Stability_and_Performance",
+        "material_read": "Introductory problem definition and discrete discounted stage cost, first stability theorem and proof discussion",
+        "method": "Public full-manuscript HTML transcription inspection",
+        "title": "Finite-Horizon Discounted Optimal Control: Stability and Performance",
+        "trigger": "Potential broad stability theorem subsuming short-horizon discounted feedback"
+      },
+      {
+        "assessment": "Different economic objectives and discount types; no covering necessary-and-sufficient sampled scalar theorem",
+        "evidence": [
+          "Focus is economic MPC without terminal conditions, not this within-interval exponential quadratic cost"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.14361",
+        "material_read": "Abstract and introduction, model/objective and main guarantee description",
+        "method": "Public arXiv paper landing page and accessible explanatory sections",
+        "title": "On discount functions for economic model predictive control without terminal conditions",
+        "trigger": "Nonterminal discounted MPC may provide broad covering theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4bf68ff3-ff4e-4968-a7bb-060047e1a17d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp numerical-free sampled-data stability guarantee with a genuine nonmonotone discount interval gives a motivated design boundary for short-horizon feedback, and isolates failure arising from within-hold discount rather than integration error. It is nontrivial uniqueness and exact bifurcation classification, not a routine special parameter substitution; applicability is explicitly restricted to the one-step scalar controller.",
+    "status": "PASS"
+  }
+}
