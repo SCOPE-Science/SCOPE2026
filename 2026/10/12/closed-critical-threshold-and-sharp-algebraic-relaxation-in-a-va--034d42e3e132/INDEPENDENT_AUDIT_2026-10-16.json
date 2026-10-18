@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:58:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md blob c05d75d39a390fbd6acc14f050a9106c24aced29",
+        "Witbooi et al DOI:10.3934/math.2023411, Section 2 and Theorem 3, https://aimspress.com/aimspress-data/math/2023/4/PDF/math-08-04-411.pdf",
+        "Independent ODE integration from inspected equations in /mnt/data/audit_independent_checks_20261016T0943.py"
+      ],
+      "rationale": "At A1=0 and theta(0)S0=mu1, differentiate L=S-S0+S0 log(S0/S)+E: Ldot=-mu0(S-S0)^2/S-S0 E(theta(0)-theta(I))<=0. Positive bounded invariant region and LaSalle exclude a persistent E>0 on the zero-derivative set. The I equation is a stable filter, so the full disease-free equilibrium attracts globally; L and linear I response give stability. For E(0)>0, E never vanishes, d log E/dt ->0; the linear ratio equations give I/E -> alpha/mu2 and (S0-S)/E -> mu1/mu0 even if the susceptible displacement starts negative. Differentiability theta(I)=theta0+theta1 I+o(I) then yields (1/E)dot -> K=theta0 mu1/mu0-S0 theta1 alpha/mu2>0, hence t(E,I,S0-S)->(1,h,d)/K and integrated E~log(t)/K. I independently integrated the literal model with theta(I)=1/(1+I/2) at mu0=2,mu1=4,mu2=3,alpha=1,S0=4; at t=100000, (tE,tI,t(S0-S))=(.37498,.12499,.74996), agreeing with (3/8,1/8,3/4). Numeric replay is corroborative, not proof.",
+      "residual_risks": [
+        "The infinity limit relies on positivity, bounded invariant states and C1 nonincreasing theta; the numerical example alone is not evidence for all theta. The cumulative asymptotic is for E(0)>0, not infection-free initial data."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Witbooi Theorem 3 at R0<1, while the Zhang–Li–Xu SEIS result treats a distinct saturating system; Resultary different-model 2026/10/11/SCOPE-critical-threshold-extinction-with-heterogeneous-vaccination-in--45f2bd1d5fd8."
+        ],
+        "reasoning": "Global critical extinction of a different incidence model does not imply the exact vector limit or K for this specific C1 contact feedback.",
+        "searches": [
+          "vaccinated SEIR epidemic generalized contact function critical R0=1 exact algebraic t inverse relaxation theta derivative Witbooi Vyambwera Nsuami",
+          "https://aimspress.com/aimspress-data/math/2023/4/PDF/math-08-04-411.pdf",
+          "https://doi.org/10.1155/2013/710643"
+        ]
+      },
+      "checked_sources": [
+        "https://aimspress.com/aimspress-data/math/2023/4/PDF/math-08-04-411.pdf",
+        "DOI:10.1155/2013/710643",
+        "Resultary:vaccinated SEIR epidemic generalized contact function critical R0=1 exact algebraic t inverse relaxation theta derivative Witbooi Vyambwera Nsuami"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary DOI 10.3934/math.2023411 Theorem 3 explicitly assumes R0<1, eq (3.1) requires a strict negative margin. Resultary 2026/10/4/SCOPE-vaccination-monotonicity-and-an-exact-importation-amplification--17788b7e7dfb requires A1>0."
+        ],
+        "reasoning": "Both known claims differ mathematically: no strict subthreshold proof yields boundary t^-1 dynamics, and positive-inflow endemic equilibria are not the zero-inflow critical orbit.",
+        "searches": [
+          "vaccinated SEIR epidemic generalized contact function critical R0=1 exact algebraic t inverse relaxation theta derivative Witbooi Vyambwera Nsuami",
+          "https://aimspress.com/aimspress-data/math/2023/4/PDF/math-08-04-411.pdf",
+          "https://doi.org/10.1155/2013/710643"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source variables correspond to the exact vaccinated reduced S,E,I equations, and K comes from theta prime and mu0 rather than an arbitrary label."
+        ],
+        "reasoning": "No equivalent nonhyperbolic center-manifold coefficient or rescaled critical profile was located in the checked exact-source paper; related R0<=1 disease-free claims omit rates.",
+        "searches": [
+          "vaccinated SEIR epidemic generalized contact function critical R0=1 exact algebraic t inverse relaxation theta derivative Witbooi Vyambwera Nsuami",
+          "https://aimspress.com/aimspress-data/math/2023/4/PDF/math-08-04-411.pdf",
+          "https://doi.org/10.1155/2013/710643"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits on critical-threshold epidemic records concerned waning immunity, heterogeneous SAIRS, and positive-inflow vaccine bounds, not this t^-1 coefficient."
+        ],
+        "reasoning": "No named exact critical-coefficient table was identified; no claim is made that an unindexed compendium cannot contain this expression.",
+        "searches": [
+          "vaccinated SEIR epidemic generalized contact function critical R0=1 exact algebraic t inverse relaxation theta derivative Witbooi Vyambwera Nsuami",
+          "https://aimspress.com/aimspress-data/math/2023/4/PDF/math-08-04-411.pdf",
+          "https://doi.org/10.1155/2013/710643"
+        ]
+      },
+      "rationale": "The motivating same-model 2023 primary paper proves global extinction only for strict R0<1, and its endemic-equilibrium theorem only says A1=0,R0>1 for positive endemic equilibrium; it does not give the critical t^-1 vector profile. Earlier SEIS/SEIR equality-threshold and critical-slowing results show that threshold closure itself is old, so the surviving comparison is the explicit model-specific K combining vaccination and theta prime, not global stability alone. Searches of published findings found positive-importation comparative statics and separate epidemic critical models, no implication of this exact coefficient. Best-of-knowledge with residual equivalent-notation risk.",
+      "residual_risks": [
+        "Similar source-model work on positive inflow and nonlinear epidemic critical asymptotics may contain a disguised equivalent profile; no universal absence of earlier literature is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRICT-ONLY PRIOR: global disease-free R0<1, no equality t^-1 compartment vector asymptotic.",
+          "evidence": [
+            "Publisher PDF §2 pp3-5 and §3 p6, Theorem 3, citeturn829910view0"
+          ],
+          "identifier_or_url": "https://aimspress.com/aimspress-data/math/2023/4/PDF/math-08-04-411.pdf",
+          "material_read": "Full 18-page original available; directly read §2 equations (2.1),(2.7), contact-function assumptions, Γ invariant region, §3 disease-free Theorem 3 and its full strict inequality proof, §4 endemic Theorem 4.1.",
+          "method": "Lawful publisher full PDF with text and page 6 displayed in image",
+          "title": "Witbooi, Vyambwera and Nsuami, Control and elimination in an SEIR model for COVID-19 with vaccination",
+          "trigger": "Same exact system and claimed omitted threshold"
+        },
+        {
+          "assessment": "DISTINCT-MODEL PARTIAL: cannot support a claim that the whole paper lacks all related critical asymptotics.",
+          "evidence": [
+            "DOI 10.1155/2013/710643, known scope and statement"
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2013/710643",
+          "material_read": "The title, stated R0<=1 conclusion and bibliographic model identification were checked; complete paper text was not re-inspected in this run.",
+          "method": "Bibliographic/results comparison only, not a full-document no-coverage judgment",
+          "title": "Zhang, Li and Xu, Global Stability of an SEIS Epidemic Model with General Saturation Incidence",
+          "trigger": "Prior equality stability theorem different nonlinear epidemic system"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://aimspress.com/aimspress-data/math/2023/4/PDF/math-08-04-411.pdf",
+        "pinned RESULT.md and independent ODE cross-check"
+      ],
+      "rationale": "Explicit coefficient and full compartment ratios at a nonhyperbolic threshold are independently useful: the strict disease-free theorem fails to give convergence speed or cumulative critical infection. Here the precise vaccination and nonlinear-contact derivative sensitivities decide that speed; logarithmic cumulative incidence is a substantive boundary phenomenon, not a parameter renaming.",
+      "residual_risks": [
+        "It establishes a deterministic local critical asymptotic, not stochastic epidemic claims or higher-order corrections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No exact R0<1 convergence-rate theorem is asserted; at R0=1, E0>0 is required for algebraic positive profile.",
+    "The proof assumes the source invariant region and C1 nonincreasing positive contact rate; bounded finite check supports but cannot prove infinite asymptotic."
+  ],
+  "schema_version": 1
+}
