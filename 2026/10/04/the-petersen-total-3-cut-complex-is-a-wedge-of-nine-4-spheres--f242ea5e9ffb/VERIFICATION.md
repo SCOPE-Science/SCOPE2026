@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_petersen_total_cut.py` with Python 3.
+# Independent mathematical audit
 
-The verifier performs these checks from scratch:
+## correctness
 
-1. Reconstructs the Petersen graph from the displayed 15-edge presentation.
-2. Enumerates all independent \(3\)-subsets and confirms there are exactly \(30\).
-3. Forms their complements and closes under inclusion, obtaining exactly \(790\) nonempty faces and face vector \((10,45,120,210,240,135,30)\).
-4. Rebuilds the sequential element matching with pivots \(0,1,\ldots,9\), checks every matched pair is a Hasse cover, and checks no face is used twice.
-5. Orients all \(3510\) Hasse covers in Forman fashion and uses a complete topological-sort test to verify acyclicity.
-6. Confirms the unmatched cells consist of one \(0\)-simplex and nine \(4\)-simplices.
-7. Separately computes simplicial homology over \(\mathbb F_2\), obtaining Betti vector \((1,0,0,0,9,0,0)\).
+PASS
 
-The successful terminal marker is `PETERSEN_TOTAL_3_CUT_VERIFY_OK`.
+Independently enumerated all 30 independent Petersen triples, then 30 seven-element complementary facets and all 790 nonempty faces. f-vector (10,45,120,210,240,135,30). Reconstructed sequential-vertex Morse matching: 390 disjoint Hasse pairs, one critical 0-simplex and nine critical 4-simplices, with complete topological sort of the oriented 3,510 covers. Gives wedge^9 S^4; purity dimension six and nonzero H4 then obstruct shellability. Calculation exhaustive only for P,k=3.
 
-The finite computation proves only the stated Petersen \(k=3\) case. The homotopy conclusion additionally uses the standard theorem of discrete Morse theory that an acyclic matching yields a homotopy-equivalent CW complex with one cell per critical simplex.
+## originality
+
+PASS
+
+The Bayer–Denker–Jelić Milutinović–Rowlands–Sundaram–Xue full article defines total k-cut but does not calculate the Petersen graph; stated structural and family results do not imply a wedge^9 S4. Resultary later SCOPE ordinary 3-cut of Petersen wedge^6 S6 is a DIFFERENT definition, and the exact total 3-cut hit is a self-mirror.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical triangle-free nonchordal 3-regular graph excluded from many tractable families. Its total-3-cut exact integral homotopy type and pure non-shellability supply a meaningful counterexample/benchmark to shellability expectations rather than an arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
