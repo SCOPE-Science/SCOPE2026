@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Constructing X uniquely from (U,beta) via the nondegenerate standard dot product gives exact inverse map, proves symmetry, diagonal zero, image U and X^2=0. The standard vector-sum hyperplane is symplectic in odd ambient dimension and has radical line in even dimension; isotropic-subspace counts produce both branches. Nondegenerate alternating forms on U* contribute GL/Sp. Verified all quantifiers n>=1, q=2^f, r even incl r=0, upper bound; independent Python/C++ finite-field arithmetic reproduced exhaustive small fibers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2014 paper counts self-adjoint nilpotent matrices by Jordan shape, a larger class; it cites Lusztig (1976) for counts of all nilpotent skew-symmetric matrices of fixed rank, without its precise exponent-two subset in the inspected comparison.",
+        "Buckhiester (1974) treats rectangular matrices solving fixed Gram-matrix equations."
+      ],
+      "reasoning": "The broader nilpotent class cannot be specialized simply by plugging in a parameter without also enforcing alternating zero diagonal. The cited Lusztig fixed-rank count does not by itself determine how many maps of that rank satisfy square-zero; an uninspected stronger theorem remains a stated risk.",
+      "searches": [
+        "doi:10.37236/3810 Section 4.4 and 7",
+        "doi:10.1112/blms/8.1.77 bibliographic record",
+        "doi:10.4153/CJM-1974-008-2 Sections 2 and 4"
+      ]
+    },
+    "checked_sources": [
+      "Buckhiester 1974 (doi:10.4153/CJM-1974-008-2), sections 2 and 4",
+      "Brouwer–Gow–Sheekey 2014 (doi:10.37236/3810), sections 1, 2, 4 and 7",
+      "Xue 2008 (arxiv:0808.2995v1), introductory classification and orbit results",
+      "Lusztig 1976 (doi:10.1112/blms/8.1.77), title, publisher record and citation (not full text)",
+      "Fulman–Goldstein 2015 (doi:10.1214/13-AOP889), abstract",
+      "published-finding corpus semantic searches: 8 title/equivalence/parameter queries with actual closest public records below"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The claimed coefficients count the intersection of three equations (symmetry, zero diagonal, square-zero) at prescribed rank. Buckhiester counts rectangular Gram equation fibers, not that intersection; the 2014 paper counts symmetric nilpotents by Jordan type, not their zero-diagonal subspace.",
+        "The 2015 distribution of unconditioned alternating matrices depends on rank alone, whereas the candidate additionally imposes square zero."
+      ],
+      "reasoning": "A known count of all symmetric nilpotents of shape (2^r,1^{n-2r}) bounds but does not imply the count inside the zero-diagonal linear subspace. Similarly an all-nilpotent skew-symmetric fixed-rank total cannot determine the exponent-two subcount. The image–form bijection supplies the independent refinement and proves the new formula.",
+      "searches": [
+        "doi:10.4153/CJM-1974-008-2 Theorems 2.5 and 4.1–4.2",
+        "doi:10.37236/3810 Sections 2 and 4.4",
+        "arxiv:0808.2995v1 Section 5",
+        "doi:10.1214/13-AOP889 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brouwer–Gow–Sheekey (2014), §4.4, fixes Jordan shape for self-adjoint nilpotents but does not impose zero diagonal; symmetric square-zero matrices can have nonzero diagonal in characteristic two (e.g. the all-ones 2×2 matrix over F2).",
+        "Xue (2008) describes nilpotent orbit classification in characteristic-two classical Lie algebras, not exact matrix point counts for this joint condition."
+      ],
+      "reasoning": "Conjugation-invariant Jordan shape and fixed rank do not encode the zero-diagonal constraint under the full general linear group. The new bijection restricts to image flags and nondegenerate alternating forms; neither the inspected symmetric-nilpotent formula nor the orbit listing directly gives these individual counts.",
+      "searches": [
+        "\"alternating\" \"square-zero\" \"rank\" finite fields",
+        "\"symmetric square-zero matrices zero diagonal characteristic two isotropic counting\"",
+        "nilpotent skew-symmetric matrices characteristic two rank enumerator squares zero",
+        "doi:10.37236/3810, §§2 and 4.4",
+        "arxiv:0808.2995v1 §§2 and 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest inspected published tables in Brouwer–Gow–Sheekey Appendix list total symmetric nilpotent counts, not the zero-diagonal square-zero rank coefficients.",
+        "Fulman–Goldstein (2015) tabulates unconstrained alternating matrix ranks; the nilpotency equation is absent."
+      ],
+      "reasoning": "The available tables concern larger or distinct spaces. No matching exact finite-field rank polynomial was identified; absence of search hits is not taken as a uniqueness proof.",
+      "searches": [
+        "\"square-zero alternating matrices rank counts finite fields characteristic 2\"",
+        "\"rank distribution for symmetric zero-diagonal matrices satisfying X squared equals zero over finite fields\"",
+        "exact number of square-zero alternating matrices over finite fields of characteristic two by rank isotropic subspace",
+        "Characteristic 2 alternating matrices with square zero: exact rank counts, image totally isotropic for standard dot product and nonalternating orthogonal geometry"
+      ]
+    },
+    "rationale": "Four independent comparative checks were carried out with exact published-finding corpus queries and primary literature. Full access to Brouwer–Gow–Sheekey (2014) showed its shape counts include all symmetric nilpotents, but cannot distinguish zero-diagonal members; the latter condition matters in characteristic two. Buckhiester (1974) and Xue (2008) supply incidence/orbit contexts, not this joint constrained rank census. The closest potentially dominating Lusztig (1976) source was not fully readable, so historical equivalence remains a genuine risk rather than an assertion of uniqueness.",
+    "residual_risks": [
+      "A fixed rank-and-Jordan-type orthogonal Lie algebra table (possibly in the unavailable full Lusztig 1976 text) may encode the alternating square-zero subset under a specialized form; a direct implication was not demonstrated.",
+      "Searches of bibliographic databases cannot establish absolute novelty, and the result should receive independent historical review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant incidence methods but NOT_COVERING the simultaneous X^T=X, diag X=0, X²=0 matrix rank fibers.",
+        "evidence": [
+          "Section 2 treats alternating hyperplanes and canonical radical lines; Section 4 counts rectangular solutions to XAX^T=C at fixed rank rather than the present constrained square-zero endomorphisms."
+        ],
+        "identifier_or_url": "doi:10.4153/CJM-1974-008-2",
+        "material_read": "Full text, sections 2 and 4 including the main rectangular Gram-matrix enumeration theorems and first/last pages.",
+        "method": "Authorized open-access PDF text and page images.",
+        "title": "Rank r Solutions to the Matrix Equation XAX^T=C, A Nonalternate, C Alternate, over GF(2^y)",
+        "trigger": "Characterstic-two isotropic-image and nonalternating ambient form may dominate the subspace enumeration."
+      },
+      {
+        "assessment": "BROAD_CLASS_NOT_SUBCOUNT: Section 4.4 determines all symmetric nilpotents by shape, not zero-diagonal examples separately. Section 2 cites a rank count for all nilpotent skew-symmetric maps; no exponent-two isolated fiber is stated.",
+        "evidence": [
+          "Section 4.4 Eqns Ns(Y) have only the symmetric self-adjoint constraint, without diagonal zero. In char2 the nonzero all-ones 2×2 matrix is symmetric and squarezero but not zero-diagonal.",
+          "The paper explicitly cites Lusztig (1976) as counting nilpotent skew-symmetric matrices of a given rank, rather than rank and exponent simultaneously."
+        ],
+        "identifier_or_url": "doi:10.37236/3810",
+        "material_read": "Full 16-page PDF, particularly §§1–2, 4.2–4.4, 7 and references; consulted page images.",
+        "method": "Publisher open-access PDF text and page images.",
+        "title": "Counting Symmetric Nilpotent Matrices",
+        "trigger": "All symmetric nilpotents of fixed Jordan shape include the proposed square-zero matrices; decisive full-text comparison required."
+      },
+      {
+        "assessment": "Different invariant: conjugacy orbit classification/number of orbits, not individual matrices in the alternating square-zero rank fibers.",
+        "evidence": [
+          "The main theorems construct the Springer correspondence and count nilpotent orbits; no formula for this zero-diagonal square-zero matrix population."
+        ],
+        "identifier_or_url": "arxiv:0808.2995v1",
+        "material_read": "Full-text introduction, form-module classification and finite-field orbit counting discussion.",
+        "method": "arXiv lawful open-access PDF and page images.",
+        "title": "Nilpotent Orbits in Classical Lie Algebras over Finite Fields of Characteristic 2 and the Springer Correspondence",
+        "trigger": "Classification and counts of nilpotent orbits in characteristic-two orthogonal settings."
+      },
+      {
+        "assessment": "UNRESOLVED_RISK: a fixed-rank all-nilpotent formula does not directly isolate the exponent-two stratum, but an equivalent exponent-refinement in the unread text cannot be excluded.",
+        "evidence": [
+          "Brouwer–Gow–Sheekey Section 2 identifies it as a rank count for nilpotent skew-symmetric matrices. The accessible record gives title, date and pages, not the full theorems."
+        ],
+        "identifier_or_url": "doi:10.1112/blms/8.1.77",
+        "material_read": "Publisher bibliographic record and characterization in Brouwer–Gow–Sheekey; complete paper unavailable.",
+        "method": "Publisher page and secondary primary-literature citation.",
+        "title": "A Note on Counting Nilpotent Matrices of Fixed Rank",
+        "trigger": "Brouwer–Gow–Sheekey explicitly cites this 1976 paper for nilpotent skew-symmetric matrix rank counts."
+      },
+      {
+        "assessment": "Scope is the unconditional alternating-matrix rank distribution; no matrix square-zero equation.",
+        "evidence": [
+          "The abstract lists symmetric zero-diagonal (alternating) rank distributions and approximation bounds, without nilpotency restrictions."
+        ],
+        "identifier_or_url": "doi:10.1214/13-AOP889",
+        "material_read": "Publisher abstract and metadata.",
+        "method": "Open abstract.",
+        "title": "Stein’s Method and the Rank Distribution of Random Matrices over Finite Fields",
+        "trigger": "Potential exact tables for alternating matrix rank multiplicities."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "57719826-9608-483e-8a42-8501dd1ae725",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural complete exact rank invariant of the square-zero locus inside an alternating matrix representation is determined over all characteristic-two finite fields, with canonical image fibers and an even-dimensional radical-line stratification. These structural results are nontrivial refinements of known unconstrained symmetric-nilpotent and alternating rank enumerations, not arbitrary cutoff experiments.",
+    "status": "PASS"
+  }
+}
