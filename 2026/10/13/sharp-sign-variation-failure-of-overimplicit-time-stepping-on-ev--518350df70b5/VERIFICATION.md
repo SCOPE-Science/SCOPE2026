@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Analytical and finite checks
+# Independent mathematical audit
 
-The analytical proof in `RESULT.md` covers all \(n\ge2\), all positive neighboring birth/death rates, every \(h>0\), and \(\theta\ge1\). Its nonstandard steps are the resolvent identity \(P=\alpha I+\beta G\), the rank-one off-diagonal Green factorization, the exact adjacent minor \(-\alpha\beta G_{i,i+2}\), the strictly separated three-row sign ratios, and the TN factorization of the tridiagonal resolvent.
+## correctness
 
-A standard-library Python checker (`verify.py`) constructs birth-death generators and inverses using exact `fractions.Fraction`, enumerates all ordered minors for the backward-Euler cases, and verifies stochasticity, strict positivity, mixed-minor identities, and constructed sign witnesses in 192 rational parameter cases. It checks an explicit three-state example separately. Reproduce with `python verify.py`; expected final line begins `VERIFY_OK: 192 exact-rational parameter cases`.
+PASS
 
-This is not a computer-assisted proof of the infinite theorem. The finite cases cannot establish universality, nor does this check certify absence from prior literature. There has been no independent audit.
+For an irreducible finite birth-death Markov generator Q, G=(I−θhQ)^(−1) is strictly positive and stochastic, and P_θ,h=(θ−1)I/θ+G/θ. Detailed balance yields positive real eigenvalues, hence positive principal minors. Because inverse tridiagonal M-matrices are Green matrices with rank-one upper-triangle factors, G_(i,i+1) G_(i+1,i+2)=G_(i,i+2) G_(i+1,i+1). Therefore det P[rows i,i+1; cols i+1,i+2]=−(θ−1)G_(i,i+2)/θ², negative for θ>1 on every n≥3 chain, independent of h. The strict principal minor creates a ratio interval and a vector supported on i+1,i+2 with one sign change whose image contains −,+,−. For θ=1, tridiagonal M-matrix inversion has TN bidiagonal factors; for n=2, positive entries plus positive determinant are TN. Thus the exact all-parameter dichotomy follows. New exact rational checks verified identity and constructive witness in 54 tested n/rate/h/θ/triple cases.
+
+## originality
+
+PASS
+
+Fallat–Tsatsomeros (2002) explicitly establishes TN tridiagonal M-matrix inverses and a TN Cayley factorization when a separate explicit factor is TN. The overimplicit θ>1 matrix has a positive identity-plus-resolvent representation but a negative adjacent minor, so the existing TN result does not cover this regime. Jin et al. and Higueras–Roldán address entrywise positivity or contractivity in discretizations, a strictly weaker property than ordered variation diminution. The universal negative-minor identity and explicit sign-creation witness remain best-of-knowledge original against these sources.
+
+## value
+
+PASS
+
+Ordered sign variation is a natural discrete analogue of Sturm oscillation for one-dimensional diffusion. The theorem sharply separates stochastic positivity and spectrally positive damping, which hold for all θ≥1, from variation diminution, which fails immediately at θ>1 for any h and any heterogeneous chain of at least three states. This is a complete dimension-and-parameter boundary, not merely a small counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

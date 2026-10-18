@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T05:07:51.672059Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an irreducible finite birth-death Markov generator Q, G=(I−θhQ)^(−1) is strictly positive and stochastic, and P_θ,h=(θ−1)I/θ+G/θ. Detailed balance yields positive real eigenvalues, hence positive principal minors. Because inverse tridiagonal M-matrices are Green matrices with rank-one upper-triangle factors, G_(i,i+1) G_(i+1,i+2)=G_(i,i+2) G_(i+1,i+1). Therefore det P[rows i,i+1; cols i+1,i+2]=−(θ−1)G_(i,i+2)/θ², negative for θ>1 on every n≥3 chain, independent of h. The strict principal minor creates a ratio interval and a vector supported on i+1,i+2 with one sign change whose image contains −,+,−. For θ=1, tridiagonal M-matrix inversion has TN bidiagonal factors; for n=2, positive entries plus positive determinant are TN. Thus the exact all-parameter dichotomy follows. New exact rational checks verified identity and constructive witness in 54 tested n/rate/h/θ/triple cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fallat–Tsatsomeros supplies θ=1 inverse TN and a TN factorization only under an additional nonnegative tridiagonal factor condition; other works establish entrywise positivity/contractivity, which does not force ordered 2x2 minor signs."
+        ],
+        "reasoning": "The general older results do not entail the exact negative adjacent minor or an explicit input with an extra sign change under θ>1.",
+        "searches": [
+          "Fallat–Tsatsomeros Theorem 4.5",
+          "Jin–Lazarov–Thomée–Zhou arXiv:1510.02825",
+          "Higueras–Roldán arXiv:2301.01066"
+        ]
+      },
+      "checked_sources": [
+        "Fallat and Tsatsomeros, Electronic Journal of Linear Algebra 9 (2002), Theorem 4.5 and §4 PDF",
+        "Higueras and Roldán, arXiv:2301.01066",
+        "Jin, Lazarov, Thomée and Zhou, arXiv:1510.02825",
+        "Resultary: variation diminishing tridiagonal Green matrix and theta-method semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Older positive matrix semigroup results permit positive entries with negative mixed minors; the new Green-column cancellation is the obstruction absent from the prior positivity theorems."
+        ],
+        "reasoning": "Known inverse TN proves the θ=1 positive half but not θ>1 failure. The precise negative minor and strict sign witness require an additional computation.",
+        "searches": [
+          "Fallat–Tsatsomeros Theorem 4.5 and Example 4.6",
+          "Higueras–Roldán arXiv:2301.01066, positivity criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Variation-diminishing matrices and totally nonnegative Green kernels are the relevant equivalent conceptual language. The paper establishes resolvent TN and certain TN Cayley products, whereas this overimplicit mixture has an explicitly negative ordered minor."
+        ],
+        "reasoning": "Equivalent terminology was compared on actual matrix products; the negative θ>1 mixed minor is not contradicted by prior TN factors in a different parameter regime.",
+        "searches": [
+          "Resultary: total positivity variation diminishing theta methods tridiagonal birth death Markov generator inverse M-matrix resolvent convex combination identity",
+          "Fallat–Tsatsomeros DOI:10.13001/1081-3810.1086 pp. 194–196"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant problem has arbitrary rates, step sizes and dimensions rather than a finite data table; the source contains a different 3x3 example of TN-factorization subtleties."
+        ],
+        "reasoning": "No exact table is capable of proving the all-rate assertion, and the inspected matrix examples do not reproduce the stated universal identity.",
+        "searches": [
+          "Resultary semantic published-matrix-sign-variation search",
+          "DOI:10.13001/1081-3810.1086 §§3–4"
+        ]
+      },
+      "rationale": "Fallat–Tsatsomeros (2002) explicitly establishes TN tridiagonal M-matrix inverses and a TN Cayley factorization when a separate explicit factor is TN. The overimplicit θ>1 matrix has a positive identity-plus-resolvent representation but a negative adjacent minor, so the existing TN result does not cover this regime. Jin et al. and Higueras–Roldán address entrywise positivity or contractivity in discretizations, a strictly weaker property than ordered variation diminution. The universal negative-minor identity and explicit sign-creation witness remain best-of-knowledge original against these sources.",
+      "residual_risks": [
+        "A classical Green-kernel or oscillation-matrix lemma under different notation might already show the negative adjacent-minor identity as an easy corollary.",
+        "The result excludes θ<1, reducible chains, nontridiagonal graph generators and eventual behavior under repeated steps.",
+        "The modern numerical PDE comparisons were targeted rather than complete full-text examinations; no whole-document noncoverage is claimed for them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_BACKWARD_EULER_AND_DISTINCT_CAYLEY_REGIME",
+          "evidence": "Theorem 4.5 requires I+A and (I−A)^−1 to be TN; it does not say arbitrary αI+β(I−θhQ)^−1 is TN or variation diminishing.",
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1086",
+          "material_read": "Complete 7-page primary PDF, especially pp. 194–196, Theorem 4.5 and Example 4.6",
+          "method": "Read extracted text and actual PDF page image for theorem",
+          "title": "On the Cayley transform of positivity classes of matrices",
+          "trigger": "Closest classical theorem on TN tridiagonal inverses and Cayley factors"
+        },
+        {
+          "assessment": "WEAKER_ENTRYWISE_PROPERTY",
+          "evidence": "Classifies entrywise positivity/contractivity for heat schemes, not ordered mixed-minor sign variation for all overimplicit θ.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.01066",
+          "material_read": "Targeted abstract and theorem-scope material, not a whole-document priority exclusion",
+          "method": "Lawful arXiv indexed theorem-level comparison",
+          "title": "A new insight on positivity and contractivity of the Crank–Nicolson scheme for the heat equation",
+          "trigger": "Closest modern numerical-time-stepping positivity analysis"
+        },
+        {
+          "assessment": "DISTINCT_DISCRETIZATION_SETTING",
+          "evidence": "Positivity of finite-element subdiffusion solution matrices does not imply sign-variation diminution of this birth-death θ-family.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.02825",
+          "material_read": "Targeted source-scope and abstract, not the full manuscript",
+          "method": "Lawful arXiv indexed comparison",
+          "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+          "trigger": "Potential broader nonnegativity preservation coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ordered sign variation is a natural discrete analogue of Sturm oscillation for one-dimensional diffusion. The theorem sharply separates stochastic positivity and spectrally positive damping, which hold for all θ≥1, from variation diminution, which fails immediately at θ>1 for any h and any heterogeneous chain of at least three states. This is a complete dimension-and-parameter boundary, not merely a small counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A classical Green-kernel or oscillation-matrix lemma under different notation might already show the negative adjacent-minor identity as an easy corollary.",
+    "The result excludes θ<1, reducible chains, nontridiagonal graph generators and eventual behavior under repeated steps.",
+    "The modern numerical PDE comparisons were targeted rather than complete full-text examinations; no whole-document noncoverage is claimed for them.",
+    "All publication operations withheld; no unchanged private provenance is approved for public publication."
+  ],
+  "schema_version": 1
+}
