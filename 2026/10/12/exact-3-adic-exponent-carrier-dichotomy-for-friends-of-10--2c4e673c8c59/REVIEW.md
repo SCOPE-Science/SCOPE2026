@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reconstructs the friend equation \(5\sigma(n)=9n\), proves oddness and squarefulness, and independently excludes \(3\mid n\) using exact abundancy inequalities. It then obtains \(\nu_3(\sigma(n))=2\). For each prime-power factor, the local valuation is zero for \(p\equiv2\pmod3\), while for \(p\equiv1\pmod3\) the standard lifting-the-exponent identity gives \(\nu_3(\sigma(p^a))=\nu_3(a+1)\). The residue dichotomy follows exactly from the two partitions of \(2\). The checker independently reproduces the numerical inequalities and finite local congruence regression tests.
+## correctness
 
-## Originality
-**PASS.** Ward proves existence of at least one prime \(p\equiv1\pmod3\) with exponent \(2\pmod6\) and gives only the weaker singleton residue \(8\pmod{18}\). Thackeray's later support bound and Chatterjee--Mandal--Mandal's necessary conditions do not state an exact \(3\)-adic allocation. Mandal's 2025 exponent theorem is a different global non-congruence statement. Targeted searches for the exact valuation sum, the at-most-two carrier statement, and the modulo-
-\(54\)/modulo-
-\(18\) split found no implication-equivalent result. The strongest directly comparable prior statement is therefore strictly weaker.
+PASS
 
-## Value
-**PASS.** The solitary status of \(10\) is an active elementary number-theory problem, and published work repeatedly extracts necessary prime-support and exponent conditions for a hypothetical friend. The exact valuation identity converts Ward's existential congruence into a rigid one-or-two-carrier architecture and sharpens the singleton congruence by removing one full residue class modulo \(54\). This is a reusable structural sieve for future factor-chain or computational searches rather than a renamed textbook deduction.
+A hypothetical friend n satisfies 5sigma(n)=9n and 5|n. If 2|n, 10|n contradicts strict abundancy monotonicity; since sigma(n) odd, n is a square. If 3|n, squarefull 3 and 5 with exponents >=2 plus inequalities I(3^4 5^2)=3751/2025>9/5 and I(3^2 5^4)=10153/5625>9/5 force exponents exactly 2, after which 13,31|sigma(n) forces 13^2 31^2|n, contradicting I(3^2 5^2 13^2 31^2)=20191/10075>9/5. Thus v3(sigma(n))=2. For p=2 mod3 with even a, sigma(p^a)=1 mod3, while for p=1 mod3 LTE gives v3(sigma(p^a))=v3(a+1). Taking v3 of the product yields sum exactly 2 and its partitions 2 or 1+1. Congruence arithmetic gives singleton a mod54 in {8,44}, two-carrier a mod18 in {2,14}, others mod6 in {0,4}. Independently checked the exact rational inequalities and 200 local prime-power valuations. No hypothetical friend was constructed; no conclusion about existence.
 
-## Closest literature and limitations
-The closest source is Ward's theorem on the same object and the same modulo-
-\(3\) mechanism. The new claim is not a corollary of Ward's printed statement: \(8\pmod{18}\) still permits exponent \(26\pmod{54}\), which the exact valuation identity excludes, and Ward does not bound the number of carriers by two. The result remains conditional and does not settle whether a friend exists. A later 2025 paper on exponent congruences was also inspected and does not dominate the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ward (2008) proves odd-square/non-3-divisibility, 9|sigma(n), at least one carrier exponent 2 mod6 and a weaker singleton 8 mod18, but does not claim at most two carriers or exact v3 budget and modulo-54 dissection. Mandal (2025) proves a different restriction on half-exponents. The refinement uses an immediately available Ward equation plus standard LTE; it is close to a classical lemma and could be implicit in Ward's proof, a serious novelty risk. Nevertheless the precise all-carrier allocation is not a theorem implied by Ward's stated weaker congruences alone.
+
+## value
+
+PASS
+
+The existence of a friend of 10 is unresolved and numerical/factor-chain attempts naturally sieve prime-power exponent patterns. The exact total 3-adic budget limits all 1-mod-3 exponent carriers to one or two and removes an entire allowed residue of Ward's singleton condition. This is a limited but concrete reusable necessary condition, not a claimed solution or a newly invented arbitrary modulus. Because the algebraic refinement is elementary, its marginal utility rather than broad novelty is emphasized.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
