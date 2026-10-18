@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T04:57:15.527537Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The local minimized scalar quadratic has Hessian D=r+rho-a>0. Exact interior map M=1/D [[r,-1],[rho*r,r-a]]. Trace (2r-a)/D and determinant r/D; three Schur numerators are (rho-a)/D, rho/D and (4r+rho-2a)/D, yielding exactly rho>a and 4r+rho>2a. Discriminant (a²-4rho*r)/D² shows unique spectral-radius minimizer r*=a²/(4rho) with -a/(2rho-a) repeated eigenvalue. rho=a or 4r+rho=2a has a nondecaying mode. Independent SymPy algebra checked all identities; bundled exact-rational verify_palm_scalar.py inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adeoye-Latafat-Bemporad explicitly adapt penalties/prox term and establish finite approximate-KKT termination; do not prove fixed-parameter exact sequential stability.",
+          "QPALM has a two-level iteration and different center updates."
+        ],
+        "reasoning": "No read broader source gave this exact necessary and sufficient scalar frontier. Earlier general local convergence papers may specialize one-sided thresholds, retained as risk.",
+        "searches": [
+          "https://arxiv.org/pdf/2509.02894",
+          "Hermans Themelis Patrinos QPALM nonconvex quadratic programming",
+          "local convergence proximal method of multipliers negative curvature penalty condition"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2509.02894",
+        "Resultary semantic search: proximal augmented Lagrangian fixed parameter scalar negative curvature Schur stability optimal penalty gamma rate 4rho/a^2",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-scalar-stability-and-rate-optimal-splitting-for-averaged-p--ce9ba88ec900"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source equations (1.2b),(1.3),(1.4) define multiplier and proximal updates; source explicitly distinguishes adaptive inexact method and finite approximate termination from fixed sequential convergence.",
+          "Schur test gives rho>a and 4r+rho>2a; discriminant gives r*=a²/(4rho)."
+        ],
+        "reasoning": "Published parameter updates and generic convergence results do not imply a sharp fixed-parameter rate-optimal Jacobian classification without additional new algebraic analysis.",
+        "searches": [
+          "https://arxiv.org/pdf/2509.02894",
+          "proximal augmented Lagrangian fixed parameter scalar negative curvature Schur stability optimal penalty gamma rate 4rho/a^2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-parameter map is precisely M=(1/D)[[r,-1],[rho*r,r-a]], not a reduced QPALM inner iteration.",
+          "Other scalar splitting tools have different update matrices."
+        ],
+        "reasoning": "Using the same scalar word or penalty parameter does not establish theorem identity; the exact map and Jacobian are compared.",
+        "searches": [
+          "proximal augmented Lagrangian fixed parameter scalar negative curvature Schur stability optimal penalty gamma rate 4rho/a^2",
+          "proximal method of multipliers scalar negative curvature 2x2 Jacobian Schur/Jury local linear stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches own exact item, exact scalar PDHG, aPRG, and linearized ADMM entries, each using different update maps."
+        ],
+        "reasoning": "No exact previously published stability table for this M was identified.",
+        "searches": [
+          "proximal augmented Lagrangian fixed parameter scalar negative curvature Schur stability optimal penalty gamma rate 4rho/a^2"
+        ]
+      },
+      "rationale": "The source adaptive inexact P-ALM paper formulates the algorithm but does not identify the precise fixed-parameter scalar normal-curvature Schur-stability inequalities or unique critically damped optimal proximal parameter. Resultary matches involved different splitting/ADMM algorithms and different scalar phase diagrams; no same-map implication was found after reading the original algorithm. Best-of-knowledge qualified novelty.",
+      "residual_risks": [
+        "Potential older local proximal method-of-multipliers rate theorem was not obtained in complete primary text; generic threshold does not demonstrably cover both exact inequalities and rate optimizer.",
+        "Only fixed-parameter exact core, not adaptive solver or multidimensional dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The proximal coefficient 1/(2gamma) and rho multiplier update match; source no fixed scalar exact threshold.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.02894",
+          "material_read": "Full primary 28-page PDF including equations (1.2)-(1.4), motivation and adaptive termination objective",
+          "method": "arXiv full PDF text plus page-1 screenshot",
+          "title": "A proximal augmented Lagrangian method for nonconvex optimization with equality and inequality constraints",
+          "trigger": "same primal-dual update and strong-convexification claim"
+        },
+        {
+          "assessment": "INAPPLICABLE",
+          "evidence": "Different proximal reflected gradient update, not the present multiplier M.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-scalar-stability-and-rate-optimal-splitting-for-averaged-p--ce9ba88ec900",
+          "material_read": "Actual semantic summary: aPRG on F(x)=ax, g=mu x²/2, rate-optimal step",
+          "method": "Resultary read-only search",
+          "title": "Sharp scalar stability and rate-optimal splitting for averaged proximal reflected gradient",
+          "trigger": "top related Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated precise dynamical counterexample to the claim that strong convexification of every primal subproblem ensures convergence; a sharp stability threshold and unique fastest proximal parameter matter for penalty calibration. Results are exactly scoped to one normal-curvature mode, not claimed as full algorithmic convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact fixed-parameter scalar active-box neighborhood only; no global convergence, adaptive schedule, inexact solve or coupled multidimensional extension."
+  ],
+  "schema_version": 1
+}

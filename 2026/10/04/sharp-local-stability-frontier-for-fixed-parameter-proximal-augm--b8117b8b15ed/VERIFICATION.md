@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof was checked from the exact fixed-parameter proximal augmented-Lagrangian subproblem and multiplier update. In the inactive-box neighborhood, the update is exactly linear, so the stability calculation has no linearization remainder.
+# Independent mathematical audit
 
-`artifacts/verify_palm_scalar.py` uses Python standard-library rational arithmetic. It checks the trace and determinant of the state matrix, all three Jury-Schur numerators, the rate-optimal double-root identity, a parameter choice with globally strongly convex primal subproblems but unstable coupled dynamics, and exact small-amplitude two-cycles at both stability boundaries.
+## correctness
 
-The finite replay does not replace the all-parameter proof. Multidimensional coupled KKT modes, adaptive parameters, inexact primal solves, and inequality constraints are outside the final claim.
+PASS
+
+The local minimized scalar quadratic has Hessian D=r+rho-a>0. Exact interior map M=1/D [[r,-1],[rho*r,r-a]]. Trace (2r-a)/D and determinant r/D; three Schur numerators are (rho-a)/D, rho/D and (4r+rho-2a)/D, yielding exactly rho>a and 4r+rho>2a. Discriminant (a²-4rho*r)/D² shows unique spectral-radius minimizer r*=a²/(4rho) with -a/(2rho-a) repeated eigenvalue. rho=a or 4r+rho=2a has a nondecaying mode. Independent SymPy algebra checked all identities; bundled exact-rational verify_palm_scalar.py inspected.
+
+## originality
+
+PASS
+
+The source adaptive inexact P-ALM paper formulates the algorithm but does not identify the precise fixed-parameter scalar normal-curvature Schur-stability inequalities or unique critically damped optimal proximal parameter. Resultary matches involved different splitting/ADMM algorithms and different scalar phase diagrams; no same-map implication was found after reading the original algorithm. Best-of-knowledge qualified novelty.
+
+## value
+
+PASS
+
+This is a motivated precise dynamical counterexample to the claim that strong convexification of every primal subproblem ensures convergence; a sharp stability threshold and unique fastest proximal parameter matter for penalty calibration. Results are exactly scoped to one normal-curvature mode, not claimed as full algorithmic convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
