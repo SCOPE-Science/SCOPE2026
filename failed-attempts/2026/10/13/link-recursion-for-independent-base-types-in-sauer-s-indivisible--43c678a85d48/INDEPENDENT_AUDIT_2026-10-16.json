@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:04:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Sauer arXiv:2008.02375 Section 8.1 / proof of Theorem 2.5; fixed source RESULT.md blob edf76e293e5b0901ecf0ce99c4d6646a7d747058",
+        "Independent checker SAUER_CONE_LINK_BOUNDARY_EXHAUSTIVE_SMALL_OK 3072"
+      ],
+      "rationale": "For 3<=k<n and an independent finite I, every one-point extension adds only k-edges incident to x, hence is precisely a cone of its (k-1)-uniform link. For forbidden irreducible n-subsets (Gaifman complete), any forbidden set in such a cone must include x and corresponds to an irreducible link set of cardinality at least n-1; the converse holds for these boundary sizes (>=k). Free amalgamation realizes the legal diagrams and ultrahomogeneity equates types iff the labeled links agree. At k=3 the (k-1)-age is precisely K_{n-1}-free graphs. Fixed-clique-free graph asymptotics are borrowed from Erdős--Kleitman--Rothschild. Direct independent cone-versus-link enumeration corroborated 3072 small cases. This is a correct restriction, not a novel proof of Sauer’s theorem.",
+      "residual_risks": [
+        "The single-vertex link equivalence must be read at the forbidden size n>=k+1, not as a blanket equivalence for size-two subsets; finite checks do not prove all sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.5 treats types over all finite sockels, not only independent ones, by mixed arity incidence.",
+          "Resultary ae10e5d4346d gives coefficientwise type-counting domination for all parameter hypergraphs in a distinct K4-minus-free generic age and exact triangle-free count for its independent case."
+        ],
+        "reasoning": "Sauer is the dominating same-object source; Resultary’s different age supports the fact that taking an independent-base link and using forbidden graph enumeration is not inherently a new theorem.",
+        "searches": [
+          "Sauer 2020 Theorem 2.5 proof rank linearity general finite sockel",
+          "Resultary Triangle-free envelopes for 1-types in the random K4-minus-free 3-hypergraph 2026/10/4/ae10e5d4346d"
+        ]
+      },
+      "checked_sources": [
+        "Sauer, arXiv:2008.02375, Theorem 2.5/Section 8.1 full PDF",
+        "Published Resultary 2026/10/4/ae10e5d4346d full RESULT.md",
+        "Mousset et al 2014 abstract / EKR theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sauer gives a general mixed-incidence type test; all old relation symbols disappear when the base is independent.",
+          "The classical fixed-forbidden-clique asymptotic is already proved and recorded in Mousset–Nenadov–Steger’s discussion."
+        ],
+        "reasoning": "Applying Sauer’s general statement to an independent base literally yields the candidate’s one-step link class; for k=3 the known asymptotic follows from identifying irreducible graphs with cliques. The prior statements imply the whole final claim, not merely a matching title.",
+        "searches": [
+          "Sauer arXiv:2008.02375 Section 8.1 exact one-point type rank criterion and free amalgamation",
+          "Mousset Nenadov Steger 2014 On the Number of Graphs Without Large Cliques"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sauer proof of Theorem 2.5 represents one-point diagrams as (k-1)-incidence data over arbitrary finite sockels.",
+          "The present candidate restricts the sockel to an independent k-graph, removing all old edges and making Sauer’s incidence data identical to its link."
+        ],
+        "reasoning": "No change of formalism creates a new invariant: the described bijection of nonalgebraic types with legal links is Sauer’s type encoding specialized to an empty induced k-graph.",
+        "searches": [
+          "Sauer Colouring homogeneous structures arXiv:2008.02375 Section 8.1 type incidence sockel",
+          "Resultary semantic query: indivisible homogeneous k uniform hypergraphs Sauer irreducible forbidden induced n independent parameter set one point types links recursion K_n-free graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For fixed r=n-1 the classical logarithmic count of labeled K_r-free graphs is (1-1/(r-1)+o(1)) binom(m,2).",
+          "The candidate imports this expression with r=n-1 and reports the class’s link count."
+        ],
+        "reasoning": "No new numerical table, asymptotic exponent or error bound is derived; the graph asymptotic is explicitly a substitution into an established counting theorem.",
+        "searches": [
+          "Erdős–Kleitman–Rothschild 1976 asymptotic enumeration K_r-free graphs",
+          "Sauer 2020 Theorem 2.5 rank type count"
+        ]
+      },
+      "rationale": "Sauer already supplies the complete one-point type encoding over a finite sockel via (k-1)-ary incidence and a largest-irreducible-substructure rank test in the proof of Theorem 2.5. For an independent sockel the old k-ary part is empty; applying Sauer’s existing test yields exactly the claimed A_{k-1,n-1} link criterion. The subsequent k=3 count is immediate enumeration of legal labeled links and its leading entropy exponent is the classical fixed-clique-free graph theorem. The candidate is therefore a direct specialization/corollary of prior stronger coverage, not an original structural recursion. A prior Resultary finite-type theorem independently already states the analogous triangle-free independent-base case for the different K4-minus-free age; the latter is corroborative only and not substituted for the decisive Sauer implication.",
+      "residual_risks": [
+        "No evidence of an independent additional counting refinement beyond the prior type rank criterion and EKR asymptotic; subjective value discussion is separate from decisive O rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_COVERING",
+          "evidence": "Section 8.1 already encodes types over a finite sockel by (k-1)-ary link incidences and tests their largest irreducible configuration; independent-base restriction is immediate.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.02375",
+          "material_read": "Complete 56-page primary PDF with particular close reading of Theorem 2.5 and Section 8.1, including the mixed arity sockel/type incidence rank criterion",
+          "method": "ArXiv lawful full PDF, page-level inspection",
+          "title": "Colouring homogeneous structures",
+          "trigger": "Exact primary source of boundary age and one-point type rank theorem"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_AGE",
+          "evidence": "Independent-base triangle-free type count is explicitly already in the separate K4-minus-free homogeneous structure; not a proof of coverage for Sauer family itself.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-triangle-free-envelopes-for-1-types-in-the-random-k4-minus-free--ae10e5d4346d/RESULT.md",
+          "material_read": "Full RESULT.md including exact conflict-hypergraph type polynomial and maximum at independent base",
+          "method": "Immutable published Git file via GitHub read-only connector",
+          "title": "Triangle-free envelopes for 1-types in the random K4-minus-free 3-hypergraph",
+          "trigger": "Published close combinatorial analogue counting types by triangle-free links"
+        },
+        {
+          "assessment": "KNOWN_ASYMPTOTIC",
+          "evidence": "Fixed K_r-free graph count log2 asymptotic was previously known.",
+          "identifier_or_url": "https://doi.org/10.1137/130947878",
+          "material_read": "Abstract and standard Erdős–Kleitman–Rothschild enumeration statement, not full 2014 proof",
+          "method": "Accessible summary plus classical theorem statement",
+          "title": "On the Number of Graphs Without Large Cliques",
+          "trigger": "Source of the imported asymptotic component"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Sauer 2020 Theorem 2.5, type-encoding proof",
+        "Erdős–Kleitman–Rothschild established fixed-K_r-free enumeration"
+      ],
+      "rationale": "The only advertised novelty is a restriction of Sauer’s already available arbitrary-sockel type formula to an independent base, followed by the standard K_r-free graph asymptotic. This is a short direct specialization/renaming rather than a motivated missing structural calculation or independent exact invariant; no new parameter-sensitive classification, complexity bound, proof improvement or boundary phenomenon remains. The result can be a useful explanatory corollary pedagogically, but not a substantively valuable independent new scientific finding under the stated criterion.",
+      "residual_risks": [
+        "If an independent additional theorem or a genuinely new non-independent sockel refinement exists, it was not part of the assessed final claim and cannot rescue this original by disclaimer."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "If an independent additional theorem or a genuinely new non-independent sockel refinement exists, it was not part of the assessed final claim and cannot rescue this original by disclaimer.",
+    "No evidence of an independent additional counting refinement beyond the prior type rank criterion and EKR asymptotic; subjective value discussion is separate from decisive O rejection.",
+    "Scientific review complete but publication transport not_ready due to public privacy sanitization and recursive tree verification; no GitHub writes performed.",
+    "The single-vertex link equivalence must be read at the forbidden size n>=k+1, not as a blanket equivalence for size-two subsets; finite checks do not prove all sizes."
+  ],
+  "schema_version": 1
+}
