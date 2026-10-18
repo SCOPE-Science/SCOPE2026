@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled `verifier.py` reconstructs \(\mathrm{Tonn}^{11,4}(1,2,3,5)\) directly from the facet formula. It checks the face vector \((11,55,110,66)\), \(\partial^2=0\), exact rational boundary ranks \(10,44,65\), and explicit maximal-rank determinants \(1,-1,1\). The same ranks are recomputed modulo \(2,3,5,7,11,13\).
+# Independent mathematical audit
 
-For the link of vertex \(0\), the verifier reconstructs face vector \((10,30,24)\) and checks a staged matching with \(30\) pairs. The directed Hasse graph of the matching is acyclic and the only critical cells are one vertex and three triangles, proving \(\operatorname{Link}_T(0)\simeq\bigvee^3S^2\). Cyclic translation is then exhaustively checked to preserve the complete facet set, so all vertex links are isomorphic.
+## correctness
 
-The verification establishes only the stated finite homology and vertex-link claims. It does not compute the whole-complex homotopy type, fundamental group, or cohomology ring.
+PASS
+
+From Definition 1.3 enumerated all 11×24 cyclic four-step candidates of L=(1,2,3,5), deduplicating to 66 tetrahedra with f=(11,55,110,66). Independently computed exact mod-2 ranks (10,44,65) and full integer Smith normal forms of all three boundary matrices: ranks 10,44,65 and every nonzero invariant factor exactly one, proving H_i(T;Z)=Z for i=0,1,2,3 and zero else, not merely rational ranks. Each vertex link has f=(10,30,24); separately replayed its staged 30-pair matching leaving one vertex and three 2-cells and checked link mod-2 ranks (9,21). The source verifier checks acyclicity of the complete Hasse matching; no critical 1-cells give wedge^3 S2 for each link. Cyclic translations act transitively. Hence non-manifold despite S1×S2 homology.
+
+## originality
+
+PASS
+
+The generic reduced Tonnetz torus theorem excludes the collision 1+2=3. Previously published minimum distinct case (1,2,3,4) at n=10 is a different sphere wedge and does not imply n=11 homology, all singular vertex links. Distinct indexed case and literature definition comparisons do not imply a published classification of the present case.
+
+## value
+
+PASS
+
+The unique four-distinct-positive length vector of next-minimal total 11 after n=10 shows a qualitatively different nongeneric degeneration: full S1×S2-like integral homology yet every vertex link singular. A motivated second boundary datum for generalized Tonnetz topology, not an arbitrary enumerated quadruple.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
