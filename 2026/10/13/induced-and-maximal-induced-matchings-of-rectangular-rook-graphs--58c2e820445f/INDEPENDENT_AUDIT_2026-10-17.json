@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:08:15.157701Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/induced-and-maximal-induced-matchings-of-rectangular-rook-graphs--58c2e820445f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/induced-and-maximal-induced-matchings-of-rectangular-rook-graphs--58c2e820445f/VERIFICATION.md",
+        "Independent mathematical checker independent_1733_checks.py"
+      ],
+      "rationale": "A rook-graph edge corresponds bijectively to a P3 of K_{m,n}, and induced matchings correspond exactly to vertex-disjoint P3 packs: any two endpoint squares sharing an original row/column are adjacent in the line graph. Row-centered components consume (1,2), column-centered (2,1); labeled combinatorial choices give N=m!n!/(2^(a+b)a!b!r!c!). The labeled-set exponential formula yields exp(u+v+z(uv²+u²v)/2). A maximal pack leaves residual K_{r,c} admitting no P3, iff r=0, c=0, or (r,c)=(1,1), giving the second EGF (e^u+e^v−1+uv)exp(...). Feasible count k satisfies k<=m,n and 3k<=m+n, so maximum min(m,n,floor((m+n)/3)). Every inclusion-maximal size is ≥ceil(min(m,n)/2), attained by row-saturating stars; equality of endpoints gives exactly nine unordered well-indumatched board sizes. Independent direct conflict-edge enumeration confirmed all induced and maximal spectra on nine boards 2<=m,n<=4, not just final formulas.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baptiste et al general well-indumatched recognition and forbidden-subgraph results",
+          "Basavaraju et al universal maximal induced matching bounds on triangle-free graphs"
+        ],
+        "reasoning": "The general property/algorithmic characterizations do not list exact rectangular families or their coefficient enumeration. Most rook graphs contain triangles, so the triangle-free theorem does not dominate this class.",
+        "searches": [
+          "Graphs with maximal induced matchings of the same size Baptiste Kovalyov Orlovich Werner Zverovich",
+          "Maximal induced matchings triangle-free graphs arXiv:1312.5180"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/induced-and-maximal-induced-matchings-of-rectangular-rook-graphs--58c2e820445f/RESULT.md",
+        "https://arxiv.org/abs/1312.5180",
+        "https://doi.org/10.1016/j.dam.2016.08.015",
+        "https://www.cs.ubc.ca/tr/2001/tr-2001-12",
+        "https://oeis.org/A341847",
+        "https://oeis.org/A341850"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General well-indumatched definition and recognition results do not supply N_{m,n}(a,b)",
+          "New P3 packing saturation criterion yields both EGFs and nine-size set"
+        ],
+        "reasoning": "Classical exponential-set counting is background, but obtaining the exact component types, unused-side maximality condition and optimization classification is the substantive new specialization. Those statements were not established as corollaries of an inspected stronger theorem.",
+        "searches": [
+          "induced matching maximal induced matching rook graph line graph complete bipartite P3 packing exponential generating function",
+          "2016 Graphs with maximal induced matchings of same size full text",
+          "Pippenger 2001 complete bipartite incidence graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R_{m,n}=L(K_{m,n})",
+          "Induced matching of line graph equals pairwise vertex-disjoint P3s in K_{m,n}"
+        ],
+        "reasoning": "The P3-packing language is exactly equivalent to the rook-graph induced-matching statement, and is used in evaluating both distributions. Earlier general P3 packing questions were searched, but no matching full count identified.",
+        "searches": [
+          "induced matching maximal induced matching rook graph line graph complete bipartite P3 packing exponential generating function",
+          "strong matchings line graphs complete bipartite P3 packing",
+          "rook graph induced matching generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A341847 and A341850 count ordinary rook matchings, not induced",
+          "Pippenger 2001 counts ordinary matchings of incidence graphs, not vertex-disjoint P3 packings"
+        ],
+        "reasoning": "The searched numerical tables are for different statistics and cannot be used as exact prior coverage of induced and inclusion-maximal induced distributions. No direct special-packing table found.",
+        "searches": [
+          "induced matching maximal induced matching rook graph line graph complete bipartite P3 packing exponential generating function",
+          "OEIS A341847 A341850 rook graphs maximal matching",
+          "Pippenger 2001 incidence graphs complete bipartite"
+        ]
+      },
+      "rationale": "Best-of-knowledge: standard induced matching definition and vertex-disjoint P3 packing on K_{m,n} are elementary, but earlier general well-indumatched recognition results or triangle-free maximal-induced bounds do not enumerate rook graph matchings. Pippenger's 2001 incidence-graph matching object and OEIS ordinary rook matchings differ from the induced rook-edge families. No exact same two bivariate EGFs, saturation spectrum, or nine-exception classification found in inspected primary/results.",
+      "residual_risks": [
+        "An older unindexed table of disjoint P3 packings of K_{m,n} might imply the first EGF.",
+        "The complete Pippenger technical report was not read; accessible abstract identifies a mathematically different counted object."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies general recognition, not the all-coefficient rectangular rook census or listed nine sizes",
+          "evidence": "Baptiste et al. 2016 main results",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2016.08.015",
+          "material_read": "Accessible author-upload full text; definitions, general recognition criteria, graph classes, forbidden configurations, targeted searches for rook/complete bipartite",
+          "method": "full manuscript text and within-document search",
+          "title": "Graphs with maximal induced matchings of the same size",
+          "trigger": "identical well-indumatched property"
+        },
+        {
+          "assessment": "Inapplicable to most rook graphs due to triangles and not exact distributions",
+          "evidence": "Basavaraju et al 2013 upper bound",
+          "identifier_or_url": "https://arxiv.org/abs/1312.5180",
+          "material_read": "Accessible abstract and theorem statement about triangle-free graphs",
+          "method": "arXiv landing and indexed text",
+          "title": "Maximal induced matchings in triangle-free graphs",
+          "trigger": "strong general upper bound"
+        },
+        {
+          "assessment": "Ordinary edge matchings of incidence graph, not disjoint P3s in K_{m,n}; complete text unavailable",
+          "evidence": "Pippenger UBC TR-2001-12 title and abstract",
+          "identifier_or_url": "https://www.cs.ubc.ca/tr/2001/tr-2001-12",
+          "material_read": "Public report metadata and abstract; PDF not materially readable",
+          "method": "author institution report page",
+          "title": "Enumeration of matchings in the incidence graphs of complete and complete bipartite graphs",
+          "trigger": "same complete-bipartite source and matching title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/induced-and-maximal-induced-matchings-of-rectangular-rook-graphs--58c2e820445f/RESULT.md",
+        "https://arxiv.org/abs/1312.5180",
+        "https://doi.org/10.1016/j.dam.2016.08.015",
+        "https://www.cs.ubc.ca/tr/2001/tr-2001-12",
+        "https://oeis.org/A341847",
+        "https://oeis.org/A341850"
+      ],
+      "rationale": "A complete pair of ordinary and inclusion-maximal induced-matching enumerators for every rectangular rook graph is a motivated graph-polynomial result, allowing coefficient and optimization extraction. It also determines every rectangle where maximal induced matchings are all maximum—an explicit natural classification relevant to strong matching algorithms.",
+      "residual_risks": [
+        "An older unindexed table of disjoint P3 packings of K_{m,n} might imply the first EGF."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only m,n>=2 rectangular rook graphs; zero-sided EGF extension is a formal convention.",
+    "Induced graph-edge matchings, not ordinary matchings; maxima counted on labeled boards."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this file and the supplied standalone Python verifier. It uses only the Python standard library, constructs each rook graph directly, and checks each induced matching by whether different selected rook edges have any adjacent endpoints. It determines inclusion-maximality by testing every possible additional edge, not by using the counting formula.
+## correctness
 
-The recorded execution was:
+PASS
 
-```
-VERIFY_OK exhaustive_boards=16 dimensions=2..5 total_induced_matchings=6201 formula_support_checks=289
-R_3_3_all={0: 1, 1: 18, 2: 9} R_3_3_maximal={2: 9}
-R_6_6_all={0: 1, 1: 180, 2: 6300, 3: 36000, 4: 8100} R_6_6_maximal={3: 3600, 4: 8100}
-```
+A rook-graph edge corresponds bijectively to a P3 of K_{m,n}, and induced matchings correspond exactly to vertex-disjoint P3 packs: any two endpoint squares sharing an original row/column are adjacent in the line graph. Row-centered components consume (1,2), column-centered (2,1); labeled combinatorial choices give N=m!n!/(2^(a+b)a!b!r!c!). The labeled-set exponential formula yields exp(u+v+z(uv²+u²v)/2). A maximal pack leaves residual K_{r,c} admitting no P3, iff r=0, c=0, or (r,c)=(1,1), giving the second EGF (e^u+e^v−1+uv)exp(...). Feasible count k satisfies k<=m,n and 3k<=m+n, so maximum min(m,n,floor((m+n)/3)). Every inclusion-maximal size is ≥ceil(min(m,n)/2), attained by row-saturating stars; equality of endpoints gives exactly nine unordered well-indumatched board sizes. Independent direct conflict-edge enumeration confirmed all induced and maximal spectra on nine boards 2<=m,n<=4, not just final formulas.
 
-The finite checks verify every graph in the tested range but do not establish the theorem for unbounded orders. That follows from the bijection, factorial count, and maximality criterion given in the proof. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge: standard induced matching definition and vertex-disjoint P3 packing on K_{m,n} are elementary, but earlier general well-indumatched recognition results or triangle-free maximal-induced bounds do not enumerate rook graph matchings. Pippenger's 2001 incidence-graph matching object and OEIS ordinary rook matchings differ from the induced rook-edge families. No exact same two bivariate EGFs, saturation spectrum, or nine-exception classification found in inspected primary/results.
+
+## value
+
+PASS
+
+A complete pair of ordinary and inclusion-maximal induced-matching enumerators for every rectangular rook graph is a motivated graph-polynomial result, allowing coefficient and optimization extraction. It also determines every rectangle where maximal induced matchings are all maximum—an explicit natural classification relevant to strong matching algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

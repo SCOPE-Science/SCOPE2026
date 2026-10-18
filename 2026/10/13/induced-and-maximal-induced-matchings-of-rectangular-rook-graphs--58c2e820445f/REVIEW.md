@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The selected-edge to disjoint-two-edge-path correspondence is bijective: any adjacency between endpoints of distinct rook edges is precisely shared use of an original row or column vertex. The counts by the two star orientations therefore use labeled center choices and unordered leaf pairs without automorphism ambiguity. A maximal packing leaves no further two-edge path on unused vertices; the three allowed leftover cases are exhaustive. The extrema follow from two integer capacity inequalities and explicit constructions. A separate direct brute enumerator was checked for all 16 boards with both dimensions between two and five, while exact coefficient sums checked extremal sizes for all 289 pairs up to 18.
+PASS
 
-## Originality — PASS, with residual risk
+A rook-graph edge corresponds bijectively to a P3 of K_{m,n}, and induced matchings correspond exactly to vertex-disjoint P3 packs: any two endpoint squares sharing an original row/column are adjacent in the line graph. Row-centered components consume (1,2), column-centered (2,1); labeled combinatorial choices give N=m!n!/(2^(a+b)a!b!r!c!). The labeled-set exponential formula yields exp(u+v+z(uv²+u²v)/2). A maximal pack leaves residual K_{r,c} admitting no P3, iff r=0, c=0, or (r,c)=(1,1), giving the second EGF (e^u+e^v−1+uv)exp(...). Feasible count k satisfies k<=m,n and 3k<=m+n, so maximum min(m,n,floor((m+n)/3)). Every inclusion-maximal size is ≥ceil(min(m,n)/2), attained by row-saturating stars; equality of endpoints gives exactly nine unordered well-indumatched board sizes. Independent direct conflict-edge enumeration confirmed all induced and maximal spectra on nine boards 2<=m,n<=4, not just final formulas.
 
-The most relevant known results concern global bounds on numbers of maximal induced matchings in triangle-free graphs, general well-indumatched recognition/forbidden-subgraph descriptions, and other types of matchings on incidence or rook graphs. These do not evaluate the two claimed rook-graph cardinality distributions or give the nine-shape well-indumatched list. The labeled \(P_3\)-packing equivalence was explicitly checked as a possible alternative formulation. A literature search cannot rule out an earlier, differently named bipartite path-packing enumeration, and the full Pippenger technical report could not be materially read in the available retrieval. The residual risk is prioritized for later independent checking rather than silently dismissed.
+## originality
 
-## Value — PASS
+PASS
 
-The result classifies every induced matching and every inclusion-maximal induced matching in a natural two-parameter graph family, yielding all cardinality coefficients, two sharp extremal parameters, and a finite nine-shape classification in the well-indumatched setting. These are directly useful for counting and benchmarking constrained packings, and distinguish maximal from maximum induced matchings even on highly symmetric graphs. The 6-by-6 rook graph already exhibits nonuniform maximal sizes, with 3,600 versus 8,100 objects at the two extremal sizes. The contribution is the full enumerative and structural profile, not a single routine bound.
+Best-of-knowledge: standard induced matching definition and vertex-disjoint P3 packing on K_{m,n} are elementary, but earlier general well-indumatched recognition results or triangle-free maximal-induced bounds do not enumerate rook graph matchings. Pippenger's 2001 incidence-graph matching object and OEIS ordinary rook matchings differ from the induced rook-edge families. No exact same two bivariate EGFs, saturation spectrum, or nine-exception classification found in inspected primary/results.
 
-## Prior comparison and limitations
+## value
 
-Basavaraju et al., arXiv:1312.5180v1 (2013), study global maximal-matching upper bounds for triangle-free graphs; Baptiste et al. (2012 proceedings; expanded 2016 full article) give general well-indumatched characterizations and complexity results; Pippenger (UBC TR-2001-12, 2001) counts matchings in different incidence graphs; OEIS A341847/A341850 tabulate maximal/maximum ordinary rook-graph matchings. A complete earlier enumeration under two-edge-path packing terminology remains possible. Computer enumeration does not certify infinitely many orders.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete pair of ordinary and inclusion-maximal induced-matching enumerators for every rectangular rook graph is a motivated graph-polynomial result, allowing coefficient and optimization extraction. It also determines every rectangle where maximal induced matchings are all maximum—an explicit natural classification relevant to strong matching algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
