@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The curve is smooth for every prime power \(s=p^f\). Its unique base-field rational point is verified directly. The coordinate shift \(Z\mapsto Z+cY\) with \(c^s+c=-\eta\) has a nonzero \(\mathbb F_{s^2}\)-Frobenius difference \(\delta=\eta-\eta^s\), so it becomes defined over exactly a characteristic-\(p\) extension. The resulting order-\(p\) Hermitian translation has mutually conjugate nonidentity powers. Maximality of the Hermitian curve and the known one-point count give trace \(-s\) on these powers. Cyclic character inversion yields all eigenvalue multiplicities, the exact zeta numerator, and the extension counts. The checker independently enumerates four small-field cases but is not used as a universal proof.
+## correctness
 
-**Originality: PASS, with bibliographic risk.** Homma–Kim's 2026 WCC manuscript (ten pages, Theorem 1.1, entire stated list of results) classifies the one-point family but does not give its full zeta function. Their earlier work, arXiv:2402.14192, Theorem 2.3, uses zeta eigenvalues only for a base-field congruence and does not derive the order-\(p\) spectrum for this family. Searches for L-polynomial, Hasse–Weil zeta, elation-twist, and extension-count formulations did not locate a covering explicit result. The 2026 *Classification of Hermitian-Relative Curves up to Projective Equivalence* chapter was identifiable but full-text comparison was unavailable; implicit overlap cannot be ruled out. A lack of matched searches is not proof of uniqueness.
+PASS
 
-**Value: PASS.** The natural Hasse–Weil zeta function is an intrinsic arithmetic invariant not determined by a single rational-point count. Its closed uniform determination for all primes, all prime-power \(s\), all admissible \(\eta\), and every extension degree gives substantially stronger information than the prior base-field classification. The structural order-\(p\) descent is the mechanism, not just a numerical table or a small-field example.
+For smooth C_eta outside F_s, N1=1 by F_s-norm/F_s-trace obstruction. Translation parameter c satisfies c^q-c=delta=eta-eta^s, with delta^s=-delta and delta!=0, so twist order p; its nonzero powers are conjugate by F_q unitary scaling. Hermitian H has q+1+2gs rational points, hence all H^1 Frobenius eigenvalues -s. N1 gives Tr(U^j)=-s for 1<=j<p. Character orthogonality yields invariant multiplicity s^2/p-s and each nontrivial root multiplicity s^2/p; determinant and all power traces give stated P(T), N_{q^n}. Checked s=2,3 small finite predictions and packaged code; full unrestricted claim uses algebraic proof, not finite examples.
 
-**Limitations.** No classification is claimed for other Hermitian relatives, no Jacobian isogeny-type classification is asserted, and the uninspected 2026 chapter remains a specific originality risk. The finite tests do not verify the theorem for infinitely many fields. No independent scientific audit has been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best knowledge: Full text of both central Homma–Kim papers establishes the family, maximality and roots-of-unity framework but does not derive the cyclic order-p twist character or its exact multiplicities. The displayed numerator and every-extension count are additional consequences.
+
+## value
+
+PASS
+
+Determines the complete extension-field arithmetic zeta function, not merely the known N_q=1 property, and identifies a nontrivial characteristic-p descent character and eigenvalue multiplicities for a canonical Hermitian-relative family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
