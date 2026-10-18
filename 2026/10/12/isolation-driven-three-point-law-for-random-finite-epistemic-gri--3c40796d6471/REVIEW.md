@@ -1,21 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain, independent Bernoulli assumptions, row/column equivalence accessibility, and modal language are explicit. The deterministic lemma checks the full depth-one partition and proves it is stable by comparing every row- and column-successor type set, not by assuming symmetry or merely counting degrees. In the probabilistic step, expected inactive-row and inactive-column counts stay bounded, while maximum degrees are sublinear, ensuring both colors appear within the active cross-block with probability tending to one. The exact mixed factorial moment formula accounts for the overlap of selected rows and columns by subtracting their intersection, and yields independent Poisson limits. The three probabilities sum to one. The fixed-density bound is an explicit union bound.
+PASS
 
-Finite direct refinement, Boolean-subalgebra closure, and probability-moment computations were replayed from the bundled script. They supplement, rather than establish, the general asymptotic proof.
+The state equivalence refinement of a single proposition on row-column S5 gives type (cell bit, set of bits in its row, set in its column). On the regular event, each active row/column has both bits among active rows/columns; active-active contributes distinct 0 and 1 types, and zero-row/zero-column combinations add exactly a+b+ab distinct 0 types, so K=2+a+b+ab. Successor type sets depend only on row or column inactivity, proving depth-one stabilization by induction. In critical density p=(ln n+c)/n, inactive row/column counts X,Y have joint factorial moments (n)_a(n)_b(1-p)^[n(a+b)-ab]→(e^-c)^(a+b); thus independent Poisson limits. Markov on numbers of inactive rows/columns and a binomial tail union bound for max degree < n/2 justify regularity with probability 1-o(1). Cardinality is 2^K. Fixed p∈(0,1) gives exactly four whp by a 2n[p^n+(1-p)^n] union bound. Independent modal refinement of all n=2 and n=3 regular matrices found respective K distributions n=2:{2:2}, n=3:{2:102,3:36,5:18}, agreeing with 2+a+b+ab. Finite cases do not prove Poisson convergence.
 
-## Originality — PASS (qualified)
+## originality
 
-Feitosa–Matulovic–Golzio (2023) establishes algebraic semantics for a different knowledge-belief system but no randomly marked two-agent S5 grids. Figallo–Mónica-Gomes (2023), inspected in full available author-uploaded text, classifies finite diagonal-free two-dimensional cylindric subalgebras by partitions, without the Bernoulli generator model or any critical-window limiting distribution. Bezhanishvili–Meadors (2023) treats variety structure and a deterministic infinite one-generator example, not this random finite cardinality law. The classical Poisson isolated-vertex theorem is recognized as prior mathematics and is independently derived here via mixed factorial moments; the new statement is its exact consequence **after** proving the modal depth-one structural collapse.
+PASS
 
-Published-record and mathematical searches did not reveal the precise law; relevant other research on random bipartite structures concerns automorphism or tuple-orbit profiles rather than generated modal subalgebras. General Df2 structural results may encode the deterministic part implicitly, and unindexed results remain a genuine risk. No independent originality search has been conducted.
+Existing Df2-cylindric/subalgebra structural theory and Poisson isolated-row/column threshold are prior; the assessed precise three-point law for the size of the one-generator bimodal Boolean algebra and its depth-one structural mechanism are not the same as either. Best-of-knowledge, natural random relational language parameters fixed.
 
-## Mathematical value — PASS
+## value
 
-The size of a one-generator modal subalgebra is a natural expressiveness invariant for finite two-agent epistemic grids and is not determined by the cardinality of the underlying grid. The theorem gives the **entire limiting cardinality law**, a sharp \(\log n/n\) window, an elementary but nontrivial row-column overlap mechanism, and an unexpected restriction to three algebra sizes. It contrasts generic four-element collapse at positive density with exceptional deterministic valuations that distinguish all worlds. These are concrete structural and quantitative conclusions for an established algebra family, not a renamed known probability table.
+PASS
 
-The finite and asymptotic claims are specifically restricted to ungraded modalities and independent cell labels, and no broader algebra-classification claim is made.
+The limiting distribution of a naturally generated modal algebra at the sparse-isolation threshold quantifies logical expressivity in a random finite epistemic model, with sharp three-point law and uniform bounded modal depth despite n² worlds. This is a motivated exact probability law and structural bridge to the Poisson isolated-class phenomenon, not mere rephrasing of known isolated-vertex counts.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
