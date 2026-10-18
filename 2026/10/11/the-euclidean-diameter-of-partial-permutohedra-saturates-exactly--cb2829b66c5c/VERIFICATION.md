@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-The all-parameter proof is given in `RESULT.md`.
 
-Critical checks:
-- Euclidean diameter endpoints are vertices;
-- a source vertex with \(k\) nonzero coordinates uses exactly \(n,n-1,\ldots,n-k+1\);
-- coordinatewise,
-  \[
-  (u_i-v_i)^2\le\max\{u_i^2,v_i^2\};
-  \]
-- therefore every squared diameter is bounded by the sum of the largest \(s=\min\{m,2n\}\) entries of two copies of
-  \[
-  n^2,(n-1)^2,\ldots,1;
-  \]
-- balancing the two prefix lengths gives \(a=\lfloor s/2\rfloor\) and \(b=\lceil s/2\rceil\);
-- disjoint supports attain the bound;
-- equality in the coordinate inequality forces disjoint supports, and equality in the doubled-spectrum bound forces exactly the stated value sets;
-- for \(m\ge2n\), both endpoints use every positive value and the diameter is independent of further coordinates.
+# Independent mathematical audit
 
-`verify.py` exhaustively generates all source vertices for \(1\le m,n\le5\), checks every pair, confirms the closed formula, and verifies the equality classification for every maximizing pair. Finite enumeration is corroborative only and does not assess originality.
+## correctness
+
+PASS
+
+A Euclidean diametral endpoint of any polytope must be a vertex by strict convexity of the Euclidean norm. The actual source Proposition 2.7 says each k-support vertex uses labels n,n-1,...,n-k+1. For nonnegative coordinates, (u_i-v_i)^2 = u_i^2+v_i^2-2u_iv_i <= max(u_i^2,v_i^2), strict when both are positive. Summation selects at most m of the doubled strictly ordered square labels; the maximal m entries are split evenly into two possible prefix lengths, and disjoint supports realize them. Equality forces no overlap and exactly those labels. Checked m,n=(2,3),(3,2),(4,3),(5,3),(6,2) by independently enumerated vertex pairs, with matching squared diameters 18,9,26,27,10. These finite cases corroborate, not prove, the all-parameter bound. Domain n,m positive including m=1 and saturation m>=2n.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: targeted Resultary comparisons, exact primary theorem/parameter inspection and implication tests do not reveal prior coverage of the specifically identified surviving result. A self-indexed copy of the assigned finding is not prior coverage; risks are documented.
+
+## value
+
+PASS
+
+A complete Euclidean-diameter formula and equality classification for a named natural two-parameter family of anti-blocking permutation polytopes fills an exact metric invariant gap. The sharp ambient dimension threshold m=2n is a structural phenomenon, not an arbitrary numeric slice; it differs essentially from inradius and minimum enclosing radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

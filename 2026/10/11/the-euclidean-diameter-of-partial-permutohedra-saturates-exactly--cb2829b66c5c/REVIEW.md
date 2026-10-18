@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Euclidean diameter endpoints of a polytope are extreme. The published vertex theorem says that a vertex with \(k\) nonzero coordinates uses the prefix \(n,n-1,\ldots,n-k+1\). For each coordinate, \((u_i-v_i)^2\le\max\{u_i^2,v_i^2\}\), so any squared distance is bounded by the sum of the largest \(s=\min\{m,2n\}\) entries of two copies of \(n^2,(n-1)^2,\ldots,1\). Disjoint supports with balanced prefix lengths attain that bound. Equality is strict at any coordinate where both endpoints are positive, and the strict square ordering then forces exactly the stated prefix sizes and value sets.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the definition, exact vertex theorem, anti-blocking realization, and its stated face/volume/Ehrhart program. The earlier full paper introducing partial permutohedra was also inspected. Neither contains a Euclidean-diameter theorem; targeted published-result, literature, and research-record searches covered partial permutations, parking functions, anti-blocking permutohedra, stellohedra, and both Euclidean- and graph-diameter terminology. No statement was located that implies the formula, equality classification, or \(m=2n\) saturation threshold.
+PASS
 
-## Value
-PASS. The theorem computes a fundamental realization-sensitive metric invariant over the entire two-parameter partial-permutohedron family, not a fixed small example. It also classifies all extremal pairs and identifies a qualitative phase change: the Euclidean diameter becomes completely dimension-independent once two disjoint supports can each carry every allowed positive value. This complements existing face, volume, Ehrhart, and inradius information rather than repeating it.
+A Euclidean diametral endpoint of any polytope must be a vertex by strict convexity of the Euclidean norm. The actual source Proposition 2.7 says each k-support vertex uses labels n,n-1,...,n-k+1. For nonnegative coordinates, (u_i-v_i)^2 = u_i^2+v_i^2-2u_iv_i <= max(u_i^2,v_i^2), strict when both are positive. Summation selects at most m of the doubled strictly ordered square labels; the maximal m entries are split evenly into two possible prefix lengths, and disjoint supports realize them. Equality forces no overlap and exactly those labels. Checked m,n=(2,3),(3,2),(4,3),(5,3),(6,2) by independently enumerated vertex pairs, with matching squared diameters 18,9,26,27,10. These finite cases corroborate, not prove, the all-parameter bound. Domain n,m positive including m=1 and saturation m>=2n.
 
-## Closest literature and limitations
-The closest papers determine the vertex/facet/face structure, volume, Ehrhart data, and anti-blocking realization. Existing inradius results for the same family optimize supporting-hyperplane clearances and do not imply a farthest-vertex-pair theorem; graph-diameter results for related polytopes concern a different metric. The theorem is specific to the standard coordinate realization and does not determine enclosing spheres, widths, or arbitrary generalized-permutohedron diameters.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: targeted Resultary comparisons, exact primary theorem/parameter inspection and implication tests do not reveal prior coverage of the specifically identified surviving result. A self-indexed copy of the assigned finding is not prior coverage; risks are documented.
+
+## value
+
+PASS
+
+A complete Euclidean-diameter formula and equality classification for a named natural two-parameter family of anti-blocking permutation polytopes fills an exact metric invariant gap. The sharp ambient dimension threshold m=2n is a structural phenomenon, not an arbitrary numeric slice; it differs essentially from inradius and minimum enclosing radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

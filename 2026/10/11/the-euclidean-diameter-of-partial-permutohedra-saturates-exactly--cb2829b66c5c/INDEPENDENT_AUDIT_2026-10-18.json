@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:51:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A Euclidean diametral endpoint of any polytope must be a vertex by strict convexity of the Euclidean norm. The actual source Proposition 2.7 says each k-support vertex uses labels n,n-1,...,n-k+1. For nonnegative coordinates, (u_i-v_i)^2 = u_i^2+v_i^2-2u_iv_i <= max(u_i^2,v_i^2), strict when both are positive. Summation selects at most m of the doubled strictly ordered square labels; the maximal m entries are split evenly into two possible prefix lengths, and disjoint supports realize them. Equality forces no overlap and exactly those labels. Checked m,n=(2,3),(3,2),(4,3),(5,3),(6,2) by independently enumerated vertex pairs, with matching squared diameters 18,9,26,27,10. These finite cases corroborate, not prove, the all-parameter bound. Domain n,m positive including m=1 and saturation m>=2n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The circumball theorem minimizes max_x ||x-c|| for one center and has a distinct m>n(n+1) contact phase; the inradius theorem concerns facet clearances. Neither states or algebraically determines pairwise diameter."
+        ],
+        "reasoning": "A general radius inequality diameter<=2*circumradius is only a bound, not sharp equality here, and the cited metric results do not dominate the diameter formula.",
+        "searches": [
+          "Resultary: Euclidean diameter partial permutohedra disjoint supports m 2n exact formula",
+          "Resultary: partial permutohedron Euclidean farthest vertex pair doubled prefix spectrum exact diameter",
+          "Resultary: Exact circumball and contact-rank transitions of partial permutohedra 5aee45e4fbff",
+          "Resultary: Exact Euclidean inradius of partial permutohedra df8bf5a2a297"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md c963999a81ccbfb191d8b33de6bb6bbf98b37058",
+        "Frozen verify.py fe8e93002955256413494c1ac7c9ab1da7e374df",
+        "arXiv:2207.14253",
+        "arXiv:2012.09901",
+        "Resultary search queries in four named checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Behrend et al prove the prefix-vertex input; substituting it into a new coordinatewise max-pair optimization yields S_n(a)+S_n(b), but no located prior result performs or implies that optimization."
+        ],
+        "reasoning": "Same-record Resultary self-hit is excluded as prior coverage; older source vertex structure is credited but does not logically assert all farthest pairs without the new doubled-spectrum argument.",
+        "searches": [
+          "Resultary: Euclidean diameter partial permutohedra disjoint supports m 2n exact formula",
+          "Resultary: partial permutohedron Euclidean farthest vertex pair doubled prefix spectrum exact diameter",
+          "Heuer-Striker arXiv:2012.09901",
+          "Behrend et al arXiv:2207.14253"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Euclidean and graph diameter are different metrics; the source describes vertices, face lattice and volume, but its enumerated quantities do not imply max ||u-v||."
+        ],
+        "reasoning": "Graph diameter/permutohedral graph results are inapplicable because they optimize shortest paths on a graph rather than coordinate Euclidean distance. The formula is a doubled-prefix-square optimization.",
+        "searches": [
+          "Resultary: Euclidean diameter partial permutohedra disjoint supports m 2n exact formula",
+          "Resultary: partial permutohedron Euclidean farthest vertex pair doubled prefix spectrum exact diameter",
+          "arXiv:2207.14253 Proposition 2.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is an infinite-parameter formula for a continuously varying coordinate realization, not an entry in any finite database. Source full text gives indexed combinatorial vertices rather than a tabulated Euclidean diametral-pair census."
+        ],
+        "reasoning": "No finite table can replace the all-m,n theorem; exact polynomial and equality classifications were compared to mathematical results rather than titles.",
+        "searches": [
+          "Resultary: Euclidean diameter partial permutohedra disjoint supports m 2n exact formula",
+          "Resultary: partial permutohedron Euclidean farthest vertex pair doubled prefix spectrum exact diameter"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: targeted Resultary comparisons, exact primary theorem/parameter inspection and implication tests do not reveal prior coverage of the specifically identified surviving result. A self-indexed copy of the assigned finding is not prior coverage; risks are documented.",
+      "residual_risks": [
+        "Broader unindexed anti-blocking permutation-orbit diameter theorem could imply the doubled-spectrum extremal argument.",
+        "Finite enumeration only corroborates; the arbitrary-dimensional statement depends on the full strict-equality proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_RELEVANT_NOT_COVERING",
+          "evidence": [
+            "Proposition 2.7 fixes vertex labels n,...,n-k+1, which the audited proof uses. No Euclidean diameter or all pairwise maxima theorem in studied full text."
+          ],
+          "identifier_or_url": "arXiv:2207.14253",
+          "material_read": "Full arXiv PDF: definition, Proposition 2.7 and discussion of face lattice, volume, Ehrhart",
+          "method": "Read PDF text and relevant displayed proposition; inspected rendered PDF page",
+          "title": "Partial permutohedra",
+          "trigger": "Exact same polytope and potential stronger metric result"
+        },
+        {
+          "assessment": "PARTIALLY_RELEVANT_NOT_COVERING",
+          "evidence": [
+            "Heuer-Striker introduce the family and face structure, not the Euclidean metric diameter."
+          ],
+          "identifier_or_url": "arXiv:2012.09901",
+          "material_read": "Full arXiv PDF: definitions, facet/face combinatorics and projection construction",
+          "method": "Read PDF text and inspected relevant rendered page",
+          "title": "Partial permutation and alternating sign matrix polytopes",
+          "trigger": "Original introduction of partial permutation polytopes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete Euclidean-diameter formula and equality classification for a named natural two-parameter family of anti-blocking permutation polytopes fills an exact metric invariant gap. The sharp ambient dimension threshold m=2n is a structural phenomenon, not an arbitrary numeric slice; it differs essentially from inradius and minimum enclosing radius.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Standard ambient Euclidean metric and vertices of the designated P(m,n), not graph diameter or generalized permutohedra.",
+    "No assertion about circumradius, John/Löwner ellipsoids, or arbitrary norms."
+  ],
+  "schema_version": 1
+}
