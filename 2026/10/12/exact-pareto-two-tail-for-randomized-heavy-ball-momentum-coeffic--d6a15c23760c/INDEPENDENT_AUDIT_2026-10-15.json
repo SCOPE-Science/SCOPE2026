@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T03:11:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For either anytime schedule and fixed k≥1, conditional on positive consecutive boundaries (a,A,B,C), the three u_{k-1},u_k,u_{k+1} are independent uniforms on (a,A),(A,B),(B,C) even when boundaries themselves are random. Let x=A-u_{k-1}>=0 and y=u_k-A>=0. Then D=(A-x)^-2-(A+y)^-2=2(x+y)/A^3+O((x+y)^2), while numerator tends to A^-2-u_{k+1}^-2>0; β>t is asymptotically a triangle x+y<(A^3/2t)(A^-2-u_{k+1}^-2). Its area is A^6(A^-2-u_{k+1}^-2)^2/(8t^2). Integrating the third uniform yields exact positive constant A^6/(8(A-a)(B-A)(C-B))∫_B^C(A^-2-v^-2)^2 dv. Dominated convergence gives fixed-boundary asymptotic; for fixed k the random-boundary law has bounded away from zero/above positive interval lengths and A, giving dominated averaging. Survival t^-2 and tail-moment identity Eβ^r=r∫t^{r-1}P(β>t)dt establish finite r<2 and infinite r≥2. The fixed-time terminal schedule is excluded as required.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original paper proves expected/a.s. objective convergence O(K^-4/3) and O(K^-3/2), not coefficient moment bounds."
+        ],
+        "reasoning": "A convergence guarantee in iterates does not imply coefficient variance or Pareto tail.",
+        "searches": [
+          "heavy-ball stochastic random momentum coefficient variance heavy tail",
+          "arXiv:2609.09743 Heavy-Ball Method under Randomized Schedules"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.09743",
+        "Resultary query: heavy-ball randomized schedules momentum coefficient reciprocal evaluation times Pareto two tail second moment divergence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original source states coefficients can be arbitrarily large, compatible with tails ranging from any polynomial rate to exponential; it cannot logically imply the 2-moment frontier.",
+          "The primary manuscript focuses on convergence, and sections/theorems reviewed do not supply P(β>t)~Ct^-2."
+        ],
+        "reasoning": "New singular-density calculation and exact constant are independent conclusions, not a corollary quoted by the original authors.",
+        "searches": [
+          "arXiv:2609.09743 equations 3 to 6 coefficient definitions and introductory remark",
+          "Resultary heavy-ball randomized schedules momentum coefficient reciprocal evaluation times Pareto two tail second moment divergence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source 2026 Eq. (3),(6) uses β=(u_k^-2-u_{k+1}^-2)/(u_{k-1}^-2-u_k^-2) exactly, and notes arbitrarily large support.",
+          "No Pareto exponent or explicit tail constant in relevant primary theorem."
+        ],
+        "reasoning": "The same formula is the starting premise, but the source coefficient definition alone does not assert its distribution or moments.",
+        "searches": [
+          "He Zhang 2609.09743 beta_k infinite second moment randomized schedule",
+          "heavy ball reciprocal time difference ratio heavy tail P(beta>t) t^-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No numerical benchmark/table for the exact t^-2 constant or conditional-boundary integral was found; the original paper reports qualitative support unboundedness."
+        ],
+        "reasoning": "This exact analytic constant is not a known table entry in inspected sources.",
+        "searches": [
+          "Resultary heavy-ball randomized schedules momentum coefficient reciprocal evaluation times Pareto two tail second moment divergence",
+          "2609.09743 formula beta_k"
+        ]
+      },
+      "rationale": "PASS. He–Zhang (September 2026) define exactly these anytime reciprocal-square coefficients and remark that β may become arbitrarily large, but the full available source describes convergence rates, not a coefficient survival-law constant, exponent or moment frontier. Generic random-ratio tails do not imply an exact schedule-dependent constant under adjacent dependent-time geometry; targeted Resultary and full primary comparison did not reveal a dominating theorem.",
+      "residual_risks": [
+        "Generic ratio singularities may be treated in an unindexed probability note but exact He–Zhang adjacent schedule is specific.",
+        "The result is for fixed k and two anytime schedules, not joint coefficients, terminal fixed-time coefficients, or stability of iterates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING: primary result is algorithm convergence; no moment or coefficient-tail characterization.",
+          "evidence": [
+            "Eq. (3) and (6) are reciprocal-square ratio; introduction says β may be arbitrarily large, without quantitative survival law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.09743",
+          "material_read": "Full arXiv rendered manuscript inspected: introduction, Eq. (3)-(6) boundary and independent uniform definitions, remark on unbounded momentum, theorem scope and related works.",
+          "method": "Check equality of schedule, conditioning, momentum formula and whether distribution tail is already asserted.",
+          "title": "Heavy-Ball Method under Randomized Schedules",
+          "trigger": "Exact same coefficient and randomized anytime schedules"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the distribution of the momentum coefficient is an intrinsic risk property of this published randomized optimizer; the exact finite-mean/infinite-variance boundary sharpens the qualitative statement of arbitrarily large coefficients and matters for interpretation and estimation. It is an exact fixed-coefficient fact, without claiming instability or convergence obstructions for optimizer iterates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Generic ratio singularities may be treated in an unindexed probability note but exact He–Zhang adjacent schedule is specific.",
+    "The result is for fixed k and two anytime schedules, not joint coefficients, terminal fixed-time coefficients, or stability of iterates."
+  ]
+}

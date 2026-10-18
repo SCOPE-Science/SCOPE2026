@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Conditioning on four successive boundaries turns the three evaluation times entering \\(\beta_k\\) into independent uniforms on adjacent intervals. The only singularity is the shared-boundary corner \\(u_{k-1},u_k\to A_k\\). There the denominator is asymptotic to \\(2A_k^{-3}(x+y)\\), while the numerator has a strictly positive limit depending on \\(u_{k+1}\\). A two-dimensional \\(1/t\\) rescaling therefore yields an exact triangular area and the displayed \\(t^{-2}\\) constant. Direct comparison with \\((x+y)^{-p}\\) gives the sharp \\(p=2\\) moment cutoff.
+PASS
 
-The randomized-boundary extension is also valid for each fixed \\(k\\): the source boundary increments are bounded between positive deterministic quantities once \\(k\\) is fixed, so the conditional finite-\\(p\\) estimates can be integrated.
+For either anytime schedule and fixed k≥1, conditional on positive consecutive boundaries (a,A,B,C), the three u_{k-1},u_k,u_{k+1} are independent uniforms on (a,A),(A,B),(B,C) even when boundaries themselves are random. Let x=A-u_{k-1}>=0 and y=u_k-A>=0. Then D=(A-x)^-2-(A+y)^-2=2(x+y)/A^3+O((x+y)^2), while numerator tends to A^-2-u_{k+1}^-2>0; β>t is asymptotically a triangle x+y<(A^3/2t)(A^-2-u_{k+1}^-2). Its area is A^6(A^-2-u_{k+1}^-2)^2/(8t^2). Integrating the third uniform yields exact positive constant A^6/(8(A-a)(B-A)(C-B))∫_B^C(A^-2-v^-2)^2 dv. Dominated convergence gives fixed-boundary asymptotic; for fixed k the random-boundary law has bounded away from zero/above positive interval lengths and A, giving dominated averaging. Survival t^-2 and tail-moment identity Eβ^r=r∫t^{r-1}P(β>t)dt establish finite r<2 and infinite r≥2. The fixed-time terminal schedule is excluded as required.
 
-## Originality
+## originality
 
-PASS. The primary source states only that the randomized momentum coefficients can be arbitrarily large. Full-text searches found no variance theorem for those coefficients. Searches over the source identifier, coefficient notation, heavy tails, Pareto tails, infinite variance, and randomized momentum found no equivalent published result.
+PASS
 
-The nearest broader literature concerns randomized heavy-ball updates or stochastic gradients, not this adjacent-uniform reciprocal-time ratio. A residual risk remains that the same ratio has been analyzed in probability literature without optimization terminology.
+PASS. He–Zhang (September 2026) define exactly these anytime reciprocal-square coefficients and remark that β may become arbitrarily large, but the full available source describes convergence rates, not a coefficient survival-law constant, exponent or moment frontier. Generic random-ratio tails do not imply an exact schedule-dependent constant under adjacent dependent-time geometry; targeted Resultary and full primary comparison did not reveal a dominating theorem.
 
-## Value
+## value
 
-PASS. The coefficient distribution is intrinsic to the source central randomized schedule. The exact tail law sharpens a qualitative unboundedness remark into a complete moment classification and places the schedule exactly at the finite-mean/infinite-variance boundary. This is relevant to numerical robustness and to any future analysis that attempts to control the momentum parameters themselves by second moments.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the distribution of the momentum coefficient is an intrinsic risk property of this published randomized optimizer; the exact finite-mean/infinite-variance boundary sharpens the qualitative statement of arbitrarily large coefficients and matters for interpretation and estimation. It is an exact fixed-coefficient fact, without claiming instability or convergence obstructions for optimizer iterates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
