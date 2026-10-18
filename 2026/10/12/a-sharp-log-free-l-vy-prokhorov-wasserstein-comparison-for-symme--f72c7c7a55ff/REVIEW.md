@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The first absolute moment is computed exactly and gives the admissible parameter interval. In the range \(0<B\le1\), every noncentral symmetric-geometric mass is monotone in the parameter, while the central mass is decreasing. This single-crossing structure gives the optimal mismatch probability and hence the exact Lévy–Prokhorov distance through the Ky–Fan coupling representation. Summing CDF differences gives the exact \(W_1\) distance. The ratio is explicitly increasing in both parameters, and its boundary limit gives the sharp constant.
+## correctness
 
-## Originality
-PASS. The closest primary source proves a logarithmic \(W_1\)-to-Lévy–Prokhorov comparison for centered discrete log-concave laws and explicitly leaves removal of the logarithm open. Full-text inspection found no exact symmetric-geometric specialization, no ratio \((1+rs)/((1-r)(1-s))\), and no sharp constant \(2+\sqrt2\). Targeted alias and exact-expression searches likewise found no covering statement. An older equivalent identity under discrete-Laplace or probability-metric terminology remains a residual risk.
+PASS
 
-## Value
-PASS. The source's open rate question makes a log-free benchmark mathematically motivated. The symmetric geometric family is canonical and log-affine, and the theorem gives the complete sharp first-absolute-moment profile rather than a single numerical example. It demonstrates that the logarithmic loss is not intrinsic even for an unbounded discrete log-concave family.
+Geometric series give E|X_r|=2r/(1-r²) and endpoint R_B=B/(1+sqrt(1+B²)). For R_B<=sqrt2-1, differentiating log p_r(k) proves every off-center mass is monotone increasing in r, while center decreases; thus total variation mismatch is exactly center-mass difference. The integer-lattice minimum nonzero distance is 1, so for mismatch <1 the Ky–Fan/Prokhorov coupling infimum is the mismatch probability. One-dimensional W1 is the infinite sum of absolute CDF differences and telescopes to the displayed moment difference. Independently checked symbolic identity of the ratio and monotone boundary maximization. The sharp constant is approached by distinct r,s coalescing at R_B; not necessarily attained by distinct pairs. Source finite verifier inspected, not used to prove all parameters.
 
-## Closest literature and limitations
-Marsiglietti and Pandey, arXiv:2309.03197v1/v2, give the broader but logarithmic comparison and identify logarithm removal as open. The present result is restricted to symmetric geometric laws with \(0<B\le1\); it does not settle the full-class problem, and additional crossing phases occur beyond this moment range.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Marsiglietti–Pandey prove a logarithmic general bound and explicitly leave removing log open for the unrestricted centered discrete log-concave class. The full paper mentions symmetric geometric laws as reference distributions elsewhere but does not give the exact two-parameter distance formula or its sharp first-moment constant in the inspected text. General coupling inequalities do not determine the optimal constant. Exact discrete-Laplace alias formula may nevertheless exist in earlier distance literature.
+
+## value
+
+PASS
+
+A sharp benchmark in a natural log-affine discrete distribution family addresses whether the general logarithmic loss is forced even in a canonical unbounded family. It supplies an all-budget exact comparison and universal sharp constant within that family, not an unmotivated single pair or an unsupported removal of log for arbitrary discrete log-concave laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

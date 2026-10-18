@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T04:43:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Geometric series give E|X_r|=2r/(1-r²) and endpoint R_B=B/(1+sqrt(1+B²)). For R_B<=sqrt2-1, differentiating log p_r(k) proves every off-center mass is monotone increasing in r, while center decreases; thus total variation mismatch is exactly center-mass difference. The integer-lattice minimum nonzero distance is 1, so for mismatch <1 the Ky–Fan/Prokhorov coupling infimum is the mismatch probability. One-dimensional W1 is the infinite sum of absolute CDF differences and telescopes to the displayed moment difference. Independently checked symbolic identity of the ratio and monotone boundary maximization. The sharp constant is approached by distinct r,s coalescing at R_B; not necessarily attained by distinct pairs. Source finite verifier inspected, not used to prove all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marsiglietti–Pandey full arXiv:2309.03197v2, Theorem 3.1: general W1 <= c dLP log(1/dLP) for centered discrete log-concave laws; Remark 3.4 explicitly leaves removing the log open.",
+          "Gibbs–Su arXiv:math/0209021 gives general probability-metric comparison framework without the exact parameter-bound constant."
+        ],
+        "reasoning": "Being broader in probability-law class does not imply this sharper sharp constant. An elementary sharp formula for a special family remains independent unless explicitly given by a stronger parameterized result; the inspected general theory alone does not supply it.",
+        "searches": [
+          "symmetric geometric discrete Laplace Lévy Prokhorov Wasserstein 1 exact sharp ratio moment",
+          "log factor removal Wasserstein Levy Prokhorov discrete log-concave geometric"
+        ]
+      },
+      "checked_sources": [
+        "Marsiglietti–Pandey arXiv:2309.03197v2 full 15-page PDF Theorem 3.1 and Remarks 3.3–3.4",
+        "Gibbs–Su arXiv:math/0209021 public abstract",
+        "Resultary exact standardized concentration profile for symmetric geometric laws (different invariant)",
+        "Targeted aliases: symmetric geometric/discrete Laplace W1/TV/LP"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.1 only bounds W1 by dLP times logarithmic factor, not a finite sharp linear constant as dLP tends to zero.",
+          "Single-crossing of the symmetric geometric masses for B<=1 and one-dimensional transport yield exact expressions requiring additional computation."
+        ],
+        "reasoning": "The general result does not imply the sharp family constant; its logarithm can diverge as r->s. This theorem covers a special parameter family, not the open full-class log removal.",
+        "searches": [
+          "symmetric geometric discrete Laplace Lévy Prokhorov Wasserstein 1 exact sharp ratio moment",
+          "arXiv:2309.03197 Theorem 3.1 Remark 3.4 geometric"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Marsiglietti–Pandey arXiv:2309.03197v2 Theorem 3.1 and Remark 3.3 compare W1 to dLP with a log term.",
+          "On an integer lattice dLP agrees with optimal mismatch/TV when that quantity is below one, giving a natural equivalent TV/W1 formulation."
+        ],
+        "reasoning": "The discrete-Laplace/two-sided-geometric alias and TV formulation have been considered; the claimed sharp ratio is a precise equivalent formulation. The broad prior bound retains a log and does not state this exact subfamily comparison.",
+        "searches": [
+          "symmetric geometric discrete Laplace Lévy Prokhorov Wasserstein 1 exact sharp ratio moment",
+          "\"symmetric geometric\" \"Wasserstein distance\" total variation",
+          "arXiv:2309.03197"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ranked record 2026/10/4/SCOPE-exact-standardized-concentration-profile-for-symmetric-geometric--23297ff8d57a calculates concentration, not a two-law metric ratio.",
+          "The motivating full paper has geometric reference examples but no tabulated exact sharp W1/dLP ratio."
+        ],
+        "reasoning": "No checked table with this natural two-parameter ratio or first-moment profile was identified; an older exact distance formula under discrete Laplace is a retained residual risk.",
+        "searches": [
+          "symmetric geometric discrete Laplace Lévy Prokhorov Wasserstein 1 exact sharp ratio moment",
+          "\"2+sqrt(2)\" Wasserstein total variation geometric distribution",
+          "\"symmetric geometric\" Prokhorov distance"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Marsiglietti–Pandey prove a logarithmic general bound and explicitly leave removing log open for the unrestricted centered discrete log-concave class. The full paper mentions symmetric geometric laws as reference distributions elsewhere but does not give the exact two-parameter distance formula or its sharp first-moment constant in the inspected text. General coupling inequalities do not determine the optimal constant. Exact discrete-Laplace alias formula may nevertheless exist in earlier distance literature.",
+      "residual_risks": [
+        "The exact formula may have appeared previously under discrete-Laplace or TV vs Wasserstein nomenclature.",
+        "The result does not address moment budgets B>1 or general centered log-concave laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source gives logarithmic general bounds and explicitly poses removal of log as open; no exact sharp symmetric-geometric family formula in inspected source.",
+          "evidence": "Theorem 3.1, Remarks 3.3–3.4: W1 <= 12 dLP log(4e/dLP) for E|X|<=1 and open log removal.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.03197",
+          "material_read": "Entire 15-page arXiv v2 inspected by full parsed PDF; page 6 Theorem 3.1 and page 7 Remarks 3.3–3.4 examined visually/textually.",
+          "method": "arXiv full primary PDF and page screenshot",
+          "title": "A Note on Statistical Distances for Discrete Log-Concave Measures",
+          "trigger": "Same metrics/class and open log factor"
+        },
+        {
+          "assessment": "General metric bounds do not yield displayed sharp two-sided geometric ratio without a family computation.",
+          "evidence": "Framework concerns TV, Prokhorov and Wasserstein metric relations.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0209021",
+          "material_read": "Public abstract/bibliography and theorem context; full text not reread during this run.",
+          "method": "arXiv metadata/public description",
+          "title": "On Choosing and Bounding Probability Metrics",
+          "trigger": "General metric comparison that might imply exact relation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp benchmark in a natural log-affine discrete distribution family addresses whether the general logarithmic loss is forced even in a canonical unbounded family. It supplies an all-budget exact comparison and universal sharp constant within that family, not an unmotivated single pair or an unsupported removal of log for arbitrary discrete log-concave laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For centered symmetric geometric laws mu_r(k)=(1-r)/(1+r) r^{|k|} on Z with first absolute moment <=B<=1, exact Levy–Prokhorov and W1 distances between parameters r<s are 2(s-r)/[(1+r)(1+s)] and 2[s/(1-s²)-r/(1-r²)]. Thus their ratio is (1+rs)/[(1-r)(1-s)] and the sharp global comparison constant is 1+B²+B sqrt(1+B²), equal to 2+sqrt2 at B=1.",
+  "limitations": [
+    "Only 0<B<=1, not other crossing regimes, and best sharp constant is a supremum over distinct pairs.",
+    "Full-class logarithm-removal remains open."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For
-\[
-p_r(k)=\frac{1-r}{1+r}r^{|k|},
-\]
-the proof uses four exact identities:
-\[
-\mathbb E|X_r|=\frac{2r}{1-r^2},
-\]
-\[
-d_{\mathrm{LP}}(\mu_r,\mu_s)=\frac{2(s-r)}{(1+r)(1+s)},
-\]
-\[
-W_1(\mu_r,\mu_s)=2\left(\frac{s}{1-s^2}-\frac{r}{1-r^2}\right),
-\]
-and
-\[
-\frac{W_1}{d_{\mathrm{LP}}}=\frac{1+rs}{(1-r)(1-s)}.
-\]
-The first identity is a geometric-series calculation. The second follows from the single-crossing property and the Ky–Fan coupling representation on the integer lattice. The third follows by summing absolute CDF differences in one dimension. The last is algebra.
+# Independent mathematical audit
 
-The standalone script `verify.py` independently checks these formulas against direct truncated probability sums on a deterministic grid for several moment budgets. It also checks that the observed ratios stay below the claimed sharp constant and approach it as the two parameters coalesce at the moment boundary.
+## correctness
 
-Successful output ends with:
-`VERIFY_OK B1_constant=3.414213562373095 max_formula_error<1e-12`.
+PASS
 
-The finite checks are regression tests only; they are not used to prove the uniform theorem or sharpness.
+Geometric series give E|X_r|=2r/(1-r²) and endpoint R_B=B/(1+sqrt(1+B²)). For R_B<=sqrt2-1, differentiating log p_r(k) proves every off-center mass is monotone increasing in r, while center decreases; thus total variation mismatch is exactly center-mass difference. The integer-lattice minimum nonzero distance is 1, so for mismatch <1 the Ky–Fan/Prokhorov coupling infimum is the mismatch probability. One-dimensional W1 is the infinite sum of absolute CDF differences and telescopes to the displayed moment difference. Independently checked symbolic identity of the ratio and monotone boundary maximization. The sharp constant is approached by distinct r,s coalescing at R_B; not necessarily attained by distinct pairs. Source finite verifier inspected, not used to prove all parameters.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Marsiglietti–Pandey prove a logarithmic general bound and explicitly leave removing log open for the unrestricted centered discrete log-concave class. The full paper mentions symmetric geometric laws as reference distributions elsewhere but does not give the exact two-parameter distance formula or its sharp first-moment constant in the inspected text. General coupling inequalities do not determine the optimal constant. Exact discrete-Laplace alias formula may nevertheless exist in earlier distance literature.
+
+## value
+
+PASS
+
+A sharp benchmark in a natural log-affine discrete distribution family addresses whether the general logarithmic loss is forced even in a canonical unbounded family. It supplies an all-budget exact comparison and universal sharp constant within that family, not an unmotivated single pair or an unsupported removal of log for arbitrary discrete log-concave laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
