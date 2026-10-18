@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:47:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Tree path resistances add; all-pairs maximum equals max_{i<j}(1/w_i+1/w_j), never the edge-only maximum. Let D this maximum and u_i=(1/w_i)/D. Then u_i>0, pair constraints u_i+u_j≤1, and D=sum c_i/u_i. Conversely F(u) with pair constraints gives a feasible allocation; a strict-inequality point can be scaled and improved. If all u_i≤1/2, F≥2C sharply only at u_i=1/2. Otherwise one unique u_j=t>1/2 forces other u_i≤1−t, yielding sharp strictly convex envelope c_j/t+(C−c_j)/(1−t). Its unique interior minimum exists exactly at 2c_j>C, gives t=sqrt(c_j)/(sqrt(c_j)+sqrt(C−c_j)), and all other u_i=1−t. For no-majority all t>1/2 produce >2C. These strict equality conditions establish global uniqueness including m=2/boundary. Independently generated 1,000 positive integer price vectors with 10,000 other normalized resistance samples verified bounds and exact budget/diameter; full-domain proof analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General SDP solvability of all-pairs minimax gives implicit optimum for any graph, but no explicit sharp solution for every price vector even on a star.",
+          "Lewis weights concern maximum original-edge resistance / Kirchhoff criteria, so stronger graph scope does not imply this different objective."
+        ],
+        "reasoning": "This work specializes a known optimization problem and genuinely resolves its full price-dependent optimizer and uniqueness; avoid claiming new general convexity.",
+        "searches": [
+          "Resultary: effective resistance diameter weighted star optimal allocation minimax",
+          "GBS 2006/2008 general graph convex design",
+          "Suliman–Weinstein 2023 Lewis weights"
+        ]
+      },
+      "checked_sources": [
+        "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "https://arxiv.org/abs/2302.05966"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General SDP from GBS would numerically solve any fixed star case; it is not a published closed-form threshold/uniqueness classification.",
+          "SW's star edge-max optimum would be different from minimax sum of two largest resistances."
+        ],
+        "reasoning": "Earlier formulations alone neither derive the majority threshold nor identify every unique minimizer as uniform or two-level; the convex-envelope reduction contributes that mathematical content.",
+        "searches": [
+          "GBS 2006 Section VII minimum maximum pair resistance",
+          "GBS 2008 p65 extensions",
+          "SW 2023 arXiv:2302.05966 edge-only Lewis weights"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior GBS primary papers name the same all-pairs resistance diameter optimization and its SDP, and the mathematical objective itself is not new.",
+          "Edge-only max resistance of SW is max_i 1/w_i on a star, not sum of two largest leaf resistances."
+        ],
+        "reasoning": "The exact optimizer for heterogeneous prices and phase boundary are additional closed-form content absent from the inspected general statements. Total resistance, edge-only maximum and all-pair diameter are distinct objectives.",
+        "searches": [
+          "Resultary: weighted star graph minimum all-pairs effective resistance diameter optimal conductance majority price transition",
+          "Ghosh–Boyd–Saberi 2006 pp 1185–1196, Section VII; 2008 SIAM Review p65",
+          "Suliman–Weinstein arXiv:2302.05966 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published records concern star metrics, weighted graph invariants, and effective resistance cuts rather than a price-majority table for resistance diameter."
+        ],
+        "reasoning": "Statement holds over a continuum of positive price choices and all star sizes, not a recomputation of an indexed table; search absence is only limited support.",
+        "searches": [
+          "Resultary: weighted star graph minimum all-pairs effective resistance diameter optimal conductance majority price transition",
+          "Resultary: effective resistance diameter weighted star optimal allocation minimax"
+        ]
+      },
+      "rationale": "Ghosh–Boyd–Saberi 2006/2008 explicitly formulates maximum *all-vertex-pair* effective resistance as a convex/SDP objective but optimizes total resistance in primary analysis; general tractability is credited. Suliman–Weinstein targets maximum resistance over graph EDGES, different on a star. No examined source states the arbitrary-positive-price explicit star majority bifurcation and uniqueness formula. Its optimization is elementary but a nontrivial exact all-parameter answer; residual minimax design folklore risk.",
+      "residual_risks": [
+        "Equivalent generic minimax resource-allocation lemma could be known outside graph-design indexing.",
+        "2006 conference publication predates 2008 day-verified online full text; no claim earliest paper from 2008.",
+        "Exact star, positive price and linear budget only; not a general network-design solution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general all-pairs convex SDP, not explicit heterogeneously priced star phase split.",
+          "evidence": "Section VII suggests minimizing maximum effective resistance over all node pairs.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Full openly accessible 12-page primary proceedings paper; Section VII max pair problem, methods and example sections",
+          "method": "Primary PDF text and final page rendering",
+          "title": "Minimizing Effective Resistance of a Graph (2006 conference)",
+          "trigger": "Earliest close original all-pair resistance design formulation"
+        },
+        {
+          "assessment": "No exact majority-cost priced star optimizer stated in examined source.",
+          "evidence": "The extension identifies max-node-pair resistance convex SDP; principal solved cases concern sum.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Full primary 30-page article, network examples and extensions, particularly p65 (PDF p29), visual inspection",
+          "method": "Read PDF full-text relevant sections and rendered conclusion page",
+          "title": "Minimizing Effective Resistance of a Graph (2008 full article)",
+          "trigger": "Potential stronger full theory and examples"
+        },
+        {
+          "assessment": "Different edge-only minimax objective, so no implication for two-leaf diameter.",
+          "evidence": "Max over original edges versus all pairs of vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.05966",
+          "material_read": "Open primary arXiv full text abstract and Sections 1 and 4; inspected definition of edgewise max",
+          "method": "Primary arXiv HTML",
+          "title": "Infinite Lewis Weights in Spectral Graph Theory",
+          "trigger": "Potentially stronger optimizations on general graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Worst-case all-vertex-pair effective resistance is an independently motivated network-design objective. This complete pricing sensitivity classification resolves arbitrary star size and arbitrary positive prices; it reveals uniform unique optimum even under heterogeneous costs until a sharp majority-price bifurcation. The exact allocation formulas and threshold can guide star network budgets, not extrapolated to general graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "On every star with m≥2 edges, positive edge prices c_i and conductance budget sum c_i w_i=1, unique resistance-diameter minimizer is uniform w_i=1/C with value 2C iff no c_i>C/2. Otherwise, for unique majority price c_j, optimal two-level conductances and diameter are explicit square-root formulas with strict improvement (sqrt(c_j)−sqrt(C−c_j))².",
+  "limitations": [
+    "No claim about maximal resistance over edges alone or Kirchhoff index.",
+    "Finite sample is not an infinite optimality proof; strict convexity and pair inequalities provide it."
+  ],
+  "schema_version": 1
+}

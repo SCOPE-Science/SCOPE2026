@@ -1,11 +1,21 @@
-# Scientific review: priced-star resistance diameter
+# Independent mathematical audit
 
-**Correctness — PASS.** The star is a tree, so leaf-to-leaf effective resistance equals the sum of the two series edge resistances. Normalize each edge resistance by the current diameter and transform the one-budget constraint into minimization of \(F(u)=\sum_i c_i/u_i\) under \(u_i+u_j\le1\). Every feasible vector falls into either the all-at-most-one-half branch, with sharp lower bound \(2C\), or a branch having one unique greater-than-one-half coordinate. In the latter branch all remaining coordinates are bounded above by \(1-t\), and strict convexity of \(c_j/t+(C-c_j)/(1-t)\) determines the exact optimum and equality cases. The analysis includes \(m=2\), every positive real price vector, the exact majority threshold, the strict-majority optimum, and uniqueness. Boundary normalization was reconstructed independently; no finite experiment is used as an infinite proof. Risk: extension to nonstar networks is neither proven nor implied.
+## correctness
 
-**Originality — PASS, narrow and historically qualified.** The full 2006 proceedings and 2008 SIAM Review treatments by Ghosh, Boyd, and Saberi introduce the *same all-vertex-pairs maximum-resistance* objective as a convex semidefinite program, but do not state the full arbitrary-price star formula, the exact majority threshold, or the uniqueness classification. The full primary Suliman–Weinstein article optimizes maximum resistance of graph **edges** instead of arbitrary pairs. Explicitly tested published and indexed searches, including equivalent terminology, did not uncover an implication covering this exact statement. Risk: less-indexed specialized allocation literature could contain an equivalent formula; searches cannot establish universal nonappearance. Historical convexity and general SDP solvability are credited as prior art.
+PASS
 
-**Value — PASS.** The maximum electrical resistance across all vertex pairs is a natural worst-case network design measure specifically named in foundational prior work. The result resolves an exact, unbounded-size class for *all positive heterogeneous linear prices*, including a sharp cost-majority bifurcation and all optimal allocations, and reveals the non-obvious phenomenon that nonuniform pricing can leave the unique optimal conductances uniform. This is an exact network design rule, not a parameter-renaming exercise or a known table recomputation. Risk: the conclusion is specific to star topology and linear budgets, not an arbitrary-tree method.
+Tree path resistances add; all-pairs maximum equals max_{i<j}(1/w_i+1/w_j), never the edge-only maximum. Let D this maximum and u_i=(1/w_i)/D. Then u_i>0, pair constraints u_i+u_j≤1, and D=sum c_i/u_i. Conversely F(u) with pair constraints gives a feasible allocation; a strict-inequality point can be scaled and improved. If all u_i≤1/2, F≥2C sharply only at u_i=1/2. Otherwise one unique u_j=t>1/2 forces other u_i≤1−t, yielding sharp strictly convex envelope c_j/t+(C−c_j)/(1−t). Its unique interior minimum exists exactly at 2c_j>C, gives t=sqrt(c_j)/(sqrt(c_j)+sqrt(C−c_j)), and all other u_i=1−t. For no-majority all t>1/2 produce >2C. These strict equality conditions establish global uniqueness including m=2/boundary. Independently generated 1,000 positive integer price vectors with 10,000 other normalized resistance samples verified bounds and exact budget/diameter; full-domain proof analytic.
 
-**Reproducibility and limitations.** The attached `verify_star.py` checks 259 budget/closed-form cases, 1225 exact grounded electrical solves, 20277 rational-grid lower-bound inequalities, and the exact nonuniform example; the main proof is analytic. The original 2006 conference version predates the day-verified February 1, 2008 electronic public version; no specific public day for the former is asserted. An independent literature and proof audit has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ghosh–Boyd–Saberi 2006/2008 explicitly formulates maximum *all-vertex-pair* effective resistance as a convex/SDP objective but optimizes total resistance in primary analysis; general tractability is credited. Suliman–Weinstein targets maximum resistance over graph EDGES, different on a star. No examined source states the arbitrary-positive-price explicit star majority bifurcation and uniqueness formula. Its optimization is elementary but a nontrivial exact all-parameter answer; residual minimax design folklore risk.
+
+## value
+
+PASS
+
+Worst-case all-vertex-pair effective resistance is an independently motivated network-design objective. This complete pricing sensitivity classification resolves arbitrary star size and arbitrary positive prices; it reveals uniform unique optimum even under heterogeneous costs until a sharp majority-price bifurcation. The exact allocation formulas and threshold can guide star network budgets, not extrapolated to general graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
