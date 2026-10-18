@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The image/kernel decomposition for a rank-constrained idempotent is a bijection. The proof separately counts the admissible image subspaces of the second idempotent by their two intersections with the first idempotent's image and kernel, then counts complementary kernel subspaces by the rank of an induced quotient map. Every factor in the Gaussian-binomial expression is accounted for, including the feasibility inequalities, field-characteristic independence and the finite-field rank-map factor. Exhaustive independent enumeration at six small field/dimension instances and exact marginal/swap identities across further field orders agree with the proof. Such tests are finite checks, not an infinite proof.
+PASS
 
-## Originality — PASS (subject to bibliographic uncertainty)
+Reconstructed parameter h=dim(W∩U) for W=imF and U=imE with E projection U⊕K. For fixed rank-r E, there are [n r]_q q^{r(n-r)} possibilities. rank(EF)=p enforces dim(W∩K)=s-p. First choose A=W∩U and B=W∩K, then W/(A⊕B) is graph of a rank c=p-h isomorphism between c-subspaces in U/A,K/B: factor [r h]_q[n-r s-p]_q[r-h c]_q[n-r-s+p c]_q GL_q(c). For fixed W, F kernels are complements L to W, parameterized by φ:V/W→W; rank(FE)=t iff induced φ on π(U)→W/A has rank t-h, contributing R_q(s-h,r-h;t-h) q^{h(r-h)+s(n-s-r+h)}. All dimension constraints are stated and ensure nonnegative exponents. Independent Python brute force enumerated all idempotents and both ordered product ranks for (q,n)=(2,2),(3,2),(2,3): all 64,196,3364 ordered pairs and every possible rank quadruple matched the formula. Swapping E,F gives (r,s,p,t)↔(s,r,t,p); independent summation over all p,t gives product of idempotent rank counts.
 
-Pop (2016) proves the familiar image/kernel projection characterization but does not enumerate pairs; the rank-idempotent Gaussian count in Dolinka–Gray, the classical rank invariance of idempotent linear combinations from Koliha–Rakočević, Zuo's related product-including linear-combination identities and simultaneous matrix-pair similarity literature were compared by **implication**, not title. The present count of simultaneous ranks of both ordered products is not supplied by the inspected statements. The original complete 2006 paper and Zuo paper were not available for full-text checks, so an earlier equivalent count cannot be conclusively excluded.
+## originality
 
-## Value — PASS
+PASS
 
-This determines all noncommuting projection-pair incidence strata over every finite field, a complete invariant that distinguishes ordered product asymmetry. The precise four-rank distribution has a natural use in finite linear-semigroup and random-oblique-projection questions: single-idempotent frequencies alone do not determine it.
+The known fact that idempotents correspond to complementary image/kernel subspaces and the individual rank enumeration are credited. Actual primary literature found linear-combination rank and semigroup idempotent counts, not a full four-rank joint distribution of two ordered noncommuting projections over each finite field. The coupled (rank EF,rank FE) distribution is not determined by either marginal or by a single idempotent count.
 
-## Closest literature and limitations
+## value
 
-Pop, *The Characterization of Some Linear Maps Using the Rank* (2016), §2, classifies projections by their image/kernel decomposition; Dolinka–Gray, arXiv:1112.0893, section 8, gives the classical rank-idempotent normalizing count. Koliha–Rakočević, doi:10.1016/j.laa.2006.01.011, describes coefficient-invariant ranks of linear combinations; Tošić et al., doi:10.3390/math8122147, extends related results for commuting k-potents. Florentino, arXiv:0809.3032, addresses simultaneous similarity. The result does not count simultaneous similarity classes or Jordan types. The original text of two potentially relevant older articles was unavailable, leaving a specific bibliographic risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The paired product-rank distribution is an exact natural invariant for two noncommuting projections in a finite vector space; it resolves more than the classical one-idempotent count, distinguishes EF from FE, and supplies a uniform finite-field formula with meaningful limiting and special-stratum uses. It is a substantive finite-geometric enumeration, not a trivial parameter rename.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

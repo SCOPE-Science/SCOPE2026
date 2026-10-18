@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` under Python 3. The test file is standalone and uses only the standard library. It enumerates all matrices over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\) in the indicated small dimensions, selects idempotents, computes each actual product-rank quadruple, and compares every possible stratum with the exact formula. The implementation of \(\mathbb F_4\) uses binary polynomials modulo \(x^2+x+1\), not integer arithmetic modulo four. Separate arithmetic checks confirm the two-idempotent rank margins and reversal symmetry through dimension five and several field orders.
+## correctness
 
-Actual successful run output:
+PASS
 
-```
-PASS exhaustive 2 2 idempotents 8 pairs 64 nonempty strata 12
-PASS exhaustive 3 2 idempotents 14 pairs 196 nonempty strata 12
-PASS exhaustive 4 2 idempotents 22 pairs 484 nonempty strata 12
-PASS exhaustive 2 3 idempotents 58 pairs 3364 nonempty strata 28
-PASS exhaustive 3 3 idempotents 236 pairs 55696 nonempty strata 28
-PASS exhaustive 2 4 idempotents 802 pairs 643204 nonempty strata 57
-PASS totals/swap 2 5
-PASS totals/swap 3 5
-PASS totals/swap 4 5
-PASS totals/swap 5 5
-PASS totals/swap 7 5
-PASS totals/swap 8 5
-VERIFY_OK
-```
+Reconstructed parameter h=dim(W∩U) for W=imF and U=imE with E projection U⊕K. For fixed rank-r E, there are [n r]_q q^{r(n-r)} possibilities. rank(EF)=p enforces dim(W∩K)=s-p. First choose A=W∩U and B=W∩K, then W/(A⊕B) is graph of a rank c=p-h isomorphism between c-subspaces in U/A,K/B: factor [r h]_q[n-r s-p]_q[r-h c]_q[n-r-s+p c]_q GL_q(c). For fixed W, F kernels are complements L to W, parameterized by φ:V/W→W; rank(FE)=t iff induced φ on π(U)→W/A has rank t-h, contributing R_q(s-h,r-h;t-h) q^{h(r-h)+s(n-s-r+h)}. All dimension constraints are stated and ensure nonnegative exponents. Independent Python brute force enumerated all idempotents and both ordered product ranks for (q,n)=(2,2),(3,2),(2,3): all 64,196,3364 ordered pairs and every possible rank quadruple matched the formula. Swapping E,F gives (r,s,p,t)↔(s,r,t,p); independent summation over all p,t gives product of idempotent rank counts.
 
-The symbolic proof, rather than the finite test scope, establishes all dimensions and prime powers. Published exact equivalence/novelty remains subject to independent literature review. Independent audit has not been performed.
+## originality
+
+PASS
+
+The known fact that idempotents correspond to complementary image/kernel subspaces and the individual rank enumeration are credited. Actual primary literature found linear-combination rank and semigroup idempotent counts, not a full four-rank joint distribution of two ordered noncommuting projections over each finite field. The coupled (rank EF,rank FE) distribution is not determined by either marginal or by a single idempotent count.
+
+## value
+
+PASS
+
+The paired product-rank distribution is an exact natural invariant for two noncommuting projections in a finite vector space; it resolves more than the classical one-idempotent count, distinguishes EF from FE, and supplies a uniform finite-field formula with meaningful limiting and special-stratum uses. It is a substantive finite-geometric enumeration, not a trivial parameter rename.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

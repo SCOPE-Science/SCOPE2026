@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T12:51:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed parameter h=dim(W∩U) for W=imF and U=imE with E projection U⊕K. For fixed rank-r E, there are [n r]_q q^{r(n-r)} possibilities. rank(EF)=p enforces dim(W∩K)=s-p. First choose A=W∩U and B=W∩K, then W/(A⊕B) is graph of a rank c=p-h isomorphism between c-subspaces in U/A,K/B: factor [r h]_q[n-r s-p]_q[r-h c]_q[n-r-s+p c]_q GL_q(c). For fixed W, F kernels are complements L to W, parameterized by φ:V/W→W; rank(FE)=t iff induced φ on π(U)→W/A has rank t-h, contributing R_q(s-h,r-h;t-h) q^{h(r-h)+s(n-s-r+h)}. All dimension constraints are stated and ensure nonnegative exponents. Independent Python brute force enumerated all idempotents and both ordered product ranks for (q,n)=(2,2),(3,2),(2,3): all 64,196,3364 ordered pairs and every possible rank quadruple matched the formula. Swapping E,F gives (r,s,p,t)↔(s,r,t,p); independent summation over all p,t gives product of idempotent rank counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koliha--Rakocevic and Zuo address ranks of linear combinations, not finite-field pair multiplicities indexed by EF and FE",
+          "Pop characterizes projections by im⊕ker"
+        ],
+        "reasoning": "General rank identities are valid premises but do not give all ordered-pair count strata; no dominating coverage identified in read materials.",
+        "searches": [
+          "Koliha Rakocevic nullity rank linear combinations idempotent matrices 2006",
+          "Pop Characterization Some Linear Maps Using the Rank 2016",
+          "arXiv:1112.0893 matrix semigroup idempotents"
+        ]
+      },
+      "checked_sources": [
+        "Dolinka--Gray arXiv:1112.0893",
+        "Pop Journal of Science and Arts 16 (2016)",
+        "Koliha--Rakocevic DOI:10.1016/j.laa.2006.01.011 abstract",
+        "Resultary idempotent--nilpotent fibers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known count of individual rank-r idempotents supplies outer factor only",
+          "Distinct ranks EF and FE can occur even at n=2, invalidating marginal-only classification"
+        ],
+        "reasoning": "Earlier qualitative projection/image-kernel and linear-combination rank results do not cover the coupled finite-field enumeration without the new intersection/kernel rank decomposition.",
+        "searches": [
+          "arXiv:1112.0893 Dolinka Gray Section 8",
+          "DOI:10.1016/j.laa.2006.01.011",
+          "V Pop 2016 Theorem 2.1 projections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dolinka--Gray arXiv:1112.0893 discusses the finite linear monoid and idempotent structure",
+          "Resultary idempotent--nilpotent factorization fibers count different pairs"
+        ],
+        "reasoning": "The equivalent form is a conditional joint distribution on complementary subspaces and two opposing projection products, not the standard count of one idempotent.",
+        "searches": [
+          "finite field idempotents E F joint rank rank EF FE matrix pair counting Gaussian binomial",
+          "Dolinka Gray free idempotent generated semigroups finite full linear monoid rank counts",
+          "rank EF FE finite field joint distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite standard idempotent total count [n r]_q q^{r(n-r)} is a known marginal",
+          "The (n,q,r,s)=(2,2,1,1) example distributes (p,t) as (6,6,6,18), while total is 36."
+        ],
+        "reasoning": "Exact joint rank table is a refinement not implied by the total marginal; searched published records produced no identical table. Existing source verifier and independent small-field enumeration agree.",
+        "searches": [
+          "finite field idempotents E F joint rank rank EF FE matrix pair counting Gaussian binomial",
+          "finite field idempotent pair rank two product ranks Gaussian binomial table",
+          "Resultary exact fibers idempotent nilpotent factorizations in two dimensions"
+        ]
+      },
+      "rationale": "The known fact that idempotents correspond to complementary image/kernel subspaces and the individual rank enumeration are credited. Actual primary literature found linear-combination rank and semigroup idempotent counts, not a full four-rank joint distribution of two ordered noncommuting projections over each finite field. The coupled (rank EF,rank FE) distribution is not determined by either marginal or by a single idempotent count.",
+      "residual_risks": [
+        "Older unindexed semigroup association-scheme or finite-geometry pair-intersection counts might already imply the formula",
+        "Koliha--Rakocevic full text not read; abstract alone cannot certify whole-document absence",
+        "Independent brute force limited to small prime fields; all-prime-power generality is supported by vector-space proof, not enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_IDEMPOTENT_MARGINAL_NOT_JOINT",
+          "evidence": "Treats semigroup structural and idempotent counts, not full (r,s,p,t) distribution in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/1112.0893",
+          "material_read": "Full lawful OA accepted manuscript (about 37 pages) opened and finite-linear-monoid/idempotent count preliminaries inspected; relevant Section 8 context",
+          "method": "arXiv full PDF primary with page inspection",
+          "title": "Maximal subgroups of free idempotent generated semigroups over the full linear monoid",
+          "trigger": "Potential finite-field semigroup count subsuming idempotent rank data"
+        },
+        {
+          "assessment": "PROJECTION_CRITERION_ONLY",
+          "evidence": "The im/ker direct sum for idempotents is classical and credited; no joint pair profile indicated.",
+          "identifier_or_url": "https://www.josa.ro/docs/josa_2016_3/a_06_Pop.pdf",
+          "material_read": "Citation and theorem descriptions in submitted RESULT, not independently complete text",
+          "method": "primary cited synopsis; direct proof premises separately verified",
+          "title": "The Characterization of Some Linear Maps Using the Rank",
+          "trigger": "Classical algebraic idempotent characterization"
+        },
+        {
+          "assessment": "PARTIAL_READING_DIFFERENT_RANK_OBSERVABLE",
+          "evidence": "Studies linear combinations, and inaccessible full text leaves an explicit albeit low priority risk; no whole-document exclusion asserted.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2006.01.011",
+          "material_read": "Published article abstract and bibliographic information, not full text",
+          "method": "published abstract and target search",
+          "title": "The nullity and rank of linear combinations of idempotent matrices",
+          "trigger": "Possible general higher-rank identity covering product profiles"
+        },
+        {
+          "assessment": "DIFFERENT_FACTORIZATION",
+          "evidence": "Counts A=EN or NE with nilpotent N in n=2, not two idempotents and their ordered product ranks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-fibers-of-idempotent-nilpotent-factorizations-in-two-dimen--376b6f723a17",
+          "material_read": "Resultary returned title and summary only",
+          "method": "Resultary semantic search summary",
+          "title": "Exact fibers of idempotent–nilpotent factorizations in two dimensions",
+          "trigger": "Same finite-field algebraic context and exact multiplicities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The paired product-rank distribution is an exact natural invariant for two noncommuting projections in a finite vector space; it resolves more than the classical one-idempotent count, distinguishes EF from FE, and supplies a uniform finite-field formula with meaningful limiting and special-stratum uses. It is a substantive finite-geometric enumeration, not a trivial parameter rename.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "An exact Gaussian-binomial sum counts ordered pairs of arbitrary idempotent matrices E,F in M_n(F_q) conditioned jointly on r=rank E, s=rank F, p=rank EF, t=rank FE, for all prime powers q and all n≥1; includes reversal symmetry and full-rank-stratum normalization.",
+  "limitations": [
+    "No independent check of extension field GF4 or n>3; unrestricted theorem proven by subspace-count decomposition",
+    "Qualitative rank literature full-text access partial; historical equivalent joint association scheme remains a best-of-knowledge risk."
+  ],
+  "schema_version": 1
+}
