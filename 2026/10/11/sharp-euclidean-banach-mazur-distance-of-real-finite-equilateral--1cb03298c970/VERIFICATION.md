@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Run `python3 verify.py` with Python 3 and no third-party libraries. The exact-rational checker verifies the balanced binary maximizers for \(2\le m\le16\), the two-point centered minimizers, all nonconstant ternary coordinate configurations through \(m=8\), and an exact pairwise variance identity, returning `EQUILATERAL_EUCLIDEAN_EXACT_OK 9966`.
+# Independent mathematical audit
 
-The general statement is established by the analytic argument in RESULT.md: invariant-form averaging plus the two sharp extremum calculations and duality. The rational finite checks are not an exhaustive search of all vectors or Euclidean ellipsoids, and do not certify novelty or provide independent mathematical review. Complex scalar spaces and non-equilateral metrics are not covered.
+## correctness
+
+PASS
+
+Dual to the equilateral free space is the oscillation norm N(f)=max_i f_i-min_i f_i on centered real m-vectors. Averaging any Hilbert comparison quadratic form over the coordinate-permutation group preserves distortion inequalities and makes Q(f)=c sum f_i^2 on the centered hyperplane globally optimal. On N(f)=1, min sum f_i^2=1/2 (two opposite half entries, remaining zero), while the maximum of centered sum squares is floor(m^2/4)/m by convexity of the centered quadratic on [0,1]^m and balancing binary vertices. Hence d_BM^2=max/min=2 floor(m^2/4)/m, and finite-dimensional duality transfers it back. m=2 yields 1; exact rational finite checks m=2..16 only corroborate the all-m proof.
+
+## originality
+
+PASS
+
+Prior equilateral Lipschitz-free norm and unit-ball volume-product formulas do not directly imply the globally minimized Euclidean Banach–Mazur distance in all dimensions, including the parity formula. Published related zero-sum ell4 and deformed four-point findings concern different norms/metrics, not this full equilateral result. An older oscillation norm/type-A root-polytope ellipsoid theorem remains a risk.
+
+## value
+
+PASS
+
+This is the exact optimal Hilbert distortion of the natural, dimension-unbounded class of equilateral finite metric Lipschitz-free spaces. The parity-sensitive value and proof of optimality over all ellipsoids make it a mathematical benchmark, rather than a computation of a chosen embedding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

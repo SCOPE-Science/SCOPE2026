@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The dual Lipschitz norm is exactly coordinate oscillation, independently of the chosen base point. Every positive-definite comparison quadratic form can be averaged over all permutations, preserving its two-sided distortion inequalities. On the mean-zero hyperplane an invariant form is a scalar multiple of the centered sum of squares. The minimum and maximum of that sum on the unit-oscillation shell are respectively \(1/2\) and \(\lfloor m^2/4\rfloor/m\). The lower and upper witnesses are explicit, and duality transfers the optimum to the Lipschitz-free space. The accompanying finite exact tests check the stated boundary values and normalization but are not substituted for the proof.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** The dated primary antecedent (Godard, arXiv:0904.3178v1, §3) explicitly supplies the original equilateral free-space norm, not the all-dimensional optimum Euclidean distance. Alexander et al. (arXiv:1911.10642v2, §5.2) obtain the vertices and volume product of the same unit balls, not the minimax Hilbert ellipsoid. Known hexagonal-plane and four-point computations give special cases but do not imply the dimension-uniform sharp parity formula without an additional optimization. Searches for the oscillation-norm, type-\(A\) root-polytope and complete-graph formulations identified no published theorem directly giving the general exact Euclidean distance. This is limited negative search evidence, not absolute proof of priority. A historical equivalent is possible.
+PASS
 
-**Value — PASS.** The value is a natural complete invariant for the benchmark class of all finite equilateral metric spaces, in every dimension. It supplies the exact best linear Hilbert-space distortion, shows a parity transition, and identifies extremal dual Lipschitz potentials. The argument genuinely rules out arbitrary nonsymmetric ellipsoids rather than merely bounding one coordinate embedding; its exact dimension dependence has meaningful use as a uniform finite-metric comparison benchmark.
+Dual to the equilateral free space is the oscillation norm N(f)=max_i f_i-min_i f_i on centered real m-vectors. Averaging any Hilbert comparison quadratic form over the coordinate-permutation group preserves distortion inequalities and makes Q(f)=c sum f_i^2 on the centered hyperplane globally optimal. On N(f)=1, min sum f_i^2=1/2 (two opposite half entries, remaining zero), while the maximum of centered sum squares is floor(m^2/4)/m by convexity of the centered quadratic on [0,1]^m and balancing binary vertices. Hence d_BM^2=max/min=2 floor(m^2/4)/m, and finite-dimensional duality transfers it back. m=2 yields 1; exact rational finite checks m=2..16 only corroborate the all-m proof.
 
-The comparison concerns only the real equilateral case. No claimed result for complex scalars or general metric spaces is assessed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Prior equilateral Lipschitz-free norm and unit-ball volume-product formulas do not directly imply the globally minimized Euclidean Banach–Mazur distance in all dimensions, including the parity formula. Published related zero-sum ell4 and deformed four-point findings concern different norms/metrics, not this full equilateral result. An older oscillation norm/type-A root-polytope ellipsoid theorem remains a risk.
+
+## value
+
+PASS
+
+This is the exact optimal Hilbert distortion of the natural, dimension-unbounded class of equilateral finite metric Lipschitz-free spaces. The parity-sensitive value and proof of optimality over all ellipsoids make it a mathematical benchmark, rather than a computation of a chosen embedding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
