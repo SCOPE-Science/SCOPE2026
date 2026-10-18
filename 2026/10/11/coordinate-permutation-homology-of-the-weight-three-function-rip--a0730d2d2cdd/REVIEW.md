@@ -1,19 +1,21 @@
-# Review of the weight-three Boolean function–Rips representation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(n\geq3\), the binary-order vertex attachments have links homotopy equivalent to wedges of \(a+1\) two-spheres. The domination reductions and the line-graph model prove the uniform sphere count. Coordinate projections split off signed three-coordinate sphere classes, the exact exhaustive \(S_4\) fixed-simplex calculation determines a sign line on each four-coordinate quotient, and projections prove the four-set lines independent. Semisimplicity gives exactly \(\bigwedge^3\mathbb Q^n\oplus\bigwedge^4\mathbb Q^n\) in degree three and nothing else. The packaged program checks all coordinate permutations for \(n=3,4,5,6\) and all claimed link reductions through \(n=7\). The finite \(S_4\) character is a proof component; other finite tests corroborate the uniform argument.
+PASS
 
-## Originality — PASS, with identified residual risk
+PASS. For n>=3, the actual source constructs increasing binary-order triple attachments to the weight<=2 cone. A triple T={a,b,c} has a fold of its earlier-link flag graph by domination with singleton a; the reduced link is clique complex of line graph K3 * I_{a+1}, homotopy wedge^{a+1}S². Earlier complex is 2-connected, so cones contribute a+1 S³; the rank sum is C(n+1,4). For each 3-support S, coordinate projection retracts the full cube K_S≈S³ and makes independent oriented 3-set classes yielding ∧³Q^n. Complete S4 signed Lefschetz calculation on 316 nonempty simplices of K4 (317 including empty) gives H3 class traces (5,-3,1,2,-1), minus ∧³ traces (4,-2,0,1,0) equals S4 sign. Projections to distinct four-support subcomplexes then prove quotient ∧⁴Q^n; rational Maschke semisimplicity splits. Independent exact enumerator reproduced character for all 6/24/120 coordinate permutations at n=3/4/5, including empty-face convention; finite checks corroborate, not prove, the uniform attachment and projection steps.
 
-Adamaszek–Adams (arXiv:2103.01040, Lemma 7) already supply a route to the nonequivariant rank, for which no novelty is claimed. Galetto–Montaño–Wellner (arXiv:2606.20784) classify the full cube homology representation, which does not imply the representation of a distinguished-centered weight sublevel. Briggs–Feng–Wells (arXiv:2408.01288) analyze full-cube facets and separate weight layers. Oudot–Waas (arXiv:2603.23460) define the general function–Rips framework. No inspected source determines the coordinate-permutation module of the cumulative weight-three sublevel. An equivalent result outside the indexed and inspected literature remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The resulting entire-family rational \(S_n\)-character and its canonical exterior-power summands are structurally more informative than the previously available sphere count. The natural function–Rips example isolates the subgroup that preserves a weight cutoff, and its nontrivial four-coordinate quotient is not a textbook restatement of a Betti number.
+PASS on available primary sources with material priority risk. Adamaszek–Adams 2021 supplies full-cube non-equivariant rank/link techniques, specifically credited; Oudot–Waas defines function–Rips; Briggs–Feng–Wells covers full cube facets and exact-weight slices; Galetto–Montaño–Wellner studies the untruncated full Hamming cube with hyperoctahedral action. Such results do not automatically identify the S_n-module of the cumulative weight<=3 sublevel because translations do not preserve it. The Galetto et al full text was inaccessible despite arXiv/OA attempt and Oxford VPN was disconnected, and an equivalent specialization remains a priority risk. Not counted as negative search evidence.
 
-## Scope and limits
+## value
 
-The theorem fixes inclusive distance scale \(2\) and weight cutoff \(3\); no all-parameter barcode, integral lattice decomposition, or equivariant homotopy splitting is claimed. Public-source overlap checks cannot eliminate unindexed equivalences.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS. The natural cumulative Hamming-weight function-Rips sublevel is a distinct symmetry object from the full cube; the complete rational coordinate-permutation module and character for every n>=3 is a meaningful equivariant topological classification and refines a known non-equivariant sphere count. Integral and full persistent representations are outside the result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
