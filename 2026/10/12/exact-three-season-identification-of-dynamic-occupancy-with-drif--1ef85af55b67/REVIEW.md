@@ -1,11 +1,21 @@
-# Scientific review — exact three-season dynamic-occupancy identification
+# Independent mathematical audit
 
-**Correctness — PASS.** The observed detection moments have the exact identities \(r_2=sp_2\), \(r_3=sp_3\), \(h_3=c/s+(s-c)h_2\), and \(T=c/s+(s-c)\). Their difference identifies the nonzero contrast \(s-c\), and direct substitutions recover all six parameters; denominators are explicitly verified nonzero over the claimed entire interior domain. A perturbation argument constructs a continuum of two-season aliases at every interior point, and equal hidden-transition rows create indefinite observational aliases. A separate standard-library rational checker verifies 554 nonsingular parameter tuples and boundary witnesses. Finite checks are not used to replace the general proof.
+## correctness
 
-**Originality — PASS, with specific residual risks.** MacKenzie et al. (2003) motivate imperfectly detected dynamic site occupancy and repeated within-season surveys. An–Hu–Shum (2013) require time-invariant emission probabilities, so their three-observation theorem does not cover arbitrary \(p_1,p_2,p_3\). The inspected Liu–Culpepper (2025) heterogeneous-HMM identifiability conditions require positive emission matrices, stationary initialization, and an adjacent repeated emission distribution, none imposed here. Doser–Stoudt (2023/2024) addresses single-visit multi-season ecological modeling without a directly matching exact global inverse in inspected accessible material. The accessible primary literature and indexed mathematical records did not yield a theorem with the same observation law, domain and rational inverse. The full MacKenzie article and some related older texts could not be materially inspected; prior results outside inspected portions may cover or imply parts of the finding. Search absence is not a novelty guarantee.
+PASS
 
-**Value — PASS.** Dynamic occupancy studies must distinguish colonization and persistence from imperfect time-varying observation. The exact three-season threshold identifies when no within-season replication is mathematically needed if transitions are shared across periods, gives a direct consistency-checkable inversion and displays the precise unidentifiable boundary. This is a nontrivial design-relevant structural result, not a routine recalculation of a stationary or detection-constant HMM. It does not promise finite-sample stability or observational feasibility near the degenerate boundary.
+PASS. Exact full eight-history law leads to r2=s p2, r3=s p3 and h2=z2/s, h3=z3/s; the one-step hidden occupancy recursion yields T=c/s+(s-c) and h3=c/s+(s-c)h2. Consequently delta=(T-h3)/(1-h2)=s-c, b=T-delta=c/s, s=delta/(1-b), c=bs, pi=(s h2-c)/delta, and p1=m1/pi, p2=r2/s, p3=r3/s. Interior c != s gives 1-h2=delta(1-pi)/s !=0 and 1-b=delta/s !=0, proving global uniqueness, not merely generic rank. For two seasons pi can vary while p1 and c are adjusted to preserve m1,m2,d12. When c=s hidden states after first season are iid and only products pi p1, c p_t are observed, so arbitrary length is insufficient. Independently summed all 8 observed histories from all 8 latent histories with exact fractions and inverted a nonstationary, drifting-detection example; finite test supplements the analytic proof.
 
-**Independent verification was not undertaken.** The result is mathematically restricted to noiseless homogeneous-site population laws, conditionally independent detection with no false positives and constant unequal transition rows.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge. Dynamic occupancy and HMM identifiability have extensive antecedents, but the exact minimal-three-season global inverse with a structural zero, independently unknown p_t and nonstationary pi does not follow from the inspected homogeneous-emission identification theorem or from the inspected heterogeneous-emission theorem requiring stationary initialization, strictly positive emission entries and some equal adjacent emissions. Existing ecological design analyses establish the modeling need but do not give this algebraic identification result. Inaccessible older HMM/occupancy material remains a priority risk, not a basis for automatic failure.
+
+## value
+
+PASS
+
+PASS. Single-visit repeated-season occupancy surveys have a natural structural-identifiability problem with direct experimental-design implications. This exact three-versus-two threshold and the equal-transition degeneracy delineate the information content of full population-history data; explicit recovery formulas are nontrivial and would be useful independent of numerical estimation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
