@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Nyström term reduces exactly to the projection residual for \(A=I_n\). Conditional on all but two probes, the two residual norms share one spherical angular factor, whose beta second moment gives \(2\nu/(\nu+3)\) covariance; exchangeability then gives both exact variance identities. The fourth-moment bound and Markov–Cauchy argument establish actual nonconcentration even while the reported proxy vanishes. Critical identities and numerical projections were replayed from the packaged verifier. No simulation is used as an asymptotic proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+For unnormalized Nystrom leave-one-out on A=I_n and 2<=m<=n, each B_j=m-1+Y_j, with Y_j~chi-square_nu and nu=n-m+1. Conditioning on other m-2 columns leaves two independent d=nu+1 Gaussian residual vectors whose independent radii share one sin^2 angle with Beta((d-1)/2,1/2) law. Its first and second beta moments yield Cov(B_i,B_j)=2nu/(nu+3) and correlation 1/(nu+3), not independent basic estimates. Exchangeability then gives Var(T_m)=2nu(n+3)/(m(nu+3)), E J_m=2nu(nu+2)/(m(nu+3)) and ratio (n+3)/(nu+2). At m=n, true absolute-error variance approaches 1/2 while J_m tends to zero in probability. Bounding fourth moment by 848 and Cauchy–Schwarz yields liminf event probability >=1/13568; m>=n+1 gives exact identity projector via pseudoinverse. Independent exact rational beta/variance checks passed; finite checks do not prove the limit.
 
-The closest source is Epperly–Tropp–Webber, arXiv:2301.07825, particularly its XNysTrace Eq. (8), Eq. (9), Proposition 2, Proposition 5, Section 2.3, and proof of Proposition 2. **Proposition 2 already contains a general correlation-versus-calibration identity** and must not be credited to the present result. Its inspected full text does not evaluate the standard-Gaussian identity-matrix pairwise covariance, fixed-codimension variance floor, or explicit nonconcentration bound. The earlier leave-one-out residual literature, arXiv:2207.06342, concerns related algorithms without this exact calculation. Closest binary-probe examples and Gaussian rank-one Nyström approximation results have different probe laws and target statistics. Searches for equivalent trace covariance, Wishart/angle formulations, and stronger general results found no decisive covering statement; this does not establish priority. Unindexed exact-special-case work remains possible.
+## originality
 
-## Value — PASS, with limitation
+PASS
 
-The analytical classification determines the calibration factor for a natural flat-spectrum benchmark exactly across all intermediate sketch budgets. Near full rank, the posterior absolute-error estimate can become arbitrarily optimistic even though the true error does not concentrate; precisely one additional column then makes the ideal pseudoinverse method exact. The result identifies a mathematically meaningful distinction between exchangeable estimators and effectively independent replicate diagnostics. The limitation is crucial: the paper recommends a separately normalized version, which does not inherit this flat-spectrum pathology, and relative-trace accuracy can still improve at fixed tolerance.
+Published XTrace/XNysTrace describes the leave-one-out estimator and general covariance-diagnostic identity, but the candidate computes exact identity-Gaussian pairwise correlation and a sharp absolute-error diagnostic failure at full sketch rank, plus one-extra-probe exactness. Best-of-knowledge original specialization; narrow domain explicitly respected.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact covariance and squared-error diagnostic mismatch provide a meaningful estimator-calibration boundary: the reported mean-square error proxy can vanish while the true absolute estimator error does not concentrate, even on the identity matrix. An additional sketch restores exactness, pinpointing a natural dimension/rank transition for an established method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

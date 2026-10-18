@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:04:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Immutable RESULT.md blob 6854576bbb6ea750d394a2aa1e482541a64e6fdd",
+        "Independent checker GAUSSIAN_XNYSTRACE_BETA_COVARIANCE_DIAGNOSTIC_OK",
+        "Epperly–Tropp–Webber Eq. 8–9, Algorithm 3, Proposition 2 and Section 2.3"
+      ],
+      "rationale": "For unnormalized Nystrom leave-one-out on A=I_n and 2<=m<=n, each B_j=m-1+Y_j, with Y_j~chi-square_nu and nu=n-m+1. Conditioning on other m-2 columns leaves two independent d=nu+1 Gaussian residual vectors whose independent radii share one sin^2 angle with Beta((d-1)/2,1/2) law. Its first and second beta moments yield Cov(B_i,B_j)=2nu/(nu+3) and correlation 1/(nu+3), not independent basic estimates. Exchangeability then gives Var(T_m)=2nu(n+3)/(m(nu+3)), E J_m=2nu(nu+2)/(m(nu+3)) and ratio (n+3)/(nu+2). At m=n, true absolute-error variance approaches 1/2 while J_m tends to zero in probability. Bounding fourth moment by 848 and Cauchy–Schwarz yields liminf event probability >=1/13568; m>=n+1 gives exact identity projector via pseudoinverse. Independent exact rational beta/variance checks passed; finite checks do not prove the limit.",
+      "residual_risks": [
+        "Only identity matrix, exact unnormalized real Gaussian variant and absolute error; normalized recommended variant can remove this effect.",
+        "Finite Monte Carlo not a proof of the tail lower bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "XTrace Proposition 2 expresses the posterior squared error in terms of basic-estimator covariance but does not provide this identity-matrix covariance constant or positive tail probability.",
+          "XNysTrace Section 2.3 recommends distinguished-residual normalization, which alters the random variable."
+        ],
+        "reasoning": "A general identity that accepts unknown pair correlation does not imply the explicit Beta-derived correlation or nonconcentration limit without further calculations. Normalized methods do not dominate conclusions for the fixed unnormalized estimator.",
+        "searches": [
+          "Epperly Tropp Webber XTrace arxiv:2301.07825 Proposition 2 and 5",
+          "Epperly Tropp efficient error and variance estimation randomized matrix computations 2022"
+        ]
+      },
+      "checked_sources": [
+        "Epperly–Tropp–Webber 2023 complete ar5iv text",
+        "Epperly–Tropp 2022 precursor abstract/bibliography",
+        "Resultary query XNysTrace identity pair covariance and proxy",
+        "Assigned RESULT.md immutable blob 6854576bbb6ea750d394a2aa1e482541a64e6fdd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General posterior expression is known, but the candidate adds exact c_nu=1/(nu+3).",
+          "Variance proxy E J_n=3/(2n) while Var(T_n)->1/2; bounded fourth moment establishes nonvanishing absolute error probability."
+        ],
+        "reasoning": "A published formula parameterized by unknown covariance cannot supply explicit ratio (n+3)/(nu+2), or the explicit tail lower bound, without genuinely new moment evaluation.",
+        "searches": [
+          "XTrace Proposition 2 general pair correlation relation vs explicit Corr=1/(nu+3)",
+          "XTrace general variance bounds vs probability-level undercoverage at m=n"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General leave-one-out correlation identity holds for arbitrary inputs; candidate identifies the exact positive correlation 1/(n-m+4).",
+          "Shared-angle representation reduces covariance to chi-square radial and beta angular moments."
+        ],
+        "reasoning": "Equivalent formulation as Gaussian regression residual covariance was considered; standard beta identities alone do not state complete estimator/diagnostic ratio.",
+        "searches": [
+          "XNysTrace pairwise correlation identity matrix Gaussian leave one out",
+          "variance of Gaussian leave-one-out residuals shared angle Beta distribution",
+          "squared posterior error diagnostic Wishart identity covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary matches concerned other Gaussian covariance problems, not XNysTrace residual identity covariance.",
+          "The result is an all-(n,m) exact law, not a table of finite sketch sizes."
+        ],
+        "reasoning": "No exact same-object database record found. Failed search is not proof of originality; explicit theorem comparisons support the best-of-knowledge assessment.",
+        "searches": [
+          "Resultary query XNysTrace identity covariance diagnostic 1/(n-m+4)",
+          "trace estimation leave-one-out covariance exact identity Gaussian table"
+        ]
+      },
+      "rationale": "Published XTrace/XNysTrace describes the leave-one-out estimator and general covariance-diagnostic identity, but the candidate computes exact identity-Gaussian pairwise correlation and a sharp absolute-error diagnostic failure at full sketch rank, plus one-extra-probe exactness. Best-of-knowledge original specialization; narrow domain explicitly respected.",
+      "residual_risks": [
+        "A specialized Gaussian regression geometry formula in older literature might already yield the same covariance.",
+        "No critique of recommended normalized XNysTrace, floating-point implementation, fixed-relative-error estimates or adaptive stopping is supported."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRECURSOR; general correlation identity and normalized variant, no identified exact identity-matrix pair covariance",
+          "evidence": "Proposition 2 uses pairwise correlation as input; Section 2.3 describes normalization of residual probes.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.07825",
+          "material_read": "Complete publicly accessible ar5iv full text; inspected Eq. (8), Eq. (9), Algorithm 3, Proposition 2, Section 2.3 and comparison bounds",
+          "method": "Open-access full ar5iv text reading",
+          "title": "XTrace: Making the most of every sample in stochastic trace estimation",
+          "trigger": "Original XNysTrace algorithm and potential decisive exact covariance results"
+        },
+        {
+          "assessment": "RELATED; insufficient to certify whole-document noncoverage",
+          "evidence": "Earlier generic variance/error framework, exact tested identity law not established from the inspected abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.06342",
+          "material_read": "Accessible abstract and bibliographic context; exact relevant sections not materially inspected this run",
+          "method": "Open abstract and source-bibliography comparison",
+          "title": "Efficient error and variance estimation for randomized matrix computations",
+          "trigger": "Precursor leave-one-out randomized matrix error estimation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Source original XNysTrace estimator and diagnostic definitions",
+        "Independent exact beta and exchangeability calculation and probability bound"
+      ],
+      "rationale": "The exact covariance and squared-error diagnostic mismatch provide a meaningful estimator-calibration boundary: the reported mean-square error proxy can vanish while the true absolute estimator error does not concentrate, even on the identity matrix. An additional sketch restores exactness, pinpointing a natural dimension/rank transition for an established method.",
+      "residual_risks": [
+        "The demonstrated failure is unnormalized and absolute, so practical normalized relative-error performance is not implicated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only identity matrix, exact unnormalized real Gaussian variant and absolute error; normalized recommended variant can remove this effect.",
+    "Finite Monte Carlo not a proof of the tail lower bound.",
+    "A specialized Gaussian regression geometry formula in older literature might already yield the same covariance.",
+    "No critique of recommended normalized XNysTrace, floating-point implementation, fixed-relative-error estimates or adaptive stopping is supported.",
+    "The demonstrated failure is unnormalized and absolute, so practical normalized relative-error performance is not implicated."
+  ],
+  "schema_version": 1
+}
