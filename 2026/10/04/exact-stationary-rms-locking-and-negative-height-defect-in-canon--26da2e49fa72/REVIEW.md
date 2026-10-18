@@ -1,12 +1,21 @@
-# Review of Exact stationary RMS locking and negative-height defect in canonical Sprott B
+# Independent mathematical audit
 
-## Correctness
-PASS. For a compactly supported invariant probability measure, \(\int LF\,d\mu=0\) is valid for the three polynomial test functions used. Direct differentiation gives \(Lz=1-xy\), \(L(y^2/2)=xy-y^2\), and \(L(xy)=x^2-xy+y^2z\). These identities imply the claimed moments and the nonpositive defect exactly. Equality forces \(x=y\) on the invariant support; compactness excludes the unbounded line through \(x=y=0\), and invariance then forces \(z=0\) and \(x^2=1\), leaving only the two equilibria.
+## correctness
 
-## Originality
-PASS. The canonical equations were checked against Sprott's original 1994 source. A full-text inspection of Mota–Oliveira's Sprott BC study found its main results to concern singularities, Hopf bifurcation, Poincaré compactification, and algebraic/Darboux integrability; text searches found no invariant-measure, average, mean-square, or periodic-orbit statement matching the claim. Exact semantic searches of published findings returned only analogous balance laws for different systems, not Sprott B. The 2015 generalized-Sprott-B delayed-feedback paper remains a residual risk because only its abstract was accessible, but its stated scope is delayed control and local Hopf bifurcation rather than unforced stationary moment identities.
+PASS
 
-## Value
-PASS. Sprott B is a standard minimal chaotic benchmark, yet the theorem supplies a global, parameter-free constraint on every compact invariant statistical state: the \(y\)-RMS is locked exactly to the equilibrium amplitude. The rigidity and sign defect turn that identity into geometric recurrence information: every non-equilibrium invariant regime must straddle \(|y|=1\) and place positive mass at \(z<0\). This applies uniformly to periodic orbits and compact chaotic invariant measures and is not a numerical property of one simulated attractor.
+For xdot=yz, ydot=x-y, zdot=1-xy and compact invariant μ, invariant integration of three explicitly differentiated polynomials yields E[xy]=1 from F=z, E[y²]=1 from F=y²/2, and E[y²z]=E[xy]-E[x²]=-E[(x-y)²] from F=xy. Equality makes x=y throughout the invariant support; then y z=0. A support orbit with x=y=0 has zdot=1 and cannot remain compact, hence z=0 and preservation forces x²=1. Thus equality exactly the two equilibrium mixtures. If |y| were one-sided relative to 1, E[y²]=1 would force |y|=1 a.s., hence equilibrium support; non-equilibrium supports both amplitude regimes and negative z. This is an all-measures argument, not a numerical trajectory.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+1994 Sprott introduction and Mota-Oliveira 2021 study the same vector field and local/global bifurcation and Darboux algebraic structure, but the accessible primary article abstract and identified result topics do not entail the three compact-measure moments; its inaccessible full text is a residual risk. A best-of-knowledge novelty conclusion is limited to the complete final theorem, not prior equations/local lemmas/classical parameters. Targeted original searches were undertaken but Resultary returned temporarily_unavailable/search_completed:false, not zero matches; full-text access gaps are candid risks.
+
+## value
+
+PASS
+
+Exact global invariant-measure RMS locking and a strict signed height defect constrain every compact recurrent state of a canonical chaotic flow, ruling out two natural amplitude/height confinement patterns without requiring existence or numerical integration; the equilibrium equality classification is structurally necessary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
