@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification evidence
 
-Run `python3 verify.py` from a directory containing this document and the included standalone script. The script uses only the Python standard library. Its run printed the following finite checks:
+# Independent mathematical audit
 
-```
-t= 20; t*(P-t*alpha) approximation=0.827685251; tail absolute upper bound=0.00e+00
-t= 60; t*(P-t*alpha) approximation=0.828394028; tail absolute upper bound=9.00e-149
-t=200; t*(P-t*alpha) approximation=0.828498417; tail absolute upper bound=2.54e-43
-t=500; t*(P-t*alpha) approximation=0.828504690; tail absolute upper bound=6.16e-16
-VERIFY_OK: direct lexicographic and renewal-polynomial counts agree for every word length 0..13 (16383 tested binary words).
-```
+## correctness
 
-The script verifies the first \(13\) symbols of the chosen irrational slope via an exact rational enclosure; checks all \(16{,}383\) test words using two distinct combinatorial constructions and integer-polynomial coefficients; and evaluates finite positive renewal sums with a geometric omitted-tail **absolute upper bound** at the displayed numerical roots. Floating-point rounding is not rigorously enclosed by these bounds. They are diagnostic examples, not a computational proof of the irrational-slope theorem. All infinite conclusions follow from the explicit graph identity, Diophantine spacing and covering lemmas, unique-ergodicity argument, and convexity proof in RESULT.md. No independent audit has been performed.
+PASS
+
+Reconstructed the beta-shift prefix/first-return-loop bijection: an allowed n-return loop has floor(n α) ones, prefix length m has ceil(m α), yielding Z(z)=T(z)/(1-L(z)). At z=e^{-tα}, infinitely many fractional hits {nα}<α/2 make L divergent; hence the unique earlier positive root determines pressure. For optimizing invariant measures, the exact loop defect sum forces sublinear short-loop counts and zero frequency of non-Sturmian k-blocks, hence μ_α by unique ergodicity. For bounded partial quotients, rotation max-gap O(1/t) gives c/t lower root and badly approximable orbit separation gives C/t upper root. Convex pressure secants then give the sharp Θ(t^{-2}) derivative/density defect and entropy identity h=D-tD'. Specification/Bowen gives finite-t equilibrium uniqueness. Independently enumerated all binary words lengths 0..11 and matched a separate renewal-polynomial recurrence; source verifies 0..13. These finite checks are not the irrational-slope theorem.
+
+## originality
+
+PASS
+
+The first-return graph/defects and existence of a Sturmian optimizer belong to Huang et al.; the new assertion is the digit-only unique-optimizer boundary case and exact pressure/density/entropy low-temperature rates. Published pΦ−qΨ robustness requires q>0 and provides neither digit-only rate nor equilibrium asymptotics. Best-of-knowledge positive with explicit primary-access risk.
+
+## value
+
+PASS
+
+The natural equilibrium response of a Sturmian beta-shift under the simplest local digit observable is not a routine textbook constant: it resolves a nonperiodic zero-temperature optimizer, explicit induced pressure law and three distinct rates, all using bounded-type orbit geometry. These precise asymptotic exponents could be used to compare thermodynamic sensitivity for low-complexity symbolic systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

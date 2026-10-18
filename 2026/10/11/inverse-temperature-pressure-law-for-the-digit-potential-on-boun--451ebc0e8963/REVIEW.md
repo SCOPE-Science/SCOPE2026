@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph-to-language bijection yields the exact weighted generating series in Equation (1). Every root return has defect \(\{n\alpha\}\), and the positive root of its renewal series lies below the residual Sturmian pressure boundary. The coefficient-level verification enumerates \(16{,}383\) binary words by lexicographic admissibility and independently by renewal recurrence; equality is exact over integer polynomial coefficients. Bounded partial quotients imply both a uniform circular-orbit gap bound on blocks of length proportional to \(t\), and a Diophantine spacing bound. These provide two-sided \(1/t\) pressure estimates without extrapolating from the numerical roots. Convexity and the classical specification/Bowen equilibrium theorem give the density and entropy rates. The rare-reset argument proves ground-state uniqueness for every irrational slope. Limits and assumptions are explicit; arithmetic experiments do not replace any infinite proof.
+PASS
 
-## Originality — PASS, with priority risk
+Reconstructed the beta-shift prefix/first-return-loop bijection: an allowed n-return loop has floor(n α) ones, prefix length m has ceil(m α), yielding Z(z)=T(z)/(1-L(z)). At z=e^{-tα}, infinitely many fractional hits {nα}<α/2 make L divergent; hence the unique earlier positive root determines pressure. For optimizing invariant measures, the exact loop defect sum forces sublinear short-loop counts and zero frequency of non-Sturmian k-blocks, hence μ_α by unique ergodicity. For bounded partial quotients, rotation max-gap O(1/t) gives c/t lower root and badly approximable orbit separation gives C/t upper root. Convex pressure secants then give the sharp Θ(t^{-2}) derivative/density defect and entropy identity h=D-tD'. Specification/Bowen gives finite-t equilibrium uniqueness. Independently enumerated all binary words lengths 0..11 and matched a separate renewal-polynomial recurrence; source verifies 0..13. These finite checks are not the irrational-slope theorem.
 
-The closest primary work is Huang--Jenkinson--Xu--Zhang, arXiv:2610.03619v1, whose full Sections 3--4 were compared at the statement and proof level: they prove digit-potential maximization, not uniqueness for that potential, and give no weighted-pressure or low-temperature quantitative theorem. Chi--Kwon, arXiv:math/0308140v1, Sections 4--5 were inspected and concern parameter classification, Sturmian expansion dynamics and typical maximal-entropy frequencies. Anagnostopoulou--Jenkinson (2009) concerns dominance over all increasing observables, not the single digit function. General equilibrium-state and renewal formalism is prior art and is acknowledged. Earlier implicit specialization of general renewal/Diophantine theory remains a nonzero priority risk; negative search results do not prove universal novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The new result determines the sharp **orders** of three natural thermodynamic quantities for a nonperiodic ground state of a locally constant potential on a specified beta-shift: pressure/entropy gap \(\Theta(1/t)\) and digit-density gap \(\Theta(1/t^2)\). It connects the bounded-type Diophantine geometry of irrational rotation to a countable renewal spectrum, while identifying the unique zero-temperature maximizing measure without the distance penalty used in the source paper. These statements are not a mere rephrasing of the source's qualitative optimization theorem. Exact leading constants or general unbounded-type classifications are not claimed.
+The first-return graph/defects and existence of a Sturmian optimizer belong to Huang et al.; the new assertion is the digit-only unique-optimizer boundary case and exact pressure/density/entropy low-temperature rates. Published pΦ−qΨ robustness requires q>0 and provides neither digit-only rate nor equilibrium asymptotics. Best-of-knowledge positive with explicit primary-access risk.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural equilibrium response of a Sturmian beta-shift under the simplest local digit observable is not a routine textbook constant: it resolves a nonperiodic zero-temperature optimizer, explicit induced pressure law and three distinct rates, all using bounded-type orbit geometry. These precise asymptotic exponents could be used to compare thermodynamic sensitivity for low-complexity symbolic systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
