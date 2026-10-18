@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reconstructs the degree layer from exact-order central characters, then evaluates its central convolution kernel as a Ramanujan sum. The endpoint norms are total variations of that kernel. The prime-power Ramanujan formula and Chinese-remainder multiplicativity give the exact closed form, and the complementary norm follows from the identity coefficient. Exact rational verification checks all divisors for every \(2\le n\le120\), including idempotence, pairwise orthogonality, the identity resolution, rank, both endpoint formulas, and the power-of-two criterion. Finite verification is corroborative only.
+## correctness
 
-## Originality
-**PASS.** Grassberger–Hörmann and Bump–Diaconis–Hicks–Miclo–Widom provide the finite-Heisenberg representation-degree classification, while Vaidyanathan develops cyclic Ramanujan subspaces. The inspected sources do not state that the nonabelian exact-degree isotypic projections are precisely central Ramanujan projectors, nor the resulting all-divisor endpoint and complementary norms. Greenleaf's theorem is broader only for the qualitative structure of norm-one idempotent measures; that generic fact is not claimed as new. Semantic-index and literature searches under equivalent degree-layer, central-character, Ramanujan-kernel, and contractivity formulations found no covering statement.
+PASS
 
-Residual risk remains that the cyclic absolute-sum identity or the power-of-two norm-one criterion appears in older arithmetic or signal-processing literature, and the 2014 Ramanujan-subspace full text was not inspected. This does not erase the separate nonabelian representation-degree identification, but it limits any claim that the cyclic norm identity itself is new.
+For the finite Heisenberg group over Z/n the exact-order-m central characters are precisely those borne by irreducibles of degree m; the Bump–Diaconis–Hicks–Miclo–Widom construction has (n/m)^2 φ(m) such irreps. Averaging their central spectral idempotents gives kernel c_m(t)/n with correct inverse translation. Their direct-sum eigenspaces have dimension n²φ(m), and distinct m are disjoint with total identity. Endpoint ℓ¹ and ℓ∞ norms are exactly total variation of the central kernel; 1/m Σ|c_m| factors over prime powers, yielding 2^ω(m)φ(m)/m. Subtracting its coefficient at identity gives complement 1+norm−2φ(m)/n. The product ∏_{p|m}2(1−1/p) equals one precisely when all prime divisors equal two, including m=1. Independently checked exact rational kernels and complement for all 2≤n≤36; supplied verify.py extends to 120, but the universal proof is from Fourier decomposition and CRT, not finite enumeration.
 
-## Value
-**PASS.** The theorem computes a canonical family of noncommutative Fourier-projection Lebesgue constants for every divisor degree and every finite Heisenberg group. The exact reduction to a Ramanujan projector and the sharp contractivity criterion \(\\(m=2^a\\)\) expose a structural bridge between representation degree and arithmetic prime support. It is a complete natural classification, not a finite census or routine parameter substitution.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Grassberger–Hörmann and Bump et al. classify irreducibles by degree and central character but do not evaluate the ℓ¹/∞ operator norm of all equal-degree regular-representation blocks. Cyclic Ramanujan subspaces and prime-power sums are standard; the additional noncommutative degree-stratum identification with sharp endpoint constants, complementary constants and precise odd-prime obstruction is not stated in the materially inspected primary sources. The arithmetic factors themselves are not claimed as new.
+
+## value
+
+PASS
+
+Representation-degree blocks are canonical strata of the nonabelian regular representation. Their exact ℓ¹/∞ projection and complementary norms measure the sharp cost of isolating an irreducible degree layer; the arithmetic threshold at powers of two gives a meaningful qualitative classification of contractive layers. The object and invariant are mathematically natural, not arbitrary parameter slices, and quantitative norms are not supplied merely by the known representation count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
