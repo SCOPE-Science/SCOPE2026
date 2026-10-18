@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational and mathematical verification
+# Independent mathematical audit
 
-The mathematical proof is an explicit normalization and two-way construction of free-semigroup factorisations; no finite computation is used to infer the infinite theorem. The normalization handles the intermediate-letter swap when a factor sends \(b\) to \(a\), so an enumeration restricted to normalized factors is complete for the finite tests.
+## correctness
 
-Run `python3 verify.py` in a directory containing that standalone file. It enumerates all normalized non-automorphism pairs \((u,v)\) that can produce an output word of length at most nine; it does not use the divisor condition to generate witnesses. For every tested word containing \(a\), existence of such a pair agrees with the criterion. The tests cover 1,013 words over lengths 1–9; the per-length reducible counts are respectively 0, 0, 5, 12, 24, 50, 100, 201, and 398. It also checks the \(m=4\) count for \(0\leq\beta\leq9\), prime-\(m\) counting for \(m=2,3,5,7\) and \(0\leq\beta\leq6\), and irreducibility of \(aba^{m-1}\) for \(2\leq m\leq20\). The final line is `VERIFY_OK`.
+PASS
 
-Limits: the finite tests are exhaustive only for the stated word-length bound and tested families, not for all words. The proof establishes the general claim. A separate, independent audit has not been performed.
+Any factorization psi2 o psi1 with composite phi(b)=b and nonempty images forces psi1(b) to be one letter; a possible intermediate swap normalizes both factors to fix b. Their images of a contain a, so their a-counts multiply m=cd. For boundary-free w, nonunit factors force c,d>=2; exact substitution v[u] reproduces precisely the same c-1 internal gaps in every c-a block, with between-block gaps free. The converse constructs both nonunit factors. Endpoint padding yields the separate reducible case and for m=1 two nonunits require two b symbols. The m=4 count and fixed-composite-m asymptotic follow from integer-composition generating functions. Independently brute-enumerated all normalized nonunit factor pairs for 502 words of lengths 1..8 and matched the criterion; finite verification corroborates but cannot prove the universal iff.
+
+## originality
+
+PASS
+
+The closest Bell--Foster--Reidenbach arXiv full HTML explicitly has general factor-basis criterion Theorem 1 but Proposition 18(ii) asserts every upper-triangular incidence matrix with beta=1, alpha>=2 gives reducible morphism. Word aba fixing b has two a symbols with no nontrivial multiplicative split and is irreducible, whereas aab with same incidence matrix has boundary b and factors. The source theorem does not give the all-word periodic gap iff and its stated matrix implication is actually false. Resultary returned synchronization/rank-compression records, not this composition criterion. Prior combinatorics-on-words literature under other factorization terminology remains an originality risk.
+
+## value
+
+PASS
+
+Provides an exact constructive decision law for a natural infinite family of binary endomorphisms and pinpoints a false matrix-only assertion in the paper motivating the question. Word-order sensitivity, prime-case counts and sparse reducibility among composite fixed-m boundary-free words are mathematically meaningful consequences, not a trivial new name or small brute-force slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every two-factor decomposition can be normalized to fix \(b\) in both factors: the length-one image of \(b\) enforces a letter image and an intermediate letter swap if needed. The number \(m\) of \(a\)'s is multiplicative under the normalized substitution. Nontrivial boundary-free factorizations require a proper divisor \(c\) and identical \(c-1\) internal gap blocks; conversely the block equalities construct a decomposition. Initial/final padding and the one-occurrence case close all remaining boundaries. A standalone checker independently enumerates all factor pairs for 1,013 short words and verifies the derived counts. The general proof does not rely on a finite cutoff.
+## correctness
 
-**Originality — PASS, with a stated residual risk.** The closest examined primary sources are Bell–Foster–Reidenbach, arXiv:2603.15177v3 (Theorem 1, Proposition 18 and its remark) and arXiv:2610.07122v1 (Proposition 18). The former provides abstract factor-basis decidability but explicitly does not classify all binary upper-triangular cases. Both sources assert exclusive reducibility when the incidence matrix has \(\beta=1\), \(\alpha\geq2\), \(\gamma=1\). The new elementary example \(\varphi(a)=aba\), \(\varphi(b)=b\) refutes that statement, since a normalized nontrivial factorization would split two copies of \(a\) into factors with at least two each. Focused semantic searches located no published periodic-gap theorem. An older theory using equivalent coding language could potentially cover the result; Honkala's upper-triangular commutativity paper was compared at abstract level only.
+PASS
 
-**Value — PASS.** The theorem fills a concrete mathematical gap identified in the closest source: a direct numerical and word-level classification within a natural fixed-letter family, with explicit constructive factors or irreducibility obstruction. An infinite family pinpoints an erroneous matrix-only boundary, while the exact prime-case and four-occurrence enumerations demonstrate new quantitative consequences and the fixed-\(m\) asymptotic is proved. This is more than a finite census or a restatement of a general decision procedure.
+Any factorization psi2 o psi1 with composite phi(b)=b and nonempty images forces psi1(b) to be one letter; a possible intermediate swap normalizes both factors to fix b. Their images of a contain a, so their a-counts multiply m=cd. For boundary-free w, nonunit factors force c,d>=2; exact substitution v[u] reproduces precisely the same c-1 internal gaps in every c-a block, with between-block gaps free. The converse constructs both nonunit factors. Endpoint padding yields the separate reducible case and for m=1 two nonunits require two b symbols. The m=4 count and fixed-composite-m asymptotic follow from integer-composition generating functions. Independently brute-enumerated all normalized nonunit factor pairs for 502 words of lengths 1..8 and matched the criterion; finite verification corroborates but cannot prove the universal iff.
 
-The scope is restricted to \(\varphi(b)=b\), with \(\varphi(a)\) containing \(a\); no assertion is made for every upper-triangular binary morphism or uniqueness of irreducible factorization. Computational tests are not independent theorem certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest Bell--Foster--Reidenbach arXiv full HTML explicitly has general factor-basis criterion Theorem 1 but Proposition 18(ii) asserts every upper-triangular incidence matrix with beta=1, alpha>=2 gives reducible morphism. Word aba fixing b has two a symbols with no nontrivial multiplicative split and is irreducible, whereas aab with same incidence matrix has boundary b and factors. The source theorem does not give the all-word periodic gap iff and its stated matrix implication is actually false. Resultary returned synchronization/rank-compression records, not this composition criterion. Prior combinatorics-on-words literature under other factorization terminology remains an originality risk.
+
+## value
+
+PASS
+
+Provides an exact constructive decision law for a natural infinite family of binary endomorphisms and pinpoints a false matrix-only assertion in the paper motivating the question. Word-order sensitivity, prime-case counts and sparse reducibility among composite fixed-m boundary-free words are mathematically meaningful consequences, not a trivial new name or small brute-force slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
