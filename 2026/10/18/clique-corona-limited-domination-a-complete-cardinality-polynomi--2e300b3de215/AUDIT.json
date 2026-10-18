@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For each core vertex selected/omitted, proof checks domination and outside-neighbor capacity exactly and establishes iff occupancy inequalities. Every selected-core set is unique; binomial choices determine complete polynomial. Each cluster contributes at least max(1,s+1-k) vertices and explicit constructions attain that. Equality enforces boundary-zero selected cores for \\(k\\le s\\) and boundary at most k-s for \\(k>s\\), yielding the two exact optimizer counts. The standalone direct adjacency/bitmask enumeration independently checked 857 parameter cases, 75 labeled core graphs and 1,877,184 vertex subsets. Finite testing supports but does not prove the unbounded theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2606.22422v1 Proposition 1 and Theorem 3 give numerical bounds/special graph values, not the complete arbitrary-core clique-corona solution enumerator.",
+        "arXiv:2606.22422v1 Corollary 12 treats ordinary leaf-coronas in the \\(k=1\\) packing extremum."
+      ],
+      "reasoning": "General lower/upper bounds and exact leaf-corona domination numbers are strictly weaker than an all-set generating polynomial for H corona \\(K_s\\) with \\(s\\ge2\\). The numerical minimum formula is not being claimed as an implication-free novelty without the structural refinement.",
+      "searches": [
+        "\"k-limited domination\" \"corona\" \"polynomial\"",
+        "\"k-limited domination\" \"corona\" \"complete\" clique",
+        "On k-limited domination in graphs Bozovic Radic private clique corona induced degree cut characterization"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.22422",
+      "https://link.springer.com/article/10.1007/s40314-026-03902-2",
+      "https://arxiv.org/abs/2606.22428",
+      "https://www.researchgate.net/publication/407508234_On_k-limited_domination_complexity_and_Cartesian_products"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.22422v1 §5 Corollary 12: for connected even-order graphs, a packing/1-limited extremal condition characterizes leaf-coronas, without enumerating all labeled solutions.",
+        "arXiv:2606.22428v1 Lemma 10 and Proposition 11: a number for H corona an independent set of pendant leaves and Cartesian products, without clique gadgets."
+      ],
+      "reasoning": "Proposition 1 of 2606.22422 gives the complete-graph case, which covers a singleton core but cannot imply the subset-sum and component/cut phase transition for arbitrary H; Corollary 12 concerns private \\(K_1\\), a boundary outside main scope \\(s\\ge2\\). Tepeh’s Lemma 10 is not the same graph when \\(s\\ge2\\). The optimizer formulas refine both kinds of prior work rather than duplicating their numerical results.",
+      "searches": [
+        "On k-limited domination in graphs arXiv 2606.22422 Corollary 12 corona",
+        "On k-limited domination: complexity and Cartesian products arXiv 2606.22428 Lemma 10 k-coronas",
+        "all k-limited dominating sets of H corona \\(K_s\\) clique, generating function in terms of core boundary degrees binomial distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.22422v1 §1 defines k-limited dominating sets by an upper bound on outside-neighbors of selected vertices.",
+        "arXiv:2606.22428v1 §4.2 uses independent private leaves, not private cliques."
+      ],
+      "reasoning": "A capacity-bounded dominating set is also the (1,degree-minus-k) formulation on regular graphs; clique coronas generally are not regular. Search for the original definition, corona synonyms, and bounded outside neighborhoods did not identify an equivalent general optimizer/polynomial theorem.",
+      "searches": [
+        "\"k-limited\" \"clique corona\" domination",
+        "\"k-limited domination\" \"corona graph\" gamma",
+        "\"limited domination\" \"clique corona\" enumeration",
+        "bounded outside neighborhood domination all dominating subsets clique corona private complete graphs, polynomial count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results closest to the query concerned limited packings of complete multipartite graphs and other different domination parameters; no exact clique-corona coefficient table or cardinality polynomial was located.",
+        "arXiv:2606.22428v1 §4.2 is explicitly about k-coronas consisting of pendant leaves and their Cartesian products."
+      ],
+      "reasoning": "No identified exact database, coefficient table, enumeration or published solution class gives the claimed arbitrary-core parameterized formula. Lack of a search hit alone is not proof of uniqueness.",
+      "searches": [
+        "\"k-limited\" \"G o K\" graph",
+        "minimum k-limited dominating sets clique corona graph H ⊙ \\(K_s\\) optimizer count product connected components"
+      ]
+    },
+    "rationale": "The 2026 introduction of k-limited domination establishes general bounds, values on complete graphs, and leaf-corona consequences for \\(k=1\\), not a complete count of all sets for clique-corona attachments of size at least two. The independent-leaf corona product in the 2026 Cartesian-product study has different gadget edges; its minimum result cannot imply the current clique-corona all-set polynomial or component/cut optimizer enumeration. Web literature and mathematical-record queries for aliases and dominating formulations found no covering statement; unindexed work remains a residual risk.",
+    "residual_risks": [
+      "Unindexed or historical work on capacity domination of clique coronas could include an equivalent subset-sum theorem.",
+      "Search coverage does not certify global novelty.",
+      "No independent external scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected results cover numerical bounds/basic families and ordinary leaf-corona extremal conditions; no clique-corona all-set polynomial or arbitrary-core optimizer cut formula was identified.",
+        "evidence": [
+          "Proposition 1(iii) supplies only complete graph minimum values.",
+          "Corollary 12 characterizes H corona \\(K_1\\), not H corona \\(K_s\\) for \\(s\\ge2\\)."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40314-026-03902-2",
+        "material_read": "Introduction and definitions; Proposition 1; general bound Theorems 3 and 4; full surrounding discussion of Section 5 Corollary 12 on leaf coronas",
+        "method": "Full open-access HTML article with mathematical theorem text and proofs",
+        "title": "On k-limited domination in graphs",
+        "trigger": "Primary 2026 introduction of the parameter and potentially covering general bounds or corona characterization"
+      },
+      {
+        "assessment": "The k-corona in Section 4.2 is a core with k independent pendant leaves, not a private k-clique; the lemma determines a minimum value and the proposition Cartesian products, neither the full polynomial nor the optimizer classification for clique coronas.",
+        "evidence": [
+          "Section 4.2 says the private vertices are leaves.",
+          "Lemma 10 determines only the number, Proposition 11 concerns a Cartesian product."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.22428",
+        "material_read": "Abstract and introduction; complete available Section 4.2 including Lemma 10 and Proposition 11 and their proofs; adjacent Section 4 context",
+        "method": "Accessible full preprint transcription (2026 v1), direct mathematical statement and proof comparison",
+        "title": "On k-limited domination: complexity and Cartesian products",
+        "trigger": "Primary 2026 study explicitly mentioning k-coronas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2e300b3d-e215-4f64-82e9-31ed1bae413e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives the complete size distribution of all k-limited dominating sets, not just the minimum, for the entire arbitrary-core private-clique-corona family. The optimizer classification exhibits a sharp, mathematically natural threshold: componentwise multiplicative rigidity for \\(k\\le s\\) versus bounded outward-core-boundary configurations for \\(k>s\\), with exact counts and a full high-capacity limit. It reduces a \\(2^{n(s+1)}\\)-configuration enumeration to a \\(2^n\\) core-subset expression with polynomial arithmetic in the gadget size; this is a motivated counting and structural refinement of a recently introduced parameter, although exponential dependence on unrestricted core order remains.",
+    "status": "PASS"
+  }
+}
