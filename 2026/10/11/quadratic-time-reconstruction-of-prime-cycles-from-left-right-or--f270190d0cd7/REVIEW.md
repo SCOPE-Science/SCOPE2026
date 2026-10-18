@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit cyclic-shift identity follows directly from the phase labelling of a single orbit. A nonempty proper subset of the prime cyclic group cannot be invariant under a nonidentity translation, proving the uniqueness used at each induction step. The prefix-function algorithm processes each pair of length-\(p\) words in linear time, yielding \(O(p^2)\) reconstruction and \(O(p)\) auxiliary storage. Every prime cycle was checked up to \(p=7\), with randomized larger tests. The infinite statement is proved analytically, not inferred from the tests.
+## correctness
 
-## Originality — PASS (residual risk)
-The full relevant Section 2 of Fuhrmann--Gröger--Passeggi (arXiv:2610.07435v1), including Lemma 2.1, proof, and Remark 2.4, states cubic reconstruction complexity; it does not present this cyclic-shift matching algorithm. Knuth--Morris--Pratt supplies linear-time matching only, not the representation of ordered orbit signatures as translates. Searches across mathematical records and the cited primary literature found no equivalent quadratic algorithm. A previously unindexed optimization of the original proof cannot be ruled out.
+PASS
 
-## Value — PASS
-Reconstructing the orbit permutation is the algorithmic core of a new interval-map periodic-spectrum rigidity argument. Replacing cubic by quadratic work for an explicit quadratic-sized signature input is a substantive asymptotic improvement with an exact reproducible algorithm; this is not a new interval-map rigidity theorem or a lower bound for partial-query settings.
+For a guaranteed p-cycle with p prime and fully known p×p binary signature b_i(t)=1_{f^t(x_i)<=x_i}, label the phase a_j by f^{a_j}(x_1)=x_j. The time-zero-cleared row of x_{i+1} equals A_i(t+a_{i+1}), where A_i is the length-p indicator of the already known phase set S_i. A nonempty proper subset of additive Z/p has no nonzero translational stabilizer. Thus one cyclic rotation is unique and linear-time KMP matching in the doubled word recovers each of p-1 phases in O(p) steps and O(p) auxiliary storage. The reconstructed permutation maps phase a_i to a_i+1. Independently exhaustive enumeration checks all 1, 2, 24, 720 p-cycles for p=2,3,5,7, with an independent rotation matcher; tests corroborate and group-action proof covers all primes. Complexity applies to explicit full signatures, not unknown-signature or bit-precise input lower bounds.
 
-## Closest literature and boundaries
-Fuhrmann--Gröger--Passeggi, Remark 2.4, gives \(O(p^3)\) reconstruction and proves uniqueness. The present result concerns only the table-to-permutation step. Classic linear-time pattern matching is a generic subroutine. Earlier or unpublished algorithmic improvements remain possible.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Fuhrmann–Gröger–Passeggi arXiv:2610.07435v1 proves uniqueness (Lemma 2.1), and the cited Remark 2.4 states O(p^3) reconstruction. A cyclically translated known-prefix phase-set indicator combined with KMP gives a distinct O(p^2) algorithm; the generic 1977 KMP theorem alone does not give this representation. Resultary finds the assigned result, not a separate identical quadratic algorithm. Primary full preprint was not freshly accessible; claim of noncoverage remains bounded to the identified Lemma/Remark rather than its unread entirety.
+
+## value
+
+PASS
+
+An explicit O(p^2) reconstruction algorithm is linear in the p²-bit signature-table input size and improves the cubic inverse procedure underlying periodic-orbit-order rigidity. The gain is algorithmically motivated, exact, and works for all prime lengths rather than a small finite enumeration. It does not claim a new theorem about obtaining the signatures from unordered interval orbits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:15:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a guaranteed p-cycle with p prime and fully known p×p binary signature b_i(t)=1_{f^t(x_i)<=x_i}, label the phase a_j by f^{a_j}(x_1)=x_j. The time-zero-cleared row of x_{i+1} equals A_i(t+a_{i+1}), where A_i is the length-p indicator of the already known phase set S_i. A nonempty proper subset of additive Z/p has no nonzero translational stabilizer. Thus one cyclic rotation is unique and linear-time KMP matching in the doubled word recovers each of p-1 phases in O(p) steps and O(p) auxiliary storage. The reconstructed permutation maps phase a_i to a_i+1. Independently exhaustive enumeration checks all 1, 2, 24, 720 p-cycles for p=2,3,5,7, with an independent rotation matcher; tests corroborate and group-action proof covers all primes. Complexity applies to explicit full signatures, not unknown-signature or bit-precise input lower bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original Lemma 2.1 provides uniqueness and Remark 2.4 describes a slower O(p^3) procedure; these results alone do not supply the specified quadratic-time data-structure bound. The KMP theorem gives matching in linear time but does not identify the rotations from order signatures. A direct overlooked improvement of the original proof remains possible.",
+          "Independent reconstruction verified all p-cycles at p≤7; string-matching subroutine is standard KMP."
+        ],
+        "reasoning": "Original Lemma 2.1 provides uniqueness and Remark 2.4 describes a slower O(p^3) procedure; these results alone do not supply the specified quadratic-time data-structure bound. The KMP theorem gives matching in linear time but does not identify the rotations from order signatures. A direct overlooked improvement of the original proof remains possible.",
+        "searches": [
+          "prime periodic orbit left right itineraries reconstruction cyclic shifts quadratic time permutation",
+          "Fuhrmann Gröger Passeggi Period spectrum and rigidity of interval maps arXiv:2610.07435 Lemma 2.1 Remark 2.4",
+          "Knuth Morris Pratt Fast Pattern Matching in Strings doi:10.1137/0206024",
+          "Resultary: left right prime periodic orbit binary signature cyclic shift reconstruction"
+        ]
+      },
+      "checked_sources": [
+        "prime periodic orbit left right itineraries reconstruction cyclic shifts quadratic time permutation",
+        "Fuhrmann Gröger Passeggi Period spectrum and rigidity of interval maps arXiv:2610.07435 Lemma 2.1 Remark 2.4",
+        "Knuth Morris Pratt Fast Pattern Matching in Strings doi:10.1137/0206024",
+        "Resultary: left right prime periodic orbit binary signature cyclic shift reconstruction",
+        "arXiv:2610.07435v1",
+        "doi:10.1137/0206024; SIAM J. Comput. 6 (1977) 323–350"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniqueness under prime cyclic translation is a simple group-action fact, but a cubic constructive proof does not logically imply a quadratic runtime bound. The new observation row_(i+1)_cleared(t)=1_{t+a_(i+1)∈S_i} and its linear string matching supplies the missing improvement.",
+          "Frozen RESULT.md supplies exact phase-set induction, uniqueness for prime p and O(p) KMP each of p-1 rows.",
+          "Fuhrmann–Gröger–Passeggi primary arXiv:2610.07435v1 is cited specifically for unique determination and their O(p³) Remark 2.4."
+        ],
+        "reasoning": "Uniqueness under prime cyclic translation is a simple group-action fact, but a cubic constructive proof does not logically imply a quadratic runtime bound. The new observation row_(i+1)_cleared(t)=1_{t+a_(i+1)∈S_i} and its linear string matching supplies the missing improvement.",
+        "searches": [
+          "prime periodic orbit left right itineraries reconstruction cyclic shifts quadratic time permutation",
+          "Fuhrmann Gröger Passeggi Period spectrum and rigidity of interval maps arXiv:2610.07435 Lemma 2.1 Remark 2.4",
+          "Knuth Morris Pratt Fast Pattern Matching in Strings doi:10.1137/0206024",
+          "Resultary: left right prime periodic orbit binary signature cyclic shift reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "cyclic-shift reconstruction of orbit words; inverse ordered-orbit itineraries; row-order reconstruction; prime-cycle position phases; circular pattern matching.",
+          "Frozen RESULT.md supplies exact phase-set induction, uniqueness for prime p and O(p) KMP each of p-1 rows.",
+          "Fuhrmann–Gröger–Passeggi primary arXiv:2610.07435v1 is cited specifically for unique determination and their O(p³) Remark 2.4."
+        ],
+        "reasoning": "Fuhrmann–Gröger–Passeggi arXiv:2610.07435v1 proves uniqueness (Lemma 2.1), and the cited Remark 2.4 states O(p^3) reconstruction. A cyclically translated known-prefix phase-set indicator combined with KMP gives a distinct O(p^2) algorithm; the generic 1977 KMP theorem alone does not give this representation. Resultary finds the assigned result, not a separate identical quadratic algorithm. Primary full preprint was not freshly accessible; claim of noncoverage remains bounded to the identified Lemma/Remark rather than its unread entirety. Alias/synonym reduction: cyclic-shift reconstruction of orbit words; inverse ordered-orbit itineraries; row-order reconstruction; prime-cycle position phases; circular pattern matching.",
+        "searches": [
+          "prime periodic orbit left right itineraries reconstruction cyclic shifts quadratic time permutation",
+          "Fuhrmann Gröger Passeggi Period spectrum and rigidity of interval maps arXiv:2610.07435 Lemma 2.1 Remark 2.4",
+          "Knuth Morris Pratt Fast Pattern Matching in Strings doi:10.1137/0206024",
+          "Resultary: left right prime periodic orbit binary signature cyclic shift reconstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior numerical orbit tables/prime-length examples and the total p!/(p) number of cycles do not encode the full deterministic algorithm or O(p²) complexity. Search found no distinct precomputed phase lookup/table meeting all prime p and the full-signature model.",
+          "Frozen RESULT.md supplies exact phase-set induction, uniqueness for prime p and O(p) KMP each of p-1 rows."
+        ],
+        "reasoning": "Prior numerical orbit tables/prime-length examples and the total p!/(p) number of cycles do not encode the full deterministic algorithm or O(p²) complexity. Search found no distinct precomputed phase lookup/table meeting all prime p and the full-signature model.",
+        "searches": [
+          "prime periodic orbit left right itineraries reconstruction cyclic shifts quadratic time permutation",
+          "Fuhrmann Gröger Passeggi Period spectrum and rigidity of interval maps arXiv:2610.07435 Lemma 2.1 Remark 2.4",
+          "Knuth Morris Pratt Fast Pattern Matching in Strings doi:10.1137/0206024",
+          "Resultary: left right prime periodic orbit binary signature cyclic shift reconstruction"
+        ]
+      },
+      "rationale": "Fuhrmann–Gröger–Passeggi arXiv:2610.07435v1 proves uniqueness (Lemma 2.1), and the cited Remark 2.4 states O(p^3) reconstruction. A cyclically translated known-prefix phase-set indicator combined with KMP gives a distinct O(p^2) algorithm; the generic 1977 KMP theorem alone does not give this representation. Resultary finds the assigned result, not a separate identical quadratic algorithm. Primary full preprint was not freshly accessible; claim of noncoverage remains bounded to the identified Lemma/Remark rather than its unread entirety.",
+      "residual_risks": [
+        "Authoritative full Fuhrmann–Gröger–Passeggi preprint inaccessible: arXiv/OA routes failed and authorized Oxford retrieval returned vpn_disconnected; cannot independently rule out an unquoted optimized proof elsewhere in the paper.",
+        "Unindexed earlier cyclic-shift algorithm for orbit signatures may exist; complexity is in explicit-table word/index operations, not a bit complexity guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published source is credited for uniqueness and cubic reconstruction; full-source risk prevents claiming exhaustive noncoverage.",
+          "evidence": "Prior quoted bound O(p³); reviewed table-step method is p-1 O(p) cyclic searches.",
+          "identifier_or_url": "arXiv:2610.07435v1",
+          "material_read": "Accessible bibliographic and abstract information plus Lemma 2.1 and Remark 2.4 statements as represented in frozen RESULT.md; original Section 2/full primary text NOT freshly inspected.",
+          "method": "ArXiv/OA routes attempted; authorized institution returned vpn_disconnected; direct mathematical comparison of exact row representation.",
+          "title": "Period spectrum and rigidity of interval maps",
+          "trigger": "Identical left/right orbit signature inverse problem"
+        },
+        {
+          "assessment": "KMP itself is prior and not claimed new; reduction from ordered orbit signatures to cyclic word matching is target contribution.",
+          "evidence": "Each pattern length p searched in 2p-1 text positions in O(p).",
+          "identifier_or_url": "doi:10.1137/0206024; SIAM J. Comput. 6 (1977) 323–350",
+          "material_read": "Known linear prefix/KMP algorithm, with its concrete implementation inspected in frozen check_prime_cycles.py; original 1977 paper not freshly read.",
+          "method": "Proof-level check of linear prefix-function matching and shift uniqueness.",
+          "title": "Fast Pattern Matching in Strings",
+          "trigger": "Possible algorithmic prior cover through circular pattern matching"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit O(p^2) reconstruction algorithm is linear in the p²-bit signature-table input size and improves the cubic inverse procedure underlying periodic-orbit-order rigidity. The gain is algorithmically motivated, exact, and works for all prime lengths rather than a small finite enumeration. It does not claim a new theorem about obtaining the signatures from unordered interval orbits.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "prime periodic orbit left right itineraries reconstruction cyclic shifts quadratic time permutation",
+    "Fuhrmann Gröger Passeggi Period spectrum and rigidity of interval maps arXiv:2610.07435 Lemma 2.1 Remark 2.4",
+    "Knuth Morris Pratt Fast Pattern Matching in Strings doi:10.1137/0206024",
+    "Resultary: left right prime periodic orbit binary signature cyclic shift reconstruction",
+    "arXiv:2610.07435v1",
+    "doi:10.1137/0206024; SIAM J. Comput. 6 (1977) 323–350"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Authoritative full Fuhrmann–Gröger–Passeggi preprint inaccessible: arXiv/OA routes failed and authorized Oxford retrieval returned vpn_disconnected; cannot independently rule out an unquoted optimized proof elsewhere in the paper.",
+    "Unindexed earlier cyclic-shift algorithm for orbit signatures may exist; complexity is in explicit-table word/index operations, not a bit complexity guarantee."
+  ],
+  "residual_risks": [
+    "Authoritative full Fuhrmann–Gröger–Passeggi preprint inaccessible: arXiv/OA routes failed and authorized Oxford retrieval returned vpn_disconnected; cannot independently rule out an unquoted optimized proof elsewhere in the paper.",
+    "Unindexed earlier cyclic-shift algorithm for orbit signatures may exist; complexity is in explicit-table word/index operations, not a bit complexity guarantee."
+  ],
+  "schema_version": 1
+}
