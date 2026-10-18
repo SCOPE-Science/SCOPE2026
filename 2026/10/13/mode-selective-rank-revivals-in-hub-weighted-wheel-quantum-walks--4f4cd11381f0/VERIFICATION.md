@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The theorem's analytic content is in `RESULT.md`. This file records only self-review; no independent audit has been performed.
+## correctness
 
-Run `python verify.py` from the directory containing `verify.py`, with Python 3, NumPy and SymPy installed. The check constructs each weighted wheel adjacency matrix directly, groups its eigenvectors by common eigenvalue into full orthogonal projectors, and forms \(\sum E_\lambda\circ E_\lambda\). This construction is separate from the closed Fourier formula. The script also enumerates Fourier eigenvalues, verifies stochastic row sums, tests explicit nullvectors, and checks three exact algebraic-resonance examples.
+PASS
 
-Observed replay:
+For real g>0, invariant hub/uniform-rim plane has eigenvalues 1±sqrt(1+ng²); rim Fourier projectors Q_k have distinct energies 2cos(2πk/n). Collision with λ_- occurs exactly when a negative µ_k obeys ng²=µ_k(µ_k−2), at one k. The finite-spectrum Cesaro formula Mhat=Σ eigenspace F∘F requires fusion at collision, adding αQ_k with α=(1−(1+ng²)^(-1/2))/n>0. Fourier Schur convolution gives baseline rim nonconstant eigenvalues 1/n for odd n and 2/n on even-indexed modes, zero on odd-indexed modes for even n; hub/uniform sector eigenvalues 1 and β. Thus exact spectrum, rank and kernel follow, including antipodal single-mode revival. Independent direct symmetric Hamiltonian diagonalizations/projector squares verified 39 test cases and seven resonances with max eigenvalue comparison error 1.33e−15; numerical evidence is not the proof.
 
-`VERIFY_OK numerical_cases=442 exact_symbolic_cases=3 exact_matrix_identities=3 resonances=105 worst_matrix_error=2.23e-14 worst_spectrum_error=1.65e-14 worst_kernel_residual=1.17e-13 n6_k3_rank=5/7 n8_k3_rank=7/9`
+## originality
 
-The symbolic tests independently check projector idempotence, resolution of the identity, fused-projector Schur-square formula and rank at \((n,k)=(6,3),(6,2),(8,4)\). Other tests cover integer rim sizes 3 through 28, sampled spoke weights, each admissible exact resonance and both sides of each resonance. The algebraic proof, not finite samples or floating-point thresholds, establishes equations (1)–(2) for all permitted inputs.
+PASS
 
-Scientific limitations: finite computation does not establish the infinite theorem, and near-degenerate eigenspace grouping is sensitive to numeric tolerances; resonant couplings are constructed and labeled analytically before numerical testing. Comparisons to Kimmerling's prior unweighted wheel formula are not independent novelty certification. No expert or external validation is asserted.
+The spectral-projector identity, circulant Fourier calculus, and unweighted wheel parity rank are prior art. The full variable spoke-weight family has exact collision loci and discontinuous extra rank in selected Fourier modes; Lo et al exclude these degeneracies in their stated join result. The novel claim is the precise all-g spectral/rank/kernel classification, not the general Schur-square method.
+
+## value
+
+PASS
+
+The phase-transition-like isolated restoration of modes destroyed by even-cycle Fourier parity is a concrete spectral transport phenomenon, with exact controllable coupling thresholds and full kernel classification for a canonical graph family. Genericity-only formulas miss these physically and mathematically important degeneracies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

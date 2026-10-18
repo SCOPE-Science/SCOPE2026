@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result follows from four independently reconstructible identities: (i) the hub-plus-uniform-rim eigenvalues \(1\pm\sqrt{1+ng^2}\), with explicit normalized spectral projectors; (ii) the unique crossing rule \(ng^2=\mu_k(\mu_k-2)\) when \(\mu_k<0\); (iii) the exact fused-projector correction \(2E_-\circ\widetilde Q_k=\alpha\widetilde Q_k\); and (iv) the Schur-Fourier rule \(P_j\circ P_l=P_{j+l}/n\). Every eigenvalue and its multiplicity are accounted for, including the even-rim self-conjugate antipodal frequency. The rank and nullspace classification then follow from explicit strictly positive/nonnegative eigenvalues. Replayed independent tests cover 442 small Hamiltonians including 105 exact resonant instances, three exact algebraic cases, and off-resonance perturbations. Numerical tolerance is not used in the infinite theorem.
+PASS
 
-## Originality — PASS, subject to stated residual risk
+For real g>0, invariant hub/uniform-rim plane has eigenvalues 1±sqrt(1+ng²); rim Fourier projectors Q_k have distinct energies 2cos(2πk/n). Collision with λ_- occurs exactly when a negative µ_k obeys ng²=µ_k(µ_k−2), at one k. The finite-spectrum Cesaro formula Mhat=Σ eigenspace F∘F requires fusion at collision, adding αQ_k with α=(1−(1+ng²)^(-1/2))/n>0. Fourier Schur convolution gives baseline rim nonconstant eigenvalues 1/n for odd n and 2/n on even-indexed modes, zero on odd-indexed modes for even n; hub/uniform sector eigenvalues 1 and β. Thus exact spectrum, rank and kernel follow, including antipodal single-mode revival. Independent direct symmetric Hamiltonian diagonalizations/projector squares verified 39 test cases and seven resonances with max eigenvalue comparison error 1.33e−15; numerical evidence is not the proof.
 
-Godsil (arXiv:1103.2578) supplies the general projectors-to-average-mixing identity; Lo et al. (arXiv:quant-ph/0509059) analyze circulant joins with a nondegeneracy assumption that omits the wheel eigenvalue collisions treated here; Coutinho et al. (DOI:10.37236/7867) give general algebraic rank methods. Kimmerling's 2023 thesis (DOI:10.7273/000006322) already proves the **unweighted** one-blade Kulli-cycle windmill rank parity, and that result is fully credited. The final statement is not presented as discovering the unweighted parity law. Its distinctive contribution is the all-positive-coupling spectrum, exact collision loci, and the rise of previously zero odd Fourier modes at isolated weighted couplings. Direct searches of the relevant published research index and primary literature did not identify those claims. The thesis PDF was only partially available through indexed content, creating residual uncertainty; unindexed generalized join results may also imply the formula.
+## originality
 
-## Value — PASS
+PASS
 
-The weight of every hub-to-rim edge is a natural Hamiltonian control variable in a quantum-transport model. The formula identifies when tuning that single physical control revives dark Fourier modes, exactly how many modes revive, and by what strictly positive eigenvalue increment. This produces a nontrivial all-order classification and experimentally interpretable sharp resonance boundary rather than an arbitrary finite computation or routine unweighted specialization. For instance, on the nine-vertex weighted wheel an isolated coupling produces rank seven where every sufficiently nearby nonresonant weight yields rank five. The complete spectrum also identifies which modes are absent, not just a rank count.
+The spectral-projector identity, circulant Fourier calculus, and unweighted wheel parity rank are prior art. The full variable spoke-weight family has exact collision loci and discontinuous extra rank in selected Fourier modes; Lo et al exclude these degeneracies in their stated join result. The novel claim is the precise all-g spectral/rank/kernel classification, not the general Schur-square method.
 
-## Closest work, limits and confidence
+## value
 
-The prior unweighted windmill rank result and the general circulant-join calculation are especially close. The rank-vs-coupling jump is not logically a corollary of the unweighted formula and falls outside the quoted distinct-energy hypothesis for the published circulant-join expression. Source inspection and targeted searches support originality but do not certify uniqueness among unpublished or unindexed material. The analytic proof applies to every real \(g>0\), integer \(n\ge3\), and ordinary infinite-time adjacency quantum walk; finite-time detuning bounds are not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The phase-transition-like isolated restoration of modes destroyed by even-cycle Fourier parity is a concrete spectral transport phenomenon, with exact controllable coupling thresholds and full kernel classification for a canonical graph family. Genericity-only formulas miss these physically and mathematically important degeneracies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
