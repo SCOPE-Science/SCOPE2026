@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T02:47:20.397381Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Published Zhang integral decomposition is valid input, not independently reproved. Symmetric-group minimum inversion for exact descent set D equals λ(D)=sum binom(a_i+1,2) with unique reversing-run witness; checked independently for n=2..8 (128 masks at n=8). A nonchordal induced C yields reduced H1(S^1)=Z and shifted summand at 2λ(C)+2. Any earlier positive even contribution would require an odd-degree induced-clique class, hence some chordless cycle C⊆D and degree>=2λ(D)+2>=2λ(C)+2. Equality gives exactly one generator per minimum cycle. Chordal induced clique complexes are positively acyclic. Finite enumeration corroborates, not proves unbounded r.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang 2026 Theorem1.1 covers all simplicial complexes, every Weyl group, and all homology dimensions and torsion.",
+          "Parks 2013 Theorem4.4 proves connected chordal clique complexes have trivial positive homology.",
+          "Zhang text states Des(w_D)=D for longest parabolic element (Intro)."
+        ],
+        "reasoning": "Prior stronger formula plus standard type A descent minimization and chordal clique input determines the claimed entire final statement, not just a similarly named or numerical special case.",
+        "searches": [
+          "arXiv:2609.01882v2 Theorems 1.1,5.4, longest parabolic subgroup descent set",
+          "Parks 2013 chordal clique homology theorem4.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.01882v2 Theorems1.1/5.4 and longest parabolic descent statement",
+        "Parks 2013 Theorem4.4 full short PDF",
+        "Resultary parabolic hocolim induced cycle semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For induced chordless cycle C, reduced H1(Cl(H[C]))=Z, and Zhang summand at length λ(C) gives H_{2λ(C)+2}.",
+          "If an earlier positive even group were nonzero then an induced clique subcomplex has odd positive homology and therefore a chordless induced cycle C in D, so n>=2λ(D)+2>=2λ(C)+2.",
+          "Exactly one w has Des(w)=C and inv(w)=λ(C), giving one generator per minimizing cycle."
+        ],
+        "reasoning": "Every implication step uses already known descent-Hochster groups plus basic symmetric-group inversions and chordal graph facts, so the new label-sensitive formula is an efficient restatement of prior full integral coverage. Its graph interpretation still has value but does not pass O.",
+        "searches": [
+          "Zhang arxiv:2609.01882v2 Theorem5.4 descent Hochster",
+          "Coxeter longest parabolic lengths binomial consecutive runs",
+          "Parks chordal clique-complex homology"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang Theorem1.1 formula H_n(X_K)=sum_w reduced H_{n−2length(w)−1}(K_Des(w)), for ANY indexing complex.",
+          "Specializing K=Cl(H), W=S_{r+1} is literally the submitted setup."
+        ],
+        "reasoning": "Theorem first-even degree and rank are the minimum nonzero even terms of the already exact published integral decomposition; λ(C) just evaluates minimum Coxeter length for a particular descent set.",
+        "searches": [
+          "Zhang arxiv:2609.01882 Hochster descent homology finite Coxeter group flag complexes",
+          "induced chordless cycle first nonzero even homology parabolic homotopy colimit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact self record and published Zhang full formula.",
+          "Zhang sum gives integral exact groups for all n, so there is no unknown first-even Betti entry once the input graph is specified."
+        ],
+        "reasoning": "The statement does not require a precomputed table: a general prior full database/formula already computes every degree and multiplicity including this first one, with no inaccessible essential parameter.",
+        "searches": [
+          "Resultary semantic: parabolic homotopy colimits flag Coxeter cycles rank",
+          "Zhang 2609.01882 published all homology exact formula"
+        ]
+      },
+      "rationale": "Although the induced-cycle minimum-cost and free-rank summary is not printed verbatim in Zhang, the earlier published Theorem1.1/5.4 gives the *entire integral homology for all indexing complexes*, including each special flag-indexed group. Ordinary longest parabolic descent lengths and chordal clique homology directly yield the positive even criterion and earliest-degree rank, making the submitted final homology statement an implied special case of prior stronger general coverage. A more economical cycle formulation is not a new uncovered homology fact under the implication originality bar.",
+      "residual_risks": [
+        "The explicit weighted-induced-cycle optimization and linear-time chordality diagnostic are not printed in Zhang; under a stricter independent-method standard they might be considered an original reorganization, but all resulting homology data are implied.",
+        "Higher even homology and torsion are not classified by the submitted criterion (though Zhang formula covers them)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING via stronger general integral homology decomposition",
+          "evidence": "Theorem1.1 gives direct sum over all w of induced subcomplex reduced homology, exactly specializing to the claim; theorem description states all induced subcomplexes are visible.",
+          "identifier_or_url": "arXiv:2609.01882v2",
+          "material_read": "Full arXiv HTML primary article, Theorem1.1, §5 Theorem5.4, introduction longest parabolic des w_D, examples/corollaries",
+          "method": "Full HTML mathematical theorem/body inspection",
+          "title": "Coxeter Descents and Parabolic Homotopy Colimits: A Hochster-type decomposition and integral Morse reduction",
+          "trigger": "same topological objects and all homology groups"
+        },
+        {
+          "assessment": "COVERING for chordal clique acyclicity only; cannot individually compute parabolic homology",
+          "evidence": "Theorem4.4: connected chordal graph clique realization is homologically trivial.",
+          "identifier_or_url": "https://www.ijsciences.com/pub/pdf/V2-201307-04.pdf",
+          "material_read": "Full five-page primary PDF including Theorem4.4, combinatorial chordal preliminaries and conclusion",
+          "method": "PDF text inspected (one supplementary render attempt timed out)",
+          "title": "Clique Complex Homology: A Combinatorial Invariant for Chordal Graphs",
+          "trigger": "needed chordal clique vanishing input"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A first-even-degree and rank characterization through minimum-weight chordless cycles is mathematically motivated and graph-label-sensitive even though the complete homology data are already logically determined by a more general prior formula. V assesses usefulness separately from novelty; no general all-Coxeter homotopy statement is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For type-A parabolic hocolim indexed by clique Cl(H), all positive even integral homology vanishes iff H chordal, and otherwise first positive even group is Z^b in degree 2m(H)+2 for induced chordless cycles minimizing descent-run λ(C).",
+  "limitations": [
+    "All homology first-even groups already computable from broader integral descent-Hochster formula; originality rejected even though compressed cycle optimization not written in earlier article.",
+    "No claim about higher even homology torsion or homotopy type."
+  ],
+  "schema_version": 1
+}
