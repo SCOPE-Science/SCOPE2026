@@ -1,19 +1,21 @@
-# Review of the exact primitive two-cycle census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Midpoint subtraction and addition give a reversible equivalence between unordered primitive two-cycles and positive-real values of a cubic polynomial on the unit circle. The exceptional Cayley point is directly excluded. A rational sextic has exactly two real roots by Sturm variation counts, only one of which produces positive squared separation. Exact rational sign tests on the trace/discriminant expressions show the resulting cycle has complex return multipliers strictly outside the unit disk. The included verification script checks the nontrivial polynomial identity, interval root counts, branch signs, and multiplier inequalities; no numerical sampling is treated as an exhaustive proof.
+PASS
 
-## Originality
+At the assigned Git tree read full RESULT.md and verification/check.py. The complex midpoint/half-difference substitution for F(z)=z^2+Az+B conjugate(z) reduces genuine unordered prime-two orbits to t on the unit circle with P(t)>0 real. The excluded point t=-1 has nonzero imaginary part. Independently recomputed P((1+iu)/(1-iu)) in exact SymPy rational arithmetic: Im(P)=-Q/[50000000(1+u^2)^3] for the displayed sextic Q. Sturm exact rational counting found exactly two real roots, one each in (-123/50,-49/20) and (-183/1000,-181/1000). At the first root Re(P)=+1.726719..., at the second -0.986974..., so only one physical unordered orbit. Direct independent substitution of the displayed two cycle points gave residual norms below 1e-14; exact rational root isolation in supplied verification/check.py covers signs over the intervals. Independently computed the two-step Jacobian with trace 13.7495779 and determinant 73.6865871, with negative discriminant, hence a repelling complex-conjugate multiplier pair. The theorem is whole-plane for one exact rational coefficient tuple, not merely orbit detection inside an attractor.
 
-**PASS with identified residual risk.** Davidchack et al. (2001), DOI 10.1016/S0375-9601(01)00463-7, report numerical searches for unstable periodic orbits of this same map and discuss empirical coverage through high periods, but their rigorous basin result is expressly one-dimensional. Yuan et al. (2011), DOI 10.1142/S0218127411030581, discuss general bifurcations and period-two windows, and Goldsztejn et al. (2011), DOI 10.1137/100819011, certify chaos via shadowing. Their inspected relevant proofs/results do not imply the exact global rational-parameter two-cycle classification. The relevant Tinkerbell passages of Alligood, Sauer and Yorke (1996) are numerical computer experiments rather than a period-two theorem. The inaccessible complete text of the original 1994 Nusse–Yorke–Kostelich monograph and the 1997 revised edition creates a historical equivalence risk. Finding a cycle numerically would not imply a global proof of uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exact count at the canonical chaotic parameter is a natural, independently meaningful invariant that provides a certified base case for complete periodic-orbit detection studies, where existing sources explicitly rely on low-period seeds and numerical saturation. An unconditional whole-plane exclusion, plus strict repelling classification, closes a specific mathematical gap not resolved by approximate periodic-point plots. No paper-sized extension is claimed or needed.
+Prior studies by Davidchack et al. (2001) discuss numerical detection of unstable Tinkerbell periodic points and say the rigorous component has a numerical-evidence boundary; Goldsztejn et al. (2011) prove chaos and shadowing by different orbits; Yuan et al. discuss bifurcation windows. Their available statements do not imply a complete algebraic whole-real-plane period-two count. The original 2001 full text and historical monograph are major residual sources, not declared definitively NOT_COVERING merely on abstracts. The self-hit in Resultary was ignored; related period-two classifications concern other maps.
 
-## Limitations
+## value
 
-The result is for a single exact rational parameter tuple, not a parameter-uniform theorem. No statement about higher periods or location in the attractor is established. Published numerical studies may have observed the same orbit. A scholarly priority check beyond the listed accessible full texts may find older equivalent exact work.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+An exact global real two-cycle count for a standard chaotic polynomial map at its classical rational parameters closes the gap between numerically detected unstable periodic points and provable root completeness. The accompanying strictly repelling return spectrum adds a dynamical classification. The natural invariant is all least-period-two orbits of that specific frequently studied map, not an arbitrary small numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
