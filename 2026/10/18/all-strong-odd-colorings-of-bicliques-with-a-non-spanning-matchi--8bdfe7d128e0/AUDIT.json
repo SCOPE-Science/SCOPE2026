@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Each nonempty color class is precisely a vertex odd-independent set. With unmatched vertices on both sides, a single-side class touching any matched endpoint must be singleton; a cross-side class must be exactly one deleted matched pair; all other classes are odd blocks of unmatched vertices. The converse is verified class-by-class. Labeled partition enumeration and the odd-block exponential formula give the polynomial, and equality conditions give the minimum and number of optimizers. Exhaustive independent graph-based tests matched 30 full profiles; these finite checks are corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2410.02336 treats product graphs and general coloring bounds; its product statements concern different adjacencies.",
+        "arXiv:2509.20763 gives bipartite odd-degree regular special cases and general inequalities, but partial matching deletions have distinct degree classes and need not be regular.",
+        "arXiv:2401.11653 gives sparse-graph upper bounds and observes a complete-bipartite bound only."
+      ],
+      "reasoning": "An existence bound, a product theorem for an unrelated graph, or an extremal odd-independence inequality does not imply the coefficients of all strong odd colorings. No broader read theorem specializes to the exact new statement.",
+      "searches": [
+        "arxiv:2410.02336 strong odd graph products complete bipartite",
+        "arxiv:2509.20763 odd independent bipartite graphs regular",
+        "strong odd chromatic numbers of complements of paths matching deletion bipartite graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.11653v2",
+      "arXiv:2410.02336v1",
+      "arXiv:2509.20763v2",
+      "Odd independence and strong odd coloring of odd crown graphs (2026 public mathematical finding)",
+      "Odd independent sets in complete multipartite graphs (2026 public mathematical finding)",
+      "Neighborhood-parity odd colorings of crown graphs (2026 public mathematical finding)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Kwon–Park complete-bipartite observation only gives \\(\\chi_{\\mathrm{so}}(K_{m,n})\\le4\\).",
+        "Odd independence and strong odd coloring of odd crown graphs proves \\(\\chi_{\\mathrm{so}}(K_{n,n}-M_n)=n\\) for odd n and uniqueness at optimum, explicitly outside the non-spanning range.",
+        "Odd independent sets in complete multipartite graphs proves the odd single-part class condition for t=0 and explicitly does not extend it to deleted cross edges."
+      ],
+      "reasoning": "The new theorem is not the same numerical minimum as the odd-crown theorem and provides much stronger output: every color-count coefficient for the three-parameter interior family. An odd-crown induced-subgraph relationship is insufficient because the strong odd condition is not hereditary under edge/vertex deletion.",
+      "searches": [
+        "\"strong odd coloring\" \"matching\" \"complete bipartite\"",
+        "odd independent sets complete multipartite graph strong odd color partition",
+        "\"strong odd coloring\" \"one edge\" complete bipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2401.11653 gives the original neighborhood-parity definition.",
+        "arXiv:2509.20763 Section 2 relates strong odd color classes to odd independent sets; this is equivalent at the level of classes but contains no partial-matching partition histogram.",
+        "The public scientific statement Odd independence and strong odd coloring of odd crown graphs treats a full deleted perfect matching, not a non-spanning matching."
+      ],
+      "reasoning": "Rewriting a strong odd coloring as a partition into odd independent vertex sets is used explicitly in the proof and search. Neither that general equivalence nor the complete-matching odd-crown specialization produces a formula for the new three-parameter partial-deletion family without the new color-class classification.",
+      "searches": [
+        "\"strong odd coloring\" \"K_m,n\" matching deletion",
+        "\"strong odd coloring\" \"deleted edges\" complete bipartite",
+        "strong odd coloring crown graph matching deleted complete bipartite graph odd even chromatic number count",
+        "partial matching deleted K_(a,b) strong odd colorings parity odd blocks Stirling numbers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved table or enumerator gave the full coefficient profile for \\(K_{a,b}-M_t\\) with \\(0<t<\\min(a,b)\\).",
+        "Direct exhaustive enumeration in verification/verify.py establishes the small profiles independently of the formula, but those numbers are original checks rather than database novelty evidence."
+      ],
+      "reasoning": "Search absence cannot establish absolute novelty. Existing retrieved coefficients of complete multipartite graphs correspond to t=0, while the odd-crown optimum corresponds to t=a=b; neither covers the interior parameter range.",
+      "searches": [
+        "strong odd chromatic polynomial complete bipartite minus matching",
+        "color partition enumeration into odd independent sets on complete bipartite K_(a,b) minus a matching",
+        "strong odd coloring polynomial strong odd chromatic polynomial all k colorings graph"
+      ]
+    },
+    "rationale": "The all-color enumerator and complete minimum-coloring classification for non-spanning matching deletions have no covering implication in the read primary references or closest public scientific results. The spanning odd-crown theorem gives an optimum only at a disjoint boundary; complete multipartite odd independence covers the undeleted boundary; general bounds and odd-independent-set inequalities do not determine partition profiles. Targeted literature and mathematical record searches found no dominating claim; unindexed equivalent work remains possible.",
+    "residual_risks": [
+      "The literature search is not exhaustive: a differently termed full enumeration could exist outside the indexed sources.",
+      "The full-matching saturation boundary is omitted; direct transfer of the formula across that boundary is generally invalid."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and yields general bounds but not the enumerator or partial-matching structural classification.",
+        "evidence": [
+          "arXiv:2401.11653v2, introduction: complete bipartite graphs have at most four colors; Theorems 1.2–1.3 concern sparse families."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.11653v2",
+        "material_read": "Accessible full HTML article: definitions, introduction, complete-bipartite observation, main theorems, and targeted searches of the remaining sections",
+        "method": "Full HTML text inspection and focused content searches",
+        "title": "Strong odd coloring of sparse graphs",
+        "trigger": "Original definition and potential complete-bipartite statements"
+      },
+      {
+        "assessment": "Does not state an enumerator or partial-matching-deleted biclique theorem.",
+        "evidence": [
+          "arXiv:2410.02336v1, Section 4 studies Cartesian/direct graph products; no deleted partial matchings."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2410.02336v1",
+        "material_read": "Accessible full HTML article: introduction, product theorem statements and proofs, and targeted searches for related graph families",
+        "method": "Full HTML inspection, targeted matches for matching and bipartite",
+        "title": "On strong odd colorings of graphs",
+        "trigger": "Graph-product results and possible complete-bipartite coverage"
+      },
+      {
+        "assessment": "General class-partition connection and regular bipartite results do not entail the claimed complete interior matching-deletion enumerator.",
+        "evidence": [
+          "arXiv:2509.20763, Proposition 1 and proof on page 5; abstract and table of contents on pages 1–3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2509.20763",
+        "material_read": "PDF abstract, introduction, section organization, Section 2 general inequalities and partition arguments, with visual confirmation of relevant pages",
+        "method": "PDF textual examination with visual page confirmation",
+        "title": "The odd independence number of graphs, I: Foundations and classical classes",
+        "trigger": "Broader invariant whose class partition formulation might dominate"
+      },
+      {
+        "assessment": "Odd complete matching deletion only, with optimum and unique optimal partition; explicitly excludes arbitrary non-spanning matching deletions.",
+        "evidence": [
+          "Its odd-crown theorem assumes \\(n\\) odd and deletion of a perfect matching of size n."
+        ],
+        "identifier_or_url": "publicly available scientific RESULT.md: odd crown theorem (2026)",
+        "material_read": "Complete scientific finding, assumptions, proof, relationship to prior work, and limitations",
+        "method": "Read complete public scientific text",
+        "title": "Odd independence and strong odd coloring of odd crown graphs",
+        "trigger": "Closest exact same parameter and near-identical base graph"
+      },
+      {
+        "assessment": "Covers t=0 odd independent color classes but explicitly excludes cross-edge deletion, so no interior matching-deletion color-partition histogram.",
+        "evidence": [
+          "Its theorem assumes the full complete multipartite adjacency; the limitations say cross-edge deletion is not covered."
+        ],
+        "identifier_or_url": "publicly available scientific RESULT.md: complete multipartite odd-independence (2026)",
+        "material_read": "Complete scientific finding, proof and limitations",
+        "method": "Read complete public scientific text",
+        "title": "Odd independent sets in complete multipartite graphs",
+        "trigger": "Strongest potential t=0 reduction via odd-independent sets"
+      },
+      {
+        "assessment": "This is the weaker odd coloring notion, requiring at least one odd neighbor color, not all; the full matching case does not entail the new strong odd enumerator.",
+        "evidence": [
+          "Its statement uses \\(\\chi_o\\), not \\(\\chi_{\\mathrm{so}}\\), and assumes full crown deletion."
+        ],
+        "identifier_or_url": "publicly available scientific RESULT.md: crown odd coloring (2026)",
+        "material_read": "Complete scientific result including proof and definitions",
+        "method": "Read complete public scientific text",
+        "title": "Neighborhood-parity odd colorings of crown graphs",
+        "trigger": "Potential name collision for odd versus strong odd coloring"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8bdfe7d1-28e0-4674-b375-b2de5917e402",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives an exact, motivated, all-color enumerator for strong odd colorings of the natural three-parameter family \\(K_{a,b}-M_t\\), together with a complete extremizer census. Its structural decomposition into paired endpoints and odd partitions of two unmatched sides reveals an edge-deletion sensitivity of opposite sign depending on part parity. This is not a mere relabeling of complete bipartite or odd crown results; both known endpoint structures fail to cover the interior family.",
+    "status": "PASS"
+  }
+}
