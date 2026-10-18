@@ -1,84 +1,21 @@
-# Review of Every positive disk target admits a high-mode inverse-univalence counterexample
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. On the \(n\)-th monomial slice, the transformed function is
-\[
-F(z)=z+\Omega_naz^n.
-\]
-Its disk-starlikeness defect is exactly
-\[
-\frac{(n-1)\Omega_naz^{n-1}}
-{1+\Omega_naz^{n-1}},
-\]
-whose exact supremum on the open unit disk is controlled by the boundary value
-\[
-\frac{(n-1)t}{1-t},
-\qquad
-t=\Omega_n|a|.
-\]
-This gives the necessary-and-sufficient membership bound
-\[
-|a|
-\le
-\frac{\delta}
-{\Omega_n(n-1+\delta)}.
-\]
+PASS
 
-For the original map
-\[
-z+az^n,
-\]
-the derivative has an interior zero exactly when
-\[
-|a|>1/n.
-\]
-The same threshold is independently recovered from the positive-real-part condition for its logarithmic derivative, so
-\[
-|a|\le1/n
-\]
-is exactly the starlikeness range. Solving the comparison of the two exact thresholds gives
-\[
-\delta_n
-=
-\frac{\Omega_n(n-1)}
-{n-\Omega_n}.
-\]
-Since
-\[
-\delta_n\sim\Omega_n\to0,
-\]
-every fixed positive target radius eventually exceeds a monomial-slice safety threshold. All quantifiers and endpoint cases were checked on the open disk.
+For fixed n≥2 and Ω_n>0, F=z+Ω_n a z^n has exact defect (n−1)w/(1+w), w=Ω_n a z^(n−1). On |w|<t, t<1, its supremum is (n−1)t/(1−t); t≥1 creates interior zero or boundary divergence. Equality at target disk boundary is allowed since |z|<1. Thus transformed membership iff |a|≤δ/[Ω_n(n−1+δ)]. Original derivative 1+naz^(n−1) has an interior zero iff |a|>1/n; for |a|≤1/n, Re[(1+nu)/(1+u)]>0 throughout disk, including equality boundary. Hence exact monomial inverse-safe cutoff δ_n=Ω_n(n−1)/(n−Ω_n); since Ω_n∼(n−1)^(−λ/2−μ)→0 for λ,μ>0, for every δ∈(0,1] a high n yields a non-locally univalent preimage. Symbolic thresholds independently checked at multiple n,λ,μ, but infinite conclusion is analytic, not inferred from samples.
 
-## Originality
+## originality
 
-PASS. The lead source explicitly distinguishes transformed starlikeness from geometry of the original preimage and gives the exact calculation only for the quadratic example. It does not state the general \(n\)-mode membership formula, the exact inverse-safe sequence
-\[
-\delta_n,
-\]
-or the resulting theorem that every fixed positive target radius fails full-class inverse preservation.
+PASS
 
-Targeted searches under the source title, operator aliases, inverse preservation, monomial counterexamples, and equivalent local-univalence formulations did not locate a statement implying this result. Broader convolution literature studies forward preservation under additional kernel or class hypotheses rather than inversion of this particular decaying multiplier.
+Alameer 2026 introduces the EXACT operator and weighted sufficient coefficient class criterion; he explicitly cautions that a transformed disk-starlike map need not make the preimage univalent, and discusses a quadratic example. Thus generic non-preservation is prior, not claimed novel. The final sharper claim is the necessary-and-sufficient bound on EVERY single monomial slice and exact δ_n sequence tending to zero, establishing failure for EVERY positive target radius; these formulas are not in inspected abstract/visible sections. They are elementary but sharpen the inverse-safety boundary, not a mere parameter rename. Strong residual risk because inaccessible portions of the lead full paper could contain this higher-mode corollary; not inferred to be absent from snippets.
 
-A residual terminology risk remains because older multiplier literature is extensive, but the exact source-specific formula and its high-mode consequence were not found in the checked literature.
+## value
 
-## Value
+PASS
 
-PASS. The source construction intentionally defines a preimage of a disk-starlike class while warning that the original function need not inherit the transformed geometry. The present result identifies the precise mechanism and shows that it cannot be repaired by merely shrinking the disk target to any fixed positive radius.
+The leading paper deliberately defines an operator-preimage rather than original starlike class. Identifying the exact mode-by-mode threshold resolves the natural inverse-preservation question and quantifies why changing a target radius alone never repairs lost local univalence. It is a motivated sharp obstruction for constructing valid positive theorems with additional coefficient restrictions, despite its short elementary proof.
 
-The exact sequence
-\[
-\delta_n
-=
-\frac{\Omega_n(n-1)}
-{n-\Omega_n}
-\]
-quantifies inverse safety mode by mode and reveals the structural obstruction:
-\[
-\delta_n
-\asymp
-n^{-(\lambda/2+\mu)}.
-\]
-Thus higher modes destroy every uniform inverse-preservation radius. This both resolves a natural question raised by the construction and supplies a sharp diagnostic for any future positive theorem, which must impose genuinely additional restrictions.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
