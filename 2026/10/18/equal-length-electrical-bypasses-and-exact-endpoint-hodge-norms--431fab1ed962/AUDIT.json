@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Under the exact design assumptions, NN^T=(r-1)I+J. The explicit potentials x=(k/v)e_p-(1/v)1_B and y=(N^Tx-e_B)/k solve the grounded Poisson equation for unit injection on the incident edge. Their gradients give unique electrical flow. Every edge-avoiding route has length at least five; there are exactly (v-k)(k-1) five-edge bypasses and their uniform weights 1/(kv) reproduce the entire edge-current table. Positivity and path conservation then prove the two exact operator norms, dominance cases, and sharp bounds. A dependency-free exact rational checker independently confirmed 279 columns and 14064 bypass-path terms; finite checks are corroborative, not the infinite-family proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1708.01632v1 Theorem 1.5 gives an O((log n)^2) bound for entrywise absolute transfer impedance.",
+        "arxiv:2605.24130v1 Theorem 1.3 sharpens an all-graph spectral bound to 2 log n.",
+        "A related symmetric 2-design exact endpoint formula applies only to b=v and r=k; a Steiner 2-design with b>v and r>k, e.g. affine plane of order three (v=9,k=3,r=4), is outside that domain."
+      ],
+      "reasoning": "General graph bounds, even if quantitatively valid here, do not imply an exact uniform convex decomposition, exact constants below 5 and 6, or the all-design comparison. The earlier symmetric-design family is strictly narrower; its projective-plane corollary is explicitly treated as previously covered, not independently novel.",
+      "searches": [
+        "symmetric block designs incidence graphs exact Hodge cut cycle projection norms 1+4q^3 projective plane [published-finding corpus]",
+        "orthogonal projection cut cycle edge ℓ1 incidence graph affine plane point line transfer current exact norm finite Euclidean resolvable design [published-finding corpus]",
+        "Cycle spaces: invariant projections and applications to transportation cost [full primary]",
+        "Localization of Electrical Flows Schild Rao Srivastava [full primary]",
+        "A Tight Bound on Localization of Electrical Flows [full primary]"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2305.12582v1; original PDF and passages on projection theory, tori, Hamming graphs",
+      "arxiv:1708.01632v1; original PDF Theorems 1.4–1.5",
+      "arxiv:2605.24130v1; original PDF Theorems 1.2–1.4",
+      "published-finding corpus:2026/10/11/SCOPE-twin-circle-wedges-in-neighborhood-complexes-of-steiner-design-i--5b757c0a694f (summary)",
+      "published-finding corpus:2026/10/11/SCOPE-scale-four-graph-ech-nerves-of-finite-projective-planes--2cc10caab711 (summary)",
+      "related-claim:4d478cd3-09e7-4a92-ad46-4f234b84f7e3 (recoverable statement)",
+      "related-claim:4416a8e1-d830-4e34-a780-2281950be6ed (recoverable statement)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The projective-plane endpoint formulas are indeed contained in the existing symmetric-design claim; current novelty is the uniform shortest-bypass law and exact endpoint parameters for all nonsymmetric S(2,k,v) designs.",
+        "A symmetric 2-(v,k,1) design must have r=k and v=k(k-1)+1. The affine plane of order q has v=q^2,k=q,r=q+1, so the symmetric hypothesis fails for every q>=2.",
+        "Generalized quadrangles have noncollinear point pairs, unlike an S(2,k,v); their incidence norm formula does not cover Steiner affine-plane graphs."
+      ],
+      "reasoning": "The implication comparison is by hypotheses and mathematical conclusion rather than title. Earlier symmetric-design calculations subsume the projective-plane numerical corollary, so it is not offered as an independent advance. They do not cover all nonsymmetric Steiner designs, the explicit equal-weight 5-bypass flow or the complete all-Steiner dominance classification; neither general electrical localization bound provides such precise implications.",
+      "searches": [
+        "Steiner systems 2 designs S(2,k,v) incidence graph exact cut projection cycle projection l1 column sum electrical current universality [published-finding corpus]",
+        "Steiner 2 design incidence graph electrical current uniform length-five paths direct edge equal conductance 5-step detours [published-finding corpus]",
+        "symmetric block designs incidence graphs exact Hodge cut cycle projection norms 1+4q^3 projective plane [published-finding corpus]",
+        "arxiv:2305.12582v1 Section 2.6 Hamming graph and Section 2.7 cube",
+        "local related claim 4d478cd3-09e7-4a92-ad46-4f234b84f7e3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2305.12582v1 Section 1 defines cut and cycle projections; Sections 2.6–2.7 explicitly analyze Hamming graph and cube projections, whereas the present graph is a Steiner point-block incidence graph.",
+        "arxiv:1708.01632v1 Theorems 1.4 and 1.5 bound electrical transfer-current localization rather than describing a uniform all-shortest-bypass decomposition.",
+        "arxiv:2605.24130v1 Theorems 1.2–1.4 give universal logarithmic transfer-current bounds, not the asserted parameterwise path coefficients."
+      ],
+      "reasoning": "The electrical-flow formulation and the absolute transfer-current operator are mathematically equivalent to the canonical cut projector, and are compared directly. No checked primary theorem specifies a direct-edge mass rho plus equal mass 1/(kv) on every length-five edge-avoiding path for arbitrary Steiner 2-designs. This is a best-knowledge literature comparison, not proof of uniqueness in all literature.",
+      "searches": [
+        "Steiner systems 2 designs S(2,k,v) incidence graph exact cut projection cycle projection l1 column sum electrical current universality [published-finding corpus]",
+        "Steiner 2 design incidence graph electrical current uniform length-five paths direct edge equal conductance 5-step detours [published-finding corpus]",
+        "Steiner triple system graph transfer current shortest bypass paths five length electrical routing effective resistance [published-finding corpus]",
+        "\"Steiner system\" \"cycle projection\" \"incidence\" l1 [web]",
+        "\"block design\" \"electrical current\" \"transfer impedance\" exact [web]",
+        "arxiv:2305.12582v1, arxiv:1708.01632v1, arxiv:2605.24130v1 text checks for Steiner/design/incidence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus record 2026/10/11/SCOPE-twin-circle-wedges-in-neighborhood-complexes-of-steiner-design-i--5b757c0a694f reports a homotopy invariant of these incidence graphs, not an edge-current or Hodge projector norm in its accessible abstract.",
+        "published-finding corpus record 2026/10/11/SCOPE-scale-four-graph-ech-nerves-of-finite-projective-planes--2cc10caab711 treats graph Čech topology, a different invariant.",
+        "Recoverable related claim 4d478cd3-09e7-4a92-ad46-4f234b84f7e3 concerns only symmetric 2-design endpoint norms; claim 4416a8e1-d830-4e34-a780-2281950be6ed concerns generalized quadrangle incidence graphs, which do not satisfy the unique-block-per-point-pair axiom."
+      ],
+      "reasoning": "The actual accessible record results and all 125 readable local mathematical claims were compared for Steiner incidence, electrical flow, effective resistance, bypass decomposition, and cut/cycle endpoint norms. A related projective-plane special case is not presented as novel. Database indexing, unavailable older records and uninspected complete texts limit completeness.",
+      "searches": [
+        "Steiner systems 2 designs S(2,k,v) incidence graph exact cut projection cycle projection l1 column sum electrical current universality [published-finding corpus]",
+        "symmetric block designs incidence graphs exact Hodge cut cycle projection norms 1+4q^3 projective plane [published-finding corpus]",
+        "Steiner triple system graph transfer current shortest bypass paths five length electrical routing effective resistance [published-finding corpus]",
+        "published-finding corpus query: projection norms finite linear spaces Steiner triple systems electrical flows point block incidence graph",
+        "Related scientific claims: exact symmetric-block-design and generalized-quadrangle mathematical statements (opaque IDs below)"
+      ]
+    },
+    "rationale": "Actual semantic record searches, related historical mathematical claims, and accessible original full texts on cycle-space projections and electrical-flow localization were compared for equivalent transfer-current statements and stronger implications. The earlier symmetric-design theorem subsumes projective-plane numerical cases but not nonsymmetric Steiner designs (r>k) or the claimed uniform five-edge bypass law. General O(log n) bounds cannot imply these exact formulas. No covering result identified; residual uncertainty includes unindexed or differently termed design/electrical-network literature and a related topology record inspected only via summary.",
+    "residual_risks": [
+      "An equivalent exact electrical current decomposition in older block-design or network literature using unsearched terminology could exist.",
+      "Some research-record hits were accessible only as title/summary; these were not treated as full-text novelty certification.",
+      "Independent specialist bibliographic and mathematical review is not yet performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant to operator framework. The inspected family theorems concern Hamming graphs and tori; no exact all-Steiner incidence bypass decomposition identified. Does not assert full-document negative certification based only on search absence.",
+        "evidence": "arxiv:2305.12582v1 pp.1-9 and pp.20-29; Section 2.6 defines Hamming graphs; Lemma 56 computes Hamming-cube projection norms.",
+        "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+        "material_read": "PDF 35 pages accessible; read introductory cut/cycle definitions, statements of Proposition 8 and Theorem 5, table of contents, Hamming graph Section 2.6 and the cube projection norm calculation in Section 2.7, with targeted full-PDF searches for Steiner and incidence.",
+        "method": "ArXiv public original PDF text and page render; mathematical statement/graph family comparison.",
+        "title": "Cycle spaces: invariant projections and applications to transportation cost",
+        "trigger": "Primary MSC 46B04 foundational study of cut and cycle projection norms and invariant projections."
+      },
+      {
+        "assessment": "Provides an all-graph O(log^2 n) bound and general flow decomposition framework, not the claimed exact uniform shortest bypass formula for Steiner designs.",
+        "evidence": "arxiv:1708.01632v1 pp.1-4; Theorem 1.4 (average localization) and Theorem 1.5 (spectral absolute transfer impedance).",
+        "identifier_or_url": "https://arxiv.org/pdf/1708.01632",
+        "material_read": "Original PDF 13 pages accessible; read introduction, examples, Theorems 1.4 and 1.5, transfer-impedance definitions, and targeted full-text checks for design and Steiner.",
+        "method": "Original arXiv full-text text and theorem implication analysis.",
+        "title": "Localization of Electrical Flows",
+        "trigger": "Possible stronger literature on transfer-current matrix absolute column norms and path decomposition."
+      },
+      {
+        "assessment": "All-graph O(log n) bound neither gives exact coefficients for Steiner incidence graphs nor identifies their geodesic bypass structure.",
+        "evidence": "arxiv:2605.24130v1 pp.1-3, Theorems 1.2–1.4.",
+        "identifier_or_url": "https://arxiv.org/pdf/2605.24130",
+        "material_read": "Original PDF 8 pages accessible; read Abstract, Introduction, Theorems 1.2–1.4, Section 2 transfer-current definitions, and targeted full-PDF checks for Steiner and design.",
+        "method": "Original arXiv PDF text and page image with direct bound-versus-exact-claim implication check.",
+        "title": "A Tight Bound on Localization of Electrical Flows",
+        "trigger": "Recent broad theorem potentially dominating the localization aspect."
+      },
+      {
+        "assessment": "Accessible statement is a neighborhood-complex homotopy computation, not an electrical-current claim. Full-text coverage is not certified from its summary, but no decisive plausible overlap was identified.",
+        "evidence": "published-finding corpus returned two component circle wedge homotopy statement with rank vr-v-b+1, mathematically distinct from edge-space operator norms.",
+        "identifier_or_url": "2026/10/11/SCOPE-twin-circle-wedges-in-neighborhood-complexes-of-steiner-design-i--5b757c0a694f",
+        "material_read": "published-finding corpus title and scientific summary only; linked repository full text was not accessible.",
+        "method": "Semantic research-record search; source-level mathematical object/invariant comparison using available summary.",
+        "title": "Twin circle wedges in neighborhood complexes of Steiner-design incidence graphs",
+        "trigger": "Same Steiner design incidence graph objects; checked for possible stronger coverage."
+      },
+      {
+        "assessment": "Overlaps projective-plane/symmetric case, which is explicitly excluded from a stand-alone originality claim. Does not cover nonsymmetric Steiner 2-designs, e.g. affine plane of order three with r>k, or state the uniform shortest-bypass decomposition for all designs.",
+        "evidence": "Symmetric hypothesis b=v forces r=k; affine plane has v=q^2,k=q,r=q+1 and violates it.",
+        "identifier_or_url": "related-claim:4d478cd3-09e7-4a92-ad46-4f234b84f7e3",
+        "material_read": "Full recoverable claim statement defining domain, formulas and exact limitations.",
+        "method": "Mathematical implication and hypothesis comparison only; no re-auditing of the earlier result.",
+        "title": "Exact endpoint Hodge norms for symmetric block incidence structures (related earlier claim)",
+        "trigger": "Closest previously recorded special-case theorem on the identical operator invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "431fab1e-d962-4805-b72b-4c93fc9f9aba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The unit electrical flow for every point-block edge in every Steiner pair design is a convex mixture supported only on shortest possible bypasses with universal equal weights, a nontrivial energy-versus-path-length rigidity independent of design isomorphism or edge transitivity. This supplies natural exact Banach-space endpoint invariants on infinitely many nonsymmetric affine and Steiner families, a complete cut/cycle dominance law, and optimal global bounds; the result is not an arbitrary finite sample or a reparameterization of only the symmetric case.",
+    "status": "PASS"
+  }
+}
