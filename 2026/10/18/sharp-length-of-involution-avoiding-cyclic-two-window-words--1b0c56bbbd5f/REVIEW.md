@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof counts all orbits of directed two-windows under the involution, identifies a strict parity barrier when the alphabet involution has no fixed points and an odd number of transposition orbits, and gives a fully specified directed graph meeting the bound in every parameter class. Each block of the construction is checked for complementary-pair exclusivity, balance, and directed connectivity; the Euler-tour argument produces the required cyclic word. `verify.py` reconstructs and checks the construction for \(135\) parameter pairs and exhaustively checks four small optimum instances. Its finite coverage is not used as an infinite proof.
+
+**Originality — PASS within inspected evidence.** The closest source is Mitchell and Wild's 2026 *Negative Avoiding Sequences*, which addresses coordinatewise negation on cyclic residue alphabets and proves the upper bound and tightness for the conjugacy classes \(f=1\) and \(f=2\). Those cases are **covered** and are not represented as discoveries. The source's final section explicitly raises arbitrary symbol involutions; its binary no-fixed-point exception is noted. The exact all-orbit-type span-two formula, including the fixed-point-free odd-\(t\) deficiency and fixed-point counts above two, is not stated or implied by the inspected results. The 2024 orientable-sequence paper and the 2016 unoriented de Bruijn article impose reversal, not the present involution on each symbol. Public index and primary-literature searches found no covering statement; undiscovered prior formulations remain possible.
+
+**Value — PASS.** This is the complete sharp span-two solution of a naturally posed family of pair-selecting cycle problems, including an unexpected parity failure of the obvious orbit bound and an explicit constructive optimum. It supplies a concrete baseline and obstruction for longer-window generalizations rather than an arbitrary small numerical example.
+
+**Limitations.** The theorem excludes involutions with no moving symbols, makes no claims for span above two, and does not count distinct maximum cycles. The published modular-negation subcases are prior work. Independent validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

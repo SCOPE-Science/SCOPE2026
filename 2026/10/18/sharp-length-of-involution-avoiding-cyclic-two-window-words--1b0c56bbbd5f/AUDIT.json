@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Every allowed ordered window lies in a size-two orbit except f^2 self-invariant windows, giving the universal bound. If f=0 and t is odd, t^2 complement-paired cross-cut orbits would require an impossible odd signed flow across the P/N cut of a closed walk. The explicitly described edge types select all allowable orbits apart from the one necessary odd-case omission; the matched-block pattern cancels each internal edge imbalance and every neutral pattern balances vertexwise. Representatives are mutually bidirectionally connected, other moving vertices lie in directed cycles, and fixed symbols attach via length-two or length-three circuits. Thus Euler tours meet the respective upper bounds. Checker independently reconstructs 135 parameter graphs and verifies cyclic windows; four small exhaustive cases are supporting tests only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mitchell and Wild, arXiv:2603.25286v2, Theorems 6.2 and 6.4 prove full orbits when the symbol involution is modular negation; that map fixes one or two symbols only.",
+        "Alhakim et al., 2024, Sections 3--4 concern reversal of words, not symbol complement, and are not dominating results."
+      ],
+      "reasoning": "The prior modular-negation theorem indeed covers all cases with exactly one or two fixed symbols, because these involutions are conjugate by relabeling. It cannot imply the zero-fixed-point or at-least-three-fixed-point statements by relabeling. The cut-parity obstruction provides a genuine noncovered branch.",
+      "searches": [
+        "negative avoiding sequences generalized involution fixed symbols optimal universal cycles span two",
+        "\"negative avoiding\" \"arbitrary involution\" alphabet",
+        "de Bruijn sequences involution on alphabet permuted symbols pair selecting cycle all length two factors optimal Eulerian"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.25286v2 (full-text relevant sections); earliest date arXiv:2603.25286v1 2026-03-26",
+      "Alhakim et al. (2024), doi:10.1007/s12095-024-00742-x, publisher open-access full-text",
+      "arXiv:1608.08480v1, full-text relevant sections",
+      "Public indexes of de Bruijn pair-selecting sequences and cyclic alphabets searched; no covering formulation identified"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2603.25286v2, concluding Section 8 explicitly asks whether all symbol-involution orbit bounds are attainable; notes the binary-complement span-two obstruction.",
+        "arXiv:2407.14866 and arXiv:1608.08480 concern reverse-window orbit pairing and do not cover arbitrary coordinatewise alphabet involutions."
+      ],
+      "reasoning": "If the source already proved maximum cycles for every alphabet involution, it would contradict its stated open generalization. Its specific negative-map and binary discussions do not settle the parity obstruction for every odd number of swapped pairs without fixed symbols. The present result resolves only span two and does not purport to solve the general span problem.",
+      "searches": [
+        "Negative Avoiding Sequences Chris Mitchell Peter Wild maximal sequence involution",
+        "maximal negative avoiding n-window sequences pair-selecting permutation alphabet",
+        "2026 \"pair-selecting sequences\" permutation de Bruijn 2 span"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.25286v2, Definition 8.1, defines pair-selecting sequences via involution of windows; alphabet-map case is discussed separately in Section 8.",
+        "arXiv:2407.14866, Definition 3.3, uses reversal of the window and thus a different transformation."
+      ],
+      "reasoning": "The equivalent formulation is a connected Eulerian transversal of coordinatewise involution-orbits in the complete directed graph, allowing one omitted orbit. The 2026 source poses alphabet-involution reachability without giving this full span-two classification. Reversal-based constructions cannot be relabeled into coordinatewise involution on arbitrary words.",
+      "searches": [
+        "pair selecting complement avoiding cycle span 2 alphabet involution two cycles odd transpositions sharp maximum (q^2-f^2)/2 minus one",
+        "cyclic word no both word and alphabet involution image all length two orbit pairs",
+        "\"pair-selecting\" \"involution\" sequences span 2 fixed points"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2603.25286v2, Section 6, includes exact constructions for modular negation at span two and several small cases.",
+        "No checked accessible table or exact database result records the two-parameter involution-orbit classification."
+      ],
+      "reasoning": "The known small modular-negation examples are already included among covered prior cases. A partial numerical table would not logically imply the exact arbitrary-parameter theorem; no direct full two-parameter table was found.",
+      "searches": [
+        "site:oeis.org \"negative avoiding\" \"involution\" maximal",
+        "\"involution\" \"length two\" \"negative avoiding sequence\"",
+        "\"pair selecting\" \"fixed points\" \"de Bruijn\" \"involution\""
+      ]
+    },
+    "rationale": "Mitchell--Wild arXiv:2603.25286 explicitly develops the modular-negation involution, proving the 1-fixed-symbol and 2-fixed-symbol special classes and posing arbitrary alphabet involutions as a further question. Their proven constructions cover those subcases and are acknowledged; they do not yield the exact odd-swap no-fixed-point parity deficiency or arbitrarily many fixed symbols. Primary reversed-window articles impose reversal rather than coordinatewise involution. The exact full span-two classification survived the performed semantic and literature comparisons; unindexed coverage remains possible.",
+    "residual_risks": [
+      "An unindexed theorem for generic letter involutions or an alternative quotient-graph terminology could predate this construction.",
+      "Existing coverage of all involutions with one or two fixed points is explicitly excluded from the novelty rationale.",
+      "Span above two is not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong special-case coverage only: modular negation forces one or two fixed symbols; arbitrary alphabet involution is identified as an additional question",
+        "evidence": [
+          "arXiv:2603.25286v2, Sections 4,6,8; first public source 2026-03-26"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.25286",
+        "material_read": "Definitions 1.2--1.3, Theorem 3.2, Section 4, Section 6 including Theorems 6.2 and 6.4, and concluding Section 8 including Definition 8.1 and the fixed-point discussion",
+        "method": "Authoritative arXiv full-text HTML, reading theorem statements and their proof material",
+        "title": "Negative Avoiding Sequences",
+        "trigger": "Direct predecessor paper introduces pair-selecting sequences and poses general involutions"
+      },
+      {
+        "assessment": "Pairs each window with its reversal; does not contain an all-alphabet-coordinatewise-involution maximum-length theorem",
+        "evidence": [
+          "Alhakim et al. (2024), Definition 3.3 and Section 4"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s12095-024-00742-x",
+        "material_read": "Full accessible article introduction, definitions of n-window and orientable sequences in Section 3, Lempel constructions and upper-bound discussion",
+        "method": "Publisher open-access full-text HTML",
+        "title": "Orientable sequences over non-binary alphabets",
+        "trigger": "Closely related position-location cycles and generalized de Bruijn graphs"
+      },
+      {
+        "assessment": "Pairs reversed windows; the reversal involution acts on order rather than letter values, so its span-two constraints are not the present constraints",
+        "evidence": [
+          "arXiv:1608.08480v1, Sections 2--4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1608.08480v1",
+        "material_read": "Sections 2--4, unoriented de Bruijn graph definitions, alternating Eulerian circuit criteria, and optimal-length existence statements",
+        "method": "arXiv full-text HTML",
+        "title": "An Unoriented Variation on de Bruijn Sequences",
+        "trigger": "Potentially broader orbit-transversal results for window pairings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1b0c56bb-bd5f-4b5f-95b4-6060fdf5cf9f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent primary paper states the general alphabet-involution pair-selecting sequence question. Determining its complete sharp span-two solution for every involution orbit type, with a parity boundary where naive orbit counting fails and an explicit construction attaining that failure by exactly one, is a structural rather than a routine numerical contribution. The result forms a meaningful exact base case for the open higher-span problem.",
+    "status": "PASS"
+  }
+}
