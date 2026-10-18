@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The exact operator norm is the supremum of the two Lagrange-basis moduli because continuous unit-disk interpolation extends prescribed node phases. The three-branch circular-chord identity yields lower bounds sec d and sin(theta/2)/sin d for every asymmetric pair; centered pairs attain their maximum exactly. One branch strictly increases, the other strictly decreases, meeting uniquely at tan d=sin(theta/2). A small strict exterior displacement forbids every nonzero midpoint at this separation. Domain and endpoint limits are explicit. The standard-library checker passed 4,539 finite diagnostic assertions, not used to infer the universal theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chui and Zhong, arXiv:2209.07101, study high-degree interpolation on open complex arcs and the growth of Lebesgue constants.",
+        "Nevskii, arXiv:2405.01254, treats real affine interpolation on full-dimensional convex bodies with n+1 nodes in real dimension n.",
+        "The closest circular-arc Hilbertian metric calculation determines Banach–Mazur distortion rather than complex two-node Lebesgue constants."
+      ],
+      "reasoning": "General asymptotic complex-arc interpolation estimates do not identify the optimized fixed-degree-one value. Real-affine simplex-projector results are not directly applicable to two complex degrees of freedom on a one-dimensional nonconvex arc. The Hilbert metric problem changes the target norm rather than optimizing interpolation from arbitrary data.",
+      "searches": [
+        "minimum Lebesgue constant two nodes circular arc linear Laurent interpolation interior overshoot endpoint optimal nodes",
+        "Chebyshev two-point interpolation e^{it} on circular arcs optimal nodes Lebesgue constant",
+        "complex affine interpolation on a circle arc minimal operator norm two evaluation recovery E_theta"
+      ]
+    },
+    "checked_sources": [
+      "S. K. Ray, Unique operator space structures on a family of two dimensional Banach spaces, arXiv:2610.04608v1 (2026).",
+      "C. K. Chui and L. Zhong, Order of uniform approximation by polynomial interpolation in the complex plane and beyond, arXiv:2209.07101 (2022).",
+      "M. Nevskii, Optimal Lagrange Interpolation Projectors and Legendre Polynomials, arXiv:2405.01254 (2024).",
+      "The unique optimal Hilbertian metric for circular-arc function planes freezes at a semicircle (publicly indexed related mathematical result, 2026; distinct target invariant).",
+      "Lebesgue functions and Lebesgue constants in polynomial interpolation, Journal of Inequalities and Applications (2016), §§ on optimal nodes for real intervals."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ray, arXiv:2610.04608v1, Theorem 6: equivalence between contractivity of E_theta maps and an operator dilation; §4: isometric non-equivalence.",
+        "Chui–Zhong give asymptotic Lebesgue behavior in degree and general arc geometries, not the exact two-sample minimization.",
+        "Nevskii considers real n+1-node interpolation for real n-dimensional full-dimensional convex bodies."
+      ],
+      "reasoning": "The present theorem is a specific sharp operator norm from C(K_theta) into E_theta under sampling constraints. Ray’s contractive-factorization and range-isometry claims lack sampling constraints and do not imply it. The other two papers use respectively asymptotically high degrees and a different real affine data model. The exact endpoint-vs-interior comparison is not a corollary of any inspected stronger conclusion.",
+      "searches": [
+        "Ray E_theta interpolation sampling stability Lebesgue constants",
+        "circular arc plane E_theta span {1,z} complex modulus of convexity and smoothness exact uniform convexity failure geometry",
+        "complex affine interpolation on a circle arc minimal operator norm two evaluation recovery E_theta"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lagrange functions are the natural equivalent barycentric formulation of the two-sample operator norm; none of the checked mathematical findings states the exact minimum sqrt(1+sin^2(theta/2)) or unique inward angle parameterization.",
+        "Ray, arXiv:2610.04608v1, Theorem 6 and Propositions 2–3 concern contractive factorization and isometry rather than two-node interpolation."
+      ],
+      "reasoning": "Checked equivalent formulations as minimal Lebesgue constant, projection norm, and optimal two-point reconstruction. No inspected statement implies the exact result. The positive search result about a Hilbertian quadratic metric optimizes an ellipsoidal norm distortion on the two-dimensional range, not a projection C(K)→E or two-node data conditioning.",
+      "searches": [
+        "sharp Lebesgue constant two point interpolation linear complex polynomials on an arc of circle unique optimal symmetric interpolation nodes",
+        "optimal two node polynomial projection onto span{1,z} on complex circular arc minimizing operator norm arcsine",
+        "complex affine interpolation on a circle arc minimal operator norm two evaluation recovery E_theta"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual indexed mathematical-record searches produced interpolation examples and circular-arc function-plane geometry, but no record with the exact one-parameter minimum or unique two-node optimizer.",
+        "No standard finite table directly represents the continuum of real angles covered by this theorem."
+      ],
+      "reasoning": "Checked exact formula, synonymous node geometry, and interpolation-table terminology; no matching exact record was recovered. This is search evidence only, not proof that no prior table or article exists.",
+      "searches": [
+        "optimal two-point interpolation circular arc span 1,z Lebesgue constant sqrt(1+sin²(theta/2)) nodes ±2 arctan(sin(theta/2))",
+        "sharp Lebesgue constant two point interpolation linear complex polynomials on an arc of circle unique optimal symmetric interpolation nodes",
+        "finite degree one Lagrange interpolation on compact circular arcs optimal nodes inward symmetric equioscillation Lebesgue function"
+      ]
+    },
+    "rationale": "The exact all-angle, two-complex-node Lebesgue-minimax constant and unique interior node pair are not stated or entailed by the inspected Ray operator-space paper, the closest circular-arc Hilbertian-distortion result, or the examined broader complex-arc approximation sources. Direct semantic and title searches for formula, aliases, inward nodes and degree-one interpolation returned no covering theorem. Older work could nonetheless contain an equivalent result; priority is not independently verified.",
+    "residual_risks": [
+      "An older degree-one complex-arc interpolation result may give the same formula in different notation without appearing in indexed searches.",
+      "Only accessible sections of the Chui–Zhong manuscript were materially read and the Nevskii comparison is abstract-level; these gaps limit priority confidence.",
+      "No independent literature-priority or scientific review has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "E_theta is defined as span{1,z} on K_theta; Theorem 6 gives complete contractivity via unitary dilation, §4 gives isometric classification.",
+          "In-document searches of the paper found no terms interpolation or Lebesgue; the materially inspected statements concern different invariants."
+        ],
+        "identifier_or_url": "arXiv:2610.04608v1; https://arxiv.org/html/2610.04608v1",
+        "material_read": "Introduction with definitions and stated contributions, §3 main theorem and proof, §4 Lemma 7 and Propositions 2–3 with proofs, ending sections and references as relevant",
+        "method": "Accessible full author-manuscript HTML, direct section inspection and in-document terms interpolation/Lebesgue",
+        "title": "Unique operator space structures on a family of two dimensional Banach spaces",
+        "trigger": "Exact family E_theta and potential same-parameter coverage"
+      },
+      {
+        "assessment": "NO_IDENTIFIED_COVERAGE; PARTIAL_TEXT",
+        "evidence": [
+          "Principal statements concern growth with interpolation degree, adjusted Fejér node arrays, and smooth or L-shaped open arcs.",
+          "The examined parts do not determine the optimal exactly two-node complex interpolation constant on centered circular arcs."
+        ],
+        "identifier_or_url": "arXiv:2209.07101; https://arxiv.org/abs/2209.07101",
+        "material_read": "Available manuscript introduction and early source sections, author abstract, and accessible summaries of the principal high-degree statements; complete text not exhaustively inspected",
+        "method": "Publicly available text excerpts and repository abstract, arXiv HTML not accessible on this check",
+        "title": "Order of uniform approximation by polynomial interpolation in the complex plane and beyond",
+        "trigger": "Possible broader theorem on complex-arc interpolation Lebesgue constants"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY; SCOPE_DIFFERENCE",
+        "evidence": [
+          "General full-dimensional real convex-body setting with n+1 real-affine interpolation nodes.",
+          "The present problem uses two complex nodes on a nonconvex one-dimensional circle arc."
+        ],
+        "identifier_or_url": "arXiv:2405.01254; https://arxiv.org/abs/2405.01254",
+        "material_read": "Full public abstract and theorem outline only; full author manuscript unavailable in an accessible HTML rendering",
+        "method": "Public bibliographic record and abstract; limited access recorded as residual risk",
+        "title": "Optimal Lagrange Interpolation Projectors and Legendre Polynomials",
+        "trigger": "Potential dominating general result on minimal interpolation-projector norms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "71dc11a9-52c3-4572-a470-c433c97b047f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "It solves a natural continuum-parameter exact conditioning minimax for the newly studied E_theta Banach function planes, with unique optimal sampling geometry rather than an arbitrary data slice. Strictly inward optimal nodes are forced for every arc length. In near-full-circle arcs endpoint interpolation diverges while optimal interpolation stays bounded by sqrt(2), yielding a motivated structural sampling conclusion not supplied by conventional generic interpolation upper bounds.",
+    "status": "PASS"
+  }
+}
