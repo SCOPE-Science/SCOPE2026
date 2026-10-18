@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every 2<=n<b, integrality of digits implies the paired carry identity with denominator D=n^2-1; grade-school bounds give 1<=c_1<=n-1. If c_k=c_{k-1}=0, j=0,1 force D|bc_1 and D|(bc_2-c_1); elementary elimination forces D|c_1^2, impossible because 0<c_1^2<D. Padding classification follows from c_0=0, c_1>0 and no double highest zero. The independent finite checker found 150 valid palintiples among 3,103,793 input strings and confirmed the theorem, as did 117,810 modular checks. Infinite claim rests on proof, not the test ranges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kendrick 2015 classifies 1089 and complete Young graphs, rather than a universal top-carry double-zero impossibility across every multiplier and base.",
+        "Holt 2014 Corollary 2 gives an all-palintiple carry parametrization from which the obstruction is proved here through a new modular cancellation step."
+      ],
+      "reasoning": "A full-graph characterization might imply the obstruction algorithmically and is a priority risk, but the compared stronger-looking graph theorems cover graph classes rather than explicitly the universal pair-exclusion theorem. Holt 2014 supplies the tools, not the final double-zero statement; the exact implication requires the modular-square argument.",
+      "searches": [
+        "arxiv:1410.0106 Kendrick Young Graphs: 1089 et al",
+        "arxiv:1307.0453 Sloane 2178 And All That",
+        "arxiv:1412.0231v1 derived palintiple families",
+        "\"palintiple\" \"consecutive zeros\" carries"
+      ]
+    },
+    "checked_sources": [
+      "Holt, Integers 14 (2014), #A42, original full text",
+      "Holt, Integers 16 (2016), #A27, original full text",
+      "Kendrick, arXiv:1410.0106 (2014/2015), preprint statements and source discussion",
+      "Mathematical-record searches (multiple exact alias/equivalence queries; no direct match)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Holt 2014 Corollary 2 proves (n^2-1)d_j=n b c_{k-j+1}-n c_{k-j}+b c_{j+1}-c_j and Theorem 3 proves c_j<=n-1. Its next paragraph states c_1>0.",
+        "Holt 2016 explicitly allows the singly/doubly zero-padded forms and asks if more forms exist.",
+        "The present argument combines j=0 and j=1 under two hypothetical leading zero carries to infer n^2-1 | c_1^2, impossible for 1<=c_1<n."
+      ],
+      "reasoning": "The old displayed identities are credited and sufficient premises, but the double-endpoint obstruction and maximal outer-padding classification are not the conclusions asserted in those papers. The new algebra supplies the precise missing logical step. In particular the present result does NOT imply that all forms of derived palintiples must be singly/doubly-derived if non-outer padding modifications are allowed.",
+      "searches": [
+        "Holt 2014 Integers 14 A42 Corollary 2, Theorem 3, Theorem 4",
+        "Holt 2016 Integers 16 A27 Section 2, Section 7",
+        "Kendrick 2015 Young Graphs Theorem 14"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Holt 2016 Section 2 defines carry strings (d_m,...,d_0,0) and (0,d_m,...,d_0,0), and its Section 7 still asks if triply/quadruple derived forms exist.",
+        "No inspected source formulates the universal forbidden pair (c_k,c_{k-1})=(0,0); the closest statement, positivity of c_1, is explicit in Holt 2014 immediately after Theorem 3."
+      ],
+      "reasoning": "The equivalent reverse-multiple, palintiple, carry-string, and derived-family terminology was compared at the level of carry locations. The new statement is about precisely the first two high carries of every palintiple; no exact formulation was located. The broad 2016 question is more general than the stated corollary.",
+      "searches": [
+        "\"triply-derived\" \"palintiple\" exists Holt",
+        "\"palintiple\" \"consecutive zeros\" carries",
+        "\"zero\" \"zero\" \"derived palintiples\" carries",
+        "Holt Integers 2016 A27 Sections 2 and 7, arxiv:1412.0231"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Holt 2014 Table 1 lists sample carry vectors, including (0,3,3,3,0), but is not a universal theorem or exhaustive enumeration.",
+        "Semantic mathematical-record matches were for unrelated Pell digit extraction, binary palindromic duplication, and repdigit near-perfect numbers rather than palintiple carry obstructions."
+      ],
+      "reasoning": "Neither the inspected tables nor the actual broad and parameter-targeted semantic searches provide an all-base prohibition on double highest zero carries. Non-matching search returns are not treated as novelty proof.",
+      "searches": [
+        "\"triply\" \"quadruply\" \"palintiples\" conjecture",
+        "\"triply-derived\" \"palintiple\" exists Holt",
+        "palintiple numbers reverse multiples base b multiplier n carry c_k c_{k-1} zero forbidden gcd c_1^2 n^2-1"
+      ]
+    },
+    "rationale": "The crucial double-highest-zero exclusion comes from a modular-square cancellation not stated in Holt 2014, while Holt 2016 explicitly left additional derived carry shapes under question. The exact limitation to contiguous outer-zero padding is tracked. Searches did not identify a dominating published theorem, but an implicit corollary of older finite-state results remains a plausible priority risk.",
+    "residual_risks": [
+      "The short modular argument may be implicit in Holt 2014 Corollary 2 and Theorem 3, and a reader might regard it as a readily derived consequence of that general formula.",
+      "A stronger graph-automaton characterization might implicitly exclude the same carry patterns without highlighting them.",
+      "The broad undefined idea of triply-derived could include interior alterations not covered by the precise outer-padding theorem.",
+      "An unindexed or otherwise unobserved later result could explicitly prove the statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATION, not stated coverage: obtains first-carry positivity and digit formula, but not the two-highest-zero contradiction.",
+        "evidence": [
+          "Corollary 2: paired digit-carry identity; Theorem 3: 0<=c_j<=n-1; line after Theorem 3: c_1>0."
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/o42/o42.pdf",
+        "material_read": "Full primary paper, especially Section 2 pages 3-5, Corollary 2, Theorem 3 and its remark, and example carry table.",
+        "method": "Original PDF text and page-image inspection; algebraic comparison of the claimed carry congruences.",
+        "title": "Some General Results and Open Questions on Palintiple Numbers",
+        "trigger": "Exact parent identities and carry bounds for all (n,b)-palintiples."
+      },
+      {
+        "assessment": "NOT_COVERING the precise universal obstruction: both existing patterns are explicitly listed, with third/fourth patterns still queried.",
+        "evidence": [
+          "Section 2 Case 1: (d_m,...,d_0,0), Case 2: (0,d_m,...,d_0,0); closing remark leaves other forms unresolved; Section 7 p.16 explicitly mentions triply/quadruple."
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/q27/q27.pdf",
+        "material_read": "Full 19-page publisher-hosted PDF; Section 2 pp. 3-4 with both cases and remark, Section 7 p.16 open question, plus related graph discussion.",
+        "method": "Original PDF text and page-image inspection of pages 4 and 16; comparison of carry order and zero positions.",
+        "title": "Derived Palintiple Families and Their Palinomials",
+        "trigger": "Exact higher-palintiple carry shapes, including purported third/fourth derived patterns."
+      },
+      {
+        "assessment": "No explicit all-base two-highest-carry zero prohibition identified; broader implicit graph description could be a priority risk.",
+        "evidence": [
+          "Abstract says Theorem 14 determines 1089 graph isomorphism, Theorem 31 complete Young graph class; this is not the same universal quantification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.0106",
+        "material_read": "Preprint abstract, statements of 1089 and complete-graph classification, and relevant discussion of Young graph carry nodes in Holt 2016.",
+        "method": "Primary preprint abstract/source description plus cross-check to Holt 2016 Theorem 14 discussion, rather than assuming title-based coverage.",
+        "title": "Young Graphs: 1089 et al",
+        "trigger": "Potential graph-theoretic stronger coverage of universal carry endpoint constraints."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "42c9a5ba-2f38-45c4-936c-cd7e2aa3bdc0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact top-carry boundary lemma eliminates every third or higher outer-zero padding of a contiguous copy of a smaller reverse multiple, while retaining precisely the two source patterns singled out in Holt 2016. This is a structural all-base consequence responsive to a named construction gap, not an arbitrary finite census or renaming. The broader derived-construction question remains open.",
+    "status": "PASS"
+  }
+}
