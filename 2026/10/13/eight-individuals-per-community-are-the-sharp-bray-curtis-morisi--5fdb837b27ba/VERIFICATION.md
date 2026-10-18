@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,46 +18,25 @@
   "schema_version": 1
 }
 ---
-For equal census totals \(N\), Bray–Curtis similarity is
-\[
-B(x,y)=\frac{\sum_i\min(x_i,y_i)}{N},
-\]
-and Morisita–Horn similarity is
-\[
-H(x,y)=\frac{2\sum_i x_i y_i}{\sum_i x_i^2+\sum_i y_i^2}.
-\]
 
-The embedded `verify_bray_morisita_horn_boundary.py` generates every positive integer abundance vector for every
-\[
-2\le k\le N\le8.
-\]
+# Independent mathematical audit
 
-Community comparisons are quotiented only by joint species relabeling and by swapping the two communities. Every unordered pair of canonical comparison types with common \(N,k\) is then checked using exact rational arithmetic.
+## correctness
 
-The strict-reversal counts by total are
-\[
-0,0,0,0,0,0,1
-\]
-for
-\[
-N=2,3,4,5,6,7,8.
-\]
+PASS
 
-The unique first reversal is
-\[
-(1,1,2,4)\ \text{versus}\ (1,4,2,1)
-\]
-against
-\[
-(1,1,3,3)\ \text{versus}\ (3,3,1,1).
-\]
+At equal N, B=sum min(x_i,y_i)/N and H=2 sum x_i y_i/(sum x_i²+sum y_i²), both exact rationals, with every species positive. Canonicalize an ordered community comparison by sorting coordinate pairs and taking minimum under global community swap: exactly the quotient of joint species relabeling and pair swap. Independently generated all ordered positive compositions for every N=2..8 and k=2..N; exact Fraction arithmetic, not source verifier, produced canonical type counts 1,3,7,15,32,66,137 and within-richness unordered comparison tests 0,1,7,31,136,566,2357. Strict opposite rankings appeared only once, at N=8,k=4. Direct dot products verify A: B=5/8, H=13/22; C: B=1/2, H=3/5. Homogeneity of both formulas proves recurrence at all positive multiples N=8q independently of finite scaling tests. Exhaustion proves only first layer and universal N<=7, not classification for all larger N.
 
-Run:
+## originality
 
-`python3 verify_bray_morisita_horn_boundary.py`
+PASS
 
-The first output line must be:
+Bray-Curtis and Morisita-Horn formulas, differing sensitivities and possible empirical ranking disagreements are established. No inspected relevant primary full text yields the sharp equal-total all-positive integer boundary and unique first-layer comparison. This is a natural, exactly resolved finite classification with source-access risks disclosed.
 
-`VERIFY_OK`
+## value
 
-The recurrence under common scaling follows directly from homogeneity and is separately replayed for scaling factors through \(50\).
+PASS
+
+The two indices are canonical ecological community-comparison statistics and the least equal sample size that permits them to rank two community comparisons oppositely, with species richness held fixed and every species present, is a motivated finite-resolution invariant. The sharp lower bound, unique extremal comparison at N=8, and homogeneous recurrence give concrete mathematically reusable information for metric sensitivity analysis; exhaustive finite work is the theorem, not incidental numerical evidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
