@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:46:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Set a=qM+r with 1<=r<M, gcd(r,M)=1. Reconstructed T(a/M)=q(M+r)/M, first reduced denominator d=M/gcd(q,M); exact order two iff d>1 and d divides Q=q+floor(qr/M), where q<=Q<=2q-1. The quotient-exclusion cases for k=2s, k=2s+1 at p odd, and k odd at p=2 rule out every smaller q using p-adic valuation and d>Q. For odd p, the candidate q=p^s(p+1)/2 requires Q=p^(s+1), fixing the minimal r0=ceil[M(p-1)/(p+1)]; modular calculation proves p does not divide r0. Even-exponent and odd binary choices use r=1. Directly checked M=2 special mu=7. An independent fresh exact Fraction enumeration verified candidates and excluded 83714 smaller coprime numerators for 32 prime-power cases <=1000, while the all-prime proof is the quotient/divisibility argument, not this enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carvalho’s 2026 paper expressly defines mu and asks to describe it; denominator two is covered, now credited.",
+          "arxiv:1210.0042 maps x to x ceil(x), not floor(x)(1+{x}), so its order-minimum statements are not direct coverage.",
+          "Original prime-representing iteration gives context, not complete minimum formula."
+        ],
+        "reasoning": "The strongest exact same-map prior results enumerate order classes and p=2,k=1; the new all-prime-power minimum is not a corollary of their counts without a fresh minimization argument.",
+        "searches": [
+          "arxiv:2605.21802 Carvalho Lemma 2.1, Theorem3.1, Proposition3.3, Question3.5",
+          "arxiv:1210.0042 Azevedo Carvalho Machiavelo quasi-quadratic map",
+          "arxiv:2010.15882 A Prime-Representing Constant"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2605.21802 Lemma 2.1 Theorem 3.1 Question3.5",
+        "arxiv:1210.0042 defining map",
+        "arxiv:2010.15882 context",
+        "Resultary prime power entrance minimum semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem3.1 yields how many reduced congruence classes have given order; it does not order the starting numerators to extract the first.",
+          "Question3.5 explicitly asks the defined mu(M,n) after prior class enumeration."
+        ],
+        "reasoning": "A complete counting law need not fix a minimum; the new proof exhibits the smallest q and least coprime r for each parameter family. The M=2 consequence is excluded from novelty.",
+        "searches": [
+          "Carvalho arxiv:2605.21802 Theorem3.1 / Question3.5",
+          "Azevedo et al. arxiv:1210.0042 map comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Order-two condition equivalent to d=M/gcd(q,M)>1 and d | q+floor(qr/M), with q=floor(a/M).",
+          "Carvalho’s mu(M,n) question uses the SAME map and reduced-numerator normalization."
+        ],
+        "reasoning": "The scalar divisibility condition is a useful exact reformulation, but existence/class counts alone do not specify the lexicographically least admissible quotient and remainder.",
+        "searches": [
+          "Carvalho rational dynamics prime representing map least numerator mu(M,n) Question 3.5",
+          "two iterates rational T(x)=floor x(1+ fractional part x) reduced denominator p^k",
+          "Resultary: Carvalho rational dynamics prime representing map minimal numerator two-step entrance prime power denominators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact invariant is asked as a question rather than provided as a table across prime powers.",
+          "Resultary returned unrelated arithmetic threshold work rather than this same-map prime-power formula.",
+          "An independent checker excludes 83714 prior reduced numerators only in finite small M; analytic valuation proof covers all M=p^k."
+        ],
+        "reasoning": "Not a finite database lookup: the theorem quantifies over arbitrary prime and exponent. Failure to retrieve an equivalent unindexed table does not prove novelty.",
+        "searches": [
+          "arxiv:2605.21802 Question 3.5 least numerator",
+          "Resultary semantic Carvalho prime-power two-step minimum numerator search",
+          "web: rational dynamics prime representing prime power entrance minima"
+        ]
+      },
+      "rationale": "Carvalho 2026 explicitly poses determination of mu(M,n) as Question 3.5, gives denominator-two instance and general congruence counting but no inspected uniform prime-power order-two minimum. The assessed formula resolves the natural first nontrivial order and every prime-power denominator with a valuation-parity phase transition. The denominator-two case is explicitly previously known; the separate older x ceil(x) map has different dynamics. Historical unindexed equivalent congruence minimizations remain a priority risk.",
+      "residual_risks": [
+        "Unindexed older number-theoretic minimizations of congruence classes could imply the same formula.",
+        "Classification is deliberately restricted to exact order two and prime-power denominators; rational termination for other cases is not proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides classification classes and one M=2 minimum; explicitly asks for general mu(M,n); no inspected all-prime-power order-two answer",
+          "evidence": [
+            "Question 3.5: mu(M,n)=min{a>=2M:gcd(a,M)=1,ord(a/M)=n}, Can we describe mu(M,n)?"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.21802",
+          "material_read": "Full 10-page PDF accessible; materially read Lemma 2.1, Section 3 Theorem 3.1, Propositions3.3–3.4 and Question3.5 printed p8.",
+          "method": "Primary-PDF parsed text and page screenshots",
+          "title": "Rational dynamics of a prime-representing map",
+          "trigger": "Same exact iteration and invariant"
+        },
+        {
+          "assessment": "Different x ceil(x) recurrence; no mathematical conjugacy established",
+          "evidence": [
+            "Map x->x ceil(x), unlike Carvalho floor(x)(1+{x})."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1210.0042",
+          "material_read": "Source identified and its explicit map definition and abstract from prior package plus bibliographic record; full text not re-inspected in this run.",
+          "method": "Definition-to-definition comparison; access limitation recorded",
+          "title": "Dynamics of a quasi-quadratic map",
+          "trigger": "Potential historical equivalent recurrence"
+        },
+        {
+          "assessment": "Establishes the iteration framework, not used to infer whole-paper noncoverage",
+          "evidence": [
+            "Describes the prime-representing iteration, not an observed general minimum table."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.15882",
+          "material_read": "arXiv abstract and bibliographic description, not full mathematical text.",
+          "method": "Public abstract/metadata context",
+          "title": "A Prime-Representing Constant",
+          "trigger": "Originating dynamical map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first admissible numerator for rational-entry time is an explicit open invariant in the exact source, and order two is its first nontrivial stopping case. An all-parameter prime-power solution with minimum witness, coprimality proof and parity/2-adic exceptional transition is a mathematically motivated exact classification. It is not a restatement of how many residue classes exist or a finite enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For exact-order-two termination under T(x)=floor(x)(1+fractional_part(x)), the minimum reduced starting numerator mu(p^k,2) for EVERY prime-power denominator has the even/odd exponent piecewise formula in RESULT.md, including the sharp odd-prime least coprime remainder and exceptional binary branches.",
+  "limitations": [
+    "Only reduced starting rational a/p^k>=2 and exact stopping order two.",
+    "The p=2,k=1 case mu=7 is known from Carvalho; not claimed new.",
+    "Unrestricted rational termination, all composite denominators and order>=3 remain open."
+  ],
+  "schema_version": 1
+}
