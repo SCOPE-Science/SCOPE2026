@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(|b|<2\sqrt2\) the quadratic \(Q_b(w)=2w^2-bw+1\) is everywhere positive. The projective substitution \(w=u/x^2\) yields two smoothly joined trajectory arcs, a globally finite exact period quadrature, and explicit axis-crossing velocities. Direct differentiation checks both normalizations. An endpoint Laplace asymptotic gives the rate and prefactor \(2\sqrt{\pi/e}/A\); independent high-precision quadrature agrees with the gamma representation. The argument does not infer a limiting theorem from finite samples.
+## correctness
 
-## Originality — PASS, subject to substantial residual priority uncertainty
-García–Llibre (DOI 10.1007/s12215-022-00850-8) proves center existence, not the parameter-boundary asymptotic. The relevant Álvarez–Gasull–Prohens study (DOI 10.1016/j.jmaa.2016.12.077) analyzes fixed-system period monotonicity and explicitly reports a previously known period formula for this exact quasihomogeneous subfamily; these contributions are not claimed new. The present statement isolates sharp center-boundary exponential asymptotics plus an exact two-crossing speed contrast, with no matching statement located. Because only the abstract and an indexed interior excerpt of the latter paper could be inspected, the risk of equivalent previously derived constants is material; no publication-priority guarantee is made.
+PASS
 
-## Value — PASS
-The endpoint \(|b|=2\sqrt2\) is the natural discriminant threshold of the center classification, not an arbitrary parameter slice. Quantifying its essential period divergence and the exponentially suppressed crossing reveals a distinctive dynamical loss of periodic circulation invisible to fixed-parameter period monotonicity. The exact prefactor and crossing-speed ratio are explicit observables, not solely numerical refinements.
+The w=u/x² reduction gives w_dot=−x(2w²−bw+1), Q_b>0 exactly for Δ=8−b²>0; d(log|x|)/dw=−w/Q and I_b integral reconstruct both half-orbits. At w→±infinity the finite nonzero crossing velocities yield exactly |u_-|/u_+=exp(πb/sqrtΔ), including the correct signs for b<0. Time integration twice over halves yields T=(2/A)∫e^{I}/Q dw; angular substitution B=b/(2sqrtΔ) gives positive cos^(-1/2) weighted integral. Endpoint Laplace asymptotics ∫exp(Bθ)/sqrt(cosθ)~sqrt(π/|B|)exp(π|B|/2), and B atan(b/sqrtΔ)=π|B|/2−1/2+o(1). The powers Δ^-1/4 |B|^-1/2 cancel to exact 2 sqrt(π/e)/A. Independent high-precision gamma vs angular quadrature and exact crossing ratio checks at b=0,±1 and near 2sqrt2 corroborate, not prove, limits. Boundary |b|=2sqrt2 excluded and A fixed.
 
-## Limits
-Only this cubic quasihomogeneous oscillator, strictly inside its center range and at fixed positive amplitude, is treated. The incomplete 2017 source inspection remains an originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Known center classification and exact period quadrature are not original. The assessed combined final claim is the SHARP essential-exponential boundary divergence including its complete leading constant, together with simultaneous signed axis-speed polarization and limiting rescalings. The accessible 2017 period-paper excerpt confirms a possible exact precursor for a component but not these joint boundary-limit statements. Best-of-knowledge PASS with HIGH material priority uncertainty: complete 2017 text remained inaccessible. No claim that a failed search proves novelty.
+
+## value
+
+PASS
+
+The boundary |b|→2sqrt2 is the genuine loss-of-center bifurcation; quantitative essential singularity and prefactor in physical-time period and exponentially split crossing speeds resolve natural singular observables, not an arbitrary numeric slice. These quantify an extreme timescale and trajectory shape absent from center existence alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
