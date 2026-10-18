@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked directly against the focal source's definitions and theorem dependencies. The leaf parameter is normalized by \(\phi_t(0)=t\); the transverse Lipschitz inequality is exactly the source's Definition (8); the source's Proposition 3.16 identifies the leaf map \(\psi\), its irrational rotation number \(\alpha\), and the topological conjugacy; and Theorem C supplies minimality once that conjugacy is bi-Lipschitz.
+# Independent mathematical audit
 
-The added step is self-contained. The preimage under the leaf projection of a short parameter arc is the strip between the two corresponding graph leaves. Its area equals the integral of their vertical separation. Definition (8), evaluated relative to the transversal at horizontal coordinate zero, bounds this separation above and below by fixed multiples of the parameter length. Thus the leaf-space pushforward of area has interval masses uniformly comparable to arc length.
+## correctness
 
-Because area is invariant and the leaf projection is equivariant, this leaf-space measure is invariant. Its cumulative distribution lift is a bi-Lipschitz increasing homeomorphism. Invariance implies that conjugating the lifted leaf map by this homeomorphism produces a translation; rotation-number invariance identifies the translation modulo one with \(\alpha\).
+PASS
 
-Limits checked: no automatic transverse Lipschitz regularity is claimed; no result for merely non-wandering maps is claimed; boundary graph leaves have zero area; wrap-around arcs are handled by periodic lifts; and no numerical experiment or finite enumeration is used as proof.
+The focal 33-page preprint defines a leaf projection P using normalization phi_t(0)=t (section 3.3.1) and equivariance P o f=psi o P. Since f is area preserving, nu=P_*(Lebesgue area) is invariant under psi. For a short oriented parameter interval I=[s,t], P^-1(I) is a strip between ordered graph leaves, whose area is int_0^1(phi_t(x)-phi_s(x)) dx. The source Definition (8), page 28 formula (59), compares this gap to t-s between factors K_Fol^-1 and K_Fol at each x. Hence nu gives all arcs two-sided density bounds, so its cumulative-distribution lift H is bi-Lipschitz. Invariance implies H(psi(t))-H(t) constant (mod integer), forcing conjugacy to rotation by the irrational rotation number alpha established in Proposition 3.16. The exact remaining bi-Lipschitz conjugacy hypothesis in Theorem C is fulfilled, so f minimal. Wraparound arcs lifted periodically; leaves have zero area; no claim foliation Lipschitz follows automatically.
+
+## originality
+
+PASS
+
+Full text of Addas-Zanata–Lazaro Aguirre explicitly distinguishes the proof of psi itself being bi-Lipschitz (Lemma 3.17) from its conjugacy being bi-Lipschitz (still a separate assumption of Theorem C). The new invariant transverse-area marginal supplies the latter and removes a substantive condition. Older annulus leafwise-invariant Arnol'd–Liouville work covers a different system; no indexed equivalent found.
+
+## value
+
+PASS
+
+Removes a real extra regularity assumption from a new minimality theorem by a geometric invariant-measure mechanism, isolating the remaining transverse-foliation regularity gap. Not merely reparameterization; has direct consequence for dynamical minimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
