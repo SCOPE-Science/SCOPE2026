@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The section-face equivalence reduces the event to three strict triangle inequalities in scaled normal coordinates. Their feasible octant directions are exactly a simplicial cone with the three displayed rays, whose determinant, scalar products, and lengths were recomputed symbolically. The standard spherical triangle formula produces the exact probability, and two arithmetic–geometric mean inequalities establish the global bound and uniqueness. The continuity argument supplies the full range. Spherical-excess calculations and Gaussian-direction simulations independently test the probability formula but are not substitutes for the proof.
+## correctness
 
-**Originality — PASS, subject to historical risk.** The closest direct result is Lonke's formula for expected cube sections; that formula already gives the equal-edge value. The motivating orthotope width paper establishes distributional results for a different random geometric functional and does not state the section-combinatorics formula or its optimization. Searching section-face counts, triangle-inequality Gaussian formulations, spherical solid angles, and unequal aspect ratios did not uncover stronger prior coverage. Standard solid-angle calculations themselves are prior work. A possible obscure early stereological derivation of the full box law remains a residual risk.
+PASS
 
-**Value — PASS.** In a fundamental geometric-probability model, the full two-parameter aspect-ratio distribution is determined exactly, its sharp optimizing shape is classified with rigidity, and its exact range is identified. The general optimization statement does not follow from the known cube formula, because Haar-distributed planes are not affinely invariant. These provide a natural benchmark for orientation-sensitive section statistics complementary to orthotope random-width laws.
+A generic centered plane intersects both opposite faces x_i=±a_i in edges iff each weighted absolute normal X=a|u1|,Y=b|u2|,Z=c|u3| satisfies the strict triangle inequality against the other two. Thus six-sided sections occur exactly in the spherical cone spanned by (b,a,0),(c,0,a),(0,c,b) in the positive octant; otherwise centered symmetry and polygon geometry give four edges, with equality sets measure zero. An independent SymPy determinant gives -2abc and exact scalar products bc,ab,ac, yielding p6=4/pi arctan[2abc/(alpha beta gamma+bc gamma+ac beta+ab alpha)] by the classical solid-angle identity. AM-GM proves Q/(abc)>=5sqrt2 with equality only a=b=c; continuity along (t,1,1), t>=1, and limit0 proves every probability in (0,4/pi atan(sqrt2/5)]. The known cube equality 1-6/pi asin(1/3) is algebraically consistent. The actual verify_probability.py was read; its Monte Carlo trials cannot prove the general all-positive-a,b,c theorem, which the cone/AM-GM proof establishes.
 
-**Limits.** Full-dimensional orthogonal boxes in three dimensions, centered Haar-random planes only; existing cube formula is not new, and no higher-dimensional or oblique analogue is claimed. An unindexed equivalent probability calculation may exist. The analytic proof, not finite sampling, supports the universal conclusion.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Lonke's full 1998 work explicitly treats Haar central sections of a cube and its expected vertex count; in dimension three that computes the already-known equal-edge probability and is credited, not new. The exact unequal a,b,c law cannot be obtained by affinely stretching a Haar plane because the plane distribution changes; Lonke's equal-cube statement is not a broader-aspect-ratio result. Abas's orthotope width distribution is a different invariant, and the van Oosterom–Strackee spherical triangle identity is a standard calculation method. No covering unequal-box shape law or sharp all-aspect-ratio rigidity theorem found in actual inspected statements; inaccessible/hidden historical stereology remains a residual risk.
+
+## value
+
+PASS
+
+Random Haar central-plane section combinatorics of three-dimensional boxes is a canonical stochastic-convex-geometry model. The explicit two-dimensional aspect-ratio dependence, uniqueness of cubic maximizer and exact full positive range are mathematically meaningful classifications, not an arbitrary slice or a restatement of the cube-only value. A researcher comparing anisotropic sections can use the exact law without seeking a broad higher-dimensional theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

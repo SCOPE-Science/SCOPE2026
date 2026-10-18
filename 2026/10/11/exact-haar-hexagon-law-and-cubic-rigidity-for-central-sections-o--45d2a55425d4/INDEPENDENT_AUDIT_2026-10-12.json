@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T14:44:57.495191Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A generic centered plane intersects both opposite faces x_i=±a_i in edges iff each weighted absolute normal X=a|u1|,Y=b|u2|,Z=c|u3| satisfies the strict triangle inequality against the other two. Thus six-sided sections occur exactly in the spherical cone spanned by (b,a,0),(c,0,a),(0,c,b) in the positive octant; otherwise centered symmetry and polygon geometry give four edges, with equality sets measure zero. An independent SymPy determinant gives -2abc and exact scalar products bc,ab,ac, yielding p6=4/pi arctan[2abc/(alpha beta gamma+bc gamma+ac beta+ab alpha)] by the classical solid-angle identity. AM-GM proves Q/(abc)>=5sqrt2 with equality only a=b=c; continuity along (t,1,1), t>=1, and limit0 proves every probability in (0,4/pi atan(sqrt2/5)]. The known cube equality 1-6/pi asin(1/3) is algebraically consistent. The actual verify_probability.py was read; its Monte Carlo trials cannot prove the general all-positive-a,b,c theorem, which the cone/AM-GM proof establishes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lonke formula is for [-1,1]^n, not arbitrary orthotopes; n=3 is covered and credited.",
+          "An orthotope width CDF concerns support-function values, not the three simultaneous face-hit inequalities."
+        ],
+        "reasoning": "No inspected broader theorem has a parameter a,b,c that specializes to the new full aspect-ratio formula; the classical solid-angle tool alone does not state the optimized result.",
+        "searches": [
+          "Lonke 1998 Proposition 2.2 on random cube central sections",
+          "Abas 2026 width laws",
+          "van Oosterom and Strackee 1983 solid angle"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/9812123v1; https://arxiv.org/pdf/math/9812123",
+        "arXiv:2608.06348 (abstract/results overview)",
+        "OEIS:A349605",
+        "doi:10.1109/TBME.1983.325207",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known expected vertex count yields equal cube's p6, not arbitrary box aspects.",
+          "The exact positive-box cone and sharp AM-GM rigidity do not follow merely from cube symmetry or a general spherical angle formula without calculation."
+        ],
+        "reasoning": "Direct mathematical implication of prior n=3 cube specialization was acknowledged; the complete asymmetric formula requires extra facts and survives best-of-knowledge O.",
+        "searches": [
+          "Lonke 1998 Proposition 2.2",
+          "Abas 2026 arXiv:2608.06348 available abstract",
+          "Van Oosterom–Strackee DOI 10.1109/TBME.1983.325207"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Haar central section vertex count 4/6 determines hexagon probability by E[V]=4+2p6.",
+          "An affine-scaled Haar cube is NOT Haar in the rectangle's Euclidean Grassmannian."
+        ],
+        "reasoning": "Probability of six edges, expected section vertices, solid-angle triangle chamber, and Gaussian triangle inequality are equivalent forms compared; Lonke covers cube only.",
+        "searches": [
+          "Lonke arXiv:math/9812123v1 full paper",
+          "Abas arXiv:2608.06348 orthotope width law",
+          "Resultary query random central section of three dimensional cuboid rectangular box hexagon probability dimensions aspect ratios [failed]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS cube entry is the endpoint p6(1,1,1), specifically prior art.",
+          "No database table for unequal dimensions identified from actually read sources."
+        ],
+        "reasoning": "The exact cube number is NOT new; the variable-parameter family and rigidity go beyond that table. Failed searches do not prove absence of another table.",
+        "searches": [
+          "OEIS A349605 equal cube hexagon probability",
+          "Lonke 1998 full text and n=3 specialization",
+          "GitHub SCOPE box hexagon probability search no hits",
+          "Resultary query failed"
+        ]
+      },
+      "rationale": "Lonke's full 1998 work explicitly treats Haar central sections of a cube and its expected vertex count; in dimension three that computes the already-known equal-edge probability and is credited, not new. The exact unequal a,b,c law cannot be obtained by affinely stretching a Haar plane because the plane distribution changes; Lonke's equal-cube statement is not a broader-aspect-ratio result. Abas's orthotope width distribution is a different invariant, and the van Oosterom–Strackee spherical triangle identity is a standard calculation method. No covering unequal-box shape law or sharp all-aspect-ratio rigidity theorem found in actual inspected statements; inaccessible/hidden historical stereology remains a residual risk.",
+      "residual_risks": [
+        "Earlier stereological formula for random cuboid cuts may use a different aspect-ratio parametrization and be unindexed.",
+        "Resultary search temporarily unavailable.",
+        "Cube exact probability is known and excluded from distinct novelty claim.",
+        "Haar and affine-pushforward of Haar are different; model is centered plane only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CUBE SPECIAL CASE PREVIOUSLY KNOWN, NOT UNEQUAL ASPECT LAW",
+          "evidence": [
+            "Theorem concerns n-cubes; n=3 produces the equal-edge p6 endpoint only."
+          ],
+          "identifier_or_url": "arXiv:math/9812123v1; https://arxiv.org/pdf/math/9812123",
+          "material_read": "Full 18-page preprint including introduction and Section 2 (Proposition 2.2 expected section vertex formula); pages 1 and 6 visually inspected",
+          "method": "Primary PDF read and probability special-case comparison",
+          "title": "On random sections of the cube",
+          "trigger": "same Haar section combinatorics; cube specialization"
+        },
+        {
+          "assessment": "DIFFERENT INVARIANT; WHOLE-DOCUMENT PRIORITY NOT EXCLUDED",
+          "evidence": [
+            "Orthotope width is a support-function statistic, not the number of polygon faces in a plane section."
+          ],
+          "identifier_or_url": "arXiv:2608.06348",
+          "material_read": "Accessible abstract/results overview; complete full text not established",
+          "method": "Direct mathematically nearby probability comparison",
+          "title": "Width Laws and Spectral Geometry",
+          "trigger": "orthotope distribution for random orientations"
+        },
+        {
+          "assessment": "ANALYTIC PROOF CONSISTENT",
+          "evidence": [
+            "Cone determinant=-2abc; cube unique via equality in AM-GM."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4",
+          "material_read": "Complete RESULT.md and verify_probability.py, plus package public statuses",
+          "method": "Read frozen Git blobs; independently recomputed three-ray determinant and AM-GM equality",
+          "title": "Exact Haar hexagon law and cubic rigidity: source package",
+          "trigger": "all-aspect-ratio result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Random Haar central-plane section combinatorics of three-dimensional boxes is a canonical stochastic-convex-geometry model. The explicit two-dimensional aspect-ratio dependence, uniqueness of cubic maximizer and exact full positive range are mathematically meaningful classifications, not an arbitrary slice or a restatement of the cube-only value. A researcher comparing anisotropic sections can use the exact law without seeking a broad higher-dimensional theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:math/9812123v1; https://arxiv.org/pdf/math/9812123",
+    "arXiv:2608.06348 (abstract/results overview)",
+    "OEIS:A349605",
+    "doi:10.1109/TBME.1983.325207",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier stereological formula for random cuboid cuts may use a different aspect-ratio parametrization and be unindexed.",
+    "Resultary search temporarily unavailable.",
+    "Cube exact probability is known and excluded from distinct novelty claim.",
+    "Haar and affine-pushforward of Haar are different; model is centered plane only."
+  ],
+  "residual_risks": [
+    "Earlier stereological formula for random cuboid cuts may use a different aspect-ratio parametrization and be unindexed.",
+    "Resultary search temporarily unavailable.",
+    "Cube exact probability is known and excluded from distinct novelty claim.",
+    "Haar and affine-pushforward of Haar are different; model is centered plane only."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "CUBE SPECIAL CASE PREVIOUSLY KNOWN, NOT UNEQUAL ASPECT LAW",
+      "evidence": [
+        "Theorem concerns n-cubes; n=3 produces the equal-edge p6 endpoint only."
+      ],
+      "identifier_or_url": "arXiv:math/9812123v1; https://arxiv.org/pdf/math/9812123",
+      "material_read": "Full 18-page preprint including introduction and Section 2 (Proposition 2.2 expected section vertex formula); pages 1 and 6 visually inspected",
+      "method": "Primary PDF read and probability special-case comparison",
+      "title": "On random sections of the cube",
+      "trigger": "same Haar section combinatorics; cube specialization"
+    },
+    {
+      "assessment": "DIFFERENT INVARIANT; WHOLE-DOCUMENT PRIORITY NOT EXCLUDED",
+      "evidence": [
+        "Orthotope width is a support-function statistic, not the number of polygon faces in a plane section."
+      ],
+      "identifier_or_url": "arXiv:2608.06348",
+      "material_read": "Accessible abstract/results overview; complete full text not established",
+      "method": "Direct mathematically nearby probability comparison",
+      "title": "Width Laws and Spectral Geometry",
+      "trigger": "orthotope distribution for random orientations"
+    },
+    {
+      "assessment": "ANALYTIC PROOF CONSISTENT",
+      "evidence": [
+        "Cone determinant=-2abc; cube unique via equality in AM-GM."
+      ],
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4",
+      "material_read": "Complete RESULT.md and verify_probability.py, plus package public statuses",
+      "method": "Read frozen Git blobs; independently recomputed three-ray determinant and AM-GM equality",
+      "title": "Exact Haar hexagon law and cubic rigidity: source package",
+      "trigger": "all-aspect-ratio result"
+    }
+  ]
+}
