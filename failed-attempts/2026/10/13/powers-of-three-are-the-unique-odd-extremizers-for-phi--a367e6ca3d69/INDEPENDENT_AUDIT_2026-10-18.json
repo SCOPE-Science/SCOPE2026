@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:10:42.772500Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2303.13725",
+        "https://arxiv.org/pdf/2508.05966",
+        "Independent exact bounded checks in independent_1783_checks.py and independent_1783_results.txt; frozen RESULT.md Git blob"
+      ],
+      "rationale": "For odd n, maximality forces M=Phi(n) even and not a power of two (the competitor 2M or 3*2^(r-1) has equal totient). Writing M=2^r∏q_i^{e_i} gives v2(phi(M)) >= r-1+s <=v2(2n)=1; thus r=s=1, M=2q^e. Consequently M/phi(M)=2q/(q-1)<=3, equality only if q=3, and phi(M)<=2n forces M<=6n. Equality implies M=2*3^e=6n and n=3^(e-1); conversely phi(2*3^(a+1))=2*3^a. Includes n=1. Exact independent maxima checked for 300 odd inputs n<=599.",
+      "residual_risks": [
+        "The proved classification is only for odd n; computations are not substituted for the general valuation proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/2303.13725",
+          "Ozeki Proposition 5.2(2) states Phi(n)<=6n for every odd n; proof section 5.2 supplies exact full factor-support restriction for all odd maximizing integers.",
+          "https://arxiv.org/pdf/2508.05966"
+        ],
+        "reasoning": "The stronger prior proof plus known sharp examples determines the equality cases by inspection of where Ozeki’s inequalities can be equal. Lack of an explicit iff in its theorem heading is not noncoverage.",
+        "searches": [
+          "maximum m phi(m) divides 2n equality 6n odd n powers of three"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2303.13725",
+        "https://arxiv.org/pdf/2508.05966",
+        "Resultary semantic query: maximum m phi(m) divides 2n equality 6n odd n powers of three"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2303.13725",
+          "Ozeki §5.2 pp.16-17: maximal M even and non-2-power, valuation inequality r+s<=v2(n)+2 and the product inequality establishing 6n bound.",
+          "https://arxiv.org/pdf/2508.05966",
+          "Pelizzari–Punch exhibit Phi(3^k)=6*3^k in discussion of sharpness."
+        ],
+        "reasoning": "From Ozeki M=2q^e for odd n and phi(M)|2n, equality Phi(n)=6n implies q/(q-1)=3/2, so q=3, then 2q^e=6n gives n=3^(e-1). The opposite direction was supplied as the known sharp family (plus n=1). These are immediate arithmetic substitutions rather than new research.",
+        "searches": [
+          "maximum m phi(m) divides 2n equality 6n odd n powers of three"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2303.13725",
+          "https://arxiv.org/pdf/2508.05966",
+          "Equivalent form: equality Phi(n)/(2n)=3 forces maximizer ratio M/phi(M)=3, so its odd-prime support is exactly {3} and phi(M)=2n."
+        ],
+        "reasoning": "Under Ozeki’s odd-input valuation restriction, equality in the published product estimate forces q=3. This is the same statement in extremal-ratio language, not a new independent rigidity method.",
+        "searches": [
+          "maximum m phi(m) divides 2n equality 6n odd n powers of three"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/pdf/2303.13725",
+          "Ozeki Tables 1-3 list initial values of Phi, showing many 3-power examples among tabulated small integers; the table is not an all-input proof."
+        ],
+        "reasoning": "The conclusion is infinite; Table 1 is only corroborative. Rejection rests on the actual published Proposition 5.2 argument, not finite-table coverage.",
+        "searches": [
+          "maximum m phi(m) divides 2n equality 6n odd n powers of three"
+        ]
+      },
+      "rationale": "The claimed iff is a **routine equality-case consequence of an already published stronger upper-bound proof**. Ozeki Proposition 5.2 proves Phi(n)<=6n for all odd n; its proof already shows the extremal M cannot be a power of two, derives r+s<=v2(n)+2, and on odd inputs forces M=2q^e. Ozeki’s ratio/product inequality immediately requires q=3 if M=6n, whence n=3^(e-1); Pelizzari–Punch explicitly give the infinite power-of-three equality family. The new proof reproduces these inputs and merely writes down the omitted equality sentence. No independent theorem survives prior implication, notwithstanding true correctness.",
+      "residual_risks": [
+        "Published texts may not state the iff in one sentence; the decisive coverage is logical implication of their already stated proof, not a verbatim occurrence.",
+        "No assertion about even n equality classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already covers the quantitative upper bound and rigidity of prime-support form. The missing converse requires only equality in the displayed product, so prior implication is decisive.",
+          "evidence": [
+            "Proposition 5.2(2); v2(2n)>=r-1+s; Phi(n)<=6n for odd n"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.13725",
+          "material_read": "Relevant complete §5.2 pp.16-17 including Proposition 5.2, its full proof, valuation inequality (5.2), Euler products; examined original PDF page image",
+          "method": "Read freely available full-text sections and surrounding arguments, including rendered PDF pages where applicable",
+          "title": "Y. Ozeki, Explicit bounds on torsion of CM abelian varieties over p-adic fields with values in Lubin-Tate extensions",
+          "trigger": "Same exact Phi definition, maximality and stronger sharp odd upper bound"
+        },
+        {
+          "assessment": "Explicitly gives the sufficiency half of the new iff; coupled with Ozeki it covers the claim",
+          "evidence": [
+            "arXiv:2508.05966, sharp odd bound and powers-of-three witnesses"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.05966",
+          "material_read": "Relevant full-text passages establishing the sharpness example Phi(3^k)=6*3^k, especially the odd-input discussion; inspected PDF rendering",
+          "method": "Read freely available full-text sections and surrounding arguments, including rendered PDF pages where applicable",
+          "title": "G. Pelizzari and J. Punch, Bounds on the Minkowski constants and a function involving phi",
+          "trigger": "Exactly matching equality examples for Phi(3^k)"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2303.13725",
+        "https://arxiv.org/pdf/2508.05966"
+      ],
+      "rationale": "The equality locus is a natural question but this particular classification is a two-line equality check on Ozeki’s published odd-bound argument, combined with Pelizzari–Punch’s explicit sharp family. It introduces no new structural lemma, obstruction, classification technique, or nontrivial numerical invariant independent of those sources; scientific correctness and reproducibility do not restore value.",
+      "residual_risks": [
+        "This value rejection does not say the underlying odd bound or its equality patterns are unimportant, only that the assessed increment is routine and covered."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The proved classification is only for odd n; computations are not substituted for the general valuation proof.",
+    "Published texts may not state the iff in one sentence; the decisive coverage is logical implication of their already stated proof, not a verbatim occurrence.",
+    "No assertion about even n equality classification.",
+    "This value rejection does not say the underlying odd bound or its equality patterns are unimportant, only that the assessed increment is routine and covered."
+  ],
+  "schema_version": 1
+}
