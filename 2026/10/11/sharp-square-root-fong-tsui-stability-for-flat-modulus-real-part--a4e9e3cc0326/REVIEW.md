@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is proved on arbitrary complex Hilbert spaces. The key noncommutative step is to select approximate spectral extremizers of the self-adjoint imaginary part, so \(\|Tx\|^2=\|Ax\|^2+\|B\|^2+o(1)\). The exact spectral-flatness identity \(A^2=a^2P\), the order bound \(|T|\le aP+d(T)I\), and \(|T|^2\le\|T\||T|\) yield the claimed quadratic inequality. The lower profile is attained explicitly for **every fixed eligible** real part. Zero, infinite-dimensional and nonnormal cases are treated correctly. Supplemental reproducible numerical tests are not used as universal proof.
+## correctness
 
-## Originality — PASS (with residual risk)
-Ma's September 9, 2026 general quantitative theorem gives the weaker exponent \(1/8\) and does not state this flat-spectrum result. Aouichaoui–Kittaneh–Ma prove the exact zero-defect theorem. Mbekhta–Suciu discuss the partial-isometry condition on the **whole operator** at zero defect, not this quantitative real-part subclass. The closest published mathematical record computes a sharp normal-class profile, whose normality hypothesis excludes the noncommuting examples covered here. A claim about all nonnormal operators would not be supported; this one has the flat-modulus restriction. An unindexed equivalent in classical operator-inequality literature remains possible, and searches alone are not proof of novelty.
+PASS
 
-## Value — PASS
-The problem is motivated by the published gap between a general \(1/8\)-exponent stability estimate and a sharp scalar \(1/2\) obstruction. Restricting the real part to a scaled self-adjoint partial isometry creates a natural operator-theoretic class with arbitrary multiplicities and kernels; the theorem establishes the exact best stability function even though the imaginary part need not commute. This is a quantitative nonnormal extension, not just the scalar equality calculation or a restatement of the normal theorem.
+Let T=A+iB with A,B self-adjoint on any nonzero complex Hilbert space and |A|=aP, P orthogonal projection. For δ=||( |T|−|A| )_+||, positive S=|T| obeys S≤aP+δI, ||S||≤a+δ and S²≤||S||S. Taking approximate eigenvectors of B at λ=±||B||, the cross term in ||(A+iλ)x||² vanishes and A²=a²P, yielding ||B||²≤a(||S||−a)⟨Px,x⟩+||S||δ≤2aδ+δ². Works without eigenvalue or commutativity assumptions. For prescribed δ=ε, B=sqrt(2aε+ε²)P attains equality for any fixed a>0,A; a=0 choose B=εI. Includes ε=0 and infinite-dimensional spectral boundary. No claim of an equality classification among arbitrary nonnormal B.
 
-## Limitations and comparison
-The result does not determine the optimal exponent when \(|\operatorname{Re}T|\) has two or more distinct positive spectral levels. The 1981 primary article was identified bibliographically via later full manuscripts, not inspected directly; the more relevant 2026 quantitative treatment and the closest published normal-only full result were materially read. Human priority review and independent audit remain outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison, including direct relevant published Resultary and primary-source reading. Exact assertions are distinguished from weaker bounds/other assumptions. No claim of exhaustive priority certification.
+
+## value
+
+PASS
+
+A sharp modulus of stability for the noncommutative positive-defect Fong–Tsui question under the structurally natural flat-modulus partial-isometry real-part condition is significant; it establishes the optimal 1/2 exponent for every fixed real part and permits arbitrary noncommuting imaginary perturbations. The theorem is not simply the existing scalar example demonstrating impossibility of a better exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

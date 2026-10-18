@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Mathematical verification and reproducibility
 
-The proof is analytic. Every bounded self-adjoint \(B\) has approximate unit eigenvectors for an endpoint \(\lambda\) of its spectrum satisfying \(|\lambda|=\|B\|\). These vectors justify the limiting inequality without assuming finite dimensionality or genuine eigenvectors. The inequalities \(|T|^2\le\|T\||T|\) and \(|T|\le aP+d(T)I\) follow from the continuous functional calculus and operator order, respectively; \(\|A\|\le\|T\|\le a+d(T)\) closes the estimate. The equality witness is checked exactly in the proof, including \(a=0\) and \(d=0\).
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted files to check exact scalar Pythagorean witnesses and the closed-form matrix-square-root inequality for an exhaustive declared rational grid of noncommuting \(2\times2\) test matrices. The script uses only the Python standard library. The tests are finite sanity checks and cannot prove the infinite-dimensional assertion or bibliographic originality.
+## correctness
 
-No model-external expert certification or independent audit is claimed. The result has undergone same-model scientific review; independent audit has not been performed.
+PASS
+
+Let T=A+iB with A,B self-adjoint on any nonzero complex Hilbert space and |A|=aP, P orthogonal projection. For δ=||( |T|−|A| )_+||, positive S=|T| obeys S≤aP+δI, ||S||≤a+δ and S²≤||S||S. Taking approximate eigenvectors of B at λ=±||B||, the cross term in ||(A+iλ)x||² vanishes and A²=a²P, yielding ||B||²≤a(||S||−a)⟨Px,x⟩+||S||δ≤2aδ+δ². Works without eigenvalue or commutativity assumptions. For prescribed δ=ε, B=sqrt(2aε+ε²)P attains equality for any fixed a>0,A; a=0 choose B=εI. Includes ε=0 and infinite-dimensional spectral boundary. No claim of an equality classification among arbitrary nonnormal B.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison, including direct relevant published Resultary and primary-source reading. Exact assertions are distinguished from weaker bounds/other assumptions. No claim of exhaustive priority certification.
+
+## value
+
+PASS
+
+A sharp modulus of stability for the noncommutative positive-defect Fong–Tsui question under the structurally natural flat-modulus partial-isometry real-part condition is significant; it establishes the optimal 1/2 exponent for every fixed real part and permits arbitrary noncommuting imaginary perturbations. The theorem is not simply the existing scalar example demonstrating impossibility of a better exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
