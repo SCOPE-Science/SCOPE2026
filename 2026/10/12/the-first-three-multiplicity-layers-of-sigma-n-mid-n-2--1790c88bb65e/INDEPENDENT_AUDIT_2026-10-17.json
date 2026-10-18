@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:41:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-three-multiplicity-layers-of-sigma-n-mid-n-2--1790c88bb65e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-three-multiplicity-layers-of-sigma-n-mid-n-2--1790c88bb65e/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-three-multiplicity-layers-of-sigma-n-mid-n-2--1790c88bb65e/verify.py"
+      ],
+      "rationale": "For n with sigma(n)|n², each factor sigma(p^e)|sigma(n) has prime support inside n. Prime powers p,p²,p³ are excluded because sigma(p^e)>1 and coprime to p. For pq with p<q, 1<p+1<=q and p+1 must be supported on q, hence p+1=q, forcing 2*3=6. For p²q, sigma(p²)=p²+p+1 is odd and coprime to p, so its prime support is confined to q, forcing q odd. Then sigma(q)=q+1 is even and its sole allowed non-q prime p must equal 2; sigma(4)=7 forces q=7 and n=28. For distinct p<q<r, p+1 supported on q or r and <=q forces p=2,q=3; then sigma(6r)=12(r+1)|36r² forces r+1|3, impossible. Both 6 and 28 pass direct divisor tests. A distinct independent exact SPF scan through n=160000 reproduced all such low-Omega solutions, and 364 yields the exact sharp nonperfect witness sigma=784, n²/sigma=169; infinity follows from the case proof, not the scan.",
+      "residual_risks": [
+        "Independent numerical checks cover only a finite range; the exact unbounded conclusion depends on its full factorization or three-arc proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Amdeberhan et al Theorems 1.1–1.4 compute valuations of sigma(n) and inequalities, not classification sigma(n)|n² for Omega<=3. Strongly pseudoperfect integer property has no shown implication covering every sigma(n)|n² integer."
+        ],
+        "reasoning": "Generic p-adic tools may facilitate the short proof, but their published theorem statements do not directly imply its support-specific classification; imposing extra divisibility cannot characterize a larger set.",
+        "searches": [
+          "https://arxiv.org/abs/2007.03088",
+          "https://oeis.org/A245787",
+          "Resultary search: strongly pseudoperfect integers Omega <=3"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-three-multiplicity-layers-of-sigma-n-mid-n-2--1790c88bb65e/RESULT.md",
+        "https://oeis.org/A090777",
+        "https://oeis.org/A245787",
+        "https://arxiv.org/abs/2007.03088"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact multiplicativity and support containments eliminate p,p²,pq,p³,p²q,pqr; prior sequence table does not exclude potentially larger low-Omega integers."
+        ],
+        "reasoning": "Explains specific deduction not mechanically implied by finite sequence members or the general valuation-bound assertions; however readily derivable arithmetic and possible folklore are counted as risks.",
+        "searches": [
+          "https://arxiv.org/pdf/2007.03088",
+          "https://oeis.org/A090777",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-three-multiplicity-layers-of-sigma-n-mid-n-2--1790c88bb65e/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A090777 defines exactly sigma(n)|n². Omega counts multiplicities; A245787 requires an extra tau(n) factor."
+        ],
+        "reasoning": "Checked same divisibility via OEIS and related stronger-divisibility subset; no logically equivalent published unconditional three-layer classification established.",
+        "searches": [
+          "Resultary: sigma(n) divides n squared multiplicity Omega(n)<=3 perfect 6 28 and 364",
+          "https://oeis.org/A090777",
+          "https://oeis.org/A245787"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A090777 starts 1,6,28,120,364,496,...; it has 200000- and 1000000-bound computer programs but no unbounded Omega theorem in the accessed entry."
+        ],
+        "reasoning": "All integer witnesses already occur in the known sequence; what survives originality is universal exclusion of other low-Omega cases and the exact sharp nonperfect complexity.",
+        "searches": [
+          "https://oeis.org/A090777",
+          "https://oeis.org/A245787",
+          "OEIS A090777 6 28 120 364 tables"
+        ]
+      },
+      "rationale": "OEIS A090777 names precisely the sigma(n)|n² set and lists 6,28,120,364 etc with finite code. It does not state an unconditional classification by total prime-factor count Omega or the minimum Omega among nonperfect elements. A245787 imposes stronger tau(n)sigma(n)|n², which yields only a subset and is not a dominating theorem. The paper Amdeberhan–Moll–Sharma–Villamizar provides p-adic sigma valuation formulas/maximum bounds, not the exact low-Omega exclusion as a stated corollary; the current proof uses a dedicated prime-support and short factorization argument. Related strongly pseudoperfect Omega<=3 conclusions concern another property, with no shown implication to this set.",
+      "residual_risks": [
+        "Elementary nature may make the complete low-Omega fact folklore or an implicit earlier exercise despite not appearing in the inspected database/paper.",
+        "No full classification of Omega=4 or any larger layer is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING individual values 6,28,364; no all-n low-Omega classification stated in material read",
+          "evidence": "Entry lists 1,6,28,120,364,... and explicit finite tests n<=10^6.",
+          "identifier_or_url": "https://oeis.org/A090777",
+          "material_read": "Full page including definition, first 40 terms, finite enumeration programs, references and update history",
+          "method": "Direct OEIS entry read",
+          "title": "OEIS A090777",
+          "trigger": "Exact sequence defined by sigma(n)|n²"
+        },
+        {
+          "assessment": "No direct coverage in inspected theorems; possible unstated implication or remote section remains risk",
+          "evidence": "Theorems give nu_p(sigma(n)) formulas and upper bounds nu_p(sigma(n))<=ceil(log_p n), not Omega<=3 iff n in {6,28}.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.03088",
+          "material_read": "Full 21-page PDF obtained; read abstract, introductory Section 1 and main Theorems 1.1–1.4, auxiliary q-bracket setup; not a claim to have read every remaining proof/page",
+          "method": "Direct primary arXiv PDF text and theorem statements",
+          "title": "Arithmetic properties of the sum of divisors",
+          "trigger": "Potential dominating sigma(n) p-adic valuation criteria"
+        },
+        {
+          "assessment": "INAPPLICABLE as a direct implication to classification of the larger A090777 set",
+          "evidence": "Requires tau(n)sigma(n)|n², so logically its membership is a subset of A090777.",
+          "identifier_or_url": "https://oeis.org/A245787",
+          "material_read": "Sequence definition in primary database and comparison to A090777",
+          "method": "Direct OEIS and linked search material",
+          "title": "OEIS A245787",
+          "trigger": "Potential stronger divisibility covering same set"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/the-first-three-multiplicity-layers-of-sigma-n-mid-n-2--1790c88bb65e/RESULT.md",
+        "https://oeis.org/A090777",
+        "https://oeis.org/A245787",
+        "https://arxiv.org/abs/2007.03088"
+      ],
+      "rationale": "An established divisor-sum divisibility set contains perfect and nonperfect members. The minimum prime multiplicity at which nonperfect members can arise is a canonical structural boundary; the n=364 witness and universal exhaustion of every smaller complexity shape make this an exact natural invariant, despite the brief elementary proof.",
+      "residual_risks": [
+        "Elementary nature may make the complete low-Omega fact folklore or an implicit earlier exercise despite not appearing in the inspected database/paper.",
+        "No full classification of Omega=4 or any larger layer is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>1 with Omega(n)<=3, sigma(n)|n² holds iff n=6 or 28; these are both perfect. Thus every nonperfect solution has Omega>=4, sharply realized by 364=2²*7*13 with sigma(364)=784 and 364²/784=169.",
+  "limitations": [
+    "Elementary nature may make the complete low-Omega fact folklore or an implicit earlier exercise despite not appearing in the inspected database/paper.",
+    "No full classification of Omega=4 or any larger layer is asserted.",
+    "No repository write, official publication, automated external attestation or independent formal proof was performed. Original frozen source-publication privacy sanitation remains incomplete."
+  ],
+  "schema_version": 1
+}
