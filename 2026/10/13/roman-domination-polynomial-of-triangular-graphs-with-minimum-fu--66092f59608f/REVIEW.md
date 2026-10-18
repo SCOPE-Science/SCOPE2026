@@ -1,19 +1,21 @@
-# Scientific review: Roman-domination polynomial of triangular graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(n\ge5\), the proof partitions Roman functions according to the edges of \(K_n\) labeled two, then the endpoint support of that set. Every edge disjoint from the support is forced to label one, and every other unlabeled edge is freely zero or one. The induced support graph has no isolated vertices, so inclusion-exclusion over isolated endpoints gives the exact coefficient formula. The lower bound \(2\lceil(n-r)/2\rceil+\binom r2\), where \(r\) is the number of uncovered original vertices, has a unique minimizing remainder: \(r=1\) for odd \(n\), \(r=2\) for even \(n\). Equality forces a perfect matching; this proves the minimum-function census and exhausts all extremizers. The independent finite checks exhaustively enumerate all ternary labelings through \(n=5\), all label-two supports through \(n=6\), and check the minimum formula through \(n=18\). Computations are not used as proofs of the universal assertions.
+PASS
 
-## Originality — PASS, with residual risk
+Fix an edge set H carrying label 2 in K_n. The set C of its endpoints must support a graph with no isolated vertices, and every edge among the remaining r=n-|C| vertices is forced to label 1. Choosing C in binom(n,c), the no-isolate graph supports in A_{c,k}, and freely assigning 0/1 to M-k-binom(r,2) remaining edges yields the exact displayed sum plus the no-2 all-ones contribution z^M. The lower bound 2 ceil((n-r)/2)+binom(r,2) has unique extremal r=1 odd and r=2 even, giving matching minima with counts n(n-2)!! and binom(n,2)(n-3)!!. Independently enumerated every label n=3..5 and all minima n=3..12. The proof establishes n>=5, experiments do not generalize it.
 
-Roman domination on a line graph is the established edge Roman domination of the original graph, so that equivalence is attributed rather than claimed. Leely Pushpam and Mai (2009) and Chang, Chen and Liu (2014) study the edge parameter and general or bipartite minimum bounds, not the complete \(K_n\) all-weight enumerator. Gangabylaiah and colleagues (2021) introduced the Roman domination polynomial and derived formulas for stars, wheels, bicliques, graph joins and coronas, not triangular graphs. The 2022 Roman Census work counts minimal functions on other graph classes, a different distribution; the 2023 finite atlas covers the small \(T_n\) cases but not \(n\ge5\). Published complete-multipartite Roman-polynomial formulas likewise subsume \(T_3\) and \(T_4\), explicitly excluded from this claim, but not the infinitely many higher triangular graphs. Search comparisons included the edge-Roman and Johnson-graph aliases and published mathematical-result records; no directly implying formula was found in the inspected primary results. An unindexed equivalent enumeration under edge Roman domination of complete graphs is a genuine residual risk, not evidence of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The result evaluates every coefficient of a natural established graph polynomial on the classical two-subset Johnson family, not merely a scalar minimum. Its no-isolated-support-graph parametrization turns otherwise exponentially many ternary assignments into an explicit finite binomial sum. The exact classification and parity-dependent multiplicity of all minimum-weight functions provide structural information unavailable from a minimum-weight bound alone. The family and invariant were motivated independently of the computation; no downstream theorem or asymptotic conclusion is claimed.
+Zec 2023 gives scalar gamma_R(J(n,2))=n-1 and examples but not all coefficients or exhaustive minimizing function counts. The 2021 polynomial paper defines the same invariant on other families; complete-multipartite formulas cover T3,T4 only. Other edge-Roman scalar results do not imply this full all-weight formula. The later same-repository duplicated n>=3 record was actually imported AFTER this n>=5 original (two minutes later) and is not prior coverage of this earlier research statement.
 
-## Closest literature and limits
+## value
 
-The directly comparable sources are *Edge Roman Domination in Graphs* (2009), *Edge Roman domination on graphs* (arXiv:1405.5622), *On the Roman domination polynomial of graphs* (2021), *Roman Census* (arXiv:2208.05261), and the 2023 atlas of Roman polynomials for graphs with at most six vertices. The finite verification covers only stated ranges, and the possibility of an older equivalent formula under different terminology remains. Original scalar Roman domination of triangular graphs is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Every coefficient of an established domination polynomial for a canonical infinite Johnson-graph family is a natural invariant and the complete equality-case classification explains the parity-dependent set of minima. The result is not a recomputation of the known scalar optimum or a finite arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

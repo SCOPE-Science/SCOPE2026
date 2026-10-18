@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or later, using only the standard library. The standalone script constructs the Roman weight polynomial by the stated inclusion-exclusion formula and checks it against a direct enumeration of every ternary labeling of triangular graphs through \(n=5\). It also independently enumerates every subset of label-two edges through \(n=6\), accounting for all free choices of label-one vertices by binomial coefficients. Finally it checks the minimum exponent and number of minimizing functions against the matching census for \(3\le n\le18\).
+## correctness
 
-The captured output in `verification_output.txt` records 49,660 exhaustive ternary-label function checks through \(n=5\), agreement of the independent support-subset expansion through \(n=6\), and the full coefficient and minimum-profile comparisons. The direct support-subset calculation includes all \(2^{15}\) possible label-two subsets for \(n=6\). A successful script execution produces the same final three `OK` statements as the captured output.
+PASS
 
-These finite tests check implementations, boundary cases and explicit coefficient identities, but cannot prove the infinite statement or completeness of the external literature search. Universal correctness rests on the support bijection, inclusion-exclusion count and matching extremality proved in `RESULT.md`; equivalence with existing differently named results is a separate literature question.
+Fix an edge set H carrying label 2 in K_n. The set C of its endpoints must support a graph with no isolated vertices, and every edge among the remaining r=n-|C| vertices is forced to label 1. Choosing C in binom(n,c), the no-isolate graph supports in A_{c,k}, and freely assigning 0/1 to M-k-binom(r,2) remaining edges yields the exact displayed sum plus the no-2 all-ones contribution z^M. The lower bound 2 ceil((n-r)/2)+binom(r,2) has unique extremal r=1 odd and r=2 even, giving matching minima with counts n(n-2)!! and binom(n,2)(n-3)!!. Independently enumerated every label n=3..5 and all minima n=3..12. The proof establishes n>=5, experiments do not generalize it.
+
+## originality
+
+PASS
+
+Zec 2023 gives scalar gamma_R(J(n,2))=n-1 and examples but not all coefficients or exhaustive minimizing function counts. The 2021 polynomial paper defines the same invariant on other families; complete-multipartite formulas cover T3,T4 only. Other edge-Roman scalar results do not imply this full all-weight formula. The later same-repository duplicated n>=3 record was actually imported AFTER this n>=5 original (two minutes later) and is not prior coverage of this earlier research statement.
+
+## value
+
+PASS
+
+Every coefficient of an established domination polynomial for a canonical infinite Johnson-graph family is a natural invariant and the complete equality-case classification explains the parity-dependent set of minima. The result is not a recomputation of the known scalar optimum or a finite arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

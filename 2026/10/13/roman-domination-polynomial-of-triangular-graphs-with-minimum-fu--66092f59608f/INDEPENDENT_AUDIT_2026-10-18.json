@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T02:14:19.571572Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix an edge set H carrying label 2 in K_n. The set C of its endpoints must support a graph with no isolated vertices, and every edge among the remaining r=n-|C| vertices is forced to label 1. Choosing C in binom(n,c), the no-isolate graph supports in A_{c,k}, and freely assigning 0/1 to M-k-binom(r,2) remaining edges yields the exact displayed sum plus the no-2 all-ones contribution z^M. The lower bound 2 ceil((n-r)/2)+binom(r,2) has unique extremal r=1 odd and r=2 even, giving matching minima with counts n(n-2)!! and binom(n,2)(n-3)!!. Independently enumerated every label n=3..5 and all minima n=3..12. The proof establishes n>=5, experiments do not generalize it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://www.pmf.ni.ac.rs/filomat-content/2023/37-7/37-7-6-18102.pdf",
+          "https://www.imvibl.org/buletin/bulletin_imvi_11_2_2021/bulletin_imvi_11_2_2021_355_365.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-roman-domination-polynomial-of-complete-multipartite-graphs--fa4c41b40973"
+        ],
+        "reasoning": "Zec establishes gamma_R only; full polynomial on complete-multipartite graphs covers T3=K3 and T4=K2,2,2 but T_n is not complete multipartite for n>=5; 2021 other families do not encompass it.",
+        "searches": [
+          "Roman domination polynomial of complete multipartite graphs",
+          "Roman domination polynomial triangular graph T(n) line graph complete graph minimum functions"
+        ]
+      },
+      "checked_sources": [
+        "https://www.pmf.ni.ac.rs/filomat-content/2023/37-7/37-7-6-18102.pdf",
+        "https://www.imvibl.org/buletin/bulletin_imvi_11_2_2021/bulletin_imvi_11_2_2021_355_365.pdf",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/roman-domination-polynomial-of-triangular-graphs-with-minimum-fu--66092f59608f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/roman-domination-polynomial-and-minimum-labeling-classification--734f88e1b1b8/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-roman-domination-polynomial-of-complete-multipartite-graphs--fa4c41b40973",
+        "https://arxiv.org/abs/1405.5622"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original n>=5 first import 2026-10-13T00:44:50Z https://github.com/SCOPE-Science/SCOPE2026/commit/c0e9b7d22fb7e3be3e43139879aaf627640a0852",
+          "https://www.pmf.ni.ac.rs/filomat-content/2023/37-7/37-7-6-18102.pdf",
+          "https://www.imvibl.org/buletin/bulletin_imvi_11_2_2021/bulletin_imvi_11_2_2021_355_365.pdf"
+        ],
+        "reasoning": "The later n>=3 duplicate is not a prior result when judging this earlier claim. Zec minimum and 2021 general definitions cannot imply the complete polynomial; the new match-support count is an independent exact refinement.",
+        "searches": [
+          "Git history first import of two records at commits c0e9b7 and 2dc3c3",
+          "Roman domination polynomial triangular graph T(n) line graph complete graph minimum functions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://www.pmf.ni.ac.rs/filomat-content/2023/37-7/37-7-6-18102.pdf",
+          "https://www.imvibl.org/buletin/bulletin_imvi_11_2_2021/bulletin_imvi_11_2_2021_355_365.pdf",
+          "Edge-Roman domination of K_n is isomorphic to Roman domination of L(K_n)."
+        ],
+        "reasoning": "J(n,2), L(K_n), and triangular T_n are aliases for exactly one labeled-edge problem. Equivalence search and direct source match did not reveal an older all-n>=5 enumerator.",
+        "searches": [
+          "exact Roman domination polynomial triangular graph line graph complete graph 2026",
+          "Roman domination polynomial triangular graph T(n) line graph complete graph minimum functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-roman-domination-polynomial-of-complete-multipartite-graphs--fa4c41b40973",
+          "https://www.pmf.ni.ac.rs/filomat-content/2023/37-7/37-7-6-18102.pdf",
+          "2023 finite atlas restricts graph size to <=6, while T_n for n>=5 has >=10 vertices."
+        ],
+        "reasoning": "Existing small-graph enumerations and complete multipartite cases do not determine all n>=5 coefficients; no older full coefficient table found in bounded search.",
+        "searches": [
+          "Roman domination polynomial triangular graph T(n) line graph complete graph minimum functions",
+          "exact Roman domination polynomial triangular graph line graph complete graph 2026"
+        ]
+      },
+      "rationale": "Zec 2023 gives scalar gamma_R(J(n,2))=n-1 and examples but not all coefficients or exhaustive minimizing function counts. The 2021 polynomial paper defines the same invariant on other families; complete-multipartite formulas cover T3,T4 only. Other edge-Roman scalar results do not imply this full all-weight formula. The later same-repository duplicated n>=3 record was actually imported AFTER this n>=5 original (two minutes later) and is not prior coverage of this earlier research statement.",
+      "residual_risks": [
+        "Unindexed all-weight edge-Roman polynomial for K_n may predate 2026 publication.",
+        "Self-review prior result only addressed scalar minimum; external human verification remains desirable.",
+        "This record was imported two minutes before its duplicate, so priority is relative to immutable public Git history, not invented scientific authorship."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_SCALAR_MINIMUM_AND_PARITY_EXAMPLES_ONLY",
+          "evidence": "Theorem 2.1 gives gamma_R(J(n,2))=n-1 for n>=4 and presents example matching configurations, not an all-weight enumerator.",
+          "identifier_or_url": "https://www.pmf.ni.ac.rs/filomat-content/2023/37-7/37-7-6-18102.pdf",
+          "material_read": "Public nine-page Filomat PDF; p.2069–2070 including Theorem 2.1 proof and Table 1; introduction and later Johnson-3 statement",
+          "method": "Read primary theorem/proof and parsed PDF; compare exact quantities",
+          "title": "On the Roman Domination Problem of Some Johnson Graphs",
+          "trigger": "Same triangular graphs and same Roman-domination minimum"
+        },
+        {
+          "assessment": "PRIOR_GRAPH_POLYNOMIAL_FOR_OTHER_FAMILIES",
+          "evidence": "Theorem 3.5 firefly with an additional leaf restriction; 3.6 joins of two connected graphs; 3.7 directly names K_n corona K_1 for n>=3 and gives a polynomial different from direct enumeration.",
+          "identifier_or_url": "https://www.imvibl.org/buletin/bulletin_imvi_11_2_2021/bulletin_imvi_11_2_2021_355_365.pdf",
+          "material_read": "Full lawful eleven-page publisher PDF; sections 2 and 3, including Theorems 3.5–3.7 on pp.362–364 and the proof on p.364",
+          "method": "Public parsed full PDF with direct image inspection of p.364 and mathematical comparison",
+          "title": "On the Roman Domination Polynomial of Graphs",
+          "trigger": "Same weight-enumerator invariant, graph-operation formulas and exact corona theorem"
+        },
+        {
+          "assessment": "EARLIER_THAN_LATER_DUPLICATE",
+          "evidence": "Original commit 00:44:50Z and later one 00:46:43Z on 2026-10-13; the former is ancestor, and their formulas coincide on n>=5.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/roman-domination-polynomial-of-triangular-graphs-with-minimum-fu--66092f59608f/RESULT.md",
+          "material_read": "Entire original RESULT.md plus REVIEW and SLOGAN; later duplicate RESULT.md, Git commits and compare metadata",
+          "method": "Read immutable Git blob text and first commit timestamps",
+          "title": "Earlier triangular-graph original Git publication",
+          "trigger": "Source-priority and duplicate coverage cross-check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Every coefficient of an established domination polynomial for a canonical infinite Johnson-graph family is a natural invariant and the complete equality-case classification explains the parity-dependent set of minima. The result is not a recomputation of the known scalar optimum or a finite arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The all-n>=5 formula counts labeled RDFs, not automorphism orbits; no result for higher Johnson J(n,k)."
+  ],
+  "schema_version": 1
+}
