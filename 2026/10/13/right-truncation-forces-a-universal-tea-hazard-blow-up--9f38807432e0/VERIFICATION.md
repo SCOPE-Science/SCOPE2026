@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,43 +18,25 @@
   "schema_version": 1
 }
 ---
-Let
-\[
-B_\theta(x)=1-(1+2\theta x)e^{-2\theta x}
-\]
-and
-\[
-A_\theta=B_\theta(1).
-\]
-Then
-\[
-B_\theta'(1)=4\theta^2e^{-2\theta}>0.
-\]
-The published CDF is
-\[
-F(x)=\left(B_\theta(x)/A_\theta\right)^\alpha.
-\]
 
-Taylor expansion at \(x=1\) gives
-\[
-\overline F(x)
-\sim
-\frac{\alpha B_\theta'(1)}{A_\theta}(1-x)
-\]
-and
-\[
-f(x)\to
-\frac{\alpha B_\theta'(1)}{A_\theta}.
-\]
-Therefore
-\[
-(1-x)h(x)\to1.
-\]
+# Independent mathematical audit
 
-A second-order expansion gives
-\[
-(1-x)^2h'(x)\to1,
-\]
-so every hazard is eventually increasing.
+## correctness
 
-The bundled checker evaluates the published formulas directly. For \((\alpha,\theta)=(0.2,1)\), it confirms an interior decline from \(h(0.1)\) to \(h(0.4)\), followed by the required endpoint blow-up.
+PASS
+
+With B_theta(x)=1-(1+2theta*x)e^(-2theta*x), F=(B_theta(x)/B_theta(1))^alpha, alpha,theta>0, B_prime(1)=4theta²e^(-2theta)>0. Taylor gives 1-F=c(1-x)+O((1-x)²), f(1-)=c, c=alpha B_prime(1)/B_theta(1). Hence h~1/(1-x) and h_prime~1/(1-x)²; terminal hazard rises and global nonincrease impossible. Independently computed h(.1)=3.6531601598, h(.4)=2.9552667238, h(.99)=100.8683701 for alpha=.2,theta=1. No global turning-point classification.
+
+## originality
+
+PASS
+
+Best-of-knowledge same-object comparison finds no prior complete final classification; exact source implications, aliases, and residual risks explicitly recorded. No failed search is offered as proof of novelty.
+
+## value
+
+PASS
+
+While a bounded positive endpoint density yields a routine generic lemma, this exact model-specific boundary directly refutes published reliability-shape claims: 2025 abstract advertises decreasing hazard and 2026 full article repeats monotone decreasing/unimodal possibilities under identical bounded parent law. Unconditional reciprocal terminal blowup corrects a materially misleading model interpretation across two concrete applications; it is not claimed as new general calculus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

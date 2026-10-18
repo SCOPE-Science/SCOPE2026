@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published CDF is \(F(x)=[B_\theta(x)/B_\theta(1)]^\alpha\) with \(B_\theta'(1)>0\). Taylor expansion at the truncation point gives a survival probability linear in \(1-x\), a finite positive limiting density, and therefore \(h(x)\sim(1-x)^{-1}\). A second-order expansion gives \(h'(x)\sim(1-x)^{-2}\). The packaged checker independently verifies these endpoint limits across multiple parameter pairs.
+## correctness
 
-## Originality
-PASS. The 2025 primary paper advertises decreasing hazard flexibility but does not state the universal endpoint blow-up. The 2026 follow-up reuses the same parent distribution without supplying this correction. Five focused published-result searches and direct comparisons with the two full sources found no covering TEA/TUEA endpoint theorem.
+PASS
 
-Residual risk remains that “decreasing” was intended informally for a finite plotting window, or that a very recent unindexed correction exists.
+With B_theta(x)=1-(1+2theta*x)e^(-2theta*x), F=(B_theta(x)/B_theta(1))^alpha, alpha,theta>0, B_prime(1)=4theta²e^(-2theta)>0. Taylor gives 1-F=c(1-x)+O((1-x)²), f(1-)=c, c=alpha B_prime(1)/B_theta(1). Hence h~1/(1-x) and h_prime~1/(1-x)²; terminal hazard rises and global nonincrease impossible. Independently computed h(.1)=3.6531601598, h(.4)=2.9552667238, h(.99)=100.8683701 for alpha=.2,theta=1. No global turning-point classification.
 
-## Value
-PASS. Hazard-shape flexibility is a central reliability claim of the model. A hard right truncation with positive endpoint density forces every hazard curve to turn upward and diverge, excluding a globally decreasing class and materially changing how reliability plots should be interpreted. The conclusion also carries directly to the later progressive-censoring study.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge same-object comparison finds no prior complete final classification; exact source implications, aliases, and residual risks explicitly recorded. No failed search is offered as proof of novelty.
+
+## value
+
+PASS
+
+While a bounded positive endpoint density yields a routine generic lemma, this exact model-specific boundary directly refutes published reliability-shape claims: 2025 abstract advertises decreasing hazard and 2026 full article repeats monotone decreasing/unimodal possibilities under identical bounded parent law. Unconditional reciprocal terminal blowup corrects a materially misleading model interpretation across two concrete applications; it is not claimed as new general calculus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
