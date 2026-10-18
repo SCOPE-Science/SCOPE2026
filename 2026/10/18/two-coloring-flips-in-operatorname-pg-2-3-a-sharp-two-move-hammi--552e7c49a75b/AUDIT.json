@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "A complete homogeneous-coordinate and independent affine-coordinate construction yields the same 13 four-point lines. Exhaustive enumeration of all 8192 labeled binary assignments yields 468 valid colorings. Flip edges constructed by 13 coordinate toggles equal an independently built pairwise Hamming-one adjacency. Full breadth-first search from each of 468 sources checks each of 219024 ordered pairs, establishes full connectivity, radii and diameter 13, and finds exactly 166608 pairs with graph distance equal to Hamming distance and 52416 with distance exactly Hamming+2; each source has 112 detour targets. Standalone checker was replayed from actual source and produced the included output. BFS on finite unweighted graphs is exact; no extrapolation is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gravin–Karpov arXiv:1111.1558v1 Definitions 1 and Theorem 1 give proper-hypergraph-coloring definitions and generic existence bounds, without projective-plane flip distances.",
+        "Anastos–Frieze 2020 abstract gives connectivity/diameter results for random uniform hypergraphs with high probability, not for a fixed projective plane.",
+        "Conder–Nedela F468 row already covers abstract order 468, cubic status, girth 12 and diameter 13; these are explicitly excluded as standalone originality."
+      ],
+      "reasoning": "No inspected broader theorem implies an all-pairs add-two Hamming bound for PG(2,3) or the sharp per-coloring count 112. In particular random-hypergraph asymptotics do not specialize to this deterministic incidence design without additional arguments.",
+      "searches": [
+        "projective plane order 3 2 coloring flip graph no monochromatic lines 234 vertexless triangles Hamming distance reconfiguration",
+        "F468 Wong graph PG(2,3) 468 proper 2-colorings 13-bit binary Hamming shortest path"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1111.1558v1, section 1 and principal theorem",
+      "Kiss–Marcugini–Pambianco, ACCT2008 conference text pp151-154",
+      "Conder–Nedela, symmetric cubic graph classification PDF §§4.12,4.14, Appendix F468",
+      "Anastos–Frieze, 2020 publisher abstract only",
+      "published-finding corpus semantic searches concerning PG(2,3) two-color flips, 234 triangles, Wong graph F468, Hamming excess",
+      "Accessible own prior archive claim statements, notably PG(2,3) fixed-size transversal exchanges"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ACCT2008 proves a single projective-equivalence class of six-point semiovals and describes the vertexless-triangle construction: no recoloring-metric claim is given in its text.",
+        "An independently recorded earlier fixed-size transversal exchange result for PG(2,3) considers one-for-one swaps at fixed six-point size; it does not allow 6↔7 single-point flips and does not prove the present Hamming excess bound.",
+        "Conder–Nedela catalog F468 abstract graph diameter 13; its table has no labeled-coloring Hamming distances."
+      ],
+      "reasoning": "Static counts and a graph diameter cannot determine for which ordered pairs a coordinate-respecting geodesic exists. An additive distance comparison with the 13-bit Hamming metric is therefore a genuinely different statement. The 2020 random-hypergraph theorem concerns another domain. The unresolved possibility of a previous explicit geometry realization and metric table is disclosed as a risk, not treated as disproved.",
+      "searches": [
+        "projective plane order 3 2-coloring flip graph no monochromatic lines 234 vertexless triangles Hamming distance reconfiguration",
+        "weak two-colorings of projective planes blocking set partitions minimum six seven recoloring graph distance Hamming plus two",
+        "F468 Wong graph PG(2,3) 468 proper 2-colorings 13-bit binary Hamming shortest path"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The chosen object is also the no-monochromatic-line (property B) flip space of the 13-edge, four-uniform projective-plane hypergraph.",
+        "Kiss–Marcugini–Pambianco ACCT2008 §2 characterizes static 6-point PG(2,3) semiovals, not Hamming distances of the labeled-coloring flip graph.",
+        "Conder–Nedela classification of cubic symmetric graphs, Appendix F468 row, describes a 468-vertex cubic graph with diameter 13, but with no 13-bit coloring metric in the inspected sections."
+      ],
+      "reasoning": "Complementation swaps the two color classes and preserves the graph; representing each coloring by its six- or seven-element red class is equivalent. Prior static blocking-set classifications count vertex sets, not distances on 468 labeled coloring states. Abstract graph isomorphism would preserve shortest graph distances but not a distinguished 13-coordinate Hamming metric or the count of pairs at Hamming excess two.",
+      "searches": [
+        "PG(2,3) projective plane order 3 proper 2-coloring no monochromatic line single point recoloring reconfiguration graph 468 states cubic diameter 13",
+        "weak two-colorings of projective planes blocking set partitions minimum six seven recoloring graph distance Hamming plus two",
+        "234 vertexless triangles projective plane order 3 468 two colorings exchange flip graph diameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Conder–Nedela Appendix row F468: order 468, automorphism count 22464, girth 12, diameter 13, bipartite, 5-arc transitive; §4.12 states F468 is double cover of F234B.",
+        "published-finding corpus query for the coordinate-sensitive PG(2,3) flip space returned unrelated nearest records, including the PG(2,3) nonincidence neighborhood complex and general design complexes, rather than a 13-coordinate Hamming detour census.",
+        "The included exhaustive program checks all 219024 ordered pairs and returns 52416 excess-two and 166608 zero-excess ordered pairs."
+      ],
+      "reasoning": "The named F468 entry dominates any claim that the abstract cubic-graph order/diameter is a discovery; novelty is limited to the defined 13-point coordinate metric and exhaustive distribution. A graph catalog entry lacking a specified coordinate map does not imply a coordinate-sensitive distance distribution. Catalog uniqueness or isomorphism was not assumed.",
+      "searches": [
+        "F468 Wong graph PG(2,3) 468 proper 2-colorings 13-bit binary Hamming shortest path",
+        "vertexless triangles projective plane order 3 two-colorings Wong graph F234B",
+        "234 vertexless triangles projective plane order 3 468 two colorings exchange flip graph diameter"
+      ]
+    },
+    "rationale": "The contribution is strictly the coordinate-sensitive all-pairs metric and detour census; known static semioval size-six classification and potentially covered abstract F468 parameters are excluded. Targeted source/alias/implication database searches, an accessible literature-led corpus, and available own historical claims show no equivalent or dominating 13-bit metric theorem. The highest-risk matching abstract cubic graph F468 is explicitly compared; its graph catalog alone does not imply a distinguished Hamming embedding. Remaining source-access and unindexed-geometry risks are documented.",
+    "residual_risks": [
+      "F468 may be isomorphic to the current flip graph; an earlier explicit geometry realization with Hamming coordinates could contain the claimed 112-target metric distribution, despite the catalog's lack of that data.",
+      "The full article of Anastos–Frieze (2020) was unavailable, though its published theorem domain is random hypergraphs and not this finite plane.",
+      "Unindexed theses, code repositories or older combinatorial tables could reproduce this precise coordinate-sensitive census."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes definition and generic sufficient conditions; does not specialize to PG(2,3) single-vertex-flip metric",
+        "evidence": [
+          "arXiv:1111.1558v1 first public 2011-11-07; Definition 1: each hyperedge has two different colors; theorem concerns maximum vertex degree and minimum edge size."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1111.1558v1",
+        "material_read": "Abstract, Introduction including Definition 1 and main Theorem 1, and the alternating-chains section",
+        "method": "Read accessible arXiv HTML and compare quantified hypergraph-family theorems",
+        "title": "On proper colorings of hypergraphs",
+        "trigger": "The original proper-coloring definition and pre-archive literature anchor"
+      },
+      {
+        "assessment": "Static semioval classification includes known six-point PG(2,3) geometry; no 468-coloring flip metric or Hamming detour distribution in those pages",
+        "evidence": [
+          "ACCT2008 pp151-154, especially p152 PG(2,3) semiovals and p153 sizes; cited verbatim only as short factual descriptions."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/228983042_Semiovals_in_projective_planes_of_small_order",
+        "material_read": "Conference-text Introduction, Section 2 on PG(2,3) and complete conference-text Sections 3 and bibliography",
+        "method": "Read author-uploaded ACCT2008 pp.151-154 text transcribed on the accessible page",
+        "title": "Semiovals in projective planes of small order",
+        "trigger": "Exact finite geometry underlying the six-point color classes"
+      },
+      {
+        "assessment": "Strong overlap for abstract order/diameter already known; however no Hamming metric on 13 colored points in inspected sections; no isomorphism asserted",
+        "evidence": [
+          "Appendix F468: 468 vertices, 22464 automorphisms, 5-arc transitive, girth12, diameter13; §4.12 F468 double covers F234B."
+        ],
+        "identifier_or_url": "https://www.math.auckland.ac.nz/~conder/preprints/symmcubictypes.pdf",
+        "material_read": "PDF cover/abstract, relevant §4.12/§4.14 paragraphs and Appendix F468 row on printed p21; page images inspected",
+        "method": "Read PDF text and inspect original page images (page indexes 0,11,20), including its explicit F468 table and cover relation",
+        "title": "A more detailed classification of symmetric cubic graphs",
+        "trigger": "A cataloged cubic graph F468 has suspiciously identical order and diameter"
+      },
+      {
+        "assessment": "Explicit hypotheses concern random uniform hypergraphs and high-probability connectivity, not deterministic PG(2,3); an unpublished special-case appendix cannot be excluded from this partial access",
+        "evidence": [
+          "2020 article's abstract defines Γq by single-vertex coloring difference and states random-hypergraph probabilistic connectivity and diameter results."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20912",
+        "material_read": "Accessible publisher abstract and references only; publisher full-text link redirected to abstract",
+        "method": "Examined Wiley abstract and reference list; no full text was available; not treated as a whole-document absence finding",
+        "title": "On the connectivity of proper colorings of random graphs and hypergraphs",
+        "trigger": "Closest general study using exactly the flip-graph definition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "552e7c49-a75b-4c7e-9bed-725b20e34181",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The projective-plane line hypergraph of order three is a natural minimal two-colorable geometric design. Its 468 legal two-colorings form a constrained state space, and the exact 0-or-2 excess over Hamming distance quantitatively distinguishes reachability, geodesic optimality, and forced temporary point recolorings. The nontrivial sharp count 112 of 467 other states per configuration has direct reconfiguration and Glauber-state-geometry meaning, rather than being an arbitrary numerical parameter; an abstract 468-node graph diameter alone cannot supply it.",
+    "status": "PASS"
+  }
+}
