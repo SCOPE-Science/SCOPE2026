@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific boundaries
+# Independent mathematical audit
 
-Run `python verify.py` in the directory containing `requirements.txt`; install the listed NumPy and SciPy packages in a suitable Python environment. The script independently forms complete-bipartite Laplacians, diagonalizes them, groups degenerate eigenspaces, forms the spectral-pinched density matrix, and computes squared fidelity against the uniform classical limit. It also evaluates direct finite-time quantum dynamics and classical matrix exponentials for deterministic weighted graphs, comparing slopes with the analytical weighted-degree formula.
+## correctness
 
-The executed verification result is:
+PASS
 
-`VERIFY_OK pinching=576 topology=9998 weighted_short_time=225 reversal=12`
+Joint concavity of root Uhlmann fidelity reduces minimization over shared diagonal preparations to a localized vertex. For fixed vertex j, expanded classical e^(-tL) and dephasing double commutator: sigma_jj=1-s1*t+O(t²), rho_jj=1-gamma*s2*t+O(t²), neighbor Q-block of sqrt(sigma)*rho*sqrt(sigma) has leading rank-one gamma*t² v v^T with v_k=w_jk^(3/2). The separated eigenvalues give D_j(t)=[s1+gamma*s2-2sqrt(gamma*s3)]t+o(t). For unweighted d>=1, derivative of c_gamma(d)=(1+gamma)d-2sqrt(gamma*d) is >0. As t→∞ with gamma>0, quantum pinches into Laplacian eigenspaces and classical tends to I/N. Exact K_(a,b) vertex projection masses are 1/N, b/(aN),(a-1)/a, giving terminal D_a=1-[1/sqrt(N)+sqrt(b/(aN))+sqrt((a-1)/a)]²/N. T_N(a) is strictly decreasing for a>=2; hence for 2<=m<n early optimum m-part and late optimum n-part. Continuity forces finite crossover; star maximum and balanced minimum follow the same terminal comparison. Fresh standalone matrix pinching checks across six graph pairs and nine gamma cases corroborated formulas, not unique transition or arbitrary graphs.
 
-There are 576 localized-site matrix reconstructions, 9,998 fixed-order topology comparisons, 225 numerical weighted short-time slope checks, and 12 illustrative small-time bipartite class-order comparisons. These are finite corroborations, **not** a proof of the full all-graph or all-parameter statements. The mathematical proof derives the eigenvalue expansion, terminal spectrum, monotonicity, and crossover analytically and covers every indicated integer pair and real positive noise rate. Independent assessment has not been performed.
+## originality
+
+PASS
+
+The general root-fidelity distance, localized-input reduction, noiseless short-time degree law, energy-basis pinching, and star/complete asymptotic coincidence are credited to source authors. The weighted noisy slope and entire nonstar complete-bipartite initial-class reversal are genuine new implications of combining dynamics with a bipartite spectral calculation, not statements found in relevant primary source sections.
+
+## value
+
+PASS
+
+A forced change of which vertex class maximizes a concrete quantum–classical distance is a nontrivial structural boundary in a natural solvable graph family, uniform in every positive decoherence rate. The short-time weighted power-sum invariant and exact bipartite terminal classification could be used to assess network topologies beyond numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
