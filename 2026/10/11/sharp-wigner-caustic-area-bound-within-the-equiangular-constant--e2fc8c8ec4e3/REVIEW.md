@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's equality condition makes the central symmetral a regular octagon; its edge lengths are fixed. The two closure equations leave precisely two free edge-asymmetry parameters. Exact shoelace expansion gives \(A^*(W)=-(a^2+b^2)/4\), and the independently established symmetral identity gives \(A(P)=2(1+\sqrt2)s^2-(a^2+b^2)/2\). The feasible region is exactly the open set \(|a|<s,|b|<s,|a|+|b|<\sqrt2s\). A complete vertex maximization over its closure gives the nonattained constant and eight limiting parameter vertices. Symbolic exact arithmetic independently checks the algebra, but the continuum proof is analytic. Risks: geometry is restricted to the discrete equal-opposite-width notion, not smooth Euclidean constant-width bodies; degeneracies are boundary limits, never admissible strict octagons.
+PASS
 
-## Originality — PASS, with residual literature risk
+For a strictly convex equiangular 8-gon with equal opposite-support distances, the central symmetral is the regular octagon by the original Konicer et al. equality characterization. Represent its opposite side lengths s±d_j, with d=(-[a-b]/sqrt2, a,-[a+b]/sqrt2,b). Two planar closure equations give this complete two-parameter representation; strict positivity of all eight sides is exactly |a|<s, |b|<s, |a|+|b|<sqrt2 s. Midpoint polygon W_j=(P_j+P_{j+4})/2 has edges d_j v_j, giving oriented area -(a²+b²)/4 by independent symbolic shoelace calculation. Also A(P)=2(1+sqrt2)s²-(a²+b²)/2; checked independent exact Q(sqrt2) symbolic vertex reconstruction, no reliance on numerical samples. On the compact closure of normalized feasible (u,v), u²+v² is maximized only at (1,sqrt2-1) and swapped; sign choices give eight boundary vertices; hence ratio rises to (sqrt2-1)/6, strictly below for positive side lengths and no attained 8-gon. Both strictness and limiting sequences follow by continuity. Domain excludes general CPPOS, smooth bodies and degenerate boundary polygons.
 
-The initiating primary manuscript (arXiv:2606.22612v1), in full-text Sections 4 and its original Theorems 4.4 and 4.7, characterizes the equality family and obtains the general \(1/4\) Wigner-area bound. Its sharpness family concerns arbitrary CPPOSes and does not classify the much smaller bound on its isoperimetric equality octagons. Foundational 2013 polygonal evolutes and higher discrete isoperimetric inequalities cover related structures but do not imply the exact octagonal optimizer. Targeted literature and indexed-record searches included alternative area-evolute, discrete width, and regular symmetral terminology. Residual risk: historical sources on constant-width polygons, and work not indexed by those searches, could contain an equivalent parametrization; no claim of absolute uniqueness is made.
+## originality
 
-## Value — PASS
+PASS
 
-The improved isoperimetric inequality comes with a natural, nontrivial equality family. The unrestricted sharp \(1/4\) bound can be misleading inside that family. The exact smaller coefficient \((\sqrt2-1)/6\), the all-parameter Wigner-area law, and the complete limiting optimizer classification quantify the geometric asymmetry compatible with equality. This is the first nonhexagonal case and gives a concrete benchmark for studying general even-sided equality cases; neither a general-purpose area inequality nor a merely arbitrary slice is claimed.
+Best-of-knowledge PASS: directly inspected source defines area identity and characterizes equality family, but its unrestricted sharp 1/4 ratio does not imply the much smaller sharp ratio for equiangular constant-width octagons nor the eight limiting maximizers. The exact new two-parameter extremization is narrowly yet naturally motivated by equality of the 2026 main isoperimetric theorem.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The main 2026 CPPOS isoperimetric equality class is a canonical geometric subclass; finding its sharp octagonal caustic area fraction and all eight limiting shapes is a motivated exact constrained extremum, genuinely stronger within that class than the broad 1/4 inequality. The finite number of sides is not an arbitrary slice: eight is the first setting with the displayed two free unequal-opposite-edge parameters, yielding a complete clean classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
