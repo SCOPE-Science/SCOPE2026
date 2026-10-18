@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Cuts containing F are exactly binary proper colorings of (V,F); bipartite components independently flip, giving forced odd paths; nonbipartite F implies vacuous complete closure. Triple path-shortcut plus triangle rules generate the full closure. For one-pass rules, every forced edge is witnessed by an odd simple path length <=D, or inconsistent F contains an odd cycle <=D except the Hamiltonian odd-cycle case where any missing edge is a chord with an odd arc <=D. A D-edge odd cycle and isolated outsider force an edge that no proper subset forces. A 3-edge path has no proper 2-edge nontrivial implication. Standalone exhaustive n=4,5,6 and further odd-cycle witnesses match the theorem; those experiments are not relied on for infinite correctness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rawson et al. (arxiv:2307.11681), material inspected: general concept lattices represented by hypergraph intersection systems.",
+        "Adaricheva–Ninesling (arxiv:1810.08684), material inspected: generic direct and binary-direct bases; distinction of direct iteration.",
+        "Graphic matroid edge closure joins endpoints connected by paths of either parity, whereas the present closure forces only odd-parity paths in consistent graphs, and explodes on odd cycles."
+      ],
+      "reasoning": "The general representation and basis theorems provide abstract background but neither evaluate this family’s direct width nor imply the claimed optimality from the inspected statements. The adjacent graphic-matroid closure differs in its consequences.",
+      "searches": [
+        "formal context graph cuts edges crossing closure lattice bipartite signed partitions concept enumeration",
+        "graph cuts incidence formal concepts closure cographic oriented matroid bipartite implication",
+        "formal concept lattice hypergraph incidence intersection closure",
+        "Direct and Binary Direct Bases for One-set Updates of a Closure System"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1810.08684",
+      "https://arxiv.org/abs/2307.11681",
+      "https://arxiv.org/abs/2206.00094",
+      "https://oeis.org/A307389",
+      "Published comparison: Odd girth determines Minkowski asymmetry of K5-minor-free cut polytopes (cut-polytope geometry, not Horn width)",
+      "Published comparison: Graph 2-cores classify Stong cores of incidence posets (finite-space cores, not cut-edge FCA)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior abstract notion of a direct basis entails the possibility of a one-pass basis but does not yield a tight specific arity for this cut-edge family.",
+        "The prior tagged-partition EGF entails the concept count but not a lower bound on premise arity: cardinality of closure lattice does not in general determine minimal direct arity.",
+        "The explicit odd-cycle exterior-edge witness rules out any smaller direct premise in this construction."
+      ],
+      "reasoning": "Compared logical implication, not title overlap. General FCA does not dominate sharp family-specific width; known count is covered and excluded; graph-coloring structural facts alone are inputs to proof, not the theorem’s sharp upper/lower width classification.",
+      "searches": [
+        "closure of edge sets implied by all graph cuts alternating paths triangle direct implication width",
+        "cut incidence Galois closure complete graph cuts edges bipartite components complete bipartite closure Horn implication basis odd cycles",
+        "formal context graph cuts edges crossing closure lattice bipartite signed partitions concept enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Each cut is a binary labeling modulo global complement; inclusion F subset cut is satisfiability of XOR-inequality constraints on E.",
+        "Adaricheva and Ninesling (arxiv:1810.08684) discuss direct and binary-direct implicational bases abstractly without this graph-cut width computation.",
+        "The graph cut-polytope work appearing in the nearest mathematical records optimizes cut-polytope geometry, not implication arity."
+      ],
+      "reasoning": "Compared exact antecedent-consequence logic, including the equivalence with satisfiable parity inequalities. The inspected closure theory does not specify the optimal 3 versus 2 floor((n-2)/2)+1 widths. A differently named XOR propagation theorem remains possible.",
+      "searches": [
+        "formal context graph cuts edges crossing closure lattice bipartite signed partitions concept enumeration",
+        "closure of edge sets implied by all graph cuts alternating paths triangle direct implication width",
+        "graph cuts incidence formal concepts closure cographic oriented matroid bipartite implication",
+        "parity XOR constraint closure implication bases minimal antecedent odd paths cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A307389 records coefficients 1,1,2,7,29,136,737,4537,... and EGF exp((exp(2x)-2exp(x)+2x+1)/2).",
+        "Nijholt–Sieben–Swift (arxiv:2206.00094), Section 7, gives equivalent tagged-partition enumeration.",
+        "For n=4,5,6, the number of bipartite closed sets is 29,136,737; adding inconsistent top gives 30,137,738."
+      ],
+      "reasoning": "The exact numerical count and EGF are already covered and are not an original result. Neither the database entry nor the tagged-partition paper computes optimal widths of direct versus iterative Horn bases for this specified cut-edge closure.",
+      "searches": [
+        "formal context graph cuts edges crossing closure lattice bipartite signed partitions concept enumeration",
+        "OEIS A307389 exp(exp(2x) -2 exp(x) +2x +1)/2"
+      ]
+    },
+    "rationale": "The assessed new result is the exact pair of minimum premise widths (3, 2 floor((n-2)/2)+1) for repeated versus single-pass inference on the complete-graph cut-edge context, with explicit optimal bases and odd-cycle witnesses. The elementary bipartiteness facts and the known coefficient sequence A307389 are explicitly excluded from novelty. Full-text primary comparisons and actual synonym/implication searches did not identify a covering theorem. Residual XOR/constraint-closure equivalent formulation risk is disclosed; no independent publication-priority certification is represented.",
+    "residual_risks": [
+      "An equivalent exact arity classification in older XOR-constraint or signed-partition implication-basis literature has not been definitively ruled out; a negative search is not a uniqueness proof.",
+      "The searched scientific databases cannot prove global publication priority.",
+      "This is self-review only; no independent audit, peer review, or publication-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes abstract direct-basis machinery but no cut-edge all-cuts context or sharp family width",
+        "evidence": "2018 v1; text discusses minimal direct and binary-direct bases and singleton Horn extensions.",
+        "identifier_or_url": "https://arxiv.org/abs/1810.08684",
+        "material_read": "ArXiv full text; introduction and direct/binary-direct basis definitions and main closure-update framework",
+        "method": "Read manuscript text and inspected representative PDF page",
+        "title": "Direct and Binary Direct Bases for One-set Updates of a Closure System",
+        "trigger": "Closest direct-basis definitions and sharp-premise-arity comparison"
+      },
+      {
+        "assessment": "General FCA/hypergraph representation, no precise cut-edge implication widths",
+        "evidence": "2023 v1 abstract and theorem on concept lattice correspondence.",
+        "identifier_or_url": "https://arxiv.org/abs/2307.11681",
+        "material_read": "ArXiv full text: introductory setup and main intersection-complex/concept representation theorem; inspected PDF page",
+        "method": "Read relevant primary theorem and scope",
+        "title": "Formal Concept Lattice Representations and Algorithms for Hypergraphs",
+        "trigger": "Potential general intersection-lattice coverage"
+      },
+      {
+        "assessment": "Covers auxiliary EGF and sequence; this enumeration excluded from new claim; does not discuss cut-edge Horn widths",
+        "evidence": "EGF agrees term-for-term with OEIS A307389 and the closed-set sum.",
+        "identifier_or_url": "https://arxiv.org/abs/2206.00094",
+        "material_read": "ArXiv full text: tagged-partition definitions and Section 7 enumeration, including Proposition 7.18",
+        "method": "Read matching combinatorial formula and contrasted object of enumeration",
+        "title": "Invariant Synchrony and Anti-Synchrony Subspaces of Weighted Networks",
+        "trigger": "Exact match of proposed weighted-partition count to earlier enumeration"
+      },
+      {
+        "assessment": "EXACT MATCH for known concept-count EGF, not the sharp Horn-width claim",
+        "evidence": "Listed 1,1,2,7,29,136,737,4537 and exp((e^(2t)-2e^t+2t+1)/2).",
+        "identifier_or_url": "https://oeis.org/A307389",
+        "material_read": "Sequence entries, comments, generating function, linked papers and 2019 code entries",
+        "method": "Direct database page inspection",
+        "title": "OEIS A307389",
+        "trigger": "Exact integer sequence/database check"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d7f46809-5bda-4b90-8317-36bc7895cba1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The context of cuts and crossed edges is canonical; sharp separation of bounded iterative from unbounded direct implication arity is structurally motivated and mathematically nontrivial. Two explicit optimality mechanisms (odd path versus odd-cycle inconsistency) yield complete and reusable classification. The already-known enumeration is merely context and not offered as the value claim.",
+    "status": "PASS"
+  }
+}
