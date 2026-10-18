@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:15:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the published active-sector thermodynamic flux, the positive root parametrization rho=s(1+qs)/(1+2s+qs^2) is strictly increasing 0 to1. Direct symbolic differentiation of j=q s^2(s+2+qs)/[(1+s)(1+qs)(1+2s+qs^2)] equals -q s P_q(s) over a positive squared denominator. The quintic P has signs (+,+,-,-,-,-) for all q>0 and P(0)=-4, so exactly one positive root gives the unique global maximum; q=1 gives s=2,rho=2/3,j=8/27. Singular substitutions s=u/q at q->0 and s=q^(-1/3)u at q->infty give limiting root factors u^3(u^2-2) and u^2(u^3-2), respectively; positive root uniqueness and bracketing prove limit constants. The q(1-rho)->xi boundary layer follows by solving a limiting quadratic, with xi=0 treated separately. An independently written SymPy checker re-derived derivative, benchmark factorization, density monotonicity and both asymptotic polynomial identities. No finite computation substitutes for Descartes/root limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 supplies all density exact current, and Eq14 gives only fixed-rho strong-recovery; Gabel-Redner changes generator (behind-particle cooperative hopping)."
+        ],
+        "reasoning": "A general flux formula logically permits deriving an optimum but does not state or trivially imply uniqueness and sharp q^-1/3 constants; the other model uses distinct moves.",
+        "searches": [
+          "Ngoc–Nhung–Thi 2026 Theorem 4 Eq 10–12",
+          "Gabel–Redner 2011 cooperative exclusion J Stat Mech P06008"
+        ]
+      },
+      "checked_sources": [
+        "Ngoc et al. 2026 Theorem 4, Eq(10)–(14), arXiv:2606.01568, full author copy",
+        "Gabel–Redner 2011 DOI:10.1088/1742-5468/2011/06/P06008 (context only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Eq(10) exact current, Eq(11) s quadratic, and general statement maximum above1/2; source q->infinity limit is at fixed rho<1."
+        ],
+        "reasoning": "Original formulas are used as premises. The new proof establishes exactly one maximum for each q>0 and noncommuting limits rho->1 and q->infty; no identity or stronger theorem found that directly states these.",
+        "searches": [
+          "Ngoc–Nhung–Thi 2026 Eq 10–14 and §III",
+          "Gabel–Redner 2011"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Current j as a rational function of positive transfer-matrix s, with rho strictly increasing; maximizing rho equivalent to maximizing s."
+        ],
+        "reasoning": "Exact flux is published, but no theorem there optimizing its positive branch for all q; nonuniform q->infty asymptotic is a different statement from fixed-density behavior.",
+        "searches": [
+          "tandem exclusion process 110 101 011 stationary current optimal density recovery q",
+          "\"Tandem Exclusion Process\" \"optimal density\"",
+          "arXiv:2606.01568"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The q=1 value rho=2/3,Jmax/alpha=8/27 appears in source benchmark; q-dependent optimality requires unique positive quintic root and asymptotic analysis."
+        ],
+        "reasoning": "One parameter value/plot is covered, but not an all-q exact law or the singular rate constants.",
+        "searches": [
+          "tandem exclusion process 110 101 011 stationary current optimal density recovery q",
+          "arXiv:2606.01568 q=1 density plots"
+        ]
+      },
+      "rationale": "Ngoc–Nhung–Thi 2026 Theorem 4 provides the exact density-current relation and exhibits maximum density above 1/2, plus pointwise q->infinity behavior. It does not establish the unique global maximizer at every q through a sign-regular quintic, sharp cube-root constants, or a distinct q^-1 boundary layer. The contribution is calculus on an already-known physical observable; Gibbs measure and current formula are prior work.",
+      "residual_risks": [
+        "Exact stationary flux and Gibbs law are assumed as published premises; none of their derivation is newly certified here.",
+        "Optimization of this same formula in an unindexed appendix or later analysis remains possible.",
+        "Thermodynamic-limit active-sector current only; q=0 and q=infty are limits and not claims about corresponding finite-rate generators."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS exact flux and q=1 benchmark, not sign-regular quintic all-q optimum or q^-1/3 law",
+          "evidence": "Theorem 4 displays J(alpha,q,rho) and quadratic root s; source presents rho*>1/2 and fixed-rho q->infty limit.",
+          "identifier_or_url": "arXiv:2606.01568v1; https://www.researchgate.net/publication/405684325_Tandem_Exclusion_Process",
+          "material_read": "Entire lawful author-shared full-text rendition, including Theorem 4 equations 10–12, Eq 13–14 and conclusion/appendices",
+          "method": "Read original complete paper as public author-shared text; compared each strong recovery limit and claim",
+          "title": "Ngoc, Nhung, and Thi, Tandem Exclusion Process",
+          "trigger": "Exact same model, flux, parameters and potential optimization"
+        },
+        {
+          "assessment": "NOT SAME OBJECT: occupied particle behind alters jump rate versus required tandem two-stage transitions",
+          "evidence": "Source described behind-neighbor facilitation, distinct from TEP 110->101->011.",
+          "identifier_or_url": "J Stat Mech P06008 (2011); DOI:10.1088/1742-5468/2011/06/P06008",
+          "material_read": "Primary model abstract and PDF location compared; full body not inspected this run",
+          "method": "Compare move rules and dynamical generators",
+          "title": "Gabel and Redner, Cooperativity-driven singularities in asymmetric exclusion",
+          "trigger": "Related ant/cooperative one-dimensional exclusion and flux maxima"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The current-maximizing density and maximal throughput are natural operational observables of the model. Unique optimum at every rate and sharp singular scaling resolve nonuniformity concealed by the source paper pointwise q->infinity limit; the distinct q^-1 and q^-1/3 density scales have mathematical and modeling significance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact stationary flux and Gibbs law are assumed as published premises; none of their derivation is newly certified here.",
+    "Optimization of this same formula in an unindexed appendix or later analysis remains possible.",
+    "Thermodynamic-limit active-sector current only; q=0 and q=infty are limits and not claims about corresponding finite-rate generators."
+  ],
+  "schema_version": 1
+}

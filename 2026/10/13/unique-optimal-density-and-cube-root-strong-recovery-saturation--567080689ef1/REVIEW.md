@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The final result has a precisely specified thermodynamic stationary-current domain. Exact elimination converts the published positive-root flux to a rational function of \(s>0\); symbolic differentiation produces the quintic derivative numerator. Its fixed coefficient sign pattern yields exactly one positive root for every \(q>0\). Separate rescalings rigorously locate that root at both rate extremes and prove the distinct full-occupancy boundary layer. The packaged verifier checks the nonstandard algebraic identities and representative numerical cases. This proof does not validate the original stationary-current derivation independently.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The 2026 tandem-exclusion paper already proves the stationary current and its pointwise large-recovery limit. The assessed increment is its explicit unique global maximizer for all positive rate ratios, a quintic sign certificate, exact two-endpoint optimizing limits, and the cube-root saturation and independent full-occupancy crossover. Sections III–IV and the appendix of the author-shared full text were compared with these exact assertions. Gabel–Redner's 2011 cooperative exclusion uses another hopping generator. Searches found no explicitly identical optimization, but the result is derived from a known flux formula, and an unindexed equivalent remains possible.
+PASS
 
-**Value — PASS.** Selecting density to maximize particle throughput is a natural observable for cooperative transport. The quintic provides a unique exact finite-rate target and reveals a nonuniform optimization limit: the optimum approaches full packing much more slowly than the narrower boundary layer. Sharp constants quantify performance at both extreme recovery rates without a numerical phase diagram.
+For the published active-sector thermodynamic flux, the positive root parametrization rho=s(1+qs)/(1+2s+qs^2) is strictly increasing 0 to1. Direct symbolic differentiation of j=q s^2(s+2+qs)/[(1+s)(1+qs)(1+2s+qs^2)] equals -q s P_q(s) over a positive squared denominator. The quintic P has signs (+,+,-,-,-,-) for all q>0 and P(0)=-4, so exactly one positive root gives the unique global maximum; q=1 gives s=2,rho=2/3,j=8/27. Singular substitutions s=u/q at q->0 and s=q^(-1/3)u at q->infty give limiting root factors u^3(u^2-2) and u^2(u^3-2), respectively; positive root uniqueness and bracketing prove limit constants. The q(1-rho)->xi boundary layer follows by solving a limiting quadratic, with xi=0 treated separately. An independently written SymPy checker re-derived derivative, benchmark factorization, density monotonicity and both asymptotic polynomial identities. No finite computation substitutes for Descartes/root limits.
 
-**Limits.** The theorem does not establish finite-ring spectra, microscopic convergence, or arbitrary modifications of the local generator. The exact stationary-current function is inherited from prior work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ngoc–Nhung–Thi 2026 Theorem 4 provides the exact density-current relation and exhibits maximum density above 1/2, plus pointwise q->infinity behavior. It does not establish the unique global maximizer at every q through a sign-regular quintic, sharp cube-root constants, or a distinct q^-1 boundary layer. The contribution is calculus on an already-known physical observable; Gibbs measure and current formula are prior work.
+
+## value
+
+PASS
+
+The current-maximizing density and maximal throughput are natural operational observables of the model. Unique optimum at every rate and sharp singular scaling resolve nonuniformity concealed by the source paper pointwise q->infinity limit; the distinct q^-1 and q^-1/3 density scales have mathematical and modeling significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
