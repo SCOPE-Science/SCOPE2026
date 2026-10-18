@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the stated theorem
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and the standard library. The checker generates every partition into singleton/doubleton blocks on a labeled set, enumerates every ordered pair and every Boolean valuation, compares both nested non-contingency operators, independently tests the graph-component criterion, and matches the rational coefficient formula.
+## correctness
 
-Observed output counts for \(n=1,2,3,4,5,6,7\) are respectively \(1,4,10,52,196,1216,5944\), with ordered frame-pair test totals \(1,4,16,100,676,5776,53824\). The reported terminal marker is `VERIFY_OK`. The aggregate ordered frame-pair count is \(60397\). The arithmetical counting uses exact rational coefficients and integer checks, not floating-point approximations.
+PASS
 
-The unbounded result is established by the crossing-boundary proof and Boolean four-square calculation in `RESULT.md`. The enumerator is not a proof for infinite \(W\), does not cover blocks larger than two, and cannot certify originality in the literature. No independent audit has been performed.
+For an equivalence cell of size at most two, Δ marks exactly cells whose valuation is constant. Singleton input and crossing-edge boundaries force overlapping distinct colored matching edges to close as alternating 4-cycles; otherwise components are isolated singleton or dyad. Conversely, alternating squares commute because both operator compositions test the XOR parity a⊕b⊕c⊕d, and dyads are readily checked by their constant-cell flags. Involutions commute exactly on these components. The exponential component census is exp(z+3z²/2+z⁴/4), independently enumerated for n=0..5: 1,1,4,10,52,196. Minor proof wording caveat: on a singleton-cell dyad Δ does not act as the identity on raw valuation subsets; it sends them to the full dyad. The dyad commutation conclusion is nonetheless correct by direct checking.
+
+## originality
+
+PASS
+
+Known enumeration of commuting involution pairs is explicitly not claimed as new. The nonnormal semantic equivalence, showing precisely when two knowing-whether operators commute on all valuations with binary information cells, is distinct from merely applying classical commuting permutations or the standard multi-agent knowing-whether syntax.
+
+## value
+
+PASS
+
+A sharp natural two-agent frame-classification and minimum 3-world obstruction is mathematically meaningful even though the resulting EGF is a known commuting-involutions count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
