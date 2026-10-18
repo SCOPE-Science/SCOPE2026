@@ -1,0 +1,15 @@
+# Scientific review: finite-chain modal Kleene operators
+
+## Correctness — PASS
+The theorem is about the explicit equations (M), (Pos), and (Con), not an unstated additional modal convention. Meet preservation on a chain is equivalent to monotonicity; (Pos) reduces to the single median-output threshold; and the quantified (Con) clause forces the lower prefix to be constant whenever its maximum output is above the negative threshold. The converse implications are proved. The even/odd counts and top-preserving counts use independent weakly increasing tails, with hockey-stick summation in the plateau regime. Stirling's formula supplies the three limiting ratios. The executable checker evaluated the literal axioms, characterization and both enumerations on 174,908 candidate maps. Numerical agreement is corroboration, not a substitute for the general proof.
+
+## Originality — PASS, with a specific access limitation
+The closest source is Celani, Menchón and Miguelez, *A Modal Expansion of Kleene Algebras via Twist Structures* (arXiv:2608.10937, first version 2026-08-11). Its accessible abstract states categorical representation and duality theorems; the available detailed overview reproduces the axioms, but neither accessible material states the chain two-regime classification, either exact count or the asymptotic. The original full text was inaccessible, so direct comparison against all of its contents remains a significant residual risk. Chajda–Länger–Paseka (arXiv:2111.00455) represent the underlying chains as Kleene lattices, with no modal self-map enumeration. Celani–Rivieccio (DOI:10.1007/s11225-023-10065-2) develop a nucleus on Heyting-style reducts; the additional closure axioms prevent that account from simply covering the present family. Searches for chain, Kleene, median/plateau, positivity/consistency, modal self-map and binomial count equivalents did not identify prior direct coverage; search absence alone is not proof of novelty.
+
+## Value — PASS
+The new 2026 modal Kleene framework has a natural smallest nontrivial test class: every finite involutive chain, in both centered (odd) and noncentered (even) cases. The theorem gives a complete structural parametrization for this entire infinite family, distinguishes nonnormal versus top-preserving expansions with exact formulas, and quantifies how restrictive the two genuinely modal axioms are among all monotone operators. The parity-sensitive finite formulas but parity-independent asymptotic fraction provide a usable benchmark for subsequent work with modal triples, finite algebra catalogues and probabilistic sampling. It is not just a lone tiny-chain count.
+
+## Scope and residual risks
+The result is not asserted for non-chains, arbitrary Kleene algebra morphisms, extra closure axioms, or modal logics beyond the stated equations. A relevant original paper could not be inspected in full. As with any originality search, unindexed synonymous results may exist; no independence or external validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
