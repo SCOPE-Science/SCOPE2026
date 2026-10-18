@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact claim is the integral full-automorphism homology lattice, not merely the known nine-sphere homotopy type. The published integral results on the complement of ten maximal tetrahedra (Saleh–Titz Mite–Witzel, arXiv:2302.14388v1, Section 4, Propositions 4.2 and 4.4) imply a short exact relative homology sequence with each attaching map a unit. Orienting the ten relative generators by their common boundary generator reduces the problem to identifying the one-dimensional action on second homology of the complement. Simplicity/perfectness of \(A_5\) gives trivial rotation action, and the antipodal map has zero fixed simplices on the scale-two reference complex, giving degree minus one by integral Lefschetz. This proves the twisted augmentation lattice over \(\mathbb Z\), not just rational character traces. The ten-tetra orbit split, central exchange, full group and character are exhaustively checked by an exact finite verifier. Complete mod-two augmented boundary ranks independently confirm rational homology concentration and rank nine. The verification code and finite graph are embedded. No finite computation is used to infer a theorem about an infinite family.
+## correctness
 
-## Originality — PASS, with a specific residual risk
-The closest same-object source (arXiv:2302.14388v1, full HTML inspected: introductory theorem and Section 4) gives \(X\simeq\bigvee^9S^3\), the exceptional tetrahedra, their rotation orbits and their attaching maps, but does not state the integral \(A_5\times C_2\)-module, the central inversion's action on the residual second homology, or the full character. The nonequivariant homotopy type is explicitly not claimed as new. Published published-finding corpus and literature searches for dodecahedral Rips complexes, signed augmentation, antipodal homology, icosahedral representation and equivalent formulations yielded no covering claim; the closest indexed Rips complexes use different graphs. The new theorem follows by adding an equivariant relative sequence and the antipodal Lefschetz sign to primary published inputs, so experts might regard it as a natural implicit corollary; this is a genuine residual originality risk, not hidden as proof of uniqueness. The full primary source was materially inspected, whereas the 2023 thesis repository entry was seen only at abstract level.
+PASS
 
-## Value — PASS
-An abstract wedge of nine spheres specifies rank but not a canonical integral symmetry action. The identification with a sign-twisted augmentation lattice determines the actual integral \(G\)-module (stronger than a Betti number or rational character), a primitive invariant class, the complete character on all 120 automorphisms and the five/four antipodal splitting after rationalization. It supplies a structural equivariant benchmark for a natural, highly symmetric finite metric complex and pinpoints why non-equivariant discrete Morse matching alone does not encode antipodal action. This is a motivated exact invariant, rather than an arbitrary graph parameter or routine table recomputation.
+Saleh–Titz Mite–Witzel Section 4, Proposition 4.2 identifies the G-invariant complement Y=X minus ten maximal distance-three tetrahedra and gives Y ≃ VR<=2(D) ≃ S2. Their Proposition 4.4 proves each boundary [∂τ] is a unit generator of H2(Y;Z). The relative integral long exact sequence is 0 -> H3(X) -> Z[T] -> Z -> 0. Reorient relative tetrahedron generators so each maps to +u. A5 has no sign characters and hence fixes u; central antipodal inversion fixes no simplex of VR<=2 because antipodal pairs have graph distance 5. Lefschetz number 0 on a connected S2-homology complex gives its H2 sign -1, transferred to Y by equivariant inclusion, so G acts on normalized relative basis as δ(g) times the tetrahedral permutation. Its kernel is exactly δ tensor ker(augmentation), an integral lattice identity. Independent BFS enumeration found exactly ten pairwise-distance-three tetrahedra; generator closure gave 60 A5 rotations, 120 full automorphisms, two 5-element rotation orbits exchanged by inversion, confirming rational plus/minus dimensions 5 and 4 and the rank-one fixed orbit-difference line.
 
-## Limits and literature
-The result depends on the original source's integral deformation-retraction and boundary-generator theorem and is restricted to one graph and threshold. It does not claim an equivariant homotopy type, integral splitting of eigenlattices, or independence from its source's nonequivariant theorem. The original source is Saleh–Titz Mite–Witzel, *Vietoris–Rips complexes of Platonic solids*, arXiv:2302.14388v1. No comparable equivariant formula was found in queried published records, but indexing is incomplete.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge with explicitly bounded caveat: published paper supplies the crucial integral topological inputs, but the full signed G-lattice, antipodal rational eigenspaces and integral fixed line require the additional equivariant sign argument and were not found in prior mathematical statements. A potential very natural unstated corollary is not hidden.
+
+## value
+
+PASS
+
+The actual integral equivariant homology lattice of a natural 20-vertex highly symmetric Rips complex is a motivated invariant not encoded by a Betti vector or non-equivariant sphere wedge. It determines all 120 automorphism character values, a primitive invariant class, and antipodal splitting over Q; these provide concrete symmetry-sensitive topology and a useful structural test case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

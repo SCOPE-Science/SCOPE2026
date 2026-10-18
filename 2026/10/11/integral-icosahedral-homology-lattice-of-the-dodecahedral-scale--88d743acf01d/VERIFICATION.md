@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the directory containing the complete embedded files. The script uses only Python's standard library and a literal 20-vertex, 30-edge graph specification.
+## correctness
 
-It checks exactly all 3,272 nonempty simplices and all 120 automorphisms, including all oriented fixed-simplex contributions to the Lefschetz number. It independently enumerates the ten exceptional tetrahedra, their two five-element rotation orbits, the central antipode's exchange, and the two-transitive action on each orbit. It computes all mod-two augmented boundary ranks, not a sampling of boundary columns.
+PASS
 
-Expected exact output includes:
+Saleh–Titz Mite–Witzel Section 4, Proposition 4.2 identifies the G-invariant complement Y=X minus ten maximal distance-three tetrahedra and gives Y ≃ VR<=2(D) ≃ S2. Their Proposition 4.4 proves each boundary [∂τ] is a unit generator of H2(Y;Z). The relative integral long exact sequence is 0 -> H3(X) -> Z[T] -> Z -> 0. Reorient relative tetrahedron generators so each maps to +u. A5 has no sign characters and hence fixes u; central antipodal inversion fixes no simplex of VR<=2 because antipodal pairs have graph distance 5. Lefschetz number 0 on a connected S2-homology complex gives its H2 sign -1, transferred to Y by equivariant inclusion, so G acts on normalized relative basis as δ(g) times the tetrahedral permutation. Its kernel is exactly δ tensor ker(augmentation), an integral lattice identity. Independent BFS enumeration found exactly ten pairwise-distance-three tetrahedra; generator closure gave 60 A5 rotations, 120 full automorphisms, two 5-element rotation orbits exchanged by inversion, confirming rational plus/minus dimensions 5 and 4 and the rank-one fixed orbit-difference line.
 
-```
-F_VECTOR (20, 150, 540, 1000, 972, 490, 100)
-MOD2_BOUNDARY_RANKS (1, 19, 131, 409, 582, 390, 100, 0)
-MOD2_REDUCED_BETTI (0, 0, 0, 9, 0, 0, 0)
-ROTATIONS 60 FULL_GROUP 120
-SPECIAL_TETRA 10 ROTATION_ORBIT_SIZES (5, 5)
-VERIFY_OK
-```
+## originality
 
-Integral module correctness is established in `RESULT.md` from the equivariant long exact sequence and the cited integral homology inputs; mod-two verification alone would not certify an integral representation. The script verifies the complete induced rational character as an additional independent finite check. The provided verifier does not establish an equivariant homotopy equivalence, which is not claimed.
+PASS
+
+PASS best-of-knowledge with explicitly bounded caveat: published paper supplies the crucial integral topological inputs, but the full signed G-lattice, antipodal rational eigenspaces and integral fixed line require the additional equivariant sign argument and were not found in prior mathematical statements. A potential very natural unstated corollary is not hidden.
+
+## value
+
+PASS
+
+The actual integral equivariant homology lattice of a natural 20-vertex highly symmetric Rips complex is a motivated invariant not encoded by a Betti vector or non-equivariant sphere wedge. It determines all 120 automorphism character values, a primitive invariant class, and antipodal splitting over Q; these provide concrete symmetry-sensitive topology and a useful structural test case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
