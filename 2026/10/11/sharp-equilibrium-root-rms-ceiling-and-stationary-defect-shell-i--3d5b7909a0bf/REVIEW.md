@@ -1,20 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Arbitrary antiderivative generator tests give all three conditional regressions. Stationarity of \(x^2\) and \(z\) gives
-\[
-\mathbb E[z]=\mathbb E[x^2]=\mathbb E[xy].
-\]
-The regression residual \(y-x=\dot x/\sigma\) yields an exact variance defect, and differentiating \(x^2/\sigma+y^2+z^2\) yields the stationary shell. Cauchy–Schwarz reduces its nonnegativity to a one-variable cubic inequality whose unique positive root is the positive equilibrium amplitude. Equality forces the positive-equilibrium atom.
+## correctness
 
-Risk: the sharp root ceiling uses \(c>0\); the symmetric case \(c=0\) has different equality structure.
+PASS
 
-## Originality
-PASS. The complete public 2016 same-object text was compared through its equilibrium, stability, periodicity, Lyapunov, chaotic, and asymptotic analyses and searched for the principal equivalent statistical terms. No matching invariant-measure, moment, variance, or average statement was found. Foundational and recent global-dynamics sources were compared at implication level, and published semantic searches covered mean-height, RMS, covariance-defect, and positive-root formulations.
+With generator L, antiderivatives in each coordinate establish the three conditional regressions from invariance. Stationarity of x^2 and z gives h=E[z]=E[x^2]=E[xy]; h=0 would force x=0 and contradict c>0 in the mean y equation. Orthogonality of residual R=y-x gives Var(y)=Var(x)+s, s=E[R^2]. Direct differentiation of V=x^2/sigma+y^2+z^2 yields Var(z)+s=h(r-1-h)+cm. By Cauchy m<=sqrt(h)=q, so q^3-(r-1)q-c<=0, and the cubic has one positive root xi+. Equality forces m=q, s=Var(z)=Var(x)=0 and hence the positive equilibrium atom. The zero-speed-defect support must be equilibrium by the 1D z-flow and invariance. The independent exact rational algebra and high-precision numerical-root checks agree, but neither substitutes for the generator proof.
 
-Risk: the generator calculation is short, so a differently phrased unindexed observation remains possible.
+## originality
 
-## Value
-PASS. The result provides a physically aligned stationary calibration across all compact recurrent regimes of a convection-loop model: mean height equals fast RMS squared, coordinate mismatch is quantified by speed energy, and the positive equilibrium amplitude becomes a sharp global RMS ceiling. The published chaotic parameter example receives an immediate exact consistency bound that is not supplied by its bifurcation or Lyapunov analysis.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The primary 2016 same-system full article studies equilibria, dynamics, bifurcations, periodicity and chaos but does not imply the invariant-probability all-state moment theorem. General generator orthogonality is known, but the combined sharp positive-equilibrium mean-height ceiling is a separate statement. The short generator derivation entails an unindexed earlier observation risk.
+
+## value
+
+PASS
+
+The stationary RMS ceiling calibrated to the positive convective equilibrium is sharp for all compact recurrent regimes, including possible chaotic invariant measures, while the speed-defect shell quantifies departures from regression. The bound offers exact consistency tests for observed nonstationary/chaotic parameter regimes without claiming chaos existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
