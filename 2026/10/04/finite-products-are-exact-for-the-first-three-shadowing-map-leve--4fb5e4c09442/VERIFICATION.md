@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The argument was verified directly against Definitions 3.1, 4.5 and 5.1 and Propositions 3.2 and 5.3 of arXiv:2504.00171v1. For product preservation, pseudo-orbits and shadows split coordinatewise under the max metric. For factor reflection, all passive coordinates are chosen as exact orbits, so projecting the product selector preserves the pseudo-orbit-map axiom and the relevant shadowing estimates.
+# Independent mathematical audit
 
-The self-tuning step uses the source's equivalent criterion from Proposition 5.3. In the factor embedding, the weighted sequence discrepancy in the product is exactly the discrepancy of the active factor because every passive coordinate coincides with its orbit at every time. In the product direction, every factor discrepancy is bounded by the product discrepancy, so the minimum of the finite family of thresholds works.
+## correctness
 
-No computation or finite experiment is used. Literature checks found no Cartesian-product theorem in the source and no equivalent selector-level theorem in the searched database/web sources. Independent audit was not performed.
+PASS
+
+Under the finite max product metric, two-sided delta-pseudo-orbit spaces factor coordinatewise, so product of factor continuous selectors is a selector. Ordinary induced shadowing and two-sided limit shadowing pass through a finite maximum. Artigue Prop. 5.3 local self-tuning discrepancy for each factor is bounded by the product discrepancy, so minimum factor thresholds works. Conversely, embed the active factor pseudo-orbit with exact orbit trajectories in every other coordinate; this preserves jump bounds and yields equality of the weighted sequence discrepancy with the active discrepancy, and projection of the product selector induces each relevant shadowing property. On genuine orbits the selector returns the initial point. Nonempty factors, m finite, positive common mu and compact homeomorphisms are essential assumptions. Source Propositions 3.2 and 5.3 were read for the reductions; neither numerical testing nor the ordinary shadowing property alone is used.
+
+## originality
+
+PASS
+
+The source introduces selector-level shadowing hierarchy but does not state finite-product factor reflection. Classical product shadowing and hyperspace L-shadowing operate without continuous selector maps and therefore are not stronger implications of this theorem. Resultary had no distinct same-theorem hit; the current work itself is indexed.
+
+## value
+
+PASS
+
+An exact factorization theorem for the first three regularity levels of the new shadowing-selector hierarchy is a natural reusable structural reduction. It distinguishes the behavior of continuous selectors from ordinary shadowing, facilitates product example construction, and carefully excludes the stronger commutation-based levels for which the embedding proof does not apply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
