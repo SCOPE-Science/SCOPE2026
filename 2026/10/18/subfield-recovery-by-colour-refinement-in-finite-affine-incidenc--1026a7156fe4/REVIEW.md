@@ -1,0 +1,20 @@
+# Scientific review: subfield recovery in finite affine incidence refinement
+
+## Correctness — PASS
+The claim concerns the exact singleton classes under stable one-dimensional colour refinement, not the full partition. The proof directly checks preservation of singleton classes under joins of two known points, meets of two known nonparallel lines, and the unique parallel through a known point to a known line. The parallel step is justified using equitable counts into the union of point classes lying on the known line. The explicit affine coordinate constructions implement addition and multiplication, proving that every point of the subplane over the marked-coordinate field becomes singleton. Conversely, a nontrivial relative Frobenius automorphism fixes the marked points and excludes every point and line outside that subplane from being singleton. The separate shearing and Frobenius obstructions establish the minimum-marking lower bounds. Two exact standalone scripts respectively tested the refinement classes and the geometric closure at nine finite prime-power orders, including extension fields. The all-order conclusion rests on the proof, not solely those tests.
+
+## Originality — PASS, with a priority limitation
+The closest published methodological sources are Arvind et al. (2016), which introduces the discrete individualization problem, and Kiefer et al. (2015), which provides general counting-logic and refinement theory. Kryftis (2016) constructs coordinate rings geometrically from affine frames; this is an important precursor for the arithmetic closure step, not a statement about singleton colour classes. Bartoli et al. (2017) study metric resolving sets for affine incidence graphs; the invariant and asymptotic scale are different. In the inspected material and targeted searches, no result gives the exact correspondence between stable singleton classes and the subfield of individually marked coordinates, or the three-versus-four refinement-landmark threshold. The specialized literature might contain an earlier version, and search failure does not prove global priority.
+
+## Value — PASS
+The result determines a natural exact invariant for all prime-power Desarguesian affine planes: a small set of individual landmarks makes an iterative local counting algorithm recover precisely the geometric subplane over the generated field. This yields a genuine prime-versus-extension dichotomy in the minimum number of landmarks, and a stronger subfield law that determines both point and line singleton counts for arbitrary additional point markings. It also explains why the refinement-landmark number stays at three or four while the known metric-dimension invariant is linear in the plane order. The unbounded family, sharp threshold, and structural field interpretation are not a renamed trivial parameter calculation.
+
+## Closest literature and limitations
+- Arvind, Fuhlbrück, Köbler, Kuhnert and Rattan, *The Parameterized Complexity of Fixing Number and Vertex Individualization in Graphs*, arXiv:1606.04383 (2016): general problem and algorithms, not an affine-plane classification in inspected portions.
+- Kiefer, Schweitzer and Selman, *Graphs Identified by Logics with Counting*, arXiv:1503.08792 (2015): general two-variable counting framework, not marked affine-plane singleton counts in inspected portions.
+- Kryftis, *A Constructive Approach to Affine and Projective Planes*, arXiv:1601.04998 (2016), Chapter 4: geometric coordinate/ring reconstruction, not colour refinement.
+- Bartoli, Héger, Kiss and Takáts, *On the Metric Dimension of Affine Planes, Biaffine Planes and Generalized Quadrangles*, arXiv:1706.06583 (2017), Section 2: distance-resolving sets, not iterative colour refinement.
+
+The theorem does not cover non-Desarguesian affine planes, arbitrarily line-marked inputs, or the complete non-singleton partition. No independent priority or scientific certification has occurred. The finite tests are reproducible but are not infinite proofs.
+
+Self-review: passed. Independent audit: not yet performed.
