@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof first forces the smallest prime divisor to be \(2\) by an upper bound on the defining Egyptian-fraction sum, and then forces the sum itself to equal \(1\). Reducing the exact identity modulo each maximal prime power yields the local congruence \(m(1+s+\cdots+s^{a-1})\equiv1\pmod{s^a}\). The squarefree case and all three exponent patterns with \(\Omega(n)=4\) are then exhausted algebraically. Direct reciprocal identities verify \(30,306,380\).
+## correctness
 
-## Originality
-PASS. The focal Machacek paper defines the object, gives sufficient constructions, and tabulates examples below \(10^7\), including the three survivors, but the inspected Sections 3--5 do not state this three-support \(\Omega\le4\) classification. OEIS A286497 is a numerical table rather than an exhaustiveness theorem. Targeted result-database queries for the exact values, aliases, exponent patterns, and three-support boundary found no covering statement. The closest result classifies two-prime support and therefore does not imply the present theorem.
+PASS
 
-## Value
-PASS. This closes the first natural three-prime-support multiplicity boundary immediately beyond the squarefree example \(30\). It converts two early non-squarefree table entries, \(306\) and \(380\), into a complete structural classification, using a reusable maximal-prime-power congruence rather than a bounded search.
+For a three-prime-support integer n=p^a q^b r^c the positive integer G(n) is forced to 1 and p=2 from strict geometric-tail bounds. Clearing denominators and reducing mod the highest prime power gives m(1+s+...+s^{e-1})≡1 (mod s^e). At Ω=3 this forces q=3,r=5. At Ω=4 the exhaustive exponent patterns 2²qr,2q²r,2qr² lead respectively to q=5,r=19; q=3,r=17; and a parity contradiction. The q² branch uses d=(2q²-1)/r odd <2q plus d≡-2(q+1) mod q², ruling q>=5; r² case uses quotient parity mod4. Each of 30,306,380 satisfies G=1 by independent exact reciprocal arithmetic. Proof has no size cutoff; a scan up to 200000 cannot establish exhaustive scope.
 
-## Closest literature and limitations
-The closest primary source is John Machacek, arXiv:1706.01008, which introduced prime power Giuga numbers and tabulated the relevant examples. OEIS A286497 is the canonical numerical table. A related result on two-prime support gives a Mersenne family but has disjoint hypotheses. Unindexed literature remains a residual originality risk, and no claim is made for \(\Omega(n)\ge5\) or for at least four distinct prime divisors.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Machacek introduced prime-power Giuga numbers, supplied families and a table under 10^7 (already displaying 30,306,380), but a finite table does not prove no large three-support solutions with Ω<=4. The complete modular-congruence exclusion for those layers is a theorem not given by the table or Machacek’s sufficient constructions. Published Resultary two-prime-support Mersenne classification has disjoint support hypothesis, hence no implication. OEIS A286497 gives sample terms only; source omissions and older unindexed elementary observations remain risks.
+
+## value
+
+PASS
+
+PASS. Exactly three prime supports and the first post-squarefree total-multiplicity layer are natural structural boundaries of a Diophantine reciprocal-integrality family, not arbitrary small cutoffs. Establishing all solutions without any numerical bound, including two genuinely non-squarefree extremizers and eliminating entire exponent patterns, converts known individual table values into an exact meaningful complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
