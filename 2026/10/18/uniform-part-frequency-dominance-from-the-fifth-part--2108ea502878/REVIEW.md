@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** Equation (1) follows by marking parts of the strict-partition generating series. Binary uniqueness cancels all powers-of-two factors. Only adjacent pairs touching powers of two remain, and for each such pair with part size at least five the factorization uses one of two explicit integer polynomials with coefficientwise nonnegativity verified exactly by the included checker. The selected factors are present, distinct, and non-powers of two for all permitted parameters. Multiplying with the unused nonnegative factors proves the universal inequality, while telescoping proves the residue-class corollary.
+
+**Originality — PASS within inspected evidence.** Craig's full 2022 paper proves unrestricted residues only for moduli at most ten and otherwise establishes asymptotic/eventual statements; its conjecture for unrestricted moduli is stronger than the present residue-at-least-five theorem. The 2004 Sellers–Sills–Mullen paper describes Guy's older binary restricted-partition identity and general partition-ideal equivalences, but does not supply uniform adjacent part-frequency dominance across every power-of-two boundary. The latter is the crucial non-routine finite-polynomial extension beyond the generic binary identity. Searches of related published findings and available historical claims found no equivalent assertion. Unindexed combinatorial deductions remain a residual originality risk.
+
+**Mathematical value — PASS.** The theorem turns a fixed-modulus positivity result into a uniform all-moduli positivity theorem on an infinite range of residue classes and removes every adjacent exceptional power of two at part sizes five and above. It reduces the full distinct-part frequency monotonicity problem to only four small adjacent comparisons, rather than logarithmically many exceptional binary boundaries; this is a structural improvement motivated by Craig's published conjectural problem.
+
+**Limitations.** The unresolved adjacent inequalities at parts one through four prevent claiming the whole conjecture. The proof establishes weak, not strict, inequalities. No independent review has been conducted.
+
+Self-review: passed. Independent audit: not yet performed.
