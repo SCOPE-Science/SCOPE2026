@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof is symbolic and applies to every finite commutative local ring. The computational check in `verify.py` is deliberately finite and independent of the orbit-count formula: it tests group invertibility from the three defining equations by exhaustive search for the inverse candidate.
+# Independent mathematical audit
 
-For each of \(\mathbb Z/4\mathbb Z\) and \(\mathbb F_2[\varepsilon]/(\varepsilon^2)\), the checker enumerates all \(256\) matrices in \(M_2\), searches all \(256\) candidate group inverses for each matrix, and obtains residue-rank counts \((1,48,96)\), total \(145\). It also checks every residue fiber over \(M_2(\mathbb F_2)\): a group-invertible residue matrix of nullity \(k\) has exactly \(2^{4-k^2}\) group-invertible lifts, while a non-group-invertible residue matrix has none.
+## correctness
 
-The finite computation does not establish the general theorem. The all-ring conclusion depends on the image/kernel decomposition, freeness of finite projective modules over a local ring, orbit-stabilizer counting, and the exact kernel size of reduction \(\operatorname{GL}_s(R)\to\operatorname{GL}_s(\mathbb F_q)\).
+PASS
+
+For a group inverse B=A#, the common idempotent AB=BA yields R^n=im A⊕ker A and an automorphism A|im A. Conversely every free ordered decomposition with invertible restriction gives A#; orbit-stabilizer gives |GL_n(R)|/|GL_{n-r}(R)|. Reduction GL_s(R)→GL_s(F_q) has kernel size j^{s²}. A fixed rank-r residue group-invertible matrix has j^{2r(n-r)} lifted ordered decompositions and j^{r²} invertible restrictions, hence j^{n²-(n-r)²} lifts, probability j^{-(n-r)²}. Independently enumerated all 16 F2 2×2 matrices and checked group inverses directly: ranks (1,6,6). The package verifier for Z4 and F2[ε] was read, not blindly treated as a proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge: exact prescribed-residue-fiber survival law is not stated in the inspected most relevant primary count of idempotents or block group inverses, despite a strong near-implication of the rank formula by standard orbit weighting. This is a qualified narrowly original exact invariant, not a new foundational structural theorem.
+
+## value
+
+PASS
+
+The exact survival rate j^{-k²} for a prescribed group-invertible residue matrix is a uniform, distribution-sensitive lifting theorem over all finite commutative local rings; it has a natural rank/nullity parameter and potential use in random lifting and index-one matrix calculations. Value is modest because the group-invertible count is close to classical idempotent orbit counting, but the new conditional fiber statement is exact and not merely recomputation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

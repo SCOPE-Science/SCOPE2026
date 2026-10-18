@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:50:02.642074Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a group inverse B=A#, the common idempotent AB=BA yields R^n=im A⊕ker A and an automorphism A|im A. Conversely every free ordered decomposition with invertible restriction gives A#; orbit-stabilizer gives |GL_n(R)|/|GL_{n-r}(R)|. Reduction GL_s(R)→GL_s(F_q) has kernel size j^{s²}. A fixed rank-r residue group-invertible matrix has j^{2r(n-r)} lifted ordered decompositions and j^{r²} invertible restrictions, hence j^{n²-(n-r)²} lifts, probability j^{-(n-r)²}. Independently enumerated all 16 F2 2×2 matrices and checked group inverses directly: ranks (1,6,6). The package verifier for Z4 and F2[ε] was read, not blindly treated as a proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dolžan covers all ranks of idempotents over the same full class of local rings, but his objects are projectors rather than all group-invertible endomorphisms."
+        ],
+        "reasoning": "The earlier theorem provides the structural input; unlike an outright broader group-inverse theorem it does not itself count the invertible automorphism attached to each projector or state the conditional probability for a prescribed residue matrix.",
+        "searches": [
+          "number group invertible matrices fixed rank over finite commutative local rings rank formula j^{r(2n-r)} gl_n(q)/gl_{n-r}(q) lift index one",
+          "Dolžan 2021 Theorem 2.1 Lemma 2.2 finite commutative local ring idempotent count"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1080/00927872.2021.1929277 complete 8-page source, esp. Theorem 2.1/Lemmas 2.2–2.3",
+        "DOI:10.1007/s40314-013-0075-x abstract/metadata",
+        "DOI:10.3934/math.2022427 abstract/metadata",
+        "Resultary semantic query: number group invertible matrices fixed rank over finite commutative local rings rank formula j^{r(2n-r)} gl_n(q)/gl_{n-r}(q) lift index one"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Group inverses parametrized by (W,K,U); Dolžan counts (W,K) exactly. Fixing a rank-r residue field matrix with nullity k gives j^{2rk} lifted decompositions and j^{r²} choices of lifted U, hence j^{n²-k²}."
+        ],
+        "reasoning": "MOST IMPORTANT RISK: arithmetic formulas are a short corollary of the published idempotent orbit count plus classical group-inverse decomposition. The more specific residue-fiber theorem and its uniform probability are not explicitly covered by inspected prior work; acceptance as an exact new invariant is qualified, not a claim of a deep new mechanism.",
+        "searches": [
+          "Dolžan 2021 Lemma 2.2 idempotent orbit counting group inverse lifting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dolžan 2021 Lemma 2.2 provides idempotent orbit sizes, and group invertibility is equivalent to an invertible restriction on the image plus zero on kernel."
+        ],
+        "reasoning": "The group inverse rank formula is naturally expressed as a weighted count over idempotent projectors. It is algebraically adjacent to, and straightforwardly derived from, the known idempotent decomposition after supplying the group-inverse bijection. No separate older formula for index-one matrices was found; this remains a significant priority risk.",
+        "searches": [
+          "number group invertible matrices fixed rank over finite commutative local rings rank formula j^{r(2n-r)} gl_n(q)/gl_{n-r}(q) lift index one",
+          "group-invertible matrices index-one Drazin rank local ring orbit count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent F2 2×2 exhaustive group-inverse definition check yielded 1 rank-0, 6 rank-1, 6 invertibles. Formula predicts Z4 and dual-number counts 1,48,96, consistent with submitted exhaustive 256-matrix searches."
+        ],
+        "reasoning": "Dolžan Table 1 tabulates idempotents (e.g. 8 at n=2 over F2), not the 13 group-invertible F2 matrices nor the survival ratio j^{-k²}; mere differing tabulated counts does not independently establish novelty.",
+        "searches": [
+          "group-invertible matrices M2 Z4 145",
+          "number group invertible matrices fixed rank over finite commutative local rings rank formula j^{r(2n-r)} gl_n(q)/gl_{n-r}(q) lift index one"
+        ]
+      },
+      "rationale": "Best-of-knowledge: exact prescribed-residue-fiber survival law is not stated in the inspected most relevant primary count of idempotents or block group inverses, despite a strong near-implication of the rank formula by standard orbit weighting. This is a qualified narrowly original exact invariant, not a new foundational structural theorem.",
+      "residual_risks": [
+        "Classical finite-semigroup regular H-class counts or index-one Drazin enumeration may already state the equivalent fiber and rank distribution.",
+        "Dolžan Lemma 2.2 plus standard local-ring general-linear structure algebraically almost yields the whole statement, so conceptual novelty is modest.",
+        "Group inverse block-matrix and dual-number primary papers were not fully inspected; do not treat their abstracts as proofs of noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST PRIOR, STRONG IMPLICATION: its idempotent rank orbit count plus standard group-inverse splitting gives the new count by weighting each idempotent of rank r by |GL_r(R)|; paper does not state the group-invertible lift-survival proportion.",
+          "evidence": "DOI:10.1080/00927872.2021.1929277, Theorem 2.1, Lemmas 2.2–2.3; https://repozitorij.uni-lj.si/Dokument.php?id=162199&lang=eng",
+          "identifier_or_url": "https://repozitorij.uni-lj.si/Dokument.php?id=162199&lang=eng",
+          "material_read": "The complete eight-page author-university OA PDF; especially Theorem 2.1 and Lemmas 2.2–2.3 (pp. 2–3), which prove diagonalization and exact idempotent count Σ |GL_n(R)|/(|GL_i(R)||GL_{n-i}(R)|).",
+          "method": "primary PDF read via lawful university repository, theorem and proof inspected",
+          "title": "Bounds for the number of idempotents in finite rings",
+          "trigger": "same local matrix rings, orbit-stabilizer and exact rank-indexed count"
+        },
+        {
+          "assessment": "Describes group inverse existence/formulas for special block matrices, not established as a general cardinality theorem. Cannot infer document-wide noncoverage from abstract.",
+          "evidence": "DOI:10.1007/s40314-013-0075-x",
+          "identifier_or_url": "https://doi.org/10.1007/s40314-013-0075-x",
+          "material_read": "Publicly indexed article abstract, bibliographic description and specified block-matrix setting; no reliable complete text read.",
+          "method": "journal abstract and metadata search",
+          "title": "Group inverse for two classes of 2×2 block matrices over rings",
+          "trigger": "group inverses over rings, possible broader formulas"
+        },
+        {
+          "assessment": "Possible specialized block criterion consistent with lift formula; no claim of whole-article noncoverage.",
+          "evidence": "DOI:10.3934/math.2022427",
+          "identifier_or_url": "https://doi.org/10.3934/math.2022427",
+          "material_read": "Bibliographic and described Theorem 3.2 criterion in assigned RESULT.md; not independently read complete primary full text.",
+          "method": "bibliographic search and assigned-source comparison",
+          "title": "Dual group inverses of dual matrices and their applications in solving systems of linear dual equations",
+          "trigger": "dual-number group inverse, lift over square-zero rings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact survival rate j^{-k²} for a prescribed group-invertible residue matrix is a uniform, distribution-sensitive lifting theorem over all finite commutative local rings; it has a natural rank/nullity parameter and potential use in random lifting and index-one matrix calculations. Value is modest because the group-invertible count is close to classical idempotent orbit counting, but the new conditional fiber statement is exact and not merely recomputation of a known table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1080/00927872.2021.1929277 complete 8-page source, esp. Theorem 2.1/Lemmas 2.2–2.3",
+    "DOI:10.1007/s40314-013-0075-x abstract/metadata",
+    "DOI:10.3934/math.2022427 abstract/metadata",
+    "Resultary semantic query: number group invertible matrices fixed rank over finite commutative local rings rank formula j^{r(2n-r)} gl_n(q)/gl_{n-r}(q) lift index one"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Classical finite-semigroup regular H-class counts or index-one Drazin enumeration may already state the equivalent fiber and rank distribution.",
+    "Dolžan Lemma 2.2 plus standard local-ring general-linear structure algebraically almost yields the whole statement, so conceptual novelty is modest.",
+    "Group inverse block-matrix and dual-number primary papers were not fully inspected; do not treat their abstracts as proofs of noncoverage."
+  ],
+  "schema_version": 1
+}

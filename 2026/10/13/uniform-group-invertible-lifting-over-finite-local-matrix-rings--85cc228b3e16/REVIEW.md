@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For a group-invertible matrix \(A\), the idempotent \(e=AA^\#=A^\#A\) identifies \(\operatorname{im}A=\operatorname{im}e\) and \(\ker A=\ker e\), so \(R^n\) splits as image plus kernel and \(A\) is invertible on its image. Conversely every automorphism on one summand, extended by zero on a complementary summand, is group invertible. Over a commutative local ring the summands are free. Orbit-stabilizer gives \(|\operatorname{GL}_n(R)|/|\operatorname{GL}_{n-r}(R)|\), and reduction modulo the maximal ideal gives the residue-field formula. The fixed-residue fiber count follows by separately lifting the ordered decomposition and invertible restriction. Exhaustive direct checks over \(\mathbb Z/4\mathbb Z\) and \(\mathbb F_2[\varepsilon]/(\varepsilon^2)\) verify all \(2\times2\) cases from the defining group-inverse equations.
+## correctness
 
-## Originality
-**PASS.** The 2013 block-matrix paper gives group-inverse existence and formulas for particular block forms over rings, not a full-matrix finite-local enumeration. The 2022 dual-number paper gives an existence criterion for dual matrices; its square-zero specialization is consistent with one case of the lift theorem but does not cover arbitrary finite local rings or state the uniform fiber law. The 2021 finite-ring enumeration concerns idempotents, not group-invertible matrices. Targeted database searches under group-inverse, finite-local-ring, lift, nullity, residue-field, and exact-count formulations found no statement implying the displayed spectrum. The remaining risk is an older result indexed under semigroup terminology rather than generalized-inverse terminology.
+PASS
 
-## Value
-**PASS.** Group invertibility is the Drazin-index-one stratum and is a natural singular analogue of invertibility. The result gives a complete rank-by-rank census over every finite commutative local ring and, more structurally, an exact lifting probability controlled only by residue nullity. Nonisomorphic local rings with the same residue-field and radical sizes therefore have identical group-invertible matrix spectra, a universality phenomenon rather than a one-off small-ring count.
+For a group inverse B=A#, the common idempotent AB=BA yields R^n=im A⊕ker A and an automorphism A|im A. Conversely every free ordered decomposition with invertible restriction gives A#; orbit-stabilizer gives |GL_n(R)|/|GL_{n-r}(R)|. Reduction GL_s(R)→GL_s(F_q) has kernel size j^{s²}. A fixed rank-r residue group-invertible matrix has j^{2r(n-r)} lifted ordered decompositions and j^{r²} invertible restrictions, hence j^{n²-(n-r)²} lifts, probability j^{-(n-r)²}. Independently enumerated all 16 F2 2×2 matrices and checked group inverses directly: ranks (1,6,6). The package verifier for Z4 and F2[ε] was read, not blindly treated as a proof.
 
-The closest literature concerns qualitative group-inverse criteria, dual-number existence conditions, and finite-local idempotent counts. The theorem does not address nonlocal rank vectors or higher Drazin index.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: exact prescribed-residue-fiber survival law is not stated in the inspected most relevant primary count of idempotents or block group inverses, despite a strong near-implication of the rank formula by standard orbit weighting. This is a qualified narrowly original exact invariant, not a new foundational structural theorem.
+
+## value
+
+PASS
+
+The exact survival rate j^{-k²} for a prescribed group-invertible residue matrix is a uniform, distribution-sensitive lifting theorem over all finite commutative local rings; it has a natural rank/nullity parameter and potential use in random lifting and index-one matrix calculations. Value is modest because the group-invertible count is close to classical idempotent orbit counting, but the new conditional fiber statement is exact and not merely recomputation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
