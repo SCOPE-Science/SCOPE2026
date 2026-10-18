@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,55 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For barycentric coordinates
-\[
-\alpha+\beta+\gamma=1,
-\]
-the triangle halfspace-depth formula is
-\[
-D=4\min\{\alpha\beta,\beta\gamma,\gamma\alpha\}.
-\]
+# Independent mathematical audit
 
-In the chamber
-\[
-\alpha\ge\beta\ge\gamma,
-\]
-put
-\[
-q=\frac{\tau}{4},
-\qquad
-r=\frac{1-\sqrt{1-8q}}2.
-\]
-The normalized area is exactly twelve times
-\[
-\int_r^{\sqrt q}
-\left(
-\frac{1-\gamma}{2}-\frac q\gamma
-\right)d\gamma
-+
-\int_{\sqrt q}^{1/3}
-\left(
-\frac{1-\gamma}{2}-\gamma
-\right)d\gamma.
-\]
+## correctness
 
-The symbolic checker evaluates this expression and verifies that it equals
-\[
-\frac32\sqrt{1-2\tau}-\frac12
-+
-\frac{3\tau}{2}
-\log\!\left(
-\frac{2(1-\sqrt{1-2\tau})}
-{1+\sqrt{1-2\tau}}
-\right).
-\]
+PASS
 
-It also checks the centroid extinction level
-\[
-\tau=\frac49
-\]
-and the small-level expansion. A fixed-seed Monte Carlo calculation over uniformly sampled barycentric points provides a separate numerical regression test.
+The known uniform-triangle halfspace depth is D=4min(αβ,βγ,γα) for nonnegative barycentric coordinates with sum one. In chamber α≥β≥γ, the minimum is βγ and central set reduces to β≥max(γ,q/γ) and β≤(1−γ)/2, q=τ/4. The two ranges γ∈[r,√q] and [√q,1/3], r=(1−√(1−8q))/2, yield I=∫((1−γ)/2−q/γ)+∫((1−3γ)/2). Six chambers and simplex coordinate area 1/2 give normalized F=12I; independently symbolically integrated and evaluated at five interior levels, recovering F=(3/2)√(1−2τ)−1/2+(3τ/2)log[2(1−√(1−2τ))/(1+√(1−2τ))]. Endpoint max depth 4/9 follows pair-product maximum only at α=β=γ=1/3; F(0)=1, F(4/9)=0. Independent symbolic series for wet part is (3τ/2)log(1/τ)+(3τ/2)−(3τ²/4)+O(τ³). Known pointwise depth is a premise, not new. The Monte Carlo method in verify.py is corroborative and not infinite proof.
 
-The finite sampling is not evidence for the quantified theorem. The proof is the exact barycentric reduction and symbolic integral above.
+## originality
+
+PASS
+
+Full 1999 primary depth paper derives pointwise depth and plots triangle central regions but does not report their *normalized area function* in the materially inspected §5.3; later survey establishes floating-body equivalence and gives contour illustrations, not exact region-volume profile. Schütt–Werner polygonal theory supplies leading-order asymptotics, not all τ. The new closed log profile and lower terms require explicit area integration; no cover from searched accessible work.
+
+## value
+
+PASS
+
+The full affine-invariant floating-body area profile for *every* triangle is a canonical exact non-smooth convex-geometric invariant, finer than the classic logarithmic wet-part order and prior pointwise-depth contour plots. Sharp extinction threshold and explicit lower-order wet-part coefficients provide complete benchmark data for depth trimming and polygonal asymptotics. Exact motivated result need not generalize to all polygons to carry independent value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

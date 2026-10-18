@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T06:12:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md SHA cf679d074429f07b55e18232d877125e0f02404c",
+        "independent SymPy chamber integration and series, /mnt/data/scope05_independent_replay.py",
+        "Rousseeuw–Ruts 1999 §5.3 pointwise triangle formula"
+      ],
+      "rationale": "The known uniform-triangle halfspace depth is D=4min(αβ,βγ,γα) for nonnegative barycentric coordinates with sum one. In chamber α≥β≥γ, the minimum is βγ and central set reduces to β≥max(γ,q/γ) and β≤(1−γ)/2, q=τ/4. The two ranges γ∈[r,√q] and [√q,1/3], r=(1−√(1−8q))/2, yield I=∫((1−γ)/2−q/γ)+∫((1−3γ)/2). Six chambers and simplex coordinate area 1/2 give normalized F=12I; independently symbolically integrated and evaluated at five interior levels, recovering F=(3/2)√(1−2τ)−1/2+(3τ/2)log[2(1−√(1−2τ))/(1+√(1−2τ))]. Endpoint max depth 4/9 follows pair-product maximum only at α=β=γ=1/3; F(0)=1, F(4/9)=0. Independent symbolic series for wet part is (3τ/2)log(1/τ)+(3τ/2)−(3τ²/4)+O(τ³). Known pointwise depth is a premise, not new. The Monte Carlo method in verify.py is corroborative and not infinite proof.",
+      "residual_risks": [
+        "Exact only in plane for triangles with uniform area measure; not arbitrary polygons or higher dimensions. The core chamber integral is elementary given the prior depth formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schütt–Werner 1990/1992 general polygonal floating-body asymptotics give τlog(1/τ) behavior, not full normalized triangle function.",
+          "Rousseeuw–Ruts develop pointwise triangle and more general polygon depths.",
+          "2019 survey identifies Tukey-depth/floating-body equivalence and shows triangle contours."
+        ],
+        "reasoning": "Broader objects/hypotheses covered do not numerically imply the all-level triangle area expression without the chamber integration; there is genuine overlap on premise and leading asymptotic.",
+        "searches": [
+          "DOI:10.7146/math.scand.a-12311",
+          "DOI:10.1007/BF00182948",
+          "DOI:10.1007/PL00020903",
+          "arxiv:1809.10925"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/PL00020903 full triangle §5.3",
+        "arxiv:1809.10925 relevant full-text sections",
+        "DOI:10.1007/BF00182948 abstract",
+        "DOI:10.7146/math.scand.a-12311 bibliographic",
+        "search query: uniform triangle Tukey halfspace depth 4 min barycentric pair products floating body exact area profile logarithmic formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pointwise formula determines region implicitly but does not supply its integrated area.",
+          "Polygonal asymptotic implies leading shape τ log(1/τ) but not full F(τ) or lower terms."
+        ],
+        "reasoning": "A new ordering-chamber partition and exact integration are required to pass from contour to area; this is a legitimate exact geometric invariant, without claiming pointwise depth novelty.",
+        "searches": [
+          "DOI:10.1007/PL00020903 §5.3",
+          "arxiv:1809.10925 depth and floating-body correspondence",
+          "DOI:10.1007/BF00182948 polygonal difference volume"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform triangle Tukey-depth superlevel sets equal convex floating bodies with same normalized cap τ, not Dupin bodies.",
+          "Barycentric pair-product contour inequalities characterize the same central region for any affine image."
+        ],
+        "reasoning": "Checked statistical-depth central-region area, trimmed-region area, wet part and convex floating body terminology as equivalent area profiles; pointwise depth formula alone does not explicitly evaluate area.",
+        "searches": [
+          "Rousseeuw–Ruts DOI:10.1007/PL00020903 §5.3",
+          "Nagy–Schütt–Werner arxiv:1809.10925",
+          "search query: uniform triangle Tukey halfspace depth 4 min barycentric pair products floating body exact area profile logarithmic formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 1999 article plots contour curves and states maximal level 4/9, not an exact level→area table in inspected pages.",
+          "The survey contains general central-region/polygon discussions, not evaluated triangle logarithmic coefficients."
+        ],
+        "reasoning": "The area function is a natural exact invariant beyond existing depth contours; no checked table states the closed formula. Unindexed statistical-depth lecture calculations remain a residual risk.",
+        "searches": [
+          "Rousseeuw–Ruts 1999 Section 5.3 triangle contours",
+          "arxiv:1809.10925 triangle depth figure/area discussion",
+          "search query: uniform triangle Tukey halfspace depth 4 min barycentric pair products floating body exact area profile logarithmic formula"
+        ]
+      },
+      "rationale": "Full 1999 primary depth paper derives pointwise depth and plots triangle central regions but does not report their *normalized area function* in the materially inspected §5.3; later survey establishes floating-body equivalence and gives contour illustrations, not exact region-volume profile. Schütt–Werner polygonal theory supplies leading-order asymptotics, not all τ. The new closed log profile and lower terms require explicit area integration; no cover from searched accessible work.",
+      "residual_risks": [
+        "Simple integration of the published 1999 triangle contours may be present in poorly indexed statistics notes.",
+        "Schütt–Werner 1992 full text not materially read in this turn.",
+        "Resultary mandatory search unavailable, no complete negative database search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POINTWISE_PREMISE_COVERED, exact central-region area not supplied in inspected passages",
+          "evidence": [
+            "§5.3 triangular depth function; maximal depth 4/9 centroid; contour Fig5.4"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/226666432_The_depth_function_of_a_population_distribution",
+          "material_read": "Author-uploaded full-text §5.3 (pp227-228) including explicit depth expression, inversion contours, Fig5.4/max4/9; scanned surrounding region-volume discussion",
+          "method": "full-text PDF transcription HTML",
+          "title": "The depth function of a population distribution",
+          "trigger": "Identical uniform triangle depth theorem"
+        },
+        {
+          "assessment": "Covers conceptual equivalence and plots but does not state exact triangle volume as τ-function in checked sections",
+          "evidence": [
+            "Triangle central region discussion and floating body equivalence"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1809.10925",
+          "material_read": "Accessible full preprint, relevant pages discussing triangles, contours and equivalence, including page screenshot",
+          "method": "arXiv PDF text+image",
+          "title": "Halfspace depth and floating body",
+          "trigger": "Terminology equivalence and potentially all-level area formula"
+        },
+        {
+          "assessment": "GENERAL_ASYMPTOTICS; cannot exclude hidden exact triangle computation in unread text",
+          "evidence": [
+            "Polygonal difference-volume asymptotic"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF00182948",
+          "material_read": "Bibliographic abstract/general result references only, not complete primary body this turn",
+          "method": "publisher/bibliographic search",
+          "title": "The convex floating body of almost polygonal bodies",
+          "trigger": "Possible stronger polygonal area theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Rousseeuw–Ruts 1999 depth of triangle",
+        "Nagy–Schütt–Werner 2019 survey",
+        "Schütt–Werner polygonal asymptotic framework"
+      ],
+      "rationale": "The full affine-invariant floating-body area profile for *every* triangle is a canonical exact non-smooth convex-geometric invariant, finer than the classic logarithmic wet-part order and prior pointwise-depth contour plots. Sharp extinction threshold and explicit lower-order wet-part coefficients provide complete benchmark data for depth trimming and polygonal asymptotics. Exact motivated result need not generalize to all polygons to carry independent value.",
+      "residual_risks": [
+        "The computation is elementary given the published pointwise formula; value should not be confused with priority for original depth theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "All-level area only for triangles, affine uniform measure.",
+    "Published pointwise depth is a crucial acknowledged premise.",
+    "Database outage and elementary integration originality risk."
+  ]
+}

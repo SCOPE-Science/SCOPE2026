@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The published uniform-triangle halfspace-depth formula is transported to barycentric coordinates and becomes
-\[
-4\min\{\alpha\beta,\beta\gamma,\gamma\alpha\}.
-\]
-Permutation symmetry reduces the area calculation to one ordering chamber. In that chamber the depth constraint is the single hyperbolic inequality \(\beta\gamma\ge\tau/4\), with two exact integration regimes separated at \(\gamma=\sqrt{\tau/4}\). The resulting elementary integrals simplify to the claimed formula. The maximal level \(4/9\) and centroid endpoint follow from the product bound on three barycentric coordinates. Symbolic package checks verify the integral identity and asymptotic expansion, while independent sampling checks the numerical profile.
+## correctness
 
-## Originality
-**PASS, with an elementary-integration residual risk.** Rousseeuw--Ruts give the pointwise triangle depth function, contour plots, and the maximal value \(4/9\), but the inspected triangle section does not integrate the contour regions. Schütt--Werner give the convex floating-body framework and polygonal asymptotics, while the inspected almost-polygonal paper does not supply an exact triangle profile. Nagy--Schütt--Werner explicitly connect the two theories, point back to the triangle depth expression, and plot triangle central regions, but do not state their area as a function of depth. Candidate-specific semantic and exact-form searches found no implication-equivalent area formula.
+PASS
 
-## Value
-**PASS.** Triangle floating bodies are the first non-smooth polygonal model in the classical theory, and the known general result has a logarithmic polygonal asymptotic rather than an all-level expression. The formula gives the complete affine-invariant volume profile, identifies the extinction level exactly, and supplies the first lower-order terms refining the \(\tau\log(1/\tau)\) behavior for this canonical case.
+The known uniform-triangle halfspace depth is D=4min(αβ,βγ,γα) for nonnegative barycentric coordinates with sum one. In chamber α≥β≥γ, the minimum is βγ and central set reduces to β≥max(γ,q/γ) and β≤(1−γ)/2, q=τ/4. The two ranges γ∈[r,√q] and [√q,1/3], r=(1−√(1−8q))/2, yield I=∫((1−γ)/2−q/γ)+∫((1−3γ)/2). Six chambers and simplex coordinate area 1/2 give normalized F=12I; independently symbolically integrated and evaluated at five interior levels, recovering F=(3/2)√(1−2τ)−1/2+(3τ/2)log[2(1−√(1−2τ))/(1+√(1−2τ))]. Endpoint max depth 4/9 follows pair-product maximum only at α=β=γ=1/3; F(0)=1, F(4/9)=0. Independent symbolic series for wet part is (3τ/2)log(1/τ)+(3τ/2)−(3τ²/4)+O(τ³). Known pointwise depth is a premise, not new. The Monte Carlo method in verify.py is corroborative and not infinite proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Full 1999 primary depth paper derives pointwise depth and plots triangle central regions but does not report their *normalized area function* in the materially inspected §5.3; later survey establishes floating-body equivalence and gives contour illustrations, not exact region-volume profile. Schütt–Werner polygonal theory supplies leading-order asymptotics, not all τ. The new closed log profile and lower terms require explicit area integration; no cover from searched accessible work.
+
+## value
+
+PASS
+
+The full affine-invariant floating-body area profile for *every* triangle is a canonical exact non-smooth convex-geometric invariant, finer than the classic logarithmic wet-part order and prior pointwise-depth contour plots. Sharp extinction threshold and explicit lower-order wet-part coefficients provide complete benchmark data for depth trimming and polygonal asymptotics. Exact motivated result need not generalize to all polygons to carry independent value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
