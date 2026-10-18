@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The modular progression identities exclude all sums of distinct selected terms from the periodic residue classes; the lone exceptional insertion \(2g+2\) is not a forbidden sum. The finite distinct-summand coverage certificate for \(g\le n<5M\) is extended to all parameter values \(h\ge2\) by an explicit comparison-order lemma for affine interval endpoints (computed intercept range \([-7,23]\)). A separate recurrence of periodic summands then covers all omitted integers beyond that range. Uniqueness of a circular gap-pair gives the exact minimal period. The executable artifact passed all prescribed symbolic interval tests and independent small-parameter greedy replay. Finite simulation is not treated as proof of an infinite assertion.
+## correctness
 
-**Originality — PASS, residual risks noted.** The papers by van Berkel and Bosma conjecture general periodicity and give finite numerical checks. Inspected published full texts for the complete \(f=1\) family and the first two \(f\ge5\) off-diagonal families do not imply the \(f=2\), \(g=4h+2\) family. Semantic searches of the exact statement, aliases, parameters, broader literature and own prior claims found no covering published result. Original full text of both September 2026 papers and historical Queneau (1972) were not accessible in full; this leaves a genuine possible implicit equivalence or older coverage. Failure to find coverage is not a proof of absolute novelty.
+PASS
 
-**Value — PASS.** The result supplies a natural infinite family beyond the authors' already proved parameter region, classifies every term and determines sharp period and preperiod lengths and the exact density \(1/3\). It is not a single routine numerical example or an arbitrary slice with no mathematical motivation.
+For g=4h+2 (h>=2), the four residue progressions R_h mod M=3g+3 are disjoint from their distinct-pair modular sums and from (2g+2)+R_h; the exceptional 2g+2 cannot be formed from two distinct previous selected terms. Finite arithmetic progression interval coverage on [g,5M) is extended uniformly in h: the audited artifact's check_affine_endpoint_bound has ACTUAL extremal quotient intercepts -7 and 23 (independently reconstructed), so affine endpoint-comparison order stabilizes beyond h=32, while exact interval coverage is checked for all h=2..132. Every omission >=4M is a period-M shift of an omission in [4M,5M) whose sum representation has a periodic summand b>=M; shifting b preserves forbiddenness and distinctness. The circular gap sequence of R_h has a unique (1,4) adjacency, prohibiting any shorter cyclic period. Independent convolution-based distinct-summand checks gave correct exclusion/saturation for h=2,3,4,7,10,20,100,133,145, with independent raw greedy replay for h<=10. Distinguish finite consistency tests from the affine-stability proof of the entire infinite family; minimal difference period g+1, preperiod 2h+4 and density |R_h|/M=1/3 follow.
 
-**Limits.** No general case beyond \(f=2\), \(g\equiv2\pmod4\), \(g\ge10\), is claimed. An independent audit is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality comparison by actual statement and implication, with historical and unavailable-material risks recorded; no priority certification. Uniform exact all-h progression is not covered by the proved f-region or merely conjectural numerical data.
+
+## value
+
+PASS
+
+A uniform all-parameter periodicity theorem at fixed first seed f=2 and an unbounded congruence progression in the second seed is a mathematically motivated slice of the open strict greedy 2-sumfree periodicity problem. Exact minimal modulus, difference period, preperiod and density are natural invariants, not merely a selected finite table entry; the affine interval stability argument is a reusable technique. No blanket all-(f,g) claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
