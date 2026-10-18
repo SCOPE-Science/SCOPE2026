@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The periodicity of the parity-adjusted chirp is checked, all shifted autocorrelations vanish by an invertible geometric character, and the exact derivative diagonalizes by the unitary Fourier transform. The vanished Hessian modes are exactly the frequencies satisfying the divisibility condition \(N\mid s^2\), hence precisely the \(d\)-periodic phases. All such phases give exact CAZAC vectors, and strict positivity of the transverse Hessian plus a second-order integral gives local uniqueness and a quantitative stability bound. The standalone verifier checks the derivation numerically; no unproved global finiteness is asserted.
+## correctness
 
-**Originality — PASS, with risk.** Gilbert–Rzeszotnik (2010) gives the finite-Fourier extremizer framework and lists Gaussian biunimodular vectors, while Führ–Rzeszotnik (2015) establishes background and addresses general unitary matrices. The particularly relevant Benedetto–Cordwell–Magsino §2.4 construction (2018) gives squareful continuous families, including related periodic freedoms; construction alone does not imply that those families exhaust *every* sufficiently small solution at a specified Gaussian chirp, nor does it give the complete arithmetic Hessian spectrum. Searches for equivalent Jacobian, defect, circulant-Hadamard, and cyclic-root formulations found no covering statement. The 1995 Björck–Saffari original full text was not obtained, leaving residual originality risk; the exact Gaussian-point defect might be known under different terminology.
+PASS
 
-**Value — PASS.** The Björck–Saffari squarefree finiteness problem makes the local behavior of canonical Gauss solutions a natural structural test. The result provides a complete arithmetic local classification in all lengths, a sharp tangent-space dimension, and a transverse spectral stability inequality. It distinguishes local squarefree isolation from non-squarefree smooth families without claiming to solve the global problem.
+For each N≥2 and coprime a, the parity-adjusted chirp is N-periodic and has vanishing nonzero shift autocorrelations. Let d=∏p^floor(v/2), m=N/d, with d|m. Grouping correlations by j mod d proves ALL d-periodic phases remain exact CAZAC; for shifts divisible by m the modulation cancels. The first variation of each shifted autocorrelation is iγ_s(e^(−2πia s²/N)−1)√N \hat h(−as), so the energy quadratic term is 4N Σ_{s≠0}sin²(π a s²/N)|\hat h(−as)|² and the Hessian eigenvalues are 8Nsin²(πa^{-1}k²/N). Its null modes satisfy N|s², i.e. m|s and frequency k multiple m, exactly the d-dimensional periodic phase subspace. The transverse Hessian has gap 8Nσ; continuity and line integration give E≥2Nσ dist(θ,T_d)² locally, eliminating all other nearby CAZAC branches. Independently computed correlations and FFT Hessian quadratic form for every coprime a at N=2,4,8,9,12,16,18,25; finite checks confirm coefficients only, not infinite quantifiers.
 
-Closest publications: Gilbert–Rzeszotnik, *Ann. Inst. Fourier* 60 (2010); Führ–Rzeszotnik, arXiv 1506.06738v1 (2015); Benedetto–Cordwell–Magsino, 2018 manuscript §§1–2. Important limitations: local only; no numerical certificate of novelty; no global CAZAC census, optimal stability radius, or independent audit.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of exact statements, aliases and mathematical implications in primary sources; original general methods and previously known components are explicitly acknowledged. There is no decisive prior theorem covering the full surviving claim in the material actually read. Inaccessible priority sources and failed Resultary check remain material residual risks and are not evidence of novelty.
+
+## value
+
+PASS
+
+The local moduli and rigidity of Zadoff–Chu/Gaussian CAZAC solutions are natural signal-analysis and Fourier geometry questions. The exact number-theoretic dimension d−1, the full Hessian multiplier spectrum and coercive normal energy bound can be reused to distinguish truly local continuous families from isolated squarefree chirps, not just to recompute a known finite CAZAC table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

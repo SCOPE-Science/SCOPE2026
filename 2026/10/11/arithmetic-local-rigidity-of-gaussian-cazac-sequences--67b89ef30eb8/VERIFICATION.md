@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The analytic derivation differentiates the unnormalized cyclic autocorrelations of Gaussian chirps. The linearized Fourier multiplier is \(i\gamma_s(e^{-2\pi i a s^2/N}-1)\sqrt N\), and its nonzero squared moduli yield a positive normal Hessian. Zero Fourier frequencies satisfy \(N\mid s^2\), giving exactly the periodic phase tangent space. The family itself has identically vanishing autocorrelation, so continuity of the transverse Hessian proves local exhaustiveness and the stated quadratic bound.
+# Independent mathematical audit
 
-A standard-library verifier, `verify.py`, ran from the extracted package path and reported:
+## correctness
 
-`VERIFY_OK n=2..26 units_checked=211 squareful_cases=66 max_abs_autocorrelation=1.5e-12 max_quadratic_relerr=1.9e-13`
+PASS
 
-It compares all invertible chirp multipliers at lengths 2 through 26, including nonconstant periodic phases, the explicit Fourier quadratic form, the direct autocorrelation derivative, and finite-difference costs. Absolute error near machine precision is expected from complex exponentials. These finite experiments are not an infinite proof, an independent review, or a test of all possible solutions outside the analytic local neighborhood. The local neighborhood size and globally complete CAZAC classification are not computed.
+For each N≥2 and coprime a, the parity-adjusted chirp is N-periodic and has vanishing nonzero shift autocorrelations. Let d=∏p^floor(v/2), m=N/d, with d|m. Grouping correlations by j mod d proves ALL d-periodic phases remain exact CAZAC; for shifts divisible by m the modulation cancels. The first variation of each shifted autocorrelation is iγ_s(e^(−2πia s²/N)−1)√N \hat h(−as), so the energy quadratic term is 4N Σ_{s≠0}sin²(π a s²/N)|\hat h(−as)|² and the Hessian eigenvalues are 8Nsin²(πa^{-1}k²/N). Its null modes satisfy N|s², i.e. m|s and frequency k multiple m, exactly the d-dimensional periodic phase subspace. The transverse Hessian has gap 8Nσ; continuity and line integration give E≥2Nσ dist(θ,T_d)² locally, eliminating all other nearby CAZAC branches. Independently computed correlations and FFT Hessian quadratic form for every coprime a at N=2,4,8,9,12,16,18,25; finite checks confirm coefficients only, not infinite quantifiers.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact statements, aliases and mathematical implications in primary sources; original general methods and previously known components are explicitly acknowledged. There is no decisive prior theorem covering the full surviving claim in the material actually read. Inaccessible priority sources and failed Resultary check remain material residual risks and are not evidence of novelty.
+
+## value
+
+PASS
+
+The local moduli and rigidity of Zadoff–Chu/Gaussian CAZAC solutions are natural signal-analysis and Fourier geometry questions. The exact number-theoretic dimension d−1, the full Hessian multiplier spectrum and coercive normal energy bound can be reused to distinguish truly local continuous families from isolated squarefree chirps, not just to recompute a known finite CAZAC table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T01:13:21.207799Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 2ae3eb211cc7d2be6fb28bc44d4faffcbe122d29",
+        "verify.py blob 54a46a1c8a8f0cf8cd6e9c688a0d92c8e4528255 (read)",
+        "Git tree ff238644cde3ddcd9fe529c9bc4ce257a8a46c04"
+      ],
+      "rationale": "For each N≥2 and coprime a, the parity-adjusted chirp is N-periodic and has vanishing nonzero shift autocorrelations. Let d=∏p^floor(v/2), m=N/d, with d|m. Grouping correlations by j mod d proves ALL d-periodic phases remain exact CAZAC; for shifts divisible by m the modulation cancels. The first variation of each shifted autocorrelation is iγ_s(e^(−2πia s²/N)−1)√N \\hat h(−as), so the energy quadratic term is 4N Σ_{s≠0}sin²(π a s²/N)|\\hat h(−as)|² and the Hessian eigenvalues are 8Nsin²(πa^{-1}k²/N). Its null modes satisfy N|s², i.e. m|s and frequency k multiple m, exactly the d-dimensional periodic phase subspace. The transverse Hessian has gap 8Nσ; continuity and line integration give E≥2Nσ dist(θ,T_d)² locally, eliminating all other nearby CAZAC branches. Independently computed correlations and FFT Hessian quadratic form for every coprime a at N=2,4,8,9,12,16,18,25; finite checks confirm coefficients only, not infinite quantifiers.",
+      "residual_risks": [
+        "All local neighborhoods depend on fixed N,a; no global classification or uniform optimal stability radius claimed. Real Fourier conjugate-pair modes do not double nullity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General biunimodular unitary problems study larger families of matrices but do not fix the Fourier-specific arithmetic normal form. Theorem 2.11 produces squareful-length CAZAC families, but does not rule out other nearby deformations."
+        ],
+        "reasoning": "A general construction is weaker than local uniqueness/transverse stability. Global conjectures about cyclic N-roots or squarefree length do not imply this local exact Gaussian-point rigidity theorem.",
+        "searches": [
+          "Gaussian chirps CAZAC local deformations defect tangent dimension square divisor Hessian Fourier circulant Hadamard cyclic N roots",
+          "arXiv:1506.06738v1 §9",
+          "Benedetto Cordwell Magsino 2018 Theorem 2.11"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob 2ae3eb211cc7d2be6fb28bc44d4faffcbe122d29",
+        "verify.py blob 54a46a1c8a8f0cf8cd6e9c688a0d92c8e4528255 (read)",
+        "Git tree ff238644cde3ddcd9fe529c9bc4ce257a8a46c04",
+        "arXiv:1506.06738v1 original PDF",
+        "Benedetto–Cordwell–Magsino original 2018 manuscript §2.4",
+        "Gilbert–Rzeszotnik 2010 DOI:10.5802/aif.2556 bibliographic context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original squareful family is precisely a subset of the theorem’s T_d zero locus. The nullity derived from N|s² plus positivity in the complement proves no other local branches; this stronger conclusion is not contained in existence assertions."
+        ],
+        "reasoning": "Prior Gaussian chirp existence and periodic-modulation constructions are acknowledged. New content is the exhaustive local deformation germ, explicit Fourier Hessian and quantified transverse separation.",
+        "searches": [
+          "Gaussian chirps CAZAC local deformations defect tangent dimension square divisor Hessian Fourier circulant Hadamard cyclic N roots",
+          "arXiv:1506.06738v1 Gaussian biunimodular",
+          "Benedetto Cordwell Magsino 2018 Theorems 2.9,2.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaussian CAZACs are Fourier-biunimodular/chirp vectors; known cyclic-root and complex Hadamard defect language overlaps the object. Führ–Rzeszotnik discusses the biunimodular setting, while Benedetto et al. constructs squareful continuous families. Neither inspected source states the exact Hessian frequencies and local exhaustiveness at every Gaussian chirp."
+        ],
+        "reasoning": "Constructing a d-dimensional family provides a lower bound on local dimension, not an upper bound or proof of normal Hessian positivity, so known family existence does not logically cover the local germ theorem.",
+        "searches": [
+          "Gaussian chirps CAZAC local deformations defect tangent dimension square divisor Hessian Fourier circulant Hadamard cyclic N roots",
+          "arXiv:1506.06738v1 local biunimodular vectors",
+          "Benedetto Cordwell Magsino 2018 cyclic N-roots CAZAC families"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem gives one formula d(N) for every integer N, not an unexplained datum in a fixed-length CAZAC table. Even exact small-N cyclic-root tables would not prove all-length local Hessian spectrum."
+        ],
+        "reasoning": "Exact_database_or_table does not explain the result; source tests N≤26 are illustrative and never presented as exhaustive evidence of an infinite classification.",
+        "searches": [
+          "Gaussian chirps CAZAC local deformations defect tangent dimension square divisor Hessian Fourier circulant Hadamard cyclic N roots",
+          "small N cyclic root classification gaussian Hadamard defect tables",
+          "arXiv:1506.06738v1 finite biunimodular vectors"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of exact statements, aliases and mathematical implications in primary sources; original general methods and previously known components are explicitly acknowledged. There is no decisive prior theorem covering the full surviving claim in the material actually read. Inaccessible priority sources and failed Resultary check remain material residual risks and are not evidence of novelty.",
+      "residual_risks": [
+        "An equivalent local defect/nullity theorem in circulant complex Hadamard or cyclic N-root literature could have been published under different terminology.",
+        "Resultary semantic search returned temporarily_unavailable/search_internal_error, search_completed=false; no absence or novelty inference is drawn."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONTEXT for object and families; no matching all-N arithmetic local Hessian/exhaustiveness found in material examined",
+          "evidence": "The paper studies general biunimodular vector existence and nontrivial families; local results are not the displayed N|k² kernel classification.",
+          "identifier_or_url": "arXiv:1506.06738v1",
+          "material_read": "Original arXiv PDF introductory Gaussian biunimodular discussion and local unitary-matrix material, including §9",
+          "method": "Read relevant sections; compared generic matrices and the Fourier/Gaussian special-point tangent spectrum",
+          "title": "On biunimodular vectors for unitary matrices",
+          "trigger": "Potential equivalent Gaussian CAZAC deformations under Fourier-unitary terminology"
+        },
+        {
+          "assessment": "COVERS existence of d-periodic phase families but not proved upper local dimension/positive transverse Hessian",
+          "evidence": "Theorem 2.11 explicitly constructs squareful-length families without asserting local exhaustion at a chirp.",
+          "identifier_or_url": "Benedetto–Cordwell–Magsino 2018, https://www.math.umd.edu/~jjb/2018-03-17BCMcazac.pdf",
+          "material_read": "Original 2018 manuscript §2.4 and Theorems 2.9, 2.11, including p.12 family construction",
+          "method": "Read original formulas and compared existence of continuous families against local uniqueness of Gaussian-point zero germ",
+          "title": "CAZAC sequences and Haagerup’s characterization of cyclic N-roots",
+          "trigger": "Direct same object and squareful continuous CAZAC families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 2ae3eb211cc7d2be6fb28bc44d4faffcbe122d29",
+        "verify.py blob 54a46a1c8a8f0cf8cd6e9c688a0d92c8e4528255 (read)",
+        "Git tree ff238644cde3ddcd9fe529c9bc4ce257a8a46c04",
+        "arXiv:1506.06738v1 original PDF",
+        "Benedetto–Cordwell–Magsino original 2018 manuscript §2.4",
+        "Gilbert–Rzeszotnik 2010 DOI:10.5802/aif.2556 bibliographic context"
+      ],
+      "rationale": "The local moduli and rigidity of Zadoff–Chu/Gaussian CAZAC solutions are natural signal-analysis and Fourier geometry questions. The exact number-theoretic dimension d−1, the full Hessian multiplier spectrum and coercive normal energy bound can be reused to distinguish truly local continuous families from isolated squarefree chirps, not just to recompute a known finite CAZAC table.",
+      "residual_risks": [
+        "An equivalent local defect/nullity theorem in circulant complex Hadamard or cyclic N-root literature could have been published under different terminology.",
+        "Resultary semantic search returned temporarily_unavailable/search_internal_error, search_completed=false; no absence or novelty inference is drawn."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md blob 2ae3eb211cc7d2be6fb28bc44d4faffcbe122d29",
+    "verify.py blob 54a46a1c8a8f0cf8cd6e9c688a0d92c8e4528255 (read)",
+    "Git tree ff238644cde3ddcd9fe529c9bc4ce257a8a46c04",
+    "arXiv:1506.06738v1 original PDF",
+    "Benedetto–Cordwell–Magsino original 2018 manuscript §2.4",
+    "Gilbert–Rzeszotnik 2010 DOI:10.5802/aif.2556 bibliographic context"
+  ],
+  "disposition": "passed",
+  "limitations": "Local near one Gaussian chirp modulo its phase, for fixed N,a; does not settle global Björck–Saffari finiteness, all CAZAC vectors or optimal universal radii.",
+  "residual_risks": [
+    "An equivalent local defect/nullity theorem in circulant complex Hadamard or cyclic N-root literature could have been published under different terminology.",
+    "Resultary semantic search returned temporarily_unavailable/search_internal_error, search_completed=false; no absence or novelty inference is drawn.",
+    "All local neighborhoods depend on fixed N,a; no global classification or uniform optimal stability radius claimed. Real Fourier conjugate-pair modes do not double nullity."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "CONTEXT for object and families; no matching all-N arithmetic local Hessian/exhaustiveness found in material examined",
+      "evidence": "The paper studies general biunimodular vector existence and nontrivial families; local results are not the displayed N|k² kernel classification.",
+      "identifier_or_url": "arXiv:1506.06738v1",
+      "material_read": "Original arXiv PDF introductory Gaussian biunimodular discussion and local unitary-matrix material, including §9",
+      "method": "Read relevant sections; compared generic matrices and the Fourier/Gaussian special-point tangent spectrum",
+      "title": "On biunimodular vectors for unitary matrices",
+      "trigger": "Potential equivalent Gaussian CAZAC deformations under Fourier-unitary terminology"
+    },
+    {
+      "assessment": "COVERS existence of d-periodic phase families but not proved upper local dimension/positive transverse Hessian",
+      "evidence": "Theorem 2.11 explicitly constructs squareful-length families without asserting local exhaustion at a chirp.",
+      "identifier_or_url": "Benedetto–Cordwell–Magsino 2018, https://www.math.umd.edu/~jjb/2018-03-17BCMcazac.pdf",
+      "material_read": "Original 2018 manuscript §2.4 and Theorems 2.9, 2.11, including p.12 family construction",
+      "method": "Read original formulas and compared existence of continuous families against local uniqueness of Gaussian-point zero germ",
+      "title": "CAZAC sequences and Haagerup’s characterization of cyclic N-roots",
+      "trigger": "Direct same object and squareful continuous CAZAC families"
+    }
+  ]
+}
