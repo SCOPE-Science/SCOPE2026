@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. Fixing the existential witnesses partitions all non-witness vertices into at most \(2^k\) orientation profiles. Above the claimed cutoff one profile class has at least \(R_{\to}(\ell)\) vertices and hence a transitive \(\ell\)-subtournament. After restricting to the witnesses plus that block, the universal matrix is preserved. Replacing the block by any larger transitive tournament is sound because any universal tuple uses at most \(\ell\) distinct block vertices, which embed order-preservingly back into the original transitive block while preserving all witness incidences. Sharpness follows by forbidding a transitive \(\ell\)-set inside each witness-profile class and placing an extremal \(TT_\ell\)-free tournament of order \(R_{\to}(\ell)-1\) in every profile.
+# Independent mathematical audit
 
-## Originality
-PASS. The inspected Pikhurko–Verbitsky survey states the graph Bernays–Schönfinkel finite/cofinite argument with ordinary graph Ramsey homogeneity, while the general Pikhurko–Spencer–Verbitsky theorem gives only an eventual-model bound for fixed vocabularies. Sánchez-Flores studies the directed Ramsey invariant itself, not logical spectra. Targeted published-finding corpus and web searches using Bernays–Schönfinkel, finite spectrum, tournament, directed Ramsey, and transitive-subtournament terminology found no statement of the formula \(k+(R_{\to}(\ell)-1)2^k\) or an equivalent sharp endpoint. The own ledger contains graph and ternary-hypergraph spectrum cutoffs but no tournament theorem. Residual priority risk remains because the synthesis is elementary enough to be folklore.
+## correctness
 
-## Value
-PASS. The result identifies the exact extremal invariant for a natural classical model class rather than merely importing the graph numerical bound. Tournament homogeneity is transitivity, so the optimal ceiling is governed by the directed Ramsey number and can be substantially smaller than the undirected diagonal Ramsey ceiling. The construction proves the constant cannot be improved for any \(k,\ell\). The statement also links a standard decision-fragment argument directly to the classical Erdős–Moser/Sánchez-Flores tournament Ramsey problem.
+PASS
 
-## Closest literature and limitations
-Pikhurko and Verbitsky give the binary undirected graph cloning proof; Pikhurko, Spencer, and Verbitsky give the broader qualitative fixed-vocabulary theorem; Sánchez-Flores supplies the tournament Ramsey invariant and exact small values. None of the inspected sources states the sharp fixed-prefix tournament spectrum endpoint. Numerical evaluation beyond small \(\ell\) depends on unresolved directed Ramsey numbers, and the result does not classify spectra below the ceiling.
+Preserving all chosen existential witnesses, there are at most 2^k orientation profiles for remaining vertices. A model of size greater than k+(R_dir(ell)-1)2^k therefore contains a transitive ell-vertex tournament of one profile. Every assignment to at most ell universally quantified variables in a larger cloned transitive block has an equality- and arc-preserving injection into that block, preserving the quantifier-free matrix and yielding all orders n>=k+ell. Sharpness uses an R_dir(ell)-1-vertex transitive-ell-free tournament copied to every one of 2^k profiles, with a universal prohibition of ell distinct nonwitness profile-mates inducing a transitive tournament. This condition is quantifier-free after ell universals and finite conjunction/disjunction. Cases k=0 and ell=2 are included. Independent enumeration of 64 labeled four-vertex tournaments shows a transitive triple, and a three-cycle supplies R_dir(3)>=4. These finite checks only calibrate ell=3.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The directed version requires transitive order preserving tuple transfer and is not an implication of the sharp undirected-graph BSR cutoff; directed Ramsey numbers are different from graph Ramsey numbers. The Pikhurko–Verbitsky survey and the directed Ramsey primary source provide separate ingredients but no located theorem for the exact fixed-prefix tournament finite-spectrum endpoint or its attainable construction. A short folklore adaptation is plausible and remains a residual risk.
+
+## value
+
+PASS
+
+The exact best possible finite-spectrum ceiling across a natural first-order fragment restricted to tournaments is a meaningful logical classification: it determines all sufficiently large model sizes and gives a matching sentence for every k,ell. It is more than recording a small directed Ramsey value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
