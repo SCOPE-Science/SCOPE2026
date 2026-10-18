@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone `verify.py` reconstructs the 49-vertex compatibility graph for two uses of the seven-cycle channel. It exhaustively counts target-size cliques, proving that size eleven is impossible and that exactly 980 size-ten codes exist. It then constructs the 392-element natural group \((D_{14}\times D_{14})\rtimes S_2\), computes canonical images of every maximum code, and obtains exactly three orbits of sizes \(392,196,392\) with stabilizers \(1,2,1\).
+# Independent mathematical audit
 
-The verifier also recalculates all pairwise compatibility conditions, all orbit-stabilizer products, three pairwise-distinct cyclic-distance signatures, and a deterministic SHA-256 digest of the complete sorted maximum-code census.
+## correctness
 
-Actual packaged replay:
+PASS
 
-`VERIFY_OK vertices=49 target11=0 maximum=10 labeled_maxima=980 group=392 orbits=3 orbit_sizes=392,196,392 stabilizers=1,2,1 nodes11=266991 nodes10=432900 census_sha256=7bedb501045012255db706cd7e32facf1e07891edeac480c48a721885fb0e3ab`
+Graph is 49 pairs mod7 with confusability iff cyclic distances are both ≤1. Independently wrote recursive increasing-index exact clique enumerator of compatibility graph: zero cliques of 11, precisely 980 cliques of 10. The 392 explicit maps of (D14×D14)⋊S2 form 392 distinct compatible graph automorphisms; orbit enumeration of all maxima yields exactly 3 classes with sizes [196,392,392] (sorted), matching source claim sizes (392,196,392), and stabilizers by orbit-stabilizer 2,1,1. Source enumerator reconstructs all three displayed representatives and distance-pair histograms; independent orbit cardinalities do not rely on saved verifier log. This is a complete finite exhaustive proof because the candidate search visits all increasing compatible subsets with only valid monotone pruning.
 
-This is an exhaustive proof of the finite statement, not an inference from random sampling or from the published total 980. The independent external literature count is used only as a consistency check. The verification does not claim any result for higher strong powers or for Shannon capacity itself.
+## originality
+
+PASS
+
+PASS for natural-group orbit classification of all 980 maximum codes; optimum ten and count980 were published earlier and are credited.
+
+## value
+
+PASS
+
+Equality-case classifications give genuinely finer information than Shannon zero-error extremal size or the independence polynomial, distinguishing structural types of optimal two-use codes by explicit invariant cyclic-distance signatures and stabilizers. This is a complete natural finite classification of a fundamental seven-cycle channel, not arbitrary chosen subsets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
