@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The proof handles the normalization by 1/d and identifies the a.e. convex-gauge radial derivative, proves local uniform convergence by dominated convergence plus uniform translation Lipschitzness, changes variables with the valid nonsmooth radial area formula, and obtains tightness from power means and the exact chord formula. For polytopes, finite spherical bands around facet ties have O(1/p) measure, giving O(1/p) local error; positive radial derivative of the strictly convex limiting functional transfers this to Hausdorff rate. The independent rectangle/triangle checker validates finite-p normalizations and quantitative trend, but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 5 of the motivating paper explicitly requires C^3 boundary.",
+        "The 2022 paper defines g_mu,K(x)=mu(K intersection (K+x)), not the radial (-p)-mean used here; it has no large-p critical mean regime."
+      ],
+      "reasoning": "The older measure-dependent covariogram applies to all convex K but does not dominate the smoothed radial-mean limit. The motivating theorem has the same operator but a narrower smoothness domain, and its statement does not provide the quantitative polytope estimate.",
+      "searches": [
+        "critical regime p covariogram polytope 2026 Haddad Jimenez",
+        "Orlicz projection body logcosh polytope facet convergence rate",
+        "doi:10.1112/plms.12477 Sections 6-7",
+        "arXiv:2610.11700v1 Section 5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.11700v1 Theorem 5 and Section 5",
+      "Langharst–Roysdon–Zvavitch 2022 Sections 6-7",
+      "2026/10/11/SCOPE-sharp-differentiability-strata-of-radial-mean-bodies-of-parallel--fc444dfaf505 RESULT.md",
+      "2026/10/11/SCOPE-a-complete-translation-distance-phase-diagram-for-hypercube-cova--5fadf7c81348 RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proof uses C^3 third-derivative bounds for Taylor control in its simultaneous scaling, which are unavailable at polytope corners.",
+        "The new proof uses almost-everywhere differentiability and a finite-facet switching band estimate not contained in the compared theorem statements."
+      ],
+      "reasoning": "An assertion for C^3 bodies does not logically imply the same assertion for all nonsmooth bodies without an approximation argument uniform in p; no such uniform estimate appears in the motivating theorem. The presented proof resolves that missing step directly. The O(1/p) rate needs facet-switch analysis and is not a corollary of qualitative smooth Hausdorff convergence.",
+      "searches": [
+        "arXiv:2610.11700v1 Theorem 5 and proof",
+        "smooth covariogram transition projection bodies logcosh facets nonsmooth convex bodies",
+        "2610.11700 extension nonsmooth convex bodies critical transition level sets",
+        "2026/10/11/SCOPE-sharp-differentiability-strata-of-radial-mean-bodies-of-parallel--fc444dfaf505",
+        "2026/10/11/SCOPE-a-complete-translation-distance-phase-diagram-for-hypercube-cova--5fadf7c81348"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 5(2) of arXiv:2610.11700v1 identifies exactly the same log-cosh functional under a C^3 boundary assumption.",
+        "The inspected parallelotope radial mean body theorem integrates exit distances over translations of a single convex body, not a two-body radial smoothing of the intersection covariogram."
+      ],
+      "reasoning": "The transition integrand is known and not claimed new. The statement being compared is the smooth-to-arbitrary-convex extension plus the polytope O(1/p) error. The radial mean-body theorem has a different definition, so matching the term radial mean does not imply equivalence.",
+      "searches": [
+        "polytope nonsmooth smooth covariogram critical regime log cosh facet normals 2026 radial mean",
+        "smooth covariogram transition projection bodies logcosh facets nonsmooth convex bodies",
+        "arXiv:2610.11700v1 Theorem 5(2)",
+        "2026/10/11/SCOPE-sharp-differentiability-strata-of-radial-mean-bodies-of-parallel--fc444dfaf505"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected cube covariogram result optimizes ordinary intersection volume at fixed displacement length; there is no smoothing power.",
+        "Neither the identified exact radial-mean body regularity theorem nor the source preprint provides a table or error bound for smoothed covariograms on arbitrary polytopes."
+      ],
+      "reasoning": "The result is a uniform analytic theorem rather than the lookup of a tabulated value. Search absence alone is not treated as originality proof; decisive source definitions and theorem hypotheses were compared.",
+      "searches": [
+        "polytope nonsmooth smooth covariogram critical regime log cosh facet normals 2026 radial mean",
+        "Orlicz projection body logcosh polytope facet convergence rate",
+        "\"smooth covariogram\" \"polytopes\" \"critical\" \"log cosh\"",
+        "2026/10/11/SCOPE-a-complete-translation-distance-phase-diagram-for-hypercube-cova--5fadf7c81348"
+      ]
+    },
+    "rationale": "The critical log-cosh integrand and smooth C^3 limit are explicitly prior work. The new theorem concerns arbitrary nonsmooth convex K and an effective uniform O(1/p) polytope rate. Full primary literature comparisons distinguish this from classical weighted intersection covariograms and from Gardner-Zhang radial mean bodies. Historical priority outside accessible records remains a stated risk.",
+    "residual_risks": [
+      "An unindexed independent nonsmooth extension of the 2026 preprint could exist.",
+      "Quantitative polytope rate may appear in specialized asymptotic analysis not surfaced by indexed searches; no exhaustive priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the formula and smooth-boundary limit, but not all arbitrary nonsmooth bodies or O(1/p) polygonal/polytope rate",
+        "evidence": [
+          "Theorem 5 assumes C^3; Section 5 uses a third-derivative bound O(p^2|x|^3); source arXiv:2610.11700v1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.11700v1",
+        "material_read": "Full HTML definitions, Theorem 5 and full proof in Section 5, including the C^3 Taylor-remainder argument",
+        "method": "Direct mathematical comparison of quantifiers, regularity hypotheses, deficit scale and rates",
+        "title": "A Smooth Covariogram and the Transition Between Projection Bodies",
+        "trigger": "Exact same radial (-p)-mean operator and log-cosh critical transition"
+      },
+      {
+        "assessment": "Different operator based on weighted intersection, without radial (-p)-mean or critical scaling",
+        "evidence": [
+          "Section 6 equation (6.1), Section 7 equations (7.1)-(7.2), DOI 10.1112/plms.12477."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/plms.12477",
+        "material_read": "Full open-access HTML Sections 6 and 7, definitions and main comparisons of measure covariograms and functional covariograms",
+        "method": "Compared the two kernel definitions and scaling parameters",
+        "title": "General measure extensions of projection bodies",
+        "trigger": "Earlier covariogram/projection-body generalization with arbitrary convex bodies"
+      },
+      {
+        "assessment": "Radial mean body gauge regularity for finite powers is not a critical covariogram scaling or a rate",
+        "evidence": [
+          "Its proof integrates exit distance over uniform points in a single cube and classifies directional differentiability."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/10/11/SCOPE-sharp-differentiability-strata-of-radial-mean-bodies-of-parallel--fc444dfaf505/RESULT.md",
+        "material_read": "Complete public RESULT.md including assumptions, theorem, proof, references",
+        "method": "Compared Gardner-Zhang mean body definition with two-body smoothed covariogram",
+        "title": "Sharp differentiability strata of radial mean bodies of parallelotopes",
+        "trigger": "Similarity of radial mean constructions in polytopes"
+      },
+      {
+        "assessment": "No parameter p, nonlinear radial mean, or transition-body error estimate",
+        "evidence": [
+          "The theorem optimizes an ordinary cube covariogram product over fixed Euclidean displacement."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/10/11/SCOPE-a-complete-translation-distance-phase-diagram-for-hypercube-cova--5fadf7c81348/RESULT.md",
+        "material_read": "Complete public RESULT.md including formula and proof",
+        "method": "Compared ordinary intersection product and fixed-length optimization with radial smoothing",
+        "title": "A complete translation-distance phase diagram for hypercube covariograms",
+        "trigger": "Exact covariogram on a prototypical polytope"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "de75e752-6f0a-405f-a7bb-2ecf560e720b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "It resolves the natural boundary-regularity gap between the existing smooth-body critical transition and basic polytopes, extending the limit to every convex body. The facet-switch argument gives an effective asymptotic rate for all polytopes rather than a single toy example. The precise geometric limit and quantitative stability for a broad nonsmooth class are useful in affine convex geometry and covariogram analysis.",
+    "status": "PASS"
+  }
+}
