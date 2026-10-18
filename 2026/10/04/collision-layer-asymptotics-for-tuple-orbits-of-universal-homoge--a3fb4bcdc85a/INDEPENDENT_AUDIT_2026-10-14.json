@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T23:49:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ultrahomogeneity of the countable universal r-uniform hypergraph for integer r>=2 makes each injective labeled n-tuple orbit an arbitrary r-edge incidence pattern, exactly I_r(n)=2^{C(n,r)}. Every ordered tuple has a unique equality partition into k blocks, followed by one injective k-tuple orbit, so T_r(n)=sum_k S(n,k)2^{C(k,r)}. Reindexing j=n-k yields exact positive collision layers S(n,n-j)2^{-D_{r,j}}, D=C(n,r)-C(n-j,r)=sum_{t=0}^{j-1}C(n-t-1,r-1). To bound remainder after fixed m, near-diagonal Stirling coefficients satisfy S(n,n-j)<=n^{2j}; for j in [m+1,n/2] the extra successive D increments are Omega(n^{r-1}), giving geometric tail; for j>n/2 the n^n partition bound is negligible against 2^{-Theta(n^r)} when r>=2. Thus remainder O(n^{2m+2}2^{-D_{r,m+1}}). At m=1 the first correction binom(n,2)2^{-C(n-1,r-1)} and next-layer error follow. The inverse expansion uses delta^2=O(error). The n=0 conventional counts are 1; the result states the fixed-n formulas naturally. Independent computations for r=2..5,n<=10 verify Stirling identities, and the actual artifacts/verify.py independently enumerates equality patterns; finite checks cannot prove the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Siniora--Solecki cover free homogeneous structures and Thomas treats reducts of universal homogeneous hypergraphs.",
+          "OEIS A335390 gives the exact graph-case transform and leading equivalence T_2(n)~2^{C(n,2)}."
+        ],
+        "reasoning": "The source papers establish the model/homogeneity, not the stated collision-layer first correction; the graph OEIS asymptotic is strictly weaker.",
+        "searches": [
+          "arXiv:1705.01888",
+          "DOI:10.1016/0168-0072(95)00061-5",
+          "OEIS:A335390"
+        ]
+      },
+      "checked_sources": [
+        "OEIS:A335390",
+        "OEIS:A006125",
+        "arXiv:1705.01888",
+        "DOI:10.1016/0168-0072(95)00061-5 limited original text",
+        "Resultary:countable universal homogeneous r-uniform hypergraph automorphism orbits all ordered tuples injective tuples Stirling transform collision layer asymptotics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact graph-case transform logically enables a short further collision expansion for r=2.",
+          "Homogeneous r-hypergraph age provides 2^{C(n,r)} injected types and automatically induces equality-transform structure."
+        ],
+        "reasoning": "The new quantitative bound is elementary but not mechanically the same printed asymptotic; its proof requires explicit near-diagonal tail estimates. It is not claimed that the exact r=2 sequence was new.",
+        "searches": [
+          "OEIS:A335390 formula plus weaker asymptotic",
+          "arXiv:1705.01888 free amalgamation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph case n-tuples of a random graph use precisely A335390 values and transform.",
+          "Other Resultary hits count orbits for different homogeneous structures, with different induced finite structures."
+        ],
+        "reasoning": "The fixed-depth asymptotic is not the same as the prior exact transform: it is a derived asymptotic conclusion that must be checked for actual prior statement; relevant indexed entries do not display it.",
+        "searches": [
+          "countable universal homogeneous r-uniform hypergraph automorphism orbits all ordered tuples injective tuples Stirling transform collision layer asymptotics",
+          "OEIS A335390 unordered set-partition Stirling transform",
+          "Resultary random poset/reduct tuple orbit profiles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A335390 has 1,1,3,15,127,1895,53071,... and exact sum S(n,k)2^{C(k,2)}.",
+          "OEIS A006125 is 2^{C(n,2)}, the labeled graph enumeration."
+        ],
+        "reasoning": "All exact graph-case numbers and leading growth are PRIOR. No located table carried all-r fixed-depth correction, though databases need not catalog every consequence.",
+        "searches": [
+          "OEIS:A335390",
+          "OEIS:A006125",
+          "countable universal homogeneous r-uniform hypergraph automorphism orbits all ordered tuples injective tuples Stirling transform collision layer asymptotics"
+        ]
+      },
+      "rationale": "The r=2 exact sequence and leading asymptotic are ALREADY OEIS A335390, and labeled simple graph counts are OEIS A006125. Standard Fraisse ultrahomogeneity proves injective orbit count. The potentially new result is the uniform fixed-depth collision-deficit expansion and sharp non-injective first-order correction for every r>=2. Targeted semantic published result searches for automorphism tuple orbits, random hypergraphs, Stirling and correction did not identify a dominating statement; a different oligomorphic tuple profile is not an alias. Because the correction is a short deduction from the existing transform, unindexed folklore is an explicit residual originality risk.",
+      "residual_risks": [
+        "An elementary diagonal Stirling-transform asymptotic may already be known in unindexed enumeration folklore.",
+        "Thomas 1996 original full body not read in this execution.",
+        "Asymptotic is for fixed r and fixed m, not uniform in varying arity or collision depth."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITIVELY covers graph-case exact transform and leading asymptotic, not the inspected all-r fixed-depth statement",
+          "evidence": "Sequence 1,1,3,15,127,1895,53071 and sum S(n,k)2^{C(k,2)}.",
+          "identifier_or_url": "OEIS:A335390",
+          "material_read": "Sequence entry first values, formula, asymptotic leading equivalence",
+          "method": "Direct OEIS entry and independent arithmetic check",
+          "title": "OEIS A335390: Stirling transform of numbers of labeled simple graphs",
+          "trigger": "Exactly matches r=2 tuple formula"
+        },
+        {
+          "assessment": "Covers classical model/homogeneity, no retrieved collision-layer asymptotics",
+          "evidence": "General finite relational free amalgamation setting.",
+          "identifier_or_url": "arXiv:1705.01888",
+          "material_read": "Accessible arXiv full PDF introduction and relevant free-amalgamation framework",
+          "method": "Read primary arXiv PDF relevant sections, comparison by induced labeled types",
+          "title": "Coherent extension of partial automorphisms, free amalgamation, and automorphism groups",
+          "trigger": "Free homogeneous hypergraph framework"
+        },
+        {
+          "assessment": "No entire-document exclusion from unread material; residual historical risk",
+          "evidence": "Thomas (1996), countable universal homogeneous k-hypergraph.",
+          "identifier_or_url": "DOI:10.1016/0168-0072(95)00061-5",
+          "material_read": "Published bibliographic citation and obtainable summaries; original entire article not read",
+          "method": "Primary bibliographic/abstract and citations",
+          "title": "Reducts of random hypergraphs",
+          "trigger": "Original universal homogeneous r-hypergraph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ratio T_r/I_r is a natural orbit-growth invariant of canonical oligomorphic automorphism groups, and its defect measures the price of repeated tuple coordinates. The formula resolves all fixed collision depths and reveals arity in the deficit scale n^2 2^{-Theta(n^{r-1})}; it sharpens known asymptotic equivalence and is useful independently of a new general structural theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An elementary diagonal Stirling-transform asymptotic may already be known in unindexed enumeration folklore.",
+    "Thomas 1996 original full body not read in this execution.",
+    "Asymptotic is for fixed r and fixed m, not uniform in varying arity or collision depth.",
+    "Publication confidentiality is not verified: the frozen original public METADATA.json contains 'scope_run_id' and review/process fields, and original AUDIT.json/REVIEW.md discuss internal assessment method. No complete semantically sanitized, blob-guarded replacements for ALL affected public files were prepared. Withhold import/publication; this is an operational not_ready blocker, not a negative mathematical axis. Source metadata blob SHA: a40a3c995f0b8d09a09ffb955d7e14a31c36e404."
+  ],
+  "schema_version": 1
+}

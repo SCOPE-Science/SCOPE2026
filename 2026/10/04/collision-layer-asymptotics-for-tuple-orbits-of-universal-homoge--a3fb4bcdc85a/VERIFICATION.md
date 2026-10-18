@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The companion `artifacts/verify.py` uses only the Python standard library.
+# Independent mathematical audit
 
-It first computes Stirling numbers of the second kind by recurrence. Independently, it enumerates set partitions as restricted-growth strings. For each \(2\le r\le5\) and each tested small arity, the two equality-pattern counts agree and the direct sum over equality patterns and arbitrary \(r\)-hyperedges agrees with
-\[
-T_r(n)=\sum_{k=0}^{n}S(n,k)2^{\binom kr}.
-\]
+## correctness
 
-For \(r=2\), the script checks the published A335390 initial values
-\[
-1,1,3,15,127,1895,53071,2953575,337064047.
-\]
+PASS
 
-It then rewrites the exact ratio \(T_r(n)/I_r(n)\) as the collision-layer sum
-\[
-\sum_{j=0}^{n}S(n,n-j)2^{-\left(\binom nr-\binom{n-j}{r}\right)}
-\]
-and checks this identity exactly using rational arithmetic. The first and second collision layers are checked separately.
+Ultrahomogeneity of the countable universal r-uniform hypergraph for integer r>=2 makes each injective labeled n-tuple orbit an arbitrary r-edge incidence pattern, exactly I_r(n)=2^{C(n,r)}. Every ordered tuple has a unique equality partition into k blocks, followed by one injective k-tuple orbit, so T_r(n)=sum_k S(n,k)2^{C(k,r)}. Reindexing j=n-k yields exact positive collision layers S(n,n-j)2^{-D_{r,j}}, D=C(n,r)-C(n-j,r)=sum_{t=0}^{j-1}C(n-t-1,r-1). To bound remainder after fixed m, near-diagonal Stirling coefficients satisfy S(n,n-j)<=n^{2j}; for j in [m+1,n/2] the extra successive D increments are Omega(n^{r-1}), giving geometric tail; for j>n/2 the n^n partition bound is negligible against 2^{-Theta(n^r)} when r>=2. Thus remainder O(n^{2m+2}2^{-D_{r,m+1}}). At m=1 the first correction binom(n,2)2^{-C(n-1,r-1)} and next-layer error follow. The inverse expansion uses delta^2=O(error). The n=0 conventional counts are 1; the result states the fixed-n formulas naturally. Independent computations for r=2..5,n<=10 verify Stirling identities, and the actual artifacts/verify.py independently enumerates equality patterns; finite checks cannot prove the asymptotic.
 
-Finally, it normalizes the noninjective excess by the predicted leading term
-\[
-\binom n2 2^{-\binom{n-1}{r-1}}
-\]
-for \(2\le r\le5\). For \(r=2\), the normalized ratio decreases from about \(1.0258901\) at \(n=12\) to \(1.0000000013\) at \(n=40\); for larger \(r\) the correction beyond the first layer is already below ordinary floating-point display precision at much smaller \(n\).
+## originality
 
-The replay terminates with `VERIFY_OK`. The script verifies the finite identities and numerical convergence; the asymptotic tail bound itself is the mathematical argument in `RESULT.md`.
+PASS
+
+The r=2 exact sequence and leading asymptotic are ALREADY OEIS A335390, and labeled simple graph counts are OEIS A006125. Standard Fraisse ultrahomogeneity proves injective orbit count. The potentially new result is the uniform fixed-depth collision-deficit expansion and sharp non-injective first-order correction for every r>=2. Targeted semantic published result searches for automorphism tuple orbits, random hypergraphs, Stirling and correction did not identify a dominating statement; a different oligomorphic tuple profile is not an alias. Because the correction is a short deduction from the existing transform, unindexed folklore is an explicit residual originality risk.
+
+## value
+
+PASS
+
+The ratio T_r/I_r is a natural orbit-growth invariant of canonical oligomorphic automorphism groups, and its defect measures the price of repeated tuple coordinates. The formula resolves all fixed collision depths and reveals arity in the deficit scale n^2 2^{-Theta(n^{r-1})}; it sharpens known asymptotic equivalence and is useful independently of a new general structural theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

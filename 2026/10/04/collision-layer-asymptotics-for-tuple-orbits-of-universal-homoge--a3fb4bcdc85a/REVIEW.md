@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Ultrahomogeneity identifies injective ordered-tuple orbits with labeled finite \(r\)-uniform hypergraphs, giving \(2^{\binom nr}\). Equality partitions give the exact unrestricted Stirling transform. Reindexing by collision deficit \(j=n-k\), the stated expansion follows from the exact exponent deficit \(D_{r,j}(n)\), the merger bound \(S(n,n-j)\le n^{2j}\), and a split into \(j\le n/2\) and \(j>n/2\). The verifier independently checks equality partitions, exact rational collision layers, A335390 in the graph case, and the normalized leading correction.
+## correctness
 
-## Originality
-**PASS, with clear folklore risk.** The graph-case transform is explicitly prior as OEIS A335390, and the universal homogeneous hypergraph is classical. The retained contribution is narrower: the homogeneous-structure interpretation for all fixed arities together with the fixed-depth collision expansion and sharp first correction. Exact-phrase, equivalent-formulation, broader orbit-profile, exact-database, and published-finding corpus searches did not locate that asymptotic statement. Because the proof is elementary once the exact transform is written down, unindexed prior occurrence remains plausible.
+PASS
 
-## Value
-**PASS.** The result gives a uniform quantitative answer to how quickly repeated-coordinate tuple orbits disappear in a canonical family of oligomorphic groups. The deficit scale changes from roughly \(n^2 2^{-n}\) for the random graph to \(n^2 2^{-\Theta(n^{r-1})}\) in arity \(r\), making relation arity visible in the orbit profile. The fixed-depth formula also identifies every bounded collision layer, rather than only proving that injective tuples dominate.
+Ultrahomogeneity of the countable universal r-uniform hypergraph for integer r>=2 makes each injective labeled n-tuple orbit an arbitrary r-edge incidence pattern, exactly I_r(n)=2^{C(n,r)}. Every ordered tuple has a unique equality partition into k blocks, followed by one injective k-tuple orbit, so T_r(n)=sum_k S(n,k)2^{C(k,r)}. Reindexing j=n-k yields exact positive collision layers S(n,n-j)2^{-D_{r,j}}, D=C(n,r)-C(n-j,r)=sum_{t=0}^{j-1}C(n-t-1,r-1). To bound remainder after fixed m, near-diagonal Stirling coefficients satisfy S(n,n-j)<=n^{2j}; for j in [m+1,n/2] the extra successive D increments are Omega(n^{r-1}), giving geometric tail; for j>n/2 the n^n partition bound is negligible against 2^{-Theta(n^r)} when r>=2. Thus remainder O(n^{2m+2}2^{-D_{r,m+1}}). At m=1 the first correction binom(n,2)2^{-C(n-1,r-1)} and next-layer error follow. The inverse expansion uses delta^2=O(error). The n=0 conventional counts are 1; the result states the fixed-n formulas naturally. Independent computations for r=2..5,n<=10 verify Stirling identities, and the actual artifacts/verify.py independently enumerates equality patterns; finite checks cannot prove the asymptotic.
 
-## Closest literature and limitations
-Thomas supplies the classical universal homogeneous hypergraphs, and Siniora--Solecki treat free homogeneous structures in a modern model-theoretic source. OEIS A335390 already contains the exact \(r=2\) Stirling transform and its leading asymptotic, so those are explicitly treated as prior. published-finding corpus's closest records concern random-poset reducts, random bipartite reducts, and the random distributive lattice, not this hypergraph collision expansion. The main limitation is priority risk from the argument's simplicity.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The r=2 exact sequence and leading asymptotic are ALREADY OEIS A335390, and labeled simple graph counts are OEIS A006125. Standard Fraisse ultrahomogeneity proves injective orbit count. The potentially new result is the uniform fixed-depth collision-deficit expansion and sharp non-injective first-order correction for every r>=2. Targeted semantic published result searches for automorphism tuple orbits, random hypergraphs, Stirling and correction did not identify a dominating statement; a different oligomorphic tuple profile is not an alias. Because the correction is a short deduction from the existing transform, unindexed folklore is an explicit residual originality risk.
+
+## value
+
+PASS
+
+The ratio T_r/I_r is a natural orbit-growth invariant of canonical oligomorphic automorphism groups, and its defect measures the price of repeated tuple coordinates. The formula resolves all fixed collision depths and reveals arity in the deficit scale n^2 2^{-Theta(n^{r-1})}; it sharpens known asymptotic equivalence and is useful independently of a new general structural theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
