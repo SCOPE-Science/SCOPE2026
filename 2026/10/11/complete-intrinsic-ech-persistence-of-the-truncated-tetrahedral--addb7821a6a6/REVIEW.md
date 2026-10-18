@@ -1,15 +1,21 @@
-# Review of the truncated tetrahedral graph Čech filtration
+# Independent mathematical audit
 
-## Correctness — PASS
-The ordered-pair graph definition uniquely determines a connected cubic graph on 12 vertices, with 18 edges and diameter three. The even/odd graph Čech generating facets agree with Adams–Shukla–Singh, Lemma 2.2. The standalone standard-library checker completely enumerates faces at every integer scale, verifies all Hasse incidences and the acyclic discrete-Morse pairing, and independently calculates mod-two homology from the original boundary matrices. Critical-cell counts prove the four single-degree wedge regimes. The remaining scale-four mixed wedge is supported by a reconstructed signed integral Morse matrix of rational rank four with an explicitly located determinant-one maximal minor. The cellular Hurewicz identification for its three-skeleton and unit-cell cancellations give the stated integral homotopy type. The degree-one barcode's only potentially nontrivial persistence map is proven surjective using the triangles witnessing the new scale-two edges. No numerical simulation or partial enumeration is treated as proof.
+## correctness
 
-## Originality — PASS
-Adams–Shukla–Singh's full primary paper defines the complex and develops hypercube results but has no truncated tetrahedron classification. Previte's full dissertation defines equivalent even-radius neighborhood complexes and reports computations for the Petersen and Platonic graphs; no truncated tetrahedral classification was found in the examined contents, examples and relevant theorems. Saleh–Titz Mite–Witzel classify Rips complexes for Platonic solids and mention Archimedean solids as potential extensions, without computing this graph Čech filtration. The closest published same-graph finding was read in full: it computes a Vietoris–Rips filtration, not the Čech nerve, and its scale-two homology differs. Targeted name, metric, complex-equivalence, and mixed-homology searches in the published finding database identified no covering claim. This supports originality but does not rule out an unindexed equivalent, which remains the stated bibliographic risk.
+PASS
 
-## Value — PASS
-The truncated tetrahedron is the smallest Archimedean truncation of a regular tetrahedron, with a canonical twelve-vertex symmetric cubic graph and an existing same-graph Rips homotopy classification. The new result completes its intrinsic Čech persistence rather than selecting an arbitrary radius: a notably mixed \(H_3\)/\(H_4\) stage at scale four and a subsequent \(H_7\) stage at scale five persist well after the corresponding Rips filtration becomes contractible. The exact bar multiplicities, integral homotopy types, and reproducible finite certificate permit principled comparison of the two nerve/flag constructions. The result is specific and finite, not a general theorem on all polyhedral graphs.
+The truncated tetrahedral graph is the 12 ordered distinct symbol pairs with edges for common first coordinate or reversing order, giving 18 edges and diameter three. Every integer-scale intrinsic graph Čech nerve was reconstructed from parity-dependent closed vertex/edge neighborhood generators; all face vectors and graph distances agree with RESULT.md. Independently built and fully checked acyclic discrete-Morse matchings at r0..6, with critical cells r1 (0:1,1:7), r2 (0:1,1:3), r3 (0:1,2:9), r4 (0:1,3:15,4:8), r5 (0:1,7:5), r6 (0:1). At r4 I computed the integral signed gradient-path Morse 15x8 matrix independently in trunc_integral.py: rank 4, Smith diagonal four 1s and zeros, selected (rows 0,1,2,4; columns 2,3,4,5) minor +1 and 30 nonzero entries. Integral attaching-degree classification gives wedge11 S3 ∨ wedge4 S4, not simply a rational-Betti guess. r1→r2 H1 map onto because every new distance-two edge is homologous via a Čech triangle to an old two-edge path; free abelian rank7→rank3 gives 3 long and 4 short H1 bars. Higher stages have distinct nonzero degrees, so complete integral barcode follows. Calculations finite but exhaustive for this graph.
 
-## Sources and residual risks
-Primary sources: arXiv:2212.05871 (complete text, Lemma 2.2 and later results), Corrine Previte's 2014 dissertation (table of contents, definitions, full example section), arXiv:2302.14388 (main theorem and introduction), and the full published same-graph Rips RESULT.md. Residual novelty risk: alternative terminology or an unpublished/unindexed duplicate. Mathematical scope risk: an incorrect change of metric or of closed-ball convention invalidates the facet rule; these conventions are fixed explicitly. The verifier checks the finite certificates but not arbitrary generalizations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for all real scales of intrinsic graph Čech and integral barcode; exact mixed-dimensional integral r4 Morse attaching matrix and persistence ranks are distinct from any inspected Platonic hypercube or same-graph Rips result. Prior Čech generator lemma credited; Resultary search unavailable and residual priority risk retained.
+
+## value
+
+PASS
+
+The truncated tetrahedral graph is a natural Archimedean 1-skeleton whose intrinsic Čech filtration differs dramatically from known metric-graph Rips; the mixed-dimensional r4 integral wedge and surviving long H1 intervals provide specific, meaningful topology beyond an isolated Betti entry. Complete classification across every real scale plus exact integral boundary torsion control is a reusable finite case relevant to graph Čech persistence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

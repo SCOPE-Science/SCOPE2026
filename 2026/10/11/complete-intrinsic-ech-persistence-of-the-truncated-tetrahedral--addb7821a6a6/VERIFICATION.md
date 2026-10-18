@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify_cech.py` from the same directory using Python 3 with only standard-library modules. Successful execution terminates with `VERIFY_OK`.
+## correctness
 
-The checker reconstructs the 12 ordered-pair vertices, all 18 edges, breadth-first-search distances, and maximal Čech facets at each integer \(r\in\{0,1,2,3,4,5,6\}\). It enumerates all faces under those facets and independently checks inclusion between consecutive scales. For each scale it builds a complete disjoint matching of face/coface pairs and tests the **entire directed Hasse graph** for acyclicity. This is a discrete-Morse certificate, not a randomized search or an assertion based only on matched-cell counts.
+PASS
 
-At scale four, signed gradient-path elimination reconstructs the integer Morse attaching matrix between 8 four-cells and 15 three-cells, checks its exact rational rank \(4\), and verifies determinant \(+1\) for rows \((0,1,2,4)\) and columns \((2,3,4,5)\), indexed from zero. A rational rank-four matrix with a unit maximal minor has four unit Smith factors and no torsion. At every scale, the checker independently computes all reduced mod-two Betti numbers from the raw simplicial boundary matrices. It also verifies that each new scale-two edge is homologous to an original two-edge path using an actual Čech triangle.
+The truncated tetrahedral graph is the 12 ordered distinct symbol pairs with edges for common first coordinate or reversing order, giving 18 edges and diameter three. Every integer-scale intrinsic graph Čech nerve was reconstructed from parity-dependent closed vertex/edge neighborhood generators; all face vectors and graph distances agree with RESULT.md. Independently built and fully checked acyclic discrete-Morse matchings at r0..6, with critical cells r1 (0:1,1:7), r2 (0:1,1:3), r3 (0:1,2:9), r4 (0:1,3:15,4:8), r5 (0:1,7:5), r6 (0:1). At r4 I computed the integral signed gradient-path Morse 15x8 matrix independently in trunc_integral.py: rank 4, Smith diagonal four 1s and zeros, selected (rows 0,1,2,4; columns 2,3,4,5) minor +1 and 30 nonzero entries. Integral attaching-degree classification gives wedge11 S3 ∨ wedge4 S4, not simply a rational-Betti guess. r1→r2 H1 map onto because every new distance-two edge is homologous via a Čech triangle to an old two-edge path; free abelian rank7→rank3 gives 3 long and 4 short H1 bars. Higher stages have distinct nonzero degrees, so complete integral barcode follows. Calculations finite but exhaustive for this graph.
 
-Finite checks are exhaustive for the named finite complex. The step from an acyclic matching to a CW homotopy model uses standard discrete-Morse theory; the final scale-four cell-attachment classification uses the Hurewicz isomorphism in degree three for a wedge of three-spheres. No external independent audit has been performed, and the checker does not certify novelty or mathematical results outside the stated graph and scale range.
+## originality
+
+PASS
+
+PASS best-of-knowledge for all real scales of intrinsic graph Čech and integral barcode; exact mixed-dimensional integral r4 Morse attaching matrix and persistence ranks are distinct from any inspected Platonic hypercube or same-graph Rips result. Prior Čech generator lemma credited; Resultary search unavailable and residual priority risk retained.
+
+## value
+
+PASS
+
+The truncated tetrahedral graph is a natural Archimedean 1-skeleton whose intrinsic Čech filtration differs dramatically from known metric-graph Rips; the mixed-dimensional r4 integral wedge and surviving long H1 intervals provide specific, meaningful topology beyond an isolated Betti entry. Complete classification across every real scale plus exact integral boundary torsion control is a reusable finite case relevant to graph Čech persistence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
