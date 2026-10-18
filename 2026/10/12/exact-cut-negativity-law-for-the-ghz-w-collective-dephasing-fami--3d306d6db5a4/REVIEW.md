@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact block diagonalization of the partial transpose gives the formula and all endpoint cases; differentiation proves strict dependence on \(s\).
+## correctness
 
-## Originality
-PASS. The motivating source defines the family and reports numerical genuine-negativity dynamics but not this ordinary one-versus-two negativity spectrum. Broader collective-dephasing and later genuine-entanglement papers do not imply the formula. Targeted published-finding corpus, source-ID, alias, radical-signature, and owned-ledger searches found no covering statement. Residual risk remains for differently notated later literature.
+PASS
 
-## Value
-PASS. This is the complete natural family selected in the motivating three-qubit study. The result replaces a qualitative cut-entanglement picture by a complete analytic law, rules out cut-negativity freezing whenever GHZ coherence genuinely decays, and gives the exact asymptotic floor caused by any nonzero \(W\) component.
+Partial transpose on the first qubit of the explicit 8x8 density operator factors into two zero eigenvalues, 2eta/3, (1-eta)/2, [3(1-eta) +/- sqrt(41eta^2-18eta+9)]/12 and [eta +/- sqrt(eta^2+9(1-eta)^2 s^2)]/6. Independently constructed symbolic partial transpose and exactly factored the characteristic polynomial into these four factors (2 zeros). First minus root is negative precisely eta>0, second minus root negative when s>0 and eta<1, giving stated negativity. Derivative 3(1-eta)^2 s/(2 sqrt(eta^2+9(1-eta)^2s^2)) positive away from endpoints. eta=0,1 and s=0 correctly handled; all three cuts identical by permutation symmetry.
 
-## Closest literature and limitations
-The claim does not evaluate the genuine-negativity SDP and does not prove or disprove the three-qubit genuine-entanglement conjecture.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with residual equivalence risk: Ali arXiv:1609.01031 defines the exact GHZ/W state and discusses numerical genuine multipartite negativity, while this result analytically computes ordinary bipartition cut negativity, a different entanglement monotone. Ali follow-up and Carnio framework do not supply the inspected partial-transpose spectrum. A later unindexed exact formula is possible.
+
+## value
+
+PASS
+
+The distinction between freezing genuine multipartite entanglement and strict decay of bipartite cut negativity on the SAME physically motivated decoherence family is a substantive analytic boundary: exact monotonicity and positive asymptotic floor clarify what time invariance does or does not mean.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
