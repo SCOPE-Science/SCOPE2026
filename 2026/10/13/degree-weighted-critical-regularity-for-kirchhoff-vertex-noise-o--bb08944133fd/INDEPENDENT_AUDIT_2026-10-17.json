@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T08:06:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For H=I−Δ on any finite connected compact Kirchhoff metric graph, the vertex covariance heat trace F(s)=Σ_j (φ_j|V)^T Q(φ_j|V)e^{−sμ_j} is the Laplace transform of a positive measure because Q is PSD. Zero-length paths in the metric-graph heat kernel yield F(s)=S e^(−s)/sqrt(πs)+exponentially small error, S=Σ_v Q_vv/deg(v)>0 (a nonzero PSD Q has positive diagonal). Karamata gives cumulative weighted spectral mass N_Q(Λ)∼2S sqrtΛ/π. Itô isometry then yields critical expected H^(1/4) energy S/(2π) logΛ, supercritical energy S/[π(4α−1)] Λ^(2α−1/2), and subcritical finite energy for all α<1/4. Gaussian zero-one law plus Fernique excludes a.s. membership when mean-square norm diverges. Integrating F(2s) yields small-time S/2 erf(sqrt(2t))+O(exp(−c/t)). Offdiagonal Q only affects positive-length walks to leading small-time order. Independent interval example with Q=[[2,1],[1,3]] gave log-slope 0.7957175 vs target 5/(2π)=0.7957747, corroboration not proof.",
+      "risk": [
+        "Fixed t>0 Gaussian spectral membership; not a simultaneous-all-times or pathwise endpoint statement. Nonzero PSD finite vertex covariance, no nonlinear/potential/nonstandard coupling assumptions."
+      ],
+      "sources": [
+        "Assigned RESULT.md Git blob 7238635441880cdf28fe6727bbb796d6706acdd5",
+        "https://arxiv.org/pdf/2204.06619",
+        "https://arxiv.org/pdf/2401.11866",
+        "independent1623_checks.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borthwick–Harrell–Jones deterministic zero-length walks give K_s(v,v)~1/(deg v sqrt(πs)); their theorem concerns heat kernels and local Weyl laws, not the stochastic convolution of correlated vertex Brownian noise.",
+          "2024 paper includes covariance Q but only shows subcritical α<1/4, not critical asymptotic.",
+          "Published star example is a strict subfamily of all finite connected compact metric graphs."
+        ],
+        "reasoning": "The new covariance-weighted positive spectral measure and Tauberian/Itô/Gaussian zero-one synthesis is needed for all Q and graph topologies; prior inputs do not state this theorem.",
+        "searches": [
+          "stochastic heat equation metric quantum graph Brownian vertex noise critical 1/4 vertex degree covariance log spectral energy",
+          "arXiv:2204.06619 Proposition 2.1 and Theorem 4.1",
+          "arXiv:2401.11866 Appendix A",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-h-1-4-ultraviolet-law-for-central-kirchhoff-noise-on-an-eq--948b2d6ab576/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2207.01944",
+        "https://arxiv.org/pdf/2204.06619",
+        "https://arxiv.org/pdf/2401.11866",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-h-1-4-ultraviolet-law-for-central-kirchhoff-noise-on-an-eq--948b2d6ab576/RESULT.md",
+        "arXiv:math-ph/0701009"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior deterministic expansion F(s)=sum_vw Q_vw exp(-s)K_s(v,w) has diagonal leading term S exp(-s)/(sqrt πs).",
+          "Converting its nonnegative spectral measure by Karamata gives N_Q(Λ)∼(2S/π)sqrtΛ; Itô variances then yield critical S/(2π) logΛ, supercritical S/[π(4α−1)]Λ^{2α−1/2}, and endpoint nonmembership via Gaussian zero-one plus Fernique.",
+          "Original stochastic subcritical results do not claim these converse/coefficient statements."
+        ],
+        "reasoning": "The full quantitative stochastic result follows from a nontrivial combination of previously separate deterministic and stochastic results and is strictly broader than the published star case; no prior inspected theorem implies it in full.",
+        "searches": [
+          "arXiv:2204.06619",
+          "arXiv:2207.01944",
+          "arXiv:2401.11866",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-h-1-4-ultraviolet-law-for-central-kirchhoff-noise-on-an-eq--948b2d6ab576/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2022/2024 stochastic quantum-graph results guarantee fractional-domain regularity below 1/4, not general sharp zero-probability endpoint nonmembership.",
+          "Prior equilateral-star formula yields 1/(Nπ) log M for cutoff λ_M∼M², which agrees with S/(2π) log Λ when S=1/N and Λ∼M²."
+        ],
+        "reasoning": "The special-star coefficient is a consistency check and prior special case; it does not imply arbitrary geometry, off-diagonal covariance cancellation, or uniform power-law and small-time coefficients.",
+        "searches": [
+          "stochastic heat equation metric quantum graph Brownian vertex noise critical 1/4 vertex degree covariance log spectral energy",
+          "arXiv:2207.01944 Theorem 3.8",
+          "arXiv:2401.11866 Proposition A.1",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-h-1-4-ultraviolet-law-for-central-kirchhoff-noise-on-an-eq--948b2d6ab576/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing special-star logarithmic constant 1/(Nπ) corresponds to a single degree N and one vertex with unit noise; the assessed invariant S=sum_v Q_vv/deg v covers any vertex covariance and arbitrary network.",
+          "No all-graphs coefficient table in inspected same-object sources."
+        ],
+        "reasoning": "This is a structural weighted-local-Weyl coefficient, not a recomputation of the known equilateral-star numerical constant; reduction to that example confirms normalization.",
+        "searches": [
+          "stochastic heat equation metric quantum graph Brownian vertex noise critical 1/4 vertex degree covariance log spectral energy",
+          "Resultary id 2026/10/4/SCOPE-sharp-h-1-4-ultraviolet-law-for-central-kirchhoff-noise-on-an-eq--948b2d6ab576"
+        ]
+      },
+      "rationale": "General subcritical α<1/4 stochastic Kirchhoff regularity and the deterministic graph heat-kernel local Weyl coefficients are prior work. A prior Resultary paper gives a sharp critical coefficient only on an equilateral star with scalar noise at its center; the present claim covers every compact finite Kirchhoff metric graph and every fixed nonzero correlated PSD vertex covariance, including exact a.s. endpoint exclusion, universal degree-weighted critical and supercritical coefficients, and small-time stochastic energy. Complete matching prior work inspected does not imply those general covariance-weighted statements. Best-of-knowledge residual risk remains for older boundary-noise trace asymptotics under other normalizations.",
+      "residual_risks": [
+        "Older stochastic boundary-control and quantum-graph weighted spectral-trace sources might already contain equivalent general endpoint formulas under a different resolvent normalization.",
+        "The S-dependent constant requires exact Brownian covariance and Laplacian normalization; equivalent norms can change numerical prefactors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_SUBCRITICAL_ONLY",
+          "evidence": "Theorem 3.8 proves paths in H_α for α<1/4; does not assert arbitrary-Q critical a.s. sharpness or Weyl coefficient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.01944",
+          "material_read": "Theorem 3.8, spectral eigenfunction-trace bound and stochastic vertex flux model in relevant sections",
+          "method": "Lawful full arXiv PDF; read theorem/proof region and nearby assumptions",
+          "title": "On the parabolic Cauchy problem for quantum graphs with vertex noise",
+          "trigger": "Original subcritical regularity theorem and noise normalization"
+        },
+        {
+          "assessment": "FOUNDATIONAL_NONSTOCHASTIC",
+          "evidence": "Trivial vertex path weight 2/degree provides 1/(deg sqrt(πs)); prior deterministic source has no stochastic α=1/4 theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.06619",
+          "material_read": "Proposition 2.1 walk expansion, local vertex diagonal/short-time and Weyl-law sections",
+          "method": "Lawful arXiv PDF, inspected mathematical statement and normalization",
+          "title": "The heat kernel on the diagonal for a compact metric graph",
+          "trigger": "Critical deterministic heat-kernel diagonal coefficient"
+        },
+        {
+          "assessment": "SUBCRITICAL_NOT_CRITICAL",
+          "evidence": "Proposition A.1 states continuous H_α version for α<1/4 even without uniform vertex eigenfunction traces, with general covariance Q; it does not derive general critical log coefficient or a.s. nonmembership.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.11866",
+          "material_read": "Section 4 covariance/noise setup; entire Appendix A Proposition A.1 and proof; relevant discussion in introduction",
+          "method": "Lawful arXiv PDF text including pages 4, 11–12 and 22, plus page-image examination",
+          "title": "On the strong Feller property of the heat equation on quantum graphs with Kirchhoff noise",
+          "trigger": "Newer covariance-Q regularity paper potentially dominating"
+        },
+        {
+          "assessment": "STRICTLY_NARROWER_SPECIAL_CASE",
+          "evidence": "The earlier result explicitly treats only an equilateral star with unit central noise; its cutoff log M coefficient agrees under Λ=M² but does not imply the full covariance-weighted all-graphs statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-h-1-4-ultraviolet-law-for-central-kirchhoff-noise-on-an-eq--948b2d6ab576/RESULT.md",
+          "material_read": "Entire published RESULT.md: exact star spectrum, Itô sum, coefficient, power law, limitations",
+          "method": "GitHub connector complete public document by path",
+          "title": "Sharp H_1/4 ultraviolet law for central Kirchhoff noise on an equilateral star",
+          "trigger": "Direct published special-case exact critical coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same physically natural noise problem was previously known to lie in subcritical fractional spaces and to fail at a critical index in a highly symmetric star. The reviewed theorem solves the sharp endpoint and exact universal ultraviolet coefficient for arbitrary compact metric graphs and arbitrary correlated rank-deficient vertex covariances, identifying the local degree-weighted invariant S and proving off-diagonal correlations cannot cancel the leading singularity. The general power law and small-time energy give reusable spectral/regularity benchmarks beyond a special case.",
+      "risk": [
+        "Deterministic walk and Weyl laws are prior input; arbitrary equivalent Sobolev norm changes coefficients, and no nonlinear colored-noise extension is claimed."
+      ],
+      "sources": [
+        "Kovács–Sikolya arXiv:2207.01944",
+        "Fkirine–Kovács–Sikolya arXiv:2401.11866",
+        "Borthwick–Harrell–Jones arXiv:2204.06619",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-h-1-4-ultraviolet-law-for-central-kirchhoff-noise-on-an-eq--948b2d6ab576/RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite compact connected graphs, edge lengths >0, standard Kirchhoff conditions and scalar diffusion; each fixed positive time.",
+    "No assertion of path continuity at critical index or extension to white noise on edge interiors.",
+    "Potential older equivalence in boundary-noise trace literature explicitly retained."
+  ],
+  "schema_version": 1
+}

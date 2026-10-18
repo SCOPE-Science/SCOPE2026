@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The covariance coefficients \(a_j=b_j^\top Qb_j\) are nonnegative and have the exact heat Laplace transform \(\sum_j a_j e^{-s\mu_j}=\operatorname{tr}(QK_s^H|_V)\). Kirchhoff zero-length paths give diagonal coefficient \(1/[\deg(v)\sqrt{\pi s}]\) while nonzero vertex-to-vertex paths are exponentially suppressed. Karamata therefore gives the weighted spectral asymptotic, and Itô isometry gives both the critical \(\mathcal S\log\Lambda/(2\pi)\) and supercritical divergence. Gaussian zero-one and Fernique give almost-sure exclusion; below threshold the Itô sum is finite. The short-time law follows by directly integrating the trace. The independent normalizations of an interval and a star are tested by `verify.py`. The test alone is not the proof.
+## correctness
 
-**Originality — PASS.** Theorem 3.8 of Kovács–Sikolya (arXiv:2207.01944) proves regularity below \(1/4\), but the inspected text does not give the universal almost-sure necessity, exact logarithmic coefficient, or cross-correlated vertex-noise short-time law. Borthwick–Harrell–Jones (arXiv:2204.06619) already prove the local Weyl law; Kostrykin–Potthoff–Schrader (arXiv:math-ph/0701009) already supply the graph heat-kernel walk method. Both are fully credited as inputs. No implication-equivalent stochastic conclusion was identified in the targeted literature and mathematical-record searches. Weakly indexed equivalent covariance calculations remain a residual risk.
+PASS
 
-**Value — PASS.** The result closes the precise \(1/4\) endpoint left as an upper sufficient regularity range in a physically natural vertex-driven heat model. It supplies a universal positive coefficient, an exact degree dependence, and a short-time observable for arbitrarily correlated noise; none of these depends on a special graph topology. These are meaningful boundary and quantitative refinements, not isolated parameter numerics.
+For H=I−Δ on any finite connected compact Kirchhoff metric graph, the vertex covariance heat trace F(s)=Σ_j (φ_j|V)^T Q(φ_j|V)e^{−sμ_j} is the Laplace transform of a positive measure because Q is PSD. Zero-length paths in the metric-graph heat kernel yield F(s)=S e^(−s)/sqrt(πs)+exponentially small error, S=Σ_v Q_vv/deg(v)>0 (a nonzero PSD Q has positive diagonal). Karamata gives cumulative weighted spectral mass N_Q(Λ)∼2S sqrtΛ/π. Itô isometry then yields critical expected H^(1/4) energy S/(2π) logΛ, supercritical energy S/[π(4α−1)] Λ^(2α−1/2), and subcritical finite energy for all α<1/4. Gaussian zero-one law plus Fernique excludes a.s. membership when mean-square norm diverges. Integrating F(2s) yields small-time S/2 erf(sqrt(2t))+O(exp(−c/t)). Offdiagonal Q only affects positive-length walks to leading small-time order. Independent interval example with Q=[[2,1],[1,3]] gave log-slope 0.7957175 vs target 5/(2π)=0.7957747, corroboration not proof.
 
-**Limitations.** The result concerns linear additive Kirchhoff flux noise and fixed compact metric graphs with positive lengths, not simultaneous random continuity conditions or nonlinear effects. It asserts fixed-time fractional-domain membership and not subcritical path continuity, which the motivating work treats separately. Established deterministic heat-kernel and Gaussian-measure theorems are used as inputs. Literature equivalence risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General subcritical α<1/4 stochastic Kirchhoff regularity and the deterministic graph heat-kernel local Weyl coefficients are prior work. A prior Resultary paper gives a sharp critical coefficient only on an equilateral star with scalar noise at its center; the present claim covers every compact finite Kirchhoff metric graph and every fixed nonzero correlated PSD vertex covariance, including exact a.s. endpoint exclusion, universal degree-weighted critical and supercritical coefficients, and small-time stochastic energy. Complete matching prior work inspected does not imply those general covariance-weighted statements. Best-of-knowledge residual risk remains for older boundary-noise trace asymptotics under other normalizations.
+
+## value
+
+PASS
+
+The same physically natural noise problem was previously known to lie in subcritical fractional spaces and to fail at a critical index in a highly symmetric star. The reviewed theorem solves the sharp endpoint and exact universal ultraviolet coefficient for arbitrary compact metric graphs and arbitrary correlated rank-deficient vertex covariances, identifying the local degree-weighted invariant S and proving off-diagonal correlations cannot cancel the leading singularity. The general power law and small-time energy give reusable spectral/regularity benchmarks beyond a special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
