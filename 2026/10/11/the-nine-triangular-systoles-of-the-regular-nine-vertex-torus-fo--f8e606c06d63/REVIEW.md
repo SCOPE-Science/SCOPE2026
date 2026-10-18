@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact source presentation is reconstructed from the published facet orbit and generators. Integral unimodular reduction proves \(H_1\cong\mathbb Z^2\). Two explicit integral cocycles give exact coordinates. Exhaustion of all graph triangles proves that all nine nonfacial triangles are primitive essential cycles and gives the exact three-by-three homology spectrum. Exhaustion of all \(9!\) vertex permutations independently proves the full automorphism group and its homology action.
+## correctness
 
-## Originality
-PASS. The inspected primary sources classify the regular torus map, its face vector, construction, and symmetry but do not state the triangular integral homology shell. Focused scientific searches did not locate the nine-carrier three-direction theorem or the homology-kernel orbit decomposition. Current and prior owned ledgers contain no same-object result. Historically unindexed computations remain a residual risk.
+PASS
 
-## Value
-PASS. The result completely resolves the shortest possible simple-cycle layer of a canonical regular torus triangulation. The fact that the nine primitive minimizers form one symmetry orbit but three homology-kernel orbits, with the quotient acting transitively on the three lattice directions, is structural information not encoded by the face vector or abstract group \(H_1\cong\mathbb Z^2\).
+For the exact published 18 triangular facets of the regular 9-vertex torus, independently enumerated 27 edges, 27 graph 3-cliques and nine nonfacial triangle cycles. Contracted an actual spanning tree to 19 integer cycle coordinates; independently computed Smith normal form of the 18x19 relation matrix with 17 unit diagonal invariants and 2 zeros, giving H1(Z)=Z² without torsion. Independently evaluated the two exact cocycles against every face and all nonfacial triangles, finding three each of (0,-1),(1,0),(-1,1), all primitive nonzero, so systolic edge length is 3. Exhausted all 9! vertex permutations and found exactly 108 automorphisms, with induced H1 image order 12 and kernel order 9. The proof is for labeled finite simplicial edge lengths only, not metric systoles.
 
-## Closest literature and limitations
-The exact-object Köhler--Lutz census and Altshuler's regular-map classification are the closest sources. The theorem is specific to simplicial edge length in this labelled regular map, and its displayed homology basis is explicit rather than canonical.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+For the regular torus triangulation ^2 9^18_1, the source census and Altshuler classify the underlying regular map, 18 faces and order-108 symmetry. The assigned result instead determines the complete set of NINE primitive homologically nontrivial shortest triangle carriers, their three exact integral classes with 3 carriers each, and the kernel-orbit structure of the H1 symmetry action. None of the inspected census entries or Resultary hits implies the integral carrier classification; best-of-knowledge originality passes with explicit unindexed historical-maps risk.
+
+## value
+
+PASS
+
+In the smallest highly symmetric regular triangulated torus, a complete minimum essential cycle layer and its primitive H1 classes are natural discrete systolic invariants. The 3-by-3 decomposition and exact automorphism homology-action kernel are not determined by vertex/face counts or an elementary general torus fact and could serve as a benchmark for combinatorial systolic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
