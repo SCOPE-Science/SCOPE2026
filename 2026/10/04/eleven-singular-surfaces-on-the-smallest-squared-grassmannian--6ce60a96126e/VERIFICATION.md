@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact symbolic checker `verify.py` works over the polynomial ring \(\mathbb Q[a,b,c,d,e,f]\), which is valid for the displayed identities and for the characteristic-zero representative of the characteristic-not-two proof.
+# Independent mathematical audit
 
-It checks:
+## correctness
 
-1. the determinant of the zero-diagonal symmetric \(4\times4\) matrix equals the stated quartic \(F\);
-2. all six partial derivatives have the three claimed factors;
-3. each of the eight coordinate planes annihilates \(F\) and all six partial derivatives;
-4. each of the three quadric ideals reduces all six partial derivatives to zero;
-5. the normal Hessian determinant along the representative plane \(V(f,e,d)\) equals \(-32a^2b^2c^2\), hence is nonzero generically when \(\operatorname{char}(k)\neq2\);
-6. the exact identity \(F=(af-be-cd)^2-4be\,cd\) used for the representative quadric local normal form;
-7. the simultaneous equations \(af-be-cd=af-be+cd=af+be-cd=0\) force \(af=be=cd=0\) when \(2\) is invertible.
+PASS
 
-A successful run prints `VERIFY_OK`. The global component count is not inferred from sampling: the proof exhausts projective singular points by which of the three opposite coordinate pairs are zero. The checker does not attempt to determine embedded components of the Jacobian scheme or local analytic types at intersections of singular components, and the claim makes neither assertion.
+From assigned quartic F=det of hollow symmetric 4x4 Q, independently recomputed determinant, all six gradient factorizations and the unit normal Hessian determinant -32 a^2 b^2 c^2 along the generic plane using fresh local SymPy. Group variables as nonzero pair-vectors (a,f),(b,e),(c,d); all three nonzero forces af=be=cd=0, giving eight coordinate planes; exactly two nonzero produces af=be etc. giving one of three rank-4 smooth quadrics, and at most one nonzero is contained in closures. Each component is irreducible and 2D; derivative equations exclude all other support patterns over char≠2. The Hessian at generic plane is nonsingular ternary quadratic, hence transverse formal A1; the identity F=(af-be-cd)^2-4be cd gives transverse A1 at generic quadric (be invertible), and symmetry handles the remaining. Primary Theorem 3.5 proves prime ideal; the quartic is a normal 4D hypersurface by S2 and singular codim2 R1. Generic 2^3-to-1 coordinate square map and normality yield sign-group quotient; its 1|3 and 2|2 involution fixed loci give eight planes and three quadrics. Explicit characteristic and genericity limitations are respected. Symbolic computation is a consistency certificate for algebra, not a replacement for the exhaustive geometric argument.
+
+## originality
+
+PASS
+
+Primary papers describe the precise quartic/hollow determinant and its hyperdeterminant slice, and a general sign-map degree, but the checked relevant sections do not provide the reduced eleven-component singular locus with A1 transverse germs. A hyperdeterminant ambient singular-locus classification does not automatically cover a fixed linear section, which may acquire singularities from tangency. Best-of-knowledge originality is supported for this natural complete local stratification.
+
+## value
+
+PASS
+
+The smallest squared Grassmannian is a standard algebraic-geometric and statistical quartic. A complete reduced singular-stratum description, generic normal slice analytic type, normality and quotient fixed-locus interpretation are cohesive geometric invariants of this natural model. This is not an arbitrary low-degree numeric sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
