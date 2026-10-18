@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The product threshold \(\Gamma_{\mathrm{prod}}(B_w)=\|w\|_\infty\) is proved with a sharp Cauchy--Schwarz argument. For odd \(n\), pairwise anticommutation gives \(\|B_w\|=\|w\|_2\) exactly. Applying the anchor's pre-relaxation trace-norm step and quantum Pinsker, then optimizing with the support function of the \(\ell_1\) unit ball, yields exactly \(I_{\mathrm{tot}}\ge\tfrac12\operatorname{dist}_2(c,\mathbb B_1)^2\). The depolarizing lifetime follows from exact scalar decay. The checker only corroborates finite instances.
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:2603.01105v1, treats a fixed equal-weight Pauli sum and explicitly does not optimize a fixed family of multipartite correlation inequalities. DOI 10.1038/s41567-026-03302-7 gives the absolute-correlation separability boundary but no quantitative total-correlation distance law. Two-qubit octahedral relative-entropy geometry uses a different measure and does not imply the odd-party theorem. Required-database and own-ledger searches found no implication-equivalent claim. Residual risk remains for differently phrased parity-witness literature and newly indexed work.
+PASS
 
-## Value
-PASS. The theorem replaces one witness direction by the exact envelope of every weighted direction, gives a geometric quantity that can be computed by soft thresholding, is strictly stronger on an explicit physical state family, and produces an exact optimized certification lifetime under local depolarization. It therefore addresses a natural structural gap in the anchor rather than merely changing a constant.
+For any odd n>=3, P_x,P_y,P_z are pairwise anticommuting Hermitian involutions, so B_w²=||w||²_2 I and its operator norm is ||w||_2. On a product state the Bloch-coordinate Cauchy–Schwarz bound gives expectation <=||w||_infty and product Pauli eigenstates achieve equality. For the actual product of rho marginals, trace duality bounds the positive witness gap by ||B_w||*||rho−rho_1⊗...⊗rho_n||_1. Quantum Pinsker with natural logs yields 1/2 times square; maximizing over w using the l1-ball support function ||w||_infty gives precisely 1/2 dist2(c,B1)^2. Local depolarizing c(t)=exp(-nt)c(0) makes the certificate positive iff its l1 sum >1, yielding the stated lifetime. The physical anticommuting-state witness rho_a is positive for a<=1/sqrt2, and gives the strict 3/2 factor versus fixed equal weights.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The source Tian preprint gives the general Pinsker witness mechanism and a fixed equally weighted three-Pauli example; Quensen et al. provide the octahedral separability criterion but not a quantitative total-correlation envelope. Combining anticommuting operator exact norm with duality produces the full REAL weight optimization; that projection formula and resulting best-bound/lifetime classification are absent from inspected source. General Pinsker and support-function duality are acknowledged as standard; originality is their sharp envelope for this specified physical three-parity family.
+
+## value
+
+PASS
+
+This is an exact strongest certificate within an explicitly motivated experimentally accessible observable family, not a claim that the physical total correlation is determined by three numbers. It can strictly improve the anchor lower bound for positive physical states, supplies a closed soft-threshold formula and identifies the precise finite-noise horizon when this certificate ceases to detect correlation. The odd/even anticommutation boundary is mathematically essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

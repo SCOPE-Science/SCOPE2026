@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:24:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any odd n>=3, P_x,P_y,P_z are pairwise anticommuting Hermitian involutions, so B_w²=||w||²_2 I and its operator norm is ||w||_2. On a product state the Bloch-coordinate Cauchy–Schwarz bound gives expectation <=||w||_infty and product Pauli eigenstates achieve equality. For the actual product of rho marginals, trace duality bounds the positive witness gap by ||B_w||*||rho−rho_1⊗...⊗rho_n||_1. Quantum Pinsker with natural logs yields 1/2 times square; maximizing over w using the l1-ball support function ||w||_infty gives precisely 1/2 dist2(c,B1)^2. Local depolarizing c(t)=exp(-nt)c(0) makes the certificate positive iff its l1 sum >1, yielding the stated lifetime. The physical anticommuting-state witness rho_a is positive for a<=1/sqrt2, and gives the strict 3/2 factor versus fixed equal weights.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tian gives a universal observable trace-norm/Pinsker framework; Quensen gives the octahedral threshold but no relative-entropy lower bound; Bell-diagonal two-qubit work concerns different n and entanglement quantity."
+        ],
+        "reasoning": "Generic witness machinery, while broad, does not present the all-weight sharp envelope for odd n Pauli parity; its concrete evaluation here adds the algebraic exact norm and dual maximization.",
+        "searches": [
+          "Tian arXiv:2603.01105v1 Theorem 3.1 and odd-party example",
+          "Quensen et al DOI 10.1038/s41567-026-03302-7",
+          "Kim et al DOI 10.1103/PhysRevA.81.052325"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.01105v1, Theorem 3.1 and example",
+        "DOI:10.1038/s41567-026-03302-7",
+        "DOI:10.1103/PhysRevA.81.052325",
+        "Resultary published-record semantic search, five independently worded exact-object queries on 2026-10-17; indexed nearest-hit titles/implications screened rather than treating a failed search as proof of novelty.",
+        "Pinned repository source tree, RESULT.md, METADATA.json, AUDIT.json opening material, and verifier source at Git commit 40d46a820f74fdf355c691812bdc426ec204bde7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source equal-weight vector (1,1,1) gives (2a−1)^2/6 on rho_a, while current all-weight optimization gives (2a−1)^2/4 for a in (1/2,1/sqrt2]."
+        ],
+        "reasoning": "A specific strict physical-state gap demonstrates that the fixed-weight bound does not already imply the optimized numerical certificate; global physical I_tot may of course be larger than either lower bound.",
+        "searches": [
+          "arXiv:2603.01105v1 Theorem 3.1 and fixed triple-Pauli example",
+          "Quensen et al Nature Physics 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same l1 octahedron occurs as the separability region of the three absolute correlations, but the claimed left side is relative entropy against product marginals, not geometric entanglement distance."
+        ],
+        "reasoning": "The support function ||w||_infty is the common geometry, but the quantitative 1/2 Euclidean distance squared requires norm/Pinsker optimal witness computation not present in separability geometry alone.",
+        "searches": [
+          "arXiv:2603.01105v1 parity correlation and Pinsker total correlation",
+          "DOI:10.1038/s41567-026-03302-7 Pauli parity octahedron",
+          "Resultary semantic: optimized weighted Pauli parity witness Pinsker total correlation distance octahedron"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact certificate-envelope table was found in the relevant indexed findings; nearest hits involve unrelated convex octahedra and projection geometry."
+        ],
+        "reasoning": "The octahedral threshold is known, but a yes/no separability table cannot supply the quantitative best Pinsker total-correlation certificate.",
+        "searches": [
+          "Resultary all-weight Pauli parity envelope semantic query",
+          "search: squared Euclidean distance to l1 octahedron multipartite total correlation"
+        ]
+      },
+      "rationale": "The source Tian preprint gives the general Pinsker witness mechanism and a fixed equally weighted three-Pauli example; Quensen et al. provide the octahedral separability criterion but not a quantitative total-correlation envelope. Combining anticommuting operator exact norm with duality produces the full REAL weight optimization; that projection formula and resulting best-bound/lifetime classification are absent from inspected source. General Pinsker and support-function duality are acknowledged as standard; originality is their sharp envelope for this specified physical three-parity family.",
+      "residual_risks": [
+        "An unindexed related general quantitative witness-geometry treatment might already take this exact dual supremum.",
+        "Even n commuting parity strings have a different operator norm; the optimized certificate is not total correlation itself, and it can vanish for correlated states."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MECHANISM_NOT_WEIGHTED_ENVELOPE",
+          "evidence": [
+            "Theorem 3.1 proves trace-norm/Pinsker witness; odd three-Pauli example uses equal weights and denominator 3, without all-real-w maximization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.01105",
+          "material_read": "Entire public arXiv HTML, in particular Theorem 3.1, parity norm argument, Example 3.6 and depolarizing discussion",
+          "method": "full primary arXiv HTML inspection",
+          "title": "Multipartite parity bounds and total correlation",
+          "trigger": "Same exact information quantity, witness mechanism and anchor example"
+        },
+        {
+          "assessment": "COVERS_OCTAHEDRAL_SEPARABILITY_ONLY",
+          "evidence": [
+            "Absolute Pauli-parity inequality |c_x|+|c_y|+|c_z|<=1, not an optimized total-correlation Pinsker bound."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41567-026-03302-7",
+          "material_read": "Published abstract and cited separability threshold material; complete full text not re-read in this run",
+          "method": "publisher abstract and primary cross-reference evidence",
+          "title": "Hong–Ou–Mandel interference of more than ten indistinguishable atoms",
+          "trigger": "Potential exact octahedral parity boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact strongest certificate within an explicitly motivated experimentally accessible observable family, not a claim that the physical total correlation is determined by three numbers. It can strictly improve the anchor lower bound for positive physical states, supplies a closed soft-threshold formula and identifies the precise finite-noise horizon when this certificate ceases to detect correlation. The odd/even anticommutation boundary is mathematically essential.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Odd n>=3, three full Pauli strings, natural-log quantum Pinsker, equal-rate local depolarizing for lifetime; no even-n envelope or total-correlation equality.",
+    "An unindexed related general quantitative witness-geometry treatment might already take this exact dual supremum.",
+    "Even n commuting parity strings have a different operator norm; the optimized certificate is not total correlation itself, and it can vanish for correlated states."
+  ]
+}
