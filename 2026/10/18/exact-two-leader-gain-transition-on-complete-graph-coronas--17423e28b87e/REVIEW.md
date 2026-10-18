@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The claim concerns exactly two distinct equal-gain pinned vertices on the unit-weight one-leaf corona of a clique, for all integer sizes at least three and all finite positive gains. Eliminating the pendant variables yields an explicit Laplacian resolvent with two scalar denominators; the determinant lemma then supplies exact inverse-trace values for all four possible leader-pair orbits. Two types are strictly dominated. The remaining difference has a quadratic numerator with a unique positive root, so the strict regimes, tie, and counts exhaust all pairs. The independently constructed full matrices agree at 980 exact-rational test instances; these are supplementary to, not the proof of, the all-parameter statement. Nonstandard formulas and the comparisons are implemented symbolically in `verify.py`.
+
+## Originality — PASS (with residual risk)
+Lin–Fardad–Jovanović (arXiv:1302.0450, available complete HTML text) provide the finite-gain noisy-leader inverse-trace formulation and solution methods; Fitch–Leonard (arXiv:1407.1569, available complete HTML text, including their Theorem 2 and examples) give a general two-leader joint-centrality identity and cycle classification; Patterson–Yi–Zhang (arXiv:1708.06873, available complete HTML text) give a resistance formulation and solve paths, cycles and trees. None of the inspected specific classifications treats two-leader complete-graph coronas. The general formulas do not themselves identify the sharp crossover and global orbit exclusions without the new exact comparisons. Searches also found relevant results on coronas addressing different invariants, not this placement objective. A possibly unindexed exact classification is an acknowledged residual risk. Other work on fastest-mixing transition matrices of the same graph optimizes a different variable and objective and does not imply these leader locations.
+
+## Value — PASS
+The result resolves an entire unbounded network family rather than a selected numerical example and quantifies a genuine design reversal with finite noisy feedback: weakly pinned leaders should both occupy the dense core, but sufficiently strongly pinned leaders should be placed on a core and an unpaired leaf. The precisely determined crossover scales quadratically with network size, so the decision is materially gain- and size-dependent. The exact location pattern and threshold can be used directly for network sensor and leader placement; a generic criterion alone does not disclose this transition.
+
+## Boundaries and outstanding risk
+The theorem assumes undirected unit edge weights, exactly two distinct equal-gain leaders and positive finite gains, and uses the unnormalized pinned inverse trace. No extension to arbitrary base graphs or gain allocation is claimed. Existing general algebraic methods can reproduce the result after additional orbit computations; novelty attaches to the explicit solved phase classification, not the existence of such methods. Public-source indexing cannot guarantee absence of equivalent prior work.
+
+Self-review: passed. Independent audit: not yet performed.
