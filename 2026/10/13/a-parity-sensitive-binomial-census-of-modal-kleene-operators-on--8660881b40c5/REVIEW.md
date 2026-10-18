@@ -1,11 +1,21 @@
-# Review of a parity-sensitive binomial census
+# Independent mathematical audit
 
-**Correctness — PASS.** For the explicitly quantified three-axiom class, binary meet preservation is order preservation on a chain. Positivity reduces to one midpoint inequality and consistency reduces to the prohibition of a strict rise to a high value within the lower segment. This gives an exhaustive disjoint low/high classification. The stars-and-bars and hockey-stick counts are derived for even and odd sizes, both with and without top preservation. A standalone brute-force script checks all order-preserving functions through ten elements, including the exact quantified axioms. The script is corroboration, not the infinite proof. **Risk:** the theorem pertains exactly to the stated three axioms; applying a stricter modal convention would change the class.
+## correctness
 
-**Originality — PASS with explicit residual risk.** The primary 2026 abstract reports categorical representation and duality; accessible detailed secondary descriptions provide its defining axioms but neither an exact chain census nor a normal/non-normal split. Searches for the source, terms, aliases, sequence, and equivalent counting descriptions found no same-claim coverage in accessible literature, the published mathematical research index, or the two available own-ledger histories. An ordinary monotone-map count is broader and does not imply these constrained values without the midpoint analysis. **Risk:** the complete 2026 preprint was inaccessible and may contain an unreported equivalent example or classification; no negative full-text conclusion is claimed. The previous 2023 nuclear-Heyting work concerns a stronger/other operator framework and is not itself the claimed count.
+PASS
 
-**Value — PASS.** Newly introduced modal axioms on Kleene algebras motivate a baseline census of their finite-valued semantics. The result classifies every admissible map (rather than merely listing small counts), detects the fixed-point parity effect, and separately enumerates normal and non-normal operators for all positive chain lengths. It provides exact isomorphism-class numbers, constructive representatives, and a reusable finite modal-semantic test family. Its scope is a natural complete classification, not an arbitrary small size cutoff.
+For m-element involutive Kleene chain, binary meet preservation is exactly monotonicity; (Pos) forces f(floor(m/2))>=floor(m/2), and (Con) implies a sharp disjoint low/high profile for f(0..floor((m-1)/2)). In low profile every value is <=s, in high profile all are constant c>s. Stars-and-bars and hockey-stick yield four stated parity-sensitive formulas, with top-preserving counts by fixing f(m-1)=m-1; m=1 checked separately. Independent exhaustive enumeration of nondecreasing maps for m<=9 agrees with both formulas; no extrapolation from checks.
 
-The most important unresolved external issue is access to the complete 2026 source. The mathematical proof is self-contained and the absence of equivalent coverage in searched sources is evidence of, not a guarantee of, originality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The theorem is an explicit all-size classification for precisely three modal Kleene chain axioms, including optional top preservation. The 2026 origin paper introduces representation and duality but accessible abstract/secondary synopsis do not establish these numerical normal forms. Searches found adjacent finite-chain modalities with different axioms, not an implication. Full inaccessible original remains an explicit risk; originality is best-of-knowledge.
+
+## value
+
+PASS
+
+Exact closed enumeration and structural normal form for all finite chain expansions of a newly defined algebraic modality is a natural classification, not merely a table of small cases. It distinguishes normal and non-normal semantics in every parity and yields isomorphism-class counts through chain rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
