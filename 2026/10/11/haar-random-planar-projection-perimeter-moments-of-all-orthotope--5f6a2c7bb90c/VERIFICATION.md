@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proved symbolically by an exact conditional-Haar and beta-integral argument. The standalone `verify.py` provides independent numerical regression tests, **not** a proof for every dimension.
+# Independent mathematical audit
 
-Its principal equalities are
-\[
-\ell_i=\|\operatorname{proj}_S e_i\|,
-\qquad
-\mathbb E\ell_i^2=\frac2d,
-\qquad
-\mathbb E\ell_i\ell_j=\frac{\pi H_d}{2(d-1)}\quad(i\ne j).
-\]
-The code integrates the beta density and angular-elliptic factor using high precision rather than substituting the closed hypergeometric value into itself. It separately generates Haar planes by QR factorization and compares Monte Carlo perimeter means, squared moments, and pair correlations against the exact formula. Small projected-cube hull perimeters are computed directly from projected vertices, independently checking the zonotope-perimeter identity.
+## correctness
 
-An exact proof of the asymptotic variance follows by bounding the hypergeometric remainder after its linear term with the second moment of a beta law and applying a standard Stirling gamma-ratio expansion. Numerical evaluations at increasing dimensions merely confirm the trend.
+PASS
 
-**Scope of verification:** all dimensions in the theorem are covered analytically; the code tests representative finite dimensions only. The high-dimensional limit is a variance statement and makes no distributional claim.
+The planar shadow is a zonotope with exact perimeter 2 sum a_i||proj_S e_i||. Each squared edge projection length is Beta(1,(d−2)/2). Conditional Haar framing yields independent spherical radius/angular variables and E[ℓ_iℓ_j]=pi H_d/[2(d−1)] with H_d the explicitly normalized 3F2. Expanding the square gives coefficient 8/d on diagonals and 4pi H_d/(d−1) on pairwise products. Beta Taylor remainder and Stirling gamma ratio prove the unit cube variance limit 8−5pi/2. The d=3 formula is already known; the evaluated general correlation is the subject.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality based on mathematical statement and implication comparisons, not title matches. The new conditional-Haar beta integral and asymptotics are not mechanical corollaries of quoted line-width/area results. Search self-hit 2026/10/11/SCOPE-haar-random-planar-projection-perimeter-moments-of-all-orthotope--5f6a2c7bb90c identifies the assigned candidate itself, not prior independent coverage.
+
+## value
+
+PASS
+
+The universal pairwise Haar correlation controls the perimeter variance of every orthotope in all dimensions, resolves a previously only numerical four-cube case and yields the finite nonzero high-dimensional variance constant. Its exact all-d kernel is mathematically natural and reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
