@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For the lifted walk, coverage of the cycle occurs precisely when the visited integer range reaches width \\(n-1\\). With \\(b=\\lfloor(n-1)/2\\rfloor\\), the probability \\(K>b\\) is \\(r^{b+1}\\); the strong Markov property after hitting \\(b\\) bounds any later new minimum by another \\(r^{b+1}\\). On the good event coverage occurs exactly at \\(H_{n-1-K}\\), at vertex \\(n-1-K\\), giving the claimed joint error bound for all \\(n\\ge3\\) and \\(p\\in(1/2,1)\\). Unit-upcrossing times have finite exponential moments, mean \\(1/(p-q)\\), and variance \\(4pq/(p-q)^3\\). Their classical central limit theorem, the tight difference between cover and passage times, and a finite-prefix conditional Gaussian limit establish the independent Gaussian–geometric joint law. The standalone verify.py passed 331210 exact/deterministic path assertions, which supplement rather than substitute for this infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Buchanan, Horn and Rombach, arXiv:2209.08079, Theorem 2: graph classification for uniform last-visited-vertex laws under outgoing-neighbor-uniform random walks; no joint time variable.",
+        "Rivera, Sauerwald and Sylvester, DOI 10.1017/S0963548322000372, §5.1: asymptotic cycle cover-time orders for multiple symmetric walkers, not one fixed-directionally biased walker.",
+        "Levin–Peres, Markov Chains and Mixing Times, Chapter 11: symmetric-cycle expected cover time and generic cover-time methods; not the claimed dependent finite-size coupling."
+      ],
+      "reasoning": "The inspected graph-classification and multiple-walker theorems cannot imply the asserted model-specific exact coupling: their model assumptions differ and no statements about a single directionally biased cycle walker’s joint completion time and terminal position are provided. Standard first-passage CLTs account for the Gaussian ingredient, not the exponential joint pathwise transfer.",
+      "searches": [
+        "cover time biased random walk cycle central limit theorem asymptotic normal last visited vertex",
+        "cover time directed cycle biased random walk limiting distribution drift cover time central limit",
+        "asymptotic independence last visited vertex cover time biased random walk cycle geometric gaussian",
+        "arXiv:2209.08079",
+        "Rivera Sauerwald Sylvester 2023 multiple random walks cycles cover times"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.15115 (materially inspected preprint)",
+      "arXiv:2209.08079 (materially inspected preprint)",
+      "doi:10.1017/S0963548322000372 (§5.1 inspected)",
+      "Levin–Peres, Markov Chains and Mixing Times, Chapter 11 (accessible excerpt)",
+      "Aldous–Fill, Reversible Markov Chains and Random Walks on Graphs, Chapter 6 (accessible excerpt)",
+      "Math research record semantic queries: biased cycle last location + cover time; lifted range/ultimate minimum; joint normal/geometric limit"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper yields P(L_n=k) but does not determine a coupling involving T_n; a marginal does not determine a joint law.",
+        "The earlier classification characterizes graph classes, not biased one-dimensional hitting-time fluctuations.",
+        "Classical gambler’s ruin and i.i.d. renewal CLTs are prior tools; the joint good event and its explicit \\(2r^{b_n+1}\\) bound convert them into a pathwise cover-time/terminal-vertex theorem."
+      ],
+      "reasoning": "The new finite-size good-event bound and joint limit are not direct restatements of the compared theorems. Their proof is short because a positive drift makes the ultimate minimum geometrically controlled; the specific two-variable coupling requires using that minimum simultaneously in the terminal vertex and time. General prior drifted-range results not indexed by the searches remain a residual implication risk.",
+      "searches": [
+        "arXiv:2610.15115 Theorems 3.4 and 4.1",
+        "arXiv:2209.08079 directed last vertex",
+        "Levin Peres Markov Chains and Mixing Times cycle cover time Chapter 11",
+        "joint central limit theorem cover time and final unvisited vertex on biased cycle asymptotically independent normal geometric"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.15115, Theorem 4.1: terminal vertex has a truncated geometric-type marginal; Theorem 3.4 uses gambler-ruin expansion directions.",
+        "arXiv:2610.15115, §6.2: discusses cover-time questions and terminal-vertex concentration but not a joint exponential coupling.",
+        "The pair (cover time, last-vertex offset) is mathematically stronger data than either marginal, and cannot be recovered from the terminal-vertex marginal alone."
+      ],
+      "reasoning": "The source marginal is consistent with the geometric coordinate but cannot imply independence from centered cover time or the probability of exact equality with an ultimate-minimum-indexed passage time. Searches for the equivalent lifted-walk range formulation did not find that joint theorem.",
+      "searches": [
+        "biased nearest-neighbor random walk cycle cover time central limit theorem last visited site joint independence Gaussian geometric",
+        "geometric all-time minimum drifted random walk cover time first full range n-1 exponentially accurate hitting time shifted by minimum",
+        "last visited site cover time joint law random walk ring bias",
+        "arXiv:2610.15115 §§3–4, §6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is an all-size inequality for every real bias in (1/2,1), followed by an infinite-size joint weak limit, not a fixed finite parameter or entry from a published numerical table.",
+        "Targeted record searches returned covering-related studies of other walk geometries and protocols, with no exact probability bound of this form."
+      ],
+      "reasoning": "A finite cover-time or last-vertex lookup table would not imply an exponentially uniform coupling for all n and all fixed p. No known exact table provides the joint pair asserted here; failure to locate such a table alone is not offered as a novelty proof.",
+      "searches": [
+        "biased simple random walk on cycle coverage time variance asymptotic",
+        "last cover time geometric Brownian biased cycle",
+        "60J10 random walk on cycles last coverage terminal location hitting-time CLT"
+      ]
+    },
+    "rationale": "Full-text comparison with the motivating 2026 biased-cycle source shows only the marginal terminal-vertex law and the interval-expansion method, not the exponentially controlled *joint pathwise* cover-time/terminal-offset coupling or the independent Gaussian–geometric joint limit. Earlier directed-graph last-visit research addresses uniformity and graph classification, not the same joint functional. Several targeted publication and mathematical-record searches yielded no direct equivalent; a general unindexed drifted-range theorem remains a genuine priority risk.",
+    "residual_risks": [
+      "An earlier, unindexed drifted-range or cover-time theorem could imply the new joint limit or even the exact exponential coupling.",
+      "The standard ingredients make the Gaussian marginal unsurprising; only the finite-size joint event and decoupling together support the originality and value decision.",
+      "No independent priority search or proof audit has been performed; textbook coverage was assessed from accessible chapter material rather than exhaustive full-book reading."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the one-dimensional last-location marginal. Does not state the exponentially accurate pathwise joint time-location coupling or Gaussian–geometric asymptotic independence.",
+        "evidence": "Theorems 3.4 and 4.1, Corollary 4.8, §§6.2–6.3; first-public submission date 2026-10-10.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.15115",
+        "material_read": "Introduction; connected-arc/expansion framework §§3.1–3.4; biased last-vertex theorem and proof §4.1; unbiased result §4.2; stated time-dependent result; applications and open-problem/conclusion §§6.1–6.3.",
+        "method": "Read the openly accessible full-text rendering available at the arXiv abstract address, checking the named results and their hypotheses against the candidate.",
+        "title": "Last-Coverage Probabilities of Random Walks on Cycle Graphs for Symmetric, Biased, and Time-Dependent Walks",
+        "trigger": "Same nearest-neighbour, homogeneous biased cycle and exact last-vertex distribution; most plausible coverage."
+      },
+      {
+        "assessment": "Directed-graph classification for uniform last-vertex laws, not a fixed-biased random walk cover-time coupling.",
+        "evidence": "Theorem 2 and introduction; first public version dated 2022-09-16.",
+        "identifier_or_url": "https://arxiv.org/abs/2209.08079",
+        "material_read": "Complete available full-text rendering, including Lemma 1, Theorem 2, and their proofs.",
+        "method": "Read freely available arXiv article rendering and checked model conventions and theorem conclusions.",
+        "title": "On the Last New Vertex Visited by a Random Walk in a Directed Graph",
+        "trigger": "Earlier directly relevant last-visited-vertex theory for directed graphs."
+      },
+      {
+        "assessment": "Multiple symmetric-walker cover-time orders, not the single directionally biased walker’s joint limit.",
+        "evidence": "2023 Combinatorics, Probability and Computing, §5.1.",
+        "identifier_or_url": "https://doi.org/10.1017/S0963548322000372",
+        "material_read": "Abstract, model definitions in introduction, and §5.1 on cycle cover-time orders and statements of Theorems 5.1–5.2.",
+        "method": "Inspected available open-access article text and cycle-specific statement.",
+        "title": "Multiple random walks on graphs: mixing few to cover many",
+        "trigger": "Potentially stronger cover-time theorem on cycles."
+      },
+      {
+        "assessment": "The standard symmetric cycle expectation and gambler’s-ruin method are prior ingredients, not a direct full-claim source.",
+        "evidence": "Chapter 11, Example 11.1 (symmetric cycle).",
+        "identifier_or_url": "https://pages.uoregon.edu/dlevin/MARKOV/markovmixing.pdf",
+        "material_read": "Accessible HTML excerpt of Chapter 11’s cycle example and cover-time methods, not claimed as a full-book inspection.",
+        "method": "Read chapter excerpts surfaced in scholarly web search; used only to identify the scope of standard background.",
+        "title": "Markov Chains and Mixing Times",
+        "trigger": "Canonical stronger/general cover-time and first-passage background."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f6cb2e88-b6d0-460f-813e-ead6b7cfdedb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cycle exploration risk is two-dimensional: where the final unexplored location lies and how long exploration takes. The recent arXiv:2610.15115 establishes only the last-site marginal, while the theorem gives an exponentially reliable joint pathwise representation with an exact finite-n mismatch bound, plus independent Gaussian–geometric asymptotics and conditional time limits. This is a substantive structural coupling rather than another derivation of a known geometric marginal or a generic first-passage CLT. Limitations to fixed positive bias and one walker are explicit.",
+    "status": "PASS"
+  }
+}
