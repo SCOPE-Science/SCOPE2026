@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T11:52:57.201881Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ulam d=6−LCS is invariant under common symbol relabeling. Fix identity among codewords; exactly132 other S6 permutations have d≥4, with 612 compatible edges among these 132. Independent exact LCS dynamic-programming enumeration gave 298 compatibility triangles and zero extendable triangles (so maximum4, no size5). Every triangle yields normalized four-word maximum, hence exactly 298*720/4=53640 labeled maxima; independently built and deduplicated all 53640. Each such maximum has all six distances exactly4. Independently enumerated 1440-group orbits using just transposition, cycle relabeling and position reversal generators; obtained 57 orbits (seven360, twenty-nine720, twenty-one1440). Checked every normalized maximum lacks subgroup closure, excluding left subgroup cosets. All counts are exhaustive finite calculations for S6, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Ulam bounds and sphere formulas do not classify maximizers",
+          "Resultary Oct4 covers n=5,d=3 not n=6,d=4"
+        ],
+        "reasoning": "Neither the stronger metric-based bound nor adjacent parameter orbit census implies the exact 53640 n6 count or 57 natural orbit types.",
+        "searches": [
+          "arXiv:1504.05100 Ulam code Table I",
+          "arXiv:1712.03639 Ulam sphere size",
+          "Resultary published (5,3) code orbits https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-census-of-maximum-5-3-ulam-permutation-codes--b06744f952a6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1504.05100",
+        "arXiv:1202.0932",
+        "arXiv:1712.03639",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-census-of-maximum-5-3-ulam-permutation-codes--b06744f952a6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier only proves max cardinality four",
+          "Published (5,3) enumeration describes a different metric graph"
+        ],
+        "reasoning": "A size bound 4 yields neither number nor group orbit structure of maximum codes, and no reduction from n5,d3 to n6,d4 was identified.",
+        "searches": [
+          "Göloğlu Lember Riet Skachek New Bounds Table I arXiv:1504.05100",
+          "Resultary complete census of max (5,3) https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-census-of-maximum-5-3-ulam-permutation-codes--b06744f952a6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1202.0932 identifies Ulam distance with translocation metric, d=n−LCS",
+          "Published table arXiv:1504.05100 gives only A_U(6,4)=4"
+        ],
+        "reasoning": "Translocation/Ulam and LCS≤2 aliases identify the same optimal code families; no retrieved source enumerates full same-parameter extremizers.",
+        "searches": [
+          "Resultary semantic Ulam permutation codes A_U(6,4) all optimal equality codes orbit classification",
+          "four permutations on six symbols pairwise LCS≤2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2015 Table I records the scalar size4 at (n,d)=(6,4)",
+          "The current 298 normalized equality cases and 57-orbit count are absent from inspected table"
+        ],
+        "reasoning": "Previously known optimum does not encode multiplicity, equidistance or orbit classification; new finite complete census is a natural precise invariant, not recomputation of a table.",
+        "searches": [
+          "A_U(6,4)=4 published Ulam table",
+          "53640 Ulam code maximal cliques six permutations"
+        ]
+      },
+      "rationale": "Göloğlu–Lember–Riet–Skachek give exact optimum A_U(6,4)=4 in their Table I, not number of optimal sets or their 57-orbit/coset/equidistance structure. Resultary older published complete Ulam census concerns (n,d)=(5,3), a different parameter cell and does not imply (6,4) equality classes. Metric, LCS bounds and sphere-volume formulas do not settle the extremizer classification.",
+      "residual_risks": [
+        "Unindexed prior finite census of Ulam (6,4) equalizers may exist despite checked primary table and published-finding search.",
+        "57 orbits refer solely to the declared 1440-element subgroup, not a claimed full metric isometry group."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SCALAR_OPTIMUM_ONLY",
+          "evidence": "Table I sets A(6,4)=4; no statement of all 53640 equality cases or 57 natural orbits.",
+          "identifier_or_url": "arXiv:1504.05100",
+          "material_read": "Primary full accessible arXiv PDF relevant definitions, computational Table I and surrounding text; table visually inspected",
+          "method": "Lawful arXiv PDF text and screenshot",
+          "title": "New Bounds for Permutation Codes in Ulam Metric",
+          "trigger": "Direct exact (6,4) previously known optimum"
+        },
+        {
+          "assessment": "DIFFERENT_PARAMETER",
+          "evidence": "Counts 4020 maxima at (n,d)=(5,3) and 24 orbits; no reduction to (6,4).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-census-of-maximum-5-3-ulam-permutation-codes--b06744f952a6",
+          "material_read": "FULL published RESULT.md including calculation, group action, and statement",
+          "method": "GitHub connector full primary publication",
+          "title": "Complete census of maximum (5,3) Ulam permutation codes",
+          "trigger": "Closest prior Resultary equality-orbit census with same metric"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_CENSUS",
+          "evidence": "Metric equivalence and bounds do not enumerate exact equality cases for six symbols.",
+          "identifier_or_url": "arXiv:1202.0932",
+          "material_read": "Primary metric and principal general bounds, relevant source passages",
+          "method": "Lawful public arXiv article",
+          "title": "Error-Correction in Flash Memories via Codes in the Ulam Metric",
+          "trigger": "Original Ulam/translocation distance and coding bounds"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_EXHAUSTIVE_READING",
+          "evidence": "No whole-document exclusion based on partial read; sphere sizes alone do not logically imply the orbit classification.",
+          "identifier_or_url": "arXiv:1712.03639",
+          "material_read": "Available introduction/abstract and reported sphere-size result, not entire text this run",
+          "method": "Lawful arXiv public text/metadata",
+          "title": "Ulam Sphere Size Analysis for Permutation and Multipermutation Codes Correcting Translocation Errors",
+          "trigger": "Potential domination via exact sphere formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical small Ulam coding-theory boundary with known maximum size, the full 53640 count and 57 symmetry-orbit decomposition determine genuinely finer geometry; equidistance/no-subgroup constraints inform constructions and symmetry reductions, not an arbitrary restatement of known A_U(6,4)=4.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1504.05100",
+    "arXiv:1202.0932",
+    "arXiv:1712.03639",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-census-of-maximum-5-3-ulam-permutation-codes--b06744f952a6"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Unindexed prior finite census of Ulam (6,4) equalizers may exist despite checked primary table and published-finding search.",
+    "57 orbits refer solely to the declared 1440-element subgroup, not a claimed full metric isometry group.",
+    "Public metadata sanitization not prepared; no public import approved."
+  ],
+  "schema_version": 1
+}
