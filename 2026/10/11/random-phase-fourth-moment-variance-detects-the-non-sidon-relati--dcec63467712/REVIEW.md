@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Fourier orthogonality reduces the fourth norm to squared aperiodic correlations. Expanding over the independent phase torus shows that every nonconstant character is of exactly one of two types: a three-term-progression character of multiplicity one, or a four-distinct equal-sum character of multiplicity two. Character orthogonality then gives the weights \(8\) and \(32\) after restoring the factor between correlation energy and the fourth norm. The zero-variance equivalence is exactly the finite-integer \(B_2\) condition.
+## correctness
 
-## Originality
-PASS. The closest inspected archive source treats phase minimax and Sidon constants for three frequencies, not random-phase fourth moments. The random-polynomial source located concerns expected \(L^p\) norms, and the structured-polynomial source concerns deterministic/asymptotic fourth norms and autocorrelation. Targeted searches for the exact variance law, its three-term-progression/four-distinct decomposition, and the Sidon phase-independence equivalence found no implication-equivalent statement. A residual risk remains that older random-Fourier literature uses different notation.
+PASS
 
-## Value
-PASS. Variance under random phase is a natural stability statistic for sparse Fourier sums. The formula identifies the complete support invariant governing that fluctuation, with distinct exact weights for the only two nontrivial additive relation types, and yields a clean rigidity theorem: precisely the Sidon supports have phase-independent fourth norm. This is structural rather than a numerical slice or recomputation.
+For any finite A⊂Z, Parseval turns the fourth power L⁴ norm into n²+2Σ_{h>0}|C_h|². The diagonal of E=Σ|C_h|² is binomial(n,2); independent Haar characters make every off-diagonal term mean zero. For positive h and distinct correlation start points x<y, let d=y−x. The exponent vector is (+ at x+h and x+d; − at x and x+d+h). If d=h it is the unique 3-term progression character (−1,2,−1) and its conjugate; each counts 2 in Var(E). If d≠h it is a four-distinct equal-sum character, and (d,h) versus (h,d) are its only two occurrences; the conjugate pair contributes 8 in Var(E). Thus Var(X)=4(2T+8Q)=8T+32Q; every nontrivial B₂ collision in integer support is of one of these two forms. Independently enumerated exponent vectors for all 255 nonempty subsets of {0,…,7}, comparing coefficients exactly with T,Q, not as replacement for the proof. Conjugates are distinct and no torsion occurs on Z.
 
-## Closest literature and limitations
-Neuwirth gives exact Sidon constants for three-element spectra and develops the phase-geometric setting; Borwein--Lockhart study expected norms of random polynomials; Katz relates fourth norms to aperiodic autocorrelation for structured coefficient families. None of the inspected material states the arbitrary-support variance decomposition. The result is restricted to finite subsets of \(\mathbb Z\) and Haar unit phases.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Neuwirth’s three-frequency Sidon constant concerns sup norm extremization, not random L⁴ fourth-power variance; Choi–Mossinghoff and Borwein–Lockhart treat full consecutive coefficient supports and average/asymptotic moments, not finite arbitrary sparse A. The published Resultary exact parity formula on A={0,…,n−1} follows as a special case of this T(A),Q(A) theorem; the implication is from the assigned claim to prior work, not conversely. Its phase-independent rigidity for all Sidon B₂ sets and two collision weights for every finite A supply genuinely broader additive structure.
+
+## value
+
+PASS
+
+The formula identifies precisely which additive relations control random Fourier fourth-power norm fluctuations for EVERY finite integer support, distinguishing 3-point progressions (weight 8) and 4-point pair-sum collisions (weight 32). The exact zero-variance iff B₂ rigidity is a natural independent structural characterization rather than a small finite census, and explains support sensitivity invisible in n-only random-polynomial results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T04:53:48.771164Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/random-phase-fourth-moment-variance-detects-the-non-sidon-relati--dcec63467712/RESULT.md",
+        "Git artifacts/verify.py 0586b0379e7f359b19a1e41e715989b914d51a95",
+        "independent 255-support exact phase-character enumeration"
+      ],
+      "rationale": "For any finite A⊂Z, Parseval turns the fourth power L⁴ norm into n²+2Σ_{h>0}|C_h|². The diagonal of E=Σ|C_h|² is binomial(n,2); independent Haar characters make every off-diagonal term mean zero. For positive h and distinct correlation start points x<y, let d=y−x. The exponent vector is (+ at x+h and x+d; − at x and x+d+h). If d=h it is the unique 3-term progression character (−1,2,−1) and its conjugate; each counts 2 in Var(E). If d≠h it is a four-distinct equal-sum character, and (d,h) versus (h,d) are its only two occurrences; the conjugate pair contributes 8 in Var(E). Thus Var(X)=4(2T+8Q)=8T+32Q; every nontrivial B₂ collision in integer support is of one of these two forms. Independently enumerated exponent vectors for all 255 nonempty subsets of {0,…,7}, comparing coefficients exactly with T,Q, not as replacement for the proof. Conjugates are distinct and no torsion occurs on Z.",
+      "residual_risks": [
+        "Requires independent Haar unit phases; finite cyclic groups or non-Haar coefficients have different collision structures.",
+        "No distribution of X beyond its first two moments is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior Resultary consecutive A={0,…,n−1} exact parity formula; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-finite-variance-of-the-fourth-moment-of-a-random-unimodula--2ac4e1c327c6"
+        ],
+        "reasoning": "It covers only interval supports. Distinct gaps can change T,Q at the same cardinality n, so its n-only formula cannot imply the arbitrary-A decomposition; conversely substituting interval counts into the new theorem recovers it.",
+        "searches": [
+          "Steinhaus random phases L4 norm fourth moment variance Sidon B2 additive energy three-term progressions",
+          "random unimodular polynomial exact finite variance parity consecutive support Resultary"
+        ]
+      },
+      "checked_sources": [
+        "https://www.sfu.ca/~schoia/paper/mahlermeasure.pdf",
+        "https://neuwirth.perso.math.cnrs.fr/the-sidon-constant-of-sets-with-three-elements/sidon-constant-of-3-sets.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-finite-variance-of-the-fourth-moment-of-a-random-unimodula--2ac4e1c327c6",
+        "Resultary semantic query: Steinhaus random phases L4 norm fourth moment variance Sidon B2 additive energy three-term progressions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New arbitrary-A variance 8T+32Q specializes to prior parity formula when A is an interval; Choi–Mossinghoff studies asymptotic normalized moments for consecutive supports."
+        ],
+        "reasoning": "Prior information does not determine variance for A={0,1,3,4} versus A={0,1,2,3}; equal n supports have distinct collision counts. New result dominates the interval result rather than being dominated.",
+        "searches": [
+          "Steinhaus random phases L4 norm fourth moment variance Sidon B2 additive energy three-term progressions",
+          "https://www.sfu.ca/~schoia/paper/mahlermeasure.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-finite-variance-of-the-fourth-moment-of-a-random-unimodula--2ac4e1c327c6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Neuwirth 2001 primary first page minimizes L∞ for exactly three frequencies; https://neuwirth.perso.math.cnrs.fr/the-sidon-constant-of-sets-with-three-elements/sidon-constant-of-3-sets.pdf",
+          "Choi–Mossinghoff 2011 uses full consecutive support and asymptotic averages; https://www.sfu.ca/~schoia/paper/mahlermeasure.pdf"
+        ],
+        "reasoning": "Sidon in the L∞ extremal sense is not equivalent to Sidon B₂ support rigidity for random L⁴ variance; the exact torus-character observable differs.",
+        "searches": [
+          "Steinhaus random phases L4 norm fourth moment variance Sidon B2 additive energy three-term progressions",
+          "unimodular random polynomial fourth norm additive energy of sparse frequency support",
+          "Steinhaus phases fourth power L4 variance Sidon B2 relation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest random-polynomial record is explicit contiguous-support parity formula; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-finite-variance-of-the-fourth-moment-of-a-random-unimodula--2ac4e1c327c6",
+          "Choi–Mossinghoff primary pp.1–3 states average norm and asymptotic concentration, not every-support T/Q decomposition; https://www.sfu.ca/~schoia/paper/mahlermeasure.pdf"
+        ],
+        "reasoning": "No existing checked database table gives the two independent combinatorial counts for all A or the zero-variance B₂ criterion.",
+        "searches": [
+          "Steinhaus random phases L4 norm fourth moment variance Sidon B2 additive energy three-term progressions",
+          "Sidon set B2 3-term progression additive quadruple random fourth moment",
+          "Choi Mossinghoff average Mahler norm variance theorem"
+        ]
+      },
+      "rationale": "Neuwirth’s three-frequency Sidon constant concerns sup norm extremization, not random L⁴ fourth-power variance; Choi–Mossinghoff and Borwein–Lockhart treat full consecutive coefficient supports and average/asymptotic moments, not finite arbitrary sparse A. The published Resultary exact parity formula on A={0,…,n−1} follows as a special case of this T(A),Q(A) theorem; the implication is from the assigned claim to prior work, not conversely. Its phase-independent rigidity for all Sidon B₂ sets and two collision weights for every finite A supply genuinely broader additive structure.",
+      "residual_risks": [
+        "Unindexed additive combinatorics or radar literature may state a character-collision formula under autocorrelation variance terminology.",
+        "Prior consecutive-support variance proof suggests the arbitrary-support extension is straightforward but structurally broader; value/originality are assessed on the exact all-support claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Addresses full consecutive support and asymptotic averages/concentration; no sparse-support additive T/Q relation in material read.",
+          "evidence": [
+            "Definition U_n = all consecutive n coefficients unimodular; Section 1 displays mean 2n²−n and asymptotic expectations."
+          ],
+          "identifier_or_url": "https://www.sfu.ca/~schoia/paper/mahlermeasure.pdf",
+          "material_read": "Full PDF pp.1–3 including introduction, precise full-consecutive-support U_n ensemble and statements of mean/asymptotic moments.",
+          "method": "Extracted primary PDF and page-image inspection of printed p.3 (PDF index2).",
+          "title": "Average Mahler’s measure and Lp norms of unimodular polynomials (Choi–Mossinghoff, 2011)",
+          "trigger": "Closest random unimodular moment literature"
+        },
+        {
+          "assessment": "Different observable: L∞ extremization on 3-point sets, not Haar-phase L⁴ variance or B₂ support condition.",
+          "evidence": [
+            "First page phase minimax for {λ0,λ1,λ2}, secant expression of Sidon constant."
+          ],
+          "identifier_or_url": "https://neuwirth.perso.math.cnrs.fr/the-sidon-constant-of-sets-with-three-elements/sidon-constant-of-3-sets.pdf",
+          "material_read": "Primary PDF abstract and introduction p.1 plus definition of L∞ minimax and Sidon constant.",
+          "method": "Open author's PDF and page-image inspection PDF page0.",
+          "title": "The Sidon constant of sets with three elements (Neuwirth, 2001)",
+          "trigger": "Finite spectra with Sidon terminology and phase relationships"
+        },
+        {
+          "assessment": "Covered interval supports only; no arbitrary finite frequency sets or Sidon zero-variance classification.",
+          "evidence": [
+            "Variance for n consecutive frequencies = parity-dependent polynomials; proof uses same torus-character multiplicities restricted to interval."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-finite-variance-of-the-fourth-moment-of-a-random-unimodula--2ac4e1c327c6",
+          "material_read": "Entire frozen public RESULT.md: mean and even/odd variance, character multiplicities, verification and limitations.",
+          "method": "Read GitHub published RESULT.md blob b8aa946f4804feb93fa581cfea35564b49edca68.",
+          "title": "Exact finite variance of the fourth moment of a random unimodular polynomial (published prior record)",
+          "trigger": "Same random variable on consecutive supports"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.sfu.ca/~schoia/paper/mahlermeasure.pdf",
+        "https://neuwirth.perso.math.cnrs.fr/the-sidon-constant-of-sets-with-three-elements/sidon-constant-of-3-sets.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-finite-variance-of-the-fourth-moment-of-a-random-unimodula--2ac4e1c327c6",
+        "all finite-support character classification"
+      ],
+      "rationale": "The formula identifies precisely which additive relations control random Fourier fourth-power norm fluctuations for EVERY finite integer support, distinguishing 3-point progressions (weight 8) and 4-point pair-sum collisions (weight 32). The exact zero-variance iff B₂ rigidity is a natural independent structural characterization rather than a small finite census, and explains support sensitivity invisible in n-only random-polynomial results.",
+      "residual_risks": [
+        "No inference to cyclic/torsion supports or non-Haar coefficient distributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "This is a scientific review and private evidence record, not a certificate of publication, expert attestation, formal Lean verification or independence claim.",
+    "No public metadata, scientific RESULT/SLOGAN or other repository blob modified. Every publication plan remains not_ready until complete confidentiality sanitization.",
+    "The signed continuation checkpoint establishes position only, not scientific verification or external certification."
+  ],
+  "schema_version": 1
+}
