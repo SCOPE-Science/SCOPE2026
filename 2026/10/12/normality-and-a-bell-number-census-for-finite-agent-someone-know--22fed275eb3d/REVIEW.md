@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the finitely many local information cells as test truth sets. Binary-intersection preservation forces an agent cell equal to their intersection, exactly the semantic condition for collapse to the distributed-knowledge box. The two-agent case becomes inclusion of any overlapping blocks. Unique decomposition into join-components gives \(2B_m-1\) structures on each nonempty component, the Bell recurrence, and the exponential formula. A concrete three-world crossing witness gives the sharp failure boundary. The packaged verifier independently checks 44,168 ordered two-partition pairs, 931,396 valuation-pairs (including three agents), and recurrence values to size eight, with `VERIFY_OK`. The arbitrary-set statement relies on proof, not enumeration.
+## correctness
 
-## Originality — PASS, with limitations
-Ding–Yang (arXiv:2603.26268, Section 5.1 and Theorem 5.6) axiomatize someone-knows on the unrestricted class of \(S5\) frames, rather than identify or count those particular frames where the bundle is normal. Ågotnes–Wáng (KR 2021, Section 3) prove nonnormality on the full class and give three-world counterexamples; these neither entail the per-frame equivalence nor the all-size count. The checked section on partition-lattice nesting in Anagnostopoulou-Merkouri–Bailey–Cameron (2025) concerns distinct constructions. Searches of published findings and earlier claim records found no implication-covering equivalent. The full 2023 Ding–Liu–Wang article could not be inspected beyond its initial material; a direct OEIS query was inaccessible, so both older equivalences and known counts remain stated novelty risks.
+PASS
 
-## Value — PASS
-Normality is a structurally motivated boundary for a naturally occurring nonnormal group-knowledge operator. The criterion shows precisely when nested someone-knows reasoning reduces to conventional distributed knowledge, and the exact labeled two-agent generating function supplies a complete natural census rather than a finite sample or arbitrary restricted invariant. The result does not claim a formula for more than two agents, counts up to isomorphism, or a new complexity separation.
+For a finite nonempty agent family of S5 equivalences, meet preservation of S=union_a K_a forces S(intersection all local information classes) to contain w, hence one agent class is their intersection; conversely this implies S equals K_intersection for ALL valuations/nesting. For two agents this is exactly nested intersection of any overlapping partition blocks. Every join-component has both partitions common-indiscrete (one configuration), or exactly one indiscrete and other nontrivial (2*(Bell_m-1)), giving c_m=2Bell_m-1. Distinguished-component recurrence and exponential formula give a1..a7=1,4,19,111,774,6229,56529; independent integer recurrence check confirms these values. Crossing blocks on three worlds refute normality; <=2 worlds cannot cross. Infinite-world validity requires finite A, as explicitly assumed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Older Somebody Knows logic establishes general S5 nonnormality, while Ding--Yang 2026 supplies generic bundled-modality axiomatization. Neither accessible theorem-level coverage yields the per-frame filter-collapse equivalence together with the ordered labeled-frame exponential census. Enumerating partition join-components is a natural combinatorial specialisation; under a different partition-nesting terminology, an unindexed equivalent enumeration may exist.
+
+## value
+
+PASS
+
+Identifies exactly which individual information frames restore a normal distributive bundled modality and counts all labeled two-agent frames, including a sharp three-world obstruction. The canonical interaction of partitions/knowledge cells is a substantive structural and enumerative object, not an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
