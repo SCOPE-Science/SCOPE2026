@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For every prime \\(p\\mid N\\), reduction U_N→F_p^× is an onto group map with equal fibers. Fourier inversion of the elementary-symmetric subset enumerator gives exactly two counts, differing by \\((-1)^r B_{p,m}(r)\\). The finite geometric product identity holds for p=2 as well as odd primes. Every coefficient B in degrees \\(0\\) through \\(\\varphi(N)\\) is a positive bounded-composition count, so uniformity modulo N is contradicted after projection for every r. The proof includes all endpoints. The standalone DP checks 95 moduli and all their relevant prime divisors/cardinalities/residues but is supportive finite evidence only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wagon and Wilf (1994), theorem, pp.2, 5-6, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v1i1r3/pdf/: uniformity iff a Gaussian-binomial divisibility for fixed subsets of [n]. The theorem has a different underlying set.",
+        "Gaitanas (2023), Theorem 1.1, https://arxiv.org/abs/2304.14141: uniformity of *all nonempty subset sums pooled* for odd N, a theorem in the opposite granularity.",
+        "Hamidoune (1994), abstract, https://doi.org/10.1112/blms/26.6.557: existence of prescribed-cardinality subset sums in prime residue groups, rather than exact multiplicities over U_N."
+      ],
+      "reasoning": "Neither the contiguous-integer criterion nor pooled-nonempty equidistribution implies exact signed counts at each cardinality for the unit system modulo all composite moduli. The 1994 prime-instance nonuniformity is weaker than the exact all-moduli coefficient theorem. A general character enumerator could dominate this result if an explicit unit-system coefficient evaluation is found; this remains an originality risk.",
+      "searches": [
+        "fixed size subset sums reduced residue system not uniformly distributed mod n all cardinalities",
+        "count k-element subsets of units Z_n^× whose sum is divisible by prime p",
+        "Wagon Wilf When are subset sums equidistributed modulo m full text 1994",
+        "For every modulus n≥2 and any subset cardinality r, the sums of r-element subsets of the units modulo n are never uniformly distributed among residue classes; Fourier coefficient of primitive pth root always nonzero"
+      ]
+    },
+    "checked_sources": [
+      "Wagon and Wilf (1994), DOI 10.37236/1183, full primary paper",
+      "Gaitanas (2023), arXiv:2304.14141, relevant full-text sections",
+      "Hamidoune (1994), DOI 10.1112/blms/26.6.557, publisher abstract",
+      "Published mathematical research record search (titles, summaries, and implication comparisons)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wagon and Wilf (1994) theorem and proof https://www.combinatorics.org/ojs/index.php/eljc/article/download/v1i1r3/pdf/: when N=p prime, U_p=[1,p-1] and their condition rules out uniformity, but for general N, U_N is not a full interval. Their stated results do not evaluate the coefficient B for repeated nonzero prime residues.",
+        "Gaitanas (2023), Theorem 1.1 https://arxiv.org/abs/2304.14141: summing all r≥1 produces a uniform distribution for odd N, while our theorem gives nonzero biases for every r; these statements are compatible by cancellation.",
+        "Example N=21,r=6: binomial(12,6)=924 is divisible by 21, yet the new formula predicts counts (402,261,261) modulo 3. Ordinary cardinality divisibility cannot imply this conclusion."
+      ],
+      "reasoning": "The new exact prime-level contrast determines every residue count after projection to p and strictly excludes uniformity at every cardinality. Earlier interval results cover its N-prime nonuniformity corollary but not its composite-N counts, while the pooled 2023 theorem neither gives nor rules out the per-r statement. An unstated general elementary-symmetric-function identity may imply the formula and would supersede originality; no such result was located.",
+      "searches": [
+        "\"When are subset sums equidistributed modulo m\" full text \"relatively prime\"",
+        "\"On subset sums of Z_n units which are equally distributed modulo n\" fixed cardinality",
+        "Fixed-cardinality sums of r distinct units in Z/NZ fail equidistribution for every r, with signed bias for residues mod each prime factor p given by [z^r](1+z+...+z^(p-1))^(phi(N)/(p-1)); contrasts with uniformity of unrestricted nonempty subset sums for odd N"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wagon and Wilf (1994), pages 2 and 4-6, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v1i1r3/pdf/: their size-t coefficient is the Gaussian-binomial enumerator for the initial interval, not the full unit set of composite N.",
+        "Gaitanas (2023), introduction and Theorem 1.1, https://arxiv.org/abs/2304.14141: sums pooled across all nonempty cardinalities; a fixed-cardinality operation is introduced but no two-level prime-projected count formula is given."
+      ],
+      "reasoning": "The natural equivalent formulations are (i) nonzero Fourier coefficients of the size-r elementary symmetric polynomial in the characters of units and (ii) the exact difference between zero and nonzero sum counts modulo p. The prime-modulus specialization of the nonuniformity is implicit in the 1994 Gaussian-binomial theorem, but neither inspected source states the all-moduli/all-cardinalities signed positive coefficient law.",
+      "searches": [
+        "\"subsets\" \"reduced residue\" \"sums\" \"cardinality\" modulo n",
+        "\"the number of k-subsets of reduced residue system with zero sum modulo p\"",
+        "\"sum of r distinct nonzero elements modulo p exact binomial\"",
+        "\"distribution of cardinality k subset sums of relatively prime residue classes modulo n enumeration cyclic sieving Ramanujan sums\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wagon and Wilf (1994), page 6, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v1i1r3/pdf/: a concrete table/computation of a remainder of a Gaussian polynomial of a full interval, not a unit-subset residue table.",
+        "Gaitanas (2023), theorem and counting of collections A for which all nonempty subset sums equidistribute, https://arxiv.org/abs/2304.14141: counts different objects."
+      ],
+      "reasoning": "No exact table or database matching the prime-projected size-r unit-subset distributions was identified in the documented searches. A failed database search alone is not evidence of uniqueness; the implication comparisons above are the substantive originality support.",
+      "searches": [
+        "\"subset sum distribution of units mod n fixed cardinality\"",
+        "\"fixed size subset sums\" \"reduced residue system\"",
+        "\"non-equidistribution of k element subset sums of Z_n^× for all k\"",
+        "counting fixed-size subset sums in the reduced residue system modulo n using Ramanujan sums and cyclotomic generating functions"
+      ]
+    },
+    "rationale": "Specific implication comparisons were made against the complete relevant part of the 1994 full paper on fixed-cardinality *initial-interval* subset sums and the 2023 full article on *pooled* nonempty unit-subset sums. The proposed theorem identifies a different arithmetic family and supplies an exact signed, positive coefficient for every prime projection at every cardinality; an instance where divisibility is satisfied but uniformity is excluded further distinguishes its content. No equivalent exact formula appeared in the accessible searches . Prime-N nonuniformity was already implied by the 1994 theorem, and possible unindexed general Fourier-enumerator coverage remains a real residual risk.",
+    "residual_risks": [
+      "A general previously published character-enumerator or Ramanujan-sum formula, not recovered by the focused searches, may imply the coefficient identity without explicitly naming this family.",
+      "The prime-modulus nonuniformity corollary is implied by Wagon and Wilf (1994); originality is restricted to all-moduli exact two-level prime-projection multiplicities and the strict all-cardinality consequence.",
+      "The Hamidoune (1994) full text was not available for direct inspection; its abstract suggests a distinct existential question.",
+      "No independent bibliographic or mathematical review has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover fixed-size subsets of the reduced residue system at composite N. Prime N nonuniformity follows from its interval theorem.",
+        "evidence": "Its tickets are t-subsets of the entire interval [n]; the main equivalent criterion is t mod d > n mod d for every d>1 dividing the modulus. Its exact frequencies are remainders of Gaussian polynomials.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v1i1r3/pdf/",
+        "material_read": "Full 15-page primary paper inspected for objects and statements; pages 1-2 (scope/main theorem), 4-6 (generating-function proof), 9 and 13-14 (counts and open questions) read closely.",
+        "method": "Primary open-access journal PDF and page inspection.",
+        "title": "When are subset sums equidistributed modulo m?",
+        "trigger": "Closest fixed-cardinality equidistribution theorem, historical anchor"
+      },
+      {
+        "assessment": "Theorem 1.1 counts all nonempty subsets pooled; does not state individual size-r distribution. The related published correction concerns a later structural theorem.",
+        "evidence": "Theorem 1.1: every residue appears (2^{phi(n)}-1)/n times among nonempty subset sums when n is odd; subsection 1.1 explicitly pools sizes.",
+        "identifier_or_url": "https://arxiv.org/abs/2304.14141",
+        "material_read": "Open-access arXiv full text introduction, Theorem 1.1/proof, main theorem statements and their assumptions were inspected.",
+        "method": "Open arXiv full text; compared fixed-cardinality notation with pooled nonempty sums.",
+        "title": "On subset sums of the units modulo n which are equally distributed modulo n",
+        "trigger": "Same unit-system objects and a potentially stronger equidistribution statement"
+      },
+      {
+        "assessment": "The described theorem guarantees existence of given residue sums under density hypotheses, not exact counts for full U_N; no decisive unresolved implication from the abstract.",
+        "evidence": "Abstract concerns representing every residue modulo prime p by a subset of exactly m elements, with size lower bounds.",
+        "identifier_or_url": "https://doi.org/10.1112/blms/26.6.557",
+        "material_read": "Published abstract and theorem synopsis only; publisher full text not accessible in this check.",
+        "method": "Publisher abstract; compared existential coverage with exact multiplicity claims.",
+        "title": "The Representation of Some Integers as a Subset Sum",
+        "trigger": "Possible zero-sum prescribed-size covering theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7c0aa2cf-bc2b-4598-af73-b504ae846dc1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classical question of equal distribution for fixed-size subset sums is sharpened for the full reduced residue system, which is a canonical multiplicative-arithmetic set. The exact integer bias coefficient determines both the direction and size at every cardinality for all primes dividing any modulus, and proves an infinite no-uniformity classification. The nonempty cardinality-pooled uniformity for odd N makes the result a distinct structural layer, and at \\(N=21,r=6\\) it excludes uniformity even though the total subset count is divisible by the modulus. The formula does not merely recalculate a known table or rephrase a type/normalization condition; it identifies an exact natural invariant.",
+    "status": "PASS"
+  }
+}
