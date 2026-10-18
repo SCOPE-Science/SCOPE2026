@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The target definition and immediately following operator construction were reconstructed from the primary full text. In the explicit \(\mathbb R^2\) example, \(C\) and \(C'=C^{-1}\) are positive definite, the two local controlled quadratic forms sum exactly to \(\|f\|^2\), and the first local operator \(C^*\pi_{W_1}C'\) is nonselfadjoint with quadratic value \(-1\) at \(e_2\). Therefore the global Parseval condition does not imply local positivity, while local positivity is exactly what permits the positive square root and coefficient-norm identity.
+## correctness
 
-## Originality
-PASS for the source-specific claim. The 2012 precursor already gives local positivity as the sufficient hypothesis before defining the coordinatewise square-root analysis operator, so that general positivity principle is treated as prior work. Exact-source, local-positivity, square-root, nonselfadjointness, and counterexample searches did not locate the positive-controller Parseval witness or a correction of the 2021/2022 source's scope.
+PASS
 
-The closest indexed scientific records concern controlled \(K\)-frame compact perturbations, local relay-dual uniformity, closed-range \(K\)-frame reconstruction, and g-fusion resolution bounds. None implies that Definition 3.1 permits locally nonpositive summands while the subsequent square-root operator model requires positivity term by term.
+Let C=[[2,1],[1,1]], C′=[[1,−1],[−1,2]], W_i=span(e_i), v_i=1 in R². Both controllers are positive definite, inverses with C*C′=I. Since P1+P2=I, the total quadratic controlled-form sum is exactly ||f||² for every f; this satisfies the displayed Definition 3.1 with A=B=1. Yet C*P1C′=[[2,−2],[1,−1]] is not selfadjoint and <A1e2,e2>=−1, so no positive square root exists and its squared-norm identity would demand a negative norm square. Conversely local positivity allows bounded positive roots and the coefficient norm equality. Exact rational 2×2 matrix arithmetic independently reproduced; no extrapolation.
 
-## Value
-PASS. The distinction determines whether the central direct-sum analysis operator is even available. The failure occurs in dimension two, with a Parseval family and positive controllers, so it cannot be dismissed as exotic nonselfadjoint controller behavior. The repair is the exact local condition required for the coefficient representation.
+## originality
 
-## Limitations
-The finding does not declare the global quadratic definition inconsistent and does not audit every downstream theorem. Statements with separate hypotheses forcing local positivity may remain valid. Other non-coordinatewise operator formulations are not excluded, and an unindexed source-specific correction remains a literature risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The 2012 Khosravi–Musazadeh precursor and 2022 target explicitly introduce positivity as the condition for taking local positive square roots, so this condition itself is prior, not novel. The surviving contribution is a concrete positive-controller Parseval example proving the global Definition 3.1 fails to imply the condition and showing the later unqualified operator construction cannot cover the full defined class. No matched correction appeared in the bounded source/Resultary search, but the target’s conditional sentence substantially narrows any accusation of oversight.
+
+## value
+
+PASS
+
+The issue affects whether the target’s central coefficientwise analysis/synthesis operator and associated boundedness statements are defined at all for every frame in its own global class. The obstruction is exact in dimension 2 with positive-definite controllers and Parseval bounds, not a contrived invalid type or numerical blemish; it identifies the precise additional hypothesis required for that operator model. No claim is made that the global definition or all conditional later results are false.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

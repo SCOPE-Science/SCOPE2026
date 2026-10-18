@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T05:12:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let C=[[2,1],[1,1]], C′=[[1,−1],[−1,2]], W_i=span(e_i), v_i=1 in R². Both controllers are positive definite, inverses with C*C′=I. Since P1+P2=I, the total quadratic controlled-form sum is exactly ||f||² for every f; this satisfies the displayed Definition 3.1 with A=B=1. Yet C*P1C′=[[2,−2],[1,−1]] is not selfadjoint and <A1e2,e2>=−1, so no positive square root exists and its squared-norm identity would demand a negative norm square. Conversely local positivity allows bounded positive roots and the coefficient norm equality. Exact rational 2×2 matrix arithmetic independently reproduced; no extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2012 controlled fusion frame construction already uses local positivity as a sufficient prerequisite.",
+          "2022 primary paper also explicitly mentions conditional positivity before unqualified operator notation."
+        ],
+        "reasoning": "The general necessity of local positivity for positive square roots is known functional analysis, and is not asserted as original. The precise source-specific failure of implication for its global definition is the distinct counterexample.",
+        "searches": [
+          "contraction positivity locally positive operator counterexample necessary hypothesis",
+          "controlled fusion frame positive local operator inverse controllers"
+        ]
+      },
+      "checked_sources": [
+        "2022 source DOI:10.30495/JME.2022.1476 full PDF",
+        "Khosravi–Musazadeh (2012) precursor at citation/description level"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target statement “If ... positive ... then ...” presupposes local positivity; Definition 3.1 itself does not.",
+          "Exact global identity ∑ C*PiC′=I and local negative <A1e2,e2>=−1 contradict implication global⇒local."
+        ],
+        "reasoning": "This does not refute a conditional assertion that explicitly assumes local positivity. It shows any unrestricted use of the source’s operator throughout its globally defined frame class requires the extra hypothesis, which the source does not include in Definition 3.1.",
+        "searches": [
+          "DOI:10.30495/JME.2022.1476 Definition 3.1 and pp.5–7",
+          "Khosravi–Musazadeh 2012 square-root condition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2022 primary PDF Section 3 Definition 3.1 contains summed bounds; next paragraph says local positivity only conditionally before defining analysis operator.",
+          "Counterexample forces negative quadratic value −1 for local C*P1C′ despite positive global sum I."
+        ],
+        "reasoning": "Compared equivalent local-positive-square-root, self-adjointness, local coefficient nonnegativity and global-vs-local cancellation formulations; no matched explicit positive-controller Parseval witness found.",
+        "searches": [
+          "contraction positivity locally positive operator counterexample necessary hypothesis",
+          "Shakoory Ahmadi Behzadi Nami controlled fusion frame square root local positivity",
+          "2012 Khosravi Musazadeh controlled fusion frames square root"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned source-specific finding and other Banach-lattice/operator results; inspected top hits did not reproduce the matrices.",
+          "The primary 2022 PDF contains no matrix counterexample to its global-to-local positivity inference in Definition 3.1 and adjacent Section 3."
+        ],
+        "reasoning": "Not a numerical-table claim. Exact-source/DOI and local-operator phrases checked; no matching correction located; absence is not decisive proof of novelty.",
+        "searches": [
+          "contraction positivity locally positive operator counterexample necessary hypothesis",
+          "DOI:10.30495/JME.2022.1476 correction local positivity"
+        ]
+      },
+      "rationale": "The 2012 Khosravi–Musazadeh precursor and 2022 target explicitly introduce positivity as the condition for taking local positive square roots, so this condition itself is prior, not novel. The surviving contribution is a concrete positive-controller Parseval example proving the global Definition 3.1 fails to imply the condition and showing the later unqualified operator construction cannot cover the full defined class. No matched correction appeared in the bounded source/Resultary search, but the target’s conditional sentence substantially narrows any accusation of oversight.",
+      "residual_risks": [
+        "The source might intend the preceding “if locally positive” to scope all subsequent operator definitions implicitly; the alleged missing hypothesis is a clarification about definition-wide scope, not a refutation of conditional theorems.",
+        "Unindexed erratum or subsequent source-specific counterexample may exist.",
+        "Other, non-positive-square-root operator formulations may still be valid."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Global bounds do not contain a per-index positivity requirement; local condition is mentioned conditionally before the analysis construction.",
+          "evidence": "Definition 3.1 uses sum of <PiC′f,PiCf>; printed page 5 defines {vi(C*PiC′)^(1/2)f} immediately after the conditional sentence.",
+          "identifier_or_url": "DOI:10.30495/JME.2022.1476",
+          "material_read": "Full publisher PDF Section 3 pp.4–7 (especially printed page 5): global Definition 3.1, conditional positivity sentence, root-coefficient inequality, subsequent analysis operator definition and boundedness claims, Theorems 3.2–3.3.",
+          "method": "Lawful full published PDF, rendered page image plus text.",
+          "title": "Controlled Fusion Frames in Hilbert Spaces and Their Dual",
+          "trigger": "Exact source definition and operator construction"
+        },
+        {
+          "assessment": "Prior art for the sufficient local condition; no assertion of novelty for positivity itself.",
+          "evidence": "The target attributes controlled fusion frame square-root analysis to reference [13], and uses local positivity as an explicit conditional premise.",
+          "identifier_or_url": "Khosravi–Musazadeh, Methods of Functional Analysis and Topology 18(3) (2012) 256–265",
+          "material_read": "Bibliographic/definition information and closely related square-root condition as quoted in target and inspected package; full primary article not independently re-read in this execution.",
+          "method": "Source citation context and published-description comparison.",
+          "title": "Controlled fusion frames",
+          "trigger": "Most relevant precursor for square-root hypothesis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The issue affects whether the target’s central coefficientwise analysis/synthesis operator and associated boundedness statements are defined at all for every frame in its own global class. The obstruction is exact in dimension 2 with positive-definite controllers and Parseval bounds, not a contrived invalid type or numerical blemish; it identifies the precise additional hypothesis required for that operator model. No claim is made that the global definition or all conditional later results are false.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Counterexample targets the positive-root coefficient model, not logical consistency of Definition 3.1 itself.",
+    "No universal failure asserted for all downstream theorems."
+  ]
+}
