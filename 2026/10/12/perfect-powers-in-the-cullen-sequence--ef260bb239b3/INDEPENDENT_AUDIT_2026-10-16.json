@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T04:58:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=1, n*2^n+1 is odd. If y^k=n2^n+1 with k>=3 odd, then y is odd and (y^k-1)/(y-1)=sum_{j=0}^{k-1}y^j is odd, so v_2(y-1)=n+v_2(n). Consequently y>2^n and y^k>2^{3n}>n2^n+1, contradiction. If k is even, y^k=z^2, z odd. For n=2^t m with m odd and n>=2, the consecutive coprime integers A=(z-1)/2,B=(z+1)/2 satisfy AB=m2^{n+t-2}. One has v2=n+t-2, the other is odd dividing m; since |A-B|=1 this forces 2^{n+t-2}<=m+1, impossible for n>=4 (check n=4 separately and induct through n>=5 using 2^{n-2}>n+1). Direct n=1,2,3 values 3,9,25 give exactly (2,3,2),(3,5,2). Higher even exponents would make a square already excluded except these whose exponents have gcd 2. An independent finite scan n<=200 for squares and odd exponents k=3,5,7,9 yielded only n=2,3 square indices and no odd powers; it is corroboration, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://digibuo.uniovi.es/dspace/bitstream/10651/7767/1/11606.pdf",
+          "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL17/Marques/marques5r2.pdf",
+          "https://bmos.ukmt.org.uk/home/bmo1-2024-report.pdf"
+        ],
+        "reasoning": "A theorem about Euler-totient divisibility or Cullen/Fibonacci intersections is not a theorem that Cullen numbers are never nontrivial odd perfect powers; the square portion is covered outright. None of the observed stronger-form statements implies the odd-exponent exclusion by itself.",
+        "searches": [
+          "Grau–Luca Cullen numbers with Lehmer property full six-page article",
+          "Marques On Generalized Cullen and Woodall Numbers That are Also Fibonacci Numbers full article",
+          "BMO1 Question4"
+        ]
+      },
+      "checked_sources": [
+        "UKMT BMO1 2023 Question4 official full PDF",
+        "Grau Ribas–Luca 2012 published original full PDF",
+        "Marques JIS 2014 original full PDF",
+        "OEIS A002064",
+        "Resultary semantic Cullen full-power and exact-value queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "BMO Question4 concludes the only square indices are 2 and 3.",
+          "Grau–Luca Theorem1 is the Lehmer totient criterion; Marques Theorem1 bounds Fibonacci matches."
+        ],
+        "reasoning": "The BMO implication covers precisely all even-k solutions, which are *not novel*. The assessed general theorem additionally excludes every odd k>=3 by valuation and growth. This does not turn its elementary proof into a deep result; the surviving full classification is a modest natural completion.",
+        "searches": [
+          "UKMT 2023 Question 4 full PDF",
+          "Grau–Luca 2012 Theorem1 full PDF",
+          "Marques 2014 Theorem1 full PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://bmos.ukmt.org.uk/home/bmo1-2024-report.pdf p.12",
+          "https://oeis.org/A002064"
+        ],
+        "reasoning": "Every even-power solution is a square and is already covered by the BMO proof. Odd powers are algebraically different: v2(y^k-1)=v2(y-1) for odd k, making them impossible. The full two-branch classification is not literally the BMO square statement, and no exact all-power predecessor was located.",
+        "searches": [
+          "2023 UKMT BMO1 Round1 Question4 square Cullen numbers",
+          "search: Cullen numbers n2^n+1 perfect powers only 9 and 25",
+          "Resultary: Cullen numbers n2^n+1 perfect powers only 9 and 25"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://oeis.org/A002064 lines14-77",
+          "https://bmos.ukmt.org.uk/home/bmo1-2024-report.pdf p.12"
+        ],
+        "reasoning": "A002064 lists 9 and 25 among many initial values but gives no documented exhaustive perfect-power table or bound for all exponents; finite presence of two squares is not an exact classification. BMO is an exact table/theorem for squares only, acknowledged as covered.",
+        "searches": [
+          "OEIS A002064 sequence and related references",
+          "2023 UKMT BMO1 full solution",
+          "Resultary semantic Cullen perfect powers n2^n+1"
+        ]
+      },
+      "rationale": "The 2023 BMO1 Question 4 fully proves the square branch, thus all even exponent cases of the new statement are covered as prior work and cannot be described as independent novelty. The new odd-exponent exclusion is the elementary but not identical all-odd-power component that makes the natural complete perfect-power classification. The full Grau–Luca Lehmer-property paper and Marques Fibonacci-intersection paper address different arithmetic predicates, not arbitrary kth powers; OEIS A002064 is a sequence table and does not assert an all-exponent theorem. Bounded phrase and Resultary searches found no prior general Cullen perfect-power statement, but absence of a hit cannot establish absolute novelty.",
+      "residual_risks": [
+        "The entire even-exponent classification was already proved in a 2023 Olympiad problem; incremental originality and mathematical value consist solely of excluding odd exponents and combining branches.",
+        "Odd-power exclusion is an elementary 2-adic observation; significance is a modest full intrinsic classification, not a new number-theoretic technique.",
+        "Unindexed prior discussions of all Cullen perfect powers cannot be ruled out solely by web and Resultary search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS square branch exactly; does not ask or prove all odd perfect powers",
+          "evidence": "n2^n+1 is a square iff n=2,3, with 9 and 25.",
+          "identifier_or_url": "https://bmos.ukmt.org.uk/home/bmo1-2024-report.pdf",
+          "material_read": "Full statement, solution, induction and markers comments pp.12–13 of 17-page PDF",
+          "method": "Read official UKMT original PDF question/solution",
+          "title": "British Mathematical Olympiad Round 1 2023 markers report, Question 4",
+          "trigger": "Direct same sequence and all-square classification"
+        },
+        {
+          "assessment": "Does not establish a general Cullen perfect-power theorem; study concerns composite Cullen Lehmer property",
+          "evidence": "Theorem1: if phi(C_n)|C_n−1 then C_n is prime.",
+          "identifier_or_url": "https://digibuo.uniovi.es/dspace/bitstream/10651/7767/1/11606.pdf",
+          "material_read": "Full six-page PDF retrieved; materially read theorem and initial factorization/bounding argument pp.1–4",
+          "method": "Opened and inspected lawful university repository original PDF",
+          "title": "Cullen Numbers with the Lehmer Property — Grau Ribas and Luca",
+          "trigger": "Highly relevant classical Cullen arithmetic source"
+        },
+        {
+          "assessment": "Different intersection equation F_n=m s^m ±1; does not dominate arbitrary Cullen kth powers",
+          "evidence": "Theorem1 bounds possible generalized Cullen indices when equal to a Fibonacci term.",
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL17/Marques/marques5r2.pdf",
+          "material_read": "Eleven-page PDF retrieved; materially read introduction, Theorem1, selected proof pp.5–8, and references",
+          "method": "Opened and inspected original JIS PDF",
+          "title": "On Generalized Cullen and Woodall Numbers That are Also Fibonacci Numbers — Marques",
+          "trigger": "Primary Diophantine Cullen intersection paper"
+        },
+        {
+          "assessment": "Initial entries 9,25 are squares but entry does not establish exhaustive arbitrary-power theorem",
+          "evidence": "OEIS A002064 identifies n2^n+1 and displays initial sequence values.",
+          "identifier_or_url": "https://oeis.org/A002064",
+          "material_read": "Definition, comments, entries and references",
+          "method": "Read actual sequence entry",
+          "title": "OEIS A002064, Cullen numbers",
+          "trigger": "Plausible exact table/sequence classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The statement classifies a natural intrinsic property—exact perfect powers in the entire classical Cullen sequence—rather than an arbitrary cutoff. Its value lies in closing the mathematically natural complement to the known square classification; the odd-exponent lemma is short and elementary, so this is a modest self-contained Diophantine fact, not a new technique, a generalization to arbitrary bases, or a large theoretical advance. Natural completeness and a clear unproved odd-exponent branch are sufficient here; the already published square branch is explicitly not claimed as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Reviewed actual individual Git blobs at immutable assigned commit; full recursive directory Git-tree SHA was not independently recomputed because read-only directory/tree endpoint was not available. The exact server-provided source_tree_sha is kept as a guard, not misrepresented as personally computed.",
+    "No code log, finite enumeration or source self-review is treated as sufficient proof of an unrestricted mathematical theorem; general conclusions were reconstructed analytically.",
+    "All publication and external acceptance actions withheld until private operational provenance in frozen potentially public AUDIT.json and METADATA.json can be sanitized with guarded complete replacement bytes; no neutralized public file or certificate is claimed.",
+    "The entire even-exponent classification was already proved in a 2023 Olympiad problem; incremental originality and mathematical value consist solely of excluding odd exponents and combining branches.",
+    "Odd-power exclusion is an elementary 2-adic observation; significance is a modest full intrinsic classification, not a new number-theoretic technique.",
+    "Unindexed prior discussions of all Cullen perfect powers cannot be ruled out solely by web and Resultary search."
+  ],
+  "schema_version": 1
+}

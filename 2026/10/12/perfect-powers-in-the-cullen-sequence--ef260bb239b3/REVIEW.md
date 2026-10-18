@@ -1,34 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates exponents by parity. For odd \(k\), the factor
-\(1+y+\cdots+y^{k-1}\) is odd, so the entire \(2\)-adic valuation
-\(n+v_2(n)\) of \(y^k-1=n2^n\) lies in \(y-1\). This forces
-\(y>2^{n+v_2(n)}\), which is already too large when \(k\ge3\). For even
-\(k\), the problem reduces to a square. Splitting the two neighboring even
-factors of \(z^2-1\) into coprime consecutive halves forces
-\(2^{n+v_2(n)-2}\le n/2^{v_2(n)}+1\), which fails for all \(n\ge4\).
-Direct evaluation of \(n=1,2,3\) leaves exactly \(9\) and \(25\), neither of
-which is a higher power.
+## correctness
 
-## Originality
-PASS. The 2023 British Mathematical Olympiad covers the square subcase and is
-explicitly credited. The inspected full Cullen-number papers by Grau--Luca and
-Marques study different Diophantine properties and do not state the all-perfect-
-powers classification. OEIS A002064 likewise contains no square or perfect-
-power comment. Searches for the equation, Cullen perfect powers, Cullen proper
-powers, and square/odd-power aliases found no source stating the complete
-classification. The residual risk is that the short odd-exponent completion
-may occur in informal or unindexed problem literature.
+PASS
 
-## Value
-PASS. Perfect powers form a standard, intrinsic class of integers, and the
-question asks for their complete intersection with a classical named sequence.
-The literature explicitly treats intersections of Cullen numbers with other
-structured integer classes as a natural Diophantine program. Closing every
-exponent, rather than merely extending a computational table, gives an exact
-self-contained classification. Although the added odd-exponent argument is
-short, it turns a known square result into the natural all-perfect-powers
-statement without an artificial parameter slice.
+For n>=1, n*2^n+1 is odd. If y^k=n2^n+1 with k>=3 odd, then y is odd and (y^k-1)/(y-1)=sum_{j=0}^{k-1}y^j is odd, so v_2(y-1)=n+v_2(n). Consequently y>2^n and y^k>2^{3n}>n2^n+1, contradiction. If k is even, y^k=z^2, z odd. For n=2^t m with m odd and n>=2, the consecutive coprime integers A=(z-1)/2,B=(z+1)/2 satisfy AB=m2^{n+t-2}. One has v2=n+t-2, the other is odd dividing m; since |A-B|=1 this forces 2^{n+t-2}<=m+1, impossible for n>=4 (check n=4 separately and induct through n>=5 using 2^{n-2}>n+1). Direct n=1,2,3 values 3,9,25 give exactly (2,3,2),(3,5,2). Higher even exponents would make a square already excluded except these whose exponents have gcd 2. An independent finite scan n<=200 for squares and odd exponents k=3,5,7,9 yielded only n=2,3 square indices and no odd powers; it is corroboration, not the general proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2023 BMO1 Question 4 fully proves the square branch, thus all even exponent cases of the new statement are covered as prior work and cannot be described as independent novelty. The new odd-exponent exclusion is the elementary but not identical all-odd-power component that makes the natural complete perfect-power classification. The full Grau–Luca Lehmer-property paper and Marques Fibonacci-intersection paper address different arithmetic predicates, not arbitrary kth powers; OEIS A002064 is a sequence table and does not assert an all-exponent theorem. Bounded phrase and Resultary searches found no prior general Cullen perfect-power statement, but absence of a hit cannot establish absolute novelty.
+
+## value
+
+PASS
+
+The statement classifies a natural intrinsic property—exact perfect powers in the entire classical Cullen sequence—rather than an arbitrary cutoff. Its value lies in closing the mathematically natural complement to the known square classification; the odd-exponent lemma is short and elementary, so this is a modest self-contained Diophantine fact, not a new technique, a generalization to arbitrary bases, or a large theoretical advance. Natural completeness and a clear unproved odd-exponent branch are sufficient here; the already published square branch is explicitly not claimed as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
