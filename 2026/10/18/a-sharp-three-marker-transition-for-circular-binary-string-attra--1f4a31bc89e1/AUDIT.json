@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For \\(1\\le a<b<c\\), the unique \\(1^c\\), \\(0\\,1^a\\,0\\) and \\(0\\,1^b\\,0\\) factors force one long-run marker and the shared zero. The factors \\(1^{a+1}0\\) and \\(1^{a+1}0\\,1^{a+1}\\) prove \\(c-a\\le j\\le a+1\\). The complement of any candidate pair has two explicit arcs, each containing at most one zero; checking pure-one and one-zero factors suffices for all circular factors. When this interval is empty the explicit three-point witness gives a matching upper bound. The separately implemented literal factor-mask census checked all \\(220\\) triples with \\(c\\le12\\) and the second direct-occurrence method rechecked those with \\(c\\le7\\). Finite computations are not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mantaci et al., Theorem 34 relates consecutive-position minimum circular attractors to standard Sturmian words.",
+        "Romana 2023, Theorem 1 provides general *verification* but not a parameter-uniform classification."
+      ],
+      "reasoning": "Theorem 34 concerns consecutive marked positions; the present unique candidate zero and distant long-run marker are nonconsecutive. General verification algorithms or NP-completeness statements do not state a sharp symbolic phase boundary nor enumerate all witnesses. Ordinary-attractor theorems do not dominate circular incidence.",
+      "searches": [
+        "published-finding corpus query: minimum circular attractor for run length encoded sparse binary words with three markers",
+        "Web: \"A combinatorial view on string attractors\" postprint",
+        "Web: \"Algorithmic View on Circular String Attractors\" 2023"
+      ]
+    },
+    "checked_sources": [
+      "S. Mantaci et al., A combinatorial view on string attractors, Theoretical Computer Science 850 (2021), 236–248, doi:10.1016/j.tcs.2020.11.006, author-postprint pages 15–21.",
+      "G. Romana, Algorithmic View on Circular String Attractors, ICTCS 2023, complete proceedings PDF, §§3–7."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mantaci et al. (2021), §5: only the special two-consecutive-position structural characterization; the hypotheses do not apply to the present nonconsecutive witnesses.",
+        "Romana (2023), Theorem 1: decision procedure with no algebraic closed form.",
+        "Exact candidate uniqueness relies on unique factors \\(0\\,1^a\\,0\\) and \\(0\\,1^b\\,0\\), with two additional forcing factors, none identified as a derived corollary of prior statements."
+      ],
+      "reasoning": "The new statement has universal quantifiers over strictly distinct lengths and determines the complete two-point witness set, the minimal-size phase transition, and its count. The strongest checked sources concern either consecutive Sturmian placements or computational recognition of a supplied candidate; neither statement implies these formulas without a new structural argument.",
+      "searches": [
+        "circular binary string attractor three isolated zeros pairwise distinct gap lengths shortest longest threshold 2a+1",
+        "cyclic word 0 1^a 0 1^b 0 1^c exactly two circular attractor positions number minima",
+        "Web: \"circular string attractors\" \"three zeros\" 2 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mantaci et al., Definition 25; Romana 2023, §§3–7; no matching exact triple-gap threshold in inspected literature."
+      ],
+      "reasoning": "Cyclic rotation and reversal of the binary circle cover all permutations of three distinct gaps, and the source-defined invariant is invariant under these. The search compared circular string attractors, conjugacy classes, sparse markers and run-length formulations, not merely paper titles.",
+      "searches": [
+        "circular binary string attractor three isolated zeros pairwise distinct gap lengths shortest longest threshold 2a+1",
+        "cyclic word 0 1^a 0 1^b 0 1^c exactly two circular attractor positions number minima",
+        "circular string attractors of finite binary words with three occurrences of zero all optimal two point sets",
+        "Web: \"circular attractor\" \"binary\" \"run lengths\" attractors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Compared studies of ordinary attractors and special circular words did not provide the three-distinct-gap circular classification.",
+        "The compared source papers give illustrative Fibonacci and Sturmian instances and verification methods, not a triple-gap table or general formula."
+      ],
+      "reasoning": "Published exact examples and finite ordinary-attractor enumerations do not cover every positive integer triple. A failed semantic lookup alone is not treated as novelty proof.",
+      "searches": [
+        "published-finding corpus semantic search: circular binary string attractor three isolated zeros pairwise distinct gap lengths shortest longest threshold 2a+1",
+        "published-finding corpus semantic search: cyclic word 0 1^a 0 1^b 0 1^c exactly two circular attractor positions number minima",
+        "published-finding corpus semantic search: circular string attractors of finite binary words with three occurrences of zero all optimal two point sets"
+      ]
+    },
+    "rationale": "The direct primary-source comparisons found a circular general verification algorithm and a two-consecutive-position Sturmian characterization, not the nonconsecutive three-gap threshold, all-witness interval, or exact count. Multiple semantic database and alias searches returned no stronger relevant statement; this is evidence-limited, not a proof of global novelty.",
+    "residual_risks": [
+      "An indexed or unindexed source not retrieved by semantic/title/alias searches may have an equivalent closed form.",
+      "Earlier unpublished manuscript versions of compared papers may have relevant appendix material beyond their inspected accessible versions.",
+      "The result intentionally excludes equal gap lengths, which have genuinely different two-point multiplicities."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Circular-attractor definition and Sturmian consecutive-pair characterization are material; no statement or proof of a distinct three-gap, nonconsecutive-pair threshold or count was found.",
+        "evidence": [
+          "Definition 25, pp. 15–16",
+          "Lemma 33 and Theorem 34, pp. 18–20: 2 consecutive attractor positions characterize standard Sturmian conjugates; does not classify the nonconsecutive placements \\(\\{Z_1,X_j\\}\\)."
+        ],
+        "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRRS_TCS2021.pdf",
+        "material_read": "Author-postprint, especially pp. 15–21, definition 25, propositions 27–29, lemma 33, theorems 34–35 and their hypotheses; introductory summary.",
+        "method": "Read searchable full PDF text at the theorem and proof sections, plus inspect the original PDF layout.",
+        "title": "A combinatorial view on string attractors",
+        "trigger": "Original definition, any stronger general two-point theorem, and primitive circular Sturmian boundary"
+      },
+      {
+        "assessment": "Gives a general circular-attractor verification algorithm, reductions and complexity statements. No closed form or equality classification for triple-marker gap words.",
+        "evidence": [
+          "Theorem 1 and Algorithm 1, pp. 4–6, universal verification algorithm",
+          "§7 conclusions, pp. 10–11, no specific three-gap theorem."
+        ],
+        "identifier_or_url": "https://ceur-ws.org/Vol-3587/9885.pdf",
+        "material_read": "Complete 12-page PDF, including §§3–7, Algorithm 1, Theorem 1, NP-completeness and conclusions.",
+        "method": "Inspect PDF rendered pages and the full parsed paper sections and conclusion.",
+        "title": "Algorithmic View on Circular String Attractors",
+        "trigger": "Potential broader general method or hidden structural classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1f4a31bc-89e1-439b-ad3a-60245173c7bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The three-marker circle is the first natural sparse-marker case in which unequal independent gap lengths can force an alphabet-size-two circular attractor to require three sites. The theorem completely classifies its generic pairwise-distinct gap regime, identifies a sharp nontrivial transition \\(c=2a+1\\), counts every optimal pair in the two-phase region, and shows total independence from the middle gap. It is a parametric infinite-family result rather than an arbitrary finite lookup or a restatement of a recognition algorithm.",
+    "status": "PASS"
+  }
+}
