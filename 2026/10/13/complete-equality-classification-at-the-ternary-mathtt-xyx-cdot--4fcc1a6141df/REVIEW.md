@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Avoidance is factorial, so exhaustive ternary prefix generation is complete. Two independent direct occurrence tests agree on every level through length \(15\), giving exactly six avoiders at length \(14\) and none at length \(15\). The six words are independently checked to be exactly one alphabet-permutation orbit and to be closed under reversal.
+## correctness
 
-## Originality
-PASS. The primary paper states the scalar maximum \(14\) and the avoidability-index result, but does not enumerate the equality cases. Searches under the formula, its equivalent formulation, \(\psi_1\), equality/extremizer terminology, and exact representatives found no covering complete classification.
+PASS
 
-A residual risk is unpublished source-author search output or an unindexed auxiliary file containing the same equality list.
+The formula xyx·y^R occurs iff nonempty X,Y have XYX and Y reversed as factors. Two differently organized exact tests, enumeration of each factor with a nonempty border X versus enumeration of nonempty factor pairs X,Y, give the same survivor levels. Independent prefix expansion of the complete ternary alphabet yields counts 1,3,9,18,30,42,54,54,54,48,42,36,24,12,6,0 for 0..15. Six surviving words at 14 and no 15-letter survivors establish the entire finite bound; applying all six alphabet permutations of 01200112200120 equals the six survivors. Direct reversal permutes the set. This exact enumeration does not claim an infinite-word theorem.
 
-## Value
-PASS. The length-\(14\) layer is the sharp ternary obstruction for the unique index-\(4\) formula in the source's two-variable reversal basis. The complete census exposes a rigid one-orbit equality structure hidden by the scalar maximum.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the six-word one-orbit equality set at the already published length 14, not the avoidability index or maximal length. The equivalent reversal formula is covered by the comparison, and the full relevant primary Table 1 records only the scalar bound.
+
+## value
+
+PASS
+
+PASS: the ternary length-14 equality layer belongs to a distinguished basis obstruction with avoidability index four. The complete equality set and single alphabet orbit explain the rigidity of the published sharp boundary rather than merely printing a scalar or rephrasing the avoidability result. Finite scope is adequate for this motivated exact question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
