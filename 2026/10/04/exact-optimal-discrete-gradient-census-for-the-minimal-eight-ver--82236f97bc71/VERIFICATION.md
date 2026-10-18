@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`verify.py` reconstructs the complex from the explicit 17-facet list and uses only exact integer/set operations. It checks that there are 24 edges and that edge-to-triangle incidence degrees are 21 edges of degree 2 and 3 edges of degree 3.
+## correctness
 
-For each choice of critical triangle, the verifier recursively assigns each other triangle a distinct incident edge. Each assignment adds the corresponding triangle-transition arcs and updates an exact transitive closure; branches that create a directed cycle are rejected immediately. Every complete accepted assignment is therefore an acyclic triangle-edge matching, and every such matching is reached exactly once. The verifier separately repeats the search with no critical triangle.
+PASS
 
-For every accepted one-critical-triangle layer, the eight unused edges are checked for connectedness. Since there are eight vertices and eight residual edges, connectedness implies a unique cycle; leaf peeling obtains its length. The exact histogram is then converted to full gradient fields by the rooted-spanning-tree factor `8*cycle_length`.
+Independent C++ implementation from the 17 facets enumerated all 17 choices of critical triangle, injective triangle-edge pairings and cycle-free directed transition closures. It independently reproduced 1,992,223 one-critical-triangle layers, zero full triangle matchings, all residual graphs connected unicyclic, the complete six-length histogram and 8∑ℓNℓ=63,617,968 rooted extensions. The residual spanning-tree bijection and Euler/matching bounds prove optimal vector (1,1,1). Finite enumeration is exhaustive for this named fixed complex alone.
 
-A successful replay prints exactly:
+## originality
 
-`VERIFY_OK facets=17 edges=24 full12=0 acyclic16=1992223 cycle_hist=3:754080,4:706489,5:365173,6:131021,7:31621,8:3839 weighted=7952246 optimal_fields=63617968`
+PASS
 
-The computation is exhaustive only for the supplied labelled complex. It is not evidence that other minimal dunce-hat triangulations have the same count, and it is not a proof-assistant certificate.
+Lewiner–Lopes–Tavares Table 2 reports the same (8,24,17) complex and optimum Morse vector but does not give the cardinality of optimal Hasse matchings or the residual unicycle histogram. Benedetti–Lutz and Paixão–Spreer study minimal triangulations/noncollapsibility rather than this exact census. Existing Hachimori facet table is the input object, not the answer.
+
+## value
+
+PASS
+
+The minimal dunce hat is a canonical contractible noncollapsible benchmark; a complete exact optimum matching-space size and structural cycle histogram are natural independent invariants with future algorithm benchmarking use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim was reconstructed from the exact facet list. The triangle-edge search is exhaustive over all injective incidence matchings with one unmatched triangle and uses exact reachability to reject precisely closed \(V\)-paths. The residual graphs are checked to be connected unicyclic spanning graphs, and the standard rooted-spanning-tree bijection gives \(8\ell\) full extensions for cycle length \(\ell\). A separate exhaustive search finds no acyclic matching of all \(17\) triangles, and Euler's relation then shows that the exhibited \((1,1,1)\) fields are globally optimal. The deterministic verifier reproduces every displayed count.
+## correctness
 
-## Originality
-PASS. The closest inspected paper, Lewiner–Lopes–Tavares, reports the same model's minimum vector \((1,1,1)\), which is weaker than an exact multiplicity. Paixão–Spreer classify minimal dunce-hat triangulations and study random collapsibility, while Benedetti–Lutz establish minimality/noncollapsibility; none of the inspected material supplies the claimed count or cycle histogram. Focused published-finding-index and exact-number web searches also found no covering record. Residual risk: unindexed legacy computations may exist.
+PASS
 
-## Value
-PASS. The minimal dunce hat is a standard hard test object for collapsibility and discrete Morse optimization. The result gives a complete optimal-gradient state-space size and a structural cycle-length decomposition, providing a reproducible benchmark rather than a routine restatement of the known optimum vector. The scope is intentionally limited to the specified labelled triangulation.
+Independent C++ implementation from the 17 facets enumerated all 17 choices of critical triangle, injective triangle-edge pairings and cycle-free directed transition closures. It independently reproduced 1,992,223 one-critical-triangle layers, zero full triangle matchings, all residual graphs connected unicyclic, the complete six-length histogram and 8∑ℓNℓ=63,617,968 rooted extensions. The residual spanning-tree bijection and Euler/matching bounds prove optimal vector (1,1,1). Finite enumeration is exhaustive for this named fixed complex alone.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Lewiner–Lopes–Tavares Table 2 reports the same (8,24,17) complex and optimum Morse vector but does not give the cardinality of optimal Hasse matchings or the residual unicycle histogram. Benedetti–Lutz and Paixão–Spreer study minimal triangulations/noncollapsibility rather than this exact census. Existing Hachimori facet table is the input object, not the answer.
+
+## value
+
+PASS
+
+The minimal dunce hat is a canonical contractible noncollapsible benchmark; a complete exact optimum matching-space size and structural cycle histogram are natural independent invariants with future algorithm benchmarking use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
