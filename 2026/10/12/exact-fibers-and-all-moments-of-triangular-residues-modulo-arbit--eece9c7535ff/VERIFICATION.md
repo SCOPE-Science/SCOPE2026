@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,5 +19,24 @@
 }
 ---
 
-# Verification
-The proof establishes the unrestricted theorem. Run `python3 verify.py` with Python 3; no external packages are required. The included `verification_output.txt` is the output from an actual execution of the embedded script. For each modulus 1 through 1000 the test enumerates the complete 2m-index period, checks every fiber and its support, and recomputes the exact second-moment formula; for moduli 1 through 299 it verifies moment orders 1 through 6. The prime-power alternating sums are separately checked for eight odd primes and exponents 1 through 7. The verifier is finite and cannot establish that the formulas hold for arbitrarily large moduli; that is supplied by the CRT and valuation proof. No independent verification has been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Identity (2n+1)^2=1+8T(n) bijectively maps odd prime-power triangular fibers to square roots; valuations and Hensel lifting give zero case p^floor(a/2), square even valuation case 2p^j, otherwise zero. Dyadic congruence T(u)≡T(v) mod 2^alpha forces v=u or −u−1 mod 2^(alpha+1), exactly two distinct preimages per output, including m=1 boundary. CRT multiplies local fibers. Summing fiber k powers over discriminant valuation classes gives local C_(p,a)(k) for every integer k>=1; k=2 simplifies to 4m product(1+a(1−1/p)). Independent exact enumeration confirmed all residues/fibers for m=1..250 and moments k=1..4 and collision totals for every m. This finite replay is supplementary; general proof is symbolic.
+
+## originality
+
+PASS
+
+Best-of-knowledge extension from classical discriminant criterion and local square-root counting to explicit full-period fiber multiplicities, every positive power moment and composite collision formula; also proves Ulness Conjectures 1/2 explicitly still posed in original available material. O remains qualified due publisher full-text access restriction and classical quadratic-root literature.
+
+## value
+
+PASS
+
+Resolves two explicitly published saturation conjectures and supplies all full-period multiplicities, collision counts and arbitrary power moments of a natural modular polynomial map. Broader composite-modulus formulas are motivated by additive/arithmetic distribution questions; more than a lone small or arbitrary constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
