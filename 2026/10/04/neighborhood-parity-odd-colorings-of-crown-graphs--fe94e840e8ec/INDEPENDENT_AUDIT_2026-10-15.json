@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T22:51:53.599075Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a_i in Cr_n, odd neighborhood-color set equals P_B symmetric-difference {color(b_i)}, and dually. Even n forces |P_A|,|P_B| even, so every proper coloring is odd and the connected graph has two named optimal 2-colorings. Odd n needs ≥3 odd-count color classes on each side. A shared color may occupy only one deleted matched pair; with three colors this forces n=3 and 6 colorings. For odd n≥5, four colors require exactly two shared matched pairs and one exclusive color on each remaining part, giving chi=4 and 24*binom(n,2)=12n(n-1) named optima. Independently brute-checked literal open-neighborhood parity and properness for n=3,4,5,6 and all palettes to optimum; all counts matched.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General planar and sparse graph bounds do not determine the dense crown graph for unbounded n.",
+          "A complete multipartite theorem for K_{n,n} does not cover Cr_n=K_{n,n}-M because a matching is deleted and odd-color behavior changes."
+        ],
+        "reasoning": "Broader coloring bounds do not establish the exact matching-deleted family minima and number of optimal colorings.",
+        "searches": [
+          "arXiv:2401.14590v1 forb-flex planar odd coloring",
+          "arXiv:2112.13710 Petruševski–Škrekovski",
+          "Resultary:2026/9/30/SCOPE-exact-odd-chromatic-number-and-optimal-coloring-count-for-comple--2f4a2e65a3d2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.13710",
+        "arXiv:2401.14590",
+        "Resultary:2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105",
+        "Resultary:2026/10/4/SCOPE-odd-independence-and-strong-odd-coloring-of-odd-crown-graphs--3bc0465d6248"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A conflict-free coloring implies parity-odd when a uniquely occurring neighbor color is present, giving an upper bound only; the reverse implication fails.",
+          "A stronger upper bound alone cannot certify the odd-n sharp lower bound or the count 12n(n-1)."
+        ],
+        "reasoning": "The shared-color matched-pair structure yields the new classification under the weaker parity criterion; covers no unrelated odd independence classification.",
+        "searches": [
+          "arXiv:2112.13710 Petruševski & Škrekovski definition",
+          "Resultary: odd independence and strong odd coloring of odd crown graphs",
+          "Resultary: proper conflict-free crown graph exact numbers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2021 Petruševski–Škrekovski definition uses at least one neighborhood color of odd multiplicity; proper conflict-free instead requires a unique neighbor color.",
+          "Even n crown chi_odd=2 although the conflict-free parameter is 4 for n≥4, proving they are not equivalent."
+        ],
+        "reasoning": "Compared parity odd, conflict-free, strong odd, ordinary chromatic number and induced-subgraph odd coloring; only the first is the claimed invariant.",
+        "searches": [
+          "Resultary: odd coloring neighborhood parity crown graph K_n,n minus matching exact chromatic number",
+          "arXiv:2112.13710 neighborhood parity odd coloring",
+          "Resultary: exact proper conflict-free chromatic number of crown graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A prior exact crown-graph computation provides the proper conflict-free number 2,3,4, not the parity-odd classification for even n.",
+          "The semantic index hit for precisely the present parity-odd count is a mirror of this assigned claim and not an independent earlier source."
+        ],
+        "reasoning": "No matching all-n odd-color minimum-count table found; the analogous conflict-free table counts a stronger property with different values.",
+        "searches": [
+          "Resultary: neighborhood-parity odd colorings of crown graphs",
+          "Resultary:2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105"
+        ]
+      },
+      "rationale": "The exact parity-dependent odd chromatic number and all minimum named colorings for K_(n,n) minus a perfect matching are not stated by the inspected founding definition or nearby published stronger/different coloring classifications.",
+      "residual_risks": [
+        "The full 2021 original and 2024 later paper were not exhaustively read in this run; a hidden crown example is possible.",
+        "Distinction from stronger conflict-free coloring must be maintained; no claim for arbitrary matching deletions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the invariant but does not in inspected material determine the crown-graph formula.",
+          "evidence": [
+            "The condition is an oddly occurring neighbor color in the open neighborhood.",
+            "This is weaker than proper conflict-free coloring."
+          ],
+          "identifier_or_url": "arXiv:2112.13710",
+          "material_read": "Primary PDF opening pages, stated neighborhood-parity definition and main framing; no representation of whole document as examined.",
+          "method": "Viewed paper PDF and compared the precise odd-neighborhood condition.",
+          "title": "Colorings with neighborhood parity condition",
+          "trigger": "Original definition and possible crown examples."
+        },
+        {
+          "assessment": "Explains a 4-color upper bound, not the parity-sensitive lower bound or minimum count.",
+          "evidence": [
+            "Published indexed result gives chi_pcf(Cr_n)=4 for n≥4, whereas chi_odd(Cr_n)=2 for even n."
+          ],
+          "identifier_or_url": "2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105",
+          "material_read": "Indexed statement and exact threshold; full underlying proof not read in this run.",
+          "method": "Semantic-index statement and parameter implication comparison.",
+          "title": "Exact proper conflict-free chromatic number of crown graphs",
+          "trigger": "Same graph family, stronger neighboring coloring notion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural dense bipartite crown family separates neighborhood parity odd from the stronger conflict-free parameter with a sharp even/odd phase transition and exact orbit classification of optimal colorings. The count strengthens a mere minimum-chromatic-number observation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite experiments establish only tested n; parity and shared-color structure are proof for all n≥3.",
+    "Does not cover arbitrary bipartite graphs, imperfect matching deletion, or stronger proper conflict-free colorings.",
+    "Primary papers not exhaustively inspected; priority of complete minimum count remains best-of-knowledge."
+  ],
+  "schema_version": 1
+}
