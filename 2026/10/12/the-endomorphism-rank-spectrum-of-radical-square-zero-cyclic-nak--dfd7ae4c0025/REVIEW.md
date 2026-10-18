@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim.** For all fields \(K\) and \(n\ge 2\), every unital algebra endomorphism of the directed-cycle radical-square-zero Nakayama algebra has a unique vertex-map, lifted-idempotent, and arrow-scalar normal form. For each finite field \(\mathbb F_q\), the normal form gives the complete linear-rank polynomial and the stated transfer-matrix closed total; the automorphism order and fixed-length asymptotic density follow.
+## correctness
 
-## Correctness — PASS
-The proof starts with the nilpotence of arrows and the reduced semisimple quotient to force preservation of the arrow ideal, so every endomorphism induces a vertex function. The orthogonal-idempotent and unit equations independently force a unique lift scalar on each changed vertex edge, with zero scalars elsewhere; conjugation by \(1+s\) generates precisely these lifts because the radical is square-zero. Peirce support of an arrow forces its image to be a linear combination of the original arrows whose adjacent vertex colors are its specified source and target. Conversely these choices satisfy every product relation. The direct-sum rank argument distinguishes nonzero arrow images with disjoint supports and proves the polynomial without probabilistic assumptions. A weighted transition matrix gives the total count; its constant and nonconstant Fourier modes yield the closed formula, and bijectivity restricts vertex maps to rotations with nonzero arrow coefficients. The asymptotic follows from polynomial degree. Boundary cases \(n=2\), characteristics \(2\) and \(3\), zero arrow images, and constant vertex functions are included. An independent coefficient-level checker enumerates all compatible orthogonal idempotents and arrow images over \(\mathbb F_2\) and \(\mathbb F_3\) for small dimensions and checks six transfer/count instances. Such enumeration cannot prove all-field statements; those follow from the written proof. No missing nonstandard lemma or unverified computational dependency is needed.
+PASS
 
-## Originality — PASS, with documented residual risk
-Relevant primary full-text accounts of radical-square-zero cycle and cyclic Nakayama algebras concern singularity categories (Chen, arxiv:1104.4006), homological phi-dimension (Sen, arxiv:1806.01449), higher cluster tilting (Vaso, arxiv:2105.05830), and higher-homological gentle-algebra classifications (Haugland–Jacobsen–Schroll, arxiv:2107.01045). These are genuinely comparable algebra families, but their asserted results do not classify unital algebra endomorphisms or give labeled finite-field linear-rank polynomials. A module endomorphism algebra does not imply the cardinality of algebra self-homomorphisms. Searches under radical-square-zero, cyclic quiver, Nakayama, endomorphism monoid, and homomorphism-count terminology found no stronger encompassing formula in the examined results. Bibliographic coverage is necessarily nonexhaustive; a formulation in older basic-algebra monoid literature could overlap, which remains a risk rather than being represented as proof of novelty.
+For A=KQ_n/J², nilpotent arrows map into J since A/J=K^n is reduced; quotient unital algebra map gives arbitrary vertex function phi. Orthogonal idempotent lifts in square-zero J uniquely parameterized by s_j on changed-color edges through conjugation (1+s)E_i(1-s). Peirce support forces F(a_i) to sum beta_j a_j for phi(j)=i and phi(j+1)=i+1; these choices satisfy every multiplication relation. On J the arrow source groups have disjoint supports and binary nonzero rank contributions, yielding the full polynomial q^d T^|im phi| prod_i[1+(q^m_i-1)T]. Transfer matrix with diagonal 1, successor q², other q has eigenvalues L=q²+(n-2)q+1 and (q-1)(q zeta-1); roots-of-unity filter gives stated total. Automorphisms require cycle rotations with nonzero arrows: n q^n(q-1)^n, and fixed-n density 1-n/q+O(q^-2). Independently enumerated phi and counts for (n,q)=(2,2),(2,3),(3,2),(3,3),(4,2), reproducing E=34,164,363,2757,6628, and n3 q2 rank coefficients (3,72,120,72,72,24). General-field result comes from proof, not finite checks.
 
-## Value — PASS
-Unital self-homomorphisms are intrinsic maps of these well-studied finite-dimensional self-injective algebras, and their complete rank spectrum measures all attainable degeneration dimensions, not only units or split maps. The precise normal form separates semisimple vertex colorings, nilpotent idempotent lifting, and arrow collapse; it yields exact polynomial multiplicities for every field order and generator count, plus a closed total count and a somewhat unexpected asymptotic automorphism-density law. These facts are not immediate from the cited module-homological classifications and constitute a natural complete invariant rather than an arbitrary table entry.
+## originality
 
-## Closest literature and limits
-Chen (2011), Sen (2018), Vaso (2021), and Haugland–Jacobsen–Schroll (2021) identify or analyze the same structural algebra family from different directions. Their documented theorem statements and inspected relevant full text do not give the displayed map census. The theorem is specific to oriented cycles with radical square zero and requires unital \(K\)-algebra homomorphisms. Computations are limited to explicitly enumerated finite fields; the proof is general. A genuinely equivalent result under other terminology remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge PASS: Chen, Sen, Vaso and Haugland/Jacobsen/Schroll treat the same radical-square-zero oriented cyclic Nakayama algebra family but singularity categories, homological phi-dimension, higher cluster-tilting and gentle structures; these module-theoretic results do not classify unital K-algebra self-maps, finite-field linear-rank distributions or monoid units. Resultary semantic search yielded no equivalent count. Older quiver endomorphism monoid literature remains a priority risk.
+
+## value
+
+PASS
+
+Unital algebra endomorphism monoid and labeled linear rank spectrum are natural invariants of a well-studied finite-dimensional algebra family. The parameterization separates quotient vertex maps from nilpotent idempotent lifts and arrow-image collapse, and the exact all-n polynomial and asymptotic almost-all-invertible law go beyond routine count for one small q.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
