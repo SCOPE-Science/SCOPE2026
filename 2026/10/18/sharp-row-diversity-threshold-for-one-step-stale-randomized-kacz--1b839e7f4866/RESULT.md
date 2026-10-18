@@ -1,0 +1,109 @@
+# Sharp row-diversity threshold for one-step-stale randomized Kaczmarz
+
+## Finding
+
+Consider exact-arithmetic randomized row corrections on the consistent identity system \(I_m x=b\), with one committed-iteration-old residual at every update. Let \(m\geq1\), let \(p_1,\ldots,p_m>0\) sum to one, and let the relaxation be \(\alpha>0\). At every iteration choose \(I_k=i\) independently with probability \(p_i\), and write the additive (rather than overwriting) update
+\[
+e^{k+1}=e^k-\alpha e^{k-1}_{I_k}\mathbf e_{I_k},\qquad e^k=x^k-b,\quad k\geq0,
+\]
+for arbitrary deterministic initial pair \(e^{-1},e^0\in\mathbb R^m\). Here \(\mathbf e_i\) is coordinate vector \(i\). Then the following are equivalent:
+
+1. For every initial pair the squared error \(\mathbb E\|e^k\|_2^2\) converges to zero at a geometric rate.
+2. For every initial pair \(\mathbb E\|e^k\|_2^2\to0\).
+3. The **sharp collision-concentration inequality** holds:
+\[
+\boxed{\alpha+\alpha^2\max_{1\le i\le m}p_i<2.}
+\]
+
+If equality holds for even one coordinate, there is a deterministic initial pair with nonvanishing mean square. If the left side is strictly greater than two, there is a deterministic initial pair whose mean square grows exponentially along a subsequence.
+
+Consequently, for fixed \(0<\alpha<2\), **some** strictly positive sampling distribution can be mean-square stable if and only if
+\[
+\boxed{m>\frac{\alpha^2}{2-\alpha};}
+\]
+uniform probabilities attain feasibility whenever it exists. For \(\alpha\ge2\), no dimension or positive sampling distribution permits mean-square convergence.
+
+The first-moment criterion is strictly weaker: \(\mathbb E e^k\to0\) for every initial pair if and only if \(0<\alpha p_i<1\) for all \(i\). Moreover, the single statistic \(\sum_i p_i^2\), the probability that two independent successive row choices coincide, does not determine mean-square stability. For \(\alpha=5/4\), the two laws
+\[
+(p_1,p_2,p_3)=(1/2,1/4,1/4)
+\quad\text{and}\quad
+(p_1,p_2,p_3)=(5/12,5/12,1/6)
+\]
+both have successive-row collision probability \(3/8\); the first is mean-square unstable while the second is stable. Both are first-moment stable.
+
+## Assumptions and scope
+
+There is exactly one committed coordinate update at each discrete \(k\). The residual used for the selected row is the value at committed iterate \(k-1\), not a current residual, and the correction is added to the current iterate \(k\). Choices \(I_k\) are i.i.d., independent of the deterministic initial pair, with time-independent strictly positive probabilities. One must distinguish this stale additive model from exact coordinate **overwrites** and from ordinary current-residual Kaczmarz. No assumptions on unrelated coordinates' joint distribution are required because the squared norm separates coordinatewise. The conclusion is about expected squared Euclidean error in exact arithmetic; it does not assert an almost-sure rate or stability for correlated, adaptive, or unbounded delays.
+
+## Proof
+
+**Reduction to scalar Bernoulli recursions.** Fix a coordinate \(i\), set \(p=p_i\), and write \(u_k=e_i^k\). With \(\xi_k=\mathbf1_{\{I_k=i\}}\), the coordinate obeys
+\[
+u_{k+1}=u_k-\alpha\xi_k u_{k-1}.
+\]
+For fixed \(i\), the \(\xi_k\) are i.i.d. Bernoulli with parameter \(p\); independence between distinct coordinates is neither assumed nor needed. For \(y_k=(u_k,u_{k-1})^{\mathsf T}\), the two possible update matrices are
+\[
+M_0=\begin{pmatrix}1&0\\1&0\end{pmatrix},\qquad
+M_1=\begin{pmatrix}1&-\alpha\\1&0\end{pmatrix},
+\qquad y_{k+1}=M_{\xi_k}y_k.
+\]
+Hence its second-moment matrix \(C_k=\mathbb E(y_ky_k^{\mathsf T})\) evolves by the **positive linear map**
+\[
+C_{k+1}=\mathcal L(C_k),\qquad
+\mathcal L(C)=(1-p)M_0CM_0^{\mathsf T}+pM_1CM_1^{\mathsf T}.
+\]
+The map preserves positive semidefiniteness and order.
+
+**Exact strict threshold without numerical eigenvalue tests.** Define
+\[
+t=\frac1{1+\alpha p}\in(0,1),\qquad
+W=\begin{pmatrix}1&t\\t&1\end{pmatrix}\succ0,
+\qquad
+d=\alpha p\left(\frac2{1+\alpha p}-\alpha\right).
+\]
+A direct multiplication using the two displayed matrices gives
+\[
+\mathcal L(W)=W-d\begin{pmatrix}1&0\\0&0\end{pmatrix},
+\qquad
+\mathcal L^2(W)=W-d\begin{pmatrix}2&1\\1&1\end{pmatrix}.
+\]
+The second matrix on the right has determinant one and positive leading principal minor, so is positive definite. Therefore \(d>0\) implies \(\mathcal L^2(W)\prec W\). Since \(W\succ0\), there exists \(q\in(0,1)\) with \(\mathcal L^2(W)\preceq qW\). Every deterministic initial covariance \(y_0y_0^{\mathsf T}\) is bounded by a finite multiple of \(W\), and positivity of \(\mathcal L\) gives \(C_{2n}\preceq c q^n W\); applying \(\mathcal L\) once bounds odd times. Thus \(\mathbb E u_k^2\) decays geometrically for every deterministic initial pair.
+
+If \(d=0\), then \(\mathcal L(W)=W\). The positive-definite \(W\) is a positive combination of the two rank-one deterministic initial covariances generated by \((1,1)^{\mathsf T}\) and \((1,-1)^{\mathsf T}\):
+\[
+W=\frac{1+t}{2}(1,1)^{\mathsf T}(1,1)
++\frac{1-t}{2}(1,-1)^{\mathsf T}(1,-1).
+\]
+If both of these deterministic starts had vanishing mean square, their covariance combination would tend to zero, contradicting \(\mathcal L^k(W)=W\). Hence at least one deterministic start fails.
+
+If \(d<0\), then \(\mathcal L^2(W)\succ W\), so \(\mathcal L^2(W)\succeq (1+\eta)W\) for some \(\eta>0\). Iterating the positive map gives \(\mathcal L^{2n}(W)\succeq (1+\eta)^nW\). By the same two-rank-one decomposition, some fixed deterministic initial pair has augmented mean square growing exponentially along a subsequence. Since its augmented norm is the sum of squared errors at two successive times, the scalar expected squared error itself is exponentially unbounded along a subsequence.
+
+The sign of \(d\) is precisely the sign of \(2-\alpha-\alpha^2p\), since \(\alpha p>0\). Thus mean-square stability of each coordinate is equivalent to \(\alpha+\alpha^2p_i<2\). Summing the finitely many coordinate squared errors proves the stated condition with \(\max_i p_i\), and placing a bad scalar start in one coordinate proves necessity.
+
+**Sampling and first moments.** The maximal probability satisfies \(\max_i p_i\ge1/m\), with equality for uniform sampling. Consequently the strict inequality is feasible exactly when \(\alpha+\alpha^2/m<2\); this is equivalent to the claimed dimension threshold for \(0<\alpha<2\). For first moments, independence gives \(\mathbb E u_{k+1}=\mathbb E u_k-\alpha p\,\mathbb E u_{k-1}\). The roots of \(z^2-z+\alpha p\) are strictly inside the unit disk exactly for \(0<\alpha p<1\), giving the first-moment assertion.
+
+For the equal-collision examples, both probability vectors have \(\sum_i p_i^2=3/8\), but their maxima are respectively \(1/2\) and \(5/12\). At \(\alpha=5/4\), the stability expressions become \(65/32>2\) and \(365/192<2\), respectively; all first-moment parameters satisfy \(0<\alpha p_i<1\). Finally, \(\alpha=3/2\) gives \(\alpha+\alpha^2/4=33/16>2\) while \(\alpha+\alpha^2/5=39/20<2\): four rows cannot suffice, whereas five uniformly sampled rows do. This completes all assertions.
+
+## Verification
+
+Run `python verify.py` with Python and NumPy. The provided standalone script checks, in exact rational arithmetic, both covariance identities over seventy \((\alpha,p)\) pairs and three equality boundaries; it also numerically checks the three-by-three second-moment lift and its stable/unstable sides, verifies the four-versus-five-row separation, and checks equal collision probabilities with opposite stability. Output starts with `VERIFY_OK`. The global theorem is proved by the preceding positive-matrix argument; finitely many computed cases cannot establish universal assertions.
+
+## Relationship to prior work
+
+Coleman (2026) experimentally studies residual-weighted and threshold-greedy randomized Kaczmarz with realized asynchronous shared-memory reads and finds concurrency-dependent divergence. Its row-update model motivates isolating an exactly one-commit-stale, fixed-probability benchmark. The benchmark here is an independently specified surrogate, **not** a theorem about Coleman's measured scheduler or adaptive power-weighted sampler. Liu, Wright and Sridhar (2014) prove sufficient bounded-delay convergence under step restrictions for a different asynchronous Kaczmarz framework, not a sharp necessity-and-sufficiency threshold for the current orthogonal row model. Jensen, Coleman and Sosonkina (2020/2021) investigate nonuniform asynchronous linear solvers and report performance comparisons, not the present closed second-moment boundary.
+
+General discrete-time jump-linear-system results, such as Costa and Fragoso (1993) and later exact covariance methods, give an **implicit** spectral-radius test for the two-by-two Bernoulli matrix recursion. Such general theory is recognized, not claimed new. The contribution is the specific explicit threshold with a constructive positive-definite covariance witness, sharp necessity at equality and beyond, a minimum-row-diversity law, and an example showing that global adjacent-row collision probability alone cannot predict the outcome. A published two-coordinate random-delay Gauss–Seidel analysis establishes an exact delay-distribution rate for **overwriting** a coordinate with a stale **other-coordinate** value; for an identity system that overwrite has no self-stale interference, so its recurrence does not imply the additive self-stale threshold proved here.
+
+## Limitations
+
+Only identity (or, by an orthogonal change of variables, mutually orthogonal normalized rows), independent time-stationary row selection, fixed one-commit stale residual, and exact arithmetic are covered. Row coherence, changing probabilities, delays beyond one committed step, correlated choices, nonlinear errors, and actual parallel scheduling remain unaddressed. The mean-square criterion is not a probability-of-divergence formula. Existing abstract general jump-system criteria can be specialized computationally to this model; the novelty judgment concerns the explicit structural specialization and may change if an older source is found to state it already. Full texts of all potentially relevant older asynchronous-delay papers were not available for comparison.
+
+## References
+
+- E. Coleman, *Adaptive Row Selection Meets Asynchrony in Randomized Kaczmarz*, arXiv:2607.08313v1, first posted July 9, 2026. https://arxiv.org/abs/2607.08313
+- J. Liu, S. Wright and S. Sridhar, *An Asynchronous Parallel Randomized Kaczmarz Algorithm*, arXiv:1401.4780 (2014). https://arxiv.org/abs/1401.4780
+- E. Jensen, E. C. Coleman and M. Sosonkina, *Implementing Asynchronous Linear Solvers Using Non-Uniform Distributions*, Journal of Simulation Engineering 2 (2020/2021). https://articles.jsime.org/2/1/
+- O. L. V. Costa and M. D. Fragoso, *Stability Results for Discrete-Time Linear Systems with Markovian Jumping Parameters*, Journal of Mathematical Analysis and Applications 179 (1993), 154–178. https://doi.org/10.1006/jmaa.1993.1341
+- E. Carson and Y. Ma, *Asynchronous Jacobi and randomized Gauss–Seidel methods in shared and distributed memory: A unified convergence-rate analysis*, arXiv:2609.15605 (2026). https://arxiv.org/abs/2609.15605
+- A. Agaskar, C. Wang and Y. M. Lu, *Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities*, GlobalSIP (2014). https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b
+- *Exact delay-distribution law for two-coordinate randomized Gauss-Seidel*, public research record (2026). https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac

@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "For each coordinate \\(i\\), independent row choices induce a Bernoulli variable with parameter \\(p_i\\) and an augmented pair of exactly specified update matrices. The explicitly constructed strictly positive-definite \\(W=\\begin{psmallmatrix}1&t\\\\t&1\\end{psmallmatrix}\\) satisfies \\(\\mathcal L(W)=W-dE_{11}\\) and \\(\\mathcal L^2(W)=W-d\\begin{psmallmatrix}2&1\\\\1&1\\end{psmallmatrix}\\); the final displayed matrix is positive definite. Positivity proves geometric convergence when \\(d>0\\). At \\(d=0\\), \\(W\\) is fixed; for \\(d<0\\), \\(W\\) expands in positive-semidefinite order. Decomposition of \\(W\\) into two rank-one deterministic initial covariances gives genuine nondecay/divergence deterministic witnesses. Since \\(\\operatorname{sign}(d)=\\operatorname{sign}(2-\\alpha-\\alpha^2p_i)\\), summation over coordinates yields the exact global iff condition. The maximum sampling probability is at least \\(1/m\\), which yields the sharp dimension law; the first-moment polynomial \\(z^2-z+\\alpha p\\) and exact fraction calculations establish the remaining claims. Standalone exact-rational verification passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General covariance/jump-matrix spectral radius criterion is necessary and sufficient for finite stochastic linear systems. https://onlinelibrary.wiley.com/doi/10.1155/2012/642480",
+        "Liu–Wright–Sridhar 2014 Theorem 1 imposes multiple sufficient gamma constraints and does not prove necessity; the theorem bounds exclude overrelaxation in the stated form. https://www.researchgate.net/publication/259804468_An_Asynchronous_Parallel_Randomized_Kaczmarz_Algorithm"
+      ],
+      "reasoning": "The general lifted spectral-radius test covers the covariance recursion implicitly, and is expressly acknowledged. Its existence does not state the evaluated closed analytic inequality in m, alpha and max p, the critical deterministic witness, or the distinct same-global-collision designs. The 2014 specific Kaczmarz theorem is sufficient, not equivalent. The broad implicit framework limits the novelty claim to the explicit structural classification, not the underlying method.",
+      "searches": [
+        "Costa Fragoso mean square stability Markov jump linear systems spectral radius Kronecker necessary sufficient i.i.d. matrices",
+        "second moment stability independent identically distributed random matrices E A tensor A spectral radius convergence",
+        "2012 spectral necessary sufficient mean-square stability discrete-time jump linear systems https://onlinelibrary.wiley.com/doi/10.1155/2012/642480",
+        "2026 exact covariance i.i.d. uncertainties arxiv:2608.07028",
+        "2014 asynchronous RK source arxiv:1401.4780"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.08313",
+      "https://www.researchgate.net/publication/408700026_Adaptive_Row_Selection_Meets_Asynchrony_in_Randomized_Kaczmarz",
+      "https://www.researchgate.net/publication/259804468_An_Asynchronous_Parallel_Randomized_Kaczmarz_Algorithm",
+      "https://articles.jsime.org/2/1/",
+      "https://onlinelibrary.wiley.com/doi/10.1155/2012/642480",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+      "https://arxiv.org/abs/2609.15605",
+      "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+      "https://arxiv.org/abs/2608.07028"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Coleman uses residual-power adaptive selection on real shared memory (Algorithms and experimental stability cliff), whereas the new model fixes i.i.d. p and precisely one-commit stale selected-row residual. https://www.researchgate.net/publication/408700026_Adaptive_Row_Selection_Meets_Asynchrony_in_Randomized_Kaczmarz",
+        "Exact Gauss–Seidel delay rate predicts identity-row independence for overwrite updates, and cannot imply the present instability above the probability threshold. https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "2012 generic jump-matrix theorem says stability iff an associated lifted operator is Schur, but no evaluation of this one-commit stale Bernoulli family appears in its inspected results. https://onlinelibrary.wiley.com/doi/10.1155/2012/642480"
+      ],
+      "reasoning": "No inspected source states a theorem whose specific consequences directly give the explicit inequality and the same-collision/contrasting-stability construction without new evaluation of the Bernoulli second-moment operator. It is a motivated tractable specialization of general theory; residual risks include an inaccessible earlier direct specialization and abstract-only papers.",
+      "searches": [
+        "exact stability threshold alpha+alpha^2 p<2 for one-step stale Bernoulli row sampling Kaczmarz orthogonal identity system",
+        "identity linear system asynchronous coordinate update uses previous iterate one stale step fixed random sampling probability max p_i mean square convergence",
+        "mean stable but mean-square unstable one-step delayed randomized Kaczmarz due row collisions",
+        "Full Coleman Kaczmarz algorithm and results https://www.researchgate.net/publication/408700026_Adaptive_Row_Selection_Meets_Asynchrony_in_Randomized_Kaczmarz",
+        "Full Liu et al. main theorem https://www.researchgate.net/publication/259804468_An_Asynchronous_Parallel_Randomized_Kaczmarz_Algorithm",
+        "Jensen–Coleman–Sosonkina full methods https://articles.jsime.org/2/1/"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected published Gauss–Seidel result establishes \\(S_{k+1}=S_k/2+(r^2/2)\\mathbb E[S_{k-D}]\\) by overwriting one coordinate from the stale other-coordinate; it does not consider additive stale-self corrections. https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "Full Coleman algorithm section: additive row correction with possibly stale residual, but empirical concentration study instead of an analytic Bernoulli iff threshold. https://www.researchgate.net/publication/408700026_Adaptive_Row_Selection_Meets_Asynchrony_in_Randomized_Kaczmarz"
+      ],
+      "reasoning": "For the identity-row case \\(r=0\\), the published other-coordinate overwrite has \\(S_{k+1}=S_k/2\\) irrespective of delays; the present stale-self additive identity update instead has the explicit \\(\\alpha+\\alpha^2p<2\\) stability frontier. Thus no equivalent formulation or direct stronger implication follows by renaming the variables. Search variants for Bernoulli delayed coordinate iteration found no explicit same result.",
+      "searches": [
+        "Bernoulli delayed Kaczmarz stochastic scalar recursion mean-square stability x(k+1)=x(k)-alpha Bernoulli x(k-1) sharp threshold",
+        "asynchronous randomized coordinate descent stale gradient one-step delay exact mean-square stability Bernoulli activation quadratic",
+        "randomized Kaczmarz one-step delayed same row stale iterate necessary sufficient mean square step size sampling probabilities relaxation",
+        "Bernoulli stochastic delay gradient update e k+1 e k - a Bernoulli e k-1 second moment stability exact",
+        "asynchronous Kaczmarz mean square divergence stale same coordinate overrelaxation exact stability threshold",
+        "published-finding corpus published 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest fixed sampling exact delay finding concerns two-coordinate Gauss–Seidel overwrites. https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "Other returned records concern synchronous optimal sampling, max-residual Kaczmarz, and underrelaxed cyclic bias, not a table for a self-stale Bernoulli identity iteration."
+      ],
+      "reasoning": "Searches of published mathematical records and of the previously known mathematical claims did not find this full object/claim or an exact threshold table. This is evidence of checked overlap, never a proof that no unindexed or unpublished result exists.",
+      "searches": [
+        "Adaptive Row Selection Meets Asynchrony in Randomized Kaczmarz July 2026 2607.08313",
+        "exact stability threshold alpha+alpha^2 p<2 for one-step stale Bernoulli row sampling Kaczmarz orthogonal identity system",
+        "identity linear system asynchronous coordinate update uses previous iterate one stale step fixed random sampling probability max p_i mean square convergence",
+        "published-finding corpus nearest 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+        "published-finding corpus 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ]
+    },
+    "rationale": "Relevant full texts were checked for the exact one-commit-old additive update and its probability-vector necessary-and-sufficient mean-square threshold, not merely title matches. Coleman documents experimental adaptive Kaczmarz instability without the stated static-law theorem; Liu–Wright–Sridhar gives a sufficient bound for another async model; Jensen et al. treats nonuniform asynchronous implementations; the public exact Gauss–Seidel delay law uses a different overwrite operator; classic jump-system results give an implicit covariance/spectral test rather than the explicit sharp row-diversity and equal-collision distinction. This is a qualified self-review, not a claim of exhaustiveness or independent certification.",
+    "residual_risks": [
+      "An older jump-system paper might evaluate exactly the Bernoulli two-step scalar recursion and imply the threshold without the same wording.",
+      "Only the abstract, not full text, of Carson–Ma 2026 arXiv:2609.15605 was readable.",
+      "Only abstract-level evidence of older synchronous exact-MSE Kaczmarz work and Beidas–Papavassilopoulos 1993 stochastic delay paper was available.",
+      "A generic matrix-lift Schur test logically encompasses the second-moment model, so novelty is restricted to the explicit closed boundary and row-diversity/collision comparison rather than the general spectral method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Experimental adaptive power-weighted and live/snapshot scheduler analysis; no static iid self-stale exact mean-square threshold in inspected sections",
+        "evidence": "The inspected algorithm has \\(x\\leftarrow x+\\beta r_i a_i\\) with a potentially stale read, while the experimental results show a sampling-concentration instability cliff (manuscript rendered lines 248–330 and 397–472). arXiv:2607.08313v1 was posted 2026-07-09.",
+        "identifier_or_url": "https://www.researchgate.net/publication/408700026_Adaptive_Row_Selection_Meets_Asynchrony_in_Randomized_Kaczmarz",
+        "material_read": "Introduction, Algorithm 1, residual update and read semantics sections, experiments and concentration stability discussion",
+        "method": "Public HTML rendering of full primary manuscript on ResearchGate; arXiv date metadata cross-checked",
+        "title": "Adaptive Row Selection Meets Asynchrony in Randomized Kaczmarz",
+        "trigger": "Motivating 2026 paper with additive Kaczmarz updates and stale reads"
+      },
+      {
+        "assessment": "Multiple sufficient delay-dependent step restrictions, not an iff stability frontier for self-stale identity rows and arbitrary nonuniform probabilities",
+        "evidence": "Algorithm 1 chooses uniform rows and uses stale x_{k(j)}; theorem bounds gamma by 1/psi and two other expressions; arxiv:1401.4780.",
+        "identifier_or_url": "https://www.researchgate.net/publication/259804468_An_Asynchronous_Parallel_Randomized_Kaczmarz_Algorithm",
+        "material_read": "Full rendered manuscript available; inspected Algorithm 1, Theorem 1, Corollary 2 and surrounding proof discussion",
+        "method": "Public HTML rendering of lawful manuscript",
+        "title": "An Asynchronous Parallel Randomized Kaczmarz Algorithm",
+        "trigger": "Closest classical stochastic asynchronous Kaczmarz convergence theorem"
+      },
+      {
+        "assessment": "Nonuniform implementation and sufficient fixed-point convergence discussion; no analytic one-stale step Bernoulli second-moment criterion",
+        "evidence": "Defines asynchronous component read/overwrite; reports nonuniform ranking experimental benefits.",
+        "identifier_or_url": "https://articles.jsime.org/2/1/",
+        "material_read": "Full journal HTML; main asynchronous model, theorem, algorithms and performance discussion",
+        "method": "Journal original HTML page, sections 2–6",
+        "title": "Implementing Asynchronous Linear Solvers Using Non-Uniform Distributions",
+        "trigger": "Nonuniform asynchronous row-selection literature by motivating author"
+      },
+      {
+        "assessment": "The exact recurrence applies to overwriting a component from the stale OTHER coordinate. Different from current coordinate stale additive correction; at diagonal identity its delay vanishes from rate",
+        "evidence": "Published law \\(S_{k+1}=S_k/2+(r^2/2)\\mathbb E[S_{k-D}]\\); at \\(r=0\\) this specializes to \\(S_{k+1}=S_k/2\\) and differs from the self-stale additive iteration.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "material_read": "Complete RESULT.md including statement, analytic proof, relation to literature and limitations",
+        "method": "Public GitHub repository read-only file fetch through connected GitHub tool",
+        "title": "Exact delay-distribution law for two-coordinate randomized Gauss-Seidel",
+        "trigger": "Nearest published search record about exact random delays in row iteration"
+      },
+      {
+        "assessment": "General lifted-matrix Schur criterion covers candidate in implicit form but no evaluation of this 1-step-stale Kaczmarz parameter family found in inspected sections",
+        "evidence": "Theorem 2.1, mean square stable iff A_[2] Schur stable; general prior matrix-lift explicitly credited.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2012/642480",
+        "material_read": "HTML full relevant Sections 1.2 and 2.2 and theorem statements on second-moment spectral characterization",
+        "method": "Open-access publisher HTML",
+        "title": "A New Proof to the Necessity of a Second Moment Stability Condition of Discrete-Time Markov Jump Linear Systems with Real States",
+        "trigger": "Broad prior necessary-and-sufficient spectral theory potentially covering candidate"
+      },
+      {
+        "assessment": "Abstract describes bounds depending on delay structure; cannot conclude the paper lacks an equivalent specialization",
+        "evidence": "arxiv:2609.15605; material full text not obtained. Residual originality risk recorded.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.15605",
+        "material_read": "Abstract only; attempted arxiv PDF, HTML and ar5iv full text unsuccessful",
+        "method": "arXiv abstract search and bounded full-text retrieval attempts",
+        "title": "Asynchronous Jacobi and randomized Gauss–Seidel methods in shared and distributed memory: A unified convergence-rate analysis",
+        "trigger": "Very recent specifically asynchronous randomized linear iteration analysis"
+      },
+      {
+        "assessment": "Describes synchronous random projection MSE analysis, but cannot rule out a delay-related corollary without full text",
+        "evidence": "Known exact MSE framework for standard (current-residual) randomized Kaczmarz, distinguished from the explicit delayed additive update.",
+        "identifier_or_url": "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+        "material_read": "Abstract-level search information only; complete text not obtained",
+        "method": "Harvard institutional open-access record and abstract; linked PDF attempts returned HTTP 405/502",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "Possible older exact MSE / sampling result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1b839e7f-4866-4f2f-a343-3331676d6705",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The unstable concentration of stale row updates is motivated by current experiments on asynchronous randomized Kaczmarz. The explicit iff threshold identifies a nontrivial parameter phase even at zero row coherence, quantifies the minimum number of independently available orthogonal rows supporting a given relaxation, and shows analytically that two sampling policies with identical global adjacent-row collision probability can have opposite mean-square behavior. In addition, the rigorously exhibited mean-vs-mean-square separation prevents an unjustified inference from expected iterate stability. These are natural structural boundaries, not an arbitrary slice or textbook renaming. The source algorithms are not claimed to obey this surrogate model in actual parallel runs.",
+    "status": "PASS"
+  }
+}
