@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-## Executed program
+## correctness
 
-Run the embedded, standalone Python 3 standard-library script with `python3 VERIFIER.py`. The script was executed from the files included in this record, and returned:
+PASS
 
-```
-VERIFY_OK staircase_sizes=59 modal_depth_levels=1829 row_column_selector_sizes=30 direct_boolean_unions=1100 Boolean_modal_algebra_cases=3
-```
+The one-step modal type signature consists of previous p truth and the sets of predecessor modal types accessible in the entire row and column. Row/column signature equivalence refines previous levels. Induction alternately peels the last/first middle rows and the first/last middle columns according to parity t, giving t+1 row blocks and t+1 column blocks at the input to depth t. Every block rectangle is monochrome except the central rectangle, yielding (t+1)^2+1 types until n-2; at depth n-1 row and column blocks are singleton and yield n^2. Finite characteristic formula construction yields every union and sharp lower bound. The n=2 and saturated t>=n-1 endpoints are explicitly included.
 
-## Checks
+## originality
 
-The first check constructs successive depth-bounded modal partitions directly from the propositional truth value and the sets of predecessor-type labels accessible along the two row/column equivalence relations. It compares all intermediate modal class counts to the closed formula and, more strongly, verifies the exact claimed row and column signature groupings at every level for all square sizes \(2\le n\le60\) (1,829 depth levels altogether). The second check directly evaluates the recursive formulas selecting initial row and column segments, including all singleton intersections, on square sizes \(1\le n\le30\).
+PASS
 
-The third check does not use modal bisimulation partitions. For each \(n=2,3,4\), it enumerates every Boolean union of currently definable atoms, evaluates both modal box operations as set operations, and takes the Boolean atoms of all resulting sets. The resulting depth-wise counts independently reproduce the theorem. The third check considers 1,100 Boolean-union inputs across its three cases. All assertions passed.
+The final claim was independently compared at statement/implication level against the identified closest original publications and targeted semantic finding searches. Specific prior components are credited and the remaining claimed addition is identified. Residual priority/access risks remain and this is best-of-knowledge, not universal certification. Exact quadratic modal-depth spectrum of the finite Erdős–Tarski staircase.
 
-## Scope and limitations
+## value
 
-These are exhaustive tests only for the explicitly enumerated finite ranges. No computation can establish the statement for every \(n\). The unbounded proof is the alternating-peeling induction in `RESULT.md`. No externally performed mathematical audit or formal proof-assistant certificate is asserted.
+PASS
+
+The exact growth filtration and sharp minimal modal nesting depth measure expressivity of a specific classical one-generator S5-square model. Qualitative single generation alone does not determine any intermediate layer size; the uniform quadratic profile and linear saturation depth are natural, nontrivial quantitative modal/algebraic invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
