@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The exact 3-by-3 Gauss quadrature and Verlet matrices specialize the published SDC position sweep. Its fixed-point stages yield the symplectic [2/2] Gauss endpoint determinant one. The finite-sweep error is a matrix-power recurrence with invariant 2D compression H and leading determinant defect (-1)^k qH^k c times z^(k+1). The trace starts at 2-z, so the two automatic Jury inequalities and determinant sign give the precise local stability dichotomy. H has conjugate eigenvalues with twice-angle cosine (sqrt(3)-1)/2; irrationality follows because the other conjugate of the root-of-unity trace sqrt(3)-1 lies below -2. Equidistribution gives half-density of each sign; a nonzero sinusoid with irrational phase has at most one zero index. The included checker independently reconstructs quadrature, six exact leading coefficients and nine high-precision sweeps. No infinite statement relies on finite testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://epubs.siam.org/doi/full/10.1137/23M1592596: theoretical convergence/consistency and numerical stability domains, not sweep-count density.",
+        "https://arxiv.org/abs/1409.5677: prior Boris-SDC framework for Lorentz-force problems; only abstract/background material inspected."
+      ],
+      "reasoning": "Convergence of correction stages to symplectic Gauss collocation does not imply that every finite correction count is small-step stable, nor establish the exact alternating determinant coefficient. General symplecticity of the limit does not transfer to fixed-sweep maps. Boris-SDC is related in construction but the accessible material does not supply this precise theorem; full-text uncertainty is retained as a risk.",
+      "searches": [
+        "\"velocity-Verlet\" \"spectral deferred corrections\" \"symplectic\" \"harmonic\"",
+        "\"Akramov\" \"SDC\" \"iteration\" \"stability\" \"2025\"",
+        "spectral deferred correction oscillator stability number sweeps nonmonotone 2025 2026",
+        "\"Boris-SDC\" \"harmonic oscillator\" stability determinant"
+      ]
+    },
+    "checked_sources": [
+      "https://epubs.siam.org/doi/full/10.1137/23M1592596",
+      "https://ar5iv.labs.arxiv.org/html/2310.08352",
+      "https://arxiv.org/abs/2310.08352",
+      "https://arxiv.org/abs/1409.5677",
+      "https://www.mat.tuhh.de/forschung/topics_en/SDC.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://epubs.siam.org/doi/full/10.1137/23M1592596 Sections 2.1–2.3 and 3: defining recurrences, linear oscillator iteration matrix, numerical Table 1; no general ‘half the sweep counts’ theorem.",
+        "The present result derives the exact determinant-defect coefficient, a two-by-two compression, irrationality via the algebraic conjugate, and Schur transfer."
+      ],
+      "reasoning": "Standard published formulas make the specialization possible but do not state its nontrivial implication. The same finite-sweep polynomial analysis must be performed to determine the compression and prove the irrational phase. A convergence-order theorem cannot imply the sign or its frequency. Earlier related first-order SDC half-density concerns another method and is not a general theorem over all preconditioners.",
+      "searches": [
+        "Spectral deferred correction method (SDC) velocity Verlet second-order harmonic oscillator Gauss-Legendre collocation, small-timestep stability versus correction sweeps",
+        "two-node Gauss Legendre velocity Verlet spectral deferred corrections harmonic oscillator K iterations determinant nonmonotone",
+        "\"spectral deferred correction methods for second-order problems\" \"odd\" \"even\" proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://epubs.siam.org/doi/full/10.1137/23M1592596 (Section 3, Table 1): reported two-node small-sweep stability limits only.",
+        "https://ar5iv.labs.arxiv.org/html/2310.08352 (Sections 2–3): stage recurrence and oscillator amplification map, not an irrational-angle density theorem."
+      ],
+      "reasoning": "The proposed claim can be recast as a sign-frequency theorem for leading finite-sweep symplectic-determinant defects or an irrational rotation of a two-dimensional error-propagation matrix. Neither version is stated in the inspected primary full text; the exact compression and half-density proof are provided here. Failed exact phrase searches alone are not treated as novelty proof.",
+      "searches": [
+        "Gauss Legendre velocity Verlet spectral deferred correction M=2 small-step determinant asymptotic instability stable sweeps irrational rotation density half",
+        "spectral deferred correction Gauss Legendre velocity Verlet harmonic oscillator stability exact resonance",
+        "spectral deferred correction Gauss Legendre velocity Verlet harmonic oscillator K iterations determinant nonmonotone",
+        "\"spectral deferred corrections\" \"irrational\" stable iteration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://epubs.siam.org/doi/full/10.1137/23M1592596, Table 1: two-node reported first four SDC limits 6.0, 0.0, 0.0, 11.6; text notes the observed unexplained odd/even behavior.",
+        "Related first-order three-node Gauss–Lobatto implicit-Euler SDC calculation: irrational-phase half-density in a stiff negative-real-axis limit; not the present harmonic second-order method."
+      ],
+      "reasoning": "Numerical entries for four correction counts neither classify all positive integers nor yield a natural density. The earlier first-order scalar result uses a different recurrence, quadrature and asymptotic variable, so it does not subsume this theorem. No exact table or database result encountered gives the new coefficient or classification.",
+      "searches": [
+        "\"spectral deferred correction methods for second-order problems\" \"odd\" \"even\" proof",
+        "\"Akramov\" \"stable\" \"even\" iterations harmonic oscillator \"SDC\" explanation",
+        "\"SDC\" \"Gauss Legendre\" \"determinant\" \"oscillator\""
+      ]
+    },
+    "rationale": "Full-text comparison with the motivating scheme finds the numerical small-sweep stability table and an explicit admission that its odd/even pattern was unexplained, not the present all-integer half-density theorem. Published theory supplies the recurrence and standard numerical stability criteria, but no result found implies the exact complex compression and irrational phase. A related earlier first-order three-node Lobatto calculation has a similar density phenomenon in a different stiff scalar limit; its statement cannot imply the present two-node second-order oscillator coefficient. Exact novelty remains subject to independent priority checks.",
+    "residual_risks": [
+      "The full text of the earlier Boris-SDC paper was not materially inspected; a hidden specialized equivalent cannot be excluded merely from its abstract.",
+      "Unindexed or unpublished work may independently derive a similar determinant rotation argument; a negative mathematical-record search cannot prove priority.",
+      "The related first-order Lobatto SDC half-density law demonstrates that the irrational-phase mechanism itself is not being claimed as new. Novelty is confined to the two-node second-order oscillator classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the scheme, states spectral-radius criterion, tabulates four finite sweep counts and acknowledges unexplained apparent parity; does not state or prove the infinite natural-density theorem.",
+        "evidence": "Equations 2.3–2.25, Section 3 (particularly Table 1), and Section 4 convergence theorem.",
+        "identifier_or_url": "https://epubs.siam.org/doi/full/10.1137/23M1592596",
+        "material_read": "Open-access full-text Sections 2.1, 2.2, 2.3, 3 and 4, stability Table 1 and appendix statements relevant to the SDC iteration.",
+        "method": "Full open-access journal HTML, with the matrix definitions and table read in place.",
+        "title": "Spectral Deferred Correction Methods for Second-Order Problems",
+        "trigger": "Same algorithm, same oscillator and exactly the numerical stability phenomenon under investigation."
+      },
+      {
+        "assessment": "Confirms recurrence, date context and unresolved stability observation; no density classification located in inspected relevant sections.",
+        "evidence": "arXiv:2310.08352, Sections 2.1–2.3 and 3.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2310.08352",
+        "material_read": "Full accessible HTML of introduction and detailed Sections 2–3, including equation (23), oscillator stability, Table 1 and its surrounding explanation.",
+        "method": "Lawful open-access ar5iv HTML text, cross-compared with journal version.",
+        "title": "Spectral deferred correction methods for second-order problems (first public preprint)",
+        "trigger": "Earliest source and cross-check of the first-public version of the same paper."
+      },
+      {
+        "assessment": "Describes high-order Lorentz-force SDC and stability experiments, but complete absence of the specialized theorem cannot be concluded from an abstract; retain residual risk.",
+        "evidence": "arXiv:1409.5677 abstract; motivating 2024 article references Boris-SDC as related prior framework.",
+        "identifier_or_url": "https://arxiv.org/abs/1409.5677",
+        "material_read": "Public abstract and bibliographic descriptions, not the complete article.",
+        "method": "Accessible abstract and related citations, with unsuccessful full-text HTML route.",
+        "title": "A high-order Boris integrator",
+        "trigger": "Earlier velocity-Verlet/Boris-preconditioned second-order SDC literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c6d0985-475c-45d1-9cc9-65634a57a536",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating primary study explicitly lacked a theoretical explanation for unpredictable harmonic SDC stability as the sweep count changes. This result provides a complete asymptotic classification for every sweep count on a natural smallest nontrivial Gauss–Legendre configuration, with an exact novel compression and a density theorem that rules out simple permanent odd/even heuristics. The half-density phenomenon concerns strict long-time numerical stability, not merely a cosmetic change in algebraic normalization. It has direct interpretive value for selecting finite correction counts; the setting and limitations are explicit and it does not overclaim global stability ranges or other schemes.",
+    "status": "PASS"
+  }
+}
