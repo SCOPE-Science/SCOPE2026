@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact computational verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library. It reconstructs the 15 vertices and graph adjacency; enumerates every face by the full 15-neighborhood union; verifies the entire 710-face set; creates 345 disjoint Morse pairs; checks the complete 2,430-arrow directed Hasse graph for acyclicity by a 710-face topological sort; derives all eleven signed oriented-simplex traces; checks Murnaghan–Nakayama irreducible character orthogonality; and recovers the two exact unit multiplicities. Output ends with `verified`.
+## correctness
 
-Run `python3 check_independent.py` with Python 3 and SymPy. This independent route evaluates all 32,767 nonempty candidate duad subsets with the exact endpoint-support predicate. Finite-field boundary elimination gives augmented \(d_0\) rank 1 and other boundary ranks \((14,91,150,75,15)\) in each characteristic two, three, and five. The sole nonzero reduced Betti number is nineteen in dimension two. A separate fixed-face signed trace calculation produces the same eleven rational Lefschetz values, and the irreducible-character table is obtained using Kostka matrices and Young permutation characters (not Murnaghan–Nakayama). Output ends with `Independent check complete`.
+PASS
 
-Both source files were executed successfully from their actual package source paths and can be rerun without any other embedded file. The character formula uses rational coefficients and does not claim that modular checks independently certify integral torsion-freeness. The original domain is finite; no computation is extrapolated to general parameters or infinite families. The pre-existing ordinary homotopy wedge count is explicitly not claimed as a new result.
+Enumerating all nonempty sets of 15 duads whose support misses two of six ground points yields exactly 710 faces, f-vector (15,105,260,225,90,15). New modular boundary elimination gives reduced β₂=19 alone; source code’s explicit acyclic matching leaves one critical vertex and 19 critical triangles. Fresh fixed-face signed traces over all 11 S6 conjugacy types reproduce [-1,-1,1,1,1,1,1,-1,-1,-5,19]. Two independently specified source algorithms (Murnaghan–Nakayama and Young-rule Kostka inversion) support Specht irreducible multiplicities one each for (3,1,1,1) and (2,2,1,1), rational Schur realizations included. Finite enumeration is exhaustive for this specific graph.
+
+## originality
+
+PASS
+
+The full S6 action on the 19-dimensional rational homology of ordinary KG(6,2) is not determined by the Nilakantan–Singh nonequivariant wedge theorem or Schultz stable-graph dihedral treatment. New exact Specht decomposition survives these bounded implication comparisons.
+
+## value
+
+PASS
+
+Computes a natural exact S6-representation on a canonical 15-vertex graph and gives the precise symmetry action on known 19-sphere homology; this cannot be recovered from its Betti number alone and is useful for equivariant graph topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
