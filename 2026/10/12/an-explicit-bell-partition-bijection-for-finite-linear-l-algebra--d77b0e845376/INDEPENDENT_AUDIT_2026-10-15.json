@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T01:13:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed chain L_n with n elements, the 2023 Dietzel–Menchón–Vendramin Theorem 4.5 gives B_{n−1} structures, with their Section 4 one-point extension/decomposition bijection: a linear L-algebra has a uniquely determined smaller algebra X′ on L_m and an (n−m−1)-subset A of {x1,...,x_{n−2}}. The recursive map takes the partition for X′, order-transports it onto complement C of A, and appends A∪{x_{n−1}} as the unique block containing the new least point. Conversely a partition of the n−1 nonunit points determines that block, the subset A, m=|C|+1, the inverse order normalization, smaller partition and uniquely the extension algebra. These operations are mutually inverse by structural induction for all n≥1, including n=1 with empty partition and n=2. Source verify.py implements the actual extension and small-table axioms checks to n=8, but finite replay is not the proof. IMPORTANT literal index discrepancy: Problem 4.6 in arXiv:2206.04955 says partitions of {0,...,n−1} (n elements), while the immediately preceding Theorem 4.5 says B(n−1). The result correctly establishes the only cardinality-consistent bijection, with partitions of n−1 nonunit elements, and should not be presented as the literal n-point bijection. No unproved n-point statement is accepted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 source enumerates linear L-algebras and additionally classifies regular L-algebras by infinite Young diagrams; the latter refers to a different subclass and invariant."
+        ],
+        "reasoning": "The source unique extension theorem is used and not claimed novel. No stronger published correspondence was found that explicitly transports every finite linear L-algebra to a partition of its n−1 nonunit elements with the asserted inverse.",
+        "searches": [
+          "Resultary: finite linear L algebras Bell numbers explicit bijection set partitions Dietzel Menchon Vendramin",
+          "Web: \"linear L-algebras\" \"explicit bijection\" Bell partitions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.04955 full arXiv HTML, §4",
+        "DOI:10.1090/mcom/3814",
+        "https://github.com/vendramin/L README",
+        "Researchportal VUB 2023 article metadata and accepted manuscript listing",
+        "Resultary semantic search",
+        "source package RESULT.md, SLOGAN.txt, verify.py and scientific metadata at a7f06178"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Theorem 4.5 proves B(n−1) from A-selection plus a smaller algebra, but the authors say the recursion does not obviously translate into Bell-partition recurrence and pose Problem 4.6."
+        ],
+        "reasoning": "The new choice of the block containing the final least point and order-preserving standardization gives an explicit inverse, a stronger constructive assertion than the earlier count, though it uses the earlier uniqueness theorem essentially. The literal n-point problem wording is inconsistent with Theorem 4.5 and cannot be claimed solved as printed.",
+        "searches": [
+          "Dietzel–Menchón–Vendramin arXiv:2206.04955 §4",
+          "Resultary: finite linear L algebras Bell numbers explicit bijection set partitions Dietzel Menchon Vendramin"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dietzel–Menchón–Vendramin, arXiv:2206.04955, §4 Proposition 4.4 and Theorem 4.5 give unique extension and B(n−1) count; Problem 4.6 seeks an explicit combinatorial map (literally mistyping the partition set size)."
+        ],
+        "reasoning": "The claimed explicit bijection maps actual decomposition data to the distinguished partition block; an abstract equality of two finite counts or recurrence is not an equivalent exhibited map. Author library enumerates L-algebras rather than furnishing this block bijection.",
+        "searches": [
+          "Resultary: finite linear L algebras Bell numbers explicit bijection set partitions Dietzel Menchon Vendramin",
+          "Web: finite linear L-algebras partition bijection Dietzel Vendramin Problem 4.6 2026",
+          "Author database github.com/vendramin/L"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published tables list Bell numbers B(n−1); the author GitHub repository stores GAP enumerators and a database of finite L-algebras, not an evidenced algebra-to-block-of-partition explicit bijection."
+        ],
+        "reasoning": "The number and raw tables are already known and are explicitly not claimed new; the result is a constructive map, so numeric Bell OEIS/database coincidences alone do not cover the construction.",
+        "searches": [
+          "Author computational repository github.com/vendramin/L",
+          "Resultary: finite linear L algebras Bell numbers explicit bijection set partitions Dietzel Menchon Vendramin"
+        ]
+      },
+      "rationale": "The prior Bell-number counting formula does not itself give a natural canonical map. This explicit recursively invertible block-under-extension map addresses the intended size-consistent correspondence, with the printed Problem 4.6 one-index discrepancy called out. No available primary later result provided the same construction.",
+      "residual_risks": [
+        "Original paper Problem 4.6 literally indexes an n-element set even though Theorem 4.5 counts B(n−1). The reviewed theorem solves the mathematically intended n−1-point problem; a public statement claiming the literal printed problem is solved needs correction/qualification before publication.",
+        "An unindexed late-2025/2026 solution of the same bijection could exist; searches do not prove absolute priority.",
+        "The construction relies on the source unique one-point-extension theorem; source finite verifier through n=8 is supplementary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves required unique decomposition and Bell-number count, explicitly poses bijection but mistakenly writes partitions of n points rather than n−1",
+          "evidence": "§4 Theorem 4.5 λ(n)=B(n−1), Proposition 4.4 unique extension, Problem 4.6 uses {0,...,n−1}; all juxtaposed in source.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.04955",
+          "material_read": "Accessible complete arXiv HTML, materially reviewed Section 4 Lemma 4.3, Proposition 4.4, Theorem 4.5 and Problem 4.6, with the surrounding paper structure.",
+          "method": "primary full-text reading",
+          "title": "On the enumeration of finite L-algebras",
+          "trigger": "Same algebras, same enumeration and explicit-bijection problem"
+        },
+        {
+          "assessment": "Contains constructors/enumerators and size-eight data, not verified source of claimed recursive block map",
+          "evidence": "README describes enumerate_L.g and GAP construction/database purpose, not a bijection with set partitions.",
+          "identifier_or_url": "https://github.com/vendramin/L",
+          "material_read": "README and database/enumerator file descriptions; not all scripts or data exhaustively examined",
+          "method": "repository documentation inspection",
+          "title": "Finite L-algebras / author dataset",
+          "trigger": "Possible exact database or hidden bijection implementation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit invertible combinatorial encoding between finite linear L-algebra multiplications and ordinary set partitions supplies a structural interpretation of a Bell-number enumeration and resolves the natural intended size-consistent problem posed by the original enumerators. This is not mere table recomputation or a relabeling of Bell numbers: the new distinguished-block construction reveals how each one-point algebra extension acts on partitions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2206.04955 full arXiv HTML, §4",
+    "DOI:10.1090/mcom/3814",
+    "https://github.com/vendramin/L README",
+    "Researchportal VUB 2023 article metadata and accepted manuscript listing",
+    "Resultary semantic search",
+    "source package RESULT.md, SLOGAN.txt, verify.py and scientific metadata at a7f06178"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Original paper Problem 4.6 literally indexes an n-element set even though Theorem 4.5 counts B(n−1). The reviewed theorem solves the mathematically intended n−1-point problem; a public statement claiming the literal printed problem is solved needs correction/qualification before publication.",
+    "An unindexed late-2025/2026 solution of the same bijection could exist; searches do not prove absolute priority.",
+    "The construction relies on the source unique one-point-extension theorem; source finite verifier through n=8 is supplementary."
+  ],
+  "schema_version": 1
+}
