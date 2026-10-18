@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Self-contained induction establishes complete-alphabet arch iff universality. A palindrome requires paired letter multiplicities except for its center. Sharp lower bounds are reached by explicit mirrored permutations. For odd k, simultaneous left/right greedy arch boundaries sandwich a full-alphabet central block, and equality forces each outer arch to be a permutation and the center to have exactly \\(2q-1\\) symbols. Unique parsing gives the factorial count. Every hypothesis \\(q\\ge2\\), \\(k\\ge1\\) and parity case, including k=1, is treated. Independent exhaustive direct-subsequence checker passes all stated finite domains but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lagoutte-Tavenas arXiv:1309.0422v2, introduction and Theorem 3: NP-completeness of restricted SCS, with no reversal constraint",
+        "Adamson arXiv:2304.04583v1, Theorem 2.4 and sections 3-5: general arch criterion and counting/ranking arbitrary k-universal words",
+        "Adamson et al. arXiv:2311.10658v1, sections on regular-language existence and universality, no palindrome family closed form."
+      ],
+      "reasoning": "Arbitrary-language algorithms cover the constrained input in principle as a computational task but neither directly imply the exact formula and exhaustive structural classification without an additional symmetry-specific proof. No inspected theorem supplies a stronger theorem with this as a stated or immediate special case.",
+      "searches": [
+        "\"palindromic universal supersequences complete characterization of all shortest solutions\"",
+        "\"shortest common supersequence Sigma^k constrained to palindrome exact count of solutions\"",
+        "arXiv:2304.04583v1",
+        "arXiv:2311.10658v1",
+        "arXiv:1309.0422v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1309.0422v1 (date via abstract; scientific full text inspected v2)",
+      "arXiv:1506.05079v1 (scientific full text inspected v2)",
+      "arXiv:2304.04583v1",
+      "arXiv:2311.10658v1",
+      "arXiv:2306.14192v3",
+      "Published research records 2026/9/8/SCOPE079, 2026/9/18/SCOPE-output-sensitive-qary-fix-free-construction--e8ec1ec6a0dd, and 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a; their individual scientific objects differ from reversal-constrained subsequence universality."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Uznański arXiv:1506.05079v2: supersequence family is all permutations and central aim is hardness of recognition, not reversal-fixed universal words.",
+        "Adamson arXiv:2304.04583v1 section 3.2 CountSuffixes base case determines total words with no free symbols; it does not determine reversal-fixed points or the odd-parity shortest length.",
+        "Fleischmann et al. arXiv:2306.14192v3: Simon congruence and alpha-beta factorization, distinct statements."
+      ],
+      "reasoning": "The unconstrained shortest length \\(qk\\) and permutations as its arches were known; the even-palindrome case uses that fact plus reversal, while odd k requires an additional exact central-cover argument to establish exhaustiveness. General DP algorithms are not a direct published theorem implying the claimed parity formula and complete minimizer census without extra reasoning. Main residual risk is elementary implicit prior observation.",
+      "searches": [
+        "arXiv:1506.05079v1",
+        "arXiv:2304.04583v1",
+        "arXiv:2311.10658v1",
+        "\"shortest palindromic subsequence-universal words\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The nearest published mathematical-record IDs were 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a, 2026/9/8/SCOPE079, 2026/9/18/SCOPE-output-sensitive-qary-fix-free-construction--e8ec1ec6a0dd; their scientific claims concern different string/code objects.",
+        "Adamson 2023 arXiv:2304.04583v1, sections 2 and 3: arch characterization and total unconstrained word enumeration; no palindrome symmetry is assumed",
+        "Target is also the palindrome-constrained shortest common supersequence of the full language \\(\\Sigma^k\\), as opposed to contiguous all-word superstrings."
+      ],
+      "reasoning": "Under reversal, the universality requirement is preserved but the additional palindrome constraint changes both the minimum length (odd k) and the enumeration. Total unconstrained k-universal word counts cannot be identified with the fixed points of reversal; the explicit fixed-point classification is a separate statement. No examined equivalent statement supplied it.",
+      "searches": [
+        "\"palindromic scattered-subsequence supersequence of all q-ary k-words optimal length qk when k even q(k+1)-1 when k odd count (q!)^ceil(k/2)\"",
+        "\"reversal-symmetric k-rich words least length exact enumeration arbitrary alphabets\"",
+        "\"universal subsequence words palindrome optimal arch factorization symmetric permutation blocks\"",
+        "\"palindrome supersequence of all length k words scattered subsequences minimum length and enumeration\"",
+        "\"subsequence k universality reversal invariant palindromes arch factorization\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed public records concern string attractors (2026/9/8/SCOPE079), non-overlapping codes (2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a), and fix-free constructions (2026/9/18/SCOPE-output-sensitive-qary-fix-free-construction--e8ec1ec6a0dd), none being an exact table of these palindromic k-universal optima.",
+        "Adamson arXiv:2304.04583v1 provides a recurrence for all universal words at given length, not a table of palindrome minima."
+      ],
+      "reasoning": "No exact recorded table or parameter-by-parameter source for these constrained minima or labeled counts was found. This is not evidence that all databases or independent unpublished calculations have been exhausted.",
+      "searches": [
+        "\"palindromic k-subsequence universal strings shortest word length parity factorial enumeration\"",
+        "\"palindromic k-universal sequences universal subsequence minimal length\"",
+        "\"palindromic scattered-subsequence supersequence of all q-ary k-words optimal length qk when k even q(k+1)-1 when k odd count (q!)^ceil(k/2)\""
+      ]
+    },
+    "rationale": "Checked substantial primary full-text sources for SCS, all-permutation supersequences, k-universality enumeration and arch factorization. They establish the general setting and algorithms but no inspected statement settles the palindrome-fixed minimum, characterizes every shortest palindrome or counts them for all q,k. Explicit aliases and implications compared. Known arch criterion and unconstrained \\(qk\\) bound are credited. Residual risk: exact symmetrical case may appear in unpublished or unindexed literature; no priority certificate.",
+    "residual_risks": [
+      "Unindexed or textbook-style prior derivation of the same reversal-constrained exact palindrome classification remains possible.",
+      "The known arch lemma makes the proof shorter; only the complete reversal-fixed all-parameter minimizer theorem and census are asserted as the claimed new result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: restricted-input complexity, not all \\(\\Sigma^k\\) targets or palindrome classification",
+        "evidence": "arXiv:1309.0422v2, lines 18-54 and 128-132; arxiv abstract history confirms v1 2013-09-02.",
+        "identifier_or_url": "https://arxiv.org/html/1309.0422v2",
+        "material_read": "Complete HTML article, introduction, restricted instance definitions, Lemmas 1-2, Theorem 3 and final discussion",
+        "method": "Open-access arXiv full HTML, read mathematical claims and proof structure",
+        "title": "The complexity of Shortest Common Supersequence for inputs with no identical consecutive letters",
+        "trigger": "Earliest archive-eligible SCS source and nearest general minimization framework"
+      },
+      {
+        "assessment": "NOT_COVERING: supersequences of all permutations, not all words in \\(\\Sigma^k\\); no palindromic exact optimum",
+        "evidence": "arXiv:1506.05079v2, intro and theorem sections, text search for palindrome.",
+        "identifier_or_url": "https://arxiv.org/html/1506.05079v2",
+        "material_read": "Full HTML article, introduction, all-permutation statement, theorem and conclusion",
+        "method": "Open-access arXiv full HTML",
+        "title": "All Permutations Supersequence is coNP-complete",
+        "trigger": "Possible stronger supersequence family with symmetry"
+      },
+      {
+        "assessment": "NOT_COVERING the symmetric minimizer classification; does cover standard arch criterion and total unconstrained counts, acknowledged as prior work",
+        "evidence": "arXiv:2304.04583v1 lines 76-107, 153-185, 249-251; search palindrome no matches.",
+        "identifier_or_url": "https://arxiv.org/html/2304.04583v1",
+        "material_read": "Full HTML article, abstract, arch Theorem 2.4, section 3 CountSuffixes recurrence, ranking/unranking results, conclusion",
+        "method": "Open-access arXiv full HTML sections 1-6",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Highly relevant exact object, counting algorithms may dominate proposed count"
+      },
+      {
+        "assessment": "NOT_COVERING the claimed closed length/count/classification; general automata universality algorithm, no relevant palindromic theorem",
+        "evidence": "arXiv:2311.10658v1, inspected HTML with palindrome search no matches.",
+        "identifier_or_url": "https://arxiv.org/html/2311.10658v1",
+        "material_read": "Open HTML full text including universality definitions, regular-language algorithms, main results and discussion",
+        "method": "Open-access arXiv full HTML with term and section comparisons",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Could solve palindrome-constrained universality or give stronger classification"
+      },
+      {
+        "assessment": "NOT_COVERING: Simon congruence, subword factorization and shortest-absent properties, not palindrome universal supersequence minimal forms",
+        "evidence": "arXiv:2306.14192v3, palindrome term absent in HTML.",
+        "identifier_or_url": "https://arxiv.org/html/2306.14192v3",
+        "material_read": "Open-access full HTML article, introductory definitions, results, factorization sections, concluding comparisons",
+        "method": "Open-access arXiv HTML plus search for palindrome",
+        "title": "Alpha-beta-Factorization and the Binary Case of Simon's Congruence",
+        "trigger": "Factorization and reversed words might encode identical universality classes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "77a24453-76ec-460d-bcfa-c418bda7c801",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The restricted shortest common-supersequence problem for the complete language \\(\\Sigma^k\\) has a natural reversal-symmetry constraint. Unlike a renamed unconstrained \\(qk\\) theorem, the answer exhibits a sharp parity-dependent q-1 length penalty, a forced minimal all-symbol central palindrome, a complete infinite two-parameter classification of all extremal words, and their exact labeled count. This provides optimal reversible sequence templates with deterministic shape and enumeration; no unsupported downstream theorem or practical performance is claimed.",
+    "status": "PASS"
+  }
+}
