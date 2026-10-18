@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Under all-zero second-layer conditioning, the first layer is exactly the hard-core independent-set model with activity \(\lambda=p/(1-p)\). The directed-edge cavity recursion is \(r\mapsto\lambda/(1+r)^d\), whose regular-tree uniqueness threshold is exactly \(\lambda_{\mathrm{hc}}(d)=d^d/(d-1)^{d+1}\). Above it, occupied exterior boundary conditions on successive ball parities select the two distinct cavity limits. The source's alternating \(B_2\)-cylinder has probability \(P_q(r)=r^q/((1+r)^q+\lambda)\), which is strictly increasing, so the two limits remain distinguishable. Lemma 1 and Remark 2 of the primary source then give the quasilocality contradiction. The result is not inferred from finite computation.
+PASS
 
-## Originality
+Under zero second-layer conditioning the first-layer retained configurations are independent sets with activity λ=p/(1−p), so each branch cavity ratio follows f(r)=λ/(1+r)^d for d forward descendants. There is a unique fixed point r*, but at dr*/(1+r*)=1 the antitone map acquires distinct two-cycle limits for λ>λc=d^d/(d−1)^(d+1); at/below λc they coincide by the standard hard-core tree uniqueness theorem. With the occupied exterior of the two-layer source, an outer forced-vacant shell gives cavity start r0=0. For root-empty/all-q-neighbor-occupied cylinder, the conditional probability Pq(r)=r^q/((1+r)^q+λ), q=d+1, is strictly increasing for r>0. The parity limits differ above λc, and the exact second-layer conditional ratio transfer is provided by the source Lemma1 with uniformly positive denominator from its Remark2, establishing non-quasilocality there. An independent rational threshold identity check for d=2..8 and numerical two-cycle check confirmed the transition example (d2,p_c=4/5), but the infinite-volume conclusion follows from the analytic recursion+source lemma rather than numerical iterations. The boundary/lower statement is only absence of THIS parity witness, not Gibbsian uniqueness for all observations.
 
-**PASS.** The primary paper states only existence of an unspecified sufficiently-large-\(p\) non-Gibbs region, although it explicitly identifies the hidden hard-core mechanism and includes regular trees. The standard hard-core literature gives the exact regular-tree uniqueness activity but does not state its consequence for this transformed Bernoulli field. Searches using the source identifier, isolate-removal aliases, the hard-core threshold, and the converted \(p\)-threshold found no publication making the same implication. The main residual risk is that this natural regular-tree specialization has appeared in weakly indexed notes or unpublished calculations.
+## originality
 
-## Value
+PASS
 
-**PASS.** The threshold is a canonical phase-transition constant of the hidden model singled out by the source, not an arbitrary parameter slice. It replaces the source's unspecified large-density sufficient regime by an explicit all-order regular-tree non-Gibbs region and identifies exactly where the source's all-zero parity witness turns on. For the binary tree it gives the concrete onset \(p=4/5\). The statement carefully avoids claiming a full phase boundary below that point.
+Henning–Külske–Schubert arXiv:2304.03102v2 studies exactly this transformation and proves non-Gibbsianness for sufficiently large p with unspecified degree-dependent threshold via an inhomogeneous-tree cutset argument. The exact hard-core uniqueness activity on regular rooted trees is standard, but its theorem alone says nothing about the two-layer image measure. The new statement specializes the conditional ratio transfer to homogeneous cavity recursions and obtains an explicit sharp onset for a specified all-zero witness. The claims are not the full Gibbs boundary and do not assert known hard-core critical activity itself is original. Resultary and alias/formula searches found no equivalent combined theorem; risk of an implicit corollary in weakly indexed notes retained.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact onset of a physically motivated hidden-phase witness improves an unspecified sufficiently-large-density non-Gibbs region to a sharp computable threshold in the canonical regular-tree case. The sharpness includes both parity phases and equality onset, and distinguishes that witness from the unknown global Gibbs/non-Gibbs phase boundary. This is a meaningful boundary refinement, not merely restating the hard-core critical activity without its conditional-probability consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
