@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Direct rank-one eigenvalue derivation with both zero cases; covariance identity plus monotone ratio and Jensen produces the samplewise inequalities; spectral maximal eigenvalue supplies trace underestimation; Cauchy angle integral and dominated convergence with beta constant give both asymptotic comparisons. 18 exact-rational, 9000 spectral, 2700 dense and four quadrature checks replay correctly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Persson–Kressner proves general norm error bounds with oversampling assumptions and states a compression inequality; it does not compare the traces of the two different projections.",
+        "Gittens–Mahoney develops deterministic Nyström sketch bounds without matrix-function-before/after comparisons."
+      ],
+      "reasoning": "Their bounds do not imply a deterministic sign for a common-probe pair at one column. Existing single-probe Gaussian loss laws for f(t)=t are special cases, not an all-f curvature dichotomy.",
+      "searches": [
+        "funNyström Nyström of matrix powers A alpha rank one Gaussian two by two diagonal 1 epsilon expected trace error sharp asymptotic alpha one half power iterations",
+        "randomized Nyström 2x2 diagonal spectrum expected trace approximation error square root tail unoversampled Gaussian rank one sketch",
+        "Gaussian rank one Nyström matrix function fractional power near rank one trace error power iteration",
+        "arxiv:2209.11023 Lemma 3.2 and Theorems 3.9–3.10",
+        "arxiv:1303.1849v2 Theorem 3 and Gaussian projection lemma",
+        "For every PSD matrix A, every vector g and integer q >= 1, the trace of f(Nystrom_q(A,g)) is at least the trace of Nystrom_q(f(A),g) for all nonnegative increasing concave f, and the comparison reverses for convex f, same one column same probe; Jensen covariance spectral mean theorem"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2209.11023 (first public 2022-09-22)",
+      "doi:10.1137/22M1523923 (journal version 2023)",
+      "arxiv:1303.1849v2 (historical supporting source)",
+      "accessible local 2026-10 week2 ledger through generation 46, claims for all 46 items",
+      "published-finding corpus semantic search, eight actual candidate/alias queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The functional Nyström paper provides the algorithms and bounds but not universal same-probe dominance and reversal.",
+        "The classical Nyström source treats A approximation, not an arbitrary scalar functional composition.",
+        "A historical one-Gaussian Nyström claim gives residual distributions and the isolated f(t)=t expected trace error; its statement does not compare distinct functional sketch orders or prove a curvature law."
+      ],
+      "reasoning": "The isolated id-function distribution and the source operator-monotonicity estimate do not imply the new paired inequality without an additional spectral covariance comparison. The asymptotic examples alone are not the central originality claim.",
+      "searches": [
+        "arxiv:2209.11023 eqs. (3),(18), sections 3–4",
+        "arxiv:1303.1849v2 sections 2,4",
+        "accessible prior ledger item 6a0180b3-e23e-40dd-8b04-157ed42e6c07",
+        "For every PSD matrix A, every vector g and integer q >= 1, the trace of f(Nystrom_q(A,g)) is at least the trace of Nystrom_q(f(A),g) for all nonnegative increasing concave f, and the comparison reverses for convex f, same one column same probe; Jensen covariance spectral mean theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Persson–Kressner compares f(N_q(A,g)) with N_q(f(A),g) experimentally but gives no samplewise scalar curvature ordering in the examined full text.",
+        "The result is equivalently a covariance ordering between spectral means weighted by a_i^(2q-1) and f(a_i)^(2q-1)."
+      ],
+      "reasoning": "An equivalent result would require a two-sided reversal between convex and concave transforms with the same probe and arbitrary positive spectral supports, which the inspected sources do not assert.",
+      "searches": [
+        "rank one Nyström funNyström matrix function pointwise trace dominates directly sketching f(A) for concave operator monotone functions same Gaussian vector any PSD and q power iteration",
+        "concave increasing matrix functions randomized Nyström rank one Jensen spectral mean power weights inequality trace",
+        "coupled functional Nyström versus direct Nyström one column trace norm error always better operator concavity",
+        "Comparison of f(Nystrom(A)) and Nystrom(f(A)) one-column rank-one sketches convex operator functions trace dominance",
+        "Persson Kressner funNystrom power iteration direct Nystrom matrix function trace comparison concavity",
+        "arxiv:2209.11023 section 4 formula (18)",
+        "arxiv:1303.1849v2 sections 2 and 4",
+        "For every PSD matrix A, every vector g and integer q >= 1, the trace of f(Nystrom_q(A,g)) is at least the trace of Nystrom_q(f(A),g) for all nonnegative increasing concave f, and the comparison reverses for convex f, same one column same probe; Jensen covariance spectral mean theorem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus queries for coupled functional Nyström, rank-one spectral Jensen means and curvature-sign comparison returned no directly covering titles or statements among the returned records.",
+        "Closest non-covering mathematical-record IDs included 2026/10/11/SCOPE-rank-one-crossed-heinz-operators-have-a-spectral-support-schatte--e20efd37906d and 2026/9/17/SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03.",
+        "Final claim-text published-finding corpus search, 80 ranked hits: no functional Nyström statement among the returned titles/summaries; highest-scoring item 2026/10/11/SCOPE-sharp-tracial-crossed-heinz-stability-for-common-two-point-spect--20c5e33ff291 studies a different operator Heinz inequality."
+      ],
+      "reasoning": "Those records concern different operator inequalities or Krylov spectral statistics. No exact table is pertinent to an arbitrary-function theorem; search absence is only weak negative evidence.",
+      "searches": [
+        "funNyström Nyström of matrix powers A alpha rank one Gaussian two by two diagonal 1 epsilon expected trace error sharp asymptotic alpha one half power iterations",
+        "randomized Nyström 2x2 diagonal spectrum expected trace approximation error square root tail unoversampled Gaussian rank one sketch",
+        "Gaussian rank one Nyström matrix function fractional power near rank one trace error power iteration",
+        "rank one Nyström funNyström matrix function pointwise trace dominates directly sketching f(A) for concave operator monotone functions same Gaussian vector any PSD and q power iteration",
+        "concave increasing matrix functions randomized Nyström rank one Jensen spectral mean power weights inequality trace",
+        "coupled functional Nyström versus direct Nyström one column trace norm error always better operator concavity",
+        "Comparison of f(Nystrom(A)) and Nystrom(f(A)) one-column rank-one sketches convex operator functions trace dominance",
+        "Persson Kressner funNystrom power iteration direct Nystrom matrix function trace comparison concavity",
+        "For every PSD matrix A, every vector g and integer q >= 1, the trace of f(Nystrom_q(A,g)) is at least the trace of Nystrom_q(f(A),g) for all nonnegative increasing concave f, and the comparison reverses for convex f, same one column same probe; Jensen covariance spectral mean theorem"
+      ]
+    },
+    "rationale": "Same-probe rank-one trace ordering for every PSD spectrum, all integer q>=1 and every increasing scalar concave/convex transform was not covered by accessible published functional Nyström and ordinary Nyström results. It is a new comparison of two alternatives, unlike the known ordinary rank-one mean-residual law. Originality is provisional to this documented search and not a claim of exhaustive novelty.",
+    "residual_risks": [
+      "A generic published inequality for ratios of two weighted power means may imply the same-probe result under a change of notation; the accessible literature search cannot rule this out.",
+      "No claim for higher sketch ranks is made. Generic matrix Jensen bounds alone give only a different projection-compression comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines both methods and generic norm bounds; no pointwise curvature-sign comparison in the inspected material.",
+        "evidence": [
+          "The source compares f(N_q(A,g)) to N_q(f(A),g) and proves PSD underestimation for operator monotone f, but its operators do not have the same ranges in general."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.11023",
+        "material_read": "Public full-text arXiv HTML, sections 2–4, equations (3),(5),(18), Lemma 3.2, the nuclear-norm subsection 3.3 and comparisons in numerical experiments.",
+        "method": "Read text and formulas from the openly available full-text HTML, not only search snippets.",
+        "title": "Randomized low-rank approximation of monotone matrix functions",
+        "trigger": "Motivating source explicitly defines funNyström and direct Nyström of f(A)."
+      },
+      {
+        "assessment": "Trace-norm bounds for Nyström of one matrix, not a function/sketch commutation or comparison theorem.",
+        "evidence": [
+          "The original explicitly treats deterministic structural bounds and Gaussian projection Nyström but not the two function orderings of the 2022 method."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1303.1849v2",
+        "material_read": "Public full-text HTML, §§2 and 4 with the statements and structural context of trace and random projection bounds.",
+        "method": "Read original HTML text and section structure for algorithm scope and Gaussian sketch hypotheses.",
+        "title": "Revisiting the Nyström method for improved large-scale machine learning",
+        "trigger": "Plausible prior general Nyström trace bounds and Gaussian projection theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "72de9932-4124-45d4-a85e-594b666020d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating work directly compares two compositions of randomized Nyström and matrix functions. A deterministic all-spectrum curvature sign decides which composition is always preferable for trace recovery at the minimal one-column budget; strictness and unbounded near-rank-one advantage show practical mathematical consequences beyond a routine special-value table. Limits to trace and rank one are explicit.",
+    "status": "PASS"
+  }
+}
