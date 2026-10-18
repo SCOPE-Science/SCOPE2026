@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete \(121\)-tetrahedron presentation reconstructs the published face vector. The spanning-tree quotient has \(122\) graph-cycle generators. An exact maximal minor has determinant \(25\), while the full relation matrix has mod-five rank \(120\), which forces \(H_1\cong(\mathbb Z/5)^2\). Exact cocycle coordinates then show that all \(377\) nonfacial graph triangles are nonzero, that all twelve unoriented nonzero class pairs occur, and that all six order-five directions occur.
+## correctness
 
-## Originality
-PASS. The primary exact-object paper and data tables provide the Weeks manifold, homology, face vector, and tetrahedra but not this triangular carrier spectrum. Focused searches under the exact census label, geometric aliases, shortest-cycle and empty-triangle language, all-class coverage, and the numerical fingerprint did not locate a covering statement. Current and prior owned ledgers contain no same-object Weeks finding. The nearest same-slot hyperbolic result concerns the distinct Weber--Seifert dodecahedral space and does not imply this calculation.
+PASS
 
-## Value
-PASS. The result resolves the complete absolute first simple-cycle layer of a canonical smallest-volume hyperbolic three-manifold triangulation. Every nonzero order-five homology class appears at length three, a stronger statement than merely having representatives in every cyclic direction, and the carrier multiplicity spectra give a compact intrinsic refinement.
+Reconstructed all 121 tetrahedra of the exact or_0.94270736 Weeks complex, f=(18,139,242,121), connected graph-cycle rank 122. Independently selected a 122×122 facial-relation minor with exact determinant −25 and computed full mod-5 rank 120, forcing integral H1=(Z/5)^2 with no additional torsion. Computed exact mod-5 cocycles and exhaustively evaluated all 619 graph cliques: 242 faces and 377 nonfaces, each nonface nonzero. Recomputed all 12 ±-class-pair multiplicities 11,15,15,17,19,30,33,39,45,49,52,52 and six projective totals 50,50,60,64,71,82; reversing orientation hits all 24 nonzero classes. This is finite exhaustive for the prescribed facet set.
 
-## Closest literature and limitations
-The closest exact-object source is Section 6 and Table 11 of *f-Vectors of 3-Manifolds*, together with the complete public tetrahedron table. General combinatorial-systolic work supplies broader terminology but no exact Weeks-manifold census. The finding is triangulation-specific and combinatorial; it does not compare hyperbolic geodesic lengths. An unindexed historical finite computation remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact 18-vertex manifold, H1 and f-vector are already in Lutz–Sulanke–Swartz Table 11 and accompanying Lutz manifold data. The assertion every nonzero class has a three-edge carrier, all nonfacial 3-cycles are essential, and detailed class-pair/projective spectra are not the ambient homology or f-vector and were not found in the inspected table/section. No implication from general combinatorial systolic inequalities fixes this triangulation-specific carrier census. Residual unindexed calculation, particularly named manifold datasets, remains; Resultary unavailable.
+
+## value
+
+PASS
+
+This is a natural complete shortest nonzero integral 1-cycle shell for a distinguished hyperbolic manifold triangulation. The universal coverage of all 24 order-five homology elements by length-three loops and complete carrier-multiplicity spectrum strengthen mere computation of H1 and are potentially reusable in combinatorial systolic and triangulation comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

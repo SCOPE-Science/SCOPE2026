@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,48 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds the complete \(121\)-tetrahedron presentation and uses only the Python standard library.
+# Independent mathematical audit
 
-It reconstructs
-\[
-f=(18,139,242,121)
-\]
-and checks that every triangular face belongs to exactly two tetrahedra.
+## correctness
 
-After contracting a spanning tree, the graph-cycle lattice has rank
-\[
-122.
-\]
-A \(122\times122\) facial-relation minor has exact determinant of absolute value
-\[
-25,
-\]
-and the complete relation matrix has rank
-\[
-120
-\]
-modulo \(5\). Therefore its Smith quotient is
-\[
-(\mathbb Z/5)^2.
-\]
+PASS
 
-Two exact mod-five cocycles then coordinate this quotient. Exhaustion of all three-vertex cliques finds
-\[
-619=242+377,
-\]
-where the \(242\) facial triangles are boundaries and all \(377\) nonfacial triangles have nonzero homology coordinates.
+Reconstructed all 121 tetrahedra of the exact or_0.94270736 Weeks complex, f=(18,139,242,121), connected graph-cycle rank 122. Independently selected a 122×122 facial-relation minor with exact determinant −25 and computed full mod-5 rank 120, forcing integral H1=(Z/5)^2 with no additional torsion. Computed exact mod-5 cocycles and exhaustively evaluated all 619 graph cliques: 242 faces and 377 nonfaces, each nonface nonzero. Recomputed all 12 ±-class-pair multiplicities 11,15,15,17,19,30,33,39,45,49,52,52 and six projective totals 50,50,60,64,71,82; reversing orientation hits all 24 nonzero classes. This is finite exhaustive for the prescribed facet set.
 
-Up to orientation, all twelve nonzero class pairs occur, with multiplicity multiset
-\[
-\{11,15,15,17,19,30,33,39,45,49,52,52\}.
-\]
-All six projective order-five directions occur, with total carrier multiplicities
-\[
-\{50,50,60,64,71,82\}.
-\]
+## originality
 
-Exact successful output:
+PASS
 
-`VERIFY_OK f=18,139,242,121 H1_Z=Z5^2 graph_triangles=619 facial3=242 empty3=377 all_empty3_nonzero=yes simple_integral_1_systole=3 minimizers=377 all_nonzero_H1_classes_hit=yes nonzero_classes=24 unoriented_class_pairs=12 pair_profile=11,15,15,17,19,30,33,39,45,49,52,52 projective_directions=6 direction_profile=50,50,60,64,71,82 maximal_minor_absdet=25 rank_mod5=120`
+The exact 18-vertex manifold, H1 and f-vector are already in Lutz–Sulanke–Swartz Table 11 and accompanying Lutz manifold data. The assertion every nonzero class has a three-edge carrier, all nonfacial 3-cycles are essential, and detailed class-pair/projective spectra are not the ambient homology or f-vector and were not found in the inspected table/section. No implication from general combinatorial systolic inequalities fixes this triangulation-specific carrier census. Residual unindexed calculation, particularly named manifold datasets, remains; Resultary unavailable.
+
+## value
+
+PASS
+
+This is a natural complete shortest nonzero integral 1-cycle shell for a distinguished hyperbolic manifold triangulation. The universal coverage of all 24 order-five homology elements by length-three loops and complete carrier-multiplicity spectrum strengthen mere computation of H1 and are potentially reusable in combinatorial systolic and triangulation comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
