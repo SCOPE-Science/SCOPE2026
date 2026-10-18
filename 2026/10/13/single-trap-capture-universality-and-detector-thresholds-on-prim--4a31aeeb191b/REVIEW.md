@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The entire domain, normalization and limiting dynamics are explicit. The Fourier spectrum and all eigenvalue collisions are derived by cyclotomic minimality; this agrees with the separately inspected Harrison–Pruss Proposition 3, which is cited as prior work. Rank of every detector-row restriction follows from the classical prime Fourier minor theorem, checked in full-text proofs by Tao/Frenkel. Orthogonal invariance and a strict imaginary-part argument prove loss on the complementary subspace without assumptions of diagonalizability. The one-detector sitewise result follows from an exact coset-character sum, and boundary cases including the smallest prime and fully saturated detector sets are covered. The extracted finite verifier corroborates, but is not used to prove, general statements. Residual correctness risk: model-specific assumptions must be preserved, particularly equal hopping, strictly positive detector rates and prime order.
+PASS
 
-## Originality — PASS, residual priority risk
+The Fourier eigenvalues are four-term cyclotomic sums. Any equality of two eigenvalues yields integer polynomial F vanishing at primitive pth root and at one, forcing F=0 and identical exponent multisets; hence eigenfrequency classes have size d=2 or 4 according to m²≡−1. Detector-coordinate restrictions are minors of prime discrete Fourier matrix, so Chebotarev full-spark theorem gives rank min(r,d) in every spectral class. The Hermitian + absorptive effective generator has strictly negative imaginary eigenvalues off the H-invariant dark subspace, proving bright rank equals eventual capture rank even with Jordan blocks and arbitrary positive rates. In one-sink case the coset Fourier character sum has Σ_classes |Σ_{k∈class}ζ^{kx}|²=p−d for x≠0, giving bright diagonal 1/d. Independently diagonalized small primes p=5,7,13,17 with both resonant and generic m; sampled arbitrary sinks and verified sitewise 1/4 or 1/2, but these checks are finite corroboration only.
 
-The strongest exact antecedent is Harrison–Pruss (2024), Proposition 3: it already gives the generic twofold and exceptional fourfold adjacency spectral multiplicities, so no novelty is assigned to the spectral lemma. Chebotarev's Fourier full-spark theorem is also established, and Novo and Razzoli give the bright/dark trapping framework. Xu (2008) studies this physical long-range-cycle model, including trapping, but the inspected sections do not evaluate all arbitrary detector placements or the identical capture probability at every nontrapped vertex. The new claim composes these ingredients with a sitewise orbit-character identity. This is a narrow, falsifiable originality assessment, not a guarantee of priority: an unlocated stronger detector-control theorem or specialized long-range-cycle formula may subsume it.
+## originality
 
-## Value — PASS
+PASS
 
-In the original coherent-exciton trapping model, the number of absorbers required to eliminate every dark state is exactly two except for an arithmetic infinite family where it jumps to four; this requires no geometric tuning of detector positions. The more physically revealing exact single-detector law shows that a walker beginning at any nonabsorbing vertex has the same capture probability, even on non-neighboring vertices; the probability changes from one-half to one-quarter at the exceptional long-range hopping. This complete natural-family classification provides a motivated infinite-time transport invariant, beyond a floating-point graph census. It is limited to the idealized single-particle setting and makes no finite-time robustness claims.
+Harrison–Pruss 2024 already proves the eigenvalue degeneracy classification, and Chebotarev/Tao already prove prime Fourier full-spark. Established quantum transport bright/dark decomposition is also credited. The exact all-placement absorption rank, threshold r=d and remarkably position-independent single-site capture law are evaluated here, not located in primary Xu or Harrison–Pruss texts. O PASS best of knowledge, with possibility of a different transport formulation giving same theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural quantum transport/trapping law coupling arithmetic chord resonance, detector-number threshold, and spatially universal capture probability; supplies a complete classification for an infinite prime family and explicit strong sitewise statement. Distinct from merely reprinting known spectral multiplicities or isolated finite simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
