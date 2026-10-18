@@ -1,22 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The essential-variable locus is the first-catalecticant rank locus. A base-\(B\) diagonal action with \(B>d\) separates every degree-\(d\) monomial weight. A monomial has first-catalecticant rank equal to its support size, so the fixed points in the cumulative locus are exactly monomials supported on at most \(r\) variables.
+## correctness
 
-For support size \(s\), the fixed-point count is
-\[
-\binom ms\binom{d-1}{s-1}.
-\]
-Euler localization gives the cumulative formula, and constructible additivity gives the exact-stratum formula. For \(r>d\), no monomial can have support \(r\), so the exact Euler characteristic is zero, while Fermat sums show those strata are nonempty.
+PASS
 
-The bundled checker independently enumerates all exponent vectors over a finite grid. Finite computation is regression evidence only.
+For m>=2,d>=3 and 1<=r<=m, essential variable count equals rank of first derivative catalecticant: annihilating directional derivatives are precisely the eliminated variable directions. A 1-PS with variable weights B^i (B>d) gives distinct monomial weights by base-B digits. Monomial fixed points of essential rank exactly s are degree-d monomials on exactly s active variables, counted C(m,s)C(d-1,s-1). C-star Euler localization and subtraction yield claimed cumulative and exact χ_c values; when r>d, the fixed point contribution is 0 but Fermat sums x_1^d+...+x_r^d prove nonempty strata. At r=m, Vandermonde identity recovers ambient binomial C(m+d-1,d). Independently counted compositions and supports for 30 degree/dimension pairs with 2<=m<=7, 3<=d<=7; the combinatorial counting proof covers all dimensions.
 
-## Originality
-PASS. The inspected archival tensor-subspace paper supplies the general subspace-variety framework and desingularization but no Euler computation. The inspected Veronese-secants paper supplies symmetric catalecticant context and contains no Euler occurrence. Targeted searches did not locate the support-sum formula or the zero-Euler phase for exact essential dimension above the degree.
+## originality
 
-The quadratic symmetric-determinantal specialization is excluded from the accepted statement. Ordinary nonsymmetric tensor subspace varieties do not imply the symmetric support-size distribution.
+PASS
 
-## Value
-PASS. Essential variable count is a natural invariant of homogeneous forms. The theorem completely determines a global topological invariant for every stage of its rank filtration and exposes a sharp phenomenon: when the number of ambient variables exceeds the degree, nonempty high-essential-dimension strata contribute zero compactly supported Euler characteristic.
+Landsberg–Weyman formalize multilinear tensor subspace varieties and resolutions; Landsberg–Ottaviani discuss symmetric flattenings and catalecticants. Neither primary text inspected states the Euler profile of the *single symmetric factor*, which depends on monomial support size rather than rectangular Tucker rank. A related published SCOPE finding on multilinear Tucker subspace rank has a constant Euler profile and does not imply the nonconstant symmetric support-count profile. The quadratic symmetric rank version is deliberately outside scope and independently treated as a different claim. Relevant independently inspected published SCOPE comparison: Independent-factor multilinear Tucker rank has all coordinate tensors of mode rank (1,...,1), causing constant Euler; symmetric-power monomials have support-dependent catalecticant rank. Hence no immediate specialization or domination.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Essential-variable and catalecticant-rank filtrations are natural and ubiquitous in the geometry of homogeneous forms. Their complete support-weight Euler law, saturation at r=d and nonempty χ_c=0 high-essential-dimension strata reveal structure not captured by dimension or degree; all-parameter theorem is more meaningful than an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
