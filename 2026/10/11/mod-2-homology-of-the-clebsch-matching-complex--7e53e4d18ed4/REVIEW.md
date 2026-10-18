@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph model is explicit and the verifier checks the strongly regular parameters \((16,5,0,2)\). Exhaustive matching enumeration gives the face counts \((40,620,4760,19190,39640,37740,12840,705)\). A separate vertex-deletion recurrence reproduces those counts. Exact mod-\(2\) Gaussian elimination gives boundary ranks \((39,581,4179,15011,24629,12135,705)\), with two pivot conventions agreeing, and the verifier checks \(\partial^2=0\) on every simplex. These data force reduced Betti rank \(976\) in degree \(5\) and zero elsewhere. The reduced Euler characteristic is independently \(-976\).
+## correctness
 
-## Originality
-PASS with residual search risk. Exact semantic-index searches were run for the Clebsch, Greenwood--Gleason, folded-cube, projective-cube, and line-graph-independence formulations. The closest indexed results compute matching homology for other named graphs, not this graph. Full-text inspection of the 2022 matching-complex topology paper covers paths, cycles, centipedes, and Dutch windmills and contains no Clebsch or folded-cube occurrence. Full-text inspection of the matching-tree paper covers trees, polygonal tilings, and honeycomb graphs and likewise contains no Clebsch or folded-cube occurrence. The projective-cube paper identifies \(PC(4)\) with the Clebsch graph but does not study matching complexes. No located statement implies the exact rank \(976\) concentration.
+PASS
 
-## Value
-PASS. Matching-complex topology is known exactly for relatively few graph families. The Clebsch graph is the next projective cube after \(K_4\) and \(K_{4,4}\), so its matching complex is a natural benchmark rather than an arbitrary finite slice. The result gives a complete mod-\(2\) homology profile of a 7-dimensional complex on 40 vertices, with all reduced homology concentrated in degree \(5\), supplying reusable data for comparisons with folded/projective-cube families and matching-complex connectivity methods.
+Construct even-weight 5-bit vectors and connect Hamming-distance-four pairs; check 16 vertices, 40 edges, every degree5 with strongly regular parameters (16,5,0,2). Independently enumerate all 115536 matching faces including empty, with cardinality counts [1,40,620,4760,19190,39640,37740,12840,705]. Form full F2 simplicial boundary columns by deleting selected graph-edge bits and exact binary elimination, obtaining ranks [39,581,4179,15011,24629,12135,705]. Reduced Betti formula gives [0,0,0,0,0,976,0,0]; Euler characteristic -976 agrees. This is exhaustive finite proof of this specific GF2 homology, not inference from sampled graphs or claim about integral homotopy.
 
-The claim is deliberately limited to mod-\(2\) homology; no integral or homotopy conclusion is inferred from the finite-field calculation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Clebsch projective/folded 5-cube graph has an exact mod-2 matching-complex Betti vector with 976 in degree 5, distinct from published Clebsch neighborhood and independence complexes. The published-index exact hit is a mirror of this same record; no separate graph-matching table or general family formula implying 976 was found. Best-of-knowledge risk of an unindexed matching-complex calculation persists.
+
+## value
+
+PASS
+
+Clebsch is a canonical small strongly regular and projective folded-cube graph; exact mod-two matching-complex homology in the natural sequence PC(2),PC(3),PC(4) gives a usable, nontrivial benchmark inaccessible from the adjacency table or ordinary graph independence homology. It is independently motivated even without a general family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
