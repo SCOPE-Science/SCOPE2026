@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T06:53:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md SHA 764069af71cb7854a8801251684e174be7c64b37",
+        "verify.py SHA d2f5fed1ed14e62b5d6a4351fa88312e8f6a51ad",
+        "independent exact-integer check m<=8"
+      ],
+      "rationale": "Reconstructed the divisor convolution series S(n)=sum_{k>=1}2^{-k}prod binom(a_i+k-1,a_i); its recursion agrees with kappa_0, including S(1)=1. For a>=b+2, termwise transfer ratio is 1+(k-1)(a-b-1)/((a+k-1)(b+1)), >1 at every k>=2; strict splitting follows from elementary product inequality. Integer majorization paths give strict lower spike and upper balanced signatures, including coincident endpoints m=r and r=1. Newton finite differences evaluate the series exactly. Independent recursion vs closed form and 63 transfer comparisons through m<=8 support but are not the unrestricted proof.",
+      "residual_risks": [
+        "Finite computation tests cannot establish all m,r; the symbolic transfer argument does."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fink gives recurrence, ordered factorization representations and global endpoint cases; Coppersmith–Lewenstein give global bounds rather than sharp each-support envelope."
+        ],
+        "reasoning": "Prime-power and squarefree extremal values are covered. None of the inspected stated bounds differentiates all fixed omega classes or gives strict equality conditions.",
+        "searches": [
+          "Fink arXiv:1912.07979; 2307.09140; 2307.16691",
+          "Coppersmith–Lewenstein Constructive bounds on ordered factorizations DOI 10.1137/S0895480104445861"
+        ]
+      },
+      "checked_sources": [
+        "Fink arXiv:2307.16691",
+        "Fink arXiv:2307.09140",
+        "Fink arXiv:1912.07979",
+        "Knopfmacher–Mays DOI 10.1142/S1793042105000315",
+        "Coppersmith–Lewenstein DOI 10.1137/S0895480104445861",
+        "Resultary fixed-support search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known sum sum 2^-k prod binom(a_i+k-1,a_i) permits direct proof but does not itself include a majorization assertion; package derives explicit strict positive ratio for a>=b+2.",
+          "Global endpoints already known and explicitly excluded from asserted novelty."
+        ],
+        "reasoning": "The novel implication is strict Schur-concavity and exact fixed-support envelope. It is derivable by an additional elementary inequality from prior series, but no inspected prior paper asserts that inequality. Residual risk of older majorization folklore.",
+        "searches": [
+          "Fink arXiv:2307.16691 Theorems 1–2 full source",
+          "Knopfmacher–Mays 2005 survey"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fink 2023 arXiv:2307.16691 identifies the same binomial series; the transfer inequality compares two full exponent signatures and is not a restatement of its coefficient formula.",
+          "Knopfmacher–Mays discuss exponent-signature tables and limits to total order across multiple functions; strict partial order here compares only majorizing signatures for this one count."
+        ],
+        "reasoning": "Looked under ordered factorization, recursively divisible, majorization and signature balancing aliases. Formula equivalence alone does not entail an explicit existing sharp support classification unless the strict transfer comparison is supplied.",
+        "searches": [
+          "Resultary: recursive divisor function ordered factorizations exponent majorization Schur concavity fixed support balanced exponents",
+          "Knopfmacher–Mays A Survey of Factorization Counting Functions DOI 10.1142/S1793042105000315"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same function values appear in historical tables and in Fink series; the new assertion is an unbounded partial-order/extremal theorem, not a small table or recomputed numerical sequence."
+        ],
+        "reasoning": "Existing tables of low m cannot imply strict transfer inequalities for every m and r; novelty not inferred from empty search alone.",
+        "searches": [
+          "Resultary semantic query for kappa_0 exponent majorization and fixed support",
+          "Knopfmacher–Mays factorization survey tables by exponent partition"
+        ]
+      },
+      "rationale": "Known Fink series and Newton-difference finite evaluation are not claimed; comparison targets the distinct strict majorization and all fixed-support sharp exponent signatures. Direct full-text primary checks and Resultary semantic retrieval found no implication-equivalent fixed-(m,r) extremal theorem. Priority remains best-of-knowledge.",
+      "residual_risks": [
+        "Classical ordered-factorization monotonicity may have been stated under majorization, compositions, or multipartite-count terminology; no absolute priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS series and forward differences; fixed-support strict majorization not established in inspected theorem passages.",
+          "evidence": [
+            "arXiv:2307.16691, Thms 1–2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.16691",
+          "material_read": "Theorems 1–2 and relevant positive convolution formula plus its boundary examples",
+          "method": "Accessible manuscript/full-text theorem passages",
+          "title": "Number of ordered factorizations and recursive divisors",
+          "trigger": "Exactly same function and representation"
+        },
+        {
+          "assessment": "Provides formula background; no observed all-signature majorization classification.",
+          "evidence": [
+            "arXiv:2307.09140"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.09140",
+          "material_read": "Introduction and recurrence/series statements in accessible arXiv paper",
+          "method": "Open PDF inspection",
+          "title": "Properties of the recursive divisor function and the number of ordered factorizations",
+          "trigger": "Exact defining recurrence and ordered-factorization identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives a natural complete sharp classification for every prime-factor multiplicity m and distinct-prime support r, with equality cases, not merely a table or an inherited endpoint; strict transfer explains the mechanism. A researcher optimizing recursive divisor counts within support layers needs these exact signatures. Previous formula simplicity limits novelty depth but does not erase this structural order result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For recursive divisor count kappa_0, each strict one-unit balancing of positive exponents increases the count; strict majorization hence gives unique fixed-(Omega,omega) extrema at spike/balanced exponent signatures, with exact evaluation. Endpoint prime-power and squarefree values and the series are acknowledged prior results.",
+  "limitations": [
+    "No comparison for exponent multisets incomparable by majorization.",
+    "Known positive series, difference representation, and global endpoints explicitly credited."
+  ],
+  "schema_version": 1
+}

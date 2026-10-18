@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The symbolic proof checks two distinct mechanisms: a positive-series transfer ratio strictly greater than one for every factor count at least two, and the product-of-consecutive-ratios proof that splitting a prime exponent strictly increases the count. Their strictness implies the equality cases of the fixed-support bounds. The supporting polynomial identity makes both constants finite and exactly evaluable.
+## correctness
 
-The accompanying `verify.py` separately implements the original recursive definition as a divisor-lattice recurrence and evaluates the binomial-polynomial forward-difference expression, then checks every positive exponent partition of total multiplicity at most 11. It verifies transfers, splits, endpoints, and prime-power/squarefree formulas; see `verification_output.txt` for actual results.
+PASS
 
-The finite test range does not prove the unbounded theorem. This record does not claim a machine-verified formal proof, an external review, or any independent audit.
+Reconstructed the divisor convolution series S(n)=sum_{k>=1}2^{-k}prod binom(a_i+k-1,a_i); its recursion agrees with kappa_0, including S(1)=1. For a>=b+2, termwise transfer ratio is 1+(k-1)(a-b-1)/((a+k-1)(b+1)), >1 at every k>=2; strict splitting follows from elementary product inequality. Integer majorization paths give strict lower spike and upper balanced signatures, including coincident endpoints m=r and r=1. Newton finite differences evaluate the series exactly. Independent recursion vs closed form and 63 transfer comparisons through m<=8 support but are not the unrestricted proof.
+
+## originality
+
+PASS
+
+Known Fink series and Newton-difference finite evaluation are not claimed; comparison targets the distinct strict majorization and all fixed-support sharp exponent signatures. Direct full-text primary checks and Resultary semantic retrieval found no implication-equivalent fixed-(m,r) extremal theorem. Priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+Gives a natural complete sharp classification for every prime-factor multiplicity m and distinct-prime support r, with equality cases, not merely a table or an inherited endpoint; strict transfer explains the mechanism. A researcher optimizing recursive divisor counts within support layers needs these exact signatures. Previous formula simplicity limits novelty depth but does not erase this structural order result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
