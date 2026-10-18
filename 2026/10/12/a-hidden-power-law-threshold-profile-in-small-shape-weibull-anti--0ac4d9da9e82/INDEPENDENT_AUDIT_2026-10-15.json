@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:12:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 20ed95e18510e6a2d52276e7e00ae67cd41144b1",
+        "Frozen verify_weibull_profile.py blob 2cbdf05569930fbb664a952aadbb679680a26159",
+        "Independent loggamma/Stirling comparison in /mnt/data/audit05_independent_math.py",
+        "NIST DLMF §5.11.1"
+      ],
+      "rationale": "Unit-rate reduction removes lambda. For r=1/alpha the true m=Gamma(r+1), q=Gamma(2r+1), and s=sqrt(q-m^2) satisfy m^2/q~sqrt(pi*r)4^-r, hence the lower standardized endpoint is negative uniformly for y in a fixed compact positive interval. Therefore T=exp[-(m+y*s)^(1/r)] exactly there. Logarithmic Stirling gives (m+ys)^(1/r)=2r/e+log(4pi*r)/(2e)+2log(y)/e+o(1), so exponentiation yields the full multiplicative equivalent rather than only a logarithmic rate. Independent mpmath loggamma computation for alpha=0.00625 gives additive exponent errors 0.00346, 0.00844, 0.01566 at y=0.5,1,2; these are checks, not a proof.",
+      "residual_risks": [
+        "Valid for fixed y>0, locally uniform on compact positive threshold sets; moving thresholds are not controlled."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary SCOPE-five-endpoint-laws... full RESULT.md: Weibull statement is -alpha log T ->2/e, whereas Gamma/Beta and other families have sharper laws.",
+          "DLMF §5.11 states universal Stirling formula, not the standardized Weibull probability."
+        ],
+        "reasoning": "Even though both sources apply to the same family, the published rate allows arbitrary subexponential factors, and the general asymptotic identity requires the additional exact event reduction.",
+        "searches": [
+          "Weibull small shape limit alpha to zero standardized deviation anti concentration Gamma Stirling tail y power 2/e threshold",
+          "Resultary five endpoint laws vanishing standardized anti-concentration",
+          "DLMF 5.11 Gamma Stirling"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.09998v2",
+        "Resultary SCOPE-five-endpoint-laws... published RESULT.md",
+        "DLMF §5.11.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Motivating Proposition 3.7 uses an upper bound with mean instead of m+ys.",
+          "Resultary published statement gives -alpha log T ->2/e for fixed y."
+        ],
+        "reasoning": "This work implies the published logarithmic result but the converse is false: logarithmic limit loses a log(alpha) term and threshold dependent log(y) term.",
+        "searches": [
+          "Weibull small shape limit alpha to zero standardized deviation anti concentration Gamma Stirling tail y power 2/e threshold",
+          "Hu Song Tan Weibull Proposition 3.7",
+          "Resultary five endpoint laws Weibull 2/e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hu–Song–Tan Proposition 3.7 gives vanishing infimum.",
+          "The actual theorem specifies exp(-2/(e alpha))*alpha^(1/(2e)) with y^-2/e and locally uniform error."
+        ],
+        "reasoning": "Equivalent renormalized profile and two-threshold ratios require an additive o(1) expansion of the exponent; merely knowing the 2/e scaled log rate cannot imply them.",
+        "searches": [
+          "Weibull small shape limit alpha to zero standardized deviation anti concentration Gamma Stirling tail y power 2/e threshold",
+          "Weibull small-shape standardized survival prefactor threshold ratios",
+          "Weibull y^-2/e tail equivalent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published endpoint-law result lists a leading 2/e logarithmic Weibull entry, not the stated prefactor or ratio table.",
+          "DLMF contains Gamma asymptotics but not the standardized tail profile."
+        ],
+        "reasoning": "No table giving the whole final expansion was found; existing leading-rate entry does not encode the subexponential normalization.",
+        "searches": [
+          "Weibull small shape limit alpha to zero standardized deviation anti concentration Gamma Stirling tail y power 2/e threshold",
+          "Weibull exp(-2/(e alpha)) y^-2/e exact Gamma asymptotic table"
+        ]
+      },
+      "rationale": "Hu–Song–Tan prove qualitative zero standardized anti-concentration, and the closest published Resultary paper obtains only the leading Weibull logarithmic rate 2/e. Neither proves this sharper multiplicative prefactor, nonconstant y^-2/e profile, or tail ratio. Standard Stirling is a known premise, not a published identical probability result.",
+      "residual_risks": [
+        "An identical second-order standardized Weibull tail expansion could have appeared in unindexed reliability literature.",
+        "No assertion when y approaches zero or infinity with alpha."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_PRIOR_ONLY",
+          "evidence": "Displays exact moments and a mean-threshold upper bound, proving zero infimum without the prefactor.",
+          "identifier_or_url": "arXiv:2401.09998v2",
+          "material_read": "Full relevant Weibull Proposition 3.7 and surrounding proof on pp.11–12, including rendered page",
+          "method": "OA original PDF/HTML text and page inspection",
+          "title": "On the anti-concentration functions of some familiar families of distributions",
+          "trigger": "Original standardized Weibull functional"
+        },
+        {
+          "assessment": "LOG_RATE_ONLY",
+          "evidence": "For Weibull the sole theorem is -alpha log P ->2/e; it does not assert multiplicative asymptotic or y-dependent limiting ratios.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-five-endpoint-laws-behind-vanishing-standardized-anti-concentrat--b5686a859f59/RESULT.md",
+          "material_read": "Entire published RESULT.md Finding, Proof, Verification, Relationship and Limitations",
+          "method": "GitHub read-only fetch of complete scientific result",
+          "title": "Five endpoint laws behind vanishing standardized anti-concentration",
+          "trigger": "Strongest located published same Weibull endpoint asymptotic"
+        },
+        {
+          "assessment": "PROOF_INGREDIENT_ONLY",
+          "evidence": "Stirling yields the log Gamma expansion at 2r, which needs additional event analysis.",
+          "identifier_or_url": "https://dlmf.nist.gov/5.11",
+          "material_read": "Equation 5.11.1 logarithmic Gamma expansion; no probability theorem",
+          "method": "Authoritative online formula inspection",
+          "title": "NIST Digital Library of Mathematical Functions, §5.11",
+          "trigger": "Critical Stirling asymptotic used"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hu–Song–Tan Proposition 3.7",
+        "Resultary published five-endpoint asymptotic result"
+      ],
+      "rationale": "After the familiar standardized anti-concentration infimum collapses to zero, its leading essential-exponential rate is independent of y. The exact remaining y^-2/e power-law profile and ratio law answer the natural question of how two fixed standardized thresholds still differ. This is a motivated refinement beyond a generic Stirling exercise, although it uses classical special-function methods.",
+      "residual_risks": [
+        "One-parameter degeneration, not a global optimum or uniform moving-threshold theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only fixed y>0, locally uniform on positive compact intervals; no moving threshold assertion.",
+    "Older equivalent second-order asymptotic cannot be categorically excluded."
+  ]
+}

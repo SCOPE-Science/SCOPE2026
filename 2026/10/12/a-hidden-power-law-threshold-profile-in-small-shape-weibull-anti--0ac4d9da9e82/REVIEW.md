@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Scale invariance reduces the problem to unit rate. The exact moment formulas give \(m_r=\Gamma(r+1)\) and \(s_r^2=\Gamma(2r+1)-\Gamma(r+1)^2\). Stirling's formula proves \(m_r/s_r\) is exponentially small, so the lower standardized endpoint leaves the support. The remaining probability is the exact Weibull survival probability at \(m_r+y s_r\). Expanding \(\log\Gamma(2r+1)\) through the logarithmic term yields an additive \(o(1)\) expansion for the exponent; this is strong enough for a multiplicative probability equivalent. The error is uniform for \(y\) in each compact subset of \((0,\infty)\).
+## correctness
 
-## Originality
-PASS. The closest primary source proves only that the infimum is zero and uses a deliberately smaller tail threshold to establish convergence. Full-text inspection of its Weibull section found no multiplicative prefactor, no \(y^{-2/e}\) threshold profile, and no fixed-threshold ratio limit. Searches using the exact coefficient, ratio formulation, and small-shape aliases found no covering published result. The principal residual risk is an equivalent asymptotic in older reliability literature under different terminology.
+PASS
 
-## Value
-PASS. The published anti-concentration functional is identically zero for the Weibull family and therefore loses all threshold dependence. The renormalized theorem recovers a nonconstant limiting profile and a direct comparison law between any two fixed thresholds. This is a structural refinement of the degeneration mechanism, not a numerical improvement to a bound.
+Unit-rate reduction removes lambda. For r=1/alpha the true m=Gamma(r+1), q=Gamma(2r+1), and s=sqrt(q-m^2) satisfy m^2/q~sqrt(pi*r)4^-r, hence the lower standardized endpoint is negative uniformly for y in a fixed compact positive interval. Therefore T=exp[-(m+y*s)^(1/r)] exactly there. Logarithmic Stirling gives (m+ys)^(1/r)=2r/e+log(4pi*r)/(2e)+2log(y)/e+o(1), so exponentiation yields the full multiplicative equivalent rather than only a logarithmic rate. Independent mpmath loggamma computation for alpha=0.00625 gives additive exponent errors 0.00346, 0.00844, 0.01566 at y=0.5,1,2; these are checks, not a proof.
 
-## Closest literature and limitations
-Hu, Song and Tan, Proposition 3.7, is the closest direct result. Standard Stirling expansions from the DLMF provide the asymptotic tool but not the probability statement. The theorem is pointwise/local-uniform for fixed positive thresholds and does not treat threshold scales that move with the shape parameter.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hu–Song–Tan prove qualitative zero standardized anti-concentration, and the closest published Resultary paper obtains only the leading Weibull logarithmic rate 2/e. Neither proves this sharper multiplicative prefactor, nonconstant y^-2/e profile, or tail ratio. Standard Stirling is a known premise, not a published identical probability result.
+
+## value
+
+PASS
+
+After the familiar standardized anti-concentration infimum collapses to zero, its leading essential-exponential rate is independent of y. The exact remaining y^-2/e power-law profile and ratio law answer the natural question of how two fixed standardized thresholds still differ. This is a motivated refinement beyond a generic Stirling exercise, although it uses classical special-function methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
