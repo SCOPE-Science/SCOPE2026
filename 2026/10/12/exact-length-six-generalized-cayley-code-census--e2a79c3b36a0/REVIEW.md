@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The metric is reconstructed from the primary definition of generalized transpositions. The verifier enumerates all \(70\) generators and performs breadth-first search over all \(720\) elements of \(S_6\), then constructs the complete distance-\(3\) compatibility graph. A complete maximal-clique enumeration gives no clique larger than \(6\) and exactly \(6{,}000\) maxima. The structural claims are checked directly on the complete maximum-code list. The proof is finite and exhaustive rather than experimental extrapolation.
+## correctness
 
-## Originality
-PASS. The 2014 primary source defines the same metric and supplies general bounds and constructions; its bound at this parameter gives only \(A_{\rho_{\mathrm{gC}}}(6,3)\le24\). The 2018/2019 follow-up develops general and order-optimal constructions rather than this finite extremizer census. Exact-parameter, alias, table, and implication searches did not locate the value, the \(6{,}000\)-code census, or the left-orbit classification. Residual risk remains that an obscure or unindexed finite enumeration exists.
+PASS
 
-## Value
-PASS. The generalized Cayley metric models unrestricted generalized transpositions and is explicitly described in the literature as difficult to compute. An exact optimum together with a complete extremizer census, equidistance property, subgroup exceptions, and orbit structure gives a reproducible small-parameter benchmark for that metric rather than merely another construction or a restatement of a general bound.
+The generator is exactly the Chee–Vu interval-swap permutation (postcomposition) with all nonoverlapping intervals including separated blocks. An independent finite-group enumeration built 70 distinct generators in S6; BFS gave distances (1,70,469,180) at 0..3. The 180-regular compatibility Cayley graph has 720 vertices. Independently enumerated its identity-rooted cliques, proving maximum size 6 with 50 rooted six-codes and no larger. Left translation supplies 6000 distinct labeled maxima, divided into two orbits of 120 and eight of 720. Independently tested closure of each rooted code under composition and found exactly two cyclic order-six subgroups. All mutual distances in a compatible code are 3 because the entire metric has diameter 3. Unlike relying on the packaged VERIFY_OK log, this independent search reproduced counts directly from the frozen RESULT.md definitions; a finite exhaustive search over all 720 elements is a complete proof for fixed n=6.
 
-## Closest literature and limitations
-The closest sources are Chee–Vu (2014), which introduced the metric and breakpoint bounds/constructions, and Yang–Schoeny–Dolecek (2018/2019), which studies theoretical bounds and order-optimal constructions. The finding is restricted to \(S_6\), distance \(3\), and the stated left-multiplication action; it does not classify the full isometry group or extrapolate to other parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The generalized Cayley metric agrees exactly with Chee–Vu Definition 5 (postcomposition by general interval exchanges). Their Theorem 2 only gives A_gC(6,3)≤(6−2)!=24, not 6, nor extremizers. The full 2014 primary paper was obtained lawfully and all five pages read. Yang–Schoeny–Dolecek (arXiv:1803.04314) proves general coding-rate bounds and syndrome constructions, not a finite S6 equality census. Resultary retrieved Kendall τ (6,10) and Ulam (5,3) finite censuses but those use different distances, so are not implied comparisons. Exact parameter and 6000 census searches found no covering source; remaining obscure table risk retained.
+
+## value
+
+PASS
+
+An exact optimum and complete equality classification in a genuine permutation-rearrangement error metric resolves a natural first small case not fixed by the best general bound. The 6000 labeled codes, ten left-translation types and two subgroup extremizers supply structural finite mathematics useful for code-design benchmarking, not merely a parameter renaming or isolated arithmetic value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py`. The script uses only the Python standard library. It independently constructs every generalized transposition on six positions, performs breadth-first search of the resulting Cayley graph, constructs the full minimum-distance-three compatibility graph, enumerates every maximal clique, checks the full list of maximum codes, tests the identity-containing maxima for subgroup closure, and computes the left-multiplication orbit partition.
+# Independent mathematical audit
 
-Expected terminal line:
+## correctness
 
-`VERIFY_OK generators=70 distance_hist=0:1,1:70,2:469,3:180 vertices=720 edges=64800 degree=180 maximal_cliques=758976 maximal_hist=4:670320,5:82656,6:6000 maximum=6 labeled_maxima=6000 normalized_maxima=50 subgroup_maxima=2 left_orbits=10 orbit_sizes=120x2,720x8 subgroup_generators=(1,2,4,6,5,3);(1,3,2,6,4,5) bk_nodes=1458354`
+PASS
 
-The exhaustive domain is exactly all \(720\) elements of \(S_6\). The verifier does not extrapolate beyond this finite parameter. It proves completeness by enumerating every maximal clique in the compatibility graph, not by stopping after a witness is found. The left-orbit computation covers all \(6{,}000\) maxima but does not assert that left multiplication is the full metric-isometry group.
+The generator is exactly the Chee–Vu interval-swap permutation (postcomposition) with all nonoverlapping intervals including separated blocks. An independent finite-group enumeration built 70 distinct generators in S6; BFS gave distances (1,70,469,180) at 0..3. The 180-regular compatibility Cayley graph has 720 vertices. Independently enumerated its identity-rooted cliques, proving maximum size 6 with 50 rooted six-codes and no larger. Left translation supplies 6000 distinct labeled maxima, divided into two orbits of 120 and eight of 720. Independently tested closure of each rooted code under composition and found exactly two cyclic order-six subgroups. All mutual distances in a compatible code are 3 because the entire metric has diameter 3. Unlike relying on the packaged VERIFY_OK log, this independent search reproduced counts directly from the frozen RESULT.md definitions; a finite exhaustive search over all 720 elements is a complete proof for fixed n=6.
+
+## originality
+
+PASS
+
+The generalized Cayley metric agrees exactly with Chee–Vu Definition 5 (postcomposition by general interval exchanges). Their Theorem 2 only gives A_gC(6,3)≤(6−2)!=24, not 6, nor extremizers. The full 2014 primary paper was obtained lawfully and all five pages read. Yang–Schoeny–Dolecek (arXiv:1803.04314) proves general coding-rate bounds and syndrome constructions, not a finite S6 equality census. Resultary retrieved Kendall τ (6,10) and Ulam (5,3) finite censuses but those use different distances, so are not implied comparisons. Exact parameter and 6000 census searches found no covering source; remaining obscure table risk retained.
+
+## value
+
+PASS
+
+An exact optimum and complete equality classification in a genuine permutation-rearrangement error metric resolves a natural first small case not fixed by the best general bound. The 6000 labeled codes, ten left-translation types and two subgroup extremizers supply structural finite mathematics useful for code-design benchmarking, not merely a parameter renaming or isolated arithmetic value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
