@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The geometric-genus formula follows from the complete-intersection characteristic classes and Hirzebruch--Riemann--Roch, and it was independently cross-checked against the canonical-ring Hilbert-series coefficient. The one-step balancing difference is factored exactly. After shifting all untouched degrees by \(2\), the remaining factor becomes a sum of nonnegative integer terms with a single negative baseline only in codimension two; the general-type inequality removes the forbidden negative case and leaves exactly the three stated zeros. Repeated balancing and reverse balancing then prove the global extrema.
+## correctness
 
-## Originality
-PASS. The closest inspected sources provide the general-type complete-intersection setup and the threefold Hodge/Chern formulas, but do not state the fixed-sum majorization theorem, its balanced maximum and one-heavy minimum, or the equality classification. Claim-specific searches using geometric-genus, fixed-amplitude, balanced-multidegree, and majorization terminology found no covering statement.
+PASS
 
-A current preprint on geometric-genus lower bounds for weighted complete intersections is a genuine residual risk: only its abstract was retrievable. The abstract does not state the fixed-codimension balancing theorem or its three equality cases, so the unresolved comparison is recorded rather than treated as whole-claim coverage.
+For smooth complex complete-intersection threefolds of codimension c>=2 and degrees d_i>=2 with m=S-c-4>0, adjunction gives K=O(m). Lefschetz h^01=h^02=0 and HRR give p_g=1+m(prod d_i)(m^2+sum d_i^2-c-4)/48. A balancing step a<b-1 multiplies its change by mP delta/48 times R-2ab-2delta; substituting r=c-2,u=a-2,t=b-a-2 and remaining d_j=2+w_j gives exact nonnegative polynomial except for codim2 baseline controlled by m>0. Exactly (2,5),(3,5),(2,2,4) yield zero, with equalities and global balanced maximum/one-heavy minimum. Independently expanded the symbolic polynomial for r=0..4 and checked representative Hilbert-series coefficients against HRR; these finite checks are supplementary to all-c,S factorization.
 
-## Value
-PASS. The theorem organizes a fundamental Hodge invariant across an infinite family while holding the canonical-polarization exponent fixed. It gives both extrema and all failures of strictness, so it is a structural geography statement rather than a routine evaluation of known formulas at selected multidegrees.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Hodge/Chern genus formula is classical, and recent Przyjalkowski proves lower bounds and positivity of geometric genus across smooth weighted general-type complete intersections, but full text's Theorem 1.1, Corollaries 5.1-5.3 do not give monotonicity under pair balancing at fixed c,S nor all three equality exceptions. The new consequence requires the explicit difference-factorization and equality analysis. Resultary returns similar fixed-sum *other invariant* results, not geometric-genus domination. Best-of-knowledge PASS subject to related classical geography sources.
+
+## value
+
+PASS
+
+The geometric genus p_g is a central Hodge/birational invariant of smooth threefolds. Holding codimension and adjunction amplitude fixed gives a natural geography problem; the full majorization order, both extrema and all exceptional ties are a motivated infinite structural classification, not a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

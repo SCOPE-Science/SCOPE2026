@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,59 +18,25 @@
   "schema_version": 1
 }
 ---
-For a smooth complete-intersection threefold of codimension \(c\) and multidegree \(\mathbf d\), put
-\[
-m=\sum_i d_i-c-4>0.
-\]
-The proof uses
-\[
-p_g
-=
-1+
-\frac{m}{48}
-\left(\prod_i d_i\right)
-\left(
-m^2+\sum_i d_i^2-c-4
-\right).
-\]
 
-The bundled checker verifies this expression independently against the degree-\(m\) coefficient of the complete-intersection Hilbert series
-\[
-\frac{\prod_i(1-t^{d_i})}{(1-t)^{c+4}},
-\]
-which equals \(h^0(K_X)\).
+# Independent mathematical audit
 
-For a balancing move
-\[
-(a,b)\mapsto(a+1,b-1),
-\qquad
-b-a\ge2,
-\]
-the proof factors the change as
-\[
-\frac{mP\delta}{48}
-\left(
-R-2ab-2\delta
-\right),
-\]
-where \(P\) is the product of the untouched degrees and \(\delta=b-a-1\). Writing
-\[
-r=c-2,\qquad u=a-2,\qquad t=b-a-2,
-\]
-and the untouched degrees as \(2+w_j\), the last factor is exactly
-\[
-\begin{aligned}
-&(r-1)(r+4)
-+4u(r+u+t)
-+2t(r+t+1)\\
-&\quad
-+2W(r+2u+t+2)
-+W^2
-+\sum_j w_j^2,
-\end{aligned}
-\]
-with \(W=\sum_jw_j\).
+## correctness
 
-This identity proves nonnegativity in the general-type range and leaves exactly three equality types. The checker replays these identities and the resulting fixed-sum extrema over a bounded grid as regression evidence; no finite enumeration is used to infer the infinite theorem.
+PASS
 
-Limits: smooth ordinary projective complete intersections, complex dimension three, and the general-type range only.
+For smooth complex complete-intersection threefolds of codimension c>=2 and degrees d_i>=2 with m=S-c-4>0, adjunction gives K=O(m). Lefschetz h^01=h^02=0 and HRR give p_g=1+m(prod d_i)(m^2+sum d_i^2-c-4)/48. A balancing step a<b-1 multiplies its change by mP delta/48 times R-2ab-2delta; substituting r=c-2,u=a-2,t=b-a-2 and remaining d_j=2+w_j gives exact nonnegative polynomial except for codim2 baseline controlled by m>0. Exactly (2,5),(3,5),(2,2,4) yield zero, with equalities and global balanced maximum/one-heavy minimum. Independently expanded the symbolic polynomial for r=0..4 and checked representative Hilbert-series coefficients against HRR; these finite checks are supplementary to all-c,S factorization.
+
+## originality
+
+PASS
+
+The Hodge/Chern genus formula is classical, and recent Przyjalkowski proves lower bounds and positivity of geometric genus across smooth weighted general-type complete intersections, but full text's Theorem 1.1, Corollaries 5.1-5.3 do not give monotonicity under pair balancing at fixed c,S nor all three equality exceptions. The new consequence requires the explicit difference-factorization and equality analysis. Resultary returns similar fixed-sum *other invariant* results, not geometric-genus domination. Best-of-knowledge PASS subject to related classical geography sources.
+
+## value
+
+PASS
+
+The geometric genus p_g is a central Hodge/birational invariant of smooth threefolds. Holding codimension and adjunction amplitude fixed gives a natural geography problem; the full majorization order, both extrema and all exceptional ties are a motivated infinite structural classification, not a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
