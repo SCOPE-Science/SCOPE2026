@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The claim is a complete conditional theorem, not an extrapolation from numerical enumeration. For every finite nonnegative symmetric conductance pattern, logistic cooperative comparison gives a unique positive global attractor. Summing equilibria yields the previously known ellipsoid, its unique maximizer and an exact squared-distance deficit. At the candidate maximizer, multiplying the diffusion flux by its target-density drop transforms the stationary equations into a nonnegative directed divergence equation. Classical max-flow/min-cut proves the full no-outgoing-subset necessity and sufficiency, even for ties and disconnected architectures. The fully specified positive and impossible examples were checked with exact fractions, and independently implemented directed flow agreed with cut tests in 600 deterministic random cases. Finite computation merely corroborates the general proof.
+
+## Originality — PASS, with literature-limited risk
+The quantitative biomass envelope and its maximizing state **already appear** in Ruiz-Herrera and Torres (2020), supplementary Proposition 1.1; they are background rather than a new claim. Their main network attainment theorem concerns a generally directed movement matrix in the **infinite-mobility limit**, with symmetric high-mobility formulas separately treated, not exact *finite symmetric corridor conductance realizability*. Elbetch et al. (2021) analyze symmetric multi-patch logistic equilibrium totals; Jorba-Cuscó et al. (2023) handle two-patch diffusion optimization. The inspected published statements do not imply the all-graph no-outgoing-cut if-and-only-if with finite explicit weights, which is more restrictive than unrestricted directed migration or two-patch optimization. Semantic research-index checks using multiple aliases did not surface an implication-equivalent published claim. Search incompleteness and unexamined reverse-Laplacian literature remain risks; this is not a proof of global novelty.
+
+## Value — PASS
+For habitat corridors in a heterogeneous landscape, an unconditional ceiling is not a decision rule: it fails to tell which fixed geography can reach the biological ceiling at deployable finite (rather than singularly infinite) migration strengths. The result supplies a universal exact yes/no test and a constructive feasible design for every finite graph, including disconnected corridors and tied target densities. The sharply contrasting three-patch examples demonstrate that *some connected corridor systems* realize the ceiling while even a complete graph may fail for other demographics, so the answer is biologically substantive and not an arbitrary invariant.
+
+## Remaining limitations
+Unbounded but finite selectable conductances; no fixed budget, edge lower bound, asymmetric movement or dispersal mortality. The theorem decides equality with the known bound, not the constrained optimum when equality is impossible. Independent external audit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
