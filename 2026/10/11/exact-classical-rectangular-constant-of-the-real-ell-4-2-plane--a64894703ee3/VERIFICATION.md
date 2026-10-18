@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,60 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For a unit Birkhoff--James orthogonal pair in real \(\ell_4^2\), write
-\[
-A=x_1^2y_1^2+x_2^2y_2^2,
-\qquad
-B=x_1y_1^3+x_2y_2^3.
-\]
-Direct parametrization by
-\[
-x=(a,b),
-\qquad
-y=\frac{(b^3,-a^3)}{(a^{12}+b^{12})^{1/4}}
-\]
-gives
-\[
-B^2=A(1-A^2)
-\]
-and shows that \(A\) ranges over \([0,1]\).
+# Independent mathematical audit
 
-After choosing the minimizing sign,
-\[
-\|x+\lambda y\|_4^4
-=
-1+\lambda^4+6A\lambda^2
--4\lambda^3\sqrt{A(1-A^2)}.
-\]
-For each \(\lambda>0\), the unique minimizing \(A\) satisfies
-\[
-\lambda(1-3A^2)=3\sqrt{A(1-A^2)}.
-\]
-At a stationary point of the remaining one-variable objective,
-\[
-\lambda=
-\frac{9A^4-12A^2+1}{3A(1-3A^2)}.
-\]
-The first right-hand side obtained from the denominator minimization is strictly increasing in \(A\); this second one is strictly decreasing wherever it is positive. Hence there is exactly one critical point.
+## correctness
 
-On their positive common interval, squaring their equality gives
-\[
-81A^8-216A^6+81A^5+162A^4-81A^3-24A^2+1=0.
-\]
-The unique admissible root is
-\[
-A_*=0.174177500540137295788576370582\ldots,
-\]
-which gives
-\[
-\lambda_*=1.35634457846695755421350607134\ldots
-\]
-and
-\[
-\mu(\ell_4^2)=1.93365718463403520398276193150\ldots.
-\]
-The final decimal rounds to the published numerical benchmark \(1.9337\).
+PASS
 
-The proof of uniqueness is analytic and precedes numerical evaluation. Finite sampling and polynomial root lists are not used as proof.
+Unit Birkhoff–James condition in real smooth ell4² is a³y1+b³y2=0; explicit orthogonal direction parameterizes boundary by continuity. Expansion gives F=1+lambda^4+6A lambda²−4sqrt(A(1−A²))lambda³ after choosing the minimizing sign, A in [0,1]. C(A) is strictly concave; L(A) increases, S(A) decreases to a unique intersection in (0,sqrt((2−sqrt3)/3)); squaring within positive branch yields Q degree eight without spurious root. Direct independent SymPy differentiation and nsolve gave A=0.1741775005401373, lambda=1.3563445784669579, mu=1.9336571846340351 and stationary residual 3.6e−15; these numeric checks corroborate rather than prove uniqueness. Endpoint objective tends 1; coordinate example gives >1, so unique stationary critical point globally maximizes.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact polynomial root and maximizing invariant classification are stronger than the numeric mu(ell4)=1.9337 benchmark and general 2D reduction. Gastinel–Joly and Baronti–Casini–Papini prior work credited; Resultary unavailable; no negative-search novelty proof.
+
+## value
+
+PASS
+
+Exact extremal Banach-space invariant and exhaustive equality profile resolve a specific natural classical constant known only numerically in a published table; algebraic identification is reusable for comparisons and sharp estimates, not an arbitrary numerology slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
