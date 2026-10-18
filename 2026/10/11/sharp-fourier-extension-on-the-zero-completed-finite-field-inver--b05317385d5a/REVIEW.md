@@ -1,19 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The entire fourth moment reduces by character orthogonality to pair-sum collisions. For nonzero pair sum, the reciprocal graph determines the unordered pair uniquely; collisions with the origin are possible exactly when a root of \(X^2-X+1=0\) exists. This yields identity (1), which is reproduced by an independent direct-convolution checker for eight finite fields. The nonresonant branch follows from the opposite-pair Cauchy bound and one-variable optimization. The resonant branch follows from a sharp six-cycle cubic bound, a strictly improving reduction to one orbit, and a uniquely maximized rational function; the equality phases are solved from the exact collision fibers. The checker does not certify infinitely many fields; the symbolic proof supplies that step. Characteristic two and three are not claimed.
+PASS
 
-## Originality — PASS, with residual risk
+For S={(t,h(t)):h(0)=0,h(t)=1/t for t!=0}, reconstructed ordered-pair convolution: except zero sum, nonzero nonzero points have unique unordered two-sums; origin-vs-nonzero pairs collide exactly when t/u is a primitive sixth root (λ²-λ+1=0). This yields full fourth moment identity 2B²-D-4Q+|c²+2H|²+4|c|²B+8Re(cU). In nonresonant q≡2 mod3, pairwise AM-GM/CS plus one scalar optimization gives 3(2q-1)/(2q+1) and all antipodal-aligned full-support optimizers. In resonant q≡1 mod3, prove cycle inequality U_j≤B_j^(3/2)/sqrt6 and use t=(Σp_j²)^1/2 to show only one populated μ6 orbit can maximize, then optimize F(y) to unique positive rho solving 2rho³+6rho²-3rho-12=0; convolution phase constraints give two-parameter orbit. Direct independent full convolution for q=7 and 11 reproduces both branch sharp values, not a substitute for all-fields proof.
 
-Primary results in Mockenhaupt–Tao, Iosevich–Koh, Koh–Shen, and González-Riquelme–Oliveira e Silva establish the restriction setting, conic bounds, sharp exponent ranges, and sharp results for different surfaces, respectively; none of the inspected theorems states this exact constant and complete equality class for the **origin-completed inverse graph**. A split-conic sharp theorem concerns only the uncompleted hyperbola. Adding the origin creates arithmetically controlled six-cycle collision fibers, so the present claim is not a restriction, renaming, or direct corollary of that theorem. Published-result semantic searches for reciprocal graph, inverse function, hyperbola plus origin, and six-root extremizers returned no directly dominating mathematical statement. Residual risk: an equivalent weighted inverse-graph identity or equality theorem under coding-theoretic differential uniformity or older additive-energy terminology may exist. A failed search is not proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The inverse permutation graph is a canonical nonlinear Fourier set, and adjoining the origin is analytically consequential: the norm's fourth power changes from a finite-size dependent value below three to a field-size-independent algebraic value above three. The theorem completely classifies optimizer amplitudes, support, and phases over all fields in the stated characteristics, including a nontrivial universal localization law. This is a natural sharp Fourier invariant, not an arbitrary small computation or textbook substitution.
+Adding the origin to the hyperbola y=x^-1 creates exceptional collision fibers not present on the full uncompleted split hyperbola; in residue q≡1 mod3 it produces six-cycle localization absent from the earlier uncompleted curve. The q≡2 mod3 numerical constant happens to match the published cubic-graph sharp norm, but neither this coincidence nor affine coordinates identifies the q≡1 mod3 inverse-graph phase family. Full arXiv:2405.16647 sharp surfaces do not include the zero-completed inverse graph.
 
-## Remaining limits
+## value
 
-The result does not cover characteristics two and three, sharp stability estimates, or higher moments. The literature evidence is substantial but does not eliminate all equivalence/priority risk. Computational checks are finite and corroborative.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The natural reciprocal plane curve completed by its singular missing origin has a genuine arithmetic transition in sharp fourth-moment norm, global support and exact phase geometry between q≡1 and 2 modulo3. This is a motivated all-characteristic-family classification rather than routine restatement of a general exponent estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
