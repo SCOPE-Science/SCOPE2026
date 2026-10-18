@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The primary source gives both the fine-harmonic-triple vertex formula and the \(a,b,c\) partition used to count vertices. If \(p\) and \(q\) are the two positions of the distinguished label \(k\), then \(p+q=n+1+b\). The centered second moment of any permutation of \(1,\ldots,n\) is \(n(n^2-1)/12\), so the squared vertex radius becomes
-\[
-\frac{n(n^2-1)}6+\frac{2(n-1)}n+2b.
-\]
-Grouping the source's vertex count by fixed \(b\) gives the displayed shell multiplicity. The outer shell is exactly the case \(b=n-1\), and its equal-weight barycenter is the uniform affine point. Averaging squared distances over that contact shell proves the minimum enclosing radius and center uniqueness.
+## correctness
 
-## Originality
-PASS. The primary full text was inspected at the exact vertex formula, the source's \(a,b,c\) enumeration, and the affine equations, including direct PDF-page inspection. Its metric terms do not contain a harmonic-polytope circumradius or shell theorem. The later bipermutahedron paper was inspected at the exact Minkowski-quotient theorem; that support-function statement does not imply Euclidean vertex radii. Targeted published-result searches covered circumradius, minimum-enclosing sphere, vertex norm, shell, and fine-harmonic-triple formulations. The nearest same-object indexed result concerns vertex degrees rather than radial geometry.
+PASS
 
-## Value
-PASS. The harmonic polytope has a rapidly growing and combinatorially intricate vertex set. The theorem gives a natural complete metric stratification of that entire set into only \(n\) shells, with exact multiplicities and constant spacing in squared radius. It also converts an extremal order condition on fine harmonic triples into the exact contact set of the minimum enclosing sphere. This directly complements the source's face and volume theory with a realization-sensitive Euclidean invariant.
+The primary fine harmonic triple (k,pi1,pi2) represents v=(pi1^{-1}+e_k,pi2^{-1}+e_k) with each coordinate sum C_n=n(n+1)/2+1. Define mu=C_n/n. The permutation centered square-sum is n(n^2-1)/12 in each block; cross terms depend only on the positions p,q of k. From three allowed before/after classes a,b,c with a+b+c=n-1 we get p+q=n+1+b. This yields exactly d^2=n(n^2-1)/6+2(n-1)/n+2b. The published class count n*multinomial(n-1;a,b,c)*(a+b)!c!a!(b+c)! sums algebraically to M_{n,b}. Taking b=n-1 gives R^2 as stated and n((n-1)!)^2 outer vertices. Those vertices have exact barycenter c_n=(mu 1,mu 1); average squared distance from another center Q is R^2+||Q-c_n||^2, proving unique smallest enclosing sphere. Independently enumerated all fine triples for n=2,3,4 with exact Fractions, reproducing counts (4,2), (30,24,12), (384,384,288,144), radius progression and outer barycenter. Finite enumeration is corroboration; symbolic proof handles arbitrary n.
 
-## Closest literature and limitations
-The closest sources give the complete V-description, H-description, volume formula, normal-fan relations, and exact Minkowski quotient with the bipermutahedron. None supplies the radial shell theorem. The result is specific to the standard coordinate realization, and it does not determine the full pairwise distance distribution or extremal ellipsoids.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ardila-Escobar determine vertices, total count, and faces, but not their Euclidean radial shell structure or minimum enclosing sphere. The found published sibling computes the HARMONIC POLYTOPE INRADIUS and incenter using facets, which does not imply these n Euclidean vertex shells or circumradius. Related bipermutahedron shell theorem concerns a different Minkowski summand/normal fan. Bounded original metric stratification.
+
+## value
+
+PASS
+
+The n-shell stratification and exact multiplicities are a natural, all-rank radial invariant of a named combinatorial polytope. The order statistic b controls Euclidean radius by a universal gap of 2, while the complete outer contact class and unique minimum sphere give a usable sharp metric boundary. This supplies meaningful geometric information not determined by total vertex counts or the previously published inradius; the proof is self-contained given canonical vertex coordinates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
