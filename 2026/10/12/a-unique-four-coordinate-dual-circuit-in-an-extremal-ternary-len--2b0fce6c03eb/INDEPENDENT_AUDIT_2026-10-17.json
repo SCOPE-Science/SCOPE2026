@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T14:45:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "verify.py",
+        "independent_checks.py",
+        "Araya–Harada original data 25-12-9.txt"
+      ],
+      "rationale": "The exact displayed 12x25 matrix has rank 12 and GG^T=0 mod3. Independently generated all 3^12=531441 primal codewords via vectorized GF(3) multiplication and reproduced coefficients 1,2158,39522,202272,236692,49992,804 at weights 0,9,12,15,18,21,24. Independently enumerated every normalized nonzero dual dependence on supports of size <=4, finding exactly one projective weight-4 relation on zero-indexed (0,18,19,20) with coefficients (1,2,2,2), and no smaller relation. Source MacWilliams transform produces the displayed dual enumerator summing 3^13. The unique weight-4 support is monomial-automorphism invariant; this does not determine the full automorphism group.",
+      "residual_risks": [
+        "A single database representative only, not all 26 extremal equivalence classes; the invariant four-set does not imply a full group classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Araya–Harada classify all 26 inequivalent [25,12,9] codes and provide matrices; Mallows–Sloane give general restrictions on weight enumerators."
+        ],
+        "reasoning": "An exhaustive listing of generator matrices does not by itself state the exact representative-specific dual spectrum or automorphism-fixed support; general constraints allow multiple spectra.",
+        "searches": [
+          "ternary maximal self orthogonal [25,12,9] codes dual minimum distance weight enumerator unique circuit four coordinates",
+          "Araya Harada classification 26 extremal length25 ternary self-orthogonal",
+          "Mallows Sloane weight enumerators self orthogonal GF3"
+        ]
+      },
+      "checked_sources": [
+        "Araya–Harada arXiv:2605.13007",
+        "Author 25-12-9.txt original matrix",
+        "Mallows–Sloane SIAM J Algebraic Discrete Methods 2 (1981)",
+        "Resultary semantic ternary maximal self orthogonal [25,12,9] codes dual minimum distance weight enumerator unique circuit four coordinates"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary classification establishes 26 extremal classes and matrices; reported dual-distance-one classes differ; source does not state the second class’s dual distance 4 and uniqueness. Classical MacWilliams transform recovers dual spectrum only AFTER the class-specific primal enumerator is computed."
+        ],
+        "reasoning": "The new dual support and pair of spectra are not a noncomputational immediate corollary of class count or generic self-orthogonality; they follow from a full finite but meaningful computation on the chosen representative.",
+        "searches": [
+          "arXiv:2605.13007 Sections 3.1 and 3.3 complete primary paper",
+          "Araya–Harada 25-12-9.txt line 2",
+          "Mallows–Sloane 1981 ternary code weight enumerator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weight-4 dual words correspond exactly to four-column linear dependencies in the published generator matrix; uniqueness up to scalar is one 4-circuit of its represented ternary matroid."
+        ],
+        "reasoning": "The code/dual/column-matroid aliases are mathematically equivalent; no inspected prior class invariant duplicates the specific unique support.",
+        "searches": [
+          "ternary maximal self orthogonal [25,12,9] codes dual minimum distance weight enumerator unique circuit four coordinates",
+          "Araya Harada second code 25-12-9 dual codeword support column dependency",
+          "projective 4-circuit GF3 ternary self-orthogonal code 25"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original electronic file contains the complete exact generator matrix. This implicitly specifies and lets one recompute every dual invariant but is not a table listing the derived coefficients or unique dependent four-set."
+        ],
+        "reasoning": "The published database gives the INPUT, not the claimed OUTPUT invariant; the computation is bounded exhaustive over the complete code, not a random sample.",
+        "searches": [
+          "Araya Harada 25-12-9.txt second entry",
+          "2026 arxiv 2605.13007 tables 25,12,9 dual distance"
+        ]
+      },
+      "rationale": "The Araya–Harada paper and original database present the classified extremal generator matrix and some dual-distance properties but do not print the second representative’s unique four-coordinate projective circuit or full pair of weight enumerators. The contribution is the explicit invariant of one natural code, not the database code’s existence or MacWilliams identity.",
+      "residual_risks": [
+        "Unindexed published tables might have already computed the same representative-specific weight spectrum.",
+        "Classification’s raw database mathematically determines all such invariants; novelty is the exact derived description, not the code itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Class count and matrices provided, no full spectrum/unique 4-circuit for the second extremal class.",
+          "identifier_or_url": "arXiv:2605.13007",
+          "material_read": "Complete accessible article mathematical text, Sections 3.1/3.3, classifications and parameter tables",
+          "method": "Primary public HTML/full-text representation",
+          "title": "Classification of ternary maximal self-orthogonal codes of length 25",
+          "trigger": "Exact 26-code classification and attached matrices"
+        },
+        {
+          "assessment": "INPUT_NOT_OUTPUT",
+          "evidence": "Matrix is published and accurately matches the independently enumerated representation; derived spectrum/support not explicit.",
+          "identifier_or_url": "https://www.math.is.tohoku.ac.jp/~mharada/T25/25-12-9.txt",
+          "material_read": "Relevant second complete GF3 generator matrix entry in the published data file",
+          "method": "Author institutional electronic code database",
+          "title": "25-12-9.txt",
+          "trigger": "Original exact generator matrix on which all computations depend"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Araya–Harada 2026",
+        "RESULT.md"
+      ],
+      "rationale": "For a classified extremal self-orthogonal ternary code, the dual minimum support size, low-weight multiplicity, complete spectrum, and unique four-column matroid circuit are natural code invariants used to distinguish classes and constrain automorphism searches. The intrinsic unique support stabilizes under every monomial automorphism, giving structural content beyond an arbitrary weight histogram. One exact representative can be useful independently of a full 26-class census; no broader classification is claimed.",
+      "residual_risks": [
+        "It is one database representative selected by file order, which limits generality and motivates future comparison with the other 25 classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the second Araya–Harada extremal ternary [25,12,9] self-orthogonal generator matrix, C_perp has exactly two weight-4 words ± with unique support {1,19,20,21} and coefficients (1,2,2,2), and the stated complete C and C_perp weight enumerators; all monomial automorphisms stabilize the support.",
+  "limitations": [
+    "Only the second listed representative; other 25 extremal classes unclassified by this result.",
+    "Enumerations are complete for the given 12-dimensional code; not numerical sampling."
+  ],
+  "schema_version": 1
+}
