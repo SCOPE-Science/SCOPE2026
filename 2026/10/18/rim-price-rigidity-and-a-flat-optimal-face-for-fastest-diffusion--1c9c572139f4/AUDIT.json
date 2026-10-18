@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For all \\(n\\ge3\\), \\(B>0\\), and \\(t>0\\), the hub-versus-rim and mean first-Fourier Rayleigh quotients bound \\(\\lambda_2\\) by the minimum of two affine functions of total rim conductance. Exact maximization yields the three cases. The Fourier wheel spectrum achieves each bound, including equality thresholds. Crucially, equality in the mean Fourier bound forces both real Fourier vectors to be eigenvectors; taking the imaginary part of the resulting complex eigen-equation forces all rim weights equal because \\(\\sin(2\\pi/n)\\) is nonzero, then all spokes equal. No unstated symmetry hypothesis. Exact-rational critical cases and 2141 symbolic/numerical assertions corroborate; finite tests are not used to prove the universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. (2006) provides a general eigenvalue SDP for any graph and linear edge costs. A computational formulation does not state the wheel-specific threshold or uniqueness of all optimizer weights.",
+        "Shakeri et al. (2015), Theorems 1–3, concerns one-to-one coupling of two layers with a fixed base Laplacian and a variable interlayer budget; the wheel is a hub-and-rim join, not this restricted two-layer design.",
+        "Fiedler (1990), Absolute algebraic connectivity of trees, covers trees rather than wheels and does not dominate this cycle-containing family."
+      ],
+      "reasoning": "General SDP and symmetry methods include the formulation, but are not stronger statements implying the explicit optimal face under arbitrary independently adjustable two-price wheel conductances. Related broad problems have different feasible sets and comparison objectives. The specific optimizer rigidity is proved independently here.",
+      "searches": [
+        "optimal spectral gap wheel graphs spokes rim price conductances sharp phase transition unique all maximizers",
+        "absolute algebraic connectivity of wheel graphs optimal edge weighting second Laplacian eigenvalue",
+        "Fiedler 1993 absolute algebraic connectivity wheel graph weighted",
+        "Maximizing Algebraic Connectivity in Interconnected Networks arXiv:1510.06785"
+      ]
+    },
+    "checked_sources": [
+      "Sun et al. 2006, DOI 10.1137/S0036144504443821, pp. 683–697 in freely accessible primary PDF.",
+      "Boyd et al. 2009, DOI 10.1137/070689413, §5.4.3 wheel, p. 814 inspected from primary PDF.",
+      "Ghosh and Boyd 2006, CDC paper, §§I–II primary PDF.",
+      "Shakeri et al. 2015, arXiv:1510.06785, Theorems 1–3 primary full-text HTML.",
+      "Fiedler 1990, Absolute algebraic connectivity of trees, title and accessible abstract only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd–Diaconis–Parrilo–Xiao (2009), §5.4.3, gives the discrete-time wheel optimum \\(p_*=1/n\\) and an explicit \\(q_*\\), and diagonalizes the wheel Markov matrix. It does not supply the continuous-time optimal spoke/rim cost line, the price switch, or all minimizers.",
+        "Sun–Boyd–Xiao–Diaconis (2006), §5.3, computes optimum for an unpriced cycle; moving to a wheel introduces a competing hub mode and the exact flat-face boundary.",
+        "Resistance objective and spectral-gap objective cannot generally imply one another: the former depends on all reciprocal nonzero Laplacian eigenvalues, the latter only on their minimum."
+      ],
+      "reasoning": "The exact same wheel topology is not sufficient for covering: the 2009 theorem optimizes a different discrete-time functional subject to vertexwise stochasticity, whereas this theorem optimizes only the second Laplacian eigenvalue under an independently priced total edge budget. Likewise a resistance-optimal wheel theorem or a price-optimized even cycle neither states nor logically yields this all-optimizer wheel spectral-gap formula.",
+      "searches": [
+        "Fastest Mixing Markov Chain on Graphs with Symmetries wheel graph §5.4.3",
+        "The Fastest Mixing Markov Process on a Graph connection to Maximum Variance Unfolding cycles wheel",
+        "comparison of prior claims about resistance-optimal wheel conductances and diffusion-optimal two-price even cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. (2006), §3 and §5.3: maximize the second Laplacian eigenvalue under cost budget; explicit worked graph is a cycle, not the wheel.",
+        "Boyd et al. (2009), §5.4.3: Fourier-wheel spectral blocks, but optimize the modulus of discrete-time nontrivial transition eigenvalues subject to stochastic constraints, not a continuous-time edge-price budget."
+      ],
+      "reasoning": "Searched continuous-time fastest mixing, absolute algebraic connectivity, spectral-gap design, wheel spoke/rim conductance allocation, and discrete-time fastest mixing aliases. The strongest same-topology source supplies Fourier blocks under a genuinely different optimization objective; its discrete-time optimal probabilities are not equivalent to the continuous-time complete two-price/all-optimizer phase diagram. No matching equivalent claim identified.",
+      "searches": [
+        "wheel graph W_n algebraic connectivity Fiedler eigenvalue maximize weighted spokes rim conductances cost budget sharp price threshold",
+        "continuous-time consensus wheel graph maximize convergence rate optimal edge weights spokes ring two prices",
+        "\"wheel graph\" \"algebraic connectivity\" \"weights\" optimization",
+        "\"wheel\" \"algebraic connectivity\" \"optimum\" \"spokes\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identified exact-result record stated the sharp price \\(c_n=4\\sin^2(\\pi/n)\\), the critical continuum, and uniqueness away from the threshold.",
+        "Closest semantically ranked wheel record concerns a Löwner ellipsoid of symmetric edge polytopes; it optimizes ellipsoid volume, not the Laplacian spectral gap under edge costs.",
+        "Sun et al. (2006) Table/§5 examples cover a small graph, paths, and cycles, not wheel price tables."
+      ],
+      "reasoning": "Search coverage found no matching exact database/table but absence from search results is not novelty proof. The object-and-objective comparisons are what support the noncoverage inference.",
+      "searches": [
+        "all optimizers wheel Laplacian spectral gap nonunique critical rim weight price 4 sin squared",
+        "\"optimal algebraic connectivity\" \"wheel\" weighted edges",
+        "\"wheel graph\" \"maximizing\" \"algebraic connectivity\" budget",
+        "\"absolute algebraic connectivity\" \"wheel\" graph"
+      ]
+    },
+    "rationale": "Inspected primary general FMMP theorem, same-wheel discrete-time SLEM theorem, algebraic connectivity augmentation relaxation, and related multiplex threshold theorem. The same-wheel work gives a different constrained objective and Fourier decomposition but not the continuous-time independently priced wheel phase diagram or complete optimizer face. General SDP frameworks do not themselves state this explicit special-case classification. An unindexed equivalent remains possible.",
+    "residual_risks": [
+      "An unindexed source could independently contain this wheel-specific phase diagram or a theorem directly implying it; search nonretrieval is not a uniqueness certificate.",
+      "Fiedler 1990 tree paper was only available through abstract in this search; its tree-only stated scope makes coverage of wheel cycles unlikely, but inaccessible content was not represented as inspected.",
+      "The 2009 same-wheel discrete-time Fourier computation supplies mathematical ingredients for an alternative derivation; the novelty claim is the different exact optimization and exhaustive symmetry-rigidity conclusion, not wheel Fourier diagonalization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General FMMP theory and explicit cycle/path examples, but no wheel-specific two-price all-optimizer classification; foundational framework and Fourier cycle eigenvalue acknowledged.",
+        "evidence": "§5.3 states equal-rate cycle optimum; pages 696–697. DOI 10.1137/S0036144504443821.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Full-text PDF passages in §§3–5, including the problem definition, SDP, §§5.1–5.3 and cycle proof (printed pp. 683–697); visual inspection of cycle pages 696–697.",
+        "method": "Primary freely available complete PDF, searched for wheel/cycle and read all directly relevant definition and examples.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Exact same continuous-time Markov/Laplacian spectral-gap objective with linear edge costs, highest implication risk."
+      },
+      {
+        "assessment": "Wheel case is explicitly solved, but for discrete-time SLEM with stochastic holding constraints; its formula does not imply the proposed price-controlled continuous-time spectral-gap phase diagram.",
+        "evidence": "§5.4.3, p. 814, gives \\(p_*=1/n\\) and \\(q_*\\) with denominator involving two Fourier endpoints; DOI 10.1137/070689413.",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Full-text PDF sections on discrete-time objective and §5.4.3 (printed pp. 813–814), including figure, spectral blocks, and closed-form wheel optimum; page 814 visually inspected.",
+        "method": "Primary freely available complete PDF, searched for wheel, read §5.4.3 including equations (5.9) onward, compared feasible constraints/objective.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Identical wheel topology and Fourier wheel decomposition; critical same-object source."
+      },
+      {
+        "assessment": "Selects a prescribed number of new graph edges; not a full variable-weight, two-price wheel exact solution.",
+        "evidence": "§I-A chooses k candidate edges; §II relaxes Boolean x to \\(0\\le x\\le1\\).",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf",
+        "material_read": "Primary PDF opening, problem statement and §II convex relaxation (printed pp. 6605–6606), including visual inspection of p. 6606.",
+        "method": "Accessible complete PDF; substantive reading of definition and optimization constraints.",
+        "title": "Growing Well-Connected Graphs",
+        "trigger": "General algebraic connectivity/edge-design relaxation potentially covers optimization."
+      },
+      {
+        "assessment": "Different two-layer one-to-one coupling topology and fixed intralayer weights, not adjustable hub/rim wheels. No implication covering the result.",
+        "evidence": "Theorems 1–3 bound optimal interlayer \\(\\lambda_2\\) and give uniformity/threshold for paired layers.",
+        "identifier_or_url": "https://arxiv.org/abs/1510.06785",
+        "material_read": "Full online text through the introduction, Theorems 1–3, and §§ on optimization definitions and threshold budget (online lines 11–119).",
+        "method": "ArXiv original full-text HTML view, read relevant formulation and theorem proofs.",
+        "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+        "trigger": "Budget phase transition and spectral-gap optimization could be a stronger two-type theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c9c5721-39f4-4720-8027-3a24797a24ae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The answer is an exact natural complete classification for freely weighted wheels, including every optimizer rather than one symmetric representative. It has an exact support-deletion boundary shrinking as \\(4\\pi^2/n^2\\), with a one-dimensional nonunique optimal face precisely at the price tie. Rigidity excludes all asymmetric optimizers, a property not established merely by group averaging. The threshold and flat face have direct relevance to network diffusion-rate design; the result is not claimed as a general spectral graph theorem or merely as a numerical gain.",
+    "status": "PASS"
+  }
+}
