@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For each private-leaf pair, weight one forces empty original/singleton leaf; the independent indices of such pairs are bounded by the cycle independence number. Equality forces exactly a maximum independent set of empty originals and five explicit weight-two pair types on its complement. For any zero original, its leaf has one choice when the two neighboring core states coincide in a pure color and two choices otherwise. This gives the exact 3-state transfer matrix. A cycle of m constraints appears for even orders, and a path of m constraints appears in each of n maximum independent sets for odd orders. Symmetric and antisymmetric matrix decomposition proves the displayed closed forms and recurrence. Direct all-labeling exhaustive computation on orders 3..6 independently verifies 17,895,424 assignments; arithmetic checks continue through order 51. No extrapolation of finite data is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Samadi and Soltankhah, arXiv:2208.02340, entire 13-page preprint, Theorem 3.4",
+        "Cabrera-Martínez, DOI 10.3390/math10132287, full seven-page paper, Theorem 6"
+      ],
+      "reasoning": "A theorem counting all minimum OI2RD functions on all one-leaf coronas would subsume the present census, but the strongest checked relevant general theorem gives weight only. Its lower-bound argument supplies a starting restriction, not the local color-state multiplicities or transfer enumeration. The available broader ordinary 2-rainbow, Roman and total-domination counts differ by graph family or feasibility definition and have no demonstrated implication.",
+      "searches": [
+        "counting outer independent 2 rainbow dominating functions corona",
+        "outer independent 2 rainbow domination graph 2022 Samadi Soltankhah leaf corona maximum independent set",
+        "rainbow domination polynomial cycle corona K1 outer independent counting"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2208.02340",
+      "https://doi.org/10.3390/math10132287",
+      "https://doi.org/10.7494/OpMath.2020.40.5.599",
+      "https://doi.org/10.22049/CCO.2022.27753.1344 (outer-independent total two-rainbow, a distinct variant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Samadi and Soltankhah Theorem 3.4: gamma_oir2(H corona K1)=|V(H)|+beta(H)",
+        "Cabrera-Martínez Theorem 6: gamma_oir2(G corona H) when H has no isolated vertex",
+        "Mahmoodi and Volkmann: outer-independent total 2-rainbow is an additional condition on the support"
+      ],
+      "reasoning": "The known scalar equality establishes the minimum weight, not how many optimal functions attain it; many different minimum-function multiplicities are compatible with a fixed minimum. The first paper specifically allows a representative assignment without enumerating all 5 positive pair states. The second paper excludes the K1 second factor. Total variants impose extra positive-support conditions and therefore do not automatically count the same feasible objects.",
+      "searches": [
+        "Further results on outer independent 2-rainbow dominating functions of graphs Theorem 3.4 corona K1",
+        "A Note on Outer-Independent 2-Rainbow Domination in Graphs Theorem 6 corona",
+        "outer-independent total 2-rainbow dominating functions in graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Samadi and Soltankhah, arXiv:2208.02340, Theorem 3.4 and its proof, pp. 10–11",
+        "Cabrera-Martínez, DOI 10.3390/math10132287, Theorem 6 and Section 3"
+      ],
+      "reasoning": "Sunlet equals the one-leaf corona of a cycle; the exact alternative terminology is minimum or gamma-OI2RD functions on a corona. The retrieved papers treat the numerical optimum, not the count of assignments distinguished by chosen colors. Color swap, automorphism or unlabelled orbit counts would be different invariants. No equivalent statement was found.",
+      "searches": [
+        "outer independent 2 rainbow sunlet graph number minimum functions",
+        "outer independent 2 rainbow corona graph optimum labelings enumeration",
+        "outer-independent two-rainbow dominating functions of the sunlet graph C_n corona K_1 exact count minimum functions number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The direct exact counts produced independently by complete enumeration are 126, 152, 1780, 1200 for cycle orders 3,4,5,6",
+        "The 2022 corona optimum-weight article contains no coefficient list for minimum functions"
+      ],
+      "reasoning": "Searches using the first coefficient values and invariant terminology did not produce an identifiable published database/table with the sunlet optimum-function counts. Failure to locate such a table is not a uniqueness proof, and unindexed numerical tables remain a residual risk.",
+      "searches": [
+        "OEIS outer independent 2 rainbow domination function enumeration sunlet sequence",
+        "126 152 1780 1200 rainbow domination",
+        "outer independent 2 rainbow sunlet graph number minimum functions"
+      ]
+    },
+    "rationale": "The two pertinent 2022 primary articles were examined at full-text level. Samadi–Soltankhah Theorem 3.4 (arXiv:2208.02340, pp. 10–11) determines exactly the already-known scalar optimum 2n-alpha(C_n) of a one-leaf corona but neither enumerates the labeled optimum functions nor gives the displayed matrix/path/trace formula. Cabrera-Martínez 2022 Theorem 6 treats scalar corona results when both factors lack isolated vertices and hence does not apply to the one-leaf second factor; it contains no optimum-function census. Searches of other related parameters and public mathematical records identified no equivalent optimum-count result. There is residual priority uncertainty in unindexed work.",
+    "residual_risks": [
+      "The scalar-one-leaf-corona proof of Samadi–Soltankhah already supplies necessary equality restrictions, though not the explicit optimum counts; the gain is an exact enumeration refinement.",
+      "An unindexed article, thesis appendix, integer-sequence table or independent implementation could already contain the same sunlet optimum counts.",
+      "No expert or independent audit has been performed, and complete bibliographic priority is not certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Scalar minimum value is covered and expressly not claimed new; exact optimum-function count is not supplied.",
+        "evidence": "Theorem 3.4 states gamma_oir2(G corona K1)=n+beta(G); the proof establishes local weight bound and an example minimizer. No transfer counts or minimum-configuration enumeration occurs in the inspected theorem/proof.",
+        "identifier_or_url": "https://arxiv.org/pdf/2208.02340",
+        "material_read": "Primary PDF introduction, Section 3 product results, Theorem 3.4 on pp. 10–11 and its proof, plus the references section.",
+        "method": "Full-text primary PDF and visual inspection of the theorem page and proof continuation.",
+        "title": "Further results on outer independent 2-rainbow dominating functions of graphs",
+        "trigger": "Exact scalar value for one-leaf corona could imply or subsume optimum enumeration."
+      },
+      {
+        "assessment": "No one-leaf factor enumeration; Theorem 6 assumes the second factor has no isolated vertices.",
+        "evidence": "Theorem 6 states a scalar formula for corona of graphs without isolated vertices. The conclusion describes formulas for the outer-independent two-rainbow domination number, rather than optimum function multiplicities.",
+        "identifier_or_url": "https://doi.org/10.3390/math10132287",
+        "material_read": "Full article accessible; inspected Section 3, Theorems 5 and 6, and Section 4 conclusions.",
+        "method": "Full article text through publicly accessible author-uploaded reproduction; publisher metadata confirms original online date 2022-06-30.",
+        "title": "A Note on Outer-Independent 2-Rainbow Domination in Graphs",
+        "trigger": "The earlier primary paper handles corona products and sets the earliest verified public source date."
+      },
+      {
+        "assessment": "Context only; not treated as a full-text exclusion of equivalent results.",
+        "evidence": "Abstract concerns parameter complexity and upper/lower scalar bounds; it does not state an optimum count for sunlets.",
+        "identifier_or_url": "https://doi.org/10.7494/OpMath.2020.40.5.599",
+        "material_read": "Public journal abstract and metadata, not complete text.",
+        "method": "Publisher bibliographic and abstract page.",
+        "title": "Outer independent rainbow dominating functions in graphs",
+        "trigger": "Earlier development of the outer-independent two-rainbow invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d332d63b-3cbb-4f31-b82f-a264a73a2b95",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a natural, infinite cycle-with-leaf family, the optimum number is known, but the count and structure of all named-color minimum configurations are a separate natural combinatorial invariant. The finding gives a complete solution of that census, including parity-split cyclic versus path transfer products, a closed even formula, and a low-order odd recurrence. It reveals the exact degree of flexibility among optimally weighted assignments, with potential use in enumeration and sampling. No unmotivated parameter slice, relabeling, or routine restatement of the scalar optimum is presented.",
+    "status": "PASS"
+  }
+}
