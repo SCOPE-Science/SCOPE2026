@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:15:15.258143Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unweighted adjacency on the Cartesian power H(d,q)=K_q^{square d}, exp(itA) factorizes into d coordinate unitaries. The one-coordinate probability matrix has constant-eigenspace eigenvalue 1 and perpendicular-eigenspace eigenvalue a(t)=(q-2+2cos(qt))/q. Tensor diagonalization gives a(t)^j with multiplicity binom(d,j)(q-1)^j. Its common-period average equals q^{-j}[z^0](q-2+z+z^{-1})^j, and expansion yields the stated nonnegative sum. q>=3 has positive constant-term contribution (q-2)^j; q=2 has zero exactly at odd j and positive binom(2a,a)/4^a at j=2a. The binomial-multiplicity sum gives rank q^d or 2^(d-1), including d=1. Independently counted equal-weight character pairs for 36 (q,d,j) cases with 2<=q<=5 and 1<=d<=3; this checks normalization but the tensor argument proves all dimensions. The q-alphabet need not be a field.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coutinho et al. prove full rank for abelian Cayley graphs of odd order; H(d,q) has odd order only when q is odd.",
+          "Coutinho–Guo 2024 Section 3.1 provides a general P/Q-matrix eigenvalue expression for instantaneous mixing in distance-regular graphs; inserting Hamming data and averaging already determines an unsimplified finite sum. Problem 4.1 poses full rank for primitive distance-regular graphs but does not solve every Hamming alphabet."
+        ],
+        "reasoning": "Odd-q rank is covered. The general 2024 P/Q-matrix formula implicitly provides a computable finite spectral sum in all Hamming cases, but the cited source does not evaluate the q-ary Hamming Laurent polynomial and does not prove even-q positive definiteness or exact binary rank. Those conclusions require additional explicit tensor evaluation and sign analysis; the named problem is broader than the Hamming family.",
+        "searches": [
+          "arXiv:1709.03591",
+          "arXiv:2404.02236",
+          "Hamming graphs average mixing matrix eigenvalues spectrum"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1103.2578",
+        "https://arxiv.org/abs/1709.03591",
+        "https://arxiv.org/abs/2404.02236",
+        "https://aeb.win.tue.nl/drg/graphs/Hamming.html",
+        "Resultary semantic: Hamming graph Cartesian power Kq infinite time average mixing matrix eigenvalues spectrum full rank hypercube zero eigenvalues",
+        "2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Godsil PSD theorem holds for all graphs; it does not imply PD for q>=3.",
+          "Odd-abelian result implies odd-q PD but not its eigenvalues, even q PD, or the precise binary kernel."
+        ],
+        "reasoning": "A general P/Q spectral recipe predates the submission and can in principle recover Hamming average eigenvalues after a nontrivial evaluation, so the novelty assessment credits only that explicit closed-form evaluation and the new even-q/binary sharp rank transition. The previously known rank statements alone do not imply these additional statements.",
+        "searches": [
+          "arXiv:1103.2578",
+          "arXiv:1709.03591",
+          "arXiv:2404.02236"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Common-clock tensor diagonalization and Fourier character Schur squares compute the same Laurent constant term.",
+          "Godsil 2011 Lemma 1.1 gives Schur spectral-projector representation, not an evaluated Hamming eigenvalue list."
+        ],
+        "reasoning": "Evaluated eigenvalue formulas are compared across Cartesian-product, additive-character and Bose-Mesner formulations; general Schur-square identity alone does not logically provide their explicit coefficients.",
+        "searches": [
+          "Resultary semantic: Hamming graph Cartesian power Kq infinite time average mixing matrix eigenvalues spectrum full rank hypercube zero eigenvalues",
+          "Hamming graphs average mixing matrix eigenvalues spectrum",
+          "arXiv:1103.2578"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brouwer standard table gives adjacency eigenvalues d(q-1)-qi, which are different from Cesaro average-mixing eigenvalues.",
+          "Resultary search yielded Fourier band restriction spectra on Hamming shells, with a different operator."
+        ],
+        "reasoning": "No retrieved exact table covers the stated time-averaged probability matrix spectrum; a failed hit search is not global novelty proof.",
+        "searches": [
+          "Hamming graphs average mixing matrix eigenvalues spectrum",
+          "Resultary semantic: Hamming graph Cartesian power Kq infinite time average mixing matrix eigenvalues spectrum full rank hypercube zero eigenvalues",
+          "Brouwer Hamming graph spectrum adjacency"
+        ]
+      },
+      "rationale": "The general average-mixing Schur-projector formula, Coutinho–Guo 2024 association-scheme P/Q instantaneous spectral recipe, and odd-order abelian-Cayley full rank are prior work, as are Hamming graph adjacency eigenvalues. The presented exact *average-mixing eigenspectrum* for arbitrary d,q and the even nonbinary rank result require additional common-clock tensor/character analysis; the inspected primary statements do not supply these as a theorem. The odd-q full-rank corollary is explicitly NOT newly claimed in isolation. Targeted general association-scheme and Hamming-average searches did not identify a dominating formula. An implicit association-scheme corollary or underindexed specialized calculation remains a real originality risk.",
+      "residual_risks": [
+        "The 2024 P/Q general instantaneous spectral formula already algorithmically determines the time-averaged Hamming spectrum after specialization; a prior or unindexed elementary specialization could cover the exact Laurent evaluation and rank consequences.",
+        "Odd-q full-rank corollary is preexisting and not independently new.",
+        "Finite character pair counts are corroboration only, not infinite proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers positivity and spectral projector decomposition, not an evaluated arbitrary-q Hamming spectrum.",
+          "evidence": [
+            "Section 1 Lemma 1.1 and Section 2 PSD, rationality; examples paths and cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1103.2578",
+          "material_read": "Complete accessible HTML sections 1–4 including spectral Schur-square lemma and examples",
+          "method": "Read primary arXiv mathematical text and searched family discussions",
+          "title": "Average Mixing of Continuous Quantum Walks",
+          "trigger": "General formula may already cover exact spectrum"
+        },
+        {
+          "assessment": "Odd-order Cayley theorem covers odd q rank; does not cover even alphabet or indexed spectrum.",
+          "evidence": [
+            "Odd order of additive group (Z/qZ)^d iff q is odd; theorem does not assert all q."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.03591",
+          "material_read": "Full primary text including odd-order abelian Cayley theorem and rank discussion",
+          "method": "Read accessible arXiv text/PDF and compared hypotheses",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "Possible stronger all-Cayley full-rank coverage"
+        },
+        {
+          "assessment": "Already provides the general association-scheme P/Q eigenvalue formula for instantaneous mixing; averaging it implicitly determines the spectrum for Hamming graphs after a calculation, but does not state the evaluated Laurent formula or the exact q=2 versus q>=3 rank boundary.",
+          "evidence": [
+            "Section 3.1 general P/Q spectral expression for M(t), Problem 4.1 on full rank; Hamming H(d,q) primitive for nonbinary q."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.02236",
+          "material_read": "Sections 3.1 and 4, including the general P/Q association-scheme mixing-eigenvalue formula and Problem 4.1",
+          "method": "Read available arXiv text and compared operator definitions",
+          "title": "Selected Open Problems in Continuous-Time Quantum Walks",
+          "trigger": "Potential broad dominating rank theorem"
+        },
+        {
+          "assessment": "Concerns adjacency eigenspectrum, not long-time average-mixing eigenspectrum.",
+          "evidence": [
+            "Adjacency eigenvalues d(q-1)-qi."
+          ],
+          "identifier_or_url": "https://aeb.win.tue.nl/drg/graphs/Hamming.html",
+          "material_read": "Hamming graph structure, adjacency eigenvalues and multiplicities",
+          "method": "Read reference graph database page",
+          "title": "Hamming graphs — Brouwer distance-regular graph database",
+          "trigger": "Existing exact spectrum tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete spectrum and sharp singular-to-positive-definite transition for an infinite, natural distance-regular family are meaningful: all eigenvalues and multiplicities quantify rank, nullspaces and spectral conditioning across arbitrary diameter. This resolves the Hamming case of the published primitive-distance-regular full-rank question where H(d,q) is primitive; it is not an isolated low-dimensional table or routine restatement of adjacency eigenvalues.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1103.2578",
+    "https://arxiv.org/abs/1709.03591",
+    "https://arxiv.org/abs/2404.02236",
+    "https://aeb.win.tue.nl/drg/graphs/Hamming.html",
+    "Resultary semantic: Hamming graph Cartesian power Kq infinite time average mixing matrix eigenvalues spectrum full rank hypercube zero eigenvalues",
+    "2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90"
+  ],
+  "disposition": "passed",
+  "limitations": "Unweighted undirected adjacency Hamiltonian and Cesaro average only; no arbitrary weighted walks, instantaneous mixing or general distance-regular full-rank classification.",
+  "residual_risks": [
+    "The 2024 P/Q general instantaneous spectral formula already algorithmically determines the time-averaged Hamming spectrum after specialization; a prior or unindexed elementary specialization could cover the exact Laurent evaluation and rank consequences.",
+    "Odd-q full-rank corollary is preexisting and not independently new.",
+    "Finite character pair counts are corroboration only, not infinite proof."
+  ],
+  "schema_version": 1
+}

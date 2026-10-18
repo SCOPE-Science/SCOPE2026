@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof uses exact graph identities and a Laurent constant-term calculation. The accompanying `verify_hamming.py` is executable after installing NumPy and invokes no network resources. Run `python verify_hamming.py` in the same directory.
+## correctness
 
-The exact branch enumerates ordered pairs of characters of matching Hamming weight for \(45\) triples with \(2\le q\le6\), \(1\le d\le3\), and \(0\le j\le d\). It checks equality to the rational closed formula and verifies the binary/nonbinary rank result in each tested dimension. The independent matrix branch builds spectral projectors from additive characters, checks the graph adjacency decomposition and stochasticity, then compares the full eigenvalues for ten specified parameter pairs, with numerical error below \(8\times10^{-16}\).
+PASS
 
-Expected program output:
+For unweighted adjacency on the Cartesian power H(d,q)=K_q^{square d}, exp(itA) factorizes into d coordinate unitaries. The one-coordinate probability matrix has constant-eigenspace eigenvalue 1 and perpendicular-eigenspace eigenvalue a(t)=(q-2+2cos(qt))/q. Tensor diagonalization gives a(t)^j with multiplicity binom(d,j)(q-1)^j. Its common-period average equals q^{-j}[z^0](q-2+z+z^{-1})^j, and expansion yields the stated nonnegative sum. q>=3 has positive constant-term contribution (q-2)^j; q=2 has zero exactly at odd j and positive binom(2a,a)/4^a at j=2a. The binomial-multiplicity sum gives rank q^d or 2^(d-1), including d=1. Independently counted equal-weight character pairs for 36 (q,d,j) cases with 2<=q<=5 and 1<=d<=3; this checks normalization but the tensor argument proves all dimensions. The q-alphabet need not be a field.
 
-`VERIFY_OK exact_pair_count_cases=45 matrix_projector_cases=10 max_eigen_error=7.772e-16`
+## originality
 
-Finite examples do not establish an unrestricted result. The infinite claim is proven by the tensor-factorization and constant-term arguments in `RESULT.md`. No external/independent audit was performed.
+PASS
+
+The general average-mixing Schur-projector formula, Coutinho–Guo 2024 association-scheme P/Q instantaneous spectral recipe, and odd-order abelian-Cayley full rank are prior work, as are Hamming graph adjacency eigenvalues. The presented exact *average-mixing eigenspectrum* for arbitrary d,q and the even nonbinary rank result require additional common-clock tensor/character analysis; the inspected primary statements do not supply these as a theorem. The odd-q full-rank corollary is explicitly NOT newly claimed in isolation. Targeted general association-scheme and Hamming-average searches did not identify a dominating formula. An implicit association-scheme corollary or underindexed specialized calculation remains a real originality risk.
+
+## value
+
+PASS
+
+A complete spectrum and sharp singular-to-positive-definite transition for an infinite, natural distance-regular family are meaningful: all eigenvalues and multiplicities quantify rank, nullspaces and spectral conditioning across arbitrary diameter. This resolves the Hamming case of the published primitive-distance-regular full-rank question where H(d,q) is primitive; it is not an isolated low-dimensional table or routine restatement of adjacency eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

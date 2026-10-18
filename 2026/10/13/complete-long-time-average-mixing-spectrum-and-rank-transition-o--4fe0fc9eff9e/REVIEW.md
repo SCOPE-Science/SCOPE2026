@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The single-vertex evolution identity for \(K_q\), the common-clock tensor factorization, and the two eigenspaces per coordinate imply a simultaneous diagonalization for every time. The period integral is exactly the Laurent constant term, with binomial multiplicities accounting for all \(q^d\) eigenvalues. The strictly positive \((q-2)^j\) contribution proves positivity for every \(q\ge3\), while parity gives the exact binary kernel. An independent character-projector count and the included finite verifier confirm critical identities; finite tests are not offered as infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Godsil (arXiv:1103.2578) already proves the spectral-projector formula. Coutinho–Godsil–Guo–Zhan (arXiv:1709.03591) already covers positive definiteness for odd-order abelian Cayley graphs, so the odd-\(q\) rank conclusion **alone is not new**. The inspected texts do not state the explicit complete indexed Hamming average-mixing spectrum, the even-\(q\ge4\) rank theorem, or the exact binary rank formula together. The prior Hamming and association-scheme notions were checked by scientific implication, not title resemblance. An unlocated specialized spectral treatment or an implicit corollary of more general association-scheme machinery remains the material risk; novelty cannot be certified by searching alone.
+PASS
 
-## Value — PASS
-The spectral data and rank boundary apply to the natural infinite Hamming association-scheme family at arbitrary dimension, rather than a numerical slice. They settle the Hamming subfamily of the full-rank question for primitive distance-regular graphs, with the bipartite binary case providing an exact contrasting boundary. The complete spectrum also permits quantitative spectral and conditioning calculations that a bare rank assertion does not.
+For unweighted adjacency on the Cartesian power H(d,q)=K_q^{square d}, exp(itA) factorizes into d coordinate unitaries. The one-coordinate probability matrix has constant-eigenspace eigenvalue 1 and perpendicular-eigenspace eigenvalue a(t)=(q-2+2cos(qt))/q. Tensor diagonalization gives a(t)^j with multiplicity binom(d,j)(q-1)^j. Its common-period average equals q^{-j}[z^0](q-2+z+z^{-1})^j, and expansion yields the stated nonnegative sum. q>=3 has positive constant-term contribution (q-2)^j; q=2 has zero exactly at odd j and positive binom(2a,a)/4^a at j=2a. The binomial-multiplicity sum gives rank q^d or 2^(d-1), including d=1. Independently counted equal-weight character pairs for 36 (q,d,j) cases with 2<=q<=5 and 1<=d<=3; this checks normalization but the tensor argument proves all dimensions. The q-alphabet need not be a field.
 
-## Literature and limits
-Relevant primary full texts inspected: Godsil, arXiv:1103.2578; Coutinho et al., arXiv:1709.03591; Coutinho et al., arXiv:2208.08971; Coutinho and Guo, arXiv:2404.02236. The claim covers only the standard unweighted Hamiltonian and Cesàro average. Independent assessment of novelty and correctness remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general average-mixing Schur-projector formula, Coutinho–Guo 2024 association-scheme P/Q instantaneous spectral recipe, and odd-order abelian-Cayley full rank are prior work, as are Hamming graph adjacency eigenvalues. The presented exact *average-mixing eigenspectrum* for arbitrary d,q and the even nonbinary rank result require additional common-clock tensor/character analysis; the inspected primary statements do not supply these as a theorem. The odd-q full-rank corollary is explicitly NOT newly claimed in isolation. Targeted general association-scheme and Hamming-average searches did not identify a dominating formula. An implicit association-scheme corollary or underindexed specialized calculation remains a real originality risk.
+
+## value
+
+PASS
+
+A complete spectrum and sharp singular-to-positive-definite transition for an infinite, natural distance-regular family are meaningful: all eigenvalues and multiplicities quantify rank, nullspaces and spectral conditioning across arbitrary diameter. This resolves the Hamming case of the published primitive-distance-regular full-rank question where H(d,q) is primitive; it is not an isolated low-dimensional table or routine restatement of adjacency eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
