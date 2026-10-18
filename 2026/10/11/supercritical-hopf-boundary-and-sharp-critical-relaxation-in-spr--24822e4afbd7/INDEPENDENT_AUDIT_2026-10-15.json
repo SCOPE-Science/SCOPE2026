@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:02:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed b>0 the Jacobian polynomial is (lambda+b)(lambda²-a lambda+1), so eigenvalue pair crosses at a=0 with derivative 1/2 and third eigenvalue -b. Independently formed right q=(1,i,0), adjoint p=(1/2,i/2,1/[2(b-i)]), quadratic tensor B(u,v)=(0,0,2u_x v_x); symbolic resolvent substitution gives G21=-4i/[3(b+i)(b+2i)] and Re G21=-4b/[(b²+1)(b²+4)]. Therefore l1=-2b/[(b²+1)(b²+4)]<0. A separate quadratic center manifold z=[(b²+2)x²-2bxy+2y²]/[b(b²+4)]+O(||(x,y)||³) solves the invariance identity exactly. Classical Hopf theory yields unique orbitally stable local cycle for small a>0 with physical radius sqrt([(b²+1)(b²+4)/b]a)+O_b(a). At a=0, radial normal form drho/dt=-c_b rho³+O(rho^4) and local exponential stable foliation give t(x²+y²)->(b²+1)(b²+4)/b except for one-dimensional strong-stable manifold, where decay exponential. Distinguish standard normal-form theorem from finite symbolic check; no global flow claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sprott original table supplies numerical Lyapunov spectrum at sample coefficients",
+          "Technical note gives dynamic parameter regions, not critical decay coefficient"
+        ],
+        "reasoning": "Numerical chaos regions do not imply the precise supercriticality and t^-1 constant for all b>0.",
+        "searches": [
+          "Sprott case F x'=y+z y'=-x+a y z'=x^2-bz first Lyapunov coefficient Hopf b positive decay t radius squared",
+          "https://sprott.physics.wisc.edu/technote/regions.htm",
+          "doi:10.1103/PhysRevE.50.R647"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen RESULT.md blob f9e2712f070835a83ecf135a7884480e63fd1334; check_sprott_f.py and all public meta",
+        "Independent SymPy eigenvectors, exact G21 and center manifold equation in independent_math_checks.py",
+        "J.C. Sprott, Phys Rev E 50 R647 (1994), DOI 10.1103/PhysRevE.50.R647",
+        "Sprott author technical note 2013/2014, full HTML",
+        "Resultary query Sprott case F x'=y+z y'=-x+a y z'=x^2-bz first Lyapunov coefficient Hopf b positive decay t radius squared"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic Hopf theorem requires nonzero first Lyapunov coefficient",
+          "Case F coefficients computed from actual quadratic B and resolvents"
+        ],
+        "reasoning": "The positive-b nondegeneracy is contingent on a nonstandard explicit symbolic calculation not furnished by generic theorem or numerical parameter study.",
+        "searches": [
+          "Sprott case F x'=y+z y'=-x+a y z'=x^2-bz first Lyapunov coefficient Hopf b positive decay t radius squared",
+          "doi:10.1103/PhysRevE.50.R647"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sprott original case F at b=1 in original 1994 paper, newer technical note positive parameters",
+          "Other Resultary case F stationary measure law uses different invariant and generalized flow"
+        ],
+        "reasoning": "Match actual ODE coefficients before comparison; l1 under rescaled eigenvector changes convention but sign and physical asymptotic remain invariant, so search both coefficient and physical formula.",
+        "searches": [
+          "Sprott case F x'=y+z y'=-x+a y z'=x^2-bz first Lyapunov coefficient Hopf b positive decay t radius squared",
+          "doi:10.1103/PhysRevE.50.R647",
+          "Resultary:2026/10/4/SCOPE-exact-stationary-circle-and-forced-slab-excursions-in-the-sprott--b898db55f6fd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary l1 rational expression is self claim",
+          "Other indexed Sprott cases have distinct vector fields/parameter regimes"
+        ],
+        "reasoning": "No independently published all-b formula matching -2b/[(b²+1)(b²+4)] was located in actual query.",
+        "searches": [
+          "Sprott case F x'=y+z y'=-x+a y z'=x^2-bz first Lyapunov coefficient Hopf b positive decay t radius squared",
+          "Resultary:2026/10/11/SCOPE-supercritical-hopf-boundary-and-sharp-critical-relaxation-in-spr--24822e4afbd7"
+        ]
+      },
+      "rationale": "Sprott 1994 primary 4-page paper introduces the flow and reports sample chaotic Lyapunov exponents; the 2013/2014 author technical note gives bifurcation regime graphics and exact model equations, but neither displayed an all-positive-b first Lyapunov coefficient or exact t^-1 critical constant in read material. Related Resultary Sprott S/P and case F stationary-moment claims concern other dynamics/invariants. General Hopf theory implies existence conditional on computed l1 but not this case-F rational coefficient. No matching published explicit formula found; unindexed specialized dynamical-system computation remains priority risk.",
+      "residual_risks": [
+        "An unindexed analytic case-F Hopf computation may give equivalent l1 with different eigenvector normalization",
+        "Formal stable-foliation application uses standard smooth local theory; checks of finite numerical trajectories cannot certify asymptotic in time",
+        "No global chaotic attractor, far cycles, or uniform b->0 conclusion"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING read bifurcation coefficient and critical limit",
+          "evidence": "Case-F table records xdot=y+z, ydot=-x+0.5y, zdot=x²-z and numerical chaotic exponents rather than a=0 symbolic Hopf family",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper212.pdf",
+          "material_read": "1994 4-page primary PDF including numerical ODE/eigenvalue table (case F at original parameter), inspected case table and paper context",
+          "method": "Public original scanned PDF page images",
+          "title": "Some simple chaotic flows",
+          "trigger": "Introduces case F, plausible all-coefficient study"
+        },
+        {
+          "assessment": "NOT_COVERING exact l1 or t(x²+y²) limit",
+          "evidence": "Graphical/numerical parameter-region classification does not state exact rational coefficient",
+          "identifier_or_url": "https://sprott.physics.wisc.edu/technote/regions.htm",
+          "material_read": "Complete public HTML technical note including case F section and regime descriptions",
+          "method": "Author-hosted complete ~169-line HTML",
+          "title": "Dynamic Regions in Simple Chaotic Flows",
+          "trigger": "Author full two-parameter survey matching model"
+        },
+        {
+          "assessment": "METHOD COVERAGE, not a case-F coefficient",
+          "evidence": "Hopf normal form requires computing cubic coefficient for specified ODE",
+          "identifier_or_url": "https://www.scholarpedia.org/article/Hopf_bifurcation",
+          "material_read": "General Hopf theorem and coefficient-convention description",
+          "method": "Reference explanatory article",
+          "title": "Andronov--Hopf bifurcation",
+          "trigger": "Normal-form equation and coefficient convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact formula valid for every positive damping b rules out generalized-Hopf degeneracies along the local boundary; the physical amplitude and sharp critical relaxation with exceptional manifold give quantitative predictions unavailable from a mere numerical phase diagram. This is a motivated structural benchmark for chaotic-flow local bifurcation, not a routine linear type check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed b>0, small a and local initial states; exceptional strong-stable manifold",
+    "No global stability, chaos, or exact far-away basin classification."
+  ],
+  "schema_version": 1
+}

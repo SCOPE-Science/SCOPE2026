@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the stated smooth three-dimensional quadratic flow and every fixed \(b>0\), the characteristic polynomial, adjoint normalization, bilinear resolvents and cubic focus coefficient were rederived and verified symbolically. The coefficient \(\ell_1(b)=-2b/[(b^2+1)(b^2+4)]\) is strictly negative, so standard nondegenerate Hopf theory supplies the local stable cycles. The critical inverse-time law follows analytically from the cubic center radial equation and exponential stable-foliation tracking. The actual symbolic checker is supplied. Numerical checks only corroborate, and do not prove, the infinite-time claim.
+## correctness
 
-**Originality — PASS with risk.** Sprott's original 1994 four-page source and complete 2013 dynamic-regions technical note concern the exact case-F ODE and were inspected; they report numerical chaotic examples and parameter regions, not the explicit all-\(b\) cubic coefficient or the exact critical relaxation constant. Related indexed studies of weak foci and Hopf bifurcations use different vector fields, and no published-finding corpus or accessible scholarly search result found an implying case-F statement. General Hopf theory covers conditional steps, not the nonstandard coefficient itself. The main residual risk is an unindexed earlier case-F normal-form derivation under another name.
+PASS
 
-**Value — PASS.** The result settles the direction and nondegeneracy of the entire natural positive-damping Hopf boundary for a well-studied minimal-chaos benchmark and identifies a sharp, physically normalized inverse-time decay constant at its weak-focus transition. These determine quantitatively how stable small cycles emerge from a region plotted previously numerically. Global coexistence, large attractors, and the singular \(b\to0\) boundary are outside scope.
+For fixed b>0 the Jacobian polynomial is (lambda+b)(lambda²-a lambda+1), so eigenvalue pair crosses at a=0 with derivative 1/2 and third eigenvalue -b. Independently formed right q=(1,i,0), adjoint p=(1/2,i/2,1/[2(b-i)]), quadratic tensor B(u,v)=(0,0,2u_x v_x); symbolic resolvent substitution gives G21=-4i/[3(b+i)(b+2i)] and Re G21=-4b/[(b²+1)(b²+4)]. Therefore l1=-2b/[(b²+1)(b²+4)]<0. A separate quadratic center manifold z=[(b²+2)x²-2bxy+2y²]/[b(b²+4)]+O(||(x,y)||³) solves the invariance identity exactly. Classical Hopf theory yields unique orbitally stable local cycle for small a>0 with physical radius sqrt([(b²+1)(b²+4)/b]a)+O_b(a). At a=0, radial normal form drho/dt=-c_b rho³+O(rho^4) and local exponential stable foliation give t(x²+y²)->(b²+1)(b²+4)/b except for one-dimensional strong-stable manifold, where decay exponential. Distinguish standard normal-form theorem from finite symbolic check; no global flow claim.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Sprott 1994 primary 4-page paper introduces the flow and reports sample chaotic Lyapunov exponents; the 2013/2014 author technical note gives bifurcation regime graphics and exact model equations, but neither displayed an all-positive-b first Lyapunov coefficient or exact t^-1 critical constant in read material. Related Resultary Sprott S/P and case F stationary-moment claims concern other dynamics/invariants. General Hopf theory implies existence conditional on computed l1 but not this case-F rational coefficient. No matching published explicit formula found; unindexed specialized dynamical-system computation remains priority risk.
+
+## value
+
+PASS
+
+An exact formula valid for every positive damping b rules out generalized-Hopf degeneracies along the local boundary; the physical amplitude and sharp critical relaxation with exceptional manifold give quantitative predictions unavailable from a mere numerical phase diagram. This is a motivated structural benchmark for chaotic-flow local bifurcation, not a routine linear type check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
