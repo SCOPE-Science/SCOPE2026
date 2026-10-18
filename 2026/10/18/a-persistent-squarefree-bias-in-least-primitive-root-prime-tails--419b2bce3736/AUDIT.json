@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Prime-root classes modulo p number phi(p-1). Exactly p lifts per such class modulo p^2 are squarefree. Thus r_p=p^2-1-p phi(p-1) is exact, including p=2. CRT with Möbius squarefree divisor inversion gives S_N=N B(y)/zeta(2)+O(Q(y)^2 sqrt(N)); all errors absolute and uniform. PNT controls Q; all survival factors are >=1/3 at p=2 and >=1/2 at odd primes, hence relative asymptotics for y<=(1/4-eps)log N. The correction factors differ from one by at most 2/(p^2-1), proving positive convergence. Exact residue and numeric calculations are independently re-evaluated in VERIFY.py; finite checks are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Johnston–Naik Section 4 counts residue classes avoiding primitive-root tests modulo Q(y), no squarefree sieve at primes beyond y.",
+        "Fan–Pollack derive an unrestricted residue probability product and moment average, not a squarefree-conditioned asymptotic."
+      ],
+      "reasoning": "Unrestricted probabilities do not imply conditional squarefree probabilities, since the new conditional local law changes each prime factor. Squarefree-specific GRH bounds for individual bases do not determine the stated average. Standard general squarefree-sieve coverage remains plausible but was not established as a covering theorem.",
+      "searches": [
+        "Mathematical-result catalog search: squarefree inputs least Artin prime p_g asymptotic survival distribution and ratio squarefree to unrestricted",
+        "Mathematical-result catalog search: squarefree conditional density of least primitive root prime p_g greater than cutoff Euler product bias K zeta(2)",
+        "arXiv:2610.08569v1 Section 4",
+        "arXiv:2505.05601v1 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.08569v1 (Section 4)",
+      "arXiv:2505.05601v1 (Introduction and Section 4)",
+      "arXiv:1602.02440 (abstract)",
+      "Mathematical-result catalog searches stated above",
+      "Accessible own 2026-10_week2 generation g000051 scientific claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Johnston–Naik obtains a universal residue product and upper bound, but no joint mod-p^2 local restriction for squarefree samples.",
+        "Fan–Pollack obtains the unsieved product and results for fixed squarefree bases.",
+        "Cohen–Trudgian study the least squarefree primitive root g modulo fixed p, rather than least modulus p for fixed squarefree g."
+      ],
+      "reasoning": "The studied claim requires an additional squarefree Möbius sieve uniform for increasing prime cutoffs; no single inspected prior theorem covers that statement and the positive nonunit bias. It does follow by combining classical ideas, which is acknowledged and limits novelty significance.",
+      "searches": [
+        "arXiv:2610.08569v1 Theorem 1.3, Lemma 4.2 and Section 4",
+        "arXiv:2505.05601v1 Introduction and Section 4",
+        "arXiv:1602.02440 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The studied survival factor is B(y)/A(y), equivalently conditional squarefree prevalence S_N/U_N or primitive-root success probability among squarefree bases, with squarefree local factor p phi(p-1)/(p^2-1).",
+        "Fan-Pollack arXiv:2505.05601v1, Introduction: unrestricted product factor phi(p-1)/p; squarefree g appears in pointwise least-prime upper bounds."
+      ],
+      "reasoning": "Checked the interchangeable conditional-density, squarefree-relative-survival, and local p^2-lift formulations. The prime-fixed phrase least squarefree primitive root is the opposite random variable. No equivalence yielding the new product was located.",
+      "searches": [
+        "Mathematical-result catalog search: least prime having squarefree integer g as a primitive root density squarefree g tail Euler factors p phi(p-1)/(p^2-1)",
+        "Web: \"least prime\" \"squarefree\" \"primitive root\" distribution g",
+        "arXiv:2505.05601v1 Introduction and Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest retrieved record hits concerned squarefree semiprimes with coprime divisor sums and Artin–Schreier polynomial counterexamples, not the statistic P(g) on squarefree bases.",
+        "Accessible current-week record about quadratic generator cutoffs samples prime products and tests a binary quotient, not P(g) on integer bases."
+      ],
+      "reasoning": "No retrieved result table gave the Euler correction K or the joint squarefree/primitive-root survival count; absence from the returned index is not proof of uniqueness.",
+      "searches": [
+        "Mathematical-result catalog search: squarefree primitive root test local density among squarefree integers CRT p^2 independence",
+        "Mathematical-result catalog search: least prime having squarefree integer g as a primitive root density squarefree g tail Euler factors p phi(p-1)/(p^2-1)",
+        "Own current-week claim comparison through generation g000051"
+      ]
+    },
+    "rationale": "The new comparison conditions on sampled integer g being squarefree and derives a different mod-p^2 product and persistent limiting selection bias. Johnston-Naik and Fan-Pollack treat unrestricted-sample least-Artin-prime distributions and squarefree individual g in different estimates; neither inspected source states the squarefree-conditioned tail. Results about least squarefree primitive root with p fixed reverse the sampled variable. Standard CRT and squarefree sieving are acknowledged inputs; a broad unlocated generic theorem could imply the refinement, which is a residual originality risk.",
+    "residual_risks": [
+      "Squarefree-conditioned primitive-root survival may be implicit in a generic squarefree sieve publication not surfaced by targeted searches.",
+      "Some earlier-week research ledgers were not accessible, so overlap exclusion there is incomplete.",
+      "A bibliographic search is not a proof of global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING squarefree-conditioned bias: treats unrestricted residues modulo Q(y), no mod-p^2 exclusion or squarefree relative tail",
+        "evidence": "Theorem 1.3 and Section 4 Lemmas 4.1-4.2, formulas (4.1) and gamma(N).",
+        "identifier_or_url": "https://arxiv.org/html/2610.08569v1",
+        "material_read": "Abstract, Introduction, Theorem 1.3, Remark, entire Section 4 including local residue count and CRT proof",
+        "method": "arXiv public HTML full-text inspection",
+        "title": "The least prime with a given primitive root and a variant of the larger sieve",
+        "trigger": "Same statistic P(g), recent primary source and closest proposed upper bound"
+      },
+      {
+        "assessment": "NOT_COVERING conditional distribution over squarefree bases; unrestricted product already known",
+        "evidence": "Introduction formulas for delta_p and squarefree remark; Section 4 average p_g distribution.",
+        "identifier_or_url": "https://arxiv.org/html/2505.05601v1",
+        "material_read": "Introduction, Theorems 1.2-1.4, Section 4 discussion, and relevant squarefree remarks",
+        "method": "arXiv public HTML full-text inspection",
+        "title": "Counting primes with a given primitive root, uniformly",
+        "trigger": "Introduces p_g statistics and squarefree bases in related inequalities"
+      },
+      {
+        "assessment": "INAPPLICABLE opposite variable: least squarefree integer primitive root when p fixed",
+        "evidence": "Defines g^{square}(p) as least squarefree primitive root modulo fixed p; no random variation of g for least modulus.",
+        "identifier_or_url": "https://arxiv.org/abs/1602.02440",
+        "material_read": "Title, abstract and problem definition",
+        "method": "arXiv public abstract inspection",
+        "title": "On the least square-free primitive root modulo p",
+        "trigger": "Similar keyword phrase could mask an equivalent result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "419b2bce-3736-4cc5-8613-3e0ef1fad79e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Squarefree inputs form a canonical positive-density class singled out in work on least Artin primes. The theorem quantitatively shows that conditioning on failure at increasing prime moduli changes the squarefree prevalence from 1/zeta(2) to K/zeta(2) and determines the exact persistent correction K in a uniform logarithmic cutoff range. This distinguishes a genuine arithmetic dependency not captured by unrestricted CRT probabilities; it is a structural distribution theorem, not a finite table, generic renaming, or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
