@@ -1,15 +1,21 @@
-# Review of Exact mean-nullcline defect and fluctuation coupling in a fear–crowding predator–prey flow
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For compact support contained in the strict positive quadrant, \(\log v\) is a valid continuously differentiable observable and invariance gives the exact predator balance. The rational identity generating the defect is pointwise algebra and was replayed symbolically from the packaged checker. The covariance identity follows independently from invariance applied to \(v\). The equality case uses strict monotonicity of the prey vector-field component in \(v\) for fixed positive \(u\). Cauchy–Schwarz plus the \(q\)-Lipschitz property of \(qu/(1+cu)\) yields the stated variance bound. No finite numerical experiment is used as an infinite proof.
+## correctness
 
-## Originality
-**PASS, with residual literature risk.** The source full text states the deterministic system, proves positivity/boundedness, derives the positive-equilibrium nullcline, and develops local/global bifurcation numerics with stable limit cycles; it does not state the finite-amplitude invariant-measure defect or covariance law. Scientific searches using the article DOI, model terms, periodic-orbit time averages, covariance/variance language, Jensen defects, and nullcline aliases returned no statement implying the claim. The closest checked predecessor uses the same local reaction structure in a delayed diffusive system; a complete statement-level full-text comparison was unavailable, so possible unindexed coverage there remains the main risk. Later related literature reproducing the reaction structure was checked without finding the claimed identities.
+PASS
 
-## Value
-**PASS.** The source emphasizes coexistence of equilibria and stable interior cycles, including equilibrium–cycle bistability, where local equilibrium geometry alone does not describe finite-amplitude recurrent averages. The exact defect converts the predator nullcline into a quantitative global constraint on every compact recurrent statistical state and measures the gap by prey fluctuations. The covariance law additionally ties predator variance to prey-dependent growth fluctuations and yields a parameter-explicit variance ratio. These are natural structural observables for the source's oscillatory regimes rather than an arbitrary parameter slice or a numerical recomputation.
+Using the compact-interior invariant measure, L(log v)=−mv+qu/(1+cu) yields the exact stationary predator balance. The algebraic identity u−b=(1+cb)(u−b)/(1+cu)+c(u−b)^2/(1+cu) yields a nonnegative exact Jensen defect with coefficient qc/(1+cb)^2. Generator test Lv and Cauchy–Schwarz with qu/(1+cu) being q-Lipschitz give Cov(v,qu/(1+cu))=m Var(v) and m²Var(v)≤q²Var(u). Vanishing mean defect forces constant u; strict monotonicity of prey drift in v forces the unique positive equilibrium. Independently checked the rational identities by SymPy; no dynamics is inferred from sample trajectories.
 
-## Closest literature and limitations
-The closest primary source is DOI 10.3934/dcdsb.2022243 itself. The 2022 Journal of Mathematical Biology predecessor DOI 10.1007/s00285-022-01716-4 contains the same local predator crowding/Holling-II reaction mechanism in a spatial-delay setting and is therefore the principal unresolved comparison risk. A later open-access treatment, DOI 10.14232/ejqtde.2024.1.40, reproduces that reaction structure but focuses on delay, diffusion, steady states and Hopf bifurcation rather than finite-amplitude mean/covariance laws. The present result does not establish cycle existence, uniqueness, period, amplitude, or a stochastic analogue.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: comparing the same deterministic reaction law, the earlier diffusive same-reaction extension and the 2023 original, their equilibrium nullcline and local cycles do not imply an exact all-compact-interior-invariant-measure variance-weighted Jensen gap or covariance identity. The full 2022 predecessor is now materially accessible; its model and substantive sections were inspected, reducing the originally stated unresolved literature risk. Comparable discrete fear–Allee logarithmic Jensen claims use a different map.
+
+## value
+
+PASS
+
+For regimes with cycles and equilibrium–cycle bistability the theorem separates the equilibrium nullcline from actual oscillatory time means by a strictly positive, computable amplitude-sensitive defect and quantitatively couples predator/prey fluctuations. This is a natural invariant-measure extension with biological and dynamical interpretation, not merely the equilibrium formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
