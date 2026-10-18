@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:24:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The physical trial and disjoint ancillary Slater state are orthonormal branches. Born probabilities weight the diagonal physical sector by lambda and ancillary sector by 1-lambda, while a cross-branch first moment scales as sqrt(lambda(1-lambda)); normalized estimator has the asserted first moment. Rescaling the exact diagonal second-moment operator of Zhao et al by 1/[4lambda(1-lambda)] gives b[1/lambda+S/(1-lambda)]-p0. S belongs to [1/(eta+1),1], so strict convexity yields lambda*=1/(1+sqrt(Sbar)); gain b(1-sqrt(Sbar))^2. The trial-equals-target Slater witness S=p0=1 requires the worst-case variance at least b/[lambda(1-lambda)]-1, attained uniquely for lambda=1/2 by the source sharp equal-weight upper bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "West–Cerezo–Larocca study squared Slater overlaps, whereas the claimed observable is the phase-sensitive complex overlap requiring an ancillary coherence."
+        ],
+        "reasoning": "A stronger sample-complexity bound for squared overlaps does not imply the phase-sensitive unequal-branch variance spectrum.",
+        "searches": [
+          "arXiv:2606.27254v1 particle preserving shadows",
+          "arXiv:2610.03103v1 source theorem and appendix"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03103v1, Appendix A and Theorem 3",
+        "arXiv:2208.08964v2",
+        "arXiv:2606.27254v1",
+        "Resultary published-record semantic search, five independently worded exact-object queries on 2026-10-17; indexed nearest-hit titles/implications screened rather than treating a failed search as proof of novelty.",
+        "Pinned repository source tree, RESULT.md, METADATA.json, AUDIT.json opening material, and verifier source at Git commit 40d46a820f74fdf355c691812bdc426ec204bde7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected Appendix A gives equal-weight eigenvalues 4b/(j+1) on the physical sector and 4b on the ancilla. At lambda=1/2 the proposed formula reduces exactly to the source variance; the extension for lambda≠1/2 needs physical/ancillary Born weights and coherence normalization."
+        ],
+        "reasoning": "The original Theorem 3 provides the universal equal-weight upper bound, which supplies one side of minimaxity, but not the averaged optimal lambda*. A new first/second moment argument is essential.",
+        "searches": [
+          "Zhao et al arXiv:2610.03103v1 Eq A62–A70 and Theorem 3",
+          "Low arXiv:2208.08964v2 Eqs 132–133"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source protocol uses (|Psi_T>+|a>)/sqrt2, leading to the normalization factor 2d1 and the equal-weight variance. An arbitrary lambda changes the actual prepared state."
+        ],
+        "reasoning": "Classical one-variable convex allocations are mathematically equivalent AFTER deriving the new variance law, but the equal-superposition source calculation does not itself establish that physical law.",
+        "searches": [
+          "arXiv:2610.03103v1 Appendix A and Thm 3",
+          "arXiv:2208.08964v2 coherent reference augmentation",
+          "Resultary semantic: fermionic complex-overlap shadow reference branch probability adaptive variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No returned published-result entry gave a lambda-dependent complex variance or global target-distribution optimum; no known tabulation of this measurement design was found."
+        ],
+        "reasoning": "The exact coefficient b is published, but a table of b(N,eta) is insufficient to derive the new lambda dependence. Search absence is only residual evidence, not a novelty proof.",
+        "searches": [
+          "Resultary query: complex fermionic overlap shadow lambda optimized reference weight",
+          "targeted orbital-rotation shadow source review"
+        ]
+      },
+      "rationale": "Low introduced coherent ancillary augmentation and Zhao et al give the complete equal-weight source spectrum and variance, neither an arbitrary premeasurement branch probability nor its multi-target average design. Reweighted measurement changes the Born distribution as well as estimator; the new variance and opposite ensemble/minimax optimizers cannot be read directly from the equal-weight numerical bound. Similar squared-overlap shadows treat a different observable. Novelty is conditional on exact ideal-measurement assumptions, not a universal optimal quantum protocol.",
+      "residual_risks": [
+        "Low 2024 complete revised manuscript was not fully inspected in this run; weighted variants could exist in ancillary literature.",
+        "Noisy, finite-design, nonlinear ratio or calibration-cost settings not addressed; unknown Sbar is not free."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_EQUAL_WEIGHT_ONLY",
+          "evidence": [
+            "Theorem 3 derives equal-weight sharp variance upper bound; Appendix A has physical 4b/(j+1) and ancillary 4b diagonal spectral weights; no arbitrary lambda weight optimized."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03103",
+          "material_read": "Full arXiv HTML, in particular Section II B, Theorem 3, Appendix A first/second moment equations A62–A70 and eigenvalue description",
+          "method": "full primary HTML section and appendix inspection",
+          "title": "Orbital-Rotation Shadow Tomography Reduces the Classical Cost of Quantum-Classical Auxiliary-Field Quantum Monte Carlo",
+          "trigger": "Exactly same orbital-rotation complex estimator and appendix"
+        },
+        {
+          "assessment": "INTRODUCES_PROTOCOL_NOT_VERIFIED_WEIGHT_OPTIMUM",
+          "evidence": [
+            "Equal coherent superposition and phase reference, with no confirmed full unequal-weight variance theorem in material actually read."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.08964",
+          "material_read": "Original preprint abstract and pinpointed coherent-augmentation Eqs 132–133 as cited in full Zhao paper; complete 2024 revised PDF not re-read",
+          "method": "arXiv metadata and explicit cross-references in complete Zhao paper",
+          "title": "Classical shadows of fermions with particle number symmetry",
+          "trigger": "Introduces ancilla coherence used by target"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact branch-probability formula is a design rule for a reused shadow dataset across targets; it quantitatively shows when sacrificing the universal minimax choice improves ensemble-averaged complex overlap variance. The benchmark of strict gain versus unique worst-case robustness identifies a genuine experiment-design tradeoff. Calibration of Sbar remains outside scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only ideal Haar orbital-rotation measurement, fixed normalized trial and target, and average complex variance at fixed target distribution; not global measurement optimality.",
+    "Low 2024 complete revised manuscript was not fully inspected in this run; weighted variants could exist in ancillary literature.",
+    "Noisy, finite-design, nonlinear ratio or calibration-cost settings not addressed; unknown Sbar is not free."
+  ]
+}

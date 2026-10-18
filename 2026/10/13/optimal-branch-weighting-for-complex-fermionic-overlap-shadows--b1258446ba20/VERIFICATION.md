@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic checks use the exact source identities for the complex-overlap estimator. For \(0<\lambda<1\), the weighted coherent reference changes the desired coherence from \(o_\phi/2\) to \(\sqrt{\lambda(1-\lambda)}o_\phi\), so the estimator coefficient becomes \(d_1/\sqrt{\lambda(1-\lambda)}\). Squaring that coefficient rescales the source's diagonal second-moment operator by \(1/[4\lambda(1-\lambda)]\).
+# Independent mathematical audit
 
-Using the source eigenvalue \(4b_{N,\eta}/(j+1)\) on physical sector \(j\) and \(4b_{N,\eta}\) on the ancillary reference gives
-\[
-\mathbb E|\widehat o_{\phi,\lambda}|^2
-=b_{N,\eta}\left(\lambda^{-1}+S_\phi(1-\lambda)^{-1}\right).
-\]
-Subtracting \(p_0(\phi)=|o_\phi|^2\) gives the claimed complex variance.
+## correctness
 
-For a target ensemble, differentiation of \(\lambda^{-1}+\bar S(1-\lambda)^{-1}\) gives the unique stationary point \(\lambda_*=1/(1+\sqrt{\bar S})\); strict convexity and endpoint divergence make it the global minimum. Direct substitution gives the gain \(b_{N,\eta}(1-\sqrt{\bar S})^2\).
+PASS
 
-The minimax claim is checked analytically by the allowed trial-equals-target Slater case, which forces variance \(b_{N,\eta}/[\lambda(1-\lambda)]-1\). This is minimized uniquely at \(\lambda=1/2\), where it equals the source's sharp universal upper bound \(4b_{N,\eta}-1\).
+The physical trial and disjoint ancillary Slater state are orthonormal branches. Born probabilities weight the diagonal physical sector by lambda and ancillary sector by 1-lambda, while a cross-branch first moment scales as sqrt(lambda(1-lambda)); normalized estimator has the asserted first moment. Rescaling the exact diagonal second-moment operator of Zhao et al by 1/[4lambda(1-lambda)] gives b[1/lambda+S/(1-lambda)]-p0. S belongs to [1/(eta+1),1], so strict convexity yields lambda*=1/(1+sqrt(Sbar)); gain b(1-sqrt(Sbar))^2. The trial-equals-target Slater witness S=p0=1 requires the worst-case variance at least b/[lambda(1-lambda)]-1, attained uniquely for lambda=1/2 by the source sharp equal-weight upper bound.
 
-The standalone checker uses exact rational values of \(b_{N,\eta}\) and representative sector distributions to replay these identities. Its finite tests are corroborative and do not establish the all-parameter theorem.
+## originality
+
+PASS
+
+Low introduced coherent ancillary augmentation and Zhao et al give the complete equal-weight source spectrum and variance, neither an arbitrary premeasurement branch probability nor its multi-target average design. Reweighted measurement changes the Born distribution as well as estimator; the new variance and opposite ensemble/minimax optimizers cannot be read directly from the equal-weight numerical bound. Similar squared-overlap shadows treat a different observable. Novelty is conditional on exact ideal-measurement assumptions, not a universal optimal quantum protocol.
+
+## value
+
+PASS
+
+The exact branch-probability formula is a design rule for a reused shadow dataset across targets; it quantitatively shows when sacrificing the universal minimax choice improves ensemble-averaged complex overlap variance. The benchmark of strict gain versus unique worst-case robustness identifies a genuine experiment-design tradeoff. Calibration of Sbar remains outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
