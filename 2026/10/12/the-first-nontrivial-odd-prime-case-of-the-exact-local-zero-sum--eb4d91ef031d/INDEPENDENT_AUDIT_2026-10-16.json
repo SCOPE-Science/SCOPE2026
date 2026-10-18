@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:02:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For units R modulo 25, exact-five-position subset sums S_j update as S_j'=S_j union (r+S_{j-1}); the pruning invariant S5∩{5,10,15,20}=empty is hereditary under extensions, and sorting makes enumeration of nondecreasing multisets exhaustive without omitting repeated positions. I independently reimplemented the state recurrence and traversed all such multisets; witness-free counts for depths 0..10 are 1,20,210,1540,8855,35700,78700,89100,58350,21600,3900, and depth 11 is empty. The explicit 10-multiset (1,1,1,1,2,2,2,2,17,21) has no targeted five-position sum among all 252 position subsets. Thus s1(5)=11; no assertion for p>=7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "At p=5 general established upper 3p-2=13, while target is 11.",
+          "Gao--Jiang--Mu has variable-cardinality local sub-sums, not the exact-five subset required."
+        ],
+        "reasoning": "Checked strongest close published implications do not derive the exact five-position 11 threshold; fixed p=5 lies inside conjecture rather than proved stronger theorem.",
+        "searches": [
+          "Gao Jiang Lei Lin Yang 2026 A new problem from zero-sum theory bound 3p-2",
+          "Sun On zero-sum problems of two new types arXiv:2606.18234",
+          "Gao Jiang Mu Two local zero-sum problems arXiv:2607.11313"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.4064/aa251115-21-1",
+        "https://arxiv.org/abs/2606.18234",
+        "https://arxiv.org/abs/2607.11313",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published p=5 bound 13 does not entail 11; Sun conjectural s1(5)=11 is a question, not a theorem.",
+          "All 3,900 avoiding ten-multisets and no eleven-multisets are reproduced by a mathematically exhaustive finite recurrence."
+        ],
+        "reasoning": "The finite proof closes one conjectural prime case, not a title-only rephrasing; no broader published theorem inspected entails exact cardinality and target valuation.",
+        "searches": [
+          "https://doi.org/10.4064/aa251115-21-1",
+          "https://arxiv.org/abs/2606.18234",
+          "https://arxiv.org/abs/2607.11313"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Modulo-25 target residues {5,10,15,20} exactly encode 5-divisible but not 25-divisible five-term sums; Sun s1(5) equals Gao et al odd-prime s*_5.",
+          "Sun 2026 states s1(n)>=2n+1 and conjectures equality; p=5 value is not proved by that lower bound."
+        ],
+        "reasoning": "The two notation systems define the same positional exact-cardinality condition for p=5, but previously available bounds and conjectures do not supply equality.",
+        "searches": [
+          "Resultary search: s_1(5)=11 exact local zero sum subsequence length five integers modulo 25 Gao Jiang Lei Sun",
+          "https://arxiv.org/abs/2606.18234",
+          "https://doi.org/10.4064/aa251115-21-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published exact s1(4)=9 and 160 extremal multisets modulo16; distinctly n=4.",
+          "Direct exact enumeration yields 3,900 ten-term modulo-25 extremals; none at eleven."
+        ],
+        "reasoning": "The matching-parameter exact 3900/11 table was not found in inspected published records; lower modulus table has no implication for p=5. Failed database search is not novelty proof.",
+        "searches": [
+          "Resultary search: s_1(5)=11 exact local zero sum subsequence length five integers modulo 25 Gao Jiang Lei Sun",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337",
+          "\"3900\" \"s1(5)\" modulo 25"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): Gao--Jiang--Lei--Lin--Yang formulate the exact-p local zero-sum problem and give upper bound 3p-2=13 at p=5; Sun gives an ambient lower bound 2n+1=11 and conjectures equality, not the p=5 upper 11. Flexible-cardinality local zero-sum literature does not cover an exact five-term subset. Resultary's s1(4) exact computation is a different modulus. Relevant full Gao and Sun primary papers remained inaccessible after lawful OA/arXiv and authorized institutional attempts; no absence-of-overlap claim beyond inspected material is warranted.",
+      "residual_risks": [
+        "Gao et al and Sun full papers and unindexed ancillary computations not read; abstract-based noncoverage assessment does not exclude a hidden p=5 proof.",
+        "Oxford institutional access returned vpn_disconnected; no human-verification bypass.",
+        "Computational proof is exhaustive for p=5 only; two algorithms in package are not formal or all-prime proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_DETERMINED_FULL_TEXT: abstract establishes 3p-2 but cannot exclude hidden p=5 lemma",
+          "evidence": "Upper 3p-2=13 at p5; conjecture 2p+1=11; Oxford VPN disconnected",
+          "identifier_or_url": "https://doi.org/10.4064/aa251115-21-1",
+          "material_read": "publisher primary abstract and bibliographic description; complete paper inaccessible",
+          "method": "publisher abstract read; authorized Oxford access attempted after OA/arXiv failure",
+          "title": "A new problem from zero-sum theory",
+          "trigger": "exact odd-prime definition and claimed 3p-2 upper"
+        },
+        {
+          "assessment": "PARTIAL_NOT_COVERING: abstract gives lower bound and conjecture only, full-text overlap risk",
+          "evidence": "For n>=4, 2n+1 <=s1(n)<=n²-2n+2; conjectures s1(n)=2n+1",
+          "identifier_or_url": "https://arxiv.org/abs/2606.18234",
+          "material_read": "arXiv primary abstract and public description; complete manuscript inaccessible",
+          "method": "arXiv/OA search and abstract inspection; authorized institutional attempt for related source",
+          "title": "On zero-sum problems of two new types",
+          "trigger": "same s1(n) definition and bounds"
+        },
+        {
+          "assessment": "DIFFERENT_MODULUS: not covering p=5",
+          "evidence": "Modulus 4: s1(4)=9 and 160 extremals, rather than p5/modulus25",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337",
+          "material_read": "public Resultary title and result summary",
+          "method": "semantic Resultary search (summary only)",
+          "title": "Exact evaluation of s1(4) and eight-term extremals",
+          "trigger": "closest published exact finite classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The smallest odd prime p=5 where the published 3p-2 upper bound is weaker than the conjectured 2p+1 value is a canonical test of the explicitly open local zero-sum conjecture. The exact uniform upper bound and complete 3,900-extremal-multiset count are independently meaningful finite theorems; no general prime theorem is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Gao et al and Sun full papers and unindexed ancillary computations not read; abstract-based noncoverage assessment does not exclude a hidden p=5 proof.",
+    "Oxford institutional access returned vpn_disconnected; no human-verification bypass.",
+    "Computational proof is exhaustive for p=5 only; two algorithms in package are not formal or all-prime proof.",
+    "Publication transport not_ready is distinct from a scientific C/O/V failure. The frozen public METADATA.json leaks operational provenance; do not publish unmodified public files."
+  ],
+  "schema_version": 1
+}

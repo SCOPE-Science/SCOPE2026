@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact prime-five local zero-sum constant
+# Independent mathematical audit
 
-To reproduce, compile `artifacts/verify.cpp` with `g++ -std=c++17 -O2` and run the resulting executable; independently run `python3 artifacts/verify.py`. No external mathematical package is required. Actual outputs are recorded in `artifacts/replay.txt`.
+## correctness
 
-Both implementations enumerate nondecreasing multisets of the twenty residues not divisible by five, using the exact recurrence for residues of subsets of exactly zero through five positions. A prefix is discarded only upon acquiring a five-subset sum in residues \(5,10,15,20\pmod{25}\); any extension then also contains that subset. Each algorithm therefore exhausts all witness-free multisets through length eleven.
+PASS
 
-The two enumeration outputs agree: numbers of witness-free multisets at each length 0 through 11 are 1, 20, 210, 1540, 8855, 35700, 78700, 89100, 58350, 21600, 3900, 0. The ten-element obstruction is checked independently by enumerating its 252 five-position choices. There are no witness-free eleven-element multisets. This is an exhaustive finite computation supported by a proved recurrence, not statistical sampling. No independent external audit has been performed.
+PASS: For units R modulo 25, exact-five-position subset sums S_j update as S_j'=S_j union (r+S_{j-1}); the pruning invariant S5∩{5,10,15,20}=empty is hereditary under extensions, and sorting makes enumeration of nondecreasing multisets exhaustive without omitting repeated positions. I independently reimplemented the state recurrence and traversed all such multisets; witness-free counts for depths 0..10 are 1,20,210,1540,8855,35700,78700,89100,58350,21600,3900, and depth 11 is empty. The explicit 10-multiset (1,1,1,1,2,2,2,2,17,21) has no targeted five-position sum among all 252 position subsets. Thus s1(5)=11; no assertion for p>=7.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): Gao--Jiang--Lei--Lin--Yang formulate the exact-p local zero-sum problem and give upper bound 3p-2=13 at p=5; Sun gives an ambient lower bound 2n+1=11 and conjectures equality, not the p=5 upper 11. Flexible-cardinality local zero-sum literature does not cover an exact five-term subset. Resultary's s1(4) exact computation is a different modulus. Relevant full Gao and Sun primary papers remained inaccessible after lawful OA/arXiv and authorized institutional attempts; no absence-of-overlap claim beyond inspected material is warranted.
+
+## value
+
+PASS
+
+PASS: The smallest odd prime p=5 where the published 3p-2 upper bound is weaker than the conjectured 2p+1 value is a canonical test of the explicitly open local zero-sum conjecture. The exact uniform upper bound and complete 3,900-extremal-multiset count are independently meaningful finite theorems; no general prime theorem is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

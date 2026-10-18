@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-For every residue multiset, the exact-cardinality residue sums obey the stated include/exclude recurrence. Canonical nondecreasing insertion covers all possible multisets; the five-term target condition is monotone, so the pruning step is rigorous. Exact bitset and independently written set-based traversals agree on every depth count, including zero surviving length-eleven states and 3900 surviving length-ten states. The exhibited ten-term avoiding sequence is checked by direct five-subset enumeration. This establishes the bound on every integer input via reduction modulo25; no infinite extrapolation is asserted.
+## correctness
 
-## Originality: PASS
-The closest original 2026 zero-sum papers conjecture the equality for prime five and provide weaker global bounds; a fully inspected published four-case classification stops at modulus four. The later local zero-sum theorem allows varying subset cardinalities, which does not imply an exact-five-term witness. Searches for both \(s_1(5)\) and \(\mathsf{s}^{*}_5\) yielded no existing matching statement. Residual risk: full original manuscripts were unavailable, and no finite search excludes unpublished overlap.
+PASS
 
-## Value: PASS
-The first odd prime where the \(3p-2\) upper bound is strictly weaker than the conjectural \(2p+1\) threshold is \(p=5\); this is the first nontrivial odd-prime case. Closing the natural local zero-sum constant exactly and giving all 3900 extremal ten-term residue multisets by a compact certifier answers a motivated finite problem, without claiming the general conjecture.
+PASS: For units R modulo 25, exact-five-position subset sums S_j update as S_j'=S_j union (r+S_{j-1}); the pruning invariant S5∩{5,10,15,20}=empty is hereditary under extensions, and sorting makes enumeration of nondecreasing multisets exhaustive without omitting repeated positions. I independently reimplemented the state recurrence and traversed all such multisets; witness-free counts for depths 0..10 are 1,20,210,1540,8855,35700,78700,89100,58350,21600,3900, and depth 11 is empty. The explicit 10-multiset (1,1,1,1,2,2,2,2,17,21) has no targeted five-position sum among all 252 position subsets. Thus s1(5)=11; no assertion for p>=7.
 
-## Scope and limitations
-Prime five only; complete finite certificate with replay code, not a theorem for every odd prime. Original primary article full text and complete Sun manuscript could not be inspected, leaving a specific literature-overlap risk. Independent audit is not represented as completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Gao--Jiang--Lei--Lin--Yang formulate the exact-p local zero-sum problem and give upper bound 3p-2=13 at p=5; Sun gives an ambient lower bound 2n+1=11 and conjectures equality, not the p=5 upper 11. Flexible-cardinality local zero-sum literature does not cover an exact five-term subset. Resultary's s1(4) exact computation is a different modulus. Relevant full Gao and Sun primary papers remained inaccessible after lawful OA/arXiv and authorized institutional attempts; no absence-of-overlap claim beyond inspected material is warranted.
+
+## value
+
+PASS
+
+PASS: The smallest odd prime p=5 where the published 3p-2 upper bound is weaker than the conjectured 2p+1 value is a canonical test of the explicitly open local zero-sum conjecture. The exact uniform upper bound and complete 3,900-extremal-multiset count are independently meaningful finite theorems; no general prime theorem is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
