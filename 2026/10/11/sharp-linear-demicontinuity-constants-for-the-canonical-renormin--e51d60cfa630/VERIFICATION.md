@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verification is symbolic. For \(u^{(k)}=e_1+\cdots+e_k\), one has \(\|u^{(k)}\|_r=1\), \(u^{(k)}\uparrow\mathbf1\), and \(\|\mathbf1\|_r=r\), certifying the sharp lower bound for demicontinuity.
+# Independent mathematical audit
 
-Every functional on \(c\) decomposes into an \(\ell_1\) coordinate functional plus a multiple of ordinary limit. The decreasing sequence \(\mathbf1-u^{(k)}\downarrow0\) eliminates the limit component from the order-continuous dual. Finite-support sign vectors show that the remaining \(\ell_1\) functional has dual norm exactly its \(\ell_1\)-norm. Hence the order-continuous norming gauge is exactly \(\|x\|_\infty\), whose worst ratio to \(\|x\|_r\) is \(r\).
+## correctness
 
-In the coordinate universal completion, finite truncations of every bounded positive sequence increase to it and have \(\|\cdot\|_r\)-norm bounded by the sup norm; conversely any upward approximants bounded in \(\|\cdot\|_r\) are bounded coordinatewise by the same constant. Therefore the Lorentz norm is exactly the sup norm and its finite domain is \(\ell_\infty\).
+PASS
 
-For the extension step, a norm-one Hahn--Banach extension \(L\) of ordinary limit satisfies \(L(\mathbf1)=1\). If \(0\le x\le\mathbf1\), then \(\|\mathbf1-x\|_\infty\le1\), so \(Lx=1-L(\mathbf1-x)\ge0\); thus \(L\) is positive. The same increasing truncations have extension norm \(1\) and supremum \(\mathbf1\) of norm \(r\), while positivity yields the matching upper bound.
+The norm ||x||_r=max(||x||∞,r|lim x|) is an absolute lattice norm for r>=1. For any increasing positive directed family in its unit ball with supremum f in c, coordinatewise 0<=f<=1 implies ||f||_r<=r, while finite-one vectors u^k↑1 have norm1 and supnorm r in the renorming, proving exact demicontinuity r. c* decomposes as a coordinate l1 functional plus alpha*lim; tails v^k=1-u^k decrease to 0, so order continuity forces alpha=0. Conversely l1 coefficients define order-continuous functionals; finite-support sign tests recover exact dual norm ||a||1, hence dual norming gauge ||x||∞ and sharp r ratio at 1. Coordinatewise finite truncations squeeze Lorentz norm of bounded x between ||x||∞ from both sides; unbounded sequences cannot have finite Lorentz gauge. For every norm-one Hahn–Banach L extending ordinary limit, L1=1 and ||L||=1 force positivity on [0,1], so max{sup,r|Lx|} is a lattice norm extending the c family. Truncations show sharp demicontinuity r there too. All arguments symbolic, including r=1.
 
-No computation, sampled search, or finite enumeration is used to establish any infinite assertion. The result is limited to the displayed canonical renorming family and does not determine the optimal universal constant in the general theory.
+## originality
+
+PASS
+
+PASS best-of-knowledge with restricted scope: Bilokopytov explicitly proposes this norm family and the elementary demicontinuity obstruction; these are credited, not claimed novel. The fully inspected source questions general quadratic estimates but does not give the combined exact r-norming order-continuous dual, explicit Lorentz completion and sharp family of positive norm-one extensions. Another indexed result handles finite-stage order adherence, not this calibration. An older equivalent c/c0 or weak Fatou computation could cover some/all, a serious residual risk.
+
+## value
+
+PASS
+
+Calibrating multiple distinct constants of the canonical family appearing in the source’s r² bounds is a mathematically motivated exact benchmark: shows simultaneously that dual-norming and completion/extension estimates can be linearly sharp r on that natural model. It does not solve universal r² sharpness. The individual computations are elementary, which weakens but does not nullify the independent combined, source-specific calibration; value is not asserted from reproducing Example 3.2 alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
