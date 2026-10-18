@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Writing \(z=x-y\) turns the domain into boundary triples \(x=y+z\). Dihedral symmetry reduces \(x\) to one reference edge. Solving all \(16^2\) ordered edge-pair equations yields exactly three nondegenerate branch intervals plus their exchanges. On those intervals the two defining chord norms are the affine expressions displayed in `RESULT.md`; their correction coefficients are positive. The \(a=0\) endpoint simultaneously attains both bounds. The packaged branch-replay checker replays the branch enumeration and the equality identities.
+## correctness
 
-## Originality
-PASS. The defining 2022 source was inspected at the exact definition of \(T_G\), its general estimates, its \(\ell_p\) example, and the Hilbert-space theorem; no regular-hexadecagon computation appears. Public research-index searches covered \(T_G\), regular-16-gon and hexadecagon aliases, centered-equilateral reformulations, perimeter and \(J_L\) terminology, and the exact-object context. The closest same-invariant result is the regular octagon. The closest same-family result fixes the total perimeter of centered equilateral triangles in regular \(4n\)-gons, which does not imply bounds on either selected factor or their product.
+PASS
 
-## Value
-PASS. The new statement resolves a natural exact value for the next regular \(4n\)-gonal benchmark while also proving a pointwise simultaneous envelope stronger than the scalar \(T_G\) value. The branch table shows the geometric mechanism behind the extremum and separates product optimization from previously known perimeter rigidity.
+The actual RESULT.md supplies the 8 facet-functionals norm and dihedral reduction x=v0+a(v1-v0), a in [0,1]. With z=x-y, x=y+z and y,z on polygonal edges, the complete admissible y,z edge-pair solutions reduce to six nondegenerate oriented branches: (E2,E13),(E3,E13),(E3,E14) and their swaps. Their exact a intervals are [0,q],[q,1-q],[1-q,1], q=2-sqrt2-(3/2)sqrt(2-sqrt2)+(1/2)sqrt(2+sqrt2). Explicit norm branch table yields factors T and T-kappa1*a, middle T-kappa2*(a-q) and T-kappa2*(1-q-a), and endpoint swap; both kappas positive. Simultaneous equality at x=(1,0), y=(1/2,h) with h the stated exact facet intersection. Source verify.py was read: it enumerates 256 edge pairs but uses floating tolerance and a dense 1001-point replay of branch formulas, not a rigorous exact-computer algebra certificate. Its feasible branch structure and equality values were corroborated; the mathematical argument relies on exact edge equations and algebra in RESULT.md, not the floating samples. This is a specific 16-gon theorem, not all 4n-gons.
 
-## Closest literature and limitations
-Ahmad, Xie and Li introduced \(T_G\) in *Advances in Fixed Point Theory* 12 (2022), Article 9. A published exact record computes \(T_G\) for the regular octagon, and another establishes constant equilateral perimeter for regular \(4n\)-gons. Neither implies the two-factor hexadecagonal envelope. The present result does not assert a formula for arbitrary regular \(4n\)-gons.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge originality: the exact stated invariant and quantified result were compared by implication to the closest primary and published SCOPE sources; no decisive covering result found. Unread material and alternative nomenclature remain explicit, and source search is not proof of absolute novelty.
+
+## value
+
+PASS
+
+T_G is a motivated geometric invariant and the first sharp hexadecagon computation here gives not only a number but a stronger simultaneous-factor envelope with exact extremizer. Polygonal facet transitions are genuinely more involved than Hilbert-space or octagonal cases and illuminate the geometric-mean functional.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

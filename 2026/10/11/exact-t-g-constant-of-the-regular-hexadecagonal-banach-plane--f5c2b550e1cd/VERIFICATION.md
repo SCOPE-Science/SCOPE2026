@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,40 +18,25 @@
   "schema_version": 1
 }
 ---
-The exact target is
-\[
-T_{16}
-=
-1-\sqrt2+2\sqrt{4-2\sqrt2}.
-\]
-After reduction to the reference edge
-\[
-x=v_0+a(v_1-v_0),
-\qquad
-0\le a\le1,
-\]
-the feasible nondegenerate ordered edge pairs are exactly
-\[
-(2,13),\ (3,13),\ (3,14)
-\]
-and their exchanges. Their parameter ranges are
-\[
-[0,q],\ [q,1-q],\ [1-q,1],
-\]
-where
-\[
-q
-=
-2-\sqrt2-\frac32\sqrt{2-\sqrt2}
-+\frac12\sqrt{2+\sqrt2}.
-\]
 
-The bundled `verify.py` reconstructs the regular hexadecagon from the edge equations, solves every ordered nonparallel edge pair, confirms those six branch intervals, checks the endpoint identity
-\[
-\kappa_1q=\kappa_2(1-2q),
-\]
-and verifies the equality configuration and target radical.
+# Independent mathematical audit
 
-The branch enumeration is finite and exhaustive for the polygonal boundary. Numerical evaluation in the checker orders the algebraically specified branch endpoints and independently replays the stated branch formulas; the continuum proof is the exact edge classification in `RESULT.md`.
+## correctness
 
-No independent audit or independent validation has been performed.
+PASS
+
+The actual RESULT.md supplies the 8 facet-functionals norm and dihedral reduction x=v0+a(v1-v0), a in [0,1]. With z=x-y, x=y+z and y,z on polygonal edges, the complete admissible y,z edge-pair solutions reduce to six nondegenerate oriented branches: (E2,E13),(E3,E13),(E3,E14) and their swaps. Their exact a intervals are [0,q],[q,1-q],[1-q,1], q=2-sqrt2-(3/2)sqrt(2-sqrt2)+(1/2)sqrt(2+sqrt2). Explicit norm branch table yields factors T and T-kappa1*a, middle T-kappa2*(a-q) and T-kappa2*(1-q-a), and endpoint swap; both kappas positive. Simultaneous equality at x=(1,0), y=(1/2,h) with h the stated exact facet intersection. Source verify.py was read: it enumerates 256 edge pairs but uses floating tolerance and a dense 1001-point replay of branch formulas, not a rigorous exact-computer algebra certificate. Its feasible branch structure and equality values were corroborated; the mathematical argument relies on exact edge equations and algebra in RESULT.md, not the floating samples. This is a specific 16-gon theorem, not all 4n-gons.
+
+## originality
+
+PASS
+
+Bounded best-of-knowledge originality: the exact stated invariant and quantified result were compared by implication to the closest primary and published SCOPE sources; no decisive covering result found. Unread material and alternative nomenclature remain explicit, and source search is not proof of absolute novelty.
+
+## value
+
+PASS
+
+T_G is a motivated geometric invariant and the first sharp hexadecagon computation here gives not only a number but a stronger simultaneous-factor envelope with exact extremizer. Polygonal facet transitions are genuinely more involved than Hilbert-space or octagonal cases and illuminate the geometric-mean functional.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
