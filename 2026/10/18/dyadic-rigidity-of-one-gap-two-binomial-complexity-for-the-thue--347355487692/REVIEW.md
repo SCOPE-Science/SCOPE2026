@@ -1,0 +1,11 @@
+# Scientific review: dyadic one-gap two-binomial complexity
+
+**Correctness — PASS.** The dyadic factor decomposition is exact because all four ordered Thue–Morse block adjacencies occur. Ordinary subsequence counts minus adjacent-pair counts give precisely the one-gap deck. The seven cut classes, together with complementation, are exhaustive. Exact rational-polynomial simplification produces twelve candidate profiles in each parity; pairwise sign witnesses rule out collisions for all permitted half-lengths. All cases occur for lengths at least thirty-two, while lengths eight and sixteen are checked exhaustively. Independent direct gap-pair counting for complete factors corroborates the identities. Scope: dyadic lengths at least eight, one-gap pairs only.
+
+**Originality — PASS, with explicit risk.** The 2023 primary paper of Rigo, Stipulanti and Whiteland states the constant-twelve dyadic property as a consequence of its *conjectured*, not established, representation; the new proof establishes precisely that consequence, not the full representation. Earlier non-gapped binomial and two-abelian results do not imply the gap counts. The accessible published research records and semantic research database searches disclosed no implication covering this dyadic statement. A possible unindexed later proof, including workshop treatments, remains a bibliographic risk.
+
+**Value — PASS.** The theorem settles an explicit, motivated infinite dyadic subproblem of a published open conjecture. It explains stabilization by substitution-cut structure and separates the scale-local constant twelve from the known globally unbounded gap complexity. This is a structural all-scale result, not a finite numerical extrapolation.
+
+**Closest literature and limitations.** M. Rigo, M. Stipulanti and M. A. Whiteland, *Gapped Binomial Complexities in Sequences*, IEEE ISIT (2023), Section IV, Conjecture 4.3 and following consequence, is directly pertinent. Lejeune, Leroy and Rigo (2020) study the distinct ordinary binomial statistic; Greinecker (2015) studies two-abelian complexity. The result does not resolve general lengths, other gaps, or the full conjecture. Independent review is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
