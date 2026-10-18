@@ -1,15 +1,21 @@
-# Review of the rank-two random-removal theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The rank-two pseudoinverse normalization, continuous uniform angular law, maximal-feasible rank-one subtraction, exact quadrant integral, and two generalized eigenvalues were reconstructed. The isotropic case and singular ambient directions are covered, and the high-eigenvector projector proves sharpness. The exact-rational and numerical checker passed on its actual packaged source; the analytical proof, not finite checking, establishes the universal quantifiers.
+## correctness
 
-## Originality — PASS, with residual risk
-The motivating 2025 preprint/2026 full journal article specifies the stochastic coefficient but uses pointwise eigenvalue bounds and unweighted direction moments; its proof was compared directly against the joint matrix expectation and sharp PSD comparison claimed here. Related published research searches and existing scientific records found spectral, rank-one and Frank–Wolfe results but no covering joint rank-two certificate. The newer deterministic follow-up is a different algorithm. Standard quadratic-form integral literature supplies an analytic ingredient, not an inspected explicit optimizer-direction sharpness statement. A general integral identity published under different terms remains a possible covering prior result and requires human checking.
+PASS
 
-## Mathematical value — PASS
-The exact expected removal matrix is a natural invariant of the randomized pairwise update, not a chosen synthetic statistic. It replaces a factor of order \(\kappa^{-1}\) from separating the stochastic coefficient and direction by the sharp joint factor of order \(\kappa^{-1/2}\). This specifically quantifies directional mass-transfer sensitivity near a rank-deficient state and yields the best certificate for every PSD test matrix. No global algorithmic speed-up is claimed without further proof.
+Derive gamma=(u^T X^dagger u)^-1 by rank-one Schur-complement/PSD criterion; diagonalize X=diag(a,b). For C=1/a,D=1/b, I=E[(Ccos²+Dsin²)^-1]=1/sqrt(CD); U+V=I and CU+DV=1 yield U=a sqrt(b)/(sqrt a+sqrt b), V=b sqrt(a)/(sqrt a+sqrt b), continuous at a=b. Then E[gamma uu^T]=sqrt(ab)/(sqrt a+sqrt b) sqrt(X), and min generalized eigenvalue of (E[gamma uu^T],X) equals sqrt(a)/(sqrt a+sqrt b); Q projected on b eigendirection attains it. Independent deterministic quadratures for (1,1),(1,4),(1,100),(0.1,7),(3,19) corroborate; integral is analytic for all a,b>0.
 
-## Scope and risks
-The theorem applies only to rank-two states, uniform support-circle sampling and exact maximal feasible deletion. Its potential integration into an end-to-end convergence proof remains unproved. General angular statistics might provide another derivation or equivalent earlier identity; published searches cannot rule that out. The deterministic 2026 companion was accessible in bibliographic abstract only, not full text.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact weighted random-removal *matrix* mean and sharp PSD comparison are not the same as Garber Lemma 5 unweighted Haar projector moment, though both use the same algorithmic update and a standard two-dimensional reciprocal-quadratic integral.
+
+## value
+
+PASS
+
+Sharp expected spectral progress for the exact random PSD rank-two deflation primitive is a motivated structural lemma: it replaces a conditioning-loss a/(2b) by an optimally attained coefficient and avoids falsely asserting global algorithm improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

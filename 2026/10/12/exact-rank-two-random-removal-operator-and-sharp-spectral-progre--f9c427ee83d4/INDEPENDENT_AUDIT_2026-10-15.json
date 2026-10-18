@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:16:57.741451Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Derive gamma=(u^T X^dagger u)^-1 by rank-one Schur-complement/PSD criterion; diagonalize X=diag(a,b). For C=1/a,D=1/b, I=E[(Ccos²+Dsin²)^-1]=1/sqrt(CD); U+V=I and CU+DV=1 yield U=a sqrt(b)/(sqrt a+sqrt b), V=b sqrt(a)/(sqrt a+sqrt b), continuous at a=b. Then E[gamma uu^T]=sqrt(ab)/(sqrt a+sqrt b) sqrt(X), and min generalized eigenvalue of (E[gamma uu^T],X) equals sqrt(a)/(sqrt a+sqrt b); Q projected on b eigendirection attains it. Independent deterministic quadratures for (1,1),(1,4),(1,100),(0.1,7),(3,19) corroborate; integral is analytic for all a,b>0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garber supplies feasibility gamma and unweighted mean projector; no general theorem in inspected work yields exact coupled gamma-weighted expectation as stated."
+        ],
+        "reasoning": "No inspected broader theorem mechanically yields the entire proposed exact conclusion: Garber supplies feasibility gamma and unweighted mean projector; no general theorem in inspected work yields exact coupled gamma-weighted expectation as stated.",
+        "searches": [
+          "Resultary semantic search rank two PSD random maximal rank one removal uniform direction weighted expectation square root pseudoinverse Garber",
+          "https://link.springer.com/article/10.1007/s10107-026-02343-3",
+          "https://dlmf.nist.gov/19.31"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search rank two PSD random maximal rank one removal uniform direction weighted expectation square root pseudoinverse Garber",
+        "https://link.springer.com/article/10.1007/s10107-026-02343-3",
+        "https://dlmf.nist.gov/19.31",
+        "GitHub snapshot https://github.com/SCOPE-Science/SCOPE2026/tree/08119bf33b93101414034e23c1f90b0d9c5f9592/2026/10/12/exact-rank-two-random-removal-operator-and-sharp-spectral-progre--f9c427ee83d4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "E[uu^T]=Pi/2 does not imply E[gamma uu^T] because gamma depends on u; separate min-gamma estimates only give a/(2b), weaker than 1/(1+sqrt(b/a))."
+        ],
+        "reasoning": "The logical implication direction was analyzed with the stated hypotheses. E[uu^T]=Pi/2 does not imply E[gamma uu^T] because gamma depends on u; separate min-gamma estimates only give a/(2b), weaker than 1/(1+sqrt(b/a)).",
+        "searches": [
+          "Resultary semantic search rank two PSD random maximal rank one removal uniform direction weighted expectation square root pseudoinverse Garber",
+          "https://link.springer.com/article/10.1007/s10107-026-02343-3",
+          "https://dlmf.nist.gov/19.31"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General 2D circular averages of rational quadratics may be algebraically equivalent to the operator identity; these known integrals are openly credited as ingredients, not purported innovations."
+        ],
+        "reasoning": "The indicated aliases and model equivalences were compared at statement/object level, not by title alone. General 2D circular averages of rational quadratics may be algebraically equivalent to the operator identity; these known integrals are openly credited as ingredients, not purported innovations.",
+        "searches": [
+          "Resultary semantic search rank two PSD random maximal rank one removal uniform direction weighted expectation square root pseudoinverse Garber",
+          "https://link.springer.com/article/10.1007/s10107-026-02343-3",
+          "https://dlmf.nist.gov/19.31"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published tabulation of this rank-two weighted operator and equality sharp constant was found in searched Resultary and primary algorithm sources."
+        ],
+        "reasoning": "Relevant reported exact tables were checked for matching objects/parameters rather than keyword coincidences. No published tabulation of this rank-two weighted operator and equality sharp constant was found in searched Resultary and primary algorithm sources.",
+        "searches": [
+          "Resultary semantic search rank two PSD random maximal rank one removal uniform direction weighted expectation square root pseudoinverse Garber",
+          "https://link.springer.com/article/10.1007/s10107-026-02343-3",
+          "https://dlmf.nist.gov/19.31"
+        ]
+      },
+      "rationale": "The exact weighted random-removal *matrix* mean and sharp PSD comparison are not the same as Garber Lemma 5 unweighted Haar projector moment, though both use the same algorithmic update and a standard two-dimensional reciprocal-quadratic integral.",
+      "residual_risks": [
+        "Related sphere-integral formula may encode equivalent identity under older terminology; no new algorithm-wide rate follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides gamma feasibility and unweighted E[uu^T]=Pi/r, but does not state weighted E[gamma uu^T] in rank two or its sharp generalized eigenvalue coefficient.",
+          "evidence": [
+            "Lemma 5 uses E[uu^T]=Pi/r; Lemma 4 bounds steps via gamma and random direction separately; no exact rank-two joint weighted matrix expectation."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10107-026-02343-3",
+          "material_read": "Open full HTML, Algorithm 1, Lemmas 2,4,5 and proof of Lemma 5",
+          "method": "Primary published full-HTML theorem/proof inspection",
+          "title": "A Randomized Linearly Convergent Frank-Wolfe-type Method for Smooth Convex Minimization over the Spectrahedron",
+          "trigger": "Defines precisely random support-circle and maximal removal coefficient"
+        },
+        {
+          "assessment": "Standard scalar angular integral is acknowledged; specialized PSD sharp-constant theorem is not identified verbatim.",
+          "evidence": [
+            "Identity I(C,D)=1/sqrt(CD) is an elementary integral, used as an ingredient rather than claimed new."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/19.31",
+          "material_read": "General formula context, not a full standalone identity comparison",
+          "method": "Targeted online mathematical reference search",
+          "title": "NIST Digital Library of Mathematical Functions §19.31",
+          "trigger": "Possible general elliptic/spherical integral reductions that imply the formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp expected spectral progress for the exact random PSD rank-two deflation primitive is a motivated structural lemma: it replaces a conditioning-loss a/(2b) by an optimally attained coefficient and avoids falsely asserting global algorithm improvement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub assigned RESULT.md and verify_rank_two.py; Garber full open Springer article Algorithm1 Lemma5; independently evaluated analytic integral and numerical circle quadratures; Resultary search."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only rank-two uniform support directions and PSD Q; not general rank, sampling laws, or global optimization complexity.",
+    "Literature alias risk for reciprocal quadratic-form integrals.",
+    "Public provenance needs sanitization."
+  ],
+  "schema_version": 1
+}
