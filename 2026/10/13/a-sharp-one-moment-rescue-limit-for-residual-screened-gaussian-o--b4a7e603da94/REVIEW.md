@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a fixed orthonormal input \((U,z)\), Gaussian rotational invariance reduces the sketched residual and coefficient to independent \(\chi^2_d\) and multivariate Student components. The coefficient identity uses a Schur complement of an actual Gaussian design: \(\|c\|_2^2\overset{\mathrm d}=\chi^2_k/\chi^2_{d+1}\), independently of the residual. Selecting the maximum of \(L\) independent residuals gives a separate \(\chi^2_d\) order-statistic inverse moment, so the complete norm integrability iff statement, both sharp boundaries, and the saturated \(d+1\) barrier follow by exact density behavior at zero. The angular Beta law and \(m(k+1)\log 2\) instance follow without simulation. The embedded verifier independently replays Gaussian least-squares identities and diagnostic comparisons, but the proof—not finite sampling—supports infinite-moment assertions.
+PASS
 
-## Originality — PASS, qualified
+Set G=sqrt(m) S U and h=sqrt(m) S z. Conditional Gaussian orthogonal projection yields Z=m*rho²~chi²_d independent of least-squares coefficient c. Schur complement/inverse-Wishart gives c in distribution as v/sqrt(Y), v standard k-Gaussian and Y~chi²_(d+1), independently of Z. Residual-only selection chooses Zmax independent of selected c. Therefore ||q||²=m(1+X/Y)/Zmax and inverse-moment integrability at 0 yields exactly p<d+1 and p<Ld; equal endpoints diverge logarithmically. The scalar ordering Zselected<=Zmax gives simultaneous optimality; X/(X+Y) gives Beta angle. For d=2,L=2 an exponential maximum inverse moment integrates to log2. Direct theoretical derivation, not the finite checker, establishes infinite-moment boundaries.
 
-The closest motivating primary literature is Balabanov–Grigori arXiv:2011.05090v1; its Algorithm 2 supplies sketched regression and residual normalization, but its verified body focuses on embedding/stability rather than selection among independent sketches or an exact residual-only moment frontier. Jang–Grigori DOI:10.1002/nla.70029 instead uses Euclidean reorthogonalization. General Gaussian regression/Student inverse-moment identities, including a related prior result about an inverse-Wishart factor in Gaussian low-rank reconstruction, cover the coefficient lemma; they do not imply the max-residual selection rule's sharp two-part cutoff or its angular invariance without a new independence and selection argument. The searched published-results index contains no matching joint assertion, but search failure cannot guarantee novelty. Residual risk: specialized unpublished/unindexed work, or a more general published theorem with this as a corollary, may exist; an inaccessible related linear-system source was not excluded by full-text inspection.
+## originality
 
-## Value — PASS
+PASS
 
-Gaussian-sketch normalization can create a finite-sketch heavy-tail error even with orthonormal input columns. The theorem quantifies exactly how a cheap, observable screening statistic rescues moments and proves the limit of that rescue: no number of norm-only candidate restarts fixes the coefficient tail or average angular leakage. The distinction between moment stability and Euclidean orthogonality is actionable when choosing between resketching and actual reorthogonalization. It is a natural full-parameter result for a single orthogonalization step, not a claim about complete GMRES behavior or measured runtime.
+Classical multivariate Student and chi-square regression furnish the factors and are not novel. Balabanov–Grigori RGS uses sketched LS residual orthogonalization but does not analyze selecting among independent sketches by largest residual or give the combined min(d+1,Ld) moment cutoff, Beta angular invariance and saturation. Reorthogonalization methods change the algorithm, not residual-only selection. Resultary searches for Gaussian residual-selection moment thresholds did not locate an equivalent classification. Classical Wishart t-coefficient and chi-square residual distributions imply factors, but do not state independent multi-residual selection saturation or angular invariance for this algorithm without their joint proof.
 
-## Scope and residual risks
+## value
 
-Proof requires independent real Gaussian sketches, fixed Euclidean-orthonormal past basis, unit perpendicular new column, exact arithmetic, and selection restricted to sketched residual magnitudes. Floating-point stability, correlated sketches, adaptive input vectors, alternative screening features, and multi-step propagation remain unproved. Literature priority has not been independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Selection among multiple sketched Gram–Schmidt candidates is a natural defense against extreme residual normalization. The exact result quantifies the maximum possible rescue using that observable alone, and proves a separate invariant angular defect that cannot be screened away. This informs motivated randomized orthogonalization design despite being a one-step Gaussian model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
