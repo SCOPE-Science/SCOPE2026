@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:59:52.245537Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For any bounded convex planar Ω, the solution of (Δ−μ²)v=0 with boundary data 1 satisfies 0<v<1. The centered inscribed disk B_d(x) is contained in Ω; its explicit radial comparison b(z)=I_0(μ|z−x|)/I_0(μd) has b=1 on the circle, and the maximum principle gives v(x)≤I_0(μd)^{-1}. Strong maximum principle forces equality only if Ω equals the disk. A supporting line to Ω at a closest boundary point y gives an inward normal distance s with s(x)=d, and φ=e^{-μs} solves the same PDE while φ≤1 on ∂Ω; strict maximum principle gives v(x)>e^{-μd} for bounded Ω. Large tangent disks B_R((0,R)) with x=(0,d) have v(x)=I_0(μ(R−d))/I_0(μR)→e^{-μd}. This proves the exact infimum/supremum and nonattainment at finite R for the stated domain class.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nazarov gives a stronger pointwise gradient inequality for ALL convex bounded Lipschitz planar domains; the claimed exponential bound is its elementary corollary and Section 3 actually proves strict barrier comparison.",
+          "Kuznetsov explicitly supplies same disk Bessel and half-plane exponential model geometries."
+        ],
+        "reasoning": "The exact lower bound is subsumed by the gradient theorem. The upper bound follows from known disk profile plus domain monotonicity, valid beyond convexity; this combination covers the purported novelty of sharp paired bounds.",
+        "searches": [
+          "Resultary: modified Helmholtz planar convex domain distance boundary upper lower Bessel I0 exponential Dirichlet envelope",
+          "Nazarov arXiv:2609.06523v1 Theorem 1",
+          "Kuznetsov arXiv:2403.09382v2 half-plane and disk profiles"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 0d22e9a6f592827fd3b8b171dfa451373865ba09 and all minimal package files",
+        "Nazarov arXiv:2609.06523v1 complete primary HTML, Theorem 1 and Section 3 supporting exponential barrier",
+        "Kuznetsov arXiv:2403.09382v2 full short primary preprint",
+        "DOI:10.3390/axioms7020028 available material on ball/panharmonic solutions",
+        "Resultary modified Helmholtz sharp distance bound search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For all convex Ω, Nazarov proves V_μ(z)=exp(−μs(z))<v_μ(z) using supporting-halfplane comparison; choose contact y minimizing |x−y| to make s(x)=d.",
+          "If B_d(x)⊂Ω, domain comparison gives v_Ω(x)≤v_{B_d(x)}(x)=1/I_0(μd).",
+          "The strong maximum principle gives disk-only equality; tangent disk B_R limit follows directly from I_0(t)~e^t/sqrt(2πt)."
+        ],
+        "reasoning": "These explicit, standard corollaries yield every part of the submitted theorem, including sharpness/attainment/nonattainment. The submission therefore has no surviving novel mathematical core; disclaimers or additional certificates cannot turn it into a PASS.",
+        "searches": [
+          "arXiv:2609.06523v1 Theorem 1 and Section 3",
+          "arXiv:2403.09382v2 explicit halfplane/disk solutions",
+          "DOI:10.3390/axioms7020028 ball formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set w=−μ^{-1} log v. Nazarov already proves |∇w|≤1 for every bounded convex planar domain and every μ>0; integration along the closest boundary segment gives w(x)≤d or v(x)≥e^{-μd}.",
+          "Nazarov Section 3 already compares exactly V_μ=e^{-μs} with the Dirichlet solution."
+        ],
+        "reasoning": "The lower distance envelope is literally the supporting-plane barrier in the prior proof evaluated at a closest boundary point, so changing its presentation to a distance-only optimization does not establish novelty.",
+        "searches": [
+          "Resultary: modified Helmholtz planar convex domain distance boundary upper lower Bessel I0 exponential Dirichlet envelope",
+          "arXiv:2609.06523v1 Theorem 1 and Section 3",
+          "arXiv:2403.09382v2 introductory explicit model domains"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source model tables already contain e^{-μd} and I_0(μd)^{-1} for the half-plane/disk geometry.",
+          "The lower extremizing sequence is the elementary I_0(μ(R−d))/I_0(μR) asymptotic; no uncomputed table or new constant remains."
+        ],
+        "reasoning": "The exact profile functions are familiar explicit solutions and not unknown parameters; the infimum/supremum are immediate via inclusion/supporting comparison.",
+        "searches": [
+          "Resultary: modified Helmholtz planar convex domain distance boundary upper lower Bessel I0 exponential Dirichlet envelope",
+          "Kuznetsov arXiv:2403.09382v2 disk I0 and half-plane exponential examples",
+          "panharmonic Yukawa ball explicit Dirichlet profile"
+        ]
+      },
+      "rationale": "FAIL: The two-sided envelope is mechanically implied by stronger prior results and standard named comparison principles rather than a new theorem. Nazarov (arXiv:2609.06523v1, Theorem 1) already proves |∇v|≤μv throughout every bounded convex Lipschitz planar Ω, which integrated from the boundary gives v(x)≥e^{-μd}; his Section 3 explicitly constructs the supporting-half-plane exponential barrier and proves V_μ<v_μ throughout Ω, yielding the claimed strict lower inequality at the nearest supporting point directly. Kuznetsov (arXiv:2403.09382v2) records exact half-plane exponential and disk Bessel model solutions. The upper bound is the immediately standard maximum-principle domain comparison with the inscribed disk; the equality case follows automatically by the strong principle, while the lower tangent-disk limit is the standard I_0 asymptotic. The full optimization is a direct recombination of those known comparisons, not a distinct mathematical advance; an absence of matching wording is immaterial.",
+      "residual_risks": [
+        "This FAIL assesses novelty and substantive value of this exact assertion, not the validity of the maximum-principle inequalities.",
+        "No theorem is claimed that the exact two-sided envelope was printed in Nazarov verbatim; its implication follows by the explicit steps stated above.",
+        "The submitted scope is planar bounded convex Lipschitz domains; no analogous conclusions for nonconvex/higher dimensions are assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISELY COVERS the strict exponential lower bound and provides stronger all-point log-gradient inequality",
+          "evidence": [
+            "Theorem 1 says |∇v_μ|≤μv_μ for convex planar Ω and all μ>0. Section 3 constructs V_μ=e^{-μx₂}, V_μ|∂Ω≤1, and concludes V_μ<v_μ throughout Ω."
+          ],
+          "identifier_or_url": "arXiv:2609.06523v1; https://arxiv.org/html/2609.06523v1",
+          "material_read": "Complete accessible primary HTML, Introduction Theorem 1, Section 3 proof of if, lines 36-49 and 84-122",
+          "method": "Read full primary mathematical note, checked pointwise theorem and supporting-line strict inequality",
+          "title": "On solutions of the modified Helmholtz equation in a planar domain",
+          "trigger": "Same PDE, convex planar domain, and exact supporting half-plane barrier"
+        },
+        {
+          "assessment": "The source provides classical halfplane/disk model values and background; sharp distance-only combination is automatic from maximum principle",
+          "evidence": [
+            "The explicit halfplane exponential and disk Bessel solutions are the endpoints used in the submitted theorem."
+          ],
+          "identifier_or_url": "arXiv:2403.09382v2; https://www.researchgate.net/publication/378975435_The_convexity_of_a_planar_domain_via_properties_of_solutions_to_the_modified_Helmholtz_equation",
+          "material_read": "Complete accessible primary short preprint: introduction/geometry examples, convexity criterion, and explicit solutions; page image checked",
+          "method": "Read primary text and earlier PDF page image",
+          "title": "The convexity of a planar domain via properties of solutions to the modified Helmholtz equation",
+          "trigger": "Explicit same halfplane and disk model profiles"
+        },
+        {
+          "assessment": "Independent source of classical ball/panharmonic explicit solutions, supporting nonoriginality of the model input",
+          "evidence": [
+            "Exact I_0 radial ball solution is standard panharmonic model."
+          ],
+          "identifier_or_url": "DOI:10.3390/axioms7020028",
+          "material_read": "Accessible article overview and ball-formula material (not an assertion of whole-paper exclusion)",
+          "method": "Open-article and abstract targeted inspection",
+          "title": "Yukawa Potential, Panharmonic Measure and Brownian Motion",
+          "trigger": "Alternative probabilistic or ball model implications"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: Sharp universal distance envelopes are a natural PDE question, but in this precise package both components and their extremizers follow without an additional mathematical obstruction from Nazarov's existing supporting-line barrier, Kuznetsov's explicit disk/half-plane models, ordinary monotonicity and the textbook Bessel asymptotic. No new structural lemma, nontrivial cutoff, boundary classification beyond an immediate equality application, or unknown exact invariant is established. Mathematical correctness and convenient packaging alone do not satisfy the substantive-value requirement.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Correct mathematical claim, but straightforward covered corollary under documented source assumptions.",
+    "No new mathematical theorem can be recovered by merely adding an audit disclaimer or extra numeric validation."
+  ],
+  "schema_version": 1
+}
