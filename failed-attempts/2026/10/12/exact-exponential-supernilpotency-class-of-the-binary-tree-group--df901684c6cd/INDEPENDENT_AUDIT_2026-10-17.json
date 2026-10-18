@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:16:22.543791Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For H_n with only nonzero products a_{2i}a_{2i+1}=a_i, source Example5.4 gives a nonzero balanced product of 2^{n-1} leaves and maximal surviving multiplication depth n-1. Every binary term with more than 2^{n-1} leaves must have depth >=n. By source Theorem4.7 every depth-n term vanishes, so Pol*_{2^{n-1}+1} vanishes; by Theorem3.9 the groupoid is 2^{n-1}-supernilpotent. The published nonzero balanced term of 2^{n-1} distinct variables disproves (2^{n-1}-1)-supernilpotency. Hence least parameters n and 2^{n-1}. Independent bottom-up capacity recursion checked n=3..9 as finite confirmation; general proof uses the elementary binary-tree leaves/depth inequality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original source proves every product of depth n vanishes.",
+          "Any binary term with >2^{n-1} leaves has depth >=n, so all Pol*_{2^{n-1}+1} vanish."
+        ],
+        "reasoning": "The published depth-vanishing theorem is a more general statement that directly implies the precise upper supernilpotency parameter; Example5.4 supplies matching lower witness.",
+        "searches": [
+          "arXiv:2610.03348 Theorem4.7",
+          "arXiv:2610.03348 Example5.4"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md Git blob 0a1b824f3e5f31e5b78901b9c203cfed0c76d03a",
+        "pinned verify_exact_Hn_classes.py Git blob 51a3682ae0cf976a8b3dcb4c574f2da001817410",
+        "arXiv:2610.03348 full primary HTML Theorems3.9,4.7, Example5.4",
+        "Resultary semantic search: nonassociative groupoid H_n binary tree n nilpotent 2^(n-1) supernilpotency class Đurđev Mudrinski"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published: H_n n-nilpotent and not n-1; nonzero term in Pol*_{2^{n-1}}; all depth-n products zero.",
+          "Binary tree counting: >=2^{n-1}+1 variable leaves => multiplication depth >=n; published Theorems3.9 and4.7 imply k=2^{n-1} exact."
+        ],
+        "reasoning": "The full final claim is a deterministic corollary of earlier primary source, not merely same parameters or title. Adding capacity proof and finite checker does not restore originality/value.",
+        "searches": [
+          "arXiv:2610.03348 Theorem3.9, Theorem4.7, Example5.4",
+          "Pinned H_n RESULT.md and verified script"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Theorem3.9: k-supernilpotent iff Pol*_{k+1} all vanish.",
+          "Published Example5.4 exhibits same H_n and nonzero complete balanced 2^{n-1}-variable multiplication term."
+        ],
+        "reasoning": "The identical H_n is studied in the source; its formal higher-commutator definition plus binary-tree depth/leaf count is equivalent to the assigned class computation.",
+        "searches": [
+          "Resultary semantic search: nonassociative groupoid H_n binary tree n nilpotent 2^(n-1) supernilpotency class Đurđev Mudrinski",
+          "arXiv:2610.03348 Theorems 3.9,4.7, Example5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There is no need for an external table: the full balanced bottom product and n-nilpotency are supplied explicitly in the published example.",
+          "Independent n=3..9 recursion confirms but does not contribute a new infinite invariant."
+        ],
+        "reasoning": "Finite exact small n values are known by the source universal depth result and one-line binary combinatorics, not independent database discoveries.",
+        "searches": [
+          "Resultary semantic search: nonassociative groupoid H_n binary tree n nilpotent 2^(n-1) supernilpotency class Đurđev Mudrinski",
+          "arXiv:2610.03348 Example5.4 proof"
+        ]
+      },
+      "rationale": "FAILED: The SAME 2026 primary paper arXiv:2610.03348, Theorem4.7 plus Example5.4, already implies all depth-n terms in the given H_n vanish and supplies a nonzero balanced 2^{n-1}-variable term. Its Theorem3.9 translates zero Pol*_{k+1} to k-supernilpotency. The universal binary-term bound leaves<=2^{depth} immediately yields the claimed upper k=2^{n-1}, while the published witness proves sharpness. So the exact class is already a direct corollary of published results, irrespective of whether the authors explicitly wrote the closed-form parameter.",
+      "residual_risks": [
+        "Scientific rejection is strictly O and V; the numerical class calculation itself is correct.",
+        "The decisive source is the same original arXiv article; there is no access ambiguity about relevant Theorems 3.9, 4.7 and Example 5.4."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: published results imply the exact supernilpotency number after elementary binary-tree leaf bound",
+          "evidence": [
+            "Theorem3.9 polynomial vanishing criterion; Theorem4.7 depth-n vanishing; Example5.4 exact H_n and 2^{n-1} leaf witness"
+          ],
+          "identifier_or_url": "arXiv:2610.03348v1",
+          "material_read": "Full accessible primary arXiv HTML including Theorem3.9, Theorem4.7, Example5.4 and their arguments",
+          "method": "Read source full-text HTML, compared definitions, depth theorem, explicit balanced witness and polynomial criterion",
+          "title": "(Super)nilpotency and solvability in algebras with zero",
+          "trigger": "identical defining H_n and prerequisite higher-commutator theorems"
+        },
+        {
+          "assessment": "Associative semigroup background; does not affect decisive coverage in same source",
+          "evidence": [
+            "Semigroup setting distinguished from nonassociative H_n"
+          ],
+          "identifier_or_url": "DOI:10.1007/s00012-023-00809-5",
+          "material_read": "Bibliographic scope cited in assigned package, no full text read",
+          "method": "Source citation comparison",
+          "title": "Higher commutators in semigroups with zero",
+          "trigger": "prior associative semigroup analogues"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAILED: The assigned leaf capacity function is a correct alternative notation for the elementary full-binary-tree maximum-leaf bound. Since its sharp lower witness and both conversion theorems are published together in the very same paper, the exact numerical parameter requires no substantial new classification, boundary, or unresolved lemma; the arithmetic exponential wording alone does not create independent scientific value.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md Git blob 0a1b824f3e5f31e5b78901b9c203cfed0c76d03a",
+    "pinned verify_exact_Hn_classes.py Git blob 51a3682ae0cf976a8b3dcb4c574f2da001817410",
+    "arXiv:2610.03348 full primary HTML Theorems3.9,4.7, Example5.4",
+    "Resultary semantic search: nonassociative groupoid H_n binary tree n nilpotent 2^(n-1) supernilpotency class Đurđev Mudrinski"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Each finite computation is supporting evidence, not an infinite proof.",
+    "Originality is assessed by mathematical implication and available primary materials, not by unsuccessful search alone.",
+    "Full frozen Git tree enumeration and public-file confidentiality certification were unavailable, so the publication plan is not_ready."
+  ],
+  "residual_risks": [
+    "Scientific rejection is strictly O and V; the numerical class calculation itself is correct.",
+    "The decisive source is the same original arXiv article; there is no access ambiguity about relevant Theorems 3.9, 4.7 and Example 5.4."
+  ],
+  "schema_version": 1
+}
