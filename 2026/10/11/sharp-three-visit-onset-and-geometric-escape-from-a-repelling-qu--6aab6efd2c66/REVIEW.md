@@ -1,19 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact fixed point and second-quadrant branch matrix are reconstructed directly. The branch inequalities through the third visit reduce to an explicit bounded open polygon. Direct integration across its active facets yields both formulas for \(C(b)\) with their sharp junction at \(b=1\). For every point in that polygon, two strict inequalities show that the affine inverse belongs to the same quadrant, and the survivor definition closes the induction for all later times. The determinant of the branch matrix is exactly \(2\), so area halves for each inverse. The matrix is a \(\sqrt2\)-similarity, making the fixed point the unique eternal survivor. An explicit boundary witness for two visits, with a strict inverse-coordinate violation, proves that the three-visit threshold is sharp. Exact rational polygon clipping over several independent parameter choices verifies the algebra but is not used to justify the infinite-parameter or infinite-iterate step.
+PASS
 
-## Originality — PASS, with publication-priority limitation
+In Q2, the affine branch has fixed p_b=(-(b+2)/5,(2b−1)/5), displacement map A=[[-1,−1],[1,−1]], A²=[[0,2],[−2,0]], |det A|=2, AᵀA=2I. With α=(b+2)/5, β=(2b−1)/5, b>1/2 gives α,β>0 and β<2α. Imposing the first three strict Q2 tests gives the stated bounded polygon v>−β,v<α/2, −α−v<u, v−β<u<β/2. Its horizontal-width integral yields C(b)=25β²/8=(2b−1)²/8 for b≤1 and (-2β²+18αβ−3α²)/8=(b²+2b−2)/8 for b>1; the latter integral independently recomputed symbolically. For every S3 point, inverse first component (−u+v)/2<β/2<α and second −(u+v)/2>−β follow from −u+v<β and u<β/2; hence A⁻¹(S3−p)+p⊂Q2 and inductively S_{n+1}=p+A⁻¹(S_n−p), n≥3. Thus area multiplies exactly 1/2 for every visit, diameters contract by 1/√2 and p is the sole eternal survivor. Strict boundary witness w=(α,α+β) gives failure at n2 by interior perturbation, proving sharp cutoff. Under uniform area on S3, tail P(τ≥3+k)=2^{-k}, hence geometric mean exit time 4. Actual rational clipping checker was read and independently symbolic-check for b>1 confirms its area branch; finite parameter tests are not proof for every b.
 
-Cima–Gasull–Mañosa–Mañosas, arXiv:2410.01052v1, Proposition 17 and its proof, already identify the repelling second-quadrant fixed point and establish eventual departure of every other orbit. Its global results concern finite capture by invariant graphs and their subsequent dynamics. Neither the inspected original arXiv full text nor the full-text follow-up arXiv:2503.02411v4 supplies the present two-dimensional \(n\)-visit area, the sharp onset, the parameter-dependent triangle/pentagon transition, or the conditional first-exit law. The separately inspected Krisuk–Soprom–Pantain–Tikjha 2022 paper studies a different normalized parameter regime, whose fixed point is not this repelling second-quadrant focus. Searches using the original map, affine aliases, geometric escape descriptions, and general piecewise-affine survivor terminology did not identify an implication-equivalent result. Broader general techniques for expanding affine escape sets are known, but no covering theorem with this geometry, sharp onset, and parameter formula was found. Unidentified equivalent computations remain a nonzero priority risk; search absence is not conclusive novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The source exhibits a dynamically natural exceptional repelling focus amid global graph capture, but qualitative eventual departure cannot determine its transient phase-volume statistics. The result gives an exact area-based first-exit distribution for arbitrary large residence times, rather than a mere asymptotic exponent; it locates the first iterate at which preimage clipping stops and identifies a real geometric combinatorial transition in the parameter. The distinction between the 3-visit polygon and earlier clipped regions supplies substantive structure beyond reading the linear Jacobian. It is a complete quantitative local-transient classification for the declared quadrant and sampling law, without claims about other itineraries or arbitrary initial densities.
+Cima–Gasull–Mañosa–Mañosas, arXiv:2410.01052 Proposition 17 identifies the repelling Q2 fixed point and says no other point survives forever, but does not state the exact full-parameter finite visit polygon, area profile, earliest inverse-similarity onset or conditional geometric first-exit distribution. Their subsequent entropy paper concentrates on graph-supported asymptotic dynamics, not 2D transient area. Related published SCOPE repelling-cycle and ultradiscrete Selkov first-exit laws are DIFFERENT maps or itineraries; shared halving factors from expanding branches are not an implication of the exact Q2 n3 cutoff and C(b). No strong prior containing the precise area phase and all-time survival formula was found; residual risk of independent piecewise-affine residence-time calculations remains.
 
-## Limits and comparison
+## value
 
-The 2024 fixed-point and eventual-departure facts are prior results, not claimed contributions. The later authors' work studies invariant-graph-supported entropy and \(\omega\)-limits. The parameter range is deliberately \(b>1/2\); the probability measure is normalized Lebesgue measure on \(S_3\). The proof does not imply a global return-time distribution after leaving the quadrant. General linear escape-polygon theory and possible unpublished derivations remain publication-priority risks.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Finite-time escape and initial-condition area near an explicitly repelling focus quantify transient dynamics beyond qualitative eventual departure. An exact sharp onset index, polygon combinatorial transition at b=1, global geometric law and parameter-dependent area are motivated structural measurements of a naturally studied absolute-value map. Their nontrivial branch geometry prevents classification as routine linear-algebra relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
