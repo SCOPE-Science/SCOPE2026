@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T02:51:42.452706Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized inverse Fourier transforms are absolutely meaningful as improper integrals because sin(p_j)/E(p)=O(1/|p|) and (cos p1-cos p2)/E(p)=O(1) near 0. With square-lattice potential kernel a(x), formal Green G=C-a/2 cancels in the differences: R_j=(a(x-e_j)-a(x+e_j))/(4i), Q=-(a(x+e1)+a(x-e1)-a(x+e2)-a(x-e2))/4. Applying the published a(x)=2/pi log r + const -cos(4θ)/(6pi r²)+O(r^-4) gives R_j=i x_j/(pi r²)+O(r^-3) and Q=(x1²-x2²)/(pi r^4)+O(r^-4), uniformly in lattice direction. The published correction contributes only error order; the bundled numerical checker tests leading logarithmic finite differences and cannot alone prove asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Friedrich–Levine potential-kernel expansion includes 2/pi log r and a smooth anisotropic O(r^-2) term; it applies to all lattice directions and all integer x at infinity."
+        ],
+        "reasoning": "It is broader as a lattice-kernel asymptotic: its finite differences automatically control arbitrary fixed finite-difference multipoles, including exactly the two here.",
+        "searches": [
+          "Resultary semantic query: square lattice discrete Schrodinger threshold resonance odd sin p / E dipole asymptotic eigenstate cos p1-cos p2 / E quadrupole spatial tail",
+          "primary source read: arXiv:1006.1003 equation (11)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1804.05339",
+        "arXiv:1006.1003",
+        "arXiv:math probability DOI:10.1214/aop/1041903213 (background potential kernel, not inspected full)",
+        "Resultary assigned subject result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hiroshima et al. threshold factors sin p_j/E and (cos p1-cos p2)/E; Friedrich–Levine a(x)=2/pi log|x|+kappa+O(|x|^-2) with refined anisotropic correction."
+        ],
+        "reasoning": "Two published primary statements plus the elementary Fourier multiplier shift give R_j=(a(x-ej)-a(x+ej))/(4i) and Q=negative quarter of the axis-second-difference difference. Taking derivatives of log r gives the claimed coefficients and errors. Therefore the final claim is an immediate corollary of prior information even in the absence of identical titles or wording.",
+        "searches": [
+          "Resultary semantic query: square lattice discrete Schrodinger threshold resonance odd sin p / E dipole asymptotic eigenstate cos p1-cos p2 / E quadrupole spatial tail",
+          "primary source read: arXiv:1804.05339 §3/§4",
+          "primary source read: arXiv:1006.1003 equation (11)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hiroshima–Muminov–Kuljanov give the normalized functions sin p_j/E(p), (cos p1-cos p2)/E(p); the inverse Fourier transform of 1/E(p) is the recurrent square-lattice Green function, whose differences are the potential kernel."
+        ],
+        "reasoning": "The theorem is precisely the first/second coordinate finite differences of the classical potential-kernel asymptotic. This equivalent formulation entails the claimed multipole coefficients without any extra unknown spectral input.",
+        "searches": [
+          "Resultary semantic query: square lattice discrete Schrodinger threshold resonance odd sin p / E dipole asymptotic eigenstate cos p1-cos p2 / E quadrupole spatial tail",
+          "primary source read: arXiv:1804.05339 threshold functions",
+          "primary source read: arXiv:1006.1003 potential kernel expansion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No numeric or spectral table is needed: the claimed constants are derivatives of the published coefficient 2/pi in the lattice potential kernel; Resultary exact subject hit is not independent priority proof."
+        ],
+        "reasoning": "Exact_database_or_table is inapplicable to novelty because the stronger exact published asymptotic formula, not a tabulation, dominates the calculations.",
+        "searches": [
+          "Resultary semantic query: square lattice discrete Schrodinger threshold resonance odd sin p / E dipole asymptotic eigenstate cos p1-cos p2 / E quadrupole spatial tail",
+          "primary source read: arXiv:1006.1003 equation (11)"
+        ]
+      },
+      "rationale": "The asserted spatial asymptotics are a direct routine consequence of two existing exact source statements: Hiroshima–Muminov–Kuljanov identify the very same normalized threshold momentum functions, and Friedrich–Levine state the complete square-lattice potential-kernel expansion with the leading logarithm and anisotropic O(r^-2) term. Fourier shift identities and one elementary Taylor differentiation immediately force both coefficients and orders. This is prior implication coverage even though no one earlier source phrases it as dipole/quadrupole tails.",
+      "residual_risks": [
+        "The adjacent 2022 broader lattice perturbation article was not available/read in full; this does not affect the independent implication already established from accessible older formulas.",
+        "The Fourier sign convention must remain e^{+ip·x}, with R_j purely imaginary, and is handled by the displayed shifts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS necessary momentum inputs",
+          "evidence": "Sin p_j/E and (cos p1-cos p2)/E formulas are already explicit",
+          "identifier_or_url": "arXiv:1804.05339",
+          "material_read": "Dimension-two lower-threshold even and odd eigenfunction/resonance formulas (notably lemma 3.25 and odd threshold section)",
+          "method": "Accessible primary arXiv full-text relevant results",
+          "title": "Threshold of discrete Schrödinger operators with delta potentials on n-dimensional lattice",
+          "trigger": "Exact threshold-state momentum factors"
+        },
+        {
+          "assessment": "COVERS required infinite-distance analytic input",
+          "evidence": "a(x)=2/pi log r +const -cos(4θ)/(6pi r²)+O(r^-4) yields asymptotic after fixed differences",
+          "identifier_or_url": "arXiv:1006.1003",
+          "material_read": "Displayed square-lattice potential kernel expansion including logarithm and cos(4θ)/r² correction",
+          "method": "Accessible arXiv full-text relevant expansion, Fourier shift reasoning",
+          "title": "Fast simulation of large-scale growth models",
+          "trigger": "Classical square-lattice potential-kernel full expansion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Spatial localization profiles of the threshold resonance/eigenfunction are motivated mathematical information, distinguishing dipole r^-1 from quadrupole r^-2 decay and nodal directions. The fact may aid finite-volume and defect interactions despite having a short derivation; this value does not cure the lack of originality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "O fails because the exact multipole formulas are routine direct consequences of already published momentum states and square-lattice potential-kernel expansion; no repair by disclaimer/extra certificate.",
+    "Normalized nearest-neighbor two-dimensional lower-threshold profiles only; no spectral off-threshold extension."
+  ],
+  "schema_version": 1
+}
