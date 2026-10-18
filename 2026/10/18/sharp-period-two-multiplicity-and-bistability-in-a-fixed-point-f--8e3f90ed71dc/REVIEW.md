@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** For every admissible positive triple, both branches move states strictly in opposite directions, so each period-two orbit must alternate branches. The exact quartic in the left-branch coordinate has a derivative decreasing then increasing on the nonnegative interval; Rolle's theorem bounds its distinct roots by three. A rational example has three roots proved by four exact sign evaluations. Its roots are simple and the derivative relation \(H'(t)=b(1-m(t))\) gives precisely two multipliers in \((0,1)\) and one greater than one. Persistence uses the implicit-function theorem, and the supplied standard-library checker reproduces the rational tests. Boundary conventions and admissibility are explicit.
+
+**Originality — PASS (with residual literature risk).** The complete relevant definition, original lemma, numerical phase/chaos figures, and conclusions of Lawnik–Moysis–Volos (2023) were examined; they do not give the sharp period-two census or the rational coexistence witness. Earlier affine gap-map studies do not dominate this quadratic return-count result. The closely related 2024 Lawnik–Moysis–Baptista–Volos article uses a different construction; only its abstract/preview was accessible, so broad undiscovered prior coverage remains a residual risk. Targeted mathematical-record searches found no directly implying statement; this is not a certification of global publication priority.
+
+**Value — PASS.** This is a complete sharp natural multiplicity bound for the first nontrivial period in a fixed-point-free interval map, with an explicit open set of coexisting sinks. The originating paper motivates suppressing undesirable stationary or periodic nonchaotic behavior in generated maps; showing two stable period-two orbits despite no equilibria is a substantive dynamical counterpoint to numerical Lyapunov charts, not merely another parameter sample. No downstream theorem is asserted.
+
+**Scientific limitations:** Higher periods, global basins and applications' security are not determined; the isolated coexisting cycles do not imply anything about all orbits. The 2024 accepted manuscript could not be inspected fully. Independent mathematical verification and comprehensive priority checking have not been conducted.
+
+Self-review: passed. Independent audit: not yet performed.
