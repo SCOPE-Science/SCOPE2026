@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-From a directory containing all three standalone attachments, run `python3 verify.py` and `c++ -std=c++17 -O2 verify_independent.cpp -o verify_independent && ./verify_independent`. Python checks all 65,536 masks by both direct signature comparison and separation-set transversals; it also checks the 88-constraint reduction, the 96-automorphism enumeration, and all orbit representatives against the CSV. C++ reconstructs the same graph independently and performs a complete direct-signature census.
+## correctness
 
-Observed outputs:
+PASS
 
-```text
-VERIFY_PY_OK GP(8,3) vertices=16 edges=24 bipartition=8+8 constraints=136 minimal_constraints=88
-VERIFY_PY_OK every_mask=65536 signatures_and_hitting_agree minimum=8 minimum_codes=584
-VERIFY_PY_OK polynomial=8:584,9:3840,10:5440,11:3888,12:1780,13:560,14:120,15:16,16:1
-VERIFY_PY_OK min_bipartition_profiles=(0, 8):2,(1, 7):48,(2, 6):72,(3, 5):192,(4, 4):270
-VERIFY_PY_OK automorphisms=96 optimum_orbits=13 orbit_sizes=2,6,24,24,48,48,48,48,48,48,48,96,96
-VERIFY_CPP_OK vertices=16 all_masks=65536 minimum=8 minimum_identifying_codes=584 polynomial=8:584,9:3840,10:5440,11:3888,12:1780,13:560,14:120,15:16,16:1
-```
+For GP(8,3), with 16 vertices, graph adjacency specified by u_i u_{i+1}, u_i v_i, v_i v_{i+3}, closed-neighborhood signatures are nonempty and distinct exactly for identifying codes. Every subset is one of 65536 16-bit masks. A fresh independent enumeration of all 65536 masks produced 16229 identifying codes and coefficients 584,3840,5440,3888,1780,560,120,16,1 at sizes 8–16, zero below 8. Using the graph edges independently, a graph-automorphism enumeration recovered order 96 and orbit partition of 584 min codes into sizes 2,6,24,24,48,48,48,48,48,48,48,96,96, agreeing with the actual orbits.csv. Source verify.py also derives the 136 closed-neighborhood/symmetric-difference hitting constraints; 88 smaller 4/6-size constraints dominate all 48 eight-size ones. This is exhaustive finite certification for this graph, not an infinite-family claim.
 
-The domain is finite and the loops cover it exhaustively. This verifies the given finite graph only; the checks do not establish external historical priority, publication acceptance, or an independent audit.
+## originality
+
+PASS
+
+Best-of-knowledge originality limited to the specifically unpreempted structural/classification content. There is no implication from the broader published structural incidence facts or an automorphism group alone to the exact 584 minima/13 orbit decomposition without analyzing every identifying subset.
+
+## value
+
+PASS
+
+Identifying codes are standard selected-landmark locating structures for a highly symmetric, smallest cubic 16-vertex bipartite graph. A full size distribution, extremal count and classification into thirteen full-automorphism orbits are mathematically motivated exact invariants usable for small-graph benchmarks and symmetry tests, beyond an isolated optimum value. The finite full census is a complete proof for the explicitly fixed graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

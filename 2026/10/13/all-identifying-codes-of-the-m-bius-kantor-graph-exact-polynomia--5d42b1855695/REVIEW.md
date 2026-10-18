@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph is fully specified by its generalized Petersen edge formulas. A code is exactly a transversal of the closed-neighborhood and pairwise symmetric-difference constraints. All 136 distinct constraints and their 88-element reduced family were recomputed. A complete scan of every one of the \(2^{16}=65536\) vertex masks, using both direct signatures and the transversal characterization, confirms each enumerator coefficient, the sharp lower bound of eight, and the count 584. An independently written C++ checker reproduces the full enumerator. Adjacency-preserving backtracking constructs every one of the 96 automorphisms and proves the thirteen-orbit partition.
+## correctness
 
-**Originality — PASS, with priority risk.** The closest primary study, Araujo-Pardo et al., establishes structural criteria for whether *all* vertex sets of small fault multiplicities can be distinguished by the whole vertex set, rather than computing minimum ordinary identifying codes or their cardinality generating polynomial for this individual graph. The full conference article and published paper were compared at the level of definitions, results and examples. Foucaud et al.'s edge-identifying codes are identifying codes of the line graph, not the original Möbius–Kantor vertex set. Targeted searches of this graph's aliases, published-finding corpus records, existing research claims, and combinations of the optimum count and polynomial found no equivalent or stronger coverage. Absence from searches is not proof of priority; an unindexed or unpublished exact census remains possible.
+PASS
 
-**Value — PASS.** A complete identification polynomial and a symmetry classification give all feasible single-vertex detection placements for a classical highly symmetric cubic incidence graph, not merely a small numerical improvement. The thirteen non-equivalent optimal configurations and their bipartition distribution quantify meaningful structural alternatives for an established identifying-code invariant, and the exact constraints furnish a reproducible finite classification.
+For GP(8,3), with 16 vertices, graph adjacency specified by u_i u_{i+1}, u_i v_i, v_i v_{i+3}, closed-neighborhood signatures are nonempty and distinct exactly for identifying codes. Every subset is one of 65536 16-bit masks. A fresh independent enumeration of all 65536 masks produced 16229 identifying codes and coefficients 584,3840,5440,3888,1780,560,120,16,1 at sizes 8–16, zero below 8. Using the graph edges independently, a graph-automorphism enumeration recovered order 96 and orbit partition of 584 min codes into sizes 2,6,24,24,48,48,48,48,48,48,48,96,96, agreeing with the actual orbits.csv. Source verify.py also derives the 136 closed-neighborhood/symmetric-difference hitting constraints; 88 smaller 4/6-size constraints dominate all 48 eight-size ones. This is exhaustive finite certification for this graph, not an infinite-family claim.
 
-The finite theorem does not extend automatically to every cubic graph or every generalized Petersen graph. A published matching exact table, if discovered, would change the priority assessment; no external audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality limited to the specifically unpreempted structural/classification content. There is no implication from the broader published structural incidence facts or an automorphism group alone to the exact 584 minima/13 orbit decomposition without analyzing every identifying subset.
+
+## value
+
+PASS
+
+Identifying codes are standard selected-landmark locating structures for a highly symmetric, smallest cubic 16-vertex bipartite graph. A full size distribution, extremal count and classification into thirteen full-automorphism orbits are mathematically motivated exact invariants usable for small-graph benchmarks and symmetry tests, beyond an isolated optimum value. The finite full census is a complete proof for the explicitly fixed graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
