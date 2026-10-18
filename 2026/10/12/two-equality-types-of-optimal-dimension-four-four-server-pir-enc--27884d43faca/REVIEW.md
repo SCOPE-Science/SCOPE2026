@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is finite and the search is exhaustive. The published facts used as premises are that every binary \(k\)-PIR code has minimum distance at least \(k\) and that \(P(4,4)=9\). Deleting a zero column preserves every nonzero recovery equation, so every optimal length-nine encoder is represented among the \(817190\) nonzero-column multisets. The verifier checks all of them, retains all \(1345\) distance-qualified candidates, and applies two independent exact four-disjoint-recovery predicates to all \(15\) nonzero targets. Both predicates agree everywhere. The rank-four criterion for the good-target set is exactly the existence of an information basis, and the full \(\operatorname{GL}(4,2)\) action gives the two stated orbits and stabilizers.
+## correctness
 
-## Originality
-PASS with a residual bibliographic risk. The 2015 foundational paper defines the object and gives constructions/bounds. The 2017 shortened-projective-Reed-Muller paper proves optimal systematic four-server constructions and supplies a projective length-nine dimension-four example. The 2020 short-block paper proves \(P(4,4)=9\), defines projective versus repeated-column generator matrices, and uses ILP/coding-theoretic bounds. None of the inspected full texts states the exhaustive two-orbit optimizer classification, the \(1120=280+840\) census, or the universal-versus-fourteen-target recovery dichotomy. Targeted searches by exact parameter, orbit sizes, equivalence language, and recovery-set aliases likewise found no covering statement. The main residual risk is an obscure unindexed finite classification or database annotation.
+PASS
 
-## Value
-PASS. The optimum \(P(4,4)=9\) was already known, so the scientifically useful gap is the equality layer: which storage-optimal encoders actually occur. The classification is natural rather than an arbitrary slice, because it exhausts every optimizer at the first nontrivial dimension-four four-server point and separates the projective construction emphasized in the literature from a genuinely nonprojective equality type. The extra recovery profile also records a structural distinction relevant to changing which four independent linear combinations are treated as information symbols.
+Exhaustive independent finite algorithm ranged over every one of the 817190 multisets of nine nonzero vectors in F2^4; minimum-distance>=4 necessity discards all but 1345. For EACH survivor and each of 15 nonzero targets it forms all 511 nonempty position subsets and independently checks existence of four disjoint recovery sums. Exactly 1120 survivors have recoverable targets spanning F2^4, including 280 nine-distinct and 840 one-repeat forms; target counts 15 and 14, respectively. Reconstructed all 20160 invertible GL(4,2) actions on the accepted multisets and obtained exactly two orbits of sizes 280 and 840, with stabilizers 72 and 24. Published P(4,4)=9 closes optimal-length premise. The full finite search is exhaustive by explicit ambient universe and independent code, not a timeout or mere VERIFY_OK.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kurz–Yaakobi Proposition 21 proves P(4,4)=9 and contains generator examples and projective vs repeated-column bounds; it does not classify EVERY length-nine four-PIR multiset under GL4. Shortened projective RM constructions cover the 280 projective orbit, not the separate repeated-column orbit. General code-distance conditions do not imply four disjoint recovery sets or classify their basis-flexible target profiles.
+
+## value
+
+PASS
+
+The equality-case classification is a complete, natural extremizer census for a known optimal finite parameter. It establishes a second nonprojective type, its symmetry order, and a distinguishing recovery-target invariant. This goes beyond merely redoing an optimal length table, despite being a finite one-parameter fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

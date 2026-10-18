@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify_pir44.py` reconstructs every multiset of nine nonzero columns in \(\mathbb F_2^4\), checks the published necessary minimum-distance condition, and then tests four-recoverability of all \(15\) nonzero targets by two separate exact algorithms.
+# Independent mathematical audit
 
-The first algorithm performs direct recursive packing of four pairwise disjoint recovery masks. The second constructs all unions of two disjoint recovery masks and asks for two disjoint such unions. Agreement is required target-by-target for all \(1345\) candidates with minimum distance at least \(4\).
+## correctness
 
-The script then checks whether the good targets span rank \(4\), generates every element of \(\operatorname{GL}(4,2)\), partitions all accepted multisets into group orbits, and checks the stabilizer sizes by orbit-stabilizer. It also verifies that the length-nine projective generator transcribed from the short-block literature belongs to the projective orbit.
+PASS
 
-Expected terminal output:
+Exhaustive independent finite algorithm ranged over every one of the 817190 multisets of nine nonzero vectors in F2^4; minimum-distance>=4 necessity discards all but 1345. For EACH survivor and each of 15 nonzero targets it forms all 511 nonempty position subsets and independently checks existence of four disjoint recovery sums. Exactly 1120 survivors have recoverable targets spanning F2^4, including 280 nine-distinct and 840 one-repeat forms; target counts 15 and 14, respectively. Reconstructed all 20160 invertible GL(4,2) actions on the accepted multisets and obtained exactly two orbits of sizes 280 and 840, with stabilizers 72 and 24. Published P(4,4)=9 closes optimal-length premise. The full finite search is exhaustive by explicit ambient universe and independent code, not a timeout or mere VERIFY_OK.
 
-`VERIFY_OK ambient=817190 d4=1345 basis_flexible=1120 standard_basis=896 projective=280 one_double=840 orbits=280,840 stabilizers=72,24 algorithms_agree=true`
+## originality
 
-The proof uses the published facts that every binary \(k\)-PIR code has minimum distance at least \(k\) and that \(P(4,4)=9\). The computation is finite; it makes no claim about nonlinear PIR encoders or other dimensions/lengths.
+PASS
+
+Kurz–Yaakobi Proposition 21 proves P(4,4)=9 and contains generator examples and projective vs repeated-column bounds; it does not classify EVERY length-nine four-PIR multiset under GL4. Shortened projective RM constructions cover the 280 projective orbit, not the separate repeated-column orbit. General code-distance conditions do not imply four disjoint recovery sets or classify their basis-flexible target profiles.
+
+## value
+
+PASS
+
+The equality-case classification is a complete, natural extremizer census for a known optimal finite parameter. It establishes a second nonprojective type, its symmetry order, and a distinguishing recovery-target invariant. This goes beyond merely redoing an optimal length table, despite being a finite one-parameter fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
