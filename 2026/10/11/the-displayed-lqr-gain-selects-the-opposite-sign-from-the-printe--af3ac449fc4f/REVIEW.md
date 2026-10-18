@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim reduces to finite exact matrix arithmetic on quantities printed by the source. The bundled verifier treats every displayed decimal as a rational number, reproduces both CARE residuals, derives the characteristic polynomials, and checks strict quartic Routh–Hurwitz inequalities. The stability margins are large, and the conclusion does not depend on numerical eigenvalue rounding.
+## correctness
 
-## Originality
-PASS. Searches covered the exact DOI and title, the distinctive entries \(13.9065\) and \(9.1334\), Riccati/gain-sign terminology, and the equivalent closed-loop forms \(A-P\) and \(A+P\). The closest same-source result is about the oscillator's equilibrium zero mode and center drift; it does not analyze the controller. Standard LQR literature supplies the sign convention but not this source-specific consistency test. No checked published record implied the final claim.
+PASS
 
-## Value
-PASS. A literal sign choice changes the linear error dynamics from exponentially stable to exponentially unstable. Identifying the reproducible convention therefore prevents a concrete implementation failure and clarifies how the source's displayed gain can coexist with its reported synchronization plots. The claim is narrowly scoped and does not overreach to unrelated dynamics.
+Restricted precisely to Fu–Xu–Xiao's Section4 A, B=I4, Q=100I4, R=I4, and four-decimal displayed P=K, not unprinted simulation gains. Independent exact SymPy rational matrix arithmetic gives ||AᵀP+PA−P²+100I||max=1789/2000000=0.0008945, but printed-sign ||AᵀP+PA+P²−100I||max=5532161073/25000000=221.28644292. Independently reconstructed exact char polynomials for A−P and −(A+P). Each quartic has positive coefficients and positive Δ2,Δ3: 23744.94394709726 and 95105361.59314738 for A−P; 25060.094866157262 and 83523730.59155181 for −(A+P). Routh–Hurwitz proves A−P Hurwitz and A+P strictly anti-Hurwitz. Therefore literal printed negative K flips the sign of stabilization. It does not prove which feedback was used in unavailable nonlinear simulation code, nor that source plots are false. Inspected source exact Fraction and Faddeev–LeVerrier verifier blob 0490f0ef10ebd33b89148b61a1000e1dad01c9d5.
 
-## Closest literature and limitations
-The primary Fu–Xu–Xiao article is the decisive source. A published continuous-time LQR derivation independently confirms the standard feedback and CARE signs. The closest same-source database record addresses equilibrium structure, not control; the closest analogous sign-correction record concerns a different gyrostat system. An unindexed correction remains a residual originality risk, and the unrounded internal gain is unavailable, but neither affects the exact sign separation for the displayed matrix.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source paper itself provides A and P and a contradictory gain formula, which is fully credited. The independently exact residual separation and Routh–Hurwitz confirmation of open-right-half-plane A+P are source-specific consequences not written in the source; a similar correction on a different oscillator would not imply these numbers. The contribution is a reproducibility/safety clarification, not a new LQR theorem. No separate public erratum for this exact matrix found in queried sources; priority risk remains.
+
+## value
+
+PASS
+
+The source is a published control/synchronization calculation. The error is not a cosmetic minus sign: if a reader implements the source's printed K=−P in its own A−BK feedback formula, the reconstructed linear error dynamics has every eigenvalue in the unstable right half-plane rather than being Hurwitz. The exact four-dimensional certificate directly resolves reproducibility and potential control-system interpretation, a substantive motivation for an otherwise elementary sign check. It is not claimed as a new Riccati theorem or proof of actual hardware failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

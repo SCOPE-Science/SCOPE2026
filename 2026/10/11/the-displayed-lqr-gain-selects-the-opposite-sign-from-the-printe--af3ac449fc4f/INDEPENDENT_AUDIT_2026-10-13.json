@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T19:14:20.561770Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/the-displayed-lqr-gain-selects-the-opposite-sign-from-the-printe--af3ac449fc4f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/the-displayed-lqr-gain-selects-the-opposite-sign-from-the-printe--af3ac449fc4f/verification/verify_lqr_signs.py"
+      ],
+      "rationale": "Restricted precisely to Fu–Xu–Xiao's Section4 A, B=I4, Q=100I4, R=I4, and four-decimal displayed P=K, not unprinted simulation gains. Independent exact SymPy rational matrix arithmetic gives ||AᵀP+PA−P²+100I||max=1789/2000000=0.0008945, but printed-sign ||AᵀP+PA+P²−100I||max=5532161073/25000000=221.28644292. Independently reconstructed exact char polynomials for A−P and −(A+P). Each quartic has positive coefficients and positive Δ2,Δ3: 23744.94394709726 and 95105361.59314738 for A−P; 25060.094866157262 and 83523730.59155181 for −(A+P). Routh–Hurwitz proves A−P Hurwitz and A+P strictly anti-Hurwitz. Therefore literal printed negative K flips the sign of stabilization. It does not prove which feedback was used in unavailable nonlinear simulation code, nor that source plots are false. Inspected source exact Fraction and Faddeev–LeVerrier verifier blob 0490f0ef10ebd33b89148b61a1000e1dad01c9d5.",
+      "residual_risks": [
+        "Calculation says nothing about unprinted numerical gain, actual implementation, nonlinear global stability, or reported synchronization plots."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original article has the numeric data and formulas but does not identify and resolve their contradiction.",
+          "Textbook CARE establishes convention but not the paper-specific exact residuals and anti-Hurwitz certificate."
+        ],
+        "reasoning": "Prior generic control theory is credited and not represented as original; no separately checked theorem supplies the exact sign diagnosis without applying it to the displayed data.",
+        "searches": [
+          "DOI:10.3390/math11010011 Section4",
+          "SciPy continuous CARE docs"
+        ]
+      },
+      "checked_sources": [
+        "https://www.mdpi.com/2227-7390/11/1/11",
+        "https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve_continuous_are.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The printed equations plus P=K are mutually inconsistent; source already contains this simple observation implicitly.",
+          "Exact stability reversal of literal K=−P is not the stability promised by the source; A+P has all four eigenvalues in right half plane."
+        ],
+        "reasoning": "This is a narrow documented source correction rather than a universal novel result. Its accepted scope is the numerical stability demonstration and concrete controller reproducibility consequence, not textbook algebra.",
+        "searches": [
+          "DOI:10.3390/math11010011 Section4",
+          "SciPy continuous CARE formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source displays P=K although printed Eq23 is K=−P for B=R=I; hence equivalent issue is literal closed-loop A+P versus intended A−P.",
+          "Standard CARE residual 0.0008945 while opposite residual 221.28644292 for rounded displayed P."
+        ],
+        "reasoning": "The claim is a source-specific sign-consistency and stability comparison, not a generic LQR formula; all aliases describe the same printed discrepancy.",
+        "searches": [
+          "Fu Xu Xiao memristor hyperchaotic oscillator LQR Riccati gain sign convention P matrix stability [Resultary internal error]",
+          "LQR Riccati sign memristor Fu Xu Xiao [GitHub SCOPE code search no matches]",
+          "DOI:10.3390/math11010011 Section4 equations22–23",
+          "scipy.linalg.solve_continuous_are standard CARE"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-decimal matrix is already printed verbatim; the new quantities are rational residuals and exact stability tests on it, not newly measured numbers.",
+          "No checked erratum/table in source supplies both error sign cases and exact Routh–Hurwitz analysis."
+        ],
+        "reasoning": "A numerical matrix table alone makes the analysis reproducible but does not itself state the certified consequence; any unknown publisher corrigendum remains residual risk.",
+        "searches": [
+          "Fu Xu Xiao memristor hyperchaotic oscillator LQR Riccati gain sign convention P matrix stability [Resultary internal error]",
+          "LQR Riccati sign memristor Fu Xu Xiao [GitHub SCOPE code search no matches]",
+          "MDPI 2022 source numerical P entries and Eq22–23"
+        ]
+      },
+      "rationale": "The source paper itself provides A and P and a contradictory gain formula, which is fully credited. The independently exact residual separation and Routh–Hurwitz confirmation of open-right-half-plane A+P are source-specific consequences not written in the source; a similar correction on a different oscillator would not imply these numbers. The contribution is a reproducibility/safety clarification, not a new LQR theorem. No separate public erratum for this exact matrix found in queried sources; priority risk remains.",
+      "residual_risks": [
+        "The original article already prints the matrix and contradictory signs; an unknown erratum or independent reanalysis may have pointed this out.",
+        "Calculation says nothing about unprinted numerical gain, actual implementation, nonlinear global stability, or reported synchronization plots.",
+        "Scientific value derives from concrete unstable-versus-stable feedback consequence; absent that, mere LQR sign observation would be a cheap textbook check.",
+        "Resultary semantic search endpoint returned an internal error; negative code search is not priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source prints CARE with +PBR^{-1}B^TP−Q and K=−R^{-1}B^TP but subsequently writes P=K as a positive matrix and closed loop A−BK. This is an internal inconsistency, not a reported erratum. It supplies raw data but not the exact rational residual and Hurwitz-versus-anti-Hurwitz demonstration.",
+          "evidence": [
+            "Eq22 has +quadratic and −Q, Eq23 has K=−R^{-1}B^TP, while displayed P=K has positive diagonal.",
+            "Eq18 closed loop A−BK and Eq20 u_L=−Kx."
+          ],
+          "identifier_or_url": "https://www.mdpi.com/2227-7390/11/1/11; DOI:10.3390/math11010011",
+          "material_read": "Accessible cached primary full article Sections 2 and 4, equations (15)–(23), displayed numeric A/P and Q=100I4, R=I4, and synchronization discussion read",
+          "method": "Exact primary equation-by-equation comparison",
+          "title": "LQR Chaos Synchronization for a Novel Memristor-Based Hyperchaotic Oscillator",
+          "trigger": "The paper whose equations and numerical gain are corrected; same matrices and sign formulas"
+        },
+        {
+          "assessment": "Standard ARE: AᵀP+PA−PBR^{-1}BᵀP+Q=0. This textbook formula alone cannot select the published four-decimal P or its stable/unstable eigenvalue behavior without source-specific calculation.",
+          "evidence": [
+            "Doc equation X A + Aᴴ X − XBR^{-1}BᴴX + Q=0."
+          ],
+          "identifier_or_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve_continuous_are.html",
+          "material_read": "Standard continuous-time ARE equation in documentation; used only as formula check",
+          "method": "Compare established generic CARE convention",
+          "title": "SciPy solve_continuous_are documentation",
+          "trigger": "Independent reference for correct control-theoretic Riccati sign"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/the-displayed-lqr-gain-selects-the-opposite-sign-from-the-printe--af3ac449fc4f/RESULT.md",
+        "https://www.mdpi.com/2227-7390/11/1/11",
+        "https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve_continuous_are.html"
+      ],
+      "rationale": "The source is a published control/synchronization calculation. The error is not a cosmetic minus sign: if a reader implements the source's printed K=−P in its own A−BK feedback formula, the reconstructed linear error dynamics has every eigenvalue in the unstable right half-plane rather than being Hurwitz. The exact four-dimensional certificate directly resolves reproducibility and potential control-system interpretation, a substantive motivation for an otherwise elementary sign check. It is not claimed as a new Riccati theorem or proof of actual hardware failure.",
+      "residual_risks": [
+        "The original article already prints the matrix and contradictory signs; an unknown erratum or independent reanalysis may have pointed this out."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/the-displayed-lqr-gain-selects-the-opposite-sign-from-the-printe--af3ac449fc4f/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/the-displayed-lqr-gain-selects-the-opposite-sign-from-the-printe--af3ac449fc4f/verification/verify_lqr_signs.py",
+    "https://www.mdpi.com/2227-7390/11/1/11",
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve_continuous_are.html"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The claim is assessed solely in its submitted mathematical scope; no formal proof assistant or expert attestation is inferred from computation.",
+    "Scientific PASS is a bounded evidence-backed decision, not a claim of publication, independent external certification, or perfect bibliographic coverage.",
+    "Read-only audit: assigned source tree was inspected at the frozen commit; no GitHub, dispatcher closeout or publication writes were performed."
+  ],
+  "residual_risks": [
+    "The original article already prints the matrix and contradictory signs; an unknown erratum or independent reanalysis may have pointed this out.",
+    "Calculation says nothing about unprinted numerical gain, actual implementation, nonlinear global stability, or reported synchronization plots.",
+    "Scientific value derives from concrete unstable-versus-stable feedback consequence; absent that, mere LQR sign observation would be a cheap textbook check."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Source prints CARE with +PBR^{-1}B^TP−Q and K=−R^{-1}B^TP but subsequently writes P=K as a positive matrix and closed loop A−BK. This is an internal inconsistency, not a reported erratum. It supplies raw data but not the exact rational residual and Hurwitz-versus-anti-Hurwitz demonstration.",
+      "evidence": [
+        "Eq22 has +quadratic and −Q, Eq23 has K=−R^{-1}B^TP, while displayed P=K has positive diagonal.",
+        "Eq18 closed loop A−BK and Eq20 u_L=−Kx."
+      ],
+      "identifier_or_url": "https://www.mdpi.com/2227-7390/11/1/11; DOI:10.3390/math11010011",
+      "material_read": "Accessible cached primary full article Sections 2 and 4, equations (15)–(23), displayed numeric A/P and Q=100I4, R=I4, and synchronization discussion read",
+      "method": "Exact primary equation-by-equation comparison",
+      "title": "LQR Chaos Synchronization for a Novel Memristor-Based Hyperchaotic Oscillator",
+      "trigger": "The paper whose equations and numerical gain are corrected; same matrices and sign formulas"
+    },
+    {
+      "assessment": "Standard ARE: AᵀP+PA−PBR^{-1}BᵀP+Q=0. This textbook formula alone cannot select the published four-decimal P or its stable/unstable eigenvalue behavior without source-specific calculation.",
+      "evidence": [
+        "Doc equation X A + Aᴴ X − XBR^{-1}BᴴX + Q=0."
+      ],
+      "identifier_or_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve_continuous_are.html",
+      "material_read": "Standard continuous-time ARE equation in documentation; used only as formula check",
+      "method": "Compare established generic CARE convention",
+      "title": "SciPy solve_continuous_are documentation",
+      "trigger": "Independent reference for correct control-theoretic Riccati sign"
+    }
+  ]
+}
