@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-The verifier enumerates every binary palindrome through length \(23\), tests prefix normality directly against all same-length factors, and checks the known count sequence. For every \(1\le m\le11\), it maps each even prefix-normal palindrome \(xx^R\) to \(x0x^R\), verifies the image is prefix normal, checks injectivity, and confirms that the all-one odd palindrome lies outside the image.
+## correctness
 
-A second pointwise check replays the two factor reductions in the proof for every tested image: short center-crossing factors become extendable factors after deleting the inserted zero, while all long factors cross the center and reduce to factors one symbol shorter. The finite replay is a consistency check only; the infinite theorem rests on the symbolic factor argument in `RESULT.md`.
+PASS
 
-Independent audit has not been performed.
+For factor length k<=m, noncrossing factors survive in w; crossing factors lose an inserted zero, become length k-1 factors in w, and extend to k factors dominated by the original prefix. For k>=m+1, every factor and prefix crosses the center, and deleting the zero compares their respective k-1 factors in w. This is a quantified proof for every m>=1; center deletion is an inverse on images and all-ones word is outside. Independent enumeration of all palindromes for m=1,...,8 checked prefix-normality, image injectivity and strictness; counts (even,odd) through m=8: (2,3),(3,5),(4,8),(7,12),(11,21),(18,36),(31,57),(55,104).
+
+## originality
+
+PASS
+
+The original Fleischmann–Kulczynski–Nowotka paper specifically studies npal(n), tabulates parity behavior and proves distinct two-step recurrences and palindrome constructions. Its examined main text and appendix do not formulate the all-m one-step center-zero injection. The 2021 dissertation is a plausible overlapping source but its full direct PDF was not read during this audit. No indexed Resultary analog was identified; this is a bounded best-of-knowledge assessment, not a priority guarantee.
+
+## value
+
+PASS
+
+An explicit all-length injection proves strict odd-over-even inequalities for a naturally unresolved enumerative sequence, explaining parity asymmetry without extrapolating tables or solving the complete enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T02:39:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For factor length k<=m, noncrossing factors survive in w; crossing factors lose an inserted zero, become length k-1 factors in w, and extend to k factors dominated by the original prefix. For k>=m+1, every factor and prefix crosses the center, and deleting the zero compares their respective k-1 factors in w. This is a quantified proof for every m>=1; center deletion is an inverse on images and all-ones word is outside. Independent enumeration of all palindromes for m=1,...,8 checked prefix-normality, image injectivity and strictness; counts (even,odd) through m=8: (2,3),(3,5),(4,8),(7,12),(11,21),(18,36),(31,57),(55,104).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary paper identifies unknown general exact formula and tabulates separate even/odd counts.",
+          "A dissertation with additional palindromic constructions exists, but full current-run text was inaccessible."
+        ],
+        "reasoning": "No inspected theorem dominates this center-zero injection. Dissertation remains an explicit unchecked originality risk rather than a declared noncovering document.",
+        "searches": [
+          "arXiv:1905.11847",
+          "Pamela Fleischmann 2021 Kiel dissertation",
+          "Resultary semantic: prefix normal palindrome insertion central zero even odd count strict inequality"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.11847 (Fleischmann et al.), https://arxiv.org/abs/1905.11847",
+        "OEIS:A308465 https://oeis.org/A308465",
+        "Fleischmann (2021) Kiel dissertation (unread full text)",
+        "Resultary semantic query for prefix-normal palindrome center-zero insertion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary source has 1w1 padding and w0w-type recursive arguments rather than splitting arbitrary even palindrome xx^R.",
+          "The proof checks center-crossing factors uniformly over all lengths."
+        ],
+        "reasoning": "The parent paper’s two-step recurrences do not algebraically imply this immediate odd-vs-even inequality, and no covering result was found in materially inspected sections.",
+        "searches": [
+          "arXiv:1905.11847v1",
+          "arXiv:1905.11847v2",
+          "Resultary semantic: prefix normal palindrome insertion central zero even odd count strict inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier work defines npal(n) and the prefix-normal palindrome recursion.",
+          "The center-zero operation is not the two-step operation 1w1 or w0w on a full palindrome."
+        ],
+        "reasoning": "Translating the inequality into an injection on binary palindromes gives a distinct length-one operation; source constructions change the length differently and do not imply strict npal(2m+1)>npal(2m).",
+        "searches": [
+          "Resultary semantic: prefix normal palindrome insertion central zero even odd count strict inequality",
+          "arXiv:1905.11847 sections on prefix-normal palindromes",
+          "OEIS:A308465"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A308465 tabulates the number of prefix-normal palindromes.",
+          "Small m computations verify the inequality, but finite sequences do not prove an all-m injection."
+        ],
+        "reasoning": "The database provides numerical support and references; the theorem gives an infinite structural construction absent from numerical count data alone.",
+        "searches": [
+          "OEIS:A308465",
+          "Resultary semantic: prefix normal palindrome insertion central zero even odd count strict inequality"
+        ]
+      },
+      "rationale": "The original Fleischmann–Kulczynski–Nowotka paper specifically studies npal(n), tabulates parity behavior and proves distinct two-step recurrences and palindrome constructions. Its examined main text and appendix do not formulate the all-m one-step center-zero injection. The 2021 dissertation is a plausible overlapping source but its full direct PDF was not read during this audit. No indexed Resultary analog was identified; this is a bounded best-of-knowledge assessment, not a priority guarantee.",
+      "residual_risks": [
+        "A 2021 thesis or poorly indexed lemma may have already observed this elementary injection; complete thesis not inspected.",
+        "The exact gap npal(2m+1)-npal(2m) remains unknown."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found definition, count data and other palindrome recurrences; no directly equivalent center-zero all-m injection in inspected results",
+          "evidence": "Main prefix-normal-palindrome definitions, enumeration open, appendix on palindrome factor operations.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.11847",
+          "material_read": "Full accessible arXiv PDF examined with emphasis on main palindrome results and appendix pp.14–15; arXiv abstract/version metadata also examined",
+          "method": "read full primary paper text and inspected PDF page images",
+          "title": "On Collapsing Prefix Normal Words",
+          "trigger": "Defines exactly npal(n) and addresses palindrome recurrence"
+        },
+        {
+          "assessment": "Tabulated data motivate parity observation, not the infinite injection proof",
+          "evidence": "OEIS A308465 sequence and referenced original paper.",
+          "identifier_or_url": "https://oeis.org/A308465",
+          "material_read": "Sequence title, count references and listed terms",
+          "method": "database entry and linked literature",
+          "title": "Number of prefix-normal palindromes",
+          "trigger": "Exact enumerative data and alias checks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit all-length injection proves strict odd-over-even inequalities for a naturally unresolved enumerative sequence, explaining parity asymmetry without extrapolating tables or solving the complete enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every m>=1 the insertion xx^R -> x0x^R sends even binary prefix-normal palindromes injectively into odd binary prefix-normal palindromes and misses the all-ones odd word; npal(2m+1)>=npal(2m)+1.",
+  "limitations": [
+    "No exact enumeration of npal(n) or classification of all odd words outside the image."
+  ],
+  "schema_version": 1
+}

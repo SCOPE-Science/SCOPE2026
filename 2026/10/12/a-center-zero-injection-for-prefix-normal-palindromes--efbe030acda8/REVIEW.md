@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof splits factor lengths at the half-length. Short factors either survive unchanged or lose only the inserted central zero and extend to a factor of the original prefix-normal word. Long factors must cross the center and reduce, together with the corresponding prefix, to length one less in the original word. This proves the image is prefix normal for every \(m\ge1\); injectivity and the outside all-one palindrome give strictness. Exhaustive replay through length \(23\) agrees.
+## correctness
 
-## Originality
-PASS. The primary paper defines \(\operatorname{npal}(n)\), states that its general enumeration is open, tabulates the even/odd phenomenon, and gives other recursive relations. The later dissertation again treats the recursion but does not cover inserting a zero between the reversal halves of every even prefix-normal palindrome. Exact inequality, construction, database, and alias searches found no covering theorem.
+PASS
 
-Residual risk remains from an unindexed observation or inaccessible later note; the dissertation's relevant indexed section was available although its direct PDF endpoint was not.
+For factor length k<=m, noncrossing factors survive in w; crossing factors lose an inserted zero, become length k-1 factors in w, and extend to k factors dominated by the original prefix. For k>=m+1, every factor and prefix crosses the center, and deleting the zero compares their respective k-1 factors in w. This is a quantified proof for every m>=1; center deletion is an inverse on images and all-ones word is outside. Independent enumeration of all palindromes for m=1,...,8 checked prefix-normality, image injectivity and strictness; counts (even,odd) through m=8: (2,3),(3,5),(4,8),(7,12),(11,21),(18,36),(31,57),(55,104).
 
-## Value
-PASS. The literature explicitly singles out both the unknown sequence \(\operatorname{npal}(n)\) and its apparent parity behavior. The theorem proves a uniform strict odd-over-preceding-even inequality by a structural injection, providing reusable information beyond finite tabulation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Fleischmann–Kulczynski–Nowotka paper specifically studies npal(n), tabulates parity behavior and proves distinct two-step recurrences and palindrome constructions. Its examined main text and appendix do not formulate the all-m one-step center-zero injection. The 2021 dissertation is a plausible overlapping source but its full direct PDF was not read during this audit. No indexed Resultary analog was identified; this is a bounded best-of-knowledge assessment, not a priority guarantee.
+
+## value
+
+PASS
+
+An explicit all-length injection proves strict odd-over-even inequalities for a naturally unresolved enumerative sequence, explaining parity asymmetry without extrapolating tables or solving the complete enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
