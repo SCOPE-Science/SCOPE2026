@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The counterexample is analytic. For independent exponential components with rate \(\lambda\), direct integration gives the displayed closed form for \(J_\lambda(t)\), and differentiation gives
-\[
-J_\lambda'(t)=
-\frac{\lambda e^{-\lambda t}}{(1-e^{-\lambda t})^3}
-\int_0^t(1-e^{-\lambda x})^2dx>0.
-\]
-Thus the monotonicity premise is satisfied for every positive threshold.
+# Independent mathematical audit
 
-The dilation \(Y_i=2X_i\) satisfies the stated dispersive-order premise because its dilation derivative is \(2\). The defining integral gives exactly \(\mathcal{CJ}^{\mathbf Y}_i(2,2)=2J_{\log2}(1)\) and \(\mathcal{CJ}^{\mathbf X}_i(2,2)=J_{\log2}(2)\). Their difference is
-\[
-\frac{57-80\log2}{36\log2}>0.
-\]
-To certify the strict sign without a floating-point premise, use \(e^{7/10}>1+7/10+(7/10)^2/2+(7/10)^3/6>2\), hence \(\log2<7/10<57/80\).
+## correctness
 
-The bundled checker independently evaluates the exact closed forms at high precision and verifies the rational Taylor bound. It is a reproducibility aid only; finite-precision output is not used as an infinite or symbolic proof.
+PASS
 
-Limits: the verification establishes a counterexample to the stated dispersive-order implication and the general coordinate-dilation identity. It does not establish a corrected necessary-and-sufficient theorem or assess unrelated results in the source.
+For independent components the bivariate conditional dynamic negative cumulative extropy reduces to Jλ(t)=1/2 ∫_0^t[1-(Fλ(x)/Fλ(t))²] dx with Fλ=1-exp(-λt). Differentiation gives Jλ'(t)=fλ(t)/Fλ(t)^3 ∫_0^t Fλ(x)^2 dx>0. Changing variables for Y_i=c_i X_i establishes exactly CJ_i^Y(t)=c_i CJ_i^X(t_i/c_i,t_j/c_j). For λ=ln2, J(1)=5/(4ln2)-3/2, J(2)=11/(12ln2)-7/9, hence 2J(1)-J(2)=(57-80ln2)/(36ln2)>0. The rigorous bound ln2<7/10<57/80 gives strict positivity. Direct symbolic and high-precision independent recomputation confirmed exact difference ~0.062044925852. Source Theorem 3.13 has the reverse inequality under these very hypotheses; discarding ψ' >=1 in its integral violates the required direction.
+
+## originality
+
+PASS
+
+The 2026 source states the contradicted implication and separately supplies an affine scaling law, but no explicit exponential counterexample in its inspected full Section 3. The 2020 foundational negative cumulative extropy article covers the statistic generally, not the 2026 bivariate claim in accessible scope. Best-of-knowledge novelty is the exact counterexample/correction, not definition of CDNCEx.
+
+## value
+
+PASS
+
+A small exact counterexample to a published stochastic-order theorem, revealing the Jacobian factor responsible for failure and yielding the correct scaling law, is useful to reliability theory where incorrect dispersive-order monotonicity would propagate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
