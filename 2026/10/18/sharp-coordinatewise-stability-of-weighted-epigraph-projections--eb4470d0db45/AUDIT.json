@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Projection reduces to a strongly convex scalar clipping problem. On every attainable active cell, the derivative rows have exact absolute sums R(S), a_i R(S), or 1; global piecewise-affine continuity and local row-sum witnesses prove sharpness. The sorted-prefix threshold comparison is elementary but complete. A rank-two symmetric matrix with largest eigenvalue (1+sqrt(k+1))/2 gives a uniform bound and precisely n+1 weight-design equality cases. The polar l-one computation independently confirms the comparison. The packaged standard-library checker passed 181224 exact-rational and numerical assertions; finite checks supplement rather than replace analytical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ding–Sun–Toh (2010), pp.15–21, has full unweighted and uniformly rescaled cone formulas and critical-cone derivatives but not arbitrary per-coordinate positive weights.",
+        "Chierchia et al. (2012), Proposition 3.6, supplies arbitrary weighted projection and scalar threshold but does not calculate the sharp cross-norm Lipschitz constant or maximize it over all positive weight vectors.",
+        "Friedlander–Goodwin–Hoheisel, arXiv:2102.06809, general local Lipschitz/differentiability theory for epigraphical projection does not fix the present sharp coefficient or equality patterns."
+      ],
+      "reasoning": "The earlier unweighted or scalar-rescaled formulas can imply corresponding special-case derivatives; these are explicitly attributed. The heterogeneous structural theorem and exact global equality classification do not arise as specialization of a stated stronger sharp-stability theorem found in these inspections.",
+      "searches": [
+        "weighted l infinity epigraph Euclidean projector exact coordinatewise maximum Lipschitz constant all active subsets",
+        "sharp infinity norm Lipschitz constant Euclidean projection onto epigraph of maximum norm l infinity cone",
+        "optimally scaled sup norm epigraph cone Euclidean projection infinity sensitivity (1+sqrt(n+1))/2",
+        "https://optimization-online.org/wp-content/uploads/2010/09/2746.pdf",
+        "https://arxiv.org/html/1210.5844v3"
+      ]
+    },
+    "checked_sources": [
+      "https://optimization-online.org/2010/09/2746/",
+      "https://optimization-online.org/wp-content/uploads/2010/09/2746.pdf",
+      "https://arxiv.org/html/1210.5844v3",
+      "https://arxiv.org/abs/2102.06809",
+      "published-record:c92b6dad1bd0",
+      "published-record:78696bf157c3",
+      "published-record:8dad3ac9984d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2010 unweighted cone derivative source directly covers local derivative mechanisms for uniform scalar weighting; unweighted polar norm is therefore not asserted as stand-alone novel.",
+        "2012 general weighted projector gives clipping and threshold; exact worst-case cross-norm amplification is not stated and requires sharp row-norm optimization across all active sets plus a global rank-two eigenvalue argument.",
+        "The closest published weighted cross-polytope metric projection result concerns a ball, different active affine operators, and l-p metric, so it does not imply the current epigraph theorem by special case or linear identification."
+      ],
+      "reasoning": "Distinguish a projector formula from the proposed sharp stability and design theorem. The latter is a new quantitative optimization across active support choices and all heterogeneous positive weights, with exactly n+1 extremizer vectors. Earlier general Euclidean nonexpansivity is only in Euclidean input/output norms, not the requested coordinatewise maximum norm.",
+      "searches": [
+        "weighted l infinity epigraph Euclidean projector exact coordinatewise maximum Lipschitz constant all active subsets",
+        "metric projection epigraph l1 norm sharp infinity Lipschitz 2n divided n plus 1 versus l infinity epigraph nonexpansive polar dual",
+        "An introduction to a class of matrix cone programming Ding Sun Toh 2010 metric projector",
+        "Epigraphical splitting Chierchia 2012 infinity norm epigraph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ding–Sun–Toh, publicly posted 2010-09-26, §3 Proposition 3.2: Euclidean projector and directional derivatives on unweighted l-infinity epigraph and polar l-one cone.",
+        "Chierchia–Pustelnik–Pesquet–Pesquet-Popescu, arXiv:1210.5844, §3.3 Proposition 3.6: weighted maximum-norm epigraph projector."
+      ],
+      "reasoning": "Exact Euclidean epigraph clipping in the source is acknowledged and recovered, not claimed original. Induced maximum row sums, heterogeneous-weight nonexpansivity rigidity, the sorted-prefix reduction, and all globally maximizing weight patterns require further sharp norm and rank-two Rayleigh-quotient optimization; these statements were not present in the inspected sources. The polar l-one coefficient is a contextual derived prior-covered consequence, not independent novelty.",
+      "searches": [
+        "Euclidean metric projection weighted infinity norm epigraph cone exact sharp coordinatewise maximum norm Lipschitz constant 1 plus sum a_i over 1 plus sum a_i squared; sorted prefix and anisotropy nonexpansivity",
+        "metric projection epigraph l1 norm sharp infinity Lipschitz 2n divided n plus 1 versus l infinity epigraph nonexpansive polar dual",
+        "Ding Sun Toh 2010 matrix cone projections section 3 Proposition 3.2",
+        "Chierchia et al. 2012 Proposition 3.6 weighted infinity epigraph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical records for weighted cross-polytope nearest-point stability (record c92b6dad1bd0), weighted Euclidean ball-clipping sensitivity (record 78696bf157c3), and planar pointed cones (record 8dad3ac9984d) concern other convex sets or metric geometries.",
+        "No examined paper contains a table enumerating heterogeneous epigraph maximum-error stability as a function of all weights."
+      ],
+      "reasoning": "Unlike lookup of a numerical or known parameter table, the claim is a general all-parameter exact operator modulus with a polynomial-size evaluation rule and a complete family of optimizing designs. Database search nonappearance is not itself a uniqueness or originality proof.",
+      "searches": [
+        "Euclidean metric projection weighted infinity norm epigraph cone exact sharp coordinatewise maximum norm Lipschitz constant 1 plus sum a_i over 1 plus sum a_i squared; sorted prefix and anisotropy nonexpansivity",
+        "weighted infinity norm cone coordinatewise Lipschitz constant exact active set strict rigidity isotropic all weights one",
+        "sharp l infinity Lipschitz constants dual epigraph cones of l1 and l infinity"
+      ]
+    },
+    "rationale": "Earliest related accessible source posted 2010-09-26 treats unweighted and uniformly rescaled epigraph projector and derivatives; the 2012-10-22 weighted source gives projector formulas. Neither inspected source states or directly subsumes the all-heterogeneous sharp cross-norm formula, strict nonexpansivity rigidity, polynomial-size exact prefix reduction, and n+1-pattern complete global weight-optimizer theorem as an already optimized result. The previously known unweighted polar mechanism is carefully excluded from separate novelty.",
+    "residual_risks": [
+      "Historical priority is not independently certified; an unsearched polyhedral generalized-Jacobian norm theorem may already contain the derived exact weighted amplification and designs.",
+      "The unweighted l-one polar contrast follows from known projectors and directional derivatives and is not an independently original component.",
+      "Some general 2021 epigraphical-variational material was inspected at overview level rather than exhaustively theorem-by-theorem; it does not currently pose a decisive unresolved stronger-coverage comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers unweighted and uniformly scaled projection formulas, polar cone relations, directional differentiability and semismoothness; does not state heterogeneous weight-design maximizers or the sorted-prefix cross-norm stability invariant.",
+        "evidence": [
+          "Proposition 3.2, equations (53)–(61), §3, and scalar epsilon; source itself notes polar l-one cone.",
+          "Original public posting dated 2010-09-26."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2010/09/2746.pdf",
+        "material_read": "50-page paper: abstract, introduction, §3 pp.15–21 around Propositions 3.1–3.2, unweighted projector and derivative proof; publication date verified at https://optimization-online.org/2010/09/2746/.",
+        "method": "Read accessible full-text pages and mathematical statements, comparing the exact cone, parameter epsilon, directional derivative maps, and requested maximum-norm sharp modulus.",
+        "title": "An Introduction to a Class of Matrix Cone Programming",
+        "trigger": "Earlier unweighted l-infinity/l-one epigraph projector and generalized derivative could dominate the claim."
+      },
+      {
+        "assessment": "Prior projector computation for heterogeneous weights is acknowledged. The proposed claim adds global coordinatewise Lipschitz norm, sorted-prefix reduction, strict rigidity, and all optimal weight patterns; the source does not make these quantitative stability claims.",
+        "evidence": [
+          "Proposition 3.6 equations (42)–(49).",
+          "arXiv initial submission 2012-10-22."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1210.5844v3",
+        "material_read": "Introduction and paper organization, §3.3 Proposition 3.6 with equations (41)–(49), proof of clipping and scalar minimizer, §§4–5 context and references navigation; initial v1 date checked.",
+        "method": "Read lawful arXiv full-text HTML including main proposition, projection formula and scalar KKT proof.",
+        "title": "Epigraphical splitting for solving constrained convex formulations of inverse problems with proximal tools",
+        "trigger": "Same per-coordinate weighted infinity-norm epigraph and its exact Euclidean projector."
+      },
+      {
+        "assessment": "Gives variational continuity, directionally differentiable mappings and semismoothness in general settings; no inspected exact heterogeneous infinity-epigraph coefficient.",
+        "evidence": [
+          "Abstract and characterization of local Lipschitz continuity and semismoothness, arXiv:2102.06809."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.06809",
+        "material_read": "Abstract, introductory exposition and associated general variational results as surfaced by the available paper text; source summary verified.",
+        "method": "Compared local Lipschitz continuity/differentiability results to required exact global mixed-norm coefficient and optimizers.",
+        "title": "From perspective maps to epigraphical projections",
+        "trigger": "Possibly stronger general sensitivity theorem for epigraphical projections."
+      },
+      {
+        "assessment": "Different closed convex set (ball rather than epigraph cone), ambient distance, derivative matrices and optimization parameters. The two exact stability theorems do not imply each other as special cases.",
+        "evidence": [
+          "Published mathematical claim describes weighted l-one ball and its rank-one hyperplane derivatives, not an epigraph cone."
+        ],
+        "identifier_or_url": "published-record:c92b6dad1bd0",
+        "material_read": "Complete published RESULT.md statement, proof, scope and limitations.",
+        "method": "Compared weighted l-one ball nearest-point operator in ambient l-p space versus epigraphical Euclidean projector evaluated in coordinatewise l-infinity norm.",
+        "title": "Exact Lipschitz stability and contractivity threshold for weighted cross-polytope projections",
+        "trigger": "Closest matched prior quantitative metric projection stability theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb4470d0-db45-443d-9f6d-567055da9dba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The stability of Euclidean clipping for coordinatewise-bounded noise is naturally motivated by epigraphical splitting and weighted inverse problems. The exact arbitrary-weight coefficient has an O(n²) sorted-candidate evaluation, sharp strict contractivity rigidity, and a complete n+1-point classification of all worst weighting patterns. A rank-two eigenvalue law proves maximal instability scales as sqrt(n)/2 despite calibrated weights giving norm one, a structural and potentially useful design tradeoff not captured by ordinary Euclidean nonexpansivity.",
+    "status": "PASS"
+  }
+}
