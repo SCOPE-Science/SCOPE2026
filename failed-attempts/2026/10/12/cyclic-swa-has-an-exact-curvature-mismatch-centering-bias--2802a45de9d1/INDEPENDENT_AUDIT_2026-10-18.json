@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T12:18:49.323030Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Stable two-step scalar affine recurrence has unique fixed two-cycle p=[a(1-eta b)u+bv]/D and q=[au+b(1-eta a)v]/D with D=a+b-ab eta>0. Their arithmetic center satisfies (p+q)/2-x* =ab eta(a-b)(u-v)/[2(a+b)D]. Squaring under F=(a+b)/2 yields exact excess. At fixed cycle, a(p-u)+b(q-v)=0 by cancellation of consecutive steps, hence (a p+b q)/(a+b)=(au+bv)/(a+b)=x*. Independent SymPy symbolic cancellation and numeric example reproduce identities for stable parameters. This proves only constant-step deterministic scalar two-component quadratic limit, not random-order SGD.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing arbitrary-m finite-dimensional cyclic-gradient recurrence and phase-limit statements strictly cover the setting and imply the phase-balance identity."
+        ],
+        "reasoning": "Two scalar quadratic explicit formulas are straight substitution/affine fixed-point computation; order-dependent bias already known.",
+        "searches": [
+          "Resultary semantic query: cyclic SWA exact curvature mismatch centering bias",
+          "D. P. Bertsekas, Incremental Gradient, Subgradient, and Proximal Methods, Sec.1.1 Eqs.(1.5)-(1.6)"
+        ]
+      },
+      "checked_sources": [
+        {
+          "identifier_or_url": "https://www.mit.edu/~dimitrib/Incremental_Survey_LIDS.pdf",
+          "material_read": "Primary survey full section 1.1, pp.5–6 including equation (1.6), in text and rendered PDF page 6; textbook references for linear least squares",
+          "title": "Incremental Gradient, Subgradient, and Proximal Methods"
+        },
+        {
+          "identifier_or_url": "https://arxiv.org/abs/1803.05407",
+          "material_read": "Full freely accessible ar5iv article, §3 Algorithm 1 and discussion of averaged weight heuristics",
+          "title": "Averaging Weights Leads to Wider Optima and Better Generalization"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At any exact periodic fixed cycle, 0=∇f1(p)+∇f2(q)=a(p-u)+b(q-v). Thus curvature-weighted equality is immediate; p and q come from solving one affine contraction."
+        ],
+        "reasoning": "This is a routine m=2 quadratic corollary of established cyclic incremental-gradient mechanics, not a model-independent SWA centering discovery.",
+        "searches": [
+          "Resultary semantic query: cyclic SWA exact curvature mismatch centering bias",
+          "Bertsekas survey p.6 Eq.(1.6); Izmailov arXiv:1803.05407 Algorithm 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bertsekas shows cyclic constant steps can yield phase-specific limit points even in linear least squares; the zero-net-cycle-gradient equation specializes exactly to a(p-u)+b(q-v)=0."
+        ],
+        "reasoning": "The proposed correction is the m=2 scalar quadratic instance of the general cycle-gradient identity and does not give a new general theorem.",
+        "searches": [
+          "Resultary semantic query: cyclic SWA exact curvature mismatch centering bias",
+          "Bertsekas incremental methods survey Eq.(1.6) and Section 1.1; Izmailov et al arXiv:1803.05407 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior table with this exact scalar numerator identified; unrelated curvature-clipping and Kaczmarz bias records came up."
+        ],
+        "reasoning": "Not finding the displayed rational fraction does not support originality when a stronger generic cycle identity mechanically yields it.",
+        "searches": [
+          "Resultary semantic query: cyclic SWA exact curvature mismatch centering bias",
+          "Resultary semantic search: cyclic SWA exact curvature mismatch centering bias; Bertsekas and Izmailov text"
+        ]
+      },
+      "rationale": "FAIL under the claim-versus-prior implication test: classical incremental-gradient theory already gives the constant-step cyclic limit-cycle framework, even for linear least-squares, and its exact within-cycle balance x_next=x-eta sum_i ∇f_i(phase_i). Specializing that general balance to two scalar quadratics immediately yields the advertised curvature-weighted center; solving the two-by-two affine map gives the bias and gap via textbook substitutions. The formula may not be printed verbatim in SWA papers, but it is mechanically covered by the known general fixed-cycle identity with no new structural obstacle. No credible independent principle beyond this direct specialization remains.",
+      "residual_risks": [
+        "The exact scalar rational expression may not have been published verbatim; rejection rests on direct reduction from published general within-cycle identities, not a falsely attributed quotation.",
+        "A different nontrivial extension to nonlinear/multidimensional or randomized sampling could have independent value but is not the final claim assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit all-m within-cycle cycle balance and known distinct phase limits mechanically entail claimed correction on scalar quadratics",
+          "evidence": [
+            "Equation (1.6), section 1.1: cyclic steps sum gradients and constant steps lead to phase-specific limiting iterates"
+          ],
+          "identifier_or_url": "https://www.mit.edu/~dimitrib/Incremental_Survey_LIDS.pdf",
+          "material_read": "Primary survey full section 1.1, pp.5–6 including equation (1.6), in text and rendered PDF page 6; textbook references for linear least squares",
+          "method": "PDF extracted text plus page rendering",
+          "title": "Incremental Gradient, Subgradient, and Proximal Methods",
+          "trigger": "same deterministic cyclic incremental gradient and constant-step phase effects"
+        },
+        {
+          "assessment": "SWA is weight averaging of sampled SGD trajectories for broader neural-network generalization; no asserted unbiased scalar cyclic finite-sum center to overturn",
+          "evidence": [
+            "Algorithm 1, §3.1, §3.6"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1803.05407",
+          "material_read": "Full freely accessible ar5iv article, §3 Algorithm 1 and discussion of averaged weight heuristics",
+          "method": "ar5iv full text",
+          "title": "Averaging Weights Leads to Wider Optima and Better Generalization",
+          "trigger": "definition and motivation of SWA under constant/cyclic learning rates"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL independently of correctness: the entire analysis is the elementary fixed point of two scalar affine contractions, with objective gap its square. The existence of constant-step cyclic gradient bias and phase oscillations is classical and already emphasized for linear least squares; the two-phase average does not demonstrate a new learning guarantee or a nonroutine boundary for SWA as deployed in the primary deep-learning setting. Its correction requires known a,b and is an immediate cycle-stationarity identity. This is a useful instructional example, but the intrinsic claimed research-level mathematical increment is too thin.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    {
+      "identifier_or_url": "https://www.mit.edu/~dimitrib/Incremental_Survey_LIDS.pdf",
+      "material_read": "Primary survey full section 1.1, pp.5–6 including equation (1.6), in text and rendered PDF page 6; textbook references for linear least squares",
+      "title": "Incremental Gradient, Subgradient, and Proximal Methods"
+    },
+    {
+      "identifier_or_url": "https://arxiv.org/abs/1803.05407",
+      "material_read": "Full freely accessible ar5iv article, §3 Algorithm 1 and discussion of averaged weight heuristics",
+      "title": "Averaging Weights Leads to Wider Optima and Better Generalization"
+    }
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The findings are best-of-knowledge scientific assessments, not exhaustive priority guarantees or formal proof/expert attestation.",
+    "Publication is withheld due to private metadata in public files; this does not alter completed scientific judgment."
+  ],
+  "residual_risks": [
+    "The exact scalar rational expression may not have been published verbatim; rejection rests on direct reduction from published general within-cycle identities, not a falsely attributed quotation.",
+    "A different nontrivial extension to nonlinear/multidimensional or randomized sampling could have independent value but is not the final claim assessed."
+  ],
+  "schema_version": 1
+}
