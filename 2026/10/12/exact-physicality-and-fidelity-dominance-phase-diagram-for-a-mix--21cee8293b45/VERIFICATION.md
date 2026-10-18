@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The continuous-domain proof uses only exact algebra:
+# Independent mathematical audit
 
-1. Since \(|\psi_r\rangle\) is normalized, \(\rho_N\) has eigenvalues \((1+3g)/4\) and \((1-g)/4\) with multiplicity three. This makes \(g\le1\) necessary and sufficient for positivity in the published entangled parametrization.
-2. Substituting \(g=(1+r^2)/(3-r^2)+\epsilon\) gives \(\epsilon\le2(1-r^2)/(3-r^2)\); solving instead for \(r^2\) gives the fixed-\(\epsilon\) cutoff.
-3. Subtracting the two published fidelities yields the exact threshold \(p_*\).
-4. Uniform strict dominance over all useful \(p\) is equivalent to \(p_*<0\). Comparing that lower epsilon requirement with the physical upper epsilon requirement gives \(r^2<1/2\), with a tie at the endpoint.
+## correctness
 
-The included `verify.py` replays these identities using exact rational arithmetic, including the two source-figure epsilon values and one hundred comparison cases. Its finite checks are supplementary and do not establish the universal statements.
+PASS
 
-Scientific limit: the verification starts from the state and fidelity formulas as printed in the primary source; it does not independently reconstruct the full experimental or protocol derivation.
+rho_N=g|psi_r><psi_r|+(1−g)I4/4 has eigenvalues (1+3g)/4, (1−g)/4 triple. For g=(1+r²)/(3−r²)+epsilon, 0≤r<1, epsilon>0, positivity exactly epsilon≤2(1−r²)/(3−r²). Published fidelities differ by (4p−1)/9+epsilon(3−r²)/(6(1+r²)), giving threshold p*=1/4−3epsilon(3−r²)/(8(1+r²)). Strict all-p dominance iff p*<0 subject to physicality; crossing solves r²<1/2, at r²=1/2 both epsilon bounds equal 2/5 and p=0 ties. Independently checked exact rational/symbolic inversion of physicality and threshold. Does not independently reconstruct the original channel protocol, only the published density family and fidelity inputs.
+
+## originality
+
+PASS
+
+The 2010 source already imposes 0≤g≤1 yet later asserts the entangled parametrization works for every epsilon<2/3 irrespective of r. The accepted claim is a mathematically motivated correction of the invalid parameter-wide operational conclusion, joined to an exact fidelity dominance threshold and r²=1/2 intersection. It does not claim eigenvalues, source fidelity formulas or routine inequality manipulation as novel independent techniques.
+
+## value
+
+PASS
+
+The source advocates epsilon-only teleportation usefulness for a channel state which can actually have negative eigenvalues, and the correction excludes nonphysical settings and gives the exact domain for comparing two operational fidelities. Though the math is elementary, the concrete mistake affects physical interpretation and the sharp r=1/sqrt2 intersection is independently useful. No general teleportation theorem claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

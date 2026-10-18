@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces density-operator physicality to the exact eigenvalue condition \(g\le1\), then performs the published substitution and solves the resulting inequality. The fidelity comparison is an exact subtraction, and the \(r=1/\sqrt2\) transition follows from comparing two explicit epsilon bounds. The included checker replays exact rational cases without being used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The primary paper is the source of the state and fidelity formulas but states only an epsilon-wide operational condition and a qualitative comparison. The exact corrected domain and the joint \((r,\epsilon,p)\) dominance partition were not found in the inspected source, the closest later full-text follow-up, or focused searches. The main residual risk is that the source’s finite plotting ranges suggest implicit awareness of the positivity cutoff, or that an unindexed erratum states it explicitly.
+PASS
 
-## Value
-PASS. Enforcing the correct density-operator domain removes nonphysical parameter choices from a published teleportation claim, and combining that correction with the reference fidelity yields a natural complete classification rather than an isolated numerical example. The sharp \(r=1/\sqrt2\) transition distinguishes where uniform strict dominance is physically achievable.
+rho_N=g|psi_r><psi_r|+(1−g)I4/4 has eigenvalues (1+3g)/4, (1−g)/4 triple. For g=(1+r²)/(3−r²)+epsilon, 0≤r<1, epsilon>0, positivity exactly epsilon≤2(1−r²)/(3−r²). Published fidelities differ by (4p−1)/9+epsilon(3−r²)/(6(1+r²)), giving threshold p*=1/4−3epsilon(3−r²)/(8(1+r²)). Strict all-p dominance iff p*<0 subject to physicality; crossing solves r²<1/2, at r²=1/2 both epsilon bounds equal 2/5 and p=0 ties. Independently checked exact rational/symbolic inversion of physicality and threshold. Does not independently reconstruct the original channel protocol, only the published density family and fidelity inputs.
 
-## Closest literature and limitations
-The 2010 preprint/2012 article supplies Eqs. (22), (25), (28), and (30). The 2016 comparative study broadens non-orthogonal teleportation to quasi-Bell states and noise but does not state this corrected mixed-state diagram. The result does not rederive the entire teleportation protocol, and the physicality inequality itself is elementary once the source parametrization is written down.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2010 source already imposes 0≤g≤1 yet later asserts the entangled parametrization works for every epsilon<2/3 irrespective of r. The accepted claim is a mathematically motivated correction of the invalid parameter-wide operational conclusion, joined to an exact fidelity dominance threshold and r²=1/2 intersection. It does not claim eigenvalues, source fidelity formulas or routine inequality manipulation as novel independent techniques.
+
+## value
+
+PASS
+
+The source advocates epsilon-only teleportation usefulness for a channel state which can actually have negative eigenvalues, and the correction excludes nonphysical settings and gives the exact domain for comparing two operational fidelities. Though the math is elementary, the concrete mistake affects physical interpretation and the sharp r=1/sqrt2 intersection is independently useful. No general teleportation theorem claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
