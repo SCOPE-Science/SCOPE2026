@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed from the packaged formulas. For the source's leading rapid-switching generator, direct differentiation of \(\operatorname{Tr}(\rho^2)\) for a pure state gives
-\[
-R_\psi=2J^2\Delta t\operatorname{Tr}(C K_\psi).
-\]
-The exchange matrices satisfy \(\operatorname{Tr}(V_eV_f)=2\delta_{ef}\) for distinct unordered edges, and for a localized state \(|v\rangle\), \(K_v\) is exactly diagonal with unit entries on edges incident to \(v\). These identities establish the localized law without numerical assumptions.
+# Independent mathematical audit
 
-The Haar step uses the exact second moment of a Haar-random pure state in dimension \(N\), yielding
-\[
-\mathbb E K_\psi=\frac{2}{N+1}I.
-\]
-Therefore
-\[
-\mathbb E R_\psi=\frac{4J^2\Delta t}{N+1}\operatorname{Tr}C.
-\]
-For Bernoulli edge indicators, \(C_{ee}=p_e(1-p_e)\), so all off-diagonal edge correlations disappear from both stated probe classes.
+## correctness
 
-The standalone checker uses only exact integer and rational arithmetic. It verifies edge-operator Hilbert--Schmidt orthogonality, all localized \(K_v\) matrices, and the homogeneous closed forms for several dimensions. Its successful finite replay corroborates but does not replace the all-dimension proof.
+PASS
 
-Scientific limits: the source generator is already a rapid-switching truncation. The theorem does not control omitted higher switching orders; it does not give a concentration bound around the Haar mean; and it does not extend the correlation-blindness conclusion to coherent probe states or arbitrary finite times.
+For the stipulated order-Δt covariance-weighted double-commutator generator, the pure-state trace calculation gives Rψ=2J²Δt Tr(C Kψ). At |v>, all cross-edge anticommutator expectations vanish, K_v has 1 exactly on incident edges, and Bernoulli C_ee=p_e(1-p_e). For Haar pure states, E⟨A⟩⟨B⟩=[Tr(AB)+Tr A Tr B]/[N(N+1)] and Tr(V_e V_f)=2δ_ef, yielding E K=2I/(N+1). This establishes both formulas for all N>=2 and all physically realizable C; no inference about exact finite switching time or arbitrary coherent probes. Actual RESULTS and exact integer/rational verifier blob inspected, finite N=2..8 corroborates only.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct identifiability boundary: the 2026 same-model source derives C as dissipative parameter and an equality of finite-time purity only for a special global/community pair; it does not assert universal localized-probe or Haar-mean blind slopes. Zanardi–Lidar supplies general Haar channel purity, but not this edge-localization statement; applying it to the exact edge basis yields an independently motivated topology-correlation no-go. Novelty risk: immediate specialization of known general pure-state variance identities and very recent anchor indexing.
+
+## value
+
+PASS
+
+The target of the source is covariance geometry, yet all localized initial purity slopes together and their Haar average discard every offdiagonal edge correlation. This sharp measurement/identifiability boundary indicates which probe families cannot recover network covariance even with many sites and helps motivate coherence-resolved observables; it is not a claim about late-time purity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
