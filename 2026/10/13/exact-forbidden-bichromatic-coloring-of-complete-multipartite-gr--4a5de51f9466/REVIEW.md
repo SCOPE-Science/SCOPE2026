@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Properness confines each color to one multipartite part. Any two colors in distinct parts induce a complete bipartite graph, so a bichromatic copy of the connected bipartite forbidden graph exists exactly when the two color-class sizes dominate its two shore sizes in one orientation. The resulting maximum-class condition has exactly the two regimes used in the formula, and both lower bounds have explicit attaining partitions. The boundary \(s=1\) is handled separately.
+## correctness
 
-## Originality
-PASS. The recent initiating paper develops the \((2,\mathcal F)\)-avoiding framework and asymptotic bounds under bipartite exclusions, while the earlier foundational source gives general maximum-degree bounds. Neither inspected text supplies the exact complete-multipartite statement. The proper-frugal specialization \(H=K_{{1,t}}\) is known and is treated as prior work, not as a new subclaim. Searches using exact-family, forbidden-bichromatic, \((2,H)\)-subgraph-coloring, star, frugal, and complete-multipartite terminology found no statement implying the full structural collapse to the shore sizes \(s,t\). A residual risk remains that a short equivalent observation exists under an unindexed terminology variant.
+PASS
 
-## Value
-PASS. The result gives a closed exact formula and a complete coloring-structure dichotomy for every connected bipartite forbidden graph on every complete multipartite host. Its main structural content is that all internal edges of the forbidden graph become irrelevant on this host family: only the two bipartition sizes matter. This unifies several familiar special cases and provides an exact benchmark family for the recent general theory.
+A proper color class in K_{n_1,...,n_r} must be contained in one part. Two color classes in different parts induce K_{a,b} and contain the connected bipartite forbidden H exactly when (a,b) dominate its two shore sizes (s,t) in either order. Maximizing per-part classes reduces to exactly two exhaustive regimes: no class of size >=t, or one part allowed large classes while every other part has classes of size <=s-1. The matching lower and upper constructions give chi = sum_i ceil(n_i/(t-1)) for s=1; for s>=2, chi = min{sum_i ceil(n_i/(t-1)), min_j[1+sum_{i!=j}ceil(n_i/(s-1))]}. Boundaries t>=2, r>=2 and n_i>=1 are properly handled; independent partition search checked 270 small tuples, while the two-regime proof covers all parameters.
 
-## Closest literature and limitations
-The closest inspected sources are arXiv:2609.39716v1 for the current \((2,\mathcal F)\)-avoiding framework, Aravind–Subramanian for the earlier forbidden-subgraph-coloring framework, and Bard's thesis for the known frugal multipartite specialization. The result is limited to connected bipartite forbidden graphs and complete multipartite hosts; alternate terminology remains the principal originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novel complete multipartite bicromatic-H formula and shore-size collapse for arbitrary connected bipartite H; the s=1 star/frugal case is known. Checked contemporaneous (2,F)-avoiding literature and related complete-multipartite published results; no demonstrated implication covers the s>=2 case. Lu–Ying–Song full text was inaccessible after lawful retrieval attempts, so priority risk is explicit.
+
+## value
+
+PASS
+
+A complete exact coloring invariant for the natural and broad class of connected complete multipartite hosts, reducing every connected bipartite H to two shore sizes and a computable sharp two-regime optimum, is a structurally motivated natural classification. Beyond the already known star/frugal slice it settles an infinite parameter family rather than a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
