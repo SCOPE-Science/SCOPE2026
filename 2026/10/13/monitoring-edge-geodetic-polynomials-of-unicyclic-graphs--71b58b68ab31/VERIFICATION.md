@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Checks performed
+# Independent mathematical audit
 
-An independent graph-distance computation was implemented in `verify.py`: for each edge and each vertex pair, it recomputes shortest-path distances after deleting that edge, assembles an edge-monitoring mask, and directly tests every selected subset in the finite test universe. The predicted leaf-and-gap criterion and the factorized polynomial were evaluated separately and agreed throughout.
+## correctness
 
-The checker exhaustively covers all 3,898 labeled connected simple unicyclic graphs on three through six vertices and all 241,592 of their vertex subsets; it additionally checks 96 deterministic graphs on seven through twelve vertices, totaling 370,616 subset checks. The cyclic bounded-composition formulas were independently checked for all 16,376 cycle/attachment patterns with cycle lengths three through thirteen. Output is preserved in `verification_output.txt`; use `python3 verify.py` to reproduce it with the Python standard library.
+PASS
 
-## Boundaries
+Reconstructed the all-subset criterion: every leaf must be selected because its incident edge requires that vertex as an endpoint; projecting selected vertices onto the unique n-cycle forces all attachment roots A. A cycle edge lies on every shortest path of some selected pair precisely when every successive positive selected-root gap is <= m=floor((n-1)/2); longer/equal half-cycle gaps cannot be uniquely shortest. Each off-cycle bridge then lies on the unique path from its away-side selected leaf to a selected vertex at another cycle root. This proves the iff condition for all finite connected simple unweighted unicyclic graphs. For an attachment gap d, j additional cycle vertices split it into j+1 positive parts <=m, counted by [t^d](t+...+t^m)^(j+1); multiplication across fixed gaps and arbitrary interior nonleaf choices proves z^ell (1+z)^(N-n-ell+|A|)*prod R_d,m(z). For a bare cycle each k-set appears k times among n marked-start compositions, giving (n/k)*c_m(n,k). Minimum-size coefficients follow from minimal number ceil(d/m) of pieces. Independently enumerated all subsets on 30 small test graphs and got the predicted polynomial; this is bounded corroboration, not proof for all n.
 
-The finite tests do not verify all graph orders. The infinite statement follows from the proof's projection, short-gap equivalence, bridge-monitoring lemma, and exact composition bijections. Source comparisons and scientific limitations are documented in `REVIEW.md` and `AUDIT.json`; no independent external audit or validation has been performed.
+## originality
+
+PASS
+
+Exact monitoring edge-geodetic all-subset polynomial, gap-multiset invariance, and multiplicities refine earlier scalar unicyclic monitoring number. Prior notions, forced leaf ideas, and minimum cardinality are acknowledged; no inspected prior result implies the generating polynomial without the new all-set short-gap classification. Best-of-knowledge only.
+
+## value
+
+PASS
+
+A natural combinatorial statistic extending the monitoring edge-geodetic number to all vertex sets and sizes; gives independent gap factors, sharp minimum multiplicities, invariance under large classes of graph modifications, and usable exact enumeration for arbitrary unicyclic graphs, not an artificial tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
