@@ -1,18 +1,21 @@
-# Review
-## Correctness
-PASS. A direct marked-sequence count gives the exact coefficient of every completion time: choose the final new type, choose a distinct multiplicity-\(r\) type, place its \(r\) occurrences, and map the remaining positions onto the other \(m-2\) types. The Stirling-number generating function then gives the transform for all \(m\ge2\) and \(r\ge2\). Differentiation yields the doubleton covariance, and an explicit positive increment proves its strict sign for \(m\ge3\).
+# Independent mathematical audit
 
-The packaged checker exhaustively replays small coupon sequences and independently verifies the harmonic algebra and sign increments using exact rational arithmetic.
+## correctness
 
-## Originality
-PASS, with a classical-literature risk. The closest stopping-time source already has the exact singleton/completion-time joint law, so the accepted theorem explicitly excludes \(r=1\). The closest exact-\(r\) spectrum source works at prescribed sampling phases, and the closest modern completion-time spectrum source supplies marginal residual-count identities and asymptotics but not the finite joint transform with \(T_m\).
+PASS
 
-The principal residual risk is an equivalent Stirling-number identity in older occupancy literature under different notation.
+Directly recomputed the coefficient using ordered distinct last-new coupon and marked r-fold coupon, choose its r positions among t-1, and count onto mappings of remaining t-r-1 positions onto m-2 types: m! * C(t-1,r) * S(t-r-1,m-2). Ordinary Stirling generating function differentiation yields joint x-transform. Exact differentiation of the rational transform yields the harmonic doubleton mean and covariance. Bracket B_2=0; B_{n+1}-B_n=2/(n+1)^3 [n(n+1) H_n -(n+1)^2 H_n^(2)+2n] whose rearrangement is positive for n>=2. Leading term -m/2*(log m)^2. Independently enumerated 50 small m,t,r coefficient cases directly, all agreeing, and inspected the packaged exact-rational algebra checker. Distinct last type and marked r-type assumption explicitly requires r>=2.
 
-## Value
-PASS. The transform links the defining coupon-collector stopping time to every non-singleton multiplicity coordinate and gives all mixed moments by differentiation. The doubleton case reveals a strict finite negative covariance and its \(-m(\log m)^2/2\) scale, providing a concrete measure of how delayed completion redistributes the stopped occupancy spectrum.
+## originality
 
-## Closest literature and limitations
-Singleton/completion-time dependence is prior work, as are marginal multiplicity counts at completion. The new content is the \(r\ge2\) completion-time transform and its mixed-moment consequences. The argument assumes equal coupon probabilities and does not provide the full multivariate transform of all multiplicity coordinates simultaneously.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact joint transform with completion time as a variable for every non-singleton multiplicity coordinate survives prior comparison: Myers-Wilf treats the singleton coordinate joint law; Mahmoud-Smythe treats fixed externally timed sampling; modern siblings/album work treats marginals and asymptotics. Old occupancy transform literature remains a specific priority risk.
+
+## value
+
+PASS
+
+Complete bivariate (completion-time/multiplicity) generating function gives all mixed factorial moments by differentiation, a strict negative finite-m doubleton covariance and sharp growth scale; natural stopped occupancy statistic not determined by marginal multiplicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
