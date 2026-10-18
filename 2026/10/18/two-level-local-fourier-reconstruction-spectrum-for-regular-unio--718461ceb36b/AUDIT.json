@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Endpoint differentiation is exact. The real DFT symmetry and Parseval decompose the (2m-2)-dimensional tangent into 2x2 complex paired blocks and, when m is even, a real unpaired block. Their Gram eigenvalues are computed exactly; the singular-value multiplicities sum correctly, the lower value is positive in the open duty interval, and analytic remainder plus inverse function theorem establishes sharp local stability. Independent Jacobian construction checks 45 configurations, including the Nyquist and half-duty cases; finite tests are not used as the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Courtney 2010 proves qualitative uniqueness with an extra harmonic; no quantitative local two-band Jacobian.",
+        "Batenkov et al. general clustered-node estimates depend on separation and bandwidth, rather than exact singular spectrum at equally interlaced regular arcs."
+      ],
+      "reasoning": "Broader qualitative recovery neither forces quantitative singular values nor an isometry at duty one-half; general Fourier matrix lower bounds do not equal exact real spectra here. No inspected theorem subsumes the claim.",
+      "searches": [
+        "Union of m arcs Fourier endpoint perturbations local Riesz bounds isometry half duty cycle missing DC Nyquist condition number",
+        "Stability of finite union of intervals recovered from Fourier coefficients low frequencies Courtney arcs exact spectrum linearization",
+        "arxiv:1809.00658 Section 3 Main results"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.04639 (first source date 2026-08-05)",
+      "arxiv:1002.0639 (2010)",
+      "arxiv:1809.00658 (2018/2019)",
+      "published record 8f1466cba7af",
+      "published record b03d8e4c7818",
+      "published record 52be44b25eaa",
+      "published record bb69c4d14769"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1002.0639 fixes all arc endpoints from Fourier orders 0..m, not the lower-order local data with a fixed-length/rotation gauge.",
+        "arxiv:1809.00658 gives clustered-node asymptotic lower bounds for complex Fourier matrices, not all real singular values.",
+        "arxiv:2608.04639 gives oscillation inequalities and low Fourier-mode consequences for mean-zero continuous functions, not sharp inverse endpoint conditioning."
+      ],
+      "reasoning": "The premise of the new theorem is constrained and the proof evaluates both spectral extremes and multiplicities, so neither a yes/no uniqueness theorem nor low-mode oscillation bounds implies it. The additional half-duty isotropy and exact condition number remain outside the inspected conclusions.",
+      "searches": [
+        "arxiv:1002.0639 Theorem 1 and section 4",
+        "arxiv:1809.00658 Section 3",
+        "arxiv:2608.04639 Theorem 1.1 and Section 3",
+        "Stability of finite union of intervals recovered from Fourier coefficients low frequencies Courtney arcs exact spectrum linearization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1002.0639 Theorem 1: 0..m Fourier coefficients determine unions of at most m arcs; no local spectrum.",
+        "arxiv:1809.00658 Section 2 and 3: partial nonuniform Vandermonde matrices and bounds, not the constrained two-grid exact spectrum."
+      ],
+      "reasoning": "The candidate is equivalent to the real-constrained singular values of a two-interlaced regular-grid Vandermonde derivative after quotienting length and rotation. The closest known inversion result uses the larger coefficient set 0..m and does not imply the displayed sharp singular numbers; the general Vandermonde work provides different estimates.",
+      "searches": [
+        "Sharp two-valued singular spectrum of the Jacobian of Fourier moments of m equal periodic arcs; endpoint recovery with m-1 positive Fourier harmonics and rotation quotient; constants sqrt(m(1 ± abs(cos(pi alpha))))/(2pi) and exact condition number.",
+        "Vandermonde matrix of two equally spaced m point grids rotated relative to each other, sampling frequencies 1 to m-1, singular values sqrt(1 plus minus cos(m theta/2)).",
+        "web: \"union of arcs\" Fourier \"Jacobian\" singular values regular arcs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published records concerned cyclic Fourier projection norms and Fourier frame conditioning, not periodic arc endpoint differential spectra.",
+        "No exact regular-arc two-level spectral table was identified in inspected primary texts."
+      ],
+      "reasoning": "A negative search is not a priority proof. The exact formula was checked against relevant primary-text statements, but an unindexed elementary Vandermonde exercise or numerical table could exist.",
+      "searches": [
+        "Sharp two-valued singular spectrum of the Jacobian of Fourier moments of m equal periodic arcs; endpoint recovery with m-1 positive Fourier harmonics and rotation quotient; constants sqrt(m(1 ± abs(cos(pi alpha))))/(2pi) and exact condition number.",
+        "Exact singular values of Fourier moment Jacobian for two interlaced regular polygons on the unit circle; a tight frame at staggered half-spacing; sine cosine alpha two spectral bands.",
+        "web: \"periodic intervals\" \"Fourier coefficients\" \"singular values\" \"Jacobian\" inverse",
+        "Regular union of m arcs fixed measure Fourier coefficients c_1 through c_{m-1} endpoint Jacobian singular values exactly m/(4 pi^2) (1 plus minus absolute cos(pi alpha)) isotropic alpha 1/2"
+      ]
+    },
+    "rationale": "Targeted semantic research searches and primary comparisons found no exact result giving the full constrained real Fourier-moment Jacobian spectrum and its half-duty isometry for regular m-arc masks. Courtney 2010 covers qualitative order-m recovery, Batenkov et al. asymptotic complex Fourier matrix conditioning, Jiang 2026 low-mode oscillation bounds; none mathematically entails the two explicit spectral values, multiplicities, or duty-fraction optimizer. The risk of a prior unindexed elementary calculation remains.",
+    "residual_risks": [
+      "Semantic retrieval is not complete bibliographic coverage; an unindexed exact calculation for regular two-grid Vandermonde matrices may exist.",
+      "Only the identified relevant portions of the Jiang and Batenkov HTML texts were inspected; review was more complete for Courtney.",
+      "Normalization-converted equivalent results from signal processing may be hard to retrieve under arc terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering a local inverse Jacobian of finite unions of intervals.",
+        "evidence": "Theorem 1.1 bounds sign changes and negative-order Sobolev norms; Section 3 treats low Fourier projections.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.04639",
+        "material_read": "Accessible arXiv HTML abstract, introduction, Theorem 1.1 and the introduction’s descriptions of Section 3 applications; no claim to exhaustive Section 3 reading.",
+        "method": "Read arXiv HTML text and compare theorem assumptions and observables.",
+        "title": "On a family of one-dimensional oscillation inequalities",
+        "trigger": "Eligible 2026 source on sign oscillations and low Fourier-mode uncertainty"
+      },
+      {
+        "assessment": "Known qualitative reconstruction uses coefficients from order 0 through m. It does not give a fixed-area, modulo-rotation low-harmonic real Jacobian spectrum.",
+        "evidence": "Theorem 1 explicitly requires agreement for all orders 0<=k<=m; Section 4 solves endpoint polynomials from those coefficients.",
+        "identifier_or_url": "https://arxiv.org/html/1002.0639v2",
+        "material_read": "Full accessible 7-page HTML statement, Section 2 construction, Section 3 theorem proof, and Section 4 reconstruction algorithm.",
+        "method": "Read the primary full HTML, in particular Theorem 1 and endpoint reconstruction statements.",
+        "title": "Unions of arcs from Fourier partial sums",
+        "trigger": "Directly overlapping arc-recovery object and Fourier coefficients"
+      },
+      {
+        "assessment": "Provides lower-bound/asymptotic conditioning results for general point-node Fourier matrices, not the sharp two-band real local spectrum of regular arc-endpoint Fourier moments.",
+        "evidence": "Sections 1–3 emphasize asymptotic minimum singular values with large Fourier cutoff and clustered nodes.",
+        "identifier_or_url": "https://arxiv.org/html/1809.00658v2",
+        "material_read": "Full accessible HTML abstract, Section 1, Section 2 matrix definitions and stated Section 3 results, with relevant proof framework inspected; no claim to exhaustive text audit.",
+        "method": "Compare row ranges, node geometry, target spectral quantities, clustered asymptotic assumptions and normalizations.",
+        "title": "Conditioning of partial nonuniform Fourier matrices with clustered nodes",
+        "trigger": "Potential broader theorem controlling Fourier endpoint Vandermonde singular values"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "718461ce-b36b-4442-bbd3-5c9e7266908e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise low-frequency conditioning of endpoint recovery is a natural invariant in reconstruction of multiple arcs. An exact two-level real spectrum uniformly for all m and alpha, a sharply optimal unique half-duty local isometry, and an explicit divergence at thin arc limits provide genuinely quantitative structure not supplied by generic recovery or spectral bounds. No arbitrary slice or unsupported global extension is claimed.",
+    "status": "PASS"
+  }
+}
