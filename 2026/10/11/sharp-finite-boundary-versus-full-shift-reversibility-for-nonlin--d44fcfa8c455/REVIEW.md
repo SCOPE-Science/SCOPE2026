@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement assumes the exact all-null-boundary coefficient constraints in the primary preprint. Their finite invertibility follows from a triangular affine reduction modulo each prime followed by unique digit lifting. On the full shift, separate radical divisibility makes the mod-prime map coordinatewise invertible; correcting one prime-adic digit per stage proves a local inverse and radius at most the maximum prime exponent minus one. Without that divisibility, an explicit prime-field eigenmode of multiplicative order dividing one less than the prime gives two distinct periodic configurations with equal image. The linear nilpotent-shift example attains the bound. The proof treats all moduli and the prime-two and squarefree endpoints. Exact verification replays 19,733 finite assertions; experiments are not used to infer infinite conclusions.
+PASS
 
-## Originality — PASS (residual risk stated)
+PASS. For every d≥2, under gcd(c5,d)=1, rad(d)|c0..c3, and rad(d)|c4c6, all finite zero-boundary maps lift their prime-wise triangular invertible reductions, hence are bijective for every size. For the bi-infinite map, if rad(d)|c4 and rad(d)|c6 separately, mod p inversion is coordinatewise; at p^k→p^(k+1), all derivative terms except the central c5 term vanish mod p, so each new output digit fixes one input digit using output neighborhood enlarged by at most one. CRT yields inverse radius ≤E−1 where E=max v_p(d). Conversely if c4 or c6 nonzero at p, the product condition forces exactly one; choose nonzero root λ of c4+c5λ+c6λ² over F_p. δ_i=(d/p)λ^i is nonzero periodic of order L|p−1 and F(δ)=F(0), since higher mixed coefficients are p-divisible; works also p=2. Example I+rad(d)S^−1 has inverse sum_{j=0}^{E−1}(−rad(d))^j S^−j with nonzero final coefficient mod a prime power of maximal exponent, proving sharp least centered radius E−1. Independently checked this inverse on periodic words at d=2,3,4,6,8,9,12,16,18,24 and explicit collisions at d=2,3,4,8,9,15. Inspected actual verify.py; finite tests corroborate, do not prove universal theorem. Primary Baby–Bhattacharjee theorem 3.1 finite-null-boundary hypotheses verified directly in full open HTML.
 
-The closest primary source, Baby and Bhattacharjee (2026, arXiv:2603.05253v1), classifies finite null-boundary rules for every length, and its theorem is taken as established prior work. It does not state the additional separate-divisibility condition for the bi-infinite shift, a full-shift inverse radius, or a bounded-period collision. Bhattacharjee–Das (2019, arXiv:1903.06011v1) develops finite-periodic and infinite boundary differences and reachability methods, without this eight-parameter classification. Dow (1997) and Manzini–Margara (1998) cover additive cellular automata and so imply known linear special cases, which are explicitly excluded from any standalone originality claim. The combined all-parameter nonlinear theorem is not implied by the *statements inspected* without applying additional CRT/lifting/collision arguments. Residual risk: a general polynomial/local-ring theorem or an uninspected full additive paper may contain an equivalent result. Searches cannot establish publication priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem sharply locates a dynamical boundary that the finite-null-boundary classification leaves open: a rule can be reversible for every finite zero-boundary length and still fail already on a short periodic infinite-lattice configuration. The optimal inverse observation radius quantifies locality for genuinely nonlinear reversible rules, rather than merely giving an existence statement. The question is natural for selecting when finite boundary models accurately represent global reversible dynamics. The additive cases and elementary mod-prime reductions are not presented as separately valuable novel facts.
+Best-of-knowledge PASS for nonlinear eight-parameter family boundary transition, explicit prime-periodic collision and optimal full-shift inverse radius. Source Baby–Bhattacharjee exact theorem is only finite null-boundary. General periodic and additive CA papers cover methods or linear subfamilies, not the combined nonlinear iff/radius claim in inspected statements; older additive source full texts are access risks.
 
-## Limits and relevant comparisons
+## value
 
-The argument covers only the defined polynomial family subject to the published finite conditions. Literature comparisons are strongest for the full open-access arXiv preprints; the older additive papers were checked bibliographically and at abstract level, not by full text, leaving a stated residual priority risk. No statement about other boundary conditions or all polynomial cellular automata is asserted.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS. Precisely separates all-finite-length null-boundary invertibility from bi-infinite reversibility in a natural nonlinear polynomial family, supplies bounded-period concrete obstructions, and gives a sharp reconstruction locality E−1 depending on modulus arithmetic. These structural boundary phenomena and inverse-radius cutoffs are meaningful beyond routine finite checks. Linear specializations are explicitly credited as prior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
