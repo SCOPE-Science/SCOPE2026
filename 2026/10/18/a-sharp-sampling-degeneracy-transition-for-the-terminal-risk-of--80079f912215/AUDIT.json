@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The published inverse-probability SPPM-NS update becomes two explicitly computed strict affine contractions; coupled moments converge. Their exact rational steady-state error factors against 1/9 with polynomial F and a manifestly positive denominator. For fixed p, Descartes ensures a unique positive F zero. Bernstein negativity at gamma=2, compactness of the maximum and exact resultant lead to quintic P; its derivative and endpoints prove one positive root and every parameter-side assertion. Reproducibility script verified factorization, resultant, endpoints, rational witnesses and moment recurrences, but analytic proof supplies continuum validity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Richtárik, Sadiev and Demidovich, arXiv:2405.15941v1, Appendix B.3, Algorithm 3 and Theorem 3 (2024-05-24) commentary (b), (c) optimizes separate convergence-bound terms.",
+        "Ryu and Boyd, Stochastic Proximal Iteration, 2017 manuscript Sections 2–5 Sections 3–5 discuss general mean-square convergence to a noise region.",
+        "Published record: Closed-form optimal coordinate sampling for inverse-positive SPD quadratics, is a study of deterministic coordinate-descent A-energy contraction, not random proximal stationary error."
+      ],
+      "reasoning": "A theorem providing exact stationary moments and their minimizer for arbitrary nonuniform two-point affine-proximal iterates would subsume the present finding. The inspected source guarantees convergence to a neighborhood and chooses probabilities for rate or a bound; those objectives do not determine the exact minimizer-error floor. Retrieved stochastic optimization stability results concern other algorithms (SVRG, SPAM, capped SPS). Search incompleteness remains a risk.",
+      "searches": [
+        "Richtarik Sadiev Demidovich stochastic proximal nonuniform sampling quadratic endpoint probability nonattainment optimum quintic",
+        "stochastic proximal point sampling probability stationary mean square risk quadratics optimal sampling no interpolation",
+        "Ryu Boyd stochastic proximal iteration steady-state fixed step optimal averaging 2016 pdf"
+      ]
+    },
+    "checked_sources": [
+      "Richtárik–Sadiev–Demidovich arXiv:2405.15941v1, algorithm and proof portions",
+      "Ryu–Boyd 2017 SPI manuscript, relevant portions",
+      "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics (coordinate-descent contraction)",
+      "Exact curvature-clipping phase diagram for capped stochastic Polyak steps (different updates)",
+      "Sharp mean-square stability frontier for two-client loopless SVRG",
+      "Exact stationary covariance and stability factorization for constant-template STORM"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Richtárik, Sadiev and Demidovich, arXiv:2405.15941v1, Appendix B.3, Algorithm 3 and Theorem 3 (2024-05-24) Theorem 3 provides an upper bound containing p-dependent minimal curvature and residual stochastic variance, rather than equality of terminal risk.",
+        "Ryu and Boyd, Stochastic Proximal Iteration, 2017 manuscript Sections 2–5 provides contractive stochastic-proximal convergence theory but does not identify a quintic p-degeneracy threshold.",
+        "an exact stationary covariance analysis of STORM, which uses estimator memory and not nonuniform SPPM-NS."
+      ],
+      "reasoning": "The claim is a necessary-and-sufficient threshold in exact stationary MSE for a specific inverse-probability prox scheme. The source sampling strategies optimize convergence bounds (rate versus noise term), not necessarily the exact stationary objective. The inspected antecedents imply existence/bounds, but not the exact algebraic crossing, endpoint nonattainment, or sharp threshold. Results for other stochastic solvers cannot dominate the claimed class without a demonstrated algorithmic reduction.",
+      "searches": [
+        "Exact stationary mean square error risk SPPM-NS Algorithm 3 two scalar quadratics probability p step gamma nonuniform sampling sharp phase transition",
+        "Richtarik Sadiev Demidovich stochastic proximal nonuniform sampling quadratic endpoint probability nonattainment optimum quintic",
+        "importance sampling probability stochastic proximal two quadratics terminal mean-square risk versus convergence rate",
+        "\"stochastic proximal\" \"optimal sampling\" \"stationary variance\" quadratics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Richtárik, Sadiev and Demidovich, arXiv:2405.15941v1, Appendix B.3, Algorithm 3 and Theorem 3 (2024-05-24) supplies probability-dependent proximal maps, not a stationary optimum classification.",
+        "Ryu and Boyd, Stochastic Proximal Iteration, 2017 manuscript Sections 2–5 treats stochastic proximal recurrence without the two-term inverse-probability scaling."
+      ],
+      "reasoning": "The equivalent question is minimization over proper two-term sampling laws of the stationary expected squared distance to the full-sum minimizer, or equivalently comparison of the invariant second moment with the one-component bias 1/9. The original theorem is an upper bound for each p and gamma, not a necessary-and-sufficient stationary-risk comparison. General contraction estimates in the earlier manuscript do not algebraically imply the critical quintic.",
+      "searches": [
+        "Exact stationary mean square error risk SPPM-NS Algorithm 3 two scalar quadratics probability p step gamma nonuniform sampling sharp phase transition",
+        "stochastic proximal point importance sampling two quadratics exact stationary mean squared error optimal selection probability phase transition",
+        "\"stochastic proximal\" \"stationary\" \"quadratic\" \"importance sampling\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding corpus results include the exact curvature-clipping law for capped stochastic Polyak steps and the mean-square stability frontier for loopless SVRG: different algorithms and objectives."
+      ],
+      "reasoning": "A published table of exact p-dependent stationary SPPM-NS risks would subsume the formula regardless of naming. No matching stationary two-quadratic risk table was retrieved. This negative search is evidence of bounded search only, not a proof of uniqueness.",
+      "searches": [
+        "importance sampling probability stochastic proximal two quadratics terminal mean-square risk versus convergence rate",
+        "stochastic proximal stationary bias variance optimum sampling abandon rare component two sample",
+        "SPPM Bernoulli convolution invariant stationary distribution two quadratic proximal maps singular fractal support"
+      ]
+    },
+    "rationale": "The exact two-quadratic stationary-risk sign law and its unique quintic parameter threshold were not present in the inspected primary SPPM-NS algorithm and theorem. Its rate/variance bound-optimizing choices concern different objectives. Ryu–Boyd gives general proximal iteration contraction without this probability-dependent terminal-risk classification. Searches of comparable published records identified no implication covering the new sharp boundary. Equivalence in unexamined literature is a documented residual risk, not ruled out.",
+    "residual_risks": [
+      "Equivalent probability-optimization threshold could appear in less searchable random-affine Markov or stochastic-proximal stationary-risk literature.",
+      "Some sections of older original proximal-iteration literature and later non-v1 revisions were not exhaustively reviewed; no claim of absolute novelty is made.",
+      "The result is a special canonical quadratic family and not a theorem about general nonuniform stochastic proximal point schemes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces update and gives convergence-to-neighborhood upper bounds and rate/variance bound choices, but reviewed material does not specify exact stationary MSE vs p or the unique quintic transition.",
+        "evidence": "Algorithm 3 and Theorem 3, pages 23–24; sampling commentary pages 24–25; posted date printed in PDF as 24 May 2024.",
+        "identifier_or_url": "https://arxiv.org/pdf/2405.15941",
+        "material_read": "First public v1, introduction and finite-sum setup pages 1–3, Appendix B.3 Algorithm 3, Theorem 3 and commentary (b), (c), pages 22–25; relevant proof of Theorem 3; document scope and contents",
+        "method": "Full-text arXiv PDF parsed text and visually inspected first page; followed theorem and equations",
+        "title": "A Unified Theory of Stochastic Proximal Point Methods without Smoothness",
+        "trigger": "Same exact SPPM-NS update and sampling probability optimization"
+      },
+      {
+        "assessment": "General contraction/asymptotic stochastic-proximal analysis, without the current two-component inverse-probability finite-sum update or terminal-risk sampling transition in inspected sections. Remaining uninspected portions are a priority risk.",
+        "evidence": "Manuscript (2017), sections on random-function oracle, proximal iteration and contraction in expectation.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/spi.pdf",
+        "material_read": "Manuscript front matter, contents, Sections 2.4 and 3.1–3.3, and overview of Sections 4–5 from searchable PDF",
+        "method": "Original manuscript PDF parsed text, first page visually inspected, related core convergence sections read",
+        "title": "Stochastic Proximal Iteration: A Non-Asymptotic Improvement Upon Stochastic Gradient Descent",
+        "trigger": "General stochastic proximal mapping could subsume stationary second-moment analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80079f91-2215-43ab-a89a-f06cf90e7119",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The distinction between rate-optimal nonuniform stochastic sampling and terminal error is mathematically and computationally motivated in the exact SPPM-NS scheme. The theorem gives a natural all-probability classification on the minimal pair of heterogeneous strongly convex quadratics, including sharp loss of attainment at an excluded probability boundary. This is an informative reliability/selection boundary, not mere rounding of a known table; usefulness is limited to this stationary-risk setup.",
+    "status": "PASS"
+  }
+}
