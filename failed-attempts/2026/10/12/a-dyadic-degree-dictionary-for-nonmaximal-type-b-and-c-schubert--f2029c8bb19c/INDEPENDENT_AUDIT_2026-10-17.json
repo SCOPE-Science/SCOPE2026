@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T02:39:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cohomological ring scaling from Buch–Kresch–Tamvakis maps τ_λ to 2^(−ℓ_t(λ))σ_λ, the nonmaximal hyperplane τ_1 to σ_1 because ℓ_t((1))=0, and top-class τ_ρ to 2^(−r)σ_ρ because top t-strict index has r parts above t. Comparing h^(D−|λ|) products proves the exact 2-power degree ratio. The ambient Weyl-dimension formula checker inspected in artifacts/verify.py covers n=2..18 and is corroboration only. The geometric normalization r<n is essential; r=1 reduces to a quadric degree two vs projective degree one.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier relation holds for all rational Schubert products, not only products of hyperplane classes ending in the top degree.",
+          "The source describes this comparison as well known and valid even for complete flag varieties of types B and C."
+        ],
+        "reasoning": "BKT has genuinely broader coverage than every listed degree identity; any corresponding Schubert degree is a top-intersection coefficient already encoded in the established ring.",
+        "searches": [
+          "arXiv:0809.4966 classical Pieri rules and ring homomorphism",
+          "Bergeron Sottile isotropic flag manifolds 2002"
+        ]
+      },
+      "checked_sources": [
+        "Buch, Kresch, Tamvakis (2009), arXiv:0809.4966 https://ar5iv.labs.arxiv.org/html/0809.4966",
+        "Bergeron and Sottile (2002), A Pieri-type formula for isotropic flag manifolds",
+        "Resultary semantic B C Schubert degrees query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under Φ(τ_λ)=2^(−ℓ)σ_λ, Φ(τ_1)=σ_1, Φ(τ_top)=2^(−r)σ_top. Applying to τ_1^(D−|λ|)τ_λ=deg_B τ_top yields 2^(−ℓ)deg_C=2^(−r)deg_B."
+        ],
+        "reasoning": "A two-line substitution into previously established product relations proves the entire result. No additional hypothesis beyond known nonmaximal normalization or new geometric lemma is needed; originality conclusively fails.",
+        "searches": [
+          "arXiv:0809.4966 Sec 1.2 special Schubert class",
+          "arXiv:0809.4966 Sec 2.2 formula (12)",
+          "Resultary semantic: symplectic odd orthogonal isotropic Grassmannian Schubert degrees powers 2 type B C comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "BKT Sec.2.2: f^ν_{λμ}=2^(ℓ(ν)−ℓ(λ)−ℓ(μ))e^ν_{λμ}; τ_λ↦2^(−ℓ_t(λ))σ_λ."
+        ],
+        "reasoning": "The proposed degree dictionary is the same ring comparison evaluated at the top Schubert class after repeated multiplication by the divisor τ_1; hence it is an equivalent specialized formulation of already known structure constants.",
+        "searches": [
+          "Buch Kresch Tamvakis arXiv:0809.4966 formula (12)",
+          "Resultary semantic: symplectic odd orthogonal isotropic Grassmannian Schubert degrees powers 2 type B C comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary publication gives a universal structure-constant dictionary, which algorithmically supplies every indexed degree without a separate degree table."
+        ],
+        "reasoning": "Exact matching numerical tables unnecessary: complete known ring coefficients dominate all resulting Pluecker-degree invariants, so novel tabular wording is not independent originality.",
+        "searches": [
+          "Buch Kresch Tamvakis arXiv:0809.4966",
+          "Resultary semantic: symplectic odd orthogonal isotropic Grassmannian Schubert degrees powers 2 type B C comparison"
+        ]
+      },
+      "rationale": "The primary Buch–Kresch–Tamvakis 2009 paper already establishes the complete type B/type C Schubert structure-constant equivalence, formula (12), and explicitly identifies the rational ring homomorphism τ_λ↦2^(−ℓ_t(λ))σ_λ (Section 2.2, source lines 380–390). Their special class and top-class facts give every degree by the definition of a Schubert top intersection. Therefore the entire claimed degree dictionary follows as an immediate corollary of a stronger primary theorem: absence of the exact printed degree formula does not confer originality. This is decisive prior implication, not a failure of keyword search.",
+      "residual_risks": [
+        "The theorem is correct but its provenance is already determined by BKT ring comparison.",
+        "No claim for maximal r=n case (different embedding normalization)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PRIOR_IMPLICATION: published ring homomorphism and known hyperplane/top classes immediately imply every displayed degree identity",
+          "evidence": "Section 2.2 formula (12) and induced map τ_λ↦2^(−ℓ_k(λ))σ_λ; Section 1.2 σ_1=c1(Q).",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/0809.4966",
+          "material_read": "Full public primary HTML, introduction and Sections 1.1–1.3, 2.1–2.2, especially lines 380–390 formula (12), special class identification",
+          "method": "direct reading of complete archival text with equation-level comparison",
+          "title": "Quantum Pieri rules for isotropic Grassmannians",
+          "trigger": "Strongest prior all-Schubert product correspondence for exact same OG/IG spaces and t-strict indices"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Projective degrees are natural invariants, but the full claimed family is a one-line extraction from a published complete Schubert ring isomorphism. There is no new enumerative algorithm, nonstandard argument, boundary structure, independent classification or exact invariant beyond what the existing ring multiplication already determines. As a standalone contribution it is a routine rephrasing/corollary; O and V fail notwithstanding correct algebra.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For every 1<=r<n and every t-strict Schubert index λ, deg(X^B_λ in OG(r,2n+1)) = 2^(r-ℓ_t(λ))deg(X^C_λ in IG(r,2n)), with corresponding 2-adic valuations and ambient factor 2^r.",
+  "limitations": [
+    "Rejected for O and V due to covering prior implication; C passes.",
+    "Publication plan leaves source package unchanged (no attempted repair of covered original)."
+  ],
+  "schema_version": 1
+}
