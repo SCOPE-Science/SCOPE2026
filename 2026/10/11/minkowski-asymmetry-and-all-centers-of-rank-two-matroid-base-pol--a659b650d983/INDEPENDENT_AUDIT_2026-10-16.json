@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:18:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed the exact rank-two base-polytope H-description from parallel classes: x_e>=0, x(C_j)<=1 and x(E)=2; p=2 has both class sums identically 1. Reflection -(P-c) subset s(P-c) is equivalent to (s+1)c-v in sP for every base vertex. For p>=3 the coordinate maximum=1 and each class minimum=0 give necessary/sufficient (s+1)c_e>=1, (s+1)c(C_j)<=s. With w=(s+1)c the feasible class masses range [m_j,s] and total 2(s+1), yielding exactly s=max(max m_j,(n-2)/2,2/(p-2)). Nonnegative residual z=w-1 with caps q_j=s-m_j and total Z=2(s+1)-n proves the full center-polytope and the three affine-dimension regimes (Z=0; Z=U>0; 0<Z<U). The p=2 direct-product exception gives s=max(1,m1-1,m2-1) and the product-of-simplices center dimension. Independently solved a linear program from facet constraints for seven distinct parallel profiles, all matching the exact formula. The proof covers all positive integral class sizes, not by finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://pure.uva.nl/ws/files/229231993/Minkowski_Centers_via_Robust_Optimization.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-density-tight-sets-classify-minkowski-centers-of-polymatroid-ind--61dfa226b022",
+          "https://arxiv.org/pdf/2106.08183"
+        ],
+        "reasoning": "The 2024 robust optimization LP covers *computing* Minkowski centers for arbitrary polyhedra but does not supply the rank-two closed value and all affine-dimension cases without substantive specialized elimination. The independence-polytope theorem includes 0 and is full-dimensional, whereas a base polytope satisfies x(E)=2. They are not the same object; the latter may be recovered as a face, but Minkowski asymmetry of faces is not determined by that of the original polytope.",
+        "searches": [
+          "Den Hertog Pauphilet Soali Proposition 4 Minkowski centers polyhedra",
+          "Resultary density-tight polymatroid independence center theorem versus matroid bases"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2106.08183",
+        "https://pure.uva.nl/ws/files/229231993/Minkowski_Centers_via_Robust_Optimization.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-density-tight-sets-classify-minkowski-centers-of-polymatroid-ind--61dfa226b022",
+        "https://arxiv.org/abs/2010.10227"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2106.08183",
+          "https://pure.uva.nl/ws/files/229231993/Minkowski_Centers_via_Robust_Optimization.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-density-tight-sets-classify-minkowski-centers-of-polymatroid-ind--61dfa226b022"
+        ],
+        "reasoning": "Feeding prior facets into a general robust program is sufficient to set up an instance LP, but deriving max{max_j m_j,(n-2)/2,2/(p-2)} and nonunique center-dimension strata for all p and m_j needs an interval total-mass proof. No preexisting mathematically stronger theorem directly giving these values or centers was identified in the materially read sources.",
+        "searches": [
+          "Ferroni rank two matroid H-description plus den Hertog Proposition 4",
+          "Resultary polymatroid independence asymmetry density theorem",
+          "Web Minkowski asymmetry matroid base polytope rank two"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2106.08183",
+          "https://pure.uva.nl/ws/files/229231993/Minkowski_Centers_via_Robust_Optimization.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-density-tight-sets-classify-minkowski-centers-of-polymatroid-ind--61dfa226b022"
+        ],
+        "reasoning": "Rank-two matroid base polytopes are also edge polytopes of complete multipartite graphs; equivalent names and p=2 product-of-simplices cases were considered. A density theorem for downward-closed independence polytopes describes a different convex body and is not affinely equivalent in general.",
+        "searches": [
+          "Resultary rank two matroid base polytope Minkowski asymmetry parallel class center",
+          "Web: complete multipartite edge polytopes Minkowski center symmetry",
+          "Ferroni Jochemko Schroeter rank two base polytope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/pdf/2106.08183",
+          "https://pure.uva.nl/ws/files/229231993/Minkowski_Centers_via_Robust_Optimization.pdf",
+          "Exact p>=3 three obstructions and p=2 direct product exception not reported in inspected tables."
+        ],
+        "reasoning": "Known rank-two classifications supply H-description/Ehrhart quantities, not the all-center cap polytope or affine dimension. An instance solver/LP table does not constitute an exact all-parallel-profile asymmetry table.",
+        "searches": [
+          "Ferroni Jochemko Schroeter rank-two parallel class base polytope facets and Ehrhart tables",
+          "Minkowski centers robust optimization general polyhedral examples"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Ferroni-Jochemko-Schroeter determine the relevant parallel class rank-two matroid base-polytope facets and Ehrhart data, but not their affine Minkowski asymmetry or all centers. Den Hertog-Pauphilet-Soali Proposition 4 gives a general robust polyhedral LP, which can recover each case after specialized analysis but does not itself evaluate the three competing obstructions, p=2 product exception, or dimension stratification. A published same-invariant record for polymatroid *independence* polytopes expressly excludes matroid *base* polytopes with x(E)=rank: its density-tight criterion does not imply this formula. Distinct Euclidean inradius rank-two results do not transfer to affine-invariant asymmetry. The closed classification and center-locus cases survive these implication tests.",
+      "residual_risks": [
+        "Possible unindexed base-polytope asymmetry theorem under complete-multipartite edge-polytope names.",
+        "General robust LP prior is substantial background; claim is the exact solved formula and full center-locus dimension, not optimization setup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes input polytope facets, not the claimed Minkowski center stratification.",
+          "evidence": [
+            "arXiv:2106.08183, §2.2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.08183",
+          "material_read": "Section 2.2 facet/hyperplane description, rank-two class cases, Lemmas 2.6/2.7 and associated examples.",
+          "method": "Read arXiv full-text PDF in the relevant structure section with page image check.",
+          "title": "Ehrhart polynomials of rank two matroids",
+          "trigger": "Identical rank-two matroid parallel-class structure"
+        },
+        {
+          "assessment": "Broad LP template does not state rank-two-matroid formula or all center dimensions; no matroid discussion found in full-text search.",
+          "evidence": [
+            "Operations Research 72 (2024), Proposition 4, page 2139; no matroid named."
+          ],
+          "identifier_or_url": "https://pure.uva.nl/ws/files/229231993/Minkowski_Centers_via_Robust_Optimization.pdf",
+          "material_read": "Full-text 19-page 2024 version: Proposition 4 page 5 with general polyhedral LP, Lemma 1 and Section 2.4 analytic expressions, search for matroid and order polytope.",
+          "method": "Opened complete lawful university PDF and visually inspected page 5; read Proposition 4 and adjacent discussion.",
+          "title": "Minkowski Centers via Robust Optimization: Computation and Applications",
+          "trigger": "Broad general algorithm might imply any convex-polytope center case"
+        },
+        {
+          "assessment": "Not covering intrinsic base-polytope asymmetry; different feasible set and ambient affine span.",
+          "evidence": [
+            "Independence polytope includes origin and all independent vectors; base polytope has x(E)=2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-density-tight-sets-classify-minkowski-centers-of-polymatroid-ind--61dfa226b022",
+          "material_read": "Complete public RESULT.md: assumptions x>=0, x(S)<=rank(S), independence polytope, tight density formula and center dimensions.",
+          "method": "Read published theorem and main proof, explicitly including exclusion of matroid base polytope.",
+          "title": "Density-tight sets classify Minkowski centers of polymatroid independence polytopes",
+          "trigger": "Potential stronger matroid Minkowski-center theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact asymmetry for all loopless rank-two matroids with arbitrary parallel classes is a natural complete matroid-polytope classification; three sharp obstructions, a disconnected p=2 exception and the whole possibly-positive-dimensional minimizing-center locus distinguish qualitatively different regimes. The cap-residual geometry and dimension criterion are reusable structural data not given by a generic numerical optimization method. Even if an arbitrary instance could be solved by LP, the quantified symbolic family and exact strata are meaningful.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2106.08183",
+    "https://pure.uva.nl/ws/files/229231993/Minkowski_Centers_via_Robust_Optimization.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-density-tight-sets-classify-minkowski-centers-of-polymatroid-ind--61dfa226b022",
+    "https://arxiv.org/abs/2010.10227"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite, loopless rank-two matroids only, intrinsically in the affine hull; no extension to arbitrary rank.",
+    "General Minkowski-center LP is prior, so originality is the explicit symbolic rank-two evaluation and complete center dimensions, not the reflection definition.",
+    "An unpublished specialization to complete multipartite edge polytopes could be equivalent, and search absence does not exclude it."
+  ],
+  "residual_risks": [
+    "Possible unindexed base-polytope asymmetry theorem under complete-multipartite edge-polytope names.",
+    "General robust LP prior is substantial background; claim is the exact solved formula and full center-locus dimension, not optimization setup."
+  ],
+  "schema_version": 1
+}
