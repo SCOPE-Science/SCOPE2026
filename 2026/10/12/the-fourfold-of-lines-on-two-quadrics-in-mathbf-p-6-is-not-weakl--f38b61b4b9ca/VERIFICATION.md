@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,50 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let \(x,y\) be the Chern roots of \(\mathcal S^\vee\) and \(H=x+y\). The two quadric equations define the fourfold as the regular zero locus of
-\[
-E=\bigl(\operatorname{Sym}^2\mathcal S^\vee\bigr)^{\oplus2}
-\]
-inside \(\operatorname{Gr}(2,7)\).
+# Independent mathematical audit
 
-The roots of one symmetric-square summand are
-\[
-2x,\quad x+y,\quad 2y.
-\]
-Using
-\[
-[T_G]=7[\mathcal S^\vee]-[\mathcal S^\vee\otimes\mathcal S]
-\]
-and subtracting the normal bundle gives
-\[
-c_1(T_F)=H
-\]
-and
-\[
-\operatorname{ch}_2(T_F)=-\frac52(x^2+y^2).
-\]
+## correctness
 
-The zero-locus class is
-\[
-[F]=c_6(E)=16x^2y^2H^2.
-\]
-For \(\operatorname{Gr}(2,7)\), integration of a symmetric degree-\(10\) polynomial is the coefficient
-\[
-[x^6y^5](x-y)f(x,y).
-\]
-Therefore
-\[
-\operatorname{ch}_2(T_F)\cdot H^2=-40
-\]
-and
-\[
-H^4=80.
-\]
+PASS
 
-The bundled script `verify_ch2.py` independently replays these two coefficient extractions using exact rational arithmetic and terminates with `VERIFY_OK`.
+On Gr(2,7), the smooth fourfold F of lines on a smooth two-quadric intersection in P6 is zero locus of E=(Sym² S*)^⊕2 of rank six. Adjunction gives c1(TF)=7H-6H=H ample. With Chern roots x,y, ch2(TF)=-(5/2)(x²+y²), [F]=16x²y²(x+y)². Independently evaluated Grassmannian coefficient [x^6y^5](x−y)f to obtain ch2(TF)·H²=-40 and H4=80. Thus natural nonzero effective Plücker surface H² violates weakly-2-Fano nonnegativity. No claim about other dimensions or entire effective cone.
 
-The recent source was checked in full for smoothness, projectivity, and its explicit \(g=3\) motivic class. The definition of weakly \(2\)-Fano and the scope of the high-index classification were independently checked in the standard \(2\)-Fano reference. The general tautological symmetric-power and Grassmannian coefficient machinery was checked in the full Fano-scheme reference.
+## originality
 
-No finite experiment substitutes for a proof: the script verifies arithmetic in a symbolic identity already established in the proof.
+PASS
+
+The known motivic class of this precise Fano fourfold and generic Schubert machinery do not directly give its weakly-2-Fano status. Araujo–Castravet high-index classification excludes this Picard-index-one fourfold. Closely matching Ji–Suzuki primary full text not obtained (Oxford VPN disconnected) so a particular coverage risk remains.
+
+## value
+
+PASS
+
+A concrete and natural borderline Fano fourfold has an explicit negative Chern-character intersection, resolving a geometric positivity question with a geometric effective surface witness and normalized value -1/2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

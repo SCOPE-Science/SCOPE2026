@@ -1,34 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Fano fourfold is the regular zero locus of
-\[
-E=\bigl(\operatorname{Sym}^2\mathcal S^\vee\bigr)^{\oplus2}
-\]
-on \(\operatorname{Gr}(2,7)\). The tangent-normal sequence gives
-\[
--K_F=H
-\quad\text{and}\quad
-\operatorname{ch}_2(T_F)=-\frac52(x^2+y^2).
-\]
-The top Chern class is
-\[
-[F]=16x^2y^2(x+y)^2.
-\]
-Exact Grassmannian coefficient extraction gives
-\[
-\operatorname{ch}_2(T_F)\cdot H^2=-40
-\quad\text{and}\quad
-H^4=80.
-\]
-Thus \(H^2\cap[F]\) is a nonzero effective surface with negative second-Chern-character pairing, which is exactly enough to disprove weak \(2\)-Fano positivity.
+## correctness
 
-## Originality
-PASS. The initiating source computes motivic classes and related cohomological information for the same Fano schemes but contains no \(2\)-Fano or Chern-character statement. The standard high-index \(2\)-Fano classification does not cover this fourfold, while the older Fano-scheme literature supplies general Chern and Schubert machinery without stating this positivity verdict. Exact, alias, broader, numerical-witness, and implication searches found no covering statement.
+PASS
 
-## Value
-PASS. Weak \(2\)-Fano positivity is a structurally motivated condition in higher Fano geometry. The result identifies a canonical obstruction on a natural fourfold: two Plücker hyperplanes already expose a negative value, and the exact number \(-40\) makes the failure quantitatively explicit.
+On Gr(2,7), the smooth fourfold F of lines on a smooth two-quadric intersection in P6 is zero locus of E=(Sym² S*)^⊕2 of rank six. Adjunction gives c1(TF)=7H-6H=H ample. With Chern roots x,y, ch2(TF)=-(5/2)(x²+y²), [F]=16x²y²(x+y)². Independently evaluated Grassmannian coefficient [x^6y^5](x−y)f to obtain ch2(TF)·H²=-40 and H4=80. Thus natural nonzero effective Plücker surface H² violates weakly-2-Fano nonnegativity. No claim about other dimensions or entire effective cone.
 
-The finding does not classify the full effective surface cone and does not assert an analogous result for other dimensions or other Fano schemes of linear spaces.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known motivic class of this precise Fano fourfold and generic Schubert machinery do not directly give its weakly-2-Fano status. Araujo–Castravet high-index classification excludes this Picard-index-one fourfold. Closely matching Ji–Suzuki primary full text not obtained (Oxford VPN disconnected) so a particular coverage risk remains.
+
+## value
+
+PASS
+
+A concrete and natural borderline Fano fourfold has an explicit negative Chern-character intersection, resolving a geometric positivity question with a geometric effective surface witness and normalized value -1/2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
