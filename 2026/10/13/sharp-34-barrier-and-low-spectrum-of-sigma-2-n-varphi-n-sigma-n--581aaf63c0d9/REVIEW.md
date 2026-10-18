@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The prime-power identity is exact. The two-prime-support expansion gives \(H(pq)=2\) in the squarefree case and the lower bound \(34\) as soon as the smaller prime block repeats, with simultaneous equality conditions forcing \(12\); if only the larger block repeats the lower bound is already \(41\). The adjoining-block recursion is exact, and its correction term is strictly positive because \(\sigma_2(m)>m^2>\varphi(m)\sigma(m)\) and \(S_{p,a}\ge R_{p,a}\). This excludes all support of size at least three below the boundary. The remaining prime powers below \(34\) are exhausted symbolically.
+## correctness
 
-## Originality
-PASS. A072780 already records the prime and squarefree-semiprime fibers \(0\) and \(2\), but its inspected entry does not state a repeated-support barrier or the intermediate fibers. A072779 is equivalent background only. The inspected Broughan–Ford–Luca full text develops the product \(\varphi(n)\sigma(n)\) for a square-value problem and contains no \(\sigma_2\) term. Exact-form, alias, low-fiber, support, and boundary-value searches found no equivalent or stronger statement.
+PASS
 
-## Value
-PASS. The exact database itself singles out primes and squarefree semiprimes, making the first repeated-support value a natural structural invariant. The theorem identifies that transition sharply at \(34\), uniquely at \(12\), and determines every value below it. This explains a whole initial spectral regime rather than merely extending a finite table.
+For prime powers, H(p^a)=sum_{j=0}^{a-1}p^{2j}-p^{a-1}, yielding 0 for prime, p²-p+1 for square and 1+p⁴ for cubes, with exponents >=4 bounded >=57. The exact expansion H(p^a q^b)=q^{2b}h_{p,a}+p^{2a}h_{q,b}+S_{p,a}S_{q,b}+R_{p,a}R_{q,b} yields H(pq)=2 and sharp >=34 when the smaller-prime block is repeated; other repeated block placement >=41. Adjoining a coprime prime-power increases H(mp^a)>p^{2a}H(m), so >=three distinct primes forces >50. Equality reduces uniquely to 2²*3=12. Independent sieve n=2..40000 reproduced the four low non-semiprime examples and sole H=34 at12. Infinite claim is symbolic, sieve corroborative.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+OEIS A072780 is exactly the sequence H and already records H=0 at primes and H=2 at distinct semiprimes; those facts are not claimed as new. Inspected sequence and A072779 do not state the all-n >=34 mixed-repeated support barrier with unique equality or complete intermediate fiber list. A broad phi*sigma paper treats multiplicative square values rather than this additive sigma2 gap. Best-of-knowledge original exact threshold, with risk an old OEIS comment or short note has essentially same elementary deduction.
+
+## value
+
+PASS
+
+The first value after known 0/2 fibers forced by a repeated prime factor in mixed support is a natural arithmetic phase threshold of a specific classical OEIS sequence. Determining the complete low spectrum and sharp equality (n=12) gives a complete useful initial invariant classification, not an arbitrarily selected interval unsupported by object motivation. Value is bounded, explicitly not a global classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

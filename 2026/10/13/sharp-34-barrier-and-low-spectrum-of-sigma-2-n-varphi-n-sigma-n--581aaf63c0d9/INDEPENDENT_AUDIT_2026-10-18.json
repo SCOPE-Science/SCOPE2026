@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:03:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For prime powers, H(p^a)=sum_{j=0}^{a-1}p^{2j}-p^{a-1}, yielding 0 for prime, p²-p+1 for square and 1+p⁴ for cubes, with exponents >=4 bounded >=57. The exact expansion H(p^a q^b)=q^{2b}h_{p,a}+p^{2a}h_{q,b}+S_{p,a}S_{q,b}+R_{p,a}R_{q,b} yields H(pq)=2 and sharp >=34 when the smaller-prime block is repeated; other repeated block placement >=41. Adjoining a coprime prime-power increases H(mp^a)>p^{2a}H(m), so >=three distinct primes forces >50. Equality reduces uniquely to 2²*3=12. Independent sieve n=2..40000 reproduced the four low non-semiprime examples and sole H=34 at12. Infinite claim is symbolic, sieve corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Euler factor product phi(n)sigma(n)/n²=prod(1-p^(-a-1)) is prior; additive H includes sigma2"
+        ],
+        "reasoning": "Check scope: General multiplicative bounds for phi(n)sigma(n)/n² and sigma_2(n). General divisor-product bounds could potentially imply low fiber threshold, but the inspected Broughan–Ford–Luca study instead treats when phi*sigma is square, not sharp mixed-support sigma2 gap.",
+        "searches": [
+          "OEIS:A072780",
+          "DOI:10.4064/cm130-1-11"
+        ]
+      },
+      "checked_sources": [
+        {
+          "assessment": "Lists the underlying statistic and certain low fibers; does not establish general sharp >=34 repeated-mixed-support bound or its unique equality at n=12",
+          "identifier_or_url": "https://oeis.org/A072780",
+          "title": "OEIS A072780"
+        },
+        {
+          "assessment": "Equivalent raw sequence; known prime and semiprime values do not directly yield 34 barrier",
+          "identifier_or_url": "https://oeis.org/A072779",
+          "title": "OEIS A072779"
+        },
+        {
+          "assessment": "Treats square values of product, not additive sigma_2 shifted gap or first mixed-support threshold",
+          "identifier_or_url": "DOI:10.4064/cm130-1-11",
+          "title": "On square values of the product of the Euler totient and sum of divisors functions"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known H=0 and 2 values constrain only the two smallest fibers; no all-composite repeated prime support inequality in inspected database"
+        ],
+        "reasoning": "Check scope: Does known H=0,2 classification imply the next gap threshold 34?. A separate prime-power and mixed-support lower-bound argument is necessary to prove all remaining values are >=34; so asserted new content is not an immediate algebraic corollary merely of previous two fibers.",
+        "searches": [
+          "OEIS:A072780",
+          "DOI:10.4064/cm130-1-11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A072780 lists exact function, first values, and known prime/semiprime low fibers"
+        ],
+        "reasoning": "Check scope: OEIS A072780, equivalent unshifted A072779 and low inverse-image fibers. Function itself and low term H(12)=34 are known, but identifying all n with repeated mixed support H>=34 and equality only at12 is not the same as seeing 34 in finite sequence terms.",
+        "searches": [
+          "OEIS:A072780",
+          "OEIS:A072779",
+          "Resultary search: arithmetic function sigma_2(n) phi(n) sigma(n) - 2n^2 value 34 OEIS A072780"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same sequence is indexed and exact prime and semiprime classifications explicitly prior; H=34 at n12 listed numerically"
+        ],
+        "reasoning": "Check scope: Exact OEIS sequence value and commentary coverage. The table is finite and does not classify inverse image H<=34 across every n; distinct result is proof of absence of other values and sharp repeated-support barrier.",
+        "searches": [
+          "OEIS:A072780",
+          "OEIS:A072779"
+        ]
+      },
+      "rationale": "OEIS A072780 is exactly the sequence H and already records H=0 at primes and H=2 at distinct semiprimes; those facts are not claimed as new. Inspected sequence and A072779 do not state the all-n >=34 mixed-repeated support barrier with unique equality or complete intermediate fiber list. A broad phi*sigma paper treats multiplicative square values rather than this additive sigma2 gap. Best-of-knowledge original exact threshold, with risk an old OEIS comment or short note has essentially same elementary deduction.",
+      "residual_risks": [
+        "Existing OEIS A072780/A072779 comments and unindexed references may already state equivalent 34 threshold",
+        "Sharpness concerns initial spectrum through 34, not general image of H above 34",
+        "Finite 40000 sieve alone would not justify all integers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Lists the underlying statistic and certain low fibers; does not establish general sharp >=34 repeated-mixed-support bound or its unique equality at n=12",
+          "evidence": "OEIS A072780 term/definition/comment listing known H=0,2 classifications",
+          "identifier_or_url": "https://oeis.org/A072780",
+          "material_read": "Online sequence definition, sample terms, comments about zeros at primes and ones/twos at squarefree semiprimes, small entries including 34 at 12",
+          "method": "Primary exact integer-sequence database entry",
+          "title": "OEIS A072780",
+          "trigger": "Exact same function H(n)=sigma_2(n)+phi(n)sigma(n)-2n^2"
+        },
+        {
+          "assessment": "Equivalent raw sequence; known prime and semiprime values do not directly yield 34 barrier",
+          "evidence": "A072779 base arithmetic function",
+          "identifier_or_url": "https://oeis.org/A072779",
+          "material_read": "Database record definition and relation to A072780 checked in targeted search; no exhaustive history review",
+          "method": "OEIS entry and search snippets",
+          "title": "OEIS A072779",
+          "trigger": "Unshifted sigma_2(n)+phi(n)sigma(n) reformulation"
+        },
+        {
+          "assessment": "Treats square values of product, not additive sigma_2 shifted gap or first mixed-support threshold",
+          "evidence": "Broughan–Ford–Luca (2013), product ratio phi(n)sigma(n)/n²",
+          "identifier_or_url": "DOI:10.4064/cm130-1-11",
+          "material_read": "Source abstract and identity discussed in assigned source; complete primary work not independently read here",
+          "method": "Bibliographic primary-identity comparison",
+          "title": "On square values of the product of the Euler totient and sum of divisors functions",
+          "trigger": "Natural broader Euler product for phi(n)sigma(n)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first value after known 0/2 fibers forced by a repeated prime factor in mixed support is a natural arithmetic phase threshold of a specific classical OEIS sequence. Determining the complete low spectrum and sharp equality (n=12) gives a complete useful initial invariant classification, not an arbitrarily selected interval unsupported by object motivation. Value is bounded, explicitly not a global classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "assessment": "Lists the underlying statistic and certain low fibers; does not establish general sharp >=34 repeated-mixed-support bound or its unique equality at n=12",
+      "identifier_or_url": "https://oeis.org/A072780",
+      "title": "OEIS A072780"
+    },
+    {
+      "assessment": "Equivalent raw sequence; known prime and semiprime values do not directly yield 34 barrier",
+      "identifier_or_url": "https://oeis.org/A072779",
+      "title": "OEIS A072779"
+    },
+    {
+      "assessment": "Treats square values of product, not additive sigma_2 shifted gap or first mixed-support threshold",
+      "identifier_or_url": "DOI:10.4064/cm130-1-11",
+      "title": "On square values of the product of the Euler totient and sum of divisors functions"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge mathematical originality with explicit residual risks, not an exhaustive historical-priority certificate.",
+    "Independent finite checks corroborate but do not replace infinite proofs, except the self-contained finite-set exact enumeration for the fixed family in record 4.",
+    "No external expert certification or Lean formal proof asserted.",
+    "Publication withheld pending neutral metadata sanitation and guards."
+  ],
+  "residual_risks": [
+    "Existing OEIS A072780/A072779 comments and unindexed references may already state equivalent 34 threshold",
+    "Sharpness concerns initial spectrum through 34, not general image of H above 34",
+    "Finite 40000 sieve alone would not justify all integers."
+  ],
+  "schema_version": 1
+}
