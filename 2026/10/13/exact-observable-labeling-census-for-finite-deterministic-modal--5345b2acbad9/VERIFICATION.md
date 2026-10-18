@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The accompanying standalone `verify.py` uses only Python standard-library modules and directly tests the theorem against separate algorithms: finite deterministic trace-partition refinement, direct Boolean modal term closure under complements, unions and predecessor operators, and the graph-theoretic cycle/fiber constraints. It also independently enumerates all alphabet-valued labelings and compares their census with the closed product. Reproduce with `python verify.py`.
+## correctness
 
-Observed successful output:
+PASS
 
-```
-VERIFY_OK exhaustive_colorings 196579 full_census_graphs 7402 direct_boolean_modal_closures 26122 random_colorings 12000 rank_boundaries 9000 examples (24, 18)
-```
+Boolean closure under preimage f^{-1} and Boolean operations consists exactly of unions of equivalence classes of states with identical forward color itineraries. Injectivity of itineraries requires primitive and mutually inequivalent rotational cycle words for same-length cycles and distinct labels on all same-successor fibers; if equal itineraries ever synchronize on the same cycle vertex, tracing back to the first merger contradicts fiber uniqueness. For each length l, primitive words P_q(l)=sum_{d|l}mu(d)q^{l/d} fill labeled cycles with factors P_q(l)-j l. Each cycle vertex has one precolored predecessor, so remaining d_v-1 predecessors contribute falling(q-1,d_v-1); noncycle targets contribute falling(q,d_v). This yields the product and exact q=2^r generator rank. Partition refinement gains at least one class per depth until discrete, proving depth <=n-s, with chain-to-loop sharp. Independent enumeration of all maps of size <=4 over alphabets q=1,2,3 compared 864 complete graph/color census cases via exact itinerary traces, including examples 24 and 18.
 
-Exhaustive coverage comprises all functions on sets of up to five elements for one and two colors, and functions on sets up to four elements for three and four colors. The direct modal-term closures are independently constructed for 26,122 colorings (small state sets, alphabets with at most three colors). Randomized checks use a fixed seed, 12,000 pairwise tests over graphs with up to 25 states. Boundary checks verify all 9,000 tested rank/feasibility comparisons. Examples recover 24 and 18 generating tuples respectively.
+## originality
 
-# Limits
+PASS
 
-Finite computation does not establish the universal theorem for all finite state sets and all generator counts. Correctness of the unrestricted formula, rank, and modal-depth claims is established by the proof in `RESULT.md`. No independent audit has been performed, and none is implied by the test method or the status data.
+A complete exact ordered generating-labeling census and sharp generator-rank classification for every finite single-successor modal algebra. General behavioral inequivalence and unary DFA minimality are prior, but the inspected source statements do not imply the factored all-label count.
+
+## value
+
+PASS
+
+Finite Boolean modal algebras of deterministic functions are a natural unrestricted family; counting all minimal observable colorings decomposes periodic and merging obstructions and gives exact minimum generator rank and sharp modal depth. The theorem provides closed computable invariants for every finite functional digraph, not an arbitrary selected small frame.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

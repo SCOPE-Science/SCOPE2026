@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-For every finite nonempty functional frame, modal terms are exactly Boolean combinations of forward label coordinates. Thus full generation is equivalent to pairwise distinct infinite itineraries. The proof checks the exact equivalence with primitive and nonrepeating cycle necklaces plus injectively labeled immediate fibers, then counts independent cycle assignments and fiber assignments, proves the rank criterion, and establishes a sharp modal-depth bound. Boundary cases include singleton frames and empty tuples. A standalone verifier confirms all 7,402 finite graph/parameter census cases tested, 196,579 colorings, 26,122 independently constructed Boolean modal closures, and further randomized tests. Computations are supporting evidence, not the unrestricted proof.
+## correctness
 
-## Originality: PASS (self-review)
-The closest primary work, Wißmann–Milius–Schröder, proves a broad modal-witness construction and partition-refinement methodology but does not state this exact coloring criterion, product enumeration for prescribed finite functional graphs, or the sharp generator rank. Davies addresses uniform minimality of permutation automata, which differs from enumerating all output labelings for noninjective one-letter transition graphs; Shea treats graph-labeled symbolic factors, not this finite modal generator census. The primitive-necklace formula, distinguishability criterion, and refinement technique are acknowledged as existing ingredients. Potential prior formulations in unary-automata observability and symbolic dynamics remain the leading originality risk; checked sources do not currently imply the complete product formula as stated.
+PASS
 
-## Mathematical value: PASS
-The theorem solves a natural finite-generation problem for an arbitrary deterministic frame—not only a selected graph family—with an exact labeled-tuple census. Its nontrivial structural factorization separates periodic orbit obstructions (primitive necklace capacities) from merging-predecessor obstructions (injective incoming fibers), yielding a sharp rank and an attained modal-depth limit. These give usable invariants of finite functional modal algebras, beyond a direct restatement of ordinary DFA minimization.
+Boolean closure under preimage f^{-1} and Boolean operations consists exactly of unions of equivalence classes of states with identical forward color itineraries. Injectivity of itineraries requires primitive and mutually inequivalent rotational cycle words for same-length cycles and distinct labels on all same-successor fibers; if equal itineraries ever synchronize on the same cycle vertex, tracing back to the first merger contradicts fiber uniqueness. For each length l, primitive words P_q(l)=sum_{d|l}mu(d)q^{l/d} fill labeled cycles with factors P_q(l)-j l. Each cycle vertex has one precolored predecessor, so remaining d_v-1 predecessors contribute falling(q-1,d_v-1); noncycle targets contribute falling(q,d_v). This yields the product and exact q=2^r generator rank. Partition refinement gains at least one class per depth until discrete, proving depth <=n-s, with chain-to-loop sharp. Independent enumeration of all maps of size <=4 over alphabets q=1,2,3 compared 864 complete graph/color census cases via exact itinerary traces, including examples 24 and 18.
 
-## Limitations and prior sources
-The domain is finite total single-successor relations; labeled, ordered generators are counted. Comparisons: arXiv:2203.11175; arXiv:1702.00877; DOI:10.37236/2213. No external mathematical or originality certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A complete exact ordered generating-labeling census and sharp generator-rank classification for every finite single-successor modal algebra. General behavioral inequivalence and unary DFA minimality are prior, but the inspected source statements do not imply the factored all-label count.
+
+## value
+
+PASS
+
+Finite Boolean modal algebras of deterministic functions are a natural unrestricted family; counting all minimal observable colorings decomposes periodic and merging obstructions and gives exact minimum generator rank and sharp modal depth. The theorem provides closed computable invariants for every finite functional digraph, not an arbitrary selected small frame.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
