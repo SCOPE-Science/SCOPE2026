@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds all \(107\) tetrahedra and uses only the Python standard library.
+# Independent mathematical audit
 
-Contracting a spanning tree leaves \(108\) graph-cycle generators. Integral unimodular reduction of the \(214\) triangular-face relations isolates \(106\) unit pivots. Every entry in the residual two-column block is divisible by \(4\); after dividing by \(4\), the residual Smith reduction is a rank-two identity. Therefore
-\[
-H_1(K;\mathbb Z)\cong(\mathbb Z/4)^2.
-\]
+## correctness
 
-The tracked column basis change supplies exact mod-\(4\) quotient coordinates. Both coordinate functionals are checked on all \(214\) facial relations. The triangles \(\{2,4,11\}\) and \(\{1,3,9\}\) certify coordinate generators \((1,0)\) and \((0,1)\).
+PASS
 
-The verifier enumerates every graph triangle. It finds \(519\) three-cliques, of which \(214\) are faces and \(305\) are nonfaces. None of the \(305\) has zero homology coordinate, and all \(15\) nonzero coordinate classes occur.
+The pinned verify.py embeds the exact 107-tetrahedron Lutz G6 facet list, which has now been compared with the public flat_3manifolds.txt G6 block; vertices 17, edges 124, faces 214, tetrahedra 107. A spanning tree contracts 16 edges, yielding Z^108 graph-cycle generators and 214 oriented face relations. An independent implementation computes the integer Smith form as 106 unit invariants and 4,4; mod-4 elimination independently derives two quotient coordinates annihilating face relations. Exhaustive enumeration of all C(17,3) possible triples finds 519 complete graph triples; 214 are facial, so 305 are nonfacial triangles. All 305 give nonzero class, and their classes cover all 15 nonzero elements of (Z/4)^2. Unoriented order-four inverse-pair counts are (52,51,51,48,45,38) and three order-two counts (13,5,2). No simple edge-cycle has fewer than three edges; each missing triangle is thus a length-3 integral homology systole. Orientations reverse classes and do not change the unoriented counts.
 
-Up to orientation, the six order-\(4\) inverse-pair classes occur
-\[
-52,51,51,48,45,38
-\]
-times, while the three nonzero order-\(2\) classes occur
-\[
-13,5,2
-\]
-times.
+## originality
 
-Exact successful output:
+PASS
 
-`VERIFY_OK f=17,124,214,107 H1_Z=Z4+Z4 graph_triangles=519 facial3=214 empty3=305 all_empty3_nonzero=yes all_15_nonzero_classes=yes order4_inverse_pair_counts=52,51,51,48,45,38 order2_counts=13,5,2 smith=1^106,4,4`
+Lutz’s exact geometric manifold table already gives the triangulation, f-vector and H1; it does not supply the **class of each nonface triangle**. The nontrivial complete 305-carrier, all-15-class systolic census therefore extends established base data by a new natural combinatorial invariant.
+
+## value
+
+PASS
+
+A complete class-by-class shortest homology-cycle spectrum of the canonical small Hantzsche–Wendt triangulation is a motivated exact topological/combinatorial invariant. It distinguishes the torsion classes by shortest carriers and multiplicity even though abstract H1 is known. Exhaustiveness over a natural finite fixed complex and the all-15-class coverage are independently useful, and not a textbook corollary of the homology group alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
