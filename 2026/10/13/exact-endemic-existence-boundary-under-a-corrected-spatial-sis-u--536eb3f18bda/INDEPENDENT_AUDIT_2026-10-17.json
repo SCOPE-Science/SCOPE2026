@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T14:18:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source assumes d_S<d_I and a bounded smooth Neumann domain, positive Hölder β,γ, total N and c=N/|Ω|≥γ(x)/β(x). Set w=cβ−γ≥0. If w≢0, the infected linearization L=d_I Δ+w has strictly positive principal Neumann eigenvalue by testing the constant function, giving R0>1 and existence by the source supercritical theorem; the corrigendum uniqueness proof handles the same pointwise regime. If w≡0, the linearized operator is pure Neumann diffusion and R0=1. The exact reduced steady equation is d_IΔI+DβI(q−I)=0 where D=d_I/d_S>1, q=(D−1)mean(I)/D. Multiply by I−q, integrate Neumann by parts, obtaining −d_I∫|∇I|²−D∫βI(I−q)²=0. Positivity forces I≡q, then q=(D−1)q/D implies q=0, excluding an endemic state. A separate algebraic identity check corroborates the sign factors. No numerical PDE computation is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The corrigendum explicitly invokes existence for R0>1 and proves uniqueness under c≥γ/β, but does not separate cβ−γ≡0 from strictly nonzero w≥0."
+        ],
+        "reasoning": "Generic R0≤1 threshold implications are prior theory and are not claimed as novel. The result states a corrected quantifier boundary in the original authors’ exact additional-hypothesis setting.",
+        "searches": [
+          "Deng–Wu 2016 SIS threshold theorem; doi:10.1017/S0308210515000864",
+          "Deng–Wu corrigendum 2022 §1",
+          "Resultary SIS diffusion search"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1017/prm.2022.13 full official §1",
+        "doi:10.1017/S0308210515000864 citation and threshold context, not full text",
+        "Resultary query: spatial SIS reaction diffusion Deng Wu corrigendum threshold N over domain gamma beta equality endemic uniqueness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The theorem says “EE is unique” and immediately argues weak c≥γ/β implies R0>1, then existence. If cβ=γ identically, the growth eigenvalue is zero."
+        ],
+        "reasoning": "The new dichotomy corrects a specific implication. The at-most-one interpretation of the theorem is compatible with no endemic equilibria and must be distinguished from the explicitly false existence sentence; ordinary R0 theory is not treated as newly discovered.",
+        "searches": [
+          "Cambridge official corrigendum §1 displayed (1.1), theorem and proof",
+          "2016 source threshold references"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cambridge 2022 corrigendum §1 states c≥γ/β and claims R0>1; the equality case cβ=γ makes the growth operator d_IΔ and has R0=1."
+        ],
+        "reasoning": "Alternative phrasings—failure of weak⇒strict spectral positivity, disease threshold at equality, and absence of a positive endemic PDE solution—refer to the same source-specific boundary.",
+        "searches": [
+          "doi:10.1017/prm.2022.13 weak inequality R0>1",
+          "Deng Wu SIS reaction diffusion w≡0 boundary no endemic",
+          "Resultary SIS reaction diffusion Deng Wu corrigendum equality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary corrigendum itself is the exact record and contains equation (1.1) and the false inference; there is no numerical lookup needed."
+        ],
+        "reasoning": "This is an analytic equality-case correction, not an exact database or finite-table invariant. Source text rather than a table is dispositive.",
+        "searches": [
+          "Cambridge Core DOI 10.1017/prm.2022.13 official full-text §1",
+          "Resultary semantic search SIS corrigendum equality case"
+        ]
+      },
+      "rationale": "The source corrigendum explicitly contains the weak inequality and the false R0>1 inference. Its uniqueness result is not rejected as an at-most-one assertion, but the positive-existence sentence needs a strict-somewhere hypothesis. The exact critical/elevated dichotomy is not formulated there. General epidemic threshold results are substantial background and may imply the critical nonexistence by other routes, so the novel component is the exact correction of this printed inference rather than a new universal threshold theorem.",
+      "residual_risks": [
+        "A general previous R0≤1 nonexistence theorem may subsume the critical conclusion; priority attaches to pinpointing/correcting the exact corrigendum inference.",
+        "An uncatalogued later erratum or author note could mention this boundary.",
+        "No claim is made on uniqueness if the pointwise ordering fails."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRINTED_EXISTENCE_INFERENCE_FALSE_AT_EQUALITY",
+          "evidence": "The weak c≥γ/β premise includes w≡0. At this equality, R0=1, contrary to the proof’s assertion R0>1.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/proceedings-of-the-royal-society-of-edinburgh-section-a-mathematics/article/corrigendum-dynamics-of-a-susceptibleinfectedsusceptible-epidemic-reactiondiffusion-model/03C8BAD73BA36AD2030872272FE0AA9D",
+          "material_read": "Entire substantive three-page corrigendum §1: both corrected theorem statements, (1.1)–(1.5), uniqueness proof and citations",
+          "method": "Official Cambridge HTML, exact equation/inequality comparison",
+          "title": "Corrigendum: Dynamics of a susceptible—infected—susceptible epidemic reaction—diffusion model",
+          "trigger": "Identical corrected theorem and exact printed existence inference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The error occurs inside an already published mathematical corrigendum to an epidemiological PDE theorem: a weak pointwise condition is used to infer strict supercriticality and existence. Isolating the everywhere-equality threshold and proving nonexistence changes the precise existential meaning of the corrected statement. The issue is more specific than a generic trivial zero check, because the source explicitly imports an incorrect threshold implication into a revised uniqueness proof; clarifying existence versus at-most-one is mathematically useful.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1017/prm.2022.13 full official §1",
+    "doi:10.1017/S0308210515000864 citation and threshold context, not full text",
+    "Resultary query: spatial SIS reaction diffusion Deng Wu corrigendum threshold N over domain gamma beta equality endemic uniqueness"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "At-most-one uniqueness language is not contradicted: defect is the proof’s positive-existence inference.",
+    "Uses the given source PDE and Neumann setting; no claim outside its diffusion-order and pointwise conditions."
+  ],
+  "residual_risks": [
+    "A general previous R0≤1 nonexistence theorem may subsume the critical conclusion; priority attaches to pinpointing/correcting the exact corrigendum inference.",
+    "An uncatalogued later erratum or author note could mention this boundary.",
+    "No claim is made on uniqueness if the pointwise ordering fails."
+  ],
+  "schema_version": 1
+}

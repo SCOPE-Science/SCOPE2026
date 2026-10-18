@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The weak pointwise hypothesis splits exactly into a nontrivial nonnegative growth gap and the everywhere-equality boundary. In the first case, a constant Rayleigh test gives a positive principal infected growth eigenvalue and the corrigendum's existence and uniqueness theorems apply. In the boundary case, the reduced endemic equation becomes a constant-carrying-capacity Neumann logistic equation with a nonlocal self-consistency condition. Multiplication by \(I-q\) forces spatial constancy, after which the self-consistency equation forces the zero solution.
+PASS
 
-## Originality
+The source assumes d_S<d_I and a bounded smooth Neumann domain, positive Hölder β,γ, total N and c=N/|Ω|≥γ(x)/β(x). Set w=cβ−γ≥0. If w≢0, the infected linearization L=d_I Δ+w has strictly positive principal Neumann eigenvalue by testing the constant function, giving R0>1 and existence by the source supercritical theorem; the corrigendum uniqueness proof handles the same pointwise regime. If w≡0, the linearized operator is pure Neumann diffusion and R0=1. The exact reduced steady equation is d_IΔI+DβI(q−I)=0 where D=d_I/d_S>1, q=(D−1)mean(I)/D. Multiply by I−q, integrate Neumann by parts, obtaining −d_I∫|∇I|²−D∫βI(I−q)²=0. Positivity forces I≡q, then q=(D−1)q/D implies q=0, excluding an endemic state. A separate algebraic identity check corroborates the sign factors. No numerical PDE computation is used.
 
-PASS. The corrigendum itself states that the weak inequality implies \(\mathcal R_0>1\) and endemic existence, but it does not isolate the included equality boundary. Searches by source identifier, theorem condition, threshold aliases, and later-citation records found no statement of the exact strict-somewhere/equality classification. General reproduction-number theory does not imply the nonlocal no-endemic energy identity by itself.
+## originality
 
-## Value
+PASS
 
-PASS. The finding supplies the precise boundary condition needed for an existence-and-uniqueness theorem in a paper whose purpose is to correct an endemic-equilibrium uniqueness result. It prevents the weak inequality from being used to infer endemic existence at the critical disease threshold.
+The source corrigendum explicitly contains the weak inequality and the false R0>1 inference. Its uniqueness result is not rejected as an at-most-one assertion, but the positive-existence sentence needs a strict-somewhere hypothesis. The exact critical/elevated dichotomy is not formulated there. General epidemic threshold results are substantial background and may imply the critical nonexistence by other routes, so the novel component is the exact correction of this printed inference rather than a new universal threshold theorem.
 
-## Closest literature and limitations
+## value
 
-General reaction–diffusion epidemic threshold theory supplies the principal-eigenvalue interpretation of \(\mathcal R_0\), and later SIS work cites the corrected Deng–Wu model. The inspected material does not give this equality-case classification. The result does not settle uniqueness when the pointwise ordering fails, and the corrigendum's theorem wording may remain vacuously true at equality if “unique” is read as “at most one”; the corrected target is the proof's existence inference and the intended existence-plus-uniqueness statement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The error occurs inside an already published mathematical corrigendum to an epidemiological PDE theorem: a weak pointwise condition is used to infer strict supercriticality and existence. Isolating the everywhere-equality threshold and proving nonexistence changes the precise existential meaning of the corrected statement. The issue is more specific than a generic trivial zero check, because the source explicitly imports an incorrect threshold implication into a revised uniqueness proof; clarifying existence versus at-most-one is mathematically useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
