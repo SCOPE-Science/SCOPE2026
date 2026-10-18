@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The proof was checked from the exact normalized map
-\[
-w_{n+1}=e^{-i\chi_n}\frac{w_n+s}{1+s w_n}.
-\]
-The disk-automorphism identity
-\[
-1-|w_{n+1}|^2=\frac{(1-s^2)(1-|w_n|^2)}{|1+s w_n|^2}
-\]
-was verified algebraically and numerically. Haar averaging of \(\log|1+s\rho e^{it}|\) was independently replayed by high-resolution periodic quadrature for several \(s\) and \(\rho\), giving zero to numerical precision as predicted by Jensen's formula.
+# Independent mathematical audit
 
-`verify.py` also checks the telescoping logarithmic defect relation along seeded sample paths and verifies that finite-horizon mean slopes approach \(\log(1-s^2)\). Its expected terminal output is `VERIFY_OK`.
+## correctness
 
-The finite replay is not the proof of the almost-sure limit. That limit uses the bounded martingale-difference strong law stated in RESULT.md.
+PASS
+
+Read source reduced Riccati map and reconstructed w_{n+1}=exp(−iχ_n)(w_n+s)/(1+s w_n), with s=sinθ∈(0,1). The disk-automorphism identity 1−|f_s(w)|²=(1−s²)(1−|w|²)/|1+sw|² gives exact log defect telescope. Fresh independent numerical identity/Jensen checks at 9 complex configurations plus Haar quadratures succeeded. Since each χ_n is fresh uniform and independent, postrotation angle is Haar and independent of new radius except at f_s(w)=0; w=−s maps to 0 then next step nonzero and Haar. Angular uniformity yields E[log|1+s w_n| conditional on radius]=0, bounded increment in [log(1−s),log(1+s)]; martingale strong law gives almost-sure 2log cosθ and Hoeffding–Azuma gives displayed two-sided n−1 tail bound with L=log[(1+s)/(1−s)]. Simulations do not prove the infinite limit.
+
+## originality
+
+PASS
+
+Quantitative finite-step angular isotropy, exact almost-sure radial defect exponent and martingale concentration extend the same published circle-stationarity observation; no examined broader theorem explicitly gives this full-disorder map-specific rate.
+
+## value
+
+PASS
+
+The exact radial boundary burn-in exponent and finite-horizon concentration replace an arbitrary discarded simulation transient for a naturally occurring lattice quantum-walk transfer map; the quantity is important for interpreting its invariant Riccati circle, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

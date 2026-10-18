@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T10:19:22.291320Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read source reduced Riccati map and reconstructed w_{n+1}=exp(−iχ_n)(w_n+s)/(1+s w_n), with s=sinθ∈(0,1). The disk-automorphism identity 1−|f_s(w)|²=(1−s²)(1−|w|²)/|1+sw|² gives exact log defect telescope. Fresh independent numerical identity/Jensen checks at 9 complex configurations plus Haar quadratures succeeded. Since each χ_n is fresh uniform and independent, postrotation angle is Haar and independent of new radius except at f_s(w)=0; w=−s maps to 0 then next step nonzero and Haar. Angular uniformity yields E[log|1+s w_n| conditional on radius]=0, bounded increment in [log(1−s),log(1+s)]; martingale strong law gives almost-sure 2log cosθ and Hoeffding–Azuma gives displayed two-sided n−1 tail bound with L=log[(1+s)/(1−s)]. Simulations do not prove the infinite limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dorsch–Schulz-Baldes perturbation theorem uses near-rotations, not this independent all-phase disorder law",
+          "Derevyanko computes stationary LE, not pointwise initial-defect rate"
+        ],
+        "reasoning": "Source stationary localization length 1/|log c| is not a theorem about conditional distance-to-circle fluctuations from interior starting points.",
+        "searches": [
+          "arXiv:2008.02174 full text",
+          "Derevyanko PMC5788940"
+        ]
+      },
+      "checked_sources": [
+        "PMCID:PMC5788940 Eq.(8), Fig.3 and Methods",
+        "arXiv:2008.02174 intro/theorems",
+        "McCarthy et al. (2019) metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Eq.(8) gives Möbius step; circle preservation and uniform occupancy observed, but its Fig.3 does not give Azuma-type finite-n error",
+          "Concentration follows from newly identified centered log increments"
+        ],
+        "reasoning": "Known Lyapunov exponent is not by itself the claimed convergence exponent for every interior orbit.",
+        "searches": [
+          "PMCID:PMC5788940 Eqs.(8)–(10)",
+          "arXiv:2008.02174"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original map is Möbius conjugate to f_s(w)=(w+s)/(1+sw), with independent Haar postrotation",
+          "General random Möbius literature examines other perturbative regimes"
+        ],
+        "reasoning": "Circle invariance and Haar stationary angular law are known; exact transient radial rate plus concentration is the additional implication.",
+        "searches": [
+          "full disorder quantum walk Riccati circular Furstenberg measure exponential defect",
+          "arXiv:2008.02174"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source displays empirical phase histograms and discards N/10 samples",
+          "No exact table/rate certificate provided in inspected text"
+        ],
+        "reasoning": "No finite data table can dominate the all-n almost-sure exponent; package proof is analytic.",
+        "searches": [
+          "PMCID:PMC5788940 figure 3",
+          "full disorder radial burn in exact exponent 2 log cos theta"
+        ]
+      },
+      "rationale": "Quantitative finite-step angular isotropy, exact almost-sure radial defect exponent and martingale concentration extend the same published circle-stationarity observation; no examined broader theorem explicitly gives this full-disorder map-specific rate.",
+      "residual_risks": [
+        "Resultary semantic search attempted for this statement, status=temporarily_unavailable/search_internal_error/search_completed:false; NOT a successful negative search",
+        "Equivalent exact SU(1,1) random-rotation burn-in theorem could exist under other terminology.",
+        "Finite simulations neither rule out other convergence regimes nor establish originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source identifies invariant circle and asymptotic localization length but not exact angular reset, defect contraction exponent, finite mean or concentration inequality",
+          "evidence": "Eq.(8) reduced Riccati Möbius form and phase randomization; text uses N/10 discarded numerically.",
+          "identifier_or_url": "DOI:10.1038/s41598-017-18498-1; PMCID:PMC5788940",
+          "material_read": "Full PMC article main text and Methods on Eq.(8), Eq.(9), full disorder and Fig.3, with stated 10^7 iterations/10% burn-in",
+          "method": "Open PMC full text",
+          "title": "Anderson localization of a one-dimensional quantum walker",
+          "trigger": "Identical full-disorder Riccati map and invariant circle"
+        },
+        {
+          "assessment": "Perturbative near-rotation regimes and Furstenberg measures; no full-disorder exact finite-step quantitative radial bound located in read sections",
+          "evidence": "Source model and hypotheses explicitly distinguish perturbative from uniform-phase exact circle.",
+          "identifier_or_url": "arXiv:2008.02174; doi:10.3934/dcdsb.2021076",
+          "material_read": "Abstract, introduction and relevant theorem/scope passages of 35-page OA PDF; not exhaustive line-by-line",
+          "method": "Open arXiv full-text PDF",
+          "title": "Random Möbius dynamics on the unit disc and perturbation theory for Lyapunov exponents",
+          "trigger": "Possible broad SU(1,1)/random Möbius dominance"
+        },
+        {
+          "assessment": "General disk random walk is plausible equivalent language; insufficient full-text to exclude every special case",
+          "evidence": "Different random-walk setting from unit-disk automorphism with iid independent uniform rotation",
+          "identifier_or_url": "McCarthy et al., Markov Processes Related Fields 25 (2019) 915–940",
+          "material_read": "Public metadata and synopsis only, not full text",
+          "method": "metadata search",
+          "title": "Random walk on the Poincaré disk induced by a group of Möbius transformations",
+          "trigger": "Dual random-Möbius language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact radial boundary burn-in exponent and finite-horizon concentration replace an arbitrary discarded simulation transient for a naturally occurring lattice quantum-walk transfer map; the quantity is important for interpreting its invariant Riccati circle, not an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only full iid uniform disorder and |w0|<1, θ∈(0,π/2); no partial-disorder spectral rate; equivalent general random-Möbius estimate remains possible."
+  ],
+  "schema_version": 1
+}
