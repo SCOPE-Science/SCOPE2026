@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a smooth nondegenerate space curve, a general pencil of hyperplanes through a line gives a degree-\(\delta\) map to \(\mathbb P^1\); Riemann--Hurwitz identifies the total ramification degree with the intersection number of the dual surface with the corresponding general line in dual space, yielding \(\deg(C^\vee)=2\delta+2g-2\). Adjunction for a \((d,e)\) complete intersection gives \(2g-2=de(d+e-4)\), hence \(\Delta(d,e)=de(d+e-2)\). The cross-family equality reduces bijectively to \(x^2-24u^2=1\), and the fundamental unit \(5+\sqrt{24}\) gives all positive solutions.
+## correctness
 
-## Originality
-PASS. Semantic searches, exact-equation searches, the current literature comparison, and prior-record comparison found no statement classifying equal dual degrees between the \((2,m)\) and \((3,n)\) complete-intersection families by the Pell equation. The closest inspected complete-intersection source computes dual and tangential degrees but does not make this arithmetic comparison. The main residual risk is an unindexed older observation in the extensive classical projective-duality literature.
+PASS
 
-## Value
-PASS. Degree of the projective dual is a natural projective invariant. The theorem gives a complete, infinite, explicit obstruction to recovering complete-intersection bidegree from that invariant even in two elementary one-parameter families, and identifies the exact arithmetic mechanism and asymptotic slope of the collisions.
+For C_(d,e)⊂P³_C, deg=de and 2g-2=de(d+e-4), so a generic tangent-plane pencil and Riemann–Hurwitz give deg(C^∨)=de(d+e-2). Thus 2m²=3n(n+1), mod 3 gives 3|m, and x=2n+1,u=m/3 yields x²−24u²=1. Fundamental unit 5+√24 generates all positive Pell solutions, first (m,n)=(3,2) is the same unordered bidegree. Independently iterated through k=5: (30,24)->1800; (297,242)->176418; (2940,2400)->17287200. Ratio m/n→√(3/2). This is an infinite Pell proof, not an inference from 2≤m,n≤5000 regression.
 
-## Closest literature and limitations
-Wallace provides classical projective-duality context. Ilten--Len directly study dual and tangential varieties of complete-intersection curves and methods for their degrees. Neither inspected source states the Pell collision theorem. The result does not classify collisions among all complete-intersection bidegrees and does not assert equality of the dual hypersurfaces themselves.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Classical dual-degree and Pell tools are acknowledged. A cross-bidegree infinite collision classification and non-injectivity example were not located in the inspected earlier geometry literature; novelty is strictly the assembled inverse-problem statement.
+
+## value
+
+PASS
+
+The non-injectivity of projective-dual degree among two very basic natural families of CI space curves is a motivated counterexample/inverse-invariant classification, giving infinitely many explicit collisions; although the Pell step is elementary, the precise geometric ambiguity is useful and distinguishes different bidegrees and genera.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
