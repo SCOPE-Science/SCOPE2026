@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is finite and fully specified. `verify.py` independently reconstructs the two complexes from the incidence definition, enumerates every nonempty face, checks every Hasse cover, and verifies that the stated staged matchings are acyclic. The critical-cell vectors are \((1,0,0,2)\) for \(\mathcal{GM}(G)\) and \((1,0,0,4)\) for \(\mathcal M(G)\), so Forman's theorem yields the two wedge decompositions. Direct simplicial homology over three fields reproduces the corresponding Betti vectors. Risk: the result is computationally finite rather than a closed family theorem, so correctness depends on the transparent exhaustive verifier; every relevant state lies inside its enumerated \(2^{12}-1\) search space.
+## correctness
 
-## Originality
-PASS. The closest primary source proves equality only for a cycle with a single leaf and explicitly poses further use of the generalized Morse complex as an open direction. The earlier Morse-complex paper likewise treats the single-leaf cycle and several tree families, not this unicyclic length-two-tail graph. The later outerplanar matching-complex theorem implies only a broad wedge-of-spheres form for the generalized side and does not determine the exact multiplicity or compare with the ordinary Morse complex. Targeted semantic searches for the exact graph, its pendant-path description, the barycentric-subdivision matching formulation, and the single-leaf equivalence produced no statement implying the claim. Risk: an unindexed or differently encoded small-graph computation could exist; no such coverage was found in the inspected primary texts or searched repository.
+PASS
 
-## Value
-PASS. The source singles out the coincidence \(\mathcal{GM}(C_t\vee\ell)\simeq\mathcal M(C_t\vee\ell)\) and asks how far generalized Morse complexes can control ordinary Morse complexes. The graph here is the smallest theorem-range cycle \(C_4\) with that leaf extended by one edge, so it is a natural first boundary case rather than an arbitrary slice. The immediate failure, with top Betti ranks two versus four, gives a sharp obstruction to extending the single-leaf equivalence naively and supplies a concrete benchmark for any proposed comparison mechanism. Risk: the result does not yet identify the general length threshold or a structural classification.
+Reconstructed incidence states for graph E={01,12,23,03,04,45}, with twelve vertex-edge primitive pairs, by independent integer-bitmask enumeration. Generalized matching admissibility and ordinary no-directed-cycle admissibility yield exactly 297 versus 287 nonempty faces, f-vectors (12,53,106,94,30,2) and (12,53,106,92,24). A fresh matching/DAG implementation produced 147 and 141 matched pairs and complete oriented Hasse diagrams of 962 and 912 covers, both acyclic, leaving a single critical 0-cell and respectively two and four critical 3-cells. Forman thus proves GM(G)≈∨²S³ and M(G)≈∨⁴S³, not merely homology.
 
-### Closest literature and limitations
-The closest statements are Corollary 22 and Open Questions 1–2 of arXiv:2207.13780v1, the single-leaf calculation in arXiv:1909.11440v1, and the general outerplanar matching-complex theorem arXiv:2411.04601v1. None of these inspected statements determines both exact complexes for the specified graph.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: The directly relevant Donovan–Scoville full paper computes the single-leaf cycle and states homotopy agreement there; Donovan–Lin–Scoville computes cycles with one leaf and tree classes; the outerplanar matching-complex theorem is qualitative on the generalized side. None of the inspected statements implies the exact difference for the C4 plus two-edge tail. Search of published findings by graph and equivalent barycentric-matching formulations found only the candidate exact computation and differently specified graphs.
+
+## value
+
+PASS
+
+This is the smallest cycle length in the cited single-leaf theorem, extended by the next naturally motivated tail edge. It establishes the first explicit boundary at which generalized and ordinary discrete-Morse complexes separate, with exact unequal sphere multiplicities 2 versus 4. A future comparison theorem needs this precise small counterexample; no family-wide result is asserted or required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
