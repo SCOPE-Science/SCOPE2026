@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T06:13:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over F8=F2[X]/(X³+X+1) reconstruct S={(x,y):Tr(xy)=0} of size 36 and binary codeword (Tr(b),(a+Tr(bx+cy))_(x,y in S)) with a∈F2,b,c∈F8. Seven explicit generators have rank 7 and reproduce source ordinary weights 1+31z16+32z17+31z20+32z21+z36. Every r-subspace of message space F2^7 has a unique RREF basis; independent exhaustive enumeration of counts 127,2667,11811,11811,2667,127,1 (total 29211) computes each support by bitwise OR of corresponding words. All detailed histograms in RESULT.md and source artifacts/certificate.json reproduced, yielding generalized Hamming weights (16,24,28,32,34,36,37) and minimizers (31,75,15,45,10,37,1). Source code and certificate inspected, independent checker executed. It is a complete finite proof, not extrapolation.",
+      "risk": [
+        "Completeness rests on RREF one-to-one mapping and rank-seven generator; the calculation does not generalize automatically to m>3."
+      ],
+      "sources": [
+        "Liu–Liu–Yu, Weight distributions of subfield codes from special functions, DOI:10.3934/math.2026112 Theorem 3.9 and Example 3.11",
+        "Pan–Chen–Liu–Liu, Optimal Few-GHW Linear Codes and Their Subcode Support Weight Distributions, arXiv:2408.10005v1",
+        "assigned RESULT.md, artifacts/verify.py, artifacts/certificate.json",
+        "independent_audit1603_checks.py",
+        "Git immutable tree 4f122918d6aee577fa4f7f112a4dc63d50cbc6f3"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pan–Chen–Liu–Liu, Optimal Few-GHW Linear Codes and Their Subcode Support Weight Distributions, arXiv:2408.10005v1 general SSWD tools and solved few-weight simplex-derived families do not display the binary trace-defined code."
+        ],
+        "reasoning": "General incidence formulas for arbitrary generators are not an already solved exact numerical support distribution for this code. No equivalence or stronger theorem covering it was established in inspected sources.",
+        "searches": [
+          "arXiv:2408.10005 Lemma 2.3, Theorems 3.3 and 3.7",
+          "DOI:10.3934/math.2026112 Theorem 3.9"
+        ]
+      },
+      "checked_sources": [
+        "Liu–Liu–Yu, Weight distributions of subfield codes from special functions, DOI:10.3934/math.2026112",
+        "Pan–Chen–Liu–Liu, Optimal Few-GHW Linear Codes and Their Subcode Support Weight Distributions, arXiv:2408.10005v1",
+        "V. K. Wei, Generalized Hamming weights for linear codes, IEEE Trans. IT 37 (1991)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary enumerator fixes one-dimensional distribution only; r-dimensional supports depend on the intersection patterns of distinct codewords, and primary source explicitly works via first four power moments for dual distance."
+        ],
+        "reasoning": "The complete higher-support profile with distinct r>=2 counts cannot be inferred from published ordinary data. Exhaustively enumerating all 29,211 subspaces supplies the genuinely additional incidence information.",
+        "searches": [
+          "DOI:10.3934/math.2026112 Theorem 3.9/Example 3.11",
+          "arXiv:2408.10005 Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Liu–Yu, Weight distributions of subfield codes from special functions, DOI:10.3934/math.2026112 Theorem 3.9 and Example 3.11 give only ordinary enumerator and dual minimum distance."
+        ],
+        "reasoning": "Aliases including trace-zero equation, m=3, [37,7,16], hierarchy (16,24,28,32,34,36,37) and higher support spectrum were compared to source and available literature.",
+        "searches": [
+          "Resultary semantic: [37,7,16] binary subfield code Liu Yu generalized Hamming weight support distributions",
+          "web: [37,7,16] binary subfield code Liu Yu generalized Hamming weight support distributions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary source Example 3.11 lists exactly [37,7,16] with 1+31z16+32z17+31z20+32z21+z36. Pan et al display a ternary [37,4,24] instance instead; source code tables list distance, not higher-dimensional support histograms."
+        ],
+        "reasoning": "Parameter/distance tables do not identify all subcode support unions; no same-code higher SSWD table encountered.",
+        "searches": [
+          "DOI:10.3934/math.2026112 Example 3.11 and Table 2",
+          "arXiv:2408.10005 length-37 examples"
+        ]
+      },
+      "rationale": "Theorem 3.9 and Example 3.11 of Liu–Liu–Yu construct the exact binary [37,7,16] code, report the ordinary weights and dual distance, but not its 2–7-dimensional subcode supports. Pan et al give complete higher-support spectra for different families, with a ternary not binary length-37 example. Neither the source ordinary enumerator nor generic formulas supply this exact 29,211-subspace census without evaluating the trace-defined generator.",
+      "residual_risks": [
+        "An equivalent [37,7,16] code in an unindexed catalogue could carry a pre-existing complete SSWD.",
+        "The result is an exact finite invariant for a highlighted m=3 member, not an all-m formula or code-isomorphism classification.",
+        "Source self-reviews were not used as independent originality proof; bounded current primary literature comparisons are recorded here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ORDINARY_ONLY",
+          "evidence": "Theorem 3.9 lists parameters and ordinary weight distribution, Example 3.11 confirms [37,7,16] enumerator and [37,30,3] dual; neither supplies any higher-dimensional SSWD.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/1/PDF/math-11-01-112.pdf",
+          "material_read": "Full open-access 19-page publisher PDF; visually inspected pages 10–11 (zero indexed pages 9–10): Theorem 3.9, Table 2, proof of ordinary weights and entire Example 3.11; text inspected also conclusions and no higher support theorem.",
+          "method": "Publisher full PDF, text search and page screenshots, not just abstract.",
+          "title": "Weight distributions of subfield codes from special functions",
+          "trigger": "Primary paper and exact m=3 source representation; highly plausible exact SSWD overlap."
+        },
+        {
+          "assessment": "DIFFERENT_CONSTRUCTIONS",
+          "evidence": "Solved families are simplex-derived with other incidence geometry; the displayed 37-length example is ternary [37,4,24], not binary [37,7,16].",
+          "identifier_or_url": "https://arxiv.org/html/2408.10005v1",
+          "material_read": "Public full text including Lemma 2.3, Theorems 3.3/3.7, examples and conclusions; search for binary 37-length trace code and params.",
+          "method": "Open arXiv full-text HTML.",
+          "title": "Optimal Few-GHW Linear Codes and Their Subcode Support Weight Distributions",
+          "trigger": "Closest strong known complete SSWD family might imply this profile."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The code is highlighted in its primary source for best-known parameters. Exact complete support distributions extend the ordinary enumerator to all-dimensional subcodes, revealing natural generalized weight minimizers and multiplicities useful for understanding support geometry and code comparison. The 29,211-case finite classification has an intrinsic object/invariant motivation independent of a large new family theorem.",
+      "risk": [
+        "Only the specific finite code is classified; no new general subfield-code hierarchy asserted."
+      ],
+      "sources": [
+        "Liu–Liu–Yu, Weight distributions of subfield codes from special functions, DOI:10.3934/math.2026112",
+        "Pan–Chen–Liu–Liu, Optimal Few-GHW Linear Codes and Their Subcode Support Weight Distributions, arXiv:2408.10005v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact m=3 trace-zero code, unpunctured length 37, dimension 7; no all-m generality.",
+    "Count subcodes by support size, not automorphism orbit.",
+    "No external expert/Lean verification.",
+    "The reviewed Git source contains operational provenance in metadata; not_ready is a publication/transport state, not a scientific C/O/V failure."
+  ],
+  "schema_version": 1
+}

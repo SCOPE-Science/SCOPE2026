@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact trace-zero construction is rebuilt over an explicit \(\mathbb F_8\) model. The reconstructed code has length \(37\), rank \(7\), and exactly the published ordinary enumerator
-\[
-1+31z^{16}+32z^{17}+31z^{20}+32z^{21}+z^{36}.
-\]
-Every positive-dimensional subspace of the seven-dimensional message space is enumerated exactly once in reduced-row-echelon form. The dimension totals agree with Gaussian binomial coefficients, and exact support unions give the stated complete histograms and hierarchy.
+PASS
 
-## Originality
+Over F8=F2[X]/(X³+X+1) reconstruct S={(x,y):Tr(xy)=0} of size 36 and binary codeword (Tr(b),(a+Tr(bx+cy))_(x,y in S)) with a∈F2,b,c∈F8. Seven explicit generators have rank 7 and reproduce source ordinary weights 1+31z16+32z17+31z20+32z21+z36. Every r-subspace of message space F2^7 has a unique RREF basis; independent exhaustive enumeration of counts 127,2667,11811,11811,2667,127,1 (total 29211) computes each support by bitwise OR of corresponding words. All detailed histograms in RESULT.md and source artifacts/certificate.json reproduced, yielding generalized Hamming weights (16,24,28,32,34,36,37) and minimizers (31,75,15,45,10,37,1). Source code and certificate inspected, independent checker executed. It is a complete finite proof, not extrapolation.
 
-PASS. The primary paper has no generalized-Hamming-weight or subcode-support analysis. The closest dedicated SSWD source was inspected in full public text; its solved families use different simplex-deletion and modified Solomon--Stiffler constructions and contain no binary \([37,7,16]_2\) instance. Exact searches by parameter, ordinary enumerator, trace construction, hierarchy, and support-distribution terminology found no prior same-object profile.
+## originality
 
-## Value
+PASS
 
-PASS. The source explicitly highlights this new \(m=3\) member for its excellent parameters. The complete SSWD supplies a natural higher-dimensional fingerprint that strictly refines the published ordinary enumerator, including exact generalized-weight values and the number of extremal subcodes at every dimension.
+Theorem 3.9 and Example 3.11 of Liu–Liu–Yu construct the exact binary [37,7,16] code, report the ordinary weights and dual distance, but not its 2–7-dimensional subcode supports. Pan et al give complete higher-support spectra for different families, with a ternary not binary length-37 example. Neither the source ordinary enumerator nor generic formulas supply this exact 29,211-subspace census without evaluating the trace-defined generator.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The code is highlighted in its primary source for best-known parameters. Exact complete support distributions extend the ordinary enumerator to all-dimensional subcodes, revealing natural generalized weight minimizers and multiplicities useful for understanding support geometry and code comparison. The 29,211-case finite classification has an intrinsic object/invariant motivation independent of a large new family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
