@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T18:11:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each N=12r-2>=10 or N=12r+2>=14, d(t)=(1-t)v0+t v1 (0<=t<=1/2) represents all boundary difference vectors. Since N≡2 (mod4), h_P((-d2,d1))=cos(pi/N). The source identifies two LP-active-line regimes, with exact angles A,B,B2 (minus) or A,A2,B (plus), switch t_-/t_+ and explicit positive quadratic coefficients. In both cases the first quadratic is convex with equal height at t=0 and the switch; the second has positive curvature and stationary derivative at t=1/2, so it decreases over the second interval. These support-line vertices lie in the corresponding polygon edges, and the normals lie in the positive cones of the active edge normals. Independently reconstructed the LP directly from all 2N inequalities for 16 side counts N=10..194 and 26 equally spaced t each; maximal normalized height agrees with each proposed closed trigonometric R_N to numeric tolerance <1e-12. The analytic active-line formulas plus elementary cosine/sine bounds over 0<a<=pi/10 or pi/14 establish the all-N conclusions; the finite replay is diagnostic only. The formulas agree at N=10 with (7-3sqrt5)/2; limits 1-sqrt3/2 and monotonicity give uniqueness of P10 among the two families.",
+      "residual_risks": [
+        "The original proof states its universal half-plane active-order lemma compactly; numerical checks cannot substitute for its trigonometric all-r justification.",
+        "No claim for remaining even N or global symmetric convex bodies."
+      ],
+      "sources": [
+        "Frozen RESULT.md blob 7ae20ce66ea31261e65b48ab285443c7568e0b57",
+        "Frozen verify.py blob 2b6c5f2372a8bc43c97972eb86c70b3046c871cb",
+        "Independent scipy.optimize.linprog 16 even regular polygons and 26 edge-grid points each",
+        "Dalla 2000 definition and Sezgin 2010 exceptional family"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2000 paper conjectures global extremality without family evaluations.",
+          "2010 thesis states exceptional families and comparative extremality, but not a closed algebraic all-r curve.",
+          "Earlier SCOPE record gives the N=10 specialization only; it does not imply the entire two infinite residue classes."
+        ],
+        "reasoning": "A single known special case does not cover the all-family formula; qualitative computer comparisons alone do not specify m(P_N) for every N.",
+        "searches": [
+          "2000 Dalla et al global decagon conjecture",
+          "2010 Sezgin computer-assisted regular 2(6r+1) and 2(6r+5) extremality",
+          "earlier SCOPE decagon P10 exact result 2026-10-11T13:06:30Z"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/226463521_The_Blocking_Numbers_of_Convex_Bodies (DOI:10.1007/s004540010032)",
+        "https://discovery.ucl.ac.uk/id/eprint/19509/1/19509.pdf (UCL Discovery 19509)",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-m-curvature-of-the-two-exceptional-regular-polygon-familie--af0972adec2e/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The computer observation that all exceptional polygons exceed Euclidean-ball M-curvature and decagon is largest is an ordering, not a numerical formula for each N.",
+          "Knowing m(P10) gives no value for 12r±2 with r>=2."
+        ],
+        "reasoning": "The new exact one-parameter formulas and limiting behavior require solving the family LP; they are not corollaries of the printed earlier qualitative claims.",
+        "searches": [
+          "Dalla 2000 extremal conjecture",
+          "Sezgin 2010 computer comparison",
+          "SCOPE earlier P10 exact value"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Sezgin exceptional family labels 2(6r+1) and 2(6r+5) coincide (index shifted for 12r-2) with source N classes.",
+          "Both families are N≡2 mod4, giving constant normalized perpendicular support h_P(n(t))=cos(pi/N) for a fixed chamber."
+        ],
+        "reasoning": "Directly normalized side-count aliases and dual support-line formula rather than relying on matching paper titles.",
+        "searches": [
+          "M-curvature exact P_12r-2 and P_12r+2",
+          "regular polygons 2(6r+5) and 2(6r+1) M-curvature",
+          "translation intersection chord height normalized support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sezgin 2010 printed p.135 references a computer proof, not an explicit table in the materially read discussion.",
+          "Published SCOPE decagon record is an earlier single-N exact value, recorded as prior-covered endpoint."
+        ],
+        "reasoning": "Searched the precise residue families, trigonometric form and support-ratio alias; unindexed computer tables remain possible.",
+        "searches": [
+          "\"M-curvature\" regular 12r-2 12r+2 tan sec exact",
+          "\"M curvature\" \"2(6r+1)\" \"2(6r+5)\" formula",
+          "Resultary batch query: M-curvature regular even N-gons 12r plus or minus 2 closed trigonometric formula Dalla Sezgin"
+        ]
+      },
+      "rationale": "Analytic closed family evaluation is stronger than the prior qualitative computer result. The known decagon value is explicitly excluded from the novel contribution, and its earlier Git publication was verified.",
+      "residual_risks": [
+        "The old underlying computer calculations for the two families may include a lost/unindexed exact formula.",
+        "Resultary semantic comparison incomplete due transient service failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines m(C), states Problem 1 and conjectures the regular 10-gon as extremal, but the inspected full article does not compute an exact m(P10) or a family parameter formula.",
+          "evidence": [
+            "Printed p.269 defines M-curvature and conjectures the regular 10-gon extremal."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/226463521_The_Blocking_Numbers_of_Convex_Bodies (DOI:10.1007/s004540010032)",
+          "material_read": "Author-uploaded primary full text; definition, Theorem 1, Problem 1 and later proof of blocking-number bound materially read.",
+          "method": "Read publicly accessible author-uploaded full-text HTML extraction of the 2000 article.",
+          "title": "The Blocking Numbers of Convex Bodies",
+          "trigger": "Primary mathematical definition of M-curvature and original decagon extremizer conjecture"
+        },
+        {
+          "assessment": "The primary discussion explicitly lists 2(6r+1) and 2(6r+5) regular polygons and asserts decagon extremality among them by computer; no exact golden-ratio decagon value or all-N trigonometric formula on the read pages. The underlying unprinted calculation is a residual originality risk.",
+          "evidence": [
+            "Printed p.135: two families are computer-identified, regular 10-gon extremal among these; no closed m(P_N) formula displayed."
+          ],
+          "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/19509/1/19509.pdf (UCL Discovery 19509)",
+          "material_read": "157-page thesis full-text targeted search and primary pages printed pp.65,133–135; visual inspection of p.135 reporting both families, computer result and decagon extremality.",
+          "method": "Full OA doctoral thesis text search plus rendered relevant pages.",
+          "title": "The Unrestricted Blocking Number in Convex Geometry",
+          "trigger": "Potentially dominating primary thesis focused on the exact same M-curvature and two regular polygon families"
+        },
+        {
+          "assessment": "All-family result does imply the decagon value but was imported later (2026-10-11T13:06:43Z) than decagon record (13:06:30Z). At the decagon publication instant it is therefore not a prior covering result; record4 explicitly disclaims the decagon specialization as already known.",
+          "evidence": [
+            "Original decagon Git import 94c0106... dated 2026-10-11T13:06:30Z; all-family import 57df23e... dated 13:06:43Z.",
+            "All-family RESULT.md explicitly says the decagon value is a known special case, not its original contribution."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-m-curvature-of-the-two-exceptional-regular-polygon-familie--af0972adec2e/RESULT.md",
+          "material_read": "Full RESULT.md including formula (1), N=10 specialization (4), and explicit prior-covered decagon disclaimer; independently compared Git commits for chronological ordering.",
+          "method": "Frozen Git full blob and actual Git history for both result paths.",
+          "title": "Exact M-curvature of the two exceptional regular-polygon families",
+          "trigger": "A stronger all-family result in the SAME frozen assignment directly implies the decagon special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two residue classes are the precise ones singled out in the literature as exceptional; an all-family analytic formula supplies exact quantitative behavior, the disk limit, and a proof of comparative decagon extremality where only a computer assertion had appeared.",
+      "residual_risks": [
+        "The general maximizing-convex-body conjecture remains open."
+      ],
+      "sources": [
+        "Sezgin 2010 p.135",
+        "Dalla 2000 global M-curvature problem"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The original proof states its universal half-plane active-order lemma compactly; numerical checks cannot substitute for its trigonometric all-r justification.",
+    "No claim for remaining even N or global symmetric convex bodies.",
+    "The old underlying computer calculations for the two families may include a lost/unindexed exact formula.",
+    "Resultary semantic comparison incomplete due transient service failure.",
+    "The general maximizing-convex-body conjecture remains open."
+  ]
+}
