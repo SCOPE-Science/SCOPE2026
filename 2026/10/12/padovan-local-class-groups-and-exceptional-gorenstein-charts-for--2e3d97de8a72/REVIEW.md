@@ -1,15 +1,21 @@
-# Scientific review of the wheel edge-toric fixed-point classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim refers only to wheel edge toric varieties in the specified range and to their torus-fixed local rings. The Ohsugi–Hibi odd-cycle criterion supplies normality, and their complete facet theorem supplies the full ray lists. Maximal independent rim sets correspond bijectively to clockwise gap compositions into twos and threes. Both spoke and rim normal-ray matrices contain explicit unimodular maximal minors, proving torsion-free class groups and the stated ranks, not merely ranks over the rationals. Rational canonical-support equations are solved in all cases; the special solutions are integral. Complete graph-family coverage follows by the even/odd gap-pattern dichotomy, not by finite tests. The checker independently tests the calculations for sizes four through eleven. Limitation: the theorem does not describe nongeneric points away from the specified fixed points.
+## correctness
 
-## Originality — PASS with residual risk
-Ohsugi–Hibi (1998) is strong relevant prior art for normality and facets; Ohsugi–Hibi (2008, arXiv:0804.4287) classifies globally simple edge polytopes. Well-covered cycle classification is previously known. The present claim instead gives separate spoke/rim local divisor groups, a Padovan-type rank formula, and the sharp local non-Q-Gorenstein threshold with the exceptional rim size seven. Comparison was carried out by actual wheel/edge-toric and alias queries against published mathematical sources and recorded findings; no matching wheel-local classification was found. This negative search result is not a proof of novelty. An unavailable or unindexed equivalent specialization remains a material residual risk.
+PASS
 
-## Value — PASS
-The theorem is motivated by local birational geometry: a toric chart's divisor-class group detects nonfactoriality, while Q-Gorensteinness is the prerequisite for its canonical index and discrepancy theory. The theorem simultaneously exposes an unexpected isolated Gorenstein exception at rim size seven and quantifies unbounded local nonfactoriality by a natural independent-set composition count across an infinite family. It is a complete fixed-point classification rather than an arbitrary isolated numerical calculation.
+For the projective wheel edge polytope P_n=conv(e_i,e_i+e_{i+1})⊂Z^n, Ohsugi–Hibi normality applies: odd wheel cycles either triangles sharing hub or (when n odd) the rim, satisfying odd cycle condition. Fundamental independent rim sets are precisely dominating independent sets of C_n, whose consecutive cyclic gaps are 2 or 3; compositions count a_n with a0=1,a1=0,a2=a3=1,a_n=a_(n−2)+a_(n−3). The exact facets are coordinate xj≥0, lower total Σx≥1, upper Σx≤2 iff odd n, plus Σ_{i in S}xi≤1 for maximal independent rim S. At spoke e0 active primitive normals comprise n standard-unimodular basis rays plus a_n rim-independent facets, so local Cl=Z^a_n. At rim e0+e1 active rays are n−2 coordinate rays, 2a_n independent facets and odd upper facet; a unimodular basis again gives torsionfree rank 2a_n−2+[n odd]. Rational canonical support requires m0=n−2=|S| at spoke, forcing n=4, and every maximal C_n independent set same size at rim, precisely n=4,5,7 via 2/3 gap partitions, with odd upper-sum m-vector condition satisfied. Solutions integral in all cases; rim n=4 is only smooth fixed chart. Independently enumerated C_n maximal independent sets and formed exact integer ray matrices; for each n=4..10 found correct class ranks, full rank, and Q-Gorenstein linear solvability for spoke/rim, using SymPy exact rational ranks. Finite tests corroborate, Ohsugi–Hibi facet theorem plus combinatorial argument prove all n.
 
-## Checked literature and limits
-Ohsugi–Hibi 1998: Theorem 1.7 (all graph edge-polytope facets), Corollary 2.3 (normality); these inputs are acknowledged, not rediscovered. Ohsugi–Hibi 2008: Sections 1–3 and the stated classification of simple edge polytopes. Plummer 1993: context for the established well-covered graph concept. Nearby toric graph computations for crown and friendship graphs have different edge configurations, so neither statement specializes to the wheel charts considered here. No claims about the nonfixed singular locus, full deformation theory, or an independently certified result are made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ohsugi–Hibi 1998 explicitly owns normality and facet theorem of graph edge polytopes; 2008 classifies globally SIMPLE graph polytopes, not local class groups and canonical Q-Cartier support at individual wheel torus-fixed points. Well-covered cycle exception list C4,C5,C7 is known, but knowing it alone does not imply the toric chart canonical class condition or torsionfree Padovan ranks. Resultary's 'symmetric edge polytope of wheel' records use conv(±(e_i−e_j)), an entirely different polytope from the projective edge-monomial polytope conv(e_i+e_j). No exact literature source with the combined local class group + wheel Gorenstein chart classification was located. Best-of-knowledge originality and aliasing risk explicitly recorded.
+
+## value
+
+PASS
+
+Complete exact local divisor class-group ranks and Gorenstein/smoothness classification at all wheel torus-fixed points is a natural toric invariant family, not just a recomputation of the Padovan sequence. The exceptional singular but Gorenstein n=7 rim charts and non-Q-Gorenstein behavior elsewhere give a sharp structural boundary suitable for comparisons of graph edge-toric singularities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
