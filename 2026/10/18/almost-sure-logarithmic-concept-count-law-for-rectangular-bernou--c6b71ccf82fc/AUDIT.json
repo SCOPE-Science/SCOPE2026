@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the Galois derivation with empty-intersection conventions. For any k=floor((1-eps)ln r/lambda), the binomial supporting-row mean exceeds r^eps; a Chernoff bound and independence of unexposed columns prove all k-subsets closed with summable failure. Every concept with small extent or intent is counted by its projection, and every large-large concept corresponds injectively to an all-one rectangle; its first moment has exponent (1-eps^2)(ln r)(ln m)/lambda, yielding a summable upper tail. Borel–Cantelli then yields the asserted a.s. limit without cross-size independence. The same expectation sandwich works. A standalone exact-rational checker evaluated 42 exhaustive finite Bernoulli incidence cases and the extent–intent bijection; finite checking is not offered as a proof of the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kovács 2018 Section 2.1 obtains a mean, not an almost-sure theorem.",
+        "Sakurai 2021 Theorem 5.1 proves an expectation lower bound and Lemma 5.2 its one-summand growth.",
+        "Felde–Hanika–Stumme 2020 focuses on null-model generation and simulations."
+      ],
+      "reasoning": "Checked whether mean identity, mean lower bound, or random null-model results logically imply a.s. sharp growth; they do not without additional concentration or lower-probability control. The submitted uniform-closure and first-moment rectangle estimates provide exactly that. A genuinely general concentration theorem for bicliques or random incidence closures would supersede it, but none was verified.",
+      "searches": [
+        "number of formal concepts in a random binary context grows as exp((log n)^2/log 2) with high probability",
+        "Almost sure limit log number of formal concepts divided by log squared n equals inverse minus log p for iid Bernoulli incidence rectangular formal contexts",
+        "Sakurai 2021 On formal concepts of random formal contexts superpolynomial bound and matching sharp asymptotic typical formal concept count",
+        "random concept lattice size almost surely asymptotic probability Bernoulli 2022 2023"
+      ]
+    },
+    "checked_sources": [
+      "L. Kovács, DOI:10.18514/MMN.2018.2529, primary PDF, Sections 1–2 and Section 2.1 formula.",
+      "T. Sakurai, arXiv:2101.11023v1, primary PDF, Sections 1–6.",
+      "M. Felde, T. Hanika and G. Stumme, DOI:10.3390/info11030135, available primary HTML including model/experimental discussion.",
+      "Related published mathematical findings on maximal-biclique, random incidence, Galois closure, and formal-context invariants as compared by scientific statements."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sakurai 2021 Proposition 4.1 and Theorem 5.1 supply expectation only; no high-prob quantifier.",
+        "Kovács 2018 predicts the mean number in iid tables but no tail inequalities.",
+        "Previously recorded findings about maximum Boolean saturation, clarification rank, and reducibility govern different random-context invariants."
+      ],
+      "reasoning": "Sakurai gives a lower bound on E[C] under a different population model and cannot imply that C is typically of that size. Kovács exact E[C] likewise does not imply lower-tail concentration. Previous findings address maximal possible C, number of row/column types, and reducibility, none determining ln C for polynomial rectangular iid tables. The present claim adds summable two-sided events and an a.s. limit for every coupling; neither is a corollary of the closest inspected statements.",
+      "searches": [
+        "Sakurai 2021 On formal concepts of random formal contexts superpolynomial bound and matching sharp asymptotic typical formal concept count",
+        "formal concept analysis random binary incidence Galois closure all small subsets almost surely asymptotic number concepts maximal bicliques",
+        "random bipartite incidence lattice count of formal concepts logarithm asymptotic growth constant 1 over log reciprocal edge density",
+        "random formal context asymptotics number of concepts with high probability logarithm squared bicliques"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sakurai (2021), Section 1 explicitly identifies concepts with maximal bicliques.",
+        "No retrieved title/abstract with random maximal-biclique logarithmic concept-count law; retrieved bipartite results addressed distinct invariants."
+      ],
+      "reasoning": "Translated concept count to maximal all-one rectangles/maximal bicliques and intents as Galois-closed attribute sets. A pre-existing almost-sure count for maximal bicliques would cover the headline even without FCA wording. None of the inspected relevant results supplies it; risk remains for undetected terminology.",
+      "searches": [
+        "random bipartite graph maximal bicliques sharp logarithmic count asymptotic in probability",
+        "almost all subsets of size (1-epsilon) log n are Galois closed random formal contexts",
+        "Simultaneous closure every subcritical logarithmic-size attribute set in random formal concept analysis",
+        "random formal context asymptotics number of concepts with high probability logarithm squared bicliques",
+        "random bipartite graph number maximal bicliques asymptotically almost surely exponential logarithm squared theorem 2010 2020"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kovács 2018 equation (2.2) tabulates an expected-count identity, not a law for the random variable.",
+        "Finite checker reproduces the established expectation formula, explicitly without novelty claim."
+      ],
+      "reasoning": "This is an infinite asymptotic limit for the random number of intents, not a fixed finite table entry. Exact finite moment tables and maximum-sized Boolean saturation statistics cannot imply almost-sure log-squared convergence; no exact-database coverage of the final theorem found.",
+      "searches": [
+        "Almost sure limit log number of formal concepts divided by log squared n equals inverse minus log p for iid Bernoulli incidence rectangular formal contexts",
+        "Kovacs Sakurai random formal contexts exact concept count high probability maximal bicliques",
+        "random bipartite incidence lattice count of formal concepts logarithm asymptotic growth constant 1 over log reciprocal edge density"
+      ]
+    },
+    "rationale": "Primary source full-text comparisons separate the established exact expectation identities (Kovács 2018; Sakurai 2021) and mean lower bound from the new leading almost-sure exponent and universal closure of all subcritical logarithmic-size attribute sets. The model source (Felde–Hanika–Stumme 2020) focuses on null-model construction and empirical samples, not this asymptotic theorem. Published research records and graph-theoretic synonym searches found no directly implying result; inaccessible or unindexed random-biclique literature is a stated residual risk.",
+    "residual_risks": [
+      "A maximal-biclique enumeration theorem in an unindexed graph-theory source could imply the sharp leading growth rate.",
+      "The null-model HTML was not inspected line by line, although directly relevant passages and conclusions were consulted.",
+      "Independent expert verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The preprint controls the expected concept count and proves a superpolynomial expectation lower bound in a model that also randomly partitions the population into objects and attributes. It does not assert a high-probability/a.s. sharp exponent or simultaneous subcritical-intent closure in polynomial rectangular contexts.",
+        "evidence": [
+          "Section 3 defines random split-object/attribute context.",
+          "Proposition 4.1 gives the exact expected count.",
+          "Theorem 5.1 asserts an expected-count lower bound; Lemma 5.2 gives the leading squared-log exponent for one summand."
+        ],
+        "identifier_or_url": "arXiv:2101.11023v1; https://arxiv.org/pdf/2101.11023",
+        "material_read": "Accessible full seven-page preprint, including definition of random contexts (Section 3), exact expectation (Section 4), asymptotic lower bound and its proof (Section 5), conclusions and bibliography.",
+        "method": "Read text and visually checked pages 4 and 5 of the preprint; compared quantified conclusions of Proposition 4.1, Theorem 5.1 and Lemma 5.2.",
+        "title": "On formal concepts of random formal contexts",
+        "trigger": "Identical formal-concept count and directly related random Bernoulli model; plausible prior coverage of growth exponent."
+      },
+      {
+        "assessment": "Its equation (2.2) is an expectation formula under uniform incidence probabilities; the paper treats approximating this mean and experiments, not a summable two-sided high-probability bound for the full random concept lattice.",
+        "evidence": [
+          "Page 987, Section 2.1: uniform probability p and a closed-pair expectation expression.",
+          "The work centers on computational approximations to expected concept counts."
+        ],
+        "identifier_or_url": "DOI:10.18514/MMN.2018.2529; https://real.mtak.hu/92004/1/2529.pdf",
+        "material_read": "Primary full PDF, notably Sections 1 and 2.1, the uniform-distribution expected-count formula (2.2), ensuing numerical comparisons and concluding discussion.",
+        "method": "Read original PDF text and visually checked page 987 with the uniform model formula.",
+        "title": "Efficient approximation for counting of formal concepts generated from formal context",
+        "trigger": "Earlier independent-incidence context model and likely stronger source for exact expectation or concept count."
+      },
+      {
+        "assessment": "Empirical and modeling treatment of the coin-toss baseline and Dirichlet extension; in inspected material no sharp typical full-concept-count exponent. Restricted inspection leaves residual source risk.",
+        "evidence": [
+          "Published 28 February 2020, primary MSC 03G10, abstract and Introduction.",
+          "Section 6.2.1 compares observed intent counts in coin-toss and alternative null models."
+        ],
+        "identifier_or_url": "DOI:10.3390/info11030135; https://doi.org/10.3390/info11030135",
+        "material_read": "Accessible full-text HTML introduction and model discussion, abstract, Section 6.2.1 and conclusions; not every mathematical paragraph independently inspected.",
+        "method": "Inspected primary publisher HTML displayed with published date, classification, discussion of coin-toss and Dirichlet models, experiments on numbers of intents.",
+        "title": "Null Models for Formal Contexts",
+        "trigger": "Identical independent coin-toss model for generating formal contexts and relevant MSC classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c6b71ccf-82fc-493c-b610-a726f751722b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a standard formal-concept coin-toss null model, the theorem identifies the exact first-order exponent of the typical concept count in every polynomial rectangular regime, instead of a worst-case exponential bound or an expected-value lower bound. Simultaneous closure of all subcritical logarithmic attribute sets is a structural strengthening useful for understanding genuine concept growth. It supplies a sharp benchmark for output-sensitive enumeration and data-model comparisons; it does not claim exact runtime or second-order fluctuations.",
+    "status": "PASS"
+  }
+}
