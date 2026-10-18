@@ -1,29 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For every radial direction from the critical point, strong convexity gives
-\[
-\phi_\theta'(r)\ge ar,
-\]
-so that the directional shell area is at most \(\delta/a\). If the angular integral reaches \(2\pi\delta/a\), every nonnegative directional deficit vanishes almost everywhere. The quadratic remainder
-\[
-h_\theta(r)=\phi_\theta(r)-f(x_*)-\frac a2r^2
-\]
-has nondecreasing derivative starting at zero. Its derivative vanishes across the equality shell, so it must vanish all the way back to the center. This forces a common outer radius and quadraticity on almost every radial segment; continuity of the convex domain's radial function and of \(f\) gives the full disk. The converse is the exact Euclidean-annulus area computation and global nonnegativity of the convex remainder.
+PASS
 
-## Originality
+Translate the unique interior critical point to 0 and subtract m. Strong convexity yields the radial second derivative >=a and radial first derivative at 0 equals 0, hence radial derivative >=ar and strict radial monotonicity. For each direction an actual or boundary-clipped shell contributes at most (r1^2-r0^2)/2 <= [phi(r1)-phi(r0)]/a <= delta/a; zero-length directions contribute 0. Integrating over S1 yields area <=2pi delta/a. If equality holds globally, every nonnegative angular deficit vanishes almost everywhere: no clipped/empty rays and radial derivative equals ar on the entire shell interval. The one-dimensional quadratic remainder h_theta=phi_theta-m-ar^2/2 is convex, its radial derivative at 0 equals 0 and this derivative is nondecreasing and nonnegative; since it vanishes on that positive shell, it vanishes on all [0,r1]. Therefore phi_theta=m+ar^2/2 to the outer radius, which must be the common R=sqrt(2(c+delta-m)/a). Continuity of the radial boundary function for a bounded convex domain containing 0 and continuity of f upgrade almost-everywhere angular statements to the whole open disk B(0,R) subset Omega and local quadraticity. Conversely g=f-m-ar^2/2 convex with minimum 0 excludes shell points beyond R, and the quadratic annulus area is exactly 2pi delta/a. No numerical or finite exhaustion is used. Boundary c>m, a>0, delta>0 matter; equality permits Omega radial boundary at R because the ball is open.
 
-PASS. The primary 2026 source proves the sharp inequality and displays the quadratic ball as an optimality witness, but its inspected full text contains no equality-case or rigidity theorem. Source-ID, exact-constant, shell-equality, disk-sublevel, and quadratic-rigidity searches found no prior statement implying the classification. Broader work on strongly convex sublevel sets and older uniform sublevel estimates addresses different geometric properties or curvature hypotheses.
+## originality
 
-## Value
+PASS
 
-PASS. Equality classification is a natural structural question for a sharp geometric estimate. The result shows that exact equality at just one positive-thickness shell determines the complete enclosed upper sublevel and the phase there. It therefore distinguishes asymptotic sharpness from actual finite-scale extremality and proves rigidity of all exact planar extremizers.
+The claim classifies all exact finite-thickness equality cases, not just that the bound 2pi delta/a is sharp. The accessible Chen--Yang abstract asserts the sharp volume estimate but no equality classification; its full text could not be checked due authorization and is a significant explicit risk, not evidence that such a statement is absent. The radial equality reconstruction is new mathematics relative to only the accessible theorem statement. No other indexed covering statement was found; novelty is best-of-knowledge, without representing an unread source as NOT_COVERING.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest source is Chen--Yang, arXiv:2609.32697v1, which proves the planar estimate and uses the quadratic ball to demonstrate optimality. Weber--Reissig study strong convexity of sublevel sets, while Carbery proves a different uniform sublevel estimate under a determinant-of-Hessian condition.
+Classifying equality of a sharp geometric shell-volume estimate is a natural structural gap independent of numerical improvement. Equality at only one positive-thickness shell unexpectedly forces the quadratic model on the entire enclosed disk; differentiability/convexity propagate one-shell equality inward. The statement separates existence of a sharpness example from uniqueness of exact finite-scale extremizers and may be used in stability/near-equality questions. It is not a mere renaming or arbitrary parameter slice, although the proof is elementary once the radial argument is identified.
 
-The theorem here is limited to \(C^2\) functions in dimension two with an interior critical point and \(c>f(x_*)\). It does not classify equality in the source's higher-dimensional or hyperbolic estimates, and it does not constrain the function outside the outer shell level.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

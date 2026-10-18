@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,69 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses no numerical experiment.
+# Independent mathematical audit
 
-After translating the critical point to the origin and subtracting its value, define
-\[
-g(x)=f(x)-\frac a2|x|^2.
-\]
-The hypothesis \(D^2f\ge aI_2\) gives
-\[
-D^2g\ge0,
-\]
-and the critical-point condition gives
-\[
-g(0)=0,
-\qquad
-Dg(0)=0.
-\]
-Thus \(g\) is convex and nonnegative.
+## correctness
 
-On each unit ray,
-\[
-\phi(r)=f(r\theta)
-\]
-satisfies
-\[
-\phi'(r)\ge ar.
-\]
-For a shell interval \([r_0,r_1]\),
-\[
-\frac{r_1^2-r_0^2}{2}
-\le
-\frac{\phi(r_1)-\phi(r_0)}a
-\le
-\frac{\delta}{a}.
-\]
-Polar integration is exactly the integral of the left-hand side over \(S^1\).
+PASS
 
-If the global area equals \(2\pi\delta/a\), the directional deficit, being nonnegative, is zero almost everywhere. Hence
-\[
-\phi'(r)=ar
-\]
-through the shell on almost every ray. The one-variable remainder
-\[
-h(r)=\phi(r)-\frac a2r^2
-\]
-is convex with \(h'(0)=0\). Since \(h'\) is nondecreasing and vanishes later, it vanishes from the origin through the shell endpoint. Therefore
-\[
-\phi(r)=\frac a2r^2
-\]
-up to that endpoint.
+Translate the unique interior critical point to 0 and subtract m. Strong convexity yields the radial second derivative >=a and radial first derivative at 0 equals 0, hence radial derivative >=ar and strict radial monotonicity. For each direction an actual or boundary-clipped shell contributes at most (r1^2-r0^2)/2 <= [phi(r1)-phi(r0)]/a <= delta/a; zero-length directions contribute 0. Integrating over S1 yields area <=2pi delta/a. If equality holds globally, every nonnegative angular deficit vanishes almost everywhere: no clipped/empty rays and radial derivative equals ar on the entire shell interval. The one-dimensional quadratic remainder h_theta=phi_theta-m-ar^2/2 is convex, its radial derivative at 0 equals 0 and this derivative is nondecreasing and nonnegative; since it vanishes on that positive shell, it vanishes on all [0,r1]. Therefore phi_theta=m+ar^2/2 to the outer radius, which must be the common R=sqrt(2(c+delta-m)/a). Continuity of the radial boundary function for a bounded convex domain containing 0 and continuity of f upgrade almost-everywhere angular statements to the whole open disk B(0,R) subset Omega and local quadraticity. Conversely g=f-m-ar^2/2 convex with minimum 0 excludes shell points beyond R, and the quadratic annulus area is exactly 2pi delta/a. No numerical or finite exhaustion is used. Boundary c>m, a>0, delta>0 matter; equality permits Omega radial boundary at R because the ball is open.
 
-The endpoint condition \(\phi(r_1)=c+\delta-f(x_*)\) fixes the same outer radius in every equality direction:
-\[
-r_1=
-\sqrt{\frac{2(c+\delta-f(x_*))}{a}}.
-\]
-Continuity then fills the exceptional angular set and gives the entire disk.
+## originality
 
-For the converse, if the function is quadratic on that disk, the shell is exactly the annulus with squared-radius difference
-\[
-\frac{2\delta}{a},
-\]
-so its area is \(2\pi\delta/a\). Convexity of the quadratic remainder excludes additional shell points outside the disk.
+PASS
 
-The proved limits are exactly those stated: dimension two, \(C^2\) regularity, an interior critical point, and one shell with \(c>f(x_*)\).
+The claim classifies all exact finite-thickness equality cases, not just that the bound 2pi delta/a is sharp. The accessible Chen--Yang abstract asserts the sharp volume estimate but no equality classification; its full text could not be checked due authorization and is a significant explicit risk, not evidence that such a statement is absent. The radial equality reconstruction is new mathematics relative to only the accessible theorem statement. No other indexed covering statement was found; novelty is best-of-knowledge, without representing an unread source as NOT_COVERING.
+
+## value
+
+PASS
+
+Classifying equality of a sharp geometric shell-volume estimate is a natural structural gap independent of numerical improvement. Equality at only one positive-thickness shell unexpectedly forces the quadratic model on the entire enclosed disk; differentiability/convexity propagate one-shell equality inward. The statement separates existence of a sharpness example from uniqueness of exact finite-scale extremizers and may be used in stability/near-equality questions. It is not a mere renaming or arbitrary parameter slice, although the proof is elementary once the radial argument is identified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
