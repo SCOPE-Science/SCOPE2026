@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_degree_eigenvector_boundary.py` performs an exact replay using only the Python standard library and the embedded connected Graph Atlas table.
 
-For each graph it:
-1. computes degree maximizing vertices directly;
-2. computes the adjacency characteristic polynomial exactly by Newton identities;
-3. isolates the Perron root by rational Sturm sequences;
-4. uses principal characteristic cofactors to compare eigenvector coordinates exactly;
-5. retains only graphs for which both maximizing sets are singletons and the leaders differ.
+# Independent mathematical audit
 
-The diagonal adjugate identity gives
-\[
-\det(\lambda I-A_{-i})
-=
-\frac{p'(\lambda)}{\lVert x\rVert^2}x_i^2,
-\]
-so the exact cofactor comparison has the same ordering as the Perron eigenvector coordinates.
+## correctness
 
-The replay verifies:
-- connected unlabeled counts \(1,2,6,21,112,853\) for graph orders \(2,\ldots,7\);
-- conflict-class counts \(0,0,0,0,0,5\);
-- all five seven-vertex representatives;
-- their degree and eigenvector leaders;
-- automorphism orders \(12,2,2,4,2\);
-- orbit sizes \(420,2520,2520,1260,2520\);
-- total labeled first-conflict count \(9240\).
+PASS
 
-Run:
+For connected simple undirected G, degree leaders maximize neighbor count and eigenvector leaders maximize the positive Perron eigenvector. The unique-maximizer qualifier excludes tied cases. The packaged exact method computes p(t)=det(tI−A), q_i(t)=det(tI−A with vertex i removed), and q_i(λ)=p′(λ)x_i²/||x||² at simple largest eigenvalue λ, comparing q_i(λ) via rational Sturm root isolation. Examined the actual verifier implementing these exact comparisons, and independently enumerated ALL connected unlabeled networkx Graph Atlas representatives of n=2,..,7 with counts 1,2,6,21,112,853; a separate symmetric eigensolver found no distinct singleton leaders through n=6 and exactly 5 seven-vertex classes with the five same edge-list representatives and leader pairs. Gaps in detected distinct-leader cases were comfortably away from numerical tie threshold; exact Sturm source method, not numerical approximation alone, supports precise ties. Explicitly enumerated all 7! vertex relabelings of those 5 representatives, confirming automorphism orders 12,2,2,4,2 and orbit sizes 420,2520,2520,1260,2520 totaling 9240. Graph Atlas completeness externally documented; atlas enumeration is finite exhaustive for order≤7, not an infinite graph theorem.
 
-`python3 verify_degree_eigenvector_boundary.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+Best-of-knowledge priority judgment based on direct statement/implication comparisons with specified inspected sources, published semantic search and alias checks; neither the source names nor negative searches by themselves demonstrate novelty. Aliases highest degree vertex, hub, unique maximizer, singleton eigenvector leader were searched. Generic different rankings or non-singleton eigenvector ties would not establish the same sharp unique/unique frontier.
 
-The finite input table is a compact connected subset of the standard Read--Wilson Graph Atlas through seven vertices.
+## value
+
+PASS
+
+Disagreement of eigenvector and degree centrality is known, but the first order where the two *unique* leaders differ and the complete first obstruction layer are natural sharp boundary invariants. The five-class/9240 labeled census gives researchers an explicit minimal test corpus for the difference, rather than a single anecdotal network or an arbitrary unlabeled subset.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

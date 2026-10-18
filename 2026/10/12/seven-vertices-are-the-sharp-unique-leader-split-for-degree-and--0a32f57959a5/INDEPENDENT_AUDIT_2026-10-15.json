@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T17:15:51.050533Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For connected simple undirected G, degree leaders maximize neighbor count and eigenvector leaders maximize the positive Perron eigenvector. The unique-maximizer qualifier excludes tied cases. The packaged exact method computes p(t)=det(tI−A), q_i(t)=det(tI−A with vertex i removed), and q_i(λ)=p′(λ)x_i²/||x||² at simple largest eigenvalue λ, comparing q_i(λ) via rational Sturm root isolation. Examined the actual verifier implementing these exact comparisons, and independently enumerated ALL connected unlabeled networkx Graph Atlas representatives of n=2,..,7 with counts 1,2,6,21,112,853; a separate symmetric eigensolver found no distinct singleton leaders through n=6 and exactly 5 seven-vertex classes with the five same edge-list representatives and leader pairs. Gaps in detected distinct-leader cases were comfortably away from numerical tie threshold; exact Sturm source method, not numerical approximation alone, supports precise ties. Explicitly enumerated all 7! vertex relabelings of those 5 representatives, confirming automorphism orders 12,2,2,4,2 and orbit sizes 420,2520,2520,1260,2520 totaling 9240. Graph Atlas completeness externally documented; atlas enumeration is finite exhaustive for order≤7, not an infinite graph theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing work gives conditions and mechanisms for rankings to coincide or diverge.",
+          "An Atlas of Graphs lists all unlabeled graphs through seven nodes, but is not by itself a centrality comparison or maximality classification."
+        ],
+        "reasoning": "The qualitative comparison and enumerated atlas do not logically imply the universal lower layer n≤6 and exactly five seven-vertex exception classes; those require property-specific testing and tie-sensitive eigenvector comparisons.",
+        "searches": [
+          "Grassi Stefani Torriero Some New Results on the Eigenvector Centrality highest degree spectral radius",
+          "Bonacich Some unique properties of eigenvector centrality 2007",
+          "Principal eigenvector localization and centrality in networks revisited"
+        ]
+      },
+      "checked_sources": [
+        "Grassi–Stefani–Torriero DOI:10.1080/00222500701373251 abstract",
+        "Bonacich DOI:10.1016/j.socnet.2007.04.002 abstract",
+        "Pradhan et al arXiv:1909.08696 indexed primary material",
+        "Read–Wilson Atlas of Graphs 1998 and networkx graph_atlas_g",
+        "Resultary semantic search on first unique degree/eigenvector centrality disagreement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited sufficient criteria for highest-degree vertices to be eigencentral are not a proof of coincidence for every graph of orders≤6.",
+          "Graph Atlas provides candidate graphs but not the exact q_i(Perron λ) comparisons, unique leaders and orbit stabilizers."
+        ],
+        "reasoning": "The sharp bound and complete first discrepancy layer are additional facts beyond the established qualitative distinction and unannotated graph tables.",
+        "searches": [
+          "Grassi Stefani Torriero degree and eigenvector centrality spectral-radius sufficient conditions",
+          "Read Wilson Atlas of Graphs 1998 graph enumerations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grassi–Stefani–Torriero 2007 compares the two centralities and gives sufficient coincidence conditions, but its accessible abstract does not claim order-seven uniqueness frontier.",
+          "Pradhan et al arXiv:1909.08696 studies eigenvector localization and possible failures, without an explicit first-order complete class statement."
+        ],
+        "reasoning": "Aliases highest degree vertex, hub, unique maximizer, singleton eigenvector leader were searched. Generic different rankings or non-singleton eigenvector ties would not establish the same sharp unique/unique frontier.",
+        "searches": [
+          "Resultary: smallest connected graph different unique degree centrality eigenvector centrality maximum seven vertices five unlabeled graphs",
+          "smallest graph unique eigenvector centrality leader differs unique maximum degree",
+          "7 vertex 9240 degree eigenvector centrality graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual Graph Atlas class counts are 1,2,6,21,112,853 for n=2..7 but include no pre-labeled unique-leader exception table in inspected material.",
+          "Resultary exact network-graph search returned unrelated seven-vertex topology counts and spectral results; no statement giving five centrality exception classes."
+        ],
+        "reasoning": "Prior graph enumeration alone is not the claimed exact centrality table. A spreadsheet annotated with centrality leaders could cover this claim; none was located in focused queries, leaving priority risk.",
+        "searches": [
+          "\"9240\" \"eigenvector centrality\" degree",
+          "\"five\" \"seven\" \"unique degree\" eigenvector leader",
+          "graph atlas eigenvector degree unique maximum first counterexample"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority judgment based on direct statement/implication comparisons with specified inspected sources, published semantic search and alias checks; neither the source names nor negative searches by themselves demonstrate novelty. Aliases highest degree vertex, hub, unique maximizer, singleton eigenvector leader were searched. Generic different rankings or non-singleton eigenvector ties would not establish the same sharp unique/unique frontier.",
+      "residual_risks": [
+        "Most directly relevant Grassi–Stefani–Torriero 2007 full text remained inaccessible after preprint/OA searches and authorized Oxford institutional access returned vpn_disconnected (job_id retained privately).",
+        "Unindexed textbook exercise or graph Atlas annotation may already give some/all five first disagreements.",
+        "Independent all-atlas classification used numerical eigensolving to corroborate, while the package exact tie decision is supported by code inspection of rational Sturm/cofactor method; formal replay of the exact source verifier was not done in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material read gives spectral conditions for highest degree to be most eigencentral, not checked all pages for small-order extremal classification.",
+          "evidence": [
+            "2007 Journal of Mathematical Sociology 31(3), 237–248, DOI; abstract explicitly concerns highest-degree and eigencentral vertices."
+          ],
+          "identifier_or_url": "DOI:10.1080/00222500701373251",
+          "material_read": "Publisher abstract and bibliographic record. Public full text inaccessible; authorized institutional attempt returned vpn_disconnected and no human access was bypassed.",
+          "method": "Read public abstract; tried preprint/OA first and then authorized institution download.",
+          "title": "Some New Results on the Eigenvector Centrality",
+          "trigger": "Most direct earlier primary article on degree versus eigenvector maxima"
+        },
+        {
+          "assessment": "Qualitative/counterexample mechanisms, not located exact five-class small-order theorem.",
+          "evidence": [
+            "Focus on principal-eigenvector localization in connected undirected networks."
+          ],
+          "identifier_or_url": "arXiv:1909.08696",
+          "material_read": "Public arXiv abstract and indexed full-text discussion of localization and hub ranking; no line-by-line entire-paper audit in this execution.",
+          "method": "Compared object, assumptions and stated results.",
+          "title": "Principal eigenvector localization and centrality in networks: revisited",
+          "trigger": "Relevant open primary analysis of eigenvector centrality failure"
+        },
+        {
+          "assessment": "Defines full unlabeled graph domain, not the degree/Perron leader annotations.",
+          "evidence": [
+            "Connected class cardinalities are 1,2,6,21,112,853."
+          ],
+          "identifier_or_url": "R. C. Read and R. J. Wilson (Oxford, 1998); networkx.graph_atlas_g",
+          "material_read": "Graph Atlas public documentation and independently regenerated networkx connected 2..7 family; not a full book reading.",
+          "method": "Exhaustive small-graph enumeration against independent software atlas.",
+          "title": "An Atlas of Graphs",
+          "trigger": "Completeness evidence for finite graph-domain census"
+        },
+        {
+          "assessment": "Explains mechanism but not an exact seven-node sharp uniqueness boundary in accessed material.",
+          "evidence": [
+            "Bonacich distinguishes eigenvector centrality from simple degree."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.socnet.2007.04.002",
+          "material_read": "Journal abstract/bibliographic description, no full paper inspection.",
+          "method": "Statement-level relevance comparison.",
+          "title": "Some unique properties of eigenvector centrality",
+          "trigger": "Foundational rationale for separating eigencentral from high-degree vertices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Disagreement of eigenvector and degree centrality is known, but the first order where the two *unique* leaders differ and the complete first obstruction layer are natural sharp boundary invariants. The five-class/9240 labeled census gives researchers an explicit minimal test corpus for the difference, rather than a single anecdotal network or an arbitrary unlabeled subset.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Grassi–Stefani–Torriero DOI:10.1080/00222500701373251 abstract",
+    "Bonacich DOI:10.1016/j.socnet.2007.04.002 abstract",
+    "Pradhan et al arXiv:1909.08696 indexed primary material",
+    "Read–Wilson Atlas of Graphs 1998 and networkx graph_atlas_g",
+    "Resultary semantic search on first unique degree/eigenvector centrality disagreement"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Most directly relevant Grassi–Stefani–Torriero 2007 full text remained inaccessible after preprint/OA searches and authorized Oxford institutional access returned vpn_disconnected (job_id retained privately).",
+    "Unindexed textbook exercise or graph Atlas annotation may already give some/all five first disagreements.",
+    "Independent all-atlas classification used numerical eigensolving to corroborate, while the package exact tie decision is supported by code inspection of rational Sturm/cofactor method; formal replay of the exact source verifier was not done in this run.",
+    "This is a best-of-knowledge independent scientific review, not external expert verification or public authorization."
+  ],
+  "schema_version": 1
+}

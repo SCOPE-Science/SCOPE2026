@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite domain is the documented complete Graph Atlas through seven vertices, restricted to connected representatives. Degree leaders are exact. Eigenvector leaders are not inferred from floating-point output: the Perron root is isolated by exact rational Sturm sequences, and the adjugate identity reduces eigenvector-coordinate ordering to exact comparisons of principal characteristic cofactors. The replay finds no distinct unique leaders through six vertices and exactly five classes at seven; direct permutation checks reproduce all five orbit sizes and the total \(9240\).
+## correctness
 
-Risk: completeness of the finite input relies on the externally documented Read--Wilson Graph Atlas, while every centrality computation on that input is independently replayed.
+PASS
 
-## Originality
-**PASS.** Prior work directly compares degree and eigenvector centrality and explains why their rankings can differ. That qualitative phenomenon is not claimed as new. The accepted claim is the sharp unique-leader boundary and complete first layer: coincidence through six vertices, exactly five seven-vertex isomorphism classes, and their exact labeled orbit total. Searches by aliases, exact order, exact count, and unique-maximizer language did not locate equivalent coverage.
+For connected simple undirected G, degree leaders maximize neighbor count and eigenvector leaders maximize the positive Perron eigenvector. The unique-maximizer qualifier excludes tied cases. The packaged exact method computes p(t)=det(tI−A), q_i(t)=det(tI−A with vertex i removed), and q_i(λ)=p′(λ)x_i²/||x||² at simple largest eigenvalue λ, comparing q_i(λ) via rational Sturm root isolation. Examined the actual verifier implementing these exact comparisons, and independently enumerated ALL connected unlabeled networkx Graph Atlas representatives of n=2,..,7 with counts 1,2,6,21,112,853; a separate symmetric eigensolver found no distinct singleton leaders through n=6 and exactly 5 seven-vertex classes with the five same edge-list representatives and leader pairs. Gaps in detected distinct-leader cases were comfortably away from numerical tie threshold; exact Sturm source method, not numerical approximation alone, supports precise ties. Explicitly enumerated all 7! vertex relabelings of those 5 representatives, confirming automorphism orders 12,2,2,4,2 and orbit sizes 420,2520,2520,1260,2520 totaling 9240. Graph Atlas completeness externally documented; atlas enumeration is finite exhaustive for order≤7, not an infinite graph theorem.
 
-Risk: the full 2007 Grassi--Stefani--Torriero article was not accessible during inspection, although its abstract states that it derives spectral-radius conditions relating highest degree to highest eigenvector centrality. An unindexed source could contain a small example or finite classification.
+## originality
 
-## Value
-**PASS.** Degree is the canonical local popularity score, while eigenvector centrality recursively values connections to important neighbors. Applications often collapse each score to a single “most central” actor. The smallest network where those two unambiguous choices can conflict is therefore a natural structural boundary. Classifying all five first obstruction types explains the full onset rather than presenting an isolated counterexample.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge priority judgment based on direct statement/implication comparisons with specified inspected sources, published semantic search and alias checks; neither the source names nor negative searches by themselves demonstrate novelty. Aliases highest degree vertex, hub, unique maximizer, singleton eigenvector leader were searched. Generic different rankings or non-singleton eigenvector ties would not establish the same sharp unique/unique frontier.
+
+## value
+
+PASS
+
+Disagreement of eigenvector and degree centrality is known, but the first order where the two *unique* leaders differ and the complete first obstruction layer are natural sharp boundary invariants. The five-class/9240 labeled census gives researchers an explicit minimal test corpus for the difference, rather than a single anecdotal network or an arbitrary unlabeled subset.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
