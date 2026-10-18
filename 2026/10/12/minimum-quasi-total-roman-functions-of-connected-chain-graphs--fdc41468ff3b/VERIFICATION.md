@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier generates every canonical connected chain graph of total order \(4\) through \(8\) whose two bipartition classes both have order at least \(2\). Canonical twin-class sizes range over all positive compositions compatible with a common number of classes.
+# Independent mathematical audit
 
-For every graph, the checker enumerates every labeling
-\[
-f:V(G)\to\{0,1,2\},
-\]
-tests both quasi-total Roman conditions directly at every vertex, computes the true minimum weight, collects every minimum function, and compares the result with the four-family classification and the formula
-\[
-uv+\mathbf 1_{s=2}ut+\mathbf 1_{t=2}vs+\mathbf 1_{s=t=2}.
-\]
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-connected_chain_graph_types_checked = 114
-orders_checked = 4..8
-types_by_order = {4: 2, 5: 6, 6: 14, 7: 30, 8: 62}
-ternary_labelings_checked = 484218
-minimum_functions_checked = 633
-all minima had weight 4 and matched the four-family classification
-all minimum-function counts matched u*v + [s=2]u*t + [t=2]v*s + [s=t=2]
-half_graph_H3_published_endpoint_pattern_x3_y3 = invalid
-half_graph_H3_universal_pair_x3_y1 = valid
-```
+At weight four, labels can only be (2,2),(2,1,1), or (1,1,1,1). For (2,2), both supporting defenders must be universal in opposite parts; for (2,1,1), the 2-labelled vertex side must have exactly 2 vertices and defender be universal; all-one requires s=t=2. Four disjoint family counts sum uv+1_{s=2}ut+1_{t=2}vs+1_{s=t=2}, assuming prior published chain minimum 4. Independent canonical chain-graph enumeration tested 62 types and all ternary labels against direct conditions and formula. Infinite classification follows exhaustive weight-four reasoning, not finite enumeration.
 
-The checker covers \(114\) connected canonical chain-graph types and \(484{,}218\) ternary labelings. It also directly tests the three-by-three half graph construction used in the prior-work comparison.
+## originality
 
-The finite computation is corroborative only. The theorem for arbitrary connected chain graphs follows from the exhaustive symbolic classification of weight-four label multisets in the proof.
+PASS
+
+Chain-graph theorem 7 supplies only gamma_qtR=4 and theorem 8 an algorithm; neither counts four weight-four optimizer families. Complete multipartite graphs or Roman domination differ in graph class or labeling condition. Substantive best-of-knowledge originality, not merely absence of identical wording.
+
+## value
+
+PASS
+
+Optimizer multiplicity is a natural invariant beyond the known gamma=4. Exactly four structural families and universal-twin-only dependence give complete count; half graphs unique, while K2,2 has 13. Exposes and corrects potentially invalid endpoint choice in earlier scalar construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

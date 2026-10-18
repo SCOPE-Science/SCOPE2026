@@ -1,12 +1,21 @@
-# Review of Minimum quasi-total Roman functions of connected chain graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. Published prior work fixes the minimum at \(4\) when both bipartition classes have order at least \(2\). At weight \(4\), the only positive-label multisets are \(\{2,2\}\), \(\{2,1,1\}\), and \(\{1,1,1,1\}\). The first forces one universal label-\(2\) vertex in each part. The second forces the label-\(2\) vertex's part to have order exactly \(2\), forces that defender to be universal, and leaves one arbitrary positive support vertex in the opposite part. The third forces the graph to have four vertices. These cases are disjoint and exhaustive, and their converses are immediate. Exhaustive definition-level checking of \(114\) canonical chain-graph types through order \(8\) matches the classification and count.
+## correctness
 
-## Originality
-PASS. The 2019 introducing paper develops general quasi-total Roman theory but does not treat chain graphs. The 2021/2022 algorithmic chain-graph paper was inspected in full at its chain section: Theorem 7 gives only the scalar minimum and Theorem 8 a linear-time optimization algorithm. It does not classify or count all optimum functions. The prior complete-multipartite all-function theorem concerns a different graph class and does not imply the nested-neighborhood chain result. Targeted chain/Ferrers/half-graph searches did not locate the optimizer formula. The scalar value is explicitly excluded from the originality claim.
+PASS
 
-## Value
-PASS. The optimizer multiplicity of a chain graph collapses to four structural families and depends only on the two side sizes and the sizes of the universal twin classes. This gives, for example, a unique optimum on every half graph of order at least six while complete four-vertex bipartite graphs have thirteen. The classification also identifies the universally valid weight-four construction behind the published scalar theorem and exposes why the endpoint displayed in that proof is not valid for every chain ordering.
+At weight four, labels can only be (2,2),(2,1,1), or (1,1,1,1). For (2,2), both supporting defenders must be universal in opposite parts; for (2,1,1), the 2-labelled vertex side must have exactly 2 vertices and defender be universal; all-one requires s=t=2. Four disjoint family counts sum uv+1_{s=2}ut+1_{t=2}vs+1_{s=t=2}, assuming prior published chain minimum 4. Independent canonical chain-graph enumeration tested 62 types and all ternary labels against direct conditions and formula. Infinite classification follows exhaustive weight-four reasoning, not finite enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Chain-graph theorem 7 supplies only gamma_qtR=4 and theorem 8 an algorithm; neither counts four weight-four optimizer families. Complete multipartite graphs or Roman domination differ in graph class or labeling condition. Substantive best-of-knowledge originality, not merely absence of identical wording.
+
+## value
+
+PASS
+
+Optimizer multiplicity is a natural invariant beyond the known gamma=4. Exactly four structural families and universal-twin-only dependence give complete count; half graphs unique, while K2,2 has 13. Exposes and corrects potentially invalid endpoint choice in earlier scalar construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
