@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:07:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the 2026 Araya–Harada four [28,2,21]_4 projective-column seed vectors and Proposition 4.13 correspondence for [5s+3,2,4s+1]_4, s>=6. Adding a full PG(1,4) normalized projective line contributes J conjugate(J)^T=0 to the Hermitian Gram, so repeating the five-point block s-5 times preserves LCD. The four multiplicity lists have length 5s+3, minimum codeword weight 4s+1, no zero columns (dual distance>=2), and yield the four displayed weight enumerators by three scalar multiples per projective message direction. Monomial automorphisms are 3*prod_i(m_i!)*Stab_PGL(2,4)(m); PGL(2,4) acts as A5, and the multiplicity patterns have color-class partitions 2-1-2, 1-2-1-1, 3-1-1, 2-2-1 with even stabilizer orders 2,1,3,2 respectively. Thus factorial formulas A 6(s-1)!²(s+1)!(s+2)!², B 3(s-1)!s!(s+1)!²(s+2)!, C 9(s-2)!(s+1)!³(s+2)!, D 6(s-3)!(s+1)!²(s+2)!² follow. Independent GF4 implementation checked full GL(2,4) of order 180 and PGL of order 60, every color stabilizer and zero Hermitian Gram, while the inspected packaged certificate and verifier enumerate sample s=6,7,10. Exhaustiveness of the four code classes is explicitly imported from Araya–Harada, not independently proved by finite checks.",
+      "risk": "The formula is for ordinary F4-linear monomial automorphisms, NOT semilinear equivalence; source classification supplies the exhaustive four-class statement.",
+      "sources": [
+        "Frozen RESULT.md, artifacts/verify.py and artifacts/certificate.json exact Git blobs",
+        "Araya and Harada DOI:10.1007/s40314-026-03875-2 Proposition 4.13",
+        "independent_checks.py GF4_PROJECTIVE_*"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 all-parameter equivalence-class correspondence is broader in code classification.",
+          "It does not directly give complete monomial group orders for these four families in a published formula."
+        ],
+        "reasoning": "Classifying representatives is not identical to classifying their automorphism-group orders; an additional color stabilizer computation is needed.",
+        "searches": [
+          "Hermitian LCD quaternary [5s+3,2,4s+1] automorphism orders projective-column multiplicities",
+          "DOI:10.1007/s40314-026-03875-2 mass formula section",
+          "arXiv:2004.07059"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s40314-026-03875-2",
+        "https://arxiv.org/pdf/2004.07059",
+        "Resultary search Hermitian LCD quaternary [5s+3,2,4s+1] automorphism orders projective-column multiplicities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source classifies four classes; class cardinalities and m_i vectors do not themselves state intrinsic symmetry orders.",
+          "The stabilizers are A5 color-preserving subgroups of orders 2,1,3,2."
+        ],
+        "reasoning": "The published classification and standard PGL action motivate but do not by themselves state this complete closed-order computation; priority remains best-of-knowledge.",
+        "searches": [
+          "DOI:10.1007/s40314-026-03875-2 Proposition 4.13",
+          "Hermitian LCD quaternary [5s+3,2,4s+1] automorphism orders projective-column multiplicities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Projective column multiplicity code equivalence and monomial group are exactly the appropriate invariants.",
+          "The four all-s order formulas refine, rather than merely rename, the source equivalence-class list."
+        ],
+        "reasoning": "Equivalent representation as a colored five-point projective action was checked; no inspected prior theorem supplies the four full monomial orders.",
+        "searches": [
+          "Hermitian LCD quaternary [5s+3,2,4s+1] automorphism orders projective-column multiplicities",
+          "DOI:10.1007/s40314-026-03875-2 Proposition 4.13",
+          "arXiv:2004.07059"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest Resultary Hermitian LCD hit concerns a different [21,7,11] code and weight hierarchy, not the four [5s+3,2,4s+1] families.",
+          "The 2026 article lists four seed vectors, and finite classification/mass data, but not the four closed factorial automorphism expressions."
+        ],
+        "reasoning": "A seed-vector table or unrelated weight-hierarchy table is not an exact all-s automorphism-order table.",
+        "searches": [
+          "Hermitian LCD quaternary [5s+3,2,4s+1] automorphism orders projective-column multiplicities",
+          "DOI:10.1007/s40314-026-03875-2",
+          "Resultary:2026/10/4/SCOPE-the-optimal-quaternary-21-7-11-quasi-cyclic-lcd-code-has-weight--20585c2f5c7d"
+        ]
+      },
+      "rationale": "Araya–Harada 2026 Proposition 4.13 already classifies exactly four quaternary Hermitian LCD equivalence classes and prints their seed multiplicity vectors; it also uses automorphism-group orders in mass formulas and computes them via graph automorphism tools. Its inspected full article does not tabulate the four closed all-s automorphism orders. The source-specific group/order formulas need the multiplicity-preserving PGL(2,4) color stabilizers and repeated-coordinate kernels. Earlier 2020/2022 dimension-two papers provide framework but no identified closed all-s quartet. Best-of-knowledge only.",
+      "residual_risks": [
+        "Possibility that a 2020/2022 classification or unpublished code tables contain the same factorial automorphism orders.",
+        "Semilinear automorphisms including field Frobenius are not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the four classes, source seeds and finite computations, but not closed all-s orders in inspected relevant sections",
+          "evidence": "Proposition 4.13 and following text explicitly state 4 seeds and all s>=6; automorphism computation via NAUTY cited in classification machinery.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s40314-026-03875-2",
+          "material_read": "Full accessible 2026 publisher HTML, Sec.4.6, Proposition 4.13 and displayed seed vectors, equivalence and automorphism algorithm, discussion of finite classification/mass formula",
+          "method": "Read full publisher HTML mathematical arguments and code classifications",
+          "title": "On the classification of quaternary Hermitian LCD codes",
+          "trigger": "Exact classified code families and mass-formula automorphisms"
+        },
+        {
+          "assessment": "Earlier dimension-two classification background; no covering quartet of closed automorphism orders identified",
+          "evidence": "Projective multiplicity representation is established in prior work; new family-specific all-s order assertions go beyond that background.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.07059",
+          "material_read": "Public preprint, title, introduction and representative dimension-two construction/classification passages; source identified through bibliography",
+          "method": "Read accessible PDF mathematical material and compared target all-s symmetry statement",
+          "title": "Classification of optimal quaternary Hermitian LCD codes of dimension 2",
+          "trigger": "Possible earlier all-family dimension-two result and group formula"
+        },
+        {
+          "assessment": "Cannot certify noncoverage; historical risk explicitly retained",
+          "evidence": "2026 article cites Araya–Harada 2022 Theorem 4.3 for correspondence between seed and larger parameters.",
+          "identifier_or_url": "DOI:10.1007/s12095-021-00545-8",
+          "material_read": "Cited earlier classification/recurrence facts in Araya–Harada 2026, primary full text not separately inspected in this audit",
+          "method": "Citation-context comparison only, not whole-document inspection",
+          "title": "On the classification of quaternary optimal Hermitian LCD codes",
+          "trigger": "Earlier classification that might dominate current four classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Monomial automorphism-group orders are intrinsic coding invariants and appear explicitly in the mass formulas that substantiate the existing classification. The four full factorial forms for every s>=6 turn an automorphism calculation previously delegated to finite colored-graph computations into uniform, parameter-explicit symmetry data, distinguishing stable projective stabilizers 2/1/3/2. This is a natural complete four-class invariant even without a new code-construction theorem; not a free recomputation of a published numerical table.",
+      "risk": "Only orders are characterized; abstract automorphism group structures or all other quaternary code classes not classified.",
+      "sources": [
+        "Araya–Harada DOI:10.1007/s40314-026-03875-2 Proposition 4.13, mass-formula discussion",
+        "Frozen RESULT.md",
+        "independent_checks.py GF4_PROJECTIVE_*"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Parameters [5s+3,2,4s+1]_4 s>=6, Hermitian LCD with dual distance>=2; monomial equivalence only.",
+    "Code class exhaustiveness relies on the original source Proposition 4.13, not the small independent verifier.",
+    "Potentially equivalent unpublished mass-formula group orders remain a priority risk.",
+    "No external attestation or formal verification is inferred from a verifier printout.",
+    "Public metadata confidentiality blocks publication: scientifically completed review is not an importable change-set."
+  ],
+  "schema_version": 1
+}

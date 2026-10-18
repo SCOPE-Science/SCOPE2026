@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-It realizes
-\[
-\mathbb F_4=\mathbb F_2[\omega]/(\omega^2+\omega+1)
-\]
-and the five normalized points of
-\[
-\operatorname{PG}(1,4).
-\]
+# Independent mathematical audit
 
-The verifier first checks that the sum of the five Hermitian rank-one Gram contributions is the zero \(2\times2\) matrix. Thus adding one full projective line preserves the Hermitian Gram matrix.
+## correctness
 
-For the four source seed vectors and sample values
-\[
-s=6,7,10,
-\]
-it constructs the dimension-two generators, verifies Hermitian LCD nonsingularity, enumerates all \(16\) codewords, and compares the exact weight enumerators with the four closed formulas.
+PASS
 
-It then enumerates all \(180\) matrices in
-\[
-\operatorname{GL}(2,4),
-\]
-computes their induced permutations on the five projective points, and confirms that the distinct projective permutations number \(60\). For each of the four multiplicity colorings it calculates the projective stabilizer and checks the orders
-\[
-2,\ 1,\ 3,\ 2.
-\]
+Use the 2026 Araya–Harada four [28,2,21]_4 projective-column seed vectors and Proposition 4.13 correspondence for [5s+3,2,4s+1]_4, s>=6. Adding a full PG(1,4) normalized projective line contributes J conjugate(J)^T=0 to the Hermitian Gram, so repeating the five-point block s-5 times preserves LCD. The four multiplicity lists have length 5s+3, minimum codeword weight 4s+1, no zero columns (dual distance>=2), and yield the four displayed weight enumerators by three scalar multiples per projective message direction. Monomial automorphisms are 3*prod_i(m_i!)*Stab_PGL(2,4)(m); PGL(2,4) acts as A5, and the multiplicity patterns have color-class partitions 2-1-2, 1-2-1-1, 3-1-1, 2-2-1 with even stabilizer orders 2,1,3,2 respectively. Thus factorial formulas A 6(s-1)!²(s+1)!(s+2)!², B 3(s-1)!s!(s+1)!²(s+2)!, C 9(s-2)!(s+1)!³(s+2)!, D 6(s-3)!(s+1)!²(s+2)!² follow. Independent GF4 implementation checked full GL(2,4) of order 180 and PGL of order 60, every color stabilizer and zero Hermitian Gram, while the inspected packaged certificate and verifier enumerate sample s=6,7,10. Exhaustiveness of the four code classes is explicitly imported from Araya–Harada, not independently proved by finite checks.
 
-Finally it evaluates
-\[
-3\left(\prod_i m_i!\right)|\operatorname{Stab}_{\operatorname{PGL}(2,4)}(m)|
-\]
-and compares the results with the four factorial automorphism formulas.
+## originality
 
-Successful replay prints `VERIFY_OK`.
+PASS
+
+Araya–Harada 2026 Proposition 4.13 already classifies exactly four quaternary Hermitian LCD equivalence classes and prints their seed multiplicity vectors; it also uses automorphism-group orders in mass formulas and computes them via graph automorphism tools. Its inspected full article does not tabulate the four closed all-s automorphism orders. The source-specific group/order formulas need the multiplicity-preserving PGL(2,4) color stabilizers and repeated-coordinate kernels. Earlier 2020/2022 dimension-two papers provide framework but no identified closed all-s quartet. Best-of-knowledge only.
+
+## value
+
+PASS
+
+Monomial automorphism-group orders are intrinsic coding invariants and appear explicitly in the mass formulas that substantiate the existing classification. The four full factorial forms for every s>=6 turn an automorphism calculation previously delegated to finite colored-graph computations into uniform, parameter-explicit symmetry data, distinguishing stable projective stabilizers 2/1/3/2. This is a natural complete four-class invariant even without a new code-construction theorem; not a free recomputation of a published numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
