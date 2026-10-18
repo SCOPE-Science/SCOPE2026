@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T16:15:14.779993Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob d1a6e3ff0d42b6efb57bc54e03895d8a00ea07a1",
+        "Source verify.py blob ec120adb93f3a5dec0e3c1293e8918af72860f17",
+        "Independent exact checker independent_checks.py",
+        "Complete assigned tree ade6dce94fad0e15b45e3346ab73f4968a8686cb checked at commit 7276e886ed6ed49439d05d36a501e9b2e0169de0"
+      ],
+      "rationale": "PASS. The specified deterministic Mime+SGD control variate for a quadratic f_i(y)=1/2 y^T H_i y-q_i^T y reduces exactly to g_i(y)=H_i(y-x)+c, where c is the broadcast full gradient. The first two local iterates average as x−kηc+binom(k,2)η² Hbar c for k=1,2, identical to two centralized GD steps. At k=3 the noncommuting-matrix expansion leaves only −η³[(1/m)Σ_i H_i²−Hbar²]c=−η³[(1/m)Σ_i(H_i−Hbar)²]c. Each H_i symmetric, so c^T(average−center)=−η³/m Σ_i||(H_i−Hbar)c||²≤0 (for η>0). The assertion is gradient-aligned, not an unconditional improvement in objective. Direct exact rational 2x2 noncommuting test agrees; a scalar two-client example yields central 64/125 and Mime 51/100 after step 3, defect −1/500. All equalities are polynomial identities valid regardless of convexity beyond the source's symmetric-quadratic hypothesis. No finite experiment was mistaken for proof.",
+      "residual_risks": [
+        "Equal client weights, one deterministic round, full gradients, symmetric quadratics, SGD as base; no stochastic sampling/adaptive optimizer or K>3 proof claimed.",
+        "Finite verifier calculations corroborate rather than replace all-orders proofs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2008.03606 Theorem I is a generic reduction and its Assumption A2 and Appendix E control Hessian heterogeneity norm.",
+          "Source formula implies an upper bound on drift, not the exact third-step Hessian-variance operator."
+        ],
+        "reasoning": "A generic bound does not fix the vanishing first two Taylor coefficients or identify the third; the exact expansion is stronger in its specified subcase.",
+        "searches": [
+          "Hessian similarity Mime perturbation theorem original 2008.03606",
+          "Mime federated averaging SGD deterministic quadratic heterogeneous Hessian third local step defect exact cancellation two steps Hessian variance"
+        ]
+      },
+      "checked_sources": [
+        "Assigned immutable RESULT.md",
+        "Assigned verify.py source",
+        "Independent sympy exact 2x2 noncommuting and scalar checks",
+        "Karimireddy et al., arXiv:2008.03606v2, complete full text",
+        "Resultary semantic query Mime federated averaging SGD deterministic quadratic heterogeneous Hessian third local step defect exact cancellation two steps Hessian variance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic Mime perturbation is an inequality, whereas the claim is a signed exact polynomial difference in the full-gradient quadratic specialization.",
+          "Heterogeneous Hessians may not commute; the identity Σ(H_i−Hbar)^2=Σ H_i²−m Hbar² does not assume commutation."
+        ],
+        "reasoning": "Prior general Mime definitions make the calculation possible but do not state or immediately imply the K=3 signed identity without new finite-step algebra.",
+        "searches": [
+          "arxiv:2008.03606 Algorithm 1 Theorem I Appendix E",
+          "Resultary Mime exact Hessian variance query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Karimireddy et al., arXiv:2008.03606, Algorithm 1: g_i=∇f_i(y)−∇f_i(x)+c.",
+          "Exact target: averaged K=1,2 agreement, K=3 defect −η³ V_H c."
+        ],
+        "reasoning": "The source provides the control-variate operation but no inspected exact quadratic three-step expansion; algorithm equivalence alone is not theorem coverage.",
+        "searches": [
+          "Mime federated averaging SGD deterministic quadratic heterogeneous Hessian third local step defect exact cancellation two steps Hessian variance",
+          "\"Mime\" \"quadratic\" \"three\" \"Hessian\" drift exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4/SCOPE-exact-off-diagonal-curvature-leakage-in-adahessian-s-hessian-rms--22bdee1af96c concerns a different optimizer and Hutchinson leakage.",
+          "Related Resultary curvature/stability hits do not give the Mime coefficient."
+        ],
+        "reasoning": "No searched direct earlier table/formula covers this precise defect; a negative indexed search is not proof of priority.",
+        "searches": [
+          "Resultary: Mime federated averaging SGD deterministic quadratic heterogeneous Hessian third local step defect exact cancellation two steps Hessian variance",
+          "Resultary: deterministic Mime quadratic local steps exact defect"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the **specific first nonzero average defect at step three and its exact Hessian-variance coefficient**, not for Mime, its control variate, generic client drift, or Hessian-similarity theory. Karimireddy et al. define precisely the used corrected gradient and prove generic perturbation/communication convergence, but the inspected Algorithm 1, Theorem I and Hessian-similarity appendices do not state the exact K=1,2 cancellation or the K=3 coefficient. Resultary and targeted alias queries returned related curvature and federated-method claims, not an implication-equivalent expansion. A later different-name expansion remains possible.",
+      "residual_risks": [
+        "A later paper may derive the same finite-step quadratic coefficient under an unnamed variance expansion.",
+        "Sign assertion holds only in inner product with the broadcast gradient and positive η, not as full-objective monotonicity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING_EXACT_K3",
+          "evidence": [
+            "Algorithm 1 update: gi←∇fi(yi;ζ)−∇fi(x;ζ)+c.",
+            "Its general reduction theorem bounds loss/gradient behavior, without the stated finite-iterate signed coefficient."
+          ],
+          "identifier_or_url": "arXiv:2008.03606v2; https://arxiv.org/pdf/2008.03606",
+          "material_read": "Original 40-page PDF searchable; inspected Algorithm 1 on PDF page 4, Theorem I discussion, Appendix E Hessian assumptions and relevant curvature-drift passages, plus visual PDF screenshot.",
+          "method": "Full-PDF source comparison, mathematical specialization of its recursion.",
+          "title": "Mime: Mimicking Centralized Stochastic Algorithms in Federated Learning",
+          "trigger": "The precise same control-variate update and Hessian dissimilarity model."
+        },
+        {
+          "assessment": "RELATED_NOT_EQUIVALENT",
+          "evidence": [
+            "AdaHessian RMS and Loopless SVRG stability results address different updates and risk quantities."
+          ],
+          "identifier_or_url": "Resultary query: Mime federated averaging SGD deterministic quadratic heterogeneous Hessian third local step defect exact cancellation two steps Hessian variance",
+          "material_read": "Semantic hits with titles, summaries, and source IDs for related optimizers.",
+          "method": "Resultary semantic search and statement comparison.",
+          "title": "Relevant federated optimizer exact curvature records",
+          "trigger": "Possible earlier same-algorithm exact quadratic identity."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned immutable RESULT.md",
+        "Assigned verify.py source",
+        "Independent sympy exact 2x2 noncommuting and scalar checks",
+        "Karimireddy et al., arXiv:2008.03606v2, complete full text",
+        "Resultary semantic query Mime federated averaging SGD deterministic quadratic heterogeneous Hessian third local step defect exact cancellation two steps Hessian variance"
+      ],
+      "rationale": "PASS, though narrow. The exact first onset time of averaged curvature drift is a motivated mechanism question for a named control-variate algorithm: a practitioner can choose 1–2 local steps without this deterministic quadratic average bias, while a third step introduces a computable PSD matrix acting on the broadcast gradient. It is a structural finite-step identity, not a generic stochastic convergence theorem or a new algorithm. The equality cases and direction distinguish it from mere Taylor expansion without a phenomenon.",
+      "residual_risks": [
+        "Value is restricted to the specified object/parameter and the exact stated classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equal client weights, one deterministic round, full gradients, symmetric quadratics, SGD as base; no stochastic sampling/adaptive optimizer or K>3 proof claimed.",
+    "A later paper may derive the same finite-step quadratic coefficient under an unnamed variance expansion.",
+    "Sign assertion holds only in inner product with the broadcast gradient and positive η, not as full-objective monotonicity."
+  ],
+  "schema_version": 1
+}
