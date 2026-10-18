@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The exact affine PDHG error map and postscaled matrix follow by substitution. Invertible weighted similarity and an SVD give n explicit 2x2 blocks with polynomial lambda^2-2(1-g)lambda+(1-g), establishing all spectral regimes including g=1 and g=4/3. A block of K_P^2 proves diagonal deadbeat uniqueness. The LP positivity condition makes both projections inactive. Independently executed reproducibility checks support, but do not substitute for, the analytic arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208 studies tuning a different symmetric strongly convex-concave PDHG map.",
+        "critical-damping-ratio-for-scalar-least-squares-primal-dual-line--f8268fe426bc studies fixed-product PDAL/PDHG ratio and repeated roots.",
+        "row-coherence-defect-pdnqp-diagonal-steps--30698826464a studies a different quadratic programming initialization rule."
+      ],
+      "reasoning": "Those stronger-looking titles concern distinct update matrices or objectives. Their formulas do not imply the spectrum of the explicitly postscaled equality-constrained PDHG iteration or the uniqueness of a two-step positive diagonal correction. The generic eigenvalue criterion of stationary iterations is classical and used as a proof tool, not claimed as novelty.",
+      "searches": [
+        "Published research search: PDHG diagonal residual scaling two iterations exact solve scalar equality primal dual nilpotent map scaling",
+        "Published research search: operator splitting online scaling PDHG diagonal dual residual four thirds 4/3 row Gram coherence stability",
+        "Web: one third cross correlation stability threshold primal dual hybrid gradient operator splitting preconditioning"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.10732 (scholarly full HTML and initial-public-date metadata)",
+      "Wanyu Zhang (2026-09-10), online-scaling scientific exposition (full HTML)",
+      "Pock & Chambolle, ICCV 2011, doi:10.1109/ICCV.2011.6126441 (metadata and abstract)",
+      "published mathematical records on scalar PDHG, PDAL damping, row coherence, finite termination and residual scaling"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 primary preprint develops general FBS, DRS and ADMM online residual-scaled operator splitting; its cited schemes and safeguards are not the present fixed dual-only correction.",
+        "The author exposition explicitly establishes a safeguarded *block* selection rule and local active-set identification, not the closed-form row-coherence spectral stability classification of a fixed unguarded trial.",
+        "Pock and Chambolle (2011) place metric preconditioning inside the primal-dual method, unlike the examined external residual multiplier."
+      ],
+      "reasoning": "The precise stated criterion is neither identical to the source convergence guarantee nor a simple specialization of its safeguarded theorem: without acceptance, this map can be unstable. Classical PDHG convergence under the base step bound does not cover arbitrary poststep residual multipliers. The uniqueness and sharp threshold require analyzing the different 2n-by-2n iteration matrix.",
+      "searches": [
+        "arxiv:2609.10732 full scholarly HTML: Sections 1 through 5 and appendices inspected for PDHG and poststep diagonal residual scaling",
+        "Zhang September 10 2026 PDHG scientific exposition: primal-dual map, block safeguard and active-set discussion",
+        "Published research search: sharp finite termination diagonal scaling extrapolation primal-dual hybrid gradient scalar equality unprojected regime"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 full scholarly HTML and author exposition define generic residual-scaled fixed-point updates; the specific correction and normalized Gram spectrum are not stated in their inspected methods and applications.",
+        "The nearby 2011 diagonal-preconditioning article changes internal primal-dual metrics rather than multiplying the unchanged fixed-point residual."
+      ],
+      "reasoning": "No inspected source gives the same unguarded PDHG map together with its 4/3 Gram spectrum, sharp two-row correlation and unique two-step diagonal scaling. Similar naming of diagonal preconditioning does not establish equality of the actual iteration operators.",
+      "searches": [
+        "Published research search: operator splitting online scaling PDHG diagonal dual residual four thirds 4/3 row Gram coherence stability",
+        "Published research search: row orthogonality diagonal residual scaled Chambolle Pock two-step finite termination nilpotent",
+        "Web: two step finite convergence primal dual hybrid gradient diagonal row orthogonality residual correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved relevant mathematical records contained no tabulated two-row correlation threshold or spectrum for this particular residual map.",
+        "The result is an infinite parametric analytic phase diagram, not a finite catalogued constant."
+      ],
+      "reasoning": "No exact database or finite table was identified that would directly contain the claimed complete operator and eigenvalue formula.",
+      "searches": [
+        "Published research search: primal dual diagonal residual correction 1/3 correlation divergence",
+        "Published research search: row orthogonality diagonal residual scaled Chambolle Pock two-step finite termination nilpotent",
+        "Web: two step finite convergence primal dual hybrid gradient diagonal row orthogonality residual correction"
+      ]
+    },
+    "rationale": "Primary 2026 scholarly manuscript and an accompanying full author exposition were inspected for the fixed-point residual template and the PDHG LP operator. The exact external dual residual multiplier, universal normalized Gram stability threshold, sharp two-row correlation boundary, and uniqueness of the two-step positive diagonal scaling are not covered by the inspected claims. Broader published mathematical records returned different update matrices; older unindexed equivalent stationary-iteration analysis remains an explicit residual risk.",
+    "residual_risks": [
+      "An earlier general stationary-iteration analysis might contain the same normalized Gram polynomial and yield the specialized criterion, notwithstanding absence of identified direct coverage.",
+      "Full conference text of the 2011 internal-metric diagonal-preconditioning paper was not materially read; available abstract indicates a distinct operator.",
+      "The motivating framework has additional online safeguards, and no counterexample to its complete safeguarded algorithm is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general residual-scaling template but not this exact unsafeguarded equality-LP PDHG diagonal correction, Gram spectral boundary or deadbeat uniqueness.",
+        "evidence": [
+          "arXiv:2609.10732; introduction and sections 3-5; published subject math.OC; first public September 9 2026."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.10732",
+        "material_read": "Arxiv-rendered scholarly full HTML: abstract, introduction and related work, algorithmic FBS/DRS/ADMM sections, guarantees, numerical experiments and appendices; corroborated earliest arXiv submission September 9 2026.",
+        "method": "Material read from primary scholarly HTML (machine-extracted math partially omitted in some lines); cross-checked author exposition.",
+        "title": "Operator Splitting Methods with Online Scaling",
+        "trigger": "Motivating recent poststep residual-scaling framework"
+      },
+      {
+        "assessment": "Exact PDHG update matches base map. Its safeguard and block trial differ from the proposed unguarded fixed dual-only scaling. No Gram 4/3 or one-third row correlation threshold or two-step uniqueness stated.",
+        "evidence": [
+          "September 10 2026 blog, sections Residual feedback, Block residual feedback, Application on PDHG for LP."
+        ],
+        "identifier_or_url": "https://zwyhahaha.github.io/2026/09/10/online-scaling-without-a-smooth-envelope/",
+        "material_read": "Entire scientific exposition through example, PDHG update, residual feedback, block safeguarding, active-set identification and local rates (September 10 2026).",
+        "method": "Full publicly accessible HTML text inspection.",
+        "title": "Online Scaling for Operator Splitting without a Smooth Envelope",
+        "trigger": "Same author explicitly extends fixed-point residual trials and PDHG to LP"
+      },
+      {
+        "assessment": "Preconditions within primal-dual step sizes/metrics; overlap with general concept but no evidence for the exact poststep-residual matrix phase diagram. Full-text overlap remains a risk.",
+        "evidence": [
+          "Pock and Chambolle, ICCV 2011 abstract, doi:10.1109/ICCV.2011.6126441."
+        ],
+        "identifier_or_url": "doi:10.1109/ICCV.2011.6126441",
+        "material_read": "Bibliographic metadata and complete abstract; full conference text not accessible in this run.",
+        "method": "Publisher abstract and bibliographic metadata comparison.",
+        "title": "Diagonal Preconditioning for First Order Primal-Dual Algorithms in Convex Optimization",
+        "trigger": "Plausible older diagonal PDHG preconditioning dominating result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2f5e9704-cc91-4044-a739-80f9baa5d36f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A structural benchmark clarifies when a naturally motivated dual row-norm compensator yields exact two-step solves and when even modest cross-row coherence instead causes divergence although baseline PDHG converges. The exact criterion is an actionable stability diagnostic for an unguarded trial, with a motivated convex LP interior extension; no runtime improvements or arbitrary adaptive-method failure is claimed.",
+    "status": "PASS"
+  }
+}
