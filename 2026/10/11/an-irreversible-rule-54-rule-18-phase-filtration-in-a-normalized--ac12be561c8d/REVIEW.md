@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's row/column blurs give \(q(j,i)=t_j/m(y)\) exactly on a nonzero stripe. The four possible values of \(m\) yield the stated Rule-54, Rule-18 and extinction truth tables with the endpoint inequalities checked, including closed intervals. Rule 18 cannot generate three consecutive ones: consecutive new ones force a live center at the next position. This prohibits reentry into Rule 54, and finiteness of the cyclic state space yields the periodic-orbit trichotomy. The 169 consecutive states are checked with exact rational arithmetic from a specified initial word; width independence is analytical. The standalone full-field replay checks the normalization separately. Finite diagnostics do not replace the general proof.
+PASS
 
-## Originality — PASS, with priority risk
+For a nonzero stripe, row blur equals \(Wt_j\), every blurred column occupancy equals \(3M\), and their normalized product cancels to \(q=t_j/m\); this directly proves invariance of stripes and width independence. Inspecting all local triple-count cases and interval endpoints gives Rule54 when m=3 (neighborhoods 101,100,010,001), Rule18 when m=2 (100,001), and zero for m<=1. If two adjacent ones arise under Rule18 then the third next site has a live old centre and is forced zero, so Rule18 cannot make 111; thus the phase boundary is one-way. Independently compared the piecewise update for every binary cyclic word of lengths 3 through 10 (2040 states) and followed the specified 13-letter seed through 169 distinct stages until return, each with m=3. This finite orbit is exactly the stated example, while the all-heights phase theorem follows the algebraic/local proof.
 
-The motivating Shi–Huang preprint v2 gives the complete normalized update and a numerical phase diagram, with analytic lower-dimensional reductions identified as an open direction; inspection of its model, discussion and appendix did not find a conditional Rule-54/Rule-18 reduction. The 2014 Rule-54 paper supplies the truth table and already exhibits a 169-cycle on 13 sites. We explicitly do not claim that known ECA period as new. The new claim is the full exact state-dependent stripe embedding and irreversible three-regime partition **inside the nonlocal two-dimensional model**, which neither inspected source implies by itself. Semantic mathematical-record searches and comparison with available prior findings identified no equivalent. A different prior derivation in specialized globally coupled automata literature remains possible and is a material risk, not ruled out by unsuccessful searches.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original source describes stripe-like cycles and asks for analytic row/column reductions to understand sharp transitions. The theorem provides an exact, all-size invariant reduction, identifies two different classical mechanisms and an irreversible boundary, and transfers a long primitive orbit to the original two-dimensional field rather than an altered local proxy. This is a structural phase classification on a natural subsystem, not an arbitrary numerical slice or a fresh numbering of Rule 54. It does not classify generic non-stripe initial conditions, establish transverse attraction, or resolve the full numerical ridge.
+The period 169 of standalone Rule54 is PRIOR and deliberately not claimed new. The distinct claim is an exact threshold-dependent stripe subsystem of the Shi--Huang nonlocal 2D model, with a one-way switching filtration between classical elementary rules. Original Shi--Huang full text was not available in this execution, so possible equivalent analytic reduction remains a material priority risk; the read abstract/preview does not affirm absence.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The rank-one 2D model was studied for long transients and stripes but lacked an exact explanatory stripe dynamics in the inspected available material. The result supplies an analytic invariant low-dimensional subsystem for arbitrary cyclic dimensions, distinguishes two elementary rules, proves irreversible phase loss and transfers a known long orbit into the original nonlocal dynamics. These are model-specific structural facts, not merely rediscovery of the 169-cycle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

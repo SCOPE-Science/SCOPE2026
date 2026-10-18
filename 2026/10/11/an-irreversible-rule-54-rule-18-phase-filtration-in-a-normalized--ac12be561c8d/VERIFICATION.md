@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of the exact stripe theorem
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this file. Only the Python standard library is required; the script contains independent implementations of the two-dimensional normalized field and the induced cyclic-word map. A successful run prints:
+## correctness
 
-`VERIFY_OK assertions=7161 orbit_period=169 rule_regimes=(54,18,0)`
+PASS
 
-The checker tests all cyclic binary words for heights \(3\) through \(9\), four admissible boundary and interior threshold choices, independent full-field/stripe agreement at selected widths, forbidden triple production by Rule 18, all phases of a 169-state 13-row cycle and the small-height periodic-orbit regime condition. The actual 169-state finite assertion is checked exhaustively along its orbit, whereas the universal-in-height theorem is proved by exact algebra and a local combinatorial argument in `RESULT.md`. No global exhaustive cycle census at height \(13\) is asserted. Independent audit is not performed.
+For a nonzero stripe, row blur equals \(Wt_j\), every blurred column occupancy equals \(3M\), and their normalized product cancels to \(q=t_j/m\); this directly proves invariance of stripes and width independence. Inspecting all local triple-count cases and interval endpoints gives Rule54 when m=3 (neighborhoods 101,100,010,001), Rule18 when m=2 (100,001), and zero for m<=1. If two adjacent ones arise under Rule18 then the third next site has a live old centre and is forced zero, so Rule18 cannot make 111; thus the phase boundary is one-way. Independently compared the piecewise update for every binary cyclic word of lengths 3 through 10 (2040 states) and followed the specified 13-letter seed through 169 distinct stages until return, each with m=3. This finite orbit is exactly the stated example, while the all-heights phase theorem follows the algebraic/local proof.
+
+## originality
+
+PASS
+
+The period 169 of standalone Rule54 is PRIOR and deliberately not claimed new. The distinct claim is an exact threshold-dependent stripe subsystem of the Shi--Huang nonlocal 2D model, with a one-way switching filtration between classical elementary rules. Original Shi--Huang full text was not available in this execution, so possible equivalent analytic reduction remains a material priority risk; the read abstract/preview does not affirm absence.
+
+## value
+
+PASS
+
+The rank-one 2D model was studied for long transients and stripes but lacked an exact explanatory stripe dynamics in the inspected available material. The result supplies an analytic invariant low-dimensional subsystem for arbitrary cyclic dimensions, distinguishes two elementary rules, proves irreversible phase loss and transfers a known long orbit into the original nonlocal dynamics. These are model-specific structural facts, not merely rediscovery of the 169-cycle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
