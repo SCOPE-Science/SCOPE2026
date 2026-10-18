@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.10+ and SymPy 1.14. The script recomputes the polynomial transfer matrix and row-flip permutation from the explicit four-mask local rule, checks their commutation and 41 admissible weighted arcs, constructs the 10-dimensional and 6-dimensional symmetry blocks, and checks the two symbolic determinants exactly. This finite algebraic identity is a proof component. It further enumerates all labeled vertex subsets for rung counts three to ten (1,398,080 total subsets), checks every coefficient, uses a sparse walk dynamic program to check twisted traces through 32 rungs, and checks maximum-size coefficients through 100 rungs.
+## correctness
 
-Expected terminal marker: `VERIFY_OK flip_states=16 symmetry_dims=10+6 arcs=41 block_determinants=exact brute_orders=3..10 brute_masks=1398080 trace_orders=3..32 Lucas_top_orders=3..100`.
+PASS
 
-The general validity for every integer rung count at least three follows from the combinatorial bijection, exact finite determinant identity and formal generating-function manipulations given in the proof. Exhaustive checks at finitely many orders cannot establish infinitely many cases. No independent audit has been performed.
+The 16 ordered rung-mask-pair states enforce for every occupied row-j vertex the exact neighbor-count inequality a_j+b_(1-j)+c_j<=1, including the row-flipped Möbius seam. The 41-transition matrix commutes with the row flip; its + and - eigenspaces have dimensions 10 and 6, so tr(F T^n)=tr(T_+^n)-tr(T_-^n). Independent exact symbolic determinants equal Q_+=1-(1+z)t-(z+2z^2)t^2+(z^3-z^2)t^3+z^4t^4 and Q_-=1+zt+z^2t^2. The formal log-determinant identity proves every n>=3 coefficient. Under t=u/z the top z^n term factors into (1-u^2)(1-u-u^2)(1-u)/(1-u^3) and gives Lucas_n+1+2[2|n]-3[3|n]; all coefficients of larger z-degree vanish by filtration. Independent separate graph adjacency enumeration for n=3..7 found all polynomial coefficients and matched transfer traces. Simple-graph domain excludes n<3. The complement equivalence to 3-path vertex covers follows from degree <=1.
+
+## originality
+
+PASS
+
+No found prior exact all-order dissociation polynomial with Möbius flip and Lucas-periodic maximum-cover census. Grid enumerators use ordinary open boundaries; universal cubic bounds and maximal-set results are different statements. Best-of-knowledge novelty with explicit terminology risk.
+
+## value
+
+PASS
+
+An entire natural nonorientable cubic graph family receives a closed dissociation polynomial rather than a scalar parameter; the twist is not covered by ordinary rectangular grid results. The Lucas-periodic top coefficient and bijection to minimum 3-path vertex covers are natural, exact structural data useful for subsequent extremal comparisons; no claim about arbitrary cubic graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

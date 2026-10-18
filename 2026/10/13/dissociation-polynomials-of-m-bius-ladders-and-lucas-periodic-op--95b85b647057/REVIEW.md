@@ -1,11 +1,21 @@
-# Review of the Möbius-ladder dissociation theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The definition uses all selected vertex sets of maximum induced degree one. The local triple-mask test is necessary and sufficient for the complete Möbius seam; the weighted twisted trace counts each labeled selection once. Direct finite polynomial computations certify the two determinant identities for the specified, explicitly defined matrix. Formal log-determinant/trace identities yield every coefficient for arbitrary rung count, and degree filtration with a Lucas generating function yields the optimum formula. Exact enumeration for rung counts three through ten tests all coefficients; it is verification, not the infinite proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The 2011 dissociation-complexity paper establishes definitions and graph-class algorithms. The 2023 cubic-graph paper establishes a universal weighted upper bound; it does not enumerate Möbius ladders. The 2024 rectangular-grid state recursion uses path boundaries rather than an antipodal flip, and the 2024 twisted-grid-adjacent work enumerates inclusion-maximal, not all, dissociation sets. An untwisted cycle-prism trace does not give the signed Möbius trace without the commuting flip decomposition. Searches included the aliases one-dependent vertex sets and minimum three-path vertex cover. Equivalent prior work under those names remains possible; the 2024 maximal-grid paper was compared through its abstract only.
+PASS
 
-**Value — PASS.** The signed-flip method supplies every cardinality coefficient for a natural nonorientable cubic family and an exact count of minimum three-vertex-path covers, including two distinct periodic corrections to the Lucas component. In particular it distinguishes a boundary twist from the ordinary prism case on the full distribution, not merely at one unmotivated order.
+The 16 ordered rung-mask-pair states enforce for every occupied row-j vertex the exact neighbor-count inequality a_j+b_(1-j)+c_j<=1, including the row-flipped Möbius seam. The 41-transition matrix commutes with the row flip; its + and - eigenspaces have dimensions 10 and 6, so tr(F T^n)=tr(T_+^n)-tr(T_-^n). Independent exact symbolic determinants equal Q_+=1-(1+z)t-(z+2z^2)t^2+(z^3-z^2)t^3+z^4t^4 and Q_-=1+zt+z^2t^2. The formal log-determinant identity proves every n>=3 coefficient. Under t=u/z the top z^n term factors into (1-u^2)(1-u-u^2)(1-u)/(1-u^3) and gives Lucas_n+1+2[2|n]-3[3|n]; all coefficients of larger z-degree vanish by filtration. Independent separate graph adjacency enumeration for n=3..7 found all polynomial coefficients and matched transfer traces. Simple-graph domain excludes n<3. The complement equivalence to 3-path vertex covers follows from degree <=1.
 
-The symbolic determinant certificate was re-executable with the submitted source and SymPy 1.14. No external audit or formal proof-assistant certification was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No found prior exact all-order dissociation polynomial with Möbius flip and Lucas-periodic maximum-cover census. Grid enumerators use ordinary open boundaries; universal cubic bounds and maximal-set results are different statements. Best-of-knowledge novelty with explicit terminology risk.
+
+## value
+
+PASS
+
+An entire natural nonorientable cubic graph family receives a closed dissociation polynomial rather than a scalar parameter; the twist is not covered by ordinary rectangular grid results. The Lucas-periodic top coefficient and bijection to minimum 3-path vertex covers are natural, exact structural data useful for subsequent extremal comparisons; no claim about arbitrary cubic graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:56:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 16 ordered rung-mask-pair states enforce for every occupied row-j vertex the exact neighbor-count inequality a_j+b_(1-j)+c_j<=1, including the row-flipped Möbius seam. The 41-transition matrix commutes with the row flip; its + and - eigenspaces have dimensions 10 and 6, so tr(F T^n)=tr(T_+^n)-tr(T_-^n). Independent exact symbolic determinants equal Q_+=1-(1+z)t-(z+2z^2)t^2+(z^3-z^2)t^3+z^4t^4 and Q_-=1+zt+z^2t^2. The formal log-determinant identity proves every n>=3 coefficient. Under t=u/z the top z^n term factors into (1-u^2)(1-u-u^2)(1-u)/(1-u^3) and gives Lucas_n+1+2[2|n]-3[3|n]; all coefficients of larger z-degree vanish by filtration. Independent separate graph adjacency enumeration for n=3..7 found all polynomial coefficients and matched transfer traces. Simple-graph domain excludes n<3. The complement equivalence to 3-path vertex covers follows from degree <=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tu–Xiao–Lang supplies an upper bound for arbitrary cubic graphs, not exact family coefficient enumeration",
+          "Zhou–Chen–Deng–Tu counts Cartesian rectangular grids with untwisted boundary"
+        ],
+        "reasoning": "Neither the broader cubic upper bound nor grid transfer formalism determines the flip-eigenspace correction from an ordinary trace.",
+        "searches": [
+          "Möbius ladder dissociation polynomial induced degree at most one 3-path vertex cover Lucas numbers twisted transfer matrix",
+          "DOI 10.3934/math.2023507",
+          "DOI 10.3934/math.2024721"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3934/math.2023507",
+        "https://doi.org/10.3934/math.2024721",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source top coefficient uses Lucas_n and n mod 2,3; known fan coefficient has tribonacci-type residue class structure",
+          "Grid theorem is open-grid enumeration"
+        ],
+        "reasoning": "The prior statements do not imply the exact twisted quotient Q+/Q- without further transfer/symmetry analysis; matching graph degree 3 is insufficient.",
+        "searches": [
+          "Möbius ladder dissociation polynomial induced degree at most one 3-path vertex cover Lucas numbers twisted transfer matrix",
+          "DOI 10.3934/math.2023507",
+          "DOI 10.3934/math.2024721"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fan-graph dissociation enumerator handles K1 join P_n, not the twisted rung graph",
+          "Rectangular grid theorem has open boundary vectors, not flip traces"
+        ],
+        "reasoning": "The 3-path-cover complement is equivalent to dissociation sets, but no identified prior formula evaluates the Möbius-twisted trace or exact Lucas top coefficient.",
+        "searches": [
+          "Möbius ladder dissociation polynomial induced degree at most one 3-path vertex cover Lucas numbers twisted transfer matrix",
+          "Resultary: dissociation polynomial fan graphs; Möbius-ladder independence complexes",
+          "DOI 10.3934/math.2024721"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly matching enumerated table located",
+          "Submitted 16-state determinant identities plus all-order formal trace determine the entire family"
+        ],
+        "reasoning": "A single finite table, even if present, would not cover this all-n generating function; exact prior database/equivalent formula still residual risk.",
+        "searches": [
+          "Möbius ladder dissociation polynomial induced degree at most one 3-path vertex cover Lucas numbers twisted transfer matrix",
+          "Resultary: fan dissociation and Möbius-ladder homology"
+        ]
+      },
+      "rationale": "No found prior exact all-order dissociation polynomial with Möbius flip and Lucas-periodic maximum-cover census. Grid enumerators use ordinary open boundaries; universal cubic bounds and maximal-set results are different statements. Best-of-knowledge novelty with explicit terminology risk.",
+      "residual_risks": [
+        "Possible earlier 3-vertex-path-cover or one-dependence computation for Möbius ladders under different keywords; not eliminated by negative search.",
+        "The transfer matrix was independently rebuilt and determinants evaluated, but repository-root Git ancestry of assigned record tree was not independently rehashed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for this exact Möbius family polynomial",
+          "evidence": "General upper bounds for cubic dissociation sets, no prescribed Möbius-ladder flip polynomial.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2023507",
+          "material_read": "Published full PDF theorem and scope, including general upper-bound statement",
+          "method": "primary publisher PDF full-text section/theorem reading",
+          "title": "Counting the number of dissociation sets in cubic graphs",
+          "trigger": "same invariant, broader cubic regular graph class"
+        },
+        {
+          "assessment": "NOT_COVERING; open grid differs at twisted seam",
+          "evidence": "Theorem describes Cartesian rectangular grids with ordinary boundaries; proposed coefficients require F-twisted trace.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2024721",
+          "material_read": "Published full PDF theorem and open rectangular grid recurrence read",
+          "method": "primary publisher full PDF and theorem/proof inspection",
+          "title": "Enumeration of dissociation sets in grid graphs",
+          "trigger": "transfer-matrix exact grid enumeration could dominate"
+        },
+        {
+          "assessment": "NOT_DECISIVE; different fan family",
+          "evidence": "Fan K1 vee P_n is not M_{2n}; cannot infer full Möbius enumerator from retrieved summary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b",
+          "material_read": "Resultary indexed summary; not full mathematical result",
+          "method": "semantic search excerpt only",
+          "title": "Dissociation polynomial and extremal coefficients of fan graphs",
+          "trigger": "semantically nearby published result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An entire natural nonorientable cubic graph family receives a closed dissociation polynomial rather than a scalar parameter; the twist is not covered by ordinary rectangular grid results. The Lucas-periodic top coefficient and bijection to minimum 3-path vertex covers are natural, exact structural data useful for subsequent extremal comparisons; no claim about arbitrary cubic graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All-order claim relies on exact symbolic determinant, trace identity and filtration, not extrapolation from n<=7.",
+    "Only simple Möbius ladder n>=3; no arbitrary twisted-width bound.",
+    "Potential unindexed 3-path-cover equivalent enumeration.",
+    "Public-facing operational identifiers not sanitized; five publication plans intentionally not ready, regardless of science.",
+    "Pinned record-tree SHAs from dispatcher were not independently reconstructed from Git tree listings."
+  ],
+  "schema_version": 1
+}
