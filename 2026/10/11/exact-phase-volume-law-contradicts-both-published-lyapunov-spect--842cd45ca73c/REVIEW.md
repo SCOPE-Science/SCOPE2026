@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Jacobian trace of the printed five-dimensional vector field is exactly \(-\sigma-1-5b-d\). Jacobi's determinant identity converts that trace into an exact tangent-volume law, and the product of the tangent singular values gives the sum of all five finite-time Lyapunov rates. At \(\sigma=10\), \(b=8/3\), and \(d=19/3\), the required sum is \(-92/3\), whereas exact arithmetic on the printed values gives \(-3.2894\) for \(r=43\) and \(-14.2494\) for \(r=25\). The checker replays only these exact arithmetic steps; the proof itself is analytic.
+## correctness
 
-## Originality
-PASS. The primary paper was inspected at the displayed system, the Figure 2 exponent paragraph, the Figure 2 page image, and its later vector-field decomposition. It does not compare the full-spectrum sum with the constant Jacobian trace. Exact DOI, exponent-value, model-name, phase-volume, divergence, and Lyapunov-sum searches did not locate this source-specific comparison. The closest same-model published record concerns the \(r=1\) center reduction, while the closest phase-volume record concerns a different four-dimensional Sprott-C extension. Earlier same-model papers predate the numerical tuples corrected here. Generic Jacobi/Liouville theory is not claimed as new.
+PASS
 
-## Value
-PASS. The two five-component spectra are central quantitative evidence in the paper's numerical dynamics section. Their violations of an exact trajectory-independent sum rule are large, not rounding-scale, and therefore materially affect reproducibility of the reported spectrum. The result is deliberately limited: it invalidates the displayed full-spectrum vectors without asserting that a corrected computation would reverse the qualitative chaotic or steady regimes.
+Differentiated each component of the specified polynomial vector field: diagonal Jacobian entries −σ,−1,−b,−d,−4b. Thus divergence is identically −σ−1−5b−d. Liouville/Jacobi determinant formula gives det Dφ_T=exp[−(σ+1+5b+d)T] on every finite existence interval. Taking singular-value logs divided by T forces the sum of ALL five finite-time Lyapunov rates exactly; full asymptotic limits inherit it. Exact independent Fraction arithmetic at σ=10, b=8/3,d=19/3 yields −92/3; the two printed lists sum −16447/5000 and −71247/5000, discrepancies 410659/15000 and 246259/15000. Neither difference is a four-decimal rounding issue. A standard full 5-tuple is contradicted; no chaos/no-chaos reversal inferred.
 
-## Closest literature and limitations
-Shen's original five-dimensional Lorenz-model study and Zhang–Deng's transition analysis are the closest same-object literature checked. Their accessible material covers model construction, stability, Lyapunov analysis, and transition structure, but both predate the 2023 vectors. Direct full-body access to one same-model predecessor was unavailable from the checked public source, so generic prior use of the determinant identity remains a residual literature risk; it would not itself supply the later source-specific numerical contradiction. An unindexed correction or erratum could also exist.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The novelty is an explicit source-specific contradiction to both 2023 published tuples, NOT the textbook divergence/volume identity. Earlier same-model 2014/2021 papers predate these exact 2023 figures; a published four-dimensional phase-volume critique uses a distinct vector field and reported tuples.
+
+## value
+
+PASS
+
+Although Liouville’s determinant law is textbook, applying it to the TWO concrete full five-component spectra that the 2023 article uses as primary quantitative support for the model’s dynamical regimes reveals order-10 to order-27 rate violations. This is a substantive reproducibility fault in a published numerical investigation, not a tiny normalization/type check; the correction carefully avoids unsupported claims about chaos or new exponent tuples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The displayed vector field has diagonal Jacobian entries \(-\sigma\), \(-1\), \(-b\), \(-d\), and \(-4b\), so its trace is exactly \(-\sigma-1-5b-d\). Jacobi's determinant identity then gives the tangent-volume law used in the proof. This analytic step is independent of trajectory, numerical integrator, and the value of \(r\).
+# Independent mathematical audit
 
-`verify.py` uses exact `Fraction` arithmetic to check the source specialization \(-92/3\), the two printed spectrum sums, the exact discrepancies, and the corresponding determinant exponents at \(T=500\). It has no third-party dependencies and the packaged checker returns `VERIFY_OK`.
+## correctness
 
-The checker does not reconstruct the source's Lyapunov algorithm and does not compute replacement exponents. The finding therefore stops at the exact incompatibility of the displayed full-spectrum vectors with the printed ODE.
+PASS
+
+Differentiated each component of the specified polynomial vector field: diagonal Jacobian entries −σ,−1,−b,−d,−4b. Thus divergence is identically −σ−1−5b−d. Liouville/Jacobi determinant formula gives det Dφ_T=exp[−(σ+1+5b+d)T] on every finite existence interval. Taking singular-value logs divided by T forces the sum of ALL five finite-time Lyapunov rates exactly; full asymptotic limits inherit it. Exact independent Fraction arithmetic at σ=10, b=8/3,d=19/3 yields −92/3; the two printed lists sum −16447/5000 and −71247/5000, discrepancies 410659/15000 and 246259/15000. Neither difference is a four-decimal rounding issue. A standard full 5-tuple is contradicted; no chaos/no-chaos reversal inferred.
+
+## originality
+
+PASS
+
+The novelty is an explicit source-specific contradiction to both 2023 published tuples, NOT the textbook divergence/volume identity. Earlier same-model 2014/2021 papers predate these exact 2023 figures; a published four-dimensional phase-volume critique uses a distinct vector field and reported tuples.
+
+## value
+
+PASS
+
+Although Liouville’s determinant law is textbook, applying it to the TWO concrete full five-component spectra that the 2023 article uses as primary quantitative support for the model’s dynamical regimes reveals order-10 to order-27 rate violations. This is a substantive reproducibility fault in a published numerical investigation, not a tiny normalization/type check; the correction carefully avoids unsupported claims about chaos or new exponent tuples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
