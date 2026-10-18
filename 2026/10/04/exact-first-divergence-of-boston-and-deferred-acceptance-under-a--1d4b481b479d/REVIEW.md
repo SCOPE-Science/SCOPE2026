@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The result has a short analytic proof. Under a common priority, deferred acceptance equals serial dictatorship. For \(3\times3\), divergence is possible only when the top two priority students share a first choice; it then occurs exactly when the lowest-priority student's first choice is the second-priority student's fallback. This criterion immediately gives \(6\cdot2\cdot2=24\) profiles and the welfare comparison. The embedded verifier exhausts the full \(2\times2\) and \(3\times3\) spaces with two implementations of each mechanism.
+## correctness
 
-Risk: none of the continuum or asymptotic issues that can affect larger matching models arise here. The theorem is intentionally limited to the stated common-priority finite markets.
+PASS
 
-## Originality
-**PASS.** The foundational literature defines Boston and deferred acceptance and explains their efficiency/strategyproofness tradeoff. Later work compares the two mechanisms by welfare and proposes hybrids between them. Targeted searches for the exact \(3\times3\) common-priority divergence count, the \(1/9\) incidence, the four normalized classes, the structural criterion, and universal Pareto incomparability found no equivalent published statement.
+Both mechanisms are evaluated on precisely n students, n unit-capacity schools, complete strict truthful rankings, and ONE common strict student priority. Under that common priority, student-proposing deferred acceptance is serial dictatorship. Boston is immediate acceptance at each stated rank, irreversibly filling seats. At n=2 the first-choice tie can never produce an outcome difference. At n=3 a difference occurs iff students 1 and 2 rank the same school first and student 3 first ranks student 2's SECOND school (not the third school). For each label of shared first school there are 2 options for second student fallback, 2 for first student second choice and 2 for third student second choice: 3*2*2*2=24 of 6^3=216 truthful profiles, incidence 1/9. Direct independent simulation of every 2^2 and 6^3 preference profile reproduced 0 and 24 differences, four school-label orbits each size six, and the two 12-case rank vector patterns. In every difference second student prefers DA's assignment while third student prefers Boston's, establishing Pareto incomparability; no claim is made for arbitrary school priorities or unbalanced capacities. The source verifier implements each rule by independent constructions; this assessment uses an independent separately written simulation, not the packaged PASS log.
 
-Risk: failed search is not proof of novelty. An unindexed exercise, supplementary table, lecture note, or software enumeration may contain the same finite classification.
+## originality
 
-## Value
-**PASS.** Boston versus deferred acceptance is a canonical school-choice tradeoff. The result identifies the exact first balanced common-priority market where the two truthful mechanisms separate and converts the divergence into a transparent local priority conflict. The criterion explains not only when they differ but why neither mechanism welfare-dominates the other at that boundary, making the finite census structurally informative rather than a raw count.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Best-of-knowledge PASS for the first COMMON-PRIORITY balanced 3-by-3 exact structural and 24/216 incidence classification; neither the founding mechanisms nor welfare comparisons imply this particular exhaustive statement without analysis. Full primary PDFs, relevant tables/examples, corpus aliases and adjacent SCOPE results were compared, not just titles. Novelty is not established by a failed search alone; unindexed course enumerations remain possible.
+
+## value
+
+PASS
+
+This is the exact FIRST balanced unit-capacity preference domain (n=3) where two canonical assignment procedures diverge under uniform strict priority. The local priority conflict predicts each divergence, classifies all 216 profiles, and shows welfare incomparability for every divergent profile. It resolves a meaningful small-domain structural question rather than merely renaming the algorithms or choosing an arbitrary preference slice; it does not need a larger-market asymptotic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
