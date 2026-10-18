@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is valid over arbitrary fields: the displayed multiplication kills all triple products, and the projection-and-intersection triple \((W,Z,f)\) is unique. Multiplying lifts proves subalgebra closure precisely when \(W\otimes W\subseteq Z\) and the ideal condition precisely when \(W\otimes V+V\otimes W\subseteq Z\). A direct tensor decomposition gives dimensions \(r^2\) and \(2nr-r^2\); Gaussian counts of containing subspaces and the freely chosen lift map prove both enumerators. A complement of \(W\otimes W\) within \(Z\) proves the abstract direct-sum classification; \(\dim S^2=r^2\) distinguishes all the displayed types. The independent-in-method RREF program directly checks every subspace over \(\mathbb F_2\) and \(\mathbb F_3\) through two generators. Its finite results support, but do not replace, the general proof.
+## correctness
 
-## Originality — PASS, with qualification
-The principal inspected paper (Ceballos–Towers, arXiv:2202.03214) addresses maximal *abelian* dimensions and their codimension restrictions, not a full subalgebra-and-ideal joint spectrum. Camacho et al. (arXiv:2304.00273) describe free Zinbiel objects and investigate superalgebra nilpotency/classification, not these Grassmannian strata. Bauer–Schein (arXiv:2202.10865) give general nilpotent ideal-growth and valuation-ring rationality theory, without the explicit finite-field Gaussian spectrum or abstract types claimed here. Public mathematical-result searches included exact aliases for two-step tensor-square, class-two free algebra, subalgebra zeta, ideals, and isomorphism-type spectra; the closest published results concern related but distinct products or invariants. The new statement is not merely the same hypothesis in different notation, nor a supplied corollary of a cited numeric table. Residual novelty risk remains from older treatments of truncated associative tensor algebras and general square-zero extensions, whose formulations can be equivalent in this class-two case. No absolute uniqueness claim is made.
+PASS
 
-## Value — PASS
-The object is a canonical free object in a nonassociative variety, and its complete subalgebra and ideal lattices—not just maximal abelian dimensions—are natural, structurally motivated invariants. The result identifies a uniform Grassmannian/linear-map stratification, exact multiplicities for every finite field and every generator rank, all abstract isomorphism types, and a sharp difference between arbitrary subalgebras and two-sided ideals. The structural classification explains the formulas rather than being an isolated parameter substitution. It does not purport to settle subalgebra zeta questions for all Zinbiel algebras or to give automorphism-orbit counts.
+PASS: All triple products vanish, so the Zinbiel identity and class-two universal property are immediate. For S≤A, W=π_V S, Z=S∩T and lift map f:W→T/Z are unique. Multiplying lifts produces exactly w⊗w′, hence subalgebra iff W⊗W⊆Z and ideal iff W⊗V+V⊗W⊆Z. A complement V=W⊕U splits T and gives dim r² and 2nr−r²; choosing W, required-containing Z and a freely varying Hom(W,T/Z) gives N_sub=[n r]_q[n²−r² z−r²]_q q^{r(n²−z)} and N_ideal=[n r]_q[(n−r)² z−(2nr−r²)]_q q^{r(n²−z)}. Complement of W⊗W in Z proves abstract A_r⊕zero^{z−r²}; dim S²=r² distinguishes types. Independent Gaussian counts for n=2: over F2 polynomial coefficients sub [1,15,59,99,43,3,1] total221 and ideals [1,15,35,15,7,3,1] total77; over F3 totals 949 and229. The inspected package RREF checker exhausts small prime fields, not arbitrary q. The proof applies to all K.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best of knowledge for natural free class-two Zinbiel full joint (r,z) subalgebra/ideal Grassmannian spectra and abstract types. Ceballos–Towers 2022 addresses maximal abelian dimensions and codimension-one implications, not complete embedded subalgebras. Camacho et al 2023 free Zinbiel/superalgebra framework and Bauer–Schein 2022 valuation-ring ideal zeta rationality do not supply these explicit joint finite-field coefficients. The graph parametrization itself is elementary linear algebra, but the complete joint invariant and abstract type census of a canonical algebra is not known to follow immediately from a read prior theorem.
+
+## value
+
+PASS
+
+PASS: An exact finite-field subalgebra-and-ideal zeta/dimension spectrum for a natural unrestricted-rank free two-step nonassociative algebra is mathematically motivated by its intrinsic ideal lattice and comparison to truncated free algebras; every (r,z) embedding multiplicity and abstract type is provided, rather than an arbitrary finite slice. These quantities can be used directly in ideal-growth and embedding distributions, even without higher-n census experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
