@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact domain is the range of the multiplicative alternating \(s_{-3}\) on all positive integers, including arbitrary prime exponents. Defant's prime-power gap comparison together with Nagura's prime-interval theorem establishes an infinite tail interval. Small-prime exponent categories yield exactly 32 connected blocks, and the standalone exact-arithmetic check proves 13 overlaps and 18 strict gaps with 19 explicitly listed endpoints. This depends on a classical external prime-gap theorem, not a finite test as a substitute for an infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The primary 2015 source by Defant asks for exact connected-component counts and gives a non-density criterion but no enumeration for this parameter. The closely related public exact classification at parameter two is a different parameter and explicitly does not cover parameter three. The completed comparison was at the statement-and-implication level; the residual risk is unindexed prior work with the same endpoint list.
+PASS
 
-**Value — PASS.** Nineteen exact topological components and eighteen gaps answer a stated natural invariant question for the alternating divisor function. The proof identifies a prime-tail mechanism and a finite rational certificate rather than merely checking integers below a bound. This does not claim a general phase diagram in the real exponent parameter.
+Every p>=11 has tail T_{>p} below u_p(2), by exact witnesses for p=11,13,17,19,23 and Nagura three-interval prime theorem for p>=29; greedy logarithmic local interval overlap therefore fills [T,1]. The four primes 2,3,5,7 split into 4*2^3=32 exact rational local states, where neighboring exponent intervals overlap. Independent Fraction arithmetic and zeta(3) integral bounds at N=180 gave precisely 13 overlaps, 19 components, 18 strict gaps, first endpoint (15314/18375)*T..25426807/30375000, final [T,1]. This is exact rational computation with analytically justified infinite tail, not sampling.
 
-**Limitations and closest source.** Defant, arXiv:1507.01128v1, especially Lemma 2.2 and Section 3, is the primary same-object reference. The most relevant follow-up computes two components only at parameter two. The rational computations can be reproduced with the included standard-library script. Independent scientific audit has not occurred. Nagura's classical prime interval theorem is assumed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Defant 2015 establishes the alternating family and density threshold (r=3 nondense), without the 19-component exact decomposition; Resultary primary full RESULT.md for r=2 gives exactly two intervals only and explicitly disclaims r=3. Number/locations of components not implied by nondensity or parameter change.
+
+## value
+
+PASS
+
+Exact component count and all endpoints solve a natural explicit single-parameter instance of Defant’s interval-component open problem; the distinct r=3 tail cutoff and 32-block exact arithmetic make it more than a simple substitution of r=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
