@@ -1,15 +1,21 @@
-# Review of Optimality of equal bisection in the large-negative-\(\gamma\) Poincaré recurrence
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the source definitions of \(\mathcal F(h)\) and \(M(h)\). On the full-step exceedance set, \(\mathcal F(h)\) is exactly the integral of \(|\Delta_hg|^p-|h|^{p+\gamma}\). Retaining this subtracted term changes the source's bisection threshold coefficient from \(2^{-\gamma}\) to \(2^{-\gamma}-1\). For arbitrary finite proportional partitions, weighted convexity gives the exact coefficient \(\sum_i t_i^{\gamma+1}-1\), and strict convexity plus Jensen's inequality proves the unique global minimizer. The argument covers all \(p\in[1,\infty)\) and \(\gamma<-p\) in the claim.
+## correctness
 
-## Originality
-PASS. The focal 2026 paper was inspected through its introduction, Section 4, and Section 5.1. It states the weaker Lemma 4.4 coefficient and iterates equal bisection, but does not state either the retained-threshold coefficient or optimality among finite proportional subdivisions. The motivating 2025 Nguyen article was inspected in its nonlocal-inequality section and does not contain this recurrence optimization. Targeted source, alias, parameter, and implication searches did not locate a stronger covering statement. Residual risk remains that the short coefficient argument could occur implicitly in older inequality literature under different terminology.
+PASS
 
-## Value
-PASS. The focal paper explicitly exposes a parameter-dependence gap: its global construction is exponential in \(|\gamma|\), while its lower bound for the least constant is only linear. The result identifies an exact bottleneck inside the paper's large-negative-parameter mechanism and proves that no finite retuning of proportional subdivision lengths can remove the exponential threshold loss. This is a structural method boundary, not merely a cosmetic subtraction of one from a coefficient.
+On full-step exceedance E_h, F(h) integrates |Delta_h g|^p-|h|^(p+gamma). The p-convex triangle bound produces two half-step positive-part integrals and threshold 2^p*(|h|/2)^(p+gamma)-|h|^(p+gamma)=(2^(-gamma)-1)|h|^(p+gamma). For m positive proportional t_i summing one, Jensen applied to strictly convex t^(gamma+1) (gamma+1<0) yields sum >= m^(-gamma), equality iff equal t_i, and m^(-gamma) strictly increases for integers m>=2. All claims are for this proof mechanism, not optimal global Poincare constants.
 
-## Closest literature and limitations
-The closest source is arXiv:2610.04259v1 itself: Lemma 4.4 gives the bisection recurrence, Theorem 4.1 gives the resulting exponential global bound, and Proposition 5.1 gives the linear lower bound. The 2025 Nguyen article supplies the motivating family and open Poincaré problem but not the Section 4 recurrence. The result does not determine the true global asymptotic dependence on \(\gamma\), and it does not rule out fundamentally different proof mechanisms.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Focal Dai-Yang-Yuan-Zhao paper Section 4, Lemma 4.4 (as cited and reconstructed in the package) has weaker coefficient 2^(-gamma); it does not state the retained-threshold coefficient or weighted-convexity optimization. Targeted Resultary searches found no stronger covering record. Primary full manuscript unavailable this execution, so possibility of an implicit later remark or previous inequality note is retained.
+
+## value
+
+PASS
+
+The source highlights a linear lower versus exponential constructive upper-constant gap. This identifies a sharp structural barrier to a specific natural strategy—finite proportional subdivision using weighted convexity—and rules out changing subdivision lengths to remove the exponential threshold surplus. It does not improve the global asymptotic order or solve the open sharp-constant problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

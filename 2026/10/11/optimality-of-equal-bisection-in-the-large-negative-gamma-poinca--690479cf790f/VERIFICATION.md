@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checked claim is the recurrence and finite-partition optimization stated in `RESULT.md`.
+# Independent mathematical audit
 
-For equal bisection, the critical source definitions are
-\[
-\mathcal F(h)=\int_{Q_{0,h}}\left(|\Delta_hg|^p-|h|^{p+\gamma}\right)_+,
-\qquad
-M(h)=|\{|\Delta_hg|>|h|^{1+\gamma/p}\}|.
-\]
-On the exceedance set, subtracting the full-step threshold after the standard two-term convexity estimate gives
-\[
-2^p|h/2|^{p+\gamma}-|h|^{p+\gamma}
-=(2^{-\gamma}-1)|h|^{p+\gamma}.
-\]
-This is the only change needed to obtain the sharpened recurrence.
+## correctness
 
-For a finite proportional partition \((t_i)_{i=1}^m\), the weighted-convexity coefficient on the substep threshold is checked by
-\[
-t_i^{1-p}|t_i h|^{p+\gamma}
-=t_i^{\gamma+1}|h|^{p+\gamma}.
-\]
-Therefore the threshold surplus is exactly
-\[
-\sum_{i=1}^m t_i^{\gamma+1}-1.
-\]
-Because \(\gamma+1<0\), strict convexity and Jensen's inequality give
-\[
-\sum_{i=1}^m t_i^{\gamma+1}\ge m^{-\gamma},
-\]
-with equality only for equal parts. Since \(m^{-\gamma}\) increases strictly for integers \(m\ge2\), the unique global minimum is the equal bisection and equals \(2^{-\gamma}-1\) after subtracting one.
+PASS
 
-The source text was checked at the definitions, Lemma 4.4, its proof, the subsequent iteration, and the section on dependence of the global constant. The result is not interpreted as an exponential lower bound for the true global Poincaré constant. No independent audit has been performed.
+On full-step exceedance E_h, F(h) integrates |Delta_h g|^p-|h|^(p+gamma). The p-convex triangle bound produces two half-step positive-part integrals and threshold 2^p*(|h|/2)^(p+gamma)-|h|^(p+gamma)=(2^(-gamma)-1)|h|^(p+gamma). For m positive proportional t_i summing one, Jensen applied to strictly convex t^(gamma+1) (gamma+1<0) yields sum >= m^(-gamma), equality iff equal t_i, and m^(-gamma) strictly increases for integers m>=2. All claims are for this proof mechanism, not optimal global Poincare constants.
+
+## originality
+
+PASS
+
+Focal Dai-Yang-Yuan-Zhao paper Section 4, Lemma 4.4 (as cited and reconstructed in the package) has weaker coefficient 2^(-gamma); it does not state the retained-threshold coefficient or weighted-convexity optimization. Targeted Resultary searches found no stronger covering record. Primary full manuscript unavailable this execution, so possibility of an implicit later remark or previous inequality note is retained.
+
+## value
+
+PASS
+
+The source highlights a linear lower versus exponential constructive upper-constant gap. This identifies a sharp structural barrier to a specific natural strategy—finite proportional subdivision using weighted convexity—and rules out changing subdivision lengths to remove the exponential threshold surplus. It does not improve the global asymptotic order or solve the open sharp-constant problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
