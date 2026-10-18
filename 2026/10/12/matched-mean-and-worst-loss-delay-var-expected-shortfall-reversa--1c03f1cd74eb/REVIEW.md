@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For an \(n\)-point equal-weight empirical loss law, the integrated quantile contains fewer than two tail masses exactly when \(n(1-\alpha)<2\). If it contains less than one mass, VaR and Expected Shortfall both equal the maximum. If it contains between one and two masses, Expected Shortfall is a strictly increasing affine function of the second-largest loss when the maximum is fixed, so reversal is impossible. At the first integer with at least two tail masses, the displayed equal-mean, equal-maximum vectors give the exact opposite ranking. The standalone verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the integer boundary is quantile-convention sensitive; the claim therefore fixes the generalized-inverse convention explicitly.
+PASS
 
-## Originality
-**PASS.** Acerbi and Tasche supply the generalized-inverse formulas, empirical-order-statistic interpretation, and the qualitative reason VaR and Expected Shortfall differ. Those definitions do not themselves state the constrained ordering theorem with equal mean and equal maximum loss. Targeted published-result and scholarly searches did not locate the sharp threshold \(\lceil2/(1-\alpha)\rceil\), the \(40\)-scenario and \(80\)-scenario benchmarks, or the matched witness.
+Set r=n(1-alpha). When r<1 VaR and integrated-quantile ES equal the sample maximum; at r=1 this formula transitions correctly. For 1<=r<2 VaR=L_(n-1) and ES=((r-1)L_(n-1)+L_n)/r; at fixed maximum ES is nondecreasing in VaR (strict for r>1), so strict opposite rankings are impossible. At the first feasible integer n*=ceil(2/(1-alpha)), 2<=r<3 and VaR is third-largest; witnesses A=(0,...,0,1,3,4), B=(0,...,0,2,2,4) share total 8 and max 4 while VaR(A)=1<2=VaR(B) but ES(A)-ES(B)=(3-r)/r>0. Own exact rational computations verify representative alpha including 0.95,0.975; algebra proves arbitrary alpha.
 
-Risk: the theorem is an elementary but nontrivial extremal consequence of classical definitions; an unindexed note or implementation test may contain an equivalent observation. Search failure is not a proof of historical uniqueness.
+## originality
 
-## Value
-**PASS.** VaR and Expected Shortfall are canonical competing tail-risk summaries. Matching both expected loss and worst-case loss removes two obvious reasons for their rankings to differ. The theorem identifies exactly how much empirical tail resolution is still required before the measures can disagree, giving the concrete thresholds \(40\) scenarios at \(95\%\) confidence and \(80\) at \(97.5\%\). This isolates a practically interpretable order-statistic mechanism rather than a generic VaR-versus-ES counterexample.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge statement-level novelty of the surviving claim after crediting overlap in actual primary texts; not a universal priority certificate. Exact quantile and ES definitions are established; the minimal n with matched mean and maximum and reversed rank is not stated in inspected paper. The proof is an elementary consequence of broad quantile formulas only after isolating the matched-maximum constraint; routine-derivation prior overlap is a real value/originality risk, but the sharp constrained boundary is an independently useful exact fact. Definition-level formulas alone do not explicitly classify minimal scenario support under the stated matched moments, though the deduction is short and residual significance/priority risks remain.
+
+## value
+
+PASS
+
+The sharp minimum number of empirical scenarios where two widely used, non-equivalent tail measures can disagree even at matched mean and worst-case risk is a motivated structural risk-measure boundary. It emphasizes quantile atom conventions and supplies explicit portfolio comparison witnesses, not merely a generic statement that VaR and ES differ.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,94 +18,25 @@
   "schema_version": 1
 }
 ---
-Let
-\[
-p=1-\alpha.
-\]
 
-For an equal-weight empirical distribution on \(n\) losses, every order statistic occupies probability mass
-\[
-\frac1n.
-\]
+# Independent mathematical audit
 
-If
-\[
-np<1,
-\]
-both VaR and Expected Shortfall equal the maximum loss.
+## correctness
 
-If
-\[
-1\le np<2,
-\]
-then
-\[
-\mathrm{VaR}_\alpha=L_{n-1:n}
-\]
-and
-\[
-\mathrm{ES}_\alpha
-=
-\frac{(np-1)L_{n-1:n}+L_{n:n}}{np}.
-\]
-At fixed maximum \(L_{n:n}\), this is strictly increasing in VaR, so reversal is impossible.
+PASS
 
-The first remaining integer is
-\[
-n_*=
-\left\lceil\frac{2}{p}\right\rceil.
-\]
-Writing
-\[
-r=n_*p,
-\]
-one has
-\[
-2\le r<3.
-\]
+Set r=n(1-alpha). When r<1 VaR and integrated-quantile ES equal the sample maximum; at r=1 this formula transitions correctly. For 1<=r<2 VaR=L_(n-1) and ES=((r-1)L_(n-1)+L_n)/r; at fixed maximum ES is nondecreasing in VaR (strict for r>1), so strict opposite rankings are impossible. At the first feasible integer n*=ceil(2/(1-alpha)), 2<=r<3 and VaR is third-largest; witnesses A=(0,...,0,1,3,4), B=(0,...,0,2,2,4) share total 8 and max 4 while VaR(A)=1<2=VaR(B) but ES(A)-ES(B)=(3-r)/r>0. Own exact rational computations verify representative alpha including 0.95,0.975; algebra proves arbitrary alpha.
 
-For
-\[
-A=(0,\ldots,0,1,3,4)
-\]
-and
-\[
-B=(0,\ldots,0,2,2,4),
-\]
-the means and maxima agree, while
-\[
-\mathrm{VaR}_\alpha(A)=1<2=\mathrm{VaR}_\alpha(B)
-\]
-and
-\[
-\mathrm{ES}_\alpha(A)-\mathrm{ES}_\alpha(B)
-=
-\frac{3-r}{r}>0.
-\]
+## originality
 
-The embedded `verify_var_es_same_mean_max_threshold.py` evaluates the empirical quantile integral exactly with Python `Fraction` arithmetic. It checks ten rational confidence levels and \(2875\) finite order comparisons.
+PASS
 
-At \(95\%\),
-\[
-n_*=40,
-\qquad
-(\mathrm{VaR},\mathrm{ES})(A)=\left(1,\frac72\right),
-\qquad
-(\mathrm{VaR},\mathrm{ES})(B)=(2,3).
-\]
+Best-of-knowledge statement-level novelty of the surviving claim after crediting overlap in actual primary texts; not a universal priority certificate. Exact quantile and ES definitions are established; the minimal n with matched mean and maximum and reversed rank is not stated in inspected paper. The proof is an elementary consequence of broad quantile formulas only after isolating the matched-maximum constraint; routine-derivation prior overlap is a real value/originality risk, but the sharp constrained boundary is an independently useful exact fact. Definition-level formulas alone do not explicitly classify minimal scenario support under the stated matched moments, though the deduction is short and residual significance/priority risks remain.
 
-At \(97.5\%\),
-\[
-n_*=80
-\]
-with the same risk values.
+## value
 
-Run:
+PASS
 
-`python3 verify_var_es_same_mean_max_threshold.py`
+The sharp minimum number of empirical scenarios where two widely used, non-equivalent tail measures can disagree even at matched mean and worst-case risk is a motivated structural risk-measure boundary. It emphasizes quantile atom conventions and supplies explicit portfolio comparison witnesses, not merely a generic statement that VaR and ES differ.
 
-The first output line must be:
-
-`VERIFY_OK`
-
-The general threshold is proved algebraically in `RESULT.md`; the script is a replay and boundary check.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
