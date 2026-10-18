@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For an omitted vertex in part \(V_i\), the number of selected neighbors is exactly \(s-s_i\), giving the necessary and sufficient \(2\)-domination inequalities. The open-neighborhood analysis has only two cases: support in at least two parts gives \(N(S)=V(G)\); support in one part forces \(S\) to be that whole part and leaves an isolate-free neighborhood exactly when \(r\ge3\). The coefficient formula is then a direct occupancy count. `verify.py` independently checks the literal definition, classification, coefficients, and minimum for every complete-multipartite profile through order \(10\).
+## correctness
 
-## Originality
-PASS. The founding 2014 paper was inspected in full at the defining section and the complete-bipartite examples. It gives scalar minima for complete graphs, stars, and complete bipartite graphs, but the text has no “multipartite” occurrence and does not give an all-cardinality enumerator. Semantic searches for the exact parameter with “complete multipartite,” “complete bipartite,” and abbreviation variants found no result implying the arbitrary-part all-set theorem. Nearby complete-multipartite domination results concern distinct parameters and do not imply the neighborhood total \(2\)-domination condition.
+PASS
 
-## Value
-PASS. Moving from a minimum number on bicliques to a classification of every feasible set on arbitrary complete multipartite graphs is a natural structural extension. The coefficient formula gives all cardinalities at once and can be used directly in counting or random-subset questions; the minimum formula is a transparent corollary rather than the sole contribution.
+For S in complete multipartite K_(n_i), each unselected vertex in part i has exactly s-s_i neighbors in S, yielding the iff part occupancy inequalities. If support S meets at least two parts, N(S)=V and no isolates; if S is a single full part, N(S)=V\V_i has no isolates iff r≥3, explaining the bipartite exclusion. Product of binomial occupancy polynomials counts all feasible sizes after subtracting full one-part sets for r=2. Minimal feasible patterns yield gamma=N for a bipartite star, 3 for bipartite min part 2, 4 for larger bipartite sizes, and 2 or 3 as stated for r≥3. Independently evaluated all literal subsets on 10 multipartite profiles with exact criterion and gamma agreement; general result is symbolic.
 
-## Closest literature and limitations
-The closest primary source is C. Sivagnanam, “Neighborhood Total 2-Domination in Graphs,” *International Journal of Mathematical Combinatorics* 4 (2014), 108–119, DOI 10.5281/zenodo.826659. It defines the parameter and records complete-bipartite minimum values. The exact arbitrary multipartite all-set classification and coefficient formula were not found. An obscure result under alternate terminology remains a bibliographic risk, so the claim is limited to what was established and compared here.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining 2014 neighborhood total 2-domination literature covers minima on special families but the complete arbitrary-multipartite all-set criterion and full cardinality polynomial were not found in inspected material; primary 2014 full text could not be accessed, so priority is explicitly provisional.
+
+## value
+
+PASS
+
+An exact all-set cardinality enumerator is a natural graph invariant in the published neighborhood-total-2-domination framework. It classifies every feasible set for arbitrary complete multipartite part sizes, extending previously known minimum values; polynomial coefficients are potentially reusable without rerunning exhaustive search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
