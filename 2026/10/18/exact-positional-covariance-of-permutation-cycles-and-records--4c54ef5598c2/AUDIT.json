@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "For a uniform permutation, k revealed arrows consist of closed cycles and n-k open paths, so completing them adds a uniform permutation of the open paths. Conditional specified-cycle counting distinguishes cycles wholly before k, fixed point (k), and cycles crossing k, giving Cov(C_n,I_k)=(k-1)/(k^2 binom(n,k)) exactly. Binomial bounds prove the two-term aggregate asymptotic; record-indicator independence and Stirling equidistribution give the correlation rate. Exact rational enumeration through n=9 and all k<=n<=200 harmonic identities independently corroborate these claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1203.4132 derives marginal cycle-count asymptotics, including weighted permutations, with no simultaneously marked one-line record positions in its theorems.",
+        "arXiv:2210.08789 constructs generating functions for Euler–Stirling statistics but does not jointly mark functional cycles and original one-line record indicators.",
+        "Dubach considers records conditional on random cycle structure or conjugacy-invariance; the finite positional covariance kernel under uniform permutations was not located.",
+        "arXiv:2503.17556 Theorem 1.1 gives conditional polynomial moment laws for partial-permutation indicators. Section 6.2 proposes joint-statistic questions. Neither statement evaluates the original permutation cycle-count versus prefix-record-indicator covariance or its aggregate asymptotic."
+      ],
+      "reasoning": "A general bivariate cycle/record generating function would cover this formula if it directly yielded the same-permutation joint covariance; no such directly covering statement was found in the inspected full-text material. General cycle-count results and record-count marginal results cover neither the signed positional kernel nor its terminal localization. The conditional partial-map moment formalism of Hamaker–Rhoades is a materially broader structural tool and may yield the present covariance after additional case-specific sums; it is not an evaluated formula or a directly stated implication for this joint pair and variable prefix length. The specialization and sharp positional simplification are the contribution.",
+      "searches": [
+        "published-finding corpus: Same permutation cycles C_n and left-to-right maxima R_n covariance asymptotic 1/n and correlation 1/(n log n), terminal-record dominance",
+        "Maples–Nikeghbali–Zeindler, arXiv:1203.4132",
+        "Jin, arXiv:2210.08789",
+        "Dubach, A geometric approach to conjugation-invariant random permutations",
+        "Hamaker–Rhoades, Moments of permutation statistics by cycle type, arXiv:2503.17556, Theorems 1.1/1.3 and §6.2"
+      ]
+    },
+    "checked_sources": [
+      "Maples–Nikeghbali–Zeindler, arxiv:1203.4132",
+      "Mahmoud, Sorting: A Distribution Theory, §1.10",
+      "Jin, arxiv:2210.08789",
+      "Baril–Petrossian, Equivalence classes of permutations modulo descents and left-to-right maxima",
+      "Dubach, A geometric approach to conjugation-invariant random permutations",
+      "Published published-finding corpus summaries: cycles versus inversion indicators; fixed points versus descents; record-position kernels",
+      "Hamaker–Rhoades, arxiv:2503.17556 (complete 21-page paper, especially Theorem 1.1 and §6.2)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A published index entry 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051 gives a covariance between cycle count and inversions, not the present prefix-record event.",
+        "A related published record-kernel entry 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495 concerns fixed points and descents; its pair of statistics differs in both coordinates.",
+        "The accessible Baril–Petrossian work enumerates record-maxima equivalence classes, not original functional cycle counts jointly with record positions.",
+        "Hamaker–Rhoades explicitly treats cycles/paths as partial-permutation components and identifies joint-distribution work as a further problem, while the present claim is an exact evaluated covariance for unbounded prefix length k."
+      ],
+      "reasoning": "A record indicator for a given k depends jointly on k-1 comparisons; pairwise covariances with other indicators do not in general determine this nonlinear event. The compared prior theorems neither imply nor contradict the displayed all-n kernel by simple substitution or marginalization. Implicit coverage by an undiscovered stronger multivariate formula remains a residual risk.",
+      "searches": [
+        "published-finding corpus: uniform permutation cyclic counts and upper record indicators positional covariance",
+        "published-finding corpus: Covariance between the number of cycles and the number of left-to-right maximum records in the same uniform random permutation, joint cycle-record distribution",
+        "Baril–Petrossian, Equivalence classes of permutations modulo descents and left-to-right maxima",
+        "Sorting: A Distribution Theory §1.10.3",
+        "Hamaker–Rhoades arXiv:2503.17556 §6.2 joint distributions of regular functions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mahmoud §1.10 explicitly distinguishes the count of cycles from the record count evaluated on the same permutation while proving equidistribution.",
+        "Foata-type transformations equate marginal Stirling distributions by changing the permutation object; such a bijection does not preserve the original pointwise joint pair."
+      ],
+      "reasoning": "The candidate is about the original permutation and its records simultaneously. Equidistribution or independent Bernoulli decompositions of either marginal cannot determine the mixed covariance; no equivalent pointwise-kernel statement was identified in the compared material.",
+      "searches": [
+        "published-finding corpus: Covariance between the number of cycles and the number of left-to-right maximum records in the same uniform random permutation, joint cycle-record distribution",
+        "published-finding corpus: Joint cycle count with record indicator given initial-segment closed cycles, Foata bijection not pointwise equality",
+        "web: cycles left-to-right maxima covariance permutation",
+        "Mahmoud, Sorting: A Distribution Theory, §1.10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched research index returned no exact matching positional kernel. Its closest cycle-related public result is the linear inversion-gap covariance of cycle count with pairwise inversion indicators, published under result ID 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051.",
+        "Exact finite enumeration for n<=9 independently matched all values, but is a verification tool, not a literature database establishing priority."
+      ],
+      "reasoning": "Inversion events and upper-record events are different indicator families; an exact inversion covariance does not determine the cycle-versus-prefix-record covariance. The absence of an exact database match is not a proof of novelty.",
+      "searches": [
+        "published-finding corpus: Exact formula Cov(number of cycles C_n, record occurrence indicator at position k) = (k-1)/(k^2 binomial(n,k)) in a uniform permutation, every k>=2 positive",
+        "published-finding corpus: random permutation covariance cycles and records exact n harmonic numbers",
+        "web: permutation cycle count record indicators covariance positions"
+      ]
+    },
+    "rationale": "The same-permutation cycle–record positional kernel and the concentration of total covariance at its terminal record are distinct from the known marginal Stirling equidistribution and from cycle-versus-inversion or fixed-point-versus-descent covariances. Inspected primary texts do not state this kernel. An earlier general multivariate enumeration could implicitly cover it, so historical priority is not certified. Related general conditional partial-permutation moment results (Hamaker–Rhoades) were examined and treated as structural prior art, not as an evaluated exact kernel.",
+    "residual_risks": [
+      "Broader previously published bivariate cycle/record generating functions not located might implicitly specialize to the result.",
+      "Search coverage and unavailable variants of older material cannot certify historical priority.",
+      "Similarity-search index coverage is incomplete; absence of matched title or parameters is not uniqueness evidence.",
+      "The general Hamaker–Rhoades partial-permutation framework could be specialized with nontrivial extra enumeration to recover the formula; no claim of independence from general partial-map combinatorial machinery."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Marginal cycle count under weighted permutations, without joint record indicators in the main results.",
+        "evidence": [
+          "Theorem 1.1 and Proposition 1.4 concern moment generating functions of cycle count only; 60C05 is the primary classification on the posted paper."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1203.4132",
+        "material_read": "Open full arXiv HTML: abstract, introduction, main theorem, stated propositions, sections discussing marginal moment generating functions and conclusions",
+        "method": "arXiv open-access full-text reading and within-text record-term check",
+        "title": "On the number of cycles in a random permutation",
+        "trigger": "Exact cycle-count law and verified archived primary MSC ownership"
+      },
+      {
+        "assessment": "States marginal equidistribution and notes distinct same-permutation statistics; no mixed covariance identified in the inspected sections.",
+        "evidence": [
+          "Section 1.10.3 distinguishes equal distributions from equal values on a common permutation."
+        ],
+        "identifier_or_url": "Mahmoud-2000-Sorting-A-Distribution-Theory",
+        "material_read": "Accessible full book text, §§1.10.2–1.10.3 (including discussion of the two statistics evaluated on one permutation)",
+        "method": "Full section reading and within-text searching for covariance and joint cycle-record calculation",
+        "title": "Sorting: A Distribution Theory",
+        "trigger": "Explicit comparison of number of records and number of cycles on the same permutation"
+      },
+      {
+        "assessment": "Treats cycle/record equidistribution and other Euler–Stirling joint statistics, but does not mark the original disjoint-cycle count jointly with the pointwise record positions.",
+        "evidence": [
+          "The paper’s listed joint statistics include descent, inverse descent and record-type variables, not the same-map cycle/record-position mixed covariance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.08789",
+        "material_read": "Accessible ar5iv full HTML; introduction, definitions, main theorem statements and statistics marked by the generating functions",
+        "method": "Open-access full-text section reading and statistics-variable comparison",
+        "title": "Symmetric generating functions and Euler–Stirling statistics on permutations",
+        "trigger": "Plausible generating function simultaneously involving cycles and records"
+      },
+      {
+        "assessment": "Not a joint covariance or positional correlation theorem for the original permutation cycles and records.",
+        "evidence": [
+          "Main object is permutation equivalence under descent and record-maxima data."
+        ],
+        "identifier_or_url": "https://jl.baril.u-bourgogne.fr/equivaldescentrevue.pdf",
+        "material_read": "Full 13-page paper text and relevant sections on record-maxima equivalence classes",
+        "method": "Author-posted PDF full-text inspection, including visible first-page figure",
+        "title": "Equivalence classes of permutations modulo descents and left-to-right maxima",
+        "trigger": "Records, permutation cycles, and possible larger enumerative coverage"
+      },
+      {
+        "assessment": "Related framework for record statistics and cycle types; no exact uniform original-cycle versus record-indicator covariance formula identified.",
+        "evidence": [
+          "The compared theorems concern conjugation-invariant permutations, cycle-type information and asymptotic records, not the exact individual record kernel."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.10116",
+        "material_read": "Accessible full-text sections on record statistics and cycle-type conditioning",
+        "method": "Open full primary HTML and compare conditional versus uniform finite mixed observables",
+        "title": "A geometric approach to conjugation-invariant random permutations",
+        "trigger": "Possible results on records conditional on cycles"
+      },
+      {
+        "assessment": "Provides related conditional moment machinery for partial-permutation indicators but no evaluated same-permutation cycle count / prefix-record positional covariance. §6.2 poses further joint-statistic analysis as a problem.",
+        "evidence": [
+          "Theorem 1.1 is conditional polynomiality of a fixed partial permutation indicator in cycle-type counts; §6.2 (Problem 6.2) asks to analyze joint distributions of regular statistics.",
+          "No occurrence of the word “record” in the full document text, and the variable-prefix mixed kernel is not identified among stated formulas."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2503.17556",
+        "material_read": "Open-access full 21-page PDF: introduction and Theorem 1.1, partial-cycle/path definitions in §2, stated structural consequences, and joint-distribution discussion in §6.2",
+        "method": "ArXiv full PDF textual inspection with rendered page image of theorem page and within-paper keyword search for record indicators",
+        "title": "Moments of permutation statistics by cycle type",
+        "trigger": "General moment formula for partial-permutation indicators could dominate the mixed cycle/record calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4c54ef55-98c2-40d1-96e2-59fddbe112a9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Classical Stirling statistics of random permutations have identical marginal laws but genuinely different joint behavior on one permutation. Determining an exact positive mixed covariance for every record position and showing localization to the final record answers a natural dependence question beyond one-dimensional equidistribution and provides a structural route through partially closed permutation cycles.",
+    "status": "PASS"
+  }
+}
