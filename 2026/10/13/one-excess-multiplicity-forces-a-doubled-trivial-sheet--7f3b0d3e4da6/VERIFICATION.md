@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The argument was checked from the stated hypotheses with no computational experiment.
+# Independent mathematical audit
 
-Chen's proof of Theorem 3.3 was inspected at the trace-pairing step: when the finite-flat rank is \(r\) and the distinct geometric-fiber count is \(s\), the trace radical is the nilradical and is locally free of rank \(r-s\); the quotient by it is finite étale of rank \(s\).
+## correctness
 
-For the excess-one case, the remaining checks are elementary and explicit. Locally write the nilradical as \(N=A\varepsilon\). From \(\varepsilon^2=c\varepsilon\) and nilpotence one obtains \(c^n=0\) for some \(n\), hence \(c=0\) because \(A\) is reduced. Therefore \(N^2=0\).
+PASS
 
-The multiplication representation \(B\to\operatorname{End}_A(N)\cong A\) is an \(A\)-algebra retraction after passing to \(B/N\). Thus the finite étale reduction has a section and splits as \(A\times C\). The complementary idempotent lifts uniquely through \(N\); because the \(C\)-factor acts trivially on \(N\), the lifted component is exactly \(C\), while the other component is \(A\oplus N\) with square-zero multiplication.
+Use Chen finite-cover criterion (char 0, Y connected reduced) to obtain finite locally free B/A rank s+1 and finite étale reduced quotient E=B/N rank s. Therefore the nilradical N has locally free rank one. Locally N=A epsilon; as N ideal, epsilon^2=c epsilon; nilpotence implies c^(m-1)=0, reduced A forces c=0, so N^2=0. Multiplication gives B->End_A(N)≅A (canonical for invertible rank-one N), splitting A->B; N annihilates itself so this factors E->A, a section of finite étale E/A. Hence E≅A×C, with C étale rank s-1. Unique idempotent lift through square-zero N splits B and yields B≅(A⊕N)×C with square-zero multiplication and unique gluing. Thus X≅Spec_Y(O⊕L) disjoint union Z; connected X_red with s>1 impossible. No computational experiment is needed; all local ring identities checked independently. The source-dependent premise is Chen finite reduced-etale result: the accessible earlier full preprint version contains its theorem, while the claimed revised-v3 trace-pairing proof itself was not fully read, explicitly a source-inspection qualification.
 
-The proof establishes a global statement because the nilradical is an invertible sheaf and the lifted idempotent is unique, so the local decompositions glue.
+## originality
 
-Limits checked: the reduced-base hypothesis is essential to the step from nilpotence of \(c\) to \(c=0\); no positive-characteristic extension is asserted; no claim is made for excess greater than one.
+PASS
+
+Chen supplies reduction to finite étale and rank-counting but does not assert rank-one nilradical necessarily forces an etale section and globally split doubled sheet in the inspected material. Standard facts on invertible modules and lifting idempotents are proof inputs, not the new connected-cover obstruction. Resultary finite algebra query surfaced separate rank/nullity and dual-number enumeration topics. An older ring lemma possibly covers this rank-one consequence; best-of-knowledge originality is qualified, not conclusively proven by a failed search.
+
+## value
+
+PASS
+
+The excess-one gap between finite-flat degree and the number of geometric fiber points is a natural minimal multiplicity defect in covering criteria. The theorem structurally classifies the entire nonreduced defect and gives a sharp obstruction to connected reduced covers; this is a motivated reduction theorem, not a gratuitous numeric specialization or a certificate for a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
