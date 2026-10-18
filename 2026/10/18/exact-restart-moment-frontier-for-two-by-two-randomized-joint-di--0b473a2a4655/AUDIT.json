@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Directly conjugating the two specified traceless symmetric matrices gives the exact trial loss. Gaussian rotational symmetry produces a uniform unsigned angle, the best-of-L choice its minimum-order-statistic distribution. Exact integration yields E[L1]=2 epsilon; uniform comparison near the singular angular endpoint yields E[L2] ~ (16/pi^2) epsilon^2 log(1/epsilon); dominated convergence for L>=3 and integration by parts for L=3 yield the finite constants. Orthogonal minimization gives 2 epsilon^2. These analytic arguments establish all required quantifiers for 0<epsilon<1 and integer L>=1. The standalone verifier passes 2,100 rational identities and independent quadratures; finite computations are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2212.07248, Theorems 6 and 8: one-trial high-probability error bound with reciprocal-tail dependence.",
+        "arXiv:2212.07248, Section 3.4: empirically observed exponent L and prediction from repetition.",
+        "arXiv:2402.16557, Section 3: randomized simultaneous diagonalization by congruence, a different eigenproblem."
+      ],
+      "reasoning": "The established reciprocal failure tail implies useful upper bounds after independent repetitions, notably a three-trial sufficient mean-square scaling when loss is bounded; that is not claimed as an independent innovation. However the upper tail does not yield this explicit family’s sharp one- and two-trial lower asymptotics, the exact expectation distribution, or leading constants. The congruence and joint-eigenvalue papers have distinct output objectives.",
+      "searches": [
+        "RJD He Kressner near commuting robustness",
+        "randomized joint diagonalization He Kressner multiple trials best-of L near commuting mean squared error three trials logarithmic threshold",
+        "randomized joint diagonalization three trials nearly commuting expected squared loss"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2212.07248 (Algorithm 1, Theorems 6 and 8, Section 3.4)",
+      "arXiv:2402.16557 (orthogonal versus congruence transformations)",
+      "arXiv:2409.00500 (joint eigenvalue extraction)",
+      "Published mathematical results on spectral Rayleigh-residual distortion and randomized Krylov methods (different objects)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2212.07248, Algorithm 1 and Theorem 8, Section 3.4.",
+        "arXiv:2402.16557, Sections 2-3 on congruence; arXiv:2409.00500, Sections 3-4 on joint Rayleigh eigenvalues."
+      ],
+      "reasoning": "Published tail upper bounds can imply the order of certain upper expectations but cannot establish the matching logarithmic lower bound for precisely two trials or the full exact distribution without analyzing this witness. Numerical failure-tail plots do not constitute the mathematical proof. No inspected theorem has a stronger statement that subsumes the exact witness constants.",
+      "searches": [
+        "randomized joint diagonalization He Kressner multiple trials best-of L near commuting mean squared error three trials logarithmic threshold",
+        "joint diagonalization random eigenvectors perturbation near-degeneracy Cauchy ratio risk epsilon squared logarithm three restarts",
+        "joint eigenvector near commuting Gaussian spectral gap"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "He--Kressner arXiv:2212.07248, Algorithm 1, source definition of loss and random linear combinations.",
+        "He--Kressner arXiv:2212.07248, Section 3.4, trial-dependent failure-probability exponent."
+      ],
+      "reasoning": "The source algorithm is equivalent and deliberately adopted, but its published high-probability guarantees are not the exact distributional or moment identity on the explicit two-by-two family. Relevant published-record results on eigenvalue filtering and Gaussian matrix moments concern other risk functionals and do not imply the equality or its lower rates.",
+      "searches": [
+        "randomized joint diagonalization two symmetric matrices nearly commuting Gaussian random linear combination one trial expected offdiagonal squared residual loss proportional perturbation epsilon",
+        "joint diagonalization random eigenvectors perturbation near-degeneracy Cauchy ratio risk epsilon squared logarithm three restarts",
+        "joint eigenvector near commuting Gaussian spectral gap"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2212.07248, Section 3.4: reported numerical failure frequencies for a randomly constructed higher-dimensional family; no exact two-by-two moment table.",
+        "The joint eigenvalue analysis arXiv:2409.00500 treats Rayleigh-quotient perturbation rather than squared off-diagonal Frobenius risk."
+      ],
+      "reasoning": "The inspected experimental display reports a failure-tail slope, not the exact expected loss for the displayed two-by-two pair or any published tabulation of its constants. No exact database or table covering these formulas was found in the inspected sources; that negative search is not itself evidence of novelty.",
+      "searches": [
+        "randomized joint diagonalization He Kressner multiple trials best-of L near commuting mean squared error three trials logarithmic threshold",
+        "joint diagonalization random matrix linear combinations Gaussian trials",
+        "random linear combination approximate simultaneous diagonalization near commuting pair Pauli matrices RJD exact expectation"
+      ]
+    },
+    "rationale": "The same RJD algorithm, Gaussian eigenbasis selection, high-probability robustness and observed L-dependent failure tail are prior results in arXiv:2212.07248. Their implications for mean-square upper bounds are explicitly acknowledged. The newly proved exact two-by-two law, matching one/two-trial lower rates and constants, and sharp three-trial witness are not stated or implied by the inspected tail upper bounds or by the differently scoped congruence and joint-eigenvalue papers. Equivalent specialized mathematical formulations outside inspected sources remain a priority risk.",
+    "residual_risks": [
+      "An unlocated exact angular/order-statistic treatment of this particular pair could subsume the formulas.",
+      "The original RJD tail bound already supports some qualitative mean-square upper rates after integration; their attribution and the distinction from exact lower bounds are essential.",
+      "Other diagonalization algorithms and floating-point effects are outside the proved scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact same algorithm and prior high-probability robustness. Three-trial mean-square upper scaling is inferable by tail integration, but source gives neither the exact two-by-two law nor the sharp one/two/three expectation formulas.",
+        "evidence": [
+          "arXiv:2212.07248 Algorithm 1",
+          "arXiv:2212.07248 Theorem 8",
+          "arXiv:2212.07248 Section 3.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2212.07248v4",
+        "material_read": "Introduction and equation (1.2), Algorithm 1, Theorems 6 and 8 and their proof context, Section 3.4, conclusion and cited neighboring methods.",
+        "method": "Full open-access arXiv HTML text; explicit comparison of the stated probability bounds with the new distributional and expectation statements.",
+        "title": "Randomized Joint Diagonalization of Symmetric Matrices",
+        "trigger": "Identical Gaussian linear-combination eigenbasis algorithm, identical selection rule and error objective."
+      },
+      {
+        "assessment": "Computes nonorthogonal congruence transformations from generalized pencils, so its correctness and robustness statements do not imply best-of-Gaussian single-combination orthogonal off-diagonal moment identities.",
+        "evidence": [
+          "arXiv:2402.16557 Sections 2-3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2402.16557v2",
+        "material_read": "Introduction, preliminaries, regular-pair and generalized-eigenvalue discussion, random congruence-diagonalization approach in Section 3.",
+        "method": "Open-access arXiv HTML full-text sections inspected and problem transformation compared.",
+        "title": "A randomized algorithm for simultaneously diagonalizing symmetric matrices by congruence",
+        "trigger": "Randomized diagonalization of symmetric families, potentially stronger simultaneous transformation results."
+      },
+      {
+        "assessment": "Its main loss is joint eigenvalue/Rayleigh quotient error rather than a best-of-L joint diagonalization off-diagonal Frobenius loss. No inspected result implies the exact moment formula.",
+        "evidence": [
+          "arXiv:2409.00500 Sections 1, 3, 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.00500v1",
+        "material_read": "Abstract, introduction, mathematical problem definitions, Section 3-4 methods and result descriptions, appendix topics.",
+        "method": "Open-access arXiv HTML full text; inspected the specified joint eigenvalue extraction and perturbation error objective.",
+        "title": "Randomized methods for computing joint eigenvalues, with applications to multiparameter eigenvalue problems and root finding",
+        "trigger": "Uses random combinations and perturbation-sensitive eigenvectors potentially covering the same instability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0b473a2a-4655-44ae-9a59-f2a4afced16b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A motivated numerical robustness question asks how many independent restarts are required to convert Gaussian high-probability near-diagonalization into constant-factor mean squared off-diagonal loss. The exact smallest-dimensional example proves a logarithmic loss at two trials and a finite optimal ratio at three, with sharp constants. It supplies a rigorous boundary/benchmark for an existing practical algorithm rather than a routine renaming of its known upper tail. The statement does not claim a broader solver complexity guarantee.",
+    "status": "PASS"
+  }
+}
