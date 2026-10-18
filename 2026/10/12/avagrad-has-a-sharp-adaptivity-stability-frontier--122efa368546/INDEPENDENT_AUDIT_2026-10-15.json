@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T21:48:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source rate eta_i=(sqrt(v_i)+eps)^{-1} ranges in [1/(G+eps),1/eps]. RMS normalization p_i=sqrt(d)eta_i/||eta|| increases with eta_i and decreases with each other eta_j, so the two opposite-corner states realize sharp p_min,p_max. For isotropic F, x_i^+=(1−a p_i)x_i, hence F(x+)/F(x) is a convex combination of squared coordinate multipliers. Convexity of (1−ap)^2 places its worst case at the two sharp endpoints. As p_min>0, strict contraction is equivalent to a p_max<2 for a>0. Independent numerical tests covered d=1,2,3,100 and reconstructed both corner rates exactly; at a=2/p_max extremal sign reflection retains objective. This is one step only; does not prove global training convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original convergence bound and hyperparameter-experiment comparisons concern general stochastic training; source bounds coordinate rates L,H but does not in examined analysis produce isotropic quadratic if-and-only-if rate ceiling."
+        ],
+        "reasoning": "Broader SGD-like convergence theory does not imply an exact objective monotonicity frontier without specifying the quadratic and worst-case coordinate state.",
+        "searches": [
+          "AvaGrad root mean square adaptive gradient normalization sharp quadratic stability threshold delayed second moment",
+          "arXiv:1912.01823",
+          "AvaGrad root mean square adaptive gradient normalization sharp quadratic stability threshold delayed second moment"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1912.01823",
+        "2021 CVPR paper full text",
+        "Resultary query: AvaGrad root mean square adaptive gradient normalization sharp quadratic stability threshold delayed second moment"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original eta and RMS normalization formulas, plus the source common-scale invariance claim."
+        ],
+        "reasoning": "Common-scale invariance does not imply shape invariance: the sharp pmax witness uses one largest coordinate rate and every other rate smallest, yielding an additional analytic stability frontier.",
+        "searches": [
+          "AvaGrad root mean square adaptive gradient normalization sharp quadratic stability threshold delayed second moment",
+          "arXiv:1912.01823 algorithm and normalization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source defines RMS rate normalization, delayed second-moment eta_i, and scale invariance."
+        ],
+        "reasoning": "The submitted bound is a robust one-step dynamical statement, not the paper’s assertion that multiplying all rates by a common constant cancels.",
+        "searches": [
+          "AvaGrad root mean square adaptive gradient normalization sharp quadratic stability threshold delayed second moment",
+          "Savarese–McAllester–Babu–Maire arXiv:1912.01823",
+          "2021 CVPR version of Domain-independent Dominance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search found other adaptive-method epsilon-floor and stability boundaries, but these concern different optimizers and normalized states; no matching AvaGrad parameter table."
+        ],
+        "reasoning": "No known exact database relevant to a real-parameter analytic envelope; the exact equation is not a finite-data table.",
+        "searches": [
+          "AvaGrad root mean square adaptive gradient normalization sharp quadratic stability threshold delayed second moment",
+          "AvaGrad normalized effective rates bound exact threshold",
+          "Resultary nearby MADGRAD/AMSGrad/diffGrad entries"
+        ]
+      },
+      "rationale": "Best-of-knowledge non-coverage after primary statement and implication comparisons. The claim is not made new merely because a text query lacked an identical title.",
+      "residual_risks": [
+        "Other exact step-bound analyses of normalized diagonal preconditioners could subsume this after translating eta ranges; no matching AvaGrad-specific result located.",
+        "Robust state space includes delayed vectors not necessarily reachable along a fixed deterministic quadratic trajectory, and beta_1=0 excludes momentum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source derives normalizing common scale and stochastic general guarantee, not exact one-step isotropic-quadratic threshold",
+          "evidence": "Algorithm source eta=(sqrt(v)+eps)^-1 and RMS normalization; 2021 PDF §4 and learning-rate/adaptability discussion",
+          "identifier_or_url": "arXiv:1912.01823, CVPR 2021",
+          "material_read": "Primary source mathematical/algorithm sections, normalized rate definition and convergence discussion including bounds on eta; full-text PDF accessed and relevant pages read",
+          "method": "Open-access original paper and targeted text search",
+          "title": "Domain-independent Dominance of Adaptive Methods",
+          "trigger": "Defining AvaGrad algorithm and closest earlier stability analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp stability boundary quantifies exactly how AvaGrad RMS normalization retains coordinate concentration despite eliminating global scale. It gives a motivated optimizer-specific learning-rate/adaptability tradeoff, including actual sign-reflection instability, not a generic textbook SGD threshold alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For one source-form AvaGrad step on F(x)=lambda||x||^2/2 with beta_{1,t}=0, eps>0 and 0<=v_i<=G², the effective RMS-normalized rates satisfy p_min=sqrt(d)rho/sqrt(rho²+d−1), p_max=sqrt(d)/sqrt(1+(d−1)rho²), rho=eps/(G+eps). The exact worst-case objective factor is max{(1−alpha lambda p_min)^2,(1−alpha lambda p_max)^2}; objective is robustly nonincreasing iff 0<alpha lambda<=2/p_max and uniformly contractive iff strict.",
+  "limitations": [
+    "Isotropic one-step beta_1=0 theorem only; cannot infer behavior with momentum, general Hessians or stochastic trajectories.",
+    "Statewise sharpness does not imply extremal state is always generated along a deterministic run."
+  ],
+  "schema_version": 1
+}
