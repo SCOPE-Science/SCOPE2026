@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The expansion \(V(n)/2\ge\sigma(n)+T(n)\) is exact for prime squares and strict otherwise. The auxiliary bound \(T(n)\ge(8/7)\sigma(n)\) is proved by the complete split \(\tau(n)=3\), \(\tau(n)=4\), and \(\tau(n)\ge5\), with equality only at \(n=4\). Combining the two inequalities yields the sharp factor \(30/7\). Exact-integer regression through \(100000\) found no violation.
+## correctness
 
-## Originality
-PASS. The focal full text gives Theorem 7, \(V(n)\ge2(\sigma(n)+T(n))\), and Remark 7, \(V(n)>4\sigma(n)\), but not the sharp factor \(30/7\), the auxiliary \(8/7\) bound, or the unique minimizer \(4\). The same-function sequel and targeted exact-constant, best-constant, and auxiliary-form searches yielded no implication-equivalent statement.
+PASS
 
-## Value
-PASS. The source leaves a natural sharp-constant problem because its composite factor \(4\) is explicitly strict. Determining the exact global constant and equality case resolves that extremal question for all composites rather than for a bounded range or arbitrary slice, and the sharp \(T(n)/\sigma(n)\) lemma isolates the mechanism.
+For composite n and T(n)=product_{d|n} d=n^(τ(n)/2), expansion of V(n)/2=product_{d>1}(d+1) gives V/2≥σ+T, equality exactly when τ=3 (prime square). For τ=3, n=p², 7T-8σ=(p-2)(7p²+6p+4)≥0 equality only p=2. If τ=4, n≥6, T=n² and σ≤4n give T/σ≥n/4≥3/2. If τ≥5, n≥12, T/σ≥n^(τ/2-1)/τ≥12^(3/2)/5>8/7, because the t-bound increases for t≥5. Thus V≥(30/7)σ and equality exactly n=4. Independently checked all 8,770 composite integers through 10,000 exactly, but infinitude comes from the symbolic divisor-count split.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Sándor 2021 Theorem 7 already proves V≥2(σ+T) with prime-square equality and Remark 7 deduces the strict but nonsharp V>4σ for composites; those general facts alone do not state or imply the precise optimal 30/7 bound without the auxiliary global sharp estimate T≥(8/7)σ. The 2022 continuation discusses other same-function inequalities but its entire PDF was not obtained; no searched indexed statement gave the exact composite ratio minimum with equality at n=4. Standard inequalities are fully credited.
+
+## value
+
+PASS
+
+This identifies the exact universal composite-domain best constant for a named arithmetic function and fully classifies equality, closing a precise quantitative gap in the published V>4σ bound. Though elementary and a modest numerical improvement, the extremal ratio is a natural invariant of the entire composite domain, not an arbitrary short finite search or a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
