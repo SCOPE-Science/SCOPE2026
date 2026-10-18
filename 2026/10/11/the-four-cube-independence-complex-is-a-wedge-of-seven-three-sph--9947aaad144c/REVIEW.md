@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is precisely the independence complex of the sixteen-vertex graph \(Q_4\), not a graph neighborhood complex or a generic grid. Enumerating all \(2^{16}\) vertex masks and applying the exact adjacency predicate yields \(742\) nonempty simplices. The full certificate specifies \(367\) pairs and an ordering of the entire \(742\)-face Hasse diagram. Every one of its \(2816\) directed cover relations is checked in the acyclic orientation; the eight unmatched cells have dimensions one zero and seven threes. The discrete-Morse theorem gives a CW homotopy model with precisely these cells, so all attaching maps from three-cells land in a point. Hence \(\operatorname{Ind}(Q_4)\simeq\bigvee^7 S^3\). Exact mod-two boundary ranks provide a distinct consistency check, but are not used as a substitute for the homotopy proof.
+PASS
 
-## Originality — PASS, with stated risk
+The 16-vertex 4-dimensional hypercube Q4 (isomorphic as graph to C4□C4, a 4×4 toroidal grid) has independent-set masks exactly those with no Hamming-distance-one pair. An independent exhaustive enumeration over all 2^16 subsets gives the 742 nonempty faces and f=(16,88,208,228,128,56,16,2). Independently reconstructed 367 vertex-toggle cover matches and all 2816 Hasse arrows; complete topological sorting verifies no directed cycle; critical profile one 0-simplex and seven 3-simplices, so Forman gives wedge of seven S3. Independent GF2 boundary ranks [15,73,135,86,42,14,2] yield reduced beta3=7. The integral homotopy relies on acyclic Morse matching, not merely mod2 ranks.
 
-This concerns the four-cube, equivalently the **two-direction periodic** four-by-four square grid. Bousquet-Mélou–Linusson–Nevo [2] establish explicit Morse/homotopy statements for **open and cylindrical**, not this toroidal quotient, while discussing toroidal alternating counts. Jonsson [3] explicitly constructs cross-cycles for periodic grids and notes that the complete integral homology is generally outside the main results; nonvanishing cross-cycles do not imply the exact rank seven or wedge decomposition. Matsushita–Wakatsuki [4] address **path-by-path** rectangular grids. Barmak's [5] triangle-free suspension theorem applies but does not specify the homotopy-type multiplicity. Kozlov's [1] simple-homotopy results do not classify this independence complex. Searches under four-cube/tesseract/\(C_4\square C_4\)/periodic-grid aliases found no implication covering the complete homotopy statement. Counting the independent sets and establishing general Morse technology are prior work, not claimed as new.
+## originality
 
-Residual risk: a less-indexed or differently phrased exact computation for this small toroidal quotient could already exist. This review does not establish exhaustive priority or provide independent certification.
+PASS
 
-## Value — PASS
+The exact four-dimensional-cube homotopy decomposition is not obtained from standard open/cylindrical square-grid calculations, nor from results producing only toroidal cross-cycles or alternating sums. Barmak gives only generic suspension for triangle-free graphs. Resultary search found the assigned exact theorem but no independently located identical earlier statement under Q4, 4×4 periodic square grid, or toroidal hard-square complex aliases. Best-of-knowledge O PASS with a relevant older toroidal full-text residual risk.
 
-The four-cube is the canonical smallest four-regular hypercube and also a genuinely fully periodic square-grid example, where open/cylindrical boundary arguments do not automatically apply. The exact seven-sphere homotopy type establishes all integral homology, absence of torsion, and simple connectivity, information not obtainable from published nonvanishing cross-cycle constructions or the alternating independent-set count alone. The \(742\)-face, \(367\)-pair certificate is small enough to provide a reusable rigorous benchmark for periodic hard-square and graph-complex computations. The value claimed is deliberately limited to this natural exact invariant and not to an unproved general theorem.
+## value
 
-## Evidence and limitations
+PASS
 
-Core proof: `RESULT.md`; machine-checkable complete matching: `morse_certificate.json` and `verify_q4.py`; replay details: `VERIFICATION.md`. Closest material: [2] square-grid Morse complexes with open/cylindrical boundary conditions; [3] periodic cross-cycles; [4] rectangular grids; [5] a general suspension theorem. Exact ranks over integers come from the Morse homotopy type, not from a binary homology computation. Only this finite graph is classified.
+Independence complexes of canonical hypercubes and small fully periodic square grids are natural benchmarks; exact integral homotopy is substantially stronger than the known hard-square alternating count or mere suspension, and identifies seven 3-sphere summands in the canonical doubly-periodic 4×4 case. The complete finite Morse classification is a motivated exact invariant useful independently of a general torus-family theorem.
 
-Same-model review: passed. Independent audit: not yet performed.
-
-## References
-
-[1] Kozlov, https://arxiv.org/abs/math/0503613. [2] Bousquet-Mélou–Linusson–Nevo, https://arxiv.org/abs/math/0701890. [3] Jonsson, https://people.kth.se/~jakobj/doc/papers/crosstorus.pdf. [4] Matsushita–Wakatsuki, https://arxiv.org/abs/2203.16391. [5] Barmak, https://arxiv.org/abs/1007.0418.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
