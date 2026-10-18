@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T00:14:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exactly specified parent density f_T(t;a)=a^2(a+t)e^(-at)/(a^2+1), independent of the unit transform X=T/(1+T), differentiate log f twice. Expected minus second derivative equals 2(3a^2+1)/(a^2(a^2+1)^2)+a^2/(a^2+1)e^(a^2)E1(a^2). The last term follows from integral of e^(-at)/(a+t). E1 asymptotics give lim(a sqrt I)=sqrt 2 as a->0 and =1 at infinity, proving Jeffreys sqrt I cannot be proportional to 1/a. For sample t_i=x_i/(1-x_i)>0, the log-uniform posterior is O(a^(2n-1)) near 0 and O(a^(n-1)e^(-a sum t_i)) at infinity, hence proper for all interior nonempty samples. Independent mpmath quadrature at a=.03,.2,1,4,30 agrees with the expectation and limiting behavior.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic Jeffreys rule says pi_J ∝ sqrt(I) and is parametrization-invariant, but does not compute this Shanker-model I.",
+          "Abushal (2019) uses the same parent Shanker likelihood and gamma prior with zero-hyperparameter limit, and does not display the exact Jeffreys information in the inspected material."
+        ],
+        "reasoning": "The generic rule defines the computation but does not provide the model-specific exponential integral or address the 2026 misidentification; the earlier parent Bayesian article does not establish it either.",
+        "searches": [
+          "unit Shanker distribution exact Fisher information Jeffreys prior exponential integral posterior log uniform"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md tree afc5f5c5f182b216cb6abc784e98cad95f04e33d",
+        "DOI:10.3934/math.20261150 (publisher abstract and figure captions)",
+        "DOI:10.1186/s42787-019-0033-x (open full text)",
+        "https://journal.r-project.org/articles/RJ-2017-055/",
+        "Resultary live search: unit Shanker distribution exact Fisher information Jeffreys prior exponential integral posterior log uniform",
+        "Independent analytic differentiation and mpmath quadrature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mohammad et al. 2026 publisher page documents Bayesian figures under a Jeffreys-labeled prior; the source package quotes Section 6 as setting pi∝1/a via limiting gamma shape/rate.",
+          "Abushal 2019 open article describes the limiting gamma prior as noninformative, which does not imply its equality with square-root expected information."
+        ],
+        "reasoning": "Simple gamma hyperparameter limiting is not Jeffreys rule. The new expected Fisher computation gives two unequal limits for a sqrt I, a decisive contradiction to the prior label while preserving posterior propriety.",
+        "searches": [
+          "unit Shanker distribution exact Fisher information Jeffreys prior exponential integral posterior log uniform"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unit Shanker is a parameter-independent transform of the parent Shanker density; Jeffreys information in both observation coordinates is identical.",
+          "Exact model-specific Jeffreys prior is the square root of the displayed exponential-integral Fisher information; 1/a has unequal endpoint ratios."
+        ],
+        "reasoning": "Searching the parent distribution as well as its unit transform is essential; algebraic invariance gives exact equivalence, not two distinct new priors.",
+        "searches": [
+          "unit Shanker distribution exact Fisher information Jeffreys prior exponential integral posterior log uniform"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary live model-specific Jeffreys/exponential integral search produced no matching published result.",
+          "Independent quadrature verifies values of the exact integral without using a known Fisher-information table."
+        ],
+        "reasoning": "No checked source supplies the same closed formula or correction; this does not prove absolute priority against unindexed literature.",
+        "searches": [
+          "unit Shanker distribution exact Fisher information Jeffreys prior exponential integral posterior log uniform"
+        ]
+      },
+      "rationale": "The target 2026 unit-Shanker source presents the inverse-scale improper gamma-kernel choice as Jeffreys, but defining Jeffreys by expected Fisher information produces a distinct exact exponential-integral formula. The 2019 parent-Shanker Bayesian treatment makes the same gamma-to-log-uniform limiting choice but its inspected prior discussion does not derive the Jeffreys-rule prior. Parameter-independent unit transform makes parent and unit model equivalent here; searches for prior, exponential integral and correction yielded no matching prior formula. Some publisher full-section content could not be re-inspected, retained as access/priority risk.",
+      "residual_risks": [
+        "2026 source PDF/Section 6 were not independently fully read in this execution; its pi∝1/a expression was quoted from inspected repository result.",
+        "Other parameterizations or unindexed parent-Shanker information calculations may display this formula.",
+        "No recomputation of Bayesian simulation tables or posterior point estimates under the true Jeffreys-rule prior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identifies use of Jeffreys-labeled Bayesian plots; exact pi∝a^-1 line not independently inspected in rendered full text this execution",
+          "evidence": "Publisher captions display Jeffreys prior while submitted mathematical package cites §6 equations (6.1)-(6.4) for gamma limit.",
+          "identifier_or_url": "https://doi.org/10.3934/math.20261150",
+          "material_read": "Publisher article page, bibliographic data, abstracts and figures labeled Jeffreys prior; full Section 6 text not accessible in current web rendering",
+          "method": "Primary publisher website inspection plus exact source-paper citations in Git claim",
+          "title": "Two-parameter family of Unit distributions: theory, statistical inference, and reliability applications",
+          "trigger": "Direct target of prior mislabeling claim"
+        },
+        {
+          "assessment": "Contains log-uniform limiting gamma kernel without model-specific Jeffreys-rule prior derivation in inspected sections",
+          "evidence": "Defines gamma prior, zero-hyperparameter limit, and describes choice as non-informative.",
+          "identifier_or_url": "https://doi.org/10.1186/s42787-019-0033-x",
+          "material_read": "Open full text: Shanker density, likelihood, gamma prior, discussion of non-informative limiting choice",
+          "method": "Direct primary SpringerOpen HTML examination",
+          "title": "Bayesian estimation of the reliability characteristic of Shanker distribution",
+          "trigger": "Same parent likelihood and prior family in earlier work"
+        },
+        {
+          "assessment": "Studies information machinery for MLE correction but does not supply the exact Jeffreys prior in the examined text",
+          "evidence": "Parent Shanker likelihood used as worked example; prior correction is not its focus.",
+          "identifier_or_url": "https://journal.r-project.org/articles/RJ-2017-055/",
+          "material_read": "Full public article sections giving Shanker density, likelihood and generic expected information procedures",
+          "method": "Open journal article web text inspection",
+          "title": "mle.tools: An R Package for Maximum Likelihood Bias Correction",
+          "trigger": "Possible earlier expected Fisher calculations for parent Shanker model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The correction concerns an actual named inferential procedure in a current distribution article: posterior summaries reported as Jeffreys analyses depend on a prior different from the genuine Jeffreys-rule prior. The exact formula allows recalculation and the propriety proof prevents overstating the error as invalid Bayesian inference. This is substantively motivated, not merely renaming a parameter.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md tree afc5f5c5f182b216cb6abc784e98cad95f04e33d",
+    "DOI:10.3934/math.20261150 (publisher abstract and figure captions)",
+    "DOI:10.1186/s42787-019-0033-x (open full text)",
+    "https://journal.r-project.org/articles/RJ-2017-055/",
+    "Resultary live search: unit Shanker distribution exact Fisher information Jeffreys prior exponential integral posterior log uniform",
+    "Independent analytic differentiation and mpmath quadrature"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "2026 source PDF/Section 6 were not independently fully read in this execution; its pi∝1/a expression was quoted from inspected repository result.",
+    "Other parameterizations or unindexed parent-Shanker information calculations may display this formula.",
+    "No recomputation of Bayesian simulation tables or posterior point estimates under the true Jeffreys-rule prior.",
+    "Best-of-knowledge scientific judgment, not mathematical certification.",
+    "Source metadata contains operational provenance; no publication files generated or sanitized."
+  ],
+  "schema_version": 1
+}
