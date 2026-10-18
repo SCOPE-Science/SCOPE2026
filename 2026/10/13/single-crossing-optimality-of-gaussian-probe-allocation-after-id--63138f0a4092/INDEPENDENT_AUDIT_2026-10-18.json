@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T02:51:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under n>=B>=2m>=2, rank k_N=B-mN and independent Gaussian quadratic forms, Var(g²)=2 makes exact MSE F_N=2T_N/N. Sorted nonnegative squared log eigenvalues define increasing block masses c_j. With T_N=T_0+sum_{j<=N}c_j, H_N=Nc_{N+1}-T_N satisfies F_{N+1}-F_N=2H_N/[N(N+1)] and H_{N+1}-H_N=(N+1)(c_{N+2}-c_{N+1})>=0. Hence minimizers are consecutive and one probe is optimal iff F_1<=F_2; all ties and nondivisible budgets are accounted for. Exact geometric sums produce q^(-m)+q^(n-B+m)>=2 and limiting q^m<=1/2. Independently checked 2,690 rational decreasing spectral-weight profiles; analytic identities, not testing, prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published fixed-alpha comparison could logically be checked for every alpha separately; the new single adjacent test requires spectral-order monotonicity of H_N.",
+          "Original paper includes adaptive practical algorithm but not this exact all-N idealized discrete optimization classification in inspected relevant sections."
+        ],
+        "reasoning": "Stronger pointwise access to exact F_N does not by itself state the one-crossing implication; deriving that shortcut is the reviewed contribution. No claim to a new variance identity.",
+        "searches": [
+          "Cortinovis–Toni 2026 Section 2 Eqs.(14)–(15)",
+          "Resultary search of stochastic trace rank-versus-probe optimization"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md blob fecb4946effd5a4b3112be69013ff34cc04d3089 and verify.py blob 6d19b1fbaa644ed02f411934daf0f128a23a37cf",
+        "Cortinovis–Toni 2026 complete Wiley Section 2, DOI:10.1002/nla.70106",
+        "Hutch++ DOI:10.1137/1.9781611976496.16 abstract/context",
+        "Resultary semantic search for single-crossing logdet probe allocation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq.(14) gives 2/N times squared log-tail norm, used exactly as a premise.",
+          "Even given Eq.(15) for an arbitrary chosen alpha, the equivalence F1<=F2 iff F1<=FN for all feasible N and the explicit geometric frontier require the new monotone block lemma."
+        ],
+        "reasoning": "Prior provides the objective function, not the tested universal implication; the latter is correct with the stated ordered-spectrum/model assumptions.",
+        "searches": [
+          "DOI:10.1002/nla.70106 Eqs.(11),(14),(15)",
+          "Resultary query: Gaussian trace probe optimal allocation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cortinovis–Toni Eq.(14) supplies exact pointwise ideal MSE; Eq.(15) compares one versus chosen allocation.",
+          "Hutch++ uses a different randomized oracle and asymptotic complexity setting."
+        ],
+        "reasoning": "Compared exact quantifiers: original fixed-alpha pairwise MSE test versus all integer N simultaneously and consecutive monotone difference sign; equivalent global stopping rules searched under logdet, probe budget, spectral deflation.",
+        "searches": [
+          "Resultary: Gaussian trace probe optimal allocation exact eigenpairs preconditioning log determinant single crossing one probe two probes",
+          "Cortinovis–Toni DOI:10.1002/nla.70106 Section 2",
+          "Hutch++ SOSA 2021 stochastic trace estimation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned numerical/trace/spectral topics without an exact all-integer-probe count or geometric q threshold.",
+          "Source Figure 1 compares several selected allocations, not an exhaustive algebraic minimizer table for all spectra."
+        ],
+        "reasoning": "No covering exact optimizer database/table located; this does not certify global novelty.",
+        "searches": [
+          "Resultary semantic probe-allocation search, top 15",
+          "Wiley full text 2026 Section 2 and Figure 1"
+        ]
+      },
+      "rationale": "The source published the pointwise spectral MSE and fixed-parameter comparisons, which are cited as premises. The discrete monotone block-H difference, all-count single crossing and exact geometric frontier are a natural complete optimizer theorem not explicitly established by the inspected primary Section 2. The insight is algebraically accessible but not merely renaming a known formula.",
+      "residual_risks": [
+        "Only ideal known-spectrum rank preconditioner, Gaussian probes, exact quadratic forms, modeled constant m cost; does not imply practical randomized Nyström or wall-clock optimality.",
+        "An implicit equivalent inequality or known monotone-ratio observation may exist in stochastic trace-estimation theory.",
+        "Pointwise source formula is fully acknowledged and easy optimization limits magnitude of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives exact pointwise MSE and fixed-alpha inequality, which are credited; no explicit universal one-crossing/all-count stopping theorem or exact geometric frontier identified in relevant sections.",
+          "evidence": [
+            "Section 2 Eq.(14): expected squared error 2m/((1-alpha)ell+m) times squared Frobenius norm of log(M_{alpha ell}); Eq.(15) pairwise mixed versus one-sample inequality."
+          ],
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/nla.70106",
+          "material_read": "Full lawful open-access HTML read: Sections 1.1–2 including Eqs.(7)–(15), and Section 4 algorithm description and comparisons.",
+          "method": "Wiley HTML full text, inspected equations and scope",
+          "title": "Detecting When One Probe Vector is Enough for Preconditioned Log-Determinant Approximation",
+          "trigger": "Exact same algorithm, nominal probe cost and spectral-eigenpair model"
+        },
+        {
+          "assessment": "Different random trace-deflation oracle model; no whole-document noncoverage claimed.",
+          "evidence": [
+            "Hutch++ optimizes trace-query complexity; does not by abstract settle fixed ideal eigenpairs and exactly N Gaussian logdet probes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/1.9781611976496.16",
+          "material_read": "Title/abstract and context on query complexity, not complete proceedings text.",
+          "method": "Bibliographic abstract/reference inspection",
+          "title": "Hutch++: Optimal Stochastic Trace Estimation",
+          "trigger": "Potential broader stochastic matrix-trace estimation guarantees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Globally determines a nontrivial allocation choice for every admissible ordered spectrum without evaluating every probe count and identifies a sharp spectral-decay transition. It is a useful idealized experimental-design benchmark, even though unknown eigenvalues make it non-oracle-free and the proof is elementary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub RESULT.md blob fecb4946effd5a4b3112be69013ff34cc04d3089 and verify.py blob 6d19b1fbaa644ed02f411934daf0f128a23a37cf",
+    "Cortinovis–Toni 2026 complete Wiley Section 2, DOI:10.1002/nla.70106",
+    "Hutch++ DOI:10.1137/1.9781611976496.16 abstract/context",
+    "Resultary semantic search for single-crossing logdet probe allocation"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Only ideal known-spectrum rank preconditioner, Gaussian probes, exact quadratic forms, modeled constant m cost; does not imply practical randomized Nyström or wall-clock optimality.",
+    "An implicit equivalent inequality or known monotone-ratio observation may exist in stochastic trace-estimation theory.",
+    "Pointwise source formula is fully acknowledged and easy optimization limits magnitude of novelty."
+  ],
+  "schema_version": 1
+}
