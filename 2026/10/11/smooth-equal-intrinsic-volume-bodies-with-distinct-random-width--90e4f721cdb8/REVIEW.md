@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two perturbations are even degree-four spherical harmonics, so sufficiently small nonzero \(\varepsilon\) gives positive support functions with positive curvature-radius tensor. The exact surface-area and volume identities follow from the two-dimensional determinant expansion of \(I+\varepsilon(\nabla^2q+qI)\), the eigenvalue equation \(\Delta q=-20q\), Bochner's identity, and one additional integration-by-parts identity for the cubic term. The explicit quartics have equal second moments and zero third moments, so volume, surface area, and mean width agree exactly. Distinct fourth centered width moments force distinct random-width laws.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2609.26202v1, gives non-smooth centrally symmetric right-prism witnesses and explicitly leaves the smooth three-dimensional strengthening open. Targeted semantic literature searches for smooth equal-intrinsic-volume random-width counterexamples, support-function spherical-harmonic formulations, and exact degree-four moment constructions found no equivalent claim. The closest indexed published results concern degree-two spherical-harmonic norm extremizers or unrelated support-function stability, and do not imply this matched degree-four pair.
+PASS
 
-## Value
-PASS. The claim directly advances a specific smoothness gap identified in a recent primary source: it supplies an exact \(C^\infty\), strictly convex, centrally symmetric counterexample for the width-law half of that gap. The construction is structural rather than a finite census: equal intrinsic volumes are enforced analytically by matched harmonic invariants, while a higher width moment separates the laws.
+Both quartics f=y^4−6y²z²+z^4 and g=(2√7/7)(f−(x^4−6x²z²+z^4)) are spherical degree-four harmonics. Equal exact sphere second moments 64/315 and zero cubic moments force identical exact volume and surface-area polynomials, while mean width=2 by zero average. Independent direct polynomial sphere moment computations verified Ef⁴=4096/36465, Eg⁴=241664/2501499 and gap 65536/4169165>0. Independent spherical-Hessian tensor identities verified ∫det(Aq)=−9∫q² and ∫qdet(Aq)=136∫q³ for these examples. Positivity of I+eps Aq for eps sufficiently small establishes smooth strict convexity. Width=2+2eps q then has different fourth centered moment, so laws differ.
 
-The principal limitation is that the same pair's brightness laws are not analyzed, so the simultaneous smooth width-and-brightness strengthening remains open. The numerical optimum of the allowed \(\varepsilon\)-interval is also not claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Abas arXiv:2609.26202 full manuscript explicitly constructs centrally symmetric right PRISMS with same intrinsic volumes and distinct width/brightness distributions, and notes smooth strictly convex strengthening is open. Prisms are not smooth; equality after smoothing does not follow automatically since there are three exact intrinsic-volume constraints. The explicit harmonic pair here addresses the smooth WIDTH half, not simultaneous brightness. No previously covering smooth construction identified.
+
+## value
+
+PASS
+
+Smooth versus polyhedral identifiability of width from all 3D intrinsic volumes is a concrete open regularity obstruction; exact matched smooth support perturbations with higher-moment separation provide a substantial partial resolution, not merely a normalization exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

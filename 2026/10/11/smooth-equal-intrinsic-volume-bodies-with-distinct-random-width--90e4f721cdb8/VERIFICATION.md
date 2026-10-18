@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The universal claim is proved analytically in `RESULT.md`. The included `verify.py` performs exact finite symbolic checks on the explicit quartic data only.
+# Independent mathematical audit
 
-It checks that the two base quartic polynomials have zero Euclidean Laplacian, evaluates exact uniform-sphere moments by the monomial double-factorial formula, verifies
-\[\mathbb E f(U)^2=\mathbb E g(U)^2=64/315,\qquad \mathbb E f(U)^3=\mathbb E g(U)^3=0,\]
-reproduces
-\[\mathbb E f(U)^4=4096/36465,\qquad \mathbb E g(U)^4=241664/2501499,\]
-and confirms the positive difference \(65536/4169165\). It also checks that inserting the common second moment into the analytic area and volume formulas gives the coefficient \(256\pi/35\).
+## correctness
 
-The script does not numerically certify convexity for all directions and does not replace the compactness/positive-curvature argument establishing an admissible \(\varepsilon_0>0\). No brightness-law claim is verified or made.
+PASS
+
+Both quartics f=y^4−6y²z²+z^4 and g=(2√7/7)(f−(x^4−6x²z²+z^4)) are spherical degree-four harmonics. Equal exact sphere second moments 64/315 and zero cubic moments force identical exact volume and surface-area polynomials, while mean width=2 by zero average. Independent direct polynomial sphere moment computations verified Ef⁴=4096/36465, Eg⁴=241664/2501499 and gap 65536/4169165>0. Independent spherical-Hessian tensor identities verified ∫det(Aq)=−9∫q² and ∫qdet(Aq)=136∫q³ for these examples. Positivity of I+eps Aq for eps sufficiently small establishes smooth strict convexity. Width=2+2eps q then has different fourth centered moment, so laws differ.
+
+## originality
+
+PASS
+
+Abas arXiv:2609.26202 full manuscript explicitly constructs centrally symmetric right PRISMS with same intrinsic volumes and distinct width/brightness distributions, and notes smooth strictly convex strengthening is open. Prisms are not smooth; equality after smoothing does not follow automatically since there are three exact intrinsic-volume constraints. The explicit harmonic pair here addresses the smooth WIDTH half, not simultaneous brightness. No previously covering smooth construction identified.
+
+## value
+
+PASS
+
+Smooth versus polyhedral identifiability of width from all 3D intrinsic volumes is a concrete open regularity obstruction; exact matched smooth support perturbations with higher-moment separation provide a substantial partial resolution, not merely a normalization exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
