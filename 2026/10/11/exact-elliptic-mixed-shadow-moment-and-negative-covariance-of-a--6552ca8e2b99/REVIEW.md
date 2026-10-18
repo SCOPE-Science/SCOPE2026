@@ -1,15 +1,21 @@
-# Review of exact elliptic mixed shadow moment
+# Independent mathematical audit
 
-## Correctness — PASS
-The face-normal and projected-edge formulas are independently derived for a unit regular tetrahedron. Spherical symmetry reduces the mixed moment to a one-dimensional integral; an explicit change of variables yields the Legendre incomplete elliptic integrals. The first moments follow from independent spherical averaging. The strict negative covariance is proved by a finite Taylor expansion with uniform alternating remainder, rational interval arithmetic, and exact angle identities. The standalone verifier checks the interval certificate and independently compares 400 projected convex hulls; these checks supplement the analytic derivation. The scope is all uniformly random directions, not a sample of directions.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest primary source is Finch, *Planar Projections and Second Intrinsic Volume*, arXiv:1203.2464v1, §2.1: it contains the previously known numerical mixed value and negative correlation, and records a missing closed form for the mixed area–perimeter expectation. The proposed exact incomplete-elliptic formula and rational proof of sign are not stated there. Dirksen's arXiv:1509.06408 treats simplex sections, not the mixed projection invariant. Semantic database searches for mixed moments, elliptic forms, and tetrahedral projections yielded adjacent geometry but no implication of the exact formula. Earlier hidden equivalent evaluations could exist and are an explicit residual risk; lack of a search result alone is not a novelty proof.
+PASS
 
-## Value — PASS
-An exact evaluative gap was expressly identified for a classical random-shadow invariant. The result determines the missing mixed moment using standard special functions and upgrades an observed negative correlation to a rigorous inequality with a reproducible rational certificate. This addresses a geometrically motivated joint statistic rather than an arbitrary isolated numerical constant.
+Inspected frozen RESULT.md SHA c1ab9d6f70439b7dda1eda2f37dc44065fa38039 and code verify.py SHA cdb127e9b209bc1713cfa87e849091648f7d739f. Unit-edge tetrahedron with face normals n_i·n_j=−1/3 has projected area A(u)=√3/8 Σ|u·n_i|, perimeter P(u)=Σ_{i<j}1_{(u·n_i)(u·n_j)<0}√(1−(u·e_ij)^2) over six silhouette edges. Splitting the sphere into sign sectors and integrating polar angle yields E[AP]=4√3/(3π)+(2/π)∫₀^atan√2(1+sin²t)/√(2+sin²t)dt. Algebraic decomposition gives the stated 2E−F incomplete elliptic combination; E A=√3/4, E P=3 atan√2. The source certificate uses exact Fraction interval arithmetic, enclosing sqrt2,sqrt3,π,θ and the n≤14 binomial expansion with bounded alternating remainder ≤5/3^16, so -0.0004<cov<-0.0003 independent of float rounding. Separately recomputed high-precision quadrature and mpmath elliptic functions: E[AP]=1.24063482223759045867… and cov=-0.00035786769230333175…, consistent with the rational certificate. Numerical calculation alone does not prove the exact sign; the inspected exact interval construction does.
 
-## Limitations
-The result does not supply the complete joint law, higher mixed moments, an elementary expression, or a uniform theorem for all simplices. The quoted long decimal is diagnostic only. Scientific review is not independent external validation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Finch’s 2012 primary full article directly covers the SAME numeric mixed moment and qualitative negative correlation, but states that its closed form was unknown. The added closed incomplete-elliptic identity and rational strict sign proof are nontrivial exact results beyond the earlier numerical benchmark. Resultary failure is not novelty evidence; an equivalent older stochastic-geometric integral remains possible.
+
+## value
+
+PASS
+
+The joint area×perimeter moment of a natural regular solid shadow is a central two-intrinsic-volume covariance; Finch explicitly identified the exact form as an unsolved calculation. A closed special-function evaluation and rigorous anticorrelation interval are precise, reusable geometric constants rather than arbitrary tiny measurements. No whole joint law is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

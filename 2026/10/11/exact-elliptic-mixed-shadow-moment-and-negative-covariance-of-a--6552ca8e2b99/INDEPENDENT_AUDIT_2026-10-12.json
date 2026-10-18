@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T12:20:06.610302Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inspected frozen RESULT.md SHA c1ab9d6f70439b7dda1eda2f37dc44065fa38039 and code verify.py SHA cdb127e9b209bc1713cfa87e849091648f7d739f. Unit-edge tetrahedron with face normals n_i·n_j=−1/3 has projected area A(u)=√3/8 Σ|u·n_i|, perimeter P(u)=Σ_{i<j}1_{(u·n_i)(u·n_j)<0}√(1−(u·e_ij)^2) over six silhouette edges. Splitting the sphere into sign sectors and integrating polar angle yields E[AP]=4√3/(3π)+(2/π)∫₀^atan√2(1+sin²t)/√(2+sin²t)dt. Algebraic decomposition gives the stated 2E−F incomplete elliptic combination; E A=√3/4, E P=3 atan√2. The source certificate uses exact Fraction interval arithmetic, enclosing sqrt2,sqrt3,π,θ and the n≤14 binomial expansion with bounded alternating remainder ≤5/3^16, so -0.0004<cov<-0.0003 independent of float rounding. Separately recomputed high-precision quadrature and mpmath elliptic functions: E[AP]=1.24063482223759045867… and cov=-0.00035786769230333175…, consistent with the rational certificate. Numerical calculation alone does not prove the exact sign; the inspected exact interval construction does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finch’s broad intrinsic-volume treatment explicitly lacked a closed expression for this mixed moment; Dirksen investigates sections rather than projections."
+        ],
+        "reasoning": "A general Cauchy projection relation gives individual means but does not automatically integrate a correlated product or certify its sign.",
+        "searches": [
+          "Resultary search: regular tetrahedron random planar projections mixed area perimeter expected elliptic integral covariance Finch [search_internal_error; search_completed=false; NOT negative evidence]",
+          "Finch arXiv:1203.2464v1",
+          "Dirksen arXiv:1509.06408"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1203.2464v1 / https://arxiv.org/abs/1203.2464",
+        "arXiv:1509.06408 / https://arxiv.org/abs/1509.06408"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent derivation reduces AP to J=∫₀^θ(1+sin²t)/√(2+sin²t) dt; J=[2E(θ|-1/2)−F(θ|-1/2)]/√2."
+        ],
+        "reasoning": "Prior facet projection identities and reported numeric statistics do not logically imply the exact J transformation plus rigorous interval certificate without the new integration/calculation. The sign as empirical fact is credited.",
+        "searches": [
+          "Resultary search: regular tetrahedron random planar projections mixed area perimeter expected elliptic integral covariance Finch [search_internal_error; search_completed=false; NOT negative evidence]",
+          "Finch arXiv:1203.2464v1 §2.1",
+          "Dirksen arXiv:1509.06408"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior numerical E(cw·pw)≈1.2406348222 is exactly the same random projection statistic after matching unit-edge geometry; its negative correlation is prior numerical observation."
+        ],
+        "reasoning": "The claimed exact incomplete elliptic formula represents that already numerically known invariant, not a different moment. Newness lies in exact analytic identity + interval-certified negativity, not in numerical value.",
+        "searches": [
+          "Resultary search: regular tetrahedron random planar projections mixed area perimeter expected elliptic integral covariance Finch [search_internal_error; search_completed=false; NOT negative evidence]",
+          "Finch arXiv:1203.2464v1 §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finch tabulates/quotes 1.2406348222 and anticorrelation for same tetrahedral shadow; no inspected closed elliptic expression or exact rational bounds."
+        ],
+        "reasoning": "Numerical database coverage acknowledged. Decimal agreement is not equivalent to proof of a special-function identity or the certified covariance interval.",
+        "searches": [
+          "Resultary search: regular tetrahedron random planar projections mixed area perimeter expected elliptic integral covariance Finch [search_internal_error; search_completed=false; NOT negative evidence]",
+          "Finch arXiv:1203.2464v1 §2.1"
+        ]
+      },
+      "rationale": "Finch’s 2012 primary full article directly covers the SAME numeric mixed moment and qualitative negative correlation, but states that its closed form was unknown. The added closed incomplete-elliptic identity and rational strict sign proof are nontrivial exact results beyond the earlier numerical benchmark. Resultary failure is not novelty evidence; an equivalent older stochastic-geometric integral remains possible.",
+      "residual_risks": [
+        "An older equivalent elliptic reduction may exist under alternate intrinsic-volume/covariogram terminology.",
+        "Resultary search_internal_error, no completed database coverage check.",
+        "Certified interval derives from analytic spherical reduction; high-precision quadrature is corroboration only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains prior numerical mixed moment and observed anticorrelation; does not supply displayed incomplete-elliptic-integral expression nor rational covariance enclosure in inspected relevant material.",
+          "evidence": "§2.1: “Closed-form expressions for E(pw²) and E(cw·pw) are not known” (reported in 2012); tetrahedral numerical 1.2406348222.",
+          "identifier_or_url": "arXiv:1203.2464v1 / https://arxiv.org/abs/1203.2464",
+          "material_read": "Primary PDF section 2.1 and its page-3 rendered display physically inspected: reports tetrahedral E(cw·pw) numerical value approximately 1.2406348222 and discusses unavailability of exact mixed-moment form.",
+          "method": "Lawful arXiv full PDF; section textual examination and page screenshot",
+          "title": "Planar Projections and Second Intrinsic Volume — S. R. Finch",
+          "trigger": "Same regular tetrahedral random shadow area–perimeter mixed moment, identical numerical invariant"
+        },
+        {
+          "assessment": "Computes volumes of linear sections and estimates; sections are not random 2D orthogonal projection area–perimeter correlations. Full-text comparison not exhaustive.",
+          "evidence": "Object differs: simplex sections rather than joint area–perimeter of random projection.",
+          "identifier_or_url": "arXiv:1509.06408 / https://arxiv.org/abs/1509.06408",
+          "material_read": "Public arXiv abstract and statement of section-volume focus, not entire source article.",
+          "method": "arXiv bibliographic entry / abstract, bounded coverage check",
+          "title": "Sections of the Regular Simplex—Volume Formulas and Estimates — H. Dirksen",
+          "trigger": "Possible general simplex geometry implying regular tetrahedron projection moment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The joint area×perimeter moment of a natural regular solid shadow is a central two-intrinsic-volume covariance; Finch explicitly identified the exact form as an unsolved calculation. A closed special-function evaluation and rigorous anticorrelation interval are precise, reusable geometric constants rather than arbitrary tiny measurements. No whole joint law is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1203.2464v1 / https://arxiv.org/abs/1203.2464",
+    "arXiv:1509.06408 / https://arxiv.org/abs/1509.06408"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only regular unit tetrahedra and scale covariant copies; no general simplex mixed moment or full law.",
+    "Exact sign interval does not make a claim about any higher-order shadow moments."
+  ],
+  "residual_risks": [
+    "An older equivalent elliptic reduction may exist under alternate intrinsic-volume/covariogram terminology.",
+    "Resultary search_internal_error, no completed database coverage check.",
+    "Certified interval derives from analytic spherical reduction; high-precision quadrature is corroboration only."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Contains prior numerical mixed moment and observed anticorrelation; does not supply displayed incomplete-elliptic-integral expression nor rational covariance enclosure in inspected relevant material.",
+      "evidence": "§2.1: “Closed-form expressions for E(pw²) and E(cw·pw) are not known” (reported in 2012); tetrahedral numerical 1.2406348222.",
+      "identifier_or_url": "arXiv:1203.2464v1 / https://arxiv.org/abs/1203.2464",
+      "material_read": "Primary PDF section 2.1 and its page-3 rendered display physically inspected: reports tetrahedral E(cw·pw) numerical value approximately 1.2406348222 and discusses unavailability of exact mixed-moment form.",
+      "method": "Lawful arXiv full PDF; section textual examination and page screenshot",
+      "title": "Planar Projections and Second Intrinsic Volume — S. R. Finch",
+      "trigger": "Same regular tetrahedral random shadow area–perimeter mixed moment, identical numerical invariant"
+    },
+    {
+      "assessment": "Computes volumes of linear sections and estimates; sections are not random 2D orthogonal projection area–perimeter correlations. Full-text comparison not exhaustive.",
+      "evidence": "Object differs: simplex sections rather than joint area–perimeter of random projection.",
+      "identifier_or_url": "arXiv:1509.06408 / https://arxiv.org/abs/1509.06408",
+      "material_read": "Public arXiv abstract and statement of section-volume focus, not entire source article.",
+      "method": "arXiv bibliographic entry / abstract, bounded coverage check",
+      "title": "Sections of the Regular Simplex—Volume Formulas and Estimates — H. Dirksen",
+      "trigger": "Possible general simplex geometry implying regular tetrahedron projection moment"
+    }
+  ]
+}
