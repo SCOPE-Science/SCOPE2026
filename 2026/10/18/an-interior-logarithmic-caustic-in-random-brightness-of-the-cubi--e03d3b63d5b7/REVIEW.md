@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The previous directionwise brightness formula and cubic support-function interval were checked from the actual public result texts; the full primary paper's exceptional-case section was read. The new theorem follows from a normalized Gaussian/Dirichlet reduction, a conditional beta-to-arcsine transformation, an exact smooth boundary normal form, and a quadratic localization at the unique interior maximum. The local normal form yields the logarithmic coefficient \(6/\pi\); the two endpoint coefficients follow from disjoint vertex charts and the ellipse Jacobian. The rational-moment identities are independently reproducible. The remaining geometric statements concern only the stated cubic family and nonzero parameter.
+
+**Originality — PASS, with residual bibliographic risk.** Targeted semantic and web queries were compared by implication, not wording. The strongest exact prior result gives \(B(n)\) for each direction, which determines the pushforward *in principle*, but it neither computes the Haar law nor derives the new nontrivial interior logarithmic asymptotic. The axial cubic result treats a different harmonic, and the original projection-rigidity paper proves no density formula. The Abas abstract covers polyhedral rather than this smooth cubic distribution; the full manuscript was not inspected, and an equivalent older Dirichlet-polynomial computation remains possible.
+
+**Value — PASS.** A full random-projection area law for a concrete symmetry-exception family is a natural integral-geometric object. The unexpected internal logarithmic caustic with its sharp coefficient distinguishes the non-axial cubic from the known axial cubic's endpoint-singular law, yielding a genuine geometric-statistical boundary instead of a routine moment calculation. The exact mixture and both endpoint slopes support probability and tomography benchmarks. No unrestricted uniqueness or large classification theorem is claimed.
+
+**Limits.** Only Haar-uniform directions and the stated three-dimensional support family are covered. A previously known pointwise brightness identity is used, not reclaimed. Absolute priority remains a bibliographic risk. The rational checker and simulation are corroborative, not infinite proofs.
+
+Self-review: passed. Independent audit: not yet performed.
