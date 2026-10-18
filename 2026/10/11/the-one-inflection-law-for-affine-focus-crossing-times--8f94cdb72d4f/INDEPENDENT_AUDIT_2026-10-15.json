@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T04:58:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a>0,D>0,4D>T² and input (0,u), scalar x(t)=-u G(t)+a H(t), G=e^{Tt/2} sin(omega t)/omega>0 on (0,pi/omega). u=aH/G=F_delta(theta) has F_delta(0+)=0, F_delta(pi-)=infinity and F_delta>0, so analytic increasing inverse gives first left flight time tau(u). Independent symbolic differentiation verifies N_delta'=(1+delta²)e^{-delta theta}sin theta, M_delta'=sin theta K_delta and K_delta'=(1+delta²)e^{-delta theta}[(2+delta²)sin theta-delta cos theta]; N_delta>0. If delta<=0, K>0 and M>0, so tau is strictly concave; if delta>0 the bracket in K' changes sign once and K(pi)>0, so M decreases then increases and crosses 0 exactly once, giving tau'' positive then negative. This is a global calculus proof, not numeric sampling; T=0 agrees with arctan formula.",
+      "residual_risks": [
+        "Only a>0,D>0,4D>T²; no claim for other equilibrium position, overdamped node, or period composed across multiple flow zones.",
+        "Finite trace samples do not prove uniqueness; sign analysis does."
+      ],
+      "sources": [
+        "Frozen RESULT.md 889c937ace2ab88e0e6d72210516f2504190b483",
+        "Frozen check_flight_time.py a3497fb1cbbfe7997e535c11093788dd86ce31a1",
+        "Independent SymPy derivative and endpoint checks; global analytic sign proof"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carmona et al. 2021/2023 study Poincare half-map spatial curvature and regularity",
+          "Carmona and Fernandez-Sanchez 2019/2021 Theorem 19 computes an integral formula tau(y0)=2Dc+int a/V(0,y)dy"
+        ],
+        "reasoning": "Neither result says tau'' has exactly one zero when T>0 or none when T<=0, and the spatial-map curvature is not equivalent to time-map curvature.",
+        "searches": [
+          "arXiv:2109.12673 Carmona et al., paper on spatial Poincare half-map, focus/discriminant and differential properties",
+          "arXiv:1910.13431 Carmona and Fernandez-Sanchez, Theorem 19, equation (30): integral expression for left flight time",
+          "Resultary query: physical crossing time focus derivative convex concave inflection"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.12673 Carmona et al., paper on spatial Poincare half-map, focus/discriminant and differential properties",
+        "arXiv:1910.13431 Carmona and Fernandez-Sanchez, Theorem 19, equation (30): integral expression for left flight time",
+        "Resultary temporal inflection query",
+        "Assigned exact RESULT.md and check_flight_time.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published source Theorem19 establishes existence and integral representation of tau",
+          "New result uses explicit inversion and nontrivial global monotonicity K_delta sign to show at most one inflection"
+        ],
+        "reasoning": "Even knowing tau as an integral does not logically assert its global curvature shape without the factorization/sign analysis, which was not present in inspected primary results. Thus no direct prior implication verified.",
+        "searches": [
+          "arXiv:1910.13431 Carmona and Fernandez-Sanchez, Theorem 19, equation (30): integral expression for left flight time",
+          "arXiv:2109.12673 Carmona et al., paper on spatial Poincare half-map, focus/discriminant and differential properties",
+          "Assigned RESULT.md blob 889c937ace2ab88e0e6d72210516f2504190b483"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Affine Lienard normal form dot x=T x-y, dot y=D x-a matches first left Poincare half-map model with incoming y0=u",
+          "tau(u) is the original physical excursion time, not P(u) section coordinate"
+        ],
+        "reasoning": "Aliases physical-time flight function, residence time, half-map time are considered. A formula for tau is different from the global one-inflection theorem about tau second derivative.",
+        "searches": [
+          "Resultary semantic query: affine focus crossing time tau(u) one inflection curvature sign planar focus",
+          "arXiv:2109.12673 Carmona et al., paper on spatial Poincare half-map, focus/discriminant and differential properties",
+          "arXiv:1910.13431 Carmona and Fernandez-Sanchez, Theorem 19, equation (30): integral expression for left flight time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact novelty fingerprint unique crossing/inflection phase theta_star defined by M_delta(theta)=0 did not match a distinct indexed finding",
+          "Closest cited primary theorem gives time as integral but no M_delta root count"
+        ],
+        "reasoning": "No exact published table or theorem in inspected sources states the universal one-inflection threshold. This is bounded search evidence with residual uncertainty.",
+        "searches": [
+          "Resultary focus one-inflection query",
+          "arXiv:1910.13431 Carmona and Fernandez-Sanchez, Theorem 19, equation (30): integral expression for left flight time",
+          "arXiv:2109.12673 Carmona et al., paper on spatial Poincare half-map, focus/discriminant and differential properties"
+        ]
+      },
+      "rationale": "The closest primary literature establishes integral formulations and curvature of the SPATIAL Poincare half-map P(y0), and even an integral expression for the PHYSICAL flight time tau(y0), but not the number and sign pattern of its second derivative for positive versus nonpositive trace. The assigned one-inflection theorem makes that nontrivial global sign classification after differentiating the time inverse, rather than renaming the spatial map. Primary 1910/2021 manuscripts were inspected in relevant theorem sections. Best-of-knowledge originality passes with residual wider publication/period-function risk.",
+      "residual_risks": [
+        "A later multi-zone period-function paper or comprehensive analytic-ODE text might contain the one-inflection corollary in different variables; search not exhaustive.",
+        "Flight-time integral is known, so novelty is specifically the sharp global sign/count of time curvature, not the elementary solution formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reports flight-time integral and spatial half-map, not explicit trace-classified one-inflection law",
+          "evidence": [
+            "Theorem19: tau(y0)=2Dc+integral_{y1}^{y0}a/V(0,y)dy; no theorem about tau'' zero count in inspected content."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.13431",
+          "material_read": "35-page primary PDF: contents, introduction, Section5 pp25-30, especially Theorem19 and its flight-time equation (30), and search for inflection",
+          "method": "Read original mathematical theorem and its proof setup; bounded full-document term check",
+          "title": "Integral characterization for Poincare half-maps in planar linear systems",
+          "trigger": "Highly relevant exact left-flight-time theorem"
+        },
+        {
+          "assessment": "Spatial half-map second-derivative sign concerns P(u), distinct from tau(u) second derivative",
+          "evidence": [
+            "Spatial map curvature statement and phase-plane setting; no direct physical-time one-inflection law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.12673",
+          "material_read": "Primary PDF introduction, relevant numbered half-map derivative/curvature statements, displayed flight-time definition, and topic comparison",
+          "method": "Read relevant original theorem pages and PDF text search for inflection",
+          "title": "Properties of Poincare half-maps for planar linear systems and some direct applications to periodic orbits of piecewise systems",
+          "trigger": "Same affine-focus model and possible stronger curvature theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For planar switching dynamics the original physical residence time controls periods and timing sensitivity, separately from the spatial Poincare half-map. A complete and sharp trace-controlled one-inflection classification across all incoming section amplitudes is a nonroutine global shape theorem with an explicit unique transition parameter.",
+      "residual_risks": [
+        "Restriction to affine underdamped focus is essential; general switching systems and nonlinear dynamics not addressed."
+      ],
+      "sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/the-one-inflection-law-for-affine-focus-crossing-times--8f94cdb72d4f/RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only a>0,D>0,4D>T²; no claim for other equilibrium position, overdamped node, or period composed across multiple flow zones.",
+    "Finite trace samples do not prove uniqueness; sign analysis does.",
+    "A later multi-zone period-function paper or comprehensive analytic-ODE text might contain the one-inflection corollary in different variables; search not exhaustive.",
+    "Flight-time integral is known, so novelty is specifically the sharp global sign/count of time curvature, not the elementary solution formula.",
+    "Restriction to affine underdamped focus is essential; general switching systems and nonlinear dynamics not addressed."
+  ],
+  "schema_version": 1
+}

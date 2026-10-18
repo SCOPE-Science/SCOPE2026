@@ -1,15 +1,21 @@
-# Review of the one-inflection flight-time theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the original-time left excursion of the affine focus only, with strictly positive forcing and a negative-half-plane crossing. The exact Green-function solution reduces the first return to inversion of an increasing trigonometric-exponential quotient. The identities \(N_\delta'>0\), \(M_\delta'=\sin\theta\,K_\delta\) and the single sign change in \(K_\delta'\) prove the one-inflection criterion without sampling assumptions. The physical-time normalization and both boundary limits are fixed explicitly. Symbolic derivative identities and direct numerical integrations agree; these computations supplement rather than replace the global sign argument.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The closest paper is Carmona–Fernández-Sánchez–García-Medina–Novaes, *Properties of Poincaré half-maps* (arXiv:2109.12673): its spatial return-map curvature theorem is a different statement from curvature of the time needed for the excursion. Related papers on integral half-map characterization and canard flight-time formulas were compared. None of the inspected material states or directly implies the unique timing inflection across positive trace. The earlier integral-characterization article and a later two-zone period-function article could not be inspected fully, and publication priority is therefore not independently established. A closed-form flow parameterization alone does not state the nontrivial global sign-counting conclusion.
+PASS
 
-## Value — PASS
-In piecewise-linear and switching oscillators, the time spent inside a zone controls physical periods, timing sensitivity and return multipliers; it is distinct from where a trajectory intersects the section. The theorem gives a full, sharp trace-driven shape classification of that observable, including the unique transition amplitude. It rules out multiple flight-time inflections even for unstable foci, a constraint not supplied by the known sign of the spatial half-map's second derivative. This structural statement covers every incoming section point under its natural focus and geometric assumptions, rather than an arbitrarily selected numerical example.
+For a>0,D>0,4D>T² and input (0,u), scalar x(t)=-u G(t)+a H(t), G=e^{Tt/2} sin(omega t)/omega>0 on (0,pi/omega). u=aH/G=F_delta(theta) has F_delta(0+)=0, F_delta(pi-)=infinity and F_delta>0, so analytic increasing inverse gives first left flight time tau(u). Independent symbolic differentiation verifies N_delta'=(1+delta²)e^{-delta theta}sin theta, M_delta'=sin theta K_delta and K_delta'=(1+delta²)e^{-delta theta}[(2+delta²)sin theta-delta cos theta]; N_delta>0. If delta<=0, K>0 and M>0, so tau is strictly concave; if delta>0 the bracket in K' changes sign once and K(pi)>0, so M decreases then increases and crosses 0 exactly once, giving tau'' positive then negative. This is a global calculus proof, not numeric sampling; T=0 agrees with arctan formula.
 
-## Limits
-The result is not about the period function of a complete two-zone oscillator. The assumptions \(a>0\), \(D>0\) and \(4D>T^2\) are substantive; no claim is made beyond them. Searches and source comparison do not prove absolute novelty. Numerical and symbolic checks cannot substitute for the analytic global proof.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary literature establishes integral formulations and curvature of the SPATIAL Poincare half-map P(y0), and even an integral expression for the PHYSICAL flight time tau(y0), but not the number and sign pattern of its second derivative for positive versus nonpositive trace. The assigned one-inflection theorem makes that nontrivial global sign classification after differentiating the time inverse, rather than renaming the spatial map. Primary 1910/2021 manuscripts were inspected in relevant theorem sections. Best-of-knowledge originality passes with residual wider publication/period-function risk.
+
+## value
+
+PASS
+
+For planar switching dynamics the original physical residence time controls periods and timing sensitivity, separately from the spatial Poincare half-map. A complete and sharp trace-controlled one-inflection classification across all incoming section amplitudes is a nonroutine global shape theorem with an explicit unique transition parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
