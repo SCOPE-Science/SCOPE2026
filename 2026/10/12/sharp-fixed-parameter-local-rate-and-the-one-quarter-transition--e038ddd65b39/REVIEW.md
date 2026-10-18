@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the strictly positive balanced two-atom family, the gauge-free Sinkhorn log-potential derivative is exactly \(s^2\). Differentiating the two source-specified accelerated state updates yields a \(2\times2\) matrix with trace \((a^2+a-1+(a+3)s^2)/(1+a)^2\) and determinant \(s^2/(1+a)^2\). Schur/Jury inequalities prove local stability. A unique increasing-quadratic root yields the only spectral-radius minimizer: the determinant bounds all smaller parameters, and the characteristic polynomial evaluated at the optimal repeated root excludes all larger parameters. An exact algebraic sign calculation gives the \(s^2=1/4\) frontier. Standalone exact-rational and high-precision calculations and nonlinear finite-difference checks support the analytic derivation, but do not replace it.
+PASS
 
-## Originality — PASS, with residual risk
+For balanced P_s with s in (0,1), the source-prescribed centered ordinary Sinkhorn derivative is s². Direct independent symbolic differentiation of the Xu-Chen two-state fixed-mu recurrence reconstructs the displayed 2x2 Jacobian, trace (a²+a−1+(a+3)s²)/(1+a)² and determinant s²/(1+a)², a=sqrt(2mu). Jury inequalities 1±trace+det>0 and det<1 hold for 0<a<sqrt(2). Unique positive solution of G_s(a)=a²+(1−s)²a−(1−s)(1+3s)=0 satisfies a<=1 and gives positive repeated eigenvalue q=s/(1+a). Determinant lower bound for a<a_* and negative characteristic value at q_* for a>a_* prove uniqueness of global spectral minimum in permitted range; G_s(1/s−1) factors as ((s−1)(s+1)²(2s−1))/s² to give exact one-quarter comparison. Independently checked the symbolic Jacobian, determinant, Schur identities, rate-minimax and switch factors with SymPy, and inspected the source nonlinear finite-difference verifier without claiming to have run it; no global rate or critical pure-geometric prefactor asserted.
 
-Xu and Chen, arXiv:2605.30267v1, introduce the specific accelerated two-state algorithm but do not optimize its local spectral radius on the two-atom family. Gao, Qu, Ye, and Udell, arXiv:2608.11760, study local rates of standard Sinkhorn and a distinct preconditioned accelerated-gradient method. Thibault, Chizat, Dossal, and Papadakis, arXiv:1711.01851, optimize a different SOR-based overrelaxation. Full primary texts were compared at the algorithm and theorem level. Search of published mathematical-result records found no covering exact statement; this is not proof that other indexed or unindexed work cannot subsume the finding. In particular, the sharp spectral minimax may have an undiscovered equivalent general linear-recurrence formulation.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp threshold distinguishes an acceleration benefit from an acceleration **penalty**, even after optimizing the parameter of the newly introduced method. The explicit parameter formula and proof apply to every positive symmetric two-atom coupling, giving a natural complete minimal-instance benchmark. The result does not claim global convergence from arbitrary points, optimality across different algorithms, finite-horizon objective ordering, or practical algorithmic speedups beyond this local benchmark.
+Original Xu-Chen Acc-Sinkhorn algorithm and its global O(1/k²) homotopy theory are prior. The final theorem is a sharp local fixed-parameter spectral-minimax phase diagram for its exact two-state recurrence on positive balanced two-atom kernels. Gao et al analyze standard Sinkhorn and a distinct algorithm; Thibault et al analyze SOR overrelaxation. No inspected source covers the same fixed-parameter update and 1/4 switch.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result identifies an exact minimal 2x2 problem where a purported acceleration method can remain slower than ordinary Sinkhorn even with optimal tuning. The unique optimizer and transition in the nontrivial singular mode make a motivated, method-specific design and diagnostic result. It is not claimed to beat SOR, optimize wall-clock cost or describe arbitrary matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
