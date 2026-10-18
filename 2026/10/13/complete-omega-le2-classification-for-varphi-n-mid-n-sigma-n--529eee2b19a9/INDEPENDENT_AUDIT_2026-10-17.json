@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T17:56:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n prime, φ(p)|pσ(p) reduces p−1|2, giving p=2 or 3. For p² it reduces p−1|3, giving p=2 and n=4. For pq with p=2, q−1|12 yields q=3,5,7,13. For odd p<q, P=(p−1)/2 and Q=(q−1)/2; coprimality forces P|Q+1, Q|p(P+1). Writing Q+1=kP and Q|(k+1)(k+2), define h=(k+1)(k+2)/Q and t=(h+2)/k to obtain (kt−2)P=k+t+3. For P=1, (k−1)(t−1)=6 yields q=5,7,13; P>=2 implies 2kt−k−t<=7 with the listed finite possibilities, yielding remaining four prime pairs. Every implication is reversible via gcd(P,Q)=1; all fourteen numbers pass direct substitution. Independently exact computation over all n<=100000 with Ω(n)<=2 found precisely the listed 14, corroborating but not replacing the finite symbolic sieve.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broughan–Zhou 2014 studies φ(n)|σ(n) with at most three distinct prime factors and contains finite classification of stronger condition.",
+          "Multiplication by n weakens the divisibility, admitting 26,39,155,203 outside strong-condition consequences."
+        ],
+        "reasoning": "The cited broader prime-support result is on a smaller solution set (stronger predicate), so it does not logically cover the target classification.",
+        "searches": [
+          "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL17/Broughan/bro32.pdf",
+          "https://oeis.org/A066994",
+          "phi(n) divides n sigma(n) omega <=2 semiprime classification"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A066994",
+        "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL17/Broughan/bro32.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Broughan–Zhou theorem φ(n)|σ(n) implies φ(n)|nσ(n), but converse fails for n=26: φ(26)=12, σ(26)=42 not divisible by 12, yet 26σ(26) divisible by 12.",
+          "The target odd-semiprime branch includes such additional cases and requires new finite k,t reduction."
+        ],
+        "reasoning": "Prior stronger-condition classifications yield only a subset of the desired solutions, not the asserted complete fourteen-element list.",
+        "searches": [
+          "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL17/Broughan/bro32.pdf",
+          "https://oeis.org/A066994"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A066994 defines φ(n)|nσ(n), with terms including the 14 listed; its visible entry does not give an Ω<=2 theorem.",
+          "Known sequence membership is not a proof of exclusion of arbitrarily large two-prime-factor solutions."
+        ],
+        "reasoning": "The candidate classification is not merely an equivalent name for the original predicate: it adds an exhaustive infinite-domain exclusion argument.",
+        "searches": [
+          "phi(n) divides n sigma(n) omega <=2 semiprime classification",
+          "totient divides n sigma(n) semiprime",
+          "https://oeis.org/A066994"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact OEIS object is A066994 but available terms/filters lack the proof and total classification by Ω.",
+          "Related Resultary hits concern different equations including Duffinian semiprimes and iterated sigma sums."
+        ],
+        "reasoning": "No exact database table certifying the infinite Ω<=2 cut-off found; may be unpublished annotation, a residual risk.",
+        "searches": [
+          "https://oeis.org/A066994",
+          "totient divides n sigma(n) semiprime",
+          "phi(n) divides n sigma(n) omega <=2 semiprime classification"
+        ]
+      },
+      "rationale": "OEIS A066994 describes precisely φ(n)|nσ(n) and lists early terms but gives no low-multiplicity classification or proof. Broughan–Zhou 2014 proves classification of φ(n)|σ(n) for few prime factors; that is strictly stronger condition and does not entail solutions made possible by multiplying by n, such as 26,39,155,203. The exact bound from (kt−2)P=k+t+3 is a new structural deduction relative to these checked sources; unindexed elementary notes remain a plausible originality risk.",
+      "residual_risks": [
+        "An unpublished OEIS discussion or problem collection could have independently proved the exact 14-number list.",
+        "Numerical enumeration through 100000 is not infinite exhaustion; finite diophantine bounds in proof supply that."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same underlying sequence, no presented proof of complete two-factor cutoff.",
+          "evidence": "A066994 definition and listed terms; OEIS page accessed 2026-10-17.",
+          "identifier_or_url": "https://oeis.org/A066994",
+          "material_read": "Read visible OEIS entry definitions, displayed terms, comments/references links and source page text.",
+          "method": "OEIS full current entry HTML",
+          "title": "A066994: numbers k such that phi(k) divides k sigma(k)",
+          "trigger": "Exact database predicate and prior tabulated values"
+        },
+        {
+          "assessment": "Equation classified is phi(n)|sigma(n), not phi(n)|n sigma(n).",
+          "evidence": "Abstract, Introduction and selected case analyses of R_a={n:sigma(n)=a phi(n)}.",
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL17/Broughan/bro32.pdf",
+          "material_read": "Read accessible 22-page PDF title, abstract, introduction and browsed specific proof-section cases/prime-support solutions; visually inspected page 1.",
+          "method": "public PDF text and page image",
+          "title": "On the Ratio of the Sum of Divisors and Euler’s Totient Function II",
+          "trigger": "Closest low-prime-support divisor/totient classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete finite characterization of the two-prime-factor edge of the naturally defined OEIS divisibility sequence supplies a clean first nontrivial structural layer. Beyond re-listing known terms, the prime-support restriction and bounded k,t parametrization prove no further solutions at arbitrarily large n, a fact finite sequence tables alone cannot establish.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unpublished OEIS discussion or problem collection could have independently proved the exact 14-number list.",
+    "Numerical enumeration through 100000 is not infinite exhaustion; finite diophantine bounds in proof supply that.",
+    "Original model assumptions and external formal/professional certification are not independently attested; the review tests the precise source claim.",
+    "Exact assigned record-tree and RESULT.md blob were verified, but repository-root ancestry was not independently recomputed."
+  ],
+  "schema_version": 1
+}
