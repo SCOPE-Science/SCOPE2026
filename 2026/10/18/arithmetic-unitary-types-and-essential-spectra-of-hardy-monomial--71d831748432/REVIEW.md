@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The coefficient formula follows from orthonormal Hardy monomials and the coprime quotient \(a=m/d\), \(b=k/d\). Maximal divisibility yields a unique \(a^j b^h c\) decomposition; its chains have length \(j+h+1\), and every length occurs infinitely often when both quotients exceed one. Standard contraction estimates and explicit singular sequences establish the exact polynomial essential norm and full Fredholm disk. The finite checker reproduced 90,377 arithmetic diagnostics; the universal proof is independent of those finite tests.
+
+**Originality — PASS, subject to independent priority review.** Leng–Zhao's recent composition-product paper addresses Schatten membership rather than arithmetic unitary equivalence. Halmos–Wallen's general power-partial-isometry theorem and the full modern proof by an Huef–Raeburn–Tolich supply generic model components, but not the exact multiplicities of the Hardy monomial composition-adjoint products. Exact-equivalence and stronger-coverage searches did not identify an explicit result yielding all four types with these multiplicities and their full essential spectral and polynomial-norm consequences. A residual risk is older literature on arithmetic partial permutations not indexed by these terms.
+
+**Mathematical value — PASS.** The four-type theorem gives a complete natural two-integer family classification, with a particularly striking collapse of all incomparable exponent pairs into one unitary class. It distinguishes point-spectrum and orbit behavior even though every nonidentity case has the same entire essential disk, and gives an exact Calkin polynomial functional calculus. This is more informative than general partial-isometry structure or a single counterexample. It is restricted to standard unweighted Hardy monomial maps.
+
+Self-review: passed. Independent audit: not yet performed.
