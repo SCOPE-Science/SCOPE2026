@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,40 +18,25 @@
   "schema_version": 1
 }
 ---
-For
-\[
-f_\alpha(x)
-=
-\frac{P_\alpha(x)}{C(\alpha)}
-\frac{e^{-x}}{(1+e^{-x})^2},
-\]
-the leading polynomial term is
-\[
-\alpha^2x^6
-\]
-when \(\alpha\ne0\), and
-\[
-2x^4
-\]
-when \(\alpha=0\).
 
-The logistic kernel satisfies
-\[
-\frac{e^{-x}}{(1+e^{-x})^2}\sim e^{-x}
-\]
-as \(x\to+\infty\) and is asymptotic to \(e^x\) as \(x\to-\infty\). Hence both extreme tails have the same exponential rate and leading constant.
+# Independent mathematical audit
 
-The MGF integrand behaves like
-\[
-x^m e^{-(1-t)x}
-\]
-on the right and, after reflection, like
-\[
-x^m e^{-(1+t)x}
-\]
-on the left. Thus the MGF exists exactly for
-\[
--1<t<1.
-\]
+## correctness
 
-The included checker evaluates the exact published density for positive, negative, and zero values of \(\alpha\), verifies density and survival tail ratios, confirms right-hazard and left reversed-hazard convergence, and checks finite MGF values strictly inside the strip.
+PASS
+
+For every α, the source density has strictly positive finite normalizer and logistic factor L(x)∼e^{−x} as x→+∞ and L(−x)∼e^{−x}. Polynomial Pα has equal leading powers on both signs: α²x^6 if α≠0 and 2x^4 if α=0. Consequently fα(±x)∼Aα x^m e^{−x}; integration yields matching left and right survival equivalents; both hazard limits equal 1; Mα(t) converges exactly for −1<t<1 and diverges at both endpoints because a positive polynomial remains after cancellation. For Y=μ+βX β>0, strip becomes |t|<1/β and endpoint hazard limits 1/β. Independent verification reconstructed exact normalization and sampled integrals; the unrestricted result is elementary asymptotic analysis, not sampling.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS restricted to the TASL-specific full tail and MGF-domain correction. The original paper gives a formula for the MGF and the polynomial density, so strip and exponential class are mathematically implicit; it does not state the exact convergence domain or balanced tail ratios, and describes the distribution as heavy-tailed in the standard exponential-moment sense. Credit general logistic and polynomial-tilt asymptotics; claim only explicit identification and correction.
+
+## value
+
+PASS
+
+A published reliability/probability model is classified as heavy-tailed and its parameter is advertised as controlling tail type. Showing all parameters retain the same exponential rate and a fixed nonempty positive MGF domain materially changes extrapolation and risk interpretation; both-sided hazard limits are useful. This is a motivated source-specific correction, not merely an arbitrary parameter substitution or a claim about visual kurtosis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
