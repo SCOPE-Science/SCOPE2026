@@ -1,1 +1,21 @@
-# Same-model review\n\n## Correctness\nPASS. The exact published \\(K_6\\) incidence data reconstructs \\(K\\) with face vector \\(f=(16,120,330,375,150)\\). The mod-two triangle-boundary rank is 104, while the complete one-skeleton has cycle-space dimension 105, so \\(H_1(K;\\mathbf F_2)\\) is one-dimensional. A separately constructed 45-edge cocycle evaluates zero on all 330 face triangles and one on all 230 missing triangles. Thus every missing triangle is essential. Exhaustion of all 720 induced \\(S_6\\) permutations verifies the four orbit sizes \\(20,60,90,60\\) and the stated representatives.\n\n## Originality\nPASS. The exact-object sources inspected give the triangulation, vertex minimality, 2-neighborliness, face vector, \\(S_6\\) action, and 30-plus-120 facet decomposition, but not this shortest-cycle classification. published-finding corpus searches in missing-face, mod-two homology, systolic, numerical, and symmetry-orbit language returned no statement implying the 230 essential cycles or their four-orbit split. The own current and prior topology-archive ledgers were also checked for statement-level overlap.\n\n## Value\nPASS. The unique nonzero class in \\(H_1(\\mathbb{{RP}}^4;\\mathbf F_2)\\) is a canonical topological invariant, and \\(RP^4_{{16}}\\) is a vertex-minimal highly symmetric triangulation. Determining every shortest simple representative and its full symmetry decomposition gives a complete intrinsic combinatorial systolic invariant of this canonical object.\n\n## Closest literature and limitations\nBalagopalan is the closest exact construction source; Lutz supplies the minimality, face vector, neighborliness and automorphism context. These sources do not state the all-missing-triangles homology result. The claim is limited to simple edge cycles over \\(\\mathbf F_2\\) in this triangulation. An unindexed older finite computation remains a residual originality risk. The 1999 dissertation predates the day-specific metadata source, but no exact day for that dissertation was verified.\n\nSame-model review: passed. Independent audit: not yet performed.\n
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Independently built the 30+120 tetrahedron facets from all fifteen printed four-element K6 edge labels, not from an asserted f-vector. Generated all subfaces and obtained f=(16,120,330,375,150), GF(2) boundary-d2 rank 104 and d1 rank 15, hence H1(F2) dimension (120-15)-104=1. Constructed the 45-edge gauge-fixed cocycle w(Ax)=0, w(xy)=[Axy is missing], checked w vanishes on all 330 facial triples and evaluates 1 on all 230 absent triples; each absent triple is therefore essential and all simple 3-edge minimizers are exhausted. Recovered the ten 3+3 letter bisections, induced all 720 S6 actions, verified facet preservation and exhaustive missing-triple orbits with sizes 20,60,90,60. The full automorphism designation relies on Lutz exact-object group identification; no integral-cycle conclusion is made.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication assessment: Knowing H1(RP4;F2)=F2 and all facets gives a computable finite problem, not a previously stated theorem implying every missing triple is nontrivial and has the claimed orbit sizes. Relevant primary exact-object sources and indexed findings were checked by object, invariant and quantifiers; inaccessible plausible material is retained explicitly as risk, not treated as automatic scientific rejection.
+
+## value
+
+PASS
+
+Complete shortest nonzero H1(F2) cycle classification and full symmetry decomposition for the canonical vertex-minimal triangulation of RP4 gives a natural and exact combinatorial systolic invariant. The homology detection is not forced merely by face counts; carrier orbits 20/60/90/60 are additional geometric-topological structure. It does not claim longer or integral systoles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
