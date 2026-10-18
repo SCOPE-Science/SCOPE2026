@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The prefix automaton has only i->j with j<=i+1 and A_{i,i+1}=pi(w_{i+1}); absorbing edge is from m-1 via w_m. A specified inverse matrix entry has a unique lower-triangular cofactor, giving E z^(T-m)=p_w/det(I-zA). A^m row sums <=1-p_w, hence rho(A)<1, normalization det(I-A)=p_w. Matrix log identity gives nonnegative Levy masses tr(A^k)/k summing to -log(p_w). The ordinary cumulant formula follows by spectral exponential decay. Tested 498 patterns with independent rational verification and brute enumeration; bounded checks do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sankaran and Midhu (2010), DOI:10.1016/j.spl.2010.08.004, author-uploaded full text, sections 2-4 and Appendix: Markov embedding and algorithms for exact first-hit distributions and means; no infinite-divisibility or Levy-trace theorem asserted.",
+        "Johnson and Fu (2014), sections on Poisson and compound-Poisson approximations: laws of pattern *counts*, not exact first-waiting-time laws."
+      ],
+      "reasoning": "The primary 2010 source exhibits the one-step Hessenberg transition restriction and exact first-passage calculations, but does not take the cofactor/determinant ratio and nonnegative trace logarithm to an exact all-word compound-Poisson theorem. A generic spectral Markov-embedding formula covers probability calculation without by itself asserting this distributional structure. Unexamined classic sources may still have an equivalent conclusion.",
+      "searches": [
+        "determinant formula for first pattern waiting time pgf inverse det I minus z automaton transfer matrix graph closed walk traces infinitely divisible",
+        "arbitrary single word pattern matching stopping time probability generating function determinant prefix automaton Markov embedding",
+        "On waiting time distributions for patterns in a sequence of multistate trials",
+        "Approximating the distributions of runs and patterns",
+        "Sankaran Midhu pattern waiting time discrete infinite divisibility all single patterns independent multistate trials"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2210.08797v1 full HTML sections",
+      "DOI:10.1186/2195-5832-1-5 open access full HTML sections",
+      "DOI:10.1016/j.spl.2010.08.004 publicly author-uploaded full-text sections, formulas and Appendix",
+      "Published mathematical record semantic queries as listed"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.8 of arXiv:2210.08797v1: for a length-two success run, the PGF equals p²z²/(1-qz-qpz²). It is a special case of, not an assertion of, the arbitrary-word theorem.",
+        "Johnson and Fu (2014) focus on asymptotic error of Poisson and compound-Poisson approximations for counts of occurrences; their embedded Markov chains provide the framework but not universal CP factorization.",
+        "The matrix-cofactor computation supplies the monomial numerator p_w z^m and trace positivity supplies all nonnegative logarithmic coefficients.",
+        "Sankaran and Midhu (2010), section 2.1 formulas (3)-(14) and algorithm Table 1: exact pattern first-wait laws from a finite transition matrix, but not an all-pattern infinite-divisibility or Levy measure statement."
+      ],
+      "reasoning": "A theorem declaring the shifted first-wait for every finite iid word to be infinitely divisible would dominate even if it omitted the trace formula; no such result emerged in the inspected full text or searches. Existing repeated-success run PGFs are strict special cases, and the known 2010 general finite-Markov embedding stops at probability/moment algorithms without taking the nonnegative logarithmic matrix-trace implication. Other older pattern-generating-function sources remain a residual literature risk.",
+      "searches": [
+        "determinant formula for first pattern waiting time pgf inverse det I minus z automaton transfer matrix graph closed walk traces infinitely divisible",
+        "arbitrary single word pattern matching stopping time probability generating function determinant prefix automaton Markov embedding",
+        "arXiv:2210.08797",
+        "DOI:10.1186/2195-5832-1-5",
+        "Every first-hitting waiting time to a prescribed finite iid string word shifted by word length is discrete infinitely divisible, with exact compound Poisson rate negative logarithm of pattern probability and jump distribution trace(A^k)/k",
+        "Sankaran Midhu pattern waiting time discrete infinite divisibility all single patterns independent multistate trials"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Oh, Park and Kim, arXiv:2210.08797v1, sections 2.1.1 and 2.1.4: rational PGF for a run of repeated successes; no all-word Lévy trace formula.",
+        "Johnson and Fu (2014), exact finite-Markov-chain embedding section: generic phase-type generating functions."
+      ],
+      "reasoning": "The assertion can be restated as infinitely divisible distribution of the time from the first possible completion to actual completion, with Lévy measure tr(A^k)/k. A geometric/negative-binomial representation for repeated identical letters does not imply the arbitrary bordered/nonuniform pattern case; generic finite phase-type rational generating functions do not guarantee nonnegative coefficients in their logarithm. The all-word cofactor and nonnegative trace are the missing implication.",
+      "searches": [
+        "first occurrence waiting time to a finite word in iid symbols shifted by word length is exactly compound Poisson infinitely divisible discrete Lévy measure trace of prefix automaton powers",
+        "geometric order k waiting time shifted success run infinite divisibility compound Poisson",
+        "\"pattern\" \"waiting time\" \"infinitely divisible\" first occurrence discrete",
+        "Every first-hitting waiting time to a prescribed finite iid string word shifted by word length is discrete infinitely divisible, with exact compound Poisson rate negative logarithm of pattern probability and jump distribution trace(A^k)/k",
+        "Prefix automaton upper Hessenberg inverse determinant makes waiting time of arbitrary single iid word compound Poisson positive trace Levy coefficients"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Completed semantic searches of published mathematical records yielded different pattern-string and renewal objects, including 2026/9/19/SCOPE-nonuniform-distinct-substrings-shannon-correction--b50e5b4eb7f4 and 2026/10/4/SCOPE-exact-uniform-mean-overshoot-for-two-point-lattice-renewals--54c32c8b7bdc.",
+        "Sankaran and Midhu (2010), sections 2.1-2.3 and Appendix, tabulate or compute waiting-time probabilities and means, but not the nonnegative Levy masses; targeted mathematical-record searches identified no corresponding table of universal all-word Levy coefficients."
+      ],
+      "reasoning": "A tabulated first-pattern waiting-time mass function or rational PGF is not an exact Lévy-measure table unless its log coefficients are established nonnegative for every word. Neither searched specific mathematical record nor accessible own claim had the latter implication. Search coverage is not exhaustive.",
+      "searches": [
+        "first occurrence waiting time to a finite word in iid symbols shifted by word length is exactly compound Poisson infinitely divisible discrete Lévy measure trace of prefix automaton powers",
+        "geometric order k waiting time shifted success run infinite divisibility compound Poisson",
+        "waiting time pattern first occurrence infinite divisible distribution",
+        "Prefix automaton upper Hessenberg inverse determinant makes waiting time of arbitrary single iid word compound Poisson positive trace Levy coefficients"
+      ]
+    },
+    "rationale": "Inspected the 2022 arXiv paper, the relevant 2014 full open-access article sections, and the full author-uploaded 2010 paper. Repeated-success waiting-time PGFs, finite-Markov-chain embedding algorithms for general patterns, and compound-Poisson approximations for pattern counts do not directly assert the all-word exact first-wait compound-Poisson decomposition. Completed semantic database/literature searches and comparison with relevant published mathematical claims found no equivalent or stronger claim. Uninspected earlier pattern-generating-function sources remain a specified risk.",
+    "residual_risks": [
+      "Classic pattern first-passage literature may call the same conclusion compound-geometric, logarithmic combinatorial or renewal representations rather than infinite divisibility.",
+      "The finite Markov determinant identity itself is elementary from standard embeddings; originality is specifically the universal nonnegative trace Levy measure and first-wait CP conclusion.",
+      "Published-search and mathematical-record coverage is finite; no independent literature audit.",
+      "Additional historical works on word-pattern generating functions (such as Fu and Chang 2002 and Antzoulakos 2001) were not inspected sequentially in full and may contain a differently framed equivalent assertion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same stopping-time family in repeated-success subcase; no equivalent all-word exact compound-Poisson theorem in inspected portions.",
+        "evidence": "arXiv:2210.08797v1 lines 93-103 and 305-330; Theorem 2.8 G_{V(2)}(z)=p²z²/(1-qz-qpz²).",
+        "identifier_or_url": "https://arxiv.org/html/2210.08797v1",
+        "material_read": "Full HTML accessible. Introduction, independent Bernoulli section, theorem 2.8 and generating-function section 2.1.4; searched entire HTML for infinitely divisible and compound Poisson terms.",
+        "method": "Read explicit rational PGF and compare special repeated-letter pattern against arbitrary word and Levy trace conclusion.",
+        "title": "Recurrence algorithms of waiting time for the success run of length k in relation to generalized Fibonacci sequences",
+        "trigger": "2022 motivating source for repeated-success run waiting-time distributions"
+      },
+      {
+        "assessment": "Analyzes counts of pattern occurrences and approximate compound-Poisson count laws, not exact compound-Poisson representation of excess first-occurrence waiting time.",
+        "evidence": "2014 article abstract, finite Markov chain embedding and discussion: approximate pattern occurrence-count laws.",
+        "identifier_or_url": "https://doi.org/10.1186/2195-5832-1-5",
+        "material_read": "Accessible full HTML article: abstract, finite Markov-chain imbedding, Poisson/compound-Poisson approximation methods, asymptotic comparison, discussion and conclusions.",
+        "method": "Compare target random variable and strength of assertion, and inspect exact/approximate distinction.",
+        "title": "Approximating the distributions of runs and patterns",
+        "trigger": "Potentially broader theorem using finite Markov embedding and compound-Poisson theory"
+      },
+      {
+        "assessment": "Plausible prior exact waiting-time calculations; potential equivalence or stronger claim cannot be fully excluded without full-text comparison.",
+        "evidence": "Publisher abstract describes finite Markov chain embedding and numerical algorithms, but not infinite divisibility.",
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2010.08.004",
+        "material_read": "Accessible publisher abstract, introduction extract and section-description snippets; full body unavailable.",
+        "method": "Assessed stated scope, did not infer whole-paper negative coverage from snippets.",
+        "title": "On waiting time distributions for patterns in a sequence of multistate trials",
+        "trigger": "Highly relevant primary earlier study of general simple-pattern waiting time"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "36c13b69-8190-4423-8d3e-8e886733b818",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Universal exact compound-Poisson representation for arbitrary single-pattern excess waiting times supplies jump masses, infinite divisibility, all cumulants, and an explicit simulation law. This structural property is stronger than raw recurrence coefficients, not automatically true for arbitrary phase-type stopping times, and applies to overlap-sensitive, nonuniform finite-alphabet patterns. It is motivated by classical run and word-wait distributions, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
