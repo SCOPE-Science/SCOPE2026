@@ -1,15 +1,21 @@
-# Review of the Hessian-weighted baseline-reuse cut law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact quadratic forward difference has deterministic mean \(Hx+b+h\operatorname{diag}(H)/2\). With independent perturbed-point noise and an independently realized baseline error for each group, covariance is \((\sigma^2/h^2)(I+\sum_a\boldsymbol1_{C_a}\boldsymbol1_{C_a}^\top)\). The quadratic expectation identity turns its off-diagonal contribution into precisely minus the cut weight relative to a single baseline. The MAX-CUT reduction uses \(I+\epsilon A_G\), whose spectrum is bounded by \(1\pm\epsilon(n-1)\), and keeps all rational data polynomially representable. The independent finite-instance rational checker passes 18,107 checks and supplies no substitute for the infinite-dimension proof. Limits: fixed one-step quadratic, equal-variance independent additive calls, fixed partition.
+PASS
 
-## Originality — PASS (with residual risk)
+On a quadratic phi with Hessian H and independent equal-variance additive evaluations, literal baseline reuse gives Cov(ghat)=sigma²/h²(I+sum_a 1_Ca 1_Ca^T), while mean is Hx+b+h diag(H)/2. Exact quadratic expectation gives eta²sigma²/(2h²)[tr H+sum_a 1_Ca^T H 1_Ca], so the improvement from all-one sharing is minus eta²sigma²/h² times the signed sum of cut Hessian edges. Taking H=I+epsilon A_G with epsilon rational small enough for SPD and kappa(H)<1+delta reduces exact optimal two-baseline selection to MAX-CUT, with polynomial-size input. Euclidean gradient MSE remains h²/4 sum H_ii²+2n sigma²/h² for every partition. Independent symbolic derivation and all eight labels on a three-coordinate rational signed Hessian reproduced equality and partition invariance; the negative-edge 2D example shows forced splitting may worsen expectation.
 
-The prior Brekelmans et al. manuscript (2003, Section 2.1) already explicitly computes covariance induced by a shared finite-difference baseline and the Euclidean error contribution; those elementary observations are not new here, but their fixed-estimator comparisons do not solve the grouped-baseline design problem. The standard finite-difference reference of Berahas et al. (2019, Section 2.1, arXiv:1905.01332) shares one reference evaluation and proves gradient-error bounds, without optimizing multiple separate reference errors. Shi et al. (2021, arXiv:2110.06380) optimize difference interval selection, not the covariance partition. Kleinman, Spall, and Naiman (1999, Section 2.2) study reusing random numbers between paired noisy function comparisons, not grouping identical-point reference realizations across coordinates according to the Hessian. A related 2019 manuscript (arXiv:1905.13043) compares interpolation and Gaussian smoothing rather than the present exact one-step signed-weight cut. Searches of mathematical research indices for common-reference covariance partition, equivalent cut language, and MAX-CUT, plus searches for stronger common-random-number coverage, yielded no inspected statement implying this full classification. Absence of a search hit is not a uniqueness proof; unindexed and older specialized experiment-design literature remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The grouping problem is not an arbitrary finite enumerative example: a standard derivative-free gradient construction reuses a costly baseline evaluation, and batching multiple baselines naturally raises which coordinates should share them. The exact theorem gives the optimizer's objective as a curvature-weighted combinatorial design despite an invariant Euclidean gradient MSE. Complexity persists for Hessians arbitrarily near a multiple of the identity, while a two-dimensional signed example proves that forcing extra baseline separation can be detrimental. This determines a meaningful design boundary, not a claim of general speed or convergence improvement.
+Brekelmans et al. already derive positive cross-coordinate covariance when a forward-difference gradient reuses a common evaluation at x; this central covariance mechanism is prior. Their full paper analyzes norm gradient error and several fixed experimental designs, not the exact next-iterate H-weighted partition optimization or its signed MAX-CUT equivalence. Berahas et al. similarly treat ordinary finite differences and gradient approximation bounds. Actual Resultary and broader searches did not return an exact H-cut baseline-group design theorem. An unindexed common-random-number optimization could dominate.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural finite-difference oracle-design choice (how to allocate r independent baseline measurements across coordinate gradients) has an exact combinatorial optimization law, with a sharp complexity boundary even for nearly isotropic SPD Hessians. It resolves the mismatch between Euclidean estimator accuracy and curvature-weighted optimization loss; the signed two-coordinate reversal makes that distinction operationally meaningful rather than a routine covariance restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

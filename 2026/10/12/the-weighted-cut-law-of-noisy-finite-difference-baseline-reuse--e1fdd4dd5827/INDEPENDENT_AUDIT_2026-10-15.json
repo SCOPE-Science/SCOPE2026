@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:13:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Brekelmans et al., Gradient Estimation Schemes for Noisy Functions, CentER Discussion Paper 2003-12 / JOTA 126 (2005) 529–551; publicly available manuscript sections 2.1, 4 and 5 read",
+        "Berahas et al., A Theoretical and Empirical Comparison of Gradient Approximations in Derivative-Free Optimization, arXiv:1905.01332, source abstract/methods",
+        "Garey, Johnson, Stockmeyer 1976 MAX-CUT NP-completeness (standard reduction input)",
+        "frozen RESULT.md and verify.py",
+        "Resultary model/effect search"
+      ],
+      "rationale": "On a quadratic phi with Hessian H and independent equal-variance additive evaluations, literal baseline reuse gives Cov(ghat)=sigma²/h²(I+sum_a 1_Ca 1_Ca^T), while mean is Hx+b+h diag(H)/2. Exact quadratic expectation gives eta²sigma²/(2h²)[tr H+sum_a 1_Ca^T H 1_Ca], so the improvement from all-one sharing is minus eta²sigma²/h² times the signed sum of cut Hessian edges. Taking H=I+epsilon A_G with epsilon rational small enough for SPD and kappa(H)<1+delta reduces exact optimal two-baseline selection to MAX-CUT, with polynomial-size input. Euclidean gradient MSE remains h²/4 sum H_ii²+2n sigma²/h² for every partition. Independent symbolic derivation and all eight labels on a three-coordinate rational signed Hessian reproduced equality and partition invariance; the negative-edge 2D example shows forced splitting may worsen expectation.",
+      "residual_risks": [
+        "A specialized covariance-design or common-random-number paper might have the precise Hessian-weighted partition theorem under different terminology.",
+        "Only one-step exact quadratics with independent equal-variance additive evaluations and fixed nonadaptive baseline labels are covered.",
+        "NP-hardness concerns choosing an optimal partition, not computing the objective for a fixed partition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A general quadratic trace-covariance formula does imply the immediate risk identity once the grouping covariance is supplied; neither ingredient is claimed as new in isolation.",
+          "Brekelmans et al. explicitly recognize shared-base covariance but do not specify the arbitrary r-partition baseline design or optimizing signed Hessian-weighted cut."
+        ],
+        "reasoning": "The broader prior variance framework is strongly relevant and duly credited; the additional joint allocation objective and graph-complexity equivalence are not explicitly supplied by those source results. Residual stronger coverage is tracked.",
+        "searches": [
+          "Brekelmans et al. 2003 sections 2.1–5, available full manuscript",
+          "Berahas et al. arXiv:1905.01332 Section 2.1",
+          "finite difference noisy gradient baseline reused covariance partition expected quadratic loss max weighted cut"
+        ]
+      },
+      "checked_sources": [
+        "Brekelmans et al., Gradient Estimation Schemes for Noisy Functions, CentER Discussion Paper 2003-12 / JOTA 126 (2005) 529–551; publicly available manuscript sections 2.1, 4 and 5 read",
+        "Berahas et al., A Theoretical and Empirical Comparison of Gradient Approximations in Derivative-Free Optimization, arXiv:1905.01332, source abstract/methods",
+        "Garey, Johnson, Stockmeyer 1976 MAX-CUT NP-completeness (standard reduction input)",
+        "frozen RESULT.md and verify.py",
+        "Resultary model/effect search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known shared-baseline covariance plus the standard quadratic trace identity makes the cut expression derivable; neither preceding study frames multi-baseline assignment optimization.",
+          "MAX-CUT NP-hardness alone does not imply this sampling problem is hard until a rational near-isotropic SPD construction preserves objective ordering."
+        ],
+        "reasoning": "This result is a derived but mathematically distinct optimal sampling design law with a nontrivial complexity transfer. It is not novel merely for rederiving familiar covariance or NP-hardness.",
+        "searches": [
+          "Brekelmans et al. Section 2.1 shared-forward-difference covariance and Section 4 scheme comparison",
+          "Garey–Johnson–Stockmeyer 1976 MAX-CUT NP-completeness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Searches returned gradient estimation methods and common-random-number techniques but no exact Hessian-weighted MAX-CUT partition formulation.",
+          "Brekelmans et al. discuss the same covariance of one shared baseline but optimize a different norm-loss quantity."
+        ],
+        "reasoning": "Searched reference grouping, experimental design, paired random numbers, signed covariance partition, and graph-cut terminology; neither title nor the generic covariance identity alone establishes prior coverage of this particular optimization law.",
+        "searches": [
+          "finite difference noisy gradient baseline reused covariance partition expected quadratic loss max weighted cut",
+          "web: \"baseline reuse\" \"maximum cut\" Hessian finite difference",
+          "web: \"finite difference\" \"common random numbers\" \"partition\" \"Max-Cut\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published design table or Resultary hit in retrieved results gives the signed partition objective or optimum for arbitrary Hessian offdiagonal weights.",
+          "The reduction does not merely reproduce a tabulated small graph but covers all unweighted graphs using near-identity rational SPD matrices."
+        ],
+        "reasoning": "An exact design table encompassing each partition/Hessian and its objective would cover the claim; the checked studies tabulate estimation schemes, not this combinatorial invariant.",
+        "searches": [
+          "web: \"baseline reuse\" \"maximum cut\" Hessian finite difference",
+          "finite difference noisy gradient baseline reused covariance partition expected quadratic loss max weighted cut"
+        ]
+      },
+      "rationale": "Brekelmans et al. already derive positive cross-coordinate covariance when a forward-difference gradient reuses a common evaluation at x; this central covariance mechanism is prior. Their full paper analyzes norm gradient error and several fixed experimental designs, not the exact next-iterate H-weighted partition optimization or its signed MAX-CUT equivalence. Berahas et al. similarly treat ordinary finite differences and gradient approximation bounds. Actual Resultary and broader searches did not return an exact H-cut baseline-group design theorem. An unindexed common-random-number optimization could dominate.",
+      "residual_risks": [
+        "A specialized covariance-design or common-random-number paper might have the precise Hessian-weighted partition theorem under different terminology.",
+        "Only one-step exact quadratics with independent equal-variance additive evaluations and fixed nonadaptive baseline labels are covered.",
+        "NP-hardness concerns choosing an optimal partition, not computing the objective for a fixed partition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_SHARED_BASE_COVARIANCE_NOT_HESSIAN_PARTITION_OPTIMUM",
+          "evidence": "For ordinary forward differences, a shared base-point noise realization induces cross-coordinate covariance; Section 4 chooses step sizes and compares fixed designs under gradient norm error, not Hessian-weighted baseline label graph cuts.",
+          "identifier_or_url": "Brekelmans–Driessen–Hamers–den Hertog (2003/2005); https://www.researchgate.net/publication/4866402_Gradient_Estimation_Schemes_for_Noisy_Functions",
+          "material_read": "Public full-manuscript HTML rendered sections 2.1, 4, 5 and discussion of covariance, error norms, comparative experimental designs",
+          "method": "Reading substantive accessible body and theorem-scope comparison",
+          "title": "Gradient Estimation Schemes for Noisy Functions",
+          "trigger": "Nearest methodological primary paper, including reference reuse induced covariance"
+        },
+        {
+          "assessment": "RELATED_METHOD_NOT_DECISIVE_PRIOR_COVERAGE",
+          "evidence": "Standard noisy forward gradient estimates and their norm error are studied; no exact multi-baseline graph-cut theorem identified in the material read.",
+          "identifier_or_url": "arXiv:1905.01332 / https://optimization-online.org/2019/05/7189/",
+          "material_read": "Author working-paper abstract and accessible methods summary; complete article body was not independently read during this turn",
+          "method": "Abstract/method statements compared with claimed oracle model",
+          "title": "A Theoretical and Empirical Comparison of Gradient Approximations in Derivative-Free Optimization",
+          "trigger": "General forward-difference benchmark for potential stronger coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Brekelmans et al., Gradient Estimation Schemes for Noisy Functions, CentER Discussion Paper 2003-12 / JOTA 126 (2005) 529–551; publicly available manuscript sections 2.1, 4 and 5 read",
+        "Berahas et al., A Theoretical and Empirical Comparison of Gradient Approximations in Derivative-Free Optimization, arXiv:1905.01332, source abstract/methods",
+        "Garey, Johnson, Stockmeyer 1976 MAX-CUT NP-completeness (standard reduction input)",
+        "frozen RESULT.md and verify.py",
+        "Resultary model/effect search"
+      ],
+      "rationale": "A natural finite-difference oracle-design choice (how to allocate r independent baseline measurements across coordinate gradients) has an exact combinatorial optimization law, with a sharp complexity boundary even for nearly isotropic SPD Hessians. It resolves the mismatch between Euclidean estimator accuracy and curvature-weighted optimization loss; the signed two-coordinate reversal makes that distinction operationally meaningful rather than a routine covariance restatement.",
+      "residual_risks": [
+        "A specialized covariance-design or common-random-number paper might have the precise Hessian-weighted partition theorem under different terminology.",
+        "Only one-step exact quadratics with independent equal-variance additive evaluations and fixed nonadaptive baseline labels are covered.",
+        "NP-hardness concerns choosing an optimal partition, not computing the objective for a fixed partition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Oracle evaluation budget only upper bounds number of distinct baseline values; no cost term or repeated convergence theorem.",
+    "Special cases with nonidentity noise covariance or adaptive assignment are excluded.",
+    "Known common-random-number design theory may contain a dominating reformulation."
+  ]
+}

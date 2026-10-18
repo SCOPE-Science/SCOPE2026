@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run the standalone standard-library program by placing `verify.py` next to this document and executing `python verify.py` with Python 3. No external packages, stochastic seeds, datasets, or network access are required. Expected output: `PASS 18107 exact rational checks`.
+## correctness
 
-The checker uses `fractions.Fraction` and exhaustive Rademacher noise arrays to compare the directly enumerated random one-step quadratic risk with the exact Hessian/covariance formula for real rational two- and three-coordinate test problems, multiple differencing intervals and learning rates, and multiple valid baseline assignments. It tests the resulting cut identity, explicit signed two-dimensional witness, and all simple graphs with two through five vertices for the graph-cut reduction. These are finite algebraic consistency tests. The proof for every dimension is the independent-noise covariance calculation, exact quadratic expectation identity, and rational MAX-CUT reduction in `RESULT.md`.
+PASS
 
-One randomly observed baseline value is reused whenever a group has multiple coordinates; an unused additional baseline does not enter the estimator. All noise distributions have zero mean, independent calls and the same finite positive variance. Higher moments are unnecessary. For independent oracle noises of unequal variance, correlated perturbed-point samples, or nonquadratic objectives, the displayed formulas are not claimed. At a fixed number of baseline groups, the method compares expected noiseless quadratic objective after a single finite-difference step, not total computational cost or a multi-step convergence rate.
+On a quadratic phi with Hessian H and independent equal-variance additive evaluations, literal baseline reuse gives Cov(ghat)=sigma²/h²(I+sum_a 1_Ca 1_Ca^T), while mean is Hx+b+h diag(H)/2. Exact quadratic expectation gives eta²sigma²/(2h²)[tr H+sum_a 1_Ca^T H 1_Ca], so the improvement from all-one sharing is minus eta²sigma²/h² times the signed sum of cut Hessian edges. Taking H=I+epsilon A_G with epsilon rational small enough for SPD and kappa(H)<1+delta reduces exact optimal two-baseline selection to MAX-CUT, with polynomial-size input. Euclidean gradient MSE remains h²/4 sum H_ii²+2n sigma²/h² for every partition. Independent symbolic derivation and all eight labels on a three-coordinate rational signed Hessian reproduced equality and partition invariance; the negative-edge 2D example shows forced splitting may worsen expectation.
 
-Self-review passed on correctness, originality, and scientific value, with the literature priority limitations recorded in `REVIEW.md`. Independent audit has not been performed.
+## originality
+
+PASS
+
+Brekelmans et al. already derive positive cross-coordinate covariance when a forward-difference gradient reuses a common evaluation at x; this central covariance mechanism is prior. Their full paper analyzes norm gradient error and several fixed experimental designs, not the exact next-iterate H-weighted partition optimization or its signed MAX-CUT equivalence. Berahas et al. similarly treat ordinary finite differences and gradient approximation bounds. Actual Resultary and broader searches did not return an exact H-cut baseline-group design theorem. An unindexed common-random-number optimization could dominate.
+
+## value
+
+PASS
+
+A natural finite-difference oracle-design choice (how to allocate r independent baseline measurements across coordinate gradients) has an exact combinatorial optimization law, with a sharp complexity boundary even for nearly isotropic SPD Hessians. It resolves the mismatch between Euclidean estimator accuracy and curvature-weighted optimization loss; the signed two-coordinate reversal makes that distinction operationally meaningful rather than a routine covariance restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
