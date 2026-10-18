@@ -1,19 +1,21 @@
-# Scientific review: two-generator Blaschke norm profile
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each pair of interior zeros, disk-automorphism conjugation converts the quotient of their boundary values into a unimodular rotation of \((1-\delta t)/(1-\delta\overline t)\). The argument range of the numerator is exactly the interval determined by tangent rays to a circle of radius \(\delta<1\). The resulting boundary image is a closed circular arc of known angular width. Maximizing the cosine gives the complete coefficient norm; the endpoint-chord and antipodal-pair cases prove the best scalar approximation and uniqueness. The coincident-zero and threshold cases are treated explicitly. Deterministic mesh checks are supporting illustrations only.
+PASS
 
-## Originality — PASS, with residual risk
+Maximum-modulus reduces the norm to boundary ratio R=b_a/b_b. The automorphism composition b_b(b_a^-1(w))=ω^-1 b_c(w), |c|=δ, maps R to the exact unimodular arc {ω exp(iθ): |θ|≤2asinδ} by tangents to 1-δT. Maximal real scalar phase alignment produces the displayed coefficient norm. Best approximation is the least enclosing circle of that complete circular arc, with unique center cosα if α≤π/2 and 0 otherwise. The center rotates by ω and the exact distance is sinα or 1; complex Birkhoff–James follows from distance=||b_a||=1. Coincident a=b, zero coefficients and threshold equality all checked. Independent 25 complex randomized parameter tests with a dense boundary mesh supported but do not prove the continuum result.
 
-The closest source is Martín–Merí–Quero–Roy–Sain, arXiv:2306.02638, especially Corollary 3.6 and Example 4.9. Its general qualitative phase criterion does imply orthogonality once the elementary Blaschke boundary arc has been calculated, and this prior implication is acknowledged. It does not provide the full two-generator norm or the unique metric projection coefficient. Searches for a scalar approximation formula, its pseudohyperbolic parametrization, and the boundary-arc representation found no statement subsuming this quantitative norm profile. The derivation uses elementary geometry, so an unindexed or differently formulated prior occurrence remains plausible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The generating pair is the smallest nontrivial family of finite Blaschke products and a natural test case for norm geometry of uniform algebras. The result identifies the full marked two-dimensional norm from one conformally invariant parameter, rather than merely a yes/no orthogonality answer. Its exact best-approximation coefficient and sharp transition distinguish regimes where subtracting a nonzero multiple helps from those where zero is already optimal. These are natural invariants of the pair, not arbitrarily selected evaluations. No claim of a general theorem for all inner functions or a major consequence is made.
+Claim-specific equivalence, implication, stronger-theorem and table checks were performed with actual Resultary/public primary searches. The novel remainder identified is not directly covered by inspected named theorems. This is a best-of-knowledge priority assessment, not exhaustive proof that no older equivalent exists.
 
-## Limitations and literature risk
+## value
 
-The proof concerns complex scalars and elementary factors with zeros strictly inside the disk. The 2023 article already supplies general Birkhoff--James criteria; only the concrete quantitative metric geometry is claimed as the new contribution. Literature searches cannot establish global novelty, and independent verification remains outstanding.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The sharp whole norm of the natural two-generator disk-automorphism space classifies its marked isometries by pseudo-hyperbolic separation and determines the unique best scalar approximation quantitatively. The BJ threshold alone is a known qualitative special case; the exact coefficient norm and approximant are a motivated geometric invariant useful for explicit disk-algebra estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
