@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact combinatorial input is the published sixteen-vertex K3 model generated from two facet seeds by an order-\(240\) permutation group.
+# Independent mathematical audit
 
-The embedded `verify.py` performs exact binary arithmetic only. It reconstructs the group and all facets, verifies the face vector, computes both relevant boundary-map ranks, enumerates all four-vertex subsets, checks every tetrahedral-boundary cycle, reduces the cycles modulo \(\operatorname{im}\partial_3\), counts distinct classes and support multiplicities, recomputes the support and class orbits, and checks that the minimum-support classes span the full homology group.
+## correctness
 
-A successful replay prints:
+PASS
 
-`VERIFY_OK group=240 f=16,120,560,720,288 H2dim=22 empty_tetrahedra=1100 min_support_classes=508 multiplicity=1:320,3:80,5:108 tetra_orbits=20,60,60,240,240,240,240 class_orbits=20,48,60,60,80,240 span=22`
+PASS: Independently regenerated all 240 permutations from the two published generators and all 288 4-simplices from the two orbit seeds, recovering f=(16,120,560,720,288). Independently formed exact GF(2) triangle-to-edge and tetrahedron-to-triangle boundary maps, ranks 105 and 433, yielding dim H2=560-105-433=22. All 1820 four-sets were exhausted, 720 facial and 1100 empty; every empty tetrahedral 2-sphere had nonzero quotient class. Exact reduction modulo im d3 gives precisely 508 distinct classes with multiplicities 320 single, 80 triple and 108 fivefold, accounting for 1100 cycles. Independent orbit enumeration gives seven support orbit sizes (20,60,60,240,240,240,240), and classes span rank 22. Inspected the supplied code for pairwise class-orbit overlap and full 6-orbit decomposition (20,48,60,60,80,240). On <=3 vertices no nonzero 2-cycle exists, while any 4-vertex nonzero cycle is the tetrahedral boundary, so the enumeration is an *exhaustive* classification of minimum-support classes for this fixed complex. No claim about other K3 triangulations/integral supports follows.
 
-The computation is exhaustive for this finite triangulation. It does not establish any statement about other K3 triangulations or integral minimum-support homology.
+## originality
+
+PASS
+
+PASS best-of-knowledge with material access risk: The exact complex and 240-group action were established by Casella-Kühnel and explicitly recapitulated with seeds by Spreer-Kühnel; induced tetrahedral spheres, Betti numbers, and tightness are prior. Those known facts do not determine the reduction collision distribution, 508 distinct quotient classes or six automorphism orbits. The original 2001 Casella-Kühnel full text remained inaccessible: arXiv/OA search unsuccessful; an authorized Oxford retrieval from the DOI mismatched an unrelated Brehm-Kühnel 1986 article, and a corrected publisher URL returned vpn_disconnected. The wrong article was NOT counted as inspecting the original. The later exact-model Spreer-Kühnel full text was read. No detected dominating class-spectrum table; an older hidden collision table remains material risk but not by itself a FAIL.
+
+## value
+
+PASS
+
+PASS: The finite 16-vertex K3 triangulation is a standard extremal test object with 22-dimensional middle homology. An exact classification of 1100 shortest support carriers into 508 classes, collisions of multiplicity 1/3/5, full symmetry orbit spectrum, and proof they span H2 is a natural nontrivial quotient-homology invariant; it distinguishes supports from classes and goes beyond raw f-vectors or known tightness. This finite exact standalone fact has mathematical significance without an all-K3 theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
