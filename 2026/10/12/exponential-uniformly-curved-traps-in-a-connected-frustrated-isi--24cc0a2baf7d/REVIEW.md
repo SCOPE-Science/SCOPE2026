@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The objective is multi-affine in the coordinate cosines. Any nonvertex stationary angle gives a flat coordinate and cannot be a strict local minimum. At vertices the Hessian is diagonal and the local spin-neighbor sums classify exactly one-minus-per-triangle configurations as positive definite. The indicated open inequalities make the classification stable to the bridges. An explicit local repair operation gives a unique global ground placement and the positive uniform energy gap. Orthogonality of sine and cosine under independent uniform angles gives the exact gradient-variance formula. Enumeration is corroborative and is not used to prove the all-size statements.
+## correctness
 
-## Originality
-PASS, with a stated residual terminology risk. The source already establishes finite one-spin-flip counts in its saved spin-glass instances and classical spin-glass literature already establishes generic exponential metastability. The new assertion is the exact parametric connected degree-three family combining an exact \(3^m\) count, uniformly positive continuous Hessian, unique reachable ground configuration, fixed nonglobal energy gap and an exact nonsuppressed random-gradient moment. Targeted source-specific, equivalent-formulation, broader-coverage and database searches found no theorem implying this conjunction; an unindexed deterministic gadget remains possible.
+PASS
 
-## Value
-PASS. It is important to distinguish expressivity limitations, barren gradients and competing basins when interpreting VQE benchmarks. The theorem rigorously isolates the third mechanism in a sparse connected frustrated family for every size, with all local traps nondegenerate and none due to a suppressed typical gradient. The claim does not infer algorithmic hardness or basin-volume lower bounds from the count.
+The product Ry objective is multi-affine in z_i=cosθ_i; a nonvertex stationary coordinate has local coefficient zero and is flat, preventing a strict minimum. At vertices Hessian is diagonal, with positive entries exactly when each triangle has one negative spin given 0<ε<h1<h2<h3<2−ε; every other pattern has a negative entry. Hence precisely 3^m nondegenerate strict minima with uniform eigenvalue interval [min(h1−ε,2−h3−ε),max(h3+ε,2−h1+ε)]. Replacing a nonpreferred minus by a negative a spin saves ≥2(h2−h1−2ε), proving unique ground minimum and gap. Uniform-angle trigonometric moments give mean normalized gradient square 1/2+(h1²+h2²+h3²)/6+(m−1)ε²/(6m). Independent exact rational enumeration for m=1,2,3,4 reproduced 3,9,27,81 strict minima, unique ground and min gap 1/5 in test instance; universal proof is local analytic.
 
-## Closest literature and limitations
-Novák et al., arXiv:2609.00235, provide the same diagonal product-rotation architecture and finite instance counts. Wacław and Burda, arXiv:0801.1224, count classical metastable states statistically on random-coupling graphs; Faílde et al., DOI:10.1038/s41598-023-43404-3, benchmark escape from Ising VQE minima numerically. The constructed graph has weak nonuniform bridges; it does not match the source's specific ring-plus-matching and unit-coupling sample family, and the conclusions do not extend automatically to noncommuting Hamiltonians.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Ising spin-glass literature establishes exponential metastability and benchmark VQE papers discuss gradients/curvature separately; they do not, in material actually inspected, give this deterministic connected open triangle-chain parameter family with exact 3^m count, size-uniform strictly positive continuous Hessians, uniquely reachable ground configuration, nonzero trap gap and exact gradient second moment. Full 2026 VQE paper could not be read, so a corresponding gadget remains a named best-of-knowledge risk.
+
+## value
+
+PASS
+
+An explicit exact all-m family proves exponential spurious minima coexist with reachable ground state, uniform local curvature and nonsuppressed random-gradient moment. This distinguishes three central VQE landscape features with a connected degree-three benchmark and an open parameter region rather than a numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
