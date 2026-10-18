@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` uses only the Python standard library and reconstructs the complex from the published \(A_4\) generators and the facet-orbit seeds.
+# Independent mathematical audit
 
-It verifies the surface face vector
-\[
-(12,42,28)
-\]
-and checks edge incidences and vertex links.
+## correctness
 
-After a spanning-tree contraction, the graph-cycle lattice has rank \(31\). Unimodular integer elimination isolates \(27\) unit relations and leaves a one-row residual relation of gcd \(2\). Thus
-\[
-H_1(K;\mathbb Z)\cong\mathbb Z^3\oplus\mathbb Z/2.
-\]
+PASS
 
-Three integral cocycles and one mod-two cocycle are checked on all \(28\) facial relations. The cycles
-\[
-(1,2,12),\quad(1,3,4),\quad(1,4,6)
-\]
-give the three free basis classes, while
-\[
-(1,2,5,7,8,11)
-\]
-is an explicit pure order-two witness.
+The exact published A4 generators produce a group of order 12, facet-orbit sizes 12/12/4, 28 facets, 42 edges and 48 graph triangles. A separate integer calculation from the inspected facet data independently gives Smith invariants 27 copies of 1 and one 2 for the 28 facial relation rows in a rank-31 graph-cycle lattice, hence H1 is Z^3 plus Z/2. I independently enumerated the 20 nonfacial triangles, checked the source explicit cocycle-coordinate vectors against all facial relations and the free generators/torsion witness, and obtained eight unoriented exact classes over four primitive free directions, each with lift multiplicities 1 and 4. The computed A4 action has carrier orbits of sizes 4,4,12. These are finite complete enumerations of the finite graph, not extrapolations to a family.
 
-All \(48\) triangular cliques are exhausted. Exactly \(20\) are nonfaces, and every one is nonzero with primitive free projection. Their free projections have four unoriented directions; both torsion lifts occur in each direction, with counts \(4\) and \(1\). The published \(A_4\)-action has carrier orbits \(4,12,4\) and two four-element orbits on the eight unoriented homology classes.
+## originality
 
-Exact successful output:
+PASS
 
-`VERIFY_OK f=12,42,28 surface=N4 H1_Z=Z^3+Z/2 graph_triangles=48 facial3=28 empty3=20 all_empty3_nonzero=yes all_free_projections_primitive=yes simple_integral_1_systole=3 free_directions=4 both_torsion_lifts_each=yes lift_counts_each=4+1 A4_carrier_orbits=4,4,12 A4_class_orbits=4,4 class_orbit_multiplicities=1|4 smith=1^27,2 torsion_witness_len=6`
+A natural exact-object topology/systole comparison favors best-of-knowledge originality: the primary triangulation census determines the labeled object and its topology, but the audited integral shortest-cycle shell uses further Smith, cocycle, cycle and group-action computations not stated by either consulted classification. The accessible full primary texts were checked at their directly relevant tables/discussion; an unindexed exact-object computational census remains possible.
+
+## value
+
+PASS
+
+The exact primitive free-versus-torsion shortest-cycle shell is a natural invariant for a published highly symmetric small triangulation with both free and torsion H1. The nonuniform 4+1 lift multiplicities in every direction and separate A4 carrier/class orbits are mathematically interpretable structural features unavailable from f-vector or abstract homology, useful as a complete worked benchmark for integer systolic and equivariant finite-surface computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

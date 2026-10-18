@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact published \(A_4\) permutation generators and three facet orbits rebuild the complex. Integral unimodular reduction gives Smith data \(1^{27},2\), hence \(H_1\cong\mathbb Z^3\oplus\mathbb Z/2\). Explicit cocycles give exact quotient coordinates. Every graph triangle is exhausted, proving that all \(20\) nonfaces are nonzero, primitive after free projection, and distributed over four free directions with both torsion lifts in a \(4+1\) pattern. The published symmetry action is replayed on both carriers and homology classes.
+## correctness
 
-## Originality
-PASS. The exact-object primary source gives the nonorientable genus-four surface, face vector, \(A_4\) group, facet orbits, and permutation generators but not the integral triangular homology shell. The later exhaustive 12-vertex/equivelar enumeration does not state it either. Focused searches using exact notation, topology, shortest-cycle aliases, torsion-lift formulations, and numerical fingerprints did not locate coverage. The closest owned result is a mod-two census for six different orientable genus-two surfaces, which does not imply the present integral mixed-torsion statement.
+PASS
 
-## Value
-PASS. This resolves the absolute shortest simple-cycle layer of a canonical vertex-transitive nonorientable surface with mixed free and torsion first homology. The uniform occurrence of both order-two lifts over a four-direction primitive free shell, together with the two \(A_4\) class orbits, is structural information not encoded by the known topology or face vector.
+The exact published A4 generators produce a group of order 12, facet-orbit sizes 12/12/4, 28 facets, 42 edges and 48 graph triangles. A separate integer calculation from the inspected facet data independently gives Smith invariants 27 copies of 1 and one 2 for the 28 facial relation rows in a rank-31 graph-cycle lattice, hence H1 is Z^3 plus Z/2. I independently enumerated the 20 nonfacial triangles, checked the source explicit cocycle-coordinate vectors against all facial relations and the free generators/torsion witness, and obtained eight unoriented exact classes over four primitive free directions, each with lift multiplicities 1 and 4. The computed A4 action has carrier orbits of sizes 4,4,12. These are finite complete enumerations of the finite graph, not extrapolations to a family.
 
-## Closest literature and limitations
-The closest exact source is Köhler--Lutz's vertex-transitive census; Sulanke--Lutz gives the broader exhaustive twelve-vertex/equivelar classification. The result is triangulation-specific and the displayed homology splitting is noncanonical. An unindexed historical finite computation remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+A natural exact-object topology/systole comparison favors best-of-knowledge originality: the primary triangulation census determines the labeled object and its topology, but the audited integral shortest-cycle shell uses further Smith, cocycle, cycle and group-action computations not stated by either consulted classification. The accessible full primary texts were checked at their directly relevant tables/discussion; an unindexed exact-object computational census remains possible.
+
+## value
+
+PASS
+
+The exact primitive free-versus-torsion shortest-cycle shell is a natural invariant for a published highly symmetric small triangulation with both free and torsion H1. The nonuniform 4+1 lift multiplicities in every direction and separate A4 carrier/class orbits are mathematically interpretable structural features unavailable from f-vector or abstract homology, useful as a complete worked benchmark for integer systolic and equivariant finite-surface computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
