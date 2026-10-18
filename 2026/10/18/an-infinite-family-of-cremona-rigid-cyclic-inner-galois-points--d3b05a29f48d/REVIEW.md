@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness: PASS.** The parametrization is base-point-free and birational by function-field fixed-subgroup analysis. The collision polynomial \(Q_\zeta\) has simple roots for every nontrivial odd root of unity, as shown by a strict modulus inequality; its distinct-root equations cannot hold simultaneously, excluding triple points. The source at infinity has exact \((2,n)\)-cusp local normal form, and delta/genus saturation proves completeness. A coefficient-space calculation exhausts the projective stabilizer. Abouelsaad's multiplicity rigidity lemma (2023 preprint, Lemma 5.1) then gives the full Cremona stabilizer. Independent exact symbolic samples at three admissible exponents supplement, not replace, the general proof.
+
+**Originality: PASS with residual risk.** Abouelsaad, *Galois Points and Cremona Transformations* (arXiv:2302.00324v1), proves the single cyclic degree-five example and a general multiplicity criterion, not the infinite family, exhaustive root-collision theorem, or complete projective-group calculation. Miura, arXiv:2302.00870v1, addresses cyclic degree three. The degree-seven singularity basket is known and explicitly excluded. Searches for equivalent rational normalizations, cyclic-deck actions, parameter exponents, and stronger general statements did not identify the claimed family-wide implication. This is a scoped priority judgment, not a proof of global uniqueness; an unindexed parameter-uniform construction remains a risk.
+
+**Value: PASS.** The theorem supplies arbitrarily large cyclic inner Galois groups whose nontrivial actions cannot be extended to the plane Cremona group, while pinning down all singularities and the entire ambient stabilizer. Root separation, the parity restriction, and the complete genus accounting are structural obstacles absent from the original single septic. The result is not merely a numerical interpolation or a new description of an already covered example.
+
+**Limitations.** Characteristic zero only; exponents at least nine congruent to one modulo four. It does not classify other inner Galois points or arbitrary birational re-embeddings. The absence of an identified equivalent work is not independent peer validation.
+
+Self-review: passed. Independent audit: not yet performed.

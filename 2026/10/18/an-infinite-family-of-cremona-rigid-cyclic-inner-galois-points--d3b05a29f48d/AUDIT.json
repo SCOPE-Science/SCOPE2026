@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Over C and n>=9 odd congruent 1 mod 4, all three homogeneous forms of degree n+2 have no common zero, and the Galois subgroup argument proves birationality. All nontrivial deck coincidences reduce to (zeta+1)w^k+zeta*w-1=0. Its roots are simple because a double root would force |1+zeta|<(1/k), contrary to >=2/n>1/k. Two different zeta cannot share w since this forces w=-1 but k odd. Differentiated identity establishes transverse tangents. At infinity the local parametrization is (a^2 times a unit in a^2,a^n), analytically A_{n-1}; genus saturation proves completeness. The unique cusp forces affine normalization automorphisms; the embedding subspace W forces translation b=0 and scaling a^2=1. Source Lemma 5.1 then shows all ambient Cremona selfmaps are projective, so the full stabilizer is C2 and no odd-order deck map extends. Exact SymPy tests for n=9,13,17 supplement the uniform proof. Boundaries outside n>=9, n=1 mod 4 not asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abouelsaad Lemma 5.1 is a general criterion: singular multiplicities strictly less than degree divided by three imply Cremona stabilizers are projective.",
+        "Miura Theorem 1 addresses Galois group C3, not cyclic n>=9 with prescribed singularities."
+      ],
+      "reasoning": "The criterion by itself does not assert the family has only double singularities or identify its linear stabilizer. Those are separately established here. Miura gives extension, not nonextendibility, for a different group order.",
+      "searches": [
+        "arXiv:2302.00324v1, Lemma 5.1",
+        "arXiv:2302.00870v1, Theorem 1",
+        "Infinite family of rational plane curves degree n+2 with Galois projection of cyclic odd order n and deck group not extendable to Cremona transformations, complete singularities cusp A_{n-1} and (n^2+1)/2 nodes"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.00324v1 (first public 2023-02-01; full text)",
+      "DOI:10.1017/S0017089524000090 (revised journal article; Section 5)",
+      "arXiv:2302.00870v1 (cyclic order three comparison)",
+      "Searches for cyclic-Galois equivalences, rational plane curve parametrizations, full embedded stabilizers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier work proves nonextendibility for cyclic order 5 in one septic and the abstract multiplicity criterion.",
+        "The new n>=9 cases require proof of k(n-1) off-point nodes, a unique A_{n-1} cusp, and projective rigidity."
+      ],
+      "reasoning": "Substituting the parameter n into the known n=5 statement does not imply the node count, generic transversality, or the stabilizer; the new polynomial and modulus proof supply precisely the missing implications. The known n=5 case is excluded from the theorem domain.",
+      "searches": [
+        "arXiv:2302.00324v1, Theorem C, Lemma 5.1, Lemma 5.2",
+        "arXiv:2302.00870v1, Theorem 1",
+        "Full projective automorphism group C2 rational plane curves nonextendable Galois point infinite family ordinary nodes cusp"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abouelsaad arXiv:2302.00324v1, Theorem C and Lemma 5.2 explicitly fix cyclic degree five with the degree-seven parametrization.",
+        "The new family varies n through all positive integers n>=9 congruent to 1 mod 4 and determines a complete singularity basket and stabilizer."
+      ],
+      "reasoning": "The source n=5 is not an equivalent general formulation: no all-n collision polynomial, root separation, or all-n automorphism-group statement appears there. Search of a reparameterized cyclic covering with quotient t^n identified no equivalent theorem.",
+      "searches": [
+        "Abouelsaad Galois points Cremona transformations odd degree generalization parametrization u(v^(n+1)-u^(n+1)), u^n(u^2+v^2), v^n(u^2+v^2)",
+        "arXiv:2302.00324v1, §5",
+        "\"Galois Points and Cremona Transformations\" generalization \"n\" example"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The originating article treats one explicit degree-seven curve; it does not tabulate all higher exponents.",
+        "Scientific records found general parametrized-curve singularities and unrelated plane automorphism groups, but no list of this infinite family."
+      ],
+      "reasoning": "The statement is a parameter-uniform theorem rather than a finite database entry. No observed exact table establishes it. Negative search outcomes are not proof of novelty.",
+      "searches": [
+        "Abouelsaad 2023 Galois points Cremona transformations degree seven rational parametrized curve u v^6-u^7 u^5(u^2+v^2) v^5(u^2+v^2) singularity nodes cusp resolution",
+        "rational plane septic parameterization uv^6-u^7 u^5(u^2+v^2) five Galois nonextendable ordinary nodes ramphoid cusp",
+        "complete singularity classification 13 nodes one A4 ramphoid cusp rational degree 7 Galois point Cremona",
+        "Infinite family of rational plane curves degree n+2 with Galois projection of cyclic odd order n and deck group not extendable to Cremona transformations, complete singularities cusp A_{n-1} and (n^2+1)/2 nodes",
+        "\"nonextendible\" \"Galois point\" arbitrary cyclic order rational plane curves 2024"
+      ]
+    },
+    "rationale": "The complete 2023 preprint and revised 2024 paper state the degree-five cyclic Galois example (the degree-seven plane curve) and the general multiplicity rigidity lemma, but neither states or implies the complete parameter-uniform family with all nodes, a single cusp, and the full projective stabilizer. In particular the new root-collision separation is needed to certify multiplicity below one third of degree, and a separate polynomial linear-series argument identifies the exact projective stabilizer. Miura studies cyclic order three. Semantic scientific searches and claim-level checks returned no equivalent infinite family; unindexed or birationally disguised prior work remains a risk.",
+    "residual_risks": [
+      "Unindexed classical or unpublished parametrized-family calculations could contain equivalent statements.",
+      "An alternate Cremona-conjugate model may obscure a stronger earlier parameter theorem.",
+      "No external independent scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_ONLY_DEGREE_FIVE",
+        "evidence": "Theorem C and Lemma 5.2 use exponent 5, while Lemma 5.1 establishes the general multiplicity criterion; no n>=9 family classification is stated.",
+        "identifier_or_url": "https://arxiv.org/html/2302.00324v1",
+        "material_read": "Abstract; introduction; Theorems A-C; Section 5 Lemmas 5.1-5.2 and proofs; article reference list",
+        "method": "Full arXiv open-access HTML read and direct theorem/parameter statement comparison",
+        "title": "Galois Points and Cremona Transformations",
+        "trigger": "Identical degree-seven source parametrization and general Cremona rigidity lemma"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE_ONLY_DEGREE_FIVE",
+        "evidence": "Journal Lemma 5.2 still states the exponent-five plane curve and degree-five cyclic Galois group; section title and arguments concern this specific example.",
+        "identifier_or_url": "https://doi.org/10.1017/S0017089524000090",
+        "material_read": "Complete accessible HTML article, including the corresponding Section 5, Lemmas 5.1-5.2",
+        "method": "Publisher full-text HTML inspected and compared with arXiv source",
+        "title": "Galois points and Cremona transformations (revised journal paper)",
+        "trigger": "Possible later expansion of originating preprint"
+      },
+      {
+        "assessment": "INAPPLICABLE_CYCLIC_ORDER_THREE",
+        "evidence": "Theorem 1 asserts de Jonquières extension of cyclic degree-three Galois groups, not the asserted odd n>=9 families.",
+        "identifier_or_url": "https://arxiv.org/html/2302.00870v1",
+        "material_read": "Abstract, introduction, main Theorem 1 and de Jonquières treatment",
+        "method": "Full preprint HTML inspected for degree hypotheses and implications",
+        "title": "Extendable birational transformations belonging to Galois points",
+        "trigger": "Competing stronger general theorem on Galois deck extension"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d3b05a29-f48d-4618-9ca6-e1361e679eca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural generalization of a distinctive single cyclic-order-five counterexample gives explicit nonextendibility for infinitely many unbounded odd cyclic Galois orders. Beyond existence, it completely determines all singularity strata (large node set plus unique cusp) and the entire ambient stabilizer, turning the multiplicity rigidity mechanism into a structural infinite-series theorem. Root simplicity, no triple points, cusp analysis, and linear-series rigidity are meaningful uniform obstacles rather than routine tabulated parameter values.",
+    "status": "PASS"
+  }
+}
