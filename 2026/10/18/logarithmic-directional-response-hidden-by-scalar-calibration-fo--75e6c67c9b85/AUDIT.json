@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Gaussian convolution differentiability rigorously justifies J=E[DP] (or the score representation), reflection symmetry diagonalizes it, Rayleigh angular separation yields the stated exact K/E formulas; the Laplace-transform integrands give b>a pointwise for every r>1; standard complementary-modulus K/E limits yield b/a=log(4r)-1+o(1); weighted least-squares algebra gives delta~(log r)^2/r^2. Independent high-precision angular quadrature, asymptotic and score Monte Carlo checks (88 assertions) passed. No assertion of numerical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie, arXiv:2609.32861v1, §4 Eq. (10): general covariance score identity; Appendix C.3: scalar-optimal noise-weighted formula and qualitative caution for weak-noise directions.",
+        "DLMF §19.31: general Gaussian quadratic-form expectations reduce to symmetric elliptic integrals."
+      ],
+      "reasoning": "Xie includes stronger general identities that imply the score and fit definitions, so those components are explicitly excluded from originality. DLMF covers elliptic reducibility. Neither inspected source includes the strict r-dependent gain order, the logarithmic asymptotic or the vanishing-weighted-error/unbounded-response-ratio pairing. Obtaining that structural pairing requires the anisotropic polar eigenvalue analysis, inequality proof and two-scale limit.",
+      "searches": [
+        "arXiv:2609.32861v1 §4 and Appendix C.3",
+        "From Parallel to Sequential Small-Batch Noise Restores Simplicity Bias of Muon Jacobs Burkholz 2610.16868 anisotropic projected Gaussian normalization",
+        "anisotropic Gaussian Muon polar normalized gradient Jacobian eigenvalues elliptic integral logarithmic ratio scalar covariance-weighted matching"
+      ]
+    },
+    "checked_sources": [
+      "Xie 2026, arXiv:2609.32861v1, primary full text, especially Section 4 and Appendix C.3",
+      "Herrera-Esposito and Burge 2025, arXiv:2506.17461, full paper, Sections 2.2 and 2.2.3",
+      "NIST DLMF §19.31, full reference page",
+      "Wang and Gelfand 2013, DOI:10.1016/j.stamet.2012.07.005, abstract only",
+      "Searches of public research records for polar-gradient noise response, projected-normal aliases, Gaussian elliptic moments and scalar calibration"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xie (2026) Appendix C.3 explicitly warns that small noise-weighted mismatch can miss weak-noise directions, but provides no quantified polar example or r→∞ rate.",
+        "The derived Laplace kernel ratio r²(1+2t)/(1+2r²t)>1 proves a reversal specific to polarized Gaussian normalization.",
+        "Exact computed coefficient ratio b/a~log(4r)-1 while delta~log²r/r² jointly realizes the qualitative caution with incompatible scaling."
+      ],
+      "reasoning": "Prior qualitative caution anticipates the possible problem and is not claimed as new; the quantitatively sharp realization for the nonlinear polar map, including exact formulas and all-r strict order, is the added theorem. A generic Gaussian response identity alone does not state or instantly settle which coordinate dominates.",
+      "searches": [
+        "arXiv:2609.32861v1 Appendix C.3",
+        "scalar comparator covariance weighted Gaussian polar response hides direction inversion under anisotropic noise"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xie, arXiv:2609.32861v1, Theorem 4.1: general Gaussian score-response operator.",
+        "Herrera-Esposito–Burge, arXiv:2506.17461, §2.2: projected-normal moment approximations and special isotropic exact moments.",
+        "Wang–Gelfand 2013, DOI 10.1016/j.stamet.2012.07.005: published projected-normal family and density/inference (abstract accessible; full paper not materially read)."
+      ],
+      "reasoning": "The polar-normalized row is an angular/projected normal. Published density and Gaussian score formulas are formally compatible and supply starting points; the searched records did not state the exact two-eigenvalue response sensitivity together with b/a~log(4r) and delta~(log r)^2/r^2. A potentially equivalent older specialized derivation remains possible.",
+      "searches": [
+        "Muon under gradient noise anisotropic covariance exact Jacobian projected normal two-dimensional row polar factor elliptic integral K E",
+        "Gaussian projected normal bivariate covariance diag(r^2,1) response sensitivity gain ratio logarithm log r component order reversal",
+        "bivariate projected normal Gaussian mean response derivative anisotropic covariance angular normal elliptic integral strong anisotropy logarithmic sensitivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "NIST DLMF §19.31, Eq. (19.31.2): general Gaussian quadratic-form integral (not an entry for polar-response eigenvalues or the scalar diagnostic).",
+        "No specific relevant response-eigenvalue table was identified in focused searches."
+      ],
+      "reasoning": "A table for general elliptic Gaussian integrals is not a tabulation of the posed joint response-order/diagnostic limit, although it is sufficient as a standard computational building block.",
+      "searches": [
+        "NIST DLMF §19.31, Eq. 19.31.2",
+        "Gaussian projected normal bivariate covariance diag(r^2,1) response sensitivity gain ratio logarithm log r component order reversal"
+      ]
+    },
+    "rationale": "The exact score identity for arbitrary Gaussian covariance and optimum scalar noise-weighted fit are prior work (Xie 2026 Theorem 4.1 and Appendix C.3); the elliptical Gaussian quadratic moment transform is classical (DLMF 19.31). The surviving result specifically quantifies a strict component-order reversal with logarithmically diverging gain ratio despite vanishing relative scalar approximation error for a single polar-normalized noise family. Relevant mathematical primary passages were read; the simultaneous asymptotic comparison was not stated in them. Older general projected-normal literature poses a nontrivial bibliographic residual risk.",
+    "residual_risks": [
+      "Older directional-statistics literature, including Wang and Gelfand (2013) and Pukkila and Rao (1988), may implicitly or explicitly derive equivalent specialized response limits; not all original full texts were accessible.",
+      "The general Gaussian score identity and scalar-fit criterion are already published. Only the quantitative joint asymptotic and strict inversion, rather than general construction, are evaluated as new.",
+      "The full conclusion is limited to one real two-coordinate normalized row and cannot be promoted to high-rank polar matrices or optimizer loss dynamics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General score representation, response-match objective and qualitative weak-noise failure are published, but specialized exact anisotropic polar scaling was not found in those sections.",
+        "evidence": [
+          "§4 Eq. (10) general J=E[(T-mu)xi^T]Sigma^{-1}",
+          "Appendix C.3 scalar s*=tr(J Sigma)/tr(Sigma) and small-error weak-noise caution"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.32861",
+        "material_read": "Full available document was accessed; in-depth Section 3, Section 4 Theorem 4.1, Appendix C.3 pages 24–25 and discussion of anisotropic noise",
+        "method": "Read primary PDF text and page image for Theorem 4.1; checked Appendix C.3 scalar formula and caveat.",
+        "title": "Muon Under Gradient Noise and the Limits of Orthogonalization Near Optima",
+        "trigger": "Direct September 2026 motivating treatment of Muon in Gaussian noise and scalar response matching"
+      },
+      {
+        "assessment": "The objects overlap, but the identified sections provide no anisotropic local-mean derivative or its log ratio/vanishing scalar diagnostic joint asymptotics.",
+        "evidence": [
+          "§2.2 coordinatewise Taylor moment approximation",
+          "§2.2.3 exact isotropic first and second moments"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2506.17461",
+        "material_read": "Public full PDF accessible; Sections 2.2 (anisotropic moment approximation) and 2.2.3 (isotropic exact moments) inspected, including page-image verification",
+        "method": "Read analytic equations and distinctions between approximate general covariance and exact isotropic formulas.",
+        "title": "Projected Normal Distribution: Moment Approximations and Generalizations",
+        "trigger": "Same normalized bivariate Gaussian random direction under alias projected normal/angular Gaussian"
+      },
+      {
+        "assessment": "Covers the special-function reduction in principle, not the coupled structural comparison. Elliptic reducibility is expressly prior work.",
+        "evidence": [
+          "Eq. 19.31.2 general Gaussian quadratic moments with parameter mu>-n/2"
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/19.31",
+        "material_read": "Entire short reference page, including Eq. 19.31.2 and applicability conditions",
+        "method": "Directly compared Gaussian inverse-root elliptic moment formula with derivative eigenvalues",
+        "title": "DLMF §19.31 Probability Distributions",
+        "trigger": "Potential dominating closed Gaussian quadratic-form expectation formula"
+      },
+      {
+        "assessment": "No source-wide exclusion asserted. The available abstract concerns directional density and Bayesian inference rather than sensitivity asymptotics, but full text could include overlooked identities.",
+        "evidence": [
+          "Wang–Gelfand, Statistical Methodology 10 (2013), 113–127; abstract discusses circular density, mean direction, Bayesian modeling"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.stamet.2012.07.005",
+        "material_read": "Bibliographic record, abstract, and indexed introductory extract; original complete paper not materially read",
+        "method": "Checked publicly searchable abstract and lawful open-access landing pages; complete text was unavailable at the accessible interface.",
+        "title": "Directional data analysis under the general projected normal distribution",
+        "trigger": "Older original general projected-normal paper might contain an equivalent anisotropic two-coordinate expression"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "75e6c67c-9b85-4de0-ae9d-eb90903fa3a4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly motivates scalar noise-response matching, but warns that covariance-weighted averages can hide errors in low-noise directions. This theorem supplies an exact, all-parameter and logarithmically sharp witness in the original polar update model: positive local-signal coordinate rankings reverse, response conditioning diverges, and the best scalar diagnostic tends to zero. That coupled separation matters for interpreting calibration metrics and is not just a Taylor exercise or computation of an arbitrary integral.",
+    "status": "PASS"
+  }
+}
