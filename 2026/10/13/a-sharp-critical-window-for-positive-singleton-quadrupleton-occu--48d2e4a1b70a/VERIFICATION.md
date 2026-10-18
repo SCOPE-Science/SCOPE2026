@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify_occupancy.py` in a directory containing the supplied standalone script. The script uses only the standard library and has no external input.
+## correctness
 
-Exact enumeration traverses the full finite assignment spaces for \((m,n)=(3,4),(3,5),(3,6),(4,8),(5,6)\), computing \(\mathbb E[Y_1]\), \(\mathbb E[Y_4]\), \(\mathbb E[Y_1Y_4]\) and their covariance as rational numbers and comparing each with independently calculated closed-form expressions.
+PASS
 
-Exact-rational checks test the consecutive quotient of the normalized covariance ratio across \(3116\) sample-size pairs for \(3\le m\le40\); they confirm the unique peak at \(n=2m\), the contiguous positive integer interval, and strict positivity at its peak. Numerical checks at three increasing box counts and five rescaled offsets check convergence toward \(\frac43e^{-4}(1-z^2/2)\).
+Reconstructed joint probability P(N_1=1,N_2=4)=n!b^{n−5}/(4!(n−5)!m^5) and marginal binomial means, giving exact Q. Consecutive quotient Q(n+1)/Q(n)=m(m−2)n(n−3)/[(m−1)^2(n+1)(n−4)], increases up to integer 2m, decreases thereafter, with peak Q(2m)>1 using strict log inequalities. Direct Taylor expansion near n=2m+z√m gives log Q=(1−z²/2)/m²+O(m^{−5/2}) and E1E4/m²→(4/3)e^{−4}; fixed-load covariance/m→−c^4(c−2)^2e^{−2c}/24. Endpoint scaling follows monotonicity. n=4 Y1Y4=0 so negative covariance. Independent exact small m,n rational calculations matched positive intervals; finite checks do not replace proof.
 
-Observed output from the supplied checker:
+## originality
 
-```
-PASS: 5 exhaustive allocations, 3116 exact-rational quotient checks, 15 numerical limit checks
-m=3, positive integer ball counts 5..8
-m=4, positive integer ball counts 7..10
-m=5, positive integer ball counts 8..13
-m=20, positive integer ball counts 35..46
-m=100, positive integer ball counts 187..214
-```
+PASS
 
-These finite tests and numeric limits do not prove the all-size theorem. The analytic proof is supplied in RESULT.md. Historical originality has not been independently audited; the 1964 joint-local-normality paper was not available in full text.
+Multinomial moments are classical and not independently new. Poissonized cross-frequency negative covariance or first-order joint Gaussian theory does not imply the exact positive O(1) covariance cancellation window for fixed n. A directly plausible 1964 occupancy CLT paper remained full-text inaccessible (institutional VPN disconnected); risk is documented and not treated as automatic failure.
+
+## value
+
+PASS
+
+Frequency-one and frequency-four cells are natural occupancy statistics. Their first-order density covariance vanishes at load 2, hiding a genuine sign reversal of order one in a mathematically sharp √m neighborhood. The all-m sign interval and limiting quadratic profile resolve a specific structurally induced degeneracy of standard first-order approximations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

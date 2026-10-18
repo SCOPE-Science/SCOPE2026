@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T18:57:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed joint probability P(N_1=1,N_2=4)=n!b^{n−5}/(4!(n−5)!m^5) and marginal binomial means, giving exact Q. Consecutive quotient Q(n+1)/Q(n)=m(m−2)n(n−3)/[(m−1)^2(n+1)(n−4)], increases up to integer 2m, decreases thereafter, with peak Q(2m)>1 using strict log inequalities. Direct Taylor expansion near n=2m+z√m gives log Q=(1−z²/2)/m²+O(m^{−5/2}) and E1E4/m²→(4/3)e^{−4}; fixed-load covariance/m→−c^4(c−2)^2e^{−2c}/24. Endpoint scaling follows monotonicity. n=4 Y1Y4=0 so negative covariance. Independent exact small m,n rational calculations matched positive intervals; finite checks do not replace proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gnedin–Hansen–Pitman eq.(7) uses Poissonized infinite occupancy; Hwang–Janson local limit treats occupied-urn counts; 1964 bounded-load joint asymptotic normality likely covers first-order covariance."
+        ],
+        "reasoning": "First-order normal approximations cannot by themselves decide sign at load 2 where leading covariance vanishes; a full-text historical implicit comparison remains a genuine risk.",
+        "searches": [
+          "Hwang and Janson arXiv:math/0604397",
+          "Gnedin Hansen Pitman arXiv:math/0701718",
+          "Sevastyanov Chistyakov DOI:10.1137/1109034"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md eac3966bc43a669a77d8d66a560f1b3f6cc614d0",
+        "arXiv:math/0604397",
+        "arXiv:math/0701718, Eq.(7)",
+        "DOI:10.1137/1109034 (abstract only)",
+        "arXiv:0806.1007"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Poissonization gives negative cross-frequency dependence due to independent urn counts, unlike fixed-total conditioning. Leading asymptotic covariance density ≤0 and zero at c=2 leaves critical O(1) profile undetermined."
+        ],
+        "reasoning": "A prior general joint moment formula can algebraically imply the Q identity but does not furnish explicit sign/critical scaling without further nontrivial second-order analysis; 1964 full text not readable, so cannot exclude an explicit formula there.",
+        "searches": [
+          "Gnedin Hansen Pitman equation 7 vs fixed-n multinomial law",
+          "Sevastyanov Chistyakov 1964 abstract local joint normality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact covariance is obtainable from elementary multinomial factorial moments; no claim of novelty for that algebra alone."
+        ],
+        "reasoning": "Equivalent aliases Y_1,Y_4 = counts of 1-occupied and 4-occupied boxes; comparison targets positive-window classification and second-order scaling, not formula alone.",
+        "searches": [
+          "Resultary occupancy singleton quadrupleton covariance critical window",
+          "classical multivariate multinomial frequency covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved indexed table of complete integer positive ranges [ℓ_m,u_m] or ±√(2m) endpoints; sparse tie-count results use different occupancy scale."
+        ],
+        "reasoning": "The finite table in the inspected verifier is consistency evidence, not a claim of new data; exact all-m monotone classification is the result.",
+        "searches": [
+          "Resultary occupancy singleton quadrupleton second-order window",
+          "Eaton Godbole Sinclair arXiv:0806.1007"
+        ]
+      },
+      "rationale": "Multinomial moments are classical and not independently new. Poissonized cross-frequency negative covariance or first-order joint Gaussian theory does not imply the exact positive O(1) covariance cancellation window for fixed n. A directly plausible 1964 occupancy CLT paper remained full-text inaccessible (institutional VPN disconnected); risk is documented and not treated as automatic failure.",
+      "residual_risks": [
+        "Full Sevastyanov–Chistyakov (1964) text remains unavailable; historical second-order formulas could overlap.",
+        "The theorem only concerns uniform fixed-total Y1,Y4, not all occupancy frequencies or nonuniform boxes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General count-limit framework, not direct square-root sign profile",
+          "evidence": "The first-order limit is consistent but degenerate at c=2.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0604397",
+          "material_read": "Publicly accessible paper portions on occupied urn totals and mention of generalizations; not used to assert complete appendix absence",
+          "method": "Public arXiv paper text and focused comparison",
+          "title": "Local limit theorems for finite and infinite urn models",
+          "trigger": "General occupancy limits that might subsume frequency statistics"
+        },
+        {
+          "assessment": "Negative covariance is a different Poissonized law",
+          "evidence": "Poissonized frequency class covariance cannot be substituted for fixed-total multinomial covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0701718",
+          "material_read": "Eq. (7), Poissonized covariance and model assumptions",
+          "method": "Public arXiv text comparison",
+          "title": "Notes on the occupancy problem with infinitely many boxes: general asymptotics and power laws",
+          "trigger": "Known cross-frequency covariance formula"
+        },
+        {
+          "assessment": "PLAUSIBLE PRIOR; full-text comparison unavailable",
+          "evidence": "Cannot rule out a historical second-order calculation; recorded explicitly as residual risk.",
+          "identifier_or_url": "https://doi.org/10.1137/1109034",
+          "material_read": "Journal abstract, title, authors, date; full primary article not obtained",
+          "method": "Public DOI abstract and attempted lawful publisher access; authorized institutional access returned disconnected VPN",
+          "title": "Asymptotic Normality in the Classical Ball Problem",
+          "trigger": "Same classical finite occupancy-frequency vectors and potential dominating theorem"
+        },
+        {
+          "assessment": "Different rare-collision regime",
+          "evidence": "Does not imply the linear-load local covariance sign window as stated.",
+          "identifier_or_url": "https://arxiv.org/abs/0806.1007",
+          "material_read": "Public paper-level model and sparse Poisson approximation assumptions",
+          "method": "Public accessible arXiv publication and mathematical model comparison",
+          "title": "Competition between Discrete Random Variables, with Applications to Occupancy Problems",
+          "trigger": "Nearby multivariate sparse tie-count results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Frequency-one and frequency-four cells are natural occupancy statistics. Their first-order density covariance vanishes at load 2, hiding a genuine sign reversal of order one in a mathematically sharp √m neighborhood. The all-m sign interval and limiting quadratic profile resolve a specific structurally induced degeneracy of standard first-order approximations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md eac3966bc43a669a77d8d66a560f1b3f6cc614d0",
+    "arXiv:math/0604397",
+    "arXiv:math/0701718, Eq.(7)",
+    "DOI:10.1137/1109034 (abstract only)",
+    "arXiv:0806.1007"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Full Sevastyanov–Chistyakov (1964) text remains unavailable; historical second-order formulas could overlap.",
+    "The theorem only concerns uniform fixed-total Y1,Y4, not all occupancy frequencies or nonuniform boxes."
+  ]
+}

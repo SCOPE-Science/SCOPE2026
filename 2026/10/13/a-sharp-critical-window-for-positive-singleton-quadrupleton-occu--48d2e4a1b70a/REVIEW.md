@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Distinct-box multinomial probabilities produce all three exact mixed moments and the normalized covariance ratio. Its successive-\(n\) quotient has a single sign switch. A strict logarithmic inequality proves the maximum at \(n=2m\) exceeds one. Uniform logarithmic expansions yield both the fixed-load covariance density and the nontrivial square-root window profile; monotonicity transfers the profile's two roots to exact interval endpoints. Small exhaustive enumerations and exact rational checks independently corroborate the algebra. The proof, not enumeration, covers every permitted integer size.
+## correctness
 
-**Originality — PASS, with residual risk.** Classical joint occupancy moments can already be extracted from standard multinomial formulas; no novelty is asserted for those identities alone. Gnedin–Hansen–Pitman equation (7) concerns Poissonized (negative) cross-frequency covariance; Sevast'yanov–Chistyakov's 1964 abstract covers leading joint local normality; Eaton–Godbole–Sinclair analyze sparse Poisson approximation, not load two. None of the inspected accessible full papers exhibits the exact strictly unimodal finite-\(n\) sign classification together with its narrow second-order profile. The 1964 full text was unavailable, so implicit historical coverage remains a material risk; this is a same-source comparison limit, not a proof of priority.
+PASS
 
-**Value — PASS.** The singleton and four-ball frequency counts are natural descriptors of collisions and concentration in occupancy and species-sampling models. Their first-order asymptotic covariance density is never positive and vanishes at load two. Determining that an exact *positive* covariance persists in a sharp \(\sqrt m\)-wide window identifies a structurally motivated cancellation missed by the first-order joint central limit description and by Poissonization. The complete finite sign interval and its universal rescaled profile answer that dependence question without relying on an arbitrary parameter slice.
+Reconstructed joint probability P(N_1=1,N_2=4)=n!b^{n−5}/(4!(n−5)!m^5) and marginal binomial means, giving exact Q. Consecutive quotient Q(n+1)/Q(n)=m(m−2)n(n−3)/[(m−1)^2(n+1)(n−4)], increases up to integer 2m, decreases thereafter, with peak Q(2m)>1 using strict log inequalities. Direct Taylor expansion near n=2m+z√m gives log Q=(1−z²/2)/m²+O(m^{−5/2}) and E1E4/m²→(4/3)e^{−4}; fixed-load covariance/m→−c^4(c−2)^2e^{−2c}/24. Endpoint scaling follows monotonicity. n=4 Y1Y4=0 so negative covariance. Independent exact small m,n rational calculations matched positive intervals; finite checks do not replace proof.
 
-**Limitations.** The claim is not a general theorem for arbitrary pair counts, nonuniform box probabilities, or limiting nonzero correlations. A plausible 1964 source was checked bibliographically and at abstract level only, with its full text inaccessible. Historical novelty beyond the inspected material requires independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Multinomial moments are classical and not independently new. Poissonized cross-frequency negative covariance or first-order joint Gaussian theory does not imply the exact positive O(1) covariance cancellation window for fixed n. A directly plausible 1964 occupancy CLT paper remained full-text inaccessible (institutional VPN disconnected); risk is documented and not treated as automatic failure.
+
+## value
+
+PASS
+
+Frequency-one and frequency-four cells are natural occupancy statistics. Their first-order density covariance vanishes at load 2, hiding a genuine sign reversal of order one in a mathematically sharp √m neighborhood. The all-m sign interval and limiting quadratic profile resolve a specific structurally induced degeneracy of standard first-order approximations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
