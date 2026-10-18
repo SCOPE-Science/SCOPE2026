@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py`.
+# Independent mathematical audit
 
-The script uses only exact integer arithmetic. It reconstructs the two published \(10\times8\) representative matrices, generates the order-\(9\) group from the two published base-point permutations, produces \(144\) distinct Picard classes with degree counts \(9,36,54,36,9\), checks self-intersection \(-1\), and exhausts all \(10296\) unordered pairs.
+## correctness
 
-Expected terminal line:
+PASS
 
-`VERIFY_OK curves=144 pairs=10296 counts=0:2232,1:4320,2:2880,3:792,4:72 max=4 cubic_partners=2 quartic_partners=8`
+The source supplies 9 exceptional, 36 line, 54 conic, 36 cubic, 9 quartic divisor classes and a freely acting order-9 translation group fixing e0. The original frozen verifier, whose exact 2391-byte Git blob SHA was independently reconstructed, generates 16 representatives times 9 and checks every self-intersection -1 and 10296 pairwise Picard forms dd′−Σa_i a_i′. An independently written direct coefficient/permutation reconstruction reproduces 144 classes and exact five-term histogram; the cubic/quartic calculation gives 3·4−(2+6)=4 for each omitted-point triple, two quartic partners per cubic and eight cubics per quartic. A temporary transcription discrepancy in the independent class matrix was isolated against the actual Git blob and corrected before reproducing the count. Global divisor pairing is explicitly distinguished from local point multiplicity.
 
-The script verifies global divisor intersections only; it does not compute local intersection multiplicities at individual points.
+## originality
+
+PASS
+
+Same mathematical objects, parameters, quantifiers, and prior implications were compared using the identified primary material and a fresh published-findings semantic query. No covering prior theorem was identified in the material read; the listed residual risks limit this best-of-knowledge assessment.
+
+## value
+
+PASS
+
+The complete intersection spectrum of an exceptional finite configuration is a natural exact enumerative invariant, and its 72 maximum pairs identify a concrete correction/interpretation of a source remark that reports an observed maximum at most 3. The cubic–quartic structure goes beyond mere table arithmetic and may inform the motivating all-Halphen maximum question without claiming to solve it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
