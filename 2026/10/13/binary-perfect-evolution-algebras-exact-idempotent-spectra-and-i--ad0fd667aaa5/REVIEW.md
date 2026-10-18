@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** In characteristic two over the prime field, squaring in a natural basis is the linear map \(M^{\mathsf T}\). The idempotents are its fixed space, and their possible cardinalities are powers of two. Gaussian subspace Möbius inversion produces the all-rank exact distribution. An irreducible companion matrix proves the sharp dimension-two first existence of idempotent-free perfect algebras. Uniqueness of the natural basis up to permutation over \(\mathbb F_2\) justifies the finite isomorphism-orbit quotient. Exhaustive stdlib tests verify every invertible matrix through rank four and the four-rank 248-orbit decomposition; finite checks do not replace the general proof.
+## correctness
 
-**Originality — PASS, with historical risk.** The 2025 motivating paper already states the general equation for idempotents, the 2023 Wei–Zou classification already describes monomial orbits, and classical subspace Möbius inversion already counts fixed-point-free invertible linear maps. These are explicitly acknowledged. The more specific idempotent-multiplicity distribution and idempotent-free subclass isomorphism-orbit counts, including the sharp \(n=4\) figure of \(248\), were not located in the consulted records or published-finding corpus queries. The earlier general classification's full appendices were not read, leaving genuine risk of implicit prior coverage.
+PASS
 
-**Value — PASS.** The classification refines a natural algebraic dichotomy: perfect evolution algebras over \(\mathbb C\) have nonzero idempotents in the cited result, but over \(\mathbb F_2\) one can be idempotent-free starting in dimension two. The exact distribution of idempotent numbers and the four-dimensional restricted isomorphism census quantify this algebraic boundary in a complete, reproducible manner. No result for larger fields or higher-rank isomorphism orbits is claimed.
+For F_2 each coordinate satisfies x_i^2=x_i, making x^2=M^T x; the exact number of idempotents is 2^dim ker(M^T-I). For a prescribed fixed r-plane U, GL_n matrices fixing U have 2^{r(n-r)} |GL_{n-r}| members. Mobius inversion on superspaces U yields the displayed Gaussian-binomial formula for every n>=1. Companion matrices of irreducibles of degree >=2 have no eigenvalue 1; n=1 is the sharp exception. Perfect natural bases are monomial and hence permutations over F_2. Independent exhaustive 2^{n^2} matrix scans through n=4 gave nullity distributions (0,1),(2,3,1),(48,98,21,1),(5824,11640,2590,105,1); orbit quotient by S_n yielded 1,8,248 classes with n4 orbit histogram 8x2,12x8,24x238.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The GL_n fixed-space Mobius formula and permutation isomorphism action are classical; the audited result explicitly specializes them to idempotent counts in perfect binary evolution algebras and, nontrivially, filters all n=2,3,4 orbits to the idempotent-free condition. Neither the general 2023 classification nor the 2026 Resultary finite-field existence theorem supplies the filtered 248-class distribution in their inspected results.
+
+## value
+
+PASS
+
+A natural nonassociative algebra property (absence and cardinality of idempotents) becomes a complete all-rank stratification, accompanied by the full first nontrivial symmetry-reduced filtered census; explicit field limitation prevents overgeneralization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
