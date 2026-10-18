@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For each \(k\ge2\), \(G_k(n)=n^k\) is injective and completely multiplicative. If \(a\ne b\), choosing a prime \(r\nmid ab\) makes the exponent of \(r\) equal to \(1\) in both \(ar\) and \(br\), so neither is a perfect \(k\)-th power. Hence \(F_k(ar)=ar\ne br=F_k(br)\), which is exactly the witness needed for quasi-injectivity. The composition is identically \(1\), so it is not quasi-injective. The bounded exact-integer verifier is consistent with every proof step.
+## correctness
 
-## Originality
-PASS. The primary source explicitly leaves composition closure as Question 19 and gives only a sufficient condition requiring a surjective completely multiplicative inner map. Exact-question, implication, and construction-specific literature searches did not locate this power-map counterexample. The closest scientific comparison is a positive result for a special divisor-function inner map, which neither contains nor implies the present negative family.
+PASS
 
-## Value
-PASS. This is a direct resolution of the yes/no part of a published open question, with an infinite and structurally constrained counterexample family. The inner maps are not merely quasi-injective: they are injective and completely multiplicative, showing that these two properties alone do not replace surjectivity in the source's sufficient condition. The broader classification problem remains open.
+For every k≥2, G_k(n)=n^k is injective and completely multiplicative, hence quasi-injective. For distinct a,b, take prime r∤ab; ord_r(ar)=ord_r(br)=1, so neither ar nor br is a perfect kth power. Thus F_k(ar)=ar ≠ br=F_k(br), establishing F_k quasi-injective. As G_k(n) is always a perfect kth power, (F_k∘G_k)(n)=1 identically and fails quasi-injectivity. This is a symbolic all-k proof; packaged finite verifier is regression only.
 
-## Closest literature and limitations
-P. Pongsriiam, “Quasi-Injectivity of Some Arithmetic Functions,” Journal of Integer Sequences 24 (2021), Article 21.10.1, defines the notion and poses Question 19. The present result does not characterize all composition-preserving pairs and does not claim that surjectivity is necessary in every possible sufficient criterion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pongsriiam 2021 expressly asks whether quasi-injective functions are closed under composition in Question 19 and gives a separate sufficient surjective-completely-multiplicative inner condition. The present infinite power-map family answers that open question negatively and shows injective-completely-multiplicative alone does not suffice. The distinct Resultary positive result for right-composition by divisor-function iterates does not imply the counterexample.
+
+## value
+
+PASS
+
+An explicit fully proved counterexample to a precisely stated published closure question is a motivated structural obstruction. The power-map mechanism and its extra strong inner-map property delineate the role of surjectivity, despite the elementary proof and lack of full pairwise classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
