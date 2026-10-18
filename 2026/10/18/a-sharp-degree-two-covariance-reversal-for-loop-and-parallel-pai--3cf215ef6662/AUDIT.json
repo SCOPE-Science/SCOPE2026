@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For N>=6, elementary probabilities for one, two and three specified disjoint matched pairs are 1/(N-1), 1/((N-1)(N-3)), and 1/((N-1)(N-3)(N-5)). Every parallel pair conflicts with exactly 2(d_i+d_j-3) potential loops; tallying all compatible six-stub configurations gives the exact mixed moment. Subtracting the exact mean product yields the stated rational covariance. Regular substitution reduces its sign to vd(2-d)+2d-3, positive for d=2 (v>=3), negative for every d>=3 (v>=2, vd even). The 4-stub exception is computed separately and asymptotic powers follow directly. A standalone checker independently enumerates small matchings and checks rational identities. No infinite step depends on finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson 2006 arxiv:math/0609802, Sec. 5: asymptotic joint-probability estimates for simplicity defects, not exact signed covariance.",
+        "Janson 2013 arxiv:1307.6344, Lemma 1.3: approximate moments of the sum Z to error \\(O(N^{-1/2})\\), larger than both degree-specific covariance scales.",
+        "Angel et al. arxiv:1603.07172, Theorem 1.4: total-variation convergence to independent Poisson laws, not signed finite corrections."
+      ],
+      "reasoning": "The cited stronger-looking asymptotic limit and approximation statements do not imply the exact covariance, sign or distinct powers. General perfect-matching subevent probabilities are ingredients shared with the published proofs; the new combination requires counting incompatible events and evaluating the cancellation. Implicit inferability from an uninspected formula remains a residual priority risk, not a novelty proof.",
+      "searches": [
+        "finite size joint moment self loops and multiple edges configuration model exact covariance",
+        "random pairing multigraph self loops parallel edges joint covariance",
+        "arxiv:math/0609802 sections 2,5,7",
+        "arxiv:1307.6344 sections 1,3",
+        "arxiv:1603.07172 sections 1,3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0609802 (sections 1,2,5,7)",
+      "https://arxiv.org/abs/1307.6344 (sections 1,3)",
+      "https://arxiv.org/abs/1603.07172 (sections 1,3)",
+      "https://epubs.siam.org/doi/abs/10.1137/120899534 (MSC 60C05 listing; random regular configuration-model context)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Angel et al., arxiv:1603.07172, Sec. 3(b1,b2) computes local rewirings including overlapping loop/parallel events but does not aggregate a signed covariance as a theorem.",
+        "Janson, arxiv:1307.6344, Sec. 3 introduces pair indicators and probability 1/(N-1), but its conclusion concerns moments of the combined simplicity-defect variable.",
+        "The computed exact covariance distinguishes degree \\(d=2\\), \\(O(v^{-2})\\) positive, from all \\(d\\geq3\\), \\(O(v^{-1})\\) negative."
+      ],
+      "reasoning": "Known statements imply definitions, marginal means, generic event probabilities, and vanishing covariance in the bounded-degree limit only with additional uniform-integrability arguments. None directly implies the sharp all-n sign and two different nonzero rates; deriving these requires a new all-degree compatibility count and cancellation.",
+      "searches": [
+        "configuration model covariance self loops and double edges random d regular multigraph sign positive degree two negative degree three",
+        "finite size joint moment self loops and multiple edges configuration model exact covariance",
+        "random pairing multigraph self loops parallel edges joint covariance",
+        "random degree-regular pairing model positive covariance number of loops double edges for degree 2 versus negative for degree 3 exact finite",
+        "uniform perfect matching colored stubs loop parallel-pair count covariance regular multigraph 2-regular degree two",
+        "arxiv:1603.07172 Section 3 cases (b1),(b2)",
+        "arxiv:1307.6344 Lemma 1.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Angel–van der Hofstad–Holmgren, arxiv:1603.07172, Eq. (1.2): S_n counts loops and M_n sums choose(X_ij,2), precisely L and P.",
+        "Janson, arxiv:1307.6344, Eq. (1.3) defines their sum Z and explicitly uses uniform perfect matching."
+      ],
+      "reasoning": "Compared exactly the same observables, including triple-edge multiplicities; no renaming, duality, or alternate count conceals a prior exact finite covariance. The source definitions and means are recognized as previously known; the result is the evaluated mixed covariance and a degree-dependent sign/rate theorem.",
+      "searches": [
+        "configuration model covariance self loops and double edges random d regular multigraph sign positive degree two negative degree three",
+        "random pairing multigraph self loops parallel edges joint covariance",
+        "random degree-regular pairing model positive covariance number of loops double edges for degree 2 versus negative for degree 3 exact finite",
+        "uniform perfect matching colored stubs loop parallel-pair count covariance regular multigraph 2-regular degree two",
+        "arxiv:1603.07172, equations (1.2),(1.6)",
+        "arxiv:1307.6344, equations (1.3),(3.4),(3.5)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus top comparison 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174 concerns independent bond percolation, not uniform stub pairings.",
+        "published-finding corpus top comparison 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166 concerns independent draws into boxes, not loop and parallel-pair defects.",
+        "Direct literature keyword searches and inspected sources gave separate defect means and asymptotic joint laws but no table of the exact signed covariance."
+      ],
+      "reasoning": "There is no matching exact moment table among the accessible named comparisons; this negative search result does not establish global uniqueness. The exact formula was verified from its own indicator enumeration rather than copied from a known table.",
+      "searches": [
+        "configuration model covariance self loops and double edges random d regular multigraph sign positive degree two negative degree three",
+        "finite size joint moment self loops and multiple edges configuration model exact covariance",
+        "random pairing multigraph self loops parallel edges joint covariance",
+        "random degree-regular pairing model positive covariance number of loops double edges for degree 2 versus negative for degree 3 exact finite",
+        "uniform perfect matching colored stubs loop parallel-pair count covariance regular multigraph 2-regular degree two",
+        "web: covariance self-loops multiple edges configuration model exact"
+      ]
+    },
+    "rationale": "The exact same loop and parallel-pair observables are identified in 2016 prior work, while the inspected 2006/2013/2016 primary texts state separate means, simplicity/Poisson limits and general moment machinery rather than this evaluated finite covariance. The strict degree-two/degree-three sign divide and two distinct nonzero correction orders cannot be deduced from those stated asymptotic bounds. published-finding corpus comparison searches return other stochastic systems or generic random-graph results rather than this indicator-pair calculation. Historical priority remains provisional because older enumerations may encode it implicitly.",
+    "residual_risks": [
+      "Older random-regular graph enumerations by Bollobas, Wormald, or McKay may contain an implicit finite mixed-moment formula not explicitly located in the inspected primary articles.",
+      "A generic all-pattern factorial-moment identity can be specialized and simplified to the new formula; historical-priority assessment is not independent verification.",
+      "Search-index rankings cannot certify absence of an equivalent result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses identical model and closely related indicators but provides asymptotic simplicity/joint estimates, not evaluated exact L-P covariance or sign threshold.",
+        "evidence": [
+          "Section 5, Lemma 5.2, factorial-moment bounds; Section 7, Poisson approximation; first posted 2006-09-28."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0609802",
+        "material_read": "Accessible HTML sections 1,2,5,7, targeted joint-probability lemmas and Poisson-approximation statements",
+        "method": "Read accessible arXiv rendered article and searched for covariance/factorial moments",
+        "title": "The probability that a random multigraph is simple",
+        "trigger": "Earliest direct configuration-model defect analysis; possible exact mixed moments"
+      },
+      {
+        "assessment": "Moments of combined defect statistic approximated, and elementary subevent probabilities used; no exact evaluation of covariance of separate defect counts or sign regime.",
+        "evidence": [
+          "Lemma 1.3 \\(O(N^{-1/2})\\) summed-moment approximation; 2013-07-24 first posted."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1307.6344",
+        "material_read": "Accessible HTML portions of sections 1 and 3, including equations (1.3), (3.4), (3.5), Lemma 1.3",
+        "method": "Read rendered full text, inspect exact indicator setup and broad moments, search covariance wording",
+        "title": "The probability that a random multigraph is simple, II",
+        "trigger": "Exact underlying event-moment probabilities can be broader coverage"
+      },
+      {
+        "assessment": "Defines exactly L and P and analyzes joint laws; no stated finite covariance formula, sign reversal or two distinct asymptotic covariance rates in inspected text.",
+        "evidence": [
+          "Equations (1.2),(1.6), Theorem 1.4, Section 3 cases (b1),(b2), first posted 2016-03-23."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1603.07172",
+        "material_read": "Accessible HTML portions of sections 1,2,3, especially definitions, means and rewiring cases (b1),(b2),(c)",
+        "method": "Read rendered full text and search covariance phrases; compare precise event definitions and conclusions",
+        "title": "Limit laws for self-loops and multiple edges in the configuration model",
+        "trigger": "Exact same two defect counts and asymptotic independence; highest-priority potential coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3cf215ef-6662-4e6f-a600-2248132eceed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two canonical defects precisely characterize failure of simplicity in the configuration model. Known joint Poisson limits suppress finite-size dependence; the theorem establishes opposite correlation directions and different decay orders between the natural degree-two boundary and all higher regular degrees. The same exact identity covers arbitrary degree profiles, yielding useful finite corrections to defect dependence without asymptotic assumptions. This is a qualitative change, not a textbook restatement of defect expectations.",
+    "status": "PASS"
+  }
+}
