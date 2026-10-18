@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T16:59:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md full proof and verify_buckets.py and verify_dp.py source",
+        "Independent fresh Python exhaustive search using newly constructed shadows"
+      ],
+      "rationale": "Take the eight length-four outputs T with second and fourth bits equal. Every six-bit word has a burst deletion in T by the three-pair pigeonhole principle, giving |C|≤8 for disjoint shadows. Equality forces one representative from each of eight explicit buckets. Independent complete enumeration over all 64 six-bit inputs gives bucket sizes 5,4,5,4,4,5,4,5 and exact search-tree node counts 1,5,13,28,17,8,11,2,2, with precisely the two displayed eight-word codes. Both yield 16 pairwise disjoint received outputs and are linear three-dimensional F2 subspaces. This is a genuine complete finite proof, not a partial search; boundaries are fixed exactly two adjacent deleted symbols, not arbitrary or one-bit deletion.",
+      "residual_risks": [
+        "No statement beyond binary word length six or burst exactly two."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General bound (2^(n-b+1)−2^b)/(n−2b+1) becomes 28/3 for n=6,b=2, hence integer bound 9.",
+          "Cheng et al. work addresses bursts of size at least three."
+        ],
+        "reasoning": "Neither covers the sharpened 8 nor exactly two equality codes. More restrictive arbitrary-two-deletion results do not transfer their optimal-code characterization backwards.",
+        "searches": [
+          "binary length six burst two adjacent deletions perfect codes size eight exactly two",
+          "arXiv:1602.06820v2 Theorem 4",
+          "2014 Cheng Swart Ferreira Abdel-Ghaffar three or more adjacent deletions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1602.06820v2 §§II–IV, Theorem 4",
+        "Resultary semantic query: binary length six burst two adjacent deletions perfect codes size eight exactly two",
+        "Resultary: Complete census of maximum binary length-six single-deletion codes",
+        "Resultary: Exact length-six binary two-list two-deletion code size",
+        "Levenshtein 1967 bibliographic citation only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published theorem yields only upper bound nine; present T-transversal forces upper bound eight and exhaustive eight-bucket search yields precisely two codes.",
+          "The 1967 article is historically relevant but full text was not available and is not asserted noncovering."
+        ],
+        "reasoning": "The source 2016 theorem and known insertion/deletion reductions do not imply the exact count or forced linearity. The missing 1967 content remains an explicit risk, not an automatic O failure.",
+        "searches": [
+          "arXiv:1602.06820v2 Theorem 4",
+          "binary length six burst two adjacent deletions perfect codes size eight exactly two",
+          "Levenshtein 1967 one or two adjacent losses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Burst insertion and exact burst deletion correction are equivalent in the published channel framework, but no (6,2) extremal equality classification is given.",
+          "The Resultary length-six single-deletion census concerns one deleted bit and maximum size ten, not adjacent two-bit deletion."
+        ],
+        "reasoning": "Insertion language does not supply a stronger earlier bound; single deletions or arbitrary two deletions are distinct channels. No equivalent exact eight/equality statement located.",
+        "searches": [
+          "binary length six burst two adjacent deletions perfect codes size eight exactly two",
+          "binary one burst of two consecutive deletions n=6 equality maximum eight two linear codes",
+          "arXiv:1602.06820 §III insertion/deletion equivalence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Unrestricted two-deletion and list-two-deletion tables use different decoding rules.",
+          "Full 64-word bucket census found only two exact adjacent-burst maxima; previously inspected code tables do not state this count."
+        ],
+        "reasoning": "A superficially same blocklength or bound is not a same-channel equality table. Missing historical finite census remains possible.",
+        "searches": [
+          "binary length six burst two adjacent deletions perfect codes size eight exactly two",
+          "Resultary: Exact length-six binary two-list two-deletion code size",
+          "OEIS A057591 maximum two deletions at arbitrary positions"
+        ]
+      },
+      "rationale": "The exact length-six adjacent-two-deletion channel has a complete sharp 8-codeword upper bound and two labeled equality codebooks; prior general burst bounds give only ≤9 and no census. Independently reconstructed exhaustive bucket search, not merely copied prior verdict. Original 1967 work is inaccessible and retains a genuine priority risk.",
+      "residual_risks": [
+        "Levenshtein 1967 primary text unavailable after OA and Oxford attempt (Oxford reported worker unavailable or invalid); it may contain a small-size classification.",
+        "No formal mathematical proof-assistant certificate; the finite search is exact and exhaustively replayed in two independently structured algorithms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_COVER_EXACT_6_2_CENSUS",
+          "evidence": "Section IV bound specializes to 28/3 rather than 8; no list of the two maximum six-bit codebooks.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.06820",
+          "material_read": "Primary paper sections II, III, IV Theorem 4 and its proof, construction section, conclusion and references; relevant theorem page rendered.",
+          "method": "Open-access arXiv primary PDF and page visualization",
+          "title": "Codes Correcting a Burst of Deletions or Insertions",
+          "trigger": "Same exact length-two burst-deletion channel and bounds"
+        },
+        {
+          "assessment": "OUTSIDE_TARGET_BURST_LENGTH",
+          "evidence": "Paper addresses bursts three or longer, while this theorem fixes exactly two.",
+          "identifier_or_url": "Cheng et al., IEEE ISIT 2014",
+          "material_read": "Accessible paper introduction and construction scope from primary PDF text.",
+          "method": "Open-access primary conference text",
+          "title": "Codes for Correcting Three or More Adjacent Deletions or Insertions",
+          "trigger": "Prior code constructions with similar terminology"
+        },
+        {
+          "assessment": "ACCESS_RISK_NOT_ASSESSED_NONCOVERING",
+          "evidence": "Cannot exclude an old length-six finite case without reading the original; no noncoverage inference from citation title.",
+          "identifier_or_url": "Levenshtein, Problems of Cybernetics 19 (1967)",
+          "material_read": "Bibliographic identification and citation in Schoeny et al.; full original text not obtained. arXiv and lawful OA search did not yield text; authorized Oxford request returned worker unavailable or request invalid.",
+          "method": "Bibliographic record, attempted OA and authorized institutional access",
+          "title": "Asymptotically optimum binary code with correction for losses of one or two adjacent bits",
+          "trigger": "Historically earliest same exact deletion model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Schoeny et al. general burst bound and insertion/deletion equivalence",
+        "Independent complete small-blocklength census"
+      ],
+      "rationale": "The exact maximum and complete equality classification at the smallest six-bit burst-two instance distinguish perfect output packings and forced linearity. These are natural extremal coding invariants of a canonical finite deletion channel and sharpen a published non-tight bound, not an unmotivated arbitrary slice or mere known-table recomputation.",
+      "residual_risks": [
+        "It is a small finite classification; no claimed all-length theorem or general construction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1602.06820v2 §§II–IV, Theorem 4",
+    "Resultary semantic query: binary length six burst two adjacent deletions perfect codes size eight exactly two",
+    "Resultary: Complete census of maximum binary length-six single-deletion codes",
+    "Resultary: Exact length-six binary two-list two-deletion code size",
+    "Levenshtein 1967 bibliographic citation only"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The 1967 original article remained inaccessible; Oxford worker unavailable or request invalid, no access bypass.",
+    "At-most-two, unrestricted-two, or single deletion channels not covered."
+  ]
+}

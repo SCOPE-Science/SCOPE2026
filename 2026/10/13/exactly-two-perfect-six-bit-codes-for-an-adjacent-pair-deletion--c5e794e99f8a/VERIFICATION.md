@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks and their limits
 
-Execute `python3 verify_buckets.py` and `python3 verify_dp.py` in the extracted package directory. Each is standalone standard-library Python. Both were executed directly from the packaged source paths and succeeded before packaging, and then replayed from extracted embedded bytes.
+# Independent mathematical audit
 
-`verify_buckets.py` enumerates all \(64\) input words, all five adjacent-pair deletion positions, all eight receiver words with equal even-indexed bits, all \(36\) eligible equality candidates, and every pairwise-disjoint choice from the eight canonical buckets. It finds exactly two size-eight codes and checks both linearity and the two displayed channel symmetries.
+## correctness
 
-`verify_dp.py` independently reconstructs receiver bitmasks by integer arithmetic, then performs a complete exact-integer set-packing dynamic program on all \(2^{16}=65536\) receiver subsets, retaining the largest partial packing and its count. It finds maximum \(8\), count \(2\).
+PASS
 
-The upper bound is proved directly, rather than inferred from the programs. The equality census is exhaustive because the eight transversal buckets are necessary for every optimum and no branch is omitted. These are ordinary reproducible finite computations and a self-review; no independent audit or external certification has been performed. All scientific conclusions are restricted to binary length six and a burst of **exactly** two consecutive deletions.
+Take the eight length-four outputs T with second and fourth bits equal. Every six-bit word has a burst deletion in T by the three-pair pigeonhole principle, giving |C|≤8 for disjoint shadows. Equality forces one representative from each of eight explicit buckets. Independent complete enumeration over all 64 six-bit inputs gives bucket sizes 5,4,5,4,4,5,4,5 and exact search-tree node counts 1,5,13,28,17,8,11,2,2, with precisely the two displayed eight-word codes. Both yield 16 pairwise disjoint received outputs and are linear three-dimensional F2 subspaces. This is a genuine complete finite proof, not a partial search; boundaries are fixed exactly two adjacent deleted symbols, not arbitrary or one-bit deletion.
+
+## originality
+
+PASS
+
+The exact length-six adjacent-two-deletion channel has a complete sharp 8-codeword upper bound and two labeled equality codebooks; prior general burst bounds give only ≤9 and no census. Independently reconstructed exhaustive bucket search, not merely copied prior verdict. Original 1967 work is inaccessible and retains a genuine priority risk.
+
+## value
+
+PASS
+
+The exact maximum and complete equality classification at the smallest six-bit burst-two instance distinguish perfect output packings and forced linearity. These are natural extremal coding invariants of a canonical finite deletion channel and sharpen a published non-tight bound, not an unmotivated arbitrary slice or mere known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

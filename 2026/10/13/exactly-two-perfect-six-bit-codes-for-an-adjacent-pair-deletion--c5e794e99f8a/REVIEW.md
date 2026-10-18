@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The channel is specified as exactly one contiguous length-two deletion, with all five possible starting positions and duplicate outputs collapsed. The upper bound is a direct pigeonhole transversal: among input positions \(2,4,6\) two bits agree, so one of three disjoint pair deletions gives a receiver word whose second and fourth symbols agree. That eight-word receiver family intersects every source shadow. Every size-eight equality case must contribute one receiver to each transversal bucket; complete enumeration of the eight explicit buckets produces just two codes, with partial-node counts \(1,5,13,28,17,8,11,2,2\). The two codebooks are explicitly exhibited, their shadow disjointness and perfect coverage checked, and their linearity verified. Two independently structured executable programs produce the same optimum and exact number of equality cases. This is a finite theorem, not an inference from an incomplete finite search.
+PASS
 
-## Originality — PASS, subject to residual historical risk
+Take the eight length-four outputs T with second and fourth bits equal. Every six-bit word has a burst deletion in T by the three-pair pigeonhole principle, giving |C|≤8 for disjoint shadows. Equality forces one representative from each of eight explicit buckets. Independent complete enumeration over all 64 six-bit inputs gives bucket sizes 5,4,5,4,4,5,4,5 and exact search-tree node counts 1,5,13,28,17,8,11,2,2, with precisely the two displayed eight-word codes. Both yield 16 pairwise disjoint received outputs and are linear three-dimensional F2 subspaces. This is a genuine complete finite proof, not a partial search; boundaries are fixed exactly two adjacent deleted symbols, not arbitrary or one-bit deletion.
 
-The full accessible text of Schoeny et al., arXiv:1602.06820v2, defines the same contiguous-deletion channel, establishes equivalence with burst insertion, and derives a non-asymptotic general upper bound. At the present parameter their Theorem 4 permits nine words, and their constructions do not present a labeled equality census. Cheng et al. (2014) explicitly study three or more adjacent deletions. Searches for aliases, perfect burst-deletion packings, exact size tables, the precise parameter, and published research records identified no stronger or equivalent size-six classification. The OEIS entry A057591 concerns **unrestricted** two-deletion correction and cannot imply this different channel's eight-word classification. Earlier original Levenshtein (1967) work was not available in full; an unpublished or unindexed older enumeration remains possible, and database silence is not a novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves the complete equality layer at the first length with three disjoint two-bit deletion windows, a natural finite test case for burst synchronization. The result exhibits a sharp, transparent transversal improving the general bound from nine to eight; moreover, every optimum must be one of two three-dimensional linear codes, and both are perfect output partitions. The forced linearity and rigidity of an a priori unrestricted nonlinear packing are substantively stronger than a routine construction or an arbitrary checksum slice. The scope is exact length six only, and it is not a theorem for arbitrary or at-most-two deletions.
+The exact length-six adjacent-two-deletion channel has a complete sharp 8-codeword upper bound and two labeled equality codebooks; prior general burst bounds give only ≤9 and no census. Independently reconstructed exhaustive bucket search, not merely copied prior verdict. Original 1967 work is inaccessible and retains a genuine priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact maximum and complete equality classification at the smallest six-bit burst-two instance distinguish perfect output packings and forced linearity. These are natural extremal coding invariants of a canonical finite deletion channel and sharpen a published non-tight bound, not an unmotivated arbitrary slice or mere known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
