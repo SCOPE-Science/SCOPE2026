@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Arbitrary antiderivative tests in the \(z\)- and \(w\)-coordinates give \(\mathbb E[w\mid z]=-(d/c)z\) and \(\mathbb E[x\mid w]=-b/w\). Boundedness of \(x\) turns the second conditional identity into a uniform support gap from \(w=0\), so the reciprocal variance is legitimate. Conditional-variance decomposition gives both squared-speed defects. If either speed defect vanishes, invariance of the support successively freezes all four coordinates, so the support is equilibrium-supported. For \(d>0\), variation of constants on a bounded complete orbit gives the future-memory identity.
+## correctness
 
-Risk: compact support is essential to the generator argument, the support gap, and the equality-rigidity step.
+PASS
 
-## Originality
-PASS. The complete 2009 same-object mathematical article was inspected at equation and theorem level and searched for invariant-measure, average, variance, moment, and covariance formulations. Its results concern symbolic dynamics and homoclinic/heteroclinic connections, not stationary conditional projections. The 2016 same-object work proves coexistence and connections of chaotic and hyperchaotic invariant sets; its accessible material does not implication-wise supply the accepted claim. Scientific-index searches for the two conditional laws, future-memory formulation, and variance defects returned no same-object statement. The closest indexed stationary results are for the distinct three-dimensional Rössler system and do not imply the four-dimensional laws.
+For every compact invariant probability of exact Wilczak-normalized 4D Rössler ODE, invariance of primitives H(z),K(w) against arbitrary continuous test functions yields E[w|z]=-(d/c)z and b+w E[x|w]=0. Compact bound |x|<=M with b!=0 forces |w|>=|b|/M on support, legitimizing reciprocal. Conditional orthogonality yields two exact residual identities E[(zdot/c)^2] and E[(wdot/w)^2]. Vanishing on an invariant support freezes all four coordinates and forces equilibria, conversely equilibrium mixtures attain equality. Bounded complete trajectories with d>0 satisfy the forward-convolution identity by integrating e^(-dt)z to infinity. Independently verified rational classical coefficients, w^2=4/13 and x,y,z relations. No finite simulated attractor substituted for invariant-measure proof.
 
-Risk: the original 1979 complete article and the complete 2016 SIAM body were not both available through the inspected lawful full-text routes, and the generator calculations are concise enough that an unindexed equivalent could exist.
+## originality
 
-## Value
-PASS. The fourth coordinate was introduced precisely to create hyperchaos. The result identifies an exact statistical structure of that extra channel: bounded recurrence converts its positive linear mode into a future exponential memory, while the current state is simultaneously an exact conditional projection. The two strict fluctuation budgets give parameter-explicit consistency tests for any stationary data on the rigorously established chaotic or hyperchaotic invariant sets, and their equality class is completely characterized by the equilibria.
+PASS
 
-## Closest literature and limitations
-The closest same-object literature proves symbolic dynamics, homoclinic and heteroclinic connections, and coexistence of chaotic and hyperchaotic invariant sets. Those results establish rich recurrent dynamics but do not determine stationary coordinate regressions or the fluctuation budgets proved here. The main residual originality risk is an equivalent short identity in unindexed literature, amplified by incomplete lawful full-text access to the 1979 foundational paper and the 2016 SIAM body.
+Wilczak 2009 and the full available original-author 2016 manuscript concern chaotic and hyperchaotic invariant sets, homoclinic/heteroclinic orbits and computer-assisted topology, not the claimed universal compact-invariant conditional regressions, strict variance defects or future-memory convolution. The original full 1979 article was not obtained and is a bounded priority risk. Same-named three-dimensional Rössler stationary findings in Resultary concern a different ODE and are not direct special cases. These short identities follow from the known ODE; novelty is limited to the combination of compact-stationary constraints, rigorous support separation, equality rigidity and future solution representation, not the dynamical model.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The positive unstable z-channel d>0 makes the exact future-memory selection of bounded complete recurrent states nonstandard, while the multiplicative w-channel supplies a nontrivial obstruction to invariant mass approaching w=0. Together the two fiberwise regressions give exact testable variance budgets whose strictness distinguishes non-equilibrium recurrence from equilibrium mixtures for a canonical hyperchaotic model. This is a concrete analytic constraint on invariant statistics rather than a relabeling of known parameter values or an unsupported attractor numerical estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
