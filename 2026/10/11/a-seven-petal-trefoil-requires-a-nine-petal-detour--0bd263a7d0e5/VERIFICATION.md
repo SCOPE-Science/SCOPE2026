@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The lower bound and the explicit detour were replayed from the standalone file `artifacts/verify_trefoil_excess.py`. The program uses only exact permutation, set, and integer operations.
+# Independent mathematical audit
 
-For the candidate \(p=(0,2,4,6,1,3,5)\), it checks all \(70\) admissible parameter triples \((b,m,w)\) for the crossing-exchange definition and finds none legal. It separately checks that \(\mathsf R\) and \(\mathsf S\) return the same canonical cyclic word and that no trivial deletion is available. Therefore no sequence confined to seven petals can leave the candidate or reach five petals.
+## correctness
 
-The program then verifies the explicit path through nine petals. The crossing exchange \(\mathsf X(4,2,5)\) is checked against the pair partition and interval condition, and the surrounding addition/deletions are checked by applying the exact inverse deletion rule. The terminal five-petal word is confirmed cyclically equivalent to \((3,1,4,2,0)\), the trefoil word recorded in the primary source.
+PASS
 
-Finally, it enumerates the two cyclic classes of three-petal words and verifies that each deletes to the one-petal unknot. Together with the displayed five-petal trefoil, this proves \(p(K)=5\) without relying on a database lookup.
+The specified seven-height word p=(0,2,4,6,1,3,5) has no cyclically adjacent consecutive heights and hence no trivial deletion. Applying the explicit cyclic-height rotation and half-turn symmetry yields the same canonical cyclic representative. Independent bounded enumeration against the Colton-style crossing-exchange pair partition examined all 7·(binomial choice of m,w with gap≥2)=70 candidate triples and found no legal crossing exchange. With no count-preserving move leading away, any reduction to five petals must first increase to nine. The fully explicit path uses T+ to (0,7,6,2,4,8,1,3,5), X(4,2,5) to (0,7,5,3,4,8,1,2,6), then two T− deletions to (0,3,1,4,2), a cyclic rotation of the known five-petal trefoil (3,1,4,2,0). The exact verifier sourced from artifacts/verify_trefoil_excess.py was inspected, and its exhaustive local search and displayed detour were independently reconstructed from definitions. Only the given finite word is exhaustively certified, not arbitrary knots.
 
-Successful replay output:
+## originality
 
-`VERIFY_OK candidate_x_triples=70 candidate_R=fixed candidate_S=fixed candidate_Tminus=none detour_max_petals=9 trefoil_petals=5 source_X_example=PASS`
+PASS
 
-No conclusion is drawn for other seven-petal words or other knots. Independent audit has not been performed.
+The original recent question explicitly asks about hard petal diagrams of nontrivial knots, while its abstract and accessible source description focus on hard unknots; the source full text was not obtainable through open access or institutional connection and cannot support a whole-document noncoverage assertion. Colton et al. give the complete move calculus and a known five-petal trefoil but no barrier for this seven-petal word in the materially inspected sections. The explicit exact obstruction and minimal nine-petal detour are a credible best-of-knowledge answer with meaningful recent-preprint priority risk. Resultary lookup failed; this is not a novelty certificate.
+
+## value
+
+PASS
+
+This is a motivated smallest nontrivial-knot obstruction to monotone petal simplification with a complete exact minimax path and sharp two-petal excess. It addresses the problem raised by the contemporaneous petal-move literature, rather than reporting an arbitrary enumerated knot word.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

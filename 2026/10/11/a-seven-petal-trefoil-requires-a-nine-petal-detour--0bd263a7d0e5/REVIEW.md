@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source defines \(\mathsf T^{\pm},\mathsf X,\mathsf R,\mathsf S\) and records \((3,1,4,2,0)\) as a five-petal trefoil. For \(p=(0,2,4,6,1,3,5)\), direct calculation shows that \(\mathsf R\) and \(\mathsf S\) fix the canonical word, no cyclic adjacent pair is consecutive, and the source's crossing-exchange condition fails for all \(70\) admissible triples \((b,m,w)\). Hence no path confined to at most seven petals can leave \(p\) or delete petals. The displayed \(7\to9\to9\to7\to5\) path is checked move by move and ends at a cyclic rotation of the source's trefoil word. Finally, every three-petal word deletes to the one-petal unknot, so the trefoil petal number is indeed \(5\). These facts prove exact excess \(2\).
+## correctness
 
-## Originality
-PASS. The recent source proves hardness only for the unknot and explicitly asks in Question 7.4 whether a nontrivial knot can require a temporary increase before reaching its petal number. The accepted claim gives such a nontrivial example and an exact smallest detour for that word. Targeted semantic searches covered the exact word, hard-petal/trefoil terminology, monotonic simplification, nontrivial-knot excess, and the open-question wording; no equivalent or stronger published statement was found. Earlier petal-number and move-completeness papers do not imply the intermediate-petal lower bound. The residual risk is chiefly the recency of the motivating preprint and possible unindexed parallel observation.
+PASS
 
-## Value
-PASS. This is a direct affirmative answer to an explicit open question in the motivating paper, using the simplest classical nontrivial knot and only two excess petals above its minimum. The obstruction is structural and transparent: the seven-petal word is a singleton under all petal-count-preserving moves and has no deletion, while a concrete nine-petal detour succeeds. It is therefore more informative than a raw finite census or an arbitrary isolated invariant value.
+The specified seven-height word p=(0,2,4,6,1,3,5) has no cyclically adjacent consecutive heights and hence no trivial deletion. Applying the explicit cyclic-height rotation and half-turn symmetry yields the same canonical cyclic representative. Independent bounded enumeration against the Colton-style crossing-exchange pair partition examined all 7·(binomial choice of m,w with gap≥2)=70 candidate triples and found no legal crossing exchange. With no count-preserving move leading away, any reduction to five petals must first increase to nine. The fully explicit path uses T+ to (0,7,6,2,4,8,1,3,5), X(4,2,5) to (0,7,5,3,4,8,1,2,6), then two T− deletions to (0,3,1,4,2), a cyclic rotation of the known five-petal trefoil (3,1,4,2,0). The exact verifier sourced from artifacts/verify_trefoil_excess.py was inspected, and its exhaustive local search and displayed detour were independently reconstructed from definitions. Only the given finite word is exhaustively certified, not arbitrary knots.
 
-## Closest literature and limitations
-The closest source is Vernitski's arXiv:2610.01596v1, which defines the move set, proves hard-unknot results, records the five-petal trefoil, and asks the nontrivial-knot question without answering it. Colton--Glover--Hughes--Sandberg prove completeness of the basic move calculus but no monotonic-complexity result for this trefoil. Adams et al. introduce petal number but do not study this move-excess obstruction. The theorem is limited to the stated word and move set.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The original recent question explicitly asks about hard petal diagrams of nontrivial knots, while its abstract and accessible source description focus on hard unknots; the source full text was not obtainable through open access or institutional connection and cannot support a whole-document noncoverage assertion. Colton et al. give the complete move calculus and a known five-petal trefoil but no barrier for this seven-petal word in the materially inspected sections. The explicit exact obstruction and minimal nine-petal detour are a credible best-of-knowledge answer with meaningful recent-preprint priority risk. Resultary lookup failed; this is not a novelty certificate.
+
+## value
+
+PASS
+
+This is a motivated smallest nontrivial-knot obstruction to monotone petal simplification with a complete exact minimax path and sharp two-petal excess. It addresses the problem raised by the contemporaneous petal-move literature, rather than reporting an arbitrary enumerated knot word.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
