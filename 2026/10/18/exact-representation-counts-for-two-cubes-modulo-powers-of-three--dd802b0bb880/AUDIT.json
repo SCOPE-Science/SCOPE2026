@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Proved via: cyclic group of units modulo 3^n giving exactly three cube roots of each ±1 mod9 unit; exhaustive residue classifications; opposite-unit parameter y=-x+3t and H_x(t)=t(x²−3xt+3t²), with H mod3 bijective and derivative x² nonzero; 3 lifts per target modulo 3^(n−2); nonunit scaling contributes 81 times N_(n−3). Base n=0,1,2 handled independently. Exact convolution verifier checks all 9840 target residues at n=1..8, not used as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cohen (1955), inspected main theorem: the specified prime case is p congruent to 1 modulo 3.",
+        "Finch–Sebah, Squares and Cubes Modulo n: source material addresses images of single-variable power maps and roots.",
+        "Monsky (2023) treats rational points on fixed cubic equations, not exact modular counting over all targets."
+      ],
+      "reasoning": "The main p=1 mod3 representation theorem does not specialize to p=3. Counts of individual cube roots do not by themselves state the all-target convolution with singular nine-adic zero branch. Rational solvability results cannot imply exact counts modulo every power of 3 without a separate argument.",
+      "searches": [
+        "Eckford Cohen The number of solutions of certain cubic congruences 1955 prime 1 modulo 3",
+        "Finch Sebah Squares and Cubes Modulo n arxiv math/0604465 full paper",
+        "Monsky The sum of two cubes problem 2309.00162 full preprint",
+        "\"sum of two cubes\" \"p-adic density\" prime 3"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A087412",
+      "https://oeis.org/A087786",
+      "https://msp.org/pjm/1955/5-6/pjm-v5-n6-p05-p.pdf",
+      "https://arxiv.org/html/math/0604465v3",
+      "https://arxiv.org/html/2309.00162v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "OEIS A087412 explicitly states the target-one prime-power formula as a conjecture.",
+        "OEIS A087786 states the zero-target result and therefore subsumes only that branch.",
+        "The cyclicity of units modulo odd prime powers is known standard input; the explicit opposite-unit Hensel parameter argument handles the two-variable counts."
+      ],
+      "reasoning": "The new all-target law implies the target-one conjecture and is not implied by the known zero-target formula or single-variable cube-image counts alone. The proof synthesizes standard input and a local Hensel bijection. Because the argument is elementary, an unstated deduction in earlier full literature remains a genuine residual originality risk.",
+      "searches": [
+        "OEIS A087412 2018 conjecture all powers of 3",
+        "OEIS A087786 2018 formula prime powers",
+        "Cohen 1955 representation of cubic congruences prime p=1 mod3",
+        "Finch Sebah square cube map residues"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A087412, FORMULA 2018-07-17: the target-one count at 3^e is expressly marked conjectural.",
+        "OEIS A087786 gives prime-power zero-difference cubic-solution counts: replacing y by -y gives the zero-sum count."
+      ],
+      "reasoning": "Equivalent zero-target difference-of-cubes formulations have already been covered and are explicitly excluded from the independent novelty assertion. The target-one sequence conjecture is proved for all e>1, and the theorem further gives the entire all-target distribution. The zero-target result alone cannot imply values at nonzero targets.",
+      "searches": [
+        "\"A087412\" \"3^e\" conjecture",
+        "\"x^3 + y^3\" \"mod 3^n\" number of solutions",
+        "OEIS A087786 difference two cubes zero modulus"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A087412 contains numerical samples and the precise conjecture N_n(1)=2*3^n; its formula note is dated Jul 17, 2018. The sequence itself was initiated in Oct 2003.",
+        "A087786 contains the prior closed formula for N_n(0) via x^3-y^3=0; the source formula is dated Jul 17, 2018."
+      ],
+      "reasoning": "The tables of target-one and zero-target counts are prior data and are not presented as novel numerical computations. The nonzero-target classifications at r congruent to ±1,±2 and the vanishing residue classes, together with a terminating exact recurrence for every target, extend those specific tables as a complete arithmetic rule.",
+      "searches": [
+        "OEIS A087412 full formula entry and dates",
+        "OEIS A087786 full formula entry and dates",
+        "\"number of solutions\" \"x^3+y^3\" \"3^n\""
+      ]
+    },
+    "rationale": "The exact target-one formula appears explicitly as a July 2018 conjecture in OEIS A087412. Earlier OEIS A087786 already covers zero targets, which are attributed and not claimed separately. Cohen 1955 p≡1 (mod3), Finch–Sebah single-cube counts and Monsky rational equation do not state the ramified all-target counting rule. Actual mathematical search and history found no equivalent formula; the proof is elementary so an implicit or uncatalogued overlap is a material residual risk.",
+    "residual_risks": [
+      "Unindexed 3-adic local-density work might contain an equivalent statement under different normalization.",
+      "Given elementary lifting, the full rule may be implicit in stronger earlier results not detected by literature comparison.",
+      "The numerical sequence dates to October 2003, while the specific cited power-of-three conjecture first appears as a dated July 2018 formula note."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Precise conjecture for e>1, not an already given proof; source entry originated 2003, conjecture dated 2018",
+        "evidence": [
+          "FORMULA: Andrew Howroyd Jul 17 2018, Conjecture a(3^e)=2*3^e for e>1.",
+          "AUTHOR: Yuval Dekel Oct 21 2003."
+        ],
+        "identifier_or_url": "https://oeis.org/A087412",
+        "material_read": "Complete public sequence entry including formula, history/author and dated conjecture",
+        "method": "Read original sequence text",
+        "title": "A087412: x^3+y^3 ≡ 1 (mod n)",
+        "trigger": "Explicit dated three-power conjecture on the same target-one statistic"
+      },
+      {
+        "assessment": "Already covers every zero-target count; those counts are not separately claimed original",
+        "evidence": [
+          "FORMULA: Andrew Howroyd Jul 17 2018, multiplicative prime-power solution formula."
+        ],
+        "identifier_or_url": "https://oeis.org/A087786",
+        "material_read": "Complete sequence entry, including general prime-power formula and dates",
+        "method": "Read original sequence text",
+        "title": "A087786: x^3-y^3 ≡ 0 (mod n)",
+        "trigger": "Exact zero-target counterpart through sign inversion"
+      },
+      {
+        "assessment": "Principal prime case assumes p≡1 mod3; excludes the p=3 ramification studied here",
+        "evidence": [
+          "Cohen (1955), Theorem 1 prime restriction p≡1 (mod 3)."
+        ],
+        "identifier_or_url": "https://msp.org/pjm/1955/5-6/pjm-v5-n6-p05-p.pdf",
+        "material_read": "Full source PDF mathematical content, especially theorem hypotheses and development",
+        "method": "Opened primary PDF text and first-page rendering",
+        "title": "The number of solutions of certain cubic congruences",
+        "trigger": "Classical cubic-congruence representation theory may dominate entire theorem"
+      },
+      {
+        "assessment": "Provides background cube-map data but not the full two-cube all-target representation count",
+        "evidence": [
+          "Finch–Sebah, cube image/root count discussions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0604465v3",
+        "material_read": "Full author text with cube image and cubic root sections",
+        "method": "Read open preprint full text",
+        "title": "Squares and Cubes Modulo n",
+        "trigger": "Potential broad coverage from cube residue and root-count statements"
+      },
+      {
+        "assessment": "Treats rational solutions of equations, not exact counts modulo 3^n",
+        "evidence": [
+          "Monsky (2023), rational point and descent formulation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2309.00162v1",
+        "material_read": "Full source preprint",
+        "method": "Read openly available author text",
+        "title": "The sum of two cubes problem—an approach that’s classroom friendly",
+        "trigger": "Potential proof of all-target two-cube representation theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd802b0b-b880-42dd-8add-2105bc77cff9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the full representation-count distribution and exact local solubility for sums of two cubes modulo all powers of ramified prime three, including singular valuation recursion. It settles an explicitly stated July 2018 3-power conjecture on a natural counting sequence. The zero-target formula is prior, but the full vector of target counts is a motivated natural arithmetic invariant, not an arbitrary slice or isolated finite check.",
+    "status": "PASS"
+  }
+}
