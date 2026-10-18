@@ -1,0 +1,84 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T17:01:33.045417Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact full regular-S_n isotypic kernel dχ/n! and norm d E|χ| follow from finite-group Fourier inversion; χ(F,T)=F(F−3)/2+T, negative precisely F∈{1,2},T=0, and character mean zero. Cycle-counting yields norm n(n−3)(r_{n−1}+r_{n−2}/2), with r_m→e^(−3/2). Independent cycle-type checks corroborate n=4..14; proof applies all n≥4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published χ formula holds on every conjugacy class and published excluded-1/2-cycle EGF holds for every m, covering n≥4 with arbitrary n in target."
+        ],
+        "reasoning": "Target is a direct specialization of these general identities plus group convolution endpoint norm, not a mathematically independent determination.",
+        "searches": [
+          "Barvinok–Stephen arXiv:math/0104229 §6.4.2 and Prop 7.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0104229v1; https://arxiv.org/pdf/math/0104229#page=17 and #page=20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set p=F, t=T: χ(F,T)=F(F−3)/2+T; negative iff F=1 or 2 and T=0, with value −1. Orthogonality gives E|χ|=2 P(negative). E(1 fixed,no 2cycles)=r_{n−1}; E(2 fixed,no 2cycles)=r_{n−2}/2; multiply by d=n(n−3)/2 to get n(n−3)(r_{n−1}+r_{n−2}/2). EGF yields (3/2)e^{−3/2}n(n−3)."
+        ],
+        "reasoning": "All displayed target formulas follow by a short deterministic sign/count manipulation of previously published exact ingredients plus the standard ℓ¹ convolution formula; strong positive prior implication establishes O FAIL independently of the temporarily unavailable semantic search.",
+        "searches": [
+          "Barvinok–Stephen Proposition 7.5(3) and §6.4.2",
+          "standard Young-character central projector identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barvinok–Stephen explicitly state χ_{n−2,2}(σ)=t(σ)+p(σ)(p(σ)−3)/2, and χ has mean zero. The central idempotent kernel is dχ/|S_n|."
+        ],
+        "reasoning": "The exact ℓ¹/ℓ∞ projection norm is the absolutely summed central character multiplied by d, so the old character formula is the same computational object after standard Fourier normalization.",
+        "searches": [
+          "arXiv:math/0104229v1 Proposition 7.5(3)",
+          "standard finite-group central primitive idempotent convolution norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original publication gives a complete character-polynomial value on each class and a counting generating function, equivalent to exhaustive sign/mass data; no reliance on unweighted OEIS A214418."
+        ],
+        "reasoning": "No separate numeric table needs to print the final norm: complete published polynomial/counting data imply it exactly.",
+        "searches": [
+          "arXiv:math/0104229v1 Proposition 7.5(3); §6.4.2"
+        ]
+      },
+      "rationale": "A decisive direct prior implication exists: Barvinok–Stephen arXiv:math/0104229v1 Proposition 7.5(3) supplies the exact χ character polynomial and §6.4.2 supplies exact excluded-1/2-cycle EGF. Apply the standard central convolution endpoint norm and an immediate sign check to recover the entire target finite formula and limit, without novel nonstandard input. This is affirmative coverage, not a novelty failure inferred from inaccessible Resultary.",
+      "residual_risks": [
+        "Barvinok–Stephen do not explicitly label an endpoint projection norm; finding O FAIL is based on demonstrated direct implication, not identical theorem wording.",
+        "No original Resultary corpus response, but affirmative prior implication suffices to establish coverage.",
+        "Finite cycle checks not infinite proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Both nontrivial inputs of the claimed endpoint norm already stated. The paper does not explicitly print that endpoint norm, but standard convolution norm and a two-value sign test imply it immediately.",
+          "evidence": "Prop 7.5(3): χ_{n−2,2}=t+(p²−3p)/2 for every permutation; §6.4.2 EGF (1−z)^{-1}exp(−z−z²/2), proportion ~e^{−3/2}; character mean zero noted directly after Prop 7.5.",
+          "identifier_or_url": "arXiv:math/0104229v1; https://arxiv.org/pdf/math/0104229#page=17 and #page=20",
+          "material_read": "Full-text §§6.4.2 (PDF index 16) and Proposition 7.5(3) (PDF index 19), including surrounding definitions, orthogonality and asymptotics",
+          "method": "Opened primary full arXiv PDF, located exact expressions and inspected both rendered pages",
+          "title": "The distribution of values in the quadratic assignment problem, Barvinok–Stephen",
+          "trigger": "Published explicit same irreducible character and exactly the no-short-cycle EGF"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "No substantive new mathematical gap is solved beyond a routine two-case sign test on the published full character polynomial, multiplying known cycle-count probabilities by the universal central-idempotent convolution norm. The exact finite value is correct and natural but is a mechanically implied recomputation; reproducibility and repackaging do not supply independent scientific value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Barvinok–Stephen do not explicitly label an endpoint projection norm; finding O FAIL is based on demonstrated direct implication, not identical theorem wording.",
+    "No original Resultary corpus response, but affirmative prior implication suffices to establish coverage.",
+    "Finite cycle checks not infinite proof.",
+    "Original external Lean/expert/independent flags remain unchanged; no external attestation fabricated.",
+    "No public source package edits or GitHub writes."
+  ],
+  "schema_version": 1
+}
