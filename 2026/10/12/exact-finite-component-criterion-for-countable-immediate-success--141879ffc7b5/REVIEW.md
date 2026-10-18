@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every vertex has in/out degree at most one, so acyclicity forces oriented path components. Any exact successor-order realization makes those components convex; for finitely many blocks, the only possible new successor occurs when a preceding block has a last element and the next block has a first. The endpoint flags for finite, one-sided, and two-sided infinite paths yield a sharp separator argument: every gap between successive finite blocks needs a distinct two-sided infinite block. Conversely, the displayed ordering of all path types constructs a realizing order whenever \(f\le z+1\). The augmentation count follows from this if-and-only-if. An executable exact test independently corroborates finite component-type instances. Computation is not substituted for the infinite proof.
+## correctness
 
-**Originality — PASS with residual risk.** The August 2026 ordered model-counting work motivates implicit successor semantics but its accessible abstract concerns finite domains, so it does not assert the countably infinite finite-component classification. Michaliszyn--Witkowski (October 2026), inspected in full HTML at its path-component and dense-completion sections, establishes the case of infinitely many components and exhibits an obstruction for two isolated points; neither gives the iff threshold for finitely many components or the exact two-way-infinite-buffer number. Targeted searches of the published literature and mathematical research records yielded no equivalent claim. General order-theory treatments could nevertheless have the same result under different terminology. The August paper's full manuscript was not retrieved, and this is recorded as a limitation.
+PASS
 
-**Value — PASS.** Exact immediate-successor realizability is a semantic admissibility requirement when underlying orders are hidden. This natural complete classification isolates the finite-component gap left by dense-completion constructions and gives a sharp, nontrivial obstruction: one-sided rays cannot separate multiple finite paths, whereas each two-way infinite component can. The minimal repair count makes the obstruction quantitative. This is an exact structural boundary, not a generic rewriting or a table recomputation.
+Acyclic indegree,outdegree <=1 forces each weak component to be a uniformly directed finite, omega, omega*, or Z path. In any exact successor linear order, components are convex blocks; with finitely many components no dense accumulation can avoid adjacency. Adjacent component blocks are forbidden exactly if left has greatest and right has least. Each gap between successive finite blocks requires its own Z component, giving f-1<=z. Conversely concatenate all omega blocks, f finite blocks separated by Z, extra Z, and omega* blocks to realize f<=z+1. Adding t disjoint Z components gives sharp t=max(0,f-z-1). Independently checked all 5460 four-type strings of lengths <=6 against explicit order permutation enumeration, no disagreement.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication-level comparison for Exact finite-component criterion for countable immediate-successor graphs: precise new invariant not located as prior theorem; accessible direct sources and nearest indexed records compared, with explicit access and alias risks. A failed index search alone does not establish originality.
+
+## value
+
+PASS
+
+Closes the precise finite-component representability gap left by a published result for infinitely many components. The endpoint obstruction f<=z+1 and exact number of Z buffers give a complete sharp natural classification useful in successor-logic model construction; not just a restatement of finite single-path or infinite dense cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
