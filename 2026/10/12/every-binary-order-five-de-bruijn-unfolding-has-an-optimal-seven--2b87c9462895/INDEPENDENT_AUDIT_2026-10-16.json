@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T07:05:16.640858Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every 32-cycle has 32 distinct length-5 factors, each occurs exactly once in length-36 unfolded word; a chosen letter position hits <=5 such windows, so size >=ceil(32/5)=7. A 7-subset hits every length-5 window iff its first mark<=4, last>=31, consecutive mark gaps<=5; exact enumeration gives 120 candidates. Every longer substring contains a length-5 window, so only all 2+4+8+16=30 distinct shorter factors must be checked by occurrence-union masks. Exhaustive Euler recursion on the order-four binary de Bruijn digraph, anchoring its uniquely occurring 00000 edge, enumerates every one of 2048 cycles and 32 cuts each, 65536 unfolded words, without quotienting cuts. The inspected C++ source checks all 120 masks for every cut and directly checks every distinct nonempty factor for one successful witness per cut. Independent alternate Python exhaustive re-enumeration confirmed 2048 circuits, 65536 cuts, 120 candidates, min/max multiplicities 30/120, extrema attained at respectively 4/22 cuts, with 699 distinct independently full-factor-checked cached witnesses; not a general-order proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Whittington Theorem 29 covers specially generated Lyndon unfolding at prime order but not arbitrary rooted binary order-five cycles.",
+          "Mantaci Proposition 41 supplies general lower/upper bounds, without a proof all order-five cuts attain the lower bound."
+        ],
+        "reasoning": "Check whether the prior general theorem implies this exact claim and all its quantifiers; generic ingredients are credited, without asserting they supply missing new calculation.",
+        "searches": [
+          "Resultary: every de Bruijn sequence order five every cut minimal full string attractor seven positions count optimal 30 120",
+          "Resultary: binary order five de Bruijn unfoldings optimal seven",
+          "Whittington arXiv:2407.15599 Theorem 29",
+          "Mantaci Restivo Rosone Romana Sciortino A Combinatorial View on String Attractors Proposition 41",
+          "Béal Crochemore Romana arXiv:2509.08503"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: every de Bruijn sequence order five every cut minimal full string attractor seven positions count optimal 30 120",
+        "Resultary: binary order five de Bruijn unfoldings optimal seven",
+        "Whittington arXiv:2407.15599 Theorem 29",
+        "Mantaci Restivo Rosone Romana Sciortino A Combinatorial View on String Attractors Proposition 41",
+        "Béal Crochemore Romana arXiv:2509.08503"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General complexity lower bound proves gamma>=7 but not existence of a 7-position full attractor after every cut.",
+          "Lyndon optimum result is a special case and does not imply all 65536 cases; the exhaustive positional certificate is essential."
+        ],
+        "reasoning": "Logical implication tests compare hypotheses, output invariants and scope rather than relying on title/parameter resemblance.",
+        "searches": [
+          "Resultary: every de Bruijn sequence order five every cut minimal full string attractor seven positions count optimal 30 120",
+          "Resultary: binary order five de Bruijn unfoldings optimal seven",
+          "Whittington arXiv:2407.15599 Theorem 29",
+          "Mantaci Restivo Rosone Romana Sciortino A Combinatorial View on String Attractors Proposition 41",
+          "Béal Crochemore Romana arXiv:2509.08503"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary full string attractor on linear word of length 36 after EVERY cyclic cut, not circular attractor or online attractor.",
+          "The claim additionally computes multiplicities of the optimal 7-position subsets, not only the optimum."
+        ],
+        "reasoning": "Directly compare the mathematical object and invariant under alternate coding/form or terminology; same names do not establish equivalence.",
+        "searches": [
+          "Resultary: every de Bruijn sequence order five every cut minimal full string attractor seven positions count optimal 30 120",
+          "Resultary: binary order five de Bruijn unfoldings optimal seven",
+          "Whittington arXiv:2407.15599 Theorem 29",
+          "Mantaci Restivo Rosone Romana Sciortino A Combinatorial View on String Attractors Proposition 41",
+          "Béal Crochemore Romana arXiv:2509.08503"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive rooted-cycle table over 2048*32=65536 cases: minimum optimum-set multiplicity 30 (4 cuts), maximum 120 (22 cuts); 120 window-hit candidates.",
+          "No matching complete binary order-five attractor census in published index/Resultary searches; unindexed census possible."
+        ],
+        "reasoning": "Distinguish known numerical/input tables from the new claimed full rank-, parameter-, or root-stratified census; searches not proof of nonexistence.",
+        "searches": [
+          "Resultary: every de Bruijn sequence order five every cut minimal full string attractor seven positions count optimal 30 120",
+          "Resultary: binary order five de Bruijn unfoldings optimal seven",
+          "Whittington arXiv:2407.15599 Theorem 29",
+          "Mantaci Restivo Rosone Romana Sciortino A Combinatorial View on String Attractors Proposition 41",
+          "Béal Crochemore Romana arXiv:2509.08503"
+        ]
+      },
+      "rationale": "Mantaci et al 2021 Proposition 41 gives bounds for de Bruijn attractors but not the exact all-cycle/all-cut binary order-five enumeration. Whittington 2024 Theorem 29 proves optimum for a specified Lyndon-constructed prime-order unfolding and identifies an open general de Bruijn issue; cannot imply all cuts of all 2048 order-five cycles. Béal et al 2025 give algorithms and one-family experiments, not exhaustive rooted-cycle classifications. Unindexed earlier order-five census remains a genuine possibility; qualified best-of-knowledge PASS.",
+      "residual_risks": [
+        "Unindexed exact order-five census or code repository may independently contain identical all-cut table.",
+        "Complete proof depends on finite C++ Euler enumeration; source logic and independent Python cross-check done, but no formal proof-assistant certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known bounds, not all-cut order-five classification",
+          "evidence": "Proposition 41 is a general de Bruijn bound.",
+          "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRRS_TCS2021.pdf",
+          "material_read": "Accessible full 29-page PDF, relevant de Bruijn section and Proposition 41 examined",
+          "method": "read central theorem/bounds and contrast full string attractors",
+          "title": "A Combinatorial View on String Attractors",
+          "trigger": "de Bruijn attractor general bounds"
+        },
+        {
+          "assessment": "Lyndon special sequence exists, general all-cycle claim not settled",
+          "evidence": "Theorem 29 for chosen Lyndon unfolding, not every cut.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.15599",
+          "material_read": "Accessible full PDF especially pp16-18, Theorem 29 and open issue about general de Bruijn sequences, with page screenshot",
+          "method": "read theorem and scope, image of relevant page",
+          "title": "Online String Attractors",
+          "trigger": "same attractor family, Theorem 29 and nearby question"
+        },
+        {
+          "assessment": "Does not give 65536 rooted full enumeration or 30/120 frequencies",
+          "evidence": "Presents methods and selected experimental de Bruijn runs rather than a complete order-five classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.08503",
+          "material_read": "Accessible full 17-page PDF, pertinent de Bruijn experiments/table inspected",
+          "method": "compare algorithmic/experimental prior findings",
+          "title": "Checking and Producing Word Attractors",
+          "trigger": "related de Bruijn algorithm and experimental table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Full exact invariant for all rooted unfoldings of a canonical extremal factor-complexity family at the first binary order where the length-five window lower bound ceil(32/5) is not integral. Establishes universality at seven marks across all cuts and nontrivial sharp range/frequencies of the count of optimal attractors, resolving a natural finite case of questions in primary literature. Complete finite proof rather than arbitrary sample; not a claim for all orders.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: every de Bruijn sequence order five every cut minimal full string attractor seven positions count optimal 30 120",
+    "Resultary: binary order five de Bruijn unfoldings optimal seven",
+    "Whittington arXiv:2407.15599 Theorem 29",
+    "Mantaci Restivo Rosone Romana Sciortino A Combinatorial View on String Attractors Proposition 41",
+    "Béal Crochemore Romana arXiv:2509.08503"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only binary order five, standard four-symbol repeated linear unfolding, ordinary full string attractor.",
+    "Independent Python full-factor checks were cached across 699 distinct witness strings, not repeated 65536 times; inspected package C++ performs direct check for every one."
+  ],
+  "residual_risks": [
+    "Unindexed exact order-five census or code repository may independently contain identical all-cut table.",
+    "Complete proof depends on finite C++ Euler enumeration; source logic and independent Python cross-check done, but no formal proof-assistant certificate."
+  ],
+  "schema_version": 1
+}
