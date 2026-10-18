@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source explicitly supplies the fourteen-edge hypergraph, the relevant \(\mathrm{AGL}_1(7)\) subset orbits, and the criterion reducing \(t\)-homogeneity to equality between the induced setwise stabilizer and the automorphism group of each induced \(t\)-substructure. The replay independently recovers the full automorphism group as exactly the \(42\) affine maps and exhausts all partial isomorphisms. The group orders and all four nontrivial extension fractions match the direct census.
+PASS
 
-## Originality
+For the specified 14-triple structure on F_7, direct independently written enumeration of all 7!=5040 permutations recovered exactly 42 automorphisms, equal to the affine maps x->ax+b. Enumeration of all subset bijections recovered exactly 8912 induced partial isomorphisms, 5090 extendible. Orbit/stabilizer criterion yields extension proportions t=3 edge 1/2, nonedge 1/3; t=4 one-edge and two-edge each 1/2; all partial isomorphisms extend for t=1,2,5,6,7. This is a complete finite enumeration for the seven-element object, not extrapolation.
 
-PASS, narrowly scoped. The primary paper proves only the qualitative statement that its finite example is set-homogeneous but not homogeneous, using the classification of finite homogeneous 3-hypergraphs. It does not state the exact failing arities, extension proportions, or a direct computation of the full automorphism group of the displayed edge set. Semantic-index searches and exact web searches using the group, vertex count, and partial-isomorphism language found no equivalent statement. The principal residual risk is uncatalogued folklore because the finite calculation is short.
+## originality
 
-## Value
+PASS
 
-PASS. The result turns a qualitative counterexample into a complete local extension profile. The most informative feature is nonmonotonicity: extension fails on 3- and 4-sets but holds again on every 5- and 6-set. The exact fractions quantify the defect and make the example directly reusable when comparing set-homogeneity with homogeneity.
+The published 2023 Example 5.2 already builds the same set-homogeneous nonhomogeneous structure and gives three/four/five/six-set orbit counts; the exact arity spectrum 1,2,5,6,7, global automorphism equality, and typewise extension ratios were not explicitly stated in the inspected relevant section. Only that finer classification, not the example or qualitative nonhomogeneity, is assessed as new.
 
-## Limitations
+## value
 
-The example itself and its basic orbit data are not new. The result does not classify other finite set-homogeneous hypergraphs. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Quantifies the precise failure of ultrahomogeneity in a canonical seven-point set-homogeneous counterexample and its nonmonotone recovery at larger arities. An exact complete extension spectrum and local isomorphism-extension ratios are natural invariants for model-theoretic homogeneity, beyond an arbitrary graph statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
