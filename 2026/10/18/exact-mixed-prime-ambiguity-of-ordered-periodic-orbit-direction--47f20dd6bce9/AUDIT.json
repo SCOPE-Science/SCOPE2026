@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The phase-prefix construction establishes exact branching sizes equal to subgroup stabilizer orders. At length 2p, order-p branching forces an all-even phase prefix, incompatible with order-two branching both before and after. Consequently each path has branching product at most 2^(p-1), and the equal-child probability argument bounds all leaves by that number. An explicit family with p-1 independent binary inter-block choices has 2^(p-1) distinct full 2p-cycles with identical time-indexed comparisons. Exhaustive checks for n=6 and n=10 verify the formula, and constructive checks also cover n=14 and n=22, but the infinite claim follows from the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fuhrmann–Gröger–Passeggi, arXiv:2610.07435v1, Section 2, Lemma 2.1 and page 4 discussion of composite periods.",
+        "The earlier general estimate gives M(n) at most the product of gcd(n,i), with prime-power equality; its n=2p specialization is p times 2^(p-1)."
+      ],
+      "reasoning": "The general bound M(n)<=product gcd(n,i) gives only M(2p)<=p*2^(p-1), even with known strictness off prime powers. Neither that nor existence of at least two colliding composite cycles yields the new sharp formula. Prime-length reconstruction does not cover composite lengths.",
+      "searches": [
+        "Research database query: quantitative ambiguity prime-power equality M(n) product gcd and mixed-prime 2p exact classification",
+        "Research database query: n-cycle sign history stabilizer prefix subgroup order 2 p bifurcation sharp mixed prime",
+        "arXiv:2610.07435v1 sections 1–2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.07435v1, especially Lemma 2.1 and Section 5",
+      "2026 public research note Quadratic-time reconstruction of prime cycles from left-right orbit signatures",
+      "Relevant accessible earlier claim of prime-power saturation and general gcd-product bound; comparison uses statement only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fuhrmann–Gröger–Passeggi, arXiv:2610.07435v1, Section 2, Lemma 2.1 and page 4 discussion of composite periods.",
+        "Quadratic-time reconstruction of prime cycles from left-right orbit signatures (2026), complete RESULT statement and proof.",
+        "The earlier general estimate gives M(n) at most the product of gcd(n,i), with prime-power equality; its n=2p specialization is p times 2^(p-1)."
+      ],
+      "reasoning": "The new equality implies at least two colliding cycles for all odd primes p, consistent with the published qualitative composite-period observation. That qualitative observation and the general p*2^(p-1) ceiling do not imply the new equality. The prime-period algorithm has no overlapping hypothesis n=2p.",
+      "searches": [
+        "arXiv:2610.07435v1 Lemma 2.1, Remark 2.4, Section 5",
+        "2026 prime-cycle quadratic reconstruction public RESULT statement",
+        "Accessible prior exact prime-power and general gcd upper-bound claim"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a cycle, the <= signature row at time t>0 is the indicator of the phase-prefix, translated by the point phase.",
+        "Complementing <= to > is equivalent away from time zero. The equal-time conventions do not change ambiguity."
+      ],
+      "reasoning": "Searched equivalent binary direction tables, rotated phase-prefix indicators, and left/right ordinal itineraries. The closest source concerns prime-cycle uniqueness, rather than the precise mixed-prime maximum.",
+      "searches": [
+        "Research database query: left-right orbit signature maximum class 2p cycles odd prime p exact 2^(p-1)",
+        "Literature search: \"left-right behaviour\" \"composite\" \"number\" permutation",
+        "Accessible prior claim comparison: ordered cyclic left-right sign table, stabilizer, semiprime, mixed prime"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source has an illustrative four-point collision but no table of maxima for lengths 6 or 10.",
+        "Independent complete enumeration of 5! and 9! cycles finds M(6)=4 and M(10)=16."
+      ],
+      "reasoning": "No matching exact semiprime sequence or covering classification was located. Finite checks are verification, not the basis for asserting a general new result.",
+      "searches": [
+        "Research database query: permutation left-right signature M(2p) exactly 2^(p-1) prime p",
+        "Literature search: 2610.07435 cycle permutation same left-right behavior count",
+        "Research database query: sign patterns p-cycles ordered set left-right behavior number of n-cycle permutations sharing sign histories"
+      ]
+    },
+    "rationale": "The source establishes injectivity for prime-length cycles and some composite collisions, not exact maximal mixed-prime multiplicities. The closest general quantitative estimate permits p times the established exact value. The accessible prime reconstruction result is for an entirely different length regime. The new parity-exclusion argument gives an exact formula for every odd prime and is not a mere special case of the cited upper bound.",
+    "residual_risks": [
+      "An unindexed equivalent result in older combinatorial orbit-reconstruction or cyclic-word literature may exist.",
+      "Exact upper bound is for full known labeled time signatures and should not be conflated with interval-map orbit-set spectra."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Only qualitative existence of composite-period collisions and prime-period rigidity; no exact M(2p) formula.",
+        "evidence": [
+          "Lemma 2.1 is restricted to prime p.",
+          "Page 4 explicitly says two indistinguishable cycles for composite p; Figure 2 gives n=4.",
+          "Section 5 concerns different interval-map global-period-spectrum questions."
+        ],
+        "identifier_or_url": "arXiv:2610.07435v1; https://arxiv.org/pdf/2610.07435",
+        "material_read": "Abstract/introduction, Section 2 pages 4–6, and Section 5 pages 20–21; PDF page images inspected.",
+        "method": "Read primary full-text portions addressing the exact object, proof, quantitative remarks and examples.",
+        "title": "Period spectrum and rigidity of interval maps",
+        "trigger": "Same ordered periodic-cycle signatures and composite-period ambiguity"
+      },
+      {
+        "assessment": "Establishes quadratic-time reconstruction for prime lengths only; does not assert composite-period maximal ambiguity.",
+        "evidence": [
+          "The hypothesis requires length p prime.",
+          "Its algorithm uses cyclic word matching; primality ensures uniqueness of every rotation."
+        ],
+        "identifier_or_url": "2026 public research record; exact title searchable",
+        "material_read": "Complete RESULT scientific statement, proof, verification, relationship and limitations.",
+        "method": "Read full primary result text, including its phase-prefix rotation lemma.",
+        "title": "Quadratic-time reconstruction of prime cycles from left-right orbit signatures",
+        "trigger": "Same signed comparison table and closest database match"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "47f20dd6-bce9-4f12-a755-d3a16901e751",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an exact natural reconstruction invariant at the first two-prime family beyond the already-understood prime and prime-power regimes, reducing the available general ceiling by a full factor p. The parity obstruction is a structural explanation, and the explicit family identifies the complete worst-case size. This exact ambiguity quantifies limits of dynamically motivated periodic-orbit direction observations independently of global map identification.",
+    "status": "PASS"
+  }
+}
