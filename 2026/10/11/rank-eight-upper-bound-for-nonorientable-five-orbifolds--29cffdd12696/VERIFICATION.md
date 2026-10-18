@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accepted theorem is proved symbolically; no finite computation is used as proof.
+# Independent mathematical audit
 
-The primary full text was inspected at the exact points needed for the argument. Lemma 7.2 supplies a finite good triangulation subordinate to isotropy strata. Corollary 8.5 lists the only possible minimum ranks in dimension five. Proposition 8.7 gives a regular bundle of rank \(4\gcd(4,e_5(M))\). Proposition 9.3 supplies the smooth rank-four both-stabilizer example and the mapping-torus suborbifold that rules out rank two. Question 10.2 explicitly leaves the nonorientable sharp bound open.
+## correctness
 
-For the new top-cohomology step, write the top cellular cochain group on the coarse triangulation. A codimension-one simplex has one or two top cofaces. Its coboundary therefore has either one unit coefficient or two unit coefficients. On each component of the resulting signed adjacency graph, the two-term relations reduce all top generators to one generator up to sign. A one-term relation kills that generator; otherwise a sign-consistent component contributes \(\mathbb Z\), and a sign-inconsistent component contributes exactly \(\mathbb Z/2\). Thus
-\[
-H^5(M;\mathbb Z)\cong \mathbb Z^a\oplus(\mathbb Z/2)^b,
-\]
-so \(e_5(M)\le2\).
+PASS
 
-The lower-bound example is checked locally at free points. Removing a small free ball from the source's oriented example and a ball from \(\mathbb{RP}^4\times S^1\) changes no stabilizer data outside those balls. The mapping-torus obstruction lies away from the chosen ball and persists. The rank-four bundle is trivial over the removed ball and therefore glues to a trivial rank-four bundle on the punctured ordinary manifold.
+PASS. In a finite good coarse triangulation subordinate to isotropy strata, any codimension-one face lies at a local regular two-sided point or a reflection-wall one-sided point, hence appears in exactly two or one top-dimensional cofaces with signed unit incidence. The top coboundary presentation is a signed graph: each connected component contributes 0, Z, or Z/2. Thus H^5(|X|;Z) has no torsion of order >2; in particular e_5<=2. Becerra–Lupercio Proposition 8.7 gives rank 4*gcd(4,e_5)<=8 and its smooth realization. Their Proposition 9.3 mapping-torus rank-two obstruction survives a free-point connected sum with RP^4×S^1, and the rank-four bundle glues on the trivial ball, proving the mixed-isotropy nonorientable example of minimum rank 4. The proof does NOT settle whether B=4 or B=8. The codimension-one incidence step is conditional on the source's good smooth-orbifold triangulation, not a statement about arbitrary orbispaces.
 
-Limit: this verification proves only \(4\le B\le8\) for the sharp nonorientable both-stabilizer bound. It does not exhibit a smooth orbifold whose minimum regular rank is \(8\).
+## originality
+
+PASS
+
+PASS best of knowledge. The originating rank formula is general but cannot conclude a rank-eight bound until e_5 for nonorientable smooth coarse spaces is controlled; that signed-incidence reduction is new relative to inspected primary statements. The relevant published banded-gerbe rank-eight sharpness concerns constant ineffective isotropy and explicitly excludes mixed-isotropy orbifolds, so it does not imply the full theorem. No equivalent smooth mixed-isotropy result was located.
+
+## value
+
+PASS
+
+PASS. A nontrivial structural lemma bounds top integral cohomology torsion using singular codimension-one incidence, eliminating rank 16 from an explicitly posed nonorientable smooth five-orbifold question while preserving examples requiring rank 4. This motivated improvement is meaningful even though the exact sharp B remains open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
