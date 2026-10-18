@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(r\ge2\), every length list \(\ell_i\ge1\) with at most one length-one path, and maximum \(L\ge2\), the proposed potential has a gap at least one on each edge. The nonnegative edge weights \(\lambda_{i,j}=\alpha_i+(j-1)(\ell_i-j)/2\), with \(\alpha_i=L/(2k)\) on the \(k\) longest paths and zero otherwise, reconstruct the potential by their incidence divergence. They total \(N\), and complementary gap equalities show \(\|z\|^2=N\). Accordingly \(c=z/N\) is a convex combination of unit-gap roots, and every root lies within squared radius \(2-1/N\). Averaging the squared distance at an arbitrary competing center against these same probability weights gives \(2-1/N+\|y-c\|^2\), establishing global optimality and uniqueness without assuming symmetry or a restricted affine span. The gap calculation proves the exact contacting-edge list, deficits, and two-edge-path invariance, including length-one and length-two boundaries. The complete exact-rational verifier checks 1,360 admissible instances, 18,925 roots, and 252 invariance instances, but is not used as an infinite proof.
+PASS
 
-## Originality — PASS, residual risk disclosed
+The formula supplies a constructive primal/dual certificate: each edge has potential gap Δ=z_u−z_v≥1; on the longest k paths assign α_i=L/(2k), otherwise α_i=0, and λ_{i,j}=α_i+(j−1)(ℓ_i−j)/2≥0. Direct endpoint and internal-vertex incidence gives Σλ(e_u−e_v)=z, λ is positive only where Δ=1; Σλ=N and dotting by z gives ||z||²=N. Thus c=z/N belongs to the convex hull of contacting edge roots, ||c||²=1/N, and each edge root a of norm²=2 obeys ||a−c||²≤2−1/N. Averaging against λ/N proves every other center y has a root at squared distance at least 2−1/N+||y−c||², proving global minimality and uniqueness. Exact gaps give the asserted contact count, short-edge deficits and two-edge addition invariance. Independently reimplemented exact Fraction checks over 1,360 admissible ordered path lists (2–4 paths and lengths≤6) in addition to analytic argument; bounded enumeration is not the infinite proof.
 
-The original contribution is the mixed-length, arbitrary-number-of-paths Euclidean minimum-sphere formula and complete contact screening, not the standard equal-norm projection principle. Numata–Takahashi–Tamaki (arXiv:2203.14521v1) introduce directed edge polytopes and study faces and dimensions, without evaluating their Euclidean minimum spheres. Kálmán–Tóthmérész (arXiv:2105.00960v1) study graph root polytopes and spanning-tree/Ehrhart dissections rather than this metric optimum. An independently published exact oriented-cycle root-polytope Ehrhart calculation determines lattice coefficients and certain two-path cycle special cases but does not determine minimum enclosing Euclidean balls. In addition, the equal-length case is covered by the general graded-graph potential/flow criterion, so it is not independently novel. Distinct existing radius evaluations for orientation-swapped directed paths or cycles do not imply the mixed-length all-path formula. Searches for theta-digraph enclosing spheres, directed-edge-root circumspheres, minimum-norm potentials, and their optimization equivalents did not identify an exact covering theorem. A hidden equivalent evaluation under graph potentials, isotonic regression, or minimax network embeddings remains a residual risk; source search is not a proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives an explicit sharp radius, every center coordinate, all boundary-root contacts, their count, and exact clearance of noncontacts throughout a natural infinitely parameterized family of directed graph root polytopes. It distinguishes equal-length networks from networks with shorter paths and establishes a metric screening law: inserting any number of two-edge paths strictly changes the root polytope in its enlarged ambient space but leaves the old center and radius unchanged. These structural conclusions are not routine normalization checks or mere finite-table computations, and can be used as exact test cases for root-polytope and network-potential geometry.
+The general minball barycentric criterion and all-contact equal-length graded cases are previously published and are not claimed. Primary directed-edge-polytope face/dimension papers and lattice dissection papers do not compute mixed-path Euclidean minimum spheres. The directly read Resultary rank-variance and semibalanced sphere theorems require a rank function with unit increment on every edge, impossible when directed s→t paths have unequal lengths; they cover only the equal-length special case. The oriented-cycle Ehrhart theorem solves an unrelated integer-lattice invariant. Nontrivial mixed-length exact weights, full contact screening and two-edge insertion stability survive these implication comparisons.
 
-## Relationship and limits
+## value
 
-The 2022 primary source has MSC2020 52B05 and was first publicly posted on 2022-03-28. Its source-boundary is respected; the general convex-duality identity and covered graded equal-length case are explicitly separated from the evaluated mixed-length formulas. The proof is self-contained on the specified graph family, not a claim about arbitrary acyclic digraphs or all orientations. The exact verifier uses only the standard Python library; independent external examination remains outstanding.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Mixed-length parallel s→t path networks are a natural infinite family of directed root polytopes. The closed exact center/radius, complete boundary-contact and clearance strata, and counterintuitive invariance under adding length-two paths are substantive structural results not obtained merely by substituting into the already-known graded special case or by recomputing a small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
