@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,80 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For every \(2<p<\infty\), set
-\[
-\tau=2^{-2/p}.
-\]
-After coordinate-swap averaging, every Euclidean pullback relevant to the infimum can be written, up to scale, as
-\[
-E_t^2=(x+y)^2+t(x-y)^2.
-\]
+# Independent mathematical audit
 
-On the same-sign sector, with \(r=|x-y|/|x+y|\),
-\[
-R_p(r;t)=
-\frac{4(1+tr^2)}
-{\bigl((1+r)^p+(1-r)^p\bigr)^{2/p}}.
-\]
-On the opposite-sign sector, with \(s=|x+y|/|x-y|\),
-\[
-R_\infty(s;t)=\frac{4(s^2+t)}{(1+s)^2}.
-\]
+## correctness
 
-At \(t=\tau\),
-\[
-\min_{0\le s\le1}R_\infty(s;\tau)
-=\frac{4\tau}{1+\tau},
-\qquad
-\max_{0\le s\le1}R_\infty(s;\tau)
-=4\tau.
-\]
-For \(p\ge2\),
-\[
-2^{2/p}(1+r^2)
-\le
-\bigl((1+r)^p+(1-r)^p\bigr)^{2/p}
-\le
-2(1+r^2),
-\]
-which gives
-\[
-\frac{4\tau}{1+\tau}
-<
-1+\tau
-\le
-R_p(r;\tau)
-\le
-4\tau.
-\]
-Hence the displayed ellipse has squared distortion \(1+\tau\).
+PASS
 
-For arbitrary \(0<t\le1\),
-\[
-\min_sR_\infty(s;t)=\frac{4t}{1+t},
-\]
-while
-\[
-R_\infty(0;t)=4t,\qquad R_p(0;t)=4\tau.
-\]
-Thus the squared distortion is at least
-\[
-\frac{\max\{4t,4\tau\}}{4t/(1+t)}
-\ge1+\tau.
-\]
-For \(t\ge1\), the two endpoint values of \(R_\infty\) already force distortion at least
-\[
-\frac{4t}{1+t}\ge2>1+\tau.
-\]
-This proves the exact global value.
+Coordinate swap averages any positive definite Euclidean Q to E_t²=(x+y)²+t(x-y)². For p>2, tau=2^(-2/p) lies in (1/2,1). Same-sign ratio is R_p(r;t)=4(1+t r²)/[(1+r)^p+(1-r)^p]^(2/p); opposite-sign is R_inf(s;t)=4(s²+t)/(1+s)². At t=tau, the opposite sector has exact min 4tau/(1+tau) and max 4tau; sharp two-variable l_p/l2 comparisons place the whole same-sign sector between those bounds. For arbitrary 0<t≤1, its minimum at s=t and diagonal/anti-diagonal contacts force distortion ≥1+tau; for t≥1 the opposite-sector endpoints force D≥2>1+tau. Thus d_BM²=1+2^(-2/p), with displayed ellipse. Published James J=1+2^(-1/p) yields d_BM²=1+(J-1)².
 
-Representative checks:
-\[
-p=3:\qquad 1+2^{-2/3}=1.6299605249\ldots,
-\]
-\[
-p=4:\qquad 1+2^{-1/2}=1.7071067811\ldots.
-\]
-No finite sample is used to establish the quantified theorem. The unresolved scope is \(1\le p<2\) and more general Day--James pairs.
+## originality
+
+PASS
+
+Best-of-knowledge original specific claim after object/implication comparisons against accessible primary texts; unavailable Resultary is explicitly NOT a negative search or originality proof. Quadrant-sign swapping produces an isometric l_infty-l_p presentation, while the standard same-sign l_p opposite-sign l_infty convention appears in Nilsrakoo–Saejung and Alonso. Other l2-l1 or l_infty-l1 endpoints have genuinely different quadrant bodies. Published isolated p=2 or other Day–James exact distances are not an all-p>2 theorem. In general a James constant value does not algebraically force Banach–Mazur distance; the independent ellipse minimax is necessary here, hence the identity is not a tautological corollary of the published J formula.
+
+## value
+
+PASS
+
+This determines a natural infinite super-Hilbert Day–James family’s exact affine distance to Hilbert space and an explicit optimal ellipse, and relates that distance to its independently established James nonsquareness constant by a sharp family-wide identity. Nontrivial sector inequalities make it more than restating J.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. An arbitrary Euclidean pullback is first averaged over the coordinate-swap isometry, so the proof optimizes over all linear isomorphisms rather than presupposing a special ellipse. In the coordinates \(U=x+y\) and \(V=x-y\), the reduced forms are \(U^2+tV^2\). The two quadrant sectors yield explicit ratio functions. At \(t=2^{-2/p}\), the \(\ell_\infty\) sector has exact minimum \(4t/(1+t)\) and maximum \(4t\), while sharp two-coordinate \(\ell_p/\ell_2\) inequalities place the complete \(\ell_p\) sector between those values. Conversely, for every \(t>0\), diagonal and anti-diagonal contacts plus the exact \(\ell_\infty\)-sector minimum force distortion at least \(1+2^{-2/p}\).
+## correctness
 
-## Originality
-PASS. Searches covered the named Day--James family, \(\ell_p-\ell_\infty\) aliases, the exact candidate formula, the Euclidean target, and optimal-ellipse language. The same-family 2006 primary source computes \(J(\ell_p-\ell_\infty)\), and the 2011 source defines generalized Day--James planes, but neither inspected full text states the exact Euclidean Banach--Mazur family formula. The closest exact-distance records concern isolated Day--James examples. The already-covered \(p=2\) endpoint is excluded from the claim.
+PASS
 
-## Value
-PASS. The result gives the complete super-Hilbert Euclidean-distance profile for a classical one-parameter Day--James family, an explicit optimal ellipse, and the exact identity
-\[
-d_{\mathrm{BM}}(X_p,\ell_2^2)^2=1+\bigl(J(X_p)-1\bigr)^2.
-\]
-That connects a known nonsquareness invariant to a sharp affine invariant across a continuum of canonical spaces.
+Coordinate swap averages any positive definite Euclidean Q to E_t²=(x+y)²+t(x-y)². For p>2, tau=2^(-2/p) lies in (1/2,1). Same-sign ratio is R_p(r;t)=4(1+t r²)/[(1+r)^p+(1-r)^p]^(2/p); opposite-sign is R_inf(s;t)=4(s²+t)/(1+s)². At t=tau, the opposite sector has exact min 4tau/(1+tau) and max 4tau; sharp two-variable l_p/l2 comparisons place the whole same-sign sector between those bounds. For arbitrary 0<t≤1, its minimum at s=t and diagonal/anti-diagonal contacts force distortion ≥1+tau; for t≥1 the opposite-sector endpoints force D≥2>1+tau. Thus d_BM²=1+2^(-2/p), with displayed ellipse. Published James J=1+2^(-1/p) yields d_BM²=1+(J-1)².
 
-## Closest literature and limitations
-Nilsrakoo--Saejung (2006) is closest for the exact James constant of the same \(\ell_p-\ell_\infty\) family. Alonso (2011) is closest for the general Day--James representation and verifies MSC 46B20 ownership. Exact-distance records located for \(\ell_2-\ell_1\), \(\ell_\infty-\ell_1\), \(\ell_3-\ell_{3/2}\), and a generalized octagon do not imply the \(p>2\) parameter theorem. The result does not cover \(p<2\), general \(\ell_p-\ell_q\) planes, higher dimensions, or classify every nonsymmetric optimal pullback.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original specific claim after object/implication comparisons against accessible primary texts; unavailable Resultary is explicitly NOT a negative search or originality proof. Quadrant-sign swapping produces an isometric l_infty-l_p presentation, while the standard same-sign l_p opposite-sign l_infty convention appears in Nilsrakoo–Saejung and Alonso. Other l2-l1 or l_infty-l1 endpoints have genuinely different quadrant bodies. Published isolated p=2 or other Day–James exact distances are not an all-p>2 theorem. In general a James constant value does not algebraically force Banach–Mazur distance; the independent ellipse minimax is necessary here, hence the identity is not a tautological corollary of the published J formula.
+
+## value
+
+PASS
+
+This determines a natural infinite super-Hilbert Day–James family’s exact affine distance to Hilbert space and an explicit optimal ellipse, and relates that distance to its independently established James nonsquareness constant by a sharp family-wide identity. Nontrivial sector inequalities make it more than restating J.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
