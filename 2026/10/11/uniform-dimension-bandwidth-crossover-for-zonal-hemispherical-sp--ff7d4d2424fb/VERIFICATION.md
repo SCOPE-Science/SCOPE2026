@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the finite and uniform spectral-determinant law
 
-The standalone file `verify.py` performs the following checks using its own moment integration and determinant implementations.
+# Independent mathematical audit
 
-1. For four integer weights \(\beta\in\{0,1,2,3\}\) and every \(1\le m\le6\), three Jacobi moment Gram determinants are computed with **exact rational arithmetic** from the binomial expansion of the weight, and independently compared with rising-factorial Selberg products (72 exact Hankel identities). The corresponding spectral determinant ratios and gamma product are checked on the same 24 parameter pairs (48 further checks).
-2. For 20 nonintegral parameter pairs, the gamma-product formula is numerically compared to its three-factor Hankel/Selberg determinant form. These checks validate numerical evaluation, not an independent integration derivation for every nonintegral weight. With the optional multiprecision library, two further noninteger-weight cases are checked by direct numerical quadrature.
-3. Strict parameter monotonicity is numerically checked on 56 successive parameter comparisons. The analytic proof supplies the actual strict-all-parameter statement via digamma concavity.
-4. If `mpmath` is installed, the checker evaluates the Barnes constant and checks two large-bandwidth scaled determinants, then checks ten finite-bandwidth examples against the uniform dimension/bandwidth approximation. These asymptotic tests use a nonzero finite tolerance and are not infinite proofs.
+## correctness
 
-The completed replay reported:
+PASS
 
-`VERIFY_OK exact_moment_and_selberg_checks=120 nonintegral_checks=20 monotonic_checks=56 asymptotic_checks=2 crossover_checks=10 quadrature_checks=2`
+Parity splits the signed hemisphere compression into off-diagonal even/odd blocks; its gap-product is the squared determinant of the block. The block Gram ratio is H_m(0,beta)^2/[H_m(-1/2,beta)H_m(1/2,beta)]; Jacobi beta-moment/Selberg determinant evaluation yields the exact gamma product. Independently re-evaluated all three Hankel determinants with 60-digit mpmath and compared the gamma product in 15 cases m=1,2,3 and beta=-3/4,0,1/4,1,3 (relative error <1e-47). Analytically, log-gamma second differences yield monotonicity, while the t=m+j+beta+1>=m positivity and u(t)=1/(4t)+O(t^-2) give a beta-uniform O(1/m) sum-of-errors bound, including beta growing faster than m; Barnes ratio supplies the m^-1/4 constant. The finite checks are corroboration, not the all-parameter argument.
 
-All numeric checks are finite. Correctness for arbitrary real \(\beta>-1\), nonvanishing centered determinant, and a uniform \(O(m^{-1})\) bound rest on the explicit algebraic and analytic proof in `RESULT.md`. The `mpmath` portion is optional; standard-library exact checks remain runnable without it.
+## originality
+
+PASS
+
+The beta=+infty Hermite degeneration and the classical fixed-symbol Hankel/Selberg identities overlap the building blocks, not the precise beta-uniform dimension/bandwidth crossover. Primary Simons-Dahlen-Wieczorek provides spherical Slepian operator theory and cap numerics, not an all-gap product. Deift-Its-Krasovsky Theorem 1.20 concerns fixed FH data and endpoint cases; it does not assert uniformity when the Jacobi weight exponent itself grows with the matrix size. Related published Hermite result has beta-independent low-pass product and limiting constant, not the interpolating regime. Best-of-knowledge originality survives, without claiming the classical determinant identity or Barnes constant as new.
+
+## value
+
+PASS
+
+The dimension-versus-bandwidth joint limit creates a real noncommuting-limits question for a natural zonal hemispherical spectral invariant; the exact crossover unifies fixed dimension and Hermite/high-dimension behavior, with a quantitatively uniform error rather than a finite sample or a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

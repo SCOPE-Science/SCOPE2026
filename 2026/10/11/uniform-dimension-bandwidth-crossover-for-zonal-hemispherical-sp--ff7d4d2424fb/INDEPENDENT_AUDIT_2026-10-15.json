@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T01:48:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Parity splits the signed hemisphere compression into off-diagonal even/odd blocks; its gap-product is the squared determinant of the block. The block Gram ratio is H_m(0,beta)^2/[H_m(-1/2,beta)H_m(1/2,beta)]; Jacobi beta-moment/Selberg determinant evaluation yields the exact gamma product. Independently re-evaluated all three Hankel determinants with 60-digit mpmath and compared the gamma product in 15 cases m=1,2,3 and beta=-3/4,0,1/4,1,3 (relative error <1e-47). Analytically, log-gamma second differences yield monotonicity, while the t=m+j+beta+1>=m positivity and u(t)=1/(4t)+O(t^-2) give a beta-uniform O(1/m) sum-of-errors bound, including beta growing faster than m; Barnes ratio supplies the m^-1/4 constant. The finite checks are corroboration, not the all-parameter argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:0905.0443v3, Deift-Its-Krasovsky, Theorem 1.20 and Remarks 1.21-1.22, https://arxiv.org/pdf/0905.0443",
+          "Theorem 1.20 fixes the smooth background/Fisher-Hartwig symbols in n->infty; Remark 1.22 treats boundary corrections, not a uniformly unbounded Jacobi beta.",
+          "arXiv:math/0408424v1, Simons-Dahlen-Wieczorek, Spatiospectral concentration on a sphere, Sections 4-5, https://arxiv.org/pdf/math/0408424"
+        ],
+        "reasoning": "Neither full spherical Slepian theory nor the fixed-parameter Hankel asymptotic implies the simultaneous growing-weight crossover with a common O(1/m) bound. Classical Jacobi products alone are precursors, not proof that the stated uniform asymptotic had appeared.",
+        "searches": [
+          "hemisphere Gegenbauer zonal spherical Slepian spectral determinant Barnes G Jacobi Hankel gamma product growing weight parameter dimension bandwidth crossover",
+          "arXiv:0905.0443v3, Deift-Its-Krasovsky, Theorem 1.20 and Remarks 1.21-1.22, https://arxiv.org/pdf/0905.0443",
+          "arXiv:math/0408424v1, Simons-Dahlen-Wieczorek, Spatiospectral concentration on a sphere, Sections 4-5, https://arxiv.org/pdf/math/0408424"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0408424v1, Simons-Dahlen-Wieczorek, Spatiospectral concentration on a sphere, Sections 4-5, https://arxiv.org/pdf/math/0408424",
+        "arXiv:0905.0443v3, Deift-Its-Krasovsky, Theorem 1.20 and Remarks 1.21-1.22, https://arxiv.org/pdf/0905.0443",
+        "Resultary 2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88/RESULT.md",
+        "Source package RESULT.md and verify.py at commit 026b884693e594bc52ea00eb4cefced8d8e1df95"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted asymptotic contains a nontrivial dimension-bandwidth ratio absent in the Hermite-only limit.",
+          "arXiv:0905.0443v3, Deift-Its-Krasovsky, Theorem 1.20 and Remarks 1.21-1.22, https://arxiv.org/pdf/0905.0443"
+        ],
+        "reasoning": "The classical Selberg determinant yields the exact finite ratio, but additional uniform second-difference control must be provided for beta potentially much larger than m. No examined primary result states that control or its crossover; it is not merely a fixed-beta corollary of the known fixed-symbol expansion.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88/RESULT.md",
+          "arXiv:0905.0443v3, Deift-Its-Krasovsky, Theorem 1.20 and Remarks 1.21-1.22, https://arxiv.org/pdf/0905.0443",
+          "Deift-Its-Krasovsky gamma/Barnes determinant asymptotics for Jacobi exponent varying with n"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88/RESULT.md",
+          "The beta-to-infinity Gaussian/Hermite scaling reproduces the universal Barnes factor K=sqrt(pi)G(1/2)^2."
+        ],
+        "reasoning": "Hermite low-pass spectral gaps identify an endpoint degeneration, not the full Gegenbauer/Jacobi m,beta-dependent operator or the factor ((2m+beta+1)/(m+beta+1))^(1/4) with uniform error.",
+        "searches": [
+          "hemisphere Gegenbauer zonal spherical Slepian spectral determinant Barnes G Jacobi Hankel gamma product growing weight parameter dimension bandwidth crossover",
+          "sign multiplication compressed Jacobi polynomials positive-half-line eigenvalue product beta weight Hankel determinant uniform parameter",
+          "Resultary 2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88/RESULT.md",
+          "Resultary returned the exact submitted target and separate Hermite low-pass records, but no different beta-uniform crossover record."
+        ],
+        "reasoning": "Matching a Barnes constant is insufficient to cover the beta-dependent determinant. No indexed exact spectral table found independently displaying the varying-beta formula; non-detection alone is not claimed as novelty evidence.",
+        "searches": [
+          "hemisphere Gegenbauer zonal spherical Slepian spectral determinant Barnes G Jacobi Hankel gamma product growing weight parameter dimension bandwidth crossover",
+          "sign multiplication compressed Jacobi polynomials positive-half-line eigenvalue product beta weight Hankel determinant uniform parameter",
+          "Resultary search: half-line Hermite spectral gaps Barnes low-pass product"
+        ]
+      },
+      "rationale": "The beta=+infty Hermite degeneration and the classical fixed-symbol Hankel/Selberg identities overlap the building blocks, not the precise beta-uniform dimension/bandwidth crossover. Primary Simons-Dahlen-Wieczorek provides spherical Slepian operator theory and cap numerics, not an all-gap product. Deift-Its-Krasovsky Theorem 1.20 concerns fixed FH data and endpoint cases; it does not assert uniformity when the Jacobi weight exponent itself grows with the matrix size. Related published Hermite result has beta-independent low-pass product and limiting constant, not the interpolating regime. Best-of-knowledge originality survives, without claiming the classical determinant identity or Barnes constant as new.",
+      "residual_risks": [
+        "Equivalent ratio may have been studied under Jacobi/Cauchy biorthogonal, sign-jump Hankel or random-matrix terminology.",
+        "The classical Selberg/Gamma formula is not new by itself; scientific originality resides specifically in the identified centered spectral product and uniform joint limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "APPLICABLE_BACKGROUND_NOT_COVERING",
+          "evidence": [
+            "Cap concentration is formulated in angular harmonics and via Fredholm eigenvalues; no centered determinant gamma product or dimension-weight uniform limit in inspected treatment."
+          ],
+          "identifier_or_url": "arXiv:math/0408424v1, Simons-Dahlen-Wieczorek, Spatiospectral concentration on a sphere, Sections 4-5, https://arxiv.org/pdf/math/0408424",
+          "material_read": "Full 48-page article, especially spherical harmonics and fixed-order polar-cap eigenproblem Sections 3-5, equations 5.13-5.18 and zonal examples",
+          "method": "arXiv PDF text, page images and section searches",
+          "title": "Spatiospectral Concentration on a Sphere",
+          "trigger": "same spherical cap concentration and zonal parity"
+        },
+        {
+          "assessment": "CLASSICAL_COMPONENT_ONLY",
+          "evidence": [
+            "General asymptotic formula is for specified exponents; cannot apply its fixed-weight error uniformly in beta->infinity without extra argument."
+          ],
+          "identifier_or_url": "arXiv:0905.0443v3, Deift-Its-Krasovsky, Theorem 1.20 and Remarks 1.21-1.22, https://arxiv.org/pdf/0905.0443",
+          "material_read": "Full primary PDF Theorem 1.20, Remarks 1.21-1.23, weight assumptions and asymptotic n regime; screenshot p9",
+          "method": "arXiv PDF text and page image",
+          "title": "Toeplitz/Hankel Determinants with Fisher-Hartwig Singularities",
+          "trigger": "potential dominating determinant asymptotic"
+        },
+        {
+          "assessment": "ENDPOINT_OVERLAP_NOT_FULL_COVERAGE",
+          "evidence": [
+            "At beta-to-infinity the submitted formula limits to that Hermite gamma product; the source does not analyze beta comparable to m or smaller."
+          ],
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-half-line-hermite-spectral-gaps-arbitrary-mask-cauchy-formula-an--5e08b6020a88/RESULT.md",
+          "material_read": "Full published RESULT.md, exact low-pass gamma product and Gaussian-half-line proof plus limitations",
+          "method": "fetched published GitHub scientific text",
+          "title": "Half-line Hermite spectral gaps: arbitrary-mask Cauchy formula and a Barnes limit",
+          "trigger": "same Barnes constant and low-pass parity spectral gap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dimension-versus-bandwidth joint limit creates a real noncommuting-limits question for a natural zonal hemispherical spectral invariant; the exact crossover unifies fixed dimension and Hermite/high-dimension behavior, with a quantitatively uniform error rather than a finite sample or a parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every integer m>=1 and beta>-1, the product of the centered nonzero eigenvalue gaps for the 2m-dimensional degree-<2m Gegenbauer-weighted hemispherical concentration operator equals H_m(0,beta)^2/[H_m(-1/2,beta)H_m(1/2,beta)], hence the stated exact two-factor gamma product, and uniformly for beta>-1 has the m^(-1/4) Barnes-G asymptotic with crossover factor ((2m+beta+1)/(m+beta+1))^(1/4) and O(m^-1) relative error.",
+  "limitations": [
+    "Only the even 2m low-pass dimension and symmetric hemisphere, beta>-1; no arbitrary masks, full spherical azimuthal sectors or individual eigenvalue asymptotics.",
+    "Gamma identities and 15 high-precision finite examples do not independently certify the literature novelty."
+  ],
+  "schema_version": 1
+}

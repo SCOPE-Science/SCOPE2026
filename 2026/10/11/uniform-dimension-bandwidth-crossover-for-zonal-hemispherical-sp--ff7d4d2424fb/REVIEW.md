@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is one theorem about the centered spectral determinant \(Q_m(\beta)=|\det(2C_{m,\beta}-I)|\) of the specified zonal half-interval compression. Reflection sends the centered operator to its negative, and an exact even–odd monomial calculation reduces the determinant to \(H_m(0,\beta)^2/[H_m(-1/2,\beta)H_m(1/2,\beta)]\). All Hankel matrices are positive definite; therefore no midpoint eigenvalue has been omitted. Monic Jacobi norms or the Selberg product evaluate the three determinants and prove the finite formula at every real \(\beta>-1\). The strict parameter order follows from strict concavity of the digamma function. The gamma/Barnes asymptotic with an error uniform in \(\beta\) follows because every gamma argument in the crossover factor is at least \(m\); the reciprocal-sum approximation has a uniform \(O(m^{-1})\) error. Exact moment-matrix comparisons and numerical crossover tests support, but do not replace, these all-parameter arguments.
+## correctness
 
-## Originality — PASS, with residual risk
-Simons–Dahlen–Wieczorek (arXiv:math/0408424v1, polar-cap concentration sections) formulate the relevant spherical spectral operator, not the finite centered spectral determinant and dimension/bandwidth profile. Bates–Khalid–Kennedy (arXiv:1608.03031v1, analytical region-matrix and eigenvalue sections) address concentration matrices on the two-sphere for different regions; their inspected material does not give the present product or growing-parameter asymptotic. The classical Jacobi/Selberg Hankel determinant formula supplies an exact input, but its use as a triple ratio for this spectral invariant and the strict/uniform crossovers are additional conclusions. Deift–Its–Krasovsky (arXiv:0905.0443v3, Theorem 1.20 and Remark 1.22) establish broad Fisher–Hartwig Hankel asymptotics for fixed symbols and discuss boundary-jump corrections, a credible route to overlapping fixed-parameter asymptotics. Their inspected theorem does not itself state or establish the displayed finite formula and uniform \(\beta\)-to-bandwidth result. Searches for determinant/half-spectrum aliases and relevant published mathematical records found no covering statement. This is a reasoned comparison, not exhaustive novelty proof; a signed-Jacobi-Hankel interpretation elsewhere remains a concrete risk.
+PASS
 
-## Value — PASS
-The determinant of \(2C-I\) is a canonical collective condition invariant: it detects exact half-energy modes and multiplies all deviations from balanced spatial concentration. The theorem determines this invariant at every bandwidth and weight, proves strict dimension-parameter ordering, and resolves the noncommutation of the large-bandwidth and Gaussian limits with a **uniform continuous crossover profile**. Its two-parameter universality is meaningful beyond a fixed-dimension special-function evaluation and does not purport to classify individual Slepian eigenvalues.
+Parity splits the signed hemisphere compression into off-diagonal even/odd blocks; its gap-product is the squared determinant of the block. The block Gram ratio is H_m(0,beta)^2/[H_m(-1/2,beta)H_m(1/2,beta)]; Jacobi beta-moment/Selberg determinant evaluation yields the exact gamma product. Independently re-evaluated all three Hankel determinants with 60-digit mpmath and compared the gamma product in 15 cases m=1,2,3 and beta=-3/4,0,1/4,1,3 (relative error <1e-47). Analytically, log-gamma second differences yield monotonicity, while the t=m+j+beta+1>=m positivity and u(t)=1/(4t)+O(t^-2) give a beta-uniform O(1/m) sum-of-errors bound, including beta growing faster than m; Barnes ratio supplies the m^-1/4 constant. The finite checks are corroboration, not the all-parameter argument.
 
-## Limits and source context
-The theorem covers zonal spherical concentration only, not every spherical-harmonic order. The Barnes asymptotic and Jacobi norm formulas are classical tools, and relevant Fisher–Hartwig machinery might permit an alternative derivation. The closest inspected studies focus on spherical concentration matrices and fixed-symbol Hankel asymptotics. A different normalization or signed-moment formulation could conceal an equivalent historical identity; no global independence or certification is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The beta=+infty Hermite degeneration and the classical fixed-symbol Hankel/Selberg identities overlap the building blocks, not the precise beta-uniform dimension/bandwidth crossover. Primary Simons-Dahlen-Wieczorek provides spherical Slepian operator theory and cap numerics, not an all-gap product. Deift-Its-Krasovsky Theorem 1.20 concerns fixed FH data and endpoint cases; it does not assert uniformity when the Jacobi weight exponent itself grows with the matrix size. Related published Hermite result has beta-independent low-pass product and limiting constant, not the interpolating regime. Best-of-knowledge originality survives, without claiming the classical determinant identity or Barnes constant as new.
+
+## value
+
+PASS
+
+The dimension-versus-bandwidth joint limit creates a real noncommuting-limits question for a natural zonal hemispherical spectral invariant; the exact crossover unifies fixed dimension and Hermite/high-dimension behavior, with a quantitatively uniform error rather than a finite sample or a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
