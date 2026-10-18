@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem is verified by exact finite counting; no numerical approximation is needed.
+## correctness
 
-For \(k=n-2d\), fixing residual sets \(D\subseteq[n+1]\) and \(R\subseteq[n]\) of sizes \(2d+1\) and \(2d\) leaves two complements of size \(k\). An admissible restriction with those residual sets is exactly a bijection between the complements, so there are \(k!\) such restrictions. The count is independent of \((D,R)\). This proves that \((D^\rho,R^\rho)\) is product-uniform.
+PASS
 
-On the event \(S\cap(D^\rho\times R^\rho)=\varnothing\), every leaf label lies outside the valid residual rectangle. Thus the conditional error over designs is exactly \(1\) on that event. Counting the event gives
-\[
-\frac{B_{2d+1,2d}(\overline S)}{\binom{n+1}{2d+1}\binom n{2d}}.
-\]
+Under the stated uniform admissible restriction distribution, for each D of size 2d+1 and R of size 2d, the restriction complement has equal sizes n-2d and precisely (n-2d)! bijections, giving independent uniform D,R. If the finite set S of all possible leaf labels misses D×R, any tree output is outside valid residual rectangle for every compatible design, hence E>=Pr(S misses D×R). This event is exactly the K_(2d+1,2d) density in complement of S; the union bound over S gives 1-|S|ab/(n(n+1)), and a p-ary depth-e tree has <=p^e leaves. Zero error implies complement K_a,b-free. Independently enumerated all 315 residual rectangles at n=6,d=2 with three selected labels and counted 27 misses. The only relevant source premise not independently read in full is the exact uniform sampling definition of Omega(n,d); the theorem states that premise explicitly.
 
-For each fixed label, membership in the random residual rectangle has probability
-\[
-\frac{2d+1}{n+1}\frac{2d}{n}.
-\]
-The union bound therefore gives the support-size inequality. A \(p\)-ary height-\(e\) tree has at most \(p^e\) leaves, hence at most \(p^e\) distinct labels. If the error is zero, every residual rectangle meets \(S\), so the complement is \(K_{2d+1,2d}\)-free by definition.
+## originality
 
-Limits checked: the argument concerns actual reduced-tree error, not the path-sensitive \(\chi(P,\rho)\) probability in the source's final sufficient condition. It provides no new lower bound for \(\mathrm{AC}^0[p]\)-Frege and no sufficiency statement for realizing a given hitting set as a correct search tree.
+PASS
+
+The standard rectangle-hitting/Zarankiewicz language and elementary union bound are established combinatorics, not novel on their own. The narrower claim is their exact connection to the output-support component of the 2026 reduced PHP search-tree error, including its distinction from path-sensitive feasibility. Resultary did not yield an already published SCOPE equivalent. The most relevant 2026 primary text could not be accessed in full through legal routes (institutional VPN disconnected); noncoverage of its appendix is NOT asserted. Best-of-knowledge O PASS is qualified by substantial exact-source overlap risk.
+
+## value
+
+PASS
+
+A newly formalized reduced proof-complexity search-tree error has a natural support-only obstruction that can be studied without the path predicate. Identifying its exact complete-bipartite density and zero-error Zarankiewicz threshold is a motivated structural diagnostic: it delineates exactly where label-support lower bounds stop and where stronger path-sensitive reasoning is needed. This does not claim new extremal-graph estimates or an AC0[p]-Frege lower bound, and the simple union-bound calculation alone is not presented as value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
