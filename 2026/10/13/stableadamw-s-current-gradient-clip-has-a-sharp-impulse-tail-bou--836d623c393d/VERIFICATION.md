@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The package reconstructs source-form StableAdamW using the published bias-corrected moving-average recurrence and implementation-safe RMS detector.
 
-`verify.py` checks the exact impulse formulas against direct iteration for randomized parameters, verifies that the published RMS clipping statistic is exactly zero on the zero-gradient tail, tests both sides of the \(\beta_1^2=\beta_2\) boundary, checks the exact boundary limit, and independently verifies the scalar update cap obtained by using the source-discussed squared-momentum RMS numerator.
+# Independent mathematical audit
 
-Finite calculations are transcription guards only. The arbitrary-time, arbitrary-amplitude, and detector-cap statements are proved algebraically in `RESULT.md`.
+## correctness
+
+PASS
+
+The source bias-corrected recurrences telescope on a single impulse G at t=1 followed by zero gradients, giving v_t=(1-beta1)beta1^(t-1)G/(1-beta1^t) and u_t=(1-beta2)beta2^(t-1)G^2/(1-beta2^t). At t>=2 the current g_t=0 makes the published StableAdamW clipping RMS zero and its learning rate α. The normalized parameter update is α c1|G|/(sqrt(c2)|G|+epsilon); supremum over FINITE impulse amplitudes at each time is α c1/sqrt(c2). Its factor (beta1/sqrt(beta2))^(t-1) proves uniform boundedness exactly beta1^2<=beta2, with explicit finite boundary limit sqrt((1-beta1)/(1+beta1)); for beta1^2>beta2 choose t and then a sufficiently large finite G. The alternative v_t^2 detector yields a scalar cap α because its clip threshold D=sqrt(max(u,epsilon^2)) never exceeds sqrt(u)+epsilon. I independently checked recurrence/tail ratios for representative β values, separate from source randomized verifier.
+
+## originality
+
+PASS
+
+Best-of-knowledge StableAdamW-specific exact current-gradient zero-tail gate, sharp impulse amplitude frontier, and contrast with the source-discussed but empirically rejected squared-momentum detector. The classical condition beta1^2<beta2 for Adam moment ratios is emphatically prior and not asserted as new. Full Wortsman et al paper Algorithm 2 and Appendix E contain the detector but not the stated zero-tail stress-test theorem. Resultary search returned adjacent optimizer moment studies, not this exact statement.
+
+## value
+
+PASS
+
+A motivated robustness/safety property of an explicitly proposed optimizer design: large stale momentum can bypass a current-gradient clip after an impulse, with sharp parameter condition, while standard paper settings remain bounded. The result matters for selecting permissible decay parameters and contrasting two known detector choices; it does not claim real-world convergence failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
