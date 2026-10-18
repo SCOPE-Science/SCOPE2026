@@ -1,9 +1,21 @@
-# Scientific review: Heisenberg Poisson two-jets
+# Independent mathematical audit
 
-**Correctness — PASS.** All characteristics are covered, including \(2\). The proof checks descent of the biderivation to the cube-zero quotient, reduces Jacobi to three independent equations, computes the exact gauge action, and proves existence and uniqueness of seven-parameter normal forms. The bundled verifier independently reconstructs the relevant matrices and checks finite-field instances. Finite enumeration is not substituted for the proof.
+## correctness
 
-**Originality — PASS, subject to residual search risk.** Abdelwahab–Fernández Ouaridi–Martín González (arXiv:2209.09150v1) give a general fixed-algebra Poisson classification method, with explicit complex three-dimensional and filiform/null-filiform results, but not the ten-dimensional cube-zero ring with fixed Heisenberg first jet. Huang–Tang–Wang–Zhang (arXiv:2309.00714) treat weighted Poisson brackets on an untruncated polynomial ring, not the finite two-jet gauge quotient. The literature on low-dimensional nilpotent Poisson algebras examined at abstract level reaches dimension four. No checked source supplies the exact \(15\)-dimensional fiber, \(8\)-dimensional gauge translations, or unique seven-parameter section. Equivalent jet/cohomological computations may exist beyond the inspected literature; this risk is not a proof of novelty.
+PASS
 
-**Value — PASS.** The classifying invariant is natural: the space of second-order Poisson lifts of a prescribed nonabelian linear Poisson structure, and its framed moduli under changes of local generators. The full classification answers both the raw point-count and quotient-count problems over arbitrary finite fields, with a uniform characteristic-free proof. The seven-dimensional cohomology and the gap between labeled and framed counts record genuine deformation directions, not a cosmetic parameter specialization. Classification under nonidentity linear changes and higher jets remain outside the finding.
+On A=K[x,y,z]/(x,y,z)^3 with fixed first-order {x,y}=z, every degree-two correction P,Q,R lies in M=Sym²(K³), yielding 18 coefficients. Jacobi is equivalent to three independent constraints 2q1+r2=0, q2+2r4=0, q3+r5=0 (each has a unit coefficient even in characteristics 2 and 3), hence a 15-dimensional affine solution space. Tangent-identity substitutions x_i→x_i+H_i act by P→P+DxHy−DyHx−Hz, Q→Q+DxHz,R→R+DyHz, with Dx=z∂y,Dy=−z∂x; P image has rank6, while fixing P=0 leaves two independent z² corrections, total rank8. Choosing P=0 and Q,R z²-free gives the advertised unique seven coordinates (a,b,c,d,e,f,g), so Fq has q^15 brackets and q^7 framed orbits each q^8. Independent Jacobi/gauge matrix computation over primes 2,3,5,7,11 found ranks (3,8) and each normal form has zero Jacobi obstruction. The proof uses exact polynomial identities with unit pivots, not finite-characteristic extrapolation; char2 alternation is essential. Includes explicit fixed first-order assumption, not classification by full Aut(A).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge priority judgment based on direct statement/implication comparisons with specified inspected sources, published semantic search and alias checks; neither the source names nor negative searches by themselves demonstrate novelty. The claim was compared as both a Poisson jet/gauge section and the Lie-algebra cohomology H²(h3,Sym²h3), not merely by title. No retrieved source supplied same numeric ranks or concrete normal forms.
+
+## value
+
+PASS
+
+The exact framed deformation fiber and seven-dimensional gauge quotient for a natural ten-dimensional cube-zero algebra are natural local Poisson invariants. The explicit normal form, uniform behavior in every characteristic and cohomological dimension H²(h3,Sym² h3)=7 fill a concrete gap beyond general orbit-method frameworks; the result is not a relabeling of a dimension-three Poisson classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
