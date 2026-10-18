@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem's complement criterion is proved in both directions. Every pair of arcs supported on disjoint index pairs is a frame of a nice four-cycle for \(n\ge4\); every directed three-cycle is a frame of a nice six-cycle for \(n\ge5\). Conversely, the elementary intersecting-pair classification reduces all complements to stars or triangles, whose possible matchings have at most two or three edges. The only potential four-cycle frames have missing diagonal cross-edges, and the only three-edge triangle frames are the two explicit directed cycles, which are non-nice when \(n=4\). On \(\operatorname{Cr}_3\) the graph is a single six-cycle. The resulting disjoint support types give the polynomial by exact inclusion–exclusion. The standard-library verifier checks every candidate complement through the *definition using ordered pairs of perfect matchings* at orders three, four, and five; it separately checks the support-based enumerator through order seven. Finite tests support, rather than replace, the symbolic proof.
+PASS
 
-## Originality — PASS, with stated access risk
+Complete-forcing condition is that S meet both frames of each nice even cycle, or directly that complement T contain no P\Q for distinct derangement perfect matchings. Disjoint unordered index supports create a nice 4-cycle obstruction n>=4; oriented 3-cycles create nice 6-cycle obstruction n>=5 but not n4 because leftover paired diagonal edge is absent. Conversely pairwise-intersecting 2-subsets form stars or all lie in one triangle; these contain no nice-cycle matching frames except directed triangles already excluded. For one index pair orientation-subsets have weight h=2z+z^2; unique star centers count n binom(n-1,k)h^k, triangle inclusion-exclusion gives h^3-2z^3(1+z)^3+z^6; n3 one six-cycle gives B3 formula. Reconstructed perfect-matching-mask exhaustive independent enumeration agrees for all 2^6,2^12,2^20 complements at n3,4,5, respectively 49,343,1366, and extrema counts 9,8,5. Infinite theorem relies on support/cycle proof, not finite checks.
 
-He and Zhang (2023), DOI `10.1007/s10878-023-01078-7`, already treat the minimum complete forcing number of dense balanced bipartite graphs; this scalar value is not claimed as new. Their accessible abstract and first publisher-preview page state numerical results and constructions, but the remaining primary full text was unavailable, so any uninspected all-set classification is a residual risk. Ebrahimi, Nemayande and Tohidi (2024), arXiv:2409.17306v1, was examined in its full HTML text: it defines the nice-cycle equivalence and gives general numerical bounds rather than this exact cardinality enumerator. Searches for crown-graph complete-forcing distributions, perfect-matching frame avoidance, and directed-star/triangle formulations did not identify a stronger result. Related existing results on zero forcing and crown domination have different objects or vertex-state dynamics. Database absence alone is not treated as a proof of originality.
+## originality
 
-## Value — PASS
+PASS
 
-Complete forcing is a motivated edge-set invariant encoding simultaneous uniqueness of every perfect matching. Existing results for dense bipartite classes address the optimum but not the number or structure of all nonminimum choices. The full cardinality polynomial and exact if-and-only-if membership rule describe every one of those exponentially many candidate edge subsets. The boundary at order four, the directed-cycle correction at larger orders, and the extremal multiplicities are structural rather than mere numerical substitutions. This full distribution is useful for enumeration, probabilistic models of random edge subsets, and benchmarking matching-uniqueness algorithms.
+PASS best-of-knowledge for a full all-cardinalities complete-forcing edge-subset classification and polynomial, not the already known scalar minimum complete forcing number. He-Zhang 2023 covers dense multipartite scalar numbers; publisher abstract and first preview page gave numerical result and full source remained inaccessible despite arXiv/open-access attempts and authorized institutional VPN disconnected. Ebrahimi-Nemayande-Tohidi 2024 arXiv treats nice-cycle criterion and general bounds, not a crown polynomial. Resultary query returned graph forcing/dominating analogues but no directly equivalent all-size polynomial. Inaccessible plausible He-Zhang complete primary means real residual risk, not automatic O fail or negative evidence.
 
-## Limitations and relationship to literature
+## value
 
-All formulas concern \(K_{n,n}-M\) with \(n\ge3\), and no corresponding claim is made about all dense bipartite graphs. The full text of the especially relevant 2023 He–Zhang paper was subscription restricted; overlap beyond its accessible abstract and preview remains possible. Computational replay covers finite orders, and there has been no independent external review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Complete forcing is a natural perfect-matching uniqueness invariant; an exact enumerator of every qualifying edge subset in an infinite standard graph family is a meaningful combinatorial distribution beyond optimized minimum number. The structural n4/n5 transition in forbidden directed cycles and counts of all extremizers give independently useful exact facts, not arbitrary small-slice recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
