@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Poisson thinning establishes the bivariate fixed points; implicit differentiation at the nontrivial (q,1) branch gives the exact sign formula since 1-rq and 1-s are positive. Strict Cauchy–Schwarz proves the Perron root decreases for every d. The two-type extinction theorem plus an explicit characteristic determinant yields the unique cutoff, and scalar convexity shows \\(q<r^{-2}\\), making (rq,1/r) nonempty for every r>1. The exact logarithmic example and executable finite-precision checks agree. Computations do not substitute for universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bansaye and Lambert, arxiv:1111.2535v1, §§1-3 and Appendix B: offspring reproduction then migration, two-patch source-sink persistence criteria, asymptotic growth, ancestry, general branching extinction theory.",
+        "Czuppon et al., doi:10.1086/714034, § Establishment Probability: a more elaborate migration-before-reproduction / mutant-fitness system."
+      ],
+      "reasoning": "Bansaye–Lambert has a broader model of the same offspring-then-dispersal lifecycle and covers persistence thresholds and growth factors; these premises are background, not new. The inspected results do not give founder-averaged establishment sensitivity at zero symmetric migration, its exact sign region, and a universal parameter interval simultaneously displaying founder improvement and ultimate extinction. Generic branching theorems alone do not state that parameter comparison; no claims are made of novelty for the persistence criterion itself.",
+      "searches": [
+        "branching processes migration extinction probability sensitivity dispersal source sink r q",
+        "Two-patch Poisson source sink Galton Watson branching dispersal initially improves uniformly averaged founder survival despite reducing Malthusian growth, then high dispersal forces extinction; q source extinction and sink mean threshold s>r q"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1111.2535v1",
+      "doi:10.1534/genetics.118.301104",
+      "doi:10.1086/714034"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Bansaye–Lambert two-patch criterion classifies persistence with dispersal and provides spectral growth interpretation, but does not calculate the uniformly averaged founder derivative.",
+        "Czuppon et al. explicitly write multitype Poisson exponential fixed-point equations (7) and observe nonlinear dispersal effects; the published lambda matrix depends on migration before habitat-dependent reproduction, unlike the post-reproduction dispersal used here.",
+        "Tomasini–Peischl derives a weak-selection approximation and notes intermediate migration optimum from disadvantaged founder patches; the present initial uniform-founders response is exact for arbitrary r>1 and s in (0,1)."
+      ],
+      "reasoning": "Qualitative nonmonotonic survival, classical fixed points, and generic extinction criteria are substantially covered by earlier publications. The combined exact slope boundary, strictly falling Perron growth for all dispersal strengths, and globally nonempty rescue-then-collapse regime are not direct corollaries of the stated earlier conclusions; specialized algebra is needed. A hidden equivalent in uninspected chapters or supplements remains possible.",
+      "searches": [
+        "arxiv:1111.2535v1",
+        "doi:10.1534/genetics.118.301104",
+        "doi:10.1086/714034"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tomasini and Peischl, Genetics 209 (2018), doi:10.1534/genetics.118.301104, Abstract/Methods/Discussion: weak-selection two-deme branching establishment, migration can aid introduction in unfavourable deme.",
+        "Czuppon et al., American Naturalist 197 (2021), doi:10.1086/714034, mathematical analysis equations (4)-(8): generic two-type Poisson extinction fixed points and nonlinear migration benefits."
+      ],
+      "reasoning": "The exponential fixed-point equations are a specialization of standard two-type Poisson branching and are not presented as novel. Existing studies establish origin-specific migration effects, sometimes nonmonotonic. Their listed dispersal/reproduction order, effective fitness and establishment conditioning do not state the exact uniform-founder sign condition s>r q or the all-r nonempty initial-rescue/terminal-collapse band; these require an additional explicit derivative and global spectral comparison. A latent special-case implication of general theory is a residual risk.",
+      "searches": [
+        "two patch Poisson branching migration survival extinction probabilities source sink founder establishment rates",
+        "Tomasini Peischl 2018 establishment locally adapted mutations divergent selection Poisson branching two demes migration reproduction PMC",
+        "Initial derivative of mean establishment or extinction probability for a two-type Poisson branching source-sink metapopulation under symmetric exchange"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published branching/ecological papers above formulate models and broad qualitative migration effects, not an exact table for this two-parameter founder-averaged derivative and total-collapse band.",
+        "No matching exact quantitative table or classification was located in the accessible literature search results; this absence is not treated as proof of uniqueness."
+      ],
+      "reasoning": "The result is a continuum of parameter inequalities and exact sensitivities, not a finite known table. Searches did not surface an exact benchmark; the claim is based on statement-level comparisons, not search failure alone.",
+      "searches": [
+        "Closed form dispersal cutoff d=(r-1)(1-s)/(r+s-2rs) for a two patch Poisson branching population, rescue then extinction",
+        "two patch Poisson branching migration survival extinction probabilities source sink founder establishment rates"
+      ]
+    },
+    "rationale": "Inspected directly relevant full primary texts and compared implications: general source-sink persistence, Poisson extinction systems, and nonmonotone migration benefits are well established. The claimed contribution is instead the sharp sign \\(s>rq\\) for uniformly located founders, its co-occurrence with globally decreasing Perron growth, and a nonempty for every r>1 band with certain extinction beyond an exact cutoff. Exact equivalence in less-accessible literature remains possible.",
+    "residual_risks": [
+      "The same Poisson fixed points are standard; an equivalent low-dispersal derivative might exist as an unstated specialization of a more general theorem.",
+      "Not every paper, textbook chapter, or supplementary file on source–sink branching was inspected.",
+      "The claim is restricted to uniformly located founders, rather than abundance-weighted mutations or resident-population persistence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covering the model and established spectral/persistence principles, but not the new averaged founder-sensitivity comparison or all-r rescue-collapse parameter band.",
+        "evidence": [
+          "2011-11-10 arXiv version date; pp. 2-3 define growth then newborn dispersal; Theorem 2.1 and §3 describe persistence/growth; Appendix B describes extinction probability vector."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1111.2535",
+        "material_read": "Full 30-page preprint: Abstract, §1 lifecycle, §2 two-patch persistence, §3 growth, and Appendix B extinction-vector framework; searched the entire parsed text for extinction probability and survival probability.",
+        "method": "Read arXiv first-version full-text PDF, checked figure of two-patch dispersal and substantive theorem statements.",
+        "title": "Past, growth and persistence of source-sink metapopulations",
+        "trigger": "Exact source-sink reproduction-then-dispersal model with two patches and persistence thresholds."
+      },
+      {
+        "assessment": "Already studies beneficial intermediate migration and fixed-point methods; no matching exact uniformly averaged zero-dispersal sign boundary or source strength universal collapse band under the exact fixed lifecycle.",
+        "evidence": [
+          "Genetics 209 (2018), 885-895; Abstract says conditional disadvantageous-deme founders can have intermediate optimum; Discussion describes weak-selection approximation."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6028263/",
+        "material_read": "Full-text abstract, model and establishment sections, discussion, and formulas for migration and origin-dependent establishment.",
+        "method": "Read lawful open-access full article and compare the conditional founding quantities and migration parameters.",
+        "title": "Establishment of Locally Adapted Mutations Under Divergent Selection",
+        "trigger": "Closest published two-deme Poisson branching establishment analysis."
+      },
+      {
+        "assessment": "The same generic exponential generating-function principle and qualitative migration benefit are prior art; this article studies mutation and before-reproduction migration and does not state the exact source-sink uniform-founder derivative and spectral collapse parameter range.",
+        "evidence": [
+          "American Naturalist 197 (2021), 625-643; model Steps 1-2 at full-text lines 85-89; equations (4) and (7) specify the prior multitype branching system."
+        ],
+        "identifier_or_url": "https://www.journals.uchicago.edu/doi/full/10.1086/714034",
+        "material_read": "Full open-access main text: life cycle, mathematical analysis equations (4)-(8), establishment probability section, interpretations of dispersal-induced nonmonotonicity.",
+        "method": "Compared full model flow order (step 1 dispersal, step 2 reproduction), effective lambda matrix, and Poisson fixed-point equations to present offspring-first model.",
+        "title": "The Effect of Habitat Choice on Evolutionary Rescue in Subdivided Populations",
+        "trigger": "Highly relevant alternative multitype Poisson migration and evolutionary rescue phenomenon."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "559ca648-b128-4843-9b71-b394682447a2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Uniform patch-level founder establishment and asymptotic expected lineage growth are distinct natural measures for ecological introductions. A sharp necessary-and-sufficient sign criterion plus a universal, nonempty dispersal band with initial benefit and terminal extinction clarifies a genuine ecological management tradeoff. The phenomenon is structural for each source strength, not a contrived single simulation or infinitesimal gain alone.",
+    "status": "PASS"
+  }
+}
