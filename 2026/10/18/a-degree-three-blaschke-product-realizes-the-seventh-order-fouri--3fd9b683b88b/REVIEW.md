@@ -1,0 +1,9 @@
+# Mathematical review
+
+**Correctness — PASS.** The proposed cubic Blaschke product is explicitly factorized into three zeros of modulus less than one. The key boundary phase identity is exact, not inferred numerically. Its derivative has a fifth-order zero at the origin and a simple zero at the antipode. Dyadic second-derivative bounds are uniform in frequency, and order-seven stationary phase at frequency \(7n\) yields a nonzero, explicitly evaluated gamma integral. The degree lower bound follows from the maximum degree of the Cayley-coordinate rational numerator. Standard-library arithmetic checks and finite quadrature provide independent consistency evidence; the latter is not used as an infinite proof.
+
+**Originality — PASS, best-knowledge.** The closest source, Borichev–Fouchet–Zarouf, arXiv:2401.17520v1, states the minimum-degree question and gives a degree-four witness at the seventh-order exponent (Theorem 2 and Section 5.3), but does not give or imply the new degree-three witness or matching minimum-degree proof. The predecessor arXiv:2107.00405v1 concerns only one Blaschke factor and cubic/Airy transitions. Targeted named-result searches and accessible historical claim comparisons found no matching theorem. Residual risk: undiscovered literature may contain an equivalent rational example.
+
+**Value — PASS.** The degree question is explicitly motivated in the 2024 primary source. Improving the seventh-order witness from degree four to degree three and proving the improvement optimal settles a natural, sharp first unresolved odd-order instance, rather than computing an arbitrary coefficient or modifying a previously solved parameter. The explicit Fourier coefficient constant identifies the mechanism producing the sharp decay. No claim is made about other exponents, classification of witnesses, or the precise supremum constant.
+
+Self-review: passed. Independent audit: not yet performed.
