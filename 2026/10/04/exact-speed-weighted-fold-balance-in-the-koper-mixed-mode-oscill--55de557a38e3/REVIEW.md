@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Arbitrary antiderivative tests in \(x\) and \(z\) give the two exact regressions and their variance defects. Differentiating the \(y\)-equation and eliminating \(z\) gives a linear second-order identity for \(y\); multiplying by \(\dot y\) and using stationarity yields
-\[
-k\mathbb E[(c'(x)-\delta\varepsilon)\dot x^2]
-=
-(2+\delta)\mathbb E[\dot y^2].
-\]
-Vanishing of any coordinate-speed square forces bounded complete support trajectories to be equilibria. For \(k<0\), every non-equilibrium stationary state must therefore put positive mass where
-\[
-|x|<\sqrt{1+\delta\varepsilon/3}.
-\]
+## correctness
 
-Risk: compact support is used for the stationarity manipulations and backward-time equality rigidity.
+PASS
 
-## Originality
-PASS. The complete 2012 same-object treatment was inspected through the Koper equations, symmetric normalization, fold geometry, bifurcation diagrams, and classical parameter values. A modern full three-timescale treatment was searched for invariant-measure, variance, average, and conditional formulations without a match. The 2015 homoclinic result was compared at implication level. Published semantic searches found only distinct-system slope and stationary-balance analogues.
+For invariant probability compactly supported by Koper flow, antiderivative generator tests in x and z give E[y|x]=x^3−3x and E[y|z]=z−lambda. Since residuals equal epsilon xdot and zdot/delta, Pythagorean conditional orthogonality gives both exact variance deficiencies. Differentiate ydot=kx−2(y+lambda)+z and eliminate z to obtain yddot+(2+delta) ydot+delta y=k xdot+delta k x−delta lambda. Stationary multiplication by ydot, plus derivatives of xdot²/2 and xy, yields k E[(3x²−3−delta epsilon)xdot²]=(2+delta)E[ydot²]. Vanishing squared speed of any coordinate on compact complete support forces an equilibrium; the ydot=0 case reduces to xdot=−delta x+delta(y+lambda)/k, unbounded backward except constant. For k<0, non-equilibrium support must put positive mass where |x|<sqrt(1+delta epsilon/3). Independent algebra also checked via packaged exact sparse polynomial code. The strip is necessary not sufficient and is a strict enlargement of fold strip |x|<1.
 
-Risk: the 1995 primary full text was not available through the inspected open route, and a short equivalent balance could remain unindexed.
+## originality
 
-## Value
-PASS. The two folds \(x=\pm1\) are central to the established mixed-mode geometry. The new speed-weighted identity proves that every genuinely recurrent stationary state in the classical \(k<0\) regime must enter an explicit small enlargement of the fold strip. This is a finite-amplitude, all-invariant-measures diagnostic that complements rather than repeats fold, canard, Hopf, or homoclinic existence theory.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Best-of-knowledge statement-level comparison against original and broader sources, with explicit covered components and material-access residual risks. A failed search is not proof of novelty.
+
+## value
+
+PASS
+
+An invariant-measure obstruction to compact recurrent activity is mathematically meaningful in this classical MMO model: the exact speed-weighted balance applies simultaneously to arbitrary periodic/ergodic/chaotic invariant states, not a single orbit. The strict fold-neighborhood penetration and exact dispersion identities quantify universal dynamical constraints distinct from local bifurcation diagrams.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

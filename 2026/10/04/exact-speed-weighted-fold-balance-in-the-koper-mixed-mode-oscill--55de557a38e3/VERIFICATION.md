@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,51 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact sparse-polynomial arithmetic.
 
-It verifies directly from the Koper vector field that
-\[
-\ddot y
-+
-(2+\delta)\dot y
-+
-\delta y
-=
-k\dot x+\delta kx-\delta\lambda.
-\]
+# Independent mathematical audit
 
-It checks the abstract conditional-regression variance identity
-\[
-\operatorname{Var}(A)-\operatorname{Var}(B)
-=
-\mathbb E[(A-B)^2]
-\]
-from the required moment relations.
+## correctness
 
-For
-\[
-\delta=1,\qquad
-\varepsilon=\frac1{10},
-\]
-it verifies
-\[
-1+\frac{\delta\varepsilon}{3}
-=
-\frac{31}{30}.
-\]
-For
-\[
-\varepsilon=\frac1{100},
-\]
-it verifies
-\[
-1+\frac{\delta\varepsilon}{3}
-=
-\frac{301}{300}.
-\]
+PASS
 
-It also checks the reported decimal strip radii to within \(10^{-6}\).
+For invariant probability compactly supported by Koper flow, antiderivative generator tests in x and z give E[y|x]=x^3−3x and E[y|z]=z−lambda. Since residuals equal epsilon xdot and zdot/delta, Pythagorean conditional orthogonality gives both exact variance deficiencies. Differentiate ydot=kx−2(y+lambda)+z and eliminate z to obtain yddot+(2+delta) ydot+delta y=k xdot+delta k x−delta lambda. Stationary multiplication by ydot, plus derivatives of xdot²/2 and xy, yields k E[(3x²−3−delta epsilon)xdot²]=(2+delta)E[ydot²]. Vanishing squared speed of any coordinate on compact complete support forces an equilibrium; the ydot=0 case reduces to xdot=−delta x+delta(y+lambda)/k, unbounded backward except constant. For k<0, non-equilibrium support must put positive mass where |x|<sqrt(1+delta epsilon/3). Independent algebra also checked via packaged exact sparse polynomial code. The strip is necessary not sufficient and is a strict enlargement of fold strip |x|<1.
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+## originality
 
-The invariant-measure disintegrations, equality classification, and sign-to-strip argument are analytic proofs in `RESULT.md`; they are not inferred from finite trajectory simulation.
+PASS
+
+Best-of-knowledge statement-level comparison against original and broader sources, with explicit covered components and material-access residual risks. A failed search is not proof of novelty.
+
+## value
+
+PASS
+
+An invariant-measure obstruction to compact recurrent activity is mathematically meaningful in this classical MMO model: the exact speed-weighted balance applies simultaneously to arbitrary periodic/ergodic/chaotic invariant states, not a single orbit. The strict fold-neighborhood penetration and exact dispersion identities quantify universal dynamical constraints distinct from local bifurcation diagrams.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
