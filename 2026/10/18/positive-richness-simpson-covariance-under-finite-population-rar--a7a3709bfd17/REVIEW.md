@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** The event decomposition \(K_m=\sum_i I_i\) and conditional-without-species covariance establish the exact rational formula. Symmetrization gives a sum of nonnegative terms, and the strictly positive lower-bound factor supplies a complete equality classification. The code independently enumerates 2,375 finite census/depth cases using three exact methods and checks all boundaries. Finite verification is supporting evidence, not the unrestricted proof.
+
+**Originality — PASS, with stated risks.** The closest public mathematical research establishes this sign law only for iid categorical draws with replacement. Its published result was read in full; its probability laws cannot determine without-replacement saturation zeros or the explicit finite-census bound. Full technical texts of Barbour's occupancy study, Källberg–Leonenko–Seleznjev's coincidence study, and Colwell et al.'s rarefaction analysis were inspected. Their objects include some of the two marginal statistics, but their displayed results do not cover their joint finite-census covariance. Heck et al.'s 1975 article was identified but remained inaccessible in full. Equivalent prior work, particularly in older hypergeometric association literature, remains possible and needs independent review.
+
+**Value — PASS.** Richness and Gini–Simpson diversity are basic but distinct ecological sample measures. Their positive mixed covariance is a nontrivial sampling-design invariant: the sharp population-specific lower bound and full strictness classification allow investigators to distinguish genuine positive cofluctuation from complete-detection saturation. A prior iid law has a different equality structure and cannot be applied unchanged to finite-rarefaction samples. The result does not assert causal ecological dependence, spatial realism, or inference with unknown abundances.
+
+Self-review: passed. Independent audit: not yet performed.
