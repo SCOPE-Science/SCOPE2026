@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The Hadamard entry factorization H_{k tau+u,v tau+w}=N^{-1/2}chi_v(k)chi_w(u) and orthogonality over all u yield the exact Gram identity. The singleton-residue iff classification is constructive in both directions (repeat a block for necessity). Rank is bounded by sums of q rank-one factors per low residue. A nonzero high-frequency Walsh character on uniformly drawn blocks is an iid fair sign, so the two-plane Gram defect and rank-loss probability are exact. Exhaustive standard-library integer replay independently checked 169168 Gram comparisons and 25 support-count cases; finite checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 7 of the 2022 paper gives sufficient q for a high-probability embedding; it does not distinguish deterministic perfect supports from binomial-aliasing supports.",
+        "The 2024 expanded Theorem 3 is also an OSE sufficient bound.",
+        "Balabanov et al. (2023), equation (4), forms a concatenation of independent local SRHT sketches; this is not the global matrix H sampled in contiguous full row blocks."
+      ],
+      "reasoning": "The relevant broader OSE bounds do not logically imply a complete pathwise support classification or exact rank-failure distribution. The alternative block sketch is not the same random object, so even an OSE bound there cannot cover the claimed matrix identity.",
+      "searches": [
+        "arXiv:2201.08522",
+        "arXiv:2308.04185",
+        "PMLR:202:balabanov23a"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.08522",
+      "arXiv:2308.04185",
+      "PMLR:202:balabanov23a",
+      "2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0",
+      "2026/10/11/SCOPE-complete-coordinate-walsh-frame-spectrum-on-binary-symplectic-gr--c844347e16db",
+      "2026/10/11/SCOPE-exact-first-walsh-band-concentration-spectra-on-boolean-hamming--a2f5ddac5a0f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flattened individual and block leverage scores imply equal expected scales, not equal per-sample Gram spectra.",
+        "Probabilistic matrix-concentration bounds constrain but do not identify individual Gram outcomes or their exact multiplicities.",
+        "The exact cyclic Fourier-frame erasure result optimizes over deterministic subsets, whereas this finding enumerates all coordinate supports and iid block tuples in a noncyclic group."
+      ],
+      "reasoning": "No inspected prior theorem has hypotheses and conclusions which force the complete identity (1), iff condition (2), and exact binomial law (3)-(4). Simple character orthogonality is credited as the proof ingredient rather than claimed as a new lemma.",
+      "searches": [
+        "arXiv:2201.08522",
+        "arXiv:2308.04185",
+        "PMLR:202:balabanov23a",
+        "2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2022 algorithm samples q complete blocks with replacement and Theorem 7 is a probabilistic embedding estimate.",
+        "The 2024 expanded text derives a concentration-based Theorem 3; its appendix reduces it to a tail estimate.",
+        "The published cyclic-frame result computes extrema under fixed-cardinality erasures on Z_N, not Boolean Walsh cosets sampled as iid blocks."
+      ],
+      "reasoning": "A generic OSE concentration statement or a cyclic Fourier erasure extremum does not establish the exact per-sample Gram identity, its classification of every coordinate support, or the independent-binomial spectrum. Both Fourier constructions share character orthogonality but their groups, partition structures, and sampling quantifiers are different.",
+      "searches": [
+        "arXiv:2201.08522",
+        "arXiv:2308.04185",
+        "2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest two-character harmonic-frame result concerns cyclic Fourier erasures with an arithmetic gcd-controlled extremum; the full theorem does not cover Boolean dyadic blocks sampled with replacement.",
+        "Other related Walsh-frame spectra sample binary symplectic groups or Hamming balls, not an iid choice of contiguous Sylvester-Hadamard row blocks.",
+        "No exact dyadic-residue block-spectrum table was identified in the inspected sources."
+      ],
+      "reasoning": "Exact spectra on different finite group sampling sets are not an exact database or table for the sampling operator defined here. Negative retrieval cannot alone prove originality; the positive scientific non-implication of the closest inspected sources supports the comparison.",
+      "searches": [
+        "arXiv:2201.08522",
+        "2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0",
+        "2026/10/11/SCOPE-complete-coordinate-walsh-frame-spectrum-on-binary-symplectic-gr--c844347e16db",
+        "2026/10/11/SCOPE-exact-first-walsh-band-concentration-spectra-on-boolean-hamming--a2f5ddac5a0f"
+      ]
+    },
+    "rationale": "Primary and related full-text scientific comparisons identify probabilistic OSE sufficient bounds, unlike the complete exact pathwise coordinate-support decomposition and binomial sampling law. The close cyclic Fourier erasure theorem was read in full and concerns a different group and deterministic extremization. Related Walsh spectra concern other restriction subsets. No dominating statement has been identified, subject to the disclosed folklore/equivalence risk.",
+    "residual_risks": [
+      "Finite abelian Fourier character orthogonality is classical; an unindexed equivalent general Fourier-aliased block-sampling formulation could cover this exact specialization.",
+      "Full-text review is targeted to theorem-relevant material for the 29-page expanded preprint; sections unrelated to embeddings have not been exhaustively scanned.",
+      "Other published harmonic-frame results on different groups could admit an unrecognized reduction, though the inspected closest cyclic theorem does not."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers sketch construction and sufficient embedding concentration, but not the complete coordinate-support isometry classification or binomial finite-sample spectral law.",
+        "evidence": [
+          "Algorithm 1, pp. 1–2, q independent block draws with replacement; Section IV pp. 2–3 defines H D; Theorem 7 p. 3; embedding proof pp. 7–10."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2201.08522",
+        "material_read": "Original 13-page manuscript: Algorithm 1, Section IV, Theorem 7, Appendix B (embedding proof and matrix concentration), and Appendix C (distinction from the garbled variant).",
+        "method": "Examined algorithm, hypotheses, block leverage proof and appendices, comparing exact operators and implications.",
+        "title": "Orthonormal Sketches for Secure Coded Regression",
+        "trigger": "Identical global block-subsampled Hadamard sketch, original algorithm and embeddings"
+      },
+      {
+        "assessment": "The concentration-oriented guarantee applies to the same block model but neither states nor implies the complete sample-path structural decomposition; row-scrambled variant is a distinct construction.",
+        "evidence": [
+          "Section IV pp. 7–8; Theorem 3, p. 7; Appendix proof of Theorem 3 p. 24."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.04185",
+        "material_read": "Relevant material of 29-page manuscript: Section IV, Theorem 3, Appendix D proof through Proposition 4 and Theorem 3, plus searched rank/spectral terminology.",
+        "method": "Compared Section IV operator definition, sufficient OSE theorem and appendix proof to exact character sum and binomial law.",
+        "title": "Iterative Sketching for Secure Coded Regression",
+        "trigger": "Expanded subsequent treatment by the same authors, potential stronger coverage"
+      },
+      {
+        "assessment": "Different sketching operator composed from local independently signed Hadamard pieces, so its OSE theorem does not subsume this identity.",
+        "evidence": [
+          "Section 2 pp. 2–3, equation (4), Theorem 2.1; contrast to global block SRHT in pp. 1–2."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v202/balabanov23a/balabanov23a.pdf",
+        "material_read": "13-page manuscript, Section 2 construction and Theorem 2.1, with relevant introductory comparison to Charalambides et al.",
+        "method": "Compared actual matrices, local block SRHT construction equation (4) versus global H followed by block sampling.",
+        "title": "Block Subsampled Randomized Hadamard Transform for Nyström Approximation on Distributed Architectures",
+        "trigger": "Highly plausible same-name OSE with stronger theorem"
+      },
+      {
+        "assessment": "Uses cyclic Fourier characters and worst deterministic erased subsets, not sampled Boolean dyadic row blocks; does not cover the claimed exact residue classification or binomial law.",
+        "evidence": [
+          "Its Finding and Assumptions use Z_N Fourier characters and erasure E subset Z_N of fixed size. Its Limitations explicitly restrict to cyclic Fourier rows."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0/RESULT.md",
+        "material_read": "Full public RESULT.md, including assumptions, full proof, limitations, and references.",
+        "method": "Compared cyclic group, fixed-size erasure quantifier and extremal spectral claim against Boolean Walsh contiguous-block stochastic Gram law.",
+        "title": "Exact adversarial-erasure spectra for two-character cyclic harmonic frames",
+        "trigger": "Nearby exact two-character spectral-erasure finding"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "874a465a-9d7d-4e41-bb0d-3d56e2abe328",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The proof gives a complete natural classification and exact counts of all coordinate subspaces that are isometric under every sampled-block sequence, and exact binomial rank-failure on every remaining two-plane class. Identical block Frobenius leverage scores in both classes show that scalar score flatness does not resolve pathwise spectral stability. The number of independent blocks, not merely total rows, controls the rank-loss law. This is a motivated structural boundary for block-coded least-squares embeddings, beyond a toy numerical counterexample.",
+    "status": "PASS"
+  }
+}
