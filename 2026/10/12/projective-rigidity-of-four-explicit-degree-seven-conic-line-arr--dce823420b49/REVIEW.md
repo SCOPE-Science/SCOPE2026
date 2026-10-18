@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The four points \(C_1\cap C_2\) form a projective frame. All \(24\) induced projectivities were enumerated exactly; four fix both conics, none swaps them, and only the identity among those four preserves \(C_3\). The combinatorial tangency graph then forces every equivalence of the full arrangements into this trivial triple stabilizer.
+## correctness
 
-## Originality
-**PASS.** The exact source and its direct follow-up were inspected, and searches covered automorphism, stabilizer, projective-equivalence, \(\operatorname{PGL}_3\)-orbit, equation, and arrangement aliases. The published results determine connected components, splitting types, and complement groups, but no statement found computes these projective stabilizers or separates the four displayed representatives into four projective orbits. The closest semantic hits concern different arrangements. Residual risk remains that an older conic-pencil calculation not indexed by these terms may be equivalent.
+PASS
 
-## Value
-**PASS.** The finding refines a realization-space theorem at the natural quotient-by-projectivities level: two displayed points lying in the same connected component need not be projectively equivalent. The exact stabilizer calculation also shows that each canonical representative has no hidden projective symmetry.
+The four transverse intersection points on C1 are parameterized by u=-1,2,3,6 and form a projective frame; any projectivity preserving {C1,C2} must induce one of 24 permutations. Independently reconstructed each unique 3x3 projective map using SymPy exact rationals, checked both quadratic-form pullbacks, and got 4 preserving the ordered pair, 0 exchanging the pair, 1 preserving C3 in addition. As the source combinatorics distinguishes C3 as the unique conic tangent to both others and there is a single line component, any arrangement equivalence lies in the trivial ordered-triple stabilizer; four distinct displayed lines give four PGL3-orbits and trivial automorphism groups. A finite exhaustive 24-permutation search is a complete proof here because of projective-frame uniqueness, not extrapolation.
 
-## Closest literature and limitations
-The closest sources are arXiv:2307.01736v1 itself and the follow-up arXiv:2409.05011v1. The claim is only about the four explicit representatives; it does not describe the full geometric quotient of either connected component.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Amram et al. (2023) and 2024 follow-up establish just two deformation components of these explicit conic-line arrangements, not exact projective orbit/stabilizer equality of the four representatives. The independently reconstructed 24-frame calculation is a distinct finite moduli assertion, with residual possibility of unindexed earlier stabilizer work.
+
+## value
+
+PASS
+
+Determines the actual orbit relation and automorphism groups for concrete representatives of an established two-component Zariski-pair construction, showing inequivalence even within each deformation component; a motivated, nonformal moduli refinement with an exact small stabilizer invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
