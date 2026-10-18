@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the centralizer equation for \(f=x^s u\) by the bijection \(g=uh\), after which the unit derivative cancels exactly. Coefficient comparison in \(\mathbb F_q[x]/(x^p)\) yields the centralizer dimension without case ambiguity, and the valuation-stratum counts sum to \(q^p\). Summing the corresponding centralizer sizes reproduces the closed commuting-pair formula. The attached checker independently builds the bracket matrices and confirms all \(3125\) elements for \(p=q=5\), plus non-monomial representatives in characteristics \(7\) and \(11\).
+## correctness
 
-## Originality
-PASS, with a stated access risk. Premet's archive work supplies the regular-centralizer framework but not the finite-field weighted spectrum. Chang's adjoint-quotient paper treats regularity and invariant fibers. Skryabin treats nilpotent counts over finite fields. The closest source is Yao--Chang's later paper on the same \(W_1\) commuting variety over an algebraically closed field; the accessible publisher material states irreducible-component and dimension results, not exact \(\mathbb F_q\)-point counts. A later general commutativity-degree paper gives the averaging identity but has no searchable Witt/Jacobson specialization. The 2018 full text was not accessible through the open route, so overlap of intermediate centralizer lemmas remains a residual risk, but no checked source implies the finite-field multiplicities or closed point count.
+PASS
 
-## Value
-PASS. The result is a complete centralizer-size census for a canonical family of simple modular Lie algebras and yields a closed probabilistic invariant. It sharpens the regular/singular dichotomy into all centralizer strata and explains a midpoint transition in those strata. This is a natural structural enumeration rather than a routine isolated computation.
+For f=x^s u nonzero (u a unit in A=Fq[x]/x^p), g=uh, the bracket is u^2 x^(s-1)(xh' -s h) for s>=1. The coefficient condition (i-s)a_i=0 for 0<=i<=p-s leaves s-1 free high coefficients, plus the i=s coefficient iff 2s<=p; for s=0 the derivative kernel consists only of constants. Thus dimension is 1 at s=0, s for 1<=s<=m, s-1 for m<s<=p-1, m=(p-1)/2; zero f has centralizer dimension p. Valuation s has exactly (q-1)q^(p-s-1) rational elements. Combining strata gives exact histogram, sum=q^p and sum_f q^dimC=q^(p-2)(q^3+m(q^2-1)), so cd=(q^3+m(q^2-1))/q^(p+2). An independently written modular row-reduction of ad(f) exhaustively verified all F5^5=3125 elements, histogram {1:3000,2:120,3:4,5:1} and 21625 commuting ordered pairs. Infinite-field-extension validity is symbolic from the coefficient equation, not from finite tests. Scope p>3 prime, q=p^e, same standard truncated-polynomial derivation algebra.
 
-## Closest literature and limitations
-The closest geometric comparison is Y.-F. Yao and H. Chang, “Commuting variety of Witt algebra,” DOI 10.1007/s11464-018-0725-9. The theorem here is restricted to one variable and characteristic \(p>3\); it does not address \(W_n\) for \(n>1\) or higher commuting tuples. Finite computational checks do not substitute for the symbolic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Premet and Chang establish regularity/invariant geometry of Witt algebras, and Yao–Chang 2018 treats the *same* one-variable W1 commuting variety and its irreducible components. Their published abstract and accessible page do not state the all-element finite-field centralizer multiplicity or rational commuting-pair formula; however full article could not be read and it may contain dimension-by-valuation lemmas. The full finite-field spectrum/commutativity-degree is assessed best-of-knowledge original relative to the accessible texts, explicitly excluding geometric irreducible-component results and any prior known centralizer method. A decisive prior implication by a hidden centralizer table would undermine originality; that material risk is retained.
+
+## value
+
+PASS
+
+The exact rational-point distribution of Lie-centralizer sizes and closed commuting probability for W1 over every finite extension field is a natural nontrivial all-element invariant; it refines regular-element criteria and geometric commuting-variety component dimensions, and gives exact frequencies rather than a few example centralizers. It has mathematical use as a benchmark for finite modular Lie-algebra commuting statistics. Significance does not rely merely on successful code checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
