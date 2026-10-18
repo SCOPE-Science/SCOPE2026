@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,48 +18,25 @@
   "schema_version": 1
 }
 ---
-For a sorted citation vector
-\[
-c_1\ge\cdots\ge c_n\ge0,
-\]
-the verifier computes
-\[
-h=\max\{r:c_r\ge r\}
-\]
-and
-\[
-g=\max\left\{r\le n:\sum_{i=1}^{r}c_i\ge r^2\right\}
-\]
-using exact integer arithmetic.
 
-The embedded `verify_h_g_equal_total_boundary.py` confirms the universal inequality
-\[
-h\le g
-\]
-on a broad finite replay, exhaustively enumerates the unrestricted first boundary, and obtains exactly three four-paper nine-citation profiles with
-\[
-(h,g)=(1,3)
-\]
-and exactly five with
-\[
-(h,g)=(2,2).
-\]
-Thus it recovers exactly fifteen cross-pair reversals.
+# Independent mathematical audit
 
-It also verifies the positive-citation boundary at
-\[
-n=4,
-\qquad
-C=10,
-\]
-with exactly two unordered reversal pairs, and checks zero-padding invariance through one hundred papers.
+## correctness
 
-Run:
+PASS
 
-`python3 verify_h_g_equal_total_boundary.py`
+For any sorted nonnegative integer vector h<=g. Total C<=8 forces g<=2, so no pair of (h,g) has strict opposite coordinate order. With C=9, n<=2 forces g<=2 while n=3 forces g=3 for every profile; hence n=4 is minimal. Exact integer partition enumeration at n=4,C=9 independently recovered 3 profiles with (h,g)=(1,3) and 5 with (2,2), giving 15 unordered reversing pairs. Positive four-paper C=9 has zero, C=10 has exactly (7,1,1,1) versus (4,2,2,2) and (3,3,2,2). Exhaustively checked no reversal for every n<=10,C<=8. Standard g definition caps at actual n; finite enumeration covers only the claimed first finite layers while universal lower bound is symbolic.
 
-The first output line must be:
+## originality
 
-`VERIFY_OK`
+PASS
 
-The impossibility below nine citations and the necessity of four papers at the nine-citation layer are proved symbolically in `RESULT.md`; finite replay is not used to infer an infinite claim.
+Best-of-knowledge: Hirsch, Egghe and later Schreiber already establish definitions and generic ranking disagreement. The highly relevant 2026 Nuermaimaiti–Bogachev–Voss full article, including its illustrative citation-vector Table 1, was read; it contains profile (3,2,2,2) but does not state or imply the controlled equal-paper/equal-total sharp nine-citation boundary, 15-pair first layer or positive ten-citation boundary. A pre-existing isolated vector is not the claimed global classification.
+
+## value
+
+PASS
+
+The smallest possible reversal under jointly fixed publication count and citation sum is a natural precise robustness boundary for two established bibliometric measures. The 15-pair unrestricted layer and the separate strictly-positive publication variant quantify how concentration alone can change ordinal rankings, allowing reproducible minimum-complexity test cases. This is a complete motivated finite classification, not a random example and not a preference claim about which index better measures research quality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
