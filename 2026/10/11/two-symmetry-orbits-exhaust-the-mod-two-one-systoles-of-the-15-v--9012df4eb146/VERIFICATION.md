@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone `verify.py` embeds the complete 75-facet complex and the three published generators for the action labeled `15^15 = [3]A5 = GL(2,4)`.
+# Independent mathematical audit
 
-It performs these exact checks:
+## correctness
 
-1. Reconstruct all faces and verify the face vector \(f=(15,90,150,75)\).
-2. Compute binary Gaussian-elimination ranks \(14\) for the edge boundary map and \(74\) for the triangle boundary span, giving \(\dim H_1=2\).
-3. Exhaust all \(455\) triples: \(150\) are triangles, \(120\) are missing triangles whose three edges are present, and \(185\) lack at least one edge.
-4. Reduce all \(120\) missing-triangle boundaries modulo the triangular-boundary span; none is zero, and the three nonzero quotient classes occur \(40\) times each.
-5. Generate the permutation group from the three published generators, obtain \(180\) elements, and verify that every element preserves the 75-facet set.
-6. Compute the action on missing triangles, obtaining orbit sizes \(90\) and \(30\) with representatives \({1,2,10}\) and \({1,2,12}\), and verify class counts \(30,30,30\) and \(10,10,10\) within the two orbits.
+PASS
 
-The exact recorded output is stored in `verification_output.txt`. The computation establishes only the finite theorem for this complex. The assertion that this generated 180-element action is the full simplicial automorphism group uses the published classification entry identifying action `15^15` with the full group \(\mathrm{GL}(2,4)\); the verifier independently confirms the generators preserve the complex and generate 180 elements.
+PASS. Rebuilt actual 75 published tetrahedra and all faces of the labeled 15-vertex S³/Q triangulation. Independent GF(2) elimination gave ranks ∂1=14, ∂2=74 in spaces C1=90, hence H1 dimension 2. Among all 455 triples, exactly 120 are missing triangles and all have nonzero mod-2 boundary classes distributed 40,40,40. No shorter simple graph cycle exists, so these exhaust 1-systolic carriers at edge length 3. Published permutation generators generate 180 distinct facet-preserving automorphisms, with missing-triangle orbits 90 and 30 and balances (30,30,30) and (10,10,10). This is an exhaustive finite proof for the specified triangulation, independently recomputed rather than inferred from logs.
+
+## originality
+
+PASS
+
+Primary combinatorial-manifold publications identify the triangulation, integral H1 and automorphism group, but the full missing-triangle homology-class census and two-orbit balancing are additional invariants not given by those source statements. Resultary search found nearby systolic censuses for other manifolds but no dominating same-complex theorem.
+
+## value
+
+PASS
+
+PASS. Systolic length, number and homology-type distribution of minimal cycles are natural finite invariants of an extremal vertex-transitive triangulation of a quaternionic spherical space. The precise 120-carrier and balanced 90/30 orbit classification can be useful for its homological/symmetry geometry and is not inferable from the known 15-vertex f-vector or H1 alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
