@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,84 +19,24 @@
 }
 ---
 
-The proof uses the actual inequalities appearing in the two primary preprints.
+# Independent mathematical audit
 
-From the September modulus theorem, with
-\[
-\tau_\delta=\delta^3,
-\]
-the collar defect obeys
-\[
-\mathcal D_\delta(z;w)
-\ge
--C_0\delta^2
-\bigl(
-\rho(A\delta)^2+2\delta
-\bigr)^2
-|w|^2.
-\]
+## correctness
 
-From the July perturbation lemma, replacing
-\[
-h_\delta
-\]
-by
-\[
-\widetilde h_\delta
-=
-h_\delta-c\delta^2(1+|z|^2)
-\]
-adds at least
-\[
-\frac{c\delta^2}{1+R^2}|w|^2
-\]
-to the same defect.
+PASS
 
-Because
-\[
-\rho(r)
-=
-\sup_{0<t\le r}
-\frac{\omega_\nu(t)}{\sqrt t},
-\]
-one has
-\[
-\rho(r)\longrightarrow
-\Lambda_\nu
-=
-\limsup_{t\downarrow0}
-\frac{\omega_\nu(t)}{\sqrt t}.
-\]
+Gupta Proposition 2.4 was independently inspected directly, including its derivation from the squared-distance supporting inequality and normal-modulus bound. It gives the quantitative collar loss \(C_0\delta^2(\rho(A\delta)^2+2\tau_\delta/\delta^2)^2\) for \(\rho(r)=\sup_{0<t\le r}\omega_\nu(t)/\sqrt t\); its intermediate bounds remain valid for bounded nonzero \(\rho\), since no limiting zero is used until the strict-positive conclusion. With \(\tau_\delta=\delta^3\), the loss is \(C_0\delta^2(\rho(A\delta)^2+2\delta)^2\). The positive quadratic perturbation in Gupta Proposition 2.5 via Edigarian Lemma 2.4 adds \(c\delta^2/(1+R^2)\). By definition of limsup, \(\rho(A\delta)\to\Lambda_\nu\) as \(\delta\downarrow0\), so the stated strict fourth-power threshold leaves a uniformly positive \(\delta^2\)-order margin. Gupta proves the collar inclusion and regularized level-set completion from this margin and \(\tau_\delta/\delta\to0\); its final step cites Edigarian for nesting/exhaustion and does not use vanishing of \(\rho\) elsewhere. Consequently small positive critical modulus can be admitted; the threshold is sufficient, not sharp.
 
-Hence
-\[
-\Lambda_\nu
-<
-\left(
-\frac{c}{C_0(1+R^2)}
-\right)^{1/4}
-\]
-implies
-\[
-\frac{c}{1+R^2}
--
-C_0
-\bigl(
-\rho(A\delta)^2+2\delta
-\bigr)^2
->
-0
-\]
-for every sufficiently small \(\delta\).
+## originality
 
-The inspected completion of the proof uses
-\[
-\tau_\delta/\delta=\delta^2\to0
-\]
-to establish the collar inclusions and nesting. It does not require
-\[
-\rho(r)\to0
-\]
-after strict positivity of the defect has been obtained.
+PASS
 
-No numerical approximation, finite experiment, or external certificate is used.
+The primary Gupta theorem assumes a little-Hölder condition \(\omega(t)/\sqrt t\to0\), while Edigarian assumes exponent strictly above one half. The final theorem admits nonzero critical normal-modulus limsup under a quantitative bound; neither published theorem statement dominates it. It follows from a new limiting-coefficient comparison of two already published inequalities, and this close relationship and likely elementary priority risk are retained explicitly rather than concealed.
+
+## value
+
+PASS
+
+The critical exponent one half is the precise scale at which Gupta's smoothing loss and Edigarian's convexifying perturbation balance. A small positive endpoint window answers a natural quantitative regularity question beyond the two cited theorem hypotheses and supports strongly linearly convex exhaustion and Lempert identities for a genuinely larger domain class; no sharpness claim is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

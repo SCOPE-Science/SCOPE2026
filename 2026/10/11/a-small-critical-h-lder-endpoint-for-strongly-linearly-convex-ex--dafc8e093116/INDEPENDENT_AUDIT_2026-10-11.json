@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T19:43:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Gupta, Strongly linearly convex exhaustion of a class of C-convex domains, arXiv:2609.35474v1, Proposition 2.4 and Proposition 2.5",
+        "Edigarian, arXiv:2607.26696v1, Lemma 2.4 (cited in Gupta)",
+        "assigned RESULT.md blob 34dd77a3c242257b373bfd4b3d39e2280f2196d6"
+      ],
+      "rationale": "Gupta Proposition 2.4 was independently inspected directly, including its derivation from the squared-distance supporting inequality and normal-modulus bound. It gives the quantitative collar loss \\(C_0\\delta^2(\\rho(A\\delta)^2+2\\tau_\\delta/\\delta^2)^2\\) for \\(\\rho(r)=\\sup_{0<t\\le r}\\omega_\\nu(t)/\\sqrt t\\); its intermediate bounds remain valid for bounded nonzero \\(\\rho\\), since no limiting zero is used until the strict-positive conclusion. With \\(\\tau_\\delta=\\delta^3\\), the loss is \\(C_0\\delta^2(\\rho(A\\delta)^2+2\\delta)^2\\). The positive quadratic perturbation in Gupta Proposition 2.5 via Edigarian Lemma 2.4 adds \\(c\\delta^2/(1+R^2)\\). By definition of limsup, \\(\\rho(A\\delta)\\to\\Lambda_\\nu\\) as \\(\\delta\\downarrow0\\), so the stated strict fourth-power threshold leaves a uniformly positive \\(\\delta^2\\)-order margin. Gupta proves the collar inclusion and regularized level-set completion from this margin and \\(\\tau_\\delta/\\delta\\to0\\); its final step cites Edigarian for nesting/exhaustion and does not use vanishing of \\(\\rho\\) elsewhere. Consequently small positive critical modulus can be admitted; the threshold is sufficient, not sharp.",
+      "residual_risks": [
+        "The full Edigarian proof could not be retrieved in this run; the exact quadratic-perturbation lemma was cross-checked where Gupta applies and quotes it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source theorems demand either \\(\\rho(r)\\to0\\) or \\(\\alpha>1/2\\).",
+          "Special interior-ball and symmetrized-bidisc constructions have different hypotheses."
+        ],
+        "reasoning": "Neither published theorem formally covers every domain with small positive critical limsup; source proof adapts quantitatively.",
+        "searches": [
+          "Gupta, arXiv:2609.35474v1",
+          "Edigarian, arXiv:2607.26696v1",
+          "Jacquet, C-convex domains with C2 boundary",
+          "Pflug--Zwonek, symmetrized bidisc exhaustion"
+        ]
+      },
+      "checked_sources": [
+        "Gupta, Strongly linearly convex exhaustion of a class of C-convex domains, arXiv:2609.35474v1, Proposition 2.4 and Proposition 2.5",
+        "arXiv:2607.26696v1",
+        "Jacquet 2006",
+        "Pflug--Zwonek 2012",
+        "GitHub same-repository targeted search",
+        "Resultary temporarily unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gupta proof displays the negative term \\(C_0(\\rho^2+2\\delta)^2\\) against the positive constant \\(c/(1+R^2)\\) and uses \\(\\rho\\to0\\) solely to force domination.",
+          "The proposed strict threshold forces the same domination without vanishing quotient, a new sufficient regime."
+        ],
+        "reasoning": "This is a proof-level consequence requiring a coefficient comparison, not an immediate special case of a theorem whose hypotheses exclude the new regime. Its proximity to a simple corollary is a disclosed originality risk.",
+        "searches": [
+          "Gupta Proposition 2.5 displayed defect and positive correction",
+          "Edigarian perturbation cited in Gupta Proposition 2.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gupta Theorem 1.1 requires normal modulus quotient tending to zero, while the audited hypothesis explicitly permits a small nonzero limit.",
+          "The checked source proof exposes the competing same-order \\(\\delta^2\\) coefficients."
+        ],
+        "reasoning": "The new small-big-Hölder window is not equivalent to the source little-Hölder class; it extends the admissible boundary conditions.",
+        "searches": [
+          "Gupta arXiv:2609.35474v1 Theorem 1.1 and Propositions 2.4--2.5",
+          "Edigarian arXiv:2607.26696v1 theorem",
+          "web: C convex small C1/2 Hölder normal strongly linearly convex exhaustion",
+          "GitHub SCOPE math search critical Holder endpoint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The accessible exact-source searches located Gupta and Edigarian but no separately stated small-positive critical endpoint theorem.",
+          "No quantitative table is involved; no successful Resultary match/nonmatch can be claimed."
+        ],
+        "reasoning": "The exact hypothesis and theorem search is appropriate; a zero result from an incomplete index is not proof of priority.",
+        "searches": [
+          "web: square-root normal modulus positive small critical exhaustion",
+          "GitHub SCOPE same-family math search",
+          "Resultary attempted critical Holder one-half endpoint; temporarily_unavailable"
+        ]
+      },
+      "rationale": "The primary Gupta theorem assumes a little-Hölder condition \\(\\omega(t)/\\sqrt t\\to0\\), while Edigarian assumes exponent strictly above one half. The final theorem admits nonzero critical normal-modulus limsup under a quantitative bound; neither published theorem statement dominates it. It follows from a new limiting-coefficient comparison of two already published inequalities, and this close relationship and likely elementary priority risk are retained explicitly rather than concealed.",
+      "residual_risks": [
+        "The endpoint is an elementary refinement of an explicit predecessor coefficient comparison; another source might already record it as an implicit corollary.",
+        "Full Edigarian paper was inaccessible; its key lemma was checked only through precise application in Gupta, and authorized institutional access required VPN reconnection.",
+        "The natural optimal or intrinsic threshold is unknown.",
+        "Published Resultary lookup did not complete."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_PREDECESSOR_WITH_STRONGER_HYPOTHESIS",
+          "evidence": "Its printed theorem demands \\(\\rho\\to0\\), while Proposition 2.5 compares \\(\\delta^2\\) error and positive perturbation, enabling a small nonzero limit.",
+          "identifier_or_url": "arXiv:2609.35474v1",
+          "material_read": "Complete lawful primary arXiv HTML: Theorem 1.1, Lemma 2.3 with proof, Proposition 2.4 and its quantitative proof, Proposition 2.5 positive correction, final exhaustion citation",
+          "method": "Direct full HTML mathematical reading, checking where little-Hölder zero is used",
+          "title": "Strongly linearly convex exhaustion of a class of C-convex domains",
+          "trigger": "Exact predecessor providing sharp-scale defect and smoothing-to-exhaustion argument"
+        },
+        {
+          "assessment": "FULL_TEXT_UNAVAILABLE_RESIDUAL_RISK",
+          "evidence": "The arXiv abstract states \\(\\alpha>1/2\\); Gupta Proposition 2.5 expressly uses its Lemma 2.4 to obtain \\(c\\delta^2/(1+R^2)\\).",
+          "identifier_or_url": "arXiv:2607.26696v1",
+          "material_read": "Primary bibliographic abstract and Gupta's exact quotation/application of Edigarian Lemma 2.4; full primary text not accessible through open HTML/OA at this run",
+          "method": "Public arXiv record; indirect inspection through Gupta primary full proof; authorized institutional access reported VPN disconnected",
+          "title": "Strongly linearly convex exhaustion of C-convex domains with C1,alpha boundary",
+          "trigger": "Immediate predecessor supplying perturbation lemma and nesting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gupta, Strongly linearly convex exhaustion of a class of C-convex domains, arXiv:2609.35474v1, Proposition 2.4 and Proposition 2.5",
+        "Edigarian arXiv:2607.26696v1"
+      ],
+      "rationale": "The critical exponent one half is the precise scale at which Gupta's smoothing loss and Edigarian's convexifying perturbation balance. A small positive endpoint window answers a natural quantitative regularity question beyond the two cited theorem hypotheses and supports strongly linearly convex exhaustion and Lempert identities for a genuinely larger domain class; no sharpness claim is needed.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a bounded \\(\\mathbb C\\)-convex \\(C^1\\) domain \\(D\\subset\\mathbb C^n\\), \\(n\\ge2\\), with outward normal modulus \\(\\omega_\\nu(t)\\) and \\(\\Lambda_\\nu=\\limsup_{t\\downarrow0}\\omega_\\nu(t)/\\sqrt t\\), fix a containing radius \\(R\\), \\(0<c<1/[20(1+R^2)]\\), and the constant \\(C_0\\) in the Gupta smoothing defect inequality. If \\(\\Lambda_\\nu<(c/[C_0(1+R^2)])^{1/4}\\), then \\(D\\) admits an increasing exhaustion by smooth bounded strongly linearly convex domains, with the resulting Lempert and infinitesimal-metric equalities. In particular sufficiently small \\(C^{0,1/2}\\) seminorm of the normal suffices even without little-Hölder decay.",
+  "limitations": [
+    "Explicit threshold depends on regularization constant and containing radius and is not optimal or intrinsic.",
+    "Does not address arbitrary large critical Hölder normal seminorms; institutional access to full Edigarian text was blocked."
+  ],
+  "schema_version": 1
+}

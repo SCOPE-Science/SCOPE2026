@@ -1,75 +1,21 @@
-# Review of A small critical-Hölder endpoint for strongly linearly convex exhaustion
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The full source estimate gives a negative strong-linear-convexity defect of size
-\[
-C_0\delta^2
-\bigl(
-\rho(A\delta)^2+2\delta
-\bigr)^2.
-\]
-The checked perturbation lemma adds the positive amount
-\[
-\frac{c\delta^2}{1+R^2}.
-\]
-Because the tail supremum
-\[
-\rho(r)
-\]
-converges to
-\[
-\Lambda_\nu
-=
-\limsup_{t\downarrow0}
-\frac{\omega_\nu(t)}{\sqrt t},
-\]
-the stated strict smallness inequality makes the total defect positive for all sufficiently small \(\delta\).
+PASS
 
-The completion of the source proof was checked separately. Its collar approximation and nesting use
-\[
-\tau_\delta=\delta^3
-\]
-and
-\[
-\tau_\delta/\delta\to0,
-\]
-not the vanishing of \(\rho\). Thus the exhaustion argument survives unchanged once positivity has been recovered.
+Gupta Proposition 2.4 was independently inspected directly, including its derivation from the squared-distance supporting inequality and normal-modulus bound. It gives the quantitative collar loss \(C_0\delta^2(\rho(A\delta)^2+2\tau_\delta/\delta^2)^2\) for \(\rho(r)=\sup_{0<t\le r}\omega_\nu(t)/\sqrt t\); its intermediate bounds remain valid for bounded nonzero \(\rho\), since no limiting zero is used until the strict-positive conclusion. With \(\tau_\delta=\delta^3\), the loss is \(C_0\delta^2(\rho(A\delta)^2+2\delta)^2\). The positive quadratic perturbation in Gupta Proposition 2.5 via Edigarian Lemma 2.4 adds \(c\delta^2/(1+R^2)\). By definition of limsup, \(\rho(A\delta)\to\Lambda_\nu\) as \(\delta\downarrow0\), so the stated strict fourth-power threshold leaves a uniformly positive \(\delta^2\)-order margin. Gupta proves the collar inclusion and regularized level-set completion from this margin and \(\tau_\delta/\delta\to0\); its final step cites Edigarian for nesting/exhaustion and does not use vanishing of \(\rho\) elsewhere. Consequently small positive critical modulus can be admitted; the threshold is sufficient, not sharp.
 
-## Originality
+## originality
 
-PASS. The July 2026 primary theorem assumes
-\[
-C^{1,\alpha},
-\qquad
-\alpha>\frac12.
-\]
-The September 2026 theorem reaches the critical scale only under
-\[
-\omega_\nu(t)=o(\sqrt t).
-\]
-Neither source states the small nonzero critical-limit regime.
+PASS
 
-Published-result searches using exact-source, critical-Hölder, small-seminorm, square-root-modulus, and Aizenberg-exhaustion formulations returned no covering result. The current and immediately prior own ledgers were searched for the source identifier and the same aliases and had no overlap.
+The primary Gupta theorem assumes a little-Hölder condition \(\omega(t)/\sqrt t\to0\), while Edigarian assumes exponent strictly above one half. The final theorem admits nonzero critical normal-modulus limsup under a quantitative bound; neither published theorem statement dominates it. It follows from a new limiting-coefficient comparison of two already published inequalities, and this close relationship and likely elementary priority risk are retained explicitly rather than concealed.
 
-The new implication is not a change of notation: it permits a strictly larger boundary class in which
-\[
-\omega_\nu(t)/\sqrt t
-\]
-may stay bounded away from zero.
+## value
 
-## Value
+PASS
 
-PASS. The exponent
-\[
-1/2
-\]
-is exactly the boundary scale at which the smoothing error and the positive quadratic correction both become order
-\[
-\delta^2.
-\]
-The source theorem resolves the little-Hölder side of this transition but leaves the finite critical coefficient unused.
+The critical exponent one half is the precise scale at which Gupta's smoothing loss and Edigarian's convexifying perturbation balance. A small positive endpoint window answers a natural quantitative regularity question beyond the two cited theorem hypotheses and supports strongly linearly convex exhaustion and Lempert identities for a genuinely larger domain class; no sharpness claim is needed.
 
-Identifying a positive smallness window at the critical exponent gives a natural endpoint extension of the Aizenberg approximation theorem and yields the same Lempert equalities on a class excluded by the published hypotheses. The result isolates the genuine proof competition between the smoothing defect and the convexifying perturbation, providing a concrete target for future sharp-threshold work.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
