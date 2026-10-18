@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The finite-field checker `verify_stabilizer.py` uses explicit quadratic extension fields and exhaustive normalized-matrix coefficient equations for the parameters \(s=2\) and \(s=3\). It enumerates \(24\) and \(108\) matrices, matches the independent norm/trace parametrization exactly, and checks the unipotent group law. For \(s=2\), the element-order distribution verifies the quaternion group. The command is `python verify_stabilizer.py`; expected final output is `HERMITIAN_STABILIZER_EXACT_OK`.
+# Independent mathematical audit
 
-The proof for all prime powers rests instead on: (1) smoothness and a unique rational point, (2) the consequent fixed tangent and triangular matrix normal form, (3) comparison of all six homogeneous coefficients, and (4) finite-field norm and trace counts. The checker does not inspect geometric projectivities over extension fields, nor does it certify novelty. The available conference article was examined against the exact stabilizer statement; an inaccessible specialized projective-equivalence chapter remains a bibliographic risk.
+## correctness
+
+PASS
+
+Smoothness follows from F_X=X^s, F_Y=eta Y^s+Z^s, F_Z=Y^s. Every k-point satisfies eta*Y^(s+1) in F_s, forcing Y=X=0, so projective stabilizers preserve P and tangent Y=0. The normalized triangular matrix [[a,b,0],[0,1,0],[u,v,w]] must satisfy a^(s+1)=lambda=w=w^s, u=-a*b^s and b^(s+1)+eta+Tr(v)=lambda*eta. Because eta is outside F_s, lambda=1. The norm-one and trace equations count (s+1)*s^2*s=s^3(s+1). Matrix multiplication verifies the Heisenberg multiplication, center of size s, semidirect norm-one action, and Q8 at s=2. Geometric integrality justifies proportional forms of equal degree. This is a universal coefficient proof; finite fields are corroboration only.
+
+## originality
+
+PASS
+
+The actual new object is the finite-field projective stabilizer and its group structure, not the already known one-point curve normal form. The 2026 WCC article Theorem 1.1 gives the latter, while the older preprint treats basic geometric equivalence. Their inspected arguments do not state s^3(s+1), the projective matrix group law, or the Q8 case. A specialist 2026 equivalence chapter is inaccessible in full, so priority is best-of-knowledge with explicit nontrivial risk.
+
+## value
+
+PASS
+
+A just-classified one-rational-point family has a natural arithmetic projective symmetry invariant. The exact order, Heisenberg semidirect multiplication, central subgroup and exceptional Q8 group determine symmetry unavailable from point-count and equivalence statements; these are independently reusable in finite-field curve and code studies, not a naming trick.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

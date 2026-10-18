@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T17:05:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md; Git blob f4479ca8f720e3418ecb34d38275b9fd9d214839",
+        "pinned verify_stabilizer.py; Git blob e10dca791ac425a885e5a141956850d7f16c0b6d",
+        "independent norm/trace and polynomial coefficient reconstruction"
+      ],
+      "rationale": "Smoothness follows from F_X=X^s, F_Y=eta Y^s+Z^s, F_Z=Y^s. Every k-point satisfies eta*Y^(s+1) in F_s, forcing Y=X=0, so projective stabilizers preserve P and tangent Y=0. The normalized triangular matrix [[a,b,0],[0,1,0],[u,v,w]] must satisfy a^(s+1)=lambda=w=w^s, u=-a*b^s and b^(s+1)+eta+Tr(v)=lambda*eta. Because eta is outside F_s, lambda=1. The norm-one and trace equations count (s+1)*s^2*s=s^3(s+1). Matrix multiplication verifies the Heisenberg multiplication, center of size s, semidirect norm-one action, and Q8 at s=2. Geometric integrality justifies proportional forms of equal degree. This is a universal coefficient proof; finite fields are corroboration only.",
+      "residual_risks": [
+        "Only rational projective group over F_(s^2), not algebraic-closure automorphisms or the abstract curve automorphism group."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://doi.org/10.1007/978-3-032-27574-5_7",
+          "https://arxiv.org/pdf/2402.14192"
+        ],
+        "reasoning": "Projective equivalence classification may calculate automorphism groups as an intermediate step, which cannot be excluded from an abstract alone. The available 2024 paper classifies different rational inflexion types and does not dominate the newly isolated one-point stabilizer.",
+        "searches": [
+          "Homma Kim Classification Hermitian Relative Curves up to Projective Equivalence 2026 stabilizer group",
+          "Homma Kim Relatives Hermitian curve automorphism group stabilizer 2024 arxiv 2402.14192"
+        ]
+      },
+      "checked_sources": [
+        "https://wcc2026.inria.fr/assets/final_versions/WCC2026_paper_17.pdf",
+        "https://arxiv.org/pdf/2402.14192",
+        "https://doi.org/10.1007/978-3-032-27574-5_7",
+        "Resultary semantic search results for finite-field stabilizer"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "WCC Theorem 1.1 is a curve-normal-form iff one rational point; the audited proof requires an additional coefficient stabilizer computation"
+        ],
+        "reasoning": "Knowing which curves are equivalent does not itself determine the rational stabilizer of a representative. Could be contained in the unseen WAIFI full text; that is a residual risk, not a demonstrated implication.",
+        "searches": [
+          "https://wcc2026.inria.fr/assets/final_versions/WCC2026_paper_17.pdf",
+          "https://doi.org/10.1007/978-3-032-27574-5_7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://wcc2026.inria.fr/assets/final_versions/WCC2026_paper_17.pdf",
+          "https://arxiv.org/pdf/2402.14192",
+          "Resultary closest projective stabilizers concern unrelated curves"
+        ],
+        "reasoning": "The same rational stabilizer could be expressed as norm-trace Heisenberg automorphisms. WCC Theorem 1.1 treats this curve family but inspected sections do not give its rational stabilizer; no located Resultary hit treats this family.",
+        "searches": [
+          "automorphism stabilizer finite field plane Hermitian relative curve one rational point X^(q+1)+eta Y^(q+1)+Y^q Z+Y Z^q projective automorphism group q^3(q+1)",
+          "\"one-point Hermitian-relative\" stabilizer \"s^3\"",
+          "Resultary semantic search: automorphism stabilizer finite field plane Hermitian relative curve one rational point X^(q+1)+eta Y^(q+1)+Y^q Z+Y Z^q projective automorphism group q^3(q+1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits concerned other projective stabilizers and a three-dimensional Heisenberg algebra; no same-curve table surfaced"
+        ],
+        "reasoning": "No known exact group-order database or table was found for this exact one-point Hermitian-relative plane model; this negative search is not proof of absence.",
+        "searches": [
+          "Resultary: automorphism stabilizer finite field plane Hermitian relative curve one rational point X^(q+1)+eta Y^(q+1)+Y^q Z+Y Z^q projective automorphism group q^3(q+1)",
+          "\"one-point Hermitian-relative\" stabilizer"
+        ]
+      },
+      "rationale": "The actual new object is the finite-field projective stabilizer and its group structure, not the already known one-point curve normal form. The 2026 WCC article Theorem 1.1 gives the latter, while the older preprint treats basic geometric equivalence. Their inspected arguments do not state s^3(s+1), the projective matrix group law, or the Q8 case. A specialist 2026 equivalence chapter is inaccessible in full, so priority is best-of-knowledge with explicit nontrivial risk.",
+      "residual_risks": [
+        "WAIFI 2026 full text not read; could contain equivalent stabilizer calculations. Geometric group over algebraic closure may be larger."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Normal form covered; rational stabilizer calculation not found in inspected material",
+          "evidence": [
+            "Theorem 1.1, pp.1-2"
+          ],
+          "identifier_or_url": "https://wcc2026.inria.fr/assets/final_versions/WCC2026_paper_17.pdf",
+          "material_read": "Introduction, Theorem 1.1, one-point normal form and later classification statements",
+          "method": "full lawful public PDF opened with page-image verification",
+          "title": "Rational points and inflexions on Hermitian-relative curves",
+          "trigger": "Same normal form, Theorem 1.1"
+        },
+        {
+          "assessment": "Predecessor addresses geometric relative construction and two-plus inflexions, not this explicit rational group",
+          "evidence": [
+            "Introduction and scope"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2402.14192",
+          "material_read": "Abstract, introduction and classification scope",
+          "method": "public arXiv full PDF opened with page-image verification",
+          "title": "Relatives of the Hermitian curve",
+          "trigger": "Geometric predecessor and equivalence"
+        },
+        {
+          "assessment": "No whole-text NOT_COVERING conclusion made; material priority risk retained",
+          "evidence": [
+            "DOI 10.1007/978-3-032-27574-5_7"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-032-27574-5_7",
+          "material_read": "Publisher/ResearchGate bibliographic abstract only; full text unavailable",
+          "method": "OA and arXiv search then authorized institutional request: VPN disconnected",
+          "title": "Classification of Hermitian-Relative Curves up to Projective Equivalence",
+          "trigger": "Highly relevant same object and projective equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://wcc2026.inria.fr/assets/final_versions/WCC2026_paper_17.pdf",
+        "pinned RESULT.md proof"
+      ],
+      "rationale": "A just-classified one-rational-point family has a natural arithmetic projective symmetry invariant. The exact order, Heisenberg semidirect multiplication, central subgroup and exceptional Q8 group determine symmetry unavailable from point-count and equivalence statements; these are independently reusable in finite-field curve and code studies, not a naming trick.",
+      "residual_risks": [
+        "Potential priority overlap with unavailable equivalence chapter."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only rational projective group over F_(s^2), not algebraic-closure automorphisms or the abstract curve automorphism group.",
+    "WAIFI 2026 full text not read; could contain equivalent stabilizer calculations. Geometric group over algebraic closure may be larger.",
+    "Potential priority overlap with unavailable equivalence chapter."
+  ],
+  "schema_version": 1
+}
