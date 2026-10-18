@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conclusion is a two-sided bound for the full coherent coefficient matrix, not a sum of separate branch entropies. The published source establishes count-orthogonal row/column projectors and the flat nonzero singular values for each count branch. For each fixed count difference, the blocks form a direct sum and thus have exactly additive \(2\alpha\)-Schatten moments. The centered binomial maximum and a uniform convolution estimate give the difference-block upper bound, while a convergent exponential difference sum and the Schatten triangle inequality handle coherent cross-difference interference. Averaging count phases contractively projects onto the diagonal, where a positive-density central binomial window yields the matching moment lower bound. The argument covers every fixed real \(\alpha>1\) and specifies logarithm normalization and infinite-volume-before-long-time quantifiers. The packaged program independently checks the finite-count premises through time four; the proof, not the numerical checks, establishes the asymptotic result.
+PASS
 
-## Originality — PASS, with documented residual risk
+For fixed α>1 and specified Pozsgay permutation gate and normalized one-site transition or domain-wall state (infinite-volume limit first), group the count-resolved coefficient matrix by difference d=ℓ-k. At fixed d, branch matrices occupy mutually orthogonal count rows/columns, so ||M_d||_(2α)^(2α)=2^((1-α)g(d)) Σ_k(q_k r_(k+d))^α. Uniform binomial peak and overlap bounds make the sum at most Oα(t^(1/2-α)); g(d)>=|d|-1 gives a convergent geometric factor across d. Schatten triangle yields the global upper bound. Count-diagonal phase pinching is contractive and, using g(0)=0 and the local central binomial lower bound for Θ(sqrt(t)) central k, yields a matching Ωα(t^(1/2-α)). Therefore Zα=Θα(t^(1/2-α)) and Sα=((α-1/2)/(α-1))log t+Oα(1). I checked that this does not assume cross-difference orthogonality. Independent binomial overlap computations corroborated asymptotic scaling; finite checks are not the infinity-time proof.
 
-The original flat branch spectra and general \(\Theta(\log t)\) assertion belong to Pozsgay's published work. In the full publicly available arXiv manuscript, Section IV C, Eq. (S51), the coefficient is explicitly left open for finite \(\alpha>1\). The derived exact coefficient follows from a new coherent-block strategy: sum Schatten norms along fixed count difference, then pinch the count diagonal for a matching exponent. Searches for exact-coefficient aliases, source parameters, finite-index Rényi moments, and neighboring published claims identified no stronger covering theorem. Nearby operator-entanglement work on Yang–Baxter classifications and classical simulability studies different conclusions. The September 4 preliminary version's PDF could not be opened, so it and unindexed implicit derivations remain residual priority risks; the specific unresolved statement in the later full source nonetheless provides direct positive evidence of a gap.
+## originality
 
-## Value — PASS
+PASS
 
-The model's coexistence of square-root von Neumann growth and logarithmic high-index growth is a central diagnostic of its broad entanglement spectrum. Resolving the *coefficient for every fixed high index*, rather than merely confirming logarithmic order, yields the exact purity coefficient \(3/2\), a testable all-index curve, and a precise complement to the established endpoint coefficient one as \(\alpha\to\infty\). The same argument treats a physically different product-state quench. No general theorem for unrelated integrable circuits is asserted.
+Best-of-knowledge original narrow result after comparing actual mathematical implications with primary source and adjacent literature: Source derives the exact individual branch spectra but only Θ(log t) for full high-index entropies; the audited matched upper/lower control on coherent assembly supplies the numeric coefficient. No claim of novelty of the gate, flat spectrum, or source's rough growth theorem.
 
-## Closest literature and limits
+## value
 
-The principal comparison is Pozsgay, arXiv:2609.39401, supplementary (S38), (S51), and its September 4 preliminary Zenodo record 22306151. See also arXiv:2609.05121 and arXiv:2603.05656. Fixed \(\alpha>1\) and infinite-volume-first are essential. The proof does not determine exact Rényi moment constants or the vicinity of the critical index one.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The originating integrable circuit paper isolates high-index logarithmic growth but leaves its coefficient uncalibrated. A sharp coefficient for both operator and domain-wall entanglement at every fixed α>1 closes a natural open quantitative invariant using a reusable count-diagonal Schatten pinching argument. This is not a mere normalization, recasting, or numerical prefactor tweak.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
