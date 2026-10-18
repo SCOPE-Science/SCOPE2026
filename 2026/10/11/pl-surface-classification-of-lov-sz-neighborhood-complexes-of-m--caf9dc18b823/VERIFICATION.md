@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the surface classification
 
-Run `python3 verify_ladder_neighborhood.py` with Python 3 standard library only. The proof for all parameters is in `RESULT.md`, not inferred from these tests. `verification_output.txt` records the expected completed run.
+# Independent mathematical audit
 
-The script independently constructs each graph and its open-neighborhood facets, verifies every link is a path or circle, checks triangles have edge multiplicity at most two, computes connected and boundary components and Euler characteristic, propagates coherent orientations, and uses exact bit-vector elimination on mod-two simplicial boundaries. These tests cover 29 Möbius cases with parameter from 2 through 30 and 28 circular cases with parameter from 3 through 30. The orientations and mod-two ranks agree with the PL types stated for every tested case.
+## correctness
 
-This is a finite computational corroboration of an all-parameter symbolic argument, not an exhaustive proof for all integers or an independent audit. The mathematical proof relies on the explicit simplex and dual-graph descriptions and compact-surface classification.
+PASS
+
+The maximal open-neighborhood faces are exactly triangular triples Delta_i={i-1,i+1,i+n} and Gamma_{i,a}={(i-1,a),(i+1,a),(i,1-a)}. Generic vertex links are 3-edge paths and (f0,f1,f2)=(2n,4n,2n), so each connected component is a compact PL surface with boundary. Explicit triangle dual adjacencies and boundary cycles determine components and boundaries, with Euler characteristic zero yielding annulus or Möbius band as specified. Exceptions M4=K4 yields S², M6=K3,3 yields two disks, and P4 cube yields two tetrahedral boundaries. An independently written incidence/component calculator enumerated M/P n=4,...,10 and reproduced component/boundary counts, including two spheres for P4; finite checks support rather than prove generic n.
+
+## originality
+
+PASS
+
+The primary predecessor proves odd circular-ladder open-neighborhood homotopy S1 only, which does not imply a PL annulus or Möbius-band distinction. The submitted explicit incidence/topological parity classification includes the remaining ladder cases and exceptions not implied by inspected primary results.
+
+## value
+
+PASS
+
+A complete all-n PL surface classification of two fundamental 3-regular ladder graph families is naturally motivated and distinguishes orientability, boundary topology and exceptional small cases invisible in previously known S1 homotopy. It is not a renaming of the preceding odd-circular-ladder homotopy theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

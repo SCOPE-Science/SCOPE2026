@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T17:54:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Independent triangle-edge incidence enumeration audit_worker03_checks.py"
+      ],
+      "rationale": "The maximal open-neighborhood faces are exactly triangular triples Delta_i={i-1,i+1,i+n} and Gamma_{i,a}={(i-1,a),(i+1,a),(i,1-a)}. Generic vertex links are 3-edge paths and (f0,f1,f2)=(2n,4n,2n), so each connected component is a compact PL surface with boundary. Explicit triangle dual adjacencies and boundary cycles determine components and boundaries, with Euler characteristic zero yielding annulus or Möbius band as specified. Exceptions M4=K4 yields S², M6=K3,3 yields two disks, and P4 cube yields two tetrahedral boundaries. An independently written incidence/component calculator enumerated M/P n=4,...,10 and reproduced component/boundary counts, including two spheres for P4; finite checks support rather than prove generic n.",
+      "residual_risks": [
+        "Explicit open (not closed) neighborhoods essential. Scope only the defined simple ladder graphs; no assertion for other complexes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matsushita analyzes fundamental groups via graph combinatorics but not these explicit PL surfaces.",
+          "Agarwal–Basak classify independence and perfect matching complexes of the ladder graphs, different simplex conditions; their Problem 26 asks about neighborhood complexes."
+        ],
+        "reasoning": "The published homotopy, independence or matching-complex statements cannot by themselves imply the PL boundary counts/orientability for all ladder parameters.",
+        "searches": [
+          "neighborhood complex Möbius ladder circular ladder prism graph PL surface annulus Mobius band classification",
+          "arXiv:1210.2803 Matsushita fundamental groups neighborhood complexes",
+          "arXiv:2608.30601 Agarwal Basak Möbius circular ladder complexes Problem 26"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:2512.09674v1 Theorem 4.6",
+        "arXiv:2608.30601v2 graph families and Problem 26",
+        "arXiv:1210.2803v1 foundational complexes",
+        "Resultary neighborhood complex semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.6 gives odd circular-ladder N(P_n) homotopy equivalent to S¹. Its even case describes N(H_{n-1}), a different graph.",
+          "The new proof determines full vertex-link paths, boundary cycles and connected component Euler values, including nonorientable Möbius pieces."
+        ],
+        "reasoning": "A space homotopy equivalent to a circle need not be PL an annulus; exact PL homeomorphism is stronger than prior homotopy. For n even and M-family, the prior exact object coverage is absent.",
+        "searches": [
+          "arXiv:2512.09674v1 Theorem 4.6 and proof",
+          "neighborhood complex Möbius ladder circular ladder prism graph PL surface annulus Mobius band classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The common-open-neighbor construction N(G) is the same as used by Matsushita and Shen et al.; M_{2n}=cycle plus antipodal matching and P_n=C_n square K_2.",
+          "Shen et al. prove N(P_n)~S¹ when n odd but not a PL annulus with two boundary components."
+        ],
+        "reasoning": "Aliases were matched by actual graphs, edge sets, and open-neighbor convention. Same homotopy group cannot identify annulus versus Möbius bands or number of components.",
+        "searches": [
+          "neighborhood complex Möbius ladder circular ladder prism graph PL surface annulus Mobius band classification",
+          "Lovasz neighborhood complex of Mobius ladder circular ladder annulus Mobius band",
+          "arXiv:2512.09674v1 Theorem 4.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit the same full classification and several different Rips/Cech/matching/three-cut constructions, not the same invariant.",
+          "Shen et al. 2025 only tabulate partial homotopy types, not two explicit PL surface parity families."
+        ],
+        "reasoning": "The exact small-case exceptions M4 K4, M6 K3,3, P4 cube are checked separately; no covering pre-existing PL table was encountered, negative search not proof.",
+        "searches": [
+          "neighborhood complex Möbius ladder circular ladder prism graph PL surface annulus Mobius band classification",
+          "Resultary semantic open neighborhood complexes of Mobius ladders and prism graphs annulus Mobius bands PL surface"
+        ]
+      },
+      "rationale": "The primary predecessor proves odd circular-ladder open-neighborhood homotopy S1 only, which does not imply a PL annulus or Möbius-band distinction. The submitted explicit incidence/topological parity classification includes the remaining ladder cases and exceptions not implied by inspected primary results.",
+      "residual_risks": [
+        "Potential differently named earlier PL classification in combinatorial-topology literature, particularly cubic circulant graph neighborhoods, not excluded.",
+        "Independent checks sampled n<=10; arbitrary-n claim depends on the written combinatorial incidence proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: odd circular-ladder S1 homotopy, but not PL annulus or other cases",
+          "evidence": "Theorem 4.6 explicitly distinguishes N(CL_n) for odd n from N(H_{n-1}) for even n.",
+          "identifier_or_url": "arXiv:2512.09674v1",
+          "material_read": "Definition of circular ladder and induced graph; Theorem 4.6, full proof identifying H_{n-1} with CL_n for odd n, even-n statement",
+          "method": "Lawful arXiv full parsed HTML relevant theorem/proof inspected",
+          "title": "Neighborhood Complexes of induced k-independent graphs",
+          "trigger": "Partial predecessor: circular-ladder open-neighborhood homotopy"
+        },
+        {
+          "assessment": "NOT_COVERING PL neighborhood type: different simplicial predicates",
+          "evidence": "Independence and matching complexes have vertex sets and faces distinct from common-neighbor N(G); Problem 26 flags neighborhood complexes for study.",
+          "identifier_or_url": "arXiv:2608.30601v2",
+          "material_read": "Graph definitions, primary independence/matching results and Problem 26 reference regarding neighborhood complexes",
+          "method": "OA article index/full parsed relevant passages",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Exact graph families, potentially equivalent simplicial invariants"
+        },
+        {
+          "assessment": "BACKGROUND: does not by itself determine PL surface classifications",
+          "evidence": "Graph fundamental group determines pi_1 up to type; annulus and Möbius band have the same pi_1=Z.",
+          "identifier_or_url": "arXiv:1210.2803v1",
+          "material_read": "Definition and fundamental-group theorem description",
+          "method": "OA paper introduction and theorem descriptions",
+          "title": "Fundamental groups of neighborhood complexes",
+          "trigger": "Foundation for common-open-neighbor definition and homotopy invariants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Shen et al 2025 partial S1 homotopy",
+        "Exact link and face incidence proof"
+      ],
+      "rationale": "A complete all-n PL surface classification of two fundamental 3-regular ladder graph families is naturally motivated and distinguishes orientability, boundary topology and exceptional small cases invisible in previously known S1 homotopy. It is not a renaming of the preceding odd-circular-ladder homotopy theorem.",
+      "residual_risks": [
+        "Possible older equivalent topology table remains priority risk, not a mathematical correctness issue."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Odd circular-ladder homotopy S1 predates this PL classification; not claimed new."
+  ],
+  "schema_version": 1
+}

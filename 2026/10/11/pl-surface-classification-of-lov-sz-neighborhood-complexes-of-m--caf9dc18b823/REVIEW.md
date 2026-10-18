@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specifies all facet triples, verifies each generic vertex link is an interval, counts the Euler characteristic, constructs the dual graph of triangles, and enumerates boundary cycles. In particular, the Möbius-ladder dual step is \(n-1\) modulo \(2n\), making two one-boundary components when \(n\) is odd. The standard classification of compact triangulated surfaces proves the exact PL types, and the exceptions are separately checked. The 57-case standalone verifier independently tests graph construction, face incidence, manifold links, component counts, orientability and mod-two ranks, but is not used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual literature risk
-Shen et al. (arXiv:2512.09674v1, Theorem 4.6) prove the known odd-circular-ladder homotopy equivalence to \(S^1\). The result here explicitly preserves that priority and establishes its stronger **PL annulus** description, the even circular-ladder types, the Möbius-ladder orientability transition, and small exceptions. Matsushita (arXiv:1210.2803v1) develops general fundamental-group theory, which does not imply a surface PL classification. Agarwal–Basak (arXiv:2608.30601v2, Problem 26) request neighborhood-complex investigations of both graph families after analyzing different complexes. Searches under circulant, cyclic-prism, Möbius-ladder, PL-surface, boundary and exceptional-order formulations did not reveal a statement covering the complete theorem. Older or unindexed equivalent PL descriptions remain possible; search absence alone would be insufficient.
+PASS
 
-## Value — PASS
-The theorem answers a natural infinite-family topological classification question at a strictly stronger level than homotopy type. It detects orientation reversal and distinguishes two Möbius bands from ordinary annuli, both of which can have the same circle homotopy type; it also identifies sharp exceptional small orders. The structural argument is general in the parameters and reusable in common-neighborhood surface calculations.
+The maximal open-neighborhood faces are exactly triangular triples Delta_i={i-1,i+1,i+n} and Gamma_{i,a}={(i-1,a),(i+1,a),(i,1-a)}. Generic vertex links are 3-edge paths and (f0,f1,f2)=(2n,4n,2n), so each connected component is a compact PL surface with boundary. Explicit triangle dual adjacencies and boundary cycles determine components and boundaries, with Euler characteristic zero yielding annulus or Möbius band as specified. Exceptions M4=K4 yields S², M6=K3,3 yields two disks, and P4 cube yields two tetrahedral boundaries. An independently written incidence/component calculator enumerated M/P n=4,...,10 and reproduced component/boundary counts, including two spheres for P4; finite checks support rather than prove generic n.
 
-## Limits
-Only the open neighborhood complexes of the two explicitly defined families are claimed. The finite script corroborates but does not prove the uniform statements. The previously known odd circular-ladder homotopy assertion is not claimed as new. Independent assessment is still outstanding.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary predecessor proves odd circular-ladder open-neighborhood homotopy S1 only, which does not imply a PL annulus or Möbius-band distinction. The submitted explicit incidence/topological parity classification includes the remaining ladder cases and exceptions not implied by inspected primary results.
+
+## value
+
+PASS
+
+A complete all-n PL surface classification of two fundamental 3-regular ladder graph families is naturally motivated and distinguishes orientability, boundary topology and exceptional small cases invisible in previously known S1 homotopy. It is not a renaming of the preceding odd-circular-ladder homotopy theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
