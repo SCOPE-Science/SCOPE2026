@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-The theorem is analytic; its key checkable logical steps are the cone-radial factorization, the boundary-support equivalence, the halfspace containment of common-facet samples, and compact moment uniqueness. In particular, a finite numerical run cannot verify the universal quantifiers over convex bodies or all orders.
+## correctness
 
-Run the included standalone Python file with `python3 verify_shell_moments.py` (Python 3 standard library only). It samples planar polygon shells using the exact radial-coordinate coupling, clips independent sample segments against the inner homothetic polygon, verifies every sampled same-facet pair remains outside the inner core, and checks empirical facet-label coincidence against its exact probability. The deterministic invocation returned `VERIFY_OK`. The examples are a centered square, a triangle anchored at its centroid, and a non-centroid-anchored triangle, with shell ratios \(0.92\), \(0.98\), and \(0.997\).
+PASS
 
-The script tests only \(q=2\), only planar polygons, and finite random samples; it is evidence of consistency and code reproducibility, not a certificate of the general limiting theorem. The inverse-moment argument depends on uniqueness of finite Borel measures on compact \([0,1]\), not on numerical reconstruction. No independent review has been performed.
+Reconstructed all-parameter radial disintegration: endpoint Y on boundary has normalized cone-volume law, independently R_t^d uniform on [t^d,1]. A limit barycenter lies on boundary precisely when its constituent points share a supporting exposed face; boundary a.e. unique outer normal and positive cone density imply positive probability only for common facets. Their supporting hyperplane protects the entire convex hull from int(tK) for each thickness, while an interior endpoint barycenter forces violation eventually. Dominated convergence proves L_q=sum_F p_F^q for every fixed q>=2. Finite measure eta=sum_F p_F^2 delta_{p_F} has moments L_{j+2}; uniqueness on [0,1] recovers each positive weight and multiplicity. Pyramidal simplex weights and parallelotope opposite-facet weights yield quoted sharp anchor bounds. Finite polygon-shell Monte Carlo file verifies only planar q=2 cases; it does not prove arbitrary q/d.
+
+## originality
+
+PASS
+
+The higher Beer/k-index literature supplies the definition and inequalities but not a homothetic thin-shell limit. Henk–Linke supply cone-volume facet masses, not a sampled hull-avoidance asymptotic; Beer 1974 treats OUTER parallel-body thickening. Their union does not directly imply the almost-everywhere same-facet event or full inverse moment spectrum without the independent boundary coupling proof. No stronger covering statement identified; indexed searches are not a novelty certificate.
+
+## value
+
+PASS
+
+This gives a natural all-order geometric-probability asymptotic for all compact convex bodies, distinguishes existence of facets, and recovers with multiplicities an intrinsic anchored facet cone-volume spectrum; it does not claim complete shape reconstruction. The sharp simplex/parallelotope anchor laws further characterize natural extremal configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

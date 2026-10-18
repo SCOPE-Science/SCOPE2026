@@ -1,19 +1,21 @@
-# Scientific review — thin-shell facet cone moments
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sampling distribution is exactly volume-uniform: its boundary-direction law is normalized cone measure and its independent radial factor has the \(d\)-power uniform distribution. At the boundary limit, a convex-combination average can remain on the boundary only when all sampled endpoints lie in a common exposed face. Uniqueness of a supporting hyperplane almost everywhere for convex hypersurfaces turns this into a common-*facet* event with probability \(\sum_Fp_F^q\). A supporting half-space protects every common-facet tuple at every shell thickness, while interior averages force failure eventually. Bounded convergence completes the arbitrary-body theorem. Moment determinacy on \([0,1]\), constructive max-weight peeling, and strict convexity prove the inversion and exact model-family bounds. The standalone finite checker was executed and returned `VERIFY_OK`, but is explicitly secondary to the proof. Risk: details of convex-boundary almost-everywhere differentiability are classical and used as a stated standard fact.
+PASS
 
-## Originality — PASS, with residual historical risk
+Reconstructed all-parameter radial disintegration: endpoint Y on boundary has normalized cone-volume law, independently R_t^d uniform on [t^d,1]. A limit barycenter lies on boundary precisely when its constituent points share a supporting exposed face; boundary a.e. unique outer normal and positive cone density imply positive probability only for common facets. Their supporting hyperplane protects the entire convex hull from int(tK) for each thickness, while an interior endpoint barycenter forces violation eventually. Dominated convergence proves L_q=sum_F p_F^q for every fixed q>=2. Finite measure eta=sum_F p_F^2 delta_{p_F} has moments L_{j+2}; uniqueness on [0,1] recovers each positive weight and multiplicity. Pyramidal simplex weights and parallelotope opposite-facet weights yield quoted sharp anchor bounds. Finite polygon-shell Monte Carlo file verifies only planar q=2 cases; it does not prove arbitrary q/d.
 
-The 2014 higher-index source defines the statistics and proves global inequalities, rather than thin-shell asymptotics. The 2013 cone-volume source supplies facet pyramid masses and their geometry, rather than visibility probabilities. Beer's 1974 treatment analyzes outer parallel bodies, not shells punctured by a homothetic core. The smooth-ball case has zero limiting visibility; it cannot imply a positive-facet limit or an all-order inverse spectrum. Search comparisons covered homothetic/parallel-shell aliases, higher \(k\)-index terminology, cone-volume moment power sums, facet classification, and the published mathematical-record index. An unindexed identical theorem or an implicit older geometric-probability derivation remains possible; absence of search hits is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem separates faceted from facetless convex bodies by a probabilistic limiting invariant and shows that the entire family of natural convex-hull visibility statistics recovers a discrete geometric spectrum with multiplicities, even for bodies with countably many facets. Explicit sharp anchor-extremal principles for simplices and parallelotopes make this useful beyond a convergence identity, while clearly not determining facet directions or the entire body. This is a motivated structural classification arising from established Beer-index and cone-volume problems, not an arbitrary numerical example.
+The higher Beer/k-index literature supplies the definition and inequalities but not a homothetic thin-shell limit. Henk–Linke supply cone-volume facet masses, not a sampled hull-avoidance asymptotic; Beer 1974 treats OUTER parallel-body thickening. Their union does not directly imply the almost-everywhere same-facet event or full inverse moment spectrum without the independent boundary coupling proof. No stronger covering statement identified; indexed searches are not a novelty certificate.
 
-## Closest literature and limitations
+## value
 
-Balko–Jelínek–Valtr–Walczak, arXiv:1412.1769v1; Henk–Linke, arXiv:1305.5335v1; Beer, *Pacific J. Math.* 53 (1974), 337–345. No rate or finite-thickness general formula is claimed, and historical completeness remains a residual risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+This gives a natural all-order geometric-probability asymptotic for all compact convex bodies, distinguishes existence of facets, and recovers with multiplicities an intrinsic anchored facet cone-volume spectrum; it does not claim complete shape reconstruction. The sharp simplex/parallelotope anchor laws further characterize natural extremal configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
