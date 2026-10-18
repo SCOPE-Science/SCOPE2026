@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker exhaustively enumerates every permutation in
-\[
-S_n,
-\qquad
-2\le n\le9.
-\]
+# Independent mathematical audit
 
-For each permutation it recomputes the cycle count by orbit traversal and recomputes every upper-record indicator directly from the one-line word. All expectations are accumulated with exact integer counts and compared using rational arithmetic.
+## correctness
 
-For every admissible \(n\) and \(j\), the checker verifies
-\[
-\Pr(R_{n,j}=1)=\frac1j
-\]
-and
-\[
-\operatorname{Cov}(C_n,R_{n,j})
-=
-\frac{j-1}{n j\binom{n-1}{j-1}}.
-\]
+PASS
 
-It separately verifies the total covariance obtained by summing the local terms and the exact variance identity
-\[
-\operatorname{Var}(C_n)
-=
-\operatorname{Var}(R_n)
-=
-H_n-H_n^{(2)}.
-\]
+Largest-symbol cycle insertion is bijective between S_(n-1) x [n] and S_n. Conditioning on insertion site gives M_(n,j)=(H_(n-1)+(n-j)M_(n-1,j)+1/j)/n for 2<=j<n. Centering gives d_(n,j)=(n-j)*d_(n-1,j)/n with d_(j,j)=(j-1)/j^2, solving to d_(n,j)=(j-1)/(n*j*C(n-1,j-1)) > 0. Summing yields aggregate covariance = 1/n+O(1/n^2); record and cycle marginal variances H_n-H_n^(2) give correlation asymptotic 1/(n log n). Independently enumerated all 5912 permutations S2..S7 with exact Fraction arithmetic and directly recomputed each local and total covariance. The finite test is supportive, not the all-n proof.
 
-The exhaustive replay is supplementary. The universal proof is the insertion recurrence in `RESULT.md`.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact replay result: `VERIFY_OK permutations_checked=409112 probability_checks=44 local_covariance_checks=44 positivity_checks=36 total_covariance_checks=8 variance_checks=16`.
+Gnedin-Gorin (arXiv:1202.3680) defines exactly these upper records and the fundamental bijection to cycle-weighted/Ewens measures. That bijection establishes marginal equidistribution after transforming permutations, not the covariance of records and cycles measured on the SAME permutation. Bakšajeva-Manstavičius (arXiv:1303.4540) addresses cycle-based Ewens additive statistics, not record-coordinate covariance in the inspected material. A recently indexed broad conjugation-invariant permutation paper describes marginal records but gives no directly covering same-permutation kernel in the inspected discussion. Classic older bivariate cycle/record enumerators might imply it after differentiation; residual risk remains.
+
+## value
+
+PASS
+
+The joint dependence of two canonical equidistributed permutation statistics is a natural and nontrivial invariant distinct from either marginal law. The explicit local sign/binomial kernel and much smaller correlation scale 1/(n log n) characterize how the equivalence-in-law masks a weak positive same-object dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

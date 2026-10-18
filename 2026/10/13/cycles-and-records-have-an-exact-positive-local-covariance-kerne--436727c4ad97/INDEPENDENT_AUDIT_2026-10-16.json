@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T20:03:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Largest-symbol cycle insertion is bijective between S_(n-1) x [n] and S_n. Conditioning on insertion site gives M_(n,j)=(H_(n-1)+(n-j)M_(n-1,j)+1/j)/n for 2<=j<n. Centering gives d_(n,j)=(n-j)*d_(n-1,j)/n with d_(j,j)=(j-1)/j^2, solving to d_(n,j)=(j-1)/(n*j*C(n-1,j-1)) > 0. Summing yields aggregate covariance = 1/n+O(1/n^2); record and cycle marginal variances H_n-H_n^(2) give correlation asymptotic 1/(n log n). Independently enumerated all 5912 permutations S2..S7 with exact Fraction arithmetic and directly recomputed each local and total covariance. The finite test is supportive, not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1202.3680; arXiv:1303.4540"
+        ],
+        "reasoning": "The wider record-dependent coherent-measure and Ewens cycle-statistic theories recover known marginals, not a proof of their same-permutation local cross-covariance in the inspected statements.",
+        "searches": [
+          "permutations same permutation covariance number cycles left to right records indicators exact formula",
+          "\"cycles\" \"records\" \"covariance\" permutations same permutation",
+          "arXiv:1202.3680; arXiv:1303.4540"
+        ]
+      },
+      "checked_sources": [
+        "Gnedin-Gorin, Record-dependent measures on the symmetric groups (arXiv:1202.3680), Introduction, Section 1",
+        "Bakšajeva-Manstavičius, On statistics of permutations chosen from the Ewens distribution (arXiv:1303.4540)",
+        "A geometric approach to conjugation-invariant random permutations (Probability Theory and Related Fields 2025)",
+        "Resultary: 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Probability Theory and Related Fields, 2025 geometric approach; Resultary 2026/10/4 inversion-gap profile"
+        ],
+        "reasoning": "Conjugation-invariant permutation results and Resultary cycle/inversion covariance study distinct distributions or other local statistic; neither statement implies the positive upper-record kernel.",
+        "searches": [
+          "permutations same permutation covariance number cycles left to right records indicators exact formula",
+          "\"cycles\" \"records\" \"covariance\" permutations same permutation",
+          "Probability Theory and Related Fields, 2025 geometric approach; Resultary 2026/10/4 inversion-gap profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1202.3680 Introduction; classic Foata bijection"
+        ],
+        "reasoning": "Upper left-to-right records and cycle count are linked by Foata fundamental bijection, but this maps one permutation into another. The exact same-permutation mixed moment is a different joint statistic.",
+        "searches": [
+          "permutations same permutation covariance number cycles left to right records indicators exact formula",
+          "\"cycles\" \"records\" \"covariance\" permutations same permutation",
+          "arXiv:1202.3680 Introduction; classic Foata bijection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cycle-record query; classical enumeration textbooks; Resultary permutation covariance hits"
+        ],
+        "reasoning": "Indexed searches for exact d_(n,j), binomial covariance, total cycles/record joint distribution and known tables did not locate an exact match; absence does not rule out an implicit differentiated bivariate GF.",
+        "searches": [
+          "permutations same permutation covariance number cycles left to right records indicators exact formula",
+          "\"cycles\" \"records\" \"covariance\" permutations same permutation",
+          "Cycle-record query; classical enumeration textbooks; Resultary permutation covariance hits"
+        ]
+      },
+      "rationale": "Gnedin-Gorin (arXiv:1202.3680) defines exactly these upper records and the fundamental bijection to cycle-weighted/Ewens measures. That bijection establishes marginal equidistribution after transforming permutations, not the covariance of records and cycles measured on the SAME permutation. Bakšajeva-Manstavičius (arXiv:1303.4540) addresses cycle-based Ewens additive statistics, not record-coordinate covariance in the inspected material. A recently indexed broad conjugation-invariant permutation paper describes marginal records but gives no directly covering same-permutation kernel in the inspected discussion. Classic older bivariate cycle/record enumerators might imply it after differentiation; residual risk remains.",
+      "residual_risks": [
+        "Classical unindexed joint cycle-record generating functions may imply the claimed covariance without displaying it verbatim.",
+        "Uniform permutations only; coordinate covariances do not imply full process association."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly defines same records and classical bijection but does not state the same-permutation local cycle-count covariance.",
+          "evidence": [
+            "Introduction record definition sigma(j)=max_{i<=j}sigma(i)",
+            "Introduction fundamental bijection sends theta^records law to Ewens cycle law"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.3680",
+          "material_read": "Introduction and substantive record-dependent measure definitions, uniform-initial-rank coordinates and fundamental-bijection discussion in accessible complete manuscript.",
+          "method": "Open preprint full-text HTML/PDF",
+          "title": "Record-dependent measures on the symmetric groups",
+          "trigger": "Same upper-record indicators and Foata cycle relation"
+        },
+        {
+          "assessment": "Different observables; does not in inspected sections state the cross-covariance; possible unexamined coverage retained as risk.",
+          "evidence": [
+            "Cycle additive/Ewens statistics scope"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1303.4540",
+          "material_read": "Abstract, cycle-additive statistic framing and relevant primary descriptions; no assertion of whole-source negative search.",
+          "method": "Author preprint and bibliographic material",
+          "title": "On statistics of permutations chosen from the Ewens distribution",
+          "trigger": "Possible broad cycle-statistic theorem covering mixed records"
+        },
+        {
+          "assessment": "Addresses record marginal limit laws for conjugation-invariant permutations rather than this same-uniform-permutation mixed covariance.",
+          "evidence": [
+            "Theorem 2.9 asymptotic normality of upper-record count; Theorem 2.11 lower-record counts"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00440-025-01449-7",
+          "material_read": "Accessible article overview, definitions and Theorems 2.9/2.11 on marginal high/low records.",
+          "method": "Publisher full-text HTML relevant sections",
+          "title": "A geometric approach to conjugation-invariant random permutations",
+          "trigger": "Broader recent research on permutations and records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The joint dependence of two canonical equidistributed permutation statistics is a natural and nontrivial invariant distinct from either marginal law. The explicit local sign/binomial kernel and much smaller correlation scale 1/(n log n) characterize how the equivalence-in-law masks a weak positive same-object dependence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gnedin-Gorin, Record-dependent measures on the symmetric groups (arXiv:1202.3680), Introduction, Section 1",
+    "Bakšajeva-Manstavičius, On statistics of permutations chosen from the Ewens distribution (arXiv:1303.4540)",
+    "A geometric approach to conjugation-invariant random permutations (Probability Theory and Related Fields 2025)",
+    "Resultary: 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classical unindexed joint cycle-record generating functions may imply the claimed covariance without displaying it verbatim.",
+    "Uniform permutations only; coordinate covariances do not imply full process association."
+  ],
+  "residual_risks": [
+    "Classical unindexed joint cycle-record generating functions may imply the claimed covariance without displaying it verbatim.",
+    "Uniform permutations only; coordinate covariances do not imply full process association."
+  ],
+  "schema_version": 1
+}
