@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the dodecahedral resolving polynomial
 
-Run `python3 verify.py` with Python 3.9 or newer; no external packages or network are required. The verifier constructs \(P(10,2)\) independently from the edge definitions, recomputes all-pairs graph distances by BFS, and compares them with the three ten-entry distance rows in `RESULT.md`. It checks that the ten pairs \(\{u_i,u_{i+5}\}\), \(\{v_i,v_{i+5}\}\) are antipodal and that \(d(x,\bar y)=5-d(x,y)\) for all 400 ordered vertex pairs.
+# Independent mathematical audit
 
-It exhaustively evaluates all \(190\) unordered distinct vertex pairs' equidistance loci and verifies ten empty loci and \(180\) four-vertex loci. Each nonempty locus is exactly two of the ten antipodal pairs, and every one of the \(45\) unordered antipodal-class pairs appears (the numbers of witnesses per pair are \(2\) for thirty classes and \(8\) for fifteen classes).
+## correctness
 
-A *direct* distance-vector resolving predicate is compared with the antipodal criterion on all \(6196\) vertex subsets of sizes zero through four. The verifier then enumerates all \(1,048,576\) subsets, computes the exact cardinality distribution, and compares each coefficient with \(\sum_{j=3}^{10}\binom{10}{j}\binom{j}{k-j}2^{2j-k}\). Its expected final lines include:
+PASS
 
-```
-VERIFY_OK graph_vertices=20 graph_edges=30 antipodal_pairs=10 distance_diameter=5
-VERIFY_OK equidistance_sets=190 empty=10 four_vertices=180 all_45_fiber_pairs_realized=YES
-VERIFY_OK direct_distance_signatures_all_subsets_sizes_0_through_4=6196
-VERIFY_OK all_masks=1048576 resolving=1048140 nonresolving=436
-VERIFY_OK metric_dimension=3 metric_bases=960 full_resolving_polynomial=exact
-```
+The fixed graph is GP(10,2) with 20 vertices. Independently generated adjacency and all 20 BFS distance rows. Of 190 unordered distinct vertex pairs, ten have empty equalizers and 180 equalizers are exactly unions of two complete antipodal classes; every one of the 45 unordered pairs of the ten classes occurs. A sensor subset resolves iff it occupies at least three classes, because it cannot be contained in an equalizer. Full 2^20 subset count gives 436 nonresolving and 1,048,140 resolving sets, polynomial sum_{j=3}^{10} binom(10,j)(2z+z^2)^j and exactly 960 three-element metric bases. This is exhaustive for one graph, not a sample extrapolation.
 
-The mathematical proof consists of the actual distance rows, a finite equalizer table exhausted by specified symmetries, and a constructive combinatorial enumeration. The code corroborates these critical finite lemmas and the resulting coefficients; it is not a certificate of independent audit, generalization beyond this graph, or publication priority.
+## originality
+
+PASS
+
+Known 2008 scalar metric dimension dim(P(n,2))=3 is explicitly excluded as new. The structural all-subsets antipodal-pair condition and full ordinary resolving polynomial is not stated by the checked 2018 generalized Petersen metric-dimension paper or the 2020 mixed-metric study. Inaccessible 2008 full text leaves exact prior-overlap risk; Oxford authorized attempt returned vpn_disconnected, not a noncoverage certification.
+
+## value
+
+PASS
+
+The dodecahedron is a classical well-motivated graph; its full resolving polynomial and iff antipodal-pair criterion specify exactly which landmarks distinguish vertices and determine all cardinality counts, including 960 minimum sets. These structural reliability data are not supplied by the known scalar metric dimension, and a natural complete finite invariant can be valuable independently of an infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

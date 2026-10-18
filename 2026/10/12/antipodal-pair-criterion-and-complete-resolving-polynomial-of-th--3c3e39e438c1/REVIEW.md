@@ -1,14 +1,21 @@
-# Antipodal-pair criterion and complete resolving polynomial of the dodecahedral graph
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has a fixed and explicit twenty-vertex domain, the graph \(P(10,2)\), with ordinary vertex metric resolution. The three breadth-first-search distance rows in `RESULT.md` and the graph's rotation/reflection automorphisms determine all shortest-path distances. The exhaustive equalizer table shows that each vertex-pair equalizer is empty or the union of exactly two antipodal pairs. Its seven symmetry representatives show that every unordered pair of antipodal classes actually occurs as an equalizer. Both implications of the resolving-set criterion follow. The generating function then counts occupied antipodal pairs, so the \(960\) minimum sets are exactly the stated transversals. Independent, reproducible finite computations corroborate every table and coefficient. No infinite-family claim depends on finite checks.
+## correctness
 
-## Originality — PASS, qualified by priority risk
-Javaid, Rahim, and Ali established the scalar dimension \(\dim(P(n,2))=3\) (2008). The complete available article by Shao and collaborators (2018) credits that known fact, while deriving values for other generalized Petersen families, not a complete ordinary resolving-set polynomial for \(P(10,2)\). Raza and Ji (2020) calculate a *mixed* metric dimension, distinguishing vertices and edges, not the ordinary vertex resolution property. A targeted comparison of published mathematical records concerning metric bases and dodecahedral graphs found no statement covering the antipodal-class criterion or the full enumerator. The 2008 paper's full text was not accessible for comparison: an equivalent older classification cannot be ruled out on the strength of an abstract alone. This residual risk is retained rather than asserted away.
+PASS
 
-## Mathematical value — PASS
-The complete resolving polynomial gives, for each cardinality, every way to place distinguishing landmarks in the classical dodecahedral network. Its simple antipodal-pair characterization is structural and reusable in counting and random-landmark reliability questions; the minimum number three alone cannot yield either the \(960\) bases or the \(436\) failing subsets. The natural object and invariant motivate the exact classification independently of novelty or implementation convenience.
+The fixed graph is GP(10,2) with 20 vertices. Independently generated adjacency and all 20 BFS distance rows. Of 190 unordered distinct vertex pairs, ten have empty equalizers and 180 equalizers are exactly unions of two complete antipodal classes; every one of the 45 unordered pairs of the ten classes occurs. A sensor subset resolves iff it occupies at least three classes, because it cannot be contained in an equalizer. Full 2^20 subset count gives 436 nonresolving and 1,048,140 resolving sets, polynomial sum_{j=3}^{10} binom(10,j)(2z+z^2)^j and exactly 960 three-element metric bases. This is exhaustive for one graph, not a sample extrapolation.
 
-The graph is finite, and no conclusion is claimed for arbitrary generalized Petersen parameters. The source-priority risk concerning the earlier article remains. All verification and review reported here were performed at the same-model level; independent mathematical validation is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known 2008 scalar metric dimension dim(P(n,2))=3 is explicitly excluded as new. The structural all-subsets antipodal-pair condition and full ordinary resolving polynomial is not stated by the checked 2018 generalized Petersen metric-dimension paper or the 2020 mixed-metric study. Inaccessible 2008 full text leaves exact prior-overlap risk; Oxford authorized attempt returned vpn_disconnected, not a noncoverage certification.
+
+## value
+
+PASS
+
+The dodecahedron is a classical well-motivated graph; its full resolving polynomial and iff antipodal-pair criterion specify exactly which landmarks distinguish vertices and determine all cardinality counts, including 960 minimum sets. These structural reliability data are not supplied by the known scalar metric dimension, and a natural complete finite invariant can be valuable independently of an infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
