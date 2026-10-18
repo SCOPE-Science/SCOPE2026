@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The equations are transcribed from Gao (2026), equations (6) and (7), with \(A=r-b\) and \(K=k_2\). On the stated open wedge, signs of both derivatives make the wedge forward invariant for the ODE, and bounds \(u(t)\le u_0 e^{-\delta t}\), \(v_0e^{\theta t}\le v(t)\le v_0e^{cf t/d}\) establish global existence and integrability of the exact rate deficit. The logarithmic asymptotic constants follow from that identity and L'Hôpital's rule. The Euler proof gives a strict geometric lower bound until the first nonpositive prey iterate, whose existence follows from the same prey multiplier; no invalid extension through a negative state is used. A standard-library checker confirms the rational witness and verifies its finite simulation within the analytic bound. The theorem does not infer an infinite-horizon statement from this finite experiment.
+PASS
 
-## Originality — PASS
+For u′=u(A−r k1 u−a v), v′=c v (K−v)(eu−f)/(K+dv) with A=r−b, K=k2, the wedge 0<u<f/e, v>max(K,A/a) is forward invariant for the ODE: u decreases and v increases. With g(v)=(v−K)/(K+dv), 0<g<1/d and g′>0; exponential lower/upper bounds give global existence, u→0, v→∞. Exact deficit cf/d−(log v)′=ce u g(v)+cfK(1+d)/(d(K+dv)) is time-integrable, proving v e^{−cft/d}→C>0; derivative ratio or l’Hôpital yields −log u/v→ad/(cf). Under any Euler h>0, positivity until exit forces v_n≥v0 q^n with q>1 and u_n decreasing; as soon as v_n≥max(v0,(A+1/h)/a), the prey multiplier is ≤0, proving explicit bound. Independent exact-rational witness u1=21/64, v1=57/14, q=57/56; forward simulation first crosses at 16 vs rigorous upper bound 53.
 
-The exact motivating primary full text covers local equilibrium stability, flip and Neimark–Sacker bifurcations and finite numerical trajectories; its statements do not imply the unrestricted open overcapacity runaway region or its exact asymptotic rates and the complementary step-size-independent finite-positivity failure. Semantically focused prior-search checks find related but non-identical Smith-growth predator–prey systems, including Bai–Zheng–Kang (2024), whose predator–prey equations are different and whose consulted primary abstract does not state this source-specific phenomenon. Elsadany et al. (2026) use Smith growth in prey and a different response. Similar keywords or generic Euler positivity cautions do not imply these simultaneous conclusions. Full text for Bai–Zheng–Kang was unavailable from the consulted source, so possible deeper connections remain a residual risk; failed searches alone are not novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-This is a structural, parameter-independent boundary in the newly published ecological equations: above carrying capacity, low prey reverses density feedback, yielding a precise predator asymptotic and a superexponential prey decline. The same mathematical input has no globally nonnegative forward-Euler realization for *any* fixed positive step, despite small-step restrictions. That exact continuous/discrete discrepancy is materially relevant to interpreting the model's bifurcations, numerical long-run trajectories, and admissible biological state domain. No empirically realistic runaway population is asserted, and the theorem does not overturn any local equilibrium calculation.
+The exact Gao 2026 source treats equilibrium stability, local bifurcations and numerical trajectories for the same continuous and Euler equations. Its accessible full text does not derive the overcapacity invariant wedge, exact two asymptotic constants or step-size-independent positivity loss. Other Smith-type predator–prey sources use different multiplicative/additive predation laws or Smith prey-growth mechanisms, so they do not directly imply these paired conclusions. Abstract-only limitations retained.
 
-## Closest literature and limits
+## value
 
-Gao (2026), DOI 10.1155/jom/9152254, full text and equations (6)–(7). Bai–Zheng–Kang (2024), DOI 10.3934/dcdsb.2023161, accessed abstract/metadata but not primary full text. Elsadany et al. (2026), DOI 10.28924/2291-8639-24-2026-165, accessed abstract/metadata. The finite replay is a spot check, not a general proof. Independent assessment is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Above capacity, low prey reverses feedback; showing global predator runaway together with quantified superexponential prey decline reveals a model-state boundary. Every positive Euler step loses nonnegativity for the same open set, even under published small-step constraints, a substantive warning about interpreting long-term numerical trajectories.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and mathematical checks
 
-The exact-rational executable `verify.py` is included in this package, requires Python 3 and no third-party packages, and prints `VERIFY_OK`. It tests the fully admissible parameter witness, both first-step population fractions, the geometric lower factor, and the sample finite-exit inequality; a 65-digit decimal sample independently gives first nonpositive prey index 16, within the rigorous index bound 53.
+# Independent mathematical audit
 
-The **proof**, rather than a finite numerical orbit, establishes the two universal statements: monotone invariant region for the ODE and finite positive-quadrant exit for every forward-Euler step. The key unbounded-time inputs are \(g'(v)=K(1+d)/(K+dv)^2>0\), the exponential lower/upper bounds on predator density, integrability of the exact logarithmic deficit, and the argument using geometric growth of predator density until the earliest Euler exit.
+## correctness
 
-The model equations and time-step conventions were compared directly to the cited motivating primary article. There is no certified proof assistant, independent audit, finite-time clinical/ecological measurement, or empirical validation. The quantitative constant in the continuous limit depends on the initial conditions.
+PASS
+
+For u′=u(A−r k1 u−a v), v′=c v (K−v)(eu−f)/(K+dv) with A=r−b, K=k2, the wedge 0<u<f/e, v>max(K,A/a) is forward invariant for the ODE: u decreases and v increases. With g(v)=(v−K)/(K+dv), 0<g<1/d and g′>0; exponential lower/upper bounds give global existence, u→0, v→∞. Exact deficit cf/d−(log v)′=ce u g(v)+cfK(1+d)/(d(K+dv)) is time-integrable, proving v e^{−cft/d}→C>0; derivative ratio or l’Hôpital yields −log u/v→ad/(cf). Under any Euler h>0, positivity until exit forces v_n≥v0 q^n with q>1 and u_n decreasing; as soon as v_n≥max(v0,(A+1/h)/a), the prey multiplier is ≤0, proving explicit bound. Independent exact-rational witness u1=21/64, v1=57/14, q=57/56; forward simulation first crosses at 16 vs rigorous upper bound 53.
+
+## originality
+
+PASS
+
+The exact Gao 2026 source treats equilibrium stability, local bifurcations and numerical trajectories for the same continuous and Euler equations. Its accessible full text does not derive the overcapacity invariant wedge, exact two asymptotic constants or step-size-independent positivity loss. Other Smith-type predator–prey sources use different multiplicative/additive predation laws or Smith prey-growth mechanisms, so they do not directly imply these paired conclusions. Abstract-only limitations retained.
+
+## value
+
+PASS
+
+Above capacity, low prey reverses feedback; showing global predator runaway together with quantified superexponential prey decline reveals a model-state boundary. Every positive Euler step loses nonnegativity for the same open set, even under published small-step constraints, a substantive warning about interpreting long-term numerical trajectories.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
