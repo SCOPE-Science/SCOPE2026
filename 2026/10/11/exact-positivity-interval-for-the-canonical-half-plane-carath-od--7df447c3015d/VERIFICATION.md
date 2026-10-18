@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,132 +19,24 @@
 }
 ---
 
-With
-\[
-w=\lambda z
-\]
-and
-\[
-\beta=1-\alpha,
-\]
-the source formula is
-\[
-H_\alpha(w)
-=
-\frac{
-1-(1-\beta)w-\beta^2w^2
-}{
-(1+w)(1-\beta w)
-}.
-\]
+# Independent mathematical audit
 
-For
-\[
-0<\beta<1
-\]
-and
-\[
-|w|=1,
-\]
-write
-\[
-x=\operatorname{Re}w.
-\]
-Direct algebra gives
-\[
-\operatorname{Re}H_\alpha(w)
-=
-\frac{
-\beta(\beta^2+3-2(\beta+1)x)
-}{
-2(\beta^2+1-2\beta x)
-}.
-\]
-Its derivative in
-\[
-x
-\]
-is exactly
-\[
--\frac{
-\beta(1-\beta)^2
-}{
-(\beta^2+1-2\beta x)^2
-}.
-\]
-Therefore the finite boundary minimum is approached at
-\[
-w=1
-\]
-and equals
-\[
-\beta/2.
-\]
+## correctness
 
-The partial-fraction identity
-\[
-H_\alpha(w)
-=
-\beta
-+
-\frac{(1-\beta)(\beta+2)}
-{(\beta+1)(1+w)}
--
-\frac{1-\beta}
-{(\beta+1)(1-\beta w)}
-\]
-shows that the exceptional boundary point
-\[
-w=-1
-\]
-has limiting real part strictly above
-\[
-\beta/2
-\]
-from inside the disk. The harmonic minimum principle therefore gives
-\[
-\operatorname{Re}H_\alpha(w)>\beta/2
-\]
-in the disk, and radial convergence to
-\[
-w=1
-\]
-proves sharpness.
+PASS
 
-At
-\[
-\alpha=0,
-\]
-the function is identically
-\[
-1.
-\]
-At
-\[
-\alpha=1,
-\]
-it is
-\[
-(1-w)/(1+w),
-\]
-which has positive real part in the disk and infimum zero.
+For β=1−α and w=λz, independently cross-multiplied H=[1−(1−β)w−β²w²]/[(1+w)(1−βw)]. On |w|=1 away from −1, Re H = β(β²+3−2(β+1)x)/(2(β²+1−2βx)); derivative in x is −β(1−β)²/(β²+1−2βx)². For 0<β<1 this decreases to β/2 as w→1; partial fractions give a positive pole near w=−1, enabling harmonic minimum principle and strict interior floor. At α=0 H=1, α=1 H=(1−w)/(1+w) with infimum0, unattained. For α<0 or α>2 an uncancelled interior denominator zero occurs; for 1<α≤2 the boundary at w=i has negative real part and nearby interior witnesses. Independent exact sympy identities and endpoint tests passed.
 
-For
-\[
-\alpha<0
-\]
-or
-\[
-\alpha>2,
-\]
-the continued formula has an interior pole. For
-\[
-1<\alpha\le2,
-\]
-its boundary real part at
-\[
-w=i
-\]
-is negative, so nearby interior points also have negative real part.
+## originality
 
-All displayed identities were replayed symbolically. Numerical evaluations were used only as consistency checks.
+PASS
+
+The source gives only the rational component and numerical random samples; the target determines the exact sharp infimum for the rotated half-plane family, its maximal real-α Carathéodory interval, and the α=1 pointwise-versus-uniform positivity distinction. Other Resultary published results disproving universal positivity on different convex sector maps do not imply the family-specific floor.
+
+## value
+
+PASS
+
+The exact sharp real-part lower envelope for the source’s canonical extremal convex map resolves its sampled positivity claim and identifies a genuine logical flaw in equating pointwise positivity with a strictly positive global minimum at α=1. A complete natural one-parameter classification is useful despite not settling all convex maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
