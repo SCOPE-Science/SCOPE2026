@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses exact finite-dimensional identities. The critical chain is:
-\[
-A_{ij}^2=\operatorname{Tr}(ho_{ij}\widetilde{ho}_{ij})
-=1-\operatorname{Tr}ho_i^2-\operatorname{Tr}ho_j^2+\operatorname{Tr}ho_k^2
-=rac12(T_i+T_j-T_k).
-\]
-Substitution of the three CKW equalities yields
-\[
-A_{ij}^2=c_{ij}^2+rac{	au}{2}.
-\]
-Summing yields
-\[
-A_{\mathrm{tot}}^2=rac12(T_1+T_2+T_3)=rac{3Q}{2}.
-\]
+# Independent mathematical audit
 
-The normalization was checked against the defining source's GHZ, W, and Bell-pair-product examples. A direct floating-point evaluation on randomly generated normalized three-qubit amplitudes also checked the spin-flip/purity identity for all three pairs to machine precision; that experiment is only a sanity check and is not used as proof.
+## correctness
 
-The result does not verify any mixed-state extension, higher-party formula, or general LOCC-monotonicity conjecture.
+PASS
+
+Read defining Akhtarshenas arXiv:quant-ph/0311166v3 Eq.(26)-(31) and rendered page 6. In three qubits each i,j SO(2) generator is unique and squared pair norm equals spin-flip overlap Tr(rho_ij tilde rho_ij). The two-qubit universal spin-flip gives 1-Tr rho_i^2-Tr rho_j^2+Tr rho_ij^2; complementary-state spectra for global purity yield Tr rho_ij^2=Tr rho_k^2. Defining T_i=2(1-Tr rho_i^2) therefore gives A_ij^2=(T_i+T_j-T_k)/2; inserting CKW monogamy T_i=c_ij^2+c_ik^2+tau gives c_ij^2+tau/2. Summing equals (T1+T2+T3)/2=3Q/2 by Q=(sum T_i)/3. Checks GHZ: A=1/sqrt2 despite c=0, W: A=2/3 with tau0, and Bell pair+product: one A=1 other zero. Correct domain pure 3 qubits; no higher-dimensional or mixed-state claim.
+
+## originality
+
+PASS
+
+Akhtarshenas original defines pairwise subvector and gives GHZ/W numeric examples, but not exact CKW three-tangle or Meyer-Wallach decomposition. CKW and universal spinflip already supply general invariants; prior review Amico et al remarks entries are not reduced-pair concurrences; concurrence-of-assistance relation is a close alternate route. A targeted combination is needed to identify exactly the named original pair-subvector with the invariant mixture. Best-of-knowledge explicit identification not found in inspected sources, though short derivation and obscure equivalents pose priority risk.
+
+## value
+
+PASS
+
+Original pair-labelled quantity is potentially misleading because GHZ has zero ordinary pair entanglement yet nonzero subvector. Exact universal identity quantifies contamination by half the three-tangle and proves the total collapses to a simple rescaling of pre-existing global entanglement Q. This is a motivated structural interpretation and limitation of a published invariant, not an unsupported claim of an independent entanglement monotone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
