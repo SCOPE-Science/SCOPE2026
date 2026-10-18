@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T06:13:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md Git blob f9395c053ee954714b838fd312fa777924ee8df8",
+        "pinned verify_hazard.py Git blob 81642855b1de06cf03e11f04b4e4970cc55419fb",
+        "science_checks.py independently evaluates EML exact hazard and high-precision derivatives at u=25 and 35"
+      ],
+      "rationale": "With u=theta x and a=1/(1+theta), the original modified-Lindley baseline has s0=e^(−u)(1+a u e^(−u)) and f0=theta e^(−u)[1+a(2u−1)e^(−u)]. It follows exactly that h0/theta=[1+a(2u−1)e^(−u)]/[1+a u e^(−u)]=1+a(u−1)e^(−u)+O(u²e^(−2u)). Raising the baseline CDF to alpha>0 multiplies h0 by M_alpha(s0)=alpha s0 (1−s0)^(alpha−1)/[1−(1−s0)^alpha]=1−(alpha−1)s0/2+O(s0²). Thus h/theta=1+[a(u−1)−(alpha−1)/2]e^(−u)+O(u²e^(−2u)) and the explicitly differentiated exact analytic formula gives d(h/theta)/du=[a(2−u)+(alpha−1)/2]e^(−u)+O(u²e^(−2u)). Since the u e^(−u) term dominates, h approaches theta FROM ABOVE and h′<0 eventually for every theta,alpha>0. The two scaled limits are theta/(1+theta) and −theta²/(1+theta). At alpha>1, the small-x hazard behaves as const*x^(alpha−1), giving increasing hazard near x=0; at alpha=1, h′(0+)=theta²(2theta+3)/(1+theta)²>0. Thus alpha>=1 has at least one interior local maximum. Independent high-precision 70-digit direct evaluation at u=25,35 for three parameter pairs confirmed exact normalized correction and strictly negative far-tail derivative; numerical tests are not the proof of eventuality.",
+      "residual_risks": [
+        "No uniqueness of hazard peak is proved; alpha<1 nearzero hazard may diverge and intermediate extrema are unclassified.",
+        "The first-order asymptotic alone does not provide the smallest finite sign-change time.",
+        "The analytic derivative expansion is justified by the exact expression, not by blindly differentiating a bare big-O term."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Lehmann alternatives model F^alpha, and standard hazard-factorization identities do not determine sign of terminal derivative for this modified Lindley baseline without its specific asymptotic coefficient.",
+          "Original 2021 modified-Lindley baseline covers only alpha=1 if its baseline hazard is studied; it cannot dominate every alpha>0 without an exponentiation theorem with this correction."
+        ],
+        "reasoning": "A broader or better-known method/family would cover this claim only if its actual hypotheses and conclusions imply the stated all-parameter mathematical result. The named sources and comparisons instead establish the specific narrower relationships above; no dominance of the full claim was identified.",
+        "searches": [
+          "Resultary semantic search: exponentiated modified Lindley distribution hazard tail limit eventually decreasing upper approach interior maximum",
+          "Web search: \"exponentiated modified Lindley\" \"eventually decreasing\" hazard",
+          "Full-text search and comparison of Sarhan et al DOI 10.3934/math.2026093, Section 2.2 HRF asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/math/2026/1/PDF/math-11-01-093.pdf",
+        "doi:10.3934/math.2026093",
+        "doi:10.1080/09720510.2020.1824727"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing lim h(x)=theta does not imply approach from above, nor eventual monotonicity or a maximum; the sign of a(u−1)e^(−u)−(alpha−1)e^(−u)/2 is essential.",
+          "Nearzero increasing hazard alone does not force an interior maximum without the proved negative far-tail derivative."
+        ],
+        "reasoning": "These are the actual mathematical implication tests against closest sources. Prior named source results imply some background identities or special cases but do not, in material read, logically entail the entire submitted final claim. Unread plausible sources are retained as residual uncertainty.",
+        "searches": [
+          "Resultary semantic search: exponentiated modified Lindley distribution hazard tail limit eventually decreasing upper approach interior maximum",
+          "Web search: \"exponentiated modified Lindley\" \"eventually decreasing\" hazard",
+          "Full-text search and comparison of Sarhan et al DOI 10.3934/math.2026093, Section 2.2 HRF asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sarhan et al 2026 equations (2.1)–(2.4) specify the same F^alpha distribution; Section 2.2 describes alpha monotonic changes, not eventual derivative negativity.",
+          "The exact right-tail expansion is not an alternative normalization of a quoted prior limit but a stronger signed first-order and derivative statement."
+        ],
+        "reasoning": "Sarhan et al (AIMS Mathematics 11(1), 2026, DOI 10.3934/math.2026093) define EXACTLY this EML law in formulas (2.1)-(2.4). Their Section 2.2 discusses the effect of exponent alpha on hazard and displays curves approaching the terminal level but does not give the signed right-tail correction, derivative scaled limit, theorem of eventual decrease for all alpha or interior maximum for alpha>=1. Indeed its plotted x-windows can conceal the extremely late turnaround. Lehmann exponentiation is standard and the multiplier itself not novel, but the exact base-specific (u-1)e^(-u) correction, competition with alpha and terminal derivative law are not stated in inspected source. No covering general theorem for this exact pair and rate was found in searches. The 2021 source of the baseline modified Lindley distribution was not fully accessed; since it has alpha=1 only, it could imply the baseline special case, but cannot alone prove the all-alpha result.",
+        "searches": [
+          "Resultary semantic search: exponentiated modified Lindley distribution hazard tail limit eventually decreasing upper approach interior maximum",
+          "Web search: \"exponentiated modified Lindley\" \"eventually decreasing\" hazard",
+          "Full-text search and comparison of Sarhan et al DOI 10.3934/math.2026093, Section 2.2 HRF asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The model is continuous-parametric; numerical plotting/table databases cannot establish for ALL theta,alpha the eventual sign.",
+          "Resultary hazard/Lehmann semantic search returned unrelated tail/asymptotic findings, no full EML terminal theorem."
+        ],
+        "reasoning": "Compare full exact result, not coincident sample numbers or parameter labels. Source tables or indexed entries do not document this entire theorem; for continuous-parametric or structural cases, enumerative database coverage is not itself directly applicable, as explained in the evidence.",
+        "searches": [
+          "Resultary semantic search: exponentiated modified Lindley distribution hazard tail limit eventually decreasing upper approach interior maximum",
+          "Web search: \"exponentiated modified Lindley\" \"eventually decreasing\" hazard",
+          "Full-text search and comparison of Sarhan et al DOI 10.3934/math.2026093, Section 2.2 HRF asymptotic"
+        ]
+      },
+      "rationale": "Sarhan et al (AIMS Mathematics 11(1), 2026, DOI 10.3934/math.2026093) define EXACTLY this EML law in formulas (2.1)-(2.4). Their Section 2.2 discusses the effect of exponent alpha on hazard and displays curves approaching the terminal level but does not give the signed right-tail correction, derivative scaled limit, theorem of eventual decrease for all alpha or interior maximum for alpha>=1. Indeed its plotted x-windows can conceal the extremely late turnaround. Lehmann exponentiation is standard and the multiplier itself not novel, but the exact base-specific (u-1)e^(-u) correction, competition with alpha and terminal derivative law are not stated in inspected source. No covering general theorem for this exact pair and rate was found in searches. The 2021 source of the baseline modified Lindley distribution was not fully accessed; since it has alpha=1 only, it could imply the baseline special case, but cannot alone prove the all-alpha result.",
+      "residual_risks": [
+        "The 2021 baseline-paper full text remained inaccessible; it might contain alpha=1 eventual hazard behavior.",
+        "An unindexed application of general Lehmann hazard asymptotics might yield the all-alpha law.",
+        "Source plot range appears to show increasing tails for some alpha; it does not settle asymptotically arbitrarily large x."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_DISTRIBUTION_AND_BASE_HAZARD; NO_ALL_ALPHA_SIGNED_TERMINAL_DERIVATIVE_CLASSIFICATION",
+          "evidence": [
+            "Equations (2.3),(2.4) define survival and hazard; Section 2.2 discusses alpha influence and Figure 2 but does not state h′<0 eventually for every alpha."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/1/PDF/math-11-01-093.pdf",
+          "material_read": "Complete 28-page open-access source PDF and rendered page 5 (p. 2317), formulas 1.1–1.3, 2.1–2.4, Section 2.1 small-x and 2.2 hazard, relevant figures and conclusion",
+          "method": "Full primary-PDF text reading, focused equation/section inspection and visual page",
+          "title": "The exponentiated modified Lindley distribution with diverse biomedical and epidemiological applications",
+          "trigger": "exact same two-parameter family and hazard-shape discussion"
+        },
+        {
+          "assessment": "POTENTIALLY_RELEVANT_BASELINE_SOURCE_UNINSPECTED_IN_FULL",
+          "evidence": [
+            "Sarhan 2026 identifies Chesneau–Tomy–Gillariose as baseline source. Inability to read does not imply absence of baseline-only asymptotic theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/09720510.2020.1824727",
+          "material_read": "Abstract and bibliography of Sarhan 2026 paper; 2021 original complete body unavailable",
+          "method": "Bibliographic/abstract inspection only, NOT complete primary-text reading",
+          "title": "A new modified Lindley distribution with properties and applications",
+          "trigger": "precursor baseline could cover alpha=1 case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.aimspress.com/aimspress-data/math/2026/1/PDF/math-11-01-093.pdf",
+        "doi:10.3934/math.2026093",
+        "doi:10.1080/09720510.2020.1824727",
+        "pinned RESULT.md Git blob f9395c053ee954714b838fd312fa777924ee8df8"
+      ],
+      "rationale": "For a new reliability/survival family, distinguishing eventual decrease from apparently monotone-increasing plots determines its qualitative hazard shape. Showing that alpha>=1 necessarily entails at least one interior maximum for ANY theta, and providing the signed, parameter-uniform leading terminal coefficient, is a substantive model-specific asymptotic correction relevant to reliability characterization, not a purely numeric plotting artifact.",
+      "residual_risks": [
+        "The 2021 baseline-paper full text remained inaccessible; it might contain alpha=1 eventual hazard behavior.",
+        "An unindexed application of general Lehmann hazard asymptotics might yield the all-alpha law.",
+        "Source plot range appears to show increasing tails for some alpha; it does not settle asymptotically arbitrarily large x."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "All positive alpha,theta: eventual decrease only, no smallest threshold. For alpha>=1: existence, not uniqueness, of an interior max."
+  ]
+}
