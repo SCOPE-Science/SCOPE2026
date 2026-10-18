@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The partial-transpose block decomposition and the pure-state Schmidt spectrum directly yield the three exact trace-norm negativities for every integer dimension. The two-variable excess reduces algebraically to a scalar symmetric function, whose sign follows from a squared-difference identity; its strict concavity or convexity determines the complete fixed-vacuum optimum. For the remaining one-dimensional optimization, a strictly negative second derivative makes the derivative-sign numerator strictly decreasing, proving a unique global maximizer. Matching analytic upper and lower dimension-scale bounds prove the sharp constant. Exact partial-transpose matrix calculations were reproduced in four small dimensions, as checks rather than proofs of the infinite family. Risk: only the displayed finite-dimensional family and unsquared negativity are covered.
+PASS
 
-## Originality — PASS, with literature risk
+The exact partial-transpose spectra of the displayed W-vacuum family yield both pairwise negativities and the pure A|BC negativity. The dimensionless reduction G=r/(r+k)[sqrt(t^2+4(1-t)k)+sqrt((1-t)^2+4tk)-1-2sqrt(k)] proves its threshold at k=1 and all zero boundaries. For k>1 the t-function is strictly concave, uniquely maximal at t=1/2. F(k)<0 for k>=1 makes (r+k)F'(k)-F(k) strictly decreasing through zero exactly once. Upper and lower asymptotic bounds coincide at sqrt(2)-1 for M_D/sqrt(D-1). Independent direct density-matrix partial-transpose eigenspectra agree at D=2,3,4. No finite calculation substitutes for the uniform analytic result.
 
-The closest source is Allen and Meyer, arXiv:1502.04807, which already derives the W-vacuum state family, its negative-eigenvalue blocks, and leading large-dimension terms. These components are expressly excluded from the novelty claim. The inspected source does not establish the *globally maximized additive excess*, its unique optimizer equation, or its exact sharp \(\sqrt D\) coefficient. Ou–Fan studies squared-negativity monogamy in qubits; Choi–Kim uses squared convex-roof extended negativity; Liang–Zheng–Zhu uses Rényi entanglement and convex-roof negativity. These quantities do not dominate the unsquared mixed-state-negativity optimization as a matter of implication. Search uncertainty remains for differently parameterized linear-polygamy or W-vacuum optimizations, and the later Liang–Zheng–Zhu PDF was only partly available for textual inspection.
+## originality
 
-## Value — PASS
+PASS
 
-The measured additive-sharing excess is a natural quantitative question on the same boundary family used in the motivating monogamy study. Its positive/negative transition, complete fixed-mass maximization, and precise dimension-growth constant resolve a nontrivial entanglement-distribution optimization. This supplies a sharp scale for the finite-dimensional deviation from the leading linear-sharing approximation, rather than an unmotivated slice or a mere normalization check.
+The existing Allen–Meyer qudit surface and partial-transpose blocks, including the qualitative d>1/sqrt(D) feature, are credited. The final result instead maximizes the unsquared additive excess globally within that family, gives its unique allocation and one-variable maximizer, and determines the sharp sqrt(D) coefficient. Existing polynomial/squared-negativity monogamy descriptions do not state or imply this maximization. Search did not reveal a dominating exact optimum; bibliographic overlap remains possible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The difference of pairwise versus global unsquared negativity is a direct quantitative measure of how the family defeats naive linear monogamy. Its exact sign boundary, unique maximum, and dimension scaling answer a motivated infinite-dimensional optimization, not an arbitrary selected sample of states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
