@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is exact. The target functional is Eq. (23) of arXiv:quant-ph/0505109.
+# Independent mathematical audit
 
-For the state
-\[
-|\psi_0\rangle=\frac{|000\rangle+|110\rangle}{\sqrt2},
-\]
-the only nonzero fixed-spectator pair-\(12\) determinant is \(1/2\), so
-\[
-C_{W^3}(\psi_0)^2/N^W_3=1.
-\]
+## correctness
 
-Applying \(iH\) to the third qubit produces, up to global phase,
-\[
-|\psi_+\rangle=\frac{|000\rangle+|001\rangle+|110\rangle+|111\rangle}{2}.
-\]
-There are now two nonzero pair-\(12\) determinants, each \(1/4\), so
-\[
-C_{W^3}(\psi_+)^2/N^W_3=1/2.
-\]
+PASS
 
-The accompanying `verify.py` reconstructs these minors in exact arithmetic in \(\mathbb Q(\sqrt2)\), checks the local transformation, and checks \(\det(iH)=1\). It prints `VERIFY_OK` on success.
+Reconstructed Heydari 2005 W^3 Eq.(23) as the three families of 2x2 minors with a spectator index fixed. For |Phi+>_12 tensor |0>_3 the sum of squared minors is exactly 1/4; for the state after H on spectator it is exactly 1/8. Independently computed these from coefficient tensors with exact rational/symbolic arithmetic. Multiplying H by i gives determinant(iH)=1, a local SU(2) operation, and changes the state only by global phase. Therefore C_after/C_before=1/sqrt(2) for every positive normalizer N. A genuine LOCC monotone must be invariant under invertible deterministic local unitaries (apply U and U^{-1}), so the 2005 claimed monotonicity fails as stated. The example is biseparable, specifically admitted in source scope, and does not address a later revised functional.
 
-The executable replay is finite verification of the displayed counterexample; the conclusion about failure of invariance follows analytically from the exact unequal values. The result does not test or certify any later redefined concurrence.
+## originality
+
+PASS
+
+Best-of-knowledge original concrete counterexample to the exact 2005 W^3 Eq.(23) functional. Inspected original preprint formula and surrounding SLOCC/LOCC claim, later same-author redefinition, and a different earlier concurrence construction. The routine local-unitary invariance criterion is known; the contribution is an exact identified violation by a simple physically meaningful state. Focused published and Resultary searches located no prior equivalent witness; absence remains a residual priority risk.
+
+## value
+
+PASS
+
+The functional was presented as an entanglement monotone; an exact SU(2) counterexample on a separable spectator gives a substantive falsification of its stated structural property. The small witness is maximally motivated by the physical requirement that spectator-local basis rotations cannot alter entanglement. This is an identifiable mathematical correction, not a cheap arbitrary point calculation; scope is explicitly restricted to the original 2005 formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

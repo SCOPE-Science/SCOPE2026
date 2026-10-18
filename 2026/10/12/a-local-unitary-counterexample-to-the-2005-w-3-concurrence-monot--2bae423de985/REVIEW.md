@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Eq. (23) reduces on the stated sparse family to the squared pair-\(12\) slice minors. For \(|\psi_0\rangle\) their squared sum is \(1/4\); after the local spectator rotation it is \(1/8\). Thus \(C_{W^3}^2/N^W_3\) changes exactly from \(1\) to \(1/2\). The operation can be taken to be \(iH\), whose determinant is one, so it lies in the very \(SL(2,\mathbb C)\) class invoked by the source. Local-unitary reversibility then rules out entanglement monotonicity.
+## correctness
 
-## Originality
-**PASS.** Searches using the source title and identifier, W-class/concurrence aliases, SLOCC and local-unitary terminology, and the Bell-pair spectator construction found no implication-equivalent published correction. The closest same-author follow-up constructs a different concurrence and explicitly distinguishes it from the 2005 concurrence classes. Wang's earlier concurrence-vector construction is also a different functional.
+PASS
 
-## Value
-**PASS.** Local-unitary invariance is a minimal structural requirement for an entanglement monotone. Showing that a published multipartite concurrence changes under a reversible operation on a separable spectator removes its claimed monotone interpretation and identifies the precise failure mechanism: incoherent summation of fixed-spectator slice minors.
+Reconstructed Heydari 2005 W^3 Eq.(23) as the three families of 2x2 minors with a spectator index fixed. For |Phi+>_12 tensor |0>_3 the sum of squared minors is exactly 1/4; for the state after H on spectator it is exactly 1/8. Independently computed these from coefficient tensors with exact rational/symbolic arithmetic. Multiplying H by i gives determinant(iH)=1, a local SU(2) operation, and changes the state only by global phase. Therefore C_after/C_before=1/sqrt(2) for every positive normalizer N. A genuine LOCC monotone must be invariant under invertible deterministic local unitaries (apply U and U^{-1}), so the 2005 claimed monotonicity fails as stated. The example is biseparable, specifically admitted in source scope, and does not address a later revised functional.
 
-## Closest literature and limitations
-The closest primary sources are Heydari's 2006 redefinition of multipartite concurrence, which says the new quantity is not the 2005 concurrence-class functional, and Wang's 2004 W-class concurrence-vector construction, which uses a different definition. The claim does not extend to those quantities. The search cannot exclude an unindexed observation of the same counterexample.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original concrete counterexample to the exact 2005 W^3 Eq.(23) functional. Inspected original preprint formula and surrounding SLOCC/LOCC claim, later same-author redefinition, and a different earlier concurrence construction. The routine local-unitary invariance criterion is known; the contribution is an exact identified violation by a simple physically meaningful state. Focused published and Resultary searches located no prior equivalent witness; absence remains a residual priority risk.
+
+## value
+
+PASS
+
+The functional was presented as an entanglement monotone; an exact SU(2) counterexample on a separable spectator gives a substantive falsification of its stated structural property. The small witness is maximally motivated by the physical requirement that spectator-local basis rotations cannot alter entanglement. This is an identifiable mathematical correction, not a cheap arbitrary point calculation; scope is explicitly restricted to the original 2005 formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
