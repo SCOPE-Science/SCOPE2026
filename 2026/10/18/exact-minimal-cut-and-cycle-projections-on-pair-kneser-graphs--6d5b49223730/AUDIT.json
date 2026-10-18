@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For each \\(n\\ge5\\) and oriented edge, the explicit six-level mean-zero potential solves the finite connected graph Laplacian Poisson equation. The orthogonal graph cut projection has column D^T h, and exhaustive *symbolic* edge-class incidence counts give the two endpoint column sums. Edge transitivity and self-adjointness give endpoint row sums. Uniqueness of group-equivariant cut projection follows from the exact two-parameter stabilizer-potential classification and the two independent off-diagonal equations for H D^T. Adjoint intertwiners imply uniqueness on cycles; averaging over signed permutation isometries then proves all-p minimality. The discrete differences show the stated sharp maxima. The packaged standard-library exact checker verified 652346 assertions at dimensions 5 through 10, but the universal conclusion is proved algebraically, not inferred from those finite checks. Main risks: correct handling of graph orientations and the two edge-orbit classes; these are explicit in the written proof and checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2305.12582v1, Theorem 5: uniqueness iff orthogonal representation modules on cuts and cycles have no common subrepresentations; the paper does not calculate Kneser projection norms.",
+        "arxiv:2305.12582v1, Section 2.1 summary: results explicitly for tori, Hamming graphs and Hamming cube.",
+        "arxiv:1807.03814v1 and arxiv:2007.07949: specific estimates and projections for diamond and Laakso families, with different graph models."
+      ],
+      "reasoning": "A general averaging/uniqueness theorem does not by itself supply the Kneser stabilizer column computation, the two rational cut/cycle endpoint constants, or the maximizing dimensions. No stronger inspected general result implies this exact statement. Possible undiscovered broader association-scheme formulas are recorded as residual risk.",
+      "searches": [
+        "minimal projections cycle spaces graph generalized Petersen graph 2023",
+        "complete graphs line graphs Petersen graph minimal projection onto cycle spaces",
+        "published primary arxiv:2305.12582v1 Sections 1.4–1.5 and 2.1 summary",
+        "published primary arxiv:1807.03814v1 overview and recursive graph families",
+        "published primary arxiv:2007.07949 overview and diamond/Laakso sections"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2305.12582v1 (primary seed; earliest public 2023-05-21; MSC2020 primary 46B04)",
+      "arxiv:1807.03814v1 (2018 finite-metric transportation framework)",
+      "arxiv:2007.07949 (2020 Laakso and diamond projection literature)",
+      "A previous claim about triangular Johnson graphs, opaque ID 9beeb73a-9ba5-4cd9-a5ba-c70523052392, used only for overlap.",
+      "A previous claim about nonbinary Hamming graph projections, opaque ID 05695b9b-ae19-4e25-bf54-39407bacaf4b, used only for overlap.",
+      "A previous claim about balanced multipartite graph projections, opaque ID 455756fd-66a8-49b9-8b28-8b05c91eea56, used only for overlap."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5 of arxiv:2305.12582v1 is a conditional uniqueness result and does not give projection-column absolute sums or the pair-Kneser family formula.",
+        "J(n,2) joins intersecting pairs, whereas \\(KG(n,2)\\) joins disjoint pairs; although their vertex sets coincide, their edge-coordinate spaces and incidence operators differ.",
+        "Balanced complete multipartite and Hamming graphs have distinct edge structures; neither cited earlier result is a general graph formula that could specialize to pair-Kneser graphs."
+      ],
+      "reasoning": "The current statement is not a reparameterized special case of the inspected theorems: the new incidence geometry, explicit mean-zero Poisson columns, symmetry rigidity and exact norms are needed. Complementing a graph does not complement its cycle space inside a fixed ambient ℓ_p edge space. The possibility of unpublished or otherwise unindexed stronger coverage remains.",
+      "searches": [
+        "arxiv:2305.12582v1, Theorem 5",
+        "opaque prior claim ID 9beeb73a-9ba5-4cd9-a5ba-c70523052392 (triangular Johnson)",
+        "opaque prior claim ID 455756fd-66a8-49b9-8b28-8b05c91eea56 (balanced multipartite)",
+        "opaque prior claim ID 05695b9b-ae19-4e25-bf54-39407bacaf4b (Hamming)",
+        "Kneser KG(n,2) Petersen graph minimal projection cycle space cut space exact l1 constants"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2305.12582v1, contents and Sec 1.4-1.5, Theorem 5, Sec 2.1: general representation criterion and calculations concentrated on Hamming graphs and tori; no occurrence of Kneser or Petersen in searchable primary text.",
+        "arxiv:1807.03814v1 and arxiv:2007.07949: abstracts, detailed contents and family descriptions focus on diamonds, Laakso and recursive graph families; no occurrence of Kneser or Petersen in the searchable full texts."
+      ],
+      "reasoning": "The possible aliases are graph flow space, cycle space, cut space, finite transportation-space quotient, effective-resistance/transfer-current projector, generalized Johnson association scheme, and Petersen graph. No inspected primary calculation gives both rational endpoint norms for all \\(n\\ge5\\); no exact mathematical-record match was returned. Negative queries are not treated as proof of uniqueness.",
+      "searches": [
+        "Kneser KG(n,2) Petersen graph minimal projection cycle space cut space exact l1 constants",
+        "orthogonal projection Kneser graph cycle space transfer current l1 norm Kneser graph",
+        "minimal projection onto cycle space of Petersen graph ℓ1 cut space exact norm 2 and 11/5",
+        "arxiv:2305.12582v1 keyword searches: Kneser; Petersen; strongly regular",
+        "arxiv:1807.03814v1 keyword searches: Kneser; Petersen",
+        "arxiv:2007.07949 keyword searches: Kneser; Petersen"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest located mathematical-record classes concerned cactus edge bases, Johnson spherical projectors, Hamming coordinate projections and unrelated Petersen invariants; none stated a projection norm on the pair-Kneser graph edge space.",
+        "A previously available original claim on triangular Johnson graphs (opaque ID 9beeb73a-9ba5-4cd9-a5ba-c70523052392) evaluates the opposite adjacency relation, not the Kneser edge space.",
+        "Primary indexed paper arxiv:2305.12582v1 contains no explicit Petersen/Kneser table; keyword search of its full parsed text returned no such occurrences.",
+        "Final exact-formula query returned nearest records on cactus transportation bases, a Kneser neighborhood topology problem and Kneser eigenpolytopes; these assert different invariants, not projections onto graph cycle/cut subspaces.",
+        "Final Petersen special-case query returned a record on L1 metric distortions of symmetric graphs; an embedding-distortion invariant does not determine the relative edge-space projection norm."
+      ],
+      "reasoning": "Compared objects and formulas rather than titles. No exact database/table entry with the object \\(KG(n,2)\\), the standard real edge-coordinate cycle/cut spaces and both norm formulas was located; this is limited to the stated searches and is not a theorem of absence.",
+      "searches": [
+        "Kneser KG(n,2) Petersen graph minimal projection cycle space cut space exact l1 constants",
+        "orthogonal projection Kneser graph cycle space transfer current l1 norm Kneser graph",
+        "complete graphs line graphs Petersen graph minimal projection onto cycle spaces",
+        "minimal projection onto cycle space of Petersen graph ℓ1 cut space exact norm 2 and 11/5",
+        "Kneser graph KG(n,2) cycle subspace ℓ1 projection constant equals formula 3 -",
+        "cut space of Kneser graph exact minimal projection ℓp norms",
+        "KG(n,2) l1 cut projection norm 2(n-3)(n+6)/(n(n-1))",
+        "web bibliographic query: \"Kneser\" \"projection constants\" cycle space Lipschitz",
+        "web bibliographic query: \"Petersen graph\" \"minimal projection\" Lipschitz free",
+        "web bibliographic query: \"strongly regular graph\" cut cycle projection l1 norm",
+        "Every Kneser graph KG(n,2) has unique invariant projections onto real cut and cycle spaces with l1 projection norms 2(n-3)(n+6)/(n(n-1)) and 1+that-8(n+1)/(n(n-1)(n-3)), peak n=8 9 and 12",
+        "Petersen graph KG(5,2) exact minimum real l1 norm of cycle projection 2 and cut projection 11/5, orthogonal cut and cycle projections unique automorphism-equivariant"
+      ]
+    },
+    "rationale": "The 2023 primary full text addresses general invariant projections and then tori and Hamming graphs, not pair-Kneser graphs. Its Theorem 5 is a general invariant-uniqueness criterion but neither its statement nor its specialized calculations imply the two rational endpoint constants. Earlier full-text primary papers from 2018 and 2020 analyze transportation spaces and recursive diamond/Laakso graphs. Searches of mathematical research records and bibliographic search results for Petersen, Kneser, cut/cycle projection constants and electrical transfer currents yielded no equivalent calculation. A previous triangular Johnson graph computation uses complement adjacency and a different edge ambient space, so neither projection norm formula implies the present claim. Residual risk: an unindexed stronger theorem for symmetric strongly regular graphs or an electrical-transfer-current table might subsume it.",
+    "residual_risks": [
+      "Index searches are not a mathematical proof of novelty; unindexed older or newer literature may exist.",
+      "A general theorem for strongly regular or association-scheme transfer-current norms, if found, could imply this special graph family.",
+      "The 2018 and 2020 articles were inspected through relevant parts and full-text keyword searches, not every word in all sections."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General uniqueness framework applies, but no Kneser family exact norm formulas in material and no occurrence of the Kneser/Petersen object in searchable PDF.",
+        "evidence": "arXiv v1 2023-05-21, Theorem 5 and Section 2.1 (discrete tori/Hamming); searchable keyword checks returned no Kneser or Petersen.",
+        "identifier_or_url": "arxiv:2305.12582v1; https://arxiv.org/pdf/2305.12582",
+        "material_read": "Full accessible PDF text navigated: abstract, full table of contents, edge-space and cycle/cut definitions, pages 5–9 invariant projection theorem and summary of studied graph families; relevant page images; full-text Kneser/Petersen/strongly-regular keyword checks.",
+        "method": "Read primary PDF at arXiv and its rendered page images; searched actual full parsed text and compared theorem implications.",
+        "title": "Cycle spaces: invariant projections and applications to transportation cost",
+        "trigger": "Exact primary overlap candidate: invariant and minimal cut/cycle projections in graph edge spaces"
+      },
+      {
+        "assessment": "Studies generic geometric estimates and recursive diamond/Laakso families, not the present pair-Kneser exact endpoint constants.",
+        "evidence": "arXiv v1 2018-07-10, sections 1,4,5,6 indicated by detailed contents; full-text searches returned no Kneser/Petersen.",
+        "identifier_or_url": "arxiv:1807.03814v1; https://arxiv.org/pdf/1807.03814",
+        "material_read": "Full accessible PDF navigated: title page/contents, definitions and introduction/overview, statement of graph families and relevant section descriptions; rendered first-page image; full-text targeted Petersen/Kneser checks.",
+        "method": "Primary arXiv PDF text/contents and rendered page; targeted searches of its full parsed text.",
+        "title": "Lipschitz free spaces on finite metric spaces",
+        "trigger": "Earlier geometry of finite transportation-cost spaces and graph cycle projections"
+      },
+      {
+        "assessment": "Projection geometry is for Laakso and diamond families rather than Kneser graph edge spaces.",
+        "evidence": "arXiv initial posting 2020-07-15, PDF version2 2021-02-08; definitions and overview; no Petersen/Kneser matches.",
+        "identifier_or_url": "arxiv:2007.07949; https://arxiv.org/pdf/2007.07949",
+        "material_read": "Accessible PDF abstract, introductory geometry and descriptions of diamond/Laakso graph calculations, first-page image, targeted full-text Petersen/Kneser checks.",
+        "method": "Primary arXiv PDF text and rendered page, with targeted document search.",
+        "title": "Analysis on Laakso graphs with application to the structure of transportation cost spaces",
+        "trigger": "Potential stronger coverage through general projection estimates in transportation spaces"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d5b4922-3730-4e35-9852-f8a7ab1cdc91",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The pair-Kneser \\(KG(n,2)\\) family is a classical, naturally varying graph family containing the Petersen graph. The cut and cycle projection constants are natural Banach-space invariants of the associated transportation quotient and Lipschitz dual; exact values require control of invariant projections, not merely graph spectra. The new formulas give a family-wide distinction between cut and cycle minima, a double maximizer at \\(n=8,9\\) for cuts, a unique maximum at \\(n=12\\) for cycles, and different limits 2 and 3. These exact values and transitions are mathematically motivated by the 2023 primary literature on invariant cycle projections, not an arbitrary isolated parameter choice. Residual risk is bibliographic overlap, already disclosed under originality.",
+    "status": "PASS"
+  }
+}
