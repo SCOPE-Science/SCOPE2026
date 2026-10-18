@@ -1,17 +1,21 @@
-# Scientific comparison and limitations
+# Independent mathematical audit
 
-## Correctness (PASS)
-Direct multiplication gives the three output coordinates \(ad\), \(cf\), and \(ae+bf\) in six effective scalar variables, with exactly six other unconstrained input coordinates. The exhaustive four-case split by whether \(a\) and \(f\) vanish has mutually exclusive hypotheses and no missing boundary cases. The resulting target counts sum to \(q^{12}\); direct exhaustive full-matrix enumeration checks the field orders \(2\) and \(3\), while effective-coordinate enumeration covers \(2,3,4,5\), including a nonprime field. The proof does not infer general validity solely from those computations.
+## correctness
 
-## Originality (PASS, residual risk)
-The image theorem [2, Theorem 3] determines which prescribed targets can be products of two strictly upper-triangular matrices; it does not determine the sizes of those fibers. The maximal nilpotent-subspace classification [1, Theorems 1–2] establishes the natural setting but does not give any matrix-product count. The additive commutator map \((X,Y)\mapsto XY-YX\) is distinct from the product map and its fiber distribution is not an implication in either direction. Searches for product-fiber, nilpotent-radical-factorization, and alternative bilinear-map formulations found no equivalent exact formula. An equivalent historical enumeration under different terminology cannot be excluded.
+PASS
 
-## Value (PASS)
-The complete fiber distribution gives a natural multiplicative word-map invariant for the canonical maximal nilpotent matrix algebra in the first four-vertex case with two independent length-two paths and a length-three overlap. It precisely quantifies how nonuniform the product distribution is, including two target types that are not distinguished by centrality alone. This is a full finite-field classification of ordered product multiplicities, not an arbitrary sample or a mere surjectivity observation.
+Multiplication in J=n_4(F_q) has only (XY)13=x12*y23=u, (XY)24=x23*y34=v, (XY)14=x12*y24+x13*y34=w. Six unused input coordinates yield q^6. Writing a=x12,b=x13,c=x23,d=y23,e=y24,f=y34, the cases (a,f) both nonzero / one zero / both zero contribute q(q−1)², q²(q−1)1_{u=0}, q²(q−1)1_{v=0}, and q^4 1_{u=v=w=0}. Independent six-variable enumeration matched all q³ targets over F2,F3,F5 (and source verifier covers F4), confirming q=2 fiber sizes 1664,640,384,128 with multiplicities 1,1,4,2 and total q^12. The four-case algebraic proof establishes all finite prime powers.
 
-## References and limits
-[1] de Seguins Pazzis, arXiv:1210.4951v1, Theorems 1–2.
-[2] Fagundes, arXiv:1807.09136v1, Theorem 3 and proof.
-The calculation is restricted to dimension four and the binary product word. Finite checks supplement rather than replace the general proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2019 Fagundes image theorem shows that the word XY maps onto J² but does not give targetwise ordered-pair multiplicities in its inspected theorem and proof. De Seguins Pazzis classifies maximal-dimensional nilpotent spaces, a different statement. The natural commutator map [X,Y] is not an equivalent product-fiber map; no comparably precise per-target product formula appeared in the targeted Resultary query. Earlier algebra-product counting in semigroup literature remains a priority risk.
+
+## value
+
+PASS
+
+The multiplication fiber distribution is an intrinsic all-target invariant of the canonical first nontrivial 4×4 strictly triangular algebra (three-dimensional J²). Classifying four strata over every prime-power field is a complete natural finite-semigroup calculation, not an arbitrary collection of small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
