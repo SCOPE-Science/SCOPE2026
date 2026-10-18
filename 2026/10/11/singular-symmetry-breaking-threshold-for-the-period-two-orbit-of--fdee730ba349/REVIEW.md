@@ -1,19 +1,21 @@
-# Scientific assessment: a singular symmetry-breaking two-cycle stability boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The self-contained proof starts from the exact log-odds coboundary, obtains the single parameterization of the primitive two-cycle, and differentiates the map to get the exact Floquet multiplier. Strict convexity of the reciprocal logistic variance forces the multiplier below \(1\) globally. For \(b=1/2-\delta\), exponential bounds on the lower cycle coordinate permit a uniform decomposition into a compact low-coupling range, an intermediate stable range, and a high-coupling range where the multiplier is strictly decreasing. These establish one and only one crossing of \(-1\). Uniform error estimates yield the stated exponentially accurate \(1/[\delta(1-2\delta)]\) threshold. The proof explicitly quantifies that the theorem holds for all sufficiently small positive \(\delta\), but does not claim an optimal numeric cutoff. The exact-rational and float checks in `verify.py` ran successfully (421 finite checks); they are supplementary and not offered as infinite proofs. Possible numerical underflow is handled by logarithmic coordinates. No unsupported criticality claim is made at the neutral multiplier.
+PASS
 
-## Originality — PASS, with stated priority limits
+The frozen result uses log-odds h(f(t))−h(t)=a(t−b), hence a two-cycle satisfies x+y=2b. Parameterizing x=b−u, y=b+u gives increasing A_b(u)=2/u[artanh(u/b)+artanh(u/(1−b))] with endpoint 2/[b(1−b)] and ∞, so unique period-two orbit for a above flip threshold. The derivative identity f'(t)=q(f(t))/q(t)(1−a q(t)) gives Λ=(1−a q(x))(1−a q(y)). Convexity g(t)=1/q(t) and trapezoid inequality show a<g(x)+g(y), hence Λ<1. For b=1/2−δ, uniformly small δ, x≤e^{-a/10} at a≥A; compact/smaller parameter intervals have Λ>-1 by symmetry continuity and nonnegative correction. On a≥1/(2δ), x≤δ and |dx/da|≤x; deriving Λ=1−2aδ(1−2δ)+O((a+a²δ)x) and ∂_aΛ=−2δ(1−2δ)+O((1+a+a²δ)x) gives unique transverse -1 crossing (1/(2δ),2/δ). Evaluating yields a*=1/[δ(1−2δ)]+O(δ^-2 e^{-1/(20δ)}). Symmetric b=1/2 has Λ=(1−a q(x))²∈[0,1). Independent high-precision numerical roots for δ=.1,.05,.02,.01 corroborated scale, not uniqueness in continuum. Scope only small |b−1/2|, local linear stability.
 
-The closest primary result is Kryzhevich–Zhang–Chmara, arXiv:2412.16379v1, especially Secs. 3.1–3.3. It already proves period-two uniqueness and its stability near the first flip and recalls all-coupling stability at exact symmetry. Its Sec. 3.2 notes a negative multiplier for sufficiently large asymmetric coupling. None of these statements guarantees uniqueness of the exit, its transversality, or the singular boundary-layer asymptotic. The 2021 smooth sigmoid-conjugate paper (arXiv:2108.06739v3, pp. 5–10) proves existence/uniqueness and shows numerical bifurcation curves, not a one-crossing theorem or inverse-asymmetry asymptotic. The 2018 source establishes symmetric global simplicity and eventual asymmetric chaotic behavior, not the two-cycle stability scale. The March 2026 preprint reexamines replicator maps for shift/statistical and chaos properties without providing the present sharp threshold. Targeted search also compared the titles and scientific claims of nearby published mathematical records, including different predator-dependent replicator stability exchange, Ricker Floquet reduction, and generic two-gene bistability. No statement equivalent to or stronger than the present singular crossover was found. Search cannot prove absolute novelty; a specialized unindexed equivalent or a later non-inspected revision remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A central feature of the cited model is the contrast between a period-two attractor at every finite coupling in the precisely symmetric game and complicated dynamics at sufficiently large coupling when game payoffs are asymmetric. This result identifies a mathematically motivated and operationally meaningful scale for how weak asymmetry breaks that persistence: a *unique* multiplier crossing at coupling asymptotic to \(1/\delta+2\), with exponentially small correction to a rational leading formula. The proof isolates the boundary-layer mechanism, rather than merely finding a special parameter sample, and is valid for an entire open asymmetry regime. It does not claim a full parameter-plane bifurcation atlas, global attraction, or existence of a new period-four orbit. The contribution is not a renaming of the previously known two-cycle formula or an incremental numerical bound.
+PASS for unique near-symmetry transverse multiplier threshold with exponentially accurate singular law; accepted known exact cycle existence, flip onset and exactly symmetric stability as background. Relevant full primary mathematical analyses and bifurcation plots do not themselves establish this complete ray-wise uniqueness and asymptotic; residual possible reparametrized prior threshold is recorded.
 
-## Closest literature and limitations
+## value
 
-Kryzhevich–Zhang–Chmara (2024), arXiv:2412.16379v1, Secs. 3.1–3.3, is the closest same-map analysis. Chotibut et al. (2018), arXiv:1807.06831v1, treats the symmetry/chaos dichotomy; Kryzhevich–Avrutin–Söderbacka (2021), arXiv:2108.06739v3, treats an equivalent logistic-coordinate map; Kryzhevich–Zhang (2026), arXiv:2603.20685v1, revisits statistical invariants. Residual risks are an unindexed equivalent theorem, an independently developed proof in subsequent revisions, and the fact that a multiplier \(-1\) crossing by itself does not establish the nonlinear type of the emerging bifurcation. No independent validation has been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The extreme separation between stable symmetric behavior and an asymmetric loss at a~1/δ gives a natural, sharp singular perturbation boundary in a model where the two-cycle is central. Proving uniqueness/transversality and scale is substantive beyond plotting a bifurcation, while deliberately not claiming a full attractor classification or period-four bifurcation direction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

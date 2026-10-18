@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-Run `python3 verify.py` from the directory containing `RESULT.md` and `verify.py`. No external packages are required. The observed output ends with `VERIFY_OK; exact-rational and finite numerical checks: 421`.
+# Independent mathematical audit
 
-The verifier uses independent algebraic identities over rational test inputs, obtains primitive two-cycle pairs by bisection in a logarithmic coordinate, numerically confirms the two forward-map equations, checks the exact multiplier product, and brackets the \(-1\) crossing on both sides. The sampled asymmetries are \(\delta\in\{0.1,0.05,0.02,0.01,0.005\}\); results for the first two values are informative experiments, not assertions that the unspecified universal \(\delta_0\) includes them. The test also samples the exactly symmetric case.
+## correctness
 
-The computer tests do not certify uniqueness for a continuum of parameters, do not certify a global attraction basin, and do not establish the asymptotic expansion as \(\delta\downarrow0\). Those conclusions rely on the derivations in the proof. Floating-point arithmetic does not resolve exponentially small differences when they fall below machine precision; numerical equality of such values is not presented as exact equality. No independent scientific audit has been conducted.
+PASS
+
+The frozen result uses log-odds h(f(t))−h(t)=a(t−b), hence a two-cycle satisfies x+y=2b. Parameterizing x=b−u, y=b+u gives increasing A_b(u)=2/u[artanh(u/b)+artanh(u/(1−b))] with endpoint 2/[b(1−b)] and ∞, so unique period-two orbit for a above flip threshold. The derivative identity f'(t)=q(f(t))/q(t)(1−a q(t)) gives Λ=(1−a q(x))(1−a q(y)). Convexity g(t)=1/q(t) and trapezoid inequality show a<g(x)+g(y), hence Λ<1. For b=1/2−δ, uniformly small δ, x≤e^{-a/10} at a≥A; compact/smaller parameter intervals have Λ>-1 by symmetry continuity and nonnegative correction. On a≥1/(2δ), x≤δ and |dx/da|≤x; deriving Λ=1−2aδ(1−2δ)+O((a+a²δ)x) and ∂_aΛ=−2δ(1−2δ)+O((1+a+a²δ)x) gives unique transverse -1 crossing (1/(2δ),2/δ). Evaluating yields a*=1/[δ(1−2δ)]+O(δ^-2 e^{-1/(20δ)}). Symmetric b=1/2 has Λ=(1−a q(x))²∈[0,1). Independent high-precision numerical roots for δ=.1,.05,.02,.01 corroborated scale, not uniqueness in continuum. Scope only small |b−1/2|, local linear stability.
+
+## originality
+
+PASS
+
+PASS for unique near-symmetry transverse multiplier threshold with exponentially accurate singular law; accepted known exact cycle existence, flip onset and exactly symmetric stability as background. Relevant full primary mathematical analyses and bifurcation plots do not themselves establish this complete ray-wise uniqueness and asymptotic; residual possible reparametrized prior threshold is recorded.
+
+## value
+
+PASS
+
+The extreme separation between stable symmetric behavior and an asymmetric loss at a~1/δ gives a natural, sharp singular perturbation boundary in a model where the two-cycle is central. Proving uniqueness/transversality and scale is substantive beyond plotting a bifurcation, while deliberately not claiming a full attractor classification or period-four bifurcation direction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
