@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The proof independently defines the upward-closed valuation space and Kripke implication, establishes a unique first-level normal form for all nonempty upsets, and partitions all ordered pairs into three disjoint categories. The enumeration \(q_i=4^{n_i}-2\cdot3^{n_i}+2^{n_i}\) comes from an exact inclusion–exclusion count of incomparable nonempty subsets. The decisive logical lemma is the common-lower-bound test for failure of \((U\to V)\vee(V\to U)\): two opposite differences from the bottom level have no common predecessor, whereas differences from any higher level have every point in the level below as a common predecessor. This proves the three counts for arbitrary positive integer level sizes, including boundary cases with singleton levels. The described exhaustive verifier checked all 511 positive level compositions through nine points and fourteen larger arithmetic checks. No finite experiment is treated as a substitute for the full argument.
+
+## Originality — PASS (qualified)
+The primary papers by Flaminio et al. (2021), Bumpus and Kocsis (2021), and Lyon (2023) were examined for the closest relevant statements. They establish finite Gödel frame/algebra semantics, the general programme of Heyting satisfiability degrees, and Gödel–Dummett proof theory/frame conditions, respectively; none of the inspected relevant results implies the exact three-cell uniform-valuation spectrum on stacked antichains. Searches of mathematical research records for prelinearity, aliases, Heyting degrees of satisfiability, and weak-order frames revealed related but not covering results. The exact formulas and local/global asymptotic separation are the claimed contribution. Residual risk: equivalent identities might occur in earlier logic, poset, or probabilistic-algebra literature under different terminology; no claim of certified publication priority is made.
+
+## Mathematical value — PASS
+Prelinearity is the characteristic axiom of Gödel–Dummett intermediate logic, while global comparability forces one implication to hold everywhere. The theorem measures their distinction exactly rather than treating them as equivalent. Its complete nontrivial joint distribution holds for a natural arbitrarily long family of finite intuitionistic frames, determines precisely when prelinearity is universally valid, and exhibits a mathematically meaningful discrepancy: local prelinearity approaches probability one while global comparability approaches zero. These are natural semantic invariants, not arbitrary table slices.
+
+## Scope and limitations
+The distribution assumes uniform independent choices among distinct upsets, ordinal sums of nonempty antichains, and intuitionistic Kripke semantics. It does not extend without proof to arbitrary frames, alternative probability measures, or modal operators. Novelty was compared to accessible literature and relevant previous findings, but independent bibliographic and mathematical audits remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
