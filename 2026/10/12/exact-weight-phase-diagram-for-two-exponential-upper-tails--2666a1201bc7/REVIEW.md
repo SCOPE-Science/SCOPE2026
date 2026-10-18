@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact hypoexponential survival function is derived for all nonnegative weight pairs with fixed sum one, including both continuous endpoints. Differentiation reduces the global weight monotonicity to the sign of \(L_t\), whose derivative has denominator strictly positive on its stated domain and numerator \(x^2P_t(x)\). For \(t\ge3/2\), \(P_t\) is positive for every \(x>0\). For \(1<t<3/2\), \(P_t\) has exactly one positive root, so \(L_t\) decreases once and then increases to infinity, giving exactly one positive zero and exactly one interior minimizer. Endpoint comparison then proves the maximizer switch. No finite experiment is used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The lead source supplies general exponential tail bounds and the largest-weight asymptotic mechanism, not this exact two-weight optimization. Yu's inspected theorem-level treatment of the classical gamma unique-crossing problem gives pairwise crossing criteria for two summands, which does not imply the fixed-threshold global extremizer map over all weights. A closely related database result already identifies the local equal-weight curvature transition corresponding here to \(t=3/2\); that local fact is explicitly excluded from the novelty claim. The surviving claim is the complete global phase diagram, including the unique interior minimizer and the distinct endpoint crossover \(\tau\).
+PASS
 
-## Value
-PASS. The two-summand exponential model is the canonical exact benchmark behind general weighted-exponential concentration and gamma-majorization results. The theorem replaces qualitative or tail-region comparisons by a complete fixed-threshold optimization over the weight simplex and separates two genuinely different mechanisms: disappearance of the interior minimum at \(3/2\), and the earlier global-maximizer switch at \(\tau\). This is a structural extremal statement rather than a recomputation of a known table.
+Convolution gives T_t(r)=e^(−t)[r e^(−t/r)−e^(−tr)]/(r−1), with equal/sparse limits e^(−2t)(1+2t) and e^(−t). Direct differentiation reduces derivative sign to h_t; on x=t(r−1) below critical 1−u sign equals that of L_t(x), whose exact derivative factors as x²[(t−1)x²+t(2t−3)x+t²(2t−3)] /[(t+x)²(1+x)(t−(t−1)x)]. For t≥3/2 all coefficients nonnegative so strict increasing weight imbalance; for 1<t<3/2 the quadratic has exactly one positive root giving one interior strict minimum. Endpoint comparison gives tau unique in (1,3/2). Independently checked both derivative identities symbolically (residual zero), endpoint and dense grid examples t=1.05,1.2,tau,1.35,1.499,1.5,2; finite grid only corroborates the analytic sign proof.
 
-## Closest literature and limitations
-The closest literature consists of general weighted-exponential tail bounds, classical Schur and unique-crossing results for gamma convolutions, and a published two-gamma local-curvature result. Older gamma-convolution papers remain a residual terminology risk because not every page was available in open full text. The theorem is limited to two exponential summands and thresholds above the mean.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Bock–Diaconis–Huffer–Perlman 1987 and Yu 2017 gamma-convolution results establish pairwise majorization/crossing and tail-region Schur comparisons. Those known statements and the published local equal-weight curvature threshold do not state the entire pointwise two-weight global optimizer classification, interior minimizer and distinct tau crossover. Strong equivalent possible in older gamma-convolution full text: Oxford institutional attempt timed out, so prior-coverage uncertainty is material.
+
+## value
+
+PASS
+
+The exact global weight-optimization phase diagram is a natural probability/concentration problem; it distinguishes an interior minimum from equal/sparse maxima and resolves two distinct transitions, not just a standard gamma convolution identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

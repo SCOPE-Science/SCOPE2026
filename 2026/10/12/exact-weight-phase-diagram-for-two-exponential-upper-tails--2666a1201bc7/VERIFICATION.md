@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-The proof uses the exact survival function
-\[
-T_t(r)=e^{-t}\frac{r e^{-t/r}-e^{-tr}}{r-1}
-\]
-for \(r>1\), together with its continuous equal and sparse endpoints.
+# Independent mathematical audit
 
-Differentiation reduces the sign of the weight derivative to \(h_t(r)\). After the substitutions \(x=t(r-1)\) and \(u=tx/(t+x)\), the nontrivial region \(u<1\) is equivalent to the sign of \(L_t(x)\), and
-\[
-L_t'(x)=
-\frac{x^2\bigl((t-1)x^2+t(2t-3)x+t^2(2t-3)\bigr)}{(t+x)^2(1+x)\bigl(t-(t-1)x\bigr)}.
-\]
-Every denominator factor is positive on \(0<x<t/(t-1)\). This exact factorization yields the complete derivative sign pattern analytically.
+## correctness
 
-For \(1<t<3/2\), the quadratic numerator has one negative and one positive root, so \(L_t\) decreases and then increases. Since \(L_t(0)=0\) and \(L_t(x)\to+\infty\) at the right boundary, there is exactly one positive zero and therefore exactly one interior tail minimizer. For \(t\ge3/2\), the derivative is strictly positive for every imbalanced pair.
+PASS
 
-The endpoint values are \(e^{-2t}(1+2t)\) and \(e^{-t}\); their unique crossover above the mean is the root of \(e^t=1+2t\). The numerical value \(1.2564312086261696769\ldots\) is supplementary only. No finite enumeration or numerical grid is used to establish any quantified statement.
+Convolution gives T_t(r)=e^(−t)[r e^(−t/r)−e^(−tr)]/(r−1), with equal/sparse limits e^(−2t)(1+2t) and e^(−t). Direct differentiation reduces derivative sign to h_t; on x=t(r−1) below critical 1−u sign equals that of L_t(x), whose exact derivative factors as x²[(t−1)x²+t(2t−3)x+t²(2t−3)] /[(t+x)²(1+x)(t−(t−1)x)]. For t≥3/2 all coefficients nonnegative so strict increasing weight imbalance; for 1<t<3/2 the quadratic has exactly one positive root giving one interior strict minimum. Endpoint comparison gives tau unique in (1,3/2). Independently checked both derivative identities symbolically (residual zero), endpoint and dense grid examples t=1.05,1.2,tau,1.35,1.499,1.5,2; finite grid only corroborates the analytic sign proof.
+
+## originality
+
+PASS
+
+The Bock–Diaconis–Huffer–Perlman 1987 and Yu 2017 gamma-convolution results establish pairwise majorization/crossing and tail-region Schur comparisons. Those known statements and the published local equal-weight curvature threshold do not state the entire pointwise two-weight global optimizer classification, interior minimizer and distinct tau crossover. Strong equivalent possible in older gamma-convolution full text: Oxford institutional attempt timed out, so prior-coverage uncertainty is material.
+
+## value
+
+PASS
+
+The exact global weight-optimization phase diagram is a natural probability/concentration problem; it distinguishes an interior minimum from equal/sparse maxima and resolves two distinct transitions, not just a standard gamma convolution identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
