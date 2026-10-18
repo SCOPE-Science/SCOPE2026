@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T14:02:50.012023Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd q, n>=3 and 2<=m<=n-1, s=n-m, Lee–Park Proposition 3.6 directly identifies E1 matrices as shifted coefficients f,xf,...,x^(m-1)f with deg f<=s. No truncation because deg(x^(m-1)f)<=n-1. Thus U_f=f Fq[x]_<m. If f=da,g=db coprime a,b, common elements fu=gv imply u=bh,v=ah; dim intersection=max(0,m-(max(deg f,deg g)-deg d)). Distinct classes iff f,g not proportional. Ordered gcd decomposition into monic pair plus monic d yields A_t-A_(t-1)=(q+1)q^(2t-1) and N_t=(q+1)q^(2t-1)*(q^(s-t+1)-1)/(q-1), summing to L(L-1). Independent q=3,m=2,n=4 full 13-projective-word intersection enumeration gets t1=48,t2=108, distances 2,4. This is a proof for all odd prime powers, finite checks supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary full Lee–Park 27-page paper defines rank metric E1, proves dimension n-m+1 and all nonzero words have rank m.",
+          "Silva et al. identity-block lift and Roth et al. extension-field Sidon orbit subspaces are different constructions."
+        ],
+        "reasoning": "Neither general rank code nor classical lift determines direct polynomial-module intersections.",
+        "searches": [
+          "DOI:10.1080/03081087.2026.2681140 primary full paper",
+          "arXiv:0711.0708 Silva Kschischang Koetter lifted rank metric",
+          "DOI:10.1109/ISIT.2017.8006635 cyclic Sidon codes"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1080/03081087.2026.2681140",
+        "https://arxiv.org/abs/0711.0708",
+        "DOI:10.1109/ISIT.2017.8006635",
+        "SCOPE2026 pinned RESULT.md and artifacts/verify.py; independent q3,m2,n4 exact checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Constant full row rank ensures each U_f is m-dimensional but does not determine pairwise intersections.",
+          "The proved gcd cancellation is additional and not a corollary of rank-metric minimum distance."
+        ],
+        "reasoning": "Prior rank-weight parameters are insufficient to imply the exact projected Grassmann distance strata.",
+        "searches": [
+          "DOI:10.1080/03081087.2026.2681140 Proposition 3.6 and Theorem 3.7, pp1654-56",
+          "arXiv:0711.0708 introduction and lift construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lee–Park Propositions 3.6 and Theorem 3.7 give constant rank and quasi-MRD but not direct row-space geometry.",
+          "The direct row space is the f-multiple polynomial subspace, not the standard lifted [I|M_f] code."
+        ],
+        "reasoning": "Ordinary-polynomial multiple-space/gcd formulation is the correct alias; no earlier exact spectrum found in inspected primary construction.",
+        "searches": [
+          "Resultary: Toeplitz quasi MRD row space Grassmann distance Lee Park gcd",
+          "Lee Park E1(m,n) row spaces constant dimension gcd polynomials",
+          "web: polynomial multiplication Toeplitz subspace code distance gcd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary hits were unrelated q-Grassmannian Fourier spectra and relative Toeplitz Schur multipliers, not E1 direct row-space pair counts."
+        ],
+        "reasoning": "No exact N_t table for the same construction in searched scientific index; that is not exhaustive priority evidence.",
+        "searches": [
+          "Resultary: Toeplitz projective row space constant dimension gcd distance spectrum",
+          "Resultary: Lee Park dihedral Grassmann distance spectrum"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement/implication-level comparison for Exact Grassmann distance spectrum of a dihedral Toeplitz quasi-MRD family: precise new invariant not located as prior theorem; accessible direct sources and nearest indexed records compared, with explicit access and alias risks. A failed index search alone does not establish originality.",
+      "residual_risks": [
+        "A pre-existing unindexed ordinary polynomial-module subspace code could have identical gcd-based intersection counts.",
+        "Cyclic Sidon paper was not fully inspected; only abstract-level conceptual comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves Toeplitz matrix form, full rank, quasi-MRD; does not provide ordinary-gcd direct row-space distance distribution",
+          "evidence": "Proposition 3.6: E1 span HJ^i, parameters [m×n,n-m+1,m]; Theorem3.7 quasi-MRD; conclusion about MRD constructions.",
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2026.2681140",
+          "material_read": "Publisher PDF extracted text pp1645–47, 1654–56 (Lemma 3.5, Proposition 3.6, Theorem 3.7), 1667–70 (conclusion/references); other pages not exhaustively read",
+          "method": "Authorized institutional publisher text, sections relevant to E1 read and compared at proposition/theorem level; not all 27 pages read",
+          "title": "Maximum rank distance codes constructed from orthogonal groups",
+          "trigger": "Defines exactly Lee–Park E1(m,n), the audited object"
+        },
+        {
+          "assessment": "Lifted row spaces are mathematically different from direct row spaces of Toeplitz matrices",
+          "evidence": "Usual lifted codeword row space [I|X] preserves rank distance, whereas direct fFq[x]_<m is polynomial gcd controlled.",
+          "identifier_or_url": "https://arxiv.org/abs/0711.0708",
+          "material_read": "Abstract and known identity-block lift construction; complete paper not independently downloaded this run",
+          "method": "ArXiv primary statement comparison",
+          "title": "A Rank-Metric Approach to Error Control in Random Network Coding",
+          "trigger": "Standard rank-metric to constant-dimension code transformation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete sharp Grassmann distance distribution for direct row spaces of a natural published family of full-rank Toeplitz quasi-MRD codes is a nontrivial geometric refinement; it tells a coding theorist exact pair-distance multiplicities, not given by rank metric parameters or identity-block lift, and is a useful precise invariant even without a new global optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Odd finite fields and 2<=m<=n-1 only, no claim Grassmannian optimal; min distance 2.",
+    "Independent finite q3 check does not replace symbolic gcd proof."
+  ],
+  "schema_version": 1
+}
