@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For a fixed support S, each noncentral symbol appears twice; nested occurrence intervals force at most one even palindrome and, in the nested case, one odd palindrome. Without full nesting, three distinct possible odd centers would imply all intervals nested, a contradiction. Equality per support implies pairwise-intersecting intervals, hence a first-occurrence permutation followed by a second-occurrence permutation. Full-support odd centers then force the second half to be fully reversed or to differ solely by exchanging the last two letters first encountered; both forms attain two palindromes per support. Support-size counts yield the exact odd/even histograms. Direct and independently structured exhaustive checkers passed all described finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mahalingam and Pandoh, arXiv:2108.02729v1 (2021), Proposition 5.1, Theorem 5.4, Section 6: upper bound and nested construction; characterization of maximally scattered-palindromic-rich words identified for further work.",
+        "Müllner and Ryzhikov, arXiv:1901.07502v1 (2019), Sections 1–5: longest palindromic/antipalindromic subsequences, not number of distinct palindromic subsequence values.",
+        "Holub and Saari, On Highly Palindromic Words (2009), DOI:10.1016/j.dam.2008.03.039: indexed abstract covers binary reconstruction and minimal palindromic length rather than the all-alphabet double-occurrence equality classification; full text unavailable."
+      ],
+      "reasoning": "The source 2021 extremal theorem covers the numerical upper bound even when symbol multiplicities are not all two, but gives only one sharpness witness and explicitly leaves rich-word characterization to future work. The wider maximum statement does not logically determine an exhaustive equality classification or length-spectrum refinement.",
+      "searches": [
+        "counting scattered palindromes finite word Mahalingam Pandoh sharp equality maximizers characterization",
+        "scattered palindrome rich words q equal n over 2 structural classification",
+        "Counting scattered palindromes in a finite word characterization maximizers"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2108.02729v1 (primary full text, equality propositions and discussion)",
+      "arxiv:1901.07502v1 (relevant full text)",
+      "doi:10.1016/j.dam.2008.03.039 (abstract, incomplete comparison)",
+      "doi:10.4230/LIPIcs.ESA.2024.35 (abstract, different statistic)",
+      "AMS MSC2020 classification 68R15 (combinatorics on words)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mahalingam and Pandoh, arXiv:2108.02729v1 (2021), Proposition 5.1, Theorem 5.4, Section 6: upper bound and nested construction; characterization of maximally scattered-palindromic-rich words identified for further work.",
+        "Müllner and Ryzhikov, arXiv:1901.07502v1 (2019), Sections 1–5: longest palindromic/antipalindromic subsequences, not number of distinct palindromic subsequence values."
+      ],
+      "reasoning": "Proposition 5.1 of the 2021 article establishes a known bound and supplies one palindrome attaining it; Lemma 1 here rederives that bound in the balanced class. Neither that implication nor the 2019 longest-subsequence results provides the second nonpalindromic maximizer, excludes all others, counts 2q!, or resolves odd/even spectra.",
+      "searches": [
+        "counting scattered palindromes finite word Mahalingam Pandoh sharp equality maximizers characterization",
+        "double occurrence words maximal distinct palindromic subsequences nested adjacent swapped first two second occurrences",
+        "Palindromic Subsequences in Finite Words 2019 full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mahalingam and Pandoh, arXiv:2108.02729v1 (2021), Proposition 5.1, Theorem 5.4, Section 6: upper bound and nested construction; characterization of maximally scattered-palindromic-rich words identified for further work.",
+        "Normalization via order of first occurrences converts a balanced double-occurrence word into a perfect matching of 2q positions; no recovered source classifies both reversal and top-two-swap tails."
+      ],
+      "reasoning": "Compared the exact equality statement under symbol renaming, matched-interval formulations, two-copy word permutations, and support-wise odd/even subsequence counts. The original maximum alone does not specify all maximizers or imply precisely two renaming classes.",
+      "searches": [
+        "scattered palindromic subsequences maximize q letters exactly twice 2q word palindrome reverse permutation",
+        "double occurrence words maximal distinct palindromic subsequences nested adjacent swapped first two second occurrences",
+        "maximum distinct palindromic subsequences each letter twice 2024"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2021 preprint contains finite q/n numerical Tables 1, 2, and 4 and the bound at q=n/2. No inspected table gives the count 2q! of all maximizing double-occurrence words or the symbolic length-spectrum formulas.",
+        "The published research-record searches returned no exact matching theorem; nearest hits concerned unrelated coding or subsequence-universality invariants."
+      ],
+      "reasoning": "An exact finite numerical maximum for each small n is not an enumeration of equality words for all q. The present all-q formula is not extracted from a known table.",
+      "searches": [
+        "scattered palindromic subsequences maximize q letters exactly twice 2q word palindrome reverse permutation",
+        "scattered palindrome rich words q equal n over 2 structural classification",
+        "maximum number distinct palindromic subsequences each letter twice 2024"
+      ]
+    },
+    "rationale": "Only complete extremal equality classification and exact length spectra are new claims. Published 2021 work proves the total upper bound and provides the nested witness, but states equality characterization as an interesting next problem. Inspected relevant full text and indexed records did not yield the two-class characterization. Search cannot preclude unindexed proofs.",
+    "residual_risks": [
+      "The 2009 highly-palindromic-word paper was not fully accessible; no whole-document noncoverage inference is made.",
+      "Unindexed or inaccessible equivalently formulated double-occurrence equality classifications remain possible.",
+      "The theorem does not classify unequal-multiplicity maximizers of the more general 2021 upper bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Numerical bound and nested construction covered; neither two-class rigidity nor parity spectra stated",
+        "evidence": [
+          "Mahalingam and Pandoh, arXiv:2108.02729v1 (2021), Proposition 5.1, Theorem 5.4, Section 6: upper bound and nested construction; characterization of maximally scattered-palindromic-rich words identified for further work.",
+          "The conclusion proposes characterization of scattered-palindromic-rich words."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.02729",
+        "material_read": "19-page arXiv preprint: definitions, extremal discussion, Proposition 5.1, Theorem 5.4, Table 4, conclusion and references, with rendered pages 13 and 18 checked",
+        "method": "Full-text PDF inspection and page-image confirmation of the equality-related material",
+        "title": "Counting Scattered Palindromes in a Finite Word",
+        "trigger": "Identical statistic and sharp q=n/2 threshold"
+      },
+      {
+        "assessment": "Studies longest subsequence lengths and circular extremal constructions, not enumeration of distinct palindromic subsequences",
+        "evidence": [
+          "Müllner and Ryzhikov, arXiv:1901.07502v1 (2019), Sections 1–5: longest palindromic/antipalindromic subsequences, not number of distinct palindromic subsequence values."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1901.07502",
+        "material_read": "Seven-page arXiv preprint, Introduction, circular-word conjectures, main construction, linear-word section, conclusions",
+        "method": "Full-text PDF sections and rendered first page",
+        "title": "Palindromic Subsequences in Finite Words",
+        "trigger": "Same palindrome-subsequence notion and potential stronger coverage"
+      },
+      {
+        "assessment": "No apparent direct implication, but unresolved bibliographic risk due lack of full text",
+        "evidence": [
+          "Holub and Saari, On Highly Palindromic Words (2009), DOI:10.1016/j.dam.2008.03.039: indexed abstract covers binary reconstruction and minimal palindromic length rather than the all-alphabet double-occurrence equality classification; full text unavailable."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2008.03.039",
+        "material_read": "Indexed abstract and cited description; full text not accessed",
+        "method": "Bibliographic record and abstract; not represented as whole-document negative check",
+        "title": "On Highly Palindromic Words",
+        "trigger": "Earlier paper on palindromic scattered subwords"
+      },
+      {
+        "assessment": "Algorithmic longest-palindrome extraction is not the count-of-distinct-subsequences maximizer theorem",
+        "evidence": [
+          "The abstract analyzes whether an LCS backtracking method outputs an LPS; it does not assert an extremal distinct-subsequence count."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2024.35",
+        "material_read": "Open conference record and detailed abstract; full text not read",
+        "method": "Publisher abstract and bibliographic inspection",
+        "title": "On Finding Longest Palindromic Subsequences Using Longest Common Subsequences",
+        "trigger": "Recent paper on palindromic subsequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "565a2034-a6ee-41d7-b180-2062ac61af33",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural balanced boundary n=2q of the published scattered-palindrome maximum has exactly two different equality structures, one palindromic and one not. The full all-q classification resolves a concrete form of the primary paper’s stated equality-characterization direction, gives 2q! labeled optimizers, and exhibits an exact conservation/swap law between even and odd length spectra. It is not a finite next-index observation.",
+    "status": "PASS"
+  }
+}
