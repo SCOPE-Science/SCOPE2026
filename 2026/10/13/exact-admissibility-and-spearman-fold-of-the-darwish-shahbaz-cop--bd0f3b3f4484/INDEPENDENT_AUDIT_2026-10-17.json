@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T10:09:47.566356Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact rational C_alpha, direct differentiation gives grounded margins and mixed density N_alpha/[(1-alpha)(1-alpha uv)^3]. For alpha=-t<0, N=(1+tu)(1+tv)+t[(1+tuv)^3-(1-u)(1-v)]>0. For 0<=alpha<=1/2, N is bounded below by a separately affine polynomial whose four corners are nonnegative. For 1/2<alpha<1 the density at (0,1) is negative; alpha=1 is undefined and alpha>1 has an interior pole. This proves the iff admissible interval alpha<=1/2, including alpha=1/2. On alpha=-t, the Spearman loss L=12t/(1+t)*integral(w/(1+tuv)) has derivative 12(A-t^2 B)/(1+t)^2. H=t^2B/A is strictly increasing because H'/H=2/t-2E_B[q/(1+tq)]+2E_A[q/(1+tq)]>0; H(2)<1 by strictly negative covariance of q with (1+2q)^-2. Since L tends to zero at t=0 and infinity, there is exactly one maximum at t*>2, and each intermediate negative Spearman value has exactly two negative parameters. Uniform convergence to independence follows from the pointwise <=1/(1+t) estimate. Independent symbolic identities and Gaussian quadrature yield t*=2.33900178182 and rho=-0.15564754516; numerical digits do not prove uniqueness.",
+      "risk": [
+        "Numerical root digits are not interval-certified; the exact root is an integral equation.",
+        "The result concerns this rational bivariate formula, not generalized copulas or empirical fit."
+      ],
+      "sources": [
+        "Frozen RESULT.md Git blob 8c50d82278d202d49827ef072e34ee2364a59be0, proof parts 1-3",
+        "Independent checker independent_1643_checks.py exact symbolic differentiation and independent numerical root",
+        "Darwish–Shahbaz (2026) Eq.(6),(7),(19), Appendix A, DOI 10.3390/math14030540"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 Appendix A shows upper necessity and numerical verification only on [-2,1/2]",
+          "2024 paper uses a power-polynomial rather than this denominator; 2022 piecewise negative-dependence family is not the same C_alpha"
+        ],
+        "reasoning": "A larger possible magnitude of negative Spearman in another family cannot imply this rational family's exact parameter domain or fold; the general copula criteria alone do not determine the threshold without this calculation.",
+        "searches": [
+          "Original DS copula 2026 Section 3 and Appendix A",
+          "Darwish–Shahbaz–Shahbaz 2024 DOI 10.3390/math12244021",
+          "Ghosh–Bhuyan–Finkelstein 2022 arXiv:2102.05386"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/math14030540",
+        "DOI:10.3390/math12244021",
+        "arXiv:2102.05386",
+        "Resultary semantic query: Darwish Shahbaz rational copula parameter admissibility alpha unbounded negative Spearman correlation minimum fold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary source excludes alpha>1/2 but establishes feasibility only inside a strict selected subinterval and justifies alpha>=-2 by unique concordance."
+        ],
+        "reasoning": "The published sufficiency on [-2,1/2] plus necessary alpha<=1/2 does not imply sufficiency on (-infinity,-2), much less unique fold or two-to-one Spearman calibration.",
+        "searches": [
+          "DOI 10.3390/math14030540 Appendix A pp24-26",
+          "Resultary family-admissibility semantic search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "DOI 10.3390/math14030540 Eq.(6),(7),(19), Appendix A uses precisely the same rational denominator, selected alpha range and Spearman normalization",
+          "The primary source describes alpha>=-2 as a calibration choice rather than a proven obstruction"
+        ],
+        "reasoning": "Searched full-family admissibility, density nonnegativity, dependence-function non-injectivity and unique Spearman turn rather than title alone; relevant exact source establishes only its chosen interval.",
+        "searches": [
+          "Resultary semantic search: Darwish Shahbaz rational copula parameter admissibility alpha unbounded negative Spearman correlation minimum fold",
+          "Search: exact DS copula C_alpha mixed density negative alpha Spearman noninjective"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source table and plots are for the chosen [-2,1/2] interval; its Appendix A says alpha>=-2 ensures unique concordance values.",
+          "No exact t*=2.339 integral critical point or unrestricted two-preimage table appears in inspected relevant sections."
+        ],
+        "reasoning": "The real-parameter continuum and exact unique root are not a finite lookup; restricted numerical tables do not imply the global minimizer.",
+        "searches": [
+          "Darwish and Shahbaz 2026 Equation (19) and dependence plots/tables",
+          "Resultary DS copula semantic search top15"
+        ]
+      },
+      "rationale": "The 2026 originating paper chooses [-2,1/2] and explicitly says the lower cutoff preserves uniqueness of dependence/concordance values. Its Appendix A obtains alpha<=1/2 as a necessary upper bound and numerically verifies the selected finite interval; it does not establish copula validity for all negative alpha, the unique negative Spearman fold below -2, or exact two-to-one rank-correlation calibration. The new maximum-domain classification and fold survive statement-level comparison, not merely parameter-name mismatch.",
+      "residual_risks": [
+        "Unindexed equivalent extension or parameter reparameterization may exist; unsuccessful search is not proof of novelty.",
+        "The originating paper already derives the upper necessary condition alpha<=1/2, so this component by itself is prior; the sufficient all-negative extension and fold are assessed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the all-negative parameter sufficiency and unique unrestricted fold; source supplies core formula and chosen range",
+          "evidence": "Appendix A explicitly says alpha>=-2 ensures dependence/concordance measures have unique values; its admissibility check is only reported numerically for -2<=alpha<=1/2.",
+          "identifier_or_url": "DOI:10.3390/math14030540; https://www.researchgate.net/publication/400375616_Efficient_Modeling_of_the_Energy_Sector_Using_a_New_Bivariate_Copula",
+          "material_read": "Full readable 28-page article text, especially Section 3 Eq.(6)-(7), Section 4.2 Spearman formula, pp24-26 Appendix A and calibration sentence",
+          "method": "Public full-text transcription on ResearchGate compared against publisher index",
+          "title": "Efficient Modeling of the Energy Sector Using a New Bivariate Copula",
+          "trigger": "Exact same rational C_alpha family and chosen range"
+        },
+        {
+          "assessment": "INAPPLICABLE as same-family priority, different piecewise copula construction",
+          "evidence": "Distinct defining family; does not imply DS parameter-domain result.",
+          "identifier_or_url": "arXiv:2102.05386",
+          "material_read": "Abstract and accessible article identification/definitions",
+          "method": "Lawful OA indexing and source comparison",
+          "title": "On a Bivariate Copula for Modeling Negative Dependence",
+          "trigger": "Potential stronger negative-correlation copula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Correct identification of the maximal valid parameter domain is required before estimating or calibrating this explicitly proposed bivariate family. Locating a unique Spearman fold quantifies a structural identifiability defect: two distinct copulas have the same negative Spearman rank correlation, and very negative parameters approach independence. The numerical enhancement of the most negative correlation over alpha=-2 is small (~7.2e-4) and is not the sole significance.",
+      "risk": [
+        "Mathematical calibration observation, not a new empirical performance comparison or a large gain in dependence strength."
+      ],
+      "sources": [
+        "Darwish and Shahbaz 2026 explicitly choose alpha>=-2 to preserve unique dependence values; Eq.(6), Appendix A",
+        "Exact uniqueness and uniform limit established from actual frozen RESULT.md proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only this absolutely continuous rational two-variable copula, with alpha real and denominator continuous on the closed square.",
+    "Exact t* is the unique positive root of an integral equation; displayed decimal only approximate.",
+    "Global Spearman fold concerns the negative alpha branch; not all copula families."
+  ],
+  "schema_version": 1
+}
