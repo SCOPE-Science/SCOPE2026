@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The final claim fixes the graph, shortest-path metric, inclusive Rips convention, all real threshold ranges, and all homotopy types. Exhaustive subset enumeration and complete Hasse-diagram acyclicity checks support the three nontrivial integer thresholds. The discrete-Morse critical cells imply the stated wedge, sphere, and contractible types without an unproved attaching-map step.
+## correctness
 
-## Originality
-PASS. The closest direct paper, Saleh–Titz Mite–Witzel, gives complete filtrations only for the five Platonic solids. Feng–Nukala's scale-two theorem concerns specified symmetric-difference metric spaces. published-finding corpus searches under “Dürer graph,” “Durer graph,” and “generalized Petersen G(6,2)” returned no equivalent statement; the nearest graph-metric filtrations are for different spaces and do not imply this claim. Residual bibliographic risk remains for unindexed sources.
+PASS
 
-## Value
-PASS. The owning literature explicitly values complete Rips filtrations of structured finite metric spaces. The Dürer graph is a named small cubic polyhedral generalized Petersen graph, and the full filtration records a nontrivial change \(\bigvee^5S^1\to S^2\to *\), including contractibility one threshold before the diameter. This is a natural exact benchmark rather than an arbitrary parameter slice.
+Independently reconstructed G(6,2) from 6 outer-cycle, 6 spokes and 6 inner step-2 edges; 12 vertices, 18 edges, diameter 4. Complete clique enumeration at r=1/2/3 gave f-vectors (12,18,2), (12,48,82,60,18,2), (12,63,190,363,456,377,198,60,8). Independently implemented the stated vertex-toggle matching and checked every oriented Hasse cover: 13,110,863 pairs respectively; 42,684,8628 covers; all acyclic with critical-cell counts (c0=1,c1=5), (c0=1,c2=1), (c0=1). The final CW types follow directly from those counts; at r=4 every pair is present.
 
-## Closest literature and limitations
-The closest direct precedent is arXiv:2302.14388v1. Its theorem covers only Platonic solids. arXiv:2302.14664v1 treats different finite metric-space families at scale \(2\). The present proof is finite and computationally exhaustive for \(G(6,2)\); it does not provide a generalized-Petersen family theorem. Literature search cannot exclude every unindexed source.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The concrete complete graph-metric filtration was not implied by inspected main theorems on Platonic solids or cycle powers, and targeted Resultary alias/graph-power queries produced no independent published covering record; the hit for this record itself is not a novelty objection. This is a bounded best-of-knowledge conclusion.
+
+## value
+
+PASS
+
+The Dürer graph G(6,2) is a canonical small generalized Petersen graph with inner triangles; its exact early Rips transition S2 at 2 to a contractible complex already at 3, before diameter 4, is a nontrivial structural boundary case distinct from ordinary cycle powers and a useful exact benchmark for graph-metric filtrations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
