@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T18:11:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Dihedral symmetry reduces difference vector to d(t)=(1-t)v0+t*v1, 0<=t<=1/2. Chord endpoints are in P10∩(P10-d). With n=(-d2,d1), maximize n·x/h_P(n). On [0,τ] the active pair is original u3 and shifted u1; on [τ,1/2] it is original u3 and shifted u2, τ=(3-sqrt5)/2. Explicit nonnegative normal decompositions certify optimality. Independently reconstructed both intersections in SymPy and verified all 40 endpoint half-space residuals are EXACT nonnegative algebraic numbers per branch; because residuals are affine in t, this verifies continuum feasibility. Numeric LP checks at 6 independent t values agree with stated quadratics to <5e-16. The first ratio is convex with equal maxima at 0,τ; second decreases on [τ,1/2], yielding m=(7-3sqrt5)/2 and exactly those dihedral equality directions.",
+      "residual_risks": [
+        "The maximum is only for regular decagon; no proof of global M-curvature extremal conjecture.",
+        "Trigonometric closed-form LP objective independently sampled but not all algebraic radical simplifications machine-canonicalized; analytic proof provided in RESULT.md."
+      ],
+      "sources": [
+        "Frozen RESULT.md blob fc25a724794cccc9abfccd84693665aa99336ced",
+        "Frozen verify.py blob 2f4064fa972fde5e180b9a5e8a3abf80c99869e3",
+        "Independent SymPy exact endpoint inequality sign checks, 80 residual endpoint conditions",
+        "Independent scipy.optimize.linprog for exact source-defined geometry"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2000 article conjectures decagon global extremality without exact value.",
+          "2010 thesis claims extremality among two families without an exact m(P10).",
+          "Later SCOPE all-family formula at N=10 gives m(P10) and is logically stronger, but imported 13 seconds AFTER decagon result on 2026-10-11."
+        ],
+        "reasoning": "Broader same-repository coverage checked with Git commit chronology: it is a later follow-up explicitly treating decagon value as an already-known specialization; it does not retrospectively constitute prior art at publication of record3.",
+        "searches": [
+          "Dalla et al 2000 Problem 1 regular decagon",
+          "Sezgin 2010 2(6r+1),2(6r+5)",
+          "2026 SCOPE later all-family M-curvature result Git commit 57df23ef..."
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/226463521_The_Blocking_Numbers_of_Convex_Bodies (DOI:10.1007/s004540010032)",
+        "https://discovery.ucl.ac.uk/id/eprint/19509/1/19509.pdf (UCL Discovery 19509)",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-m-curvature-of-the-two-exceptional-regular-polygon-familie--af0972adec2e/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Global extremal CONJECTURE does not imply a numerical M-curvature evaluation.",
+          "Computer-assisted comparative ordering among polygons does not imply the exact value or the two equality directions.",
+          "All-family result mathematically implies the value but is temporally later in audited repository history."
+        ],
+        "reasoning": "The new exact two-chamber profile is strictly more explicit than historical primary literature; its later implication by a stronger result does not undo that originality judgment.",
+        "searches": [
+          "Dalla 2000 Problem 1, Sezgin 2010 p.135",
+          "SCOPE all-family later source P10 specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equality m(C)=1-max_(d in ∂C,x in C∩(C-d)) n·x/h_C(n) is the LP alias.",
+          "Sezgin only gives qualitative decagon extremality among exceptional polygons by computer."
+        ],
+        "reasoning": "The direct LP/translation alias and golden-ratio value were both compared. No preceding published exact decagon table is displayed in read historical sources.",
+        "searches": [
+          "M-curvature regular decagon exact (7-3sqrt5)/2",
+          "support-normalized maximal chord height intersection P10 and P10-d",
+          "Sezgin 2010 p.135"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2010 thesis p.135 has qualitative computer result but no printed exact algebraic value.",
+          "Later SCOPE all-family sibling contains the exact value as known special case, chronology documented."
+        ],
+        "reasoning": "A later exact table entry is not historical prior to this record; earlier covered numeric computation may exist privately but was not verified.",
+        "searches": [
+          "\"M curvature\" \"regular decagon\" \"7-3 sqrt5\"",
+          "UCL thesis 2010 M-curvature 10-gon computer",
+          "Resultary batch query: M curvature regular decagon exact golden ratio 7 minus 3 sqrt5 over 2 blocking number convex bodies"
+        ]
+      },
+      "rationale": "Best-of-knowledge exact benchmark for the decagon singled out by original conjecture. Later stronger SCOPE all-family record is explicitly compared and chronologically later, not prior.",
+      "residual_risks": [
+        "The thesis may rest on unpublished machine calculations that already contained the exact decagon value.",
+        "Strong later all-family implication creates duplicate coverage for future publication, though not historical prior to this result.",
+        "Semantic result index temporarily unavailable, without negative-result inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines m(C), states Problem 1 and conjectures the regular 10-gon as extremal, but the inspected full article does not compute an exact m(P10) or a family parameter formula.",
+          "evidence": [
+            "Printed p.269 defines M-curvature and conjectures the regular 10-gon extremal."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/226463521_The_Blocking_Numbers_of_Convex_Bodies (DOI:10.1007/s004540010032)",
+          "material_read": "Author-uploaded primary full text; definition, Theorem 1, Problem 1 and later proof of blocking-number bound materially read.",
+          "method": "Read publicly accessible author-uploaded full-text HTML extraction of the 2000 article.",
+          "title": "The Blocking Numbers of Convex Bodies",
+          "trigger": "Primary mathematical definition of M-curvature and original decagon extremizer conjecture"
+        },
+        {
+          "assessment": "The primary discussion explicitly lists 2(6r+1) and 2(6r+5) regular polygons and asserts decagon extremality among them by computer; no exact golden-ratio decagon value or all-N trigonometric formula on the read pages. The underlying unprinted calculation is a residual originality risk.",
+          "evidence": [
+            "Printed p.135: two families are computer-identified, regular 10-gon extremal among these; no closed m(P_N) formula displayed."
+          ],
+          "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/19509/1/19509.pdf (UCL Discovery 19509)",
+          "material_read": "157-page thesis full-text targeted search and primary pages printed pp.65,133–135; visual inspection of p.135 reporting both families, computer result and decagon extremality.",
+          "method": "Full OA doctoral thesis text search plus rendered relevant pages.",
+          "title": "The Unrestricted Blocking Number in Convex Geometry",
+          "trigger": "Potentially dominating primary thesis focused on the exact same M-curvature and two regular polygon families"
+        },
+        {
+          "assessment": "All-family result does imply the decagon value but was imported later (2026-10-11T13:06:43Z) than decagon record (13:06:30Z). At the decagon publication instant it is therefore not a prior covering result; record4 explicitly disclaims the decagon specialization as already known.",
+          "evidence": [
+            "Original decagon Git import 94c0106... dated 2026-10-11T13:06:30Z; all-family import 57df23e... dated 13:06:43Z.",
+            "All-family RESULT.md explicitly says the decagon value is a known special case, not its original contribution."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/exact-m-curvature-of-the-two-exceptional-regular-polygon-familie--af0972adec2e/RESULT.md",
+          "material_read": "Full RESULT.md including formula (1), N=10 specialization (4), and explicit prior-covered decagon disclaimer; independently compared Git commits for chronological ordering.",
+          "method": "Frozen Git full blob and actual Git history for both result paths.",
+          "title": "Exact M-curvature of the two exceptional regular-polygon families",
+          "trigger": "A stronger all-family result in the SAME frozen assignment directly implies the decagon special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The decagon is the explicit candidate extremal body in Dalla–Larman–Mani-Levitska–Zong; exact M-curvature and equality-direction classification provide a natural analytic benchmark for the unresolved maximum problem, not an arbitrary invariant.",
+      "residual_risks": [
+        "This narrower record overlaps a later stronger all-family computation."
+      ],
+      "sources": [
+        "2000 Problem 1",
+        "2010 thesis p.135"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The maximum is only for regular decagon; no proof of global M-curvature extremal conjecture.",
+    "Trigonometric closed-form LP objective independently sampled but not all algebraic radical simplifications machine-canonicalized; analytic proof provided in RESULT.md.",
+    "The thesis may rest on unpublished machine calculations that already contained the exact decagon value.",
+    "Strong later all-family implication creates duplicate coverage for future publication, though not historical prior to this result.",
+    "Semantic result index temporarily unavailable, without negative-result inference.",
+    "This narrower record overlaps a later stronger all-family computation."
+  ]
+}

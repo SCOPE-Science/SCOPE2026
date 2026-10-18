@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,66 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The computation uses the unit-circumradius regular decagon with support half-spaces
-\[
-u_j\cdot x\le\cos(\pi/10).
-\]
-For
-\[
-d(t)=(1-t)v_0+t v_1,
-\]
-the feasible starting points of chords are exactly
-\[
-P_{10}\cap(P_{10}-d(t)).
-\]
+# Independent mathematical audit
 
-On
-\[
-0\le t\le\tau,
-\qquad
-\tau=\frac{3-\sqrt5}{2},
-\]
-the active constraints are \(u_3\) from the original decagon and \(u_1\) from the translate. On
-\[
-\tau\le t\le\frac12,
-\]
-they are \(u_3\) and translated \(u_2\).
+## correctness
 
-The checker reconstructs both intersections from these equations. Every unused inequality is affine in \(t\), so nonnegativity at the two interval endpoints proves it on the full interval. The objective-normal decompositions are
-\[
-n(t)=
-\frac{(3-\sqrt5)t+\sqrt5-1}{2}u_3
-+
-\frac{(\sqrt5-1)(1-t)}{2}u_1
-\]
-on the first interval and
-\[
-n(t)=t u_3+(1-t)u_2
-\]
-on the second.
+PASS
 
-The resulting height ratios are checked against
-\[
-r_1(t)=
-\frac{3\sqrt5-5}{2}
-+\frac{11-5\sqrt5}{2}t
-+(\sqrt5-2)t^2
-\]
-and
-\[
-r_2(t)=
-1-\frac{\sqrt5-1}{2}t(1-t).
-\]
+Dihedral symmetry reduces difference vector to d(t)=(1-t)v0+t*v1, 0<=t<=1/2. Chord endpoints are in P10∩(P10-d). With n=(-d2,d1), maximize n·x/h_P(n). On [0,τ] the active pair is original u3 and shifted u1; on [τ,1/2] it is original u3 and shifted u2, τ=(3-sqrt5)/2. Explicit nonnegative normal decompositions certify optimality. Independently reconstructed both intersections in SymPy and verified all 40 endpoint half-space residuals are EXACT nonnegative algebraic numbers per branch; because residuals are affine in t, this verifies continuum feasibility. Numeric LP checks at 6 independent t values agree with stated quadratics to <5e-16. The first ratio is convex with equal maxima at 0,τ; second decreases on [τ,1/2], yielding m=(7-3sqrt5)/2 and exactly those dihedral equality directions.
 
-Finally,
-\[
-r_1(0)=r_1(\tau)=r_2(\tau)=\frac{3\sqrt5-5}{2},
-\]
-\[
-r_1''=2(\sqrt5-2)>0,
-\]
-and \(r_2\) is strictly decreasing on \([\tau,1/2]\). These identities certify the claimed maximum.
+## originality
 
-The checker uses high-precision algebraic evaluation only to replay trigonometric simplifications; the continuum proof rests on the exact active-normal formulas, affine endpoint feasibility, and exact quadratic inequalities.
+PASS
+
+Best-of-knowledge exact benchmark for the decagon singled out by original conjecture. Later stronger SCOPE all-family record is explicitly compared and chronologically later, not prior.
+
+## value
+
+PASS
+
+The decagon is the explicit candidate extremal body in Dalla–Larman–Mani-Levitska–Zong; exact M-curvature and equality-direction classification provide a natural analytic benchmark for the unresolved maximum problem, not an arbitrary invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
