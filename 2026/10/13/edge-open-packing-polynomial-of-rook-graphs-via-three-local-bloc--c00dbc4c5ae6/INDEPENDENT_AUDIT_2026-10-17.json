@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:05:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md 6583d6b5ebf41399987dbcf7722208e0ef0ffae2",
+        "pinned eop_rook_verify.py 9a322e97911fb9e755dab298552b0243abf7c795",
+        "independent_check_results.json: literal rook edge conflicts and exact polynomial"
+      ],
+      "rationale": "For R_{m,n}=K_m □ K_n each edge-open packing induces a disjoint union of stars with no graph edge between distinct stars, since any bridging third edge conflicts two selected edges. The rook neighborhood splits into a row clique and a column clique, so each star has one edge or a right-angle two-edge L; no induced 3-leaf star exists. Distinct selected blocks must use disjoint row labels and disjoint column labels. Counting labelled horizontal (1,2), vertical (2,1), and L (2,2) blocks with 4 centers gives EGF exp(u+v+uv²z/2+u²vz/2+u²v²z²). Its coefficient extraction yields the proposed triple sum and distinguished-row recurrence. Rows and columns consumed are each at least the number of selected edges; equality on an odd square would require only 2-edge blocks, impossible by parity, and explicit disjoint L-block constructions attain the bound otherwise. Independent literal third-edge conflict checks enumerate all edge subsets for boards 1x2,2x2,2x3,3x3 and get [1,1], [1,4,4], [1,9,12], [1,18,45], matching the factorial coefficient formula exactly.",
+      "residual_risks": [
+        "The count treats separately labelled row and column sets and includes the empty packing.",
+        "The formula does not enumerate partitions of all graph edges into injective color classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 Cartesian product theorem bounds EOP number below by factor parameters, not every coefficient or full two-sort EGF.",
+          "2022 EOP paper lists paths, cycles, complete multipartite, wheels and Petersen cases; rook graphs are generally not complete multipartite."
+        ],
+        "reasoning": "One-sided product bounds and a general induced-star characterization alone do not mathematically imply the exact coefficient formula without new rook-specific combinatorics.",
+        "searches": [
+          "Chelladurai et al. 2022 DOI 10.1051/ro/2022171, induced-star theorem and exact families",
+          "Brešar–Samadi arXiv:2403.00750v1 §§1,3,4",
+          "Brešar et al. arXiv:2406.04020v2 Corollary 5.3",
+          "Bhanupriya et al. DOI 10.2298/FIL2312963K"
+        ]
+      },
+      "checked_sources": [
+        "Chelladurai–Kalimuthu–Soundararajan, RAIRO OR 56 (2022), doi:10.1051/ro/2022171",
+        "Brešar–Samadi arXiv:2403.00750v1",
+        "Brešar–Dravec–Hedžet–Samadi arXiv:2406.04020v2",
+        "Resultary semantic rook EOP and Cartesian product search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The induced-star lemma is a shared first step but permits arbitrarily shaped stars on other graphs; the rook local shape restriction and independent rows/columns make the exact EGF possible.",
+          "A lower bound for the optimum cannot imply entire size distribution."
+        ],
+        "reasoning": "Specializing known product inequalities does not give the odd-square exceptional optimum or the coefficient sum. The new exact decomposition is needed.",
+        "searches": [
+          "DOI 10.1051/ro/2022171 induced stars",
+          "arXiv:2403.00750v1 theorems on complexity and upper extremals",
+          "arXiv:2406.04020v2 Corollary 5.3 inequalities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook graph is also Hamming graph H(2;m,n) or L(K_{m,n}), but EOP selects edges of that line graph, not ordinary matchings of K_{m,n}.",
+          "2022 source gives induced-star general condition without three-block labelled assembly."
+        ],
+        "reasoning": "Under Hamming/line graph/injective coloring aliases no checked theorem equates to the exact single-EOP size polynomial.",
+        "searches": [
+          "Resultary semantic: edge open packing polynomial rook graphs Cartesian product complete graphs induced star three block decomposition",
+          "rook graph line graph complete bipartite induced star packing generating polynomial",
+          "injective edge coloring of Cartesian product complete graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact polynomial for the 3x3 rook graph is 1+18z+45z², independently checked.",
+          "No all-m,n EOP coefficient table or EGF appears in the inspected product literature."
+        ],
+        "reasoning": "The result is an all-parameter labelled combinatorial identity, not new enumeration of a known published table; finite cases provide checks only.",
+        "searches": [
+          "\"edge open packing\" \"rook graph\" polynomial coefficients",
+          "Resultary rook graph edge packing search",
+          "arXiv:2406.04020v2 complete graph Cartesian product table"
+        ]
+      },
+      "rationale": "The general induced-star description is already established by Chelladurai–Kalimuthu–Soundararajan (2022), so it cannot be claimed as new. Brešar–Samadi (2024) analyze complexity, extremal bounds and trees; Brešar–Dravec–Hedžet–Samadi (2024) supply general Cartesian-product lower bounds but not all rook packings. The exact two-sort resource decomposition, bivariate exponential formula, every coefficient and odd-square maximum are not in inspected sources. Resultary query for rook EOP polynomial returned rook homology and other invariants, not an EOP enumerator.",
+      "residual_risks": [
+        "An equivalent labelled-species formula might exist in older enumeration of induced-star forests in line graphs under different terminology.",
+        "The general induced-star EOP equivalence itself is prior and not part of novel credit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE of general structural induced-star lemma, not complete rook EGF",
+          "evidence": "Paper treats standard families including complete multipartite graphs but not all rook graph edges by cardinality.",
+          "identifier_or_url": "doi:10.1051/ro/2022171",
+          "material_read": "Accessible primary article PDF abstract, definition, Remark 1.3 induced stars and family theorem statements; rendered first page inspected",
+          "method": "Read original PDF text and rendered page, compared exact counted family",
+          "title": "Edge Open Packing Sets in Graphs",
+          "trigger": "Founding edge-open-packing concept and induced-star condition"
+        },
+        {
+          "assessment": "NOT_COVERING full rook enumerator; shared induced-star background only",
+          "evidence": "Theorem 4.1 characterizes equality |E|/delta, and does not count all EOP subsets.",
+          "identifier_or_url": "https://arxiv.org/html/2403.00750v1",
+          "material_read": "Full accessible arXiv HTML §§1–4 including Theorem 4.1 and tree dynamic programming",
+          "method": "Read mathematical definitions, bounds, complete theorem hypotheses and conclusions",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "Potentially dominating general bounds and exact graph classes"
+        },
+        {
+          "assessment": "NOT_COVERING rook all-size polynomial",
+          "evidence": "Corollary 5.3 gives a lower bound for rho_e^o(G□H); it has no coefficient EGF or all-size counts.",
+          "identifier_or_url": "https://arxiv.org/html/2406.04020v2",
+          "material_read": "Full available arXiv HTML Section 5 including Corollary 5.3 and Proposition 5.9",
+          "method": "Read full relevant product theorem statements and their implications",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Direct same-operation Cartesian product results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chelladurai–Kalimuthu–Soundararajan, RAIRO OR 56 (2022), doi:10.1051/ro/2022171",
+        "Brešar–Samadi arXiv:2403.00750v1",
+        "Brešar–Dravec–Hedžet–Samadi arXiv:2406.04020v2",
+        "Resultary semantic rook EOP and Cartesian product search"
+      ],
+      "rationale": "The rook graph is a natural two-parameter graph family and the edge-open-packing polynomial is a canonical exact statistic counting every feasible edge subset, not merely the maximum. The complete labelled three-block decomposition supplies a useful two-sort generating function, recurrence and sharp parity optimum. Such an exact full enumerator is a motivated invariant for extremal and injective edge-coloring questions; it is not a random finite slice.",
+      "residual_risks": [
+        "No formula for full injective-edge-coloring partitions or arbitrary product graphs follows automatically."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "One-cell graph maximum 0, empty row/column graph has polynomial 1; all side lengths integral nonnegative.",
+    "No assertion on arbitrary Hamming graph dimensions >2 or graph product enumeration."
+  ]
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof establishes a bijective decomposition of every edge-open packing into three induced-star block types whose row and column labels are disjoint, and proves the converse. The labeled-component exponential formula, exact factorial coefficient sum, distinguished-row recurrence and maximum-size parity exception follow with explicit boundary cases. A standalone verifier directly compares all \(328221\) subsets for nine small boards and \(217579\) further subsets bounded by proved maximum cardinality for two larger boards against the formula; it also compares formula, recurrence, symmetry, edge-one counts and maximum sizes over \(225\) parameter pairs. These finite checks corroborate rather than replace the all-parameter proof. Residual risk: subtle interpretation changes to edge-open packing in sources are avoided by explicitly using the original 'third distinct edge' definition.
+PASS
 
-## Originality: PASS
+For R_{m,n}=K_m □ K_n each edge-open packing induces a disjoint union of stars with no graph edge between distinct stars, since any bridging third edge conflicts two selected edges. The rook neighborhood splits into a row clique and a column clique, so each star has one edge or a right-angle two-edge L; no induced 3-leaf star exists. Distinct selected blocks must use disjoint row labels and disjoint column labels. Counting labelled horizontal (1,2), vertical (2,1), and L (2,2) blocks with 4 centers gives EGF exp(u+v+uv²z/2+u²vz/2+u²v²z²). Its coefficient extraction yields the proposed triple sum and distinguished-row recurrence. Rows and columns consumed are each at least the number of selected edges; equality on an odd square would require only 2-edge blocks, impossible by parity, and explicit disjoint L-block constructions attain the bound otherwise. Independent literal third-edge conflict checks enumerate all edge subsets for boards 1x2,2x2,2x3,3x3 and get [1,1], [1,4,4], [1,9,12], [1,18,45], matching the factorial coefficient formula exactly.
 
-The 2022 foundational work introduces the invariant and induced-star characterization but evaluates maxima for different graph families, not rook-graph edge-open-packing polynomials. Two full 2024 EOP papers cover general complexity, Cartesian-product lower bounds, and other exact families but do not give the three-block rook classification or its complete coefficient distribution. The 2023 injective edge-coloring paper concerns the number of colors and different Cartesian factors; the 2025 broad EOP characterizations do not provide the rook enumerator. Targeted literature and semantic database searches under rook, Cartesian products of complete graphs, Hamming graphs, line graphs of bicliques, induced-star packing and injective edge coloring found no covering theorem. Existing work on general-position and zero-forcing rook-graph polynomials counts different objects and does not imply the displayed formula. Residual risk: an unindexed or differently named induced-star enumeration may already contain an equivalent identity; searches cannot establish uniqueness.
+## originality
 
-## Value: PASS
+PASS
 
-The full size distribution for a classical two-parameter family gives every number of admissible one-color classes in the associated injective edge-conflict setting and an explicit low-complexity coefficient recurrence. The parity obstruction and sharp maximum settle an extremal question for the family and distinguish odd squares from all other rectangles. This is a complete natural family classification, not an arbitrary finite instance or routine parameter renaming. Scope is limited to rook graphs; no extension to arbitrary graph products or injective edge-coloring partitions is claimed.
+The general induced-star description is already established by Chelladurai–Kalimuthu–Soundararajan (2022), so it cannot be claimed as new. Brešar–Samadi (2024) analyze complexity, extremal bounds and trees; Brešar–Dravec–Hedžet–Samadi (2024) supply general Cartesian-product lower bounds but not all rook packings. The exact two-sort resource decomposition, bivariate exponential formula, every coefficient and odd-square maximum are not in inspected sources. Resultary query for rook EOP polynomial returned rook homology and other invariants, not an EOP enumerator.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The rook graph is a natural two-parameter graph family and the edge-open-packing polynomial is a canonical exact statistic counting every feasible edge subset, not merely the maximum. The complete labelled three-block decomposition supplies a useful two-sort generating function, recurrence and sharp parity optimum. Such an exact full enumerator is a motivated invariant for extremal and injective edge-coloring questions; it is not a random finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
