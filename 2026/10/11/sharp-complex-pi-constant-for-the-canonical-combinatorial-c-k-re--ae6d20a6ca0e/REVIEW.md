@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For finitely supported complex vectors, heredity allows the subset selected by a rotating half-plane. Averaging the nonnegative rotated real parts gives exactly \(1/\pi\) times the absolute coefficient mass. Contractivity extends the map to the completion, and density extends the lower estimate. The sharpness construction uses a countable hereditary family and equally spaced roots of unity; every subset sum is bounded by a consecutive semicircle block, whose geometric-series modulus is at most \(1/\sin(\pi/m)\). Hence the inverse distortion is at least \(m\sin(\pi/m)\to\pi\).
+PASS
 
-The proof is symbolic. Finite computations were used only to stress-test small cases and are not part of the proof.
+For complex c00, hereditary F allows A_theta={alpha in F:Re(e^{-i theta}x_alpha)>=0}; this belongs to F and Re(e^{-i theta}sum_{A_theta} x_alpha) is the sum of positive parts. Integrate theta: (2pi)^-1 int max(Re(e^{-i theta}z),0)dtheta=|z|/pi. Supremum over F gives ||Tx||infty >=||x||_F/pi; triangle yields norm <=1 and any singleton gives norm exactly 1. Extension to completed X_F is well-defined, continuous into C(closure F) and injective by density and lower bound. F_m=P([m]) plus remote singletons is hereditary and covers N; unit roots of unity on first m have F-norm m. For every subset, project onto the sum direction and bound by the vector sum of a consecutive block of mth roots, at most csc(pi/m). Thus inverse ratio >=m sin(pi/m)->pi, giving true sharp universal constant. Independently enumerated all 2^m subsets for m=3,5,7,9,12; each max fell under csc(pi/m) and ratios approached pi. Finite checks are not the proof.
 
-## Originality
+## originality
 
-**PASS.** The closest source is Proposition 2.2 of arXiv:2610.01919v1, which proves the same canonical representation over real scalars with factor \(2\). The source explicitly defines \(X_{\mathcal F}\) over \(\mathbb R\), and its proof uses positive/negative splitting. Searches covering complexification, hereditary-family aliases, generalized Schreier terminology, subset-sum formulations, roots-of-unity sharpness, and canonical \(C(K)\) embeddings found no covering complex-\(\pi\) theorem.
+PASS
 
-The closest broader indexed representation result located concerns a different free Banach-lattice construction and therefore does not imply the present statement. Older papers on combinatorial-space isometries establish real/complex scalar contexts but do not, in the inspected material, state this norm comparison.
+The same canonical map is the source of a published real two-equivalence result; complex sharp quantitative distortion is the missing issue. Related complex combinatorial isometry results and Rademacher Sidon extremizers do not directly determine the optimal norm of THIS embedding.
 
-Residual risk: an older equivalent result may exist under complex vector-measure or subset-sum terminology; two older combinatorial-space papers were available only through abstracts/publisher material rather than complete full-text inspection.
+## value
 
-## Value
+PASS
 
-**PASS.** The canonical \(C(\overline{\mathcal F})\) representation is part of the focal paper's basic structural toolkit. Determining its exact complex scalar loss gives a natural sharp invariant: the real factor \(2\) is replaced by the optimal complex factor \(\pi\). The proof and extremizers expose the geometric reason for the difference, via half-plane averaging and uniformly distributed phases.
+A canonical embedding from any complex combinatorial Banach space into a compact C(K) space is structurally important in the original paper. The exact universal complex inverse bound pi, nontrivial sharpness for a single natural map, and explicit extremal hereditary families quantify representation geometry across arbitrary cardinals; the contrast with the source real constant 2 is a natural full scalar-field counterpart. Value is in the precise canonical distortion theorem, not a generic observation that a subset sum is large.
 
-## Closest literature and limitations
-
-The focal paper is the decisive comparison: it proves the real statement for the same map and family class, not the complex statement. The result here is limited to that canonical unsigned set-sum map; it does not classify arbitrary \(C(K)\) embeddings or assert that each individual family attains the universal constant.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

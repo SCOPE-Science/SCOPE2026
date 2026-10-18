@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-The proof was reconstructed from definitions without using a computational certificate.
+# Independent mathematical audit
 
-For the universal lower bound, the critical identity checked is
-\[
-\frac1{2\pi}\int_0^{2\pi}\max\{\operatorname{Re}(e^{-i\theta}z),0\}\,d\theta=\frac{|z|}{\pi}.
-\]
-Heredity guarantees that every half-plane-selected coordinate set remains admissible.
+## correctness
 
-For sharpness, the critical finite identity checked is the geometric-series formula
-\[
-\left|\sum_{j=0}^{k-1}e^{2\pi i j/m}\right|
-=\frac{|\sin(k\pi/m)|}{\sin(\pi/m)}.
-\]
-A projection argument reduces every subset sum of the \(m\)-th roots of unity to a nonnegative half-plane block, yielding the upper bound \(1/\sin(\pi/m)\). The limit \(m\sin(\pi/m)\to\pi\) then proves optimality.
+PASS
 
-The extension from \(c_{00}\) to the Banach completion uses boundedness and density. No finite enumeration is used to infer an infinite statement. The result does not address noncanonical embeddings or claim pointwise attainment of the universal constant by every family.
+For complex c00, hereditary F allows A_theta={alpha in F:Re(e^{-i theta}x_alpha)>=0}; this belongs to F and Re(e^{-i theta}sum_{A_theta} x_alpha) is the sum of positive parts. Integrate theta: (2pi)^-1 int max(Re(e^{-i theta}z),0)dtheta=|z|/pi. Supremum over F gives ||Tx||infty >=||x||_F/pi; triangle yields norm <=1 and any singleton gives norm exactly 1. Extension to completed X_F is well-defined, continuous into C(closure F) and injective by density and lower bound. F_m=P([m]) plus remote singletons is hereditary and covers N; unit roots of unity on first m have F-norm m. For every subset, project onto the sum direction and bound by the vector sum of a consecutive block of mth roots, at most csc(pi/m). Thus inverse ratio >=m sin(pi/m)->pi, giving true sharp universal constant. Independently enumerated all 2^m subsets for m=3,5,7,9,12; each max fell under csc(pi/m) and ratios approached pi. Finite checks are not the proof.
+
+## originality
+
+PASS
+
+The same canonical map is the source of a published real two-equivalence result; complex sharp quantitative distortion is the missing issue. Related complex combinatorial isometry results and Rademacher Sidon extremizers do not directly determine the optimal norm of THIS embedding.
+
+## value
+
+PASS
+
+A canonical embedding from any complex combinatorial Banach space into a compact C(K) space is structurally important in the original paper. The exact universal complex inverse bound pi, nontrivial sharpness for a single natural map, and explicit extremal hereditary families quantify representation geometry across arbitrary cardinals; the contrast with the source real constant 2 is a natural full scalar-field counterpart. Value is in the precise canonical distortion theorem, not a generic observation that a subset sum is large.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
