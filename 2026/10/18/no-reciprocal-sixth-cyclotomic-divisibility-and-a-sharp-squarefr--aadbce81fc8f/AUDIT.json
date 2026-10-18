@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Let \\(g(t)=t^{2}-t+1\\). For a counterexample with \\(2\\le a<b\\), the positive integer \\(z=g(a)/b\\) satisfies \\(z<a\\) and \\(bz\\equiv1\\pmod a\\); therefore \\(z^{2}g(b)\\equiv g(z)\\pmod a\\), producing a smaller reciprocal pair or the impossible case \\(z=1\\). Minimal-maximum descent proves the global theorem. Multiplicativity gives \\(\\mathcal H(n)=\\prod_{p\\mid n}g(p)/n\\) for squarefree \\(n\\); the finite prime graph has an outgoing edge at every vertex and hence a cycle of length at least three. The explicit witness consists of three primes verified by exact trial division and cyclic congruences. Finite verification is supplementary, not proof of the unbounded claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source proves a quantitative upper bound for two-cycle prime systems, not their impossibility; the source also handles mixed prime-power cycles, which our theorem does not exclude.",
+        "The source's Section 1 gives the unconditional bound \\(\\omega(n)\\ge2\\) for nontrivial integral inputs; the new squarefree lower bound is \\(\\omega(n)\\ge3\\)."
+      ],
+      "reasoning": "An upper bound on the number of solutions does not imply there are zero. The new result is stronger for the squarefree pair subsystem, while the overall analytic theorem in the source covers a larger class of integers but does not imply this exact obstruction.",
+      "searches": [
+        "De Koninck Letendre 2026 reciprocal gcd sum h(n)/n W_2 squarefree 2-cycle Proposition 1 vanishes, ω(n)>=3 for squarefree",
+        "\"no two cycles\" \"x^2-x+1\" divisibility",
+        "arXiv:2610.10572v1 Sections 2, 5"
+      ]
+    },
+    "checked_sources": [
+      "De Koninck–Letendre, arXiv:2610.10572v1 (2026-10-04), full relevant paper sections.",
+      "OEIS A317480, inspected entry.",
+      "Retrieved literature results for reciprocal sixth-cyclotomic pairs and Vieta descent, with no covering statement identified.",
+      "Semantic search of published mathematical findings for the two-cycle and squarefree-integrality formulations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The De Koninck–Letendre Section 5 first-power two-cycle system is precisely the restriction of our mutual divisibilities to distinct odd primes; the paper gives only a positive bound.",
+        "The source graph setup also admits squared-prime cycle vertices, so the present zero theorem cannot be read as excluding its full W_2 class."
+      ],
+      "reasoning": "Our no-two-cycle theorem implies nonexistence for the paper's first-power/first-power system; the paper's positive counting bound does not conversely imply nonexistence. The squarefree bound \\(\\omega(n)\\ge3\\) does not address other prime powers, and its explicit sharpness witness is checked independently.",
+      "searches": [
+        "arXiv:2610.10572v1 Proposition 1 ap=q^2-q+1 bq=p^2-p+1",
+        "reciprocal gcd sum \"two prime factors\" integrality squarefree p q",
+        "\"Vieta jumping\" \"x^2-x+1\" divides"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "De Koninck–Letendre, arXiv:2610.10572v1, Section 5, Proposition 1 states the system with distinct odd primes and provides an upper count.",
+        "No statement of zero reciprocal pairs was identified in the checked primary text or retrieved mathematical literature results."
+      ],
+      "reasoning": "Simultaneous mutual divisibility is equivalent to a directed two-cycle for \\(g(t)=t^{2}-t+1\\). The new theorem rules out such cycles over integers \\(\\ge2\\), not merely primes. A general descent technique is not, by itself, a proof of this specific claim.",
+      "searches": [
+        "Suppose positive integers a < b, a divides b^2-b+1, b divides a^2-a+1; Vieta descent z=(a^2-a+1)/b gives no reciprocal pairs and no 2-cycle",
+        "\"a divides b^2-b+1\" \"b divides a^2-a+1\"",
+        "\"p divides q^2-q+1\" \"q divides p^2-p+1\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A317480 gives sample values, references, and a factorization-based test for integrality, with no no-two-cycle theorem in the inspected entry.",
+        "The explicit sharpness example is known from prior specific three-prime computations; no novelty is assigned to its numerical value."
+      ],
+      "reasoning": "Numeric tables and the known minimal three-cycle do not by their statements prove absence of any reciprocal pair over all positive integers or the elimination of an entire first-power class in the analytic graph decomposition.",
+      "searches": [
+        "OEIS A317480 reciprocal gcd sum integer",
+        "n divides product of p squared minus p plus one over its squarefree prime factors, at least three primes, two-prime impossible",
+        "directed graph of divisibility by x squared minus x plus one, cyclotomic Phi6, girth at least 3, primitive 3-cycle"
+      ]
+    },
+    "rationale": "De Koninck–Letendre, arXiv:2610.10572v1, Section 5, Proposition 1, provides an \\(O(z^{1/3}/(\\log z)^2)\\) count for odd-prime reciprocal-divisibility systems but no exclusion theorem. The new no-two-cycle descent over all integers is strictly stronger for the first-power two-cycle subsystem, and yields a sharp squarefree support corollary. OEIS A317480 supplies a computational catalogue, not this structural obstruction. Targeted published-finding and literature searches retrieved no dominating result. Priority remains subject to unindexed earlier elementary proofs.",
+    "residual_risks": [
+      "An earlier, unindexed, or differently formulated elementary descent could already prove the same no-two-cycle fact.",
+      "The published article addresses both first- and second-power cycle vertices: only the both-first-power case is eliminated.",
+      "The known sharpness witness is a supporting illustration and not claimed novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source counts possible odd-prime 2-cycle pairs and includes a positive upper bound; it does not prove the number zero. Section 5 additionally permits 2-cycles with squared-prime factors.",
+        "evidence": [
+          "Definition \\(g(t)=t^{2}-t+1\\) in Section 1.",
+          "Section 2 defines functional digraph and splits components by cycle length.",
+          "Section 5, lines 288-331, is the closest result; Proposition 1 treats both primes to first power."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.10572v1",
+        "material_read": "Full relevant HTML sections 1, 2, 4, 5 and 7, including equations (5.1), Proposition 1 and its proof, with title and MSC metadata.",
+        "method": "Direct HTML inspection of the arXiv version.",
+        "title": "The Integer Values of the Reciprocal-GCD Sum",
+        "trigger": "Same arithmetic function, polynomial g(t) and graph two-cycle system."
+      },
+      {
+        "assessment": "The table does not claim a general reciprocal-cyclotomic two-cycle impossibility; the explicit three-prime witness is not claimed as a new table entry.",
+        "evidence": [
+          "OEIS A317480 definition and comments.",
+          "OEIS reference to the De Koninck–Letendre preprint."
+        ],
+        "identifier_or_url": "https://oeis.org/A317480",
+        "material_read": "Entry definition, displayed values, comments, references, arithmetic formulas and computational code.",
+        "method": "Direct entry inspection.",
+        "title": "OEIS A317480: Integers with integral reciprocal-GCD sum",
+        "trigger": "Exact database of positive integers with the same integrality property."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aadbce81-fc8f-45ca-b374-aa7baf1285dc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem eliminates completely a substantive first-power/first-power two-cycle case in an October 2026 analytic-number-theory paper, rather than only improving a counting constant. Its all-integer statement gives the sharp bound \\(\\omega(n)\\ge3\\) for nontrivial squarefree inputs with integral reciprocal-gcd sums, extending the source's \\(\\omega(n)\\ge2\\) fact. This is a structural mathematical classification with a motivated application, not the rediscovery of the explicit known witness.",
+    "status": "PASS"
+  }
+}
