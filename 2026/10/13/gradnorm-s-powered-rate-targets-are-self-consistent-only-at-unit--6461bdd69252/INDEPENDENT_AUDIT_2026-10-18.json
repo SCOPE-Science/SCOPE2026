@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:56:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md, VERIFICATION.md, SLOGAN.txt and relevant METADATA.json and AUDIT.json",
+        "fresh independent exact calculations; limitations detailed in review"
+      ],
+      "rationale": "For T positive task magnitudes and mean-one rates, sum actual G_i=T Gbar but sum targets=T Gbar M_alpha; summing signed residuals gives normalized L1 lower bound |1-M_alpha|. Explicit positive normalized G allocations x_i=s_i+1-M for M<1 and x_i=s_i/M for M>1 attain it and map to positive weights w_i=T(x_i/a_i)/sum(x_j/a_j). Strict Jensen forces heterogeneous M below/at/above one as alpha<1/=1/>1; ratio-preserving correction unique. Independent rational example T=3, rates(1/2,1,3/2),alpha=2 produced M=7/6 and attained floor 1/6 with weights (45,120,162)/109. Only instantaneous target compatibility claimed, not training failure.",
+      "residual_risks": [
+        "Sharpness relies on strictly positive unweighted gradients; zeros and constraints on task weights are outside scope.",
+        "Detached targets do not imply the algebraic compatibility condition is optimized at every dynamic step."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2308.12029 concerns scale-invariant gradient balancing",
+          "A broad algorithmic scaling critique is distinct from the exact sharp |1-M_alpha| residual"
+        ],
+        "reasoning": "The broader criticism does not supply the rate-powered mass identity or uniquely corrected target; complete 2023 source not read and remains a risk.",
+        "searches": [
+          "arXiv:1711.02257v1 original GradNorm",
+          "arXiv:2308.12029 Dual-Balancing for Multi-Task Learning",
+          "GradNorm gradient-target normalization consistency limitations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1711.02257v1; https://ar5iv.labs.arxiv.org/html/1711.02257",
+        "arXiv:2308.12029"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original GradNorm rates average exactly 1, targets multiply current Gbar by r_i^alpha",
+          "Original GradNorm differentiates holding targets fixed but definitions still impose summed mismatch"
+        ],
+        "reasoning": "The algorithm equations imply the obstruction via a genuinely additional summation and sharp positive-feasibility comparison, not a theorem stated in the cited source.",
+        "searches": [
+          "GradNorm Algorithm 1 average gradient relative training rate desired gradient alpha source",
+          "ar5iv:1711.02257 Section 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1711.02257: normalized rate defined before raising to alpha",
+          "Source auxiliary loss uses target Gbar*r_i^alpha",
+          "Resultary semantic search returned related but different normalization topics"
+        ],
+        "reasoning": "An equivalent target-mass-feasibility or Jensen threshold is absent from the directly inspected defining text, but absence from searches is not conclusive.",
+        "searches": [
+          "Resultary: GradNorm weighted gradient targets powered inverse training rates mass self consistency Jensen exact residual renormalization",
+          "\"GradNorm\" \"r_i^alpha\" \"self-consistency\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching GradNorm exact residual or alpha=1 compatibility table among first twenty Resultary hits",
+          "Observed hits concern different optimizers and objectives"
+        ],
+        "reasoning": "This is an analytic algorithm-property theorem, not a finite invariant census; search misses do not certify novelty.",
+        "searches": [
+          "Resultary: GradNorm weighted gradient targets powered inverse training rates mass self consistency Jensen exact residual renormalization",
+          "Resultary: GradNorm multi-task scalar equilibrium powered target"
+        ]
+      },
+      "rationale": "Defining GradNorm paper supplies all ingredients but did not state a target total-mass residual, sharp minimization or unique ratio-preserving correction in sections read. Later direct-gradient balancing work is broader criticism, not evidence of these precise formulas. Independent Resultary searches yielded no implication-equivalent target-mass theorem; originality remains best-of-knowledge due potential informal rediscovery.",
+      "residual_risks": [
+        "Unindexed GradNorm issue/implementation notes may already flag target-mass mismatch.",
+        "No claim of improved convergence/performance or priority for the mean-normalized modification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines target Gbar*r_i^alpha, detachment and weight rescaling; relevant inspected text has no sharp residual or Jensen mass condition",
+          "evidence": "Equation for weighted gradient norms; normalized relative inverse rate mean one; auxiliary absolute loss",
+          "identifier_or_url": "arXiv:1711.02257v1; https://ar5iv.labs.arxiv.org/html/1711.02257",
+          "material_read": "Open primary HTML; Sections 3.1-3.2 and Algorithm 1; initial/model experiment settings",
+          "method": "Direct full HTML access; close reading of relevant defining equations and training-rate normalization",
+          "title": "GradNorm: Gradient Normalization for Adaptive Loss Balancing in Deep Multitask Networks",
+          "trigger": "Exact algorithm defining mean normalized rates and powered gradient targets"
+        },
+        {
+          "assessment": "Possible related algorithmic critique, not verified as whole-document noncoverage",
+          "evidence": "Addresses scale invariance and direct normalization, different from this exact mass identity",
+          "identifier_or_url": "arXiv:2308.12029",
+          "material_read": "Title, bibliographic summary and GradNorm comparison available; no complete primary full text obtained in current run",
+          "method": "Public abstract/bibliographic result plus originating reference; full-text access attempted but unsuccessful",
+          "title": "Dual-Balancing for Multi-Task Learning",
+          "trigger": "Possible broader scale-invariant multitask normalization critique"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "motivation and precise invariant in pinned mathematical claim; assessed relative to cited underlying literature"
+      ],
+      "rationale": "This identifies an unavoidable mismatch in the defining targets of a widely used adaptive multitask loss and supplies a sharp quantifier and an algebraic mean-preserving repair. Although Jensen is elementary, the substantive object-specific incompatibility is meaningful; no downstream training improvement is claimed.",
+      "residual_risks": [
+        "The construction is an instantaneous analysis; empirical consequence of normalized correction remains untested."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All scientific findings are best-of-knowledge, not formal or external certification.",
+    "Actual source package assessed at pinned commit through direct blob reads; source record tree SHA copied from assignment, root ancestry not rehashed.",
+    "No publication authorization: public operational metadata has not been sanitized."
+  ],
+  "schema_version": 1
+}
