@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:15:26.533747Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all complex quasi-projective X, Macdonald/Gusein-Zade power-structure identity yields sum chi_c(Sym^n X)t^n=(1−t)^(-c) with integer c=chi_c(X). Coefficient extraction yields stated signed/unsigned binomials and zero cases. Kummer 1852 theorem exactly identifies p-adic valuation of each binomial coefficient with base-p carries. For genus g>=2, Macdonald gives chi(Sym^n C)=(-1)^n binom(2g−2,n); classical all-interior-binomial gcd theorem gives p iff 2g−2=p^a and 1 otherwise, hence gcd2 iff g=2^r+1. Independent finite checks reproduced gcd through g=119. Correct but entirely assembled from stated known theorems.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The symmetric Euler generating function is (1−t)^(-chi_c(X)); Bröring–Viergever Remark 4 explicitly quotes Macdonald chi(Sym^n C)=(-1)^n binom(2g−2,n)."
+        ],
+        "reasoning": "Combined stronger existing motivic/curve binomial identity plus Kummer directly entails all variations of the claim; McTague directly entails the gcd special case.",
+        "searches": [
+          "Gusein-Zade Luengo Melle-Hernandez arXiv:math/0407204 power structure Euler homomorphism",
+          "Bröring Viergever arXiv:2404.16378 Remark 4",
+          "McTague arXiv:1510.06696 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1510.06696; Carl McTague (2015), 3-page full text",
+        "arXiv:2404.16378; DOI 10.1007/s00229-025-01623-0",
+        "arXiv:math/0407204",
+        "Resultary query: gcd binomial coefficients prime powers Kummer carries symmetric powers curve Euler characteristics genus 2^r+1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put n=2g−2 in McTague Theorem1. n even, so n a prime power iff n=2^a; then g=2^(a−1)+1. Sign (-1)^n never affects gcd."
+        ],
+        "reasoning": "This implication exhaustively proves the allegedly new genus classification, while Kummer gives all valuations. Standard arithmetic with known motivic generating series covers the full result; language change does not restore novelty.",
+        "searches": [
+          "McTague arXiv:1510.06696 Theorem1",
+          "Kummer 1852 theorem McTague p.2",
+          "Macdonald curve Euler symmetric power Bröring Viergever Remark4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McTague arXiv:1510.06696 p.2 quotes Kummer’s theorem: ord_p binom(n,k) equals number of carries in adding k+(n−k)."
+        ],
+        "reasoning": "The claimed universal carry formula is word-for-word Kummer’s binomial valuation after replacing E_n by the known binomial expansion.",
+        "searches": [
+          "gcd binomial coefficients prime powers Kummer carries symmetric powers curve Euler characteristics genus 2^r+1",
+          "Kummer theorem p-adic valuation binomial number carries McTague 2015"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "McTague Theorem 1, first PDF page, states gcd of all interior coefficients equals p exactly when binomial row top is a prime power."
+        ],
+        "reasoning": "The curve gcd is an exact known theorem specialized to even binomial row; no new table or independent census remains.",
+        "searches": [
+          "McTague On the Greatest Common Divisor of Binomial Coefficients Theorem 1 (2015)",
+          "gcd binomial coefficients prime powers Kummer carries symmetric powers curve Euler characteristics genus 2^r+1"
+        ]
+      },
+      "rationale": "FAIL: Exact formulas are direct substitutions into Macdonald symmetric-power generating function and Kummer carry theorem. More decisively, the complete interior-binomial gcd theorem is explicitly Theorem 1 of Carl McTague, arXiv:1510.06696 (2015, citing Ram09), with exactly gcd_{0<k<n} binom(n,k)=p for prime-power n and 1 otherwise. Taking n=2g−2 immediately covers every genus and claimed dyadic case; no new geometric or number-theoretic hypothesis modifies the established statement. This is a covered corollary regardless of whether predecessors phrase it with Euler characteristics.",
+      "residual_risks": [
+        "No scientific falsehood shown; rejection is for decisive prior coverage and lack of nontrivial mathematical value, not correctness.",
+        "Primary entire math/0407204 original was not reread this run, but the precise cited formula is independently corroborated by later curve sources and suffices along with McTague and Kummer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct decisive prior coverage of gcd and p-adic carry claim",
+          "evidence": "Theorem 1: gcd_{0<k<n} binom(n,k)=p if n=p^a and 1 otherwise; p.2 quotes Kummer carry theorem.",
+          "identifier_or_url": "arXiv:1510.06696; Carl McTague (2015), 3-page full text",
+          "material_read": "all three full-text pages, especially Theorem 1 p.1 and Kummer theorem p.2",
+          "method": "lawful arXiv primary PDF, text and page-image inspection",
+          "title": "On the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "exact curve gcd after substituting n=2g−2"
+        },
+        {
+          "assessment": "Explicit Macdonald formula covers Euler sequence",
+          "evidence": "Remark 4 states chi_top(Sym^n C)=(-1)^n binom(2g−2,n).",
+          "identifier_or_url": "arXiv:2404.16378; DOI 10.1007/s00229-025-01623-0",
+          "material_read": "public full paper, Remark 4 and surrounding curve specialization",
+          "method": "publisher open full-text reading",
+          "title": "Quadratic Euler characteristic of symmetric powers of curves",
+          "trigger": "source of full curve Euler row"
+        },
+        {
+          "assessment": "Motivic-to-Euler generating series known, not a new implication",
+          "evidence": "(1−t)^(-[X])=sum[Sym^n X]t^n; Euler characteristic power homomorphism.",
+          "identifier_or_url": "arXiv:math/0407204",
+          "material_read": "relevant power-structure statement and published formula as cited in source package, original entire full text not independently read this run",
+          "method": "primary bibliographic and formula comparison",
+          "title": "Power structure over the Grothendieck ring of varieties and generating series of Hilbert schemes of points",
+          "trigger": "general all-variety Euler generating identity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The geometric Euler sequence depends solely on c and has no additional geometry after the classical power-structure specialization. Every p-adic profile is precisely Kummer on its explicit binomial coefficient, and the alleged new curve gcd phase is the textbook all-interior gcd result at even row n=2g−2. There is no nontrivial structural lemma, unknown exact natural invariant, boundary argument or independently useful mathematical step beyond routine substitution.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1510.06696; Carl McTague (2015), 3-page full text",
+    "arXiv:2404.16378; DOI 10.1007/s00229-025-01623-0",
+    "arXiv:math/0407204",
+    "Resultary query: gcd binomial coefficients prime powers Kummer carries symmetric powers curve Euler characteristics genus 2^r+1"
+  ],
+  "disposition": "failed",
+  "residual_risks": [
+    "No scientific falsehood shown; rejection is for decisive prior coverage and lack of nontrivial mathematical value, not correctness.",
+    "Primary entire math/0407204 original was not reread this run, but the precise cited formula is independently corroborated by later curve sources and suffices along with McTague and Kummer."
+  ],
+  "schema_version": 1
+}
