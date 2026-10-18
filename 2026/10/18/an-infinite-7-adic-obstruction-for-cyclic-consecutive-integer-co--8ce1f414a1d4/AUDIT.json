@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For d>=2 every digit-width block map repeats with period 42 because the affine digit transition has order dividing 294 modulo 49 and the block size is periodic modulo 294. The exact composition across digit widths 2..43 is (1,0,0), with zero length shift modulo 42, checked by the embedded Python certificate and independently compared at d+42. The initial d=5 index has congruence (14,0), independently checked by directly streaming all 10008 integers. Decimal cyclic rotation preserves nonzero valuation one at 7.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ripà proves non-perfect-powers for indices 2,3,5,6 modulo 9; the present indices are 0 modulo 9.",
+        "The OEIS entry A352991 lists the global question and 2022 paper, without a 7-adic uniform family."
+      ],
+      "reasoning": "The known source restriction and bounded checks do not cover any sufficiently large index in the stated family, and arbitrary-permutation questions neither imply nor establish the claimed valuation.",
+      "searches": [
+        "web: Kashihara concatenation perfect powers infinite family",
+        "arXiv:2205.10163 complete text",
+        "OEIS:A001292",
+        "OEIS:A352991"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2205.10163",
+      "https://oeis.org/A352991",
+      "https://oeis.org/A001292",
+      "published-finding corpus semantic searches: three actual candidate-specific queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ripà excludes m in four residue classes modulo nine and verifies small indices.",
+        "The new family has m≡0 mod9 and grows without bound; its uniform proof rests on the 42-digit-width affine group identity."
+      ],
+      "reasoning": "The earlier 3-adic theorem is inapplicable and the bounded checks cannot logically imply the infinitely many 7-adic valuation identities. No stronger available statement was found in sources actually inspected.",
+      "searches": [
+        "arXiv:2205.10163 Theorem 1 and Corollary 1",
+        "web: A001292 7 mod 49 perfect powers cyclic concatenation",
+        "published-finding corpus: Marco Ripa 2022 A001292 A352991 7-adic valuation m 10^d plus eight"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No equivalent title or statement among retrieved published-finding corpus records; closest lexical records include 2026/10/4/SCOPE-no-pristine-number-has-the-form-2-c-q-7--d65d52b15000 (unrelated divisor sums) and 2026/9/9/SCOPE028 (elongated-diamond partition functions).",
+        "Marco Ripà, arXiv:2205.10163, full text sections 2 and 3: only 3-adic residue restrictions and bounded enumeration."
+      ],
+      "reasoning": "The indexed question concerns exact 7-adic valuations for every cyclic rotation for indices 10^(42t+4)+8; the retrieved number-theory records are not equivalent statements or reductions.",
+      "searches": [
+        "published-finding corpus: concatenation first m positive integers cyclic rotations not perfect powers p-adic valuation seven infinite family",
+        "published-finding corpus: Kashihara conjecture A001292 cyclic permutation concatenation 123456789 perfect power 7-adic obstruction",
+        "web: A001292 7 mod 49 perfect powers cyclic concatenation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A352991 describes all permutations and refers to the same open conjecture, not exact residue certificates for infinitely many cyclic orbits.",
+        "No own-claim match for A001292, A352991, Kashihara, decimal concatenation, or perfect power among 102 preceding finding claims."
+      ],
+      "reasoning": "The theorem is not a retrieved database entry, known table value, or repetition of an earlier claim in the checked set.",
+      "searches": [
+        "OEIS:A001292 comments references",
+        "OEIS:A352991 internal references",
+        "Results own ledger claim strings A001292 A352991 Kashihara decimal concatenation perfect power"
+      ]
+    },
+    "rationale": "The directly inspected 2022 motivating paper covers modulo-nine indices 2,3,5,6 and small finite checks, neither of which implies an infinite family of indices divisible by nine with exact 7-adic valuation. Semantic record checks and own-claim comparisons found no equivalent theorem; publication priority remains a residual risk.",
+    "residual_risks": [
+      "The exact modular family may have appeared in unindexed work or in another parametrization not surfaced by searched records.",
+      "External independent mathematical validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No theorem for the 7-adic family; source modulo-nine exclusion does not apply",
+        "evidence": "Sections 2–3; first submission May 19, 2022.",
+        "identifier_or_url": "https://arxiv.org/abs/2205.10163",
+        "material_read": "Full accessible HTML text including definitions, Theorem 1, corollaries, additional open problems, and appendix checks",
+        "method": "Full document text inspection and direct comparison of index conditions and quantifiers",
+        "title": "On some open problems concerning perfect powers",
+        "trigger": "Original formulation and closest potential coverage"
+      },
+      {
+        "assessment": "Identifies the conjecture, no equivalent infinite cyclic 7-adic obstruction",
+        "evidence": "Comments and references to A001292 and Ripà, 2022.",
+        "identifier_or_url": "https://oeis.org/A352991",
+        "material_read": "Description, comments, references, examples, cross-references",
+        "method": "Direct page read",
+        "title": "OEIS A352991",
+        "trigger": "Broader permutation-sequence definition and literature links"
+      },
+      {
+        "assessment": "Definition consistent; no asserted all-parameter 7-adic theorem",
+        "evidence": "Cyclic permutations defined in arXiv:2205.10163 Definition 2.",
+        "identifier_or_url": "https://oeis.org/A001292",
+        "material_read": "Description and cross-reference via OEIS A352991 and primary paper",
+        "method": "Definition comparison",
+        "title": "OEIS A001292",
+        "trigger": "Original cyclic-rearrangement sequence identity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8ce1f414-a1d4-4310-acdb-b8eb9d2a6476",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The claim establishes an unbounded infinite family of full cyclic-orbit exclusions in a published open perfect-power problem, beyond the previously covered 3-adic classes, through a nontrivial 42-digit-tier finite-state identity.",
+    "status": "PASS"
+  }
+}
