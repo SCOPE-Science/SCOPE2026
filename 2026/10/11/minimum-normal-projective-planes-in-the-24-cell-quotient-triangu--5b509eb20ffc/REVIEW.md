@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact complex is reconstructed from the published orbit representatives and group generators. Exact binary linear algebra gives \(\dim H^1(K;\mathbf F_2)=1\), and the entire \(2048\)-element nonzero cohomology coset is enumerated. The minimum is \(21\) with \(60\) representatives. Every minimum canonical normal surface is independently checked to be connected with Euler characteristic \(1\). The converse normal-surface lower bound follows from parity of edge intersections, the triangle cocycle equations, and the nonzero mod-two homology class of an embedded projective plane in \(\mathbb{RP}^3\).
+## correctness
 
-## Originality
-PASS. Searches covered the exact triangulation label, the \(24\)-cell quotient description, one-cosystole/cohomological-code language, dual-surface language, and minimum normal-projective-plane terminology. The exact primary full text was inspected and does not state these invariants. The closest same-object prior computation concerns shortest primal homology cycles, which does not imply the cohomological support minimum or normal-surface classification.
+PASS
 
-## Value
-PASS. The exact minimum edge weight of an essential normal projective plane is a natural triangulation-level normal-surface invariant for a canonical symmetric model of \(\mathbb{RP}^3\). The exact count, three symmetry orbits, and two normal-disk profiles refine the scalar minimum into a complete description of all optimal representatives.
+PASS: Reconstructed the published 12-vertex triangulation from its four symmetry generators and three facet seeds. The resulting order-24 action gives 48 tetrahedra, 96 triangles and 60 edges. Independent GF(2) row reduction gives ranks 48 for cocycle equations and 11 for vertex coboundaries, hence dim H^1(F2)=1 and 2048 representatives in its nonzero coset. Independent exhaustive enumeration reproduces exactly the ten weights 21:60, 23:132, 25:144, 27:240, 29:360, 31:408, 33:400, 35:240, 37:60, 39:4. Reconstructed local 1|3/2|2 tetrahedral cuts, with 36 minimum cocycles of disk profile (20 triangles,10 quadrilaterals) and 24 of (18,11); read the submitted checker’s connectedness and chi=1 tests and the proof of the converse for arbitrary normal RP2 using mod-2 intersection parity and Poincare duality. Weight>=support gives the universal lower bound, equality requires exactly one intersection on active edges, hence no missing multi-normal representatives. Finite enumeration is genuinely exhaustive on this one triangulation; it does not establish claims for arbitrary triangulations.
 
-## Closest literature and limitations
-Köhler--Lutz provide the exact triangulation, topology, and automorphism data but not cocycle weights or normal-surface minima. General normal-surface theory supplies the canonical mod-two dual-surface construction but not this finite optimum. The theorem is specific to the fixed triangulation, and an unindexed equivalent historical computation cannot be categorically excluded.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: The Köhler-Lutz primary 2005 classification gives this exact vertex-transitive 24-cell quotient, incidence structure and symmetry group but does not report normal RP2 intersection systoles or the full nonzero H^1 cochain weight enumerator. A directly related Resultary record for the identical complex classifies shortest essential integral H1 triangular loops (64 in 4 orbits), a different primal invariant that does not imply the dual cocycle minimum or 60 projective planes. Normal-surface dualization itself is standard and not claimed new; the exact 21 bound, 60 minimizers, orbit decomposition and local disk profiles are the additional exact findings. Historical unindexed normal-surface computations remain a risk.
+
+## value
+
+PASS
+
+PASS: A precise optimal normal projective-plane weight and complete minimizer/orbit classification for a natural highly symmetric triangulation of RP3 is a motivated triangulation-dependent normal-surface/coding-theoretic invariant, not merely a renamed topology fact. The weight enumerator and normal disk profiles distinguish configurations invisible to the previously known shortest H1 layer. It supplies an exact benchmark for normal-surface enumeration and cosystolic optimization; no invariance under changes of triangulation is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
