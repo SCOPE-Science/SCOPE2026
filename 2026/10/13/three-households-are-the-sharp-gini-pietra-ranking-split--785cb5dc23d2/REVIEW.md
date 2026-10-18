@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The support-two identity follows directly from the finite-population formulas and leaves no admissible possibility for a strict reversal. For three sorted incomes, exact algebra gives \(G=2(\ell+\nu)/3\) and \(P=\max\{\ell,\nu\}\). The displayed equal-total witness has exact fractions \(1/3,13/48,7/24,7/24\), giving opposite strict rankings. The packaged exact-rational verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the support notion is for equally weighted households; weighted empirical distributions require a different formulation.
+PASS
 
-## Originality
-**PASS.** Prior literature already states that Gini and Pietra rankings are not identical in general, so disagreement existence is not claimed as new. The accepted contribution is the sharp empirical-support boundary and exact three-household sum-versus-maximum criterion. Full-text treatments of Gini and Pietra were inspected, targeted semantic searches did not locate the support-two impossibility/support-three sharpness statement, and a directly relevant 2026 Hoover–Gini preprint was identified but its full text was inaccessible through the available route.
+For n=2 the pairwise-difference and mean-deviation formulas reduce to (b-a)/[2(a+b)]. For n=3, sum of pairwise differences is 4(x3-x1), hence G=2(ell+nu)/3. The unique above-mean or below-mean extreme sets show P=max(ell,nu). Direct rational computation gives G(A)=1/3 >7/24=G(B) and P(A)=13/48<7/24=P(B). Independently exhaustively enumerated all positive integer sorted triples sharing totals 3..16; no reversal for <16 and the only total-16 pair is (1,6,9),(3,3,10). The universal statement follows from elementary algebra, not enumeration.
 
-Risk: because the proof is elementary, an unindexed exercise or software test could contain the same witness.
+## originality
 
-## Value
-**PASS.** Gini and Pietra are standard inequality summaries with distinct interpretations: average pairwise spread versus the one-shot redistribution share needed for equality. Knowing the smallest population size at which they can make opposite inequality judgments is a natural structural calibration. The three-household formula pinpoints the mechanism rather than merely supplying a numerical example.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fellman (2018) already recognizes different Gini/Pietra ranking and Lorenz non-dominance; Vila–Saulo–Quintino (2026) gives a general interpolating family, not the equal-weight empirical support cutoff in inspected text. The new fact is a minimum-support boundary and exact two-endpoint classification, not the generic possibility of index disagreement.
+
+## value
+
+PASS
+
+The fewest-households dimension at which two standard Lorenz-compliant inequality rankings can disagree is a natural structural question, relevant to fairness and sample-size interpretation. The exact endpoint formula isolates how aggregate spread and maximum deviation differ; supplemental first integer total shows a concrete minimal-scale example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
