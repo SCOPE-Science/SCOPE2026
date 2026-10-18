@@ -1,27 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For every \(p\ge p_a\), the source's separated Hamilton--Jacobi construction extends verbatim with \(p\) in place of \(p_a\), and the sign conditions required for calibration remain valid. The endpoint increment is the stated \(F_n(a,p)\). Direct differentiation gives
-\[
-\partial_pF_n(a,p)=2\Psi_n(a,p),
-\]
-while the integral kernel defining \(\Psi_n\) strictly decreases with \(p\); hence \(F_n\) is strictly convex. The source's proved sign change of the minimal-momentum mismatch at \(a_n\) therefore gives the full phase transition.
+PASS
 
-For \(a>a_n\), the unique zero of \(\Psi_n(a,p)\) makes the incoming and reflected outgoing characteristics meet at \((\sqrt a,-\sqrt a)\). Their calibrated increments telescope, proving attainment. The boundary case \(a=1\) is forced onto horizontal and vertical sides and has zero action. Uniform large-\(p\) expansions establish both sharp asymptotic constants. The numerical checker is supplementary only.
+For p>=p_a=0.5 sqrt[a(1+a)^n], S_p(w)=sqrt(4p²+w(1-w)^n) remains real for -a<=w<=1. Differentiating the separated Hamilton–Jacobi generating function gives 4 Phi_t Phi_s=(1-ts)^n with admissible nonnegative partial derivatives, hence a calibration upper bound H_n(a)<=F_n(a,p). Under the integral sign, derivative Fp=2Psi; kernel (1-w)^n/[S_p(S_p+2p)] is strictly decreasing p, making Psi strictly increasing and F strictly convex. The source established Psi(a,p_a) sign transition at a_n: boundary p_a below, unique root p*>p_a above. At Psi=0 reflected characteristic contact coordinates match at (sqrt a,-sqrt a), yielding a calibrated attaining causal path. At a=1 any path goes through opposite corner via axis-parallel lines and H=0. As a->1, uniform large-p expansion Psi=log(1/a)-C_a/(8p²)+O(p^-4), C_a=(1+a)^(n+1)/(n+1), gives p*sqrt(1-a)->2^((n-2)/2)/sqrt(n+1), H/sqrt(1-a)->2^((n+2)/2)/sqrt(n+1). Independently computed adaptive quadrature/root of Psi for n=2,3,5 and a=.92,.93,.97, consistent with signs/asymptotic; numeric checks do not replace calibration proof.
 
-## Originality
+## originality
 
-PASS. Remark 6.5 of the primary source already identifies variable momentum as the correct idea and states the qualitative location of the minimizer, so that portion is not claimed as new. The source explicitly leaves the auxiliary fixed-parameter problem undeveloped. It does not give the scalar objective \(F_n(a,p)\), the identity and strict convexity in \(p\), the unique closing equation in the post-threshold regime, the endpoint value, or the square-root boundary constants. Targeted searches did not locate a separate public source containing these statements.
+PASS
 
-## Value
+The very recent original Artstein–Avidan arXiv:2609.38041v1 introduces the global slab Santaló variational setup and its Remark 6.5 qualitatively proposes varying momentum at fixed a. That qualitative direction is pre-existing; the audited new content is the evaluated scalar strictly convex phase, uniqueness and sharp boundary constants. Full source manuscript could not be retrieved during this execution; only arXiv abstract and source-equation excerpts in frozen RESULT/AUDIT were available. No Resultary search matched exact endpoint constants except this own record. Best-of-knowledge O PASS with substantial documented source-access priority risk, not a whole-text noncoverage assertion.
 
-PASS. The fixed-turning value is the natural constrained profile behind the source's global calibration. Solving it clarifies exactly how the sharp path degenerates after the source's closing threshold and quantifies the collapse at the boundary. The unique momentum and square-root law give reusable information about the Hamilton--Jacobi mechanism beyond the single globally optimizing parameter.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
 
-## Closest literature and limitations
+Completes a clearly identified natural fixed-turning auxiliary variational problem left open in quantitative form by the sharp global inequality source. Unique momentum, attaining corner curve and endpoint square-root law are independent mathematically useful structural facts; no change to the global Santaló constant is claimed.
 
-The closest source is Shiri Artstein-Avidan, arXiv:2609.38041v1, especially Remark 6.5. It already sketches the variable-momentum strategy and qualitative phase. The present result should therefore be read as an explicit completion and endpoint analysis of that auxiliary problem, not as a new global Santaló inequality.
-
-The theorem is restricted to the relaxed causal-curve problem at prescribed turning parameter. It does not change the global sharp constant or equality bodies of the source. A contemporaneous unindexed elaboration of Remark 6.5 remains the main bibliographic risk.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

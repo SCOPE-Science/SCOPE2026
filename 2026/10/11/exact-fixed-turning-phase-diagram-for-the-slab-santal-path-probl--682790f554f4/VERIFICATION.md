@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,68 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For
-\[
-S_p(w)=\sqrt{4p^2+w(1-w)^n},
-\]
-the optimized endpoint bound is
-\[
-F_n(a,p)
-=
-2p\log\frac1a+
-\int_{-a}^{1}\frac{(1-w)^n}{S_p(w)+2p}\,dw.
-\]
-Differentiation gives
-\[
-\partial_pF_n(a,p)
-=
-2\log\frac1a
--
-2\int_{-a}^{1}
-\frac{(1-w)^n}{S_p(w)(S_p(w)+2p)}\,dw
-=
-2\Psi_n(a,p).
-\]
-The denominator in the last integral strictly increases with \(p\), so \(\Psi_n(a,p)\) strictly increases and \(F_n(a,p)\) is strictly convex.
+# Independent mathematical audit
 
-The characteristic contact formulas are
-\[
-\rho(P_-)
-=
--\frac12\Psi_n(a,p),
-\qquad
-\rho(P_+)
-=
-\frac12\Psi_n(a,p).
-\]
-Thus the unique post-threshold critical momentum makes both contacts equal to
-\[
-(\sqrt a,-\sqrt a),
-\]
-and calibration makes the bound sharp.
+## correctness
 
-For the endpoint asymptotics, with
-\[
-L_a=\log\frac1a,
-\qquad
-C_a=\frac{(1+a)^{n+1}}{n+1},
-\]
-uniform expansion at large \(p\) gives
-\[
-\Psi_n(a,p)
-=
-L_a-\frac{C_a}{8p^2}+O(p^{-4})
-\]
-and
-\[
-F_n(a,p)
-=
-2pL_a+\frac{C_a}{4p}+O(p^{-3}).
-\]
-At the unique root, this yields the two limits in the finding.
+PASS
 
-The bundled checker uses only standard-library numerical quadrature. It samples separated dimensions and turning parameters, reconstructs the unique optimized momentum, checks monotonicity of \(\Psi_n\), checks the derivative identity by centered differences, and verifies convergence toward the analytic endpoint constants.
+For p>=p_a=0.5 sqrt[a(1+a)^n], S_p(w)=sqrt(4p²+w(1-w)^n) remains real for -a<=w<=1. Differentiating the separated Hamilton–Jacobi generating function gives 4 Phi_t Phi_s=(1-ts)^n with admissible nonnegative partial derivatives, hence a calibration upper bound H_n(a)<=F_n(a,p). Under the integral sign, derivative Fp=2Psi; kernel (1-w)^n/[S_p(S_p+2p)] is strictly decreasing p, making Psi strictly increasing and F strictly convex. The source established Psi(a,p_a) sign transition at a_n: boundary p_a below, unique root p*>p_a above. At Psi=0 reflected characteristic contact coordinates match at (sqrt a,-sqrt a), yielding a calibrated attaining causal path. At a=1 any path goes through opposite corner via axis-parallel lines and H=0. As a->1, uniform large-p expansion Psi=log(1/a)-C_a/(8p²)+O(p^-4), C_a=(1+a)^(n+1)/(n+1), gives p*sqrt(1-a)->2^((n-2)/2)/sqrt(n+1), H/sqrt(1-a)->2^((n+2)/2)/sqrt(n+1). Independently computed adaptive quadrature/root of Psi for n=2,3,5 and a=.92,.93,.97, consistent with signs/asymptotic; numeric checks do not replace calibration proof.
 
-The numerical checks do not establish any infinite statement; they only replay representative consequences of the analytic proof.
+## originality
+
+PASS
+
+The very recent original Artstein–Avidan arXiv:2609.38041v1 introduces the global slab Santaló variational setup and its Remark 6.5 qualitatively proposes varying momentum at fixed a. That qualitative direction is pre-existing; the audited new content is the evaluated scalar strictly convex phase, uniqueness and sharp boundary constants. Full source manuscript could not be retrieved during this execution; only arXiv abstract and source-equation excerpts in frozen RESULT/AUDIT were available. No Resultary search matched exact endpoint constants except this own record. Best-of-knowledge O PASS with substantial documented source-access priority risk, not a whole-text noncoverage assertion.
+
+## value
+
+PASS
+
+Completes a clearly identified natural fixed-turning auxiliary variational problem left open in quantitative form by the sharp global inequality source. Unique momentum, attaining corner curve and endpoint square-root law are independent mathematically useful structural facts; no change to the global Santaló constant is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
