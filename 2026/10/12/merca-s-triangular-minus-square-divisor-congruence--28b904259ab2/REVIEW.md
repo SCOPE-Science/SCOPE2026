@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof begins from the exact identity \(\tau(N)=\prod(e_i+1)\). The condition \(4\nmid\tau(N)\) gives a complete exponent dichotomy: either all exponents are even, or exactly one is odd and that exponent is \(1\pmod4\). In the second branch, \(N\equiv1\pmod8\) forces the unique odd-exponent prime to be \(1\pmod8\). The included norm argument in \(\mathbb Z[\sqrt2]\) gives \(p=A^2-8B^2\), and scaling converts the factorization into \(8n+1=(2m+1)^2-8r^2\), hence \(n=T_m-r^2\). The checker independently exercises both branches through \(n=100000\); this finite check is explicitly non-probative for the infinite theorem.
+## correctness
 
-## Originality
-**PASS.** The focal 2022 paper states the implication as Conjecture 5 rather than proving it. The inspected 2021 Craig--Merca paper proves a progression-level classification theorem and a different conjecture; it does not state this triangular-minus-square criterion. The inspected 2024 Merca paper addresses different divisor-sum and partition identities. Exact-phrase, formula, Pell-norm, and divisor-congruence searches found no implication-equivalent published result. OEIS A391309 catalogs the representation complement but does not connect it with \(\tau(8n+1)\). Residual risk remains for unindexed or unpublished work.
+PASS
 
-## Value
-**PASS.** This resolves an explicit published number-theory conjecture in its full stated domain. The proof also supplies a structural explanation: failure of divisibility by \(4\) is equivalent to a sharply restricted prime-exponent pattern, which is then converted to the required triangular-minus-square representation through a quadratic norm. That structural bridge is reusable in neighboring divisor-congruence questions and is not a finite-table recomputation.
+Let N=8n+1. Since tau(N)=product(e_p+1), v_2(tau(N))<=1 implies either every exponent even, hence odd square N=(2m+1)^2 and n=T_m, or precisely one odd exponent, e_p≡1 mod4, and N=p^(4a+1)v². Modulo 8 forces p≡1 mod8. Quadratic reciprocity (2/p)=1 and the Euclidean norm property of Z[sqrt2] (nearest integer error norm <1) show p splits as p=A²−2C², with C even by mod8, hence p=A²−8B². Scaling by p^(2a)v yields N=X²−8Y² with odd X and desired n=T_m−Y²; signs normalized. Own factor/exponent checks for n<3000 and explicit small norm-prime witnesses corroborate both branches; no finite check used to prove all n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
 
-## Closest literature and limitations
-The closest source is Merca (2022), DOI: 10.3390/axioms11070342, which states the conjecture. Craig--Merca, arXiv:2112.05649, gives a broader classification of Ramanujan-type congruences for multiplicative functions but does not imply the pointwise representation criterion. Merca (2024), DOI: 10.1007/s13398-024-01617-9, does not contain the criterion. OEIS A391309 records the underlying representation set without the divisor-function implication. No converse or modulo-higher-power statement is asserted here.
+PASS
+
+Best-of-knowledge statement-level novelty of the surviving claim after crediting overlap in actual primary texts; not a universal priority certificate. Matching conjecture statement establishes relevance, not prior proven coverage; this proof is an answer to the original question. No inspected stronger theorem implies the exact τ(8n+1) representation implication. Closely titled papers need scientific content comparison, not title match. This nontrivial combination settles that stated conjecture; no source found with the implication already fully proved. The norm lemma is not itself novel.
+
+## value
+
+PASS
+
+This resolves an explicitly published pointwise divisor-congruence conjecture in full generality using a structural prime-exponent classification and a quadratic norm bridge. The exact link between tau(8n+1) modulo 4 and triangular-minus-square representation is a natural nontrivial arithmetic problem, beyond finite OEIS observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

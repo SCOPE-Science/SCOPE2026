@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof was reconstructed from definitions. The critical checks are:
+# Independent mathematical audit
 
-1. From \(\tau(N)=\prod(e_i+1)\), the condition \(4\nmid\tau(N)\) permits either no odd exponent or exactly one odd exponent; in the latter case that exponent is \(1\pmod4\).
-2. For \(N=8n+1\), the unique odd-exponent prime is forced to be \(1\pmod8\).
-3. Quadratic reciprocity makes \(2\) a quadratic residue modulo that prime. The norm-Euclidean calculation in \(\mathbb Z[\sqrt2]\) then yields a factor of norm \(p\), and parity refines \(p=A^2-2C^2\) to \(p=A^2-8B^2\).
-4. Scaling the norm identity gives \(8n+1=(2m+1)^2-8r^2\), which is algebraically equivalent to \(n=T_m-r^2\).
+## correctness
 
-`artifacts/verify.py` was replayed from the packaged path. It returned `VERIFY_OK` for every \(0\le n\le100000\), checking \(21447\) inputs with \(4\nmid\tau(8n+1)\). The split was \(447\) square cases and \(21000\) unique-odd-exponent cases.
+PASS
 
-The computation is finite and is not treated as proof of the infinite statement. No independent audit has been performed.
+Let N=8n+1. Since tau(N)=product(e_p+1), v_2(tau(N))<=1 implies either every exponent even, hence odd square N=(2m+1)^2 and n=T_m, or precisely one odd exponent, e_p≡1 mod4, and N=p^(4a+1)v². Modulo 8 forces p≡1 mod8. Quadratic reciprocity (2/p)=1 and the Euclidean norm property of Z[sqrt2] (nearest integer error norm <1) show p splits as p=A²−2C², with C even by mod8, hence p=A²−8B². Scaling by p^(2a)v yields N=X²−8Y² with odd X and desired n=T_m−Y²; signs normalized. Own factor/exponent checks for n<3000 and explicit small norm-prime witnesses corroborate both branches; no finite check used to prove all n.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level novelty of the surviving claim after crediting overlap in actual primary texts; not a universal priority certificate. Matching conjecture statement establishes relevance, not prior proven coverage; this proof is an answer to the original question. No inspected stronger theorem implies the exact τ(8n+1) representation implication. Closely titled papers need scientific content comparison, not title match. This nontrivial combination settles that stated conjecture; no source found with the implication already fully proved. The norm lemma is not itself novel.
+
+## value
+
+PASS
+
+This resolves an explicitly published pointwise divisor-congruence conjecture in full generality using a structural prime-exponent classification and a quadratic norm bridge. The exact link between tau(8n+1) modulo 4 and triangular-minus-square representation is a natural nontrivial arithmetic problem, beyond finite OEIS observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
