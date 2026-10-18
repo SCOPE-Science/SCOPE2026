@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The integral identity xb_r=r b_r+b_(r+1) follows by counting each injective word contribution. At n=p, b_p=x^p-x. Every complete word left-absorbs all right factors, so left multiplication by b_p has rank exactly one, nonzero as basis sum, square zero because p!=0 in characteristic p. It annihilates x and forces the minimal polynomial to divide T^2 prod_{j=1}^{p-1}(T-j). Rank(T^p-T)=1 yields a unique size-two zero block and no other nonsimple block. Reduction of the integral characteristic polynomial and prior nonmodular multiplicity formula n!/j! give all remaining blocks. For n<p the annihilating polynomial is separable. A direct finite-field word-multiplication verifier corroborates p=2,3,5; the proof works for all primes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brauner--Commins--Reiner Theorem 2.9(i) gives the invariant subalgebra minimal polynomial over any coefficient ring; it does not specify Jordan blocks of the full left regular representation.",
+        "Theorem 4.11 requires |S_n| invertible in the field and does not cover n=p in characteristic p.",
+        "Saliola arxiv:math/0608698 studies quivers and the path structure, not this operator Jordan form."
+      ],
+      "reasoning": "Any general full-module modular-Jordan theorem would subsume the claim, but the plausible strongest inspected source explicitly assumes away the modular case. The polynomial relation by itself bounds zero-block size but does not force exactly one size-two block without the new rank-one argument.",
+      "searches": [
+        "Free left regular band algebra random-to-top operator x sum of singleton words in characteristic p equals n=p has exactly one nontrivial Jordan block size two; full modular Jordan form",
+        "Hochschild one cohomology of acyclic path algebra with parallel arrows, bypasses, Lie structure",
+        "arxiv:2206.11406 §2.3, §4.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0006145, abstract and left-regular-band spectral sections",
+      "arxiv:math/0608698, definitions and quiver sections",
+      "arxiv:2206.11406, Theorems 2.9 and 4.11, section 4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.9(i) entails the annihilating polynomial at n=p but, without additional rank information, allows several size-two zero blocks.",
+        "Theorem 4.11 yields integer characteristic-zero multiplicities, hence modular algebraic multiplicities by integral reduction, but does not yield the number of nonsimple blocks.",
+        "The identity b_p=x^p-x and absorption of full words give rank(x^p-x)=1, which is the decisive new modular information."
+      ],
+      "reasoning": "Combining prior polynomial relation and prior ordinary multiplicities identifies eigenvalues and algebraic multiplicities but does not fix the modular extension class. The rank-one absorption argument determines that previously undetermined extension and proves exact one-block nonsemisimplicity.",
+      "searches": [
+        "Brauner Commins Reiner invariant free left regular band modular Jordan decomposition first prime threshold one Jordan block",
+        "Free left regular band algebra random-to-top operator x sum of singleton words in characteristic p equals n=p has exactly one nontrivial Jordan block size two; full modular Jordan form",
+        "arxiv:2206.11406 Theorem 4.11",
+        "arxiv:2206.11406 Theorem 2.9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brauner--Commins--Reiner Theorem 4.11 decomposes the full module only when n! is a field unit; n=p in characteristic p violates that hypothesis.",
+        "Brown arxiv:math/0006145 concerns ordinary random-walk diagonalization."
+      ],
+      "reasoning": "Checked random-to-top, Tsetlin-library, left-regular-band and prime-characteristic Jordan terminology. Neither a modular Jordan theorem on the complete monoid algebra nor the rank-one first-collision operator was found in compared sources. Absence of hits alone is not a uniqueness certificate.",
+      "searches": [
+        "Modular characteristic p Jordan blocks of random-to-top shuffling operator on all injective words when alphabet size equals p",
+        "Brauner Commins Reiner invariant free left regular band modular Jordan decomposition first prime threshold one Jordan block",
+        "arxiv:2206.11406 Theorem 2.9, Theorem 4.11"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Characteristic-zero multiplicities follow from the derangement-representation formula of arxiv:2206.11406, Theorem 4.11.",
+        "Direct literal finite-field computations give a unique zero Jordan size-two block for p=2,3,5."
+      ],
+      "reasoning": "Compared full-spectrum and modular-rank-one claims, rather than simply matching numerical parameters. Neither the published-research records inspected nor the primary literature sections consulted presented an exact table already covering all prime characteristics at the threshold. A finite table would not alone prove the uniform claim.",
+      "searches": [
+        "Modular characteristic p Jordan blocks of random-to-top shuffling operator on all injective words when alphabet size equals p",
+        "Combinatorial formulas for Hochschild cohomology dimension of the free left regular band algebra and its path algebra Boolean lattice support",
+        "arxiv:math/0006145",
+        "arxiv:math/0608698"
+      ]
+    },
+    "rationale": "The first-collision modular Jordan form on the entire algebra is not established by the semisimple 2022 eigenspace theorem or the older walk/quiver work; explicit rank-one absorption supplies the missing block data. The published-claim and earlier-ledger searches found no equivalent, with residual priority risk acknowledged.",
+    "residual_risks": [
+      "An equivalent modular random-to-top/Tsetlin operator theorem could exist under different terminology or in older shuffle literature outside inspected primary material.",
+      "Characteristic-zero full-module multiplicities are accepted from a published prior theorem; their original literature priority is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior results determine invariant subalgebra and characteristic-zero/full nonmodular eigenspace multiplicities, but the modular first-collision block rank is not established",
+        "evidence": [
+          "Theorem 2.9(i): k[X]/prod_{j=0}^n(X-j) for invariants over arbitrary k",
+          "Theorem 4.11: requires group order invertible for full-module eigen decomposition",
+          "Theorem 1.4 and §4 provide the derangement representation eigen multiplicities"
+        ],
+        "identifier_or_url": "arxiv:2206.11406",
+        "material_read": "Abstract, introduction, definitions, Theorem 2.9 and its surrounding proof, section 4 operator setup, Theorem 4.11 and its hypothesis and formula",
+        "method": "Primary full-text PDF opened; read relevant theorem statements, hypotheses, formulas, and nearby argument; searched for modular and Jordan",
+        "title": "Invariant Theory for the free left-regular band and a q-analogue",
+        "trigger": "Exact same algebra, operator, and potential dominating full-spectrum theorem"
+      },
+      {
+        "assessment": "Classical ordinary walk spectra, not an exact Jordan calculation for the modular full regular band algebra",
+        "evidence": [
+          "arXiv v1 2000-06-20",
+          "Paper identifies diagonalizable transition matrices and multiplicities of random walks"
+        ],
+        "identifier_or_url": "arxiv:math/0006145",
+        "material_read": "Abstract and left-regular-band/shuffling sections, characteristic terminology search",
+        "method": "Primary PDF and arXiv version record inspected",
+        "title": "Semigroups, rings, and Markov chains",
+        "trigger": "Original left-regular-band random walks and diagonalizable spectral analysis"
+      },
+      {
+        "assessment": "Quiver and path-algebra information does not fix this particular modular Jordan extension",
+        "evidence": [
+          "Describes semigroup algebra quiver by support poset; does not state the modular uniform-letter Jordan form"
+        ],
+        "identifier_or_url": "arxiv:math/0608698",
+        "material_read": "Definitions, free left-regular-band quiver structure and examples including sections 2, 8, 13",
+        "method": "Primary PDF full-text read in relevant sections",
+        "title": "The Quiver of the Semigroup Algebra of a Left Regular Band",
+        "trigger": "Potential stronger full-algebra structural theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "857a5990-9880-473f-8f1e-b491eeb12f48",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the exact first-prime characteristic boundary where a classical shuffle/left-regular-band regular module becomes nonsemisimple. It gives the complete modular Jordan form simultaneously for all primes, distinguishes the regular algebra module from chamber-only walks and invariant subalgebra, and identifies the unique extension by a canonical rank-one nilpotent. These are natural structural invariants, not arbitrary finite parameters or a routine table lookup.",
+    "status": "PASS"
+  }
+}
