@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "All real projections can be averaged over dihedral signed edge isometries. Every invariant projection is represented by a reflection-antisymmetric cyclic convolution column a, with exact spoke/rim l1 column norms S(a),T(a). An explicit two-supported a achieves F(t) precisely when its rim kernel total-variation branch has u<=1/3 (t<=t_star). An explicit five-entry q and positive convex combination give the lower bound F(t)+[t(3-2t)/(1+2t+2t²)]sum_{j>=1}|a_j| for 0<t<3/2. Equality outside the interval forces forbidden total variation, establishing strictness. The smaller wheels have independent explicit strict upper bounds. The standard-library exact checker passed 520 rational in-range cases plus 30 small wheels; a separate unrestricted full-projection linear program passed 20 cases. Finite tests corroborate, but the algebraic certificate is the proof. No statement about t>=3/2 is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General finite-group averaging proves reduction to equivariant projections but does not determine weighted-wheel kernel coefficients.",
+        "The weighted graph transportation-cost quotient identifies a geometric setting; it does not compute the relative complementability constant for all radial parameters.",
+        "Full-text families singled out are tori, Hamming graphs, recursive diamond graphs and Laakso graphs rather than wheels with variable spokes."
+      ],
+      "reasoning": "No inspected stronger theorem implies the exact parameter interval, t_star radical threshold, or six-rim size stabilization. The general machinery is used as background, not claimed as novel.",
+      "searches": [
+        "Exact linear projection constants of graph cut spaces and cycle spaces for weighted networks; sharp Banach complementability and symmetry.",
+        "arxiv:2305.12582: invariant and minimal projections onto cycle spaces for different families of graphs",
+        "arxiv:1910.03625: weighted transportation cost edge quotient"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1807.03814v1",
+      "https://arxiv.org/html/1910.03625v2",
+      "https://arxiv.org/html/2305.12582v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The unit-weight special case at t=1 has λ=9/5 for m>=6 and was known in available prior work, but only constrains a single parameter value.",
+        "The claimed strict inequality for t_star<t<3/2 distinguishes its sharp transition from continuation of the rational branch.",
+        "New lower witness uses a five-coordinate dual sign pattern and reveals coefficient t(3-2t)/Z, while upper witness changes feasibility at the radical root."
+      ],
+      "reasoning": "The new weighted formula implies the old unit-weight numerical value, not conversely. Neither a bare group-averaging theorem nor a quotient identification implies the explicit weighted operator norm, and the earlier radial-free unweighted calculation does not establish the sharp deformation interval.",
+      "searches": [
+        "weighted wheel graph rim spoke length exact minimum cycle projection norm and complementability of circulation space",
+        "Minimum norm projection onto weighted wheel-graph cycle space with rim edges unit and spokes t, six vertex plateau and radical threshold square root 17.",
+        "arxiv:1807.03814: group averaging and graph flow quotient",
+        "arxiv:2305.12582: invariant projection optimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In the full-text 2018 paper the relevant normed target is cycle space of the unweighted edge l1 realization, but the applications treat recursively constructed diamond and Laakso graphs.",
+        "The full 2023 treatment discusses automorphism-invariant minimal projections for discrete tori and Hamming graphs, not uniform radially weighted wheels.",
+        "A distinct existing unit-weight wheel calculation yields 9/5 for at least six rim vertices; the new claim controls a nontrivial continuous interval and its sharp boundary."
+      ],
+      "reasoning": "Graph cycle flows, kernel of incidence, circulations and edge-l1 subspaces are equivalent descriptions of the same target. The unit-weight value F(1)=9/5 is already covered. None of the checked full-text treatments yields an expression for every 1/2<=t<=t_star nor forces failure of this expression for t_star<t<3/2.",
+      "searches": [
+        "weighted wheel graph rim spoke length exact minimum cycle projection norm and complementability of circulation space",
+        "Exact projection constants of weighted wheels with uniform spoke weights and rim weights in edge l1 space as length parameter varies, dihedral invariant kernel.",
+        "arxiv:1807.03814: cycle-space and quotient representation",
+        "arxiv:2305.12582: minimal invariant cycle projections"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A wheel-shaped symmetric-edge polytope ellipsoid entry concerns a different ellipsoid extremum, not projection onto edge cycle space.",
+        "The cactus basis-projection item concerns coordinate projections for cactus graphs, whereas wheels with >=4 rim vertices have overlapping fundamental triangles and are not cactus graphs.",
+        "No retrieved scientific summary contained the two-parameter wheel cycle-projection formula; indexed-summary coverage is incomplete."
+      ],
+      "reasoning": "The relevant exact-table risk is a pre-existing value for unweighted wheels; it has been explicitly separated from this new weighted statement. Search absence does not prove novelty, so unindexed records remain a risk.",
+      "searches": [
+        "Minimum norm projection onto weighted wheel-graph cycle space with rim edges unit and spokes t, six vertex plateau and radical threshold square root 17.",
+        "Optimal projection onto weighted wheel circulation subspace sharp parameter t and critical (1+sqrt(17))/4",
+        "published-finding corpus scientific record: weighted wheel and cycle projection constants; exact parameter plateau",
+        "published-finding corpus scientific record: cactus transportation basis projection norms"
+      ]
+    },
+    "rationale": "The unweighted wheel value F(1)=9/5 is known and not proposed as new. The distinct all-m>=6 nontrivial radial interval, its exact radical endpoint and strict failure just beyond it require a new weight-sensitive primal/dual pair. Examined relevant full-text work on invariant cycle-space projections and weighted graph quotients (arXiv 1807.03814, 1910.03625, 2305.12582) as well as indexed closest mathematical summaries; none gives the present statement or a stronger theorem that entails it. Searches do not establish exhaustive uniqueness; unindexed equivalent calculations remain a risk.",
+    "residual_risks": [
+      "Indexed summaries do not substitute for reading their complete corresponding mathematical articles; implication comparisons were limited to the statements available.",
+      "Equivalent weighted-wheel formulas in unindexed books, theses or articles cannot be definitively excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found general averaging and projection arguments but no radially weighted wheel graph computation.",
+        "evidence": [
+          "2018 arXiv first public version, Sections 4.4, 5, 6",
+          "Full text discusses multibranching diamond and Laakso graphs, not an exact wheel spoke-weight formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1807.03814v1",
+        "material_read": "Full accessible HTML document, with Introduction and Sections 4–6 on cycle-preserving averaging, multibranching diamonds and Laakso graphs examined; full-text search for wheel found no match.",
+        "method": "Inspected accessible primary HTML and main theorem scope, with targeted text search.",
+        "title": "Lipschitz free spaces on finite metric spaces",
+        "trigger": "Finite graph cycle-space projection method and closest general complementability literature"
+      },
+      {
+        "assessment": "Weighted quotient theorem applies as context, but contains no minimum projection constant for radially weighted wheels.",
+        "evidence": [
+          "2019 arXiv first public date; weighted edge quotient l1(E)/Z(G)",
+          "The paper gives a representation, not an exact wheel projection formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1910.03625v2",
+        "material_read": "Full accessible HTML document, including the weighted graph quotient result and its surrounding derivation; full-text search for wheel found no match.",
+        "method": "Read relevant full-text weighted graph sections and checked searchable text for wheel.",
+        "title": "On relations between transportation cost spaces and l1",
+        "trigger": "Weighted-edge norm and transportation-cost quotient representation"
+      },
+      {
+        "assessment": "General invariant-projection framework; main computations address discrete tori and Hamming graphs, not the radial weighted wheel formula.",
+        "evidence": [
+          "2023 arXiv first public date; Sections 2.4–2.7 on tori and Hamming graphs",
+          "The general averaging principle is a dependency, not a covering parameter theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2305.12582v1",
+        "material_read": "Full accessible HTML document, including Introduction §§1.1–1.6 and Section 2 result headings and family-specific arguments; full-text search for wheel found no match.",
+        "method": "Read primary theorems and projection methods; compared covered graph classes and checked keyword/graph names.",
+        "title": "Cycle spaces: invariant projections and applications to transportation cost",
+        "trigger": "Direct closest primary account of minimal invariant cycle-space projections"
+      },
+      {
+        "assessment": "An ellipsoid of a symmetric edge polytope and its weight optimization do not determine a minimal linear projection onto the cycle subspace.",
+        "evidence": [
+          "Reported Löwner ellipsoid and rim-to-spoke weight ratio behavior",
+          "Does not state an edge-l1 relative projection norm; no full-document noncoverage inference made."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0",
+        "material_read": "Only indexed title and mathematical result summary, not primary full text.",
+        "method": "Compared stated optimization objects and implications in published abstract.",
+        "title": "The exact Löwner ellipsoid and exponential edge-weight stabilization for wheel symmetric edge polytopes",
+        "trigger": "Shares the wheel graph and weighted edge geometry"
+      },
+      {
+        "assessment": "Coordinate projections for molecule bases over cactus graphs are distinct from all-projection optimization onto cycle spaces of wheels.",
+        "evidence": [
+          "Cactus family and coordinate edge-basis norms in summary",
+          "Wheels m>=6 contain many triangles that share spokes; such graphs are not cactus graphs."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd",
+        "material_read": "Only indexed title and result summary.",
+        "method": "Compared class of graphs and projected subspaces in summary.",
+        "title": "Sharp coordinate-projection norms for edge bases of cactus transportation spaces",
+        "trigger": "Shares graph transportation and projection terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e838bbde-1723-45e6-bfbe-ca2e254e2401",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact minimal projection norm of an m-dimensional wheel cycle subspace in a 2m-dimensional weighted edge l1 space is a natural Banach complementability invariant and the parametric problem is not settled by an unweighted value. The finding identifies a uniform nontrivial interval independent of graph size, an algebraic obstruction threshold t_star and a sharp minimal rim count of six. The boundary follows from a structural five-edge dual witness and detects a genuine change in the active norm constraint; it is not a renaming or a routine increment of an old number. It does not require a downstream theorem for this structural extremal classification to be useful.",
+    "status": "PASS"
+  }
+}
