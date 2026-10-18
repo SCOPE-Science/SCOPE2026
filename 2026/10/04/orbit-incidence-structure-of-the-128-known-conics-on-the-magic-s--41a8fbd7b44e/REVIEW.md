@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof fixes a canonical conic, computes its sign-change stabilizer as \(4\), obtains a 64-element sign orbit, and uses a square reflection to exchange the two published 64-conic families. Orbit--stabilizer then gives full stabilizer order \(16\). On the canonical conic the displayed Jacobian minor is \(-6^6a^2b^2c^2\), so singular points must occur at \(abc=0\); those six boundary points match the published \(p_1\) and \(p_3\) square patterns in a \(4+2\) split. Trivial points give four projective sign classes. Exact double counting yields incidence degrees \(2,4,0,4\). The arithmetic and polynomial identities replay successfully from the packaged verifier.
+## correctness
 
-## Originality
-**PASS.** The initiating paper gives the automorphism group, point orbits, and 128 conics separately and explicitly leaves open whether the known conics exhaust all conics. It does not state the one-orbit theorem, stabilizer order, six-node split, or point--conic incidence degrees. Searches using the exact source identifier, orbit/stabilizer language, square-pattern aliases, and incidence-design formulation found no covering statement. A residual risk remains that unindexed computational material contains the same bookkeeping.
+PASS
 
-## Value
-**PASS.** The known 128 conics are the concrete candidate set in an explicit open conic-classification problem. Showing that they form one homogeneous automorphism orbit and determining their incidence with all distinguished finite point orbits supplies structural constraints for further Hilbert/Fano-scheme analysis. The statement is therefore a motivated geometric lemma, not an arbitrary finite count.
+The Auel--Singer full arXiv HTML Sections 1.2,1.3,3.1 and Proposition 4.4 confirms automorphism subgroup S of order 256 and D4 factor 8, singular point orbits 128/64/64, and two 64-conic diagonal families with b^2+c^2=2a^2. For canonical C0=[a:b:c:c:a:b:b:c:a], sign stabilizer has 2^3/2=4 elements and S orbit 64; a square reflection interchanges diagonal families, yielding full 128-conic orbit and stabilizer 2048/128=16. Trivial all-squared-equal classes [1:±1:±1] yield exactly 4 points. Independently calculated 6x6 Jacobian minor from six source-derived quadrics via symbolic differentiation and determinant: -6^6 a^2 b^2 c^2. The only potentially singular positions are a=0,b=0,c=0, each giving two projective points; published node orbit patterns assign the split p3=2, p1=4, p2=0. Uniformity plus exact double count gives incidences 2,4,0,4 for the 256 trivial,128 p1,64 p2,64 p3 points. The conic claim does not assert all conics are known.
 
-## Closest literature and limitations
-Auel--Singer, arXiv:2609.09351v1, is the closest source and supplies all ambient geometric inputs. Bruin--Thomas--Várilly-Alvarado gives broader quasihyperbolicity context. The result does not assert that the 128 known conics are all conics on the surface, does not determine the conic Hilbert-scheme structure, and does not classify arbitrary pairwise conic intersections.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Auel--Singer provide the 128 conics, automorphism group, point-orbit data and discuss incidence of components of the larger nondistinct locus, including their intersections at trivial or singular points. The inspected Section 3.1 and Proposition 4.4 do not give this conic-transitivity/stabilizer theorem or the uniform per-point incidence multiplicities. The work is an additional explicit orbit-incidence computation from known ingredients, not the discovery of the conics.
+
+## value
+
+PASS
+
+Converts a known finite collection of geometric curves into one transitive orbit with exact stabilizer and a uniform node/trivial-point incidence structure. These numbers are natural geometric incidence invariants, potentially useful in lattice, divisor or curve-intersection calculations; the result explicitly avoids claiming a census of all conics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
