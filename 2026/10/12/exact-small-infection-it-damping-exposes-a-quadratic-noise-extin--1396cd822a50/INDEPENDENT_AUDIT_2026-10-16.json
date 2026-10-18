@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:58:23.162361Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Xu–Wang 2025 model (1.2) has independent diffusion components E(σ21+σ22 E), I(σ31+σ32 I). Itô on log P where P=ρ1E+ρ2I gives exact nonnegative subtraction Q=(ρ1²E²(σ21+σ22E)²+ρ2²I²(σ31+σ32I)²)/(2P²). With a=ρ1E/P,b=1−a, quadratic minimization gives δ*=σ21²σ31²/[2(σ21²+σ31²)]. Choosing E=a*ε/ρ1,I=b*ε/ρ2 proves sharpness despite nonlinear terms. Actual Example 5.2 σ21=σ31=.2, σ22=σ32=1 gives .01, contradicting paper’s claimed uniform .25; published exponent −.0651 with only that correction becomes +.1749. Independent ray evaluation at ε=1,.1,.001,10⁻⁶ returned .05241,.012698,.01002528,.0100000253, consistent with the analytic limit. This refutes that lower-bound step and certificate, NOT the theorem’s truth or disease dynamics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han et al. DOI:10.1016/j.chaos.2020.110238, Lu et al. DOI:10.1016/j.chaos.2021.111312 analyze different systems and stochastic criteria.",
+          "The Xu–Wang printed Lyapunov proof uses the larger damping coefficient contrary to its own diffusion formula."
+        ],
+        "reasoning": "Generic nonlinear-noise extinction literature does not logically entail this model-specific sharp composition minimization and change in Example 5.2 certificate; no stronger coverage identified.",
+        "searches": [
+          "Han Jiang Hayat second-order stochastic staged AIDS 2020 extinction",
+          "Lu Liu Zhang second order SEIQV nonlinear noise 2021",
+          "Xu Wang paper Theorem 4.2 exact correction"
+        ]
+      },
+      "checked_sources": [
+        "Xu & Wang, AIMS Mathematics 10 (2025), DOI:10.3934/math.20251254, primary full PDF",
+        "Resultary 2026 SCOPE-the-sei-extinction-threshold-requires-a-missing-boundary-noise-i--260af945547d, summary",
+        "Han et al (2020), DOI:10.1016/j.chaos.2020.110238",
+        "Lu et al (2021), DOI:10.1016/j.chaos.2021.111312"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The printed diffusion E(σ21+σ22 E), I(σ31+σ32 I) forces the correct quadratic variation Q and δ*=.01.",
+          "Distinct Resultary study concerns r>σ11²/2 normalizability, not the σ21,σ31 versus σ22,σ32 coefficient swap."
+        ],
+        "reasoning": "Positive countercheck: substituting the source’s Example 5.2 into its claimed inequality fails; neither source theorem (false bound) nor prior independent correction implies the new sharp uniform constant. No claim about true stochastic extinction is inferred.",
+        "searches": [
+          "Xu Wang AIMS Math 2025 model (1.2) Theorem 4.2 proof pp 28493–28494",
+          "Resultary: 2026 SEI boundary-noise integrability condition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary paper DOI 10.3934/math.20251254, system (1.2), Theorem 4.2 and proof use (σ22²∧σ32²)/4 as constant; the actual infinitesimal variance depends on σ21,σ31 in the small-infection limit.",
+          "Resultary 2026 SCOPE-the-sei-extinction-threshold-requires-a-missing-boundary-noise-i--260af945547d studies boundary invariant-density integrability for the same paper, not this damping bound."
+        ],
+        "reasoning": "Different correction from prior boundary integrability problem. The exact infimum and numerical 0.25→0.01 replacement are not recovered by the distinct Resultary finding.",
+        "searches": [
+          "Xu Wang 2025 SEI Theorem 4.2 sigma22 sigma32 extinction correction",
+          "Resultary Xu Wang stochastic SEI logistic growth nonlinear perturbation Theorem 4.2 noise quadratic infection extinction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct rational coefficients δ*=1/100, claimed uniform coefficient 1/4, so the corrected sufficient exponent is positive; there is no independent exact table of this model-specific error."
+        ],
+        "reasoning": "A fixed model-parameter example is checked against source primary numerical table; finding is an analytic all-positive-state statement, not a known-table recomputation.",
+        "searches": [
+          "Resultary: exact small infection Ito damping quadratic SEI error",
+          "2025 Xu Wang SEI Example 5.2 parameter values sigma21 0.2 sigma22 1"
+        ]
+      },
+      "rationale": "Direct primary PDF model (1.2), Section 4 Theorem 4.2, proof and Example 5.2 reveal the exact printed nonlinear diffusion and the invalid σ22,σ32-only damping term. Neither the published text nor prior Han (2020)/Lu (2021) second-order epidemic results state its corrected sharp small-infection infimum or the numeric loss of this specific sufficient certificate. Resultary 2026 entry about a nonnormalizable susceptible boundary density corrects ANOTHER separate flaw in the same Xu–Wang theorem, not this Itô variance correction. Best-of-knowledge O PASS with narrow model-specific priority risk.",
+      "residual_risks": [
+        "The true sample-path extinction status of Example 5.2 remains undecided; a different state-dependent proof might succeed.",
+        "Literature searches are bounded and do not prove absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source displays mismatched damping term; new result correctly identifies invalid uniform proof step.",
+          "evidence": "Model (1.2) E/I diffusions; Theorem 4.2 reported −(σ22²∧σ32²)/4; Example 5.2 σ21=σ31=.2, σ22=σ32=1, reported −.0651.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2025/12/PDF/math-10-12-1254.pdf",
+          "material_read": "Full 26-page primary PDF; model (1.2) pp 28490, Section 4 Theorem 4.2 and its Lyapunov proof, Section 5 Example 5.2 and numerical exponent, checked PDF page images.",
+          "method": "full PDF text and visual page inspection",
+          "title": "Stationary distribution and extinction of a stochastic SEI epidemic model with logistic growth and nonlinear perturbation",
+          "trigger": "Exactly same stochastic model and claimed extinction constant"
+        },
+        {
+          "assessment": "Different error in susceptible invariant density, no covering implication for Q.",
+          "evidence": "States normalizability condition r>σ11²/2 absent, no E/I damping statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-sei-extinction-threshold-requires-a-missing-boundary-noise-i--260af945547d",
+          "material_read": "Published Resultary result title and substantive abstract summary (not full downstream text).",
+          "method": "Resultary semantic search summary",
+          "title": "The SEI extinction threshold requires a missing boundary-noise integrability condition",
+          "trigger": "Resultary same paper and extinction theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp counterexample to a central state-independent Lyapunov estimate is substantively useful: a reported extinction regime in the motivating model no longer follows from its printed sufficient bound, and quadratic noise cannot act as boundary-uniform damping. Distinguishing analytical-certification loss from true persistence prevents a false dynamical conclusion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Xu & Wang, AIMS Mathematics 10 (2025), DOI:10.3934/math.20251254, primary full PDF",
+    "Resultary 2026 SCOPE-the-sei-extinction-threshold-requires-a-missing-boundary-noise-i--260af945547d, summary",
+    "Han et al (2020), DOI:10.1016/j.chaos.2020.110238",
+    "Lu et al (2021), DOI:10.1016/j.chaos.2021.111312"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The corrected +.1749 computation changes only a specific published uniform estimate; other terms of the Lyapunov bound are held fixed.",
+    "Neither theorem falsehood nor almost-sure epidemic persistence follows from a proof gap."
+  ],
+  "residual_risks": [
+    "The true sample-path extinction status of Example 5.2 remains undecided; a different state-dependent proof might succeed.",
+    "Literature searches are bounded and do not prove absolute priority."
+  ],
+  "schema_version": 1
+}
