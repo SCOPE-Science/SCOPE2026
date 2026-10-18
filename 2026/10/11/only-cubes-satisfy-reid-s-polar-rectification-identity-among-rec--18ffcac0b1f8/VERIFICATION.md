@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For the cube
-\[
-C=[-1,1]^3,
-\]
-the twelve edge midpoints are the sign-permutations of
-\[
-(1,1,0).
-\]
-Their convex hull is
-\[
-C\cap\{x:|x_1|+|x_2|+|x_3|\le2\}.
-\]
-Diagonal scaling by \(\operatorname{diag}(a,b,c)\) gives the exact box rectification formula used in the proof.
+# Independent mathematical audit
 
-For the three facet points, the scaled-polar boundary functionals are
-\[
-L_1=\frac{4a^2+3b^2+3c^2}{5},
-\quad
-L_2=\frac{3a^2+4b^2+3c^2}{5},
-\quad
-L_3=\frac{3a^2+3b^2+4c^2}{5}.
-\]
-Their differences are exactly
-\[
-L_1-L_2=\frac{a^2-b^2}{5},
-\qquad
-L_2-L_3=\frac{b^2-c^2}{5}.
-\]
-Thus one common \(\lambda\) forces \(a=b=c\).
+## correctness
 
-`verify.py` enumerates the cube edges, confirms the twelve distinct edge midpoints, checks their cuboctahedral constraints, and checks the exact rational obstruction for the box with half-lengths \((1,2,3)\).
+PASS
 
-The computation is diagnostic only. The all-parameter theorem is the exact boundary-facet argument in the proof.
+At the assigned tree read the full RESULT.md and verify.py. For C=[-1,1]^3, its 12 edge midpoints are all permutations/sign choices of (1,1,0) and their convex hull is exactly C intersect {|x|_1<=2}. Diagonal scaling D=diag(a,b,c) sends the midpoint hull to P=D C intersect {sum |x_i|/a_i<=2}. But P°={sum a_i |x_i|<=1}; if P intersect lambda P° equals the midpoint hull, three interior-to-box points with normalized positive coordinates (4,3,3)/5 and permutations belong to the midpoint hull’s triangular facet, forcing lambda values (4a²+3b²+3c²)/5 and permutations. Their equality yields a²=b²=c², hence a=b=c>0. Conversely cubes of half-side s have unique lambda=2s². Independently checked facet-probe values for (1,2,3): 43/5,46/5,51/5; the contradiction is exact, not a sampled optimization.
+
+## originality
+
+PASS
+
+Reid arXiv:1604.00580v1 actually defines rectification as the hull of edge midpoints and explicitly proposes a universal scaled-polar intersection in Conjecture 3. Its surrounding regular-polyhedron formulas do not supply this noncubic rectangular-box obstruction. Resultary and direct alias searches for cuboid/orthotope/midpoint-hull/polar-intersection found no prior rectangular-box iff-cube theorem; the self-hit was excluded. This is a direct counterexample to the motivating published conjecture, not its confirmation.
+
+## value
+
+PASS
+
+A three-parameter family of elementary centrally symmetric polyhedra is a natural first stress test for a purported identity valid for all convex polyhedra. The complete if-and-only-if classification both refutes the universal conjecture via explicit noncubic boxes and identifies the rigid regular boundary. Its importance as a counterexample does not depend on the algebraic proof being long.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
