@@ -1,12 +1,21 @@
-# Review of Perfect double Italian domination of square rook graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. For an entry \(x_{ij}\), the exact closed-neighborhood sum is \(r_i+c_j-x_{ij}\). If the total weight were below \(2n\), some row and some column would both have sum at most \(1\), making their intersection a constrained entry with closed-neighborhood sum at most \(2\). At equality, a row sum \(0\) forces all column sums at least \(3\), while a row sum \(1\) forces one column sum at least \(3\) and the remaining columns at least \(2\); both contradict total weight \(2n\). Hence every row and, symmetrically, every column has sum \(2\). The converse gives closed-neighborhood weight \(4\) at every zero and \(3\) at every one. The count follows from the exact decomposition of every row-column-sum-two matrix into two permutation matrices and the two alternating colorings of each nontrivial cycle. The packaged verifier exhausts every bounded-weight labeling for \(n=2,3,4\) and reproduces all minima and counts.
+## correctness
 
-## Originality
-PASS. The 2023 foundational source defines the same perfect double Italian interval invariant, but targeted full-text searches and equivalent-object searches under square rook graph, \(K_n\square K_n\), \(H(2,n)\), and \(L(K_{n,n})\) did not locate this theorem. published-finding corpus searches under the invariant and all four object descriptions returned only different domination variants or different graph families. The 2024 source with the similar phrase “perfect Roman \(\{3\}\)” uses a stricter exact-sum definition and therefore does not imply the interval-convention result here. Current and prior own ledgers contain perfect double Italian work on crown graphs and ordinary Roman \(\{3\}\) work on complete prisms, but no square-rook perfect double Italian theorem.
+PASS
 
-## Value
-PASS. Square rook graphs are a canonical Cartesian/Hamming family and simultaneously line graphs of complete bipartite graphs. The theorem converts a nonlinear-looking perfect domination condition into the natural transportation constraint “every row and column sums to two,” yielding not only the exact parameter but a complete equality classification. The resulting bijection with labeled \(2\)-regular bipartite multigraphs gives a nontrivial closed optimizer count and a structural bridge to permutation cycle enumeration.
+On R_n=K_n square K_n, the closed-neighborhood sum is r_i+c_j-x_ij. Weight W<2n implies some row r_i<=1 and some column c_j<=1, whose intersection has x_ij<=1 and closed sum <=2, contradiction. At W=2n a row sum 0 would force all columns >=3, while row sum 1 forces all other columns >=2 and one >=3, impossible; symmetry gives all row and column sums exactly 2. Conversely each nonnegative matrix of margins 2 has entries <=2 and valid constrained neighborhood sums 4 (zeros), 3 (ones). Every matrix decomposes into two permutation matrices; cycles of P^{-1}Q of length>=2 contribute two alternating decompositions, giving M_n=n! sum_pi 2^{-c_>=2(pi)}=(n!)^2[z^n] e^{z/2}/sqrt(1-z). Independent bounded-weight exhaustive labels at n=2,3,4 gave 3,21,282 minimizers with correct margins; symbolic proof handles every n>=3.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The object is equivalently H(2,n) and L(K_n,n); compared these aliases to Resultary published graph-domination records and primary Hao–Jalilolghadr–Mojdeh 2023. Available source content treats the general perfect double Italian invariant but contains no located complete transportation-margins classification; full PDF unavailable via OA/Oxford VPN, explicitly retained as risk. The similar 2024 perfect Roman {3} definition is strictly exact-sum, not the [3,4] closed-sum interval. Prior counts of 2-regular bipartite multigraphs supply the enumerative combinatorics but do not characterize the perfect double Italian equality cases. Best-of-knowledge distinct structural result.
+
+## value
+
+PASS
+
+The natural line graph/Hamming model converts a local domination condition into a global transportation-polytope constraint; full classification and exact all-n count by permutation cycles are reusable and richer than minimum weight alone, a meaningful graph invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
