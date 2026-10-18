@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof identifies the one-vertex cone neighborhood complex exactly as \(\Delta(V(H))\cup(c*\mathcal N(H))\) with intersection \(\mathcal N(H)\). Both pieces are contractible and the inclusions are cofibrations, so the homotopy pushout is \(\Sigma\mathcal N(H)\). Iterating proves the \(K_r\)-join formula. The generalized-windmill formula then follows from \(\mathcal N(K_m)\cong S^{m-2}\) and the suspension of a disjoint union. The finite checker tests the complex identity and ten small homology profiles but is explicitly not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. Searches covered graph cone, universal vertex, graph join, windmill/friendship aliases, and \(\operatorname{Hom}(K_2,-)\) language. Matsushita's full neighborhood-complex paper and Dochtermann's structural Hom-complex paper were inspected. The former provides the same definition and fundamental-group theory; the latter treats categorical products, exponentials, coproducts, limits, and foldings. Neither inspected source implies the graph-join suspension theorem. The closest indexed generalized-windmill result concerns a general-position polynomial, not neighborhood topology. Residual risk remains that the concise identity is folklore or appears under box-complex terminology.
+PASS
 
-## Value
-PASS. This is a uniform graph-operation theorem with a canonical infinite-family corollary. It shows that adjoining \(r\) mutually adjacent universal vertices raises neighborhood-complex topology by exactly \(r\) suspensions and gives the complete homotopy type of \(K_r\vee(nK_m)\), including friendship graphs. That structural recurrence is reusable beyond the displayed family and is not merely a finite computation.
+PASS: For H without isolated vertices, all faces of the ordinary Lovász open-neighborhood complex of K1∨H have common neighbor either the new universal vertex c (giving Δ(V(H))) or one vertex v∈H (giving c*N(H)). These two subcomplexes have intersection N(H) precisely, where the no-isolates condition ensures the intended vertex ground set. Each part is contractible, inclusions are simplicial cofibrations, and their union is the homotopy pushout of N(H) mapped to two contractible spaces, homotopy equivalent to its unreduced suspension. Repeating addition of universal vertices gives N(K_r∨H)≈Σ^r N(H). For n disjoint cliques Km, N(nKm) is the disjoint union of n boundaries of (m−1)-simplices, each S^{m−2}; suspending n components produces n spheres of dimension m+r−2 and n−1 spheres of dimension r. The friendship-graph case r=1,m=2 thus has 2n−1 circles. Independent small-case graph-common-neighbor homology over GF2 confirmed six representative ranks; these computations are not the all-r proof.
 
-## Closest literature and limitations
-The closest inspected literature is Matsushita, arXiv:1210.2803v1, for the same neighborhood-complex functor, and Dochtermann, DOI 10.1016/j.ejc.2008.04.009, for general Hom-complex operations. No simple-homotopy or equivariant strengthening is claimed. The theorem excludes base graphs with isolated vertices, and literature searches cannot eliminate all unindexed equivalent formulations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge subject to substantial folklore risk. Matsushita arXiv:1210.2803v1 gives the same open-neighborhood complex and studies its fundamental groups, but its inspected main statements do not provide a universal-vertex/graph-join suspension theorem. Dochtermann (2009) supplies Hom-complex operations for categorical products/exponents/folds, not an immediate graph-join formula; these operations are not graph joins. Searches under universal-vertex, windmill, cone, box/Hom aliases revealed no concretely covering theorem in material examined, but this extremely short homotopy-pushout identity may well be unindexed standard folklore; Resultary service was unavailable.
+
+## value
+
+PASS
+
+PASS with moderate value: It is a uniform structural operation rule for arbitrary non-isolated finite H, not an isolated small computation. It supplies immediate homotopy groups and an exact family of graph-join examples including all generalized friendship/windmill graphs, and the suspension recurrence can be reused in topological graph theory. The proof is concise and elementary, so the contribution is an explicit useful lemma, not a major new homotopy technology; no paper-sized theorem or stronger equivariant claim is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
