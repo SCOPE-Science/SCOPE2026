@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T03:07:43.890072Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/11/exact-directional-width-law-of-the-cube-and-its-first-spherical--c1e6aa54ecb2/RESULT.md Git blob e184d98c073a1383e391ce18d2881f70ef0d204e",
+        "2026/10/11/exact-directional-width-law-of-the-cube-and-its-first-spherical--c1e6aa54ecb2/verify.py Git blob 73a678c1faa595a21c639ca68ad0fb1fd565ddea",
+        "independent_checks.py split conditional-azimuth quadrature and exact d=3 threshold asymptotic"
+      ],
+      "rationale": "The cube support function gives W=Σ|Ui|. Each orthant is a spherical cap around v=(1,…,1)/√d, and the cap stays inside the orthant iff its angular radius ≤arcsin(1/√d), i.e. s≥√(d−1); the sphere cap fraction is I_beta/2, multiplied by 2^d orthants. If two different coordinates leave their orthant, ΣUi≤√(d−2), so below the first threshold but above √(d−2) one subtracts d disjoint one-face spherical segments exactly. Parameterizing a face by x<0 and the residual sphere gives aperture²≈2(ε+x)/√(d−1), segment area proportional to ε^(d/2) and coefficient −2^d/π(2/q)^((d−2)/2). In d=3 a spherical cap cut by a great-circle gives explicit segment angles α=acos(s/√(2(3−s²))) and γ=acos(1/√(3−s²)); subtraction yields the stated H3(s); differentiation gives lower density 4/√3(1−3α/π) and upper density 4/√3. My independent conditional-azimuth integral over x=|U1|, split at exact algebraic event thresholds to avoid quadrature endpoint bias, matched H3(s) within 3×10⁻¹⁴ over s=1.001,1.05,1.2,1.4,√2±.001,1.6,1.72. The d=3 normalized near-threshold correction/ε^(3/2) tends numerically 3.0282910514, matching the analytic constant; this tests but does not replace the all-d argument.",
+      "residual_risks": [
+        "Unrestricted cap formula is false below √(d−1) without excluded-segment correction.",
+        "Pairwise segment exclusion works only above √(d−2); no entire d>3 low-tail law is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abas 2609.26202v1 abstract states a general spherical co-area formula for width-density of every 3D polytope and explicit tetrahedron/truncated-octahedron examples",
+          "Kabluchko et al 1511.08479v3 all moments and high-dimensional Gaussian limit"
+        ],
+        "reasoning": "A general 3D coarea formula can implicitly supply the cube density, but the material read does not establish a printed elementary cube evaluation. In any case that 3D theorem does not dominate the all-dimensional q=√(d−1) cap-face asymptotics. Do not treat unread Abas as a whole-document absence finding.",
+        "searches": [
+          "Resultary semantic query (temporarily_unavailable, not completed): Directional cube width distribution sum absolute coordinates uniform sphere three dimensional exact piecewise density spherical caps",
+          "GitHub published SCOPE code search (incomplete_results:true, NOT a negative search): cube width density",
+          "web scientific phrase search: cube width distribution density spherical cap first coordinate face transition"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1511.08479v3",
+        "arXiv:1110.0671v2 PDF",
+        "arXiv:2609.26202 abstract only, plausible stronger framework",
+        "arXiv:1210.7012 high-dimensional asymptotic projection theory"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kabluchko et al theorem 3.1 higher-moment identity and subsequent Section 3.2 formulas",
+          "Paouris–Pivovarov–Zinn 1210.7012 on high-dimensional projection CLTs"
+        ],
+        "reasoning": "A complete moment sequence implicitly determines H, but deriving a closed survival, density, uniform upper-tail segment and all-d threshold correction is a distinct inversion/geometric statement. General asymptotics do not imply the finite-d phase transition.",
+        "searches": [
+          "Resultary semantic query (temporarily_unavailable, not completed): Directional cube width distribution sum absolute coordinates uniform sphere three dimensional exact piecewise density spherical caps",
+          "GitHub published SCOPE code search (incomplete_results:true, NOT a negative search): cube width density",
+          "web scientific phrase search: cube width distribution density spherical cap first coordinate face transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finch 1110.0671v2 discusses cube width distribution by the same definition and states its density unknown at time of writing",
+          "Kabluchko–Litvak–Zaporozhets 1511.08479v3 Theorem 3.1 computes general width moments, not the explicit distribution formula"
+        ],
+        "reasoning": "The random width variable is identical to the Gaussian/spherical normalized l1 norm; no change of variables eliminates the problem. Finite moments characterize a compact distribution implicitly but their explicit inversion to the claimed density remains nontrivial.",
+        "searches": [
+          "Resultary semantic query (temporarily_unavailable, not completed): Directional cube width distribution sum absolute coordinates uniform sphere three dimensional exact piecewise density spherical caps",
+          "GitHub published SCOPE code search (incomplete_results:true, NOT a negative search): cube width density",
+          "web scientific phrase search: cube width distribution density spherical cap first coordinate face transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finch 1110.0671v2 lists numerical widths and moments, not an exact cube-density table",
+          "Kabluchko et al provide exact moments for all k, implying uniqueness on compact support"
+        ],
+        "reasoning": "The exact moment sequence is already known and is not independently claimed. No covering exact table was verified for the piecewise density or first-threshold coefficient.",
+        "searches": [
+          "Resultary semantic query (temporarily_unavailable, not completed): Directional cube width distribution sum absolute coordinates uniform sphere three dimensional exact piecewise density spherical caps",
+          "GitHub published SCOPE code search (incomplete_results:true, NOT a negative search): cube width density",
+          "web scientific phrase search: cube width distribution density spherical cap first coordinate face transition"
+        ]
+      },
+      "rationale": "Best-of-knowledge explicit elementary cube distribution and all-dimensional first spherical-cap transition. Higher-moment formulas and asymptotics do not by themselves display the claimed piecewise d=3 density and first face-crossing exponent/coefficient, though they determine the distribution implicitly on compact support. A 2026 broadly relevant 3D polytope coarea preprint could encompass the cube by specialization, but its abstract only was accessible; this material coverage risk is explicitly retained.",
+      "residual_risks": [
+        "Resultary semantic search returned temporarily_unavailable/search_completed:false; it provides no evidence of absent coverage.",
+        "Published-repository code search returned incomplete_results:true; no absence inference can be drawn.",
+        "Historical/unindexed equivalent formulations cannot be excluded from the bounded searches.",
+        "Relevant 2026 Abas 92-page preprint could contain/derive the 3D cube density; only abstract accessible and no negative whole-paper finding is justified.",
+        "Prior complete moments determine the law abstractly; the value claim relies on explicit elementary distribution and sharp high-d onset."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS E W3=3/2 and E W3²=1+4/π, not the printed elementary density.",
+          "evidence": "Page 1 explicitly notes density unknown, provides the first two moments.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.0671",
+          "material_read": "Full ten-page PDF including page1 statement “probability density ... not known”, cube mean/mean-square and remaining calculations",
+          "method": "primary PDF text and page screenshot",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Exactly same random cube width"
+        },
+        {
+          "assessment": "COVERS all integer moments and CLT; does not explicitly state piecewise d=3 density or first cap-face correction.",
+          "evidence": "Theorem 3.1 gives all E[W^k] via Gaussian range, not the claimed arccos density.",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.08479",
+          "material_read": "Section 3, Theorem 3.1, random cube higher moment formulas, limiting distributions (pages 6 onward); theorem page independently viewed as screenshot",
+          "method": "primary PDF full text and screenshots",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Exact random projection length and possible complete-moment domination"
+        },
+        {
+          "assessment": "POTENTIALLY COVERING in d=3: general polytope coarea law may specialize to cube. No whole-document NOT_COVERING conclusion.",
+          "evidence": "Abstract explicitly says finite sums of angular apertures for all 3D polytopes; mentions exact tetrahedron and truncated-octahedron examples but not cube.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.26202",
+          "material_read": "Abstract and arxiv++ metadata only; HTML/PDF full-text fetch failed; no claim to have inspected sections",
+          "method": "arXiv metadata plus mirror abstract",
+          "title": "Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability",
+          "trigger": "Highly relevant 2026 general width-density theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Finch 1110.0671 open density question; Kabluchko et al width moments",
+        "Explicit cap geometry and conditional-azimuth independent integral"
+      ],
+      "rationale": "Directional width is a canonical convex-geometric random invariant. A fully elementary density in dimension three, with an exactly uniform upper-tail interval, and a sharp dimension-parameterized first nonanalytic cap-overlap transition are meaningful exact distributions, not merely re-computations of existing mean/moment tables. The first-transition exponent and coefficient also quantify singularity introduced by crossing coordinate faces.",
+      "residual_risks": [
+        "The prior 2026 general polytope coarea formula is a remaining material coverage comparison; do not assert an unprecedented density without examining it."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniformly random spherical direction U, the unit cube width W=Σ|Ui| has exact beta-function high tail for s≥√(d−1) in all d≥3, first cap-face correction of order ε^(d/2) with coefficient −(2^d/π)(2/√(d−1))^((d−2)/2), and a full explicit piecewise d=3 survival/density with a constant upper-tail density 4/√3.",
+  "limitations": [
+    "Not an all-d full distribution below √(d−2), only first transition and full d=3.",
+    "Abas 2609.26202 possible covering general density not fully read; needs authorized follow-up before any public novelty certification."
+  ],
+  "schema_version": 1
+}
