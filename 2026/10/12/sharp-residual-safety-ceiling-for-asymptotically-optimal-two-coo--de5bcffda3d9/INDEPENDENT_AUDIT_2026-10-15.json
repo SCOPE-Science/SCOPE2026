@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:01:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned pinned RESULT.md https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1988_38.pdf",
+        "Actual Git tree 8f4f57087d48318ce67c9c3b9b92ec3b461dfe66, RESULT.md blob ae0d87813499cc4f3135e47d73b2467f318c37d6",
+        "/mnt/data/scope_worker04_science_independent.out private independent exact check"
+      ],
+      "rationale": "At the assigned 8f4f... Git tree, reconstruct the actual natural-order forward sweep on unit-diagonal SPD A=[[1,rho],[rho,1]] with 0<=rho<1, 0<omega<2 and Euclidean equation residual, not error or A-energy norm. Direct multiplication yields R=[[1-w+w^2 rho^2,-w rho],[-w rho(1-w),1-w]]. For s=sqrt(1-rho^2), G=I-R^T R has G22=w[2-w(2-s^2)] and det G=w^2[2s-w(1+s-s^2)][2s+w(1-s-s^2)]. The second bracket stays positive for 0<w<2 and the G22 condition follows when w<=2s/(1+s-s^2), giving iff residual safety by the 2x2 PSD criterion; beyond it determinant <0. The SOR error-matrix characteristic polynomial gives the asymptotic spectral-radius crossover w_opt=2/(1+s), hence w_opt<=w_safe iff rho^2<=1/2, equivalently kappa<=(3+2sqrt2). Independently recomputed the determinant as an exact SymPy polynomial and the rho=4/5, w=5/4 rational witness R e2=(-1,-1/4), squared amplification 17/16. Analytic proof, not the finite script, establishes all rho,omega quantifiers.",
+      "residual_risks": [
+        "0<=rho<1, 0<w<2, natural forward completed SOR sweep, Euclidean equation-residual norm; not arbitrary SPD matrices or multistep monotonicity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "LeVeque–Trefethen examines classical asymptotic SOR spectral factors on Poisson examples; weighted-Jacobi and Kaczmarz reports concern other iterations."
+        ],
+        "reasoning": "Neither inspected SOR source nor semantically close published records establishes the exact w<=2s/(1+s-s^2) residual criterion, although their general methodology supplies established background.",
+        "searches": [
+          "https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1988_38.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+        ]
+      },
+      "checked_sources": [
+        "https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1988_38.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical w_opt=2/(1+s) is a prior asymptotic convergence result, but it does not imply ||R||_2<=1; rho=4/5 supplies an explicit contradiction to conflating them."
+        ],
+        "reasoning": "Prior asymptotic optimality is retained as known, while the one-sweep safety ceiling and sharp kappa crossover require the new residual PSD calculation.",
+        "searches": [
+          "https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1988_38.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For A_rho the equation-residual operator is R=A T A^{-1}; it differs from T and from the Gauss–Seidel solution-error norm in the Resultary result."
+        ],
+        "reasoning": "The condition is ||R||_2<=1, not spectral radius(T)<1 or one-step Euclidean error contraction. General equivalence of convergence norms does not preserve the exact one-sweep spectral norm.",
+        "searches": [
+          "successive overrelaxation 2x2 residual norm Euclidean one sweep optimal relaxation nonexpansive 3+2sqrt2",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant published records contain different finite-step threshold constants or norms; no identified table of the same 2x2 SOR residual ceiling."
+        ],
+        "reasoning": "This continuous-parameter operator inequality is not a finite catalogue quantity; checking 2x2 matrices numerically is not exhaustive.",
+        "searches": [
+          "successive overrelaxation 2x2 residual norm Euclidean one sweep optimal relaxation nonexpansive 3+2sqrt2",
+          "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact one-sweep residual norm ceiling and its intersection with the SOR optimum; classical SOR papers study spectral/asymptotic error convergence. Published closely related Gauss–Seidel and weighted-Jacobi finite-sweep results use different operators, norm or relaxation criterion. Exact formula was not found by targeted searches, which alone cannot prove priority.",
+      "residual_risks": [
+        "Older SOR transient-growth literature under alternate terminology may contain an equivalent residual result; targeted search is not an exhaustive priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Asymptotic spectral-radius optimization, not the claimed exact 2x2 Euclidean one-sweep equation-residual PSD classification.",
+          "evidence": "Report 1986, discussion of classical SOR operator, Poisson model and asymptotic convergence.",
+          "identifier_or_url": "NASA CR-178191; https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1988_38.pdf",
+          "material_read": "Actual full PDF accessed; read setup, Fourier/model Poisson SOR spectral asymptotics and convergence discussion",
+          "method": "lawful university-hosted primary PDF text and page inspection",
+          "title": "Fourier Analysis of the SOR Iteration",
+          "trigger": "Classical SOR optimum and possible dominant spectral result"
+        },
+        {
+          "assessment": "Different norm (solution error) and unrelaxed Gauss–Seidel/ordering question, so summary is not a full-text noncoverage proof.",
+          "evidence": "Reported minimax factor delta sqrt(1+delta^2) and 2x2 Gauss–Seidel ordering.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+          "material_read": "Published record summary, not the whole article",
+          "method": "Resultary semantic search and published record summary",
+          "title": "Sharp minimax Euclidean transient bound for two-coordinate Gauss–Seidel ordering",
+          "trigger": "Nearby earlier finite-sweep 2x2 transient result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1988_38.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+      ],
+      "rationale": "A sharp worst-direction residual-safety frontier for a canonical SPD iterative solver is independently useful: minimizing asymptotic spectral radius need not preserve one-sweep Euclidean equation residual. The exact condition-number crossover and explicit rational immediate spike distinguish finite-sweep stability from long-term convergence; this is more than renaming the classical spectral optimum or a log-based certification exercise.",
+      "residual_risks": [
+        "No extension to unequal-diagonal SPD, higher dimensions, different sweep orders or roundoff; it is explicitly a canonical two-coordinate result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "0<=rho<1, 0<w<2, natural forward completed SOR sweep, Euclidean equation-residual norm; not arbitrary SPD matrices or multistep monotonicity."
+  ],
+  "schema_version": 1
+}
