@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Definitions include empty/unary words under a fixed binary alphabet. Arch index K fixes shortest missing length K+1. Greedy independent target has J>=K; conditional P(J=K|W)=s(W)/2^(K+1). Tilt by 2^K, enumerate all weighted F/M/N transitions, prove zero-surplus paths are exactly a two-state weighted language, solve the two functional equations to obtain 2/(1-z-3z^2+z^3). Check transition probabilities, boundary n=0, and cubic-root constant. Standalone source-code checker enumerated every word through length 14 and compared independent weighted recurrences through length 100. All-length proof is the bijection and rational algebra, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kosche et al. give a general SAS description and algorithms for a specified word",
+        "Fleischmann et al. characterize families with prescribed m and k",
+        "An earlier exact distribution for binary universality index counts words by K only"
+      ],
+      "reasoning": "Stronger algorithmic computability or classifications for every fixed m,k are not themselves this explicit all-length average or its sharp growth law; in particular index distribution alone cannot determine SAS count since s(0011)=1 but s(0111)=2 despite equal K.",
+      "searches": [
+        "\"shortest absent subsequences\" \"average\" \"random\" words count",
+        "mean and variance minimal absent subsequence counts binary words",
+        "arxiv:2202.07981 near universality characterization",
+        "arxiv:2108.13968 shortest absent subsequences full text"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2108.13968v1",
+      "arxiv:2202.07981v1",
+      "arxiv:1704.08661v1",
+      "arxiv:2306.14192v1 (bibliographic/adjacent literature)",
+      "public Fibonacci-extremal binary SAS theorem, complete RESULT.md",
+      "public binary universality-index distribution theorem, complete RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Universality-index distribution OGF (1+z)/(1-z-2uz^2) gives number of source words by arch count, not mean SAS sizes within those strata",
+        "Fibonacci profile gives maximum s(w) at a fixed word length, not its sum over all words",
+        "Biers-Ariel et al. study subsequences appearing at least once, not shortest missing subsequences"
+      ],
+      "reasoning": "No earlier inspected result implies the exact weighted mean via an immediate substitution/corollary. The new phase/surplus derivation supplies information absent from first-moment-of-K and worst-case statements; the present-subsequence statistic is a different combinatorial random variable.",
+      "searches": [
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37/RESULT.md",
+        "2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28/RESULT.md",
+        "arxiv:1704.08661 expectation distinct present subsequences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2108.13968, shortest absent subsequences and arch-factorization",
+        "arxiv:2202.07981, m-nearly k-universal words",
+        "arxiv:2306.14192, binary Simon congruence (related structural framework)"
+      ],
+      "reasoning": "Compared aggregate shortest-absent count at varying first-failure length with missing length-k fixed-k counts, first non-universal rank and fixed-index descriptions. These functions are not the same. An indexed search for the exact denominator or the length sequence did not identify an equivalent.",
+      "searches": [
+        "Expected number of shortest absent subsequences of uniform random binary words, exact enumeration by length and greedy universality arches",
+        "Distribution and total count of shortest absent scattered subsequences for random words of fixed length; generating functions",
+        "Exact generating function sum of numbers of shortest absent subsequences among all binary strings: 2/(1-x-3x^2+x^3), recurrence a(n)=a(n-1)+3a(n-2)-a(n-3)",
+        "\"shortest absent subsequences\" \"average\" \"random\" words count",
+        "\"shortest absent\" \"1-z-3z^2+z^3\"",
+        "2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact initial coefficients computed independently by enumerating all binary words to length 14",
+        "Published max-SAS Fibonacci profile uses a different extremum, not these aggregate coefficients"
+      ],
+      "reasoning": "No matching full sequence or tabulated aggregate was located in performed searches. Failed lookup is only risk evidence, not proof of novelty.",
+      "searches": [
+        "Shortest absent subsequence counting total 2,2,8,12,34,62,152,304,698,1458 among binary strings",
+        "\"shortest absent\" \"1-z-3z^2+z^3\"",
+        "Number shortest absent subsequences is random variable on binary strings; cubic recurrence sum counts"
+      ]
+    },
+    "rationale": "Full-text inspection and statement-level comparison distinguish the new first-missing-length weighted mean from (i) individual-word SAS characterization, (ii) near-universality classifications, (iii) present-subsequence expectations, (iv) the index marginal, and (v) fixed-length extremal SAS count. Targeted formula, sequence, alias and parameter searches found no covering theorem. A differently formulated/unindexed result remains possible.",
+    "residual_risks": [
+      "An equivalent shortest-absence expectation may appear under alternative terminology in unindexed literature.",
+      "The latest structural literature on binary Simon-congruence was not exhaustively checked beyond identified sources; no absolute novelty guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies arch-universality lemma and individual-word SAS tools; no aggregate all-length expected count observed",
+        "evidence": [
+          "arxiv:2108.13968v1, first public 2021-08-31",
+          "Fundamenta Informaticae 189 (2023) 199-240"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+        "material_read": "Full manuscript introduction, arch and SAS definitions/structural results, section on enumeration and conclusion; PDF pages visually inspected",
+        "method": "Lawful openly accessible full-text reading; comparison of exact quantified statements",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Directly defines and characterizes shortest absent scattered subsequences"
+      },
+      {
+        "assessment": "Studies classes at specified k and m, not an explicit mean s(W_n) across first missing lengths",
+        "evidence": [
+          "arxiv:2202.07981v1, 2022-02-16"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.07981",
+        "material_read": "Full-text introduction, definitions, theorem statements and concluding discussion; PDF visually inspected",
+        "method": "Lawful openly accessible primary text and implication comparison",
+        "title": "m-Nearly k-Universal Words — Investigating Simon Congruence",
+        "trigger": "Fixed missing-subsequence counts could cover an all-length aggregate"
+      },
+      {
+        "assessment": "Counts distinct subsequences that occur, not shortest missing target patterns",
+        "evidence": [
+          "arxiv:1704.08661v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1704.08661",
+        "material_read": "Full-text abstract, definitions, derivation of expected present-subsequence count and concluding discussion; PDF visually inspected",
+        "method": "Lawful openly accessible primary text and random-variable comparison",
+        "title": "Expected Number of Distinct Subsequences in Random Strings",
+        "trigger": "Potentially broad theorem on expected subsequence counts"
+      },
+      {
+        "assessment": "Proves length-wise maximum, does not determine mean over all binary words",
+        "evidence": [
+          "maximal profile M_even Fibonacci and M_odd Fibonacci, not total A_n"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+        "material_read": "Complete RESULT.md mathematical claim, proof and relationship to prior work",
+        "method": "Repository text inspection and statement-level implication check",
+        "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+        "trigger": "Closest public statement concerning shortest absent counts on binary words"
+      },
+      {
+        "assessment": "Counts words by universality index only; same index permits differing s(w)",
+        "evidence": [
+          "(1+z)/(1-z-2uz^2) is a different bivariate generating function"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "material_read": "Complete RESULT.md mathematical statement, proof and relationship to prior work",
+        "method": "Repository text inspection and marginal-statistic comparison",
+        "title": "Closed-form law for binary subsequence universality",
+        "trigger": "The arch-index histogram is related to missing length"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "41c7412b-1b0d-4b40-bb0e-1a8fff32670a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The quantity is the output size of the minimum-length absent-pattern problem under a natural fair binary source. The rational OGF solves it exactly for every length and its growth C*(1.085043...)^n is a sharp average-case law, conceptually distinct from extremal Fibonacci counts and linear expected shortest missing length. The weighted two-state reduction provides reusable structural insight beyond tabulation; no external application or variance claim is required.",
+    "status": "PASS"
+  }
+}
