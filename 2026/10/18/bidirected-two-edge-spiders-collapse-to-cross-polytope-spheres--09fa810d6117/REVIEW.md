@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The faces of the multipath complex are exactly arc subsets with at most one arrow entering and leaving each vertex and with no opposite-arc pair, because the underlying undirected tree has no cycles. The distinguished first center arc provides a compatible outer toggle and matches every face outside the cross-polytope subcomplex. The Hasse orientation cannot cycle because selected center arcs cannot increase, ordinary outer arcs only decrease when the pivot remains fixed, and the pivot outer arc can only increase along its reversed matched cover. The relative matching therefore proves an actual simplicial collapse, not merely homology. Integral top homology and its arm-permutation and reversal action are read off from the outer join fundamental cycle. Exhaustive tests for one through seven arms verify every match, incidence cover and the orientation signs; their finite extent is not substituted for the general proof.
+
+## Originality — PASS, with residual bibliographic risk
+The fully read recent primary article (Caputi–Collari–Smith, arXiv:2601.05670v1) classifies bidirected paths and discusses bidirected polygons and a directed suspension operation; its path results subsume the two nonbranching instances, which are expressly not claimed as new. The earlier article (Caputi–Collari–Di Trani–Smith, arXiv:2208.04656v1) concerns different digraph families and orientations. The closest published record on bidirected double stars has two directly adjacent centers, whereas these spiders have a single center, degree-two intermediate vertices and genuine branching for three or more arms. Detailed searches for bidirected subdivided stars, spiders, two-edge arms, homotopy and symmetry found no theorem implying the new branching-family collapse or its integral character. An unindexed earlier proof remains possible; search coverage cannot certify universal priority.
+
+## Value — PASS
+This is a natural infinite family of fully bidirected branching trees lying between the recently studied paths and more complicated bidirected multi-hub trees. The explicit relative collapse identifies the **integral homotopy type**, explains the absence of any higher cells' homotopical contribution, determines every face number and computes the complete integral symmetry character. These are structural and reproducible facts for every arm count, not isolated low-parameter Betti tables. The finding claims neither a generic-tree classification nor an equivariant collapse.
+
+## Closest sources and limitations
+Caputi–Collari–Smith (2026), arXiv:2601.05670v1 (bidirected path/polygon complexes); Caputi–Collari–Di Trani–Smith (2024), arXiv:2208.04656v1 (other orientations/digraph classes); *Homotopy classification of bidirected double-star multipath complexes* (different, doubly centered underlying tree). Full mathematical claims were compared rather than relying on title differences. Potential unindexed equivalent work is the remaining originality risk. Finite code checks are bounded at seven arms, and the proof is integral for all parameters.
+
+Self-review: passed. Independent audit: not yet performed.
