@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the permutahedral vertex-cofibration theorem
+# Independent mathematical audit
 
-Run from the directory containing the package files:
+## correctness
 
-```sh
-python3 verification/verify_morse.py
-python3 verification/check_polynomial.py
-```
+PASS
 
-`verify_morse.py` independently builds all 24 vertices and 36 edges by adjacent-position transpositions. It enumerates the complete face sets including the empty face for the full graph, one vertex deletion and one closed-neighborhood deletion. The exact face totals are 37076, 27941 and 9135. It constructs the stagewise elementary matching, checks no face is used twice and that the empty face is matched once, then enumerates every Hasse incidence and topologically sorts the corresponding directed graph to certify no closed gradient path. Directed incidences: 219240, 162087, 48018; critical augmented dimensions: four 5-cells, three 5-cells, one 4-cell. The assertion-based verifier prints `PERMUTOHEDRON_LOCAL_GLOBAL_MORSE_OK` on completion.
+Actual graph constructed as the 24 permutations of 4 values with adjacent-position swaps, 36 edges, vertex-transitive. Independently reimplemented enumeration over ALL augmented independent faces, deterministic vertex-add matching and acyclic Hasse orientation, rather than trusting VERIFY_OK. Found 37,076 / 27,941 / 9,135 augmented faces, 18,536 / 13,969 / 4,567 matched pairs, and complete directed topological sorts over 219,240 / 162,087 / 48,018 incidences. Remaining augmented cells: four dimension-5, three dimension-5, one dimension-4; one pair contains empty face each. Removing that pair yields an ordinary critical vertex plus higher cells, so Forman implies ∨4S⁵, ∨3S⁵, S⁴ integrally. The link S⁴→∨3S⁵ is null since target 4-connected, and the vertex cofibration splits; transitivity proves uniformity. Exhaustive finite certificate is valid for THIS finite graph, not any infinite family.
 
-`check_polynomial.py` independently reconstructs the same graph using value swaps and verifies its isomorphism to the position-swap presentation under permutation inversion. A memoized deletion recurrence computes all three complete independence polynomials, yielding values at negative one of 4, 3 and -1. The cross-check terminates with `INDEPENDENT_POLYNOMIAL_OK`.
+## originality
 
-The matching computation is exhaustive for the specified finite graph, with graph automorphisms transferring its local conclusions to all vertices. These programs do not establish any result for permutahedra of other orders and do not certify bibliographic priority or constitute independent scientific review.
+PASS
+
+The exact ordinary independence complexes for the 24-vertex adjacent-transposition Cayley graph, its one-vertex deletion and closed-neighborhood deletion and their integral vertex-cofibration splitting do not follow from the checked Graphicahedron construction, triangle-free suspension theorem, or computations of distinct regular graphs and graph-metric Rips complexes. A matching homotopy-rank table from an unrelated dodecahedral graph is not the same object. Materially read primary literature provides concepts and identification, not these exact three finite homotopy types. Priority risk is an unindexed finite-complex census.
+
+## value
+
+PASS
+
+The 24-vertex 3D permutahedral graph is a distinguished canonical polytope. Exact integral homotopy types of its global, vertex-deleted and closed-neighborhood-deleted independence complexes, plus a uniform null attaching map, form a meaningful finite topological classification. It cannot be inferred from an independence polynomial or coarse Euler characteristic alone, and does not need a larger general family to have value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

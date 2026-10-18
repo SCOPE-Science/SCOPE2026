@@ -1,15 +1,21 @@
-# Scientific review: vertex-uniform permutahedral independence-complex splitting
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is specified by every permutation of four symbols and adjacent-position swaps; it is a 24-vertex cubic graph with 36 edges, and the left relabelling action is vertex-transitive. The included finite verifier enumerates all faces of the independence complex of the graph, of a vertex-deleted induced graph, and of a closed-neighborhood-deleted induced graph; the totals including the empty face are 37076, 27941 and 9135 respectively. It constructs one disjoint matching for each, orients every Hasse incidence, and completely checks acyclicity over 219240, 162087 and 48018 incidences. Removing the augmented empty-face pair creates one critical vertex; only the prescribed 4 five-cells, 3 five-cells, or one four-cell remain. Discrete Morse theory proves the three integral wedge types. The standard vertex-deletion cofibration has a null attaching map because every map from \(S^4\) into \(\bigvee^3S^5\) is null, establishing the split. A separate polynomial recurrence, built using the opposite Cayley multiplication, independently confirms all face vectors and Euler characteristics. Boundary: no result for other permutahedra.
+## correctness
 
-## Originality — PASS (with residual bibliographic uncertainty)
-The primary full-text comparison is Barmak, arXiv:1007.0418v1, whose star-cluster and suspension machinery does not compute this particular exact homotopy type or vertex-local splitting. Araujo-Pardo et al., arXiv:0910.3908v1, supply the graph identification but not the independence-complex calculation. Search comparisons included truncated-octahedral, order-four permutahedral, adjacent-transposition Cayley, complementary clique, vertex-deletion and link formulations. The nearest exact indexed result for the dodecahedral graph is on a distinct 20-vertex graph; permutahedral Rips homology treats a different simplicial complex. No stronger theorem or precise table entry encountered implies the statement. Searches cannot eliminate equivalent unindexed or unpublished work.
+PASS
 
-## Value — PASS
-This gives the complete integral homotopy type of a canonical three-dimensional permutahedron and, more structurally, identifies both sides of its independence-complex vertex cofibration uniformly at every vertex. The remarkable collapse of a complex with 12-vertex independent faces to 5-dimensional sphere wedges and the uniform null attaching map have genuine topological content not supplied by an independence polynomial, elementary Euler characteristic or triangle-free suspension theorem alone. The parameter choice is a distinguished regular polytope, not an arbitrary induced slice.
+Actual graph constructed as the 24 permutations of 4 values with adjacent-position swaps, 36 edges, vertex-transitive. Independently reimplemented enumeration over ALL augmented independent faces, deterministic vertex-add matching and acyclic Hasse orientation, rather than trusting VERIFY_OK. Found 37,076 / 27,941 / 9,135 augmented faces, 18,536 / 13,969 / 4,567 matched pairs, and complete directed topological sorts over 219,240 / 162,087 / 48,018 incidences. Remaining augmented cells: four dimension-5, three dimension-5, one dimension-4; one pair contains empty face each. Removing that pair yields an ordinary critical vertex plus higher cells, so Forman implies ∨4S⁵, ∨3S⁵, S⁴ integrally. The link S⁴→∨3S⁵ is null since target 4-connected, and the vertex cofibration splits; transitivity proves uniformity. Exhaustive finite certificate is valid for THIS finite graph, not any infinite family.
 
-## Limits and closest literature
-Barmak's independence-complex methods and the Graphicahedron characterization were compared at the level of their substantive claims. The dodecahedral calculation and graph-metric Rips results have different underlying objects or functors. Possible unindexed equivalent work is a residual risk. No wider family theorem or independent scientific certification is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact ordinary independence complexes for the 24-vertex adjacent-transposition Cayley graph, its one-vertex deletion and closed-neighborhood deletion and their integral vertex-cofibration splitting do not follow from the checked Graphicahedron construction, triangle-free suspension theorem, or computations of distinct regular graphs and graph-metric Rips complexes. A matching homotopy-rank table from an unrelated dodecahedral graph is not the same object. Materially read primary literature provides concepts and identification, not these exact three finite homotopy types. Priority risk is an unindexed finite-complex census.
+
+## value
+
+PASS
+
+The 24-vertex 3D permutahedral graph is a distinguished canonical polytope. Exact integral homotopy types of its global, vertex-deleted and closed-neighborhood-deleted independence complexes, plus a uniform null attaching map, form a meaningful finite topological classification. It cannot be inferred from an independence polynomial or coarse Euler characteristic alone, and does not need a larger general family to have value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
