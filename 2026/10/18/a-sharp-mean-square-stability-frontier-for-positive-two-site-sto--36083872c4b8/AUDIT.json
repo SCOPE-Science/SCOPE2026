@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Exact Gaussian product moments give a covariance map with a positive symmetric 2-by-2 block and a strictly smaller antisymmetric eigenvalue. Its Perron eigenvalue yields the explicit radius and unique frontier, with both endpoint limits verified by asymptotic expansions. The underlying SDE stability comparison follows from its exact covariance drift. The embedded program checked 185 direct matrix identities and numerical boundaries; finite checks supplement rather than substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang, Yang, Zhang, Stochastic heat equation: numerical positivity and almost surely exponential stability, 2022, DOI:10.1016/j.camwa.2022.05.031; abstract/title-only comparison.",
+        "Hearder, Le Bris, Djurdjevac, A Fully Discrete Nonnegativity-Preserving FEM for a Stochastic Heat Equation, arXiv:2602.16508v1, Theorems 4.1 and 5.1 / section 4 splitting equation.",
+        "Bréhier, Cohen, Ulander, Analysis of a positivity-preserving splitting scheme for some semilinear stochastic heat equations, 2024, Proposition 4 and scheme (15)."
+      ],
+      "reasoning": "Finite-horizon moment bounds and positivity do not imply a sharp infinite-horizon mean-square noise threshold. Yang et al. 2022 study numerical positivity and *almost sure* exponential stability in a different finite-difference method; the 2025 implicit-scheme work is not the same explicit Lie--Trotter exponential update. Source full-text comparison is strongest for the 2026 and 2024 splitting papers; these other works are only partly accessible.",
+      "searches": [
+        "Stochastic heat equation: numerical positivity and almost surely exponential stability 2022",
+        "Long Time Stability and Numerical Stability of Implicit Schemes for Stochastic Heat Equations 2025",
+        "stochastic heat Lie Trotter splitting exact mean square instability noise variance two-site graph"
+      ]
+    },
+    "checked_sources": [
+      "Hearder, Le Bris, Djurdjevac, A Fully Discrete Nonnegativity-Preserving FEM for a Stochastic Heat Equation, arXiv:2602.16508v1, Theorems 4.1 and 5.1 / section 4 splitting equation.",
+      "Bréhier, Cohen, Ulander, Analysis of a positivity-preserving splitting scheme for some semilinear stochastic heat equations, 2024, Proposition 4 and scheme (15).",
+      "Yang, Yang, Zhang, Stochastic heat equation: numerical positivity and almost surely exponential stability, 2022, DOI:10.1016/j.camwa.2022.05.031; abstract/title-only comparison.",
+      "published-finding corpus:2026/10/4/SCOPE-a-square-root-step-size-bias-in-the-balanced-implicit-sis-invasi--168b7afadfef",
+      "published-finding corpus:2026/10/11/SCOPE-exact-joint-noise-mean-square-stability-boundary-for-a-square-ro--479c623ea3e7",
+      "published-finding corpus:2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hearder, Le Bris, Djurdjevac, A Fully Discrete Nonnegativity-Preserving FEM for a Stochastic Heat Equation, arXiv:2602.16508v1, Theorems 4.1 and 5.1 / section 4 splitting equation.",
+        "Bréhier, Cohen, Ulander, Analysis of a positivity-preserving splitting scheme for some semilinear stochastic heat equations, 2024, Proposition 4 and scheme (15).",
+        "published-finding corpus:2026/10/4/SCOPE-a-square-root-step-size-bias-in-the-balanced-implicit-sis-invasi--168b7afadfef",
+        "published-finding corpus:2026/10/11/SCOPE-exact-joint-noise-mean-square-stability-boundary-for-a-square-ro--479c623ea3e7"
+      ],
+      "reasoning": "The new theorem requires comparing the discrete covariance Perron root to one for arbitrary numbers of steps and all positive h, and the distinct small/large-h noise frontiers. The cited finite-T inequalities allow constants depending on T and therefore cannot imply this result; positivity itself is compatible with divergent second moments. Similarity of the stochastic covariance operator to ordinary lognormal moments is only a tool, not a dominating published theorem identified in the inspected records.",
+      "searches": [
+        "arxiv:2602.16508v1 Theorem 5.1 time dependent moments finite T; Theorem 4.1 positivity",
+        "Bréhier Cohen Ulander 2024 Proposition 4 splitting (15) positivity",
+        "fully discrete nonnegativity preserving FEM stochastic heat multiplicative noise mean square two node stability threshold splitting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hearder, Le Bris, Djurdjevac, A Fully Discrete Nonnegativity-Preserving FEM for a Stochastic Heat Equation, arXiv:2602.16508v1, Theorems 4.1 and 5.1 / section 4 splitting equation.",
+        "Bréhier, Cohen, Ulander, Analysis of a positivity-preserving splitting scheme for some semilinear stochastic heat equations, 2024, Proposition 4 and scheme (15).",
+        "published-finding corpus:2026/10/4/SCOPE-a-square-root-step-size-bias-in-the-balanced-implicit-sis-invasi--168b7afadfef",
+        "published-finding corpus:2026/10/11/SCOPE-exact-joint-noise-mean-square-stability-boundary-for-a-square-ro--479c623ea3e7"
+      ],
+      "reasoning": "Equivalent mathematical formulations include spectral radius of the 3-by-3 second-moment operator, its 2-by-2 symmetric reduction, and the equation exp(sigma² h)=q(q-c)/(q c-1). Source papers give the stochastic diagonal/heat splitting, but do not derive the exact equivalence or its parameter frontiers. The SIS record analyzes an implicit SIS discretization, not this heat splitting.",
+      "searches": [
+        "fully discrete nonnegativity preserving FEM stochastic heat multiplicative noise mean square two node stability threshold splitting",
+        "stochastic heat Lie Trotter splitting exact mean square instability noise variance two-site graph",
+        "Gaussian diagonal multiplicative stochastic heat exact covariance map eigenvalue stability threshold 2x2 symmetric graph",
+        "arxiv:2602.16508v1 covariance spectral radius mean-square threshold two-site Lie Trotter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus:2026/10/4/SCOPE-a-square-root-step-size-bias-in-the-balanced-implicit-sis-invasi--168b7afadfef",
+        "published-finding corpus:2026/10/11/SCOPE-exact-joint-noise-mean-square-stability-boundary-for-a-square-ro--479c623ea3e7",
+        "published-finding corpus:2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+      ],
+      "reasoning": "The closest database hits cover stochastic SIS and predator-prey stability, and deterministic graph Crank--Nicolson positivity. None provides the exact two-site multiplicative-stochastic heat splitting threshold or a table from which its formula is implied. Semantic absence is not a novelty proof.",
+      "searches": [
+        "fully discrete nonnegativity preserving FEM stochastic heat multiplicative noise mean square two node stability threshold splitting",
+        "stochastic heat Lie Trotter splitting exact mean square instability noise variance two-site graph",
+        "Gaussian diagonal multiplicative stochastic heat exact covariance map eigenvalue stability threshold 2x2 symmetric graph"
+      ]
+    },
+    "rationale": "The motivating source gives positivity and finite-time estimates, not the sharp two-site long-time mean-square threshold. The 2024 full-text method does not prove this exact noise/step frontier. Semantic published-finding corpus comparisons found no claim that entails the stated coupling-dependent covariance eigenvalue equation and its two distinct asymptotic limits. Classical Gaussian lognormal second moments are not claimed as novel. Residual risks are explicitly acknowledged.",
+    "residual_risks": [
+      "An equivalent two-site covariance calculation in older stochastic-numerics or Markov-switching literature might exist outside inspected full texts.",
+      "The 2022 Yang--Yang--Zhang full text on almost-sure stability was unavailable; the distinction in discretization/stability type reduces, but does not eliminate, possible overlap.",
+      "The symmetric two-site and independent equal-noise assumptions limit extrapolation to general finite-element discretizations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides construction, positivity and finite-horizon second-moment control; does not state coupled two-site all-time mean-square threshold",
+        "evidence": [
+          "Hearder, Le Bris, Djurdjevac, A Fully Discrete Nonnegativity-Preserving FEM for a Stochastic Heat Equation, arXiv:2602.16508v1, Theorems 4.1 and 5.1 / section 4 splitting equation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.16508",
+        "material_read": "Full arXiv HTML sections 1,3,4,5 and theorem statements, plus bibliographic/MSC header",
+        "method": "Primary open-access full-text inspection, comparing statements and quantifiers",
+        "title": "A Fully Discrete Nonnegativity-Preserving FEM for a Stochastic Heat Equation",
+        "trigger": "Exact source scheme, nodal noise assumptions, positivity and moment theorem"
+      },
+      {
+        "assessment": "Proves positivity for a spatial FD Lie--Trotter method; no matching exact coupled two-site time-step/noise second-moment phase boundary found in inspected material",
+        "evidence": [
+          "Bréhier, Cohen, Ulander, Analysis of a positivity-preserving splitting scheme for some semilinear stochastic heat equations, 2024, Proposition 4 and scheme (15)."
+        ],
+        "identifier_or_url": "https://research.chalmers.se/publication/542281/file/542281_Fulltext.pdf",
+        "material_read": "Primary OA PDF, scheme (15), Proposition 4 and finite-time convergence/stability discussion; PDF page of scheme inspected visually",
+        "method": "Primary full-text targeted statements and PDF screenshot inspection",
+        "title": "Analysis of a positivity-preserving splitting scheme for some semilinear stochastic heat equations",
+        "trigger": "Related earlier Lie--Trotter exponential/positive stochastic-heat scheme"
+      },
+      {
+        "assessment": "Different discretization and almost-sure rather than mean-square stability indicated; not assessed as globally NOT_COVERING; residual overlap risk",
+        "evidence": [
+          "Yang, Yang, Zhang, Stochastic heat equation: numerical positivity and almost surely exponential stability, 2022, DOI:10.1016/j.camwa.2022.05.031; abstract/title-only comparison."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.camwa.2022.05.031",
+        "material_read": "Bibliographic record and accessible abstract/description only; primary full text not obtained",
+        "method": "Published bibliographic inspection without full-text exclusion",
+        "title": "Stochastic heat equation: numerical positivity and almost surely exponential stability",
+        "trigger": "Potentially overlapping long-time stochastic-heat positivity/stability title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "36083872-c4b8-42db-b669-03976c246eda",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result quantifies a practically relevant boundary between positivity preservation and long-time mean-square stability for the simplest coupled stochastic-heat FEM system. The gap between the semidiscrete SDE cutoff and large-step numerical cutoff is nonzero for every 0<b<a, and the exact formula supplies a sharp stability regression benchmark. It is not a mere numerical one-off or a generic textbook scalar test.",
+    "status": "PASS"
+  }
+}
