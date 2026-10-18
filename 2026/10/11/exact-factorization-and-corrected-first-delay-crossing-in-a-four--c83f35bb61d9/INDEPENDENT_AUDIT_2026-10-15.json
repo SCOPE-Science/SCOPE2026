@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:46:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Primary Cui et al. AIMS Mathematics 2024 PDF equation (3.2) page 13269 and Example 5.1 page 13276",
+        "RESULT.md blob 5b6c0b5ea9528ee9a938e469776561532c8dc077",
+        "verify.py blob 1fdf447a597ad2194867316e8a77e70d01c0848f"
+      ],
+      "rationale": "Read Cui et al. original primary full PDF equation (3.2): all four diagonal entries are z=λ+a e^(−λθ). Exact determinant expansion of the printed 4×4 matrix gives F(z)=z⁴+3z²−z+1, and expansion in delayed powers matches paper (3.3). For a=1/4, F(λ+1/4)=λ⁴+λ³+(27/8)λ²+(9/16)λ+241/256 has positive Hurwitz determinants 1,45/16,41/64 and 241·41/(256·64). The four simple roots of F have real parts ±r where r² is the unique positive zero of 64q³+96q²+20q−1, with r≈0.20372326785<1/4. Write their positive imaginary parts y1≈0.560667728 and y2≈1.663928496, s=√(1/16−r²)≈0.14490283, α=acos(4r)≈0.61825. Exhaustive phase equations produce frequencies y1+s,y2+s,y2−s,y1−s and their least nonnegative delay representatives 0.87624353,1.39501178,2.47516838,13.62532935 respectively. No later branch wraps give an earlier delay. Implicit differentiation yields Re λ′=ω*s/[(1−rθ)²+(sθ)²]≈0.1479657>0 at first crossing. Spectral continuity and the fixed disks |λ−z_j|≤1/4 in Re λ≥0 prevent unstable roots from arriving at infinity. Max crossing frequency 1.8088313<2.0083. The computations support the exact finite-branch algebra, not nonlinear Hopf claims.",
+      "residual_risks": [
+        "Stable interval concerns linear asymptotic stability of the zero equilibrium only.",
+        "Numerical digits come from algebraic roots and phase values, not certified arbitrary precision beyond stated rounding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Predecessor places delay in only first two self terms rather than all four, so no common shift z on each diagonal."
+        ],
+        "reasoning": "A similar four-neuron model with a different characteristic matrix does not entail this exact quartic threshold.",
+        "searches": [
+          "Resultary: Cui 2024 four-neuron BAM network corrected first Hopf time delay 0.8762435337755 F(z)=z4+3z2-z+1",
+          "Vaishwar–Yadav 2022 DOI 10.1016/j.cjph.2022.02.011",
+          "Resultary: four neuron delay spectral crossing correction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: Cui 2024 four-neuron BAM network corrected first Hopf time delay 0.8762435337755 F(z)=z4+3z2-z+1",
+        "AIMS original 2024 full PDF",
+        "Resultary other corrected delay findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published original reports incompatible 2.0083, while quartic algebra gives all positive crossings ≤1.8088313."
+        ],
+        "reasoning": "Neither original erroneous numerical pair nor structurally distinct predecessor implies corrected first crossing; correction is derived from the printed original equation.",
+        "searches": [
+          "Resultary: Cui 2024 four-neuron BAM network corrected first Hopf time delay 0.8762435337755 F(z)=z4+3z2-z+1",
+          "Cui original full PDF characteristic and Example5.1",
+          "Vaishwar Yadav delayed neural network 2022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Example 5.1 says φ0=2.0083, θ0≈0.8; audited exact factorization makes that frequency impossible."
+        ],
+        "reasoning": "Exact matrix factorization and full frequency list are not the paper’s reported approximate crossing.",
+        "searches": [
+          "Resultary: Cui 2024 four-neuron BAM network corrected first Hopf time delay 0.8762435337755 F(z)=z4+3z2-z+1",
+          "Cui et al. DOI 10.3934/math.2024647 equations 3.2,3.3 Example 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary match is the audited finding. Other corrected Hopf thresholds concern different population/neuron models."
+        ],
+        "reasoning": "No exact source-number or algebraic-quartic correction table elsewhere in the inspected indexed records.",
+        "searches": [
+          "Resultary: Cui 2024 four-neuron BAM network corrected first Hopf time delay 0.8762435337755 F(z)=z4+3z2-z+1",
+          "Resultary: Cui BAM 2024 0.8762435337755 quartic"
+        ]
+      },
+      "rationale": "Original primary Cui et al. article prints a different crossing frequency φ0=2.0083 and θ0≈0.8, and does not display the scalar-shift factorization or corrected exhaustive frequency set. Nearest four-neuron predecessor uses unequal delayed diagonals; published Resultary matches concern different equations.",
+      "residual_risks": [
+        "Possible later independent erratum or citing correction not indexed.",
+        "Comparative predecessor not read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Printed scalar matrix and wrong numerical frequency; no stated exact corrected threshold",
+          "evidence": "Eq 3.2 four equal z diagonals, Example 5.1 φ0=2.0083 and θ0≈0.8, simulations θ=0.76 and 1.1.",
+          "identifier_or_url": "https://aimspress.com/aimspress-data/math/2024/5/PDF/math-09-05-647.pdf",
+          "material_read": "Full relevant primary PDF equations (1.3), (3.2)-(3.4), theorem discussion and Example 5.1",
+          "method": "Read text and inspected page images of equation 3.2 and Example 5.1",
+          "title": "Further study on Hopf bifurcation and hybrid control strategy in BAM neural networks concerning time delay",
+          "trigger": "Exactly the 2024 benchmark being corrected"
+        },
+        {
+          "assessment": "Distinct delay architecture; no valid full-document NOT_COVERING claim",
+          "evidence": "Only first two delayed self-feedback terms in cited benchmark rather than all-four common delay.",
+          "identifier_or_url": "doi:10.1016/j.cjph.2022.02.011",
+          "material_read": "Referenced characteristic delay architecture and indexed theorem statements, not full text",
+          "method": "Compared model descriptions and frozen source citations",
+          "title": "Stability and Hopf-bifurcation analysis of four dimensional minimal neural network model with multiple time delays",
+          "trigger": "Closest predecessor and possible broader delay statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Primary printed 2024 characteristic determinant and Example5.1",
+        "Derived exhaustive phase equations"
+      ],
+      "rationale": "The exact scalar shift splits a four-dimensional characteristic equation into four simple scalar delay branches, supplies all crossing frequencies and replaces an impossible published numerical Hopf benchmark with an exact linear stability margin. Structural diagnosis and a meaningful correction are independently useful, not mere decimal adjustment.",
+      "residual_risks": [
+        "Does not establish nonlinear branch criticality, direction, periodic orbit stability or hybrid control."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Cui et al. printed four-neuron common-delay BAM linearization, the characteristic determinant is F(λ+a e^(−λθ)), F(z)=z⁴+3z²−z+1. At a=1/4 the first crossing has (ω*,θ*)=(0.705570557982711…,0.876243533775502…), transverse speed Re λ′≈0.147965713761474>0; zero-delay stability persists until θ*. Published frequency 2.0083 cannot occur for any delay, within the stated linear problem only.",
+  "limitations": [
+    "Linear stability only; no nonlinear Hopf criticality.",
+    "Possible unindexed later correction to source."
+  ],
+  "schema_version": 1
+}
