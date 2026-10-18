@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:19:15.946039Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: At f(z)=z²/2, lambda=1, the inexact minimizer p^a=x/2+e is admissible iff e²<=eps, F^a=x²/4+e², g^a=x/2-e. At x0=1/10, e0=-9/20, eps0=1/4, obtain F^a_0=41/200, g0=1/2, d0=-1/2. At eps1=1/5 both +/-2/5 are admissible. For 0<alpha<3/5 the negative-error branch gives g_trial=9/20-alpha/4>3/10>sigma*g0=1/4, violating Wolfe curvature. For alpha>=3/5 positive-error branch makes Armijo equivalent to 25alpha²+15alpha-17<=0, false there (value 1 already at 3/5 and increasing). Exact independent rational checks reproduce the branch values; finite grid is not needed for the universal proof. Applies to Algorithm 1 under arbitrary admissible oracle selection, not every continuous concrete solver.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical Wolfe works on fixed smooth objective/gradient; the inexact Moreau surrogate may be discontinuous as a function of trial point."
+        ],
+        "reasoning": "Smooth existence theorems do not cover arbitrarily discontinuous admissible selections without additional hypotheses.",
+        "searches": [
+          "Hager–Zhang Wolfe line search DOI:10.1137/030601880",
+          "Jauny–Kumar source arXiv:2608.11689"
+        ]
+      },
+      "checked_sources": [
+        "A Wolfe-Type Spectral Conjugate Gradient Method for Nonsmooth Convex Optimization Problems: https://arxiv.org/abs/2608.11689",
+        "Pith review of A Wolfe-Type Spectral Conjugate Gradient Method: https://pith.science/paper/2608.11689",
+        "A New Conjugate Gradient Method with Guaranteed Descent and an Efficient Line Search: https://doi.org/10.1137/030601880"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A missing existence lemma does not logically imply there is no admissible positive step; assigned proof supplies a counterexample whose branch partition covers all alpha>0."
+        ],
+        "reasoning": "The public review identifies a gap, whereas current work establishes a nonexistence statement in one admissible case.",
+        "searches": [
+          "Pith paper 2608.11689 review algorithm Eq(30)-(31)",
+          "assigned exact rational two-branch proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pith specifically identifies missing existence under discontinuous allowed oracle and suggests a test on f=abs(x), but supplies no explicit quadratic witness."
+        ],
+        "reasoning": "Theoretical warning is prior; the explicit stronger smooth quadratic counterexample with rational parameter branches is the assessed new content.",
+        "searches": [
+          "Resultary: Jauny Kumar Wolfe Type Spectral Conjugate Gradient inexact Moreau discontinuous oracle no Wolfe step",
+          "Jauny–Kumar arXiv:2608.11689",
+          "Pith review KOJKEG3V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top dozen unrelated optimization certificates; Pith review contains a suggested discontinuous-oracle counterexample but not the numbers."
+        ],
+        "reasoning": "No identical concrete example found, not proof that none exists; original full manuscript was inaccessible.",
+        "searches": [
+          "Resultary semantic search: Wolfe inexact Moreau empty Wolfe-step strongly convex quadratic",
+          "Pith review KOJKEG3V"
+        ]
+      },
+      "rationale": "Best-of-knowledge original by direct statement-and-implication comparison to identified primary literature; no known covering theorem found. Scope and residual risks specified.",
+      "residual_risks": [
+        "Original Jauny–Kumar primary full text inaccessible in this run; equation (30)-(31) and exact oracle assumptions were compared via the pinned proof and Pith extended review, not primary full text.",
+        "Oxford authorized institutional full-text attempt reported vpn_disconnected; no authentication bypass.",
+        "Other constraints on a particular inner solver could exclude discontinuous selections; the assertion explicitly targets the stated tolerance-only oracle."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MATERIAL_PRIMARY_LIMITED; equation mapping corroborated by companion review, full primary equations not independently read",
+          "evidence": "Abstract claim; Pith reading identifies approximate Moreau Eq(16) and Wolfe Eq(30)-(31)",
+          "identifier_or_url": "https://arxiv.org/abs/2608.11689",
+          "material_read": "Abstract/metadata and the equation descriptions reproduced in a detailed public scholarly reading; original arXiv HTML/PDF and alternative lawful OA full text unavailable",
+          "method": "arXiv abstract plus failed lawful HTML/PDF/OA attempts",
+          "title": "A Wolfe-Type Spectral Conjugate Gradient Method for Nonsmooth Convex Optimization Problems",
+          "trigger": "identical Wolfe model and purported universal line-search"
+        },
+        {
+          "assessment": "COVERING_WARNING_ONLY, not explicit counterexample",
+          "evidence": "Review says possible no alpha, proposes test with f=abs(x), but does not supply the assigned f=z²/2 piecewise oracle",
+          "identifier_or_url": "https://pith.science/paper/2608.11689",
+          "material_read": "Detailed review load-bearing gap, algorithm inequalities and suggested discontinuous absolute-value oracle",
+          "method": "full HTML public review inspected",
+          "title": "Pith review of A Wolfe-Type Spectral Conjugate Gradient Method",
+          "trigger": "earlier public criticism and potential original explicit witness"
+        },
+        {
+          "assessment": "DIFFERENT_REGULARITY",
+          "evidence": "Fixed genuine smooth objective line search, not arbitrary discontinuous selected surrogates",
+          "identifier_or_url": "https://doi.org/10.1137/030601880",
+          "material_read": "Abstract and description of approximate Wolfe for smooth objectives",
+          "method": "SIAM abstract",
+          "title": "A New Conjugate Gradient Method with Guaranteed Descent and an Efficient Line Search",
+          "trigger": "classical Wolfe existence reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fully specified smooth strongly convex one-dimensional counterexample to missing line-search existence in a new inexact nonsmooth optimization algorithm is mathematically motivated: it makes a potentially undefined step explicit despite every oracle tolerance being satisfied. This is stronger than only identifying a missing proof or numerical anomaly.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "A Wolfe-Type Spectral Conjugate Gradient Method for Nonsmooth Convex Optimization Problems: https://arxiv.org/abs/2608.11689",
+    "Pith review of A Wolfe-Type Spectral Conjugate Gradient Method: https://pith.science/paper/2608.11689",
+    "A New Conjugate Gradient Method with Guaranteed Descent and an Efficient Line Search: https://doi.org/10.1137/030601880"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific assessment independent from previously authored self-review, not formal Lean or expert attestation.",
+    "Best-of-knowledge originality is not exhaustive priority certification.",
+    "Publication blocked until confidentiality sanitization; scientific decision is not imported."
+  ],
+  "residual_risks": [
+    "Original Jauny–Kumar primary full text inaccessible in this run; equation (30)-(31) and exact oracle assumptions were compared via the pinned proof and Pith extended review, not primary full text.",
+    "Oxford authorized institutional full-text attempt reported vpn_disconnected; no authentication bypass.",
+    "Other constraints on a particular inner solver could exclude discontinuous selections; the assertion explicitly targets the stated tolerance-only oracle."
+  ],
+  "schema_version": 1
+}

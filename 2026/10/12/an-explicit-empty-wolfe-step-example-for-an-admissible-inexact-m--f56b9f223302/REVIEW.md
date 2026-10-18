@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Completing the quadratic inner problem gives an exact one-parameter description of every admissible oracle call. The initial and trial selections satisfy the source tolerance inequality. The curvature condition fails on the entire interval \(0<\alpha<3/5\), while the sufficient-decrease condition fails on the entire interval \(\alpha\ge3/5\). The intervals cover all positive steps.
+PASS
 
-## Originality
+PASS: At f(z)=z²/2, lambda=1, the inexact minimizer p^a=x/2+e is admissible iff e²<=eps, F^a=x²/4+e², g^a=x/2-e. At x0=1/10, e0=-9/20, eps0=1/4, obtain F^a_0=41/200, g0=1/2, d0=-1/2. At eps1=1/5 both +/-2/5 are admissible. For 0<alpha<3/5 the negative-error branch gives g_trial=9/20-alpha/4>3/10>sigma*g0=1/4, violating Wolfe curvature. For alpha>=3/5 positive-error branch makes Armijo equivalent to 25alpha²+15alpha-17<=0, false there (value 1 already at 3/5 and increasing). Exact independent rational checks reproduce the branch values; finite grid is not needed for the universal proof. Applies to Algorithm 1 under arbitrary admissible oracle selection, not every continuous concrete solver.
 
-PASS. The primary manuscript contains no Wolfe-step existence theorem for its arbitrary approximate-minimizer selection. The closest public review identifies this as a load-bearing gap and proposes searching for a discontinuous-oracle example, but does not give a witness. Source-specific, alias, and strongly-convex-quadratic searches located no equivalent explicit counterexample.
+## originality
 
-The principal residual risk is that an equivalent construction may be present in specialized inexact-line-search literature under different terminology, or that a later source revision may repair the oracle model.
+PASS
 
-## Value
+Best-of-knowledge original by direct statement-and-implication comparison to identified primary literature; no known covering theorem found. Scope and residual risks specified.
 
-PASS. This converts a theoretical well-definedness concern into an exact first-iteration failure on a one-dimensional strongly convex quadratic. The obstruction is structural: the paper controls pointwise oracle accuracy but not regularity across trial points, so the two Wolfe requirements can be separated by an admissible discontinuity. The result identifies precisely what a repaired algorithm must address.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A fully specified smooth strongly convex one-dimensional counterexample to missing line-search existence in a new inexact nonsmooth optimization algorithm is mathematically motivated: it makes a potentially undefined step explicit despite every oracle tolerance being satisfied. This is stronger than only identifying a missing proof or numerical anomaly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
