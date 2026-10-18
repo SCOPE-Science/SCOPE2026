@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-dimensional endpoint operator is defined explicitly, with positive integrable kernels. The norm equality follows from Minkowski/Tonelli and near-Dirac time inputs, not from unverified extremizer assumptions. A logarithmic partition turns the optimization into a lattice sum. The proof gives matching upper/lower bounds with a fully explicit tail \(b^{-K}+e^{-b^{K+1}}\). The endpoint cases \(r=1\) and \(r=\infty\), finite/infinite exponents, positivity, geometric spacing, and the order of limits were separately reconstructed. The dense-spacing Gamma limit follows from uniformly shifted Riemann sums and the sparse-spacing limit from two disjoint kernel windows. A numerical computation is illustrative only.
+## correctness
 
-## Originality — PASS
-The closest directly relevant source is Lorist–van Neerven–Veraar–Weis, arXiv:2608.20266v2, Proposition 3.4, inspected in its full-text section on the endpoint diagonal example. That argument proves failure on the larger mixed space \(\ell_1(\ell_r)\) by exhibiting coarse divergence but does not determine the sharp norm of the single finite \(\ell_r^N\) block, the explicit log-periodic leading coefficient, a nonasymptotic error, or the two spectral-spacing limits. Blunck's 2001 full text treats discrete \(L^p\)-maximal regularity, mainly with \(p>1\) and UMD assumptions, not these \(L^1\) constants. Focused mathematical-index and public-literature searches, together with existing local claim/source deduplication, found no stronger statement covering the precise theorem. Standard convolution bounds alone do not imply the exact asymptotic coefficient without a separate lattice optimization. Residual risk: an unindexed general theorem on positive operator-valued \(L^1\) convolutions could yield the same constant indirectly.
+PASS
 
-## Value — PASS
-Finite-dimensional cutoff norms quantify the strength and spectral dependence of the canonical endpoint maximal-regularity obstruction, rather than merely restating nonboundedness. The theorem supplies a sharp natural invariant for every sequence exponent and spectral ratio, a computable deterministic error estimate, and opposite dense-/sparse-spectrum phase laws. These values can calibrate quantitative spectral approximations and distinguish widely separated from densely packed diagonal generators; no downstream theorem is asserted as proven.
+For scalar kernels k_n(t)=b^n exp(-b^n t), Minkowski/Tonelli and near-Dirac positive-time inputs prove exact operator norm sup_{norm(v)_r=1} integral norm_r((k_n(u)v_n)) du, not just a bound on a test vector. For finite r set a_n=|v_n|^r on simplex; r=infinity maximizing coordinates have absolute value one. Logarithmic intervals (b^-j,b^{1-j}] turn the norm into shifted sums v_{n-j}(w)=b^{n-j} exp(-b^{n-j}w); truncated |k|<=K tails integrate to eta<=b^-K+exp(-b^{K+1}), via telescoping e^-b^k. Uniform a_n=1/N on N-2K center scales gives lower bound; Hölder across at most N+2K populated scales and the sum a_n=1 give matching upper; dividing by N^{1-1/r} gives claimed explicit error. For b↓1, shifted Riemann sums of G_r(x)=exp(rx-r exp x) yield Gamma(r)/r^r and coefficient Gamma(r)^{1/r}/r*(log b)^{1-1/r}; for r=infinity sampled sup exp(x-exp x) has max 1/e, and b→infinity selecting adjacent kernels yields kappa→1. Independently computed kappa_2(2)=0.416277305367437044167102342 with 70 summands and mpmath quadrature, matching claimed 18 digits; numerical integration alone does not prove norm asymptotics.
 
-## Limits and closest literature
-The result is not a full classification of all generators or of \(\ell_1(\ell_r)\), and it does not cover stochastic or time \(L^p\) regularity for \(p>1\). The claim does not assert uniqueness relative to unpublished work. The focal v2 manuscript and Blunck 2001 are the two closest inspected mathematical sources. An exact equivalent coefficient under a different norm terminology remains a literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The directly matching 2026 primary Lorist–van Neerven–Veraar–Weis arXiv:2608.20266v2 was read in its relevant full PDF Sections 3 and Proposition 3.4 (incl. pages 7-8). Its diagonal geometric kernels serve qualitative non-maximal-regularity of the larger mixed ell_1(ell_r) space, with coarse lower divergence; it does not provide the exact finite-block Bochner L1 norm, log-periodic coefficient kappa_r(b), explicit finite cutoff error or both spacing limits. Blunck 2001 principally concerns discrete/continuous maximal regularity at time p>1 under different hypotheses. Related Resultary spectrum/semigroup entries use different operators or exponents. Potential general vector convolution optimization theorem furnishing the same coefficient under other terminology is a recorded risk.
+
+## value
+
+PASS
+
+This determines quantitative finite-rank severity of a natural endpoint maximal-regularity obstruction, not merely restating qualitative failure. A complete invariant kappa_r(b) distinguishes dense logarithmic eigenvalue levels (vanishing coefficient for r>1) from sparse levels (coefficient 1), with explicit approximation error and all r endpoint cases; these natural spectral-spacing facts are useful independently, with no claim about arbitrary generators or a joint b,N uniform limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

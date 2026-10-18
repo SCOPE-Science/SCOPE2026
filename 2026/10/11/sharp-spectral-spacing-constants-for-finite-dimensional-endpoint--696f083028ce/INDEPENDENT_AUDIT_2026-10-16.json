@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T09:46:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce/VERIFICATION.md"
+      ],
+      "rationale": "For scalar kernels k_n(t)=b^n exp(-b^n t), Minkowski/Tonelli and near-Dirac positive-time inputs prove exact operator norm sup_{norm(v)_r=1} integral norm_r((k_n(u)v_n)) du, not just a bound on a test vector. For finite r set a_n=|v_n|^r on simplex; r=infinity maximizing coordinates have absolute value one. Logarithmic intervals (b^-j,b^{1-j}] turn the norm into shifted sums v_{n-j}(w)=b^{n-j} exp(-b^{n-j}w); truncated |k|<=K tails integrate to eta<=b^-K+exp(-b^{K+1}), via telescoping e^-b^k. Uniform a_n=1/N on N-2K center scales gives lower bound; Hölder across at most N+2K populated scales and the sum a_n=1 give matching upper; dividing by N^{1-1/r} gives claimed explicit error. For b↓1, shifted Riemann sums of G_r(x)=exp(rx-r exp x) yield Gamma(r)/r^r and coefficient Gamma(r)^{1/r}/r*(log b)^{1-1/r}; for r=infinity sampled sup exp(x-exp x) has max 1/e, and b→infinity selecting adjacent kernels yields kappa→1. Independently computed kappa_2(2)=0.416277305367437044167102342 with 70 summands and mpmath quadrature, matching claimed 18 digits; numerical integration alone does not prove norm asymptotics.",
+      "residual_risks": [
+        "The asymptotic holds at fixed b>1 as N→infinity; no uniform b→1,N→infinity claim or stochastic generalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Focal Proposition 3.4 gives qualitative unboundedness of an infinite mixed coordinate problem; Blunck 2001 treats different exponent regime."
+        ],
+        "reasoning": "A broad qualitative negative theorem does not fix sharp spectral-ratio dependence or nonasymptotic finite cutoff constant, while its kernels motivate this natural exact finite problem.",
+        "searches": [
+          "necessary conditions deterministic and stochastic maximal regularity Lorist van Neerven Veraar Weis diagonal counterexample; Blunck UMD time p>1",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce",
+        "https://arxiv.org/abs/2608.20266",
+        "https://doi.org/10.4064/sm146-2-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finite norm reduces exactly to positive convolution-sum simplex optimization and has leading b-dependent κ; cited prior proof only bounds a divergent example and lacks normalized sharp asymptotics."
+        ],
+        "reasoning": "Neither divergence as N→infinity nor generic MR criteria determines a sharp finite-N coefficient; the new computation isolates spacing and rank. An unindexed general theorem may imply the formula, acknowledged.",
+        "searches": [
+          "Lorist et al arxiv:2608.20266 Proposition3.4 geometric diagonal example; Blunck 2001 maximal regularity characterizations",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lorist et al. arXiv:2608.20266v2 Proposition 3.4 uses identical dyadic coordinate exponential kernels to show endpoint obstruction in ell_1(ell_r)."
+        ],
+        "reasoning": "Same kernels do not imply identical operator spaces: their mixed infinite outer ell_1 setup proves unboundedness, whereas audited theorem fixes a single finite ell_r^N block and sharp norm/leading coefficient.",
+        "searches": [
+          "endpoint time-L1 diagonal analytic semigroup maximal regularity geometric spectrum b^n; vector-valued positive convolution norm ell_r",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary self-entry plus unrelated Cesaro spectral edge and semigroup records; no independent table of integral kappa_r(b).",
+          "Direct convergent integral evaluation yields 0.416277305367437044..., numerically recomputed, but this is not an existing published table."
+        ],
+        "reasoning": "No independent exact coefficient database/table was identified; this search fact is not proof of literature novelty.",
+        "searches": [
+          "Resultary semantic: diagonal semigroup lacunary eigenvalues endpoint L1 ell_r maximal regularity exact asymptotic log spectral spacing; dyadic kappa2(2)",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce"
+        ]
+      },
+      "rationale": "The directly matching 2026 primary Lorist–van Neerven–Veraar–Weis arXiv:2608.20266v2 was read in its relevant full PDF Sections 3 and Proposition 3.4 (incl. pages 7-8). Its diagonal geometric kernels serve qualitative non-maximal-regularity of the larger mixed ell_1(ell_r) space, with coarse lower divergence; it does not provide the exact finite-block Bochner L1 norm, log-periodic coefficient kappa_r(b), explicit finite cutoff error or both spacing limits. Blunck 2001 principally concerns discrete/continuous maximal regularity at time p>1 under different hypotheses. Related Resultary spectrum/semigroup entries use different operators or exponents. Potential general vector convolution optimization theorem furnishing the same coefficient under other terminology is a recorded risk.",
+      "residual_risks": [
+        "An unindexed general vector-valued positive L1 convolution theorem could imply the same kappa(b) through reduction; not ruled out by finite searches.",
+        "The asymptotic holds at fixed b>1 as N→infinity; no uniform b→1,N→infinity claim or stochastic generalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_PRIOR_NOT_SHARP_FINITE",
+          "evidence": "Proof obtains failure on mixed ell1(ellr) via coarse divergence, not explicit sharp finite L1(ellr^N) norm or kappa(b).",
+          "identifier_or_url": "https://arxiv.org/abs/2608.20266",
+          "material_read": "Full v2 primary PDF text; introduction and relevant Section 3 Proposition 3.4 with its proof on pages 7–8",
+          "method": "original arXiv full PDF and screenshots for those pages",
+          "title": "Necessary conditions for deterministic and stochastic maximal regularity",
+          "trigger": "Exactly matching geometric diagonal kernels and endpoint obstruction"
+        },
+        {
+          "assessment": "DIFFERENT_REGIME",
+          "evidence": "Not a directly stronger numerical statement for time exponent exactly one and geometric finite-dimensional block.",
+          "identifier_or_url": "https://doi.org/10.4064/sm146-2-3",
+          "material_read": "Publication and abstract/context on UMD and time p>1, not full reinspection in this execution",
+          "method": "bibliographic primary metadata and context",
+          "title": "Maximal regularity of discrete and continuous time evolution equations",
+          "trigger": "Standard time maximal regularity general theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/sharp-spectral-spacing-constants-for-finite-dimensional-endpoint--696f083028ce/RESULT.md",
+        "https://arxiv.org/abs/2608.20266",
+        "https://doi.org/10.4064/sm146-2-3"
+      ],
+      "rationale": "This determines quantitative finite-rank severity of a natural endpoint maximal-regularity obstruction, not merely restating qualitative failure. A complete invariant kappa_r(b) distinguishes dense logarithmic eigenvalue levels (vanishing coefficient for r>1) from sparse levels (coefficient 1), with explicit approximation error and all r endpoint cases; these natural spectral-spacing facts are useful independently, with no claim about arbitrary generators or a joint b,N uniform limit.",
+      "residual_risks": [
+        "The asymptotic holds at fixed b>1 as N→infinity; no uniform b→1,N→infinity claim or stochastic generalization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "A_N,b=diag(b,...,b^N) on ell_r^N, b>1 and 1<=r<=infinity: the time-L1 Volterra convolution operator has norm kappa_r(b) N^{1-1/r} up to explicit normalized error 2K/N+b^{-K}+exp(-b^{K+1}) for 2K<N; kappa_r(b)=integral_1^b norm_ellr(b^k exp(-b^k u))_{k∈Z} du. Sharp dense- and sparse-spectral spacing limits stated, with exact r=1 and r=infinity endpoint treatments.",
+  "limitations": [
+    "An unindexed general vector-valued positive L1 convolution theorem could imply the same kappa(b) through reduction; not ruled out by finite searches.",
+    "The asymptotic holds at fixed b>1 as N→infinity; no uniform b→1,N→infinity claim or stochastic generalization."
+  ],
+  "schema_version": 1
+}
