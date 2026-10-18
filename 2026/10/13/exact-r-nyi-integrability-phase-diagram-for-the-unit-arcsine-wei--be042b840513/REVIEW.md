@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the source's density and performs its own exact change of variables. Near \(t=0\), the integrand is asymptotic to \(t^{(p-1)(k-1)/k-p/2}\), giving the necessary-and-sufficient condition \(k>2-2/p\). Near \(t=\infty\), comparison of \((p-1)\lambda t^{1/k}\) with \(pt/2\) gives the exact trichotomy \(k>1\), \(k=1\), and \(k<1\). The boundary cases are checked separately and diverge. No finite experiment is used as evidence for an infinite-domain statement.
+## correctness
 
-## Originality
-PASS. The target full text was inspected at the density definition, transformed Rényi integral, derived series, and fitted parameter table. Searches covered the exact DOI and model name, Rényi existence and \(L^p\)-integrability aliases, endpoint divergence, and correction notices. The closest recent unit arcsine–exponential and unit arcsine–Rayleigh papers were compared directly; their distinct densities and entropy formulas do not imply the stated \((p,k,\lambda)\) phase diagram.
+PASS
 
-Residual risk remains that an unindexed correction or a general transformed-density theorem under different notation contains the same classification.
+Under t=((-ln y)/lambda)^k, the transformed integrand is t^a exp((p-1)lambda*t^(1/k)-p*t/2)(1-exp(-t))^(-p/2), a=(p-1)(k-1)/k. At zero it behaves like t^(a-p/2), requiring k>2-2/p. At infinity for p<1 all exponential terms decay, for p>1 the sign is governed by whether t^(1/k) is sublinear (k>1), superlinear (k<1), or linear (k=1, requiring lambda<p/[2(p-1)]). Combining with p<2 when k=1 gives exactly three branches; equality at either endpoint fails. Direct boundary p=2,k=1 gives square-density ~(pi^2 lambda)^(-1)(1-y)^(-1). All p ranges are analytically exhausted without a finite-to-infinite extrapolation.
 
-## Value
-PASS. This is an exact existence theorem for a central information measure of a newly proposed distribution, not a routine recomputation. The consequence is active in the source's own fitted model: its maximum-likelihood value \(k=0.9952\) lies on the side where every Rényi order \(p>1\) diverges. The result therefore prevents finite use of the source's displayed Rényi expression in a substantial parameter region while leaving the density model and its estimation results untouched.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The final claim was independently compared at statement/implication level against the identified closest original publications and targeted semantic finding searches. Specific prior components are credited and the remaining claimed addition is identified. Residual priority/access risks remain and this is best-of-knowledge, not universal certification. Exact Rényi-integrability phase diagram for the unit arcsine–Weibull law.
+
+## value
+
+PASS
+
+The result determines exactly when a central entropy functional in a newly published bounded lifetime model exists. It materially changes interpretation of the source paper: its own fitted shape k=.9952 makes every order p>1 Renyi expression nonintegrable despite a formal series. Complete all-parameter endpoint existence is a motivated correction, not an arbitrary type or normalization check; it does not challenge ordinary moments/fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

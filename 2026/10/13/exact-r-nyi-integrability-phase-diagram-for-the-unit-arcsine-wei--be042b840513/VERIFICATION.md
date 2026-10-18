@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-The defining quantity is
-\[
-J_p=\int_0^1 g(y)^p\,dy.
-\]
-With \(t=((-\log y)/\lambda)^k\), direct substitution yields
-\[
-J_p=C_{p,k,\lambda}\int_0^\infty
-t^{(p-1)(k-1)/k}
-\exp\!\left((p-1)\lambda t^{1/k}-\frac p2t\right)
-(1-e^{-t})^{-p/2}\,dt,
-\]
-where \(C_{p,k,\lambda}>0\).
 
-At \(t=0\), the integrand has power exponent
-\[
-\frac{(p-1)(k-1)}{k}-\frac p2,
-\]
-so local integrability is equivalent to
-\[
-k>2-\frac2p.
-\]
+# Independent mathematical audit
 
-At \(t=\infty\), for \(p>1\) the positive term \((p-1)\lambda t^{1/k}\) is sublinear when \(k>1\), linear when \(k=1\), and superlinear when \(k<1\). Thus the tail is finite for \(k>1\), infinite for \(k<1\), and at \(k=1\) finite exactly when
-\[
-\lambda<\frac{p}{2(p-1)}.
-\]
-For \(0<p<1\), both exponential contributions are decaying and the zero-end condition is automatic.
+## correctness
 
-Combining the independent endpoint tests gives the claimed three-branch finiteness classification. Equality in the zero-end threshold gives a \(t^{-1}\) singularity; equality in the \(k=1\) tail threshold leaves a non-decaying constant-order integrand. Both boundary cases diverge.
+PASS
 
-As a direct local check, when \(p=2\) and \(k=1\),
-\[
-g(y)^2\sim\frac{1}{\pi^2\lambda}(1-y)^{-1}
-\qquad(y\uparrow1),
-\]
-so the Rényi integral diverges logarithmically.
+Under t=((-ln y)/lambda)^k, the transformed integrand is t^a exp((p-1)lambda*t^(1/k)-p*t/2)(1-exp(-t))^(-p/2), a=(p-1)(k-1)/k. At zero it behaves like t^(a-p/2), requiring k>2-2/p. At infinity for p<1 all exponential terms decay, for p>1 the sign is governed by whether t^(1/k) is sublinear (k>1), superlinear (k<1), or linear (k=1, requiring lambda<p/[2(p-1)]). Combining with p<2 when k=1 gives exactly three branches; equality at either endpoint fails. Direct boundary p=2,k=1 gives square-density ~(pi^2 lambda)^(-1)(1-y)^(-1). All p ranges are analytically exhausted without a finite-to-infinite extrapolation.
 
-The source's fitted maximum-likelihood value \(k=0.9952<1\) therefore lies in the divergent tail regime for every \(p>1\). No conclusion about \(p=1\) or about formal series interchanges inside the finite region is asserted.
+## originality
+
+PASS
+
+The final claim was independently compared at statement/implication level against the identified closest original publications and targeted semantic finding searches. Specific prior components are credited and the remaining claimed addition is identified. Residual priority/access risks remain and this is best-of-knowledge, not universal certification. Exact Rényi-integrability phase diagram for the unit arcsine–Weibull law.
+
+## value
+
+PASS
+
+The result determines exactly when a central entropy functional in a newly published bounded lifetime model exists. It materially changes interpretation of the source paper: its own fitted shape k=.9952 makes every order p>1 Renyi expression nonintegrable despite a formal series. Complete all-parameter endpoint existence is a motivated correction, not an arbitrary type or normalization check; it does not challenge ordinary moments/fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T15:00:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under t=((-ln y)/lambda)^k, the transformed integrand is t^a exp((p-1)lambda*t^(1/k)-p*t/2)(1-exp(-t))^(-p/2), a=(p-1)(k-1)/k. At zero it behaves like t^(a-p/2), requiring k>2-2/p. At infinity for p<1 all exponential terms decay, for p>1 the sign is governed by whether t^(1/k) is sublinear (k>1), superlinear (k<1), or linear (k=1, requiring lambda<p/[2(p-1)]). Combining with p<2 when k=1 gives exactly three branches; equality at either endpoint fails. Direct boundary p=2,k=1 gives square-density ~(pi^2 lambda)^(-1)(1-y)^(-1). All p ranges are analytically exhausted without a finite-to-infinite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unit arcsine-exponential paper restricts its order p<2 for its different one-parameter family.",
+          "The arcsine-Rayleigh transformation has different tail behavior and no free Weibull shape k."
+        ],
+        "reasoning": "Neither model is the full k>0 Weibull-transformed density; their parameter-specific entropy formulas cannot imply this k=1 threshold plus k<1 divergence region.",
+        "searches": [
+          "doi:10.3390/axioms15030218 Renyi order domain",
+          "doi:10.3390/e28040464 related entropy sections"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.2026580 target AIMS Mathematics 2026 Section 3.4, MLE table",
+        "doi:10.3390/axioms15030218 related unit arcsine-exponential entropy",
+        "doi:10.3390/e28040464 related unit arcsine-Rayleigh entropy",
+        "Resultary query: unit arcsine Weibull distribution Renyi entropy integrability divergent Lp threshold shape scale parameter"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published formal transformed integral has p>0,p!=1 but does not impose k>2-2/p or the k=1 tail condition.",
+          "Fitted k=.9952 lies below one, so the transformed positive superlinear term forces J_p=infinity for every p>1."
+        ],
+        "reasoning": "Writing an integral or double series for J_p does not imply its finiteness; rigorous necessary/sufficient endpoint asymptotics add substantive scientific information absent from the target presentation.",
+        "searches": [
+          "AIMS Mathematics DOI:10.3934/math.2026580 Equations 3.13-3.19",
+          "Axioms DOI:10.3390/axioms15030218"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target Section 3.4 defines J_p and supplies a formally expanded series without stating its complete k,lambda,p convergence domain.",
+          "The present theorem is equivalently an exact density-Lp classification, including both zero and infinity endpoints after transformation."
+        ],
+        "reasoning": "Density Lp regularity and finite Renyi entropy are equivalent formulations for fixed positive p !=1; no inspected source presents the full parameter phase diagram.",
+        "searches": [
+          "\"unit arcsine Weibull\" \"Renyi\" \"integrability\" corrigendum",
+          "\"10.3934/math.2026580\" entropy existence",
+          "\"UASWD\" density Lp integrability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026 AIMS article reports an unqualified formal Renyi series, not a corrected existence table.",
+          "Resultary hits involved unrelated entropic distributions, including 2026/10/4/SCOPE-exact-r-nyi-tsallis-monotonicity-threshold-for-two-bernoulli-sum--50d8a780542d, a discrete Bernoulli parameter problem."
+        ],
+        "reasoning": "No matching correction or all-parameter integrability table was located in bounded DOI, model and correction-language queries; negative search is not universal novelty proof.",
+        "searches": [
+          "\"10.3934/math.2026580\" corrigendum erratum",
+          "\"unit arcsine Weibull\" entropy phase diagram",
+          "Resultary: unit arcsine Weibull distribution Renyi entropy integrability divergent Lp threshold shape scale parameter"
+        ]
+      },
+      "rationale": "The final claim was independently compared at statement/implication level against the identified closest original publications and targeted semantic finding searches. Specific prior components are credited and the remaining claimed addition is identified. Residual priority/access risks remain and this is best-of-knowledge, not universal certification. Exact Rényi-integrability phase diagram for the unit arcsine–Weibull law.",
+      "residual_risks": [
+        "An unindexed corrigendum or a general transformed-density endpoint theorem may state the same conditional Lp integrability result.",
+        "The theorem addresses finiteness of the integral, not validity of every formal termwise integration in the source, and p=1 is intentionally excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The published calculation lacks the endpoint existence conditions; its reported k=.9952 triggers p>1 divergence under verified asymptotics",
+          "evidence": "Section 3.4 Equations (3.13)-(3.19) give the transformed integral and series; fitted parameters are k=0.9952 and lambda=0.9716.",
+          "identifier_or_url": "doi:10.3934/math.2026580; https://www.researchgate.net/publication/405061407_Statistical_properties_and_inference_for_a_new_bounded_lifetime_model_with_application",
+          "material_read": "Accessible author/article full text, density definition, complete Section 3.4 transformed Renyi integral and formal double series, plus MLE application parameter table",
+          "method": "Full-text hosted copy and publisher publication record, targeted mathematical reading",
+          "title": "Statistical properties and inference for a new bounded lifetime model with application",
+          "trigger": "Exact same density, published Renyi formula and reported fit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result determines exactly when a central entropy functional in a newly published bounded lifetime model exists. It materially changes interpretation of the source paper: its own fitted shape k=.9952 makes every order p>1 Renyi expression nonintegrable despite a formal series. Complete all-parameter endpoint existence is a motivated correction, not an arbitrary type or normalization check; it does not challenge ordinary moments/fit.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.3934/math.2026580 target AIMS Mathematics 2026 Section 3.4, MLE table",
+    "doi:10.3390/axioms15030218 related unit arcsine-exponential entropy",
+    "doi:10.3390/e28040464 related unit arcsine-Rayleigh entropy",
+    "Resultary query: unit arcsine Weibull distribution Renyi entropy integrability divergent Lp threshold shape scale parameter"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed corrigendum or a general transformed-density endpoint theorem may state the same conditional Lp integrability result.",
+    "The theorem addresses finiteness of the integral, not validity of every formal termwise integration in the source, and p=1 is intentionally excluded."
+  ]
+}
