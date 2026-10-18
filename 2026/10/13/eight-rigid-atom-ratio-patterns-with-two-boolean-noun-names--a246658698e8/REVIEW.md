@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem concerns exactly two Boolean noun names, four nonempty atoms and a rank-three system of cardinality equalities. The proof translates every such equality into a signed ternary row and conversely realizes each row using definable Boolean noun terms. A rank-three matrix has a unique rational kernel ray; its positive primitive integral vector generates all finite model cardinalities. Hadamard's bound reduces all possible positive primitive rays to 63 nondecreasing vectors with entries at most five. Two independent exact exhaustive enumerations both return the eight stated classes and 75 labelled realizations; the witness rows have rank three. The solver is replayable without nonstandard dependencies. The result says nothing about arbitrary cardinality inequalities.
+## correctness
 
-**Originality — PASS, with residual literature risk.** The primary 2026 finite-spectrum paper gives a language-wide description of possible spectra, not an explicit fixed-two-name census of full-support rank-three Boolean noun-cardinality ratios. Earlier syllogistic work uses simpler complemented noun terms and, in the cited instance, infinite domains. Searches for identical cardinality-ratio classifications and equivalent small ternary-matrix kernel results did not reveal a covering theorem. Access to the entire 2026 preprint text was unsuccessful; an older or internal special-case enumeration remains possible.
+PASS
 
-**Value — PASS.** This is the first nontrivial fixed-alphabet Boolean noun case, with four independent atom populations. Rank-three equalities are the natural rigidity threshold at which a model's proportions are fixed. The complete catalogue yields a sharp ten-element least-model cutoff and a nine-element gap **within this precisely defined rigidity class**, information absent from unrestricted spectrum realizability. Such a cutoff is directly useful for bounded-model generation and resource-sensitive expressivity comparisons; the value lies in the complete classification and sharpness rather than code execution alone.
+Every Boolean noun comparison equality cancels into one nonzero {-1,0,1}^4 coefficient row up to negation, hence exactly 40 signed directions. Rank-three equations give a one-dimensional primitive positive rational kernel. Each 3x3 cofactor has absolute determinant at most 5 by Hadamard; thus every primitive coordinate is <=5. An exhaustive exact enumeration of 40 choose 3 = 9,880 row triples, together with a separate bounded primitive-candidate rank census (63 sorted primitive positive vectors) reproduces exactly eight classes, 75 labeled ratios and sum distribution {4:1,5:4,6:10,7:12,8:24,10:24}. All multiples of the primitive vector are exactly the realized finite atom models, giving spectrum s N_{>0}. The finite census is exhaustive only because the determinant bound and row encoding were proved first.
 
-Scientific limitations: The rank-three/full-support/Boolean-noun assumptions are essential to the claim. No general impossibility for nine-element models is asserted. Independent verification remains outstanding, and a covering older presentation cannot be ruled out categorically.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Jiang’s recent finite-spectra theorem treats cardinality syllogistic syntax and Boolean combinations of sentences, not this exact fixed-two-predicate language with Boolean noun terms, full support and rank-three equality-rigid atom vectors. Published one-raw-noun classifications and general integer-matrix facts do not list these eight four-atom ratio types or their exact least-model-size gap. The full Jiang preprint was inaccessible by primary web routes; authorized institutional retrieval returned VPN disconnected, so unverified full-text coverage remains a specific priority risk.
+
+## value
+
+PASS
+
+PASS: Rank three is exactly the rigidity threshold for four positive atom populations, and two Boolean nouns are the smallest interesting 4-atom case. A complete sharp bound for minimal finite model size and explicit missing size 9, plus all rigid ratio classes, are useful exact invariants for bounded-model construction and expressive-resource comparison. The mathematical motivation precedes enumeration; the claim is not that arbitrary two-predicate sentence spectra omit nine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
