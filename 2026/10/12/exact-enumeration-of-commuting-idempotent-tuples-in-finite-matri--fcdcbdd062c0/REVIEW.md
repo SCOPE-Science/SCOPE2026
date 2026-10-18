@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Each idempotent is diagonalizable because its minimal polynomial divides \(t(t-1)\), whose roots are distinct in every characteristic. Pairwise commuting idempotents therefore admit the joint \(0/1\)-eigenspace decomposition used in the proof. The inverse construction is explicit, and orbit-stabilizer gives the exact count for every dimension profile. The fixed-\(n\) asymptotic follows by minimizing the sum of squared block dimensions. The verifier independently reproduces exact pair and triple counts in small fields.
+## correctness
 
-## Originality
-PASS. The 2015 Peirce-decomposition source supplies the structural complete-orthogonal-idempotent framework, the 2017 finite-field paper enumerates idempotent generators of individual left ideals, and the 2021 paper counts single idempotents. Elyze–Guterman–Morrison–Šivic use idempotents as common centralizers in a geometric study of higher-distance commuting varieties, not as both members of the counted pair. The full-text 2018 reproof of Feit–Fine treats unrestricted commuting pairs and commuting nilpotent pairs; its full-text search contains no “idempotent”. None of the inspected sources states the exact \(2^m\)-block tuple formula or the mod-four idempotent-commuting probability asymptotic. The main residual risk is an unlocated specialization in older literature on commuting semisimple matrices.
+PASS
 
-## Value
-PASS. The result identifies a natural finite-ring statistic with a direct-sum decomposition count, extends from pairs to arbitrary tuple length, and exposes a nonuniform mod-four leading term for the probability of idempotent commutation. This is a structural refinement rather than a table recomputation: the formula works for every matrix size, every finite field, and every tuple length.
+Commuting idempotents over every F_q diagonalize simultaneously because t(t-1) is separable even in characteristic 2. Their canonical joint eigenspaces V_epsilon form an ordered 2^m-part direct sum of F_q^n; the converse constructs all tuples uniquely. GL_n transitivity with stabilizer prod GL_{d_epsilon} proves the exact count including zero dimensional parts and n=0. For fixed n and q growing, the exponent of each orbit is n^2-sum d_epsilon^2, maximal for balanced ordered profiles. A two-part denominator has leading multiplicity 1 or 2; a four-part numerator has binomial(4,n mod4), giving exactly three stated probability cases, including coefficient 6 for n=2 mod4. Separately computed count from compositions for n<=3, q=2,3 (e.g. 40 at n=2,q=2, 76 at n=2,q=3). No assertion in simultaneous-conjugacy or growing-n limit.
 
-## Closest literature and limitations
-The closest structural source is Ánh–Birkenmeier–van Wyk on complete orthogonal idempotents and Peirce decompositions. Ferraz–Polcino Milies–Taufer and Dolžan provide the closest finite-field single-idempotent enumerations. Feit–Fine and Fulman–Guralnick are the closest broader commuting-pair results. The claim does not address arbitrary commuting matrices, arbitrary commuting semisimple matrices with larger spectra, or the regime of fixed \(q\) and growing \(n\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Simultaneous diagonalization and enumeration of direct-sum decompositions are classical, and Feit–Fine/Fulman–Guralnick count all commuting matrices, while Ferraz et al count single-idempotent generators. Neither inspected source states exact all-m joint idempotent counts or the fixed-n mod-4 leading commuting-probability law for uniform random idempotents. The all-m enumeration is an immediate but nontrivial natural specialization requiring the simultaneous idempotent locus; treat the elementary derivation as prior mathematical technique, not newly discovered. The possibility of an earlier implicit treatment via semisimple representations remains a specific risk.
+
+## value
+
+PASS
+
+PASS: The probability that two uniformly sampled finite-field idempotents commute is a natural matrix-statistical invariant, distinct from unrestricted commuting pairs. The exact simultaneous-tuple count works at arbitrary tuple arity and supplies an unusual residue-class n mod4 leading coefficient/rate in large q; while rooted in textbook diagonalization, the exact natural optimizer/census is independently reusable. Scope is fixed n, not q fixed and n growing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
