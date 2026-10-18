@@ -1,31 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. In the inradius-one regular \(4n\)-gon, the exact norm sandwich
-\[
-\|z\|_N\le\|z\|_2\le\sec\!\left(\frac{\pi}{4n}\right)\|z\|_N
-\]
-combines with the Euclidean Euler--Lagrange identity to give the global ceiling
-\[
-L_{\mathrm{YJ}}(\lambda,\mu,X_{4n})
-\le
-\sec^2\!\left(\frac{\pi}{4n}\right).
-\]
-At the balanced ratio, adjacent vertices symmetric about a facet normal attain the ceiling. At each ratio
-\[
-\frac{\mu}{\lambda}
-=
-\tan\!\left(\frac{(2k+1)\pi}{4n}\right),
-\]
-a quarter-turn vertex pair is mapped to two facet-normal rays, again attaining the ceiling. The proof covers every \(n\ge1\) and every listed \(k\); the checker is supplementary.
+## correctness
 
-## Originality
-PASS. The defining 2021 source was inspected through the invariant definition, general bounds, Hilbert characterization, comparisons, examples, and conclusion, with direct searches for regular-polygon aliases. No regular-polygon result was found. Public research-index searches covered \(L_{\mathrm{YJ}}\), regular polygons, the secant-square value, dodecagonal specialization, and the tangent-angle parameterization. The closest same-invariant public theorem gives only a universal envelope and does not imply the sharper regular-polygon ceiling or the unbalanced attaining configurations. The current local ledger was checked for statement-level overlap; its affine-regular-hexagon profile and modified von Neumann--Jordan regular-polygon result do not imply these unbalanced Euler--Lagrange resonances.
+PASS
 
-## Value
-PASS. The result identifies exact sharp parameter points for a genuinely two-parameter geometric constant across an infinite canonical family. The resonance set has a geometric explanation: the coefficient angle locks quarter-turn vertices to the alternating facet-normal lattice. This produces reusable calibration points for future full-profile calculations and separates polygonal anisotropy from the source's general Banach-space bounds.
+Inradius-one regular 4n-gon has R=sec(alpha), alpha=pi/(4n), ||z||_N≤||z||_2≤R||z||_N. The coefficient matrix [[lambda,mu],[mu,-lambda]] has transpose product (lambda²+mu²)I, so the defining quotient ≤R² uniformly. For balanced parameters choose adjacent vertices R exp(±i alpha): x±y lie along perpendicular facet-normal rays. For every odd-half-step ratio mu/lambda=tan((2k+1)alpha), choose quarter-turn separated unit vertices x=R exp(i alpha), y=i x, and normalized parameters (cos(phi),sin(phi)); both transformed vectors land exactly on facet normals with Euclidean norm R, so the quotient=R². n=1 boundary yields square norm with one ratio, octagon/dodecagon stated radicals check trig identities. Universal n is symbolic; sampled checks not proof.
 
-## Closest literature and limitations
-Liu and Li introduced \(L_{\mathrm{YJ}}\) in Mathematics 9 (2021), 116, published 7 January 2021, and proved general bounds and comparisons with classical constants. A later public result gives a universal parameter envelope but no regular-polygon equality construction. The present theorem does not claim that its displayed saturation ratios are exhaustive, and it is restricted to regular polygons with side count divisible by \(4\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Crucial close comparison: Liu–Li 2021 Example 4 ALREADY uses a regular-octagonal norm (max{|x1|+(sqrt2−1)|x2|, |x2|+(sqrt2−1)|x1|}) and records C_NJ=C_Z=4−2sqrt2, thus the n=2 balanced instance is covered. However their displayed bound for unbalanced lambda≠mu is (4−2sqrt2)*2max(lambda²,mu²)/(lambda²+mu²), strictly larger than this sharp R² for unequal parameters; they neither prove unbalanced facet-resonant equality at sqrt2±1 nor the uniform all-4n family. The exact unbalanced resonance is surviving new scope. Best-of-knowledge, not absolute novelty certificate.
+
+## value
+
+PASS
+
+A sharp global Banach constant ceiling is attained on infinitely many polygonal normed planes at explicitly described nonbalanced parameter angles. This is a structural saturation mechanism tied to vertex/facet lattice, not merely a generic norm inequality or isolated numerical improvement. Historical octagon balanced overlap explicitly discounted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
