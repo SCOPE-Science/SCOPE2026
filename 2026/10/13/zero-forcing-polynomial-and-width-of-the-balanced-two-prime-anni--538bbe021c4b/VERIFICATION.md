@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,38 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its actual packaged path before replay.
+# Independent mathematical audit
 
-It constructs the seven exponent-pair vertices, derives adjacency solely from the two exponent-sum inequalities, and exhausts all
-\[
-2^7=128
-\]
-vertex subsets under the standard zero forcing color-change rule.
+## correctness
 
-It verifies the coefficient dictionary
-\[
-\{2:4,\ 3:24,\ 4:33,\ 5:21,\ 6:7,\ 7:1\},
-\]
-checks that the four stated two-vertex sets are exactly the minimum zero forcing sets, and replays a five-force chronological sequence for each.
+PASS
 
-The same artifact checks every edge and running-intersection condition of the width-two path decomposition, verifies the induced four-cycle used for the treewidth lower bound, and directly reconstructs representative ideal-product graphs from divisor arithmetic for four choices of distinct primes.
+Every nonzero proper ideal of Z/(p^2q^2) gives one of seven exponent pairs except (0,0) and (2,2), and two vertices are adjacent iff both coordinate exponent sums are at least 2. This graph depends only on the balanced exponent pattern, not the primes. Independent complete enumeration of all 2^7=128 blue subsets gives exact zero forcing coefficient list (4,24,33,21,7,1) for degrees 2..7, with precisely the four claimed size-2 sets. Explicit five-move forcing sequences verify upper bound Z<=2; the graph is not a path, so Z>=2. The seven bags of width 2 cover every edge and have interval incidence, and an induced C4 excludes treewidth 1, so tw=pw=2. Ring-to-graph reduction is symbolic and entire finite graph enumeration is exhaustive, not sampling.
 
-Exact replay output:
+## originality
 
-```text
-zero forcing polynomial: {2: 4, 3: 24, 4: 33, 5: 21, 6: 7, 7: 1}
-minimum zero forcing sets: [((0, 1), (0, 2)), ((0, 1), (1, 1)), ((1, 0), (1, 1)), ((1, 0), (2, 0))]
-forcing sequence ((0, 1), (0, 2)) : [((0, 1), (2, 1)), ((0, 2), (2, 0)), ((2, 0), (1, 2)), ((2, 1), (1, 1)), ((1, 2), (1, 0))]
-forcing sequence ((0, 1), (1, 1)) : [((0, 1), (2, 1)), ((1, 1), (1, 2)), ((2, 1), (0, 2)), ((0, 2), (2, 0)), ((1, 2), (1, 0))]
-forcing sequence ((1, 0), (1, 1)) : [((1, 0), (1, 2)), ((1, 1), (2, 1)), ((1, 2), (2, 0)), ((2, 0), (0, 2)), ((2, 1), (0, 1))]
-forcing sequence ((1, 0), (2, 0)) : [((1, 0), (1, 2)), ((2, 0), (0, 2)), ((0, 2), (2, 1)), ((1, 2), (1, 1)), ((2, 1), (0, 1))]
-width-2 path decomposition OK; induced C4 OK
-Z/36Z direct ideal-product graph OK: 7 vertices
-Z/100Z direct ideal-product graph OK: 7 vertices
-Z/225Z direct ideal-product graph OK: 7 vertices
-Z/1225Z direct ideal-product graph OK: 7 vertices
-all 128 subsets classified; 90 are zero forcing
-VERIFY_OK
-```
+PASS
 
-The exhaustive subset census proves the finite polynomial after the symbolic ring-to-graph reduction. The scalar zero forcing number and both widths also have explicit structural certificates independent of exhaustive search.
+The two-prime ideal graph structure and general definitions predate the result. The inspected same-object and near-object sources study algebraic independence or weak perfectness, not the complete standard forcing-set enumerator, four minimizers and exact width-two decomposition for this balanced exponent case. A database may contain Z=2; this scalar value is not the novelty claim.
+
+## value
+
+PASS
+
+The first symmetric mixed pair of nonfield prime-power components supplies a canonical seven-vertex ideal graph that has an induced cycle and is not covered by path/tree forcing formulas. The complete 128-subset census and exact width certificates form a naturally motivated base case and sharp benchmark for p^a q^b annihilating-ideal graph forcing and decomposition questions. Its fixed size is explicitly acknowledged; no unsupported infinite classification is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
