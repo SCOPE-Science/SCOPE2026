@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The exact state-map matrix has determinant -1. Integer matrices (A^3-I)/2,(A^6-I)/4,(A^12-I)/8 each have odd determinant. A 2-adic squaring and odd-power lemma establishes least period 3,6,3·2^(j-1) for every primitive vector modulo 2^j. Counting valuation strata gives cycles 1,1,2,2^(j-1); modulo 3 one has a fixed orbit and an eight-cycle. Chinese remaindering pairs cycles with gcd multiplicities and lcm lengths; all multiplicities and the sum follow algebraically. Packaged verify.py separately enumerates every orbit at k=3..7 and the local spectra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Renault proves periodicity and CRT lcm for an individual generalized Fibonacci sequence and the classical powers-of-two period, not orbit multiplicities for mixed moduli.",
+        "Avila–Khovanova lists cycles for the modulus 8 and comments on composite cycle lengths.",
+        "Pudelko gives computational patterns and conjectures about prime powers but not mixed-modulus exact theorem."
+      ],
+      "reasoning": "The lcm period relation alone does not determine the numbers of cycles at each period; the new exact power-of-two valuation-layer multiplicities combined with a gcd product law supply the missing count. The searched stronger descriptions do not establish the specific statement.",
+      "searches": [
+        "arxiv:1403.4614:sections8-10",
+        "Renault:1996:thesis:section3.1",
+        "arxiv:2510.24882:fulltext:section3",
+        "Fibonacci iteration two-step recurrence modulo 3 times powers of two complete orbit period spectrum cycle counts CRT"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A015134",
+      "OEIS:A015135",
+      "OEIS:A001175",
+      "arxiv:1403.4614",
+      "Renault:1996:thesis",
+      "arxiv:2510.24882"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known total a(2^n)=2^n and the classical Pisano period are weaker aggregate or maximum-period statements.",
+        "CRT gives lcm of individual periods but does not by itself give the gcd-weighted cycle census.",
+        "Pudelko only conjectures generic prime-power self-similarity, with no matching exact mixed formula."
+      ],
+      "reasoning": "An implication requires the finer valuation-layer period uniformity, counts of 2-adic state strata, and the product-of-cycles gcd formula. These are supplied and proved here; no examined prior proven statement includes this full assembly.",
+      "searches": [
+        "OEIS:A015134:formula a(2^n)=2^n",
+        "Renault:1996:theorem3.3 and theorem3.5",
+        "arxiv:2510.24882:conjecture6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A015134 explicitly labels the identical total formula a conjecture, attributed to Bartell on 2023-08-20.",
+        "Pudelko arXiv:2510.24882 section 3 treats period landscapes and prime-power behavior but states no exact cycle distribution for 3·2^k."
+      ],
+      "reasoning": "The total formula is not a new guess; it is the known Bartell conjecture. An infinite proof plus the complete least-period multiplicity list is the asserted contribution. The source conjecture is not an established covering theorem.",
+      "searches": [
+        "web: \"a(3 * 2^n)\" \"3*(3 * 2^n - 14)\" Fibonacci cycles proof",
+        "Fibonacci modulo 3*2^k number cyclic orbits 9*2^k-42 Stephen Bartell A015134 conjecture proof",
+        "OEIS:A015134:FORMULA",
+        "arxiv:2510.24882:section3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A015134 lists finitely many terms and the exact conjectured expression for 3·2^n, explicitly as a conjecture.",
+        "OEIS A015135 tabulates the number of distinct cycle lengths, not the distribution of their multiplicities.",
+        "OEIS A001175 concerns maximum Pisano periods, not the entire orbit census."
+      ],
+      "reasoning": "Existing database values validate examples and flag the total as previously conjectured, but numerical data are not an infinite proof and the database entries do not include the complete period-multiplicity formula.",
+      "searches": [
+        "OEIS:A015134:FORMULA",
+        "OEIS:A015135:COMMENTS",
+        "OEIS:A001175:FORMULA",
+        "OEIS A015134 a(3 * 2^n) formula explicit conjecture"
+      ]
+    },
+    "rationale": "The total 9·2^k-42 is explicitly a 2023 conjecture in OEIS A015134, not an unreported prediction. The new claim establishes it for every k≥3 and gives an exact nontrivial full period-multiplicity spectrum. Full text of the historical and recent closest papers and database entries did not contain such a proof or dominating mixed-modulus theorem. Residual possible unindexed proofs are disclosed.",
+    "residual_risks": [
+      "A proof or all-period orbit decomposition in historical literature not indexed by examined searches may exist.",
+      "Generic CRT orbit methods could yield a shorter derivation, but no inspected source establishes the full quantified statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact sum already conjectured in 2023, but no proof or period multiplicities supplied.",
+        "evidence": [
+          "Conjectures from Stephen Bartell, Aug 20 2023: a(3*2^n)=3(3*2^n-14), n>=3.",
+          "Known a(2^n)=2^n, not the mixed modulus formula."
+        ],
+        "identifier_or_url": "https://oeis.org/A015134",
+        "material_read": "Full rendered entry including comments, formula block and dated attribution.",
+        "method": "Direct page inspection and statement comparison.",
+        "title": "OEIS A015134",
+        "trigger": "Exact total cycle count appears as a conjecture."
+      },
+      {
+        "assessment": "Introduces Fibonacci omni-factors and lists zero-free cycles modulo 8, but no all-k mixed 3·2^k period spectrum.",
+        "evidence": [
+          "Section 10 states that composite moduli have different orbit lengths and enumerates modulo-eight cycles."
+        ],
+        "identifier_or_url": "arxiv:1403.4614",
+        "material_read": "18-page preprint, especially sections 8 and 10 (PDF pages 11, 15–16).",
+        "method": "Read full-text sections and checked page images.",
+        "title": "Free Fibonacci Sequences",
+        "trigger": "Historical first-hand source of modular initial-state cycles and archive ownership."
+      },
+      {
+        "assessment": "Contains powers-of-two Pisano-period and coprime lcm results, but no counted mixed-modulus orbit spectrum.",
+        "evidence": [
+          "Theorem 3.3 says the period of a given generalized sequence is the lcm of its prime-power periods.",
+          "Theorem 3.5 gives the classical Fibonacci period modulo 2^e."
+        ],
+        "identifier_or_url": "https://webspace.ship.edu/msrenault/fibonacci/fibthesis.pdf",
+        "material_read": "Thesis contents and Chapter 3 section 3.1, including theorems 3.2, 3.3, 3.5 and proofs.",
+        "method": "Read chapter text and compare quantifiers (one sequence periods versus all-state cycle counts).",
+        "title": "The Fibonacci Sequence Under Various Moduli",
+        "trigger": "Possible stronger general result controlling prime-power cycles and CRT."
+      },
+      {
+        "assessment": "Discusses and conjectures prime-power spectral patterns, but has no mixed-modulus 3·2^k all-k spectral count.",
+        "evidence": [
+          "Section 3 describes the Chinese remainder principle and gives prime-field conjectures and a conjectural prime-power self-similarity principle."
+        ],
+        "identifier_or_url": "arxiv:2510.24882",
+        "material_read": "All nine PDF pages, especially section 3, conjectures 5–7, and accompanying tables.",
+        "method": "Direct full-text reading and image inspection for section 3.",
+        "title": "Modular Periodicity of Random Initialized Recurrences",
+        "trigger": "Highly relevant later full-paper study of all initial pairs and orbit-length spectra."
+      },
+      {
+        "assessment": "Counts distinct period lengths only, not cycles of each length.",
+        "evidence": [
+          "Entry states n=8 has four distinct lengths: 1,3,6,12."
+        ],
+        "identifier_or_url": "https://oeis.org/A015135",
+        "material_read": "Definition, table values and comments.",
+        "method": "Direct page inspection.",
+        "title": "OEIS A015135",
+        "trigger": "Potential exact table of period multiplicities."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7708e8d5-999c-4cea-a853-4efbe92ad24b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Completes an explicitly published infinite conjecture in OEIS A015134 and upgrades it to a full least-period cycle classification at a canonical mixed prime-power family. The exact spectrum resolves which periods occur, their multiplicities, and the exceptional k=3 transition, all of direct relevance to modular Fibonacci recurrence dynamics.",
+    "status": "PASS"
+  }
+}
