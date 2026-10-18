@@ -1,15 +1,21 @@
-# Self-review: The zero-inflow avoidance face invalidates full uniform persistence
+# Independent mathematical audit
 
-## Correctness
-**PASS.** At the stated admissible endpoint \(p=v=0\), the printed avoidance equation factors exactly as \(A'=-q(t)A\) with \(q(t)\ge\mu>0\). The explicit solution gives \(A(t)\le A(0)e^{-\mu t}\), so any interior trajectory approaches the boundary \(A=0\). This alone contradicts full-state uniform persistence. The face is invariant, and direct substitution verifies the boundary endemic equilibrium for every \(R_0>1\). An exact witness with \(R_0=2\) is checked by `verify.py`.
+## correctness
 
-## Originality
-**PASS.** The primary article states the opposite stronger conclusion over a parameter domain that includes \(p=v=0\). Its supplementary proof explicitly uses the strict inequality \(p\gamma I+vS>0\) on \(A=0\), which is false at that allowed endpoint. Targeted searches for the source title together with the endpoint, persistence terminology, and boundary inflow did not locate a correction or another source giving this counterexample. The comparison is statement-level: the source's full-state conclusion is contradicted, rather than merely specialized.
+PASS
 
-## Value
-**PASS.** Uniform persistence is a qualitative long-time theorem, not a numerical side calculation. The counterexample identifies an invariant boundary face omitted from the source's maximal-invariant-boundary argument and separates the paper's biologically central disease-persistence conclusion from the stronger all-compartment claim. It also supplies the exact missing endpoint condition for the failed strict-inflow step without overclaiming a complete repaired theorem.
+For the printed Poulton–Ellner ODE, at the admitted p=v=0 endpoint A'=-q(t)A with q=beta*alpha(P)*P+w+mu+c(P)>=mu>0. Thus every interior A(0)>0 satisfies 0<A(t)<=A(0)exp(-mu*t)->0 even for R0>1, disproving *full four-variable* uniform persistence. The hyperface A=0 is invariant, and for R0=beta*theta/[lambda*(gamma+mu+phi)]>1 it contains (S,A,I,P)=(1/R0,0,mu*(1-1/R0)/(mu+phi),theta*I/lambda), not disease free. Direct rational substitution with mu=gamma=theta=lambda=1,beta=4,phi=w=p=v=0 gives R0=2 and (1/2,0,1/2,1/2). The essential failure in the primary supplementary S1.5 is the assertion p*gamma*I+v*S>0 at A=0. No claim is made about loss of persistence of I and P.
 
-## Closest literature and limitations
-The closest source is the article itself and its Supplementary Section S1.5, because that is where the stronger persistence claim and its proof occur. Generic persistence theory cannot restore the conclusion when an extra invariant boundary set exists. No claim is made here that the disease variables \(I,P\) fail to persist, nor that \(p+v>0\) is sufficient for all other persistence hypotheses.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The finding pinpoints a missing endpoint hypothesis in the original all-state persistence claim and an actual additional invariant boundary equilibrium. General Freedman-type persistence results assume the required boundary isolation and thus neither imply a correction nor rescue the printed all-state statement. A relevant Resultary query found qualitatively different epidemic-boundary results, not this exact model-specific contradiction. Search non-detection is not proof of priority; possible later author correction remains a risk.
+
+## value
+
+PASS
+
+A false full-state uniform-persistence theorem changes the global dynamical conclusion and the scope of a proof relying on boundary isolation; the exact p=v=0 admissible boundary is a mathematically motivated counterexample, not an arbitrary trivial test. The disease persistence assertion remains logically separate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
