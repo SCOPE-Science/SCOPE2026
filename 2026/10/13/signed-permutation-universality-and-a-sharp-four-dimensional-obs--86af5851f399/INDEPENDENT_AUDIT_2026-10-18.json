@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T03:12:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For each real symmetric A, r^TAr-tr(A) is invariant under r -> -r and has the uniform finite distribution on antipodal classes. Any coupling of the scalar class values can be lifted to a genuine coupling of uniform sign vectors by a common independent global sign; the uncrossing inequality establishes the sorted least-squares cost. For n=1,2,3, the signed-coordinate-permutation action on 1,2,4 antipodal classes is respectively S1,S2,S4 (in n=3 the kernel is {+I,-I}, so 48/2=24). Thus a deterministic signed coordinate permutation realizes a minimizing scalar coupling for every A,B. For n=4, directly evaluated Walsh lists with c=(-2,2,-3,2,2,2), d=(-1,2,2,3,-3,3) have sorted squared matching sum 16, while enumeration of all 192 induced maps has least sum 24. Multiplying by 4 epsilon^2 /8 yields 8 epsilon^2 vs 12 epsilon^2. Gershgorin row absolute offdiagonal sums <=8 prove I+epsilon C,I+epsilon D SPD for 0<epsilon<1/8. My independent enumeration recreated the 16/24 gap and 192 maps, not merely replayed VERIFY_OK. The ratio 3/2 belongs only to the displayed pair, not a global worst-case theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dharangutte–Musco arXiv:2110.13752 Sections on DeltaShift: uses Rademacher vector reuse and difference variance bounds, no optimization across all admissible pair joint laws.",
+          "XTrace arXiv:2301.07825 describes leave-one-out exchangeable multiple-probe methods, not S4 realization or an order-four obstruction."
+        ],
+        "reasoning": "These matrix-trace methods address broader matrix classes or algorithms, but their statements and controls do not imply the exact all-coupling versus signed-permutation comparison here.",
+        "searches": [
+          "signed permutation Rademacher paired trace estimator optimal arbitrary coupling positive definite 4 dimension",
+          "arXiv:2110.13752",
+          "arXiv:2301.07825"
+        ]
+      },
+      "checked_sources": [
+        "Dynamic Trace Estimation (arXiv:2110.13752)",
+        "XTrace: Making the Most of Every Sample in Stochastic Trace Estimation (arXiv:2301.07825)",
+        "Published mathematical-record semantic search: signed permutation Rademacher paired trace estimator optimal arbitrary coupling positive definite 4 dimension",
+        "Pinned package RESULT.md and finite verifier at commit 40d46a820f74fdf355c691812bdc426ec204bde7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rearrangement lemma alone yields optimal scalar coupling but not implementability by a signed coordinate map.",
+          "Common random numbers or DeltaShift do not impose a theorem optimizing over all couplings; cube group symmetry by itself does not furnish the constructed SPD pair."
+        ],
+        "reasoning": "No inspected prior statement entails both universal realization n<=3 and the first strict n=4 obstruction; all classical components are expressly credited.",
+        "searches": [
+          "signed permutation Rademacher paired trace estimator optimal arbitrary coupling positive definite 4 dimension",
+          "arXiv:2110.13752",
+          "arXiv:2301.07825"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two quadratic-form laws are degree-two Walsh chaoses on 2^(n-1) antipodal classes; sorted matching is one-dimensional squared-Wasserstein transport, a classical fact.",
+          "The cube signed-coordinate group realizes every permutation of 4 antipodal classes in n=3 but only 192 of 8! in n=4."
+        ],
+        "reasoning": "A classical scalar transportation formula does not imply that the optimal matching is realized by a deterministic coordinate map; the full low-dimensional action and explicit violating A,B are extra assertions.",
+        "searches": [
+          "signed permutation Rademacher paired trace estimator optimal arbitrary coupling positive definite 4 dimension",
+          "arXiv:2110.13752",
+          "arXiv:2301.07825"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently computed the displayed eight Walsh scores and 192 restricted maps; minimum score costs were 16 versus 24 before rescaling.",
+          "Published-record index returned no identified exact table with this edge-weight pair or 8-versus-12 variance gap."
+        ],
+        "reasoning": "The exhaustive instance is newly calculated rather than a known tabulated value in consulted sources. Failed matching search is only bounded evidence.",
+        "searches": [
+          "signed permutation Rademacher paired trace estimator optimal arbitrary coupling positive definite 4 dimension",
+          "arXiv:2110.13752",
+          "arXiv:2301.07825"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the Wasserstein/rearrangement optimum is classical, the small signed-cube group action is classical, and trace-difference variance formulas are prior; the novel claim is exact realizability of every sorted coupling via fixed signed coordinate maps through dimension three and an explicit dimension-four SPD first obstruction. The inspected Dynamic Trace Estimation paper defines controlled probe reuse and variance bounds, while XTrace develops exchangeable multi-probe trace estimation; neither material establishes the small-dimensional universal implementability frontier. A semantically similar record was not returned by the published-record search; absence is not proof of priority.",
+      "residual_risks": [
+        "An unindexed optimal common-random-number coupling or Walsh-transport theorem may imply the frontier.",
+        "The optimal unrestricted coupling presumes knowledge of the entire scalar probe-score distributions; no general efficient matrix-free method follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact optimum over arbitrary pair couplings or signed-map realization",
+          "evidence": "The estimator uses specified common-probe constructions and upper bounds, not optimal-transport implementation on sign classes.",
+          "identifier_or_url": "arXiv:2110.13752",
+          "material_read": "Open full-text PDF: introduction, difference-estimator construction/DeltaShift and its variance and concentration analysis",
+          "method": "Read relevant sections in arXiv primary PDF, checked derivation and estimator constraints",
+          "title": "Dynamic Trace Estimation",
+          "trigger": "Direct motivator for paired Hutchinson/Rademacher trace differences"
+        },
+        {
+          "assessment": "DISTINCT_SCOPE; potential bibliographic overlap acknowledged",
+          "evidence": "Its multi-probe exchangeability formulation does not directly state the deterministic signed-map n=3/n=4 frontier.",
+          "identifier_or_url": "arXiv:2301.07825",
+          "material_read": "ArXiv abstract and sections describing XTrace leave-one-out and exchangeable estimator design",
+          "method": "Inspected relevant estimator description; did not rely on an uninspected full document to assert universal absence",
+          "title": "XTrace: Making the Most of Every Sample in Stochastic Trace Estimation",
+          "trigger": "Possible stronger variance/coupling result from trace-estimator symmetrization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Fixed signed coordinate maps preserve each Rademacher marginal and evaluation count, so whether they realize the minimum variance among all admissible joint probe laws is a motivated question for paired trace differences. The exact first obstruction at dimension four and a 3/2 variance loss even for arbitrarily well-conditioned positive-definite pairs are mathematically informative boundary facts. It does not claim feasible optimal coupling discovery in matrix-free algorithms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Real symmetric matrices and one paired Rademacher sample; no claim for Gaussian probes or multi-sample algorithms.",
+    "The strict ratio is for one exhibited SPD pair; no universal worst-case performance ratio."
+  ]
+}
