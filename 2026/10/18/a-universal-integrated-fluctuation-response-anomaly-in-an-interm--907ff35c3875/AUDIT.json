@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The stationary past stochastic integral exists in L2 by exponential decay of the Feynman–Kac semigroup; stationarity gives exact partial variances q1=D/k and q0=D/k+D/s. Conditional propagators obey a 2x2 linear system with eigenvalues -lambda_±, 0<lambda_-<lambda_+. The cancellation -(q1,q0)A/D=(0,1) proves -C'/D=phi_off, while R=(phi_on+phi_off)/2. Their difference solves a scalar stable second-order ODE with exact positive two-exponential solution, whose integral is 1/(2s), whose initial slope is k/2, and whose derivative has exactly one zero. The accompanying checker passed exact symbolic generators and 16 Taylor orders, 168 65-digit exponentiation comparisons, 14 sum-rule checks, 42 maximum checks and a rational instance. The proof, not numerical sampling, establishes universality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Di Terlizzi et al. use a telegraph-variable moving trap center with constant harmonic stiffness.",
+        "Frydel 2026 generalizes the stiffness dwell law in an age-structured steady-state formalism, by accessible abstract/outline only.",
+        "General fluctuation-response formulae are acknowledged as possible alternative derivation routes."
+      ],
+      "reasoning": "The moving-center model is not the switching-to-zero-stiffness process. A broad steady-state distribution or entropy theorem does not directly imply a specific response-vs-correlation sign, integrated sum rule or lag maximum. The uninspected 2026 primary manuscript remains a residual risk, not marked fully cleared.",
+      "searches": [
+        "On off harmonic Brownian stationary two-time response minus normalized covariance derivative positive maximum at logarithmic time",
+        "arxiv:2403.10442",
+        "arxiv:2607.05173",
+        "\"randomly switching harmonic\" \"response function\" \"autocorrelation\""
+      ]
+    },
+    "checked_sources": [
+      "Santra–Das–Nath, Brownian motion under intermittent harmonic potentials, arXiv:2104.00609, accessible primary full text and relevant sections inspected.",
+      "Alston–Cocconi–Bertrand, Non-equilibrium thermodynamics of diffusion in fluctuating potentials, arXiv:2202.02630, accessible primary full text and fully intermittent Section 3 inspected.",
+      "Frydel, Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap, arXiv:2407.12213, accessible primary full text and relevant sections inspected.",
+      "Di Terlizzi–Baiesi–Ritort, Variance sum rule: proofs and solvable models, arXiv:2403.10442, complete HTML including Section 4 switching-trap example inspected; stiffness does not switch."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stationary second conditional moments from general generator balance are used as inputs, not claimed new.",
+        "Existing mean-square/entropy results alone do not supply the off-conditioned identity -C'(t)/D=phi_0(t).",
+        "The new equality G(t)=k(e^(-lambda_-t)-e^(-lambda_+t))/(2 Omega) leads to a strict sign, universal integral 1/(2s), and unique maximizing time."
+      ],
+      "reasoning": "The source equations enable standard Feynman–Kac derivation, but the complete conditional-response cancellation and its integral diagnostic are new deductions not stated or immediately equivalent to any compared published claim. This supports best-knowledge originality with a genuine general-theory implicit-coverage caveat.",
+      "searches": [
+        "arxiv:2104.00609",
+        "arxiv:2202.02630",
+        "arxiv:2407.12213",
+        "arxiv:2403.10442",
+        "intermittently switched on off harmonic Brownian trap exact fluctuation dissipation response autocorrelation gap positive hyperbolic sine optimal lag"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact gap is equivalently one-half the difference between off-conditioned and on-conditioned trap propagators.",
+        "Santra et al. Sec. 3 treats time-dependent one-time variance, not stationary two-time covariance.",
+        "Alston et al. Sec. 3 treats entropy production, not impulse susceptibility."
+      ],
+      "reasoning": "Compared the observable under equivalence, not only keywords: a time-dependent variance from a fixed initial time is not the steady two-time covariance C(t)=E[X_tX_0], and entropy production alone is not the impulse response. Neither supplies G(t), its area or its peak as a statement.",
+      "searches": [
+        "intermittently switched on off harmonic Brownian trap exact fluctuation dissipation response autocorrelation gap positive hyperbolic sine optimal lag",
+        "Poisson harmonic trap on off 2-state Brownian autocorrelation response FDT exact gap optimal lag",
+        "arxiv:2104.00609",
+        "arxiv:2202.02630"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed mathematical findings concern autocorrelation sampling near saddle nodes and physical-time correlations in a quadratic-reset hybrid oscillator, neither the Brownian on/off trap.",
+        "Nearby mathematical results on two-state harmonic gas extremes and planar complementary-stiffness stationary cumulants address different observables and do not imply the force-response sum rule."
+      ],
+      "reasoning": "The returned records and accessible prior claim texts were compared by objects, observables and implications, not by title alone. No exact tabulated gap or strictly broader theorem for this model was identified; incomplete indexing cannot certify global uniqueness.",
+      "searches": [
+        "Poisson harmonic trap on off 2-state Brownian autocorrelation response FDT exact gap optimal lag",
+        "exact response-correlation fluctuation dissipation deficit intermittently switched zero and positive harmonic stiffness Brownian potential telegraph on/off stationary autocorrelation",
+        "arxiv:2104.00609",
+        "arxiv:2407.12213"
+      ]
+    },
+    "rationale": "The same on/off model and its stationary one-time properties occur in Santra et al. (2021), Alston et al. (2022) and Frydel (2024). Their inspected primary results do not state the stationary two-time impulse FDT gap or its strictly positive sign, area equal to half the mean residence time, reconstruction identities or unique maximum. The 2024 variance-sum-rule switching-trap example switches the center, not stiffness. Actual semantically targeted mathematical-record and literature searches did not identify an equivalent stronger statement. General response machinery could yield the result by a dedicated specialization; independent priority is not certified.",
+    "residual_risks": [
+      "Generic fluctuation–dissipation or response identities may contain an alternative route yielding the same formula, even without its particular physical notation.",
+      "Full 2026 semi-Markovian paper arXiv:2607.05173 was not accessible for detailed inspection; stationary focus in abstract does not rule out hidden two-time material.",
+      "Negative searches and literature sampling cannot demonstrate worldwide priority; independent expert review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the same physical SDE, but inspected results are one-time variance, stationary density and first-passage quantities, not the two-time force-response discrepancy or its integrated clock.",
+        "evidence": [
+          "arXiv:2104.00609, model Eq. (2); sections 3–6; first public 2021-04-01."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.00609",
+        "material_read": "Accessible full-text model, time-dependent variance, stationary distribution, first-passage sections, conclusion and references, with targeted searches across the entire manuscript.",
+        "method": "Read available full-text content and its section structure; compared time-dependent one-time variance to stationary two-time covariance, and searched for response, autocorrelation and fluctuation-dissipation.",
+        "title": "Brownian motion under intermittent harmonic potentials",
+        "trigger": "Exactly the Poisson on/off harmonic Brownian model and original stationary law."
+      },
+      {
+        "assessment": "Proves a stationary entropy production law k/2 (paper notation stiffness), not the time-dependent response-correlation gap, sign, area or peak. Entropy production does not imply the claimed exact two-time function by statement alone.",
+        "evidence": [
+          "arXiv:2202.02630, Section 3, Eqs. (24)–(28)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.02630",
+        "material_read": "Accessible full-text derivation and fully intermittent trap Section 3, stated findings from Sections 2–7 and conclusion, with targeted searches across the entire manuscript.",
+        "method": "Read and compared full theoretical claims and formulas for entropy production and stationary partial densities; searched for impulse response and autocorrelation.",
+        "title": "Non-equilibrium thermodynamics of diffusion in fluctuating potentials",
+        "trigger": "Same on/off stiffness, with a potentially stronger thermodynamic result."
+      },
+      {
+        "assessment": "Supplies the stationary moment structure and potential Gaussian-mixture representation, not the explicit stationary two-time impulse response comparison, integrated anomaly or maximizing lag.",
+        "evidence": [
+          "arXiv:2407.12213, Sections II–VII."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.12213",
+        "material_read": "Accessible full-text model, moment equations, stationary Gaussian-mixture construction, temporal discussion and conclusion, with targeted searches including appendices and references.",
+        "method": "Inspected model Eq. (2), stationary-moment Eq. (7), Gaussian mixture equations, temporal discussion and physics conclusions; compared claimed functions and quantifiers.",
+        "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+        "trigger": "Same on/off trap with exact stationary moment recurrences and Gaussian-mixture representation."
+      },
+      {
+        "assessment": "Does not state or directly cover zero-versus-positive stiffness switching; broader nonequilibrium response identities might be specialized, an acknowledged implicit-coverage risk.",
+        "evidence": [
+          "arXiv:2403.10442, stochastic switching-trap model and Sections on variance sum rule."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.10442",
+        "material_read": "Accessible complete HTML main text, especially stochastic switching-trap definitions and nonequilibrium variance/correlation identities.",
+        "method": "Checked the precise Langevin equations for its trap switching: a telegraph-displaced center at fixed stiffness, and compared its general variance sum rules with the present stiffness-switching impulse calculation.",
+        "title": "Variance sum rule: proofs and solvable models",
+        "trigger": "General correlation-based thermodynamic identities and superficially matching switching-trap example."
+      },
+      {
+        "assessment": "The accessible material presents stationary distribution, moments, power and energy, without decisive two-time comparison; full-text implicit coverage remains unresolved as a named residual risk.",
+        "evidence": [
+          "arXiv:2607.05173, abstract and article section outline."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.05173",
+        "material_read": "Abstract, official journal outline, bibliographic references; full text not obtained in this round.",
+        "method": "Inspected available public abstract and outline and attempted open full arXiv PDF/HTML.",
+        "title": "Semi-Markovian switching in a fluctuating harmonic trap: An age-structured formulation",
+        "trigger": "Later broad generalization to arbitrary switching dwell times, same stiffness-switching family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "907ff35c-3875-4f3c-86bd-313b15819f9f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Switched optical traps and noninstantaneous resetting motivate distinguishing thermal equilibrium response from stationary correlations. A universal strictly positive violation for each lag and an integrated anomaly exactly equal to half the mean switch-residence time provide nontrivial dynamical observables that previous stationary moment and entropy rates do not determine. The initial slope determines on-state stiffness and the unique peak determines the strongest lag-scale signal; the pair gives natural calibrated kinetic parameter reconstruction without access to full stationary density.",
+    "status": "PASS"
+  }
+}
