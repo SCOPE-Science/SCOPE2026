@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:09:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Immutable Git RESULT.md at 40d46a820f74fdf355c691812bdc426ec204bde7",
+        "Papadatos arXiv:1809.09443 original discrete Cauchy family, characteristic function, Fisher information and parity estimator Section 3",
+        "Independent symbolic checker CAUCHY_MOD3_VARIANCE_AND_FISHER_LIMIT_SYMBOLIC_OK"
+      ],
+      "rationale": "The parameter is the positive real lambda in Papadatos’s integer-supported Cauchy–Cacoullos family, with characteristic function phi_lambda(t)=cosh(lambda(t-pi))/cosh(pi*lambda) on [0,2pi]. At t=2pi/3, triple-angle identity gives beta_3=phi_lambda(2pi/3)=1/(4c^2-3), c=cosh(pi*lambda/3). Because cos(2pi X/3)=1 for 3|X and -1/2 otherwise, beta-hat_3=(3 q-hat-1)/2, where q-hat is the sample fraction divisible by three. The inverse lambda-hat=(3/pi)acosh(0.5*sqrt(3+1/beta-hat_3)) is well-defined eventually a.s. for lambda>0, and arbitrary extension outside the empirical domain cannot alter the asymptotics. The SLLN, ordinary iid CLT and nonzero inverse derivative yield V_3=(9/(32pi^2))(4c^2-3)^2(4c^2-1)/c^2. Comparing Papadatos’s parity variance V_2=cosh^2(pi lambda)/pi^2, exact simplification gives V_3/V_2=9(4c^2-1)/(32c^4), strictly decreasing for c>1 with supremum 27/32. The small-lambda Fisher information limit is 4pi^2/3, giving limiting relative efficiency 8/9 rather than parity 3/4. Independently recomputed all derivative, variance, ratio and Fisher endpoint identities by symbolic algebra, not just finite samples.",
+      "residual_risks": [
+        "The estimator assumes lambda>0 and an arbitrary finite-sample fallback when empirical beta is outside (0,1); it is an asymptotic efficiency statement.",
+        "Uniform comparison is only with the paper’s closed-form parity estimator, not MLE, joint-frequency estimators or every empirical-characteristic-function method."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Papadatos supplies a full characteristic function and notes the search for more efficient closed-form estimators; the desired method remains uncomputed.",
+          "Koutrouvelis’s continuous-location-scale characteristic-function method is in a different family, does not give the integer divisibility statistic."
+        ],
+        "reasoning": "A general estimating-equation theorem establishes asymptotic normality when specialized but does not itself provide the exact modulo-three variance domination or optimality relative to the published parity method.",
+        "searches": [
+          "discrete Cauchy Cacoullos modulo three estimator asymptotic variance parity estimator empirical characteristic function",
+          "Cauchy discrete empirical characteristic function efficient closed form modulo 3 Koutrouvelis 1982",
+          "DOI:10.1093/biomet/69.1.205"
+        ]
+      },
+      "checked_sources": [
+        "Papadatos arXiv:1809.09443",
+        "Papadatos journal DOI:10.1007/s42519-022-00268-6",
+        "Koutrouvelis 1982 DOI:10.1093/biomet/69.1.205 (methodological context; complete text not inspected)",
+        "Published mathematical-record semantic search discrete Cauchy Cacoullos modulo three estimator asymptotic variance parity estimator empirical characteristic function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Papadatos explicitly says that more efficient closed-form estimators based on characteristic functions would be useful and are outside the paper.",
+          "Papadatos provides the transform at all frequencies, hence the proposed estimator is an analytical consequence of known input; the 27/32 strict global ratio is an extra calculation."
+        ],
+        "reasoning": "A general characteristic function makes modulo-three moment construction possible, but it does not state the sample transform, closed inverse, sharp variance improvement and efficiency limit. Conversely, a continuous Cauchy estimator does not imply the discrete modular identity.",
+        "searches": [
+          "arXiv:1809.09443 Section 3 and Fisher information",
+          "DOI:10.1007/s42519-022-00268-6",
+          "DOI:10.1093/biomet/69.1.205"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The natural alternatives use E[cos(2pi X/3)], the binomial statistic 1_{X mod3=0}, or the probability P(X divisible by 3).",
+          "Papadatos’s example instead uses E[(-1)^X]=phi(pi) and parity counts."
+        ],
+        "reasoning": "Under the two-valued transform they are the same proposed estimator; inspected closest source only develops the modulo-two case, not the modulo-three law or comparison.",
+        "searches": [
+          "discrete Cauchy Cacoullos modulo three estimator asymptotic variance parity estimator empirical characteristic function",
+          "\"Cauchy Cacoullos\" \"2pi/3\" modulus 3 moment estimator",
+          "arXiv:1809.09443"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary paper gives beta(pi)=1/cosh(pi lambda) and parity variance; no modulo-three estimator table appears."
+        ],
+        "reasoning": "This is a continuous-parameter asymptotic-variance theorem, so finite-data tables or a statistics package cannot subsume it unless an exact uniform formula was previously given.",
+        "searches": [
+          "arXiv:1809.09443 Section 3 estimator formulas",
+          "\"Cauchy-Cacoullos\" \"3\" \"estimator\"",
+          "CRAN CCd 1.1"
+        ]
+      },
+      "rationale": "Papadatos’s original 2018 preprint and 2022 journal paper contain the discrete Cauchy family’s exact characteristic function, efficient likelihood framework, and closed-form parity estimator at t=pi. In its final estimator discussion, the source explicitly identifies improved closed-form characteristic-function procedures as desirable and beyond its scope. Its text does not contain the frequency 2pi/3 modulo-three count, the c^2 variance simplification, or the sharp all-lambda 27/32 comparison. The classical Koutrouvelis empirical-characteristic-function estimator concerns the continuous Cauchy case and provides a method, not this discrete congruence-statistic identity. Targeted record and source searches found no exact same-data, same-family estimator. The claimed gain is deliberately relative to parity, not a universal efficiency optimum.",
+      "residual_risks": [
+        "An unindexed short note may have derived the same 2pi/3 discrete-frequency estimator.",
+        "Broader empirical-transform methodology is prior art; no claim of being the first use of characteristic functions in scale estimation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARITY_PRIOR_MOD3_IMPROVEMENT_UNSTATED",
+          "evidence": [
+            "Page 7: parity estimator CLT variance cosh^2(pi lambda)/pi^2; explicitly seeks better closed-form estimators."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1809.09443",
+          "material_read": "Full 13-page original arXiv manuscript, distribution, characteristic function, Fisher-information identity and Section 3 parity closed-form estimator; rendered p. 7",
+          "method": "Read original full PDF and inspect page explicitly discussing future characteristic-function estimators",
+          "title": "The Cauchy–Cacoullos distribution: estimates and characteristic function",
+          "trigger": "Same family and strongest direct statistics precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Papadatos primary source parity discussion",
+        "Independent uniform symbolic variance ratio and Fisher limit",
+        "Natural empirical 3-residue sufficient data for one characteristic frequency"
+      ],
+      "rationale": "The motivating paper identifies an inefficient but simple parity-based estimator and seeks improved closed-form procedures. The modulo-three residue count preserves that simplicity, and its exact asymptotic variance is uniformly <27/32 of the published estimator’s, with markedly improved small-scale Fisher efficiency. This is an interpretable and precise statistical estimation improvement, not just a renamed method or isolated simulation.",
+      "residual_risks": [
+        "The result does not prove optimality over all single-frequency or multidimensional procedures; no universal practical best-estimator claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Positive scale lambda>0 only, eventually-defined inverse transform; any finite-sample exception rule must be declared.",
+    "Asymptotic variance comparison only against the source parity estimator; not a finite-sample risk dominance.",
+    "No ready publication plan due to unsanitized potentially public metadata."
+  ],
+  "schema_version": 1
+}
