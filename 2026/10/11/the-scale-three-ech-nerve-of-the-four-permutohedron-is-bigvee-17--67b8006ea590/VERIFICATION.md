@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py certificate.json`. The Python 3 standard-library checker reconstructs the Cayley graph of adjacent-position swaps in \(S_4\), the thirty-six generating edge-neighborhood unions, every simplex, the complete acyclic matching, the free-collapse prefix, and both mod-two homology calculations. The certificate is an explicit list of all \(606\) matched codimension-one incidences and the \(18\) critical face masks; it is not a trace from an inaccessible computation.
+## correctness
 
-Expected checks are \(24\) graph vertices, \(36\) edges and Čech facets, \(1230\) Čech simplices, \(4344\) directed Hasse incidences, \(502\) elementary collapses, \(104\) further matches, one critical vertex and seventeen critical two-simplices. The independently reconstructed reduced integral homotopy type follows from the acyclic discrete-Morse matching; the secondary mod-two ranks check both Čech and Rips face enumerations but are not substituted for an integral homotopy proof.
+PASS
 
-Limitations: finite order-four permutohedron only; radius \(3/2\) in the geometric graph for Čech and threshold \(3\) in the graph vertex metric for Rips. No other scales, other graph families, or complete Rips integral homotopy types are claimed.
+From the adjacent-swap Cayley graph on 24 permutations I regenerated 36 edges and all 36 six-vertex odd-scale N[u]∪N[v] facets using the primary Lemma 2.2. Independent bitmask enumeration gives 1230 nonempty faces, f=(24,168,408,402,192,36); fetched certificate supplies 606 disjoint covers with critical cells (1 vertex,17 triangles). Independently checked first 502 pairs are free-face collapses, and topologically sorted all 4344 reversed/unreversed Hasse covers: no cycle. An acyclic Morse CW model has no 1-cells and 17 2-cells, so wedge^17 S2, including integral homotopy. Independent mod-2 boundary ranks (23,145,246,156,36). The pure 5-complex is non-shellable because H2 is nonzero.
+
+## originality
+
+PASS
+
+No inspected prior work establishes the finite-vertex intrinsic Čech scale-three homotopy of the 24-vertex permutohedral Cayley graph. The truncated-octahedral Rips calculation is a different flag complex; the source comparison gives mod-2 β2=1 rather than 17. Hypercube Čech classification does not imply a value on this non-hypercube graph. Best-of-knowledge only.
+
+## value
+
+PASS
+
+A natural small permutohedral Cayley graph has exact integral homotopy at the first nontrivial odd Čech scale and exhibits striking divergence from its graph-metric Rips complex; this is a meaningful finite benchmark and a non-shellability witness, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

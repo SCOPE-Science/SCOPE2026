@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The domain is the connected 24-vertex Cayley graph of adjacent swaps in \(S_4\), with unit-edge intrinsic metric; the scale is normalized as radius \(3/2\). The odd-scale neighborhood-union lemma is stated in the cited primary source, and the stand-alone verifier reconstructs all 36 six-point facets. The 1,230-face complex has a recorded matching of 606 nonoverlapping codimension-one pairs; the first 502 are certified elementary collapses, and the entire reversed-incidence Hasse digraph of 4,344 arrows is acyclic. Exactly one critical zero-cell and seventeen critical two-cells give the integral wedge. Independent mod-two boundary reductions reproduce the Čech and Rips ranks. No infinite-family conclusion is drawn.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** Adams–Shukla–Singh establish the Čech model and hypercube results but do not treat this permutohedral Cayley graph. Gasparovic et al. concern an all-points intrinsic Čech filtration and degree-one persistence. Choudhary–Kerber–Raghvendra concern Euclidean permutahedral-lattice approximation complexes, not the intrinsic Čech nerve on vertices of the one-skeleton. The graph-metric Rips computation is a distinct construction and does not imply the Čech homotopy type. Focused published-finding, alias, and primary-source searches did not locate the exact claim. This is qualified evidence, not a proof that no unindexed equivalent exists.
+PASS
 
-**Value — PASS.** The graph is the three-dimensional permutohedron and the smallest nontrivial type-\(A\) permutohedral Cayley example beyond the hexagonal case. At a scale outside the short-cycle recovery guarantee, its five-dimensional Čech complex collapses homotopically to seventeen two-spheres; this is a complete integral classification of a natural invariant, not a random induced subcomplex. The corresponding Rips complex of the same graph has mod-two second Betti number one, giving a concrete quantitative Čech–Rips separation, and the result obstructs pure shellability. It motivates studying how thickened graph metrics diverge among Coxeter/Cayley families without claiming that a general theorem is already proved.
+From the adjacent-swap Cayley graph on 24 permutations I regenerated 36 edges and all 36 six-vertex odd-scale N[u]∪N[v] facets using the primary Lemma 2.2. Independent bitmask enumeration gives 1230 nonempty faces, f=(24,168,408,402,192,36); fetched certificate supplies 606 disjoint covers with critical cells (1 vertex,17 triangles). Independently checked first 502 pairs are free-face collapses, and topologically sorted all 4344 reversed/unreversed Hasse covers: no cycle. An acyclic Morse CW model has no 1-cells and 17 2-cells, so wedge^17 S2, including integral homotopy. Independent mod-2 boundary ranks (23,145,246,156,36). The pure 5-complex is non-shellable because H2 is nonzero.
 
-**Closest literature and limits.** The principal references are arXiv:2212.05871, arXiv:1702.07379, and DOI:10.1007/s00454-017-9951-2. The finding covers only the named graph and scale. Residual risk is an equivalent result outside the inspected/indexed literature, and independent validation has not been conducted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected prior work establishes the finite-vertex intrinsic Čech scale-three homotopy of the 24-vertex permutohedral Cayley graph. The truncated-octahedral Rips calculation is a different flag complex; the source comparison gives mod-2 β2=1 rather than 17. Hypercube Čech classification does not imply a value on this non-hypercube graph. Best-of-knowledge only.
+
+## value
+
+PASS
+
+A natural small permutohedral Cayley graph has exact integral homotopy at the first nontrivial odd Čech scale and exhibits striking divergence from its graph-metric Rips complex; this is a meaningful finite benchmark and a non-shellability witness, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
