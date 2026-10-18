@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "All quantified variables are explicit: n>=3 and integer 3<=k<=n, uniform permutations. Three mutually exclusive first-partner arrival cases have exact probabilities 1-1/n, (n-2)/[2n(2n-1)], and q_n=3/[2(2n-1)]. In the regenerative branch, removing the closed matching pair leaves a uniform smaller crown order and shifts all its colors by one, including when exactly one opposite-side vertex appeared first. This proves the tail recursion, closed product, factorial extremal count and expectation expansion by induction and tail bounds. The n=2 boundary is handled. Packaged Python verification directly enumerates n<=4 orders and exactly sums all (2n)! orders by memoized prefix-color states through n=7, matching rational predictions. Computations corroborate rather than replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ye et al. 2026: expectation at most 2.5+O(1/n), not an exact law or sharp mean; Theorem 4 concerns a distinct blown-up construction.",
+        "Bosek et al. 2024: random-order FirstFit bounds on forests, while crown graphs for n>=3 contain cycles.",
+        "Classical FirstFit/Grundy maximum-color theory bounds n via maximum degree, not the random-order measure of each event."
+      ],
+      "reasoning": "The main 2026 source applies to the same family but proves a logically weaker upper bound. Forest bounds and adversarial-worst-case analyses do not cover the exact law under uniform permutations. A general theorem explicitly giving the same law could dominate it, but none was identified.",
+      "searches": [
+        "\"FirstFit\" \"crown\" \"2 + 1/n\"",
+        "\"crown graph\" \"first-fit\" \"expectation\" \"2\" random arrival",
+        "doi:10.4230/LIPIcs.MFCS.2024.33",
+        "arxiv:2608.29603v1, Theorems 3 and 4"
+      ]
+    },
+    "checked_sources": [
+      "Ye et al., arXiv:2608.29603v1 (full arXiv HTML, Section 3.1 and surrounding text)",
+      "Bosek et al., DOI:10.4230/LIPIcs.MFCS.2024.33 (official publisher record and theorem scope)",
+      "Gyárfás and Lehel, On-Line and First Fit Colorings of Graphs (1988; historical adversarial background)",
+      "Published mathematical records found by exact and semantic searches: proper conflict-free color number on crowns; random greedy MIS on chain graphs; neither specifies the present stochastic coloring law"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior primary theorem is a one-sided bound E[C_n]<=2.5+O(1/n) and a worst-order example requiring n colors.",
+        "New theorem gives Pr[C_n>=k] for every integer 3<=k<=n, E[C_n]=2+1/n+3/(4n^2)+O(n^-3), and an exact factorial probability for C_n=n."
+      ],
+      "reasoning": "A one-sided mean upper bound cannot determine a probability law, a limit of 2, or the factorial probability. The adversarial example provides existence, not random order counts. The new first-partner regeneration with q_n is an additional structural argument not present in the earlier bounds.",
+      "searches": [
+        "arxiv:2608.29603v1 Theorem 3 proof and Section 3.1",
+        "doi:10.4230/LIPIcs.MFCS.2024.33 forest random-arrival coloring theorem",
+        "random-order FirstFit crown graph exact probability color count and expectation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2608.29603v1 concerns FirstFit on the same crown graph in uniform random vertex order, but its Theorem 3 states an expectation bound only.",
+        "The closest published exact crown-coloring record located was for proper conflict-free chromatic number, which does not encode the random-order FirstFit output probability."
+      ],
+      "reasoning": "A full random-order FirstFit probability-generating law would be equivalent to every reported tail and mean; no such statement was found in inspected high-priority primary text or targeted records. Conflict-free chromatic parameters describe feasibility, not algorithmic random-order probabilities.",
+      "searches": [
+        "\"crown graph\" \"FirstFit\" \"probability\" \"colors\" random order exact distribution",
+        "\"crown graph\" random greedy coloring \"distribution\" 2025 2026",
+        "\"crown graph\" online greedy coloring random permutation probability",
+        "crown graph K_n,n minus perfect matching random arrival first fit FirstFit full color count law",
+        "arxiv:2608.29603v1, Sections 1, 3.1, 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full arXiv primary text supplies an expectation bound but no exact distribution/count table.",
+        "Independent exact enumeration in the accompanying checker reproduces the formula for n=2,...,7; these computed values are new corroboration, not an external pre-existing source."
+      ],
+      "reasoning": "Exact tables, the formula q_n=3/[2(2n-1)], and the worst-color probability were searched as aliases. The absence of matching indexed tables does not certify priority. The primary source does not contain a hidden full distribution in the inspected article.",
+      "searches": [
+        "\"crown\" \"FirstFit\" \"tail\" \"3/(2\"",
+        "\"crown graphs\" \"probability distribution\" FirstFit",
+        "exact probability of attaining n Grundy colors under random order on crown graphs",
+        "\"crown graph\" \"3/(2(2n-1))\" FirstFit"
+      ]
+    },
+    "rationale": "The initiating work arXiv:2608.29603v1 (2026-08-30), Section 3.1, Theorem 3, establishes only an expectation upper bound 2.5+O(1/n) on the identical random-order crown graph. Its complete accessible HTML including the theorem and proof was inspected. It neither states an exact color-count distribution nor determines a limit of 2, a full tail, or the factorial worst-case probability. Targeted searches for random-order FirstFit/Grundy equivalences, exact tables, and published mathematical-record comparisons returned no covering result. Prior work on forests, adversarial coloring, and random greedy independent sets does not imply this law; however unindexed earlier probabilistic Grundy literature is a residual risk.",
+    "residual_risks": [
+      "Equivalent exact laws could occur in older or unindexed work under random greedy coloring/Grundy/random sequential terminology.",
+      "The forest paper was not checked in full, though its forest-only domain does not imply a crown-graph exact law.",
+      "The 2026 primary is a preprint; later updates or future papers may add equivalent material.",
+      "No independent external scientific audit has taken place."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY_RELATED_NOT_COVERING: proves expectation <=2.5+O(1/n) on crowns, not the exact distribution, sharp mean expansion or factorial maximum-color event.",
+        "evidence": [
+          "Section 3.1 Theorem 3: expected colors at most 2.5+O(1/n).",
+          "Section 3.1 proof partitions initial runs and leaves exceptional cases with bounds; there is no complete exact distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.29603v1",
+        "material_read": "ArXiv complete-text HTML rendering: title, abstract, introduction, all of Section 3.1 (Theorem 3 and its complete proof), Section 3.2 theorem and construction overview, open-problem section and reference list.",
+        "method": "Read the publicly available primary arXiv HTML text at the exact source URL; checked the same graph/parameters, complete theorem statement and proof, nearby proposed extensions, and cited literature.",
+        "title": "FirstFit online coloring in the random order model",
+        "trigger": "Same random-order algorithm and same crown graph, therefore maximally plausible coverage."
+      },
+      {
+        "assessment": "NOT_DIRECT_COVERAGE: establishes random-arrival bounds for forests; all crowns with n>=3 are cyclic.",
+        "evidence": [
+          "The published scope is FirstFit coloring of forests in random arrival, not exact probability laws for crowns."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2024.33",
+        "material_read": "Official conference record, abstract, main result and stated class (forests); not a complete full-text inspection.",
+        "method": "Compared official publisher record and main quantitative claim with the crown graph object.",
+        "title": "First-Fit Coloring of Forests in Random Arrival Model",
+        "trigger": "Earlier central random-order FirstFit work cited by the crown manuscript; possible dominating general framework."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1954e6b5-592b-447e-bc9a-939246e2cea6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Crown graphs exhibit an unbounded ratio of adversarial FirstFit colors n to chromatic number 2, motivating the recently studied random-order regime. The current literature gives an upper mean bound of 2.5+O(1/n). The full law exactly quantifies every tail, the rare worst-case coloring probability, and improves the asymptotic mean to 2+1/n+3/(4n^2)+O(n^-3). It supplies a regenerative mechanism and a natural quantitative benchmark for random-order online coloring, not a numerical recomputation or an arbitrarily chosen parameter slice. The all-n classification makes the result useful independent of broader conjectures.",
+    "status": "PASS"
+  }
+}
