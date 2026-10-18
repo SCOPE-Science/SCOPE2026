@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A dual repair check is exactly \((St,t)\); the commuting cube-flip operators give \(S^2=I\) at odd rank and \(S^2=0\) at even rank. Dot-product parity excludes two disjoint information-coordinate repairs in all ranks and any two repairs in the odd case. At even rank, two disjoint parity repairs are explicit. Equality of kernel and image, self-orthogonality, and distinct hypercube neighborhood columns yield the general packing bound without invoking any unverified asymptotic minimum-distance claim. The dimension-four exact packing is established by three explicit checked words and the sharp bound. An independent standard-library computation exhausts all 255 nonzero checks at rank four, verifies locality and the exact packing counts, and returns `VERIFY_OK`.
+PASS
 
-## Originality
+With d=r−1 cube bit-flip matrices T_i commuting and squaring to I over F2, B=sum T_i satisfies B²=dI and S=I+B satisfies S²=(r mod2)I. All dual checks are exactly (St,t). Odd r yields S²=I, so dual code is self-orthogonal; two target-containing checks disjoint off the target would have odd intersection, impossible. Even r yields S²=0; systematic symbols are similarly restricted by orthogonality of image vectors St; parity admits disjoint checks for t=e_v and t=Se_v. For even r>=4, rank(S)=N/2, ker S=im S self-orthogonal, and every nonzero image has weight>=4; among k disjoint parity checks at most one has zero image, giving 4(k−1)<=N. For r=4 the explicit hex t=c3,11,09 give three mutually disjoint helper supports, sharp at k=3. Independent exact dual-check enumeration at r=2,3,4 confirmed systematic/parity availability (1,2),(1,1),(1,3) and localities (2,1),(3,3),(4,3). This finite enumeration does not claim exact availability for even r>=6, appropriately left bounded.
 
-PASS, with residual risk. The 2026 source arXiv:2610.03746 was examined in full, including construction and its main coding-theory section, and does not give disjoint repair availability. The much older paper by Fish–Key–Mwambene (2011) studies the same reflexive-cube matrix and self-dual graph-code phenomena; these ingredients are credited, not presented as new. Its full text remained inaccessible, so a previously published equivalent repair formulation cannot be completely excluded. Searches for parity-helper availability and closed-neighborhood code repair, together with published mathematical-record comparisons, returned no covering claim. No uniqueness inference is made from an unsuccessful search.
+## originality
 
-## Value
+PASS
 
-PASS. The parity of the recursion rank creates a persistent difference between information-symbol and parity-symbol multiple-recovery tolerance in an infinite, explicitly encoded code family. This is a structural storage-reliability invariant not supplied by length, dimension, minimum distance, or self-duality alone. The rank-four case supplies a nontrivial sharp three-set boundary, not simply two visible rows of the parity-check matrix. No unproved exact availability is asserted for larger even ranks.
+Kenjale and Garge establish the Suslin–Rao systematic block construction and parameters; Fish–Key–Mwambene older reflexive cube papers study closed-cube code constructions, self-duality and related designs. The full 2026 source examined did not identify a theorem about unlimited-size pairwise disjoint recovery sets for the two fixed coordinate classes. The 2011 paper was only available by abstract; stronger prior repair/classification coverage remains material risk, but inaccessibility alone is not scientific failure. Searches of indexed results for these exact cube-code recovery facts found no covering theorem.
 
-## Limitations
+## value
 
-The statement is about linear single-symbol recovery using helper sets of unrestricted cardinality. At even rank at least six the stated upper bound is not claimed sharp. An inaccessible plausible 2011 primary article and the possibility of an equivalent older repair formulation remain originality risks. Finite verification is a stress test, not an infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A clean parity-dependent obstruction and construction for disjoint linear single-symbol repair in a natural structured code family is of genuine coding-theoretic interest; the r=4 sharp three-way recovery and general even-r upper bound are structural rather than tiny arbitrary brute-force invariants. Exact larger-even availability is honestly left open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
