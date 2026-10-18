@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:10:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=2..7 and list bounds L=1,2, exact optimal cardinalities are respectively [1,2,2,2,4,5] and [2,3,4,4,7,11]. A binary incidence matrix records whether received length-(n-2) word is a distinct ordered subsequence of each candidate codeword. Explicit valid primal codebooks reach every claimed optimum. For every candidate column, nonnegative integral dual weights and slacks satisfy incidence weight plus slack >=d, yielding |C|<=floor((L sum weights+sum slacks)/d). Independent checker reconstructs deletion shadows, checks all column inequalities and each listed codebook, including n7 dual d=59 and upper bound floor(666/59)=11. At n7, 11>2*5, while no smaller n has the strict inequality. This is exhaustive finite certification for n<=7, not an asymptotic extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Guruswami–Håstad construction controls redundancy in growing blocklength; Lin and Kiah–Wei–Zeng describe general bounds."
+        ],
+        "reasoning": "Their visible statements do not yield equality M2(7,2)=11; an unread more specific finite table in Kiah–Wei–Zeng remains possible.",
+        "searches": [
+          "Guruswami Håstad arXiv:2007.10592 Theorem 1.2",
+          "Lin arXiv:2609.26650",
+          "Kiah Wei Zeng arXiv:2609.21395"
+        ]
+      },
+      "checked_sources": [
+        "Explicit two-deletion codes with redundancy matching the existential bound — https://arxiv.org/abs/2007.10592",
+        "Exact length-six binary two-list two-deletion code size — https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+        "OEIS A057591 — https://oeis.org/A057591",
+        "Constant-List Insertion–Deletion Codes: New Bounds and an Improvement of Levenshtein’s Lower Bound — https://arxiv.org/abs/2609.21395"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A known unique-code size five and earlier list-two size seven do not upper- or lower-bound the n7 list-two maximum sharply; they only supply comparisons."
+        ],
+        "reasoning": "The exact 11-word bound requires new n7 primal witness plus integer packing dual; it is not a routine corollary of the known numbers.",
+        "searches": [
+          "Guruswami Håstad 2020 explicit two-deletion codes",
+          "Resultary exact length-six two-list deletion",
+          "OEIS A057591"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is exactly a finite hypergraph 2-packing where each received subsequence belongs to at most two codeword shadows."
+        ],
+        "reasoning": "Searching the hypergraph packing and list-decodability aliases found the n6 optimum and related deletion-radius problems, not an equivalent n7 optimum.",
+        "searches": [
+          "Resultary: binary two deletion list two code maximum size length seven eleven nondecomposable",
+          "packing hypergraph t-deletion list size 2 7 bits 11 words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary establishes M2(6,2)=7; OEIS lists M2(7,1)=5 as previously known."
+        ],
+        "reasoning": "Those known table cells leave the n7 list-two entry and strict earliest separation undetermined.",
+        "searches": [
+          "Resultary Exact length-six binary two-list two-deletion code size 7",
+          "OEIS A057591 binary 2 deletion optimal n7 5",
+          "n7 two deletion list-two 11 code table"
+        ]
+      },
+      "rationale": "The exact n6 list-two value 7 has been previously reported by published Resultary, and the unique n7 value5 is in OEIS A057591. These are properly credited and do not imply the first separation because the nontrivial new ingredient is n7 list-two optimum11. Lin, Guruswami–Håstad and Kiah–Wei–Zeng develop general bounds or asymptotic constructions rather than the 11-word exact optimum in the inspected accessible material. Full Kiah 2026 text was inaccessible and remains a genuine prior risk.",
+      "residual_risks": [
+        "Relevant Kiah–Wei–Zeng 2026 full text inaccessible following lawful public and authorized institutional attempts (VPN disconnected), so hidden n7 table or implication not excluded.",
+        "Other unindexed exact two-deletion list-two finite tables may duplicate the 11-word result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Large-blocklength and different coding objective; no displayed n7 list-two capacity",
+          "evidence": "Theorem 1.2 concerns asymptotic two-deletion code construction, not the n7 exact finite hypergraph packing.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.10592",
+          "material_read": "Full primary introduction and Theorems 1.1–1.2 with general construction context",
+          "method": "arXiv PDF text inspection",
+          "title": "Explicit two-deletion codes with redundancy matching the existential bound",
+          "trigger": "Same two-deletion correction/channel"
+        },
+        {
+          "assessment": "Prior exact n6 value 7 acknowledged; does not cover n7=11",
+          "evidence": "The title and summary explicitly assert length-six seven words with matching rational dual.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+          "material_read": "Published full Resultary record title and summary; repository result body not read in full",
+          "method": "Resultary semantic published-record search",
+          "title": "Exact length-six binary two-list two-deletion code size",
+          "trigger": "Closest previously published same-channel finite optimum"
+        },
+        {
+          "assessment": "Prior M2(7,1)=5, not M2(7,2)",
+          "evidence": "The unique list-one size five is explicitly credited.",
+          "identifier_or_url": "https://oeis.org/A057591",
+          "material_read": "Sequence values from source comparison; no claim that complete historical comments were inspected",
+          "method": "OEIS record comparison",
+          "title": "OEIS A057591",
+          "trigger": "Exact unique-deletion baseline at n7"
+        },
+        {
+          "assessment": "NOT FULLY ASSESSED; plausible source could cover exact finite case",
+          "evidence": "General bounds visible; full manuscript inaccessible, so it is not labeled noncovering.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.21395",
+          "material_read": "Public summary/abstract and bibliographic metadata only; complete primary PDF not obtained",
+          "method": "arXiv/public OA attempts then authorized institutional retrieval returned vpn_disconnected; no bypass",
+          "title": "Constant-List Insertion–Deletion Codes: New Bounds and an Improvement of Levenshtein’s Lower Bound",
+          "trigger": "Same deletion-code parameter family, potentially a dominating theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining the earliest length where a list-two two-deletion code cannot be represented as a union of two uniquely decodable codes is a sharp structural property of synchronization-channel coding. The exact length-seven optimum with a reproducible integer dual certificate is a motivated finite cutoff, not merely a random small code enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Binary alphabet; exactly two deleted symbols; list bound on distinct compatible codewords; lengths n=2..7 only.",
+    "No asymptotic optimality or statement about all larger n."
+  ],
+  "schema_version": 1
+}
