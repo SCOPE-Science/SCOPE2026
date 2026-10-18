@@ -1,15 +1,21 @@
-# Scientific review: exact projection-body volume and random-brightness law for axial cubic bodies
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an exact three-dimensional statement for \(|t|\le1/2\), with the normalized law restricted to \(t\ne0\). The support-function curvature radii are \(1-2tz^3\) and \(1+t(6z-8z^3)\). Their extremal polynomial values establish the full convexity interval and its necessity; no directional sampling is used for this implication. Great-circle restriction to the projection plane gives a translation mode plus a third harmonic with coefficient \(t\tau^3/4\), and Minkowski's area identity yields \(b_t(v)=\pi(1-t^2\tau^6/4)\). Uniform directions make \(e\cdot V\) uniform on \([-1,1]\), proving the exact distribution. The exact projection-body volume follows by applying the three-dimensional support-function volume identity to the explicit brightness, and its strict monotonicity follows from a factored derivative. Surface area and original-body volume follow from independent integrals of the curvature determinant. The embedded `verify.py` passed its symbolic checks; those computations corroborate algebra and do not replace the proof. No claim is made beyond the axial harmonic family.
+## correctness
 
-## Originality — PASS, with specific residual risk
-The full fourteen-page primary 2026 manuscript proves existence of nonspherical bodies with triangularly symmetric projections, using a different explicit cubic, but contains no exact axial brightness law or random projection-area distribution. The publicly available complete results titled *Classification of the threefold planar-projection exception in three dimensions* and *Sharp convexity threshold for the cubic constant-width support family* were compared by implication: the first classifies permissible harmonic degrees without brightness, and the second optimizes the distinct \(u_1u_2u_3\) harmonic rather than the axial zonal cubic. Searches for the projection-body formulation and for equivalent random-brightness density and precise parameters, the exact polynomial projection-body volume coefficients, and the sharp \(1475168/1616615\) ratio uncovered no matching result. Abas's 2026 random-brightness paper is relevant but its complete ninety-two-page text could not be inspected, so an unindexed example or dominating general identity remains a disclosed risk. Search absence alone is not treated as novelty proof.
+PASS
 
-## Value — PASS
-The new object is the canonical rotationally invariant one-dimensional subfamily of the threefold-projection exception, not an arbitrary Fourier slice. Brightness and its random-direction distribution are natural tomography invariants central to two 2026 research directions. The complete sharp convexity-to-brightness profile determines extremal viewing directions and the best possible axial-family ratio \(16/15\); the exact volume of its projection body gives an all-parameter geometric invariant with a sharp endpoint, not simply a reparameterization of the body's volume. The random law provides explicit endpoint behavior and determines the amplitude from projection-area observations. Thus an exact natural invariant is resolved at the boundary of convex admissibility, rather than a small numerical refinement or a general-theorem restatement.
+Independently differentiated the axial support function and recovered principal radii 1−2tz³ and 1+t(6z−8z³). Their global extrema bound convexity exactly by |t|≤1/2, including semidefinite endpoints. Great-circle restriction has first harmonic (translation) and third-harmonic coefficient t(1−(e·v)²)^(3/2)/4, yielding area through the planar support-function identity. For uniform V, e·V is uniform on [−1,1], giving Y=(1−Z²)^3 and the claimed CDF with t=0 correctly excluded. Independently integrated the 3D support curvature determinant for K and for brightness as support of ΠK, recovering both intrinsic-volume identities and the exact sextic projection-body volume. The derivative of its normalized sextic is strictly negative for 0<t≤1/2; the endpoint ratio follows by substitution. No finite direction sample is used as proof.
 
-## Sources and residual limitations
-Primary scientific evidence: arXiv:2609.27192v1, pp. 1–14; arXiv:2609.26202v1 abstract (complete text not inspected); full published statements and proofs of the two closest harmonic-geometry results. Standard support-function integral identities are used with explicit normalizations. The mathematical result does not extend to all threefold-projection bodies. Earlier unindexed equivalent calculations and any uninspected general theorem on smooth random brightness remain residual bibliographic possibilities.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+A published all-degree zonal constant-width theorem already implies THIS family’s support convexity threshold and ORIGINAL BODY volume after substituting P3=(5z³−3z)/2 and ε=2t/5. Those are explicitly prior coverage and confer no novelty credit. The surviving brightness profile, normalized random-area distribution, inverse amplitude identification and sharp projection-body volume are distinct natural invariants not covered by that theorem. The Myroshnychenko–Ryabogin–Saroglou primary paper discusses threefold-projection rigidity/existence, not these projection-body volume calculations in the materially read pages. Abas develops random brightness primarily for polytopes; complete 92-page text was not accessible. Best-of-knowledge originality passes only for the surviving invariants.
+
+## value
+
+PASS
+
+The unique axial degree-three harmonic is the canonical rotationally symmetric part of a current geometric tomography exception. The full exact random brightness distribution and the projection-body volume across the sharp admissible interval compute two independent, motivated, geometric invariants with nontrivial endpoint information and amplitude identifiability. Their utility and specificity survive removing the already published convexity threshold and body volume.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
