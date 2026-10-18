@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,53 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The primary theorem was checked from the full text together with the Douglas lemma it cites. The source defines the optimal lower bound by
-\[
-A=\sup\{\lambda>0:\lambda KK^*\le S_\Lambda\}.
-\]
-Therefore
-\[
-\inf\{\mu>0:KK^*\le\mu S_\Lambda\}=A^{-1},
-\]
-not \(A\).
+# Independent mathematical audit
 
-For every \(K\)-dual,
-\[
-K=T_\Lambda T_\Gamma^*,
-\]
-so
-\[
-KK^*
-=T_\Lambda T_\Gamma^*T_\Gamma T_\Lambda^*
-\le
-\|T_\Gamma\|^2S_\Lambda.
-\]
-This proves \(\|T_\Gamma\|^2\ge A^{-1}\). Douglas factorization supplies a reduced factor with squared norm exactly \(A^{-1}\).
+## correctness
 
-The scalar counterexample uses \(\Lambda_1=2I\). Its frame energy is \(4\|f\|^2\), hence \(A=4\), while duality forces \(\Gamma_1=I/2\) and gives \(\|T_\Gamma\|^2=1/4\).
+PASS
 
-For the nonuniqueness counterexample, direct multiplication gives
-\[
-S_F=\operatorname{diag}(2,4)
-\]
-and
-\[
-S_{G_t}=\operatorname{diag}\left(\frac12,\frac14+2t^2\right).
-\]
-The reconstruction identity
-\[
-\sum_{j=1}^3\langle x,g_j(t)\rangle f_j=x
-\]
-holds for every \(x\in\mathbb C^2\) and every real \(t\). Thus every \(G_t\) is a dual, and all \(|t|\le1/(2\sqrt2)\) satisfy
-\[
-\|T_{G_t}\|^2=\frac12=A^{-1}.
-\]
-The symbolic outer-product computation was replayed from the explicit vectors; no floating-point calculation is needed.
+PASS. The optimal K-g-frame lower bound is A=sup{lambda: lambda KK*<=S}, so the Douglas least domination factor is inf{mu:KK*<=mu S}=1/A. Any K-dual factorization K=T_Lambda*T_Gamma^* forces KK*<=||T_Gamma||^2 S; the reduced solution attains 1/A. In dimension one Lambda=2I,K=I gives A=4 and unique dual squared norm 1/4, refuting the printed inequality. A separate exact frame (e1,e1,2e2) has A=2 and dual family (e1/2+t e2,e1/2-t e2,e2/2); its synthesis frame operator is diag(1/2,1/4+2t^2), so all |t|<=1/(2sqrt2) attain norm^2=1/2. Direct symbolic multiplication independently verified both identities. The unique reduced solution has an additional range normalization and is not the unique norm minimizer.
 
-For \(t=0\), the dual analysis range is contained in
-\[
-R(T_F^*)=\{(a,a,b):a,b\in\mathbb C\},
-\]
-while for \(t\ne0\), \(T_{G_t}^*e_2\) has first two coordinates \(t\) and \(-t\). This verifies that the reduced-range condition singles out the Douglas solution although the minimum operator norm does not.
+## originality
+
+PASS
+
+PASS, best-of-knowledge for exact source-specific correction. The 2018 Li–Leng–Huang full institutional primary pages 4–7 explicitly equate the maximal lower bound A to the minimum Douglas domination coefficient, and assert uniqueness among all duals attaining squared norm A; both assertions are false as exact operators. Labrigui–Touri–Kabbaj arXiv:1901.03703v1 Theorem 3.2 repeats the same incorrect equation, not its correction. Douglas unique reduced factor and general nonuniqueness of other frame-dual objectives are established antecedents; the contribution is pinpointing this cited theorem and proving both counterexamples and the precise correct claim. Unindexed errata remain risk.
+
+## value
+
+PASS
+
+PASS. The published theorem uses the sharp dual synthesis norm to define its canonical dual. Its incorrect bound differs by an arbitrarily large factor under frame rescaling, and a whole interval of exact nonunique minimizers invalidates the claimed characterization. Distinguishing reduced-factor uniqueness from mere operator-norm minimization changes a foundational canonical construction, not merely a harmless notational typo.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

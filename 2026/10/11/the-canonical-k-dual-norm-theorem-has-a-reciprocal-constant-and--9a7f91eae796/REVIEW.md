@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The optimal lower \(K\)-\(g\)-frame bound is the supremum of \(\lambda\) for which \(\lambda KK^*\le S_\Lambda\), whereas the Douglas domination coefficient is the infimum of \(\mu\) for which \(KK^*\le\mu S_\Lambda\). These quantities are reciprocal. Every dual factorization gives the corrected lower bound \(\|T_\Gamma\|^2\ge A^{-1}\), and the Douglas reduced solution attains equality. A one-dimensional frame disproves the printed normalization directly. A separate exact three-vector frame has an interval of distinct duals attaining \(A^{-1}\), disproving norm-only uniqueness.
+## correctness
 
-## Originality
-PASS for the source-specific correction. Searches covered the exact DOI and theorem, reciprocal formulations, Douglas reduced solutions, canonical \(K\)-duals, and nonunique minimum-norm duals. The previously checked research records contains no overlap. The target full text and two later generalizations were materially inspected; the later papers repeat rather than correct the normalization. Closest indexed results address other dual-frame optimization, weaving, range-compression, or perturbation statements.
+PASS
 
-Standard Douglas factorization is treated as prior theory. Likewise, no broad novelty is claimed for the possibility of nonunique optimal duals under other objectives. The surviving contribution is the exact correction of the cited canonical \(K\)-dual theorem, the sharp reciprocal constant, and the explicit separation between reduced-solution uniqueness and norm-minimizer uniqueness.
+PASS. The optimal K-g-frame lower bound is A=sup{lambda: lambda KK*<=S}, so the Douglas least domination factor is inf{mu:KK*<=mu S}=1/A. Any K-dual factorization K=T_Lambda*T_Gamma^* forces KK*<=||T_Gamma||^2 S; the reduced solution attains 1/A. In dimension one Lambda=2I,K=I gives A=4 and unique dual squared norm 1/4, refuting the printed inequality. A separate exact frame (e1,e1,2e2) has A=2 and dual family (e1/2+t e2,e1/2-t e2,e2/2); its synthesis frame operator is diag(1/2,1/4+2t^2), so all |t|<=1/(2sqrt2) attain norm^2=1/2. Direct symbolic multiplication independently verified both identities. The unique reduced solution has an additional range normalization and is not the unique norm minimizer.
 
-## Value
-PASS. The statement defines the canonical \(K\)-dual through a purported sharp norm property, so both errors affect the core interpretation rather than a peripheral estimate. The reciprocal discrepancy is arbitrarily large under rescaling, and the uniqueness failure occurs already for a three-vector frame in \(\mathbb C^2\). The corrected statement gives the exact quantitative bound and the right structural condition for uniqueness.
+## originality
 
-## Limitations
-The result does not classify all \(K\)-\(g\)-frames with a unique minimum-norm dual. It does not challenge uniqueness of the Douglas reduced factor under its standard normalization. An unindexed correction remains a residual literature risk.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS, best-of-knowledge for exact source-specific correction. The 2018 Li–Leng–Huang full institutional primary pages 4–7 explicitly equate the maximal lower bound A to the minimum Douglas domination coefficient, and assert uniqueness among all duals attaining squared norm A; both assertions are false as exact operators. Labrigui–Touri–Kabbaj arXiv:1901.03703v1 Theorem 3.2 repeats the same incorrect equation, not its correction. Douglas unique reduced factor and general nonuniqueness of other frame-dual objectives are established antecedents; the contribution is pinpointing this cited theorem and proving both counterexamples and the precise correct claim. Unindexed errata remain risk.
+
+## value
+
+PASS
+
+PASS. The published theorem uses the sharp dual synthesis norm to define its canonical dual. Its incorrect bound differs by an arbitrarily large factor under frame rescaling, and a whole interval of exact nonunique minimizers invalidates the claimed characterization. Distinguishing reduced-factor uniqueness from mere operator-norm minimization changes a foundational canonical construction, not merely a harmless notational typo.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
