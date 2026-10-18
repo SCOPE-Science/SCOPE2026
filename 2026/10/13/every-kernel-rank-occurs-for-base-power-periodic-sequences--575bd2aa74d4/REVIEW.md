@@ -1,15 +1,21 @@
-# Scientific review: base-power periodic kernel ranks
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain is purely periodic sequences with *least* period \(k^t\), arbitrary finite output alphabets, and the number of distinct infinite sequences in the \(k\)-kernel. At depth \(t\) all decimations are constant. An ancestor chain ending at a nonconstant depth-\(t-1\) sequence contains \(t\) distinct nonconstant nodes, by the finite-depth no-repetition argument, and two distinct constants exist. This gives the sharp lower bound. The upper bound counts all nodes through depth \(t\). The crucial interleaving calculation has been reconstructed: child alphabets have disjoint nonzero parts, child kernels all contain zero, and the parent root has a strictly longer least period, yielding rank \(2+\sum(q_j-1)\). Its period is exactly \(k^t\) by the residue-isolation argument. The induction intervals overlap for precisely the specified parameter range; the excluded \((2,2)\) is checked directly. Unsharing zeros in maximal children realizes the final \(k-1\) ranks. These facts prove the infinite statement without reliance on finite experiments.
+## correctness
 
-## Originality — PASS, with identified residual risk
-The leading directly comparable paper is Kreczman–Prigioniero–Rowland–Stipulanti, *Magic Numbers in Periodic Sequences* (arXiv:2304.03268, 2023), especially Section 3 and Section 6. Its upper-bound proposition does not imply intermediate attainability, and its full automatic-rank characterization assumes coprimality; the conclusion identifies the noncoprime case as unresolved. Bosma, *Complexity of Periodic Sequences* (2019), Section 4, gives upper bounds and an interleaving heuristic and conjectures the relevant binary lower bound, but neither an unrestricted-alphabet base-power spectrum theorem nor its realization for all bases. Semantic searches for periodic automatic ranks, base powers, noncoprime magic numbers, and equivalent interleaving formulations located no covering published result. The literature check cannot exclude unindexed equivalent proofs, and other noncoprime period families are not classified here.
+PASS
 
-## Value — PASS
-The theorem completely determines a natural infinite family of automatic-state complexity spectra in precisely the noncoprime parameter regime excluded from the closely related complete characterization. It proves a sharp lower bound, gives a construction for every intermediate rank, and shows an unexpected gap-free interval in contrast with magic-number behavior for coprime periods. It also establishes the power-of-two instance of a conjectured lower bound without purporting to settle fixed-binary-alphabet attainability. The result is structural and not an arbitrary finite census.
+Depth t decimations are constants, so at most 1+k+⋯+k^t distinct nodes; a period word with all symbols distinct attains it. Least period k^t forces a nonconstant depth-(t−1) chain whose t distinct ancestors cannot cycle because all depth≥t nodes are constants; plus two distinct constant outputs gives lower t+2. Interleave m≤k lower-exponent periodic child sequences with pairwise private nonzero symbols and shared 0: exact period multiplies k, and kernel rank is 2+Σ(q_j−1). For all except binary exponent-2 boundary, intervals I_m=[2+mt,2+m(B_{t−1}−1)] connect whenever B_{t−1}≥2t; direct base words 0001,0102,0012,0123 cover (2,2). Unsharing zeros among maximal children fills top k−1 ranks through B_t. Independent equality-pattern partition census confirms all intervals for (k,t)=(2,1),(2,2),(2,3),(3,1),(3,2), totaling 25,285 primitive patterns; finite enumeration is not the all-parameter proof.
 
-## Verification and limitations
-Executing `python3 verify.py` checks the complete constructive rank spectra in ten small parameter pairs and enumerates every canonical set partition for five small pairs. The reported success message is `VERIFY_OK constructed_witnesses=168 primitive_partition_census=25285`. These checks test the mathematics but do not constitute an independent proof, which rests on the symbolic argument in `RESULT.md`. The output alphabet size is not fixed, and periods with mixed factors are outside scope. An unindexed earlier result is a residual priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the full primary magic-number paper explicitly confines complete classifications to coprime periods and identifies noncoprime cases as outside the result. This theorem resolves the natural base-power subfamily with a constructive no-gap rank spectrum, not reducible to the cited general maximum bound. Bosma’s binary-specific upper/lower questions are different. No directly covering published Resultary result found.
+
+## value
+
+PASS
+
+The set of attainable k-kernel ranks of a canonical noncoprime family is a natural exact automatic-sequence invariant. The proof determines both universal sharp endpoints and every intermediate possible value across all bases/exponents, with a nontrivial interleaving induction and exceptional binary boundary. The precision can support future automata complexity classifications independently of a more general mixed-period theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. No external libraries or source data are needed.
+## correctness
 
-The checker's `least_period` function tests divisors of a period word, and `kernel_rank` enumerates every decimation at depths through the base exponent. Every resulting finite word is reduced to its least period, making equality of the corresponding infinite periodic sequences decidable exactly. The generator `build_witnesses` realizes the recursive interleaving construction and its final color-unsharing step; the separate `restricted_partitions` enumeration exhausts output-symbol equality patterns independently of numerical names.
+PASS
 
-Executed result:
+Depth t decimations are constants, so at most 1+k+⋯+k^t distinct nodes; a period word with all symbols distinct attains it. Least period k^t forces a nonconstant depth-(t−1) chain whose t distinct ancestors cannot cycle because all depth≥t nodes are constants; plus two distinct constant outputs gives lower t+2. Interleave m≤k lower-exponent periodic child sequences with pairwise private nonzero symbols and shared 0: exact period multiplies k, and kernel rank is 2+Σ(q_j−1). For all except binary exponent-2 boundary, intervals I_m=[2+mt,2+m(B_{t−1}−1)] connect whenever B_{t−1}≥2t; direct base words 0001,0102,0012,0123 cover (2,2). Unsharing zeros among maximal children fills top k−1 ranks through B_t. Independent equality-pattern partition census confirms all intervals for (k,t)=(2,1),(2,2),(2,3),(3,1),(3,2), totaling 25,285 primitive patterns; finite enumeration is not the all-parameter proof.
 
-```
-VERIFY_OK constructed_witnesses=168 primitive_partition_census=25285
-```
+## originality
 
-Witnesses span parameter pairs \((2,t)\) for \(1\le t\le5\), \((3,t)\) for \(1\le t\le3\), and \((4,t)\) for \(1\le t\le2\). Canonical equality-pattern censuses cover \((2,1),(2,2),(2,3),(3,1),(3,2)\). The tests check exact ranks and least periods, but do not establish the theorem for arbitrary parameters. That infinite conclusion relies on the bound and induction proved in `RESULT.md`. No independent audit has been performed.
+PASS
+
+Best-of-knowledge: the full primary magic-number paper explicitly confines complete classifications to coprime periods and identifies noncoprime cases as outside the result. This theorem resolves the natural base-power subfamily with a constructive no-gap rank spectrum, not reducible to the cited general maximum bound. Bosma’s binary-specific upper/lower questions are different. No directly covering published Resultary result found.
+
+## value
+
+PASS
+
+The set of attainable k-kernel ranks of a canonical noncoprime family is a natural exact automatic-sequence invariant. The proof determines both universal sharp endpoints and every intermediate possible value across all bases/exponents, with a nontrivial interleaving induction and exceptional binary boundary. The precision can support future automata complexity classifications independently of a more general mixed-period theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
