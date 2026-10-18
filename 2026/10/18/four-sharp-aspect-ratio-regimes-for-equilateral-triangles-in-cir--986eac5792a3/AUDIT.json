@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For all dimensions d>=3, r>0 and h>=0, Pythagorean projection yields the three transverse side squares. Heron gives 16A^2/s^4=3-4k^2+4uv. On acute projected triangles the circumradius squared is (1-z)((1+p)^2-z)/(3-4z+4p), with derivative 2(1-z)(2p+1)(p+1-2z)/(3-4z+4p)^2. The obtuse competitor decreases to its right boundary and cannot beat the following acute minimum. This proves the exact decreasing f(k), its three branches, and the unique crossing of h/k and r/f(k). Explicit transverse triangle construction proves every sharp value, and equality follows from unique minimizing products and enclosing-circle uniqueness. Rational identities and 2,000 witnesses, 77,088 grid cases, 132,000 spatial orientations were checked by the actual standalone verify.py included with this finding. The infinite result is proved analytically, not by finite trials.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth assumes a unit-volume brick with each edge at least 1/sqrt(2) and considers triangles on its skew edges, proving side-length bounds in that restricted configuration.",
+        "The rectangle inradius record optimizes triangle inradius rather than equilateral side length and works in planar rectangles, not finite cylindrical bodies."
+      ],
+      "reasoning": "A circular cylinder can be enclosed in a brick, but transferring box upper bounds loses cross-sectional sharpness and equality; the quoted original brick theorem does not quantify the cylinder height-to-radius family. General existence/algorithmic minimum-circle facts do not supply a closed four-piece profile.",
+      "searches": [
+        "arxiv:1010.1607v1 full text: Statements 1-2, Lemma 1, Figures 2-4",
+        "published-finding corpus: largest equilateral triangle cylindrical container radius altitude length",
+        "Web: minimum radius right circular cylinder enclosing planar equilateral triangle fixed height",
+        "published-finding corpus closest: 2026/10/4/SCOPE-sharp-inradius-bound-for-triangles-contained-in-a-rectangle--a490e95a64fd"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1010.1607v1 (complete six-page text; 2010-10-08)",
+      "doi:10.1017/S0013091500037238 (publisher extract only)",
+      "IMO 1984 shortlist problem 13 (public problem/solution)",
+      "published-finding corpus published search results with closest IDs explicitly given in checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Horváth paper controls triangles in bricks with special volume and dimension assumptions, but its statements neither optimize circular-cylinder radius nor classify all cylinder placements.",
+        "The classical three-point minimum-circle acute/obtuse criterion is explicitly incorporated as a proof tool; it alone does not minimize over axial gaps or solve the external height tradeoff.",
+        "The IMO cylinder theorem concerns four-point tetrahedra and volume, not three-point equilateral triangle side length."
+      ],
+      "reasoning": "The new formula is not a relabeling of any inspected theorem: the exact intermediate branch s=h^2/sqrt(h^2-r^2) emerges from a nontrivial asymmetric projected-triangle split, and all three transitions and equality families require optimizing both the projected enclosing radius and axial span. An uninspected prior result giving a stronger universal cylinder theorem remains an explicit risk.",
+      "searches": [
+        "arxiv:1010.1607v1 full text",
+        "doi:10.1017/S0013091500037238 publisher extract",
+        "IMO 1984 shortlist problem 13 cylinder tetrahedron volume",
+        "published-finding corpus: regular triangle in solid circular cylinder minimum enclosing circle projection orientation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1010.1607v1, full six-page study of equilateral triangles in bricks; no circular-cylinder law.",
+        "The alternative formulation is the minimum radius of a finite right circular cylinder of fixed height that can enclose a prescribed equilateral triangle.",
+        "published-finding corpus hit 2026/10/4/SCOPE-the-equilateral-triangle-is-locally-rupert--f2f1a5cd13cd concerns planar-projection containment under spatial rotations, not an exact height-radius cylinder phase diagram."
+      ],
+      "reasoning": "Compared inscribed/circumscribed, minimum enclosing cylinder, regular/equilateral triangle, spatial rotation, fixed height, radius and exact transition aliases. No examined claim states the same optimization, but the index and web searches cannot rule out older equivalent statements.",
+      "searches": [
+        "exact largest equilateral triangle inside finite right circular cylinder radius height aspect ratio multiple phase transitions",
+        "regular triangle in solid circular cylinder minimum enclosing circle projection orientation",
+        "inscribed equilateral triangle in cylinder sharp √2 √(7/3) threshold",
+        "largest equilateral triangle cylindrical container radius altitude length",
+        "Horvath triangle in brick regular triangle arbitrary cylinder comparison",
+        "equilateral triangle inscribed in right circular cylinder maximum side length geometry",
+        "regular triangle inscribed circular cylinder maximal edge height radius",
+        "minimum radius right circular cylinder enclosing planar equilateral triangle fixed height",
+        "\"largest equilateral triangle\" \"circular cylinder\"",
+        "\"triangle\" \"inscribed in a cylinder\" \"equilateral\"",
+        "published-finding corpus closest: 2026/10/4/SCOPE-the-equilateral-triangle-is-locally-rupert--f2f1a5cd13cd"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected published-finding corpus hit was a cylindrical equilateral-triangle maximum or a tabulation of the three exact thresholds."
+      ],
+      "reasoning": "This is a continuous three-transition analytic envelope, rather than a finite table. No exact table with matching domain and optimal values was encountered in the checks; negative search is not a proof of novelty.",
+      "searches": [
+        "published-finding corpus: inscribed equilateral triangle in cylinder sharp √2 √(7/3) threshold",
+        "published-finding corpus: exact largest equilateral triangle inside finite right circular cylinder radius height aspect ratio multiple phase transitions"
+      ]
+    },
+    "rationale": "Full-text analysis of the closest paper, Horváth arXiv:1010.1607v1, found a unit-volume rectangular-brick theorem, not the circular-cylinder family or the three transition values. Classical minimum-circle geometry is a necessary lemma but does not perform the two-level optimization. The 1984 cylinder tetrahedron problem controls a distinct quantity. published-finding corpus exact/semantic/alias searches and own claim deduplication did not show implication coverage; an unlocated historic equivalent remains a documented, non-decisive risk.",
+    "residual_risks": [
+      "Older or differently named minimum-enclosing-cylinder results might contain an equivalent four-piece height-radius law and remain unlocated.",
+      "The 1884 smallest-circle source was inspected through its extract only; no full-text noncoverage assessment is based on it.",
+      "Semantic database search cannot establish absolute novelty or inspect unpublished results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the cylinder theorem: the original constrains unit-volume rectangular bricks and their edge lengths, with edge/skew-edge configurations. The exact circular-cylinder side profile, three internal aspect regimes, saturation, and its all-dimensional equality description are neither stated nor implied by those box-specific inequalities.",
+        "evidence": [
+          "arxiv:1010.1607v1 (2010-10-08), abstract and pp. 1-5, especially Statements 1-2 and Figures 2-4.",
+          "The paper gives sharp side length sqrt(2) under stated unit-volume brick restrictions, and explicitly notes different thin-brick behavior."
+        ],
+        "identifier_or_url": "arxiv:1010.1607v1; https://arxiv.org/pdf/1010.1607",
+        "material_read": "Entire six-page primary preprint: title and abstract, Statements 1 and 2, Lemma 1, both cases of the proof, all depicted configurations, conclusion, references.",
+        "method": "Lawful open arXiv primary full-text PDF, parsed text and visual checks of pages 1, 4, 5.",
+        "title": "Triangle in a brick",
+        "trigger": "Closest directly relevant older mathematical geometry paper on equilateral triangles constrained inside a three-dimensional container."
+      },
+      {
+        "assessment": "SUPPORTING background for the minimum-circle step only; not used as a whole-document noncoverage certification.",
+        "evidence": [
+          "The extract says shrinking the circumcircle around a fixed chord is obstructed by an acute third angle and becomes possible for an obtuse angle, with the right-angle diameter as the boundary."
+        ],
+        "identifier_or_url": "doi:10.1017/S0013091500037238; https://www.cambridge.org/core/journals/proceedings-of-the-edinburgh-mathematical-society/article/on-the-problem-to-construct-the-minimum-circle-enclosing-n-given-points-in-a-plane/AE83407F2320C3F0ED96FDA352309F67",
+        "material_read": "Accessible publisher extract only, quoting the acute, obtuse, and right triangle transition for smallest enclosing circles. Full article not obtained.",
+        "method": "Publisher HTML abstract/extract (not a full-text review).",
+        "title": "On the problem to construct the minimum circle enclosing n given points in a plane",
+        "trigger": "Classical primary treatment of the three-point smallest-enclosing-circle fact used in the calculation."
+      },
+      {
+        "assessment": "NOT_COVERING: the optimized objective is tetrahedral volume, which neither implies nor is implied by the sharp equilateral-triangle side function or its optimizer types.",
+        "evidence": [
+          "Statement concerns volume of an inscribed tetrahedron; its solution reduces tetrahedron vertices to the two boundary circles and estimates triangle/quadrilateral areas."
+        ],
+        "identifier_or_url": "https://tamnd.github.io/brain/practice/maths/shortlist/1984/13/",
+        "material_read": "Full displayed problem statement and mathematical solution concerning four vertices and tetrahedral volume.",
+        "method": "Public HTML problem/solution text.",
+        "title": "IMO 1984 Shortlist Problem 13: tetrahedron in a right circular cylinder",
+        "trigger": "Same solid circular-cylinder containing body, possible stronger extremal geometry statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "986eac57-92a3-4c8d-be16-3edd06f0d25c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result computes a natural all-placement extremal invariant for a fundamental continuous family of convex containers in all finite dimensions at least three, with three exact shape transitions and complete optimizer rigidity. The asymmetric intermediate branch is neither a symmetric endpoint specialization nor a known numerical table. The saturation threshold and the changes in axial vertex pattern provide geometry relevant to cylinder containment and packing; this is more than a routine substitution or isolated finite computation.",
+    "status": "PASS"
+  }
+}
