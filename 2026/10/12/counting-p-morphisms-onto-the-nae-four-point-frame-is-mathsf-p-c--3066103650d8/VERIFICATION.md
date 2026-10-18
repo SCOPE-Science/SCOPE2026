@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked directly against the finite p-morphism definition. For the target frame \(\mathbf F\), the only arrows are
-\[
-rRc,\qquad cRt,\qquad cRf.
-\]
-A source sink cannot map to \(r\) or \(c\), because back would demand a successor. A clause world cannot map to \(r\), because back would force one of its sink successors to map to \(c\). Surjectivity therefore forces the unique source root to \(r\); forth then forces every clause world to \(c\); every variable world is forced to \(t\) or \(f\).
+# Independent mathematical audit
 
-At a clause world, back for the two arrows leaving \(c\) requires one successor of each color. This is exactly the \(\operatorname{NAE}_3\) condition. Conversely, every satisfying assignment gives such a p-morphism, and a nonempty clause set guarantees that both colors occur and hence that the map is onto.
+## correctness
 
-`verify.py` independently enumerates assignments and all maps for a finite battery of small incidence frames. It checks equality of the two counts and prints `VERIFY_OK` only after all assertions pass.
+PASS
 
-The exhaustive computation is not used to infer the general theorem. No claim is made about other fixed targets, approximate counting, or minimality of the four-point target.
+For the fixed irreflexive four-node Kripke target r->c and c->t,c->f and any monotone NAE3 incidence source with nonempty clause set, every surjective p-morphism necessarily sends unique root rho to r: sink variables cannot map to r/c by back and clause nodes cannot map r because a sink successor would need image c. Forth then sends every clause to c, variables to t/f; back at each clause requires both colors, exactly monotone NAE3. Conversely every satisfying assignment uniquely defines a surjective forth/back p-morphism, including repeated-variable clauses and isolated variables. Thus the reduction is parsimonious from #NAE3, not incorrectly claimed parsimonious from #SAT. Enumerating a candidate map is polynomial so problem belongs to #P; Creignou-Hermann counting CSP dichotomy yields #P-hardness since NAE3 has six tuples and is not affine. Independent exhaustive map vs satisfying-assignment counts for representative 1..3 variable incidence frames corroborate the bijection. General proof is the explicit forced-level argument.
+
+## originality
+
+PASS
+
+Takahashi (2026) already uses this exact target and monotone-NAE incidence picture for decision existence, leading to a modal Jankov validity coNP-hardness conclusion; graph locally surjective homomorphism literature also has related decision/parameter complexity. Counting valid p-morphisms, however, requires exact witness correspondence and #P-hardness in the fixed-target directed frame class; it is not a stated conclusion of the accessed decision source. The source decision reduction is credited as starting point and the improvement rests on a complexity jump and parsimonious proof, not a new construction. Full Takahashi text inaccessible creates a real risk of an implicit counting statement.
+
+## value
+
+PASS
+
+Exact fixed-target #P-completeness for bounded-height rooted irreflexive frames is a motivated counting complexity classification directly relevant to modal p-morphic image witnesses and local-surjectivity constraints. The parsimonious bijection is an explicit transfer tool, not an isolated small-instance enumeration; it upgrades known satisfiability-based decision hardness to a quantitatively stronger problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
