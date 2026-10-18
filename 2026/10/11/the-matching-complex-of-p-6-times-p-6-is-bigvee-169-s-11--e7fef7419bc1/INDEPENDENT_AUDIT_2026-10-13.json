@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T20:15:31.850708Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The categorical P6×P6 graph has 36 vertices, 50 edges, exactly two connected parity components each 18 vertices and 25 edges; coordinate reflection exchanges them. The matching complex of one component was independently generated from the graph, giving precisely 12,900 nonempty faces with dimensions 0..8 counts (25,244,1195,3139,4377,3001,846,72,1). Independently replaying the exact fixed 25-stage element matching produced 6,443 pairs and critical cells only one dimension-0 and thirteen dimension-5. Topological sorting all 63,027 oriented Hasse incidences visited all 12,900 faces, proving acyclicity; the packaged verifier also checks all mod-2 boundary ranks. Forman yields M(C)≃∨13 S5; the disjoint-union matching complex is the join of the factors and is ≃∨169 S11. The proof is exhaustive for this finite graph, not an all-parameter theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gupta et al. Theorem 1.3 m=3..5, not m=6; Conjecture 6.2 m≥6.",
+          "Cartesian grid matching theorems apply to different graph products."
+        ],
+        "reasoning": "Published proved range stops immediately below (6,6), so no known stronger theorem supplies the assertion.",
+        "searches": [
+          "matching complex categorical tensor product P6 times P6 wedge 169 spheres dimension 11",
+          "Gupta Sarkar Sawant Shukla matching complexes categorical product paths Theorem 1.3 Conjecture 6.2",
+          "Braun Hough matching independence complexes small grids"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/the-matching-complex-of-p-6-times-p-6-is-bigvee-169-s-11--e7fef7419bc1/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/the-matching-complex-of-p-6-times-p-6-is-bigvee-169-s-11--e7fef7419bc1/verify_p6p6_matching.py",
+        "arXiv:2403.15298",
+        "doi:10.1007/s41468-026-00238-y",
+        "doi:10.37236/6212",
+        "doi:10.37236/8480"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proven small-width theorem does not include width 6.",
+          "The larger-width wedge statement appears as a conjecture, not a proven implication."
+        ],
+        "reasoning": "A conjecture that includes a parameter case is not prior coverage of its proof or exact sphere multiplicity. New calculation settles a single instance.",
+        "searches": [
+          "matching complex categorical tensor product P6 times P6 wedge 169 spheres dimension 11",
+          "arXiv:2403.15298 Theorem 1.3 Conjecture 6.2",
+          "doi:10.1007/s41468-026-00238-y"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Graph product adjacency changes both coordinates by ±1; graph splits by parity.",
+          "Independence complex of the corresponding line graph is identical to the matching complex."
+        ],
+        "reasoning": "The graph aliases and line-graph reformulation were considered; Cartesian path-grid literature has different adjacency and does not transfer.",
+        "searches": [
+          "matching complex categorical tensor product P6 times P6 wedge 169 spheres dimension 11",
+          "P6 tensor direct Kronecker categorical graph product matching complex line graph independence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exhaustive 12,900-face discrete-Morse certificate yields one 0-cell and thirteen 5-cells per connected component.",
+          "No prior published full (6,6) table identified by searched aliases."
+        ],
+        "reasoning": "The complete exact finite case is a natural boundary-instance invariant; absence of a search match is not evidence of priority by itself.",
+        "searches": [
+          "matching complex categorical tensor product P6 times P6 wedge 169 spheres dimension 11",
+          "categorical path six six matching complex exact betti 169",
+          "matching complex P6 tensor P6 finite homotopy table"
+        ]
+      },
+      "rationale": "The primary Gupta–Sarkar–Sawant–Shukla arXiv:2403.15298 full text was read: Theorem 1.3 handles categorical path-product widths m=3,4,5, and Conjecture 6.2 specifically poses the wedge question for m≥6. Symmetry by factor swapping covers smaller unordered pairs but not (6,6). Grid matching results of Braun–Hough and Matsushita use Cartesian rather than categorical product, and polygonal line tiling families are distinct. Resultary searches returned the same claim and unrelated graph computations, not a dominating evaluation. Undiscovered finite computations remain a risk.",
+      "residual_risks": [
+        "An unindexed thesis or independent computation may already evaluate this finite (6,6) pair; searchable absence is not novelty proof.",
+        "This finite example does not imply Conjecture 6.2 for other widths; the mod-2 boundary check alone is not a homotopy proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves widths <=5, conjectures wedges for width >=6; does not establish this P6×P6 case",
+          "evidence": [
+            "Theorem 1.3 restriction 3<=m<=5; Conjecture 6.2 concerns n>=3,m>=6"
+          ],
+          "identifier_or_url": "arXiv:2403.15298; doi:10.1007/s41468-026-00238-y",
+          "material_read": "Complete available arXiv PDF: introduction/Theorem 1.3, methods, final Section 6 Conjecture 6.2",
+          "method": "Primary full-text explicit width-range comparison",
+          "title": "On the matching complexes of categorical product of path graphs",
+          "trigger": "Direct same-family primary theorem, conjecture"
+        },
+        {
+          "assessment": "No implication to diagonal-step categorical P6×P6",
+          "evidence": [
+            "Cartesian adjacency changes one coordinate, categorical changes both"
+          ],
+          "identifier_or_url": "doi:10.37236/6212",
+          "material_read": "Public primary mathematical title/abstract and described Cartesian graph domain",
+          "method": "Compared Cartesian versus categorical adjacency",
+          "title": "Matching and independence complexes related to small grids",
+          "trigger": "Alternative small grid product literature"
+        },
+        {
+          "assessment": "Cartesian-grid model differs from parity-component graph studied here",
+          "evidence": [
+            "Different graph edge relation"
+          ],
+          "identifier_or_url": "doi:10.37236/8480",
+          "material_read": "Accessible abstract and bibliographic scope only; no full-text noncoverage claim",
+          "method": "Graph-family and scope comparison",
+          "title": "Matching complexes of small grids",
+          "trigger": "Potential finite grid lookup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The (6,6) pair is the first natural unordered boundary instance after the full proved small-width classification. Its 13-sphere component decomposition and 169-sphere join give an exact topological benchmark and a positive instance of a published conjectural regime; a self-contained natural finite cutoff is mathematically worthwhile even without proving the entire conjecture.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/the-matching-complex-of-p-6-times-p-6-is-bigvee-169-s-11--e7fef7419bc1/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/026b884693e594bc52ea00eb4cefced8d8e1df95/2026/10/11/the-matching-complex-of-p-6-times-p-6-is-bigvee-169-s-11--e7fef7419bc1/verify_p6p6_matching.py",
+    "arXiv:2403.15298",
+    "doi:10.1007/s41468-026-00238-y",
+    "doi:10.37236/6212",
+    "doi:10.37236/8480"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Reviewed actual frozen RESULT.md, METADATA.json, AUDIT.json, REVIEW.md, SLOGAN.txt and VERIFICATION.md in assigned repository and inspected source verifier files as applicable; published source material treated as evidence only.",
+    "A bounded independent mathematical review does not imply full priority coverage, formal Lean verification or expert attestation; computations check only their enumerated finite domains.",
+    "No GitHub writes, source-tree mutations, dispatcher closeout calls or publication occurred."
+  ],
+  "residual_risks": [
+    "An unindexed thesis or independent computation may already evaluate this finite (6,6) pair; searchable absence is not novelty proof.",
+    "This finite example does not imply Conjecture 6.2 for other widths; the mod-2 boundary check alone is not a homotopy proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Proves widths <=5, conjectures wedges for width >=6; does not establish this P6×P6 case",
+      "evidence": [
+        "Theorem 1.3 restriction 3<=m<=5; Conjecture 6.2 concerns n>=3,m>=6"
+      ],
+      "identifier_or_url": "arXiv:2403.15298; doi:10.1007/s41468-026-00238-y",
+      "material_read": "Complete available arXiv PDF: introduction/Theorem 1.3, methods, final Section 6 Conjecture 6.2",
+      "method": "Primary full-text explicit width-range comparison",
+      "title": "On the matching complexes of categorical product of path graphs",
+      "trigger": "Direct same-family primary theorem, conjecture"
+    },
+    {
+      "assessment": "No implication to diagonal-step categorical P6×P6",
+      "evidence": [
+        "Cartesian adjacency changes one coordinate, categorical changes both"
+      ],
+      "identifier_or_url": "doi:10.37236/6212",
+      "material_read": "Public primary mathematical title/abstract and described Cartesian graph domain",
+      "method": "Compared Cartesian versus categorical adjacency",
+      "title": "Matching and independence complexes related to small grids",
+      "trigger": "Alternative small grid product literature"
+    },
+    {
+      "assessment": "Cartesian-grid model differs from parity-component graph studied here",
+      "evidence": [
+        "Different graph edge relation"
+      ],
+      "identifier_or_url": "doi:10.37236/8480",
+      "material_read": "Accessible abstract and bibliographic scope only; no full-text noncoverage claim",
+      "method": "Graph-family and scope comparison",
+      "title": "Matching complexes of small grids",
+      "trigger": "Potential finite grid lookup"
+    }
+  ]
+}

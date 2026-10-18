@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accompanying `verify_p6p6_matching.py` is a standalone Python standard-library verifier. It performs the following exact checks:
+# Independent mathematical audit
 
-- reconstructs the categorical product on 36 vertices and 50 edges;
-- verifies the two parity classes are connected, have 18 vertices and 25 edges each, and are isomorphic by reflection;
-- enumerates every one of the 12,900 nonempty matching faces of one component;
-- verifies the face vector \((25,244,1195,3139,4377,3001,846,72,1)\);
-- replays the fixed 6,443-pair face-poset matching;
-- reconstructs all 63,027 Hasse covers and proves acyclicity by a complete topological sort;
-- verifies that the only critical cells are one in dimension \(0\) and thirteen in dimension \(5\);
-- independently computes all mod-\(2\) simplicial boundary ranks, obtaining reduced Betti rank 13 only in degree \(5\).
+## correctness
 
-These checks establish the finite component homotopy type used in the proof. The final join step is a mathematical identity for matching complexes of disjoint unions. The verification does not test or claim any parameter values beyond \((6,6)\).
+PASS
+
+The categorical P6×P6 graph has 36 vertices, 50 edges, exactly two connected parity components each 18 vertices and 25 edges; coordinate reflection exchanges them. The matching complex of one component was independently generated from the graph, giving precisely 12,900 nonempty faces with dimensions 0..8 counts (25,244,1195,3139,4377,3001,846,72,1). Independently replaying the exact fixed 25-stage element matching produced 6,443 pairs and critical cells only one dimension-0 and thirteen dimension-5. Topological sorting all 63,027 oriented Hasse incidences visited all 12,900 faces, proving acyclicity; the packaged verifier also checks all mod-2 boundary ranks. Forman yields M(C)≃∨13 S5; the disjoint-union matching complex is the join of the factors and is ≃∨169 S11. The proof is exhaustive for this finite graph, not an all-parameter theorem.
+
+## originality
+
+PASS
+
+The primary Gupta–Sarkar–Sawant–Shukla arXiv:2403.15298 full text was read: Theorem 1.3 handles categorical path-product widths m=3,4,5, and Conjecture 6.2 specifically poses the wedge question for m≥6. Symmetry by factor swapping covers smaller unordered pairs but not (6,6). Grid matching results of Braun–Hough and Matsushita use Cartesian rather than categorical product, and polygonal line tiling families are distinct. Resultary searches returned the same claim and unrelated graph computations, not a dominating evaluation. Undiscovered finite computations remain a risk.
+
+## value
+
+PASS
+
+The (6,6) pair is the first natural unordered boundary instance after the full proved small-width classification. Its 13-sphere component decomposition and 169-sphere join give an exact topological benchmark and a positive instance of a published conjectural regime; a self-contained natural finite cutoff is mathematically worthwhile even without proving the entire conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

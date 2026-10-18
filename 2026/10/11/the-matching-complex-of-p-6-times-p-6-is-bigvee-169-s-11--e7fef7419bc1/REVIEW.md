@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is proved by a complete finite discrete-Morse certificate on one parity component of \(P_6\times P_6\). The verifier reconstructs every face and Hasse cover, checks acyclicity globally, and leaves one critical \(0\)-cell and thirteen critical \(5\)-cells. The component isomorphism and disjoint-union join identity then give \(\bigvee^{169}S^{11}\). A separate mod-\(2\) chain computation reproduces the expected component homology.
+## correctness
 
-## Originality — PASS
-The closest source is Gupta--Sarkar--Sawant--Shukla, arXiv:2403.15298. Its Theorem 1.3 proves the categorical-path wedge result only through width five, while Conjecture 6.2 explicitly places width six and above in the conjectural regime. Searches under categorical/direct/tensor/Kronecker product aliases and the line-graph formulation found no exact \((6,6)\) evaluation. Cartesian small-grid and polygonal-line-tiling theorems concern different graph families and do not imply the claim.
+PASS
 
-Residual risk: an unindexed thesis or computation could contain the same finite case, and the associated journal article is recent. No such covering source was located.
+The categorical P6×P6 graph has 36 vertices, 50 edges, exactly two connected parity components each 18 vertices and 25 edges; coordinate reflection exchanges them. The matching complex of one component was independently generated from the graph, giving precisely 12,900 nonempty faces with dimensions 0..8 counts (25,244,1195,3139,4377,3001,846,72,1). Independently replaying the exact fixed 25-stage element matching produced 6,443 pairs and critical cells only one dimension-0 and thirteen dimension-5. Topological sorting all 63,027 oriented Hasse incidences visited all 12,900 faces, proving acyclicity; the packaged verifier also checks all mod-2 boundary ranks. Forman yields M(C)≃∨13 S5; the disjoint-union matching complex is the join of the factors and is ≃∨169 S11. The proof is exhaustive for this finite graph, not an all-parameter theorem.
 
-## Value — PASS
-The pair \((6,6)\) is the first genuinely new unordered parameter pair beyond the proved width-five boundary. Determining the exact homotopy type, including 169 eleven-spheres and the component factor \(\bigvee^{13}S^5\), supplies a natural benchmark at the first open width and directly tests the published conjectural transition.
+## originality
 
-## Closest literature and limitations
-The source theorem establishes only the smaller-width regime and proposes the all-width wedge statement as a conjecture. This result settles only one finite boundary instance and does not supply a recurrence or a proof for larger widths.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The primary Gupta–Sarkar–Sawant–Shukla arXiv:2403.15298 full text was read: Theorem 1.3 handles categorical path-product widths m=3,4,5, and Conjecture 6.2 specifically poses the wedge question for m≥6. Symmetry by factor swapping covers smaller unordered pairs but not (6,6). Grid matching results of Braun–Hough and Matsushita use Cartesian rather than categorical product, and polygonal line tiling families are distinct. Resultary searches returned the same claim and unrelated graph computations, not a dominating evaluation. Undiscovered finite computations remain a risk.
+
+## value
+
+PASS
+
+The (6,6) pair is the first natural unordered boundary instance after the full proved small-width classification. Its 13-sphere component decomposition and 169-sphere join give an exact topological benchmark and a positive instance of a published conjectural regime; a self-contained natural finite cutoff is mathematically worthwhile even without proving the entire conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
