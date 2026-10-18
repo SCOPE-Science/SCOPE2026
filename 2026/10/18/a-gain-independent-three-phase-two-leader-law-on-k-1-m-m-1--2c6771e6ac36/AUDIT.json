@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For every integer m>=1 and finite kappa>0 the trace-inverse formula follows by grounding one leader, completing a square, then applying Sherman--Morrison. Complete multipartite effective resistances follow from an explicit Laplacian eigenspace decomposition. Enumerating all two-leader automorphism orbits gives exact rational formulas. For m=1 the two competing differences to CC have positive numerators; for m=2,3 the four competing differences to BB have positive coefficients; for m>=4 the four competing differences to UB have strictly positive numerators and denominators, with BB/CC coefficients expressed as positive polynomials in u=m-4. The proof establishes strict optimality and unique orbit for every allowable m,kappa; 320 exact-rational resistance checks and 87 exact matrix inversions corroborate the derived formulas, not replace proof. The packaged verify.py reproduces these finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1407.1569 (Fitch--Leonard, Sections II and V-B--V-D): general one-/two-noisy-leader formulas, explicit paths and cycles, without an all-size all-gain K_{1,m,m+1} optimizer law.",
+        "arxiv:1708.06873 gives an optimal-selection method and special results on one-dimensional and tree graphs; K_{1,m,m+1} contains triangles, so it is neither a path, cycle nor tree for m>=1."
+      ],
+      "reasoning": "A general combinatorial optimization algorithm could compute each instance but does not cover the symbolic strict optimizer orbit uniformly over every integer m and positive real gain. No stronger published classification of arbitrary complete multipartite networks with this exact trace-inverse objective was found among inspected materials.",
+      "searches": [
+        "published-finding corpus semantic search: complete multipartite two leader H2 coherence optimal leader positions stochastic leader-follower",
+        "published-finding corpus semantic search: complete tripartite network optimal noisy leader placement two finite-gain leaders trace inverse of graph Laplacian plus diagonal K_1,b,c  one singleton one central partition versus two same partition threshold",
+        "arxiv:1407.1569",
+        "arxiv:1708.06873"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1407.1569",
+      "arxiv:1708.06873",
+      "arxiv:1208.0946",
+      "arxiv:1412.6595",
+      "published-finding corpus 2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4",
+      "published-finding corpus 2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d",
+      "published-finding corpus 2026/10/4/SCOPE-exact-optimal-apex-transfer-fidelity-for-every-laplacian-double--881da7cbcca7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1407.1569 (Fitch--Leonard, Sections II and V-B--V-D): general one-/two-noisy-leader formulas, explicit paths and cycles, without an all-size all-gain K_{1,m,m+1} optimizer law.",
+        "arxiv:1208.0946 studies selecting grounded leaders under noisy communication links with a supermodular framework, rather than two equally weighted finite noisy leaders.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-optimal-apex-transfer-fidelity-for-every-laplacian-double--881da7cbcca7 optimizes coherent quantum state transfer on Laplacian double cones, not stationary noise coherence."
+      ],
+      "reasoning": "The previous general objective formula is compatible with the proof but leaves a genuinely nontrivial sign comparison between all automorphism orbits in an infinite graph family. The different fixed-leader/noisy-link and spectral-transfer objectives do not imply this optimizer; none of the named retrieved claims strictly contains the all-m and all-gain assertion.",
+      "searches": [
+        "published-finding corpus semantic search: minimize trace inverse grounded graph Laplacian rank two diagonal pinning complete three-partite graph one singleton and two nearly balanced parts exact choice",
+        "published-finding corpus semantic search: complete multipartite two leader H2 coherence optimal leader positions stochastic leader-follower",
+        "arxiv:1407.1569 Sections V-B--V-D",
+        "arxiv:1208.0946",
+        "published-finding corpus semantic search: Theorem for K_{1,m,m+1} two distinct equal-gain noisy leaders minimizing tr(L+kappa D) inverse: m=1 both in largest part, m=2,3 both in middle part, m>=4 singleton universal and middle part, exact all-gain phase transition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1407.1569 (Fitch--Leonard, Sections II and V-B--V-D): general one-/two-noisy-leader formulas, explicit paths and cycles, without an all-size all-gain K_{1,m,m+1} optimizer law.",
+        "arxiv:1708.06873, Sections III--IV: resistance-based noisy-leader objective and solved paths, cycles and trees; it does not list K_{1,m,m+1}."
+      ],
+      "reasoning": "The same optimization can be expressed as minimizing grounded noisy-coherence H2 cost, trace of the inverse of a Laplacian with two diagonal pins, or maximizing joint centrality. Those formulations were checked. The generic resistance identity is prior art, but the strict three-orbit phase law does not directly follow from a stated graph-specific theorem.",
+      "searches": [
+        "published-finding corpus semantic search: Two noise-corrupted leaders symmetric graph Laplacian trace inverse optimal leader set resistance distance joint centrality",
+        "published-finding corpus semantic search: minimize trace inverse grounded graph Laplacian rank two diagonal pinning complete three-partite graph one singleton and two nearly balanced parts exact choice",
+        "arxiv:1407.1569; arxiv:1708.06873"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4 concerns sensor-failure reliability under PMU placements, not trace-inverse noisy leader selection.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d concerns discounted hitting-domination on bipartite graphs, not the same objective."
+      ],
+      "reasoning": "Semantic searches for the precise indexed family, gain parameter, and phase threshold returned no numerical table or exact decision law with the same claim. The search is not proof of global novelty, and unindexed numerical tabulations are an acknowledged risk.",
+      "searches": [
+        "published-finding corpus semantic search: noise-corrupted optimal leaders complete tripartite K_{1,m,m+1} finite uniform gain two leaders all m phase transition m=4",
+        "published-finding corpus semantic search: joint centrality graph K1mm+1 two leaders select two twins versus universal vertex independent feedback parameter",
+        "2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4"
+      ]
+    },
+    "rationale": "The theorem gives one exact gain-uniform, all-size three-phase optimizer classification on K_{1,m,m+1}. The leading prior general two-noisy-leader joint-centrality formulation does not imply a closed classification absent a separate sign and orbit analysis. Primary full-text comparisons found path/cycle/tree solutions, and published-finding corpus overlap searches returned no equivalent or dominating theorem. This is best-knowledge originality with the residual risk of unindexed earlier specialization.",
+    "residual_risks": [
+      "An equivalent specialization in an unindexed article, appendix, or unpublished manuscript cannot be ruled out; originality is not logically certified by search.",
+      "Only material explicitly listed in source inspections was read; uninspected sections of broader monographs or theses could contain the same three-phase classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General objective and formulas overlap; no K_{1,m,m+1} strict all-gain orbit classification found in inspected material",
+        "evidence": "Equations 43--50 supply joint centrality and solved path/cycle examples; the present proof supplies new symbolic orbit comparisons.",
+        "identifier_or_url": "https://arxiv.org/html/1407.1569v2",
+        "material_read": "Abstract, setup and noise model in Section II, Theorem 2/joint-centrality formulas and application paragraphs in Sections V-B, V-C and V-D on two noisy leaders, including path and cycle examples",
+        "method": "Read lawful arXiv full-text HTML and compare formulas and solved graph families",
+        "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "trigger": "Closest direct model: two equal-gain noise-corrupted leaders"
+      },
+      {
+        "assessment": "General resistance approach and path, cycle, tree special cases, but no equivalent tripartite phase law in inspected sections",
+        "evidence": "A general distance-based evaluation of noisy leader costs does not determine the three strict optimizer regimes without the orbit comparison.",
+        "identifier_or_url": "https://arxiv.org/html/1708.06873v1",
+        "material_read": "Abstract, Sections III and IV on electrical-resistance leader-selection formulas and explicit graph families",
+        "method": "Read lawful arXiv full-text HTML and compare solved family scope",
+        "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+        "trigger": "Alternative effective-resistance representation and potential broader optimizer law"
+      },
+      {
+        "assessment": "Communication-link noise with pinned leaders differs materially from finite-gain direct noisy leader feedback",
+        "evidence": "Distinct stochastic forcing and leader assumptions; no logical implication for the stated inverse-trace classification.",
+        "identifier_or_url": "https://arxiv.org/html/1208.0946v1",
+        "material_read": "Abstract, model definition and supermodularity/selection discussion",
+        "method": "Read lawful arXiv HTML; compare noise placement and optimization objective",
+        "title": "A Supermodular Optimization Framework for Leader Selection under Link Noise in Linear Multi-Agent Systems",
+        "trigger": "Potential broader leader placement theorem"
+      },
+      {
+        "assessment": "No coverage of non-one-dimensional complete tripartite family in inspected material",
+        "evidence": "Title and abstract identify one-dimensional path/ring formations; no complete tripartite theorem was established in this inspection.",
+        "identifier_or_url": "https://arxiv.org/abs/1412.6595",
+        "material_read": "Abstract and available research descriptions of path/ring case",
+        "method": "Read lawful arXiv abstract and search summary, not represented as full-text inspection",
+        "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+        "trigger": "Potential exact two-leader placement coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2c6771e6-ac36-4289-8223-8aaaa0d75c2c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Noisy two-leader pinning minimizes stationary disagreement/control variance, so exact location is a natural optimization invariant. The result supplies an all-size and all-gain law with a surprising switch from two peripheral leaders to inclusion of a universal vertex at m=4, and resolves all competing orbits strictly without numerical optimization. It is a substantive complete classification on a natural near-balanced multipartite family, with a parameter-robust structural threshold; the exact boundary matters when designing leader placements without tuning gains.",
+    "status": "PASS"
+  }
+}
