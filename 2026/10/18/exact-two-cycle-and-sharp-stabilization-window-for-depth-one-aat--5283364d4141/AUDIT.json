@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Direct derivation using <v,Av>=mu||v||^2 and A^TA=S I gives coefficient t=1-betaMR/alpha and exact alternation. Two-step norm factor r*z provides sharp necessary-and-sufficient stability, including equality and divergence. The package replays 486+605 assertions plus a rational check.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Source [1] gives general minimization of residual over stored U-column span, but no formula for the exact alternating fixed-beta state map or the sharp stabilizing range.",
+        "Source [2] gives full-history AA/GMRES equivalence and optimized post-projection mixing rather than this one-window recurrence."
+      ],
+      "reasoning": "The general source propositions establish the optimization operation. Computing the closed nonlinear-in-beta two-step dynamics and its sharp threshold for shifted rotations requires additional specialization and is not quoted or tabulated by those results.",
+      "searches": [
+        "arxiv:2403.14961v2 Section 2.4 Proposition 8",
+        "arxiv:1102.0796v1 Theorem 4.4 and 5.1",
+        "AATGS one-memory can stabilize a divergent Richardson iteration by alternating residual minimizing steps"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2403.14961v1/v2",
+      "arxiv:1102.0796v1",
+      "doi:10.1002/nme.6622"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The AATGS source Proposition 8 shows residual minimization on current stored subspace, and the full-depth paper recovers GMRES. Neither asserts an exact fixed-relaxation two-cycle.",
+        "The new threshold is a necessary and sufficient criterion, strictly beyond the raw Richardson threshold, for all initial non-solutions on this non-symmetric normal family."
+      ],
+      "reasoning": "The simple zero-coefficient fact for genuinely minimal-residual previous steps is already a consequence of the known minimization principle and is not claimed independently. The final joint finding is the explicit fixed-beta two-cycle and sharp rescue window, which is not a direct restatement of the cited general bounds.",
+      "searches": [
+        "Anderson acceleration depth one exact minimal residual Richardson steepest descent optimal line search coefficients vanish no acceleration",
+        "AATGS Tang Xu He Saad Xi 2024 adaptive residual-minimizing beta depth one vs depth two exact",
+        "\"Anderson acceleration\" \"minimal residual\" \"AA(1)\" \"orthogonal\" stagnation",
+        "\"restarted GMRES(1)\" \"GMRES(2)\" shifted skew normal matrix rate",
+        "arxiv:2403.14961v2 Sections 2.1, 2.3, 2.4",
+        "arxiv:1102.0796v1 Sections 4 and 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "AATGS(1) is algebraically Anderson with one residual difference; the current argument derives alternating actual scalars rather than extrapolating GMRES equivalence.",
+        "A full-history optimized mixing parameter is selected at a different point in the algorithm."
+      ],
+      "reasoning": "The two-cycle is the exact one-window specialization of the source algorithm; unlike an iterated GMRES(1) restarts, the corrector uses the last residual secant and a fixed input relaxation. Standard one-dimensional minimum-residual orthogonality is prior machinery, not claimed as new.",
+      "searches": [
+        "Anderson acceleration depth-one AATGS exactly alternates minimal residual Richardson steps and fixed relaxation on normal planar rotations",
+        "AATGS one-memory can stabilize a divergent Richardson iteration by alternating residual minimizing steps",
+        "Anderson acceleration depth one exact minimal residual Richardson steepest descent optimal line search coefficients vanish no acceleration",
+        "arxiv:2403.14961v1 Algorithm 1, Proposition 8",
+        "arxiv:1102.0796v1 Sections 3–5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest record is a positive-orthant counterexample for real diagonal contractions; it has neither the shifted rotation nor the exact threshold.",
+        "No published comparison returned the specific beta critical equation; these searches cannot prove global absence."
+      ],
+      "reasoning": "This is not a table-entry invariant. Direct comparisons to record summaries and accessible ledger claims found no equivalent phase diagram.",
+      "searches": [
+        "Anderson acceleration depth-one AATGS exactly alternates minimal residual Richardson steps and fixed relaxation on normal planar rotations",
+        "AATGS one-memory can stabilize a divergent Richardson iteration by alternating residual minimizing steps"
+      ]
+    },
+    "rationale": "Full primary-source comparisons (AATGS 2024 Sections 2.1–2.4, Potra–Engler 2011 Sections 3–5), targeted literature searches, published-finding corpus and accessible historical claims identify no covering fixed-beta two-cycle and rescue window; standard minimal-residual orthogonality is expressly excluded as novel.",
+    "residual_risks": [
+      "A mathematically equivalent two-cycle may have appeared under ORTHOMIN, minimal-residual extrapolation or restarted-GMRES nomenclature not surfaced by searches.",
+      "The finding is specialized to a planar normal operator and follows from classical inner-product identities; its precise algorithm-specific phase boundary has not received independent verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides algorithm, limited-depth least squares and symmetric short recurrences; not the fixed-beta shifted rotation two-cycle or sharp rescue interval.",
+        "evidence": [
+          "Algorithm 1 lines 100–134; Proposition 8 lines 303–313; skew discussion lines 299–302."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.14961v2",
+        "material_read": "Sections 1, 2.1 Algorithm 1, 2.2 Lemma 1, 2.3, 2.4 Proposition 8 and source references",
+        "method": "Read lawful open HTML full mathematical statements and derivations",
+        "title": "Anderson Acceleration with Truncated Gram–Schmidt",
+        "trigger": "Exact method and prospective coverage"
+      },
+      {
+        "assessment": "Full-history optimized mixing solves a different rule; does not state the constant-beta memory-one two-cycle.",
+        "evidence": [
+          "Section 3 AA recurrence; Section 4 Theorem 4.4; Section 5 optimized mixing after projection."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1102.0796",
+        "material_read": "Introduction, Sections 3–5 including Theorem 4.4 and Theorem 5.1, page images 3 and 8",
+        "method": "Read original open PDF and mathematical conditions",
+        "title": "A characterization of the behavior of the Anderson acceleration on linear problems",
+        "trigger": "Earlier general AA/GMRES and optimized mixing theorem"
+      },
+      {
+        "assessment": "Qualitative convergence discussion and optimization comparisons, no exact nonsymmetric normal one-window stability window.",
+        "evidence": [
+          "Section 2.2 discusses finite Anderson depth and optimized gradient tuning."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/nme.6622",
+        "material_read": "Open full-text Section 2.2 and discussion of optimally tuned gradient and memory depth",
+        "method": "Read online text of algorithm and source comparison",
+        "title": "Anderson-accelerated polarization schemes for FFT computational homogenization",
+        "trigger": "AA versus tuned fixed-point iteration potential domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5283364d-4141-4e3a-b371-05dd0f706293",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This natural one-memory numerical solver acquires an exactly characterized convergence domain strictly wider than the unaccelerated iteration; an arbitrarily large relative stepsize extension occurs near symmetric limits despite unit condition number. This is an actionable structural regime distinction, not simply a recomputation of a known bound.",
+    "status": "PASS"
+  }
+}
