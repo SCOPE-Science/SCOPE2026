@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and scope
 
-Run `python3 verify_johnson.py` beside the scientific files. This standard-library program creates the graphs from the \(k\)-subsets, enumerates maximal cliques directly from adjacency via Bron–Kerbosch, enumerates the entire flag complex, tests each proposed free-face collapse against the current surviving complex, and calculates mod-two chain boundary ranks.
+# Independent mathematical audit
 
-The completed execution tested all 15 pairs with \(4\le n\le8\) and \(2\le k\le n-2\) and checked 2,872 collapse pairs. The final marker was `VERIFY_OK cases=15 exact_collapse_pairs=2872`. The ranks in every test gave zero first homology and second homology of the predicted rank. The examples \((n,k)=(6,3),(7,3),(8,4)\) yielded 19, 55 and 181 independent mod-two two-cycles respectively.
+## correctness
 
-This is corroboration only; it neither tests all parameters nor establishes an integral or infinite statement by enumeration. The all-parameter proof is the combinatorial collapse, the simply connected hypersimplex two-skeleton, and Hurewicz/Whitehead. No independent audit or formal certification has been performed.
+PASS
+
+Every Johnson edge extends to a star or top, and any three vertices determine at most one such maximal clique; stars/tops intersect in at most an edge. Within each maximal simplex, pair every face τ of at least three vertices omitting the chosen apex with τ∪{apex} in descending dimension: all >2 simplices collapse, leaving all graph edges and the apex triangles. The hypersimplex Δ(n,k) is convex with Johnson graph 1-skeleton and triangular polygon 2-faces; its boundary dimension n−2≥4 is simply connected, so the cellular two-skeleton (a subcomplex of the flag complex with all edges) kills π1. Thus collapsed complex is simply connected and 2-dimensional. V=C(n,k), E=(1/2)C(n,k)k(n−k), remaining T=C(n,k−1)C(n−k,2)+C(n,k+1)C(k,2); Euler, integral freeness and Hurewicz/Whitehead yield wedge of beta=V−E+T−1 2-spheres. Independent exact counts (6,3):19, (7,3):55, (8,4):181 agree; not an infinite proof.
+
+## originality
+
+PASS
+
+Shuldiner–Oldford classify the two maximal clique families but not simplicial-collapse/homotopy. Goyal–Shukla–Singh line-graph topology handles J(n,2)=line graph of K_n, specifically excluded; J(n,k) at 3≤k≤n−3 contains induced 3-leaf claw (three independent swaps), impossible for line graphs. Circle Rips results concern cyclic metric graphs, not hypersimplex skeletons. No directly covering theorem found with the actual limited searches; synonym risk explicitly retained.
+
+## value
+
+PASS
+
+An explicit all-parameter homotopy classification of a natural family of metric-graph Rips complexes, including a constructive 2-dimensional collapse and integral homology, serves topology of flag complexes and hypersimplices. The unbounded n,k formula and homotopy strength transcend small Betti enumeration; the line-graph boundary cases are deliberately excluded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

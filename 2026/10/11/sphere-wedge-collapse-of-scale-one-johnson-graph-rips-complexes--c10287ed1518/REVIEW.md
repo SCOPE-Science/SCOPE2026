@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The maximal cliques of \(J(n,k)\) are stars and tops; any two share at most an edge. Consequently every face of dimension at least two lies in one maximal clique, so pairing its higher-dimensional base faces with apex extensions in decreasing cardinality is a free-face collapse. This yields a two-dimensional complex with \(\binom nk\) vertices, \(\tfrac12\binom nk k(n-k)\) edges and \(\binom n{k-1}\binom{n-k}{2}+\binom n{k+1}\binom k2\) triangles. The simply connected two-skeleton of the hypersimplex uses the same one-skeleton and embeds in the Rips complex, giving vanishing fundamental group; Hurewicz and Whitehead imply the stated sphere wedge. Reconstructed graph/clique and binary homology checks corroborate the argument. Risk: the elementary collapse and hypersimplex two-face hypotheses are essential and proved, not inferred from small examples.
+## correctness
 
-**Originality — PASS, with residual risk.** Shuldiner–Oldford (arXiv:2208.12710, Theorem 3.4 and Proposition 4.2) determine star/top cliques but do not provide the full scale-one homotopy classification. Goyal–Shukla–Singh (arXiv:2009.12130, Lemma 3.2 and Theorem 3.4) cover clique complexes of line graphs including the special \(k=2\) Johnson case, excluded here. Adamaszek–Adams (arXiv:1503.03669) study circle Rips complexes and do not cover Johnson graph parameters. Searches for Johnson graph flag complexes, hypersimplex clique topology, sphere-wedge formulas and numerical cases yielded no dominating statement. Risk: an equivalent statement could appear under hypersimplex or combinatorial-topology terminology in unindexed literature; searched records do not establish global novelty.
+PASS
 
-**Value — PASS.** This answers a natural all-parameter topology problem about a central family of distance-regular graphs. It gives a constructive dimension reduction from large maximal simplices to dimension two, exact integral homology in every degree, and closed sphere multiplicities, not merely a numerical census or a restatement of Johnson-clique enumeration. Its first non-line-graph case already has nineteen independent two-spheres.
+Every Johnson edge extends to a star or top, and any three vertices determine at most one such maximal clique; stars/tops intersect in at most an edge. Within each maximal simplex, pair every face τ of at least three vertices omitting the chosen apex with τ∪{apex} in descending dimension: all >2 simplices collapse, leaving all graph edges and the apex triangles. The hypersimplex Δ(n,k) is convex with Johnson graph 1-skeleton and triangular polygon 2-faces; its boundary dimension n−2≥4 is simply connected, so the cellular two-skeleton (a subcomplex of the flag complex with all edges) kills π1. Thus collapsed complex is simply connected and 2-dimensional. V=C(n,k), E=(1/2)C(n,k)k(n−k), remaining T=C(n,k−1)C(n−k,2)+C(n,k+1)C(k,2); Euler, integral freeness and Hurewicz/Whitehead yield wedge of beta=V−E+T−1 2-spheres. Independent exact counts (6,3):19, (7,3):55, (8,4):181 agree; not an infinite proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Shuldiner–Oldford classify the two maximal clique families but not simplicial-collapse/homotopy. Goyal–Shukla–Singh line-graph topology handles J(n,2)=line graph of K_n, specifically excluded; J(n,k) at 3≤k≤n−3 contains induced 3-leaf claw (three independent swaps), impossible for line graphs. Circle Rips results concern cyclic metric graphs, not hypersimplex skeletons. No directly covering theorem found with the actual limited searches; synonym risk explicitly retained.
+
+## value
+
+PASS
+
+An explicit all-parameter homotopy classification of a natural family of metric-graph Rips complexes, including a constructive 2-dimensional collapse and integral homology, serves topology of flag complexes and hypersimplices. The unbounded n,k formula and homotopy strength transcend small Betti enumeration; the line-graph boundary cases are deliberately excluded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

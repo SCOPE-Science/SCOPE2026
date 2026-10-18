@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T21:12:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every Johnson edge extends to a star or top, and any three vertices determine at most one such maximal clique; stars/tops intersect in at most an edge. Within each maximal simplex, pair every face τ of at least three vertices omitting the chosen apex with τ∪{apex} in descending dimension: all >2 simplices collapse, leaving all graph edges and the apex triangles. The hypersimplex Δ(n,k) is convex with Johnson graph 1-skeleton and triangular polygon 2-faces; its boundary dimension n−2≥4 is simply connected, so the cellular two-skeleton (a subcomplex of the flag complex with all edges) kills π1. Thus collapsed complex is simply connected and 2-dimensional. V=C(n,k), E=(1/2)C(n,k)k(n−k), remaining T=C(n,k−1)C(n−k,2)+C(n,k+1)C(k,2); Euler, integral freeness and Hurewicz/Whitehead yield wedge of beta=V−E+T−1 2-spheres. Independent exact counts (6,3):19, (7,3):55, (8,4):181 agree; not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Line graph complexes cover k=2 and n−2, which the final theorem omits.",
+          "J(n,k) in claimed interior parameter range has an induced claw, so cannot be a line graph.",
+          "Circle Rips theorems are on different distances and vertex sets."
+        ],
+        "reasoning": "Neither known line-graph specialization nor broader circle Rips theory dominates the interior Johnson all-parameter wedge type.",
+        "searches": [
+          "arXiv:2009.12130 Theorem 3.4",
+          "arXiv:1503.03669",
+          "arXiv:2208.12710 Theorem 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Shuldiner–Oldford, The Clique Structure of Johnson Graphs, arXiv:2208.12710 §§3–4",
+        "Goyal–Shukla–Singh, Topology of Clique Complexes of Line Graphs, arXiv:2009.12130",
+        "Adamaszek–Adams, Vietoris–Rips complexes of a circle, arXiv:1503.03669"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Johnson theorem provides complete clique classification and triangle uniqueness; the proof needs additional topology (collapse + hypersimplex simply-connected 2-skeleton).",
+          "Prior line-graph theorem cannot apply due to the induced claw."
+        ],
+        "reasoning": "No stronger inspected theorem implies the explicit uniform all-parameter homotopy type; simply counting maximal cliques does not decide homotopy.",
+        "searches": [
+          "arXiv:2208.12710 Theorem 3.4 and Proposition 4.2",
+          "arXiv:2009.12130 line graph clique topology"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shuldiner–Oldford state uniqueness of a maximal clique containing every triangle; no higher homotopy calculation.",
+          "Rips scale one equals the flag complex of the Johnson graph, whose graph is a hypersimplex 1-skeleton."
+        ],
+        "reasoning": "The flag/hypersimplex alias was examined; clique counts are necessary but not equivalent to the wedge theorem without elementary collapses and π1 proof.",
+        "searches": [
+          "arXiv:2208.12710 Proposition 4.2",
+          "hypersimplex one-skeleton flag complex 2-sphere wedge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The current exact fingerprints β(6,3)=19, β(7,3)=55, β(8,4)=181 were independently recomputed from the f-vector, not found as an earlier proved all-parameter homotopy table.",
+          "Resultary query failed internally; GitHub search returned no matches."
+        ],
+        "reasoning": "Finite tables, if found, would not imply the full wedge theorem. No exact covering database claim is made from unsuccessful searches.",
+        "searches": [
+          "Johnson graph Vietoris Rips clique complex homotopy wedge two spheres hypersimplex collapse",
+          "GitHub Resultary/2026 code search: Johnson graph clique complex homotopy",
+          "arXiv:2208.12710 §4"
+        ]
+      },
+      "rationale": "Shuldiner–Oldford classify the two maximal clique families but not simplicial-collapse/homotopy. Goyal–Shukla–Singh line-graph topology handles J(n,2)=line graph of K_n, specifically excluded; J(n,k) at 3≤k≤n−3 contains induced 3-leaf claw (three independent swaps), impossible for line graphs. Circle Rips results concern cyclic metric graphs, not hypersimplex skeletons. No directly covering theorem found with the actual limited searches; synonym risk explicitly retained.",
+      "residual_risks": [
+        "A homotopy result in hypersimplex flag-complex, graph complement independence-complex, or discrete Morse language could be equivalent but unindexed.",
+        "Verifier 15 parameter cases and 2,872 collapse pairs were source-stated and not independently rerun in full; exact three Betti fingerprints independently recomputed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides combinatorial inputs but not homotopy/wedge theorem.",
+          "evidence": [
+            "Prop 4.2 states every r>2 clique is in only one maximal star/top."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.12710",
+          "material_read": "Entire primary 14-page PDF, especially Theorem 3.4 and Proposition 4.2 on maximal clique classification and uniqueness for r>2.",
+          "method": "Original PDF text plus original page inspection.",
+          "title": "The Clique Structure of Johnson Graphs",
+          "trigger": "Same exact family and facet geometry; plausible full coverage."
+        },
+        {
+          "assessment": "Line-graph result includes k=2 boundary but excludes induced-claw interior Johnson graphs.",
+          "evidence": [
+            "J(n,2)=L(K_n); for k≥3 and n−k≥3, a 3-leaf induced claw violates line-graph necessary property."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.12130",
+          "material_read": "Primary PDF introduction, main clique-complex structure and Theorem 3.4; not every proof detail reread.",
+          "method": "Original arXiv PDF sections read.",
+          "title": "Topology of Clique Complexes of Line Graphs",
+          "trigger": "Potential k=2 or all-Johnson coverage via graph translation."
+        },
+        {
+          "assessment": "Different one-dimensional metric object; no theorem directly on Johnson graph flag complex.",
+          "evidence": [
+            "Results concern circle samples with cyclic metric, not k-subsets under graph distance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.03669",
+          "material_read": "Original primary paper abstract, theorem statements and metric circle hypotheses.",
+          "method": "ArXiv primary PDF sections inspected.",
+          "title": "The Vietoris–Rips complexes of a circle",
+          "trigger": "Rips homotopy generalization possible."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit all-parameter homotopy classification of a natural family of metric-graph Rips complexes, including a constructive 2-dimensional collapse and integral homology, serves topology of flag complexes and hypersimplices. The unbounded n,k formula and homotopy strength transcend small Betti enumeration; the line-graph boundary cases are deliberately excluded.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Inclusive scale exactly one; interior Johnson family 3≤k≤n−3; no higher scale/persistence assertion."
+  ]
+}
