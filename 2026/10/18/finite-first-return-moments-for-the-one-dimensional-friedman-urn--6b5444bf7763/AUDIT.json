@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact time-dependent urn transition probabilities yield (n+1)a_(n+1)=n a_n+s_n for the positive killed chain, with a_1=s_1=1. The reflection identity for absorbed symmetric walk bounds its m-step survival by 2x/sqrt(m), and a monotone even-parity uniform coupling dominates the inhomogeneous Friedman walk while positive. Thus s_(2n)<=2n^(-3/2)(1+sum_(k<n)s_k). Starting with s_n=O(n^(-1/2)), three iterations give O(n^(-1)), O((log n)n^(-3/2)) (summability), and finally O(n^(-3/2)). Discrete tail summation yields finite moments theta<3/2; 889 finite checks, including exact rational recurrences and deterministic square-root bound checks confirm transition and moment recursions and reflected kernel. No finite test is presented as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Menshikov and Volkov, arXiv:0711.2373v1, Section 6: outward-reinforcement drift and recurrence/transience, not present inward-drift first-return moments.",
+        "Balaji and Mahmoud, arXiv:2504.14813v1, Sections 4–5: model, recurrence, and an explicit unsolved finite-mean conjecture."
+      ],
+      "reasoning": "Menshikov–Volkov is a plausible stronger generalized urn/drift treatment, but the checked Section 6 regime has rho>0 and addresses recurrence/transience. The present signed walk has conditional drift (1-x)/(n+1) for positive x and the claim is a return-time moment/tail assertion; generic recurrent classifications alone imply neither summability of survival nor the n^{-3/2} upper bound.",
+      "searches": [
+        "One-dimensional Friedman urn walk first return to origin finite expectation positive recurrence polynomial survival tail n minus three halves, pathwise comparison with simple symmetric random walk",
+        "Self correcting urn random walk survival first passage moments time inhomogeneous Markov drift -X_n/n",
+        "Urn-related random walk with drift rho x alpha t beta first passage moments",
+        "Friedman urn 1-dimensional random walk first return time positive recurrence exact asymptotic survival n^{-3/2}"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2504.14813v1",
+      "https://arxiv.org/html/0711.2373v1",
+      "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/sharp-large-deviations-and-concentration-inequalities-for-the-number-of-descents-in-a-random-permutation/A2AE11B0B9D1BAD3285F3CC212F37D3F"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Balaji and Mahmoud, arXiv:2504.14813v1, Sections 4–5: model, recurrence, and an explicit unsolved finite-mean conjecture.",
+        "Menshikov and Volkov, arXiv:0711.2373v1, Section 6: outward-reinforcement drift and recurrence/transience, not present inward-drift first-return moments.",
+        "Bercu–Bonnefont–Richou, Sharp large deviations for descents, Friedman-urn marginal equivalence, no passage-time theorem in inspected material."
+      ],
+      "reasoning": "The result answers the literal conjecture in Balaji–Mahmoud Section 5 by proving E[T]<infinity; their recurrence theorem only concerns infinitely many returns and permits infinite first-return mean. Menshikov–Volkov addresses a different positive-drift parameter regime and Bercu et al. address marginal distributions. Thus the compared source statements do not entail this stopped first-moment bootstrap or its quantitative tail.",
+      "searches": [
+        "One-dimensional Friedman urn walk first return to origin finite expectation positive recurrence polynomial survival tail n minus three halves, pathwise comparison with simple symmetric random walk",
+        "Friedman urn 1-dimensional random walk first return time positive recurrence exact asymptotic survival n^{-3/2}",
+        "Eulerian descent process first passage positive meander hitting zero survival Brownian OU",
+        "Urn-driven random walks first return positive recurrence proven"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Balaji and Mahmoud, arXiv:2504.14813v1, Sections 4–5: model, recurrence, and an explicit unsolved finite-mean conjecture.",
+        "Bercu–Bonnefont–Richou, Sharp large deviations for descents, Friedman-urn marginal equivalence, no passage-time theorem in inspected material."
+      ],
+      "reasoning": "The same walk is equivalently a signed Eulerian-descents Markov chain, so marginal central limit or deviation results were examined rather than assumed independent. The exact target is the first return after the deterministic initial +1 step; one-time Eulerian marginals do not determine its killed survival distribution. No covering equivalent first-return moment law was located.",
+      "searches": [
+        "One-dimensional Friedman urn walk first return to origin finite expectation positive recurrence polynomial survival tail n minus three halves, pathwise comparison with simple symmetric random walk",
+        "Eulerian descent random walk first hitting time moment finite tail exponent killed Markov chain urn with opposite color reinforcement",
+        "Self correcting urn random walk survival first passage moments time inhomogeneous Markov drift -X_n/n",
+        "Friedman urn Eulerian random walk hitting time survival first passage 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Balaji and Mahmoud, arXiv:2504.14813v1, Sections 4–5: model, recurrence, and an explicit unsolved finite-mean conjecture.",
+        "Bercu–Bonnefont–Richou, Sharp large deviations for descents, Friedman-urn marginal equivalence, no passage-time theorem in inspected material.",
+        "Exact finite first-return values generated for times 2,4,6,8,10; these alone are not the theorem."
+      ],
+      "reasoning": "Eulerian-number tables provide P(X_n=0) but not a table of time-dependent first-return probabilities. A finite enumeration cannot imply the all-time tail bound or finite mean; no published exact first-return census covering those statements was located.",
+      "searches": [
+        "One-dimensional Friedman urn walk first return to origin finite expectation positive recurrence polynomial survival tail n minus three halves, pathwise comparison with simple symmetric random walk",
+        "Eulerian descent random walk first hitting time moment finite tail exponent killed Markov chain urn with opposite color reinforcement",
+        "Eulerian descent process first passage positive meander hitting zero survival Brownian OU",
+        "Friedman urn first return moments Eulerian tables"
+      ]
+    },
+    "rationale": "The 2025 first-public Balaji–Mahmoud paper states the precise E[T]<infinity problem as a simulation-backed conjecture in Section 5; the theorem proves that property and strengthens it with a polynomial tail upper bound. Earlier urn/drift and Eulerian-deviation papers inspected do not prove the killed survival result. Search incompleteness remains an explicit priority risk.",
+    "residual_risks": [
+      "A previously unindexed theorem on path-dependent Eulerian-descent first-passage times might imply the statement after a nontrivial reduction.",
+      "Generic hitting-time moment criteria for time-inhomogeneous supermartingales may encompass the model; the reflection/bootstrap proof is nonetheless fully explicit.",
+      "A search for published mathematical records does not establish global novelty or independence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Recurrence and one-time Eulerian marginals established; the text explicitly leaves finite first-return expectation unproved.",
+        "evidence": [
+          "Section 5 explicitly states that finite mean first hitting time is a conjecture and a proof is left for future work.",
+          "Section 4 contains the exact one-white initial composition and opposite-color reinforcement."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2504.14813v1",
+        "material_read": "Sections 4 and 5, including exact urn probabilities, Eulerian marginals, stated theorem, simulation algorithm, explicit conjecture, and bibliography",
+        "method": "Direct open-access HTML full-text reading and theorem/assumption comparison",
+        "title": "Urn-driven random walks",
+        "trigger": "Identical opposite-color urn initial composition and an explicit unproved return-time conjecture"
+      },
+      {
+        "assessment": "Studies generic drift recurrence and a Friedman-type outward-drift regime with rho positive, not finite first-return moments for the inward-drift walk defined here.",
+        "evidence": [
+          "Section 6 assumes alpha>beta>0, corresponding to outward reinforcement.",
+          "The stated conclusions concern recurrence/transience and frequency of visits, not expectation of the first return in the negative-drift model."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0711.2373v1",
+        "material_read": "Introduction, principal recurrence/transience criteria, special cases, entire Section 6 urn application, relevant proof structure and references",
+        "method": "Direct open-access HTML full-text section and theorem inspection",
+        "title": "Urn-related random walk with drift rho x^alpha / t^beta",
+        "trigger": "Earlier urn drift regime might dominate the first-return statement"
+      },
+      {
+        "assessment": "Same urn can represent the descent statistic; results are about marginal concentration/deviations, not first-passage survival or finite expected return.",
+        "evidence": [
+          "Introduction identifies the Friedman-urn marginal representation; the treated results are one-time deviation/concentration results."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/sharp-large-deviations-and-concentration-inequalities-for-the-number-of-descents-in-a-random-permutation/A2AE11B0B9D1BAD3285F3CC212F37D3F",
+        "material_read": "Abstract, introduction, urn representation (Remark 2.1), statements about Eulerian marginal deviations, references, and searches for hitting and return language",
+        "method": "Online full HTML substantive section inspection and within-document searches",
+        "title": "Sharp large deviations and concentration inequalities for the number of descents in a random permutation",
+        "trigger": "Eulerian distribution and Friedman urn equivalence could imply existing first-return theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6b5444bf-7763-420c-9d21-b3617b17459e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This directly answers a named open finite-first-return expectation question about a classical nonexchangeable urn walk. The additional n^(-3/2) survival estimate and theta<3/2 moment range distinguish strong first-passage information from marginal recurrence. The proof is an interpretable stopped-moment identity plus a nontrivial iterative comparison. No downstream paper-sized contribution or claimed optimal exponent is needed for this concrete natural gap.",
+    "status": "PASS"
+  }
+}
