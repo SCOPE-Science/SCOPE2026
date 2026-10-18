@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Birkhoff condition is reconstructed from norming functionals. Relative edge interiors have one norming functional, so only the two unit kernel directions are possible. At a vertex, the norming functionals are exactly the convex hull of the two adjacent support facets, giving the sign-straddling criterion. These cases exhaust the decagonal sphere. On each resulting segment, the two norm factors are upper envelopes of affine functions; partitioning at all crossings reduces their product to finitely many quadratics, whose endpoints and stationary points are checked exactly. The standalone \(\mathbb Q(\sqrt5)\) verifier certifies the two case maxima and the explicit equality pair.
+## correctness
 
-## Originality
-PASS. Searches covered the exact \(T_{\perp}\) name, the squared Birkhoff product formulation, regular-decagon aliases, and the candidate radical. The defining 2022 full paper was inspected through Section 5 and its conclusion; it gives universal bounds and square/Hilbert values but no regular-decagon computation and explicitly leaves further specific-space values open. A full public polygonal-Radon source and the accessible part of a Radon-plane James source were also compared by implication. The closest located exact same-invariant result concerns \(\ell_3^2\), while the closest same-space result concerns a different invariant.
+PASS
 
-## Value
-PASS. The affine regular decagon is the first nonhexagonal regular polygonal Radon plane and therefore a natural benchmark for a Birkhoff-restricted constant. The exact computation reveals a genuine geometric mechanism: the maximizing configuration is forced to a nonsmooth vertex, while all smooth-edge configurations have a strictly smaller product. This is a structural exact value rather than a routine parameter substitution.
+Inspected the exact Q(sqrt5) standalone enumeration and the full RESULT.md. At an edge-interior x the unique norming functional f_i forces y in the two unit directions ker(f_i). At a vertex x the norming functional interval gives x perpendicular_B y precisely when f_i(y)f_{i+1}(y)<=0; intersecting with decagon boundary yields 20 admissible subsegments. On every 1D case each norm is a maximum of ten affine terms, so the product is a quadratic on cells partitioned by all pairwise affine crossings. The exact checker checks endpoints and each interior stationary point using a rational quadratic-field arithmetic class, giving maximum P_edge=(63-5sqrt5)/16, P_vertex=(2+5sqrt5)/4, with strict difference (25sqrt5-55)/16>0. Independent numerical evaluation of the explicit pair and the respective edge/vertex maxima corroborated P_vertex~3.29508, P_edge~3.23873; finite exhaustive algorithm, not numeric sampling, is the claimed certificate. Birkhoff condition of witness verified using opposite signs of two norming functionals. The scope is precisely this affine-regular decagon and real scalars.
 
-## Closest literature and limitations
-Ahmad, Xie and Li introduced \(T_{\perp}\) in 2022 and left further specific-space computations open. Mandal, Sain and Paul established the regular \((4n+2)\)-gonal Radon structure used to interpret the decagon. Mizuguchi studied James constants in Radon planes; only partial public text was available for that source, so an equivalent hidden formulation remains a bibliographic residual risk. The result is specific to the affine regular decagon and does not classify all regular polygonal Radon planes.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge originality: the exact stated invariant and quantified result were compared by implication to the closest primary and published SCOPE sources; no decisive covering result found. Unread material and alternative nomenclature remain explicit, and source search is not proof of absolute novelty.
+
+## value
+
+PASS
+
+The optimal Birkhoff-orthogonal geometric mean is a natural nonlinear invariant not determined by the decagon's separate James, Schäffer or Birkhoff chord-sum constants. The exact vertex-vs-edge competition, golden-ratio constant and equality witness supply a useful complete polygonal test case; the 1D cell classification is substantive, not merely a renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
