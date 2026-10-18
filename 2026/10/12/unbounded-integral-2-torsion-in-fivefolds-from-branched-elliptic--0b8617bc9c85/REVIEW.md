@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The branch orbifold presentation is valid for a connected simply branched double cover of an elliptic curve, with even branch count. Its abelianization and the integral five-term exact sequence calculate the deck-involution coinvariants exactly; the index-two kernel contains precisely \((\mathbb Z/2)^{r-2}\) torsion. The surface is a product of a circle and the deck-involution mapping torus, so the integral Wang and Künneth sequences yield all its homology groups with torsion. The universal coefficient theorem places that torsion in surface cohomological degrees two and three. The integral codimension-three blow-up decomposition then places it in fivefold degrees four through seven. All hypotheses, smoothness, and boundary \(r=2\) are covered. The standalone script's exact finite checks confirm arithmetic but are not substitutes for the universal proof.
+## correctness
 
-## Originality: PASS, with residual source-access uncertainty
-Debarre–Jiang–Lahoz Example 1.11 specifies the same quotient surface but studies rational cohomology and its geometry, not the stated branch-count-dependent integral torsion. Schreieder–Wang (2026-07-16) establishes an earlier fivefold Aomoto counterexample, but the accessible abstract and independent introduction digest address the Aomoto and infinite-cyclic-cover properties, not the exact compact integral cohomology groups. Corrêa–Kollár–Schreieder–Wang (2026-10-03) gives the exact center, relative embedding and integral blow-up decomposition and studies rational local-system cohomology and infinitely generated cohomology of an infinite cyclic cover. The read Sections 4.1–4.5 do not evaluate the finite groups of compact fivefolds. Searches for integral torsion of those exact surfaces, deck-involution coinvariants, broader formulas and tabulations found no covering calculation. Because the complete July preprint was unavailable, a prior implicit calculation remains a specifically acknowledged risk; failed searches are not proof of absolute novelty.
+PASS
 
-## Value: PASS
-Exact integral cohomology of these Aomoto-exact counterexample fivefolds is a natural invariant not determined by the rational cohomology data central to the initiating papers. The theorem identifies both the complete free ranks and four torsion degrees and proves that an arbitrary increasing even branch count produces unbounded two-primary torsion while retaining the same rational Betti numbers. The quantified divergence is a substantive topological feature of an existing geometric construction, rather than a normalization check or arbitrary small numerical computation.
+For any even r>=2, connected simply branched double cover C->E has genus 1+r/2. Its orbifold extension Gamma has H1(Gamma)=Z^2+ (Z/2)^(r-1). The covering character is surjective on the branch torsion and its kernel there is (Z/2)^(r-2); H2(Z/2;Z)=0 in the 5-term sequence identifies H1(C)_iota with ker[H1Gamma->Z/2], giving Z^2+T. Translation by a nonzero order-two elliptic point yields free diagonal action and S=(F×C)/Z2 diffeomorphic to S1×M_iota (mapping torus of the deck involution). Integral Wang gives H1(M)=Z^3+T, H2(M)=Z^3, H3(M)=Z; Kunneth gives H_*(S):Z,Z^4+T,Z^6+T,Z^4,Z, and integral universal coefficient gives torsion T in H^2(S),H^3(S). Published relative embedding lemma embeds S in P4×E (codim3), and integral blow-up cohomology gives H^k(X)=H^k(P4×E)+H^(k-2)(S)+H^(k-4)(S); hence T in k=4,5,6,7 each and nowhere else. Independent exact Betti-polynomial calculation yielded (1,2,3,6,9,10,9,6,3,2,1), Euler char0. This is an all-even-r topological proof, not extrapolation from r<=16 finite arithmetic checks.
 
-## Boundaries
-The claim is restricted to additive integral cohomology of the stated double-cover and free-translation family. It does not determine the integral cohomology ring or the torsion of other blow-up centers. The full text of arXiv:2607.15102v1 could not be inspected, although its public abstract and a discussion of its introduction were inspected. Classical homological tools themselves are not claimed as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Structured searches compared exact claims and implications; see named checks and inspection evidence. Best-of-knowledge only; residual literature-priority risks remain.
+
+## value
+
+PASS
+
+For the very same smooth projective fivefold construction used to study Aomoto exactness and rational cohomology, the complete additive integral torsion exhibits arbitrarily large 2-rank while the rational Betti numbers stay constant. The object and invariant are natural; this exact quantification is independently useful to topology/Kähler researchers even without a new general cohomology theorem, and is not implied solely by the published rational cohomology computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
