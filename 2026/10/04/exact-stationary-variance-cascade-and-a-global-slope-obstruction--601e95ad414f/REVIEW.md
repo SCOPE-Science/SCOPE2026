@@ -1,30 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Arbitrary antiderivative tests in each mRNA and protein coordinate give
-\[
-\mathbb E[R(p_{j_i})\mid m_i]=m_i,
-\qquad
-\mathbb E[m_i\mid p_i]=p_i.
-\]
-The residuals are exactly the coordinate speeds, producing two variance differences equal to nonnegative mean-square speeds. If either defect is zero, coordinate constancy propagates around the strictly monotone cyclic repression loop and forces equilibrium support. For a non-equilibrium stationary state, all three protein variances are positive and satisfy
-\[
-V_i<L^2V_{j_i},
-\]
-so multiplication around the cycle forces
-\[
-L>1.
-\]
-The Hill-slope maximization is elementary and the \(h=2\) specialization was replayed exactly.
+## correctness
 
-Risk: the result is restricted to compactly supported invariant measures in the nonnegative concentration orthant.
+PASS
 
-## Originality
-PASS. Complete same-object mathematical sources from 2006, 2015, 2018, and the open generalized-repressilator manuscript were inspected at statement and implication level. They address equilibrium stability, Hopf bifurcation, limit cycles, heteroclinic dynamics, and generalized kinetic laws, but targeted searches did not reveal the accepted invariant-measure conditional regressions or variance cascade. Direct and equivalent indexed searches likewise found no same-object statement implying the result.
+For the six-dimensional repressilator, invariance of arbitrary antiderivatives in m_i,p_i yields E[R(p_j)|m_i]=m_i and E[m_i|p_i]=p_i. Orthogonality of each speed residual gives exact Var(R(p_j))-Var(m_i)=E[mdot_i²] and Var(m_i)-Var(p_i)=β^-2E[pdot_i²]. Vanishing of either speed on invariant support propagates constancy through the cyclic graph via strict monotonicity of R(s), so every non-equilibrium μ has all three strict variance cascades and Var(p_i)>0. The global Lipschitz estimate Var(R(P))≤L²Var(P) gives the cyclic product 1<L^6, hence L>1 is necessary. Maximizing |R'(s)| for R=α/(1+s^h)+α₀ at s^h=(h-1)/(h+1) gives L=α(h+1)²/(4h)((h-1)/(h+1))^((h-1)/h); h=2 specializes 9α/(8√3). Claims are sufficient obstruction, not sharp Hopf threshold.
 
-Risk: general cyclic-feedback small-gain theory may contain conceptually related slope criteria, and the short residual identities could have appeared incidentally under different terminology.
+## originality
 
-## Value
-PASS. The theorem matches the biological architecture of the repressilator: transcription drive, mRNA, and protein form successive dynamical stages. It quantifies the variance dissipated at each stage exactly by mean-square coordinate speed and yields a model-wide necessary condition for non-equilibrium stationary oscillation. This is a reusable stationary diagnostic and a structural recurrence obstruction, not a restatement of the known equilibrium or Hopf calculation.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Published local Hopf and global cycle classifications are not equivalent to the two exact invariant-measure variance equalities. A general contraction/small-gain bound could imply absence of recurrence for L≤1 without the stationary budget; the new claim should not assert novelty for that bare sufficient inequality in isolation. A best-of-knowledge novelty conclusion is limited to the complete final theorem, not prior equations/local lemmas/classical parameters. Targeted original searches were undertaken but Resultary returned temporarily_unavailable/search_completed:false, not zero matches; full-text access gaps are candid risks.
+
+## value
+
+PASS
+
+The exact transcription-to-protein fluctuation budget quantifies each stage of the natural biochemical feedback cycle. Its non-equilibrium rigidity and global maximum-Hill-slope obstruction are motivated recurrence constraints on the full six-dimensional model, although general small-gain ideas and sharper local Hopf thresholds are prior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
