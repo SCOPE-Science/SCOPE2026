@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Pair counting among the four lines shows that the only possible alternative to four conic-line-line triple points would be one triple of three concurrent lines. That alternative forces the fourth line through three distinct points of the smooth conic and contradicts Bézout. Hence every realization is a four-chord cycle on the conic and reduces by the \(\operatorname{PGL}_2\)-action to the displayed \(F_\lambda\). The bundled exact verifier checks the quadratic Jacobian syzygy and a \(9\times9\) coefficient minor \(108\lambda^2\), proving \(\operatorname{mdr}=2\) for every \(\lambda\ne0,1\). The singularity count gives \(\tau=18\), and the published degree-six criterion gives near freeness with exponents \((2,4)\).
+## correctness
 
-Risk: the normal-form parameter has the finite anharmonic redundancy of an unordered four-point set. This affects only parameter uniqueness, not the uniform near-freeness claim.
+PASS
 
-## Originality
-PASS. The lead 2022 source gives a single symmetric degree-six example with these counts and asks for weak-combinatorics classification, but does not prove uniformity across the realizable stratum. The complete 2022 free-classification paper concerns freeness, not near freeness. The 2026 low-degree database preprint lists a selected nearly free representative of weak combinatorics \((1,4;2,0,4)\), but explicitly presents its appendix as a database of selected arrangements and does not classify all projective realizations or prove that the weak combinatorics force near freeness. published-finding corpus searches for the exact weak-combinatorics vector, the normal form, four-chord aliases, cross-ratio language, and uniform near freeness returned no covering statement. The current and prior ledgers were checked for the source, claim, parameters, and equivalent formulations; the closest own claim is a different degree-eight near-free example.
+Pair counting of 4 lines and 4 triple points gives a=0 line-only triples, b=4 conic-line-line triples, 2 residual line-line nodes; otherwise a=1 would force a line to meet the conic in 3 distinct points. The triple incidence graph is a 4-cycle of conic chords. PGL2 acts triply transitively on the smooth conic, producing the normal form Fλ=(xz−y²)y(x−y)(x−(1+λ)y+λz)(y−λz), λ≠0,1. The explicit quadratic syzygy A Fx+B Fy+C Fz=0 and full-rank linear-syzygy minor 108λ² imply mdr=2; τ=2+4·4=18 and degree-six near-free characterization imply exponents (2,4). Independently at λ=2, symbolic F calculation verified syzygy and rank9 of the full 22×9 coefficient matrix. Nonconstant unordered j(λ) establishes positive-dimensional projective family; finite check supplements original all-λ algebra.
 
-Risk: an unindexed note or thesis may contain an equivalent projective-normal-form argument under different terminology. No inspected source supplies such a statement.
+## originality
 
-## Value
-PASS. The result answers a natural cell of the lead source's explicit weak-combinatorics classification problem: it replaces isolated computational representatives by a theorem for every realization of \((1,4;2,0,4)\). The nonconstant cross-ratio invariant is substantive because it proves this is not merely a disguised uniqueness statement: infinitely many projectively inequivalent arrangements have the same weak combinatorics and all share near freeness. This gives a concrete near-free analogue of a numerical-Terao phenomenon on a positive-dimensional moduli stratum.
+PASS
 
-Risk: the theorem handles one weak-combinatorics cell only and does not imply a general numerical-Terao theorem for near freeness.
+Prior Gałecka degree-six example and the complete 2026 Bromboszcz appendix disclose nearly-free members with the same (1,4;2,0,4) data, but neither asserts the all-realization theorem, four-chord normal form or nonconstant moduli. Novelty limited to this exact cell, with remaining unindexed geometric prior risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural weak-combinatorics cell of plane arrangements is proved universally nearly free, not merely witnessed once; the positive-dimensional cross-ratio geometry gives a complete realization classification and resolves a motivated near-freeness-versus-combinatorics question for degree six.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

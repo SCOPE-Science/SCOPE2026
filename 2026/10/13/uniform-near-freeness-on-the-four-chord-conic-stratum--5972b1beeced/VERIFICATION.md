@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled symbolic checker reconstructs
-\[
-F_\lambda=(xz-y^2)y(x-y)\bigl(x-(1+\lambda)y+\lambda z\bigr)(y-\lambda z)
-\]
-over the polynomial ring \(\mathbb Q[\lambda,x,y,z]\). It verifies the displayed quadratic Jacobian syzygy exactly and computes a \(9\times9\) coefficient minor for a general linear Jacobian relation, obtaining \(108\lambda^2\). Thus the computational part proves \(\operatorname{mdr}(F_\lambda)=2\) uniformly for \(\lambda\ne0\).
+# Independent mathematical audit
 
-The checker also verifies the four named conic-line-line triple points, the two opposite-line nodes, the chord restrictions to the Veronese parameterization of the conic, and the degree-six numerical near-freeness identity with \(\tau=18\). It additionally checks the standard parameterization of the symmetric circle used to relate the lead source's example to a harmonic four-point configuration.
+## correctness
 
-Run:
+PASS
 
-`python artifacts/verify.py`
+Pair counting of 4 lines and 4 triple points gives a=0 line-only triples, b=4 conic-line-line triples, 2 residual line-line nodes; otherwise a=1 would force a line to meet the conic in 3 distinct points. The triple incidence graph is a 4-cycle of conic chords. PGL2 acts triply transitively on the smooth conic, producing the normal form Fλ=(xz−y²)y(x−y)(x−(1+λ)y+λz)(y−λz), λ≠0,1. The explicit quadratic syzygy A Fx+B Fy+C Fz=0 and full-rank linear-syzygy minor 108λ² imply mdr=2; τ=2+4·4=18 and degree-six near-free characterization imply exponents (2,4). Independently at λ=2, symbolic F calculation verified syzygy and rank9 of the full 22×9 coefficient matrix. Nonconstant unordered j(λ) establishes positive-dimensional projective family; finite check supplements original all-λ algebra.
 
-Expected final line: `VERIFY_OK`.
+## originality
 
-The global reduction from arbitrary realizations to the four-cycle chord normal form is proved separately by line-pair counting and Bézout. The finite symbolic checker is not used as a substitute for that universal geometric argument, and no exhaustive literature claim is inferred from search failure.
+PASS
+
+Prior Gałecka degree-six example and the complete 2026 Bromboszcz appendix disclose nearly-free members with the same (1,4;2,0,4) data, but neither asserts the all-realization theorem, four-chord normal form or nonconstant moduli. Novelty limited to this exact cell, with remaining unindexed geometric prior risk.
+
+## value
+
+PASS
+
+A natural weak-combinatorics cell of plane arrangements is proved universally nearly free, not merely witnessed once; the positive-dimensional cross-ratio geometry gives a complete realization classification and resolves a motivated near-freeness-versus-combinatorics question for degree six.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
