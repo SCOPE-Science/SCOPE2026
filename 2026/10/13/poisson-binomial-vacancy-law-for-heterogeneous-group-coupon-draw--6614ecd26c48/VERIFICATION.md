@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and proof scope
+# Independent mathematical audit
 
-Run `python verify.py` from the extracted file directory (requires Python 3 and SymPy). The exact-rational script checks 710 distribution-and-real-rootedness cases over all \(1\leq n\leq8\) and nondecreasing packet-size lists of length at most three; it also checks 5,144 exact binomial factorial moments and eight distinct underlying subset enumerations. The expected output begins `PASS: 710 exact distribution-and-real-root checks, 5144 factorial-moment identities, 8 independent subset enumerations.`
+## correctness
 
-The analytical proof, not enumeration, establishes all integers \(n\geq1\) and all finite packet sequences. Independently check (i) conditional hypergeometric coefficient extraction, (ii) the mixed-half-plane zero exclusion, (iii) Gauss–Lucas derivative preservation, (iv) Hurwitz nonzero limit justified by \([w^t]G(1,w)=\binom nt\), and (v) the multiaffine polarization conclusion. The exact Bernoulli parameters are derived from the nonpositive real zeros; the physical vacancy indicators are not asserted independent.
+PASS
 
-No external independent scientific audit has been conducted, and an unreviewed earlier equivalent publication cannot be excluded.
+For each j-set J, independent size-s packets avoid J with probability product_l C(n-j,s_l)/C(n,s_l), establishing the exact PGF by factorial moments. If F has nonpositive real zeros, the hypergeometric packet update T_tF=[w^t](1+w)^n F((1+zw)/(1+w))/C(n,t) preserves real nonpositive zeros: its factorization has no zeros for Im z>0 and Im w<0; Gauss-Lucas applied in w and Hurwitz at w=0 preserve upper-half-plane zero exclusion. Iterating from F=z^n establishes every n and finite varying schedule, including empty and full packets. F(1)=1 yields a Poisson-binomial factorization. Exchangeability and stable-polynomial polarization give the strongly Rayleigh joint unseen vector; independence is asserted only for the distributional Bernoulli representation, not for actual missing indicators.
+
+## originality
+
+PASS
+
+The exact per-round root-preserving transformation and its group-coupon finite-sample strong Rayleigh conclusion were not shown in the inspected group-drawing asymptotics. Borcea–Brändén–Liggett supply general stability/polarization, not an inspected statement proving this particular packet update. Brändén–Jonasson discuss stability under sampling/conditioning and could subsume an equivalent form; full text could not be inspected, so this is a substantial explicit priority risk rather than negative proof.
+
+## value
+
+PASS
+
+For heterogeneous group coupon drawing, an exact Poisson-binomial representation gives all finite-sample distributional parameters and full negative association, much stronger than Gaussian/Poisson limits and useful for sharp tail probabilities; arbitrary packet sizes and joint vector properties make this a motivated structural statement rather than a routine numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

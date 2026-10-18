@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem specifies independent rounds drawing uniformly chosen fixed-size subsets; packet sizes may change and include endpoints. The factorial-moment identity follows from counting missed fixed subsets. The coefficient-extraction transition exactly matches hypergeometric intersection. For an input probability-generating polynomial with nonpositive real roots, the bivariate polynomial \(G(z,w)\) has no zeros with \(\operatorname{Im}z>0\), \(\operatorname{Im}w<0\). Gauss–Lucas applied in \(w\) and then Hurwitz at \(w=0\), with the positive normalization \([w^t]G(1,w)=\binom nt\), proves every updated probability-generating polynomial remains real-rooted. Starting from \(z^n\) gives induction for all finite numbers of packets. Bernoulli factorization and the exchangeable strongly Rayleigh consequence follow by normalization and stable polarization. This handles degeneracy, zero/full packets, and every \(n\geq1\).
+## correctness
 
-The standalone rational checker verifies 710 exact finite laws/root certificates, 5,144 moment identities and eight separate subset enumerations. These checks corroborate the proof; they do not certify the infinite universal quantifiers by enumeration.
+PASS
 
-## Originality — PASS, with residual risk
-The full group-drawing article of Betken and Thäle studies the identical vacancy count through quantitative asymptotic normal and Poisson approximation, not the asserted finite-sample real-rootedness or different packet sizes. The full foundational work of Borcea–Brändén–Liggett proves the exchangeable strongly Rayleigh characterization and general stability theory, but the conditional-sampling transition used here is not claimed there as a result for arbitrary consecutive coupon groups. The Tang–Tang review establishes classical univariate real-rootedness/Poisson-binomial equivalence; that is an ingredient, not an implication establishing real-rootedness for the coupon model. Brändén–Jonasson's abstract and indexed theorem concern sampling and a disjointness-conditioned combination, which does not give the unconditional intersection asserted here. Its full paper was not obtained and represents a genuine residual comparison risk. Search coverage includes alternative terms such as occupancy, intersection of uniform random subsets, stability, and negative dependence; unsuccessful searching alone is not treated as proof of priority. The result is supported by explicit mathematical comparisons, not title matching. Independent priority confirmation remains outstanding.
+For each j-set J, independent size-s packets avoid J with probability product_l C(n-j,s_l)/C(n,s_l), establishing the exact PGF by factorial moments. If F has nonpositive real zeros, the hypergeometric packet update T_tF=[w^t](1+w)^n F((1+zw)/(1+w))/C(n,t) preserves real nonpositive zeros: its factorization has no zeros for Im z>0 and Im w<0; Gauss-Lucas applied in w and Hurwitz at w=0 preserve upper-half-plane zero exclusion. Iterating from F=z^n establishes every n and finite varying schedule, including empty and full packets. F(1)=1 yields a Poisson-binomial factorization. Exchangeability and stable-polynomial polarization give the strongly Rayleigh joint unseen vector; independence is asserted only for the distributional Bernoulli representation, not for actual missing indicators.
 
-## Value — PASS
-The same vacancy variable is an established target of probability-limit research. The new claim is a uniform exact finite-sample structure for all sample sizes and heterogeneous packet sizes, not a special numerical instance. It yields Bernoulli factorization and strong negative-dependence properties, providing a systematic route to exact distributional inequalities complementary to the published asymptotic approximations. The mixed-half-plane preservation step supplies the structural mathematical reason for those consequences, so the claim is not merely a re-labeling of a known univariate equivalence.
+## originality
 
-## Limits and references
-The proof requires uniform packets and independence across rounds. Earlier equivalent treatments in occupancy and real-stable polynomial terminology may exist; the full 2012 sampling paper remains unread. BBL framework and classical real-rootedness equivalences are credited as previously established mathematical inputs. See the references and limitations in `RESULT.md`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact per-round root-preserving transformation and its group-coupon finite-sample strong Rayleigh conclusion were not shown in the inspected group-drawing asymptotics. Borcea–Brändén–Liggett supply general stability/polarization, not an inspected statement proving this particular packet update. Brändén–Jonasson discuss stability under sampling/conditioning and could subsume an equivalent form; full text could not be inspected, so this is a substantial explicit priority risk rather than negative proof.
+
+## value
+
+PASS
+
+For heterogeneous group coupon drawing, an exact Poisson-binomial representation gives all finite-sample distributional parameters and full negative association, much stronger than Gaussian/Poisson limits and useful for sharp tail probabilities; arbitrary packet sizes and joint vector properties make this a motivated structural statement rather than a routine numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
