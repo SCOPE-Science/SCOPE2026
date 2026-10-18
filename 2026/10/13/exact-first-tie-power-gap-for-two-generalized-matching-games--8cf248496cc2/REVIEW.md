@@ -1,15 +1,21 @@
-# Scientific review: exact first-tie matching power gap
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed-point inclusion-exclusion formula and direct conditioning produce the stated likelihood-ratio polynomials. Their positive-coefficient differences establish the strict order for every real skill probability between zero and one and every integer sample size at least four. The Neyman–Pearson lemma and direct randomization algebra yield the complete triangular power profile. Derangement limits give the sparse-intensity coefficient. The standalone exact-fraction verifier passed; finite checks do not replace the analytic proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-O'Neill's openly accessible 2021 preprint and 2023 journal paper cover the model, marginal likelihoods, total-match tests and the general possibility of a likelihood-ratio alternative. The precise, alternative-independent optimal order of the first total-two tie and the exact power loss over the whole significance interval were not found in its full text. Papadatos's 2023 Poisson–Charlier approximation does not state an exact two-game finite-sample matching test. Searches for equivalent conditional formulations and broader coverage found no decisive predecessor. A differently phrased prior result remains possible; independent priority audit has not occurred.
+PASS
 
-## Value — PASS
-This is an exact optimal-testing classification at the first nontrivial aggregation tie, valid without tuning to a particular skill alternative, and it quantifies the power that aggregating across games discards. It includes a sharp local sparse-skill coefficient and explicitly delimits the significance interval, avoiding a claim at typical smaller significance levels.
+For the precisely stated generalized matching model K=L+F_(n-L), n>=4 and two IID rounds at shared θ in (0,1), the null mass p_0(k) is the derangement formula and the full alternative/null likelihood ratio is (1-θ)^n Q_k(θ/(1-θ)) with Q_k=sum_{j<=k} binom(k,j)(n)_j r^j. The exact identities Q_1^2-Q_0Q_2=n r^2>0 and Q_0Q_3-Q_1^2=nr+n(2n-3)r^2+n(n-1)(n-2)r^3>0, with coordinatewise monotonicity, strictly separate all null-support outcomes of total>=3, the balanced (1,1), the unbalanced (0,2)/(2,0), and totals<=1. The common ordering across all θ yields a UMP test for α in [β,β+A+B], and the Neyman–Pearson randomization algebra gives the complete triangular power difference AB/(A+B)*nθ²(1-θ)^(2n-2)*min((α-β)/A,(β+A+B-α)/B). Rational independently evaluated matching masses and power gaps for n=4,6,8 at θ=1/5, and checked fixed-k Poisson derangement limits for the n^-1 peak coefficient λ² exp[-2(1+λ)]/2. No significance levels outside the asserted band are covered.
 
-## Limitations
-Two independent games, identical skill rates and at least four objects; only the total-two threshold band. The full-data observation is the pair of match counts, not the underlying permutation. Outside this band, or for more games, no optimality classification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O’Neill (2023) full open-access primary article constructs the same generalized matching distribution, identifies the monotone single-trial likelihood ratio, discusses the total statistic and mentions vector likelihood-ratio testing. It does not in its inspected Sections 3, 5, 6 produce the precise θ-independent two-game ordering within a tied sum, triangular finite power loss or sparse-skill peak. The Neyman–Pearson lemma is standard and is not claimed as new. Published SCOPE Resultary searches produced unrelated testing refinements rather than this same model.
+
+## value
+
+PASS
+
+The finite-sample exact loss in test power from discarding an observed match-count split is a motivated statistical decision-theory quantity for an explicitly published matching model. The universal first-tie preference, sharp α-profile and sparse-skill coefficient are nontrivial precise facts; neither standard NP optimality nor the existence of a generic likelihood test determines them. The useful theoretical band has comparatively high α and is not a claim of improvement for standard 5% tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

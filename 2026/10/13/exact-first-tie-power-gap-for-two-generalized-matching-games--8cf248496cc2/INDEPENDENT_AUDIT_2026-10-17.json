@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T08:12:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Inspected pinned RESULT.md derivation including support K=n-1 excluded and full verification.py exact Fraction test code.",
+        "Independent exact rational finite computations in scope05_run127/independent_checks.py reproduced null masses, balanced-vs-total randomization peak gains n=4,6,8 at θ=1/5.",
+        "Continuum UMP conclusion follows from analytic polynomial sign identities, not finite points; sparse-skill asymptotic follows from Poisson fixed-point limits."
+      ],
+      "rationale": "For the precisely stated generalized matching model K=L+F_(n-L), n>=4 and two IID rounds at shared θ in (0,1), the null mass p_0(k) is the derangement formula and the full alternative/null likelihood ratio is (1-θ)^n Q_k(θ/(1-θ)) with Q_k=sum_{j<=k} binom(k,j)(n)_j r^j. The exact identities Q_1^2-Q_0Q_2=n r^2>0 and Q_0Q_3-Q_1^2=nr+n(2n-3)r^2+n(n-1)(n-2)r^3>0, with coordinatewise monotonicity, strictly separate all null-support outcomes of total>=3, the balanced (1,1), the unbalanced (0,2)/(2,0), and totals<=1. The common ordering across all θ yields a UMP test for α in [β,β+A+B], and the Neyman–Pearson randomization algebra gives the complete triangular power difference AB/(A+B)*nθ²(1-θ)^(2n-2)*min((α-β)/A,(β+A+B-α)/B). Rational independently evaluated matching masses and power gaps for n=4,6,8 at θ=1/5, and checked fixed-k Poisson derangement limits for the n^-1 peak coefficient λ² exp[-2(1+λ)]/2. No significance levels outside the asserted band are covered.",
+      "residual_risks": [
+        "Restricted to two IID equal-θ games, match-count observations, α in first total-two tie band; conventional α=.05 generally outside."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "O’Neill (2023) proposes a vector likelihood-ratio test as an alternative.",
+          "General Neyman–Pearson lemma ensures pointwise optimal tests but does not establish parameter-independent ordering for a composite alternative."
+        ],
+        "reasoning": "Standard testing theory yields optimality after proving the special sign comparisons; it does not by itself cover the asserted all-θ finite matching-game formulas.",
+        "searches": [
+          "Resultary search: generalized matching distribution two independent games power test tie balanced 1 1 versus 0 2 Neyman Pearson",
+          "matching distribution monotone likelihood ratio multiple observations UMP likelihood ratio test"
+        ]
+      },
+      "checked_sources": [
+        "O’Neill (2023), Methodology and Computing in Applied Probability 25:93, doi:10.1007/s11009-023-10067-6",
+        "Papadatos arxiv:2304.10314",
+        "Resultary semantically ranked published SCOPE matching/test records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "O’Neill §6 describes a sum-of-matches statistic and likelihood-ratio alternative; its Theorem 10 supplies general single-observation log likelihood, not Q1²-Q0Q2 first-tie inequality.",
+          "Exact triangular power function follows only after nontrivial pair-outcome comparison."
+        ],
+        "reasoning": "Source mechanisms provide a route to deriving the result but do not mathematically state or mechanically imply the sharp pair ordering and peak coefficient without the new calculation.",
+        "searches": [
+          "O Neill generalized matching distribution 2023 Section 6 total match and likelihood ratio",
+          "Resultary search: generalized matching distribution two independent games power test tie balanced 1 1 versus 0 2 Neyman Pearson"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "O’Neill (2023) Sections 3 and 6 give the model and test of total number of matches.",
+          "The submitted split comparison Q1²-Q0Q2=nr² quantifies information lost by conditioning only on total."
+        ],
+        "reasoning": "This is also a conditional likelihood tie-breaking problem, but no inspected primary statement gives the same exact first tie or its α-dependent gain.",
+        "searches": [
+          "Resultary search: generalized matching distribution two independent games power test tie balanced 1 1 versus 0 2 Neyman Pearson",
+          "O Neill generalized matching distribution two trial conditional total 2 balanced unbalanced Neyman Pearson exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "O’Neill article contains numerical examples and marginal mass formulas, not a two-game table of tied allocations or triangular power-gain values.",
+          "The finite test formula remains exact for arbitrary n>=4 and real θ, not a table extraction."
+        ],
+        "reasoning": "There is no natural exact database entry dominating the analytical two-game UMP and power profile among inspected sources.",
+        "searches": [
+          "generalized matching distribution match-count two rounds total-two split power formula",
+          "Resultary search: generalized matching distribution two independent games power test tie balanced 1 1 versus 0 2 Neyman Pearson"
+        ]
+      },
+      "rationale": "O’Neill (2023) full open-access primary article constructs the same generalized matching distribution, identifies the monotone single-trial likelihood ratio, discusses the total statistic and mentions vector likelihood-ratio testing. It does not in its inspected Sections 3, 5, 6 produce the precise θ-independent two-game ordering within a tied sum, triangular finite power loss or sparse-skill peak. The Neyman–Pearson lemma is standard and is not claimed as new. Published SCOPE Resultary searches produced unrelated testing refinements rather than this same model.",
+      "residual_risks": [
+        "An earlier likelihood-ratio refinement under conditional testing terminology may exist.",
+        "The general test concept is prior work; novelty belongs only to the explicit two-game tie, exact gain and asymptotic coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MODEL_AND_GENERAL_TEST_NOT_EXACT_TIE_GAIN",
+          "evidence": "Source provides test methodology but not the computed first two-round tie ordering and power-gap triangle.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11009-023-10067-6",
+          "material_read": "Open-access full HTML article: §1 fixed-point masses, §3 generalized model, Theorem 10 and §5 likelihood, §6 repeated matching tests and total statistic.",
+          "method": "Full journal HTML text, explicit equations and examples inspected.",
+          "title": "A Generalised Matching Distribution for the Problem of Coincidences",
+          "trigger": "Same distribution and hypothesis testing design."
+        },
+        {
+          "assessment": "DIFFERENT_PROBLEM_NOT_FULLY_INSPECTED",
+          "evidence": "Approximations to independent Bernoulli sums do not directly state exact dependent matching fixed-point comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.10314",
+          "material_read": "Abstract and source statement as cited in pinned RESULT; no whole-document noncoverage claim.",
+          "method": "Abstract-level relevance comparison.",
+          "title": "On corrected Poisson approximations for sums of independent indicators",
+          "trigger": "Potential dominating sparse-intensity approximation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s11009-023-10067-6",
+        "https://arxiv.org/abs/2112.12442",
+        "https://arxiv.org/abs/2304.10314"
+      ],
+      "rationale": "The finite-sample exact loss in test power from discarding an observed match-count split is a motivated statistical decision-theory quantity for an explicitly published matching model. The universal first-tie preference, sharp α-profile and sparse-skill coefficient are nontrivial precise facts; neither standard NP optimality nor the existence of a generic likelihood test determines them. The useful theoretical band has comparatively high α and is not a claim of improvement for standard 5% tests.",
+      "residual_risks": [
+        "Theory concerns a nonconventional significance band and identical two-game model; applications outside that band are not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "n>=4; two IID games with common θ∈(0,1); UMP among match-count tests only in α∈[β,β+A+B].",
+    "No θ-independent ordering for all α or longer/heterogeneous sequences asserted."
+  ]
+}
