@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 artifacts/verify.py` from the package root. The script is standard-library-only and exactly enumerates the finite domain.
+# Independent mathematical audit
 
-It checks all subspaces of \(\mathbb F_2^5\), obtaining Gaussian-binomial counts \(1,31,155,155,31,1\), and verifies the receiver criterion on every subspace. It independently enumerates all \(1024\) fitting matrices using a different rank routine and subset-XOR span construction. The rank distribution is \(45,537,442\) in ranks \(3,4,5\), and the rank-three matrices generate exactly the same \(20\) optimal row spaces as the subspace route.
+## correctness
 
-The verifier also exhausts the ten dihedral coordinate symmetries, checks four orbits each of size \(5\), verifies stabilizer order \(2\), records representative bases and weight enumerators, and checks the \(3360\) full-rank \(3\times5\) encoding-matrix count.
+PASS
 
-The verification is finite and exhaustive for the stated scalar binary problem. It does not test nonlinear, vector, or asymptotic index codes.
+Decodability from a binary linear encoder rowspace R at receiver i is equivalent by finite-dimensional duality to existence in R of an index-i-one vector supported in {i-1,i,i+1}; this is exact for the stated five-receiver C5 scalar unicast instance. Independently enumerated ALL 1,31,155,155,31,1 subspaces of F2^5 by dimension 0..5 and applied this criterion. Valid counts by dimension are 0,0,0,20,16,1, proving scalar minimum length3 and exactly20 row-space classes. Full D10 action on the twenty yields four size-five orbits with stabilizer2; each has a distinct Hamming weight enumerator. |GL(3,2)|=168 bases per rowspace, so precisely3360 full-rank 3x5 matrices. Submitted second 4^5 fitting-matrix census and source representative bases were inspected; independent subspace/D10 calculation verified the key counts without trusting logs. This is an exact finite proof, not a partial search.
+
+## originality
+
+PASS
+
+Classical Bar-Yossef et al. graph minrank theorem already determines length3 for C5, and Ong establishes linear optimality for up-to-five receiver instances. Neither scalar optimum number logically determines how many optimal rowspaces or symmetry stabilizers exist; inspected bibliographic sources do not state the exact count20/four orbit list. Chlamtáč–Haviv semidefinite minrank and Esfahanizadeh et al. matrix completion treat general optimization algorithms, not an enumerated binary optimizer layer in accessible material. The full classic primary manuscripts could not all be examined; priority risk remains especially for published supplemental tables.
+
+## value
+
+PASS
+
+The pentagon is the canonical smallest odd-hole index-coding instance, where minimum codelength alone is classical. Full equality-layer classification of binary scalar optimizers is a natural finite extremal problem: 20 distinct output-basis classes and 4 dihedral orbits with different weight enumerators distinguish genuine codes rather than arbitrary matrix presentations. This is motivated independently of claiming a better broadcast rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
