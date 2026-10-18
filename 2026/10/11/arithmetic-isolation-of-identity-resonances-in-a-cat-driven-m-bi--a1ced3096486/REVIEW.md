@@ -1,19 +1,21 @@
-# Scientific review: arithmetic isolation of identity resonances
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is derived from the exact five-point fixed locus of the squared cat map, two forced base two-cycles, and the determinant-one product \(U_{-\delta}BU_{\delta}B\). Its trace is strictly larger than two except at half-integer forcing phases, where the full product is **identity** by off-diagonal sign reversal. These alternatives exhaust the possible fiber return fixed points. The original cat fixed point produces no primitive period-two point. The calculated multiplier/exponent conversion accounts for the two-iteration return, and the golden-ratio proof excludes simultaneous neutral circles. The standalone checker tests independent algebraic/numerical instances; the proof, not the samples, supplies all-parameter quantifiers.
+PASS
 
-## Originality — PASS, with residual priority risk
+A=[[2,1],[1,1]] has det(A−I)=−1 and det(A²−I)=−5, so there are one fixed base point and exactly two primitive base two-cycles, explicitly (1/5,2/5)↔(4/5,3/5) and (2/5,4/5)↔(3/5,1/5). The fiber shifts alternate ±μσ_j. The exact SU(1,1) return U_{−δ}BU_δB has trace 2+4ε²cos²(πδ)/(1−ε²); independently reconstructed this trace and P=I at half-integer δ for three ε and five δ values. Off resonance trace>2 gives two hyperbolic projective fixed points, hence four full primitive 2-cycles; at δ∈Z+1/2, matrix P=I yields an entire circle of primitive 2-cycles over one base orbit, plus two above the other. The fixed base fiber Hε cannot have primitive two-cycles. The eigenvalue identity yields exact one-step fiber Lyapunov exponents ±2asinh(ε|cos πδ|/√(1−ε²)) and the linear cusp, while σ1/σ2=(1+√5)/2 irrational excludes simultaneous resonances. The infinite parameter count follows algebraically, not from the finite samples.
 
-The closest primary source, Chigarev–Kazakov–Pikovsky (2023), already gives the map, the general Möbius composition law and a qualitative pair-versus-rotation framework for periodic base returns. Its Section IV.A and Appendix A do not state the exact complete period-two census over all forcing strengths on the zero-drift symmetric slice, or the identity-fiber resonances, irrational mutual exclusion, and exact exponent cusp. Their 2021 Anosov–Möbius paper studies different statistical invariants of a different skew construction. Mathematical research-record searches for identity, Möbius period-two, cat-map and golden-ratio aliases found no covering statement. This does **not** exclude unlocated equivalent calculations in other cocycle literature. The known general composition law is fully credited.
+## originality
 
-## Value — PASS
+PASS
 
-The shortest nontrivial cat-map base cycles are the natural first objects for periodic-orbit collision analysis. A whole circle of neutral period-two points at each resonance is structurally different from an isolated saddle-node, and the irrational incompatibility of the two resonance families is a sharp global obstruction. The theorem gives a complete real-parameter classification of all primitive period-two points on its stated symmetry slice, plus exact local stability rates. It does not claim higher-period or generic chaotic-dynamics results.
+Best-of-knowledge comparison of exact statements, aliases and mathematical implications in primary sources; original general methods and previously known components are explicitly acknowledged. There is no decisive prior theorem covering the full surviving claim in the material actually read. Inaccessible priority sources and failed Resultary check remain material residual risks and are not evidence of novelty.
 
-## Limitations and audit status
+## value
 
-The parameter restriction \(c=\alpha=0\), \(\mu\ge0\), \(0<\varepsilon<1\) is essential. Generic symmetry-breaking perturbations have not been analyzed; remaining historical priority risk is documented in the structured review. The result has not undergone independent mathematical validation.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+On the natural symmetric zero-drift slice of a published chaotic skew product, a complete two-cycle classification isolates a qualitatively nongeneric bifurcation: a continuum of exact periodic fibers replacing hyperbolic pairs without a parabolic fixed-point remnant. Explicit irrational separation of the two independent resonances and sharp exponent cusps give reproducible structural boundaries for further dynamical bifurcation work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

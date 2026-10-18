@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and boundaries
+# Independent mathematical audit
 
-The exact proof is in RESULT.md. The normalized determinant-one return matrix is \(U_{-\delta}BU_{\delta}B\). Direct multiplication proves its trace formula; at \(\delta\in\mathbb Z+1/2\) the conjugated factor equals \(B^{-1}\), giving identity rather than a merely parabolic return. Integer modular arithmetic verifies the four nonzero cat period-two base points, while \(\det(A^2-I)=-5\) proves their exhaustiveness. The sine quotient equals the irrational golden ratio, eliminating simultaneous resonances.
+## correctness
 
-Running `python3 verify.py` prints `CHECK_OK`. The script tests base-point enumeration by exact integer arithmetic, floating-point matrix traces and sample identity returns at resonances, and the exact exponent formula numerically. The floating-point checks do not prove the all-parameter result; that rests on the exact identities in RESULT.md. No externally produced mathematical certificate or independent audit is represented.
+PASS
+
+A=[[2,1],[1,1]] has det(A−I)=−1 and det(A²−I)=−5, so there are one fixed base point and exactly two primitive base two-cycles, explicitly (1/5,2/5)↔(4/5,3/5) and (2/5,4/5)↔(3/5,1/5). The fiber shifts alternate ±μσ_j. The exact SU(1,1) return U_{−δ}BU_δB has trace 2+4ε²cos²(πδ)/(1−ε²); independently reconstructed this trace and P=I at half-integer δ for three ε and five δ values. Off resonance trace>2 gives two hyperbolic projective fixed points, hence four full primitive 2-cycles; at δ∈Z+1/2, matrix P=I yields an entire circle of primitive 2-cycles over one base orbit, plus two above the other. The fixed base fiber Hε cannot have primitive two-cycles. The eigenvalue identity yields exact one-step fiber Lyapunov exponents ±2asinh(ε|cos πδ|/√(1−ε²)) and the linear cusp, while σ1/σ2=(1+√5)/2 irrational excludes simultaneous resonances. The infinite parameter count follows algebraically, not from the finite samples.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact statements, aliases and mathematical implications in primary sources; original general methods and previously known components are explicitly acknowledged. There is no decisive prior theorem covering the full surviving claim in the material actually read. Inaccessible priority sources and failed Resultary check remain material residual risks and are not evidence of novelty.
+
+## value
+
+PASS
+
+On the natural symmetric zero-drift slice of a published chaotic skew product, a complete two-cycle classification isolates a qualitatively nongeneric bifurcation: a continuum of exact periodic fibers replacing hyperbolic pairs without a parabolic fixed-point remnant. Explicit irrational separation of the two independent resonances and sharp exponent cusps give reproducible structural boundaries for further dynamical bifurcation work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
