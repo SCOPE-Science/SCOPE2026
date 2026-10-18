@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_homotopy.py` with Python 3. This program has no nonstandard package dependencies. It enumerates exact signed-permutation coordinates over \(\mathbb Z[t]/(t^3-t^2-t-1)\), and checks the edge relation against squared distance \(2+4t-2t^2\) by integer polynomial coefficients. It independently enumerates every nonempty face and constructs the stated staged matching. It orients all cover edges in the full face poset and topologically sorts the directed graph to establish acyclicity. It computes the signed algebraic Morse boundary via exact gradient cancellation and verifies the prescribed nine-by-nine determinant equals \(-1\).
+## correctness
 
-Run `python3 verify_independent.py` using only Python 3. This separate reconstruction uses 50-digit decimal coordinates, an include/exclude recursion, and bitwise Gaussian elimination of the complete simplicial boundaries over \(\mathbb F_2\). Its expected face vector is \((24,216,912,1854,1680,564,48,3)\); its expected boundary ranks are \((23,193,719,1135,519,45,3)\); its unreduced Betti vector is \((1,0,0,0,26,0,0,0)\).
+PASS
 
-The proof of the integral homotopy type requires the first program's acyclic matching and unimodular integral Morse boundary. Neither an integral-homology rank computation nor a finite-field homology calculation alone would prove the wedge decomposition. The programs exhaust this fixed finite complex but do not make claims about other snub solids. Independent external validation has not been performed.
+The assigned geometric snub-cube model in the exact cubic ring Z[t]/(t³−t²−t−1) constructs precisely 24 distinct labelled vertices, 60 edges and degree five; edge squared distance is exactly 2+4t−2t². Independently reconstructed all 5,301 nonempty independent sets with f-vector (24,216,912,1854,1680,564,48,3); staged toggling at order (13v+22) mod24 gives exactly 2,628 matched pairs and critical-cell counts one 0-cell, nine 3-cells and 35 4-cells. A separate oriented Hasse topological sort visits all 5,301 cells and 22,728 incidences, hence matching is acyclic. Integer-valued recursive algebraic Morse cancellation computes a 9×35 signed critical boundary; the fixed nine columns (7,19,20,26,28,1,18,29,10) have determinant −1, so D is split-surjective over Z. The 3-skeleton is ∨9 S³ and its 4-cell attaching homotopy classes in π3(∨9 S³)=Z9 are completely represented by the signed boundary; 9 elementary attaching pairs cancel and 26 S4 remain. This proves INTEGRAL homotopy equivalence, not just finite-field homology.
+
+## originality
+
+PASS
+
+The standard vertex-toggle acyclic matching is a known method, and general graph independence-complex homotopy results are not novel. Primary arXiv full papers of Goyal–Shukla–Singh and Barmak analyze Mycielski/complete products and general star-cluster techniques, not the snub cube complex or its signed 9×35 Morse differential. Related published SCOPE Archimedean complexes concern different graphs and do not imply the exact ∨26 S4 classification. No broader covering theorem with this exact graph/topology emerged; retain unindexed-table risk.
+
+## value
+
+PASS
+
+Determines a natural yet nontrivial integral homotopy invariant of the canonical chiral 24-vertex Archimedean graph. The complex has simplicial dimension seven but integral homotopy concentrated in degree four with exactly 26 spheres; identifying attaching degrees, not merely an experimental Betti vector, supplies the mathematically useful exact classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The snub-cube graph is rebuilt exactly in the integral cubic ring by a 24-vertex signed-permutation construction. All 60 edges and all 5,301 nonempty independent faces are exhaustively enumerated. An explicit 2,628-pair partial matching has no directed cycle among the 22,728 Hasse incidences and leaves one critical vertex, nine critical three-cells and 35 critical four-cells. The signed \(9\times35\) integral Morse boundary contains the stated determinant-\(-1\) minor. Because the resulting three-skeleton is a wedge of three-spheres, its four-cell attaching maps are classified by their integer degrees, and a unimodular cancellation leaves 26 four-spheres. Separate decimal graph construction and mod-two simplicial chain elimination reproduce the 5,301 faces and rank 26 in degree four. Both executable files were run successfully from their stated paths.
+## correctness
 
-## Originality — PASS, with residual risk
-The snub cubical graph is a 24-vertex quintic chiral Archimedean graph. Barmak, arXiv:1007.0418v1, introduces general star-cluster homotopy techniques but no matching exact graph classification; its claw-free connectivity discussion does not apply because the snub cube contains induced claws. Goyal–Shukla–Singh, arXiv:1905.06926v1, gives the staged matching technique and classifications for generalized Mycielskian and graph-product families, but does not compute this graph or the signed boundary. Published exact computations for the dodecahedral independence complex and for Rips complexes of other polyhedral graphs concern different underlying objects. Searches under snub cubical, snub cube, snub cuboctahedral, complement clique, sphere-wedge and exact \(26\)-sphere descriptions, together with related published mathematical claims, produced no stronger covering calculation. This is not a proof that equivalent unindexed literature does not exist.
+PASS
 
-## Value — PASS
-The snub cube is the 24-vertex chiral Archimedean solid; its vertex-independence complex is a natural invariant. This is an exact integral homotopy classification, not a face-vector or Betti-number table. It shows that a dimension-seven complex of 5,301 nonempty simplices has a four-dimensional sphere-wedge homotopy type and it explains this through an explicit nontrivial integral nine-by-nine attaching minor. The result provides one structurally informative datum toward understanding independence complexes of Archimedean graphs, without claiming a general classification.
+The assigned geometric snub-cube model in the exact cubic ring Z[t]/(t³−t²−t−1) constructs precisely 24 distinct labelled vertices, 60 edges and degree five; edge squared distance is exactly 2+4t−2t². Independently reconstructed all 5,301 nonempty independent sets with f-vector (24,216,912,1854,1680,564,48,3); staged toggling at order (13v+22) mod24 gives exactly 2,628 matched pairs and critical-cell counts one 0-cell, nine 3-cells and 35 4-cells. A separate oriented Hasse topological sort visits all 5,301 cells and 22,728 incidences, hence matching is acyclic. Integer-valued recursive algebraic Morse cancellation computes a 9×35 signed critical boundary; the fixed nine columns (7,19,20,26,28,1,18,29,10) have determinant −1, so D is split-surjective over Z. The 3-skeleton is ∨9 S³ and its 4-cell attaching homotopy classes in π3(∨9 S³)=Z9 are completely represented by the signed boundary; 9 elementary attaching pairs cancel and 26 S4 remain. This proves INTEGRAL homotopy equivalence, not just finite-field homology.
 
-## Evidence and limitations
-Primary full-text comparisons: https://arxiv.org/html/1007.0418v1 and https://arxiv.org/html/1905.06926v1. Graph identification: https://mathworld.wolfram.com/SnubCubicalGraph.html and https://en.wikipedia.org/wiki/Snub_cube. The computational checks are finite and exhaustive for this graph only. An equivalent unpublished or unindexed calculation remains possible. The independent mod-two check does not establish the integral attaching degrees.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The standard vertex-toggle acyclic matching is a known method, and general graph independence-complex homotopy results are not novel. Primary arXiv full papers of Goyal–Shukla–Singh and Barmak analyze Mycielski/complete products and general star-cluster techniques, not the snub cube complex or its signed 9×35 Morse differential. Related published SCOPE Archimedean complexes concern different graphs and do not imply the exact ∨26 S4 classification. No broader covering theorem with this exact graph/topology emerged; retain unindexed-table risk.
+
+## value
+
+PASS
+
+Determines a natural yet nontrivial integral homotopy invariant of the canonical chiral 24-vertex Archimedean graph. The complex has simplicial dimension seven but integral homotopy concentrated in degree four with exactly 26 spheres; identifying attaching degrees, not merely an experimental Betti vector, supplies the mathematically useful exact classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
