@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For any two independent unit plane rows, the singleton residual maps are rank-one orthogonal projectors with cross-trace r^2; batch gives zero and skip gives the identity. The one-step Rayleigh quotient of p0I+p1P1+p2P2 gives R exactly. The self-adjoint second-moment map has invariant span of the two rank-one projectors, represented by a nonnegative 2-by-2 matrix whose top eigenvalue yields Q, including one-mask boundary cases; positivity and its overlap with identity justify the asymptotic sup-and-root limit. Fixed-batch-weight minimization strictly balances singleton probabilities for 0<r<1. The resulting two affine slopes change sign at 1-2/w and sqrt(1-2/w). The exact rational witness w=4,c=1,r=3/5 has R_single=4/5, R_batch=3/4, Q_single=17/25, Q_batch=3/4; a two-step exact recurrence gives 68/125<9/16. Standalone verifier tests rational projectors, finite covariance recurrences and 169 distribution-grid cases. There are no empirical-to-infinite extrapolations in the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mutný et al. (2020), Introduction and Sections 4–5, analyze a determinantal block sampler and its numerical effort, including block-size tradeoffs; neither arbitrary four-mask laws nor the short/long minimizer split is their result.",
+        "Xie–Yang 2025 Theorem 5.1 and Remark 5.2 bound contraction and pose optimization of batch probabilities; those stated bounds are not a sharp spectral-radius identity for every fixed mask law."
+      ],
+      "reasoning": "Generic randomized-block convergence upper bounds and optimum block-size regimes are broader in algorithm class but do not determine the exact two-row four-mask minimax laws for both time horizons. A general statement that happened to imply these laws would cover the claim even if it did not use the same terminology; no such decisive statement was located in the compared material.",
+      "searches": [
+        "web: optimal sampling probabilities stochastic block Kaczmarz asymptotic versus one step convergence block cost 2024 2025 2026",
+        "published-finding corpus: randomized block coordinate descent mixed singleton full batch no-operation equal expected cost separate transient and long-run optimum",
+        "2020 PMLR Mutný Dereziński Krause Convergence Analysis Block Coordinate Algorithms with Determinantal Sampling"
+      ]
+    },
+    "checked_sources": [
+      "Xie and Yang, arxiv:2511.09872v2 (full HTML, Sections 3 and 5, Appendix B)",
+      "Xie and Yang, arxiv:2610.04685v1 (abstract only)",
+      "Mutný, Dereziński and Krause, AISTATS 2020 (full PDF sections 1,4,5)",
+      "published-finding corpus 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 (published title/abstract)",
+      "published-finding corpus 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f (published title/abstract)",
+      "Strohmer and Vershynin, arxiv:math/0702226 (abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating primary defines joint sampling and explicitly flags sampling-distribution optimization as difficult; its Appendix B effective batches are nonempty, whereas the present equal-work model adds a defined no-op.",
+        "The October 2026 companion abstract advertises learned sampling distributions and upper-rate bounds but does not itself establish the present threshold; full text unavailable.",
+        "Known single-row asymptotic transition matrices provide one input to the proof, but do not imply an optimized 4-mask cost frontier without the joint budget and full-batch analysis."
+      ],
+      "reasoning": "Compared actual hypotheses and outputs: existing convergence guarantees give rates/bounds for fixed sampling, whereas the final claim solves the global minimization of TWO exact statistics over ALL four mask probabilities under equal expected work. An earlier exact singleton formula is an ingredient rather than an independent nontrivial claim here. The work constraints and two temporal objectives are necessary to the new statement. No conclusion of exhaustive uniqueness is drawn from failed searches.",
+      "searches": [
+        "Xie Yang arxiv 2511.09872v2 Section 5 Remark 5.2 and Appendix B",
+        "Xie Yang arxiv 2610.04685v1 abstract batch-coordinate descent",
+        "published-finding corpus: two-row Kaczmarz optimal batching skip mask work budget exact sharp one-step versus asymptotic mean-square sampling threshold coherence",
+        "published-finding corpus: cost-sensitive minibatch coordinate descent optimal sampling two variables correlated Gram contraction one step"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xie and Yang (2025), arXiv:2511.09872v2, Secs. 3 and 5 and Appendix B define nonempty batch rules and optimize a rate bound rather than both exact performance functionals under a common expected work budget.",
+        "Classical two-line projection chains yield a rate via squared coherence, but a bare single-row rate does not select an optimal four-mask law.",
+        "The prior published published-finding corpus entry on inverse-positive optimal coordinate sampling (2026/9/20, id 82c9d23eb995) optimizes fixed one-coordinate probabilities for SPD energy and does not include batch/no-op exchange or two time horizons."
+      ],
+      "reasoning": "The coordinate-descent dual, random projection, and averaged-projector formulations were compared at the level of their objective and quantifiers. The proposed two thresholds involve distinct exact spectral functionals for the same feasible four-mask work polytope. The sources checked do not state the complete two-threshold classification or the finite-horizon reversal; a later companion text remains unresolved.",
+      "searches": [
+        "published-finding corpus: two-row Kaczmarz optimal batching skip mask work budget exact sharp one-step versus asymptotic mean-square sampling threshold coherence",
+        "published-finding corpus: stochastic alternating orthogonal projections cost-constrained block sampling asymptotic Perron contraction squared coherence",
+        "web: randomized coordinate descent exact spectral radius mean square expected squared error block sampling full batch skip cost phase transition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The arXiv 2025 primary contains algorithmic tables for joint and marginal batch probabilities but no table of exact one-step versus asymptotic optimizer phase boundaries.",
+        "The published-finding corpus matches returned related row-coherence one-step residual spikes and optimal coordinate sampling, not an exact tabulation for this four-mask constrained problem."
+      ],
+      "reasoning": "The object is a continuous parameter family, not a discrete integer sequence or a known matrix census. Published numerical tables and basic singleton spectral formulas do not themselves tabulate the cost-capped global optimizer and its strict-disagreement interval.",
+      "searches": [
+        "published-finding corpus: arxiv:2511.09872 2511.09872 batch Kaczmarz optimization probabilities distribution singleton cost",
+        "published-finding corpus: randomized block coordinate descent mixed singleton full batch no-operation equal expected cost separate transient and long-run optimum",
+        "web: randomized batch-sampling Kaczmarz Xie Yang 2511.09872 cost optimal probability phase diagram"
+      ]
+    },
+    "rationale": "The 2025 Xie–Yang primary was read in detail; Remark 5.2 asks for sampling-distribution optimization, but the inspected algorithm/bounds do not provide the exact common-work two-horizon optimum. Mutný–Dereziński–Krause (2020) addresses determinantal batch selection and computational effort under a different law. Published related exact Kaczmarz/coordinate-sampling results address either one-step residual changes or fixed singleton rates; their outputs do not directly assert the work-constrained four-mask policy conflict. The 2026 companion full text was inaccessible and could yet contain related material; originality is same-model, not independently certified.",
+    "residual_risks": [
+      "Complete October 2026 companion text (arxiv:2610.04685v1) was not accessible; no entire-document noncoverage claim is made.",
+      "A generalized prior result on optimal random projections could imply the simple two-dimensional classification without mentioning Kaczmarz or this coherence parametrization.",
+      "Published-summary comparisons are weaker than full-text inspections and cannot rule out all related mathematical statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state a joint exact work-capped one-step versus asymptotic four-mask optimizer; considers nonempty batch sampling and upper-bound optimization",
+        "evidence": [
+          "Remark 5.2 (equation 5.9) states distribution optimization is difficult",
+          "Appendix B Example B.3 allows effective sizes between 1 and q, not empty; Theorem 5.1 concerns rate bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.09872v2",
+        "material_read": "Full accessible HTML manuscript; introduction, Sections 3 and 5, Remark 5.2, results and Appendix B examples",
+        "method": "Direct section-by-section reading of mathematical statements, proof conditions, and examples",
+        "title": "Randomized batch-sampling Kaczmarz methods for solving linear systems",
+        "trigger": "Same linear-solver problem and learnable joint batch law"
+      },
+      {
+        "assessment": "Originality unresolved to the extent the inaccessible manuscript may contain a covering special case; the accessible abstract only claims sharper bounds and learned distributions",
+        "evidence": [
+          "2026-10-03 abstract describes optimized learned sampling, but contains no exact cost-capped two-horizon phase thresholds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.04685",
+        "material_read": "Abstract and bibliographic metadata only; full text not obtained",
+        "method": "Abstract and open-access link comparison",
+        "title": "On randomized batch-sampling coordinate descent methods for solving linear least-squares problems",
+        "trigger": "Same authors extend static block-sampling distribution optimization and coordinate-descent duality"
+      },
+      {
+        "assessment": "Determinantal sampling with expected block-size/cost optimization, not arbitrary four-mask law or exact competing one-step and long-run mean-square rates",
+        "evidence": [
+          "Sections 1.1, 4–5 optimize determinantal batch size and numerical effort via spectral bounds"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v108/mutny20a/mutny20a.pdf",
+        "material_read": "Full accessible PDF, inspected abstract, introduction, Section 4 convergence, Section 5 cost-size comparisons and concluding discussion",
+        "method": "Primary PDF textual and rendered-page examination",
+        "title": "Convergence Analysis of Block Coordinate Algorithms with Determinantal Sampling",
+        "trigger": "Potential broader block sampling and cost-accuracy optimality"
+      },
+      {
+        "assessment": "Optimizes iid single-coordinate probability for a fixed SPD system; does not entail the block-or-skip phase diagram as stated",
+        "evidence": [
+          "Published summary says p proportional to C^{-1}1, without joint full-batch work cost or two horizon objectives"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "material_read": "Published indexed title and scientific summary, not full repository paper",
+        "method": "published-finding corpus published-record semantic search",
+        "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "trigger": "Exact optimal probabilities for randomized coordinate minimization"
+      },
+      {
+        "assessment": "Background expected linear rate, not an exact two-horizon batch budget law",
+        "evidence": [
+          "2007 initial work studies iid row projection rate bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0702226",
+        "material_read": "Abstract only",
+        "method": "Published arXiv abstract comparison",
+        "title": "A randomized Kaczmarz algorithm with exponential convergence",
+        "trigger": "Classical randomized row-projection theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10323bbf-b631-42ae-ac3e-8f6a040580ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Joint batch sampling distributions are a motivated unresolved algorithm-design parameter in Xie–Yang (2025), and batch size has measurable cost. The theorem supplies a natural complete classification of policies on the smallest nontrivial coherent system under an equal expected-work constraint, for both exact one-step worst expected squared error and exact long-run mean-square decay. Their optimal policies separate on a strictly positive, sharp coherence interval for every coupled-block premium w>2. At w=4,c=1,r=3/5 the short-horizon-optimal policy loses at every horizon k>=2, providing a tangible mathematical warning against training a sampler solely against its exact one-step loss. The result is a scoped benchmark, not a general high-dimensional theorem or implementation guarantee.",
+    "status": "PASS"
+  }
+}
