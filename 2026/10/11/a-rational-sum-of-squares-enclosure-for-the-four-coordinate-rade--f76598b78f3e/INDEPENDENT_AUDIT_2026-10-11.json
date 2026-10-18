@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-11",
+  "audited_at_utc": "2026-10-11T16:09:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Oddification \\(f(\\varepsilon)\\mapsto (f(\\varepsilon)-f(-\\varepsilon))/2\\) is an \\(L^4\\) contraction preserving the first-chaos component. Every odd input has the unique 8-coordinate form \\(f=S+\\chi T\\) with \\(S=\\sum a_ir_i\\) and \\(T=\\sum b_ir_i\\). The exact Walsh fourth-moment difference \\(\\mathbb E(f^4)-(123/200)\\mathbb E(S^4)\\) was freshly rebuilt from the stated rational Gram matrices \\(M_0,M_1,M_2\\) and verified coefficient by coefficient in eight independent variables. Fresh symbolic computation independently evaluated every leading principal minor: all 8 of \\(M_0\\), 4 of \\(M_1\\), and 4 of \\(M_2\\) are strictly positive, so the identity is a genuine sum of squares for all real inputs. The explicit three-coordinate witness \\(f=r_1+r_2+r_3+tr_1r_2r_3\\) has projected fourth moment 21 and input moment \\(21+18t^2+t^4+24t\\), proving the lower bound. Numerical approximations are used only for illustration, not certification.",
+      "risk": "Only four independent signs over the real scalar field; the exact norm remains unknown.",
+      "sources": [
+        "Skrzypek, DOI:10.1090/S0002-9939-09-09875-X",
+        "RESULT.md and verify.py at frozen commit",
+        "Fresh independent SymPy coefficient and Sylvester-minor checks"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Available primary abstract announces exact three-coordinate projection norm and other related constants; it does not establish this rational four-coordinate SOS bound.",
+          "Classical fourth-moment/Khintchine bounds yield weaker universal estimates."
+        ],
+        "reasoning": "A general operator norm bound can cover a specific four-sign upper bound only if its implied numerical constant is at most \\((200/123)^{1/4}\\); none was found in inspected material.",
+        "searches": [
+          "DOI:10.1090/S0002-9939-09-09875-X indexed theorem scope",
+          "General Rademacher projection and Khintchine inequalities search"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1090/S0002-9939-09-09875-X (abstract; full text inaccessible)",
+        "Classical Khintchine fourth-moment bounds",
+        "Targeted finite Walsh projection searches; mathematical-record index unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-sign exact lower witness embeds in four signs but does not entail an upper bound for every 8-dimensional odd subspace.",
+          "The new positive-definite Gram decomposition is exactly the missing global upper argument."
+        ],
+        "reasoning": "The prior lower example and generic Khintchine estimate do not imply the submitted tighter four-coordinate upper constant.",
+        "searches": [
+          "Skrzypek 2009 three-coordinate result and related hyperplane estimates",
+          "Elementary fourth-moment expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The candidate is an induced first-Walsh-chaos \\(L^4\\) norm bound equivalent to an 8-variable quartic nonnegativity certificate.",
+          "The accessible Skrzypek abstract states an exact three-character result."
+        ],
+        "reasoning": "Also compared projection onto Walsh linear span, four-sign Khintchine inequalities, and complementary-projection formulations.",
+        "searches": [
+          "Four coordinate Rademacher projection L4 operator norm exact upper bound sum of squares rational certificate",
+          "Skrzypek 2009 Rademacher projection and related inequalities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independently indexed exact coefficient or norm table matching \\(200/123\\) was located.",
+          "The semantic index returned no completed search, so this is not a definitive absence determination."
+        ],
+        "reasoning": "This is a finite exact inequality, so exact-constant table coverage and parameter aliases were targeted explicitly.",
+        "searches": [
+          "Exact phrases four Rademacher projection 200/123 and rational Gram matrix",
+          "Mathematical-record semantic query for four-coordinate first Walsh projection (temporarily unavailable)"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact four-sign upper enclosure: the older named Rademacher-projection source describes an exact three-coordinate result and complementary-projection estimates, not this eight-variable four-coordinate SOS certificate. No stronger source implying the explicit rational constant was identified by accessible search. The 2009 full article could not be retrieved from lawful open routes or the unavailable institutional connection; this is a material residual comparison risk, not grounds for invented novelty proof.",
+      "residual_risks": [
+        "An inaccessible passage in Skrzypek (2009) or other unindexed specialist work may imply a competing four-coordinate estimate.",
+        "The semantic mathematical-record index was temporarily unavailable, with no completed negative search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "HIGHLY_RELEVANT_FULL_TEXT_UNAVAILABLE",
+          "evidence": "The accessible abstract discusses the three-variable norm rather than stating the four-coordinate rational Gram inequality; the unchecked body remains a comparison risk.",
+          "identifier_or_url": "DOI:10.1090/S0002-9939-09-09875-X",
+          "material_read": "Primary indexed abstract and publication scope (including the exact three-coordinate result); full article unavailable: lawful open route denied access and institutional connection reported disconnected.",
+          "method": "Lawful open/OA search followed by one authorized institutional access attempt; no bypass or retry.",
+          "title": "On the L_p norm of the Rademacher projection and related inequalities",
+          "trigger": "Closest primary source on finite Rademacher projection operator norms."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The norm of a canonical finite-dimensional Walsh projection is a natural precise invariant. A universal rational SOS certificate for the first nontrivial four-coordinate extension supplies an explicit \\(1.12923\\) upper bound, much sharper than the elementary Khintchine fourth-moment estimate \\(3^{1/4}\\), and closely brackets a concrete extremal witness. It is neither an arbitrary coefficient slice nor a purported exact determination.",
+      "risk": "It is a rigorous enclosure, not the sharp norm; significance is limited to this finite dimension and real \\(L^4\\).",
+      "sources": [
+        "Skrzypek (2009), DOI:10.1090/S0002-9939-09-09875-X",
+        "Exact rational Gram certificate"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the real first-chaos Rademacher projection \\(R_4\\) on \\(\\{-1,1\\}^4\\) in \\(L^4\\), if \\(t\\) is the unique real root of \\(t^3+9t+6=0\\), then \\(\\left(21/(21+18t^2+t^4+24t)\\right)^{1/4}\\le\\|R_4\\|\\le(200/123)^{1/4}\\). The exact norm is not asserted.",
+  "limitations": [
+    "Real scalars, uniform four-sign cube and fourth-power norm only.",
+    "Upper bound not asserted optimal and exact operator norm not established."
+  ],
+  "schema_version": 1
+}
