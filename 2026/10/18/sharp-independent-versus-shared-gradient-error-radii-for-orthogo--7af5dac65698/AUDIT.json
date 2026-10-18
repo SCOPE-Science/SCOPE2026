@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The planar segment projection has complete, explicitly checked endpoint and interior optimality conditions. Strict coordinate separation excludes zero-coordinate projections under δ<min(a,b)/2; the positive distance to the true segment excludes p=0 and a homotopy fixes the signs. At the boundary the supplied rational endpoint witness has a zero true directional derivative; for every larger δ a negative-coordinate endpoint witness exists. Shared errors translate the segment, so a positive supporting line and endpoint conditions prove safety below ab/sqrt(a²+b²); the shifted original foot gives exact boundary and strict failure above. The code in verify.py executed with 12983 exact-rational cases, independent of universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang and Chen (2026) give a Lipschitz factor and half-Hölder bound on output-direction difference; it is not a sharp true-objective descent certificate for both error-correlation geometries.",
+        "Zhao et al. (2026) bound stationarity in expectation and introduce the unchanged exact MGDA server selection."
+      ],
+      "reasoning": "Direction-difference estimates bound distance of two projected points rather than the sign of each true task gradient against the perturbed projection. Applying their generic estimates yields sufficient radii but does not imply exact necessity or the change under *identical* errors. The special planar signs and endpoint witnesses need additional analysis.",
+      "searches": [
+        "arxiv:2607.15412 §III-A Lemmas 1–2",
+        "arxiv:2608.22945 §§2–4",
+        "web: multi-gradient descent gradient estimation common descent perturbation robustness"
+      ]
+    },
+    "checked_sources": [
+      "Zhao et al., arxiv:2608.22945 (full substantive sections)",
+      "Huang and Chen, arxiv:2607.15412 (direction regularity lemmas, proofs and context)",
+      "Désidéri (2012) classical MGDA bibliographic identification via 2026 primary references",
+      "Published research records retrieved by actual semantic searches: SAA-RMGDA Tikhonov Pareto interval (2026); sharp fixed-radius composite trust-region descent (2026); Euclidean two-ball lens projection (2026); stochastic OSGM feedback-curvature stability (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical exact MGDA has h_i=g_i; it proves that -p is common descent when p is nonzero, not when h_i differs from g_i.",
+        "The published 2026 Hölder/Lipschitz estimates concern norms and include neither sharp counterexample nor a structural error-coupling comparison."
+      ],
+      "reasoning": "Neither source contains a stronger universal statement whose specialization yields *both* constants. This is a best-knowledge implication check subject to possible older equivalent geometric work.",
+      "searches": [
+        "arxiv:2608.22945 §2 definition of Pareto stationarity and §3 server convex weight",
+        "arxiv:2607.15412 §III-A direction continuity and Appendix B",
+        "minimum norm multi-gradient common descent robust to bounded gradient errors exact threshold orthogonal two tasks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Projection of the origin onto a segment equals the minimum-norm convex combination; the true common-descent test is positivity of both coordinates of this projection for orthogonal true gradients.",
+        "The indexed SAA-RMGDA Tikhonov Pareto-interval claim is about asymptotic regularization selection, not a bounded-error descent region."
+      ],
+      "reasoning": "Searched equivalent language (conflict-avoidant direction, MGDA, noisy segment, Pareto stationarity, Euclidean projection) and examined nearest substantive records. No retrieved statement gave either sharp 1/2 smaller-gradient threshold or the shared-noise harmonic distance threshold. An absence of matches is not treated as uniqueness proof.",
+      "searches": [
+        "two-objective minimum-norm convex-combination noisy gradients sharp relative perturbation stability common descent orthogonal gradients one half",
+        "minimum norm multi-gradient common descent robust to bounded gradient errors exact threshold orthogonal two tasks",
+        "sharp half minimum gradient norm perturbation radius two orthogonal objectives minimum norm convex combination common descent",
+        "inexact stochastic MGDA pair perpendicular task gradients robust true descent gradient oracle error bounds",
+        "geometric projection origin onto noisy segment first-quadrant orientation orthogonal gradients",
+        "web: minimum norm multi-gradient common descent robust to bounded gradient errors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed records included a published 2026 Tikhonov result Tikhonov Pareto interval and a separate geometric two-ball lens projection record, but neither summary states this two-gradient robust-descent classification.",
+        "No exact prior numerical table of the claimed radii was identified in the searched sources."
+      ],
+      "reasoning": "The theorem covers a continuum of real gradient norm pairs and all continuous disk perturbations, not a lookup table. Nearby indexed geometric projection topics use different objects; absence from results alone cannot prove originality.",
+      "searches": [
+        "sharp half minimum gradient norm perturbation radius two orthogonal objectives minimum norm convex combination common descent",
+        "geometric projection origin onto noisy segment first-quadrant orientation orthogonal gradients",
+        "web: two objectives orthogonal gradients approximate common descent"
+      ]
+    },
+    "rationale": "The two exact worst-case componentwise-error thresholds concern true common-descent preservation of the Euclidean projection onto a *noisy segment*. The source 2026 FMOO work defines the server projection but only analyzes expected Pareto-stationarity, while 2026 regularity-aware MGDA obtains direction-norm Hölder/Lipschitz estimates but not sharp sign-preservation radii nor the shared-error enlargement. Classical MGDA exact-gradient descent does not imply the perturbed result without further argument. Actual semantic record and literature queries found nearby algorithms and direction continuity results, not the same pair of sharp constants. Remaining priority risk is acknowledged.",
+    "residual_risks": [
+      "Older work on inexact multiobjective steepest descent or projection perturbations may contain an equivalent two-gradient planar sharpness result under different terminology.",
+      "Classical 2012 MGDA original and 2018 direction-regularity article were bibliographically identified but not inspected in full; the 2026 primary theorem and its closest direct perturbation analysis were inspected.",
+      "A ranked research-index search returns only a subset and cannot certify uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes algorithm and stationarity rates, not deterministic sharp robust-descent radii under two norm-bounded task gradient errors or exact common errors.",
+        "evidence": [
+          "arxiv:2608.22945 §2 MGDA projection and Pareto stationarity",
+          "arxiv:2608.22945 §3 Algorithm 1 server projection and same-sample evaluation",
+          "arxiv:2608.22945 §4 stationarity convergence and complexity"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.22945",
+        "material_read": "arXiv full HTML sections 1–4, Algorithm 1 equations defining server minimum-norm convex hull projection, convergence lemmas and theorem, complexity discussion and references",
+        "method": "Primary full-text HTML read through web page sections and equation/terminology search",
+        "title": "A Momentum-Based Variance-Reduced Algorithm for Federated Multiobjective Optimization",
+        "trigger": "Original 2026 minimum-norm task-gradient aggregation with shared per-step sample and variance-reduced estimates"
+      },
+      {
+        "assessment": "Direction-map perturbation norm bounds do not give sharp preservation of both signs in the planar orthogonal gradient frame, nor compare identical versus arbitrary taskwise errors.",
+        "evidence": [
+          "arxiv:2607.15412 §III-A Lemma 1, direction Lipschitz factor 1+2B²/μ",
+          "arxiv:2607.15412 §III-A Lemma 2, sharp 1/2-Hölder exponent",
+          "arxiv:2607.15412 Appendix B-C inequalities (52)–(60)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.15412",
+        "material_read": "arXiv HTML introductory related work, §II MGDA, §III-A Lemma 1 (Lipschitz), Lemma 2 (half-Hölder), §III convergence, Appendix B proof estimates, references",
+        "method": "Primary full-text HTML read with detailed searches for perturbation, descent, error, and conflict avoidance",
+        "title": "Regularity-Aware Stochastic MGDA with Adaptive Conflict-Avoidant Update Direction Control",
+        "trigger": "Potentially dominating perturbation theorem for minimum-norm multi-gradient direction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7af5dac6-5698-4d86-bf43-3b76a9564612",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The server minimum-norm multi-gradient rule is used with objective-wise stochastic estimates, where cross-task dependence can matter. This theorem gives exact worst-case safe error budgets for the same pair of objective gradients under arbitrary versus identical vector errors, with an achieved and nontrivial ratio from √2 to 2. This is a mathematically natural structural comparison, rather than a mere numerical table or algorithm restatement; sharp counterexamples distinguish non-descent from ascent. It does not claim global optimization improvements.",
+    "status": "PASS"
+  }
+}
