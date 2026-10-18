@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof expands the prime-power divisor sum term by term, uses the exact Legendre valuation \(\nu_p((p^m)!)=(p^m-1)/(p-1)\), and proves a strict valuation gap above \(3r-2\) for every nonterminal summand except \(p=3,r=2\). The tied exceptional case is resolved by an explicit normalized calculation modulo \(3\), yielding a nonzero residue because \(3\nmid a\). The finite verifier is supplementary only.
+## correctness
 
-## Originality
-**PASS.** The closest inspected literature is the modern full-text treatment by Chan–Chan–Chua–Ku, the original Moser paper, and Evans's Burnside treatment. Those sources establish \(n^2\)-level divisibility or related congruences, not an exact \(p\)-adic valuation on odd prime powers. Searches using the named congruence, the explicit summand, “sharp modulus,” “prime power,” and “valuation” found no statement implying \(\nu_p(S_{p^r}(a))=3r-2\). Residual risk remains from older literature under different notation.
+PASS
 
-## Value
-**PASS.** Exact local order is a natural structural refinement of a named congruence. The theorem gives a uniform sharp modulus on an infinite prime-power family, improving the known exponent from \(2r\) to \(3r-2\) whenever \(r>2\), while also proving optimality at \(r=2\). This is not a finite-table recomputation or arbitrary parameter slice.
+Let T_j be the d=p^j term and p odd, r>=2, p∤a. For j=r, v_p(T_r)=3r-2. For 1<=j<r, m=r-j, Legendre gives v_p(T_j)-(3r-2)=j(p^m-1)+(p^m-1)/(p-1)-3m, strictly positive except (p,r,j)=(3,2,1). For j=0, v_p(T_0)=(p^r-1)/(p-1), strictly greater than 3r-2 except (p,r)=(3,2). In the exception, (T_0,T_1,T_2)/81 reduces to (a,2a,a) mod 3, sum a nonzero. Hence v_p(S)=3r-2, no hidden cancellation. Recomputed integer defining sums for 30 unit cases over p=3,5,7,11 and r=2,3, confirming but not proving the unrestricted valuation.
 
-## Closest literature and limitations
-Chan–Chan–Chua–Ku explicitly prove the Moser–Moser congruence modulo \(n^2\) and local divisibility by \(p^{2\alpha}\); Moser's original theorem has the same \(n^2\) strength in integrality form. Evans treats the combinatorial divisibility lineage. No claim is made for \(p=2\), \(r=1\), \(p\mid a\), or mixed prime support.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published Moser-Moser congruence ensures only divisibility by n^2; on p^r it yields 2r, while this exact odd-p-adic valuation 3r-2 and exceptional p=3,r=2 cancellation are not stated in the primary published account reviewed.
+
+## value
+
+PASS
+
+Determines a natural exact local divisibility invariant of the classical Moser–Moser divisor sum uniformly on all odd prime powers beyond r=1, replacing an order-only bound by a sharp exponent. The singular 3-adic cancellation and r-dependence supply a reusable arithmetic refinement, rather than a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic. For \(1\le j\le r-1\) with \(m=r-j\), the exact term valuation is
-\[
-2j-2+\frac{p^m-1}{p-1}+jp^m,
-\]
-and its excess over \(3r-2\) is
-\[
-j(p^m-1)+\frac{p^m-1}{p-1}-3m.
-\]
-This excess is positive except for \(p=3,r=2,j=1\). The factorial-only term also lies strictly above the target except at \(p=3,r=2\). The terminal term has valuation exactly \(3r-2\). In the exceptional case, the three normalized terms modulo \(3\) are \(a,2a,a\), so their sum is \(a\not\equiv0\pmod3\).
+# Independent mathematical audit
 
-`verify.py` checks the exact defining sum on a finite grid and checks the valuation inequalities on a wider finite grid. `verifier_output.txt` records the replay result. These computations do not replace the all-parameter proof.
+## correctness
+
+PASS
+
+Let T_j be the d=p^j term and p odd, r>=2, p∤a. For j=r, v_p(T_r)=3r-2. For 1<=j<r, m=r-j, Legendre gives v_p(T_j)-(3r-2)=j(p^m-1)+(p^m-1)/(p-1)-3m, strictly positive except (p,r,j)=(3,2,1). For j=0, v_p(T_0)=(p^r-1)/(p-1), strictly greater than 3r-2 except (p,r)=(3,2). In the exception, (T_0,T_1,T_2)/81 reduces to (a,2a,a) mod 3, sum a nonzero. Hence v_p(S)=3r-2, no hidden cancellation. Recomputed integer defining sums for 30 unit cases over p=3,5,7,11 and r=2,3, confirming but not proving the unrestricted valuation.
+
+## originality
+
+PASS
+
+Published Moser-Moser congruence ensures only divisibility by n^2; on p^r it yields 2r, while this exact odd-p-adic valuation 3r-2 and exceptional p=3,r=2 cancellation are not stated in the primary published account reviewed.
+
+## value
+
+PASS
+
+Determines a natural exact local divisibility invariant of the classical Moser–Moser divisor sum uniformly on all odd prime powers beyond r=1, replacing an order-only bound by a sharp exponent. The singular 3-adic cancellation and r-dependence supply a reusable arithmetic refinement, rather than a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
