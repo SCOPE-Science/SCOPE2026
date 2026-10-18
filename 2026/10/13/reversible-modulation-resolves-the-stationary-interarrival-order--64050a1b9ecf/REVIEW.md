@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Reversibility makes the killed generator \(A=-Q+D\) self-adjoint in the stationary weighted inner product, and its Dirichlet form is positive definite. The constant vector therefore has a positive spectral measure, giving a genuine finite exponential mixture for the time-stationary survival. Its hazard derivative is minus a spectral variance. The event-stationary survival is exactly the normalized negative derivative of the time-stationary survival, and the initial hazard equals the stationary mean event rate. These identities prove the stochastic order and the exact strictness criterion.
+## correctness
 
-## Originality
-PASS. The direct source states the MMPP stochastic-order property as a conjectural general principle, proves the two-state case, and notes the ordinary symmetric-\(C\) subclass. The reversible class with nonuniform stationary distribution is broader and is not obtained as another valid MMPP merely by diagonal similarity to a symmetric matrix. Targeted searches found no published statement of the weighted-self-adjoint reversible theorem or its hyperexponential/equality refinement. Older reversible killed-chain literature remains a residual bibliographic risk.
+PASS
 
-## Value
-PASS. Reversibility covers arbitrary finite birth-death modulators and many other practically natural MMPPs. The result resolves the full pointwise survival comparison on this class and explains it through decreasing hazard, while also characterizing exactly when the comparison collapses to equality.
+A=-Q+D is positive self-adjoint in L²(pi) under detailed balance and positive mean event rate: <f,Af>=1/2 sum pi_i q_ij(f_i-f_j)^2+sum pi_i lambda_i f_i². Spectral weights at 1 are nonnegative and sum to one, giving hyperexponential S_pi(t). Its hazard derivative is minus a positive tilted variance, and h_pi(0)=lambda_*. Palm initialization gives S_alpha(t)=-S_pi_prime(t)/lambda_*=(h_pi(t)/lambda_*) S_pi(t), hence S_pi>=S_alpha, strict for all t>0 unless all lambda_i equal. Handles rates lambda_i=0 and nonuniform pi; independent reconstruction, not finite extrapolation.
 
-## Closest literature and limitations
-The closest source is Asanjarani and Nazarathy, arXiv:1905.01736v1 / DOI 10.1017/S1446181122000013. He, DOI 10.1017/jpr.2021.18, gives a later scalar SCV bound for MMPP inter-event times but not this stochastic order. The theorem does not address nonreversible modulators.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge same-object comparison finds no prior complete final classification; exact source implications, aliases, and residual risks explicitly recorded. No failed search is offered as proof of novelty.
+
+## value
+
+PASS
+
+A complete natural reversible class (including all finite birth-death modulators) of an explicitly conjectured stationary/event-stationary MMPP order, plus equality and positive spectral structure; significantly extends proven two-state and ordinary symmetric-C cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

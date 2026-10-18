@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,56 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is driven by the identities
-\[
-A=-Q+D,
-\qquad
-\langle f,Af\rangle_\pi
-=
-\frac12\sum_{i,j}\pi_iq_{ij}(f_i-f_j)^2
-+
-\sum_i\pi_i\lambda_i f_i^2,
-\]
-and
-\[
-S_\alpha(t)
-=
--\frac{S_\pi'(t)}{\lambda_*}.
-\]
-For a reversible modulator, the first identity makes \(A\) positive self-adjoint in \(L^2(\pi)\). Its spectral decomposition gives
-\[
-S_\pi(t)
-=
-\sum_jw_je^{-r_jt}
-\]
-with positive weights, and therefore
-\[
-h_\pi'(t)=-\operatorname{Var}_t(r)\le0.
-\]
+# Independent mathematical audit
 
-The bundled `verify.py` checks a nonsymmetric reversible three-state generator,
-\[
-Q=
-\begin{pmatrix}
--1&1&0\\
-2&-5&3\\
-0&4&-4
-\end{pmatrix},
-\qquad
-\pi=
-\left(\frac8{15},\frac4{15},\frac3{15}\right),
-\]
-with event rates
-\[
-(1,4,2).
-\]
-It verifies detailed balance, weighted symmetry, positive spectral rates and weights, the Palm derivative identity, decreasing hazard, and strict survival ordering at several deterministic times.
+## correctness
 
-It also verifies the equal-rate case, where \(\alpha=\pi\) and the two interarrival survivals coincide.
+PASS
 
-Expected successful output begins with:
-`VERIFY_OK lambda_star=2.000000000000`.
+A=-Q+D is positive self-adjoint in L²(pi) under detailed balance and positive mean event rate: <f,Af>=1/2 sum pi_i q_ij(f_i-f_j)^2+sum pi_i lambda_i f_i². Spectral weights at 1 are nonnegative and sum to one, giving hyperexponential S_pi(t). Its hazard derivative is minus a positive tilted variance, and h_pi(0)=lambda_*. Palm initialization gives S_alpha(t)=-S_pi_prime(t)/lambda_*=(h_pi(t)/lambda_*) S_pi(t), hence S_pi>=S_alpha, strict for all t>0 unless all lambda_i equal. Handles rates lambda_i=0 and nonuniform pi; independent reconstruction, not finite extrapolation.
 
-The numerical checks are finite-dimensional replay checks. The theorem for all finite irreducible reversible MMPPs is proved analytically in `RESULT.md`.
+## originality
+
+PASS
+
+Best-of-knowledge same-object comparison finds no prior complete final classification; exact source implications, aliases, and residual risks explicitly recorded. No failed search is offered as proof of novelty.
+
+## value
+
+PASS
+
+A complete natural reversible class (including all finite birth-death modulators) of an explicitly conjectured stationary/event-stationary MMPP order, plus equality and positive spectral structure; significantly extends proven two-state and ordinary symmetric-C cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
