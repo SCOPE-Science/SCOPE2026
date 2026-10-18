@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T20:06:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/12/four-person-household-herd-immunity-ordering-for-all-finite-mark--f5924a58f57c/RESULT.md",
+        "original rational certificate and source files in Git tree"
+      ],
+      "rationale": "For household size four and Exp(1) infectious periods, use q_j=(1+j ell)^-1, the exact Ball et al. beta_k/mu_k recurrences and triangular first-epidemic P_v recursion. For s=sum((4-v)P_v/4), U_v=C(4,v)(1-s)^v s^(4-v), and D=sum_{v=0}^3((4-v)/4)(P_v-U_v)mu_(4-v), independent SymPy algebra from those recurrences produced D=ell^2 pi^2(1-pi) H / [(1+ell)^15(1+2ell)^10(1+3ell)^5]. Independently reconstructed H has bidegree (13,28), and its 14x29 Bernstein-by-ell coefficient table has 403 strictly positive and 3 zero exact rational entries, no negative entries and no identically zero row. Generated UTF-8 TSV is 5925 bytes with Git blob SHA 5e8f08634a64383b469aa1c1eaca20379ff9b2b4, EXACTLY matching the pinned package's coefficient file, so all 406 coefficients and the polynomial identity are verified, not just the verifier log. A separate exact CTMC recursion at ell=1,pi=1/2 yields P=(1/16,1/16,1/16,7/64,45/64), mu=(1,3/2,13/6,143/48), and D=10262378043/68719476736>0. Bernstein positivity for ell>0 and 0<pi<1 proves the universal finite-Markovian n=4 inequality. The herd-immunity corollary follows from strict monotonicity of the vaccination threshold; it concerns tilde h_D, not the unrestricted h_D.",
+      "residual_risks": [
+        "Exponential infectious periods and four-person homogeneous households only; no conclusion for all n or true unrestricted h_D.",
+        "Exact polynomial certificate depends on the stated source recurrences and independent reconstruction of the pinned coefficient bytes, both explicitly verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Only small ell, infinite ell, n=2/3, and numerical n4 shown"
+        ],
+        "reasoning": "Neither local perturbations nor numerical evidence imply all finite positive ell,pi; no stronger all-n full-rate theorem found.",
+        "searches": [
+          "Ball et al. Theorem4.8, Cor4.10, Theorem4.11",
+          "Ball et al. 2023 Fig6",
+          "Resultary semantic search: Four-person household disease-induced herd immunity larger than independent vaccination Ball Critcher Neal Sirl n=4 Markovian",
+          "web primary search: Ball Critcher Neal Sirl 2023 disease-induced herd immunity household 4 conjecture 4.12 PDF"
+        ]
+      },
+      "checked_sources": [
+        "Ball, Critcher, Neal, Sirl, The impact of household structure on disease-induced herd immunity, J. Math. Biol. 87 (2023), 83, Theorem 4.11, Conjecture 4.12, Appendix B.3, DOI:10.1007/s00285-023-02010-7",
+        "Resultary 2026/10/4/SCOPE-a-sharp-quadratic-frontier-for-reproduction-number-rank-reversal--3913071c0743"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary proves cases n=2 and n=3, explicitly announces n>=4 as conjectural"
+        ],
+        "reasoning": "The published source does not imply strict n4 all-rate inequality; independent exact Bernstein certificate closes first open case for Markovian periods.",
+        "searches": [
+          "Ball et al. Thm4.11/Conj4.12, Appendix B.3",
+          "Resultary semantic search: Four-person household disease-induced herd immunity larger than independent vaccination Ball Critcher Neal Sirl n=4 Markovian",
+          "web primary search: Ball Critcher Neal Sirl 2023 disease-induced herd immunity household 4 conjecture 4.12 PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Strict post-infection-vs-vaccination threshold for n=4 and Exp infectious periods"
+        ],
+        "reasoning": "Not equivalent to other household reproduction-number rankings or the n=2,3 theorem; same threshold quantities checked.",
+        "searches": [
+          "Ball et al. 2023 Conjecture4.12",
+          "Resultary query 5",
+          "Resultary semantic search: Four-person household disease-induced herd immunity larger than independent vaccination Ball Critcher Neal Sirl n=4 Markovian",
+          "web primary search: Ball Critcher Neal Sirl 2023 disease-induced herd immunity household 4 conjecture 4.12 PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fig6 sampled curves, not exact positivity certificate; regenerated 403 positive,3 zero Bernstein coefficients"
+        ],
+        "reasoning": "Exact certificate verified algebraically via table-byte Git SHA; table is the new proof artifact, not a pre-existing literature enumeration.",
+        "searches": [
+          "Ball et al. Fig 6",
+          "pinned 406-rational-entry certificate Git blob 5e8f08634a64383b469aa1c1eaca20379ff9b2b4",
+          "Resultary semantic search: Four-person household disease-induced herd immunity larger than independent vaccination Ball Critcher Neal Sirl n=4 Markovian",
+          "web primary search: Ball Critcher Neal Sirl 2023 disease-induced herd immunity household 4 conjecture 4.12 PDF"
+        ]
+      },
+      "rationale": "The complete Ball--Critcher--Neal--Sirl (J Math Biol 2023) PDF was inspected at Theorem 4.11, Conjecture 4.12, Fig 6, and Appendix B.3; it analytically covers n=2,3 and leaves n>=4 conjectural, with only numerical illustrations and asymptotic small/large contact statements for n=4. The exact 406-coefficient positivity certificate resolves n=4 for all positive finite rates under exponential infectious periods. Other Resultary household threshold/ranking and vaccination records concern different observables and do not imply this strict DI vs U comparison. No stronger all-n proof was found in the searched sources; unindexed work remains a risk.",
+      "residual_risks": [
+        "Exponential infectious periods and four-person homogeneous households only; no conclusion for all n or true unrestricted h_D.",
+        "Exact polynomial certificate depends on the stated source recurrences and independent reconstruction of the pinned coefficient bytes, both explicitly verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO prior all-finite-local-rate n=4 proof in the inspected primary argument; the paper explicitly conjectures n>3",
+          "evidence": "Theorem 4.11 n=2,3 only; immediately afterward Conjecture 4.12 is for any n>1; Fig 6 numerical evidence for n=4",
+          "identifier_or_url": "DOI:10.1007/s00285-023-02010-7",
+          "material_read": "full 47-page OA PDF at Theorem 4.11 p23, Conjecture 4.12 p24, small-contact Theorem 4.8, Appendix B.3 proof n=3 and Fig 6",
+          "method": "web PDF , screen turns438644view1 and759688view1, find /3",
+          "title": "The impact of household structure on disease-induced herd immunity",
+          "trigger": "source conjecture and precise n=4 gap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ball, Critcher, Neal, Sirl, The impact of household structure on disease-induced herd immunity, J. Math. Biol. 87 (2023), 83, Theorem 4.11, Conjecture 4.12, Appendix B.3, DOI:10.1007/s00285-023-02010-7",
+        "Resultary 2026/10/4/SCOPE-a-sharp-quadratic-frontier-for-reproduction-number-rank-reversal--3913071c0743"
+      ],
+      "rationale": "The first open household size of a precisely published conjecture is a natural finite cutoff, and the proof covers the full two-parameter positive domain rather than extrapolating simulations or low-contact perturbation. The rational Bernstein certificate is nontrivial and enables future extension or falsification attempts for larger or non-Markovian households.",
+      "residual_risks": [
+        "Exponential infectious periods and four-person homogeneous households only; no conclusion for all n or true unrestricted h_D.",
+        "Exact polynomial certificate depends on the stated source recurrences and independent reconstruction of the pinned coefficient bytes, both explicitly verified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ball, Critcher, Neal, Sirl, The impact of household structure on disease-induced herd immunity, J. Math. Biol. 87 (2023), 83, Theorem 4.11, Conjecture 4.12, Appendix B.3, DOI:10.1007/s00285-023-02010-7",
+    "Resultary 2026/10/4/SCOPE-a-sharp-quadratic-frontier-for-reproduction-number-rank-reversal--3913071c0743"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exponential infectious periods and four-person homogeneous households only; no conclusion for all n or true unrestricted h_D.",
+    "Exact polynomial certificate depends on the stated source recurrences and independent reconstruction of the pinned coefficient bytes, both explicitly verified."
+  ],
+  "residual_risks": [
+    "Exponential infectious periods and four-person homogeneous households only; no conclusion for all n or true unrestricted h_D.",
+    "Exact polynomial certificate depends on the stated source recurrences and independent reconstruction of the pinned coefficient bytes, both explicitly verified."
+  ],
+  "schema_version": 1
+}
