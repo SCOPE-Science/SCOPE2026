@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T23:07:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Original RESULT.md is FALSE for permitted g<0: normalized input G/sqrt(v) has factor sign(g), absent from its boxed clipped update, momentum, residual and final D. Independent direct matrix recurrence with g=+2 and g=-2 across 17 steps confirms the sign discrepancy. A complete final RESULT.md and SLOGAN.txt restore s=sign(g) in all four signed directions while preserving the squared confidence h_t and RMS formulas. The revised proof reconstructs both row-column factorizations, clipping at d=1, scalar EMA states, exact finite geometric sums including beta3=beta1², epsilon2>0 limit and zero-floor divergence. All assumptions and boundary cases have been checked; g=0 excluded, beta1>0 ensures finite positive h even with epsilon2=0. New signed formulas apply uniformly to positive and negative nonzero g.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "CAME: Confidence-guided Adaptive Memory Efficient Optimization (ACL 2023, 2023.acl-long.243; arXiv:2307.02047): Algorithm 2: normalized signed gradient g_t/sqrt(v_t), second factored residual and final m_t/sqrt(S_t).",
+          "Primary source: https://aclanthology.org/2023.acl-long.243.pdf",
+          "For real g≠0 and fixed biregular support, the exact signed CAME direction uses sgn(g)Q; residual-confidence scalar h and global RMS have the specified epsilon2 stationary limit and p density law."
+        ],
+        "reasoning": "Adafactor controls the first rank-one estimate and RMS clipping, but predates CAME and lacks its second residual-confidence factor, so itsorems cannot dominate h_t.",
+        "searches": [
+          "CAME optimizer constant gradient sparse biregular support stationary confidence gain epsilon2 residual",
+          "ACL:2023.acl-long.243",
+          "arXiv:1804.04235"
+        ]
+      },
+      "checked_sources": [
+        "https://aclanthology.org/2023.acl-long.243.pdf",
+        "https://arxiv.org/pdf/2307.02047",
+        "https://arxiv.org/abs/1804.04235",
+        "Resultary semantic query: CAME optimizer constant gradient sparse biregular support stationary confidence gain epsilon2 residual",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/475e612389968173d8ff1f5d87788e7b3684fd2d/2026/10/12/came-s-confidence-stage-has-an-exact-stationary-gain-law--1c5e2e8606b7/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "CAME: Confidence-guided Adaptive Memory Efficient Optimization (ACL 2023, 2023.acl-long.243; arXiv:2307.02047): Algorithm 2: normalized signed gradient g_t/sqrt(v_t), second factored residual and final m_t/sqrt(S_t).",
+          "Primary source: https://aclanthology.org/2023.acl-long.243.pdf",
+          "For real g≠0 and fixed biregular support, the exact signed CAME direction uses sgn(g)Q; residual-confidence scalar h and global RMS have the specified epsilon2 stationary limit and p density law."
+        ],
+        "reasoning": "Algorithm 2 specifies signed U_t=gQ/sqrt(v), so for negative g it contradicts the original signless formula; solving both factorizations gives the corrected new final claim.",
+        "searches": [
+          "CAME optimizer constant gradient sparse biregular support stationary confidence gain epsilon2 residual",
+          "ACL:2023.acl-long.243",
+          "arXiv:1804.04235"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "CAME: Confidence-guided Adaptive Memory Efficient Optimization (ACL 2023, 2023.acl-long.243; arXiv:2307.02047): Algorithm 2: normalized signed gradient g_t/sqrt(v_t), second factored residual and final m_t/sqrt(S_t).",
+          "Primary source: https://aclanthology.org/2023.acl-long.243.pdf",
+          "For real g≠0 and fixed biregular support, the exact signed CAME direction uses sgn(g)Q; residual-confidence scalar h and global RMS have the specified epsilon2 stationary limit and p density law."
+        ],
+        "reasoning": "A stationary consistency-confidence asymptote could be phrased as residual EMA floor or sparse active-coordinate gain; primary Algorithm 2 states neither closed-form law.",
+        "searches": [
+          "CAME optimizer constant gradient sparse biregular support stationary confidence gain epsilon2 residual",
+          "ACL:2023.acl-long.243",
+          "arXiv:1804.04235"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "CAME: Confidence-guided Adaptive Memory Efficient Optimization (ACL 2023, 2023.acl-long.243; arXiv:2307.02047): Algorithm 2: normalized signed gradient g_t/sqrt(v_t), second factored residual and final m_t/sqrt(S_t).",
+          "Primary source: https://aclanthology.org/2023.acl-long.243.pdf",
+          "For real g≠0 and fixed biregular support, the exact signed CAME direction uses sgn(g)Q; residual-confidence scalar h and global RMS have the specified epsilon2 stationary limit and p density law."
+        ],
+        "reasoning": "No exact stationary gain tabulation for constant biregular CAME inputs appeared in semantic published-record search; such absence is only a qualified research finding.",
+        "searches": [
+          "CAME optimizer constant gradient sparse biregular support stationary confidence gain epsilon2 residual",
+          "Resultary published mathematical findings; ACL:2023.acl-long.243"
+        ]
+      },
+      "rationale": "Prior official CAME article prescribes both EMA factorizations and clipping but does not derive the coupled exact response for a prescribed nonzero scalar gradient times a biregular support. Adafactor supplies only first-stage primitives. The repaired claim corrects a sign quantifier error while retaining the substantive new density-insensitive confidence law.",
+      "residual_risks": [
+        "An equivalent constant-update closed-form diagnostic might exist in unindexed implementation or optimizer-theory notes.",
+        "The calculation assumes epsilon1=0, exact biregularity, deterministic external constant input and clipping threshold one; it does not predict actual stochastic training or practical floating-point stationary gains."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the algorithm but does not state the closed constant-biregular-input gain or its all-g signed closed solution; Algorithm 2 explicitly shows why missing sign(g) in source RESULT was false.",
+          "evidence": "Algorithm 2: normalized signed gradient g_t/sqrt(v_t), second factored residual and final m_t/sqrt(S_t).",
+          "identifier_or_url": "ACL 2023, 2023.acl-long.243; arXiv:2307.02047",
+          "material_read": "Read official complete ACL primary PDF including Algorithm 2, factorization formulas, signed g/sqrt(v) normalization, clipping, momentum, residual confidence and reported epsilon settings.",
+          "method": "Full primary PDF read with Algorithm 2 visual verification.",
+          "title": "CAME: Confidence-guided Adaptive Memory Efficient Optimization",
+          "trigger": "Exact source recurrence and whether full stationary sparse law already derived."
+        },
+        {
+          "assessment": "Adafactor predates CAME’s second residual-confidence factor and cannot state the complete h_t law for it.",
+          "evidence": "Defines factored reconstruction and update clipping but lacks CAME confidence EMA.",
+          "identifier_or_url": "arXiv:1804.04235 (Shazeer–Stern)",
+          "material_read": "Read source abstract and relevant descriptions of factored second moments and update RMS clipping, with author-provided algorithm context.",
+          "method": "Primary abstract and pertinent public algorithm sections inspected; not asserting a whole-document search result.",
+          "title": "Adafactor: Adaptive Learning Rates with Sublinear Memory Cost",
+          "trigger": "Possibly broader first-factor theorem plus clipping implies new confidence formula."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Confidence normalization is CAME’s defining modification of Adafactor. Its exact response to a structured constant input reveals a nontrivial distinction: global confidence RMS cannot detect biregular sparsity while active-coordinate magnitudes scale as p^-1/2, and the second regularizer alone controls the limiting response amplitude. This is a motivated analytical limitation and tuning diagnostic for a named optimizer, not a claim about training stability; the sign repair is required to make the meaningful all-g statement correct.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An equivalent constant-update closed-form diagnostic might exist in unindexed implementation or optimizer-theory notes.",
+    "The calculation assumes epsilon1=0, exact biregularity, deterministic external constant input and clipping threshold one; it does not predict actual stochastic training or practical floating-point stationary gains.",
+    "The original signless signed-direction statement is false for negative g and is superseded only by the complete corrected RESULT.md and SLOGAN.txt included in the private plan."
+  ]
+}

@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Biregularity makes both row-column reconstructions scalar all-ones matrices. The source update clipping exactly removes the first-stage temporal bias, after which the momentum and confidence recurrences are one-dimensional and solvable in closed form. The embedded verifier directly replays the complete matrix recurrence.
+PASS
 
-Risk: the exact first-stage formula sets the source numerical regularizer \(\epsilon_1\) to zero.
+Original RESULT.md is FALSE for permitted g<0: normalized input G/sqrt(v) has factor sign(g), absent from its boxed clipped update, momentum, residual and final D. Independent direct matrix recurrence with g=+2 and g=-2 across 17 steps confirms the sign discrepancy. A complete final RESULT.md and SLOGAN.txt restore s=sign(g) in all four signed directions while preserving the squared confidence h_t and RMS formulas. The revised proof reconstructs both row-column factorizations, clipping at d=1, scalar EMA states, exact finite geometric sums including beta3=beta1², epsilon2>0 limit and zero-floor divergence. All assumptions and boundary cases have been checked; g=0 excluded, beta1>0 ensures finite positive h even with epsilon2=0. New signed formulas apply uniformly to positive and negative nonzero g.
 
-## Originality
+## originality
 
-PASS. The CAME paper defines the residual-confidence mechanism and motivates larger steps when residuals are small, but the inspected full text does not give the stationary gain law, the exact \(\epsilon_2^{-1/2}\) limiting RMS, or the biregular density cancellation. Focused published-record searches did not locate an implication-equivalent result.
+PASS
 
-Residual risk: an equivalent calculation may exist in unindexed implementation notes.
+Prior official CAME article prescribes both EMA factorizations and clipping but does not derive the coupled exact response for a prescribed nonzero scalar gradient times a biregular support. Adafactor supplies only first-stage primitives. The repaired claim corrects a sign quantifier error while retaining the substantive new density-insensitive confidence law.
 
-## Value
+## value
 
-PASS. The confidence stage is the defining distinction between CAME and Adafactor. The theorem gives a sharp boundary case for that mechanism: stationary consistency does not freeze the gain but drives it to the explicit regularization floor, while a natural class of sparse matrix patterns remains invisible to the global confidence RMS. This is a structural limitation and tuning diagnostic, not an arbitrary numerical example.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Confidence normalization is CAME’s defining modification of Adafactor. Its exact response to a structured constant input reveals a nontrivial distinction: global confidence RMS cannot detect biregular sparsity while active-coordinate magnitudes scale as p^-1/2, and the second regularizer alone controls the limiting response amplitude. This is a motivated analytical limitation and tuning diagnostic for a named optimizer, not a claim about training stability; the sign repair is required to make the meaningful all-g statement correct.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
