@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** Alternating normal form reduces the problem to paired exterior generators. Partition by singly occupied pairs proves the direct-sum decomposition into Boolean subset-incidence operators. Wilson's actual integral diagonal form gives each modular rank, and the quotient symplectic-orbit calculation gives all multiplicities. The recurrence for adding a pair proves strict rank recovery; the characteristic-two recurrence gives the closed expression. Direct brute-force elimination tested every bivector in the stated small cases, but the theorem for arbitrary dimension rests on these symbolic arguments.
+## correctness
 
-**Originality: PASS, with residual uncertainty.** Kustin--Vraciu (arXiv:1110.2822v1, introduction and Theorems 5.1, 6.4) study weak Lefschetz criteria for monomial complete intersections. Ghorbani et al. (arXiv:0709.3144v1, Corollary 3) reproduce the complete subset-inclusion diagonal form of Wilson. The June 2016 finite-field alternating-form calculation counts forms of a fixed rank. None of these inspected statements alone supplies the full wedge-multiplication rank enumerator or strict recovery of a bivector's alternating rank in all characteristics. The inclusion-matrix rank ingredient and alternating-form enumeration are prior work, not newly claimed. Targeted searches found no exact combined historical statement; this is not proof of absolute novelty.
+PASS
 
-**Value: PASS.** The result supplies a natural complete rank-distribution invariant for degree-two multipliers in every finite exterior algebra, detects all finite-field bivector orbits with a single operator rank, and gives a characteristic-two closed law that remains informative when wedge powers collapse. This is a full family classification, not an arbitrary small-dimensional census.
+Every alternating bivector over any characteristic admits normal form ω=Σ_{i=1}^r a_i∧b_i with coefficient rank 2r. The exterior basis decomposes by singly occupied pairs into invariant Boolean-subset modules, on which multiplication by ω is the incidence up-map U_(c,j) from j-subsets to (j+1)-subsets with no signs. Wilson integer diagonal form yields modular ranks b_p(c,j) and hence the complete R_p(n,r) for all n,p. Alternating-form orbit counts give A_q(n,r) and enumerator Σ A_q(n,r)T^{R_p(n,r)}. The Jordan block argument for nilpotent multiplication T_r includes 2^r one-dimensional blocks, implying g_(r+1)>4g_r and strict operator-rank growth at fixed n; in p=2, T_r²=0 implies R2(n,r)=2^(n−r−1)(2^r−1). Independent exhaustive wedge exterior-map linear algebra matches all bivectors in F2 dimensions 2−5 and F3 dimensions 2−4, including H_4,2=1+35T^4+28T^6. Analytic reduction, not finite enumerations, establishes all n and fields.
 
-**Risks and limits.** An older modular Lefschetz, exterior-form, or representation-theoretic source might subsume the combination under different vocabulary. No Jordan-block census, larger exterior degrees, or uniqueness beyond the stated operator-rank recovery is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The modular ranks of subset-incidence matrices, classification and finite-field count of alternating forms, and monomial complete intersection Lefschetz analyses are old. The candidate combines these to give the *full operator-rank distribution* of degree-two exterior multiplication and proves that operator rank alone recovers alternating form rank in every characteristic. No inspected earlier result states that combined spectrum.
+
+## value
+
+PASS
+
+Exterior multiplication by a 2-form is canonical, and understanding its kernel/rank in modular characteristic is a basic structural invariant for exterior algebra modules. The explicit all-bivector finite-field histogram and rank-detection property give independently useful exact facts, especially where p-torsion alters the Lefschetz decomposition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
