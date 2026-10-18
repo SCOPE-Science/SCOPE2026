@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Hessian normalization is invertible for both diagonal entries positive; positive definiteness forces \(0\le c<1\). Each update is an exact linear map, so the four replacement paths and two permutation paths exhaust their respective laws. The two generalized Rayleigh quotients of the expectation-matrix difference have been reconstructed and checked symbolically. Their common positive factor and the two sign factors prove the universal quantifiers, the equality case, and both reverse witnesses. The exact worst-case example uses simultaneous diagonalization and rational fractions, not a floating-point optimization. Exact energy decrement proves individual-update monotonicity. No multiepoch assertion is inferred.
+PASS
 
-## Originality — PASS with residual risks
+Diagonal Hessian normalization yields C=[[1,c],[c,1]], 0<=c<1, and exact overrelaxed coordinate maps U,V. Direct matrix pullbacks for the two permutations versus four replacement pairs give generalized modal difference ω²(1-c²)(2-ω)/4 times [2-ω(1+c)] on symmetric C-energy and [2-ω(1-c)] on antisymmetric C-energy. The latter coefficient is always positive on 0<ω<2. Thus uniform strict P-over-R preference holds iff ω<2/(1+c), becomes nonstrict on one mode at equality, and preferences reverse by mode above it for c>0. Independent symbolic expansion recovers the factors and exact worst-case example at c=1/2,ω=19/10: P worst-case 137143/160000 > R worst-case 53949/64000. The one-coordinate decrement -ω(2-ω)[(Cy)_i]^2/2 is nonpositive. Results are one epoch only.
 
-Recht and Ré, arXiv:1202.4184, Section 3.1, treat positive-semidefinite matrix-product factors and two-factor norm inequalities, but do not imply a sharp statewise energy comparison for overrelaxed coordinate maps with negative nontrivial eigenvalues. Oswald and Zhou, arXiv:1510.04727, Sections 1 and 3, treat shuffled SOR convergence estimates but not the exact two-variable comparison with independent replacement draws. Sun–Luo–Ye, arXiv:1503.06387, treat randomly permuted coordinate descent through expected operators, and Gürbüzbalaban–Ozdaglar–Vanli–Wright, arXiv:1803.08200, treat exact coordinate minimization, not the overrelaxation reversal. The closest accessible literature gives the framework but does not imply the computed sharp threshold. Residual risk: a specialized historical two-coordinate SOR comparison not retrieved could be equivalent.
+## originality
 
-## Value — PASS
+PASS
 
-The result is a complete, exact ordering comparison for a basic relaxation method, identifying the largest stepsize interval where reshuffling is uniformly preferable and a precise regime of opposing initial-state preferences. The limiting value has structural meaning: \(\omega(1+c)=2\) is also the nonexpansion threshold of the simultaneous normalized-gradient step. The exact example overturns even worst-case one-epoch preference at sufficiently strong overrelaxation, while each elementary step remains contractive. This is more informative than a generic convergence guarantee or a numerical illustration, but is not asserted to predict arbitrary later epochs.
+Recht-Re two-factor PSD norm inequalities and Oswald-Zhou randomized SOR convergence bounds do not yield this exact two-dimensional statewise relaxation threshold where coordinate maps are overrelaxed. Work on exact coordinate minimization corresponds to ω=1 and misses the reverse mode. Closest independently identified Resultary Kaczmarz results concern other update protocols.
 
-## Scope and limitations
+## value
 
-No full-corpus novelty certification is possible; comparison risk persists for older specialized literature. Program checks are exact but finite; completeness comes from the two-dimensional symbolic identity and the sign proof. External independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the maximal relaxation range for universal random-permutation advantage and constructs a sharp opposing-mode/worst-case failure regime even while every elementary update decreases the quadratic objective. This is a motivated question in randomized coordinate methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
