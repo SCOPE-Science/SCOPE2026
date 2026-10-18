@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For every \(n\ge5\), the shape lemma for pairwise-intersecting edges yields a complete state classification. The disjoint-replacement condition forbids every move above three tokens. At three tokens, Johnson adjacency through the star intermediates gives an exact shortest-path formula and hence all eccentricity cases. At two tokens, every pair has support on at most six labels; a complete six-label orbit table verified by a standalone enumerator gives the universal upper bound four, and a five-label obstruction gives the lower bound. Independent brute enumeration directly from the edge-intersection predicate and BFS on the resulting slide graphs confirms all stated finite instances and metric identities.
+
+**Originality — PASS, with residual risk.** The closest inspected published analyses are tree-specific algorithms (arXiv:1406.6576), a systematic study of realizability and selected structural properties of \(\mathrm{TS}_k(G)\) (arXiv:2203.16861), and a characterization centered on forest reconstructions (arXiv:2301.00317). Their inspected claims do not imply the all-occupancy Kneser-family spectrum, the Johnson metric, the constant four/eight diameter bounds or frozen threshold. A published result about a static total-domination generating polynomial of Kneser pair graphs involves a different predicate. Searches using the Kneser, intersecting-edge-family, triangle/star and token-slide formulations found no exact or stronger covering theorem. Unindexed or differently titled prior work remains a risk; search failure is not proof of uniqueness.
+
+**Value — PASS.** This identifies a uniform qualitative phase transition from connected configuration spaces through three tokens to completely motionless spaces from four onward, while giving exact intrinsic geodesics in the last mobile layer and a fixed two-token diameter independent of graph order. The equal edge count of the two mobile layers is an additional structural relationship; these conclusions are not just counts of static intersecting families.
+
+Independent verification remains open; no finding beyond the stated scope is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
