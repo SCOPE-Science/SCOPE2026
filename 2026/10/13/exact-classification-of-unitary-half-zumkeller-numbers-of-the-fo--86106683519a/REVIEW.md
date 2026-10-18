@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For \(n=4pq\), the proper unitary divisors are exactly \(1,4,p,q,4p,4q,pq\). Equal-sum partitioning is exactly equivalent to a signed sum equal to zero. After global sign reversal, fixing the sign of \(pq\) to be positive yields the exact equation
-\[
-q(p+u)=-(vp+w),\qquad u,v,w\in\{-5,-3,3,5\}.
-\]
-For every prime \(p\ge11\), the equation forces \(q\le5(p+1)/(p-5)<p\), contradicting \(q>p\). The remaining primes \(p=3,5,7\) are exhausted by \(64\) sign triples each. The resulting candidate table leaves exactly five prime pairs, and explicit divisor partitions verify all five positive cases. The packaged verifier reproduces the complete finite table and an additional regression scan; the regression cutoff is not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS.** The focal paper’s full unitary-half section was inspected. It defines the property, gives examples, provides the subset-sum criterion, and proves a complete two-prime-support result, but it does not classify \(4pq\). OEIS A290467 contains the five values in finite tabulated data and supplies a membership computation, but no infinite exclusion theorem for the family. The closest published result record classifies the different property “unitary Zumkeller” at three-prime support; it does not imply a classification for the weaker unitary-half condition. Targeted searches of the exact family, equivalent sign formulation, database values, and broader three-prime formulations found no covering theorem. Residual risk remains for obscure unindexed literature.
+PASS
 
-## Value
-**PASS.** The family \(4pq\) is a natural first genuinely unitary three-prime dyadic layer: for squarefree \(2pq\), every divisor is unitary, while exponent two at the prime \(2\) changes the divisor geometry. The theorem gives a complete infinite-family classification, a sharp structural bound \(p\le7\), and explicit witnesses for every survivor. This is more than a finite table lookup and directly extends the focal paper’s two-prime-support analysis.
+For n=4pq (p<q distinct odd primes), proper unitary divisors are exactly {1,4,p,q,4p,4q,pq}. Nonempty equal-sum partition exists iff signed sum=0; normalize sign of pq positive. Each independent sign pair gives an element of S={-5,-3,3,5}, reducing to q(p+u)=-(vp+w). For p>=11, p+u>=p-5>0 and q<=5(p+1)/(p-5)<p, contradiction; inequality p^2-10p-5>0 already holds at 11 and increases. Exhaustively evaluating all 64 (u,v,w) for p=3,5,7 gave candidate q sets respectively {5,6,7,9,10}, {6,9,10,11,14,15}, {8,9,10,12,13,15,16,19,20}; zero-denominator cases have no identities. Prime q leave (3,5),(3,7),(5,11),(7,13),(7,19), and explicitly checking both partition sums for 60,84,220,364,532 proves existence. Complete symbolic exclusion handles every larger prime and finite enumeration handles the residual set, not a bounded-only scan.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Das (2024) defines the unitary half-Zumkeller property and proves the subset-sum criterion and a two-prime-support theorem, with 60,84 known examples. OEIS A290467 already records all five numerical values; mere membership or listing of these numbers is not new. A published classification of even unitary *Zumkeller* numbers with three-prime support concerns a different property and does not imply this half-subset classification. The exact necessary-and-sufficient theorem for n=4pq and exclusion of all other primes is not found in inspected prior materials.
+
+## value
+
+PASS
+
+This is the complete first three-prime-support dyadic-exponent-two slice where unitary differs from ordinary divisor partitions. The finite five-pair classification resolves a natural elementary number-theoretic divisibility/partition question; it proves global absence outside a short OEIS-visible list, which table membership alone cannot give. The prime-support and dyadic conditions are mathematically motivated, not arbitrary cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
