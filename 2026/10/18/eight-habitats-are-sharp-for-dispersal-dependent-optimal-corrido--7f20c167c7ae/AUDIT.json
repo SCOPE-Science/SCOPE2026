@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For each edge, removal separates a tree into sets A and B and the expected reachable component size gain is exactly 2(1-p)F_e(p)/n, with F_e the cross-cut path-length polynomial. Prüfer sequences enumerate every labelled tree up to 8, center-rooted AHU encodings give complete unlabelled representatives, exact edge coefficient vectors permit all-parameter coefficientwise comparisons, and every remaining pair difference factors into one of the five checked forms. The only two forms with roots on (0,1) are p(2p-1) and p(p^2+p-1). An actual execution of the packaged standard-library checker reproduced all 47 unlabelled trees, the exact patterns and both witness vectors. Ten independent rational full-edge-state enumerations checked the basic gain formula. Thus these computations plus the exhaustive algorithm establish the finite sharp theorem; experimental point checks alone are not the proof. Applicability is restricted to n<=8 trees under uniform independent link reliabilities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hamonic, Albert, Couëtoux and Vaxès (2022 online; 2023 volume), DOI 10.1002/net.22131: general budgeted landscape-connectivity optimization, including fixed-parameter link improvement.",
+        "Saura and Rubio (2010), DOI 10.1111/j.1600-0587.2009.05760.x: established probability of connectivity and link importance; the tree specialization yields proportional pF_e and (1-p)F_e rankings.",
+        "General optimization can evaluate a fixed p for each graph, whereas the sharp statement quantifies over all p in (0,1) and every unlabelled tree through eight vertices."
+      ],
+      "reasoning": "The 2022/2023 optimization framework is stronger in allowed network instances but does not explicitly supply a smallest-tree all-p classification, nor does its fixed-parameter algorithm logically imply the n=8 cutoff without a further finite census. An uninspected specialized polynomial ranking theorem might nonetheless cover the cutoff.",
+      "searches": [
+        "Optimizing the ecological connectivity of landscapes 2022 link upgrade ECA budgeted optimization",
+        "doi:10.1002/net.22131",
+        "doi:10.1111/j.1600-0587.2009.05760.x",
+        "edge Wiener polynomial edge partial Hosoya polynomial weighted p distance centrality trees edge rankings"
+      ]
+    },
+    "checked_sources": [
+      "Saura and Rubio (2010), doi:10.1111/j.1600-0587.2009.05760.x",
+      "Hamonic et al. (2022 online), doi:10.1002/net.22131",
+      "Williams and Snyder (2005), doi:10.1007/s10666-005-9003-9",
+      "Youssef, Khorramzadeh and Eubank (2013), arXiv:1308.4577",
+      "Bibliographic searches for edge reliability, habitat corridor rankings and edge-Wiener/Hosoya tree polynomials"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Saura and Rubio (2010), DOI 10.1111/j.1600-0587.2009.05760.x: established probability of connectivity and link importance; the tree specialization yields proportional pF_e and (1-p)F_e rankings.",
+        "Hamonic, Albert, Couëtoux and Vaxès (2022 online; 2023 volume), DOI 10.1002/net.22131: general budgeted landscape-connectivity optimization, including fixed-parameter link improvement.",
+        "Williams and Snyder (2005), DOI 10.1007/s10666-005-9003-9: percolation-informed habitat corridor restoration to establish landscape spanning routes, not expected pairwise connectivity cutoff.",
+        "The exact certificate derives five nontrivial coefficientwise frontier differences in n<=8, of which two have interior roots; the papers do not provide this computation or structural threshold."
+      ],
+      "reasoning": "Saura--Rubio implies how to compute a score for a chosen tree, Hamonic et al implies how to solve a fixed-parameter budgeted instance, and Williams--Snyder studies a different route objective. The finite quantified property for all small trees is not an automatic corollary without actual exhaustive calculation. A published stronger theorem about parameter-dependent tree edge rankings remains a disclosed possibility.",
+      "searches": [
+        "doi:10.1111/j.1600-0587.2009.05760.x",
+        "doi:10.1002/net.22131",
+        "doi:10.1007/s10666-005-9003-9",
+        "habitat corridor improvement one edge optimize expected reachability dispersal landscape network colonization restoration percolation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Saura and Rubio (2010), DOI 10.1111/j.1600-0587.2009.05760.x: established probability of connectivity and link importance; the tree specialization yields proportional pF_e and (1-p)F_e rankings.",
+        "Hamonic, Albert, Couëtoux and Vaxès (2022 online; 2023 volume), DOI 10.1002/net.22131: general budgeted landscape-connectivity optimization, including fixed-parameter link improvement.",
+        "On a tree, the replacement p->1 and the omission p->0 each change only cross-cut pair probabilities; both rank edges by the same polynomial F_e when p is fixed."
+      ],
+      "reasoning": "We explicitly reduce the restoration objective to ecological probability of connectivity, equivalent connected area, component reachability, and the established dPC link-deletion ranking. These formulations cover the objective itself, not the specific minimal 8-vertex switching classification. There is no claim that these formulations or the elementary cross-cut identity are novel.",
+      "searches": [
+        "edge Wiener polynomial edge partial Hosoya polynomial weighted p distance centrality trees edge rankings",
+        "single edge restoration optimal landscape connectivity depends on species dispersal parameter rank crossing graphs",
+        "probability connectivity landscape patch link importance ranking parameter dependence dispersal probability edges threshold",
+        "doi:10.1111/j.1600-0587.2009.05760.x",
+        "doi:10.1002/net.22131"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The elementary 23-class eight-vertex unlabelled-tree count is standard, not a novel enumeration; the new object is the exact single-edge argmax partition for all p.",
+        "Searches of publicly available mathematical and ecological literature did not reveal this exact eight-tree restoration-rank tabulation; searching cannot establish universal absence."
+      ],
+      "reasoning": "No inspected table lists the two switching 8-tree shapes or their thresholds; absence from a finite search is not a general novelty certificate. Particular risk remains for edge-Hosoya/Wiener polynomial tables outside the inspected selection.",
+      "searches": [
+        "edge Wiener polynomial edge partial Hosoya polynomial weighted p distance centrality trees edge rankings",
+        "single edge restoration optimal landscape connectivity depends on species dispersal parameter rank crossing graphs",
+        "probability connectivity landscape patch link importance ranking parameter dependence dispersal probability edges threshold",
+        "habitat corridor improvement one edge optimize expected reachability dispersal landscape network colonization restoration percolation",
+        "eight vertex trees one link repair changes optimum according to uniform edge survival probability",
+        "tree Hosoya polynomial ranking crossover edge reliability dispersal connectivity table"
+      ]
+    },
+    "rationale": "The biological corridor importance objective, pairwise p-distance on trees, and fixed-parameter link optimization are established in the inspected literature. The distinct new finite classification is the exact minimum n=8 for a dispersal-dependent change of the globally optimal single link, the fact that precisely two of 23 eight-vertex unlabelled trees switch, their explicit topologies, and the roots 1/2 and (sqrt(5)-1)/2. Neither an inspected paper nor a retrieved dedicated result contains that sharp all-parameter census. This is an evidence-bounded self-review, not a proof of universal absence.",
+    "residual_risks": [
+      "Uninspected specialized graph-polynomial literature could contain equivalent edge-rank crossover tables or a stronger theorem.",
+      "Some connected-network optimization results formulate the objective more generally; the present result does not claim new optimization machinery or an independent published novelty determination.",
+      "Accessible published-result searches and inspected public sources do not cover all unpublished or inaccessible mathematical work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers the scoring framework and link ranking equivalence; it does not report the sharp seven/eight-tree threshold or full small-tree topology census.",
+        "evidence": [
+          "Saura and Rubio (2010), DOI 10.1111/j.1600-0587.2009.05760.x: established probability of connectivity and link importance; the tree specialization yields proportional pF_e and (1-p)F_e rankings."
+        ],
+        "identifier_or_url": "https://nsojournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.1600-0587.2009.05760.x",
+        "material_read": "Introductory ecology and metric definitions, link-removal importance, relative link contributions, and discussion of dispersal traits (opening, methods and discussion pages of 15-page primary PDF).",
+        "method": "Lawful complete full-text PDF, text extraction and visual inspection of representative pages.",
+        "title": "A common currency for the different ways in which patches and links can contribute to habitat availability and connectivity in the landscape",
+        "trigger": "Same ecological connectivity score and edge importance under dispersal variation"
+      },
+      {
+        "assessment": "Optimizes ECA under general budgets at fixed input parameters, encompassing the present per-p task but not asserting two exceptional eight-vertex trees or the parameter crossover classification.",
+        "evidence": [
+          "Hamonic, Albert, Couëtoux and Vaxès (2022 online; 2023 volume), DOI 10.1002/net.22131: general budgeted landscape-connectivity optimization, including fixed-parameter link improvement."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/net.22131",
+        "material_read": "Available full HTML text, introduction and mathematical formulation, optimization methods and conclusions.",
+        "method": "Lawful full-text article HTML, identified and inspected relevant mathematical sections.",
+        "title": "Optimizing the ecological connectivity of landscapes",
+        "trigger": "Possible stronger general graph-theoretic optimization algorithm includes candidate link upgrades"
+      },
+      {
+        "assessment": "Route-building/connectivity modeling objective differs from maximizing expected pairwise connections via reliability of a single existing tree edge. Does not dominate the sharp bound.",
+        "evidence": [
+          "Williams and Snyder (2005), DOI 10.1007/s10666-005-9003-9: percolation-informed habitat corridor restoration to establish landscape spanning routes, not expected pairwise connectivity cutoff."
+        ],
+        "identifier_or_url": "https://research.fs.usda.gov/download/treesearch/15032.pdf",
+        "material_read": "Methods, optimization objective, substantive findings, and discussion in full PDF; selected pages viewed.",
+        "method": "Lawful USDA full-text PDF with text extraction and representative page images.",
+        "title": "Restoring habitat corridors in fragmented landscapes using optimization and percolation models",
+        "trigger": "Prior mathematical optimization of habitat corridors in percolation landscapes"
+      },
+      {
+        "assessment": "Background only; no whole-document noncoverage inference.",
+        "evidence": [
+          "arXiv:1308.4577 discusses network reliability and diffusive processes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1308.4577",
+        "material_read": "Public abstract and metadata only; not relied on to exclude full-document claim coverage.",
+        "method": "arXiv abstract and bibliographic comparison.",
+        "title": "Network reliability: The effect of local network structure on diffusive processes",
+        "trigger": "Related network reliability and diffusion vocabulary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7f20c167-c7ae-49a5-ba21-8f9765fd9870",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The established probability-of-connectivity metric is a natural ecological restoration criterion. A sharp minimal example and a complete census of the first eight-vertex exceptions reveal exactly when choosing a corridor according to one assumed dispersal probability can cease to be optimal at another. This finite structural cutoff gives a testable benchmark for habitat restoration optimization and a substantive topology-dependent boundary, unlike an arbitrary numerical instantiation. No implication for heterogeneous real habitats is asserted.",
+    "status": "PASS"
+  }
+}
