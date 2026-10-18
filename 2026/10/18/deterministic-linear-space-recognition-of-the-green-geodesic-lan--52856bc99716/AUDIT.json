@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For a word of length n the visited Cayley vertices form a finite Munn subtree T. Inverse-semigroup identities characterize R by T, L by endpoint-translated T, and D by translation classes of the unrooted labelled T. Any walk visiting all tree edges from s to t has minimum 2(|V(T)|-1)-d(s,t), attained by doubled excursions from the s-t path. Optimizing free roots yields precisely the three stated distances. There are <=n+1 prefix vertices. Repeated reductions and equality/distance scans use O(n) work cells and halt in polynomial time. Replayed finite verifier exhaustively checked 9,063 words in ranks 1,2,3 by class-minimum enumeration. This is supporting finite evidence, not the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 paper presents language classes and Munn-tree descriptions, while its Section 11 seeks placement above context-free; Kambites et al. arXiv:2407.10489 studies exponential growth rather than explicit resource bounds for R/L/D-geodesic membership."
+      ],
+      "reasoning": "A theorem establishing linear-space algorithms for all Green class representative languages would dominate the present claim, as would a stronger logarithmic-space membership theorem. None was located. Existing Munn/geodesic characterizations supply essential premises and make the new resource analysis comparatively short, which is a residual priority risk.",
+      "searches": [
+        "free inverse monoid R Geo minimal representative 2 edges eccentricity rooted tree D Geo diameter deterministic linear space",
+        "\"Munn trees\" \"eccentricity\" \"Green\" geodesic language",
+        "arXiv:2407.10489 growth of free inverse monoids",
+        "arXiv:2609.35251 Munn trees geometric Green languages"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.35251v1 (2026-09-28)",
+      "arXiv:2609.35251v2 (2026-10-15, source revision not used as earliest date)",
+      "arXiv:2407.10489",
+      "arXiv:2608.10379",
+      "https://www.emergentmind.com/open-problems/classify-d-r-l-representative-languages",
+      "published-finding corpus queries listed in four named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The same authors explicitly state that the precise classification of D-, R-, L-Geo, including context-sensitivity, remains to be determined; the present proof independently derives a terminating O(n)-space algorithm by repeated reduced-prefix calculations."
+      ],
+      "reasoning": "The length equalities may be derived from prior Munn-tree geometry and are used solely as lemmas. The final claim is an operational complexity bound, stronger than merely recognizing a word by unrestricted search and not asserted by the inspected primary text. It is a natural consequence once the additional reusable-space implementation is supplied, so any already-published resource analysis would cover it. This limits novelty to the explicit complexity step, without renaming known formulas as independent discoveries.",
+      "searches": [
+        "arXiv:2609.35251 Section 11 future work",
+        "arXiv:2609.35251 Section 9 geodesic normal forms",
+        "\"Green languages and growth of free inverse monoids\" \"context-sensitive\" 2026",
+        "\"free inverse monoid\" \"Green\" \"linear bounded\"",
+        "\"Green languages and growth of free inverse monoids\" \"D4\" \"diameter\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bodart–Carvalho–Monteiro (arXiv:2609.35251; Section 11 explicitly asks whether D-, R-, L-Geo are context-sensitive), and its Section 9 plus the Munn-tree preliminaries. Munn’s tree model and tree-tour length identities are treated as existing mathematics.",
+        "The language-hierarchy question is also indexed as an open problem at https://www.emergentmind.com/open-problems/classify-d-r-l-representative-languages ."
+      ],
+      "reasoning": "Looked for deterministic linear space, linear-bounded recognition and context-sensitive classifications as aliases. The explicit primary paper states the question rather than a solution. A purely geometric test is not itself a published space analysis; the proof supplies that analysis and a finite work-tape implementation.",
+      "searches": [
+        "Green languages free inverse monoids D Geo R Geo L Geo deterministic context sensitive linear space Munn tree diameter eccentricity",
+        "Green D-representative languages free inverse monoids context-sensitive classification polynomial time shortest traversal",
+        "\"free inverse monoid\" \"Green\" \"linear space\" geodesic",
+        "arXiv:2609.35251 Section 11",
+        "arXiv:2609.35251 Sections 4 and 9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-index searches returned mainly records about unrelated finite trees, automata, and formal languages; no returned summary asserted a context-sensitive, deterministic linear-space result for these Green-geodesic languages. Query strings and exact results are recorded in the private provenance."
+      ],
+      "reasoning": "A nearby hit by terms like tree diameter or language does not establish coverage. No exact table or database record of these three space bounds was identified. Search incompleteness cannot certify uniqueness.",
+      "searches": [
+        "Green languages free inverse monoids D Geo R Geo L Geo deterministic context sensitive linear space Munn tree diameter eccentricity",
+        "Green D-representative languages free inverse monoids context-sensitive classification polynomial time shortest traversal",
+        "free inverse monoid R Geo minimal representative 2 edges eccentricity rooted tree D Geo diameter deterministic linear space",
+        "published-finding corpus semantic search: context sensitive Green languages free inverse monoids",
+        "published-finding corpus semantic search: Munn tree diameter eccentricity minimum word"
+      ]
+    },
+    "rationale": "The motivating September 2026 primary article develops structural/geometric characterizations and explicitly lists context-sensitivity of the three Green-geodesic languages as an open question. The new claim is a uniform deterministic O(n)-space computation and the consequent context-sensitive classification, not the known Munn-tree model, geometric tour lemma, or a new formula for the languages themselves. Searches of the accessible published literature and published-finding corpus returned no covering resource-bound result; bibliographic and implicit-corollary risk remains.",
+    "residual_risks": [
+      "An earlier published machine-space analysis of Munn-tree shortest representatives might exist outside the indexed material.",
+      "The same conclusion is close to being an algorithmic corollary of the recent authors’ geometric characterizations; if their complete source includes a resource bound not located in the inspected material, originality would fail.",
+      "The older growth paper’s complete full text could not be inspected at the attempted locations.",
+      "The proof uses the standard deterministic linear-space to context-sensitive inclusion; it does not improve this to indexed or logarithmic space."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest known geometric framework and an explicit statement that context-sensitive classification remains open; no O(n)-space recognizer located in material inspected.",
+        "evidence": [
+          "https://arxiv.org/html/2609.35251v2 Section 4 R4, L4 and D4 gives the geometric criteria; Section 11 item 1 explicitly asks whether the three languages are context-sensitive.",
+          "https://arxiv.org/abs/2609.35251 verified first public version 2026-09-28."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.35251",
+        "material_read": "arXiv v2 full HTML: abstract, introduction, Section 2 Munn preliminaries, Section 4 items G1–G10, R1–R4, L1–L4, D1–D4, Section 5 relation proof, Section 9 monogenic classification, and Section 11 future work; arXiv record verified v1 first posted 2026-09-28.",
+        "method": "Full primary HTML sections and arXiv publication record, not search snippets alone",
+        "title": "Green languages and growth of free inverse monoids",
+        "trigger": "Exact Green-geodesic languages, Munn-tree criteria and the explicit higher-language-classification question"
+      },
+      {
+        "assessment": "Published focus is growth and exponential rates, not the specific space bound in the accessible material. Full-text comparison remains an access-related risk.",
+        "evidence": [
+          "https://research.manchester.ac.uk/en/publications/the-growth-of-free-inverse-monoids/",
+          "https://arxiv.org/abs/2407.10489"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.10489",
+        "material_read": "ArXiv abstract and Manchester institutional metadata; the attempted accepted-manuscript PDF returned HTTP 403. No full-paper noncoverage assessment is claimed.",
+        "method": "ArXiv abstract; institutional record at https://research.manchester.ac.uk/en/publications/the-growth-of-free-inverse-monoids/",
+        "title": "The growth of free inverse monoids",
+        "trigger": "Potential broader growth and geodesic literature on exactly the same monoid objects"
+      },
+      {
+        "assessment": "Concerns conjugacy and UConj, not the R/L/D Green-geodesic language complexity sought here; full text not inspected.",
+        "evidence": [
+          "https://arxiv.org/abs/2608.10379"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.10379",
+        "material_read": "ArXiv abstract only; experimental HTML was inaccessible.",
+        "method": "ArXiv abstract and indexed literature record",
+        "title": "Conjugacy languages in free inverse monoids",
+        "trigger": "Adjacent classes of shortest representatives possibly offering a stronger hierarchy theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "52856bc9-9716-419b-9fc8-e4bd5d3c61f7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The new complexity bound resolves the context-sensitivity part of a specific published open question for all three Green relations at every finite rank, simultaneously classifying the languages and their complements inside context-sensitive languages. Its reusable-storage tree-geometry algorithm avoids an unrestricted search over shorter words. The result has a direct algorithmic and formal-language-theoretic use independent of any arbitrary finite parameter and does not assert a resolution of the remaining indexed-language question.",
+    "status": "PASS"
+  }
+}
