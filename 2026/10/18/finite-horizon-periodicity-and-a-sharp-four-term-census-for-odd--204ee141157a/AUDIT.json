@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The exact recurrence \\(A_{j+1}=A_ju_j-B_j\\), with \\(u_j\\) the least odd ceiling, gives \\(0\\le A_{j+1}<2A_j\\), implying \\(A_j\\le2^ja\\). A same-residue denominator shift modulo \\(Q_j\\) is a multiple of \\(2A_jQ_{j+1}\\); the least odd ceiling shifts by an even multiple, preserving the next numerator exactly and the next denominator modulo \\(Q_{j+1}\\), establishing finite-horizon periodicity by induction. For \\(a=2\\), modular conditions give the known two-term classes modulo 12, new four-term classes 7, 35, 47 and 55 modulo 60, least period 60, and relative stopping-by-four density \\(2/3+2/15=4/5\\). The exact-integer checker passes 50,001 odd input cases and multiple horizon translations; independent reduced-Fraction iteration also agrees over nine initial numerators. Finite checks supplement, but do not establish, the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2023 Theorem 3.2 describes exact length m for a *prescribed first m−1 unit denominators*, which is broad but does not directly quantify over all inputs \\(2/d\\) in a finite modulus.",
+        "Pihko 2001 Theorem 3.8 builds prescribed long trajectories, not a period or density theorem."
+      ],
+      "reasoning": "An earlier fixed-prefix characterization could encode individual four-term cases and remains the closest implication risk; the theorem does not directly state the finite-period or simultaneous-all-denominators density conclusion. This risk is documented rather than erased. No dominating fixed-numerator finite-horizon theorem was found in inspected sources.",
+      "searches": [
+        "\"odd greedy\" \"density\" \"fixed numerator\" length",
+        "\"odd greedy\" periodic denominators length numerator rationality",
+        "Rational numbers with odd greedy expansion of fixed length Theorem 3.2 2023",
+        "Pihko greedy odd Egyptian Theorem 3.8 2001"
+      ]
+    },
+    "checked_sources": [
+      "https://www.fq.math.ca/Scanned/39-3/pihko.pdf",
+      "https://11011110.github.io/blog/2007/01/10/subgreedy-egyptian-expansions.html",
+      "https://arxiv.org/pdf/2309.07280",
+      "https://math.colgate.edu/~integers/z46/z46.pdf",
+      "https://www.mathpages.com/home/kmath478.htm",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?btn=Current&t=11Dxx"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 / Example 6 of Louwsma–Martino 2025 proves the same two-term subclaim, so it is explicitly background, not new.",
+        "Theorem 3.2 of their 2023 preprint allows a formula for each fixed first-three denominator tuple, but does not state uniform period P(a,h), any fixed-numerator four-term residue criterion, or the \\(4/5\\) density.",
+        "Eppstein 2007 describes modular calculation of remainder numerators, but neither proves finite-horizon periodicity for all initial denominators nor gives a density."
+      ],
+      "reasoning": "The final claimed novelty is the explicit all-numerator/all-fixed-horizon periodicity with a proof invariant and the full exact four-term example; neither known modular tracking nor the 2025 two-term result implies that quantifier-uniform statement as stated. The published 2023 arbitrary-prefix result is potential indirect stronger coverage and remains a residual priority caveat.",
+      "searches": [
+        "Louwsma Martino 2023 Theorem 3.2 exact fixed prefix",
+        "Louwsma Martino 2025 Example 6 numerator 2",
+        "Eppstein 2007 Subgreedy Egyptian Expansions modular arithmetic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Louwsma–Martino 2023, Sections 2–5: fixed-numerator two-term and fixed-unit-denominator-prefix arbitrary-length parametrizations.",
+        "Pihko 2001 Sections 2–3: residue-numerator growth trajectories; no exact fixed-input-numerator stopping density formula stated."
+      ],
+      "reasoning": "The current invariant is periodicity of the stopping event for a fixed initial numerator across the entire unbounded denominator variable. Parametrization after fixing all but the last unit-fraction denominator is a distinct quantifier order; summing its infinitely many variable-prefix cases is not a stated finite congruence description. The 60-class formula was independently derived, not renamed from the length-two result.",
+      "searches": [
+        "\"odd greedy\" \"four terms\" \"\\(2/d\\)\" congruence",
+        "\"odd greedy\" \"7\" \"35\" \"47\" \"55\"",
+        "\"odd greedy\" period denominators fixed steps rational density",
+        "arXiv:2309.07280 Theorem 3.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published 2025 *Integers* paper Example 6 identifies only the two-term residue classes.",
+        "Eppstein 2007 and Brown’s odd-greedy page discuss modular numerator tracking and long examples, but supply no four-step census table."
+      ],
+      "reasoning": "The two-term table was recognized as prior art and excluded from novelty. In the read literature, no exact table giving the four residues 7, 35, 47, 55 modulo 60, their minimal period, or exact four-step density was found; absence in searches does not establish uniqueness.",
+      "searches": [
+        "\"odd greedy\" \"mod 60\" \"2\"",
+        "\"odd greedy\" \"\\(4/5\\)\" density",
+        "\"odd greedy\" \"\\(2/15\\)\" length",
+        "\"odd greedy\" numerator 2 four classes"
+      ]
+    },
+    "rationale": "Primary-source theorem comparisons do not show the uniform fixed-numerator horizon period or exact four-term residue/density result. The broad 2023 fixed-prefix parametrization presents a genuine risk of implicit stronger coverage, preserved below. The 2025 two-term formula is recognized as known and not claimed independently.",
+    "residual_risks": [
+      "Fixed-prefix parametrization in arXiv:2309.07280 could conceivably yield this as an unstated indirect corollary; an independent specialist should compare implication breadth.",
+      "Absence from the consulted sources and searches is not a uniqueness proof; earlier unindexed arithmetic classifications could exist.",
+      "Pihko 2001 public release has no independently verified exact posting day; 2007-01-10 is the earliest verified day-precision public motivating date used for scope, not an assertion that no earlier literature exists."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides constructed numerator-growth trajectories but not the new uniform periodicity/density theorem",
+        "evidence": "Vol.39 (2001), 221–227, especially Theorem 3.8",
+        "identifier_or_url": "https://www.fq.math.ca/Scanned/39-3/pihko.pdf",
+        "material_read": "Full 7-page open PDF, introduction and Section 3 including Theorems 3.5–3.8",
+        "method": "Extracted text and direct page-image inspection",
+        "title": "Remarks on the “Greedy Odd” Egyptian Fraction Algorithm",
+        "trigger": "Same algorithm, exact numerator transitions, early source"
+      },
+      {
+        "assessment": "Explicitly identifies open odd-greedy termination question and modular tracking, not the new finite-horizon census",
+        "evidence": "January 10, 2007, paragraphs 2–10",
+        "identifier_or_url": "https://11011110.github.io/blog/2007/01/10/subgreedy-egyptian-expansions.html",
+        "material_read": "Complete dated page, including modular-numerator observation",
+        "method": "Read full HTML text",
+        "title": "Subgreedy Egyptian Expansions",
+        "trigger": "Early day-dated public odd-greedy commentary"
+      },
+      {
+        "assessment": "Fixed-prefix characterization and fixed-numerator two-term classification do not explicitly provide uniform fixed-numerator finite-horizon period or \\(2/d\\) four-class census; residual possible indirect implication",
+        "evidence": "arXiv:2309.07280v1 (2023-09-13), pp. 2–8 and 9–21",
+        "identifier_or_url": "https://arxiv.org/pdf/2309.07280",
+        "material_read": "21-page full arXiv v1, introduction, Sections 2–5, in particular Theorems 2.3 and 3.2, Sections 4 and 5",
+        "method": "Full preprint text extraction plus direct page-image inspection of definitions and Theorem 3.2",
+        "title": "Rational Numbers with Odd Greedy Expansion of Fixed Length",
+        "trigger": "Closest broad published fixed-length characterization, strongest priority risk"
+      },
+      {
+        "assessment": "Completely subsumes two-term subclaim only, which is credited and not accepted as new; no four-term theorem",
+        "evidence": "Integers 25 (2025), article A46, pp. 1–7",
+        "identifier_or_url": "https://math.colgate.edu/~integers/z46/z46.pdf",
+        "material_read": "Full 7-page journal PDF, Theorem 3 and Example 6",
+        "method": "Read PDF text; checked definitions and Example 6",
+        "title": "Rational Numbers with Two-Term Odd Greedy Expansion",
+        "trigger": "Exact numerator-two length-two class may already be known"
+      },
+      {
+        "assessment": "No uniform fixed-horizon period or four-step distribution stated",
+        "evidence": "Examples for 3/179 and long growth sequences",
+        "identifier_or_url": "https://www.mathpages.com/home/kmath478.htm",
+        "material_read": "Open web article, examples and modular numerator discussion",
+        "method": "Read indexed full HTML text",
+        "title": "Odd-Greedy Unit Fraction Expansions",
+        "trigger": "Classical computational/constructive examples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "204ee141-157a-4ab5-9a4b-3337e65202f2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Universal odd-greedy termination remains an open problem. Rational densities of stopping by a fixed term bound are natural exact finite-time invariants; existence for arbitrary fixed numerator/horizon and an explicit computable period are structural information not confined to selected numerical experiments. The concrete least period 60 and exact four-term conditional density \\(2/15\\) provide a complete natural classification and sharpen the known two-term picture to exact stopping-by-four density \\(4/5\\). This does not purport to settle full termination.",
+    "status": "PASS"
+  }
+}
