@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T12:18:01.678489Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pseudoperiod equation is checked only for i<n−12, and the forbidden exponent threshold includes equality. Every newly created forbidden factor must be a suffix; it has some period p and at least L_p=ceil(55p/21) letters, so checking the last L_p letters for period p is equivalent to the full new-factor condition. Both constraints are prefix-closed, hence binary extension from the empty word without pruning any valid prefix is exhaustive. A separately implemented C++ depth-first enumerator visited exactly 202253 valid prefixes through length 201, with exactly 2 at length 200 and 0 at length 201, and reproduced the source certificate count tail. The two 200-bit words are complements and individually palindromes; there cannot be a longer valid word because every 202-bit word would have a 201-bit valid prefix, which does not exist.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary returned related string-attractor/pseudostandard and code classifications with different objects; no fixed (9,12) 55/21 equality classification.",
+          "Source general theorem establishes threshold but its implications alone are compatible with many maximizers."
+        ],
+        "reasoning": "The scalar universal bound 200 dominates attainable lengths but not the number or form of words attaining 200; complete equality classification is additional information.",
+        "searches": [
+          "Resultary query: exact two length 200 9 12 pseudoperiod 55/21-free palindrome",
+          "Meleshko et al 2023 critical exponent table and companion data"
+        ]
+      },
+      "checked_sources": [
+        "Meleshko–Ochem–Shallit–Shan, arXiv:2207.10171, Table 1",
+        "Meleshko et al public sonjashan/sha_gen companion longest_finite_seqs.txt",
+        "Resultary combinatorics-on-words searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published witness and its complement are palindromes (checked), but complement symmetry does not exclude other orbits.",
+          "No result in inspected source proving all maximizers arise from this orbit."
+        ],
+        "reasoning": "The new exhaustive prefix argument supplies the missing upper bound on the number of maximizers. This is not entailed by the older bound on word length.",
+        "searches": [
+          "Meleshko et al Table 1 and source companion witness; Resultary published pseudoperiod search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Table1 gives (9,12), 55/21, 200; companion row53 gives only one witness.",
+          "Binary complementation preserves both constraints and accounts for a second word, but does not rule out other word orbits."
+        ],
+        "reasoning": "Uniqueness modulo complement is equivalent to exactly two labeled maximizers; the source records maximal length and one example, not a complete top-layer census.",
+        "searches": [
+          "Meleshko et al. arXiv:2207.10171 Table 1; public companion repository sonjashan/sha_gen critical_exp_tables/longest_finite_seqs.txt; Resultary semantic: binary pseudoperiod (9,12) 55/21-free length 200 exactly two palindromic complement extremizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Companion 9,12 row is a single length-200 witness, no count field.",
+          "Independent entire valid-prefix count 202253, count at 200 is 2, at 201 is 0."
+        ],
+        "reasoning": "A longest-witness database is not an equality-classification database; the published scalar optimum is correctly credited as prior.",
+        "searches": [
+          "arXiv:2207.10171 p.17 Table 1; GitHub sonjashan/sha_gen critical_exp_tables/longest_finite_seqs.txt line 53 (Git blob 3a107a73fe80358392e1233cffda2df1517138aa); source certificate 847470d7602710f5dbeee41ff9698eccbbbe7582"
+        ]
+      },
+      "rationale": "Meleshko–Ochem–Shallit–Shan Table 1 already establishes the optimal critical exponent 55/21 and maximum length 200, and their public data provides one 200-bit witness. Complementation of that witness yields at least two; neither the inspected primary article nor the companion table states exactly two and both palindromic. The new finding is exhaustive classification of equality cases, not the length-200 cutoff or exponent. Searches for equivalent extremizer counts did not identify coverage; source-author unpublished search records remain a real priority risk.",
+      "residual_risks": [
+        "Unpublished source-author search logs might contain the same complete two-word extremal class, even though publicly inspected sources list only one witness.",
+        "The statement is for the single published (9,12) equality layer and makes no near-extremal or other-pair claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains sharp 55/21 exponent and max length 200, no equality count in the inspected table or discussion.",
+          "evidence": "Table 1 p.17 and GitHub companion pointer; DMTCS vol25(2), 2023.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.10171",
+          "material_read": "Full 25-page OA PDF opened; exact definitions, Section on optimal critical exponents, rendered Table 1 p.17 and references to companion files inspected.",
+          "method": "primary arXiv PDF",
+          "title": "Pseudoperiodic Words and a Question of Shevelev",
+          "trigger": "Exact (9,12) pseudoperiod and critical exponent threshold"
+        },
+        {
+          "assessment": "A single 200-bit witness listed for (9,12), no completeness assertion on extremizers.",
+          "evidence": "Row (9,12), 55/21-free, length 200, one witness.",
+          "identifier_or_url": "https://github.com/sonjashan/sha_gen/blob/master/critical_exp_tables/longest_finite_seqs.txt",
+          "material_read": "Entire 5090-character text fetched via GitHub connector, targeted line 53 examined; Git blob SHA 3a107a73fe80358392e1233cffda2df1517138aa.",
+          "method": "public primary companion dataset",
+          "title": "Critical exponent longest finite sequences, companion of Meleshko et al",
+          "trigger": "Possible prior list of all length-200 extremizers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The (9,12) instance is the longest finite cutoff in the published pseudoperiod table, making classification of the extreme boundary a natural finite combinatorics-on-words problem. Exactly two complementary palindromes is a complete and surprisingly rigid equality classification; it is not an arbitrary slice or reproduction of the already-known scalar bound. A correct exhaustively certified finite fact can be mathematically useful without a general theorem for other pseudoperiods.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Meleshko–Ochem–Shallit–Shan, arXiv:2207.10171, Table 1",
+    "Meleshko et al public sonjashan/sha_gen companion longest_finite_seqs.txt",
+    "Resultary combinatorics-on-words searches"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Unpublished source-author search logs might contain the same complete two-word extremal class, even though publicly inspected sources list only one witness.",
+    "The statement is for the single published (9,12) equality layer and makes no near-extremal or other-pair claims."
+  ],
+  "schema_version": 1
+}
