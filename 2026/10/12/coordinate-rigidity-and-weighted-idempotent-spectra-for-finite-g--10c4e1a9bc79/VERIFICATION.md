@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and the standard library. The script contains full tables for \(a\leftrightarrow b\) and \(a\widetilde\wedge b\); it imports no external results or data files.
+## correctness
 
-The replay exhaustively screens **15,024** top-preserving scalar mappings for all \(2\le m,n\le6\), identifies exactly the predicted morphisms, and checks their count. It independently screens **72,380** mappings from five Cartesian-product sources to chain targets, including all functions for sources \((A_2,A_2)\), \((A_2,A_3)\), and \((A_3,A_3)\) after the necessary preservation-of-top filter. It checks all \(4^4\) maps on the Boolean square for endomorphisms, idempotents and units; the counts are **9, 6 and 2**, respectively.
+PASS
 
-The code generates **811** endomorphism tables from the asserted normal form, evaluates both operations on **457,673** ordered argument pairs, and checks pointwise idempotence against the symbolic rooted-star criterion. It confirms the finite-sum idempotent formula in feasible ranks through four and verifies the EGF's coefficients independently by exact rational formal-power-series arithmetic through rank six and chain size six. The final deterministic replay line is:
+Checked both actual reduct operations: a↔b=top on equality and min otherwise, and a ~∧ b=top iff both positive, else zero. The scalar nonconstant maps fix bottom/top, have strictly increasing intermediate surviving prefix into intermediate target positions, then collapse to top, counted by sum binom(n-2,k). Two active source-coordinate restrictions violate 0↔0=top vs 0 ~∧0=bottom using cross-coordinate embeddings of bottom; ↔ decomposition establishes unique one-coordinate dependence. Bijective scalars on an equal chain are identity, giving S_r. Idempotent arrows must point to fixed-point loop roots of prefix-retractions; compatible labels count w_{m,p}, giving the stated forest/star sum and labeled exponential formula. Independently exhausted scalar maps for 2<=m,n<=4 by actual two-operation tables (counts m=n=4: 5); inspected bundled independent verify.py covering mixed product maps, idempotents and finite EGF coefficients. Finite checks support but do not substitute for universal proof.
 
-`VERIFY_OK_CERTIFIED 934995 exact assertions; 15024 scalar maps screened; 72380 product-to-chain maps screened; 811 product endomorphism tables checked on 457673 ordered pairs, each with both operations; EGF checked m<=6, r<=6`
+## originality
 
-**Scope of certification:** these are finite computational stress tests. They do not prove the theorem for unbounded rank or size and are not external or independently conducted mathematical review. The general theorem follows from the proof in `RESULT.md`.
+PASS
+
+The base EARS reducts, representation and general retractions are prior, as are counts of full-Heyting Gödel homomorphisms. The one-coordinate rigidity and weighted rooted-star idempotent EGF are specialized to a weaker binary reduct and do not follow from those sources. Resultary search returned no EARS matching product spectrum. Best-of-knowledge original with risk of unindexed categorical or semigroup generalization.
+
+## value
+
+PASS
+
+Gives exact hom-set and retract-map enumerations, coordinate rigidity and automorphism classification for natural finite products in the algebraic semantics of a logical fragment. Counts are structurally weighted forests, not parameter substitution into full-Heyting homcounts; tractable complete finite-product subclass is an independently useful reference invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

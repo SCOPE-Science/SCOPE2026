@@ -1,13 +1,21 @@
-# Scientific review: coordinate rigidity and weighted idempotent spectra
+# Independent mathematical audit
 
-**C — PASS.** The binary operations are derived directly from finite Gödel chains. A scalar morphism is either constant one or a strict-increase-then-top map. Two active product coordinates give elements whose equivalence and regularized conjunction coincide, but whose zero images separate the operations, proving one-coordinate factorization. For idempotent self-maps, edges must terminate at self-loops carrying prefix retractions; the compatibility count gives the weighted-star sum and EGF. The supplied replay checks the operations and small exact values. Infinite formulas rest on the written proof, not bounded enumeration.
+## correctness
 
-**O — PASS, with residual risk.** Compared the full accessible 2024 Lipka–Słomczyńska EARS paper and 2021 Przybyło paper on the three-element generator, plus the 2025 EARS dissertation's relevant sections. Neither states the normal form or EGF. A 2025 Aguzzoli–Mordonini paper counts homomorphisms of full Gödel algebras; its abstract was accessible but not its complete text. The ordinary full-signature count does not cover new null-coordinate maps, nor their idempotent compatibility. Semantic-index searches and both own current/prior cumulative ledgers found no equivalent theorem. An unindexed result or more general semigroup enumeration remains possible.
+PASS
 
-**V — PASS.** Natural Hom and endomorphism structures are calculated for an entire category of finite mixed-fragment algebras. The exact weighted-star EGF classifies every idempotent self-map over all product ranks, beyond the elementary scalar binomial count. Unlike a raw sequence entry, the category normal form supplies a mechanism and useful specialization to automorphism groups, endomorphism counts and retraction maps.
+Checked both actual reduct operations: a↔b=top on equality and min otherwise, and a ~∧ b=top iff both positive, else zero. The scalar nonconstant maps fix bottom/top, have strictly increasing intermediate surviving prefix into intermediate target positions, then collapse to top, counted by sum binom(n-2,k). Two active source-coordinate restrictions violate 0↔0=top vs 0 ~∧0=bottom using cross-coordinate embeddings of bottom; ↔ decomposition establishes unique one-coordinate dependence. Bijective scalars on an equal chain are identity, giving S_r. Idempotent arrows must point to fixed-point loop roots of prefix-retractions; compatible labels count w_{m,p}, giving the stated forest/star sum and labeled exponential formula. Independently exhausted scalar maps for 2<=m,n<=4 by actual two-operation tables (counts m=n=4: 5); inspected bundled independent verify.py covering mixed product maps, idempotents and finite EGF coefficients. Finite checks support but do not substitute for universal proof.
 
-**Verification.** Run `python3 verify.py` (Python standard library only). It reports `VERIFY_OK_CERTIFIED 934995 exact assertions`; operation-table and combinatorial checks are detailed in `VERIFICATION.md`.
+## originality
 
-**Limitations.** The claim excludes arbitrary EARS algebras and does not assert an independent audit or global literature priority. Its new ingredient is not the known EARS representation or the standard classical rooted-star exponential formula by itself.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The base EARS reducts, representation and general retractions are prior, as are counts of full-Heyting Gödel homomorphisms. The one-coordinate rigidity and weighted rooted-star idempotent EGF are specialized to a weaker binary reduct and do not follow from those sources. Resultary search returned no EARS matching product spectrum. Best-of-knowledge original with risk of unindexed categorical or semigroup generalization.
+
+## value
+
+PASS
+
+Gives exact hom-set and retract-map enumerations, coordinate rigidity and automorphism classification for natural finite products in the algebraic semantics of a logical fragment. Counts are structurally weighted forests, not parameter substitution into full-Heyting homcounts; tractable complete finite-product subclass is an independently useful reference invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
