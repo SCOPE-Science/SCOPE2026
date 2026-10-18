@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The greedy period-embedding lemma follows by an exact weak-descent argument. Mirrored pairs contribute t+e weak descents in either parity, and the first-half equality positions give an injective count. Bivariate generating functions follow by summing minimum required periods; recurrence and asymptotic root follow algebraically. The fully attached code checks independent brute-force/DP computations for 17 small exhaustive cases and 138 larger cells, not as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brodal–Fagerberg–Rysgaard (ESA 2024), inspected original PDF introduction and algorithmic theorem: recovering an LPS by a particular LCS backtrack, not all palindrome counts.",
+        "Amarilli–Dudek–Manea–Ringleb–Schmid, arxiv:2504.16288, inspected full-text Sections 1–2 and 5: subsequence regex matching and quantitative optimization for regular languages; the palindrome language over \\(q\\ge2\\) is not regular.",
+        "Published insertion-radius theorem applies to universality indices, not palindrome-string multiplicities or length spectra."
+      ],
+      "reasoning": "No stronger theorem found that specializes by parameter restriction, reversal, equivalence, or duality to this spectrum. General-purpose substring, subsequence, or LCS algorithms do not by themselves state a closed-form family and do not imply its all-parameter coefficients.",
+      "searches": [
+        "palindromic subsequence automata longest common palindromic subsequence 2017 counting palindromes",
+        "doi:10.4230/LIPIcs.ESA.2024.35",
+        "arxiv:2504.16288",
+        "periodic permutation words palindromic subsequence universality optimal length",
+        "2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1901.07502",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol308-esa2024/LIPIcs.ESA.2024.35/LIPIcs.ESA.2024.35.pdf",
+      "https://arxiv.org/html/2504.16288",
+      "https://doi.org/10.1007/s11786-016-0288-7",
+      "2026/10/11/SCOPE-automorphism-rigidity-and-palindromic-collapse-in-cyclic-sturmia--579201631ae0",
+      "2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+      "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "2026/10/4/SCOPE-exact-binary-two-mathrm-pal-2-code-sizes-through-length-eight--ba7c5d4a4968"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2019 text contains the binary \\(n-1\\) LPS observation, an actual overlapping subclaim explicitly excluded from novelty.",
+        "2024 ESA text proves LCS-LPS algorithmic backtracking behavior.",
+        "2025/2026 preprint text concerns regular-expression matching; our target language is the nonregular set of all palindromes, and no exact distinct-count specialization occurs.",
+        "2017 primary full text not obtained: this comparison is limited to an abstract and publisher preview."
+      ],
+      "reasoning": "The new entire multivariate distribution and half-word weak-descent classification imply LPS counts and totals, whereas the earlier partial longest-length observation, generic LCS algorithm and regex matching results cannot logically recover the whole distribution. The inaccessible 2017 work is an explicit material uncertainty and not marked as fully NOT_COVERING.",
+      "searches": [
+        "arxiv:1901.07502",
+        "doi:10.4230/LIPIcs.ESA.2024.35",
+        "arxiv:2504.16288",
+        "doi:10.1007/s11786-016-0288-7",
+        "2026/10/11/SCOPE-automorphism-rigidity-and-palindromic-collapse-in-cyclic-sturmia--579201631ae0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Müllner–Ryzhikov (arxiv:1901.07502), original full text Section 4 and Proposition 16: studies lower bounds and explicitly knows length \\(n-1\\) for alternating binary words; no stated length-by-length distinct spectrum.",
+        "Hasan–Islam–Rahman–Sen, DOI:10.1007/s11786-016-0288-7, abstract/first-page preview: finite automaton represents all palindromic subsequences of a general word, but the present closed form cannot be checked from the accessible text."
+      ],
+      "reasoning": "A longest-length result is a single extremal statistic and cannot reconstruct each coefficient or the rational function. A generic automaton can enumerate a finite-language image for individual inputs, but an exact uniform symbolic count for every alphabet size, period count and length is not implied by its accessible abstract; full-text ambiguity remains a documented risk.",
+      "searches": [
+        "palindromic subsequences in finite words periodic permutation distinct counts",
+        "palindromic scattered subsequences of permutation powers periodic permutation words number of palindromes by length longest palindromic subsequence all subsequences",
+        "palindrome scattered subword repeated alphabet permutation spectrum adjacent equalities",
+        "arxiv:1901.07502",
+        "doi:10.1007/s11786-016-0288-7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-record returns included binary palindromic edit-channel tables and substring universality results but no length-spectrum tables for permutation powers.",
+        "Directly computed short cases match the formulas, yet finite matches were not used as originality evidence."
+      ],
+      "reasoning": "No exact database entry or table with the same objects and counted notion of distinct scattered palindromes was located. Similar numerical sequences or preimage multiplicities alone would not establish a full length-refined identity. This is an absence-of-coverage judgment in examined material, not a uniqueness certificate.",
+      "searches": [
+        "exact number distinct palindromic scattered subwords in (a1 a2 ... aq)^m rational bivariate generating function",
+        "distinct palindromic subsequences of repeated permutation word exact counting coefficient",
+        "exact rational generating function number distinct palindromic subsequences of (012...q-1)^m q z(1+z)/((1-z)(1-(q-1)z-z^2))"
+      ]
+    },
+    "rationale": "The new claim is the exact arbitrary-alphabet length spectrum and bivariate generating function, not the already known binary alternating longest-subsequence length. Compared original 2019, 2024, and 2025 full texts by statement and implication; none states or directly implies the whole exact spectrum. The 2017 automaton full text was inaccessible, so possible hidden stronger coverage is explicitly a material risk. Published-record searches found no dominating/equivalent spectrum.",
+    "residual_risks": [
+      "The entire 2017 palindromic subsequence automata article was inaccessible; its general representation may already imply a combinatorially equivalent specialization, although no such statement was established from the accessible preview.",
+      "An alternate indexing of identical numerical recurrence values could exist; novelty is asserted only for the explicit palindromic scattered-subsequence interpretation and full spectrum.",
+      "Unindexed preprints or results outside the examined primary and published-record sources could cover the general formula; searched-result absence alone does not establish priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains a pre-existing binary alternating-word longest-length subclaim, credited. The detailed length counts and rational bivariate function are not among the statements in the inspected original.",
+        "evidence": [
+          "Section 4 observation that an alternating binary word has a palindromic subsequence of length source length minus one.",
+          "Proposition 16 gives a longest-palindrome bound for ternary words without adjacent repeats."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1901.07502",
+        "material_read": "Original seven-page primary PDF, especially introduction, constructions, Section 4, Proposition 16 and final remarks (PDF page 6).",
+        "method": "Read full-text PDF and inspected relevant page image",
+        "title": "Palindromic Subsequences in Finite Words",
+        "trigger": "Exact same scattered-palindrome object and binary alternating maximum length"
+      },
+      {
+        "assessment": "Algorithmic LPS/LCS relationship. No claim that determines the all-length spectrum of permutation powers.",
+        "evidence": [
+          "Abstract and Section 1 analyze a particular backtracking rule for producing a longest palindrome."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2024.35",
+        "material_read": "Original 16-page open-access PDF, introduction, definitions and main algorithmic results.",
+        "method": "Inspected primary PDF text and mathematical statements",
+        "title": "On Finding Longest Palindromic Subsequences Using Longest Common Subsequences",
+        "trigger": "Potential stronger algorithms and longest-palindrome coverage"
+      },
+      {
+        "assessment": "Regular-expression-constrained matching/optimization, not a formula for distinct palindromic subsequences; nonregular palindrome target is outside the presented regex class.",
+        "evidence": [
+          "Theorem overview and Section 5 study min/max variants for a regex-matched subsequence, not a length-refined palindrome-language count."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2504.16288",
+        "material_read": "Original arXiv HTML text, Introduction, Preliminaries, Section 5 on quantitative subsequences.",
+        "method": "Read primary full text in accessible HTML",
+        "title": "Linear Time Subsequence and Supersequence Regex Matching",
+        "trigger": "2025 recent subsequence matching and counting/quantitative generalizations"
+      },
+      {
+        "assessment": "Potentially relevant automata machinery, but no specific permutation-power enumerative formula visible. The missing full text is a material originality risk, not evidence of noncoverage.",
+        "evidence": [
+          "Abstract states a weighted finite automaton representing all palindromic subsequences and applications to longest common palindrome."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11786-016-0288-7",
+        "material_read": "Author abstract and first-page publisher preview; complete article unavailable at inspected access points.",
+        "method": "Checked arXiv and open-access discovery, read publisher first-page preview, and attempted authorized full-text access",
+        "title": "Palindromic Subsequence Automata and Longest Common Palindromic Subsequence",
+        "trigger": "Most plausible generic automaton representation of all palindromic scattered subsequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8489f1f6-7b7b-4d5a-b4b8-b7a2fe2a6596",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a nontrivial infinite two-parameter classification at every length with an exact closed bivariate rational series, explicit total recurrence, asymptotic growth rate and uniform structural membership criterion. It is a natural benchmark for palindromic subsequence automata and distinct-count algorithms, beyond ordinary longest-subsequence observations.",
+    "status": "PASS"
+  }
+}
