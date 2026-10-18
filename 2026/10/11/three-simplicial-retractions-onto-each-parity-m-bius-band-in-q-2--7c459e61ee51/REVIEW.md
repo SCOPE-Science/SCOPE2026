@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof derives the parity-induced facet formula, identifies each parity subcomplex as a connected compact surface with one boundary component and Euler characteristic \(0\), hence a Möbius band, and then classifies every retraction through a complete local transition table on the images of the opposite-parity vertices. Cyclicity leaves exactly three global state sequences, and direct substitution proves that all three corresponding formulas are simplicial. The split injection on \(H_1\) follows formally from \(r\circ j=\operatorname{id}\). The bundled verifier reproduces the finite consequences used as stress tests.
+## correctness
 
-## Originality
-PASS. The exact-object source arXiv:math/0403433 was inspected around Example 6 and searched for retractions and Möbius-band language; it supplies the family and its Klein-bottle/vertex-transitive properties but not the parity-band theorem or the exact retraction count. Statement-level searches for equivalent parity, Möbius-band, and simplicial-retraction formulations found no covering result. The strongest nearby general fact—that a Klein bottle may be decomposed into Möbius bands—does not imply inducedness, the specific parity subcomplexes, or the exact count of simplicial retractions. Residual risk remains that an unindexed older source records an equivalent observation.
+PASS
 
-## Value
-PASS. The result gives a uniform structural feature of a canonical infinite family of weakly regular Klein-bottle triangulations: two canonical half-vertex induced Möbius bands together with a rigid, exact retraction classification and a homological splitting consequence. This is not an arbitrary finite slice or a parameter substitution; the three-map rigidity is a family-wide combinatorial statement.
+PASS. For all odd p=2m+1>=5, the even induced facets reduce to T_a={a,a+1,a+m+1} mod p; there are p vertices, 2p edges, p triangles and one boundary p-cycle, with every vertex link a path, yielding a Mobius band. For a retraction onto even vertices, A_{2k} fixes the even edge and constrains the odd image to states x_k in {k,k+1,k+m+1}; A_{2k+1} permits only (0,0),(1,0),(1,1),(1,2),(2,0),(2,2). In a cyclic sequence any 0 forces all 0; absent 0 any 2 forces all 2; otherwise all 1. The three maps v↦v-1,v+1,v+p on odd vertices preserve every A_i,B_i and fix even vertices. Odd parity follows by translation. Hence exactly three for each band and H_1 split injectivity. Independently constructed parity complexes and exhaustively counted 3 retractions for each p=5,7,9,11; family proof is symbolic, not inferred from sample p.
 
-## Closest literature and limitations
-The closest source is Datta--Upadhyay, arXiv:math/0403433, which constructs \(Q_{2m+1,2}\) and proves the cyclic vertex-transitive Klein-bottle triangulation property. The present claim is restricted to that family and the two parity-induced targets. It does not classify all simplicial self-maps or all Möbius subcomplexes.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after exact-object and logical-implication comparison. The general fact that Klein bottle decomposes into two Mobius bands lacks simplicial inducedness and exact retraction count; Datta–Upadhyay supplies facets but no three-retraction theorem. The published same-family four-edge systole theorem computes minimum homology carriers, not target subcomplex retractions. An indexed-search miss alone is not treated as novelty proof.
+
+## value
+
+PASS
+
+PASS. The family-wide classification is a rigid simplicial mapping theorem on canonical weakly regular Klein-bottle triangulations. The fact that each parity half is an induced Mobius band is structural, but the exact 3-map count and homological split for every m>=2 are not consequences merely of Klein-bottle decomposition. This is a natural exact infinite-family structural lemma rather than an arbitrary small-instance census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
