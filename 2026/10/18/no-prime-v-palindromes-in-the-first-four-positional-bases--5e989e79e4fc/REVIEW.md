@@ -1,0 +1,9 @@
+# Review of the four-base prime-v-palindrome theorem
+
+**Correctness: PASS.** The prime-divisor bound \(v(n)\le n/d+d\) follows from the verified one-prime extension inequality and induction; the base-by-base length cutoffs are proved by explicit strict inequalities. The complete exceptional sets in bases \(2,3,4,5\) were independently enumerated by `verify.py`. Reverse-prime cases were explicitly separated from the composite bounds. No infinite claim depends on a finite search.
+
+**Originality: PASS within available evidence.** The closest primary sources define the predicate and pose base-classification as a conjecture or open question. Tsai (2021) provides composite minimal examples and an overstrong all-base prime nonexistence conjecture, not an exclusion theorem for bases \(2\)–\(5\). Bispels et al. (2024) exhibit prime examples in higher bases and ask which bases admit them, without proving the four-base exclusion. Boran et al. (2023) characterize the decimal case. Targeted topic and implication searches and the accessible prior-claim inventory revealed no stronger theorem covering this four-base statement. Residual risk: older nonindexed computational notes or general arithmetic-function reversal bounds might imply the same conclusion; no publication-priority guarantee is made.
+
+**Value: PASS.** The theorem settles the first four contiguous base cases of an explicitly formulated number-theoretic base-classification problem, making a prime-only distinction because composite examples exist in each base. The structural divisor-sum lemma handles arbitrary digit length and the finite residue exceptions close all boundaries. The precise finite set of bases is intrinsic to the initial-segment question, not an arbitrary slice chosen from data. There is no claimed result for bases beyond five.
+
+Self-review: passed. Independent audit: not yet performed.
