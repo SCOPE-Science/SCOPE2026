@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For each edge indicator I_e, expanding the first and second raw moments gives exact histograms of single descendant-set sizes and pairwise union sizes. At sample cardinality k=n-j the binomial q_s(k) matrix is triangular with nonzero diagonal, proving exact equivalence of fingerprints and full moment curves. Canonical root-split recursion exhausts all 10,905 non-plane shapes through 16 leaves. Exact integer tally identifies the unique ambiguous pair; a second full 2^16 leaf-subset traversal per witness validates equal first two moments and third binomial totals 5909 and 5910. Module permutation proves the specific matching histogram structurally; the root-extension argument proves unlimited collisions. The limited-size classification is not extrapolated to larger sizes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nipperess and Matsen derive exact rooted and unrooted PD rarefaction first and second moments for arbitrary branch lengths and sampling marks.",
+        "Schwob Proposition 5.1 classifies isomorphism of a distributive-lattice construction via equal-sized subtree exchanges, but not equal PD moment curves."
+      ],
+      "reasoning": "The older moment formulas apply to a broader weighted-tree sampling model but are forward evaluation only; they do not imply shape recovery or minimal collision. Schwob has broader tree-swap equivalences of a different poset invariant but no implication involving pair-clade union histograms; the proposed pair belongs to a narrower model and solves an additional inverse identification question.",
+      "searches": [
+        "phylogenetic diversity mean variance rarefaction branch clade sizes inverse problem",
+        "equal distributions of phylogenetic diversity under subsampling tree shapes",
+        "phylogenetic diversity rarefaction mean variance inverse determine tree topology phylogenetic shape identical curves",
+        "arXiv:1208.6552v2 full text",
+        "arXiv:2606.12129v1 Proposition 5.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1208.6552v1 and full arXiv:1208.6552v2",
+      "arXiv:2606.12129v1 full HTML Section 5.1",
+      "OEIS A382440 full text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nipperess–Matsen specifically present exact moment formulas, conservation comparisons and future work on sensitivity of rarefaction curves to tree shape; no injectivity classification is reported.",
+        "Schwob Section 5.1 treats the subtree-size multiset only, already implying mean-only equivalences.",
+        "Other known results on variance extrema and phylogenetic covariance concern different observables rather than shape identifiability."
+      ],
+      "reasoning": "The older forward formulas are used as starting identities, and subtree-size collisions remain strictly weaker than paired-union-size collisions. No inspected result forces the sharp one-collision classification or the finite third-moment recovery. This is a claim-to-implication comparison, not a title-only novelty assertion.",
+      "searches": [
+        "Phylogenetic diversity rarefaction curve rooted binary tree shape reconstruction from subtree sizes clade size multiset collision minimal leaves",
+        "phylogenetic diversity mean variance rarefaction branch clade sizes inverse problem",
+        "Phylogenetic diversity rarefaction mean variance curves jointly fail to distinguish nonisomorphic rooted binary trees with 16 leaves, balanced swap of equal-size clades",
+        "Two-moment identifiability of rooted phylogenetic tree shapes by rarefaction, pairwise clade union multiset",
+        "https://arxiv.org/html/1208.6552v2",
+        "https://arxiv.org/html/2606.12129v1",
+        "https://oeis.org/A382440"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schwob Section 5.1 identifies subtree-size-multiset equivalence and subtree exchanges.",
+        "OEIS A382440 counts classes of subtree-size multisets; the first-moment count through 16 leaves matches it.",
+        "The new invariant additionally requires size histograms for unions of two descendant clades."
+      ],
+      "reasoning": "For unit edge lengths, the first moment is exactly equivalent to the known single-clade-size multiset. The second moment adds the pair-union-size multiset, not determined by the single-clade histogram; its sharp collision cutoff is therefore not an equivalent statement of published mean-only ambiguity.",
+      "searches": [
+        "Phylogenetic diversity rarefaction curve rooted binary tree shape reconstruction from subtree sizes clade size multiset collision minimal leaves",
+        "Phylogenetic diversity rarefaction mean variance curves jointly fail to distinguish nonisomorphic rooted binary trees with 16 leaves, balanced swap of equal-size clades",
+        "Two-moment identifiability of rooted phylogenetic tree shapes by rarefaction, pairwise clade union multiset",
+        "rooted binary trees identical clade size pair union histograms smallest 16 leaves",
+        "arXiv:2606.12129v1 Section 5.1",
+        "OEIS:A382440"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A382440 provides the known subtree-size classes 1,1,2,3,6,11,23,45,95,...",
+        "The verifier reproduces those single-size counts, but the new pair-size fingerprint counts are 10905 distinct through fifteen leaves and 10904 distinct among 10905 shapes at sixteen leaves."
+      ],
+      "reasoning": "Existing exact tables already encode the first-moment classes and do not contain the joint size/union histogram, sixteen-leaf variance collision count, or third moment separation. Reproducing OEIS alone would not qualify as a new result.",
+      "searches": [
+        "https://oeis.org/A382440",
+        "arXiv:2606.12129v1 Table 1",
+        "Phylogenetic diversity rarefaction mean variance curves jointly fail to distinguish nonisomorphic rooted binary trees with 16 leaves, balanced swap of equal-size clades"
+      ]
+    },
+    "rationale": "The full 2012 PD rarefaction article establishes moment evaluation but does not identify shapes or a sharp obstruction. Schwob 2026 and OEIS A382440 already cover subtree-size multisets (the mean-only invariant) and hence imply known first-moment collisions, not equivalence for the pair-union invariant controlling variances. Exact comparison with those stronger related premises, published primary comparisons and further literature searches found no covering theorem for the one-pair sixteen-leaf second-moment threshold; the residual risk of overlooked equivalent combinatorial formulations is retained.",
+    "residual_risks": [
+      "An equivalent sixteen-leaf two-clade-union fingerprint theorem might exist under ecological inverse problems, subtree polynomials or graph reliability language not exposed by the searches.",
+      "Known single-size classes and general PD variance formulas already substantially overlap the machinery, so only the sharp joint-moment identification and separation are claimed.",
+      "The later Schwob result concerns a different equivalence relation and is not claimed as wholly irrelevant; its subtree exchange provides a related combinatorial mechanism."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHED_FORWARD_MOMENTS_NOT_THE_INVERSE_THRESHOLD",
+        "evidence": [
+          "Section 4.1 constructs exact rooted PD moments using edge/snips indicators.",
+          "Section 6 states sensitivity to tree shape as future work."
+        ],
+        "identifier_or_url": "arXiv:1208.6552v2; https://arxiv.org/html/1208.6552v2",
+        "material_read": "Full accessible primary HTML, including definitions, Section 4 moment formulas, Section 6 discussion and future questions about tree-shape sensitivity",
+        "method": "Opened complete HTML and examined the exact statistical object and the mathematical scope of formulas",
+        "title": "The mean and variance of phylogenetic diversity under rarefaction",
+        "trigger": "Closest published source computing the same two rarefaction moments"
+      },
+      {
+        "assessment": "ESTABLISHED_SINGLE_SIZE_MULTISETS_NOT_JOINT_UNION_FINGERPRINT",
+        "evidence": [
+          "Proposition 5.1 gives swaps producing isomorphic middle-order posets.",
+          "Table 1 gives known single-size class counts up to 15 internal nodes."
+        ],
+        "identifier_or_url": "arXiv:2606.12129v1; https://arxiv.org/html/2606.12129v1",
+        "material_read": "Full accessible primary HTML, especially Section 5.1, Proposition 5.1 and Table 1",
+        "method": "Opened original HTML; compared tree exchanges, subtree-size multiset, and tabulated classes with the target moment fingerprints",
+        "title": "Middle orders: all distributive lattices between weak and Bruhat",
+        "trigger": "Likely stronger binary-tree equivalence and exact subtree-size enumeration"
+      },
+      {
+        "assessment": "KNOWN_MEAN_ONLY_TABLE_NOT_VARIANCE_COLLISION_CENSUS",
+        "evidence": [
+          "OEIS definition counts binary trees modulo multiset of subtree sizes.",
+          "Published values 1,1,2,3,6,11,23,45,... agree with the mean-only results."
+        ],
+        "identifier_or_url": "https://oeis.org/A382440",
+        "material_read": "Full accessible OEIS record and initial values",
+        "method": "Compared the record definition and counts with the first-moment single-size invariants in the executable census",
+        "title": "OEIS A382440, subtree-size-multiset classes of rooted binary trees",
+        "trigger": "Existing integer table exactly matching the mean-only signature counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "462f3e63-8fdc-4ddf-af29-5394924e00e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PD rarefaction curves are a substantive compressed observation in ecological phylogenetics; the source article explicitly motivates sensitivity to tree shape. An exact injectivity threshold for complete first-two-moment curves addresses a natural and previously unaccounted inverse question: which branching histories are distinguishable by these statistics? The first failure is unique among 10,905 sixteen-leaf shapes, third-moment information resolves it, and a constructive family exhibits unavoidable ambiguity at all higher orders. This gives a motivated sharp boundary and a path for richer measurements rather than an arbitrary small-case recomputation; the unit-edge, unknown-label, noise-free assumptions remain essential.",
+    "status": "PASS"
+  }
+}
