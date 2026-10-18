@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The formal-series proof is reconstructed from the rational sum with quantified odd \(p\), \(p\)-unit \(a\), and \(\alpha\ge1\). For even \(N=2p^\alpha\), exact differentiation gives the binomial series. The first term has valuation \(N+\alpha+2\); the remaining infinitely many terms are shown separately to have valuation at least one more. The proof uses convergent \(p\)-adic series, not an unlicensed limiting argument. Exact rational checks cover 68 finite triples.
+## correctness
 
-## Originality: PASS relative to inspected sources
-Farhi's primary 2022/2023 paper studies the exact same sum. Its Theorem 1 determines the lower bound and precisely which indices attain it; it does **not** provide the exact valuation at \(2p^\alpha\). Theorems 2 and 3 and the later rational-function analysis were compared by statement and implication. Targeted published-record and database searches did not identify a stronger statement. A differently indexed or unpublished equivalent remains a bibliographic risk, not a proof of novelty.
+PASS
 
-## Value: PASS
-The exact index immediately after the distinguished sharp-bound index is canonical, and a uniform jump of \(2\alpha+2\) in the valuation is not obtainable from the source's bound alone. The result identifies a genuinely structural, infinite family of prime-adic cancellation spikes.
+For N=2p^alpha even and x=p/a of valuation one, differentiating sum_{k<=N}(X^k+(-X/(1-X))^k)/k gives X^N((1-X)^(-N-1)-(1-X)^(-1)). Coefficient integration yields [(binom(N+j,j)-1)/(N+j+1)]X^(N+j+1), j>=1. j=1 has valuation N+alpha+2 for odd p. The telescoping identity binom(N+j,j)-1=N sum_{h=1}^j binom(N+h-1,h-1)/h bounds each remaining term at N+alpha+3 or higher, including the p=3 and p=5 boundary j=3,4. A single strictly lowest p-adic term cannot cancel. Independent direct exact rational evaluation in 30 cases (p=3,5,7, alpha=1,2, signed p-units) matched. No claim for p=2 or unrestricted indices.
 
-## Limits
-The statement is restricted to odd primes and specified indices; it is not a full valuation classification. Independent validation and exhaustive bibliographic certification have not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new exact post-extremal valuation for Farhi complementary truncated logarithms; the full original gives a sharp lower bound and equality characterization one index earlier, not the exact value at the next index. Residual unindexed evaluation risk.
+
+## value
+
+PASS
+
+The first index immediately after the sharpness indices presents a genuine cancellation spike of size 2alpha+2 relative to the preceding valuation. The exact prime-uniform evaluation is a motivated sharp boundary refinement, not a numerical curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
