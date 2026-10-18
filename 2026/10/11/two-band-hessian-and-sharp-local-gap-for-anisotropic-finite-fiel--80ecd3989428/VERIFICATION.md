@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the two-band local curvature formula
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python 3 standard library. The program constructs the fields of orders \(3\), \(7\), \(11\), and \(27\), using an explicit irreducible cubic for the extension field. It enumerates quadratic-norm shells, all centers, and tests the exact integer identities for the real and imaginary second-order coefficients. The observed outputs were:
+## correctness
 
-```
-PASS q=3, 2 mean-zero patterns, 9 centers, exact real/imag coefficients
-PASS q=7, 2 mean-zero patterns, 49 centers, exact real/imag coefficients
-PASS q=11, 2 mean-zero patterns, 121 centers, exact real/imag coefficients
-PASS q=27, 1 mean-zero patterns, 729 centers, exact real/imag coefficients
-```
+PASS
 
-The direct character-sum definition was separately tested over \(\mathbb F_3\) and \(\mathbb F_7\) at small real perturbation sizes; its deficit divided by the squared perturbation norm approached the two theoretically predicted eigenvalues.
+Independent reconstruction of the exact fourth-moment formula q^(-5) sum_(c,t) |sum_(Q(h)=t)f(c+h)f(c-h)|^2 from orthogonality and the bijective center/half-difference coordinates. The norm-map gives L_0=1 and L_t=q+1 for t!=0 for every q=3 (mod4) prime power; affine line collisions yield q(q-1)H for zero-mean h, and the weighted antipodal sum equals -qH. Expanding f=1+eps(r+is) and the squared normalized l2 norm yields quadratic coefficients 2-2/q+4/q² (real) and 2-2/q (imaginary), with the two scalar complex directions the only kernel. Independently checked the exact algebra and sample q=3,7,11, including normalization; finite checks merely corroborate the all-field argument. No claim of global uniform stability or uniform nonlinear remainder.
 
-Finite tests validate the implemented polynomial coefficients and normalization at these field orders only. The unrestricted formula follows from the exact orthogonality, shell and affine-incidence proof in the main result. No third-party or independent audit was performed.
+## originality
+
+PASS
+
+The sharp L2→L4 constant and constant extremality are in González-Riquelme–Oliveira e Silva, arXiv:2405.16647, but sharp inequality/equality alone does not determine the full real Hessian, the spectral multiplicities or optimal transverse gap. Published exact deficit work for nonzero planar binary-quadratic LEVEL CURVES has a different frequency set/output dimension from the anisotropic PARABOLOID GRAPH and cannot be transferred as the claimed formula. The Resultary exact-local-sixth-moment parabola has different dimension and exponent. Positive originality is best-of-knowledge with an explicit risk of an unindexed local second-variation calculation; full primary text not obtainable in this run.
+
+## value
+
+PASS
+
+The endpoint finite-field restriction inequality has a known extremizer manifold; its precise local curvature quantifies how amplitude and phase defects differ and identifies least-stable modes uniformly for every admissible prime power, including nonprime fields. This is a motivated quantitative extension-theory invariant, not mere normalization or finite sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
