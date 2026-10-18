@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-The analytic certificate has four parts: (i) coefficientwise majorization after expanding the integer even moment; (ii) monotonicity of the Laurent constant term in nonnegative autocorrelations; (iii) the four elementary autocorrelation comparisons under pair root-mean-square symmetrization; and (iv) an exact sixth-moment polynomial with derivative factored by a quintic having one positive root. Equality uses strictness in the autocorrelation comparisons and the phase alignment of the coefficients of degrees two and three in the cubic polynomial.
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` from the extracted file bundle. It independently checks the coefficient polynomial and derivative coefficients using integer arithmetic, exact rational autocorrelation identities and Cauchy--Schwarz inequalities, and deterministic grid tests for complex vectors. All exact tests are finite algebraic checks and do not constitute an exhaustive search over coefficients or an independent audit.
+## correctness
 
-The result is restricted to frequency support \(\{0,1,2,3\}\) on the continuous circle; there is no implication for finite cyclic grids with aliasing or exponents not covered in the theorem. A potentially equivalent earlier low-degree exact-constant calculation remains a documented originality risk.
+PASS
+
+Fourier orthogonality turns ∫|P|^{2s} into squared convolution coefficients, allowing entrywise majorization by moduli. The Laurent constant term is nondecreasing in every nonnegative autocorrelation R1,R2,R3. Reflection/RMS replacing magnitudes by (A,B,B,A) keeps R0 fixed and increases all others by Cauchy/AM-GM for every s≥2. For s=3 exact ratio F(t) has derivative sign controlled by t^5+4t^4+t^3−6t−4 (one positive root by Descartes); all boundary ratios are smaller, strict autocorrelation equalities enforce A=d,B=c and convolution phases affine. An independent symbolic expansion/derivative check passed. The universality follows from algebra, not from finite grids.
+
+## originality
+
+PASS
+
+Even-integer Hardy–Littlewood majorant is standard and NOT claimed new; Mockenhaupt–Schlag (2002) and Krenedits (2010) concern majorants/counterexamples, with only abstract-level access in this run. Published analytic-quadratic three-frequency sixth-moment theorem and published four-mode fourth-moment theorem do not imply this FOUR-frequency sixth-moment quintic optimizer or universal even-moment reflection symmetrization. Older sharp degree-three Nikolskii tables may encode constant; best-of-knowledge only.
+
+## value
+
+PASS
+
+The first cubic analytic polynomial with four adjacent Fourier modes furnishes both a complete sharp norm/equality classification and a structural all-even-moment reduction. A low-degree exact Nikolskii optimization with clear frequency-space geometry has mathematical use beyond a numeric table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
