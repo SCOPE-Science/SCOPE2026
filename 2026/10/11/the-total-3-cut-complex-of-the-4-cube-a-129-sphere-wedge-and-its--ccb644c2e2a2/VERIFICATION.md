@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The attached `artifacts/verify.py` uses the standard Python library alone. From the 16 binary vertices it reproduces the 32 graph edges, 208 independent triples and 64,670 nonempty simplices, including all 208 facets. It constructs the complete oriented Hasse diagram (513,248 covers), exhaustively topologically sorts its 64,670 nodes, and finds 32,270 matching pairs with one critical vertex and 129 critical ten-simplices. All face vectors, stage counts, four-cycle counts and dual Euler computations are asserted in the checker. It enumerates all 384 automorphisms and independently compares every class trace using both the total-cut complex and its small Alexander dual. `VERIFY_OK` indicates every finite assertion was met.
+# Independent mathematical audit
 
-The matching and trace calculations are exhaustive for this one graph. They do not prove a uniform result for all hypercubes, determine a canonical equivariant basis, or constitute a separate independent review.
+## correctness
+
+PASS
+
+The source uses total (independent-set-complement) rather than ordinary (disconnected-set-complement) cut convention. Independently enumerated exactly 32 edges, 208 independent triples, 64670 nonempty faces and stated full 13-entry f-vector; sequential vertex matching generated 32270 pairs, one critical vertex and 129 critical 10-faces. Independent complete topological sort traversed 64670 vertices and 513248 Hasse covers, establishing Forman acyclicity and the integral 129-sphere wedge; purity dimension 12 then obstructs shelling. A separate independently coded Alexander-dual trace enumerator formed all 865 bounded-independence faces and calculated every one of 384 automorphism traces in the 20 signed-cycle types, matching every claimed class size and trace (identity 129). B4 automorphisms are even permutations of the 16 vertices, avoiding Alexander-duality sign twists. The finite exhaustive proof applies exactly to Q4 and does not claim all hypercube dimensions.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality based on scientific implication comparison, alias searches and material reading; no earlier source establishes the full final claim under the precise convention. Later broader methods, where relevant, are dated and explicitly delimited.
+
+## value
+
+PASS
+
+Natural 4-cube and total 3-cut invariant have meaningful combinatorial-topological interest; the exact 384-element symmetry representation is a nontrivial equivariant refinement of an integral wedge decomposition, distinguishing class traces and non-shellability not supplied by the generic total-cut theory. Even if nonequivariant wedge follows from later broad methods, the 20-class B4 character is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

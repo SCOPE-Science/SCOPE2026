@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact graph model has 32 edges and 208 independent triples. A fully specified element matching accounts for 32,270 pairs of the 64,670 nonempty simplices. All 513,248 covering relations are oriented and exhaustively topologically sorted, leaving one 0-cell and 129 10-cells. Forman's theorem then gives the integral wedge directly; no boundary-rank extrapolation is required. Independent Alexander-dual counts (16,120,352,376), the Euler characteristic, the 24 cube squares and two independent 384-element trace enumerations agree. The proof is restricted to this finite graph.
+## correctness
 
-## Originality — PASS
-The defining total-cut paper [1] gives definitions, complete-bipartite, chordal, cycle, clique-prism and rectangular-grid results. None covers \(Q_4\cong C_4\square C_4\) or its action of \(B_4\). The closest later paper [2] treats rectangular path-product grids with two or three rows, not the hypercube. The cut-complex papers [3,4] use the different condition that deleted triples induce a disconnected graph. The nearest recorded comparison about \(Q_3\) concerns ordinary rather than total cut complexes, so it does not imply this character or homotopy calculation. Targeted exact-object, dual-complex, numerical and symmetry searches did not locate a covering theorem; unindexed equivalent work remains a genuine bibliographic risk.
+PASS
 
-## Value — PASS
-The four-cube is the canonical 16-vertex Cartesian power of an edge, with full symmetry group of order 384. This calculation settles a natural total three-cut homotopy invariant not determined by previous grid or bipartite formulas; the twenty-class rational homology character adds symmetry information beyond the numerical rank. Its 129 sphere summands two dimensions below the pure top dimension give a non-shellability obstruction. The finite scope and absence of a family theorem are explicit rather than hidden.
+The source uses total (independent-set-complement) rather than ordinary (disconnected-set-complement) cut convention. Independently enumerated exactly 32 edges, 208 independent triples, 64670 nonempty faces and stated full 13-entry f-vector; sequential vertex matching generated 32270 pairs, one critical vertex and 129 critical 10-faces. Independent complete topological sort traversed 64670 vertices and 513248 Hasse covers, establishing Forman acyclicity and the integral 129-sphere wedge; purity dimension 12 then obstructs shelling. A separate independently coded Alexander-dual trace enumerator formed all 865 bounded-independence faces and calculated every one of 384 automorphism traces in the 20 signed-cycle types, matching every claimed class size and trace (identity 129). B4 automorphisms are even permutations of the 16 vertices, avoiding Alexander-duality sign twists. The finite exhaustive proof applies exactly to Q4 and does not claim all hypercube dimensions.
 
-## Closest literature and limits
-[1] Bayer et al., arXiv:2209.13503; [2] Chandrakar et al., arXiv:2408.07646; [3] Bayer et al., arXiv:2304.13675; [4] Bayer et al., arXiv:2407.08158. The classification is finite and the symmetry result is rational. The possibility of an unindexed equivalent is not eliminated by negative searches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality based on scientific implication comparison, alias searches and material reading; no earlier source establishes the full final claim under the precise convention. Later broader methods, where relevant, are dated and explicitly delimited.
+
+## value
+
+PASS
+
+Natural 4-cube and total 3-cut invariant have meaningful combinatorial-topological interest; the exact 384-element symmetry representation is a nontrivial equivariant refinement of an integral wedge decomposition, distinguishing class traces and non-shellability not supplied by the generic total-cut theory. Even if nonequivariant wedge follows from later broad methods, the 20-class B4 character is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
