@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact regularity identity: every vertex of \(\operatorname{Cr}_n\) lies in exactly \(n\) closed neighborhoods, giving the universal bound \(W\ge2k\). At equality, every closed-neighborhood inequality is tight, and the paired equations force \(x_i=y_i\) for every deleted matching pair. This reduces equality to a finite label-count condition with explicit constructions across the full admissible range. The two exceptional pairs are then handled separately, including an analytic exclusion of weight \(2k+1\). A direct exhaustive checker for \(n=3,4,5\) agrees with the formula for every admissible \(k\); finite computation is not used to infer the infinite theorem.
+## correctness
 
-## Originality
-PASS. The closest same-invariant source located is Henning–Volkmann (2025), which determines \(\gamma_{\mathrm{sdR}}^k(K_{p,p})\) and proves \(2k+2\) when \(p\ge k+1\). Its inspected full text contains no crown-graph or matching-deletion treatment. The foundational Amjadi et al. (2018) paper likewise treats complete bipartite graphs but no crown/matching occurrence was located in the inspected text. Searches also used the aliases “complete bipartite minus a perfect matching” and “bipartite Kneser \(H(n,1)\)”. No statement implying the crown classification was found. Residual risk remains for poorly indexed equivalent work under another alias.
+PASS
 
-## Value
-PASS. The result gives a complete all-\(k\) classification on a canonical matching-deleted biclique and identifies the equality mechanism. It is structurally informative rather than a single computed value: deleting one perfect matching changes the broad balanced-biclique behavior and makes the regular averaging bound exact almost everywhere, with exactly two exceptional parameter pairs.
+Cr_n has closed neighborhoods of size n. Summing their >=k inequalities proves W>=2k. In equality all are tight, and paired labels obey x_i-y_i=c, (n-2)c=0, hence x_i=y_i=z_i with sum z_i=k. The given integer-count vector constructions include a value 3 (or a 2) to defend all relevant labels and attain W=2k unless n+k=5; exactly (3,2) and (4,1) fail the requisite rescue. A paired shore-difference parity analysis rules out W=2k+1 for those cases; vectors (-1,1,3) and (-1,-1,1,3) duplicated attain 2k+2. Exhaustively checked every f in {-1,1,2,3}^{2n} for n=3,4,5 and all 3n admissible k with an independent C++ implementation. No finite test is used for the all-n assertion.
 
-## Closest literature and limitations
-Henning–Volkmann (2025) is the principal comparison because it studies the same invariant and completely resolves balanced complete bipartite graphs. Amjadi et al. (2018) supplies the definition and earlier complete-bipartite results. The literature search cannot prove global uniqueness, and the finite verifier does not replace the analytic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Henning–Volkmann analyze the same k-domination invariant on complete bipartite K_{p,p}, obtaining 2k+2 for a range of p,k, but removing a perfect matching changes every vertex neighborhood and the exact value. No implication from the K_{p,p} theorem to the matching-deleted graph follows. Published crown-graph Roman domination entries use different labels/conditions.
+
+## value
+
+PASS
+
+The full n,k phase classification gives the exact feasibility range and shows a striking near-universal attainment of the regular-graph double-counting lower bound, with only two sharp small exceptions. Crowns are a fundamental regular bipartite test family for domination parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
