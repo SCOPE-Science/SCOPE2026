@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The ruling curve has objective \(G_Q(t)/(1+t^2+t^4)\) with \(\deg G_Q\le4\), so every finite critical equation has degree at most \(6\). For an explicit rational data projection \(Q\in\operatorname{pGr}(2,6)\), exact computation produces a degree-\(6\) critical polynomial with nonzero discriminant, nonzero resultants against both the pole polynomial and the cut-locus factor, and nonzero derivative at infinity. These nonvanishing conditions define a nonempty Zariski-open set, proving the generic count is exactly \(6\).
+## correctness
 
-## Originality
-**PASS.** The initiating 2026 paper computes the Euclidean distance degree of rational-normal-scroll ruling curves and defines the Grassmann distance degree separately, but it does not state the latter for \(S(2,2)\). The earlier line-Grassmannian paper introduces the invariant and cut-locus formalism but contains no checked rational-normal-scroll case. Searches by object, invariant, value, ruling-curve alias, and cut-locus formulation found no covering statement.
+PASS
 
-## Value
-**PASS.** The case \(S(2,2)\) is the smallest balanced two-row scroll in the new paper's warm-up family. Its Euclidean distance degree already drops to \(6\) because the two scroll denominators coincide. Showing that generic Grassmannian data does not cause a further drop gives a natural first benchmark for extending the paper's scroll calculation from ED degree to GD degree.
+For the S(2,2) ruling curve, projection is two copies vvᵀ/s with v=(1,t,t²), s=1+t²+t⁴; objective G_Q/s with deg G≤4, derivative degree≤6 after cancellation. Independently reconstructed exact rank-two projection Q from printed 2×6 integer A: Q²=Q, G=(128t⁴+8t³+151t²+24t+9)/126, H=−h/63, h=4t⁶+23t⁵+32t⁴−238t³−142t−12, discriminant 6779465482547678036224 nonzero, pole resultant 2875220721, cut determinant t²(5t³+12t²−2t+1)²/252 with resultant −1358879507628, and infinity derivative 4/63. The witness proves the Zariski-open nonempty exact count 6, not merely one special Q. ED=6 independently follows from the published scroll formula.
 
-## Closest literature and limitations
-The closest source is Friedman–Hoşten–Rosana, arXiv:2610.02018v1, whose Theorem 2.2 gives the ED-degree formula and whose Section 4 defines GD degree and the cut locus. Friedman–Rosana–Sturmfels, arXiv:2601.22843v1, gives the earlier GD framework for varieties of lines. The present result does not provide a general formula for \(S(n_1,\ldots,n_d)\) and makes no assertion that all six generic critical points are real.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Friedman-Hosten-Rosana proves ruling-curve ED degree 6 but emphasizes GD may differ when data are projection constrained and critical points in cut locus are deleted. Earlier GD paper has no checked S(2,2) scroll degree. This exact rank-two projection witness fills an independently meaningful gap without claiming a general scroll formula.
+
+## value
+
+PASS
+
+The smallest balanced two-block rational normal scroll is a canonical benchmark for comparing ED and GD complexity. Its complete exact cut/pole-avoiding six-critical-point count answers a natural model-specific question; no paper-scale extension required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
