@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The positive-vector reduction accounts for complex phases, the \(p\)-dependent substitution preserves normalization, and the simple Perron eigenvalue makes the maximizing branch differentiable. The flux coefficient includes the factor \(1/2\) from \(dt/dp\). The three-site sign classification and four-site asymptotic signs follow from explicit eigenvectors and controlled error terms. The standalone numerical check is supplementary, not a proof of asymptotics.
+## correctness
 
-**Originality (PASS, residual risk).** Chien--Nakazato (2009), pp. 58--63, analyzes geometric shifts on Hilbert space; Undrakh--Nakazato--Vandanjav--Chien (2015), pp. 944--963, analyzes Hermitian spectra of Hilbert-space weighted shifts, including finite weighted matrices. Neither inspected primary text gives the varying-\(p\) entropy-flux derivative or the four-site central-weight inversion. The adjacent general \(\ell_p\) numerical-range work of Müller--Tomilov (arXiv:2606.22693) was located, but its full text was inaccessible; the available abstract discusses finite two-by-two examples and tridiagonal Toeplitz operators, not this four-site sensitivity assertion. Unindexed or inaccessible equivalent work remains possible.
+PASS
 
-**Value (PASS).** This is a dimension-sharp structural transition for a standard operator invariant: orientation response is determined by the endpoint order in three coordinates, but an interior weight can invert it in four. The full first-derivative law works for every finite positive weighted path, giving a spectral tool for perturbation away from Hilbert geometry. It does not claim global monotonicity in \(p\), threshold uniqueness, or a complete finite-\(p\) formula.
+The spatial norming functional on finite real/complex ℓ_p reduces to aligned nonnegative phases. y_i=|x_i|^(p/2), sum y_i²=1, t=1−2/p gives F_t=Σa_i y_i^(1+t)y_(i+1)^(1−t). At t=0 its strictly simple Perron maximizer h has a strictly negative tangent Hessian: the envelope theorem legitimately gives G=1/2 Σ a_i h_i h_(i+1) log(h_i/h_(i+1)). In n=3, h=(a/r,1,c/r)/sqrt(2), r=sqrt(a²+c²), yields the correctly signed u-log expression. For n=4, (r²−a²)(r²−c²)=b²r² and the explicit Perron vector give the reported small-b and large-b logarithmic leading terms; the O(b²) and O(1/b) remainders do not erase them. The duality v_p(T_reverse)=v_q(T) where 1/p+1/q=1 makes the reversal-in-p assertion local and strict. No claim of threshold uniqueness or all-p monotonicity is made.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+This is sensitivity to the Banach exponent p with fixed positive edge weights, not the classical Hilbert-space spectral radius formula. The four-site central-weight sign inversion is a new parameter implication in the checked sources; no source located proves it or its all-weight Perron-entropy derivative.
+
+## value
+
+PASS
+
+An explicit first exponent derivative detects a genuine four-site sign inversion that is invisible to Hilbert radii and three-site order; it distinguishes ordered weights, supplies sharp asymptotic regimes and answers a natural local sensitivity question for Banach numerical radii. The object, derivative and minimal dimension have structural motivation independent of numerical sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

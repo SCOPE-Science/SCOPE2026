@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T03:56:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob c4742904077b6cc56f398e5681d00a9198d6ef31",
+        "assigned verify_entropy_flux.py blob b4fc61236f09fb16efc0c4983a7a6df5b4fef756",
+        "tridiagonal eigenproblem and derivative independently recomputed for weights (2,b,1)"
+      ],
+      "rationale": "The spatial norming functional on finite real/complex ℓ_p reduces to aligned nonnegative phases. y_i=|x_i|^(p/2), sum y_i²=1, t=1−2/p gives F_t=Σa_i y_i^(1+t)y_(i+1)^(1−t). At t=0 its strictly simple Perron maximizer h has a strictly negative tangent Hessian: the envelope theorem legitimately gives G=1/2 Σ a_i h_i h_(i+1) log(h_i/h_(i+1)). In n=3, h=(a/r,1,c/r)/sqrt(2), r=sqrt(a²+c²), yields the correctly signed u-log expression. For n=4, (r²−a²)(r²−c²)=b²r² and the explicit Perron vector give the reported small-b and large-b logarithmic leading terms; the O(b²) and O(1/b) remainders do not erase them. The duality v_p(T_reverse)=v_q(T) where 1/p+1/q=1 makes the reversal-in-p assertion local and strict. No claim of threshold uniqueness or all-p monotonicity is made.",
+      "residual_risks": [
+        "Finite numeric slopes corroborate signs only; do not establish all b or limits.",
+        "Positivity of weights and 1<p<∞ are essential for the interior Perron branch."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Undrakh et al. (2015) works on Hilbert ℓ² and symmetric tridiagonal eigenvalue formulas; its theorem hypotheses do not vary the exponent.",
+          "Müller–Tomilov (2026) develops ℓ_p numerical ranges and shift examples but inspected sections do not state this derivative/sign-change family."
+        ],
+        "reasoning": "No stronger all-weight non-Hilbert exponent result was identified that implies these first-order logarithmic slopes or four-site inversion.",
+        "searches": [
+          "Resultary query: weighted nilpotent shift ell_p numerical radius derivative at p=2 Perron eigenvector entropy flux central weight reversal four dimensions",
+          "Müller–Tomilov 2606.22693 Sections 1,4.4",
+          "https://journals.uwyo.edu/index.php/ela/article/download/1617/1617/1617"
+        ]
+      },
+      "checked_sources": [
+        "https://journals.uwyo.edu/index.php/ela/article/download/1617/1617/1617",
+        "https://arxiv.org/html/2606.22693",
+        "https://journals.uwyo.edu/index.php/ela/article/view/1617",
+        "Resultary query: weighted nilpotent shift ell_p numerical radius derivative at p=2 Perron eigenvector entropy flux central weight reversal four dimensions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Hilbert radius is r(W)/2; knowing this value for a given W does not imply d/dp v_p at 2, much less change in sign when varying b."
+        ],
+        "reasoning": "Prior Hilbert results give the basepoint at p=2, not the transverse exponent derivative. Four-site behavior is absent from two-link results and cannot be obtained by substituting dimensions.",
+        "searches": [
+          "Resultary query: weighted nilpotent shift ell_p numerical radius derivative at p=2 Perron eigenvector entropy flux central weight reversal four dimensions",
+          "Undrakh et al. The numerical radius of a weighted shift operator (2015) Hilbert case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At p=2, v_2=r(W)/2, so its p derivative is not determined by the published Hilbert spectral formula.",
+          "Conjugate exponent q and reversed weights give an equivalent sign-order comparison, explicitly checked against three-site formulas."
+        ],
+        "reasoning": "Compared d v_p/dp, entropy-flux Perron expression, and reverse-weight inequality under p↔q, not just weighted-shift titles. Available three-site mixed Luxemburg law covers the n=3 setting, not central-weight inversion on four coordinates.",
+        "searches": [
+          "Resultary query: weighted nilpotent shift ell_p numerical radius derivative at p=2 Perron eigenvector entropy flux central weight reversal four dimensions",
+          "Web search: weighted nilpotent ℓ_p numerical radius derivative at p=2",
+          "arXiv:2606.22693"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Searched numerical-radius records include three-site exact radii, cyclic-shift Hessians, Schatten fourth radii, and resolvent rearrangements; operators/invariants differ."
+        ],
+        "reasoning": "No exact table or parameter entry for the four-site p=2 derivative was found; lack of search hit is only a residual risk, not proof of novelty.",
+        "searches": [
+          "Resultary query: weighted nilpotent shift ell_p numerical radius derivative at p=2 Perron eigenvector entropy flux central weight reversal four dimensions",
+          "Resultary near-neighbor records on two-link weighted shift and cyclic shift Hessian"
+        ]
+      },
+      "rationale": "This is sensitivity to the Banach exponent p with fixed positive edge weights, not the classical Hilbert-space spectral radius formula. The four-site central-weight sign inversion is a new parameter implication in the checked sources; no source located proves it or its all-weight Perron-entropy derivative.",
+      "residual_risks": [
+        "Complete 2015 journal article not read end-to-end; its stated framework is Hilbert only.",
+        "Other unindexed non-Hilbert weighted shift work could contain an equivalent derivative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Hilbert ℓ² radius for shifted-weight matrices and perturbations of the canonical unilateral shift; no exponent parameter in inspected theorems.",
+          "evidence": [
+            "PDF §1–2: operators on separable Hilbert space; A(a) symmetric Hermitian part, finite tridiagonal recurrence, numerical radius via spectral eigenvalue."
+          ],
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/1617/1617/1617",
+          "material_read": "Primary open journal PDF pages 944–948 including introduction, definitions, finite shift recurrence; remaining paper not exhaustively inspected",
+          "method": "Web PDF extracted lines and page-image inspection of pp. 944, 946",
+          "title": "The numerical radius of a weighted shift operator (Undrakh–Nakazato–Vandanjav–Chien, 2015)",
+          "trigger": "Same weighted nilpotent shift and exact Hilbert radius"
+        },
+        {
+          "assessment": "Theory of ordinary/essential numerical ranges and shift examples, no located all-weight entropy derivative.",
+          "evidence": [
+            "arXiv:2606.22693, sections on finite-dimensional geometry and shift Crouzeix inequalities."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.22693",
+          "material_read": "Primary arXiv HTML introduction and finite-dimensional/shift section 4.4 and searches for weighted/nilpotent/derivative; not all arguments",
+          "method": "Web full-text reading and targeted finds",
+          "title": "Numerical and essential numerical ranges on ℓ_p (Müller–Tomilov, 2026)",
+          "trigger": "Recent same Banach ℓ_p numerical range framework"
+        },
+        {
+          "assessment": "Near neighbor for n3, no four-site central weight.",
+          "evidence": [
+            "Resultary search hit on 3-site exact mixed exponent range."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mixed-exponent-numerical-ranges-of-three-site-weighted-shi--b6805f9f0272",
+          "material_read": "Resultary record title and semantic summary, not primary proof",
+          "method": "Resultary semantic search",
+          "title": "Exact mixed-exponent numerical ranges of three-site weighted shifts on ℓ_p",
+          "trigger": "Published same-type 3-coordinate shift"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "assigned RESULT.md",
+        "Perron spectral perturbation and ℓ_p duality",
+        "nearby published three-site and Hilbert-space results"
+      ],
+      "rationale": "An explicit first exponent derivative detects a genuine four-site sign inversion that is invisible to Hilbert radii and three-site order; it distinguishes ordered weights, supplies sharp asymptotic regimes and answers a natural local sensitivity question for Banach numerical radii. The object, derivative and minimal dimension have structural motivation independent of numerical sampling.",
+      "residual_risks": [
+        "Only local p-near-2 behavior and a nonunique root in b are established; no uniform global threshold or monotonicity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The audit is scientific and private only; no server certificate or independent provenance is claimed.",
+    "Publication is withheld while provenance-safe public file replacements and exact blob guards remain unavailable; original Git blobs are preserved unchanged.",
+    "No GitHub write or dispatcher closeout performed."
+  ],
+  "schema_version": 1
+}
