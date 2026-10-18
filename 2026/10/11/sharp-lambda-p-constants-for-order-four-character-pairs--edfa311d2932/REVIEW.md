@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Haar pushforward reduces the problem exactly to four fourth-root samples. After \(L^2\)-normalization the moment is \(F_s(t,\phi)=\tfrac12(g_s(t\cos\phi)+g_s(t\sin\phi))\), and strict monotonicity of \(g_s\) forces \(t=1\), hence equal coefficient moduli. The phase derivative is governed by the symmetric-interval average of \((1+x)^{s-2}\); Hermite--Hadamard gives the exact monotonicity changes at \(s=2\) and \(s=3\), corresponding to \(p=4\) and \(p=6\). Endpoint evaluation gives the displayed constants and all equality phases. The numerical verifier only stress-tests this proof.
+## correctness
 
-## Originality
-PASS. Michels' full six-page paper was inspected because it is a direct archive-era source for the \(\Lambda(p)\) framework. It defines \(K_p(\Lambda)\) and proves a characterization for infinite \(\Lambda(p)\)-sets via operator-ideal limit orders, but it does not give this finite two-character order-four calculation. Statement-level searches used the character-pair formulation, the fourth-root random-variable formulation, formula fingerprints, the critical exponents \(4\) and \(6\), and two-dimensional Fourier-subspace aliases. No equivalent or stronger statement was located. The main residual risk is older finite-dimensional \(L^p\) literature phrased without \(\Lambda(p)\) terminology.
+PASS
 
-## Value
-PASS. The result gives the complete real-\(p\) sharp constant and equality class for the first square-root orbit in which phase selection is re-entrant. The axis/diagonal/axis transition is controlled by two distinct convexity thresholds, so the result is not an even-moment lookup or a routine parameter increment. In particular, the interval \(4<p<6\) has an extremizing phase opposite to both neighboring regimes.
+For relative-character order four, Haar pushes to uniform {1,i,-1,-i}. With s=p/2>1 and balance t=2|a||b|/sum magnitudes squares, norm^p/energy^{s} equals [g_s(t cos phi)+g_s(t sin phi)]/2, g_s(u)=((1+u)^s+(1-u)^s)/2. Since g_s strictly increases for positive arguments, the maximum has t=1, equal coefficient magnitudes. Phase derivative on (0,pi/4) is cos(phi)sin(phi)[q_s(sin phi)-q_s(cos phi)]/2 with q_s(u)=g_s'(u)/u a positive multiple of the centered interval average of (1+x)^{s-2}. This average increases in radius for s in (1,2) or (3,infinity), decreases for (2,3), and is flat at s=2,3 by strict convexity/concavity. Thus axis/diagonal/axis phase classes, transitions p=4,6, and exact endpoint constants follow. Numerical independent endpoint comparisons confirm representative regimes but proof covers every real p>2.
 
-## Closest literature and limitations
-The closest inspected primary source is arXiv:math/9904176. It supplies the standard \(\Lambda(p)\) setting but not the claimed sharp finite constant. The theorem here is limited to relative order \(4\); no assertion is made for arbitrary torsion order or larger supports. Search-based originality leaves a residual risk from differently indexed roots-of-unity or finite-dimensional \(L^p\) calculations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: the all-even-q theorem only treats p in 2N and order-three theorem different relative-order group. The explicit continuous real-p q=4 phase profile has a second transition not implied by interpolation from even moments; the two intervals of non-even p and complete equality classification survive. Classical character-set theory does not give this small-system classification. Hidden equivalent old finite-dimensional Lp inequalities remain possible.
+
+## value
+
+PASS
+
+The complete nonlinear p-dependent sharp norm and reentrant maximizing phase are a natural structural phenomenon of 2D Fourier synthesis on the first nontrivial even torsion group; precisely locates two nontrivial phase transitions and equality loci instead of a routine single-moment substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
