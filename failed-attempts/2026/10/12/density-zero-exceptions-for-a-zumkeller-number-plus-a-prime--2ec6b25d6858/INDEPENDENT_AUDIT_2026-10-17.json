@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T22:44:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/html/2310.14149v2 Lemmas 2.1,3.3, Theorem 4.19, Conjecture 4.21",
+        "Git RESULT.md c4383d629aee64f048af656469e39743858a65ce",
+        "Git verify.py a63c7c3ff6fddc6510e11a510018c1b498170462"
+      ],
+      "rationale": "RESULT.md establishes each step of its infinite density squeeze, not merely a finite experiment. Coprime divisor factorization preserves a Zumkeller partition; z(1+zt) is Zumkeller. For fixed odd Zumkeller z, Dirichlet gives for each reduced class a mod z² a prime q_a≡a-z mod z² (reduced since gcd(a,z)=1); for n sufficiently large and coprime z, n-q_a=z+z²t is a positive Zumkeller number. Somu–Kukla–Tran Lemma 3.3 provides arbitrarily many disjoint sufficiently late odd prime-block Zumkeller numbers z_i. Minimal crossing gives R_i=∏(1+1/p)<8/3; ∏_{p|z_i}(1-p^-2)>2/3 (telescoping over all m≥3), hence φ(z_i)/z_i>1/4. CRT makes every fixed-r simultaneous noncoprimality set have density ∏(1-φ(z_i)/z_i)<(3/4)^r, proving upper density zero as r is arbitrary. The infinite claim uses the published prime-block theorem and Dirichlet, not verify.py outputs.",
+      "residual_risks": [
+        "The deep published prime-block Zumkeller existence lemma is a cited primary theorem, not independently reproved here; all later deductions are checked. Finite partition tests cannot substitute for it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.19574 Theorem 1.2 gives α(X) ≪ X (log log X)^(-A), A=log_2(2π²/(2π²-3))>0.",
+          "Taking this asymptotic bound over X yields α(X)/X→0."
+        ],
+        "reasoning": "This quantitative upper bound directly implies the entire frozen qualitative theorem; the frozen work supplies no strictly stronger residual claim.",
+        "searches": [
+          "arxiv:2610.19574 Theorem 1.2 prime Zumkeller quantitative upper bound",
+          "Somu Kukla Tran Conjecture 4.21 prime Zumkeller"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.19574",
+        "https://arxiv.org/html/2310.14149v2",
+        "https://oeis.org/A368082",
+        "Resultary query: Zumkeller numbers sum prime density zero exceptional set conjecture Somu Kukla Tran"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.19574 establishes alpha(X) << X/(log log X)^A.",
+          "Dividing by X and taking X→∞ proves the exact boxed RESULT.md density-zero conclusion."
+        ],
+        "reasoning": "The stronger external theorem implies all of this particular original claim, not merely a similar value or restricted parameters. Originality FAIL is decisive even though Li appeared two days after frozen record date.",
+        "searches": [
+          "arxiv:2610.19574 theorem 1.2 proof density",
+          "arxiv:2310.14149 conjecture 4.21"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2310.14149v2 Conjecture 4.21 formulates lim n_zp(X)/X=0",
+          "https://arxiv.org/abs/2610.19574 Li Theorem 1.2 proves the same lim=0 for integers not representable z+p"
+        ],
+        "reasoning": "The complement-count notation E(X) and n_zp(X) describe exactly the same set; no representability/model mismatch.",
+        "searches": [
+          "\"Zumkeller\" \"prime\" density zero 2026",
+          "\"The Density and Quantitative Upper Bound of Integers Not Expressible as the Sum of a Prime and a Zumkeller Number\"",
+          "arxiv:2610.19574"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A368082 is a finite sequence record, not a density proof.",
+          "A full theorem already covers the exact infinite statement; table noncoverage cannot rescue originality."
+        ],
+        "reasoning": "The decisive prior-art issue is the published all-X estimate, not a small-values table.",
+        "searches": [
+          "OEIS A368082 Zumkeller number plus prime",
+          "arxiv:2610.19574 qualitative density zero"
+        ]
+      },
+      "rationale": "A PRE-EXISTING public primary preprint by Ting Hon Stanford Li, arXiv:2610.19574 (submitted 2026-10-14), proves the exact natural-density-zero Zumkeller-plus-prime exceptional assertion as Theorem 1.2, and moreover proves a quantitative upper bound O(X/(log log X)^A). That strictly covers the frozen manuscript theorem, although the frozen source predates Li's submission. Hence the final mathematical claim is covered at audit time, despite independent validity and substantive importance. The conjecture in the 2023 source is not a substitute for checking post-2023 literature.",
+      "residual_risks": [
+        "An original derivation in the frozen source predates the newer preprint but the mathematical assertion is now externally covered; historical priority timing should be recorded accurately, not fabricated as independence or novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY_COVERS; 2026-10-14 Theorem 1.2 dominates the claimed density-zero result.",
+          "evidence": [
+            "Preprint arXiv:2610.19574 submitted 2026-10-14 04:40:30Z; Theorem 1.2 α(X)≪X(log log X)^(-A); qualitative density follows."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.19574",
+          "material_read": "Public primary arXiv HTML abstract, Theorems 1.1–1.2, quantitative statement, definitions, and full derivation from a coprime family of Zumkeller moduli and a sieve/density estimate.",
+          "method": "Read lawful open primary full HTML, compared sets, quantifiers and asymptotic strength directly.",
+          "title": "The Density and Quantitative Upper Bound of Integers Not Expressible as the Sum of a Prime and a Zumkeller Number",
+          "trigger": "The same representation problem with a quantitative upper bound and a newer 2026 publication date."
+        },
+        {
+          "assessment": "Supplies theorem inputs and conjecture; not itself a proof of density-zero.",
+          "evidence": [
+            "Conjecture 4.21 states density zero, Theorem 4.19 establishes infinitely many exceptional integers."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.14149v2",
+          "material_read": "Primary arXiv HTML definitions, Lemmas 2.1 and 3.3, Theorem 4.19 and Conjecture 4.21.",
+          "method": "Read lawful HTML primary text; verified hypothesis sufficiency and names.",
+          "title": "Some Results on Zumkeller Numbers",
+          "trigger": "Original named density conjecture and prime-block input."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2310.14149v2",
+        "https://arxiv.org/abs/2610.19574"
+      ],
+      "rationale": "The density-zero result is mathematically valuable in isolation because it answers the prime-summand half of a named additive Zumkeller conjecture despite infinitely many exceptional integers; the modulus/CRT method illuminates the density mechanism. The assessment of value does not override the decisive later published coverage. No rate or square-summand result survives as a new final claim.",
+      "residual_risks": [
+        "The mathematical content is now covered by a stronger published preprint; novelty not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "The exceptional integers without a representation n=z+p, with z Zumkeller and p prime, have natural density zero.",
+  "limitations": [
+    "This qualitative theorem is directly implied by the published later quantitative Theorem 1.2 of arXiv:2610.19574, submitted 2026-10-14; no surviving independent original claim in frozen source.",
+    "The claim does not address the square-summand density, representation of all sufficiently large integers, or effective rate."
+  ],
+  "schema_version": 1
+}
