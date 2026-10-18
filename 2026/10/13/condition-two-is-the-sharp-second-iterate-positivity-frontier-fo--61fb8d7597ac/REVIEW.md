@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact-line warm start gives \(s_0=\alpha_0b\) and \(y_0=\alpha_0Ab\), hence the long BB step equals \(\alpha_0\) and the short step is \((b^{\mathsf T}Ab)/(b^{\mathsf T}A^2b)\). Every interval choice yields
-\[
-x^{(2)}=\alpha_0\alpha_1(\theta I-A)b,
-\qquad
-\theta=\alpha_0^{-1}+\alpha_1^{-1}\ge2\mu.
-\]
-For \(\kappa\le2\), this shift is at least \(L\), so the Stieltjes sign pattern makes the matrix entrywise nonnegative. For \(\kappa>2\), the two-dimensional diagonal family makes even the largest interval shift, attained at the short BB endpoint, smaller than \(L\); therefore every interval choice has a negative high-curvature coordinate. The exact witness and endpoint arithmetic replay successfully.
+## correctness
 
-## Originality
-PASS with residual literature risk. The inspected BB review gives the delayed Cauchy-step interpretation and standard long-step formula; later spectral-gradient literature treats long/short combinations and convergence. The closest published semantic-index result proves a condition-number-two frontier for objective monotonicity over the BB interval, which does not imply coordinatewise positivity. Searches for positive-orthant, Stieltjes, nonnegative-iterate, BB1/BB2, spectral-gradient, and second-iterate formulations did not locate the entrywise theorem or the all-selector two-dimensional obstruction. Older spectral-gradient or monotone-iteration literature may contain an equivalent statement under different terminology.
+PASS
 
-## Value
-PASS. Spectral-gradient methods are used precisely because their aggressive delayed curvature steps improve over ordinary gradient descent, while constrained variants often add projection to enforce nonnegativity. The theorem isolates the exact conditioning boundary at which the raw BB interval itself is safe after an exact-line warm start and proves that beyond that boundary even choosing the conservative short endpoint cannot avoid a two-dimensional sign failure. This is a complete invariant-preservation classification, not a single counterexample.
+The exact warm start yields s=alpha0*b and y=alpha0*A*b, hence alpha_long=alpha0 and alpha_short=(b^T A b)/(b^T A^2 b). For any interval alpha1, x2=alpha0*alpha1*(theta I-A)b with theta=1/alpha0+1/alpha1>=2mu. Stieltjes structure and L<=2mu make theta I-A entrywise nonnegative. For diag(1,kappa), b=(1,eps), theta_short is maximal and (theta_short-kappa)*(1+t)*(1+kappa*t)=kappa^2*t^2+(kappa+1)*t+2-kappa, negative for t=eps^2 sufficiently small when kappa>2. One dimension terminates; 2D is sharp. Independent exact rational fractions match both BB endpoints and midpoint negativity.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The known BB interval sharp objective-monotonicity frontier at kappa2 covers objective gaps, not coordinatewise orthant invariance. The separate published CG, steepest-descent and good-Broyden kappa2 findings use different algorithms. The Stieltjes matrix certificate and simultaneous all-selector 2D obstruction add a non-implied sign statement.
+
+## value
+
+PASS
+
+A BB step is routinely used without projection, and whether the raw iterates remain feasible in the nonnegative orthant is an independent natural invariant from objective descent. The exact all-selector condition-number safety limit and uniformly failing minimal 2D witness settle a meaningful one-step numerical boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

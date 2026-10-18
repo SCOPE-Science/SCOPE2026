@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:58:00.069303Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact warm start yields s=alpha0*b and y=alpha0*A*b, hence alpha_long=alpha0 and alpha_short=(b^T A b)/(b^T A^2 b). For any interval alpha1, x2=alpha0*alpha1*(theta I-A)b with theta=1/alpha0+1/alpha1>=2mu. Stieltjes structure and L<=2mu make theta I-A entrywise nonnegative. For diag(1,kappa), b=(1,eps), theta_short is maximal and (theta_short-kappa)*(1+t)*(1+kappa*t)=kappa^2*t^2+(kappa+1)*t+2-kappa, negative for t=eps^2 sufficiently small when kappa>2. One dimension terminates; 2D is sharp. Independent exact rational fractions match both BB endpoints and midpoint negativity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dai–Huang–Liu long/short convex family provides algorithmic coverage but no stated second-step orthant classification.",
+          "BB objective theorem is a broader algorithmic class for energy change, but does not logically bound individual coordinates."
+        ],
+        "reasoning": "Broader convergence or spectral-step theory does not supply Stieltjes entrywise positivity or all-selector obstruction.",
+        "searches": [
+          "Resultary/2026@main:2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53/RESULT.md",
+          "DOI:10.1007/s10589-019-00107-8",
+          "Barzilai Borwein BB1 BB2 short long interval positivity Stieltjes matrices condition number 2 second iterate sign cone"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/2026@main:2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53/RESULT.md",
+        "DOI:10.18637/jss.v060.i03",
+        "DOI:10.1007/s10589-019-00107-8",
+        "DOI:10.1093/imanum/8.1.141"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Objective gap increase can occur with a nonnegative iterate, and objective decrease with negative coordinates.",
+          "The new x2 formula bounds the entrywise shift and uses the Stieltjes sign pattern absent from prior objective proof."
+        ],
+        "reasoning": "Prior exact BB objective frontier does not imply the final sign theorem, despite shared kappa2 number and warm start.",
+        "searches": [
+          "Resultary/2026@main:2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53/RESULT.md",
+          "Barzilai Borwein BB1 BB2 short long interval positivity Stieltjes matrices condition number 2 second iterate sign cone",
+          "DOI:10.18637/jss.v060.i03"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "BB1/BB2 are classical and the published BB interval theorem gives sharp objective amplification, not componentwise positivity.",
+          "Closest signs results concern CG or steepest descent, not the BB interval."
+        ],
+        "reasoning": "Same problem class and same condition number alone do not establish implication equivalence when measured observables are objective and coordinatewise sign.",
+        "searches": [
+          "Barzilai Borwein BB1 BB2 short long interval positivity Stieltjes matrices condition number 2 second iterate sign cone",
+          "Resultary/2026@main:2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53/RESULT.md",
+          "DOI:10.18637/jss.v060.i03"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact numeric kappa=2 occurs in the published objective table for the BB interval, not a coordinatewise feasibility table.",
+          "No second-iterate Stieltjes positivity rank/sign table was identified."
+        ],
+        "reasoning": "Checked exact threshold in connection with both BB1 and BB2. Matching constant on a different invariant is not prior coverage.",
+        "searches": [
+          "Barzilai Borwein BB1 BB2 short long interval positivity Stieltjes matrices condition number 2 second iterate sign cone",
+          "Resultary/2026@main:2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53/RESULT.md"
+        ]
+      },
+      "rationale": "The known BB interval sharp objective-monotonicity frontier at kappa2 covers objective gaps, not coordinatewise orthant invariance. The separate published CG, steepest-descent and good-Broyden kappa2 findings use different algorithms. The Stieltjes matrix certificate and simultaneous all-selector 2D obstruction add a non-implied sign statement.",
+      "residual_risks": [
+        "Unindexed spectral gradient sign-safety literature may contain the second-iterate criterion.",
+        "Correctness is confined to an exact warm start and a single subsequent step; later steps not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING entrywise theorem",
+          "evidence": "Sup F_{k+1}/F_k=(kappa-1)^2 and all-selector objective increase above 2; no sign theorem.",
+          "identifier_or_url": "Resultary/2026@main:2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53/RESULT.md",
+          "material_read": "Complete RESULT.md including theorem, extremal family, amplification proof and limitations",
+          "method": "Read full prior scientific proof, compared objective gap versus orthant signs",
+          "title": "Sharp objective-monotonicity frontier for Barzilai–Borwein interval steps",
+          "trigger": "Same BB short-long interval, exact warm start, same sharp number"
+        },
+        {
+          "assessment": "SUPPLIES background BB methods only",
+          "evidence": "Classical long/short secant formulas are acknowledged prior work.",
+          "identifier_or_url": "DOI:10.18637/jss.v060.i03",
+          "material_read": "Publicly accessible discussion of BB step formulas and SPD quadratic behavior",
+          "method": "Checked algorithm definitions/limited excerpt; no whole-document noncoverage claimed",
+          "title": "Spectral Projected Gradient Methods: Review and Perspectives",
+          "trigger": "Classical definitions and BB delayed curvature context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A BB step is routinely used without projection, and whether the raw iterates remain feasible in the nonnegative orthant is an independent natural invariant from objective descent. The exact all-selector condition-number safety limit and uniformly failing minimal 2D witness settle a meaningful one-step numerical boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026@40d46a820f74fdf355c691812bdc426ec204bde7/2026/10/13/condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--61fb8d7597ac (tree 6493e2e9694f24b7756115ebc5f765d2696e06c7)",
+    "AUDIT.json:8196152b4888cf260cf72fa5725f974fe7618f8e",
+    "METADATA.json:4bd2a649e91831a9e2880213b1084d93dedb6c2b",
+    "RESULT.md:2ab78b883c4a90b3683b997c63313f08bbefeda6",
+    "REVIEW.md:1d33c82e5f7652fcca674c8dc25e6db04c98823a",
+    "SLOGAN.txt:888d353dced46d0b4f628b66e6376d077406167b",
+    "VERIFICATION.md:c6cdb0a6460c769be70db21b97d5a323caf553d0",
+    "verify.py:54689ec4da45a9d6f943f5ed4d1f6491eb52fd62",
+    "Resultary/2026@main:2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53/RESULT.md",
+    "DOI:10.18637/jss.v060.i03",
+    "DOI:10.1007/s10589-019-00107-8",
+    "DOI:10.1093/imanum/8.1.141"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "SPD Stieltjes, exact arithmetic and zero start; second iterate only, not projected/inexact BB or later evolution.",
+    "Unindexed spectral gradient sign-safety literature may contain the second-iterate criterion.",
+    "Correctness is confined to an exact warm start and a single subsequent step; later steps not classified."
+  ]
+}
