@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The map-word identity follows from digitwise push/delete actions and the minimum of the driving walk. Reflection counting gives the exact joint distribution of deleted original digits and retained leading zeros. Conditional uniformity within stationary dyadic cells permits exact integration of the fractional-position moment, with the resonant parameter treated by its arithmetic-geometric limit. An independently coded exact integral verifies all four rational parameters and lags zero through five, including agreement with known one-through-three-lag formulas. No finite experiment substitutes for the all-lag argument.
+
+**Originality — PASS, qualified.** Yan et al. (arXiv:2308.09269, Section III and Appendices C–E) derive the stationary density and exact lags one, two and three, but approximate higher-lag position correlations by commuting maps. The statement here is a noncommutative exact all-lag finite-binomial expression. Brevitt and Klages (arXiv:2607.19084, Sections 2–3) obtain scalar dyadic-cell return/Green functions; those are not the position-weighted two-time quantity and do not directly imply this formula. Searches for alternative aliases, reflection counts, transfer-operator formulas and exact correlation tables yielded no identified covering result. Residual risk: a general dyadic-shift or random-map treatment may already encode an equivalent all-lag expression; publication priority is not independently guaranteed.
+
+**Value — PASS.** The exact *physical-position* autocorrelation across arbitrary lags was explicitly treated approximately beyond lag three in the originating study because map order matters. The formula replaces exponentially many map-word integrations with \(O(n^2)\) finite binomial terms and handles the nontrivial stationary-density resonance \(p=2/3\). It directly serves numerical and theoretical studies of the model's stationary intermittency without claiming unproved critical-limit or large-time asymptotics.
+
+**Scientific scope and risk.** The result is limited to stationary absolutely continuous measures for \(1/2<p<1\). Reflection-principle ingredients and invariant-density formulas are credited as existing mathematics, and the new identity has not undergone independent review.
+
+Self-review: passed. Independent audit: not yet performed.
