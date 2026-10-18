@@ -1,98 +1,21 @@
-# Review of Exact radial Schwarzian profile of the Lehtinen witness family
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The cited 2026 source gives the exact formula
-\[
-S_{f_\alpha}(z)
-=
-\frac{1-\alpha^2}{2(1-z)^2}
-+
-\frac{(1-\alpha)\overline z}
-{(1-|z|^2)(1-z)}
--
-\frac{3\overline z^2}
-{2(1-|z|^2)^2}.
-\]
-After multiplication by
-\[
-(1-|z|^2)^2,
-\]
-the only geometric factor is
-\[
-w=(1-|z|^2)/(1-z).
-\]
-For
-\[
-|z|=r,
-\]
-the sharp inequality
-\[
-|w|\le1+r
-\]
-has equality only at
-\[
-z=r.
-\]
-Because all coefficients have the same sign there, the triangle-inequality upper bound is attained exactly. This proves the circlewise maximum and the global norm.
+PASS
 
-The exact deficit is direct algebra. For an arbitrary extremizing sequence, the monotone radial profile forces
-\[
-|z_j|\to1,
-\]
-and the positive coefficient of
-\[
-|w|^2
-\]
-forces
-\[
-|w_j|\to2.
-\]
-The equality geometry of the reverse triangle inequality then forces
-\[
-z_j\to1.
-\]
+Source formula yields weighted Schwarzian −[A w(z)²+b conjugate(z)w(z)+3 conjugate(z)²/2], with A=(alpha²−1)/2>0, b=alpha−1>0 and w=(1−r²)/(1−z). Reverse triangle gives |w|≤1+r and triangle inequality the circle bound; at z=r all three terms align exactly, so upper bound achieved. If r>0, strict |1−z|>1−r unless z=r yields unique maximizer. Profile derivative 2A(1+r)+b(1+2r)+3r positive, limit norm 4A+2b+3/2. Deficit factors (1−r)[A(3+r)+b(2+r)+3(1+r)/2]. Near-max sequence must have r→1 and |w|→2, so (1−r)/|1−z|→1 implies angular direction→0 and z→1. alpha=1 endpoint deliberately excluded from angular uniqueness; nonattainment for alpha>1 clear.
 
-## Originality
+## originality
 
-PASS. The complete open-access 2026 article was inspected at the harmonic Schwarzian definition, Theorem 1, the explicit witness calculation, its two conjectures, and the references to the original non-univalent construction. The paper states only the upper estimate needed for
-\[
-\sigma_H(\mathbb D)\le3/2;
-\]
-it does not state equality, the exact circle profile, or extremizing-sequence concentration.
+PASS
 
-The original Wang--Liu--Rasila--Sun paper supplies the non-injective family but predates its use in the harmonic Schwarzian inner-radius problem. The general harmonic Schwarzian literature supplies the formalism rather than this family-specific extremal computation.
+Read original Efraimidis–Hernández 2026 full open-access text with Schwarzian formula and their bound. They prove harmonic inner-radius upper bound and state norm ≤2(alpha²−1)+2(alpha−1)+3/2, not the sharp circlewise equality, uniqueness of radial maximizer, or all extremizing boundary sequences. Wang–Liu–Rasila–Sun original witness establishes noninjectivity but not this later Schwarzian radius calibration. Search results contain only present mirror for exact polynomial/radial claim. No stronger same-object published profile identified.
 
-Dedicated published-finding and public-literature searches under the exact family, the harmonic Schwarzian norm, the formula
-\[
-2\alpha^2+2\alpha-\frac52,
-\]
-and boundary concentration at
-\[
-1
-\]
-did not locate an implication-equivalent statement.
+## value
 
-## Value
+PASS
 
-PASS. The family
-\[
-f_\alpha
-\]
-is not an arbitrary example: it is the specific witness used to establish the best currently published upper bound
-\[
-\sigma_H(\mathbb D)\le3/2
-\]
-and motivates the source's conjecture that equality holds.
+Calibrates sharpness of a canonical noninjective counterexample used to bound harmonic univalence inner radius, identifies unique asymptotic boundary concentration and exact linear first-order excess near alpha=1. The exact witness norm and location are natural invariants, though they do not settle the conjectured lower bound.
 
-The exact profile shows that the source estimate has no hidden slack at any
-\[
-\alpha>1,
-\]
-not merely in the limit. It also identifies a rigid geometric mechanism: the complete norm is generated at one cusp boundary point, with an exact radial deficit and an exact threshold approach
-\[
-3/2+6(\alpha-1)+2(\alpha-1)^2.
-\]
-These data are relevant to any compactness or extremal analysis aimed at the conjectured threshold.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
