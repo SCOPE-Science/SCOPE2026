@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-Run from the extracted package root:
+# Independent mathematical audit
 
-```
-python3 artifacts/verify.py
-python3 artifacts/check_petersen_hull.py
-```
+## correctness
 
-The first command uses only the Python standard library and exact rational arithmetic. It enumerates all extreme supports of the fractional perfect-matching polytope of \(K_n\) for \(n=5,6,7,8\), validates every incidence constraint, checks all calculated polar-normal squared norms, identifies each maximizer, and checks the spectral projector identity and constant vertex norm. It produces:
+PASS
 
-```
-VERIFY_OK Kneser-pair-eigenpolytope n=5..8 exact_half_integral_vertices=yes projector_idempotent=yes parity_contact_counts=yes John_Lowner_radii=yes
-```
+The identity A=J+I-B^T B gives the true 1-eigenspace ker B of dimension n(n-3)/2; the orthogonal projector has diagonal (n-3)/(n-1). For h in ker B, h_e<=1 transforms bijectively to By=1,y>=0 via h=1-(n-1)y. Positive-support independence at an extreme fractional one-factor forces isolated weight-one edges and disjoint half-weight odd cycles. With q odd-cycle vertices, ||h||^2=n(n-1)(n-2)/2-(n-1)^2 q/4, so qmin=0 even or 3 odd gives exactly the proposed radius and all contact-facet counts. Irreducibility of the edge-permutation representation restricted to ker B plus uniqueness forces centered John/Löwner balls. Independently checked projector/radius algebra for n=5..13; finite checks do not establish the representation result, which follows from the scalar commutant argument. Normalization by orthonormal eigenvectors is essential.
 
-The second command is an independent numerical convex-hull reconstruction requiring `numpy` and `scipy`. It constructs an orthonormal basis for the kernel of the unsigned incidence matrix of \(K_5\) and deduplicates facets by exact support index sets, obtaining:
+## originality
 
-```
-HULL_OK Petersen eigenpolytope facets=22 support_spectrum={6:10,5:12} closest_facets=10 inradius_squared=1/18
-```
+PASS
 
-Exact enumerations give, respectively for \(n=5,6,7,8\): \(22,25,717,1057\) polar vertices, \(10,15,105,105\) tangential facets, squared inradii \(1/18,1/60,1/78,1/168\), and squared circumradii \(1/2,3/5,2/3,5/7\). These computations check only their stated finite range. The theorem for every \(n\ge5\) follows from the explicit spectral projection, affine polar bijection, complete support-component classification, exact norm identity, and the irreducible symmetry argument in `RESULT.md`. No formal-proof-system or independent audit is claimed.
+Winter formally defines orthonormal eigenpolytopes and proves symmetry/reconstruction statements, but not the exact Kneser KG(n,2) fractional-matching polar, radii, or inball tangent-facet parity law. The published complete-graph *full matching* polytope and *fractional matching* John-ellipsoid records have different ambient bodies and ellipsoid objectives; their formulas do not imply this eigenpolytope John radius. A plausible older eigenpolytope source was not fully available, leaving explicit priority risk; present best-of-knowledge PASS concerns the structural identification and exact all-n invariant, not classical fractional matching half-integrality.
+
+## value
+
+PASS
+
+The 1-eigenspace realization of an infinite, canonical distance-regular Kneser family is natural; its exact metric distortion and the surprising even/odd tangent-orbit classification answer a motivated geometric question. The polar-to-fractional-matching affine duality is a reusable structural bridge. It is more than a routine spectral normalization or tabulated single small graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

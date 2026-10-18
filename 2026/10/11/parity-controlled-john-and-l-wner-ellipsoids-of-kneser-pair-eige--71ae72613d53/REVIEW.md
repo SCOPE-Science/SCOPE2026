@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The adjacency identity \(A=J+I-B^{\mathsf T}B\) identifies the entire \(1\)-eigenspace for \(n\ge5\). The polar substitution \(h=\mathbf1-(n-1)y\) is an exact bijection because \(B\mathbf1=(n-1)\mathbf1\). Positive-support independence classifies fractional matching extremes as isolated matching edges and vertex-disjoint odd cycles; the norm-squared identity depends only on the number of odd-cycle vertices. Minimizing that number yields the two sharp inradii. An elementary pair-action commutant proof establishes the irreducibility needed for uniqueness and the two extremal ellipsoids. Exact rational enumeration for \(5\le n\le8\) and the independent \(n=5\) hull reconstruction agree; neither is used to infer the universal quantifier.
+## correctness
 
-**Originality — PASS with residual historical access risk.** The full Winter 2020 preprint and 2021 thesis explain eigenpolytopes, symmetry, and polarity but do not give Kneser pair-graph fractional-matching metric formulas; the relevant Babecki 2023 dissertation example lists \(22\) Petersen facets in two orbits, but not inradius, center, John/Löwner ellipsoids, or any exact even–odd family law. Godsil 1998 and Powers 1986 are plausible historical sources; available descriptions emphasize the one-skeleton and Petersen faceting, respectively, while full texts were not obtained. Their possible incidental metric information is acknowledged; no publication-wide noncoverage is claimed. No retrieved research record provides a stronger result implying the present all-\(n\) statement.
+PASS
 
-**Value — PASS.** This gives a natural complete metric characterization of a canonical infinite family of symmetric graph eigenpolytopes: two ellipsoid extremizers, their unique centers, exact radii, and full contact-facet orbits, with a sharp parity mechanism. The proof exhibits a structural bridge between Euclidean spectral geometry and the extreme points of a fractional-matching polytope, and recovers the previously tabulated Petersen facet count with new metric distinctions. It is not presented as a new proof of the classical half-integrality theorem alone.
+The identity A=J+I-B^T B gives the true 1-eigenspace ker B of dimension n(n-3)/2; the orthogonal projector has diagonal (n-3)/(n-1). For h in ker B, h_e<=1 transforms bijectively to By=1,y>=0 via h=1-(n-1)y. Positive-support independence at an extreme fractional one-factor forces isolated weight-one edges and disjoint half-weight odd cycles. With q odd-cycle vertices, ||h||^2=n(n-1)(n-2)/2-(n-1)^2 q/4, so qmin=0 even or 3 odd gives exactly the proposed radius and all contact-facet counts. Irreducibility of the edge-permutation representation restricted to ker B plus uniqueness forces centered John/Löwner balls. Independently checked projector/radius algebra for n=5..13; finite checks do not establish the representation result, which follows from the scalar commutant argument. Normalization by orthonormal eigenvectors is essential.
 
-The results depend on the induced Euclidean metric on the orthonormally normalized eigenspace and do not assert formulas for other Kneser eigenspaces or arbitrary affine images. Exact computations cover only \(5\le n\le8\); the uniform proof covers all integers \(n\ge5\). The inaccessible Godsil and Powers works are residual literature risks.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Winter formally defines orthonormal eigenpolytopes and proves symmetry/reconstruction statements, but not the exact Kneser KG(n,2) fractional-matching polar, radii, or inball tangent-facet parity law. The published complete-graph *full matching* polytope and *fractional matching* John-ellipsoid records have different ambient bodies and ellipsoid objectives; their formulas do not imply this eigenpolytope John radius. A plausible older eigenpolytope source was not fully available, leaving explicit priority risk; present best-of-knowledge PASS concerns the structural identification and exact all-n invariant, not classical fractional matching half-integrality.
+
+## value
+
+PASS
+
+The 1-eigenspace realization of an infinite, canonical distance-regular Kneser family is natural; its exact metric distortion and the surprising even/odd tangent-orbit classification answer a motivated geometric question. The polar-to-fractional-matching affine duality is a reusable structural bridge. It is more than a routine spectral normalization or tabulated single small graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
