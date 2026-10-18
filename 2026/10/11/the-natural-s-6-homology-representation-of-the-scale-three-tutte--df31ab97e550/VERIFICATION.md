@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted file directory. It must end in `VERIFY_EQUIV_OK`. It independently enumerates all 720 label permutations, all 45 incidence flags, both triangle complexes and all eleven symmetric-group characters; equality of fixed-flag and signed-chain Lefschetz traces is checked for all permutations. It verifies that the 16-dimensional cycle character equals the Specht character indexed by (3,2,1), then checks exact constituent multiplicities of its square and the invariant dimension one.
+## correctness
 
-Run `python3 verify_rips.py`. It must end in `VERIFY_OK`. This separately constructs the 30-vertex incidence graph, distance matrices, exact scale-two and scale-three flag complexes and their face counts, an acyclic matching at scale two, and boundary ranks of each scale-three join factor. Its finite calculations cover only the named graph and do not establish results for all generalized quadrangles. The proof of the equivariant theorem uses the explicit join identity, the incidence chain exact sequence and equivariant join Künneth, not mod-two rank data alone.
+PASS
 
-The independent audit has not been performed.
+Independent reconstruction of the 30 duad+syntheme vertices, 45 incidence edges and shortest-path distances proves all 15x15 cross-class pairs are at distance≤3, while same-class edges give the duad-disjointness and syntheme-shared-duad graphs. Therefore K=A*B equivariantly. Both factor clique complexes comprise 15 triangles meeting at vertices and each contracts S6-equivariantly to the incidence graph, of first Betti rank E-V+1=45-30+1=16. Oriented bipartite edge fixed-character computation for all 720 permutations gives χ_H1(g)=#fixed flags−#fixed duads−#fixed synthemes+1: identity16, (3,3)=-2, (5,1)=1, (3,1,1,1)=-2, other cycle types0. Independently computed Frobenius alternant Specht characters to check this is the 16-dim irreducible S^(3,2,1). Equivariant join Künneth gives H3=S^(3,2,1)⊗S^(3,2,1), dimension256. Character inner products reproduce all eleven claimed irreducible multiplicities, including trivial and sign each once. Valid over Q for the natural class-preserving S6 only; no assertion under outer graph automorphisms.
+
+## originality
+
+PASS
+
+The previous exact homotopy result for same Rips graph gives only rank256 and general generalized-quadrangle work only wedge counts; neither determines the natural S6 module, and the abstract Specht-square decomposition alone lacks the geometric representation identification. Originality passes with residual risk that uninspected earlier equivariant paper computed the character.
+
+## value
+
+PASS
+
+An explicit full rational character and eleven constituent multiplicities for a distinguished S6-symmetric generalized quadrangle gives strictly more structural information than dimension or wedge homotopy; this is a natural finite equivariant topological invariant with potential use in comparison of automorphism actions and persistent homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

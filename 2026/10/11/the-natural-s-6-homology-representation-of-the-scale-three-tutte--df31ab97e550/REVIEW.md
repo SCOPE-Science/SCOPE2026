@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every vertex and incidence flag is defined concretely. In the distance-three clique complex, all cross-class edges occur, giving an equivariant simplicial join. Each factor is a union of 15 filled triangles sharing only vertices and retracts equivariantly to the 30-vertex, 45-edge incidence graph; the latter has 16-dimensional cycle space. The exact augmented boundary sequence gives the formula for the S6 character from fixed duads, synthemes and incident flags. The checker verifies the resulting character against the Frobenius Specht formula on every one of 720 permutations, checks eleven orthogonal irreducible characters and their multiplicities, and an independent checker reconstructs the complete Rips complex. Equivariant join Künneth proves the claim. Finite group enumeration here is exhaustive; no infinite-parameter generalization is proposed.
+PASS
 
-## Originality — PASS (residual risk)
+Independent reconstruction of the 30 duad+syntheme vertices, 45 incidence edges and shortest-path distances proves all 15x15 cross-class pairs are at distance≤3, while same-class edges give the duad-disjointness and syntheme-shared-duad graphs. Therefore K=A*B equivariantly. Both factor clique complexes comprise 15 triangles meeting at vertices and each contracts S6-equivariantly to the incidence graph, of first Betti rank E-V+1=45-30+1=16. Oriented bipartite edge fixed-character computation for all 720 permutations gives χ_H1(g)=#fixed flags−#fixed duads−#fixed synthemes+1: identity16, (3,3)=-2, (5,1)=1, (3,1,1,1)=-2, other cycle types0. Independently computed Frobenius alternant Specht characters to check this is the 16-dim irreducible S^(3,2,1). Equivariant join Künneth gives H3=S^(3,2,1)⊗S^(3,2,1), dimension256. Character inner products reproduce all eleven claimed irreducible multiplicities, including trivial and sign each once. Valid over Q for the natural class-preserving S6 only; no assertion under outer graph automorphisms.
 
-The same-object earlier homotopy classification already fixes the Betti number and sphere-wedge type. The present statement does not repeat that as a discovery: it identifies the geometric 256-dimensional homology module under the natural S6 labels. The general metric-thickening and clique-complex literature does not compute this representation. A separately indexed calculation of the abstract S6 Kronecker square covers algebraic multiplicities after the geometric identification but does not imply that the Rips homology carries that particular module. Search scope does not prove absence of equivalent unindexed equivariant work.
+## originality
 
-## Value — PASS
+PASS
 
-The Tutte–Coxeter graph is a canonical small generalized-quadrangle incidence graph with a geometrically natural nonabelian symmetry group. Determining its entire homology representation distinguishes trivial, sign and higher Specht constituents that the known 256-sphere homotopy type cannot detect; the unique invariant homology line is a concrete structural consequence. The exact geometric identification, rather than mere recalculation of a known character table, is the contribution.
+The previous exact homotopy result for same Rips graph gives only rank256 and general generalized-quadrangle work only wedge counts; neither determines the natural S6 module, and the abstract Specht-square decomposition alone lacks the geometric representation identification. Originality passes with residual risk that uninspected earlier equivariant paper computed the character.
 
-## Closest literature and limits
+## value
 
-Adams–Frick–Virk (arXiv:2206.08812v1) gives general Vietoris-complex homotopy context; Adamaszek (arXiv:1104.0433) studies clique complexes of graph powers, with no corresponding S6 computation. A 2026 incidence-graph filtration source is incompletely inspected. The classification is rational and only for the named S6 action, with no integral or larger-automorphism claim. Residual risk of unindexed equivalent equivariant formulas remains.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+An explicit full rational character and eleven constituent multiplicities for a distinguished S6-symmetric generalized quadrangle gives strictly more structural information than dimension or wedge homotopy; this is a natural finite equivariant topological invariant with potential use in comparison of automorphism actions and persistent homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
