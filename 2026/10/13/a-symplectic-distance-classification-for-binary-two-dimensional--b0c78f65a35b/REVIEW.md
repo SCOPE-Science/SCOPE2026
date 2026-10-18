@@ -1,19 +1,21 @@
-# Scientific review of the dimension-two binary LCD neighbor metric
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The Gram determinant agrees exactly with the alternating pairing \(\Omega(a,b)\); the radical of \(I+J\) has dimension \(\epsilon=n\bmod2\). Counting nondegenerate two-planes by ordered bases gives the vertex count and degree, while a shortest-path construction characterizes every disjoint pair. Orthogonal decomposition reduces the third sphere to another nondegenerate-plane count. All divisions by six count ordered bases of binary two-planes and yield integers. A completely enumerated finite replay for \(n=4,5,6\) independently uses the Euclidean Gram determinant and breadth-first search. The proof, not that replay, covers all \(n\ge4\).
+PASS
 
-## Originality (PASS; residual risk)
+Over F2, the LCD Gram determinant of a two-plane spanned by a,b equals Ω(a,b)=a·b+p(a)p(b). The alternating form has radical of dimension epsilon=n mod2. Each nonradical vector has 2^(n-1) partners pairing to 1; dividing ordered symplectic bases by six gives N=(2^n-2^epsilon)2^(n-1)/6. Each of three nonzero vectors in a plane is contained in 2^(n-2)-1 other nondegenerate planes, yielding S1. For disjoint planes a common neighbor is their cross-spanned plane, so two-step iff cross-pairing is nonzero; when pairing vanishes two independent linear functionals furnish a three-step chain and rule out shorter. Orthogonal complement of nondegenerate U contains exactly S3=(2^(n-2)-2^epsilon)2^(n-3)/6 nondegenerate planes, positive for n>=4. Independently reconstructed all plane intersections and BFS distances at n=4,5,6 (20,80,336 vertices), verifying every ordered pair and all sphere counts.
 
-The de la Cruz–Horlemann–Newman–Vela Cabello–Willems preprint arXiv:2609.07580v1 was inspected as actual extracted 32-page text. Its binary Section 4 establishes degree, connectivity, and orbit-subgraph biregularity but does not give the alternating-distance criterion, diameter-three classification, or full distance-shell distribution. The earlier June 5, 2025 conference presentation states degree and an odd-characteristic diameter theorem. The degree formula in this result agrees with their published formula and is not claimed as new. Ordinary Grassmann-graph diameter two is not covering: non-LCD intermediates are excluded. A historical local common-neighbor/triangle count does not imply all-pairs distances. Searches did not identify a same-statement result, but equivalent symplectic geometry formulations outside the inspected literature remain possible. Full independent novelty assessment remains unperformed.
+## originality
 
-## Value (PASS)
+PASS
 
-The new classification identifies exactly which binary LCD code pairs cannot be linked by two single-neighbor transitions. Its closed sphere counts quantify that obstruction for every length, and expose a characteristic-two diameter-one-step larger than the full two-plane Grassmann graph. The object is the natural full neighbor graph of binary dimension-two codes, not a synthetic finite slice; the result serves neighbor-search navigation and graph structure rather than merely repeating known valency.
+Complete 32-page de la Cruz–Horlemann–Newman–Vela Cabello–Willems source and original paper Sections 3–6 establish degree, connectivity and orbit-subgraph valencies, but do not state the n-variable all-pairs Ω criterion or distance-three shell. A relevant earlier SCOPE finding is an edge-common-neighbor count, not distance distribution. Classical Grassmann all-two-plane graph has diameter two, and symplectic graphs may provide unindexed equivalent formulations. Best-of-knowledge PASS.
 
-## Boundaries
+## value
 
-The metric is for ordinary undirected neighbors only, without a minimum-distance restriction on constituent codes. It does not extend automatically to larger code dimensions, other fields, or associated-neighbor arcs. No external independent audit has been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The LCD neighbor graph is a natural coding-theoretic navigation object. Exact characteristic-two distance, diameter and every distance-shell cardinality for all lengths and all dimension-two binary LCD codes provide structural information beyond adjacency/regularity and inform neighbor-code traversals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
