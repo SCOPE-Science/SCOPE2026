@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T01:05:08.812695Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md explicit five-shape exhaustive argument",
+        "independent_math_checks.py independent sympy totient/sigma computation to 100000",
+        "OEIS A068418 exact definition and first terms"
+      ],
+      "rationale": "Enumerated every composite factorization pattern with Ω<=3: p², pq, p³, p²q and squarefree pqr. For p² and p³ the cototient p and p² cannot divide p+1 and p²+p+1 respectively; for pq, c=p+q−1>=4 cannot divide s−c=2. For p²q, p|(q+1) and q+1=kp give p(k+1)−2 | k+2; positivity forces p=2,k=2,q=3, namely n=12. For pqr, c=pq+pr+qr−p−q−r+1 > 2(p+q+r) and c would divide 2(p+q+r), impossible. Exact independent sympy totient/divisor-sigma arithmetic for composite n<=100000 with Ω<=3 finds only 12. For 56, c=32 and s=64, Ω=4. Finite check is corroborative, unrestricted proof is factorization-case exhaustion.",
+      "residual_risks": [
+        "Only describes Ω<=3, not all n or even the entire Ω=4 layer; composite-prime exclusion was explicitly checked in independent finite verifier."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Erdős studies separate ranges of two arithmetic functions",
+          "Pomerance–Yang abstract describes missing-value enumerations for sigma(n)−n and n−phi(n), not same-input divisibility",
+          "Closest Resultary first multiplicity triperfect and arithmetic derivative–cototient gaps have different equations"
+        ],
+        "reasoning": "Range-distribution results and different-operator divisibility problems do not entail the exact conditional membership theorem for a single common input n.",
+        "searches": [
+          "Erdos Über die Zahlen der Form sigma(n)-n und n-phi(n) 1973",
+          "Pomerance Yang variant theorem sum proper divisors function 2014",
+          "cototient n - totient divides aliquot sigma(n) - n minimal Omega prime multiplicity solutions 12 56"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A068418 full entry",
+        "OEIS A068414 full entry",
+        "Pomerance–Yang 2014 accessible abstract",
+        "Resultary query cototient n - totient divides aliquot sigma(n) - n minimal Omega prime multiplicity solutions 12 56"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "OEIS comments provide constructive large examples and a Mersenne-prime subfamily",
+          "The exact 5-shape argument gives unconditional exclusion at Ω=2 and Ω=3 except 12"
+        ],
+        "reasoning": "Neither the known examples nor range papers imply global minimal-Ω rigidity. The result contributes a complete boundary classification, albeit elementary in proof method.",
+        "searches": [
+          "A068418 comments multiplicity prime factors",
+          "sigma(n)-n divisible by n-phi(n) p^2 q omega three",
+          "Pomerance Yang 2014 range component functions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A068418 defines exactly n−phi(n)|sigma(n)−n and starts 12,56,260,992...",
+          "A068414 is exactly the quotient-two special equation sigma(n)=3n−2phi(n)"
+        ],
+        "reasoning": "The database alias is IDENTICAL to the studied predicate, not merely similar. The novel claimed invariant is its complete unbounded first factor-multiplicity layer, not the fact that 12 and 56 are listed.",
+        "searches": [
+          "cototient n - totient divides aliquot sigma(n) - n minimal Omega prime multiplicity solutions 12 56",
+          "OEIS A068418 composite n n-phi(n) divides sigma(n)-n",
+          "cototient aliquot divisibility multiplicity omega n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A068418 entry fully inspected: exact terms and finite generators, no low-Ω universal classification",
+          "A068414 lists a quotient-two subfamily, whose first two terms include 12 and 56"
+        ],
+        "reasoning": "The identical integer sequence is known, including its first terms. Inferring uniqueness of 12 among ALL composite Ω<=3 integers from a finite database prefix is invalid; the theorem proves the universal exclusion algebraically.",
+        "searches": [
+          "OEIS A068418",
+          "OEIS A068414",
+          "cototient n - totient divides aliquot sigma(n) - n minimal Omega prime multiplicity solutions 12 56"
+        ]
+      },
+      "rationale": "OEIS A068418 already is the exact database for c(n)|s(n) and lists the initial members 12 and 56. That finite list does not prove the infinite no-other-Ω<=3 classification; the submitted argument does. OEIS A068414 covers the quotient-two subfamily. The Erdős and Pomerance–Yang papers consider the ranges separately, not same-argument divisibility, though only abstracts for the latter were obtained this run. An unindexed short observation about the first terms remains plausible.",
+      "residual_risks": [
+        "An unindexed elementary proof of minimum Ω=3 in A068418 could exist; database initial values alone do not resolve priority.",
+        "Erdős 1973 and Pomerance–Yang 2014 complete primary full texts not freshly read; only abstract/related content."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known exact predicate and examples; universal Ω<=3 uniqueness not present",
+          "evidence": "A068418 definition, terms, comments; page last modified Oct 2026",
+          "identifier_or_url": "https://oeis.org/A068418",
+          "material_read": "Entire OEIS entry, description, displayed terms, comments, formulas and references",
+          "method": "primary sequence database full page",
+          "title": "OEIS A068418: composite numbers k such that k−phi(k) divides sigma(k)−k",
+          "trigger": "Exact database containing the studied integers"
+        },
+        {
+          "assessment": "Subfamily does not by itself classify the complete divisibility predicate",
+          "evidence": "A068414 first terms and definition",
+          "identifier_or_url": "https://oeis.org/A068414",
+          "material_read": "OEIS entry defining quotient-two case and initial terms",
+          "method": "primary sequence database page",
+          "title": "OEIS A068414: sigma(n)=3n−2phi(n)",
+          "trigger": "Natural quotient-two subset"
+        },
+        {
+          "assessment": "Abstract explicitly concerns ranges/missing values, not same-input quotient; cannot certify full-text noncoverage",
+          "evidence": "https://www.researchgate.net/publication/266600222_Variant_of_a_theorem_of_Erdos_on_the_sum-of-proper-divisors_function",
+          "identifier_or_url": "DOI:10.1090/S0025-5718-2013-02775-5",
+          "material_read": "Article abstract and bibliographic metadata; no full 11-page text accessed",
+          "method": "primary abstract and bibliographic catalog",
+          "title": "Variant of a theorem of Erdős on the sum-of-proper-divisors function",
+          "trigger": "Functions sigma(n)−n and n−phi(n) appear together in scope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A068418 known exact object",
+        "RESULT.md five-form factorization proof",
+        "56 next-layer witness"
+      ],
+      "rationale": "This is the exact first-prime-factor-multiplicity stratum of a named arithmetic database predicate comparing two natural functions at the same input. The theorem determines the least Ω, its unique minimizer 12, and the sharp next attainable Ω=4 via 56 without presupposing the database is complete; a motivated structural baseline for deeper multiplicity-layer classification, not just repeating listed entries.",
+      "residual_risks": [
+        "Elementary proof limits novelty magnitude; result does not classify Ω=4 or produce an infinite family beyond the known database examples."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the Ω<=3 layer is classified; Ω=4 next witness is not a full Ω=4 classification.",
+    "All potential publication metadata was inspected and contains operational provenance identifiers (scope_run_id).",
+    "Complete recursive Git tree inventory not independently retrievable by the available read-only connector; original assigned source-tree SHA retained, not re-certified."
+  ],
+  "schema_version": 1
+}
