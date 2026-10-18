@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The overlap graph has a rigorously proved minimum closed edge-cover length \(F_{n+2}+F_n-1\), with the \(n=2\) boundary checked. For each of the five finite minimum lengths, exhaustive recursion lists every positional binary cycle without adjacent ones, tests all cyclic length-\(n\) factors, and groups every survivor under precisely the dihedral rotation/reversal action. The independently implemented integer C++ and string Python programs agree exactly on all five labeled cardinalities and orbit-size spectra. They agree on the entire set of 42 order-six orbits after recanonicalization. Each of the 42 order-six representatives has exactly 21 distinct permitted six-factors and seven repeated-factor occurrences, all with multiplicity two. Computations from the actual embedded source files and attached catalogue are replayable; finite results are not extrapolated.
+## correctness
 
-## Originality — PASS with residual bibliographic risk
-Wang and Shallit (1998) fully analyze the linear shortest-word problem and give an algorithm to produce examples, while asking for their enumeration, but do not classify minimum *cyclic* covers. Moreno's 2003 and Moreno–Matamala's 2007 exact-once restricted de Bruijn results require periodic admissibility of the target factors; this classification requires all legal linear factors such as `101` and permits repetitions. The very close known minimum-length expressions are credited as background, not reintroduced as novel. Exact-number, cyclic-cover, equivalence, and published-index searches did not yield this census. Potential earlier unindexed enumerations and one inaccessible general-language full text are named uncertainties.
+PASS
 
-## Value — PASS
-The first five orders of a natural, well-established constrained-language cycle design problem are classified **completely**, rather than merely giving one construction or re-reporting an existing length formula. The transition from one orbit at order four, to three at order five and forty-two at order six reveals genuine multiplicity of optimal periodic test streams; every order-six design has a precise seven-factor repetition profile. The exact number and complete representative catalogue are reusable finite design facts; no all-order counting conjecture or downstream theorem is claimed.
+The length lower bound follows from Eulerian circulation augmentation of the no-11 overlap digraph: each deficit state with leading r zeros needs >=r extra edges before a corresponding surplus can be reached; summing gives F_n-1 and explicit zero-appending routes attain it, yielding L=F_(n+2)+F_n-1. For each n=2..6, full cyclic 11-free binary string recursion at this exact L tests all length-n cyclic windows against the full legal target set, then quotients by every rotation and reversal. Independently reconstructed exhaustive results: L=(3,6,10,17,28), labeled=(3,6,20,102,2352), orbits=(1,1,1,3,42); for n=6 every one of 42 orbits has size 56 and every optimum repeats seven of 21 target factors exactly twice. This enumeration is exhaustive only in claimed finite domain.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Independent primary comparison distinguishes Wang-Shallit open words and Moreno-Matamala periodically admissible exact-once cycles from this repeated cyclic cover of all finite no-11 factors, and neither yields the complete n<=6 labeled/orbit census. No exact 2352/42 coverage was found in the actual searches. A finite self-contained exact classification may have standalone value, with explicit priority risk.
+
+## value
+
+PASS
+
+All optimal cyclic tours of the natural golden-mean forbidden-pattern language form a meaningful finite combinatorial classification. The first nontrivial 42 full-size dihedral classes at n=6, complete labeling multiplicity 2352 and exact factor-duplication profile give reproducible structural invariants not supplied by minimum-length knowledge. A complete small-order classification need not extend to all n to be worthwhile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

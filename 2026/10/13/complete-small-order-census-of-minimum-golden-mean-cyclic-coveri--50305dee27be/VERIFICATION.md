@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Compile the stand-alone C++ program `verify_cyclic_cpp.cpp` with a C++17 compiler using `g++ -O3 -std=c++17 verify_cyclic_cpp.cpp -o check_cycles`, then run `./check_cycles > reconstructed_representatives.txt`. It exhaustively lists all admissible cyclic binary words of each claimed minimum length for orders \(2\) through \(6\), tests every cyclic factor and computes every rotation/reversal orbit. It reports summary cardinalities on the error stream and prints 42 order-six canonical representatives on the output stream.
+## correctness
 
-Run `python verify_cyclic_python.py` to recompute each class size and orbit partition from an independently implemented string recursion, factor-set checker and lexicographic dihedral representative. Its terminal success marker is `PYTHON_CYCLIC_ENUMERATION_VERIFIED`. The Python and C++ scripts both yield 3,6,20,102,2352 labeled words and 1,1,1,3,42 classes, respectively.
+PASS
 
-`optimal_representatives.tsv` lists 42 order-six representatives, each at length 28, under the C++ numerical bitmask canonical convention (earliest character as least significant bit), distinct from Python's lexicographic convention. Independently normalizing these 42 strings via Python's reversal/rotation action gives exactly the same 42 classes as independent exhaustive Python enumeration. Checking the 28 cyclic windows of each representative gives 21 legal factors and seven duplicated factors, each appearing exactly twice. Only orders 2–6 are exhaustively certified here. No external scientific audit has been performed.
+The length lower bound follows from Eulerian circulation augmentation of the no-11 overlap digraph: each deficit state with leading r zeros needs >=r extra edges before a corresponding surplus can be reached; summing gives F_n-1 and explicit zero-appending routes attain it, yielding L=F_(n+2)+F_n-1. For each n=2..6, full cyclic 11-free binary string recursion at this exact L tests all length-n cyclic windows against the full legal target set, then quotients by every rotation and reversal. Independently reconstructed exhaustive results: L=(3,6,10,17,28), labeled=(3,6,20,102,2352), orbits=(1,1,1,3,42); for n=6 every one of 42 orbits has size 56 and every optimum repeats seven of 21 target factors exactly twice. This enumeration is exhaustive only in claimed finite domain.
+
+## originality
+
+PASS
+
+Independent primary comparison distinguishes Wang-Shallit open words and Moreno-Matamala periodically admissible exact-once cycles from this repeated cyclic cover of all finite no-11 factors, and neither yields the complete n<=6 labeled/orbit census. No exact 2352/42 coverage was found in the actual searches. A finite self-contained exact classification may have standalone value, with explicit priority risk.
+
+## value
+
+PASS
+
+All optimal cyclic tours of the natural golden-mean forbidden-pattern language form a meaningful finite combinatorial classification. The first nontrivial 42 full-size dihedral classes at n=6, complete labeling multiplicity 2352 and exact factor-duplication profile give reproducible structural invariants not supplied by minimum-length knowledge. A complete small-order classification need not extend to all n to be worthwhile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

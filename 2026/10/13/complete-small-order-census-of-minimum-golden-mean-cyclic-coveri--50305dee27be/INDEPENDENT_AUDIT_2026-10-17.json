@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T03:10:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned Git RESULT.md 4b786675a2bcc36bbfcf8fe1c7f43e0cbf184fb2",
+        "Pinned verify_cyclic_python.py 0d0ee33c0a8a12bb06de1b8229428b4da8db03f8; independent C++ verifier 14c88249f75c03caa06a8d032a705e0402ae9f49",
+        "Pinned 42 representatives optimal_representatives.tsv 4b8250156045dc68d2593026ee460cdef9d26777"
+      ],
+      "rationale": "The length lower bound follows from Eulerian circulation augmentation of the no-11 overlap digraph: each deficit state with leading r zeros needs >=r extra edges before a corresponding surplus can be reached; summing gives F_n-1 and explicit zero-appending routes attain it, yielding L=F_(n+2)+F_n-1. For each n=2..6, full cyclic 11-free binary string recursion at this exact L tests all length-n cyclic windows against the full legal target set, then quotients by every rotation and reversal. Independently reconstructed exhaustive results: L=(3,6,10,17,28), labeled=(3,6,20,102,2352), orbits=(1,1,1,3,42); for n=6 every one of 42 orbits has size 56 and every optimum repeats seven of 21 target factors exactly twice. This enumeration is exhaustive only in claimed finite domain.",
+      "residual_risks": [
+        "No all-order enumeration for n>6 asserted; the finite proof is actual exhaustive traversal rather than statistical sampling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang-Shallit gives open minimum length F_{n+2}+F_n and one algorithm, explicitly asks for enumeration",
+          "Moreno-Matamala restricted de Bruijn constructions address a different exact-once periodic language"
+        ],
+        "reasoning": "The 1998 all-order length/existence result does not enumerate minimum closed covering tours. General de Bruijn Euler-tour language methods must enumerate all minimum augmentations to get the exact finite 2352/42 counts; nothing in inspected primary statements supplies this.",
+        "searches": [
+          "https://arxiv.org/pdf/0711.1695",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v5i1r35/pdf/",
+          "Resultary semantic query: golden mean shift constrained de Bruijn cyclic covering words minimum length n 6 counts 2352 42 dihedral orbits"
+        ]
+      },
+      "checked_sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v5i1r35/pdf/",
+        "https://arxiv.org/pdf/0711.1695",
+        "Eduardo Moreno 2003, Lyndon Words and de Bruijn Sequences in a Subshift of Finite Type"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1998 introduction explicitly leaves counting its linear optima open",
+          "Submitted exhaustive recursion visits exactly every cyclic 11-free binary word of each proven minimal length n=2..6",
+          "Results are positionally labeled and quotiented by rotation/reversal, with no complement symmetry"
+        ],
+        "reasoning": "A minimum length or construction implies neither a list nor count of all shortest closed covers. The independent exhaustive recursion and dihedral quotient establish a new complete finite invariant over the specified target language rather than merely shortening the known linear bound.",
+        "searches": [
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v5i1r35/pdf/",
+          "https://arxiv.org/pdf/0711.1695",
+          "Resultary semantic query: golden mean shift constrained de Bruijn cyclic covering words minimum length n 6 counts 2352 42 dihedral orbits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang-Shallit covers shortest OPEN linear words with a Fibonacci subword complexity",
+          "Moreno-Matamala exact-once de Bruijn cycles use periodically admissible length-n blocks, while 101 belongs to submitted target A3 but periodic 101 would violate 11 at join"
+        ],
+        "reasoning": "Compared open/closed, periodic-admissible and full linearly-admissible target definitions, and labeled words versus dihedral classes. These distinctions change both feasible factor sets and enumeration; no inspected matching theorem implies the 42 complete classes.",
+        "searches": [
+          "Resultary semantic query: golden mean shift constrained de Bruijn cyclic covering words minimum length n 6 counts 2352 42 dihedral orbits",
+          "Web query: golden mean restricted de Bruijn shortest covering cycles 2352 42",
+          "Wang-Shallit 1998 full PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wang-Shallit Table supplies a single open optimal representative at each order, not counts",
+          "Source 42-row canonical representative table independently matched orbit counts"
+        ],
+        "reasoning": "Checked exact numeric census aliases (2352 covers, 42 dihedral classes, length28, 21 factors). The directly inspected source table contains one open word per n, so not the sought optimizer database; an unindexed list still remains possible.",
+        "searches": [
+          "Resultary semantic query: golden mean shift constrained de Bruijn cyclic covering words minimum length n 6 counts 2352 42 dihedral orbits",
+          "Web query: golden mean restricted de Bruijn shortest covering cycles 2352 42",
+          "Wang-Shallit table n=1..7"
+        ]
+      },
+      "rationale": "Independent primary comparison distinguishes Wang-Shallit open words and Moreno-Matamala periodically admissible exact-once cycles from this repeated cyclic cover of all finite no-11 factors, and neither yields the complete n<=6 labeled/orbit census. No exact 2352/42 coverage was found in the actual searches. A finite self-contained exact classification may have standalone value, with explicit priority risk.",
+      "residual_risks": [
+        "Other restricted-language cycle enumeration papers or unpublished datasets might tabulate the same 42 classes.",
+        "Moreno 2005 general-language de Bruijn article not read in full; no whole-document absence claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "All-order shortest open-length and one example per order, not an optimum cyclic labeled/orbit census",
+          "evidence": "Page 2 explicitly lists open complete enumeration as a question; page 15 table supplies one example for n=1..7.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v5i1r35/pdf/",
+          "material_read": "Complete sixteen-page primary PDF text consulted; rendered page 2 introduction and page15 examples/terminal theorem reviewed",
+          "method": "Open web PDF full-text extraction, theorem/table checks and page screenshots",
+          "title": "On Minimal Words With Given Subword Complexity",
+          "trigger": "Same golden-mean forbidden-11 language, Fibonacci minimum length and potential enumeration"
+        },
+        {
+          "assessment": "Defines periodic-admissible language and exact-once cycles, different from repeated covering of all no-11 length-n finite words",
+          "evidence": "Page 2 defines membership by w^infinity avoiding forbidden blocks; target 101 has forbidden periodic 11 join, yet submitted A3 requires it.",
+          "identifier_or_url": "https://arxiv.org/pdf/0711.1695",
+          "material_read": "Nine-page open arXiv PDF, definition section 2 and theorem/proof scope inspected; rendered first definition page and later proof page",
+          "method": "Full-text PDF review with screenshots",
+          "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+          "trigger": "Potential stronger constrained cycle construction"
+        },
+        {
+          "assessment": "Not used to assert whole-document noncoverage in this independent review",
+          "evidence": "Potential similar period-admissible target method documented as residual risk",
+          "identifier_or_url": "Eduardo Moreno (2003), publicly transcribed article",
+          "material_read": "Previously cited full-text transcription and specific target language in Git package; NOT separately read in this turn",
+          "method": "Inspected only the pinned secondary discussion; source itself not independently re-opened",
+          "title": "Lyndon Words and de Bruijn Sequences in a Subshift of Finite Type",
+          "trigger": "Same golden-mean subshift and periodic cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v5i1r35/pdf/",
+        "https://arxiv.org/pdf/0711.1695",
+        "Eduardo Moreno 2003, Lyndon Words and de Bruijn Sequences in a Subshift of Finite Type"
+      ],
+      "rationale": "All optimal cyclic tours of the natural golden-mean forbidden-pattern language form a meaningful finite combinatorial classification. The first nontrivial 42 full-size dihedral classes at n=6, complete labeling multiplicity 2352 and exact factor-duplication profile give reproducible structural invariants not supplied by minimum-length knowledge. A complete small-order classification need not extend to all n to be worthwhile.",
+      "residual_risks": [
+        "No claim beyond n<=6 and no stronger general theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Complete optimal-cover census only for orders 2 through 6.",
+    "Target A_n includes words such as 101, regardless of their self-periodic admissibility; rotations/reversal but not complementation.",
+    "Full 2005 Moreno related article not independently read."
+  ]
+}
