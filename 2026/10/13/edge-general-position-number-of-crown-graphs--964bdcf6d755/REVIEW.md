@@ -1,12 +1,21 @@
-# Review of Edge general position number of crown graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. In a crown graph every geodesic containing three edges is a length-\(3\) path between one deleted matched pair. Encoding the edge \(a_i b_j\) as the arc \(i\to j\) converts those forbidden triples exactly into transitive directed triangles. For every arc of a transitive-triangle-free digraph, endpoint out-neighborhoods are disjoint and endpoint in-neighborhoods are disjoint. Summing both inequalities and applying Cauchy--Schwarz yields the sharp upper bound \(\lfloor n^2/2\rfloor\). A balanced bidirected cut realizes equality. Exhaustive checking of every edge subset for \(n=3,4,5\) independently matches the theorem.
+## correctness
 
-## Originality
-PASS. The foundational 2021 paper was inspected in full searchable text and solves hypercubes, trees, and grids while explicitly leaving bipartite graphs as a direction; no crown or complete-bipartite treatment occurs. The 2024 extremal paper was inspected through its open full text and treats size-minus-one, small values, and block graphs, with no crown or complete-bipartite occurrence. The available full text of the 2025 paper on diameter-\(3\) and value-\(4\) regimes was also searched and contains no crown or complete-bipartite occurrence. Exact searches using crown, \(K_{n,n}\) minus a perfect matching, deleted matching, and the transitive-triangle formulation did not locate the all-\(n\) formula. The already known special cases \(\operatorname{Cr}_3\cong C_6\) and \(\operatorname{Cr}_4\cong Q_3\) are explicitly excluded from the originality claim as isolated prior cases.
+PASS
 
-## Value
-PASS. Crown graphs are a standard dense regular bipartite family and were not covered by the main exact families in the introducing paper. The theorem gives a sharp quadratic law and a structural reduction to a clean directed-extremal problem, rather than a one-off computation. It also unifies the previously known \(C_6\) and \(Q_3\) special cases and supplies an exact benchmark for the broader bipartite direction identified in the foundational work.
+In Cr_n=K_{n,n}-M, n>=3, the diameter-three geodesics are exactly a_i-b_j-a_k-b_i for distinct i,j,k. Map the edge a_i b_j to the arc i->j. The selected three edges on each such geodesic map bijectively to a directed transitive triangle (ordered k->i->j with shortcut k->j). For every selected arc u->v of a T3-free loopless digraph the out-neighborhoods of u,v are disjoint and so are their in-neighborhoods. Summing their cardinalities over arcs gives sum_w(d+(w)+d-(w))^2 <= 2mn where m is the arc count; Cauchy-Schwarz gives 4m²/n<=2mn and m<=n²/2. A bidirected cut with balanced index parts has 2floor(n/2)ceil(n/2)=floor(n²/2) arcs and is triangle-free. Independent literal geodesic/arc triple enumeration checked all 64, 4096, and 1,048,576 candidate edge subsets for n=3,4,5; their maxima were 4,8,12. Finite checking is not the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2021 founding paper proves edge-general-position extrema for cycles/trees/hypercubes/grids; Cr_3=C6 and Cr_4=Q3 are known, but not the whole deleted-matching family. The 2024 extremal and 2025 diameter-three articles cover other regimes and block graphs, not a growing quadratic crown formula. Semantic Resultary hits for crown metrics and neighborhood coloring concern different invariants. No covering all-n edge-geodesic theorem or directed-T3 extremal implication was identified.
+
+## value
+
+PASS
+
+The crown graph is a natural dense, symmetry-rich graph formed by a single perfect matching deletion; its geodesics change drastically from those of complete bipartite graphs. Determining gp_e for all n resolves a motivated graph parameter, and its sharp translation to transitive-triangle-free digraphs is a reusable structural extremal method rather than a computed small graph table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

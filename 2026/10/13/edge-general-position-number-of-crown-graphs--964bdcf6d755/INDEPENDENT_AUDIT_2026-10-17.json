@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:05:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md a2d5b08444dfb3b99409aa06005bf995d9ab197f",
+        "pinned verify.py 257d06d3f06e57d531271890801a97d740faa440",
+        "independent_check_results.json: exhaustive crown graph enumeration n=3..5"
+      ],
+      "rationale": "In Cr_n=K_{n,n}-M, n>=3, the diameter-three geodesics are exactly a_i-b_j-a_k-b_i for distinct i,j,k. Map the edge a_i b_j to the arc i->j. The selected three edges on each such geodesic map bijectively to a directed transitive triangle (ordered k->i->j with shortcut k->j). For every selected arc u->v of a T3-free loopless digraph the out-neighborhoods of u,v are disjoint and so are their in-neighborhoods. Summing their cardinalities over arcs gives sum_w(d+(w)+d-(w))^2 <= 2mn where m is the arc count; Cauchy-Schwarz gives 4m²/n<=2mn and m<=n²/2. A bidirected cut with balanced index parts has 2floor(n/2)ceil(n/2)=floor(n²/2) arcs and is triangle-free. Independent literal geodesic/arc triple enumeration checked all 64, 4096, and 1,048,576 candidate edge subsets for n=3,4,5; their maxima were 4,8,12. Finite checking is not the proof.",
+      "residual_risks": [
+        "No classification of ALL maximum sets; the theorem only gives exact maximum size.",
+        "Small n=3 and n=4 special cases already known from C6 and Q3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hypercube and cycle results cover n=4 and n=3, respectively.",
+          "The complete multipartite graph result applies before deleting a perfect matching; its geodesics are different and not enough to give this edge-subset maximum."
+        ],
+        "reasoning": "Known stronger-looking families do not dominate all Cr_n. Deleted matching changes geodesics and the conditions for three selected edges. Published scalar theorems for other graph classes cannot be applied as-is.",
+        "searches": [
+          "Manuel–Prabha–Klavžar arXiv:2105.04292, whole theorem list and discussion",
+          "Tian–Klavžar–Tan arXiv:2302.01587, extremal regime/block graphs",
+          "Cao–Ji–Wang DOI 10.1007/s40840-025-01873-x, diameter-three/value-four",
+          "Resultary: 2026/10/4/SCOPE-edge-geodesic-cover-and-partition-numbers-of-complete-multiparti--ed7c74654578"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2105.04292, Manuel–Prabha–Klavžar",
+        "arXiv:2302.01587, Tian–Klavžar–Tan",
+        "DOI 10.1007/s40840-025-01873-x, Cao–Ji–Wang",
+        "Resultary semantic crown-indexed GP and edge-geodesic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n>=5, Cr_n has n(n-1) edges, whereas asserted gp_e is floor(n²/2); the size-minus-two result cannot imply the formula.",
+          "The new proof furnishes an exact T3-free directed encoding and a sharp upper bound."
+        ],
+        "reasoning": "Finite special cases and extremal bounds cannot imply the all-n law. A published general directed transitive-triangle-free arc extremum, if identified, could imply the numerical value, but no cited source supplied a matching reduction.",
+        "searches": [
+          "arXiv:2105.04292, cycle C6 and hypercube Q3 theorems",
+          "arXiv:2302.01587, size-minus-one and block graph regime",
+          "DOI 10.1007/s40840-025-01873-x, size-minus-two and gp_e=4 regimes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary crown hits include Edge metric bases of crown graphs (2026/10/4/...b5b3c45f23e8), CIS and neighborhood-coloring crown results; their selected objects differ.",
+          "Crown edges correspond precisely to ordered arcs avoiding transitive directed triples."
+        ],
+        "reasoning": "Checked graph aliases and the digraph extremal reformulation. Resultary sources for crown edge resolving, edge-geodesic cover in complete multipartite graphs, and other invariants do not imply the crown edge-GP maximum.",
+        "searches": [
+          "Resultary semantic query: edge general position number crown graph K n n minus perfect matching transitive triangle digraph",
+          "web exact: edge general position crown graph deleted matching",
+          "directed transitive triangle free digraph max arcs general position"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cr_3 and Cr_4 values follow established C6 and Q3 formulas.",
+          "No exact family-wide crown table found in the inspected source statements."
+        ],
+        "reasoning": "The n>=5 general assertion is not extrapolated from those known small cases; the directed-degree inequality is unbounded in n.",
+        "searches": [
+          "\"edge general position\" \"crown\" table",
+          "arxiv:2105.04292 cycle/hypercube tables",
+          "arxiv:2302.01587 family results"
+        ]
+      },
+      "rationale": "The 2021 founding paper proves edge-general-position extrema for cycles/trees/hypercubes/grids; Cr_3=C6 and Cr_4=Q3 are known, but not the whole deleted-matching family. The 2024 extremal and 2025 diameter-three articles cover other regimes and block graphs, not a growing quadratic crown formula. Semantic Resultary hits for crown metrics and neighborhood coloring concern different invariants. No covering all-n edge-geodesic theorem or directed-T3 extremal implication was identified.",
+      "residual_risks": [
+        "An older extremal digraph theorem under transitive-triangle-free orientations may subsume the arc-count inequality.",
+        "The cases n=3,4 are already known and do not support independent novelty claims.",
+        "The inaccessible 2025 full text could contain related material beyond its indexed scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: n=3 cycle and n=4 cube only; no all-crown family classification",
+          "evidence": "Published edge GP formula for hypercubes applies to Cr_4=Q3; original names bipartite graph cases as further direction.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.04292",
+          "material_read": "Accessible arXiv abstract and full PDF indexed text; tree, hypercube, grid, cycle results and concluding directions",
+          "method": "Read theorem statements and result-family discussion, inspected PDF page image and text",
+          "title": "Edge General Position Problem",
+          "trigger": "Introduces exact invariant and covers small-isomorphic cases"
+        },
+        {
+          "assessment": "NOT_COVERING the deleted matching all-n family",
+          "evidence": "The theorems concern specific extremal regimes and block graph structures, not crown geodesics.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.01587",
+          "material_read": "Accessible preprint/full-text theorem list, block-graph sections and exact extremal hypotheses",
+          "method": "Compared exact graph-family hypotheses and cardinality regimes; did not rely on keyword absence alone",
+          "title": "Extremal Edge General Position Sets in Some Graphs",
+          "trigger": "Potential stronger same-invariant extremal theorem"
+        },
+        {
+          "assessment": "NO_DECISIVE_IMPLICATION from inspected stated regimes; cannot assert full-document noncoverage",
+          "evidence": "Cr_n for n>=5 has quadratic gp_e, not gp_e=4 and not |E|-2.",
+          "identifier_or_url": "doi:10.1007/s40840-025-01873-x",
+          "material_read": "Available publisher/search abstract and indexed hypotheses about edge-size-minus-two and value-four regimes; full text not independently available",
+          "method": "Read indexed statements, compared to Cr_n edge count and claimed value",
+          "title": "The Edge General Position Number of Some Graphs",
+          "trigger": "Potential diameter-three general classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2105.04292, Manuel–Prabha–Klavžar",
+        "arXiv:2302.01587, Tian–Klavžar–Tan",
+        "DOI 10.1007/s40840-025-01873-x, Cao–Ji–Wang",
+        "Resultary semantic crown-indexed GP and edge-geodesic search"
+      ],
+      "rationale": "The crown graph is a natural dense, symmetry-rich graph formed by a single perfect matching deletion; its geodesics change drastically from those of complete bipartite graphs. Determining gp_e for all n resolves a motivated graph parameter, and its sharp translation to transitive-triangle-free digraphs is a reusable structural extremal method rather than a computed small graph table.",
+      "residual_risks": [
+        "No classification of all maximum sets or arbitrary matching-deletion families is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "n>=3 finite simple crown graph; no arbitrary regular bipartite extension.",
+    "Small n special cases preexisting; whole-n claim is the assessed theorem."
+  ]
+}
