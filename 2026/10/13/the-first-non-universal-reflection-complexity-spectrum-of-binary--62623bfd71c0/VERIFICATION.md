@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-Use the two complete included source files independently, without external data or nonstandard packages:
+# Independent mathematical audit
 
-```sh
-python3 verify.py
-g++ -std=c++17 -O2 -Wall -Wextra -pedantic crosscheck.cpp -o crosscheck
-./crosscheck
-```
+## correctness
 
-The first program enumerates exactly 65,536 Boolean functions on sixteen feedback states, admits exactly 2,048 functions with one 32-state cycle, directly counts every cyclic factor modulo reversal, verifies the symbolic feedback formula for every admitted function, and checks the joint distribution. It reports `VERIFY_OK tables=65536 cycles=2048 r5=20` and the five-bin distribution.
+PASS
 
-The second program enumerates directed Hamiltonian cycles of the 32-state shift graph from a uniquely chosen all-zero root, directly builds their circular words, and computes the same length-six classes. It reports `GRAPH_DFS cycles=2048 nodes=92636 r22=576 r25=960 r26=192 r28=256 r29=64` and `GRAPH_DFS_VERIFY_OK`.
+The proof constructs a bijection between cyclic de Bruijn 32-cycles and binary four-input feedback truth tables whose 32-state permutation consists of one cycle. Each length-six factor is determined by a state; a reverse factor occurs exactly for matching feedback of reversed four-bit suffixes. Nonpalindromic suffix pairs each save two reversal classes, palindromic suffixes with feedback 1 save one, giving r(6)=28-2A+Z; all cycles have r(5)=20. A separate independent DFS enumerated all 2048 rooted directed Hamiltonian cycles and found the exact spectrum r(6):22/576, 25/960, 26/192, 28/256, 29/64. The finite exhaustive domain is all 2^16 tables, not a sample. No general order-six spectrum asserted.
 
-The two exact programs are independent enumerations of the same well-defined 2,048-word finite universe, though they are not independent external audits. They verify the finite table only. The general-order reversal identity and the feedback-to-cycle correspondence are established by the mathematical proof, not by extrapolation from finite tests. Independent audit status remains unperformed.
+## originality
+
+PASS
+
+The new object is a census of reversal-orbit factor counts across every order-five binary cyclic de Bruijn word. Allouche et al establish reflection complexity and general factor/palindrome identities; Chang–Wang study global reverse-complement symmetric cycles, a different equivalence and statistic. Neither inspected primary statement tabulates the five exact classes or the joint (A,Z) distribution. The classical total 2048 is prior and not itself the new result; independent semantic searches did not locate a dominating exact table.
+
+## value
+
+PASS
+
+The first length where de Bruijn cycles cease to have identical factor sets is intrinsically six; determining the entire five-value spectrum, its forbidden gaps and a feedback-based structural explanation at this sharp first divergence is a useful natural finite classification, not an arbitrary slice. No higher-order extension is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T09:10:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof constructs a bijection between cyclic de Bruijn 32-cycles and binary four-input feedback truth tables whose 32-state permutation consists of one cycle. Each length-six factor is determined by a state; a reverse factor occurs exactly for matching feedback of reversed four-bit suffixes. Nonpalindromic suffix pairs each save two reversal classes, palindromic suffixes with feedback 1 save one, giving r(6)=28-2A+Z; all cycles have r(5)=20. A separate independent DFS enumerated all 2048 rooted directed Hamiltonian cycles and found the exact spectrum r(6):22/576, 25/960, 26/192, 28/256, 29/64. The finite exhaustive domain is all 2^16 tables, not a sample. No general order-six spectrum asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allouche et al supply general complexity identities, not the distribution of order-five feedback maps; Chang–Wang restrict to special symmetry classes."
+        ],
+        "reasoning": "General reflection formulas do not determine a distribution across 2048 specific finite cycles without exhaustive feedback classifications; symmetry counts are not a stronger implication.",
+        "searches": [
+          "arXiv:2406.09302 The reflection complexity of sequences over finite alphabets",
+          "arXiv:2408.01794 de Bruijn same complement and reverse sequences"
+        ]
+      },
+      "checked_sources": [
+        "The reflection complexity of sequences over finite alphabets — https://arxiv.org/abs/2406.09302",
+        "Efficient generation of odd order de Bruijn sequence with the same complement and reverse sequences — https://arxiv.org/abs/2408.01794",
+        "Classical de Bruijn cycle enumeration — N. G. de Bruijn, A combinatorial problem (1946)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General factor/palindrome complexity identity is compatible with r=28-2A+Z, but does not count feedback tables by A,Z. Reverse-complement symmetry does not determine plain reverse-factor overlap."
+        ],
+        "reasoning": "Neither source implies the all-2048 frequency table from stated hypotheses; the overlap is conceptual, not an exact prior implication.",
+        "searches": [
+          "Allouche Campbell Li Shallit Stipulanti arXiv:2406.09302",
+          "Chang Wang arXiv:2408.01794"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identity r(6)=28-2A+Z expresses the quantity in feedback reversal-pair counts; cyclic reversal factors are not reverse-complement cyclic symmetry."
+        ],
+        "reasoning": "The closest equivalent language is reversal complexity of de Bruijn cycles; the retrieved general identity relates palindrome and factor complexities but does not specialize to the five-bin all-cycle distribution.",
+        "searches": [
+          "Resultary: reflection complexity binary de Bruijn cyclic sequences reversal factors length six order five distribution",
+          "arXiv:2406.09302",
+          "Krawchuk Rampersad cyclic reversal complexity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical de Bruijn count 2048 is known, but a full per-cycle r(6) breakdown was not found in Resultary or checked sources."
+        ],
+        "reasoning": "The total number of cycles alone cannot recover five separate bins; an unindexed specialized census remains a risk.",
+        "searches": [
+          "Resultary semantic: order five de Bruijn reflection complexity 22 25 26 28 29",
+          "de Bruijn order five 2048 reversal factor count table"
+        ]
+      },
+      "rationale": "The new object is a census of reversal-orbit factor counts across every order-five binary cyclic de Bruijn word. Allouche et al establish reflection complexity and general factor/palindrome identities; Chang–Wang study global reverse-complement symmetric cycles, a different equivalence and statistic. Neither inspected primary statement tabulates the five exact classes or the joint (A,Z) distribution. The classical total 2048 is prior and not itself the new result; independent semantic searches did not locate a dominating exact table.",
+      "residual_risks": [
+        "An earlier unindexed special-purpose exact reflection-complexity census could duplicate the five-bin table.",
+        "Finite exhaustive result for order five must not be extrapolated to higher orders."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General invariant and relationships covered; the specified binary order-five census not found in inspected full source",
+          "evidence": "Definitions and general identity apply, but no order-five 2048-cycle frequency table.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.09302",
+          "material_read": "Full primary preprint, especially definitions, factor/palindrome relationships and Rauzy-graph discussion",
+          "method": "Lawful arXiv PDF text and page-image inspection",
+          "title": "The reflection complexity of sequences over finite alphabets",
+          "trigger": "Introduces the exact reflection complexity statistic and general factor identities"
+        },
+        {
+          "assessment": "Different global reverse/complement condition; no exact evidence for all-cycle plain-reversal factor distribution",
+          "evidence": "Paper studies special globally symmetric cycles and linear complexity, whereas claim counts all cycles up to rotation.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.01794",
+          "material_read": "Primary title, abstract and source scope; no claim of exhaustive every-section examination",
+          "method": "Lawful arXiv abstract and accessible paper excerpt",
+          "title": "Efficient generation of odd order de Bruijn sequence with the same complement and reverse sequences",
+          "trigger": "Potentially similar reversal symmetry among de Bruijn cycles"
+        },
+        {
+          "assessment": "Supports denominator and completeness of current enumeration, not distribution",
+          "evidence": "Number of cyclic order-five words equals 2^(2^4-5)=2048.",
+          "identifier_or_url": "N. G. de Bruijn, A combinatorial problem (1946)",
+          "material_read": "Classical total count as stated in research package, independently matched by exhaustive 32-state Hamiltonian enumeration",
+          "method": "Mathematical count comparison",
+          "title": "Classical de Bruijn cycle enumeration",
+          "trigger": "Checks 2048 total background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first length where de Bruijn cycles cease to have identical factor sets is intrinsically six; determining the entire five-value spectrum, its forbidden gaps and a feedback-based structural explanation at this sharp first divergence is a useful natural finite classification, not an arbitrary slice. No higher-order extension is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All 2048 order-five binary cycles up to rotation; complement and reversal are not identified.",
+    "Independent finite traversal corroborates complete finite enumeration but is not historical originality proof."
+  ],
+  "schema_version": 1
+}

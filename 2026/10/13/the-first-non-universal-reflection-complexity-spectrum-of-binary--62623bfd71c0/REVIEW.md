@@ -1,12 +1,21 @@
-# Scientific review: binary order-five de Bruijn reflection-complexity spectrum
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The domain is all cyclic binary de Bruijn words of order five, rotations identified but reversal and complement distinct. The proof derives the unique length-four feedback map of each cycle and the exact correspondence between a length-six window and its reversed window. It checks separately the nonpalindromic suffix pairs and palindromic suffixes, proving \(r(6)=28-2A+Z\), including the boundary cases \(f(s)=0\) and \(f(s)=1\). The finite search is exhaustive: it checks every one of the \(2^{16}\) feedback maps and retains exactly the one-32-cycle maps. A structurally different exhaustive Hamiltonian-cycle search directly counts reversal classes and agrees on all five bin totals. Both standalone programs are included and run successfully; the proof does not extrapolate an infinite theorem from sample values.
+## correctness
 
-## Originality (O): PASS
-The earliest qualifying primary study, Allouche–Campbell–Li–Shallit–Stipulanti (arXiv:2406.09302), introduces reflection complexity and a general combinatorial relationship with ordinary factor and palindrome complexities, but its inspected full text does not classify binary de Bruijn cycles by their first non-universal reflection value. Chang–Wang (arXiv:2408.01794) study global reverse-complement symmetric cycles and linear complexity, which neither implies nor specifies the plain reversal factor counts here. Krawchuk–Rampersad study cyclic/reversal equivalence in other families rather than enumerating this distribution. Discrepancy and string-attractor statistics are logically separate from reversal-orbit factor counts and do not imply the present distribution. Semantic research-record searches and publication searches using the exact values and aliases found no covering theorem or known table. Remaining priority risk: an unindexed computation, alternate name for reversal-orbit factor counts, or an unpublished result might already give the same numbers. A failed search is not proof of universal novelty.
+PASS
 
-## Value (V): PASS
-Reflection complexity is a recently introduced natural invariant. De Bruijn cycles agree on every factor set through their defining order, so their first longer-factor value is the canonical first place to study variation. The result **fully** enumerates that first non-universal value across all 2048 cycles, determines the exact forbidden gaps in its spectrum, and explains the dependence by a general feedback-reversal identity. It is a complete structural finite classification with motivated sharp boundary, not a chosen arbitrary subfamily or a reprinting of ordinary de Bruijn enumeration. The result makes no higher-order distribution claim.
+The proof constructs a bijection between cyclic de Bruijn 32-cycles and binary four-input feedback truth tables whose 32-state permutation consists of one cycle. Each length-six factor is determined by a state; a reverse factor occurs exactly for matching feedback of reversed four-bit suffixes. Nonpalindromic suffix pairs each save two reversal classes, palindromic suffixes with feedback 1 save one, giving r(6)=28-2A+Z; all cycles have r(5)=20. A separate independent DFS enumerated all 2048 rooted directed Hamiltonian cycles and found the exact spectrum r(6):22/576, 25/960, 26/192, 28/256, 29/64. The finite exhaustive domain is all 2^16 tables, not a sample. No general order-six spectrum asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The new object is a census of reversal-orbit factor counts across every order-five binary cyclic de Bruijn word. Allouche et al establish reflection complexity and general factor/palindrome identities; Chang–Wang study global reverse-complement symmetric cycles, a different equivalence and statistic. Neither inspected primary statement tabulates the five exact classes or the joint (A,Z) distribution. The classical total 2048 is prior and not itself the new result; independent semantic searches did not locate a dominating exact table.
+
+## value
+
+PASS
+
+The first length where de Bruijn cycles cease to have identical factor sets is intrinsically six; determining the entire five-value spectrum, its forbidden gaps and a feedback-based structural explanation at this sharp first divergence is a useful natural finite classification, not an arbitrary slice. No higher-order extension is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
