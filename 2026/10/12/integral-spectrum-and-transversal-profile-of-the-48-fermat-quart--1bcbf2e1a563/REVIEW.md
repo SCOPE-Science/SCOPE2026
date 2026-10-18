@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete 48-line input is supplied by the cited Fermat-quartic literature. The incidence conditions are derived directly from the explicit line equations, and the finite matrix calculation is exhaustive. The exact characteristic polynomial and the complete skew-pair \(A^2\)-profile reproduce the stated claim. Shifting by \(-2I\) is the standard line-intersection rule on a smooth quartic K3 surface.
+## correctness
 
-## Originality
-PASS. The closest literature gives the explicit 48-line set, a rank-\(20\) Néron–Severi computation, Fano-configuration symmetries, and broader classifications by line count. None of the inspected sources states or implies the full 48-line adjacency spectrum together with the \(2,4,6,10\) skew-pair common-transversal profile. The closest analogous database result concerns the different 64-line Schur quartic.
+PASS
 
-Residual risk: an older classical incidence table or unindexed finite computation could encode the same graph invariant under different terminology.
+Using the 48 canonical Fermat quartic lines partitioned into three 16-line pairings, solving coordinate equations gives precise same-family row-or-column and mixed-family modular incidence rules. Independently rebuilt the 48x48 symmetric integer adjacency matrix from those congruences; obtained all degrees 14 and 336 edges, exact characteristic polynomial (t-14)(t-2)^28(t+2)^12(t+6)^6(t+10), and counted every nonedge common-neighbor entry (A^2)ij: 96 at 2, 192 at 4, 480 at 6, 24 at 10, total 792. On the smooth quartic each line has self-intersection -2, thus Gram=A-2I; its eigenvalues yield rank20 inertia (1,19,28). The calculation is exhaustive for the finite complete 48-line set (assuming the classical complete line listing), not an infinite extrapolation.
 
-## Value
-PASS. The Fermat quartic is a canonical rigid K3 surface, and its complete line configuration is a standard comparison object for line-rich quartics. The spectrum refines the known rank-\(20\) lattice fact, while the transversal profile gives a uniform geometric statistic for every skew line pair.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The explicit classical 48-line coordinates and rank-20 Neron-Severi lattice are prior; these do not directly give the full 48x48 graph eigenvalue multiplicities or the distribution of shared Fermat-line transversals for all skew pairs. Related Resultary Schur 64-line results are distinct and do not imply this Fermat census.
+
+## value
+
+PASS
+
+The Fermat quartic is a canonical Picard-rank-20 K3 surface with an exceptional 48-line configuration. The full intersection graph spectrum and common-transversal distribution refine the known rank into natural finite geometric invariants with all skew pairs classified by their transversal counts. This is a motivated exact invariant, not an arbitrary finite graph instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
