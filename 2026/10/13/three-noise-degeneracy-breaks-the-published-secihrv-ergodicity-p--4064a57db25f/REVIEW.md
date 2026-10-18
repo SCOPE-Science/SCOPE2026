@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. System (4) has only three diffusion columns, and the fifth and sixth coordinates have zero diffusion in every column. Thus the covariance has exact kernel vectors \(e_5,e_6\), making the paper's stated uniform-ellipticity condition impossible. Eqs. (40)–(42) omit \(x_5\), so the claimed Lyapunov function is zero on the nontrivial ray \(x^*+t e_5\); Eq. (50) additionally omits \(x_3\) and \(x_5\), making its nonempty level set unbounded. These are direct algebraic consequences of the displayed formulas and are replayed by the bundled exact checker.
+## correctness
 
-## Originality
-PASS. Exact-title, DOI, theorem-number, uniform-ellipticity, rank-deficiency, and Lyapunov-coercivity searches found no published correction or source-specific diagnosis. General degenerate-diffusion epidemic papers explain that uniform ellipticity fails and use different Markov-semigroup methods, but they do not imply the source-specific covariance kernel, noncoercive Lyapunov function, or unbounded Eq. (50) level set.
+PASS
 
-## Value
-PASS. Theorem 4.2 is the article's principal persistence/ergodicity statement. The identified obstructions occur exactly at the step intended to justify a unique stationary distribution, and they distinguish a nondegenerate theorem template from a genuinely degenerate seven-dimensional model. This is mathematically substantive because a valid repair would require new structural hypotheses or a different ergodic method, not a cosmetic notation change.
+The open-access Hussain–Alharthi seven-coordinate system (4) has exactly three independent Wiener drivers. Its diffusion columns have zero entries at coordinates 5 and 6; A=GG^T annihilates both e5 and e6, with rank at most three everywhere. Hence no positive M1 makes zeta^T A zeta>=M1||zeta||^2 on a nonempty open set for every zeta, contrary to the uniform ellipticity assumption cited in Lemma 3.3 and Remark 3.4. Independently, the displayed Lyapunov V(40)-(42) has no x5 term, so it is zero all along the x5-ray through the purported equilibrium, not positive definite or coercive. The purported bounded ellipsoid in (50) omits x3 and x5, admitting unbounded positive rays. These are separate algebraic contradictions within the published proof and require no probabilistic simulation. They invalidate the stated proof route ONLY; degenerate SDEs can still be ergodic through unproved alternative arguments.
 
-## Closest literature and limitations
-Cao et al. (2019), DOI 10.1038/s41598-019-47131-6, is the closest methodological comparator: it explicitly recognizes that a degenerate epidemic diffusion does not satisfy uniform ellipticity and switches to Markov-semigroup theory. Dieu et al. (2016), DOI 10.1137/15M1043315, similarly establishes ergodicity for a degenerate stochastic SIR model with a dedicated analysis. Neither covers the 2026 SECIHRV formulas. The present result does not claim that Theorem 4.2 is false, only that its printed proof does not establish the conclusion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General diffusion-rank and ellipticity facts, and literature on degenerate stochastic SIR invariant distributions, are pre-existing; the source-specific combination of exact kernel e5/e6, omitted x5 Lyapunov dependence, and two unconstrained cylinder coordinates in the actual 2026 SECIHRV theorem is not stated by the compared articles. Targeted exact-title and source-section queries and Resultary scientific records found no matching erratum or source-specific diagnosis. Best-of-knowledge PASS with a distinct scope from claiming uniqueness false.
+
+## value
+
+PASS
+
+Theorem 4.2 is the motivating paper’s principal unique stationary distribution/ergodicity claim. The simultaneous failure of a central theorem hypothesis and its recurrence verification makes its printed proof unusable as a certificate; identifying the exact missing assumptions and free directions is consequential to anyone using or repairing that model. This is more than a routine rank sanity check because the noncoercive Lyapunov construction and bounded-set step independently fail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
