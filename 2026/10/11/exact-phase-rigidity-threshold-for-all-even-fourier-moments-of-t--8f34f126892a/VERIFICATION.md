@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundary
+# Independent mathematical audit
 
-Run `python3 circle_phase_checker.py` using Python 3 standard library. It verifies exact ordered convolution counts and sharp all-one moments for moment indices \(1\) through \(8\), enumerates \(256\) fourth-root coefficient phase patterns and their equality conditions at indices \(2,3\), and counts the nine cube-root projective character phases. A non-character fourth-moment optimizer is checked to fail sixth-moment equality. The checker returned `PASS` on the included source.
+## correctness
 
-The general proof is not numerical: orthogonality establishes the moment-fiber identity for all integer indices, a triangle equality gives exact maximality, two- and three-sum relations force the announced phase geometry, and padding extends triple rigidity to every larger index. Tests through a fixed index alone would not establish that last quantifier.
+PASS
 
-No independent external validation or audit has been carried out.
+Independently formed the nine character values of the all-one extension, obtaining 4 once, 1 four times and −2 four times. Exact ordered m-fold convolution enumeration for m=1,2,3,4 yielded 4,36,484,7396, matching the closed formula. For arbitrary phases, Fourier orthogonality gives sum_t |sum_{s_1+···+s_m=t}∏z_{s_i}|² ≤ sum_t N_m(t)², sharp for constants; equality requires alignment in EACH sum fiber. Independently enumerated all two-sum collision multiset types: only opposing pair products ab=cd collide at zero. For m=3, all four pure triples sum to zero in F3², forcing a³=b³=c³=d³, and comparing e1+e1−e1 with e1+e2−e2 forces ab=cd. The constraints imply λ times one of nine additive characters. Padding common m−3 terms propagates ALL triple collisions to m>3; restricted characters suffice at every index. These algebraic steps prove the all-m quantifier; m≤4 checks only corroborate.
+
+## originality
+
+PASS
+
+The phase-equality hierarchy and first rigidifying moment on the canonical four-point planar F3-circle are not entailed by the inspected higher-dimensional sphere or parabola theorems. Generic phase-coherence is a known method, not an identical calculated equality classification; residual Freiman-character formulation risk remains.
+
+## value
+
+PASS
+
+A canonical minimal nonzero-radius quadratic circle has a substantive sharp extremizer-geometry question: the fourth moment leaves a continuous two-torus, but the sixth is the exact first moment enforcing ambient additive characters, with nine projective classes at every higher moment. This is a complete classification and a useful finite-field model of moment-induced rigidity, not a mere additive-energy number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
