@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A mixed-radix one-parameter subgroup makes every ambient tensor-coordinate weight distinct. Hence the ambient projective fixed locus consists exactly of coordinate tensor lines, all of multilinear rank \((1,\ldots,1)\). Every positive subspace variety contains all of these points and has no additional fixed points.
+## correctness
 
-Euler characteristic localizes to the fixed locus for algebraic \(\mathbb C^*\)-actions; the accompanying proof uses Rosenlicht stratification and does not assume smoothness. Therefore every cumulative bounded-multilinear-rank variety has Euler characteristic
-\[
-\prod_i a_i.
-\]
+PASS
 
-Exact multilinear-rank loci are constructible and form a finite stratification of every cumulative subspace variety. Additivity plus induction on the product rank poset forces the rank-one stratum to carry the entire Euler characteristic and every higher realizable exact-rank stratum to have compactly supported Euler characteristic zero.
+For t≥3 complex tensor factors of dimensions a_i≥2 and any positive bounds r_i, the diagonal one-parameter subgroup with coordinate weights Σ_j j_i B^(i−1), B=max a_i, is injective on basis tensor coordinates by base-B uniqueness. Its ambient projective fixed locus consists of exactly N=∏a_i pure-coordinate rank-one tensors, all lying in every Sub_r, so Sub_r has exactly N fixed points. Standard χ_c(C*)=0/Rosenlicht-stratification torus localization gives χ_top(Sub_r)=χ_c(Sub_r)=N. Since Sub_r is a finite disjoint union of locally closed exact mode-rank E_s over s≤r, induction/Möbius inversion on the finite product rank poset gives χ_c(E_(1,...,1))=N and χ_c(E_s)=0 for every other realizable rank. Independent mixed-radix enumeration in dimensions (2,2,2), (2,3,4), (3,3,3,2) checked injectivity; finite checks are only regression evidence, not topological proof.
 
-The bundled checker independently replays weight separation and poset subtraction. Finite computation is regression evidence only.
+## originality
 
-## Originality
-PASS. The inspected archival literature defines the same subspace varieties and multilinear ranks and proves substantial algebraic properties, while recent work computes projective degree. Targeted searches in subspace-variety, Tucker-rank, exact-multilinear-rank, Euler-characteristic, and fixed-point language did not locate the cumulative-constancy or exact-stratum theorem.
+PASS
 
-The two-factor matrix specialization is already known and explicitly excluded. Residual risk remains because the localization argument is short and may be folklore.
+Classical tensor algebra literature defines subspace varieties and exact mode-flattening ranks and studies equations, normality, and degree. The reviewed statements do not already provide the constant ordinary Euler characteristic for all positive bounds or the consequent vanishing of every non-rank-one exact stratum. The result is a new application of general C*-Euler localization, with folklore risk acknowledged.
 
-## Value
-PASS. Multilinear rank and Tucker decomposition are basic structures for higher-order tensors. The result gives a complete topological phase collapse across every positive rank bound and every exact higher rank layer, despite large changes in algebraic geometry across the filtration.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The constancy across a natural multilinear Tucker-rank filtration and vanishing of all higher exact-rank χ_c are precise structural invariants of natural tensor varieties. They show an important limitation of coarse Euler topology for stratified tensor geometry rather than arbitrary parameters or an isolated small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
