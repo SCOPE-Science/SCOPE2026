@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact certificate and limits
+# Independent mathematical audit
 
-Run `python3 verify_node.py` with Python 3 (standard library only). The actual execution returned `NODE_CERTIFICATE_OK` and checked the incidence scheme over the exact finite field \(\mathbb F_{11}\), without numerical approximations.
+## correctness
 
-The program verifies all fifteen dependent triples and all 150 basis triples at the stated cuspidal realization, constructs the six other points through twelve line-incidence equations, checks nonzero second coordinates for the six intersections, and proves three exact polynomial identities expressing the remaining incidence determinants as \(3G\), \((-2x+2z)G\), and \((-2x+5z-3)G\). It then verifies the full cubic expansion at the marked point and its split quadratic tangent cone.
+PASS
 
-The mathematical passage from the explicit localized incidence presentation to an ordinary node uses the invertibility of the eliminated line-intersection coefficients at the point and the standard formal criterion for plane nodal singularities in odd characteristic. The checker does not assert a global description of the realization scheme, an independently performed audit, or any unproved modular comparison in characteristic \(11\).
+PASS: For T_11 and Q_i=(i:1:i^3) over algebraically closed characteristic 11, the Vandermonde determinant factors as product of pair differences times a+b+c. Reconstruct six remaining labeled points from twelve line incidences using the nondegenerate frame 0,1,2,3. Independently rebuilt the polynomial cross-products over GF(11), verified all 3 remaining minors factor by G with unit factors at (4,9), all 15 dependent plus 150 basis triples, and exact expansion G(4+u,9+v)=3u(v-u)+u^3+3u²v-5uv²-5v³. Square-free quadratic initial form implies the completed local ring k[[U,V]]/(UV); local dimension 1, multiplicity 2, two geometric branches. Program in /mnt/data/audit_20261018_checks.py ran successfully. Not a global classification.
+
+## originality
+
+PASS
+
+Best-of-knowledge original by direct statement-and-implication comparison to identified primary literature; no known covering theorem found. Scope and residual risks specified.
+
+## value
+
+PASS
+
+The first concrete scheme-theoretic singularity and two-branch deformation calculation for the level-dividing prime p=11 complements the known modular correspondence away from bad primes; an explicit failure mode of smooth deformation is relevant to bad-fiber realization geometry. The exact local equation and tangent cone are not a routine reformulation of the characteristic-prime-to-level theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

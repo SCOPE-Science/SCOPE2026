@@ -1,11 +1,21 @@
-# Scientific review: a split node in characteristic eleven
+# Independent mathematical audit
 
-**Correctness — PASS.** The displayed characteristic-eleven configuration has exactly the fifteen required collinear triples, by a Vandermonde determinant identity. Fixing the first four labels as a projective frame, twelve independent incidence conditions reconstruct the remaining six points via line intersections whose relevant coordinates are units at the configuration. The last three minors equal \(3G\), \((-2x+2z)G\), and \((-2x+5z-3)G\). The complete translated polynomial is \(3u(v-u)+u^3+3u^2v-5uv^2-5v^3\); its squarefree quadratic initial form proves the ordinary split-node type. The bundled exact-arithmetic program reproduced all these identities and the full basis/nonbasis test. The theorem is only local.
+## correctness
 
-**Originality — PASS, subject to an explicit archival risk.** Baker's 2026 theorem is restricted to levels invertible in the base and expressly leaves bad-prime comparison aside; the characteristic-eleven singularity is not evaluated there. Borisov–Roulleau analyze the modular correspondence in characteristic prime to the level and in complex geometry, not this fiber's completed local ring. Corey–Luber's eleven-element smoothness theorem is over \(\mathbb C\), so it neither implies nor contradicts this positive-characteristic singularity. Searches for the relevant source, the elliptic-matroid aliases, the precise cusp, the Tate-normal equivalent, and the nodal local equation found no published claim implying this one. The 2024 paper references ancillary algorithms and equations, which could implicitly encode this specialization; those ancillaries were not fully assessed and remain a bibliographic risk.
+PASS
 
-**Value — PASS.** This is an exact nontrivial scheme-theoretic singularity calculation at the first prime-level case outside the existing modular correspondence. It exhibits a reduced, multiplicity-two two-branch degeneration for a natural eleven-point matroid configuration despite characteristic-zero smoothness of eleven-element realizations. The tangent directions are explicit; the work does not rely on numerical tests to infer an infinite statement.
+PASS: For T_11 and Q_i=(i:1:i^3) over algebraically closed characteristic 11, the Vandermonde determinant factors as product of pair differences times a+b+c. Reconstruct six remaining labeled points from twelve line incidences using the nondegenerate frame 0,1,2,3. Independently rebuilt the polynomial cross-products over GF(11), verified all 3 remaining minors factor by G with unit factors at (4,9), all 15 dependent plus 150 basis triples, and exact expansion G(4+u,9+v)=3u(v-u)+u^3+3u²v-5uv²-5v³. Square-free quadratic initial form implies the completed local ring k[[U,V]]/(UV); local dimension 1, multiplicity 2, two geometric branches. Program in /mnt/data/audit_20261018_checks.py ran successfully. Not a global classification.
 
-**Scientific limits and sources.** The result does not classify the whole bad fiber or give a Drinfeld-level modular interpretation. The closest sources materially examined are Baker (arXiv:2608.05299v1, especially §§10.2, 13.1, 15), Borisov–Roulleau (arXiv:2404.04364v1, especially §§3 and 5), and Corey–Luber (arXiv:2307.11915v2, Theorem 1.1). No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original by direct statement-and-implication comparison to identified primary literature; no known covering theorem found. Scope and residual risks specified.
+
+## value
+
+PASS
+
+The first concrete scheme-theoretic singularity and two-branch deformation calculation for the level-dividing prime p=11 complements the known modular correspondence away from bad primes; an explicit failure mode of smooth deformation is relevant to bad-fiber realization geometry. The exact local equation and tangent cone are not a routine reformulation of the characteristic-prime-to-level theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

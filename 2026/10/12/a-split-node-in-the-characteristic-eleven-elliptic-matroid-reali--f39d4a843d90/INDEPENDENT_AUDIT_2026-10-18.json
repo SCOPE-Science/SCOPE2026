@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T00:19:15.945998Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For T_11 and Q_i=(i:1:i^3) over algebraically closed characteristic 11, the Vandermonde determinant factors as product of pair differences times a+b+c. Reconstruct six remaining labeled points from twelve line incidences using the nondegenerate frame 0,1,2,3. Independently rebuilt the polynomial cross-products over GF(11), verified all 3 remaining minors factor by G with unit factors at (4,9), all 15 dependent plus 150 basis triples, and exact expansion G(4+u,9+v)=3u(v-u)+u^3+3u²v-5uv²-5v³. Square-free quadratic initial form implies the completed local ring k[[U,V]]/(UV); local dimension 1, multiplicity 2, two geometric branches. Program in /mnt/data/audit_20261018_checks.py ran successfully. Not a global classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baker §10.2 proves T11 geometrical realization for char prime to 11, not bad-fiber nodality; scheme reconstruction in §§12–15 restricts to Z[1/11]."
+        ],
+        "reasoning": "Neither cited stronger result implies a split node in excluded characteristic 11.",
+        "searches": [
+          "Baker 2608.05299 §§10.2, 12-15",
+          "Borisov–Roulleau arXiv:2404.04364"
+        ]
+      },
+      "checked_sources": [
+        "Elliptic matroids and modular curves: https://arxiv.org/pdf/2608.05299",
+        "Assigned RESULT.md and verify_node.py: https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/a-split-node-in-the-characteristic-eleven-elliptic-matroid-reali--f39d4a843d90/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Baker explicitly explains that Drinfeld n-level structures can coalesce at p|n, preventing his incidence correspondence; assigned Q_i all distinct and has local two-branch scheme."
+        ],
+        "reasoning": "Known theorem implies neither the existence nor the local equation of the split node.",
+        "searches": [
+          "Baker arXiv:2608.05299 Theorem 1.2 and Remark 13.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Baker Thm 1.2 is an isomorphism only over Z[1/n]; Remark 13.1 recognizes bad fibers not covered.",
+          "Assigned local equation over char 11 is outside this open base."
+        ],
+        "reasoning": "The precise germ over char 11 is not equivalent to Baker prime-to-level modular curve correspondence; the source explicitly restricts the base.",
+        "searches": [
+          "Resultary: rank three elliptic matroid T11 characteristic 11 cuspidal realization scheme local node split singularity",
+          "Baker arXiv:2608.05299 theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top twelve returned unrelated surface/curve singularities; Baker does not tabulate the claimed bad characteristic local G."
+        ],
+        "reasoning": "No exact named table found. Negative database search is not a priority proof; unindexed matroid computations remain possible.",
+        "searches": [
+          "Resultary semantic search: elliptic matroid characteristic eleven split node",
+          "Baker arXiv:2608.05299"
+        ]
+      },
+      "rationale": "Best-of-knowledge original by direct statement-and-implication comparison to identified primary literature; no known covering theorem found. Scope and residual risks specified.",
+      "residual_risks": [
+        "Global moduli interpretation at p=11 not claimed; local formal branches need not extend to globally distinct components.",
+        "Borisov–Roulleau full primary paper not separately inspected in this run; priority beyond Baker comparison remains conditional."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: restricts modular identification to characteristic prime to level; explicitly flags bad fibers",
+          "evidence": "Theorem 1.2 over Z[1/n] and Remark 13.1 lines on coalescing level sections",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.05299",
+          "material_read": "Introduction Thms 1.1-1.2, §10.2, §12 realization schemes and §13 Remark 13.1 concerning primes dividing n",
+          "method": "arXiv lawful PDF with rendered page inspection",
+          "title": "Elliptic matroids and modular curves",
+          "trigger": "same T11 and exact scheme comparison"
+        },
+        {
+          "assessment": "SELF-CONTAINED_VERIFIED",
+          "evidence": "All 165 triple tests, three factorization identities, frame chart denominators and node expansion",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/a-split-node-in-the-characteristic-eleven-elliptic-matroid-reali--f39d4a843d90/RESULT.md",
+          "material_read": "Complete claim/proof and source script, including all three residual minors and translated cubic",
+          "method": "pinned GitHub blob read; independent SymPy GF(11) reconstruction",
+          "title": "Assigned RESULT.md and verify_node.py",
+          "trigger": "critical local cross-product certificate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first concrete scheme-theoretic singularity and two-branch deformation calculation for the level-dividing prime p=11 complements the known modular correspondence away from bad primes; an explicit failure mode of smooth deformation is relevant to bad-fiber realization geometry. The exact local equation and tangent cone are not a routine reformulation of the characteristic-prime-to-level theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Elliptic matroids and modular curves: https://arxiv.org/pdf/2608.05299",
+    "Assigned RESULT.md and verify_node.py: https://github.com/SCOPE-Science/SCOPE2026/blob/22ac23ba659383f36218b89303f859d96efb50fd/2026/10/12/a-split-node-in-the-characteristic-eleven-elliptic-matroid-reali--f39d4a843d90/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific assessment independent from previously authored self-review, not formal Lean or expert attestation.",
+    "Best-of-knowledge originality is not exhaustive priority certification.",
+    "Publication blocked until confidentiality sanitization; scientific decision is not imported."
+  ],
+  "residual_risks": [
+    "Global moduli interpretation at p=11 not claimed; local formal branches need not extend to globally distinct components.",
+    "Borisov–Roulleau full primary paper not separately inspected in this run; priority beyond Baker comparison remains conditional."
+  ],
+  "schema_version": 1
+}
