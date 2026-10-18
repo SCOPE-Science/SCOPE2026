@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The proof works for arbitrary finite groups and laws with zeros, and identifies the correct *left* cosets for the generally nonnormal stabilizer. Splitting finite observations into residue chains proves the exact block-entropy identity. The infinite-past and infinite-future coset reconstructions use the strong law; their conditional independence given the recoverable cosets gives the exact mutual information. The full subgroup-limit spectrum follows from closed stabilizer conditions and an explicit perturbation of the source law. The finite independent-cylinder checks corroborate only finite identities, not the infinite proof.
+
+**Originality — PASS, with residual priority risk.** Lindgren–Nordahl (1988) explicitly proved the binary Rule-60 excess-entropy jump and its growth in time; this covered result is not claimed new. Kari–Taati (2013), Examples 6–7, treat binary XOR images and their non-Gibbsian property. The new classification involves every finite alphabet group, arbitrary source laws, nonnormal left stabilizers, and the entire set of parameter-approach limits indexed by subgroups. Compared by implication rather than by wording, the inspected binary and general hidden-Markov sources do not supply this nonabelian subgroup-stratified classification. Searches did not locate an equivalent, but nonindexed specialized literature is an unresolved priority risk.
+
+**Mathematical value — PASS.** Finite-group difference factors provide a natural extension of the classical binary non-Gibbsian example. The exact formula identifies what part of the boundary information two infinite halves can agree on and shows that the complete subgroup lattice, not merely the size of the alphabet or entropy rate, controls information discontinuities. It includes full-support realizations of every stabilizer and nonnormal examples, a structural classification relevant to group-valued symbolic observations.
+
+Scientific limitations: iid inputs, finite groups, lagged neighbor differences, and no finite-sample convergence-rate theorem. No claim is made of historical uniqueness or independent verification.
+
+Self-review: passed. Independent audit: not yet performed.
