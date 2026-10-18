@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` contains the complete 24-facet presentation and uses only Python's standard library.
+# Independent mathematical audit
 
-It checks the face vector \((9,36,24)\), verifies that every edge has degree two and that the one-skeleton is complete, row-reduces the mod-two triangle-boundary space to rank \(23\), and obtains \(\dim H_1=5\).
+## correctness
 
-It then enumerates every unoriented simple cycle of length \(3,4,5,6\): respectively \(84,378,1512,5040\) cycles. Reduction modulo the exact boundary space gives all \(31\) nonzero homology classes and verifies every minimum length and shortest-representative multiplicity.
+PASS
 
-All \(9!\) vertex permutations are tested against the facet set. Exactly \(18\) are automorphisms, and their action gives the seven stated class orbits.
+Independently rebuilt the labelled 24 triangles on nine vertices, 36 complete-skeleton edges, mod-two triangle boundary rank 23 and H1_F2 dimension 36-8-23=5. Exhaustive simple-cycle enumeration at lengths 3,4,5,6 gives class spectrum 24,3,3,1 and shortest-class multiplicities 3,9,9,3 at length 3, then 6,18,66 for lengths 4,5,6. Exhaustive 9! facet-preserving vertex permutations yield group order 18 and seven class orbits of sizes 1,3,3,3,3,9,9. The increasingly oriented facet sum has even integral boundary coefficients -2(6), 0(12), 2(18); half-boundary is a cycle of nonzero mod-two class and order dividing two in integral H1. Given the published H1_Z=Z^4⊕Z/2 for this genus-five nonorientable closed surface, it is the unique torsion element; its mod-two reduction is the only minimum-length-six class, with 66 representatives. Exhaustiveness applies only to the 31 classes in this exact complex, all reached by six edges.
 
-Finally, increasingly oriented facets are summed integrally. The verifier checks that their boundary has coefficients \(-2,0,2\), divides it by two, verifies the result is an integral one-cycle, and checks that its mod-two class is the unique length-six class with \(66\) shortest representatives and a singleton automorphism orbit.
+## originality
 
-Exact successful output:
+PASS
 
-`VERIFY_OK f=9,36,24 H1_F2_dim=5 nonzero_classes=31 min_lengths=3:24,4:3,5:3,6:1 triangular_multiplicities=1:3,2:9,3:9,4:3 length4_multiplicity=6x3 length5_multiplicity=18x3 length6_multiplicity=66x1 missing3=60 essential3=60 aut=18 class_orbits=1:6:66|3:3:1|3:3:4|3:4:6|3:5:18|9:3:2|9:3:3 bockstein_length=6 bockstein_minimizers=66 bockstein_fixed=yes`
+Best-of-knowledge a new intrinsic systolic stratification of a canonical vertex-transitive nine-vertex nonorientable genus-five surface and an identification of its unique longest mod-two class with the integral order-two orientation class. Köhler–Lutz classify the surface, topology and symmetry; available manifold tables provide integral H1, not shortest representative lengths or the orbit-class incidence profile. Nearby indexed finite systolic computations concern different triangulations. Literature risk unindexed identical census remains.
 
-The checker proves the finite combinatorial statements. Identification of the nonzero order-two cycle as the unique integral torsion generator also uses the published integral homology group \(\mathbb Z^4\oplus\mathbb Z/2\).
+## value
+
+PASS
+
+The surface is the canonical minimal neighborly vertex-transitive triangulation of a genus-five nonorientable surface. The shortest simple cycle representatives for every one of its 31 mod-two H1 classes are a natural discrete homological length invariant, with unusual unique six-edge torsion orientation class and exact symmetry orbit/multiplicities. These are not determined by a pre-existing homology table and could be used to study minimal representatives and isometry/symmetry in finite triangulations; this complete classification is mathematically motivated and nontrivial beyond code output.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

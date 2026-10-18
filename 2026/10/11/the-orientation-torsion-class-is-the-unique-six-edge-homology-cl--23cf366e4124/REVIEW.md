@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact 24-facet presentation reconstructs a closed surface with face vector \((9,36,24)\). Exact mod-two boundary reduction gives \(\dim H_1=5\). The verifier exhausts every unoriented simple cycle of lengths three through six and reaches all 31 nonzero classes, so the minimum-length and shortest-multiplicity profile is complete. It independently exhausts all \(9!\) vertex permutations, obtaining 18 automorphisms and the seven claimed homology orbits. The half-boundary construction is checked integrally: it is a one-cycle, twice it is a boundary, and its mod-two class is the unique length-six class. Since the published integral homology is \(\mathbb Z^4\oplus\mathbb Z/2\), it is the torsion generator.
+## correctness
 
-## Originality
-PASS, with stated residual search risk. Focused semantic-index searches for the exact dataset name, genus-five nine-vertex surface, simple-cycle homology length spectrum, the numerical \(24,3,3,1\) profile, and the torsion/Bockstein six-cycle formulation returned no covering statement. The exact-object classification and enumeration sources were inspected for their stated scope; the searchable Sulanke--Lutz text contains no `homology` or `cycle` occurrence and presents genus-five triangulations as an enumeration result. The exact manifold tables give the facets and homology group but not the cycle spectrum. The closest indexed torsion result concerns a different six-vertex projective-plane complex.
+PASS
 
-## Value
-PASS. This is a complete intrinsic length spectrum for every nonzero class of a canonical vertex-minimal neighborly surface, not a selected subset of cycles. The longest class has a topological meaning independent of the chosen homology coordinates: it is the reduction of the canonical order-two Bockstein class of the nonorientable surface. Its unique extremal length, 66 shortest carriers, and full symmetry invariance connect integral nonorientability, combinatorial systolic geometry, and automorphism structure.
+Independently rebuilt the labelled 24 triangles on nine vertices, 36 complete-skeleton edges, mod-two triangle boundary rank 23 and H1_F2 dimension 36-8-23=5. Exhaustive simple-cycle enumeration at lengths 3,4,5,6 gives class spectrum 24,3,3,1 and shortest-class multiplicities 3,9,9,3 at length 3, then 6,18,66 for lengths 4,5,6. Exhaustive 9! facet-preserving vertex permutations yield group order 18 and seven class orbits of sizes 1,3,3,3,3,9,9. The increasingly oriented facet sum has even integral boundary coefficients -2(6), 0(12), 2(18); half-boundary is a cycle of nonzero mod-two class and order dividing two in integral H1. Given the published H1_Z=Z^4⊕Z/2 for this genus-five nonorientable closed surface, it is the unique torsion element; its mod-two reduction is the only minimum-length-six class, with 66 representatives. Exhaustiveness applies only to the 31 classes in this exact complex, all reached by six edges.
 
-## Closest literature and limitations
-Köhler--Lutz and Sulanke--Lutz provide the vertex-transitive/equivelar classification framework; the manifold tables provide the exact complex, topology, and integral homology; Leopold treats realizability of the two vertex-minimal genus-five triangulations. None of the inspected statements supplies the complete class-by-class simple-cycle spectrum. An unindexed historical computation remains a residual risk, and no assertion is made for the second nine-vertex genus-five triangulation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge a new intrinsic systolic stratification of a canonical vertex-transitive nine-vertex nonorientable genus-five surface and an identification of its unique longest mod-two class with the integral order-two orientation class. Köhler–Lutz classify the surface, topology and symmetry; available manifold tables provide integral H1, not shortest representative lengths or the orbit-class incidence profile. Nearby indexed finite systolic computations concern different triangulations. Literature risk unindexed identical census remains.
+
+## value
+
+PASS
+
+The surface is the canonical minimal neighborly vertex-transitive triangulation of a genus-five nonorientable surface. The shortest simple cycle representatives for every one of its 31 mod-two H1 classes are a natural discrete homological length invariant, with unusual unique six-edge torsion orientation class and exact symmetry orbit/multiplicities. These are not determined by a pre-existing homology table and could be used to study minimal representatives and isometry/symmetry in finite triangulations; this complete classification is mathematically motivated and nontrivial beyond code output.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
