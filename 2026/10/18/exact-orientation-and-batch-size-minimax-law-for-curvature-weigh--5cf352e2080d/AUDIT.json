@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The symmetric finite differences of L(e)=e^T H e/2 are exactly the directional gradient and Hessian curvature for every positive probe radius. With H>=I and sign vector norm squared 2, the source's power-one weight never clips and equals inverse directional curvature. Two projective sign rays yield idempotent H-self-adjoint rank-one projectors. Their mean has spectrum (1+/-delta(theta))/2, delta defined by a 2x2 rotated SPD block. Independent minibatch products give E[Gbar^2]=(1-1/n)M^2+M/n, so the worst initial H-energy is exactly the larger of the two stated spectral polynomials. Their average bounds the worst by F(1/2)>=1/(n+1). Equality forces eta=2n/(n+1) and the pi/4 eigenaligned orientation, including the n=1 case checked separately; conditional expectation iterates the exact optimum factor. The axis-aligned limit follows by uniform control of improving steps. Code independently verifies finite differences, binomial enumeration and formulas for 5,719 checks. No finite tests are used to prove the quantified theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kozak et al., arxiv:2003.02684, examine random-subspace descent and general convergence, without evidence in accessible abstract of an inverse directional Hessian weighting, fixed Rademacher two-ray orientation law, and exact n-batch minimax.",
+        "Stich, Müller and Gärtner, DOI 10.1137/110853613, study exact or approximate line search along random one-dimensional directions; the retrieved abstract does not resolve whether a special exact angular statement is contained in unexamined material.",
+        "Published-record search: neighboring record research finding d9ecf263b248 concerns Haar subspace moments and stationarity rate, not weighted Rademacher sign rays.",
+        "Published-record search: neighboring record research finding 6e87af5006ee is about a different capped stochastic Polyak step on scalar heterogeneous quadratics."
+      ],
+      "reasoning": "General projection analyses can cover the aligned two-coordinate special case and possibly its batch factor, which are not claimed alone as new. The full arbitrary-angle spectral factor and the unique global orientation/step joint optimum involve the orientation-dependent oblique Hessian projectors absent from the visible broader claims. The older full texts were not completely examined, which is documented rather than treated as proof of noncoverage.",
+      "searches": [
+        "Published-record search:  weighted Rademacher probes Hessian curvature normalization quadratic minimax 1/(n+1) rotated 45 degrees",
+        "Published-record search:  mean-square rate two-dimensional Rademacher simultaneous perturbation curvature normalized direction SPSA 1.5-SPSA Hessian rotation optimal angle binomial batch",
+        "Web: randomized coordinate descent with replacement minibatch optimal stepsize mean square",
+        "arxiv:2003.02684 abstract and DOI context",
+        "doi:10.1137/110853613 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.38095v1, Sections 3--5 and A.2/A.5 (method + experiment read)",
+      "arxiv:2003.02684 (abstract and original metadata only)",
+      "doi:10.1137/110853613 (publisher abstract and metadata only)",
+      "arxiv:1904.01145 (abstract and metadata only)",
+      "arxiv:2609.18416 (abstract and metadata only)",
+      "Published-record search: research finding 22bdee1af96c",
+      "Published-record search: research finding d9ecf263b248",
+      "Published-record search: research finding 6e87af5006ee"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original source explicitly models directional curvature and Rademacher probes, and says randomized rotation is needed to reveal performance differences in a stiff paraboloid. This covers motivation and qualitative orientation sensitivity but not the quantitative all-angle theorem.",
+        "Spall's classical SPSA controls stochastic gradient estimates; its broad stochastic approximation analysis does not visibly imply a special Hessian-selfadjoint rank-one projector spectrum for this later power-one adaptive variant.",
+        "Closest Published-record search: AdaHessian off-diagonal curvature leakage result quantifies a different Rademacher estimator; shared dependence on off-diagonal Hessian terms does not produce the present sample-averaged Hessian-energy operator."
+      ],
+      "reasoning": "The novelty assessment is a statement-level implication comparison. The qualitative known phenomenon (rotation matters for signed probes) is credited. The separate exact minimax formula over arbitrary angle, positive step, and every finite probe count requires additional calculations and is not shown in the inspected new source or retrieved nearby claims. Possible unseen stronger results remain a bibliographic risk.",
+      "searches": [
+        "arxiv:2609.38095v1 Section 4, Sections 5.3 and A.2, full relevant HTML text",
+        "Published-record search:  Rademacher random sign directions curvature inverse gradient estimator trace preconditioning 2 dimensional anisotropic quadratic angle exact convergence",
+        "Web: Optimization of Convex Functions with Random Pursuit 2013 abstract",
+        "Web: Stochastic Subspace Descent arxiv:1904.01145"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2609.38095v1 equations (3)--(6) define the three-point curvature and probe weights, while Appendix A.2 notes random rotation in its stiff-paraboloid benchmark; no complete directional mean-square formula is stated in those inspected sections.",
+        "Published-record search: closest by mechanism: research finding 22bdee1af96c; its object is AdaHessian RMS diagonal estimation, not a curvature-weighted two-ray SPSA update.",
+        "The source estimator equals a Hessian-orthogonal line projector on a quadratic at exponent one; the projector representation is explicitly used for implication comparison, not claimed as a novel identity."
+      ],
+      "reasoning": "SPSA, normalized random pursuit and two-ray random coordinate descent are equivalent descriptions only in selected special cases. The asserted output is the exact all-orientation, all-minibatch-size Hessian-energy minimax and unique optimizer. Neither a qualitative rotated-probe observation nor a general rate bound yields that statement without additional spectral comparison.",
+      "searches": [
+        "Published-record search:  Rademacher two-point SPSA curvature-weighted probe-space preconditioner rotated quadratic exact spectrum 2D rotation orientation Hessian expected update",
+        "Published-record search:  random normalized directional gradient 2D quadratic oblique projector Monte Carlo Hessian norm convergence exact",
+        "Web: randomized descent Hessian unit direction exact line search optimal sampling rotation",
+        "arxiv:2609.38095v1 Sections 4.1--4.2, 5.3, A.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A nearby scientific finding treats Gaussian inverse-covariance probes with a separate alignment-band minimax, not sign-probe Hessian curvature weighting.",
+        "No Published-record search: returned record tabulates the closed all-angle conditional Hessian-energy risk or its exact joint minimizer; returned results include AdaHessian variance and scalar capped SPS but not this model.",
+        "arxiv:2609.38095v1 Figure 3 reports empirical convergence over random rotations and conditioning, not the closed formula or a minimax parameter table."
+      ],
+      "reasoning": "The exact numerical factor 1/(n+1) is not an originality claim in isolation: it appears as one component of the joint orientation and step-size classification. No equivalent complete table was identified in the actual searched records; search failure is not a proof of uniqueness.",
+      "searches": [
+        "Published-record search:  1.5-SPSA zero order curvature weights rotated paraboloid orientation conditioned mean iteration",
+        "Published-record search:  Chaubard Kochenderfer Ré 2026 probe space preconditioning 1.5-SPSA exact orientation finite batch",
+        "Web: Rademacher directional curvature rotation quadratic SPSA exact convergence",
+        "Prior scientific claim search: arxiv:2609.38095, 1.5-spsa, probe-space, rademacher, curvature"
+      ]
+    },
+    "rationale": "The original three-point 1.5-SPSA source arxiv:2609.38095v1 gives the update and observes qualitatively why a rotated paraboloid is needed for Rademacher curvature variation; no exact spectral minimax over all orientations and all finite batch sizes or sharp jointly optimal relaxation appears in the inspected method, numerical experiments, or relevant appendix. Classical random pursuit and stochastic subspace descent are broad context; their accessible records involve general direction distributions and rates, not this complete signed two-ray classification. Searches of related published research claims returned neighboring but mathematically different curvature, Hessian-estimation, and random-subspace results, and available comparisons showed no matching scientific object. This is best-knowledge originality only; complete historical noncoverage is not established.",
+    "residual_risks": [
+      "Earlier randomized exact-line-search and coordinate-descent theory may contain a stronger statement whose specialization implies the exact rotated finite-batch law; full texts of some older broad papers were not materially inspected.",
+      "The motivating paper already says that sign-probe curvature requires rotated quadratic tests; novelty is limited to the explicit all-angle risk/minimax, not that qualitative phenomenon.",
+      "Semantic searches and one week's accessible own claims are not exhaustive bibliographic databases; novelty is not mathematically certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source owns the algorithm and acknowledges need for rotation; the specific all-angle exact finite-batch risk, uniqueness, and sharp optimum are not stated in inspected relevant material.",
+        "evidence": "arxiv:2609.38095v1 initial public 2026-09-29; Section 4 equations (3)--(6), Section 5.3 and Appendix A.2",
+        "identifier_or_url": "https://arxiv.org/html/2609.38095",
+        "material_read": "HTML full-text method: Section 3 motivation, Sections 4.1--4.3 and equations (3)--(6), Section 5.3 rotated quadratic, Appendix A.2 and Appendix A.5, including nearby limitation discussion",
+        "method": "Direct reading of publicly accessible arXiv HTML, including equations and the rotated paraboloid description",
+        "title": "Probe-Space Preconditioning for Fast and Stable Zero-Order Training",
+        "trigger": "Exact motivating estimator and rotated Hessian benchmark"
+      },
+      {
+        "assessment": "General projected random-subspace descent, not demonstrated to cover the exact curvature-normalized Rademacher rotation classification; unresolved full-text overlap risk.",
+        "evidence": "arxiv:2003.02684 abstract; DOI 10.1007/s10589-021-00271-w",
+        "identifier_or_url": "https://arxiv.org/abs/2003.02684",
+        "material_read": "Public abstract and bibliographic metadata only; arXiv HTML full text unavailable in this access attempt",
+        "method": "Original arXiv abstract and published bibliographic description",
+        "title": "A stochastic subspace approach to gradient-free optimization in high dimensions",
+        "trigger": "Possible general result dominating a special two-direction randomized descent statement"
+      },
+      {
+        "assessment": "General convex objective random line-search rates; exact equivalence of the arbitrary-angle finite-batch theorem in unexamined material not resolved.",
+        "evidence": "DOI 10.1137/110853613 abstract, 2013, MSC 90C56",
+        "identifier_or_url": "https://doi.org/10.1137/110853613",
+        "material_read": "Original publisher abstract and article metadata; full article not inspected",
+        "method": "Publisher abstract and arXiv metadata for 1111.0194",
+        "title": "Optimization of Convex Functions with Random Pursuit",
+        "trigger": "Closest normalized one-dimensional random-direction line-search framework"
+      },
+      {
+        "assessment": "Guidance-vector and persistent subspace sampling differ from iid sign probes with inverse directional curvature; no positive exact coverage evidence in the abstract.",
+        "evidence": "arxiv:2609.18416, first version 2026-09-16",
+        "identifier_or_url": "https://arxiv.org/abs/2609.18416",
+        "material_read": "Public arXiv abstract only",
+        "method": "Original arXiv abstract retrieval",
+        "title": "Gradient Descent with Stochastic Subspaces via Persistence of Memory",
+        "trigger": "Recent neighboring subspace-direction scheme"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5cf352e2-080d-4aa1-9d9a-fcd680c6c23a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural quantitative benchmark of a new curvature-weighted derivative-free optimizer is the best conditional expected objective reduction for a fixed Hessian spectrum, batch size, and signed perturbations. The theorem classifies every planar rotation rather than exhibiting one isolated counterexample, gives a uniquely optimal positive step and orientation and the exact sharp value 1/(n+1), propagates that optimum to all horizons, and proves that the axis-aligned optimum deteriorates to no contraction as condition number grows. This separates orientation from conditioning and explains a genuine limitation/advantage of fixed Rademacher probe geometry. The scope is small but motivated and complete; no claim is made about the paper's preferred alpha=0.1 or nonlinear networks.",
+    "status": "PASS"
+  }
+}
