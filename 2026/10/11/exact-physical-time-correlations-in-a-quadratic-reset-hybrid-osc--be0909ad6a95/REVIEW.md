@@ -1,19 +1,21 @@
-# Scientific review: exact physical-time correlations in a quadratic-reset hybrid oscillator
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The explicit semicircle solutions have physical duration \(\pi\) and produce the half-return \(F(r)=4r(1-r)\). The arcsine measure follows from the \(\sin^2\) conjugacy and is invariant under \(F\). With uniform half-flight age and parity, the stationary suspension is measure-preserving; its spatial pushforward is the displayed Euclidean density. Fourier orthogonality proves the all-index Chebyshev formula, and conditioning on whether a jump occurs proves the exact Cartesian correlation. Boundary points are null under the measure and excluded from the general trajectories in the claim. The independent test script supports these identities without substituting for the proof.
+PASS
 
-## Originality
+Half-orbit solutions of the two opposite rotations yield alternating semicircles of exact physical duration π; from incoming height −r the reset produces F(r)=4r(1−r), so half-return is F and published full section return is F². The invariant arcsine measure µ(dr)=dr/[π√(r(1−r))] follows from r=sin²(πu) and doubling u; the parity-flip constant-roof suspension with uniform age a∈[0,π) and parity is invariant/ergodic. Angular pushforward is uniform, giving spatial density [2π²r√(r(1−r))]^(−1). With H_m(r)=cos(2π m u), Fourier orthogonality yields E H_m(R0)H_n(F^k(R0))=δ_{m,2^k n}/2; random reset count floor((a+t)/π) gives exact convex combination at q=floor(t/π), α=t/π−q. Radius covariance is 1/8·max(1−t/π,0). For X=−R sinφ and φ(t)=φ(0)+t, E[R0 Rt] is 3/8 when no reset and 1/4 otherwise; direct integration over ages with N=0 yields correction [((π−t)cos t+sin t)]/(16π) for t≤π, beyond which only cos t/8 remains. Independent endpoint checks give Var(X)=3/16, Cov(X0,Xπ)=−1/8, Var(R)=1/8. Nondecay shows not mixing. Infinite-index proof is exact Fourier orthogonality, not finite quadrature.
 
-PASS, with a limited-source priority risk. Llibre--Santana (arXiv:2407.05151v2, Section 6) prove the same full return \(F^2\) and exhibit chaos, but do not calculate stationary physical-time statistics. The classical logistic arcsine law is credited. Kohda--Tsuneda--Lawrance (2000) concern discrete Chebyshev sequences, so that work covers the discrete orthogonality ingredient rather than the Cartesian physical-time covariance of this planar hybrid geometry. Standard suspension facts likewise explain possible non-mixing but give neither this spatial density nor the exact correction term \(\big((\pi-t)\cos t+\sin t\big)/(16\pi)\). The Kohda full text could not be obtained; publication-priority uncertainty remains.
+## originality
 
-## Value
+PASS
 
-PASS. The source exhibits topological chaos but does not settle how real physical-time observables decorrelate. The theorem gives exact stationary statistics for two natural observables and shows a sharp contrast: the radial autocovariance vanishes identically beyond one half-turn while the horizontal coordinate maintains persistent phase-locked correlation. The all-degree Chebyshev law identifies a whole finite-memory hierarchy rather than an isolated numerical moment. This distinguishes topological chaos, statistical ergodicity, and mixing in a concrete polynomial-reset system.
+Published Llibre–Santana model provides identical geometric return F² and chaotic dynamics, while discrete Chebyshev correlation and constant-roof nonmixing are classical. The new scoped result is the physical-plane density and exact continuum-time Cartesian correction plus full Chebyshev time-index law, not a claim to have invented logistic conjugacy or suspension nonmixing.
 
-## Closest literature and limitations
+## value
 
-The highly relevant primary article was inspected in its public full-text HTML, including its explicit chaotic example. The 2000 Chebyshev-correlation article was accessible by bibliographic abstract and secondary summaries, not complete full text. The exact physical-time statement is restricted to the natural regular stationary measure and does not classify every invariant state or all hybrid branch conventions. Independent audit has not been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Quantifies a real question left open by a chaotic planar hybrid example: natural stationary Cartesian observables are phase-locked and non-mixing even though a physically meaningful centered radius loses correlation after exactly one half flight. Exact invariant spatial density and an all-degree radial correlation hierarchy reveal the mechanism; neither a generic statement that logistic maps are chaotic nor a routine finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
