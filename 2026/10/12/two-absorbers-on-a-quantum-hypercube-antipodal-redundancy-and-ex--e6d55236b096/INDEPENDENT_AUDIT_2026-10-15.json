@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T10:45:14.895139Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Dissipative K=H-i gamma0|0><0|-i gammau|u><u| decomposes orthogonally into the common trap-orthogonal H-invariant dark space and its bright complement. All eigenvalues of K restricted to bright have strictly negative imaginary parts, otherwise a real eigenvector of H would be orthogonal to both traps and hence dark. Thus asymptotic survival is the dark orthogonal projection and does not depend on strictly positive gamma magnitudes. Walsh eigenspaces have trap Gram matrix 2^-d[[C_k,K_k(r)],[K_k(r),C_k]]. End k=0,d each have rank one; for r=d trap projections are proportional in every k, giving total d+1; for 1<=r<d and interior k both Walsh signs occur, so determinant positive, rank 2 per interior k and total 2d. Inverse Gram gives the exact Krawtchouk site formula. The k=1 Fourier sign vector criterion confines unit absorption in the nonantipodal case to 0,u,all-ones,and all-ones xor u; the antipodal Hamming-shell formula yields only weight 0,d. Independently recomputed exact Gram projections for all 640 local starts with 2<=d<=6 and every r, agreeing with every finite formula, bright dimension and unit-absorption sites. Analytic decomposition rather than small-d verification proves all d>=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Novo et al. explicitly prove one-trap Hamming-shell dimension d+1 and sitewise efficiency 1/binom(d,k); no second marked absorber in that hypercube calculation.",
+          "Razzoli et al. investigate single trapped vertex transport and bright states across graphs."
+        ],
+        "reasoning": "General projection methods allow a computation for an arbitrary finite set of traps, but neither single-trap hypercube theorem states or entails the explicit nonantipodal rank 2d and Krawtchouk all-site law without further analysis; novel content is the closed two-trap specialization.",
+        "searches": [
+          "continuous time quantum walk hypercube two absorbing vertices traps antipodal survival probability spectral dark subspace",
+          "arXiv:1412.7209 hypercube Eq. (44)-(47)",
+          "arXiv:2011.13794 single-trap invariant subspaces",
+          "Resultary quantum spectral hypercube query"
+        ]
+      },
+      "checked_sources": [
+        "Novo et al. arXiv:1412.7209 full PDF, hypercube pp.10-11 Eq44-47",
+        "Razzoli–Paris–Bordone arXiv:2011.13794 primary and abstracts",
+        "Lugão et al. arXiv:2203.14384 bibliography/summary only",
+        "Resultary quantum two-absorber semantic query",
+        "Assigned Git tree bf8a2123971b43f4502e9fc6eea557d32dd9ee67 and artifacts/verify.py",
+        "Independent exact Walsh Gram projector enumeration all d2..6/r: 640 localized sites"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In prior single-trap model, antipodal trap is spectrally redundant because all projected antipodal Walsh vectors are (-1)^k multiples of a_k.",
+          "For r<d the pair of projected trap vectors is independent in every interior eigenspace, a fact not present in the cited single-trap reductions."
+        ],
+        "reasoning": "One-trap knowledge determines only d+1, not 2d or the exact nonantipodal survival/kernel/rate independence. Structural two-trap Gram argument is a genuine new implication step.",
+        "searches": [
+          "Novo et al. 2015 arXiv:1412.7209 § transport on hypercube",
+          "Razzoli et al. 2021 arXiv:2011.13794",
+          "Resultary hypercube two-absorber query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source one-trap transport efficiency eta(x)=1/binom(d,|x|) equals 1-s(x) in the antipodal branch.",
+          "Other literature often uses trapping efficiency or sink transport, not long-time residual survival."
+        ],
+        "reasoning": "Converted survival to absorption efficiency and compared graph/hopping/trap conventions; antipodal branch is a corollary of prior one-trap result, but nonantipodal two-vector spectral rank and localized formula are not equivalent to the one-trap formula.",
+        "searches": [
+          "continuous time quantum walk hypercube two absorbing vertices traps antipodal survival probability spectral dark subspace",
+          "Novo et al. arXiv:1412.7209 hypercube section",
+          "Razzoli–Paris–Bordone arXiv:2011.13794"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact one-trap hypercube entries in Eq46/47 cover the antipodal branch (recognized and not claimed new).",
+          "No published all-d, all-r nonantipodal two-absorber survival table identified."
+        ],
+        "reasoning": "The result is a parameter-uniform spectral classification, not a recomputation of a finite graph database; the nonantipodal complete classification is more than sampling small d.",
+        "searches": [
+          "continuous time quantum walk hypercube two absorbing vertices traps antipodal survival probability spectral dark subspace",
+          "arXiv:1412.7209 Eq. 46 and 47",
+          "Resultary quantum hypercube double absorber semantic search"
+        ]
+      },
+      "rationale": "Novo et al. (2015) explicitly analyze a SINGLE absorbing site on a hypercube and obtain the known d+1 bright dimension and Hamming-shell efficiency; that already implies the antipodal two-trap formula by observing proportional projected traps. Those cases are NOT independently novel. Razzoli et al. (2021) also give the general single-trap bright-space method. The new residue is the complete two-distinct-trap spectral rank dichotomy, nonantipodal 2d, the all-site Krawtchouk law and exact complete-absorption site classification. The inspected primary sources explicitly assume one trap and do not directly imply the nonantipodal formula without the new two-projection Gram analysis.",
+      "residual_risks": [
+        "The antipodal single-trap equivalent is mathematically covered by Novo et al. and MUST NOT be independently advertised as original.",
+        "A prior multi-trap general spectral theorem could encode this rank after specialization even without the specific phrase; the highly relevant multimarked search paper was not read in full and deals with Hermitian dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS single-trap and consequently antipodal two-trap branch; DOES NOT state two-site nonantipodal rank/survival kernel.",
+          "evidence": "Eq.46: eta=1/binom(d,k); Eq.47: average eta=(d+1)/2^d, precisely the antipodal branch value.",
+          "identifier_or_url": "arXiv:1412.7209; Scientific Reports 5,13304",
+          "material_read": "Accessible full 19-page arXiv PDF inspected; in particular quantum transport setup and the hypercube section on PDF pp.10–11, Eq.44–47.",
+          "method": "Compared precise trap cardinality, projected subspace and Hamming-shell formulas.",
+          "title": "Systematic Dimensionality Reduction for Quantum Walks: Optimal Spatial Search and Transport on Non-Regular Graphs",
+          "trigger": "Very close original one-trap hypercube transport benchmark"
+        },
+        {
+          "assessment": "General single-trap method is prior; not evidence that this exact two-sink Krawtchouk classification is covered.",
+          "evidence": "Abstract: assumes a single trap vertex accountable for losses and identifies perfect-efficiency subspaces.",
+          "identifier_or_url": "arXiv:2011.13794; Entropy 23 (2021), 85",
+          "material_read": "Open-access source PDF and its abstract/introduction examined; explicitly declares one trap per graph.",
+          "method": "Matched non-Hermitian one-sink loss and efficient subspace framework.",
+          "title": "Transport Efficiency of Continuous-Time Quantum Walks on Graphs",
+          "trigger": "Another high-relevance coherent absorbing-walk spectral framework"
+        },
+        {
+          "assessment": "Different observable; unresolved similarity cannot establish matching two-trap absorption.",
+          "evidence": "Search is Hermitian marking, not K=H-i gamma0 P0-i gammau Pu.",
+          "identifier_or_url": "arXiv:2203.14384",
+          "material_read": "Bibliographic/abstract-level summary of Hermitian multi-marked search examined; full proof not read.",
+          "method": "Distinguished unitary oracle search from irreversible absorbing dynamics.",
+          "title": "Multimarked Spatial Search by Continuous-Time Quantum Walk",
+          "trigger": "Potential multi-marked related graph method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The location of two traps is a natural transport-design parameter. The all-d sharp antipodal redundancy/nonantipodal rank jump and exact spatial survival law are complete natural invariants, providing controlled benchmarks for coherent loss and symmetry breaking rather than only finite numerical experiments.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniform continuous-time coherent hopping on Q_d with two distinct positive-rate absorbers, d>=2, the bright (eventually absorbed) subspace has dimension d+1 exactly for antipodal placement and 2d otherwise, giving corresponding uniform-site average absorption. An exact Krawtchouk expression gives every localized survival probability; nonantipodal zero-survival sites are precisely the two traps and their complements, while antipodal zero-survival sites are only the trap pair.",
+  "limitations": [
+    "Uniform nonzero hopping on binary hypercube, exactly two distinct positive continuous absorbers, d>=2.",
+    "Only infinite-time unconditioned absorption; no finite-time guarantee, disorder or additional trap claims."
+  ],
+  "schema_version": 1
+}
