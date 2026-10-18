@@ -1,12 +1,21 @@
-# Review of Maximal double Roman domination of cocktail party graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. In \(CP_n\), every vertex has exactly one nonneighbor, so any vertex set of size at least two dominates the graph. Thus maximality forces the zero set to have size at most one. A zero-free function of weight at most \(2n+1\) has only one possible label-\(2\) vertex and no label \(3\); its partner is then an undefended label-\(1\) vertex. With one zero, the positive baseline has weight \(2n-1\) and defending the zero costs at least two additional units, proving the lower bound \(2n+1\). Equality with one label \(3\) fails at the label-\(1\) partner of that vertex, so every optimum has exactly two label-\(2\) vertices, both outside the zero vertex's partner pair. The converse is immediate from the unique-nonneighbor structure. Exhaustive direct verification of \(1{,}118{,}464\) labelings for \(2\le n\le5\) matches the full optimizer family.
+## correctness
 
-## Originality
-PASS. The foundational maximal-double-Roman paper was inspected in searchable full text. It develops complexity, general bounds and relationships, trees, paths, and cycles; its special-graphs section states that scope explicitly, and targeted full-text searches found no cocktail-party or complete-multipartite occurrence. The 2023 double-Roman survey summarizes the same maximal-variant scope. Exact and semantic searches under cocktail-party, perfect-matching-deletion, and complete-multipartite aliases found no equivalent value or minimum-function classification. Nearby complete-multipartite results concern ordinary Roman, Roman \(\{2\}\), restrained Roman, and other non-equivalent variants.
+PASS
 
-## Value
-PASS. Cocktail party graphs are a canonical dense symmetric family, simultaneously viewed as complete graphs minus a perfect matching and as complete multipartite graphs with all parts of size two. The result completely resolves both the parameter and every optimum. The proof isolates how the maximality requirement interacts with the unique-nonneighbor geometry: the zero set collapses to a singleton and exactly two defenders remain. The closed count \(2n(n-1)(2n-3)\) is structural information beyond a scalar formula.
+Every set with at least two vertices dominates CP_n since each vertex has one distinct non-neighbor, forcing the zero set of a maximal double Roman function to have at most one vertex. With no zero, weight <=2n+1 leaves a sole defender 2 and its partner as an undefended 1. With exactly one zero, a baseline 2n-1 on positive vertices needs two more units. The sole-3 possibility fails at that 3-vertex partner; exactly two adjacent 2-defenders achieve equality. Independent exhaustive labelings n=2..4 recovered (value,count) (5,4),(7,36),(9,120); n>=2 generality comes from proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Foundational Ahangar-Chellali-Sheikholeslami-Valenzuela-Tripodoro source treats general relations and trees, paths and cycles; its inspected full text contains no covering complete multipartite classification. Nearby Resultary records for roman-{2}, quasi-total-double, restrained or ordinary Roman impose different defenses/zero constraints. The exact maximal double Roman optimizer family remains separately derived.
+
+## value
+
+PASS
+
+Cocktail party graphs are the canonical complete graphs minus a perfect matching, and the minimality/maximality interplay forces an unusually rigid complete classification of all optimal functions, not just a parameter count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
