@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The stationarity is constructed from the most recent independent Poisson reset, whose age is Exp(r). Odd monotone drag confines velocity and gives \\(|V|\\le\\Sigma A\\) and \\(|g(V)|\\le L\\Sigma A\\). Decomposing \\(rV/\\Sigma-SrA\\) into force-flip and drag terms yields the \\(L^2\\) and Wasserstein error bound \\(\\sqrt{24\\lambda/r}+\\sqrt6 L/r\\). Separated age windows decouple, while the reset-independent orientation remains correlated; fourth-moment domination by exponential ages justifies covariance convergence. The stationary age covariance is \\(e^{-rt}\\); multiplying by telegraph \\(e^{-2\\lambda t}\\) gives a centered integrated-age covariance, and the time-grid maximal inequality yields uniform \\(L^2\\) convergence of the rescaled displacement to the integrated telegraph signal. The finite-horizon variance follows by exact double integration. Numerical checks for tan/tanh plus linear-drag exact moment identities agree; finite simulation is corroboration, not proof. No nonlinear long-time diffusivity limit is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Olsen and Löwen, arXiv:2401.12685, abstract describes a general Fourier–Laplace position propagator, recursion for moments, and effective transport coefficients under partial resetting.",
+        "ArXiv/OA full text was inaccessible; no lawful full-text channel completed retrieval, so no claim of full-text noncoverage is made.",
+        "Evans–Majumdar (2018) considers resetting particle position with velocity reversal/randomization, unlike independently resetting the inertial velocity while retaining a telegraph propulsive force."
+      ],
+      "reasoning": "The general 2024 propagator formalism could imply some low-order moment consequences, but the accessible description does not establish the simultaneous stationary Laplace mark limit, positive-lag covariance discontinuity and strong functional telegraph limit for a nonlinear drag. This remains an explicit residual risk. Positional and orientational resetting theorems cannot be substituted because the stochastic state retained through reset is different.",
+      "searches": [
+        "Dynamics of inertial particles under velocity resetting Olsen Löwen 2401.12685 general propagator effective diffusivity",
+        "Olsen Löwen 2024 partial stochastic resetting velocity effective diffusion drift autocorrelation exact arxiv",
+        "arXiv:2401.12685 abstract / PDF / HTML access attempts",
+        "publisher access attempt for DOI:10.1088/1742-5468/ad319a access attempt",
+        "high resetting rate limit of a velocity-only reset driven by dichotomous Markov noise"
+      ]
+    },
+    "checked_sources": [
+      "Howlader, Mondal & Das, arXiv:2606.00560v1, full accessible HTML §§2–4",
+      "Olsen & Löwen, arXiv:2401.12685, abstract only (full text inaccessible)",
+      "Evans & Majumdar, J. Phys. A 51 (2018) 475003, abstract",
+      "Santra, Olsen & Gupta, Soft Matter 20 (2024) 9360–9372, abstract",
+      "MSC2020 official entry 82C31",
+      "Published semantic indexes of published scientific findings: queried current paper, equivalent formulations, fast-reset telegraph aliases; closest unrelated IDs recorded",
+      "Recoverable earlier research claims were consulted for potential mathematical implication overlap."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source Eq.(5) states the non-Newtonian velocity equation and Eq.(36) defines the observed diffusivity; §§3–4 infer a cusp and inverse-square rate from numerical methods.",
+        "The new result derives the explicit bound \\(W_2\\le\\sqrt{24\\lambda/r}+\\sqrt6 L/r\\), asymptotically independent exponential velocity marks, positive-lag covariance \\(e^{-2\\lambda t}\\), and uniform \\(L^2\\) convergence of integrated scaled motion to a telegraph path.",
+        "The 2024 broad theory establishes methods for propagators and moments but its inaccessible complete derivations prevent a categorical ruling out of implicit coverage."
+      ],
+      "reasoning": "The qualitative cusp, known transport exponent and a general moment-generating framework do not entail without additional specialization and proof the joint distribution of multiple stationary scaled velocities, their strict positive-lag/zero-lag split, or the compact-time convergence in the stated nonlinear monotone-drag class. In particular an \\(r^{-2}\\) diffusivity exponent alone does not determine a finite-horizon process limit. The central claim is assessed as a model-specific substantive strengthening, with general-formalism risk retained.",
+      "searches": [
+        "arXiv:2606.00560v1 source text sections 2,3,4",
+        "arXiv:2401.12685 2024 summary",
+        "fast velocity-only resetting telegraph force retained orientation integrated position",
+        "Olsen Löwen 2024 partial stochastic resetting velocity effective diffusion drift autocorrelation exact arxiv"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Howlader–Mondal–Das, arXiv:2606.00560v1 §§2–4: velocity-only reset, retained telegraph force; numerically observed cusp and diffusivity exponent, but no two-scale law expressed.",
+        "The published results “Fiberwise velocity law and exact pumping–damping shell in the generalized Rayleigh oscillator” and “Exact physical-time correlations in a quadratic-reset hybrid oscillator” concern deterministic-oscillator invariants and an unrelated nonlinear reset hybrid, not a particle driven by retained dichotomous propulsion under velocity-only Poisson resetting.",
+        "Previously recorded finding titles/claims were compared for velocity-only resetting, telegraph, Laplace and fast-reset aliases; no same-object statement located."
+      ],
+      "reasoning": "Finite-dimensional stationary velocities and a uniform-on-compacts integrated trajectory limit are logically different from the qualitative statement that velocity distributions become sharply cusped or that diffusion coefficients scale as the inverse square reset rate. The path limit requires the independent reset-age process and unreset propulsion orientation; no equivalent formulation was found in inspected scientific literature and previous claims. This is not a proof of uniqueness.",
+      "searches": [
+        "velocity resetting run and tumble high reset rate stationary velocity Laplace distribution telegraph limit",
+        "fast velocity-only resetting telegraph force retained orientation integrated position",
+        "velocity reset external telegraph noise stationary Laplace weak damping high reset distribution",
+        "fast velocity-only resetting telegraph force retained orientation integrated position",
+        "Howlader Mondal Das 2606.00560 velocity resetting non Newtonian media fast rate Laplace telegraph",
+        "velocity-only | velocity reset | telegraph | Laplace | non-Newtonian | fast reset | integrated telegraph (earlier finding claim substrings)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Howlader–Mondal–Das Figure 2–3 provide numerical velocity distributions, and Figure 5 provides observed diffusion scaling. They contain neither an exact marked finite-dimensional limit nor a compact-time path limit.",
+        "The published “Sharp stationary transport strip for the Zaslavsky map” and “Fiberwise velocity law and exact pumping–damping shell in the generalized Rayleigh oscillator” are different deterministic-dynamics objects; neither supplies a table or exact distribution for the stochastic velocity-only reset model."
+      ],
+      "reasoning": "This finding is an analytic limit theorem, not a finite numerical invariant. Neither identified numerical graphics nor searched indexed records instantiate its joint velocity marks or integrated-trajectory process law.",
+      "searches": [
+        "velocity resetting run and tumble high reset rate stationary velocity Laplace distribution telegraph limit",
+        "Howlader Mondal Das 2606.00560 velocity resetting non Newtonian media fast rate Laplace telegraph",
+        "stochastic resetting of velocity in inertial run-and-tumble particles telegraph strong reset scale",
+        "arXiv:2606.00560 §§3–4 velocity density figures, effective diffusivity figures",
+        "velocity-only | velocity reset | telegraph | Laplace | non-Newtonian | fast reset | integrated telegraph (earlier finding claim substrings)"
+      ]
+    },
+    "rationale": "The 2026 full paper contains the model, qualitative cusp numerics and inverse-square diffusion exponent, but no explicit stationary Wasserstein estimate, independent exponential velocity marks at distinct times, or integrated-telegraph path limit. Indexed research and available prior scientific-claim comparison found no covering statement. The 2024 general propagator paper was only accessible at abstract level and is a documented possible implicit-coverage risk; the central joint functional limit is more specific than the transport-coefficient assertions verified there. No assertion of unique worldwide novelty is made.",
+    "residual_risks": [
+      "The full text of Olsen and Löwen (2024) could not be inspected because OA text was unavailable and the remaining institutional route was unavailable; it may implicitly cover some moment corollaries.",
+      "General PDMP fast-reset averaging and telegraph kinetic-limit literature may contain broader statements from which the model-specific theorem can be deduced; searched abstracts and indexed records did not settle exhaustive coverage.",
+      "Neither indexed retrieval nor an MSC partition proves global uniqueness; explicit claim-to-prior comparisons support only the assessed scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_EXPLICITLY_COVERING stronger multiscale theorem; model and qualitative scaling are prior",
+        "evidence": "§2 Eq.(5) gives vdot=-g(v)+η, with independent rate-r velocity-only resets and telegraph η; §3 Figures 2–3 describe cusp-shaped velocity density and Figure 5 r^−2 diffusivity; §4 confirms numerical rather than functional-limit results.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.00560",
+        "material_read": "Full HTML text: introduction, Eq.(1)–(7) physical/nondimensional model, FP and MFPT sections, both material cases and figures in Results, conclusion and references",
+        "method": "accessible full-text HTML inspection and searches for cusp, Laplace, resetting, diffusivity and distribution",
+        "title": "Velocity Resetting of Inertial Run-and-Tumble Particles in Non-Newtonian Media: Velocity Distribution, Diffusion and First-Passage Time",
+        "trigger": "exact physical model and earliest public source"
+      },
+      {
+        "assessment": "ACCESS_LIMITED; general Fourier–Laplace and moment formalism might imply some specialization, but no reviewed statement resolves the full claim",
+        "evidence": "Abstract states recursive moment relation, general position propagator and effective diffusion coefficients; does not itself formulate the nonlinear telegraph path and simultaneous marked Laplace limit.",
+        "identifier_or_url": "https://arxiv.org/abs/2401.12685",
+        "material_read": "ArXiv abstract; full-text attempts at HTML, OA PDF and journal DOI did not provide material, and institutional fallback returned disconnected VPN",
+        "method": "abstract inspection, open-access attempts and permitted institutional fallback",
+        "title": "Dynamics of inertial particles under velocity resetting",
+        "trigger": "potential stronger general partial-resetting theory"
+      },
+      {
+        "assessment": "DIFFERENT_MODEL; position resetting instead of velocity-only resetting",
+        "evidence": "Abstract explicitly describes position resetting to a site with optional velocity reversal/randomization, not inertial velocity reset with force left intact.",
+        "identifier_or_url": "https://doi.org/10.1088/1751-8121/aae74e",
+        "material_read": "Research-output abstract and bibliographic information",
+        "method": "official institutional research synopsis",
+        "title": "Run and tumble particle under resetting: a renewal approach",
+        "trigger": "earlier broad resetting theory with persistent propulsion"
+      },
+      {
+        "assessment": "NO_EXPLICIT_COVERAGE_IN_INSPECTED_MATERIAL",
+        "evidence": "General switching and intermittent transport characteristic functions, not a velocity-only reset with retained dichotomous force and its fast-reset age distribution.",
+        "identifier_or_url": "https://doi.org/10.1039/d4sm01054j",
+        "material_read": "ArXiv/metadata abstract and journal description",
+        "method": "abstract and topic comparison",
+        "title": "Dynamics of switching processes: general results and applications in intermittent active motion",
+        "trigger": "possible generic dichotomous-drive transportation theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8a1a7fa7-2892-4b61-8ab7-9c472959ac61",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The observable is the physical displacement of a continuously propelled inertial particle whose velocity is interrupted without interrupting propulsion. The theorem identifies a concrete experimentally testable mismatch: rescaled instantaneous velocity remains Laplace with variance 2 while finite-time displacement follows a persistent telegraph trajectory, and covariance at any fixed positive lag has asymptotically half the zero-lag prefactor. It provides full finite-horizon crossover and quantitative Wasserstein convergence in two physically used nonlinear media; this is structural information absent from an inverse-square diffusivity exponent or a qualitative cusp plot.",
+    "status": "PASS"
+  }
+}

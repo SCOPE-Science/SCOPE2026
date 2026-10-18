@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness (C): PASS.** The most-recent-reset representation gives an exact exponential age independent of orientation. The proof bounds drag and within-age sign changes in \(L^2\), couples stationary scaled velocity to signed exponential age, proves joint separated-time marks, and uses a Poisson-age covariance/grid maximal inequality for the compact-horizon telegraph path limit. The stationary moment and numerical checks in `verify.py` corroborate the formulas but are not substitutes for the proof.
+
+**Originality (O): PASS, residual risk disclosed.** Howlader–Mondal–Das (arXiv:2606.00560, source first posted 2026-05-30), inspected in full accessible HTML, gives this model and qualitative cusp/rate observations, not the precise two-scale stationary and pathwise law. Olsen–Löwen (arXiv:2401.12685) offers a broader partial-resetting propagator/moment framework, but its full text could not be inspected. Some moment consequences may be implicit there; the finite-dimensional mark and uniform functional convergence remain the distinctive assessed result. Claim-directed scientific literature comparisons and previous mathematical claims supplied no closer same-object statement. No source search alone constitutes a novelty proof.
+
+**Value (V): PASS.** For a natural physical observable, the theorem explains why a Laplace-law microscopic speed can coexist with persistent-telegraph macroscopic motion and identifies the exact finite-time transport crossover. The covariance split and explicit quantitative convergence are useful beyond already known numerical \(r^{-2}\) scaling.
+
+**Limitations and closest literature.** The theory requires independent Poisson velocity resets that preserve propulsion orientation, fixed positive flip rate, and smooth monotone confining drag. The infinite-time diffusivity asymptotic is established separately in the linear-drag example only; no interchange of general nonlinear \(r\to\infty\) and \(T\to\infty\) limits is claimed. The most relevant full-text access gap concerns Olsen–Löwen (2024); broader implicit coverage remains possible. Evans–Majumdar (2018) resets position and is not equivalent.
+
+Self-review: passed. Independent audit: not yet performed.
