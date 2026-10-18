@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For each binary word, each complementary triple-pair contributes exactly X+Y-XY. Expanding four factors gives 81 exact restricted languages. A four-state suffix de Bruijn matrix counts each restricted language, and 81 exact adjugate calculations, reproduced in verify.py, reduce to the claimed rational function. Independent streaming enumeration through length 64 and direct words through length 15 agree. A partial-fraction identity and cubic-root analysis establish the infinite recurrence and asymptotic; the threshold at lengths 1 and 2 follows from a short explicit run classification. Finite checks are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 3 addresses repetition thresholds for infinite CAL_ell, which does not determine a_n for unrestricted finite words.",
+        "The antisquare enumeration forbids x complement(x) as an adjacent block; it does not forbid separated complementary factors."
+      ],
+      "reasoning": "A general regular-language transfer-matrix procedure implies rationality for fixed factor length, not the simplified specific rational function and growth constant. Neither compared primary theorem dominates the exact claim.",
+      "searches": [
+        "factor sets transversal bitwise complement pairs finite binary words rational generating function exponential growth",
+        "binary finite words avoiding complementary factor pairs exact enumeration generating function length three",
+        "arXiv:2209.09598v2 Theorem 3 and Section 5",
+        "arXiv:2209.09223v3 Section 7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.09598v1 (first dated public version 2022-09-20)",
+      "arXiv:2209.09598v2 full text (Theorems 3, 16-20, Section 5)",
+      "DOI:10.37236/11555 (journal PDF title page, primary MSC 68R15)",
+      "arXiv:2209.09223v3 (antisquare language and Section 7)",
+      "Public scholarly-index searches using the scientific queries recorded in the named comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 of the main source asserts existence/optimal critical exponents, not counts for each finite n.",
+        "A distinct earlier finite extremal result assumes cube-freeness and complementary-factor length >=6.",
+        "An antisquare x-complement(x) is one contiguous occurrence, not two arbitrarily positioned complementary length-three factors."
+      ],
+      "reasoning": "Removed additional cube-free/repetition restrictions and changed the factor length from 6 to 3; the older 50-length extremal result does not imply this all-length generating function. The antisquare condition is logically different: complement factors can occur separated without an antisquare and an antisquare can have a half-length not equal to 3. The main paper sets up the class but does not supply this finite enumerator.",
+      "searches": [
+        "arXiv:2209.09598v2 Section 5",
+        "arXiv:2209.09223v3 Section 7",
+        "number of binary words of length n avoiding complementary length-three factors, exact generating function growth rate of complement-free words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2022/2025 paper calls the condition CAL_ell; the present a_3(n) counts all finite words, an exact finite-language cardinality.",
+        "Targeted public scholarly-record searches showed no equal formula; closest source arXiv:2209.09598v2 treats critical exponents rather than enumeration."
+      ],
+      "reasoning": "Compared the equivalent formulations “avoiding complemented triple pairs”, “finite CAL_3 language enumeration”, “bitwise-complement-free factors”, and the coefficient sequence. No exact match was identified; negative search alone is not novelty proof, so the closest primary result was inspected in full.",
+      "searches": [
+        "number of binary words of length n avoiding complementary length-three factors, exact generating function growth rate of complement-free words",
+        "exact enumeration of finite binary complement-avoiding words ℓ=3 or ℓ=4 factors, binary words missing bitwise complement substrings",
+        "finite binary complement-avoiding language CAL3 exact number 1 2 4 8 14 22 30 42 60 86 and Narayana cows recurrence",
+        "\"complementary factors\" \"enumeration\" length 3 binary words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identified published indexed record reports the displayed polynomial ratio or the initial sequence 1,2,4,8,14,22,30,42,60,86,124,180."
+      ],
+      "reasoning": "Performed exact numerical, rational-function, alias, and recorded-table searches. No matching indexed table was identified; incomplete indexing is a residual risk.",
+      "searches": [
+        "binary words no pair of bitwise complemented factors of length three exact generating function 1+z²+z³+z⁴-4z⁶-2z⁷-2z⁸ over (1-z)(1-z-z³), exponential growth 1.465571",
+        "finite binary complement-avoiding language CAL3 exact number 1 2 4 8 14 22 30 42 60 86 and Narayana cows recurrence",
+        "\"14, 22, 30, 42, 60, 86\" binary words"
+      ]
+    },
+    "rationale": "Same-object primary arXiv:2209.09598v2 was inspected through the technical sections and does not state finite-length counts or the cubic rational function. arXiv:2209.09223v3 is an adjacent-antisquare language rather than complement-factor pairs. An accessible own historical claim concerns cube-free length-50 extremizers at forbidden-factor length six, not the unrestricted length-three finite enumerator. Targeted indexed search and equivalent-parameter comparisons found no dominating prior result; an unindexed equivalent remains a residual risk.",
+    "residual_risks": [
+      "A previous exact enumeration may be indexed under another terminology or occur in an unreviewed appendix/table.",
+      "The general regular-language method is classical; the novelty asserted is the particular complete count and exact growth law, not matrix rationality per se."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the enumeration of all finite binary words avoiding complementary triples, its rational function, order-three recurrence or sharp unrestricted entropy constant.",
+        "evidence": [
+          "arXiv HTML lines 44-75 defines CAL_ell and scope; lines 98-132 gives infinite critical-exponent result; lines 658-734 treats repetition-restricted complexity.",
+          "Journal PDF page 1 prints primary MSC 68R15 and article date; arXiv abstract lists v1 as 2022-09-20."
+        ],
+        "identifier_or_url": "arXiv:2209.09598v2; https://arxiv.org/html/2209.09598v2; DOI:10.37236/11555",
+        "material_read": "Full public HTML: introduction, Theorem 3 and its proof, Sections 3-5 including complexity threshold and references; journal PDF title page for MSC; original arXiv submission date.",
+        "method": "Primary full text inspected and domain/quantifiers matched statement by statement.",
+        "title": "Complement Avoidance in Binary Words",
+        "trigger": "Same exact complement-factor object and direct methodological predecessor."
+      },
+      {
+        "assessment": "Its growth of antisquare-avoiding good words is not the same class and neither implies nor evaluates the proposed finite complement-triple enumeration.",
+        "evidence": [
+          "arXiv HTML lines 35-60 defines antisquare, good words, and distinction; lines 100-116 sets study scope and location of the enumeration section."
+        ],
+        "identifier_or_url": "arXiv:2209.09223v3; https://arxiv.org/html/2209.09223v3",
+        "material_read": "Full public HTML, introduction and Section 7 title/scope, including definition of antisquare and declared growth result.",
+        "method": "Compare forbidden languages: local occurrence of x followed immediately by complement(x) versus pair of length-3 factors anywhere.",
+        "title": "Antisquares and Critical Exponents",
+        "trigger": "Contains an enumeration/growth theorem for words with a superficially similar complement condition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7afaca03-b4c4-406c-9fde-3d9aa1a3e3ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The underlying avoidance class is an established, naturally motivated combinatorics-on-words object. This evaluates the complete exact enumerator and sharp growth constant in its first exponentially growing case, connecting the finite length profile to an entropy threshold; unlike a routine check or arbitrary slice it fully resolves a natural minimal case.",
+    "status": "PASS"
+  }
+}
