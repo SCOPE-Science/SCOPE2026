@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For a one-dimensional graph, the descending link at an entering vertex is the discrete set of earlier neighbors, hence the strong-gradient arrow exists exactly for one earlier neighbor. The proof partitions all possible arrows into a four-choice factor for each petal and into exactly two exceptional hub-headed cones per petal. Every allowed join facet and hub-cone facet is realized by a specified vertex order, and all nonallowed combinations are ruled out by that same unique-neighbor rule. Each exceptional cone attaches along a join of two-point complexes, and this attaching map factors through a cone already inside the core join. Thus all attachments are nullhomotopic and contribute suspended spheres. The face polynomial is counted by the disjoint apex-containing strata. The finite executable check exhausts vertex orderings for the first four cases, uses a complete subset-DP for the fifth, and compares all faces as well as mod-two boundary ranks. The proof, rather than those finite checks, establishes the result for every allowed parameter.
+
+## Originality — PASS, with residual risk
+Knudson–Owens–White (2026), arXiv:2609.06844v1, Sections 3–4, 7–8 and 10, introduces the strong-matching construction and treats paths, stars, cycles and disjoint unions, but its disjoint-union theorem does not imply the result for a connected wedge of triangles. Donovan–Scoville (2023), New York J. Math. 29, Theorem 5.8, studies exactly the Dutch windmill underlying graphs but classifies the **ordinary edge-matching complex**, contractible in the triangular case, not the strong vertex-edge gradient complex. No equivalent statement or an implication yielding the present formula was identified in targeted mathematical-result-index searches and accessible literature. Specific remaining uncertainty: an unindexed or otherwise overlooked strong-matching classification of this one-vertex-amalgamation family could overlap.
+
+## Mathematical value — PASS
+The result is a uniform integral homotopy classification for a natural connected, one-vertex union of arbitrarily many cycles, not a small-parameter census or a change of notation. It exhibits a topology sharply different from the ordinary edge-matching complex of the *same graph*, and the exact hub-cone mechanism provides a potentially reusable structural template. The explicit face polynomial supplies complete enumerative data in addition to homotopy. This is a meaningful missing class within the recent study of strong discrete-Morse matchings.
+
+## Limits and closest literature
+The theorem requires the graph to be one-dimensional (unfilled triangles) and addresses the full complex, not an alternative pure/maximal-cardinality variant. No assertion of independent audit is made. First motivating source was publicly posted 2026-09-06. Full text inspected: Knudson–Owens–White, arXiv:2609.06844v1; Donovan–Scoville, NYJM 29 (2023), Theorem 5.8. The computation independently corroborates only the finite cases \(1\le n\le5\). Unindexed overlap remains possible.
+
+Self-review: passed. Independent audit: not yet performed.
