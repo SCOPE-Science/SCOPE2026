@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs the generalized windmill \(W_{r,m}=K_1\vee rK_m\), computes all-pairs vertex distances by breadth-first search, enumerates all adjacent edge pairs, and directly applies the local edge metric definition.
+# Independent mathematical audit
 
-For every
-\[
-2\le r\le5,\qquad 2\le m\le3,
-\]
-it enumerates every candidate set up through size \(rm-1\), verifies that every smaller set fails, and compares the entire minimum family with the predicted sets containing all noncentral vertices except one.
+## correctness
 
-It additionally checks every predicted basis for
-\[
-(r,m)\in\{(2,4),(2,5),(3,4),(4,4),(6,2)\}.
-\]
+PASS
 
-Recorded output:
+Each spoke pair cu,cv sharing center can only be locally edge-resolved by u or v: every other vertex, including center, has the same distance to the two spokes. Therefore every generator contains at least rm-1 noncentral vertices. Conversely S equal to all noncentral vertices except w distinguishes adjacent e=pq,f=pr by a selected noncommon endpoint; the unique configuration with omitted w and center as noncommon endpoints is resolved by any selected vertex in another blade, giving edge-distances 2 and 1. Equality in lower bound rules out center and fixes all minimum sets. Independent all-subset BFS enumeration for W_(2,2), W_(2,3), W_(3,2) agrees; finite checks are supplementary.
 
-```text
-VERIFY_OK
-fully_enumerated_parameter_pairs = 8
-fully_enumerated r = 2..5, m = 2..3
-subset_trials = 77514
-minimum_bases_checked = 70
-larger_spot_checks = (2,4), (2,5), (3,4), (4,4), (6,2)
-all local edge metric dimensions matched rm-1
-all minimum bases were exactly all outer vertices except one
-basis counts matched rm
-```
+## originality
 
-The finite computation is corroborative only. The theorem for all \(r,m\ge2\) follows from the proof.
+PASS
+
+Local edge metric dimension introduced in Adawiyah et al 2020, with paths/ladders/cycles/stars/wheels, not generalized clique-windmills. 2022 wheel-related paper lists fan and Jahangir graphs; 2024 same-parameter structural article addresses corona products. Fractional edge resolvers of friendship graphs in published Resultary use a distinct relaxation and edge metric criterion, do not determine local integral bases.
+
+## value
+
+PASS
+
+Natural infinite family of clique-amalgamation graphs with friendship-graph subfamily; exact number and classification of all optimal bases is a useful structural benchmark not supplied by generic monotonicity under adding edges.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
