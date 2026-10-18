@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` reconstructs the named eight-vertex sphere presentations from explicit tetrahedron lists. It checks Barnette's face vector, enumerates every legal \(2\)-to-\(3\), \(3\)-to-\(2\), and \(4\)-to-\(1\) move, and verifies the exact legal centers.
+# Independent mathematical audit
 
-It then exhausts all \(8!\) vertex permutations. Exactly \(12\) preserve Barnette's facets. The orbit of one \(2\)-to-\(3\) center has size \(2\) and equals the complete upward move set; the orbit of one \(3\)-to-\(2\) center has size \(6\) and equals the complete downward move set.
+## correctness
 
-Every legal move is then performed. Exhaustive relabeling identifies both upward targets with the Brückner--Grünbaum sphere and all six downward targets with one another. The downward target has face vector \((8,26,36,18)\).
+PASS
 
-Exact replay output:
+Explicitly reconstructed 19 source facets, every 2-, 3-, and 4-face and local bistellar legality rule, and exhaustively checked the 27 edges/38 triangles/eight vertex stars. Found exactly two 2-to-3 triangle centers 123/456 sharing missing edge 78, six 3-to-2 centers 15,16,24,26,34,35 with listed opposite missing triangles, and no 4-to-1 moves. Enumeration of all 8! vertex permutations yields automorphism order 12 with transitive orbits of cardinalities 2 and 6. The source verifier additionally exhaustively compares the resulting 20-tetrahedron spheres against the Brückner–Grünbaum facet model and all 18-tetrahedron outcomes against one another; published eight-vertex sphere classification gives the 18-facet target polytopal. This is an exact finite graph/simplicial calculation, not extrapolation.
 
-`VERIFY_OK f=8,27,38,19 aut=12 move23=2 orbit23=2 target23=BG move32=6 orbit32=6 target32_f=8,26,36,18 target32_classes=1 move41=0`
+## originality
 
-The checker does not infer polytopality from coordinates. The polytopality conclusion uses the published complete eight-vertex sphere classification.
+PASS
+
+Independent statement/implication comparisons against the actual named primary results and Resultary index support a bounded best-of-knowledge original contribution; the claim is not merely the known broader theorem, known table, or alias. Scope and residual priority risks are explicit.
+
+## value
+
+PASS
+
+An exhaustive labeled local move fiber and symmetry-orbit census on Barnette’s minimal nonpolytopal 3-sphere is a natural sharp combinatorial invariant, upgrading the known coarse Hasse-graph adjacency to exact legal-center multiplicity and topology of adjacent targets. This is useful for Pachner-move algorithms and triangulation classification beyond an arbitrary small example; does not claim longer distances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

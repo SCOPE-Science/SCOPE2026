@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The package reconstructs Barnette's exact \(19\)-tetrahedron sphere, enumerates every triangle, edge, and vertex against the three-dimensional bistellar legality criteria, and obtains exactly two \(2\)-to-\(3\) moves, six \(3\)-to-\(2\) moves, and no \(4\)-to-\(1\) move. All \(8!\) relabelings are checked, giving an automorphism group of order \(12\) and one orbit on each nonempty move set. Every moved complex is constructed explicitly; both upward targets are exhaustively identified with the Brückner--Grünbaum sphere and all six downward targets are exhaustively identified with one another. The downward target's polytopality follows from the published complete classification.
+## correctness
 
-## Originality
-PASS. Datta--Nilakantan is the decisive closest source: it classifies all eight-vertex \(3\)-spheres by proper bistellar moves and its Hasse diagram can encode the coarse neighboring isomorphism classes. The inspected proof lists removable edges for the neighborly layer and then summarizes later layers without supplying the Barnette move multiplicities or automorphism-orbit fibers. published-finding corpus searches under Barnette, Brückner--Grünbaum, proper-bistellar, removable-edge, exact-count, and orbit formulations returned no statement covering the exact \(2\)-versus-\(6\) census and transitivity assertion. The owned ledgers likewise contain no Barnette-sphere bistellar-neighborhood claim. Residual risk remains from unindexed historical computations.
+PASS
 
-## Value
-PASS. Barnette's sphere is one of the two exceptional nonpolytopal eight-vertex \(3\)-spheres, so its local Pachner geometry is a natural invariant of the smallest nonpolytopal regime. The result refines coarse Hasse adjacency into actual move multiplicities and symmetry orbits and shows a sharp local split: every upward move reaches the other nonpolytopal exception, while every downward move reaches the same polytopal type.
+Explicitly reconstructed 19 source facets, every 2-, 3-, and 4-face and local bistellar legality rule, and exhaustively checked the 27 edges/38 triangles/eight vertex stars. Found exactly two 2-to-3 triangle centers 123/456 sharing missing edge 78, six 3-to-2 centers 15,16,24,26,34,35 with listed opposite missing triangles, and no 4-to-1 moves. Enumeration of all 8! vertex permutations yields automorphism order 12 with transitive orbits of cardinalities 2 and 6. The source verifier additionally exhaustively compares the resulting 20-tetrahedron spheres against the Brückner–Grünbaum facet model and all 18-tetrahedron outcomes against one another; published eight-vertex sphere classification gives the 18-facet target polytopal. This is an exact finite graph/simplicial calculation, not extrapolation.
 
-## Closest literature and limitations
-The 1973 and 2007/2008 classifications establish the object, the two nonpolytopal exceptions, and the isomorphism-class bistellar organization. The new claim is limited to the complete one-move fiber and does not assert a new global classification or bistellar-distance theorem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Independent statement/implication comparisons against the actual named primary results and Resultary index support a bounded best-of-knowledge original contribution; the claim is not merely the known broader theorem, known table, or alias. Scope and residual priority risks are explicit.
+
+## value
+
+PASS
+
+An exhaustive labeled local move fiber and symmetry-orbit census on Barnette’s minimal nonpolytopal 3-sphere is a natural sharp combinatorial invariant, upgrading the known coarse Hasse-graph adjacency to exact legal-center multiplicity and topology of adjacent targets. This is useful for Pachner-move algorithms and triangulation classification beyond an arbitrary small example; does not claim longer distances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
