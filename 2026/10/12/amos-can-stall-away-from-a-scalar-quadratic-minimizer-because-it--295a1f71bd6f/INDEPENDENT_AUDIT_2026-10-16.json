@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T16:00:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At beta=0 and x>0 on scalar f(x)=lambda*x²/2, bias-corrected second moment is exactly g², normalized gradient is 1 and gamma_t=xi² c_t. The source-form positive branch gives b_(t+1)=b_t+xi² c_t(1+b_t), x_(t+1)=(1-r_t)x_t-s_t with r=xi² c_t d_t/2 and s=xi*eta*d_t. With p=sqrt(xi)/4 and b→∞, sqrt(b_(t+1))-sqrt(b_t)→xi^(7/4); by Cesàro sqrt(b_t)/t→xi^(7/4) and b/t²→xi^(7/2). Therefore r~4/(xi^4 sqrt(eta)t³), s~4 sqrt(eta)/(xi³ t²), both summable; r≤1/2 implies product P_inf>0 and finite X_star=Σs_k/P_(k+1). Variation of constants yields x_t→P_inf(x0-X_star)>0 for every x0>X_star, with branch positivity proven from partial sums. x0=X_star tends to zero; smaller positive x0 leaves positive branch. Independent recurrence replay for xi=eta=1 through 100000 steps gave b/t²≈0.999873, P≈0.1723603, partial X≈16.4041, x0=20 yields x≈0.6198. No convergence claim for default beta=.999.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tian–Parikh explicitly leaves rigorous convergence proof for future work; generic Adam family results assume conditions on adaptive factors not verified for this source Amos slice."
+        ],
+        "reasoning": "No cited general convergence/nonconvergence theorem both covers this algorithm and implies the exact infinitely-many-init nonstationary limit. Related optimizers have different normalization/decay rules.",
+        "searches": [
+          "arXiv:2210.11693v2 Algorithm 1",
+          "arXiv:2112.03459 generic Adam-family convergence analysis"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2210.11693",
+        "https://arxiv.org/abs/2112.03459"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 1 gives recurrences and recognizes decay; x_t limit, P_inf and X_star are not proven there.",
+          "Other-optimizer nonconvergence claims have different recurrences, so no reduction was found."
+        ],
+        "reasoning": "The claim is derivable only after a new asymptotic solution of the autonomous buffer and an affine infinite-product analysis; prior generic observation of summable steps is insufficient.",
+        "searches": [
+          "Tian and Parikh Amos Algorithm 1 and heuristic decay discussion",
+          "Resultary AdamW memoryless two-cycle and AdOGD summability examples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Other adaptive optimizers exhibit nonconvergence or chattering, but not the autonomous Amos b-recurrence and threshold X_star.",
+          "Original Amos discusses decay tending to zero without proving the state-dependent nonstationary limit."
+        ],
+        "reasoning": "A generic finite-step-mass warning is not an exact Amos trajectory theorem. The exact update must be reconstructed at beta=0.",
+        "searches": [
+          "arXiv:2210.11693v1-v2 source algorithm",
+          "Resultary: Amos Adam style optimizer nonconvergence summable steps deterministic strongly convex quadratic beta zero adaptive weight decay"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An optimizer dynamics result for all real xi,eta and a continuum of x0 is not a finite database/table invariant; exact source recurrences exist but not a trajectory threshold table."
+        ],
+        "reasoning": "No exact numerical table can imply the infinite-time threshold. Source decay asymptotics alone stop short of deriving b~t² and threshold.",
+        "searches": [
+          "Source Amos algorithm appendix/decay asymptotics",
+          "Resultary semantic Amos nonconvergence"
+        ]
+      },
+      "rationale": "The original Tian–Parikh Amos Algorithm 1 gives coupled update, c_t and d_t heuristics, but does not establish this exact deterministic strongly-convex nonstationary limit or state-dependent positive-branch threshold; it leaves convergence analysis open. General Adam, AdamW, AdOGD/RAdam step counterexamples returned by Resultary concern different optimizers and update laws, hence cannot imply a source-form Amos theorem. Best-of-knowledge no implication-equivalent Amos claim found.",
+      "residual_risks": [
+        "The theorem uses beta=0 and no added epsilon: not evidence of default noisy deep-learning training failure.",
+        "Unindexed analysis of the exact Amos source algorithm could have identified the same summability pathology.",
+        "The x0<X_star trajectory after sign change is not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm permits the beta=0 specialization and identifies heuristic decay, not an exact nonstationary quadratic limit",
+          "evidence": "Algorithm 1 has c=(1+sqrt(xi)b/4)^(-1/2), d=(1+sqrt(xi eta)b/4)^(-1); no additive denominator epsilon in printed rule.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.11693",
+          "material_read": "Original open-access PDF and Algorithm 1, supplementary decay discussion; compared c,d,gamma and bias corrections visually",
+          "method": "Read PDF text and algorithm screenshot",
+          "title": "Amos: An Adam-style Optimizer with Adaptive Weight Decay towards Model-Oriented Scale",
+          "trigger": "Exact source equations, allowed beta endpoint and previous convergence claims"
+        },
+        {
+          "assessment": "Generic adaptive-boundedness assumptions not established for Amos, so no proven coverage",
+          "evidence": "The abstract requires bounded adaptive factors / special momentum assumptions and lists Adam, AMSGrad, AdaBound, not Amos.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.03459",
+          "material_read": "Open-access abstract and theorem-condition summary only; full manuscript not materially read",
+          "method": "Read arXiv abstract and applicability description",
+          "title": "A Novel Convergence Analysis for Algorithms of the Adam Family",
+          "trigger": "Potential generic convergence theorem that might cover Amos"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete nonstationary limit on the simplest strongly convex objective is an algorithmic failure boundary for the exact published adaptive decay mechanism, particularly the independently generated t^-2 step mass. The result is not generic summable-step folklore because the coupled Amos buffer is analyzed explicitly, with a sharp x0 threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem uses beta=0 and no added epsilon: not evidence of default noisy deep-learning training failure.",
+    "Unindexed analysis of the exact Amos source algorithm could have identified the same summability pathology.",
+    "The x0<X_star trajectory after sign change is not classified.",
+    "The frozen potentially public AUDIT.json and METADATA.json each contain a scope_run_id operational provenance identifier. Public versions cannot be published or synchronized without verified complete sanitization. The unchanged private original blobs and all mathematical evidence are preserved."
+  ],
+  "schema_version": 1
+}
