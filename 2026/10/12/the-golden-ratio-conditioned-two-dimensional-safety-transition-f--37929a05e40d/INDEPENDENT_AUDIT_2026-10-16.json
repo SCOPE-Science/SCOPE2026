@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T17:12:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 0fb2cc556ec85a13de19b2167488d53b0e20bb53",
+        "Assigned verification.py blob 9aea479882e821942f86fe95e1dc4b8de1e1c305",
+        "Independent_checks.py GAUSSIAN_EXACT_SPECTRAL_WITNESSES_OK",
+        "Ryabchenko Qian Mou arXiv:2609.08277v1 Sections 3.1-3.3 and Appendix C"
+      ],
+      "rationale": "For a Gaussian projected-gradient control-variate estimator, write m=P_S g, r=g-m, s=||r||²/||g||² and t_d(s)=min(1,1/(ds)), with t(0)=1. Wick symmetry gives the exact one-step expected quadratic objective difference -alpha||g||²+(alpha²/2)[g^T H g+||r||² tr(H)+r^T H r+tau² M3(H)/4], M3=(tr H)^3+6 tr H tr(H²)+8 tr(H³). At tau=0 the criterion is gamma>=t_d(s) R/2. For d>=3 the trace defect Q=I-H/L, tr Q>=delta=1-1/kappa, and a minimum-eigenvalue direction orthogonal to gradient/hint span yield exact gamma=1+1/(2d kappa). For d=2 the minimum eigenvalue of gg^T+rr^T equals [1+s-sqrt(1-2s+5s²)]/2, and one-sided derivatives show the maximum at s=1/2, yielding gamma=5/4-(5-sqrt5)(1-1/kappa)/8. Equality witnesses exist for every kappa and dimension; gamma=1 is safe only if d=2 and kappa>=(5+sqrt5)/2. For tau>0 an explicit nonnegative sixth-moment term remains. Independent rational moment and spectral witness tests corroborated core formulas, not substituted for proof.",
+      "residual_risks": [
+        "Only the zero-radius directional-derivative limiting estimator has a uniform monotonicity threshold; fixed tau>0 adds a noise floor.",
+        "The exact projection hint is an oracle and the quadratic has unbounded gradient, so this is not the source high-probability or globally bounded-gradient theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 gives stochastic high-probability convergence under global bounded gradients; its hypotheses exclude nonconstant SPD quadratics and do not give an if-and-only-if one-step condition-number threshold.",
+          "Kozak orthogonal random-direction estimator and Feng-Wang variance reduction use different sampling/hint constructions."
+        ],
+        "reasoning": "Existing broader convergence statements do not dominate a sharp spectral conditioning frontier of this exact oracle step.",
+        "searches": [
+          "arXiv:2609.08277v1 Theorem 3.4 and Appendix C",
+          "arXiv:2107.03941v2 orthogonal random directions",
+          "arXiv:2205.14737v3 Gaussian Stiefel estimator bounds"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.08277v1 complete primary HTML",
+        "arXiv:2107.03941v2",
+        "arXiv:2205.14737v3",
+        "Resultary exact quadratic optimizer safety searches",
+        "Assigned RESULT.md and verification.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published projected-gradient oracle step is prescribed without the newly derived sharp quadratic gamma safety factor.",
+          "At d=2, exact new threshold crosses gamma=1 at kappa=(5+sqrt5)/2; at d>=3 every finite kappa has gamma>1. No inspected primary theorem states those implications."
+        ],
+        "reasoning": "The new result analyzes a motivated specific source algorithm at a mathematically natural boundary and exhibits attained counterexamples. It is not a routine consequence of the source approximate variance upper bound.",
+        "searches": [
+          "arXiv:2609.08277v1 oracle control variate direction reference step Section 3.3",
+          "arXiv:2107.03941v2 Section 4 and arXiv:2205.14737v3 estimator comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary 2026 oracle step t_d(s)/L and Gaussian estimator are reused verbatim. Its stated results control convergence from hint quality, not the exact worst-case conditional objective increase/decrease over SPD spectral condition number."
+        ],
+        "reasoning": "The instancewise spectral minimax condition is distinct from a generic smoothness bound or averaged rate, and the dimensional d=2 vs d>=3 gap has a separate Rayleigh-geometry proof.",
+        "searches": [
+          "Ryabchenko Qian Mou Gaussian control variate zeroth order projected gradient oracle step min 1/(ds)",
+          "arXiv:2609.08277v1 Section 3.3 equation (4) and Appendix C",
+          "Resultary directional hint Gaussian quadratic one-step safety condition number"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary exact conditioning thresholds concern LARS, LAMB, Polyak, or other optimizers. No matching prescribed Gaussian projected-gradient CV-ZOD minimax table was found."
+        ],
+        "reasoning": "This is a continuous minimax theorem, not a finite database fact; generic tabulated thresholds for other schemes are inapplicable because the stochastic estimator is different.",
+        "searches": [
+          "conditioned Gaussian hinted descent golden ratio threshold d=2 kappa",
+          "Resultary condition number optimizer descent frontier searches"
+        ]
+      },
+      "rationale": "Best-of-knowledge new exact one-step minimax expected-objective safety frontier for the same Gaussian projected-gradient oracle estimator, including a sharp two-dimensional golden-ratio transition and a higher-dimensional obstruction. Source estimator and general variance/convergence results are credited.",
+      "residual_risks": [
+        "Equivalent unindexed spectral minimax calculation could exist in older stochastic-gradient/control-variate literature.",
+        "The theorem does not transfer to stochastic practical-hint algorithms or positive-radius global descent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the oracle estimator/step and gives stochastic cumulative guarantee, not the sharp conditional quadratic spectral minimax theorem",
+          "evidence": "Ryabchenko, Qian, Mou 2026 arXiv:2609.08277v1",
+          "identifier_or_url": "https://arxiv.org/html/2609.08277v1",
+          "material_read": "Full open-access arXiv HTML: definition and assumptions, Sections 3.1–3.3, Theorem 3.4, proof Appendix C",
+          "method": "Open-access arXiv HTML full source inspection",
+          "title": "Adaptively Incorporating Directional Hints into Zeroth-Order Optimization",
+          "trigger": "Exactly same Gaussian hint/reference estimator and oracle step; highest priority check"
+        },
+        {
+          "assessment": "Different estimator and no projected-gradient control-variate sharp safety frontier",
+          "evidence": "Kozak et al 2021",
+          "identifier_or_url": "https://arxiv.org/abs/2107.03941",
+          "material_read": "Sections 2 and 4 concerning orthogonal directions and convergence",
+          "method": "Open access arXiv primary preprint",
+          "title": "Zeroth order optimization with orthogonal random directions",
+          "trigger": "Potential broader quadratic random-direction result"
+        },
+        {
+          "assessment": "Different random-frame estimator; its inequalities do not imply attained golden-ratio threshold",
+          "evidence": "Feng and Wang 2023",
+          "identifier_or_url": "https://arxiv.org/abs/2205.14737",
+          "material_read": "Sections 2-4 on estimators and bias/variance",
+          "method": "Open access arXiv primary preprint",
+          "title": "Stochastic Zeroth Order Gradient and Hessian Estimators: Variance Reduction and Refined Bias Bounds",
+          "trigger": "Potential stronger Gaussian moment estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ryabchenko Qian Mou arXiv:2609.08277v1 Sec 3.3",
+        "Exact spectral defect optimization and equality witnesses from source RESULT.md"
+      ],
+      "rationale": "This theorem supplies a sharp, attained safety criterion for the reference step of a newly studied Gaussian hinted zeroth-order optimizer. The unexpectedly different two-dimensional golden-ratio transition versus the d>=3 unavoidable discount is an informative exact boundary that a researcher implementing or analyzing this precise oracle would need, not an arbitrary parameter slice; it also identifies the finite-radius noise-floor limit.",
+      "residual_risks": [
+        "One-step conditional expectation only; no pathwise or entire-trajectory guarantee and no globally bounded-gradient theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Positive smoothing radius cannot satisfy a universal near-stationary monotonicity claim.",
+    "Publication metadata privacy and recursive Git-tree guard remain unresolved."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact conditional quadratic objective identity follows from Gaussian second, fourth, and sixth moments, including a parity cancellation of finite-difference cross terms. The d>=3 spectral trace bound is sharp with one minimum-curvature eigenmode outside the gradient/hint plane. In d=2 the two-eigenvalue Rayleigh minimization is exact and the envelope's two monotonicity derivatives force the cap-switch maximizer at residual proportion 1/2. Explicit rank-one spectral defects attain the bounds, proving both necessity and sufficiency. The bundled verifier independently checks a nonzero finite-radius identity by exact polynomial moments, a rational high-dimensional equality witness, and the planar boundary. Finite regression tests do not establish the universal theorem independently of the supplied analysis.
+## correctness
 
-**Originality — PASS with residual risk.** The motivating full-text work [1] develops the Gaussian reference estimator and an oracle step from a variance-descent balance; its results do not give a sharp spectral-condition-number classification of expected objective monotonicity, much less the opposite d=2 and d>=3 regimes. The inspected full texts of [2] and [3] use orthogonal-frame/random-subspace estimators and convergence or variance results, not the reference vector plus Gaussian oracle step being classified. Related published records on Polyak/BB objective monotonicity, random subspace moments, and feedback steps have different update maps, so their bounds do not imply this threshold by specialization. Prior general Gaussian-moment identities are acknowledged rather than claimed new. Search coverage is not a novelty proof, and unrelated unindexed precedent remains possible.
+PASS
 
-**Value — PASS.** A sharp dimension/conditioning phase diagram answers an operationally meaningful question not resolved by the source's generic variance-descent guarantee: when its natural undiscounted oracle step is expected-objective safe. The unexpected two-versus-higher-dimensional separation and exact golden-ratio condition number are accompanied by attained counterexamples and a finite-radius noise-floor identity, giving a precise benchmark for adaptive hint/step safeguards. There is no assertion of full algorithm convergence, practical hint estimation, or improvements to the source's high-probability guarantees.
+For a Gaussian projected-gradient control-variate estimator, write m=P_S g, r=g-m, s=||r||²/||g||² and t_d(s)=min(1,1/(ds)), with t(0)=1. Wick symmetry gives the exact one-step expected quadratic objective difference -alpha||g||²+(alpha²/2)[g^T H g+||r||² tr(H)+r^T H r+tau² M3(H)/4], M3=(tr H)^3+6 tr H tr(H²)+8 tr(H³). At tau=0 the criterion is gamma>=t_d(s) R/2. For d>=3 the trace defect Q=I-H/L, tr Q>=delta=1-1/kappa, and a minimum-eigenvalue direction orthogonal to gradient/hint span yield exact gamma=1+1/(2d kappa). For d=2 the minimum eigenvalue of gg^T+rr^T equals [1+s-sqrt(1-2s+5s²)]/2, and one-sided derivatives show the maximum at s=1/2, yielding gamma=5/4-(5-sqrt5)(1-1/kappa)/8. Equality witnesses exist for every kappa and dimension; gamma=1 is safe only if d=2 and kappa>=(5+sqrt5)/2. For tau>0 an explicit nonnegative sixth-moment term remains. Independent rational moment and spectral witness tests corroborated core formulas, not substituted for proof.
 
-**Literature and limits.** [1] arXiv:2609.08277v1, Sections 3.1–3.3 and Appendix C; [2] arXiv:2107.03941v2, Sections 2, 4.2–4.3; [3] arXiv:2205.14737v3, variance-estimator setup and main results. The classification is specifically quadratic, conditional one-step, exact-hint, and directional-derivative-limit. Equivalences in unindexed literature remain a risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new exact one-step minimax expected-objective safety frontier for the same Gaussian projected-gradient oracle estimator, including a sharp two-dimensional golden-ratio transition and a higher-dimensional obstruction. Source estimator and general variance/convergence results are credited.
+
+## value
+
+PASS
+
+This theorem supplies a sharp, attained safety criterion for the reference step of a newly studied Gaussian hinted zeroth-order optimizer. The unexpectedly different two-dimensional golden-ratio transition versus the d>=3 unavoidable discount is an informative exact boundary that a researcher implementing or analyzing this precise oracle would need, not an arbitrary parameter slice; it also identifies the finite-radius noise-floor limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
