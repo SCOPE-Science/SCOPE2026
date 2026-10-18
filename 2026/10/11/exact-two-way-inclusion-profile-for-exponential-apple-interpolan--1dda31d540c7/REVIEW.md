@@ -1,11 +1,21 @@
-# Scientific review: exact two-way inclusion profile
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof establishes univalence and positive real part for every stated generator by a derivative half-plane criterion and an explicit imaginary-strip bound. The Möbius integral estimate and Rouché's theorem prove the exact centered disk contained in the logarithmic image; the real upper support at \(z=1\) proves sharpness. A nonnegative-coefficient expansion gives the *exact* radial norm of the logarithm and identifies the unique threshold. The canonical extremal independently establishes failure beyond the radius. Lambert inversion and the small-parameter logarithmic asymptotic are derived algebraically, not from sampling. The standalone decimal program gives supplementary reproducible checks, not an infinite proof.
+## correctness
 
-**Originality — PASS with a material access risk.** The closest primary source is Sana–Saliu–Riaz (DOI 10.1155/jofs/5570573), whose complete accessible HTML section structure and theorem/proof prose concern the apple-like endpoint, coefficients, logarithmic coefficients and determinants, rather than this exact two-sided directed family comparison. Many displayed mathematics expressions did not survive the accessible HTML text extraction, so a formula-complete comparison was not possible; an equivalent statement in that material remains a risk. Das–Sarkar (arXiv:2606.15488) is advertised as inverse-logarithmic coefficient and determinant work, not exact directed inclusion. Devadiga et al. (arXiv:2608.15697) developed sharp directed comparisons for other Ma–Minda generators; its complete released generator catalog and 702-entry radius data were inspected and lack this apple-like interpolation. Separate semantic and alias searches of published research records and the recoverable earlier findings found no statement covering the two-way parameter law. No search guarantees the absence of unindexed equivalents.
+PASS
 
-**Value — PASS.** Directed inclusion radii are natural geometric invariants of normalized starlike classes, and a recent paper introduced the apple-like endpoint precisely by multiplying standard generators. The result determines both directions of comparison, not merely a sufficient bound, for a continuous family: full inclusion in one direction, an exact Lambert-function sharp cutoff in the other, an exact logarithmic-image inradius, and a nonanalytic \(q\log(1/q)\) boundary loss. This is more informative than an isolated numerical radius or a routine coefficient substitution; it explains how adding an arbitrarily small positive power changes the sharp geometric containment.
+For every real q in [0,1/2] the principal h_q(z)=z+q log(1+z) has Re h_q' >0, so is univalent; the explicit boundary imaginary-strip bound |Im h_q|<3/2<π/2 makes exp∘h_q univalent with positive real part. The logarithmic image has largest centered Euclidean disk of radius 1+q log 2: the integral Re(h_q(z)/z)>=1+q log2 supplies the Rouché lower disk and the negative real boundary point −1−q log2 supplies upper support. Thus the exponential generator is subordinate to every interpolant and S_0⊂S_q. Positive Taylor coefficients in −h_q(−z) give max_|z|=r |h_q(z)| = r−q log(1−r), so reverse r-dilation is equivalent to r−q log(1−r)≤1. Equality has unique solution R_q=1−qW(1/q) and the canonical extremal for the q=0 target fails for r>R_q; q=0 limit and q=1/2 endpoint are treated separately. Expansion of W gives stated small-q logarithmic-logarithmic asymptotic. Independent decimal bisection q=1/2,1/4,1/8 checked root residuals, not all q.
 
-Limits: only \(0\le q\le1/2\); no claim about larger parameters, no global classification of inclusion radii for other target generators, no assertion of novelty certification. All mathematical assertions are same-model reviewed, not independently audited.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the exact all-real-q two-direction profile, logarithmic-image inradius, and Lambert-W sharp reverse radius are not stated by the inspected apple-like endpoint coefficient/Hankel literature. The 702-comparison geometric-function atlas deals with registered named generators, but the inspected abstract does not imply the continuous one-parameter exponential–apple product theorem. Noncompleted Resultary and inadequately rendered source formulas retain material prior-coverage risk.
+
+## value
+
+PASS
+
+The all-q family interpolates between naturally used exponential and apple-like starlike classes, so exactly distinguishing forward from reverse inclusion is a motivated geometric-function problem. The sharp continuum threshold, exact logarithmic inradius, explicit extremal, and singular q→0 asymptotics add nontrivial analytic information beyond coefficient bounds; this is not an arbitrary slice or normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
