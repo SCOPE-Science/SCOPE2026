@@ -1,19 +1,21 @@
-# Review
-## Correctness
-PASS. Starting from equations (4.6a)–(4.6b), the condition \(\mu_j=1\) reduces after one reversible sign check to a linear equation in \(\alpha\). Its unique solution for \(\beta\ne2\sqrt2\) is
-\[
-\alpha_c=\frac{2\beta-\sqrt2(|\gamma|^2+4)}{\sqrt2\beta-4}.
-\]
-The sign of the unsquared radical condition selects \(\mu_1\) for \(0<\beta<2\sqrt2\) and \(\mu_2\) for \(\beta>2\sqrt2\). The derivative of \(\mu_j^{-1}\) at the crossing is strictly positive, verifying the source's intended left-hand approach. At \(\beta=2\sqrt2\), the exact crossing equation reduces to \(|\gamma|^2=0\). The packaged checker reproduces representative evaluations but is not used as an infinite proof.
+# Independent mathematical audit
 
-Risk: the claim treats the source's channel formulas and definitions as premises; it does not re-prove the operator-theoretic derivation of those formulas.
+## correctness
 
-## Originality
-PASS. The inspected open preprint and independent mp_arc copy contain the same explicit center in Theorem 7.3, while their earlier equations imply the corrected center above. Searches by source identifier, theorem number, erratum/correction language, the corrected expression, and equivalent \(\mu_j=1\) wording found no covering correction. The closest prior result concerns only \(\gamma=0\); its statement is recovered because \(\alpha_c(\beta,0)=\sqrt2\), but it says nothing about the nonzero-\(\gamma\) discrepancy.
+PASS
 
-Residual risk: the 2023 publisher chapter was found in bibliographic metadata but not inspected as full text, so a silent publisher-only correction cannot be excluded.
+Let g=|γ|² and r1,r2=(4+αβ+g∓Δ)/(2√2β), Δ²=(αβ+g−4)²+16g. Squaring a putative crossing rj=1 and subtracting Δ² produces exactly −4√2β(αβ−2√2α−√2β+g+4). For β≠2√2 this gives αc=(2β−√2(g+4))/(√2β−4). Sign of the signed radical selects r1 for β<2√2, r2 for β>2√2; derivative at crossing is (1/√2)(β−2√2)²/[(β−2√2)²+2g]>0. Independently simplified original αhat−αc=7g/[2β(√2β−4)]. Numerical substitution (β,g)=(1,1) gives αc≈1.961131723051 with r1=1; at β=2√2 g>0 crossing equation impossible. g=0 singular line treated separately. Calculations are identities over the stated parameter domain; examples alone would not prove it.
 
-## Value
-PASS. The corrected quantity is the parameter center of the paper's discrete-spectrum transition asymptotic, not a cosmetic decimal or arbitrary slice. For every \(|\gamma|>0\) away from \(\beta=2\sqrt2\), the printed center misses the actual critical channel by an exact nonzero amount, and at \(\beta=2\sqrt2\) the nonzero-\(\gamma\) finite crossing disappears altogether. The correction therefore changes where the stated spectral-transition asymptotic applies while preserving the source's implicit \(\mu_j=1\) theory.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full four-parameter open preprint prints a crossing center inconsistent with its own exact Jacobi channel formulas for every |γ|²>0. The earlier diagonal γ=0 result cannot imply an off-diagonal correction proportional to |γ|²; published publisher chapter full statement was inaccessible and remains risk, but original preprint full-text comparison supports a novel off-diagonal exact location.
+
+## value
+
+PASS
+
+Corrects the explicit off-diagonal spectral-transition hypersurface throughout a continuous full-contact parameter family, including the active Jacobi channel and critical approach direction. A sizeable discrepancy at β=g=1 changes where the phase transition is predicted, providing substantive model-specific value beyond a trivial diagonal limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

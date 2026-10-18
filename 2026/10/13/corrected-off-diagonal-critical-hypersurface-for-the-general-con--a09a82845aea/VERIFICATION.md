@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,45 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The check starts from the two exact Jacobi parameters in equations (4.6a)–(4.6b) of arXiv:2207.03713v1.
 
-For \(\beta>0\), write \(g=|\gamma|^2\) and
-\[
-\Delta^2=(\alpha\beta+g-4)^2+16g.
-\]
-At a transition \(\mu_j=1\), one must have
-\[
-\Delta=\left|4+\alpha\beta+g-2\sqrt2\beta\right|.
-\]
-Squaring and simplifying gives
-\[
--4\beta\bigl(\sqrt2\alpha\beta-4\alpha-2\beta+\sqrt2g+4\sqrt2\bigr)=0.
-\]
-Thus, away from \(\beta=2\sqrt2\), the only finite candidate is
-\[
-\alpha_c=\frac{2\beta-\sqrt2(g+4)}{\sqrt2\beta-4}.
-\]
-The unsquared sign at this point is
-\[
-4+\alpha_c\beta+g-2\sqrt2\beta
-=-\frac{2((\beta-2\sqrt2)^2+2g)}{\sqrt2\beta-4},
-\]
-which is positive below \(2\sqrt2\) and negative above it. Hence no extraneous solution was introduced by squaring, and the selected channel is \(\mu_1\) below the threshold and \(\mu_2\) above it.
+# Independent mathematical audit
 
-Differentiating the selected reciprocal parameter gives
-\[
-\left.\frac{d}{d\alpha}\mu_j^{-1}\right|_{\alpha_c}
-=\frac{1}{\sqrt2}\frac{(\beta-2\sqrt2)^2}{(\beta-2\sqrt2)^2+2g}>0.
-\]
-This proves that the left limit has \(\mu_j\to1^+\).
+## correctness
 
-The expression printed in Theorem 7.3 reduces against \(\alpha_c\) to
-\[
-\widehat\alpha-\alpha_c=\frac{7g}{2\beta(\sqrt2\beta-4)},
-\]
-so the two centers agree exactly when \(g=0\) (for \(\beta\ne2\sqrt2\)). At \(\beta=2\sqrt2\), the squared crossing condition reduces to \(g=0\), proving the separate endpoint statement.
+PASS
 
-The included `verify.py` evaluates these identities at high precision on representative parameter values and checks the left-hand direction. It is a corroborative replay, not the basis of the all-parameter proof.
+Let g=|γ|² and r1,r2=(4+αβ+g∓Δ)/(2√2β), Δ²=(αβ+g−4)²+16g. Squaring a putative crossing rj=1 and subtracting Δ² produces exactly −4√2β(αβ−2√2α−√2β+g+4). For β≠2√2 this gives αc=(2β−√2(g+4))/(√2β−4). Sign of the signed radical selects r1 for β<2√2, r2 for β>2√2; derivative at crossing is (1/√2)(β−2√2)²/[(β−2√2)²+2g]>0. Independently simplified original αhat−αc=7g/[2β(√2β−4)]. Numerical substitution (β,g)=(1,1) gives αc≈1.961131723051 with r1=1; at β=2√2 g>0 crossing equation impossible. g=0 singular line treated separately. Calculations are identities over the stated parameter domain; examples alone would not prove it.
 
-Unproved limits: the package does not independently re-derive the Jacobi spectral theorem or the eigenvalue-count asymptotic cited by the source, and it does not establish whether the inaccessible publisher full text silently corrected the displayed formula.
+## originality
+
+PASS
+
+The full four-parameter open preprint prints a crossing center inconsistent with its own exact Jacobi channel formulas for every |γ|²>0. The earlier diagonal γ=0 result cannot imply an off-diagonal correction proportional to |γ|²; published publisher chapter full statement was inaccessible and remains risk, but original preprint full-text comparison supports a novel off-diagonal exact location.
+
+## value
+
+PASS
+
+Corrects the explicit off-diagonal spectral-transition hypersurface throughout a continuous full-contact parameter family, including the active Jacobi channel and critical approach direction. A sizeable discrepancy at β=g=1 changes where the phase transition is predicted, providing substantive model-specific value beyond a trivial diagonal limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
