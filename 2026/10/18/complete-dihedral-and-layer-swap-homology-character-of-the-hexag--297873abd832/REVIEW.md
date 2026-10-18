@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The claim is for the perfect-matching subcomplex of the hexagonal prism, not the ordinary matching complex. Exact recursive enumeration yields twenty perfect matchings and 822 faces including the empty face. The accompanying executable checks the integer augmented chain identities and exactly 408 unit-pivot cancellations, leaving six free degree-two generators and no differential. Signed fixed-face Lefschetz sums then determine all 24 traces. They agree with the claimed sum of four rational irreducible representations (two lines and two planes). No finite experiment is substituted for an infinite claim: this is a finite graph, completely enumerated.
+
+**Originality: PASS, with limitations.** Agarwal and Basak's arXiv:2608.30601v2 Theorem 25 gives the non-equivariant wedge \(\bigvee^6 S^2\) for the same graph. Its proof provides no equivariant character, and the rank-six result alone does not imply the action. The closest published related symmetry records address circular-ladder independence complexes, a hexagonal-prism total three-cut complex, a linear six-rung ordinary matching complex, or Möbius-ladder perfect-matching complexes; none is a logically equivalent theorem. Source summaries are not whole-document novelty certification; unindexed literature and inaccessible full texts remain residual risks.
+
+**Mathematical value: PASS.** The hexagonal prism is the first circular-ladder case with the extra four-sphere homology contribution. The full natural action separates a layer-even frequency-one two-plane from a layer-odd frequency-two two-plane, besides two distinct one-dimensional dihedral characters. It distinguishes a combined symmetry of trace \(-4\) from all nontrivial rotations of trace zero, supplying exact structural information the known Betti numbers do not determine.
+
+**Scope and limits.** The representation is over \(\mathbb Q\) and is not a statement about an integral group-ring module or a general formula at other prism lengths. The full text of the closest 2026 preprint was inspected; related published-record excerpts and older abstracts were considered according to available access.
+
+Self-review: passed. Independent audit: not yet performed.
