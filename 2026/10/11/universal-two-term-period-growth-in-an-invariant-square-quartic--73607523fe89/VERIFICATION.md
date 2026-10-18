@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the period expansion
+# Independent mathematical audit
 
-The standalone `verify_period.py` uses SymPy to reconstruct the algebraic identities \(\dot H=0\), \((r^{-1}-1)\,dU/dr=((1+r)(1+z r))^{-1}\), and the exact derivative and endpoint values of the proposed elementary antiderivative. It was run against the extracted package version and returned `CHECK_OK`.
+## correctness
 
-The decisive infinite-energy step is analytic, not experimental: the nonnegative defect functions are decreasing and integrable on \((0,\infty)\), so their convolution at \(E\) tends to zero by a two-half-interval estimate. The proof also verifies that the normalized energy levels are closed and regular, and that no time reparametrization is used.
+PASS
 
-For the checkable \(p=q=0\) case, the exact elliptic formula gives the observed values \(T(2)-8\approx5.589308028589\), \(T(4)-16\approx5.546649149481\), and \(T(7)-28\approx5.545183586400\). Their target \(8\log2\approx5.545177444480\) is consistent, but the numerical values alone prove no infinite limit.
+C: A=(1−x²)(1+px) and B=(1−y²)(1+qy) positive in (-1,1). Direct differentiation verifies H=∫x/A+∫y/B is conserved, proper and has one positive oval per E. On every quadrant u=F_p(x) satisfies du/dt=−xy, yielding exact inverse-coordinate integral. With f_{σ,p}=r_{σ,p}^{−1}−1 integrable near u=0 (O(u^-1/2)) and infinity (exponential), ∫f=J(σp). Four integrations produce 4E and twice each J. The convolution f*g(E)→0 by monotonicity and L1 boundedness, not by a finite sample. The elementary J antiderivative is correct and the p=q=0 elliptic normalization matches.
 
-No examination or certification by an independent auditor is asserted. The literature comparison leaves an explicit residual access risk concerning Villadelprat and Zhang (2019/2020), whose abstract describes general boundary-period behavior.
+## originality
+
+PASS
+
+O: Earlier primary same-model work defines the square and center strata, but not a normalized original-time two-term period growth with the four explicit offset terms. Hamiltonian period results use a different physical clock; no searched Resultary stronger entry dominates. Risks include unavailable full Villadelprat–Zhang text.
+
+## value
+
+PASS
+
+V: The physical period is a natural invariant of a global center near invariant-square boundaries. Its universal divergent slope with explicitly parameter-dependent next term is a substantive asymptotic beyond local center existence and finite-period tables; it can guide comparisons across quartic strata.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

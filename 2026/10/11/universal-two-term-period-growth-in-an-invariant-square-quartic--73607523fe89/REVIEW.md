@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact first integral has a proper positive energy foliation on the square because both one-dimensional energy components are positive and diverge at the invariant boundary. The identity \(\dot F_p=-xy\) gives a physical-time quadrant integral with integrable square-root endpoints. Its reciprocal-coordinate decomposition isolates a universal \(E\) per quadrant; the two marginal terms have elementary exact integrals \(J(\sigma p)\), and the remaining convolution vanishes by monotonicity and integrability. The symbolic checker independently verifies the algebraic identities, and the \(p=q=0\) elliptic case verifies the period normalization. Neither numerics nor the checker alone establishes the limit; the complete analytic argument is in `RESULT.md`.
+## correctness
 
-**Originality — PASS with residual source-access risk.** The 2024 motivating paper, inspected through its full open HTML text including the center case and appendix, gives center conditions and an integrating factor but not the full-square physical-time period asymptotics. The 2026 full-text period-criterion paper concerns monotonicity of canonically Hamiltonian dynamics. The closest 2019/2020 paper studies general separable Hamiltonian period functions, including boundary limits; only its abstract and publisher preview could be read. Its stated results do not directly determine an additive constant for the *original time* of this conformally Hamiltonian quartic family. This uncertainty is recorded explicitly rather than represented as a whole-document negative search. Targeted literature and published-mathematical-record searches found no directly covering statement, but they do not establish exhaustive novelty.
+PASS
 
-**Value — PASS.** The invariant-square boundary is a natural global end of the entire center annulus, so the high-energy period is a canonical dynamical invariant of the model, not an arbitrary finite slice. The exact affine asymptotic quantifies divergence near four saddle corners; its parameter-independent slope and explicit parameter-dependent offset distinguish universal boundary geometry from coefficient dependence. It strengthens a local center classification to a global quantitative description in the physical time.
+C: A=(1−x²)(1+px) and B=(1−y²)(1+qy) positive in (-1,1). Direct differentiation verifies H=∫x/A+∫y/B is conserved, proper and has one positive oval per E. On every quadrant u=F_p(x) satisfies du/dt=−xy, yielding exact inverse-coordinate integral. With f_{σ,p}=r_{σ,p}^{−1}−1 integrable near u=0 (O(u^-1/2)) and infinity (exponential), ∫f=J(σp). Four integrations produce 4E and twice each J. The convolution f*g(E)→0 by monotonicity and L1 boundedness, not by a finite sample. The elementary J antiderivative is correct and the p=q=0 elliptic normalization matches.
 
-**Scope and risks.** The proof does not cover other parameter strata or the limiting parameters \(|p|=1\) or \(|q|=1\). The 2019/2020 general period paper was unavailable in full despite lawful full-text searches; comparison with its undisclosed results remains a novelty risk. No independent audit has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+O: Earlier primary same-model work defines the square and center strata, but not a normalized original-time two-term period growth with the four explicit offset terms. Hamiltonian period results use a different physical clock; no searched Resultary stronger entry dominates. Risks include unavailable full Villadelprat–Zhang text.
+
+## value
+
+PASS
+
+V: The physical period is a natural invariant of a global center near invariant-square boundaries. Its universal divergent slope with explicitly parameter-dependent next term is a substantive asymptotic beyond local center existence and finite-period tables; it can guide comparisons across quartic strata.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
