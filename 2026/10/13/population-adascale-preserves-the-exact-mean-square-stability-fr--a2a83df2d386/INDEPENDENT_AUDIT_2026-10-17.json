@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T20:10:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For scalar i.i.d. nonnegative curvature A with mu>0 and finite v, single-step batch mean curvature has mean mu and second moment d=mu^2+v/S. The exact AdaScale population-gain definition from the original algorithm gives r_S=q/d with q=mu^2+v, a constant after cancellation of the common state second-moment factor. Conditioning on x_t, E[(1-alpha r_S Abar)^2]=1+[q/d](alpha^2 q-2alpha mu), independent of x_t. Fresh batches yield E[x_t^2]=Q^t x0^2. Therefore the sharp base-rate MSE contraction interval is 0<alpha<2mu/q independent of S; minimizing Q gives alpha*=mu/q, Q*=v/(S mu^2+v). Plain S-fold linear scaling has the strictly smaller bound 2mu/(S mu^2+v) for S>1. Handles v=0 and zero-iterate continuation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original 2020 result assumes globally bounded gradient variance and derives general PL convergence bounds, not sharp random-curvature Q_S. General control-theoretic multiplier criteria do not encode AdaScale gain."
+        ],
+        "reasoning": "The original theorem is inapplicable to v>0 multiplicative curvature on whole real line, so it cannot dominate the exact model-specific sharp frontier. General multiplicative-noise theory supplies algebraic tools but not the explicit AdaScale cancellation.",
+        "searches": [
+          "Johnson et al. 2020 AdaScale Algorithm 2 Assumption 3 and Theorem 2",
+          "Yan–Su–Gao 2022 DOI:10.1002/rnc.6161 mean-square strong stability multiplicative noise"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2007.05105v1",
+        "PMLR 119:4911-4920 (2020)",
+        "DOI:10.1002/rnc.6161"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 2 gives r_S=E[sigma_g^2+mu_g^2]/E[sigma_g^2/S+mu_g^2]; for g=Ax the model-specific cancellation r_S=q/(mu^2+v/S) yields an S-independent sign of Q_S-1."
+        ],
+        "reasoning": "The published gain plus elementary second-moment algebra makes the exact result readily derivable, but the full source does not state or imply the sharp identical alpha interval under its general global bounded-variance theorem. The specific combined benchmark is credited while the method is not claimed novel.",
+        "searches": [
+          "AdaScale 2020 Algorithm 2 and Theorem 2 full HTML",
+          "mean-square multiplicative noise linear recursion classical",
+          "Yan–Su–Gao 2022 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The generic multiplicative-noise SGD stability multiplier 1-2eta mu+eta^2(mu^2+v/S) is standard, but the nontrivial compared identity concerns eta=alpha r_S with gain depending on S."
+        ],
+        "reasoning": "The theorem is algebraically an exact substitution of the published population-gain formula into a scalar second-moment recursion. No different terminology search yielded an already explicit scale-invariance equality; the standard method and its limits are credited.",
+        "searches": [
+          "AdaScale mean-square stability random quadratic multiplicative curvature web",
+          "mean-square stochastic scalar quadratic stochastic gradient recursion",
+          "Johnson et al. AdaScale arXiv:2007.05105v1 Algorithm 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original AdaScale source contains experimental plots and bounded-variance bound, not a numerical table of exact random-curvature stability boundaries."
+        ],
+        "reasoning": "No natural exact database table exists for all real curvature distributions; the theorem is parameter-uniform and derived from moments. Resultary unavailability limits external indexed-record comparison.",
+        "searches": [
+          "Resultary semantic query attempted: AdaScale population gain mean-square stability stochastic quadratic multiplicative curvature scale-independent threshold",
+          "SCOPE2026 GitHub code search: AdaScale mean-square (no hits)",
+          "arXiv:2007.05105v1 Algorithm 2 numerical experiments"
+        ]
+      },
+      "rationale": "The AdaScale original Johnson–Agrawal–Gu–Guestrin 2020 Algorithm 2 defines precisely the gain ratio, and Theorem 2 supplies a bounded-variance PL convergence upper bound. Its Assumption 3 globally bounds variance and fails for scalar multiplicative noise v>0. The exact random-curvature multiplier, sharp all-S stability frontier, and optimizer are not given in the inspected full source; generic mean-square multiplicative-noise theory contains the recursion method but not the gain cancellation. The contribution is a sharp algorithm-specific benchmark, not a broad new stochastic-stability lemma.",
+      "residual_risks": [
+        "Resultary semantic-search connection was UNAVAILABLE during this run; this is a search-access limitation, not evidence of novelty or an automatic scientific rejection.",
+        "General scalar random-gain stability theorem may mechanically imply the exact recurrence; novelty is restricted to the algorithm-specific scale cancellation.",
+        "Does not analyze finite-sample moving-average gain, multivariate Hessians or almost-sure convergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the population gain and general bounded-variance PL rate, but no exact multiplicative-curvature MSE frontier.",
+          "evidence": "Algorithm 2 uses ratio of expected sigma_g^2+mu_g^2 to sigma_g^2/S+mu_g^2; Assumption 3 globally bounded variance; Theorem 2 upper bounds E[F(x_T)-F*].",
+          "identifier_or_url": "arXiv:2007.05105v1",
+          "material_read": "Full original ar5iv HTML paper, Algorithm 2 gain/update and Assumptions 1–3, Theorems 1 and 2, comparator rule and results; searched for mean-square.",
+          "method": "primary full-text HTML",
+          "title": "AdaScale SGD: A User-Friendly Algorithm for Distributed Training",
+          "trigger": "Original exact algorithm and possible stronger convergence statement"
+        },
+        {
+          "assessment": "General mean-square criteria could imply scalar multiplier but do not establish they treat AdaScale gains; explicit technical full text remains a risk.",
+          "evidence": "2022 subject is mean-square stability of multiplicative-noise systems, not AdaScale-specific scaling rule.",
+          "identifier_or_url": "DOI:10.1002/rnc.6161",
+          "material_read": "Bibliographic title and abstract in originating primary source references; full article not read.",
+          "method": "bibliographic reference / abstract",
+          "title": "Mean-square strong stability and stabilization of discrete-time stochastic systems with multiplicative noises",
+          "trigger": "General potentially stronger control-theoretic coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mathematically motivated question is whether scale changes the precise safe base-rate interval in variance-adaptive parallel stochastic-gradient descent. On a natural random-curvature quadratic the answer has an exact all-scale boundary and contraction-rate formula, distinguishing AdaScale from conventional S-linear learning rates. Although scalar and algebraically compact, it provides a useful normalization/stability benchmark beyond general asymptotic loss bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Resultary semantic-search connection was UNAVAILABLE during this run; this is a search-access limitation, not evidence of novelty or an automatic scientific rejection.",
+    "General scalar random-gain stability theorem may mechanically imply the exact recurrence; novelty is restricted to the algorithm-specific scale cancellation.",
+    "Does not analyze finite-sample moving-average gain, multivariate Hessians or almost-sure convergence."
+  ]
+}
