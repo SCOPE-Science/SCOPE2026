@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-color construction for three broadcast-dominating parts is explicit; the lower bound uses an induced four-vertex path. For \(k\ge4\), the diameter-three restriction makes every label \(\ge3\) unique. The proof classifies independent dominating sets and uses the impossibility of splitting the color-one vertices into two dominating independent groups. For the only delicate branch, two opposite-side label-two leaves would each need a different center of label one in its part, contradicting the independence of the label-one class. The remaining branches prove both lower bounds and characterize exactly when \(k\) colors suffice. Constructions attain all cases, including \(k=N\). Exhaustive bounded checks corroborate the all-parameter proof, not vice versa.
+## correctness
 
-## Originality — PASS, with residual risk
-Brešar, Ferme, and Hu (arXiv:2610.03477v1, 2026-10-02) define the invariant and analyze paths, cycles, diameter-two graphs and other constructions. Their four-vertex path is a previously covered special case, explicitly excluded from the novelty claim as a standalone fact. Their results neither imply nor state the full diameter-three double-star spectrum. Kristiana et al. (doi:10.19139/soic-2310-5070-2047) determine ordinary packing chromatic values on double stars; their parameter is not the domatic class count. Published finding queries and related primary-literature comparisons revealed no exact equivalent theorem. Unindexed work and limited search recall remain residual risks.
+PASS
 
-## Value — PASS
-The theorem classifies the complete spectrum of a new domination/coloring invariant on every nondegenerate double star and identifies exactly two possible exceptional class counts, both determined by the pendant degrees. The characterization is an all-orders structural theorem, not a routine small-graph table or a pre-known coloring value.
+Every label i>=3 appears only once in a diameter-three tree, and label 2 can appear at most twice on opposite-side leaves. No two all-one color parts can simultaneously dominate; an independent dominating set is exactly all leaves, {U}∪B or {V}∪A. Two opposite-side label-2 anchors cannot support k singleton-anchor groups without forcing adjacent centers color 1. A t=k coloring therefore exists only when one label-2 center is a broadcast singleton and complement is an independent dominating set of center-type cardinality; constructions give t=k for exceptions and t=k+1 generally. The 4-vertex path lower bound gives t>=3 for all k<=3.
 
-## Limitations
-The theorem makes no claim for diameter-four trees or altered definitions. Only finite examples were computationally checked; the written universal proof bears the mathematical conclusion. Independent external audit is not yet performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating Brešar-Ferme-Hu paper defines and studies the same k-domatic packing parameter; the inspected original covers paths/cycles and subdivided double stars, not the exact all-k spectrum of the non-subdivided diameter-three double-star family. Earlier ordinary packing coloring results supply only the k=1 boundary.
+
+## value
+
+PASS
+
+The exact all-k palette spectrum identifies two exceptional class positions determined by the two pendant multiplicities. This is a natural structural family with a nontrivial phase pattern beyond generic graph bounds; it is not just an arbitrary small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-Run `python verify_double_star.py` under Python 3.9 or later. The source file and `verification_output.txt` contain the executed code and observed terminal output.
+# Independent mathematical audit
 
-The first loop constructs the two centers and their pendant leaves, computes all graph distances, checks each proposed coloring for every ordered parameter pair \(1\le a,b\le14\) and every \(2\le k\le N\), confirms strict packing distances between equal colors, and verifies every broadcast-dominating partition part. There are 3,136 such profiles.
+## correctness
 
-The second independent test exhaustively scans three vertex-status choices—label one, label two, or a unique high label—and enumerates all all-low dominating groups for \(a,b\le4\), \(a+b\le6\). Since the graph diameter is three, distinct high-status vertices necessarily have distinct labels, so no possible \(k\)-palette coloring is omitted from this reduced search. It checks the predicted palette equality for 58 profiles. These checks do not themselves certify infinitely many graphs.
+PASS
 
-The mathematical proof in `RESULT.md` is independent of the finite tests. In particular, the classification of independent dominating sets, the two-label-two-leaf contradiction, and the explicit upper constructions are stated for all positive integer pendant counts. No external audit was performed.
+Every label i>=3 appears only once in a diameter-three tree, and label 2 can appear at most twice on opposite-side leaves. No two all-one color parts can simultaneously dominate; an independent dominating set is exactly all leaves, {U}∪B or {V}∪A. Two opposite-side label-2 anchors cannot support k singleton-anchor groups without forcing adjacent centers color 1. A t=k coloring therefore exists only when one label-2 center is a broadcast singleton and complement is an independent dominating set of center-type cardinality; constructions give t=k for exceptions and t=k+1 generally. The 4-vertex path lower bound gives t>=3 for all k<=3.
+
+## originality
+
+PASS
+
+The initiating Brešar-Ferme-Hu paper defines and studies the same k-domatic packing parameter; the inspected original covers paths/cycles and subdivided double stars, not the exact all-k spectrum of the non-subdivided diameter-three double-star family. Earlier ordinary packing coloring results supply only the k=1 boundary.
+
+## value
+
+PASS
+
+The exact all-k palette spectrum identifies two exceptional class positions determined by the two pendant multiplicities. This is a natural structural family with a nontrivial phase pattern beyond generic graph bounds; it is not just an arbitrary small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
