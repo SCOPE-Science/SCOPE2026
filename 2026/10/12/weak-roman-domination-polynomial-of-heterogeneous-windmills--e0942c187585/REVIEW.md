@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The weak Roman condition is rewritten as a statement about the positive support after each allowed one-unit move. In a clique windmill, a positive center dominates the whole graph, while a zero center requires a positive vertex in every blade. That observation makes the three center-label cases exhaustive: label \(2\) at the center is unrestricted; label \(1\) permits at most one empty blade; label \(0\) permits none. The generating function follows by multiplying the nonempty-blade polynomials. The minimum layer is then read from the lowest possible weights in those same disjoint cases.
+## correctness
 
-The standalone verifier directly evaluates the definition on every labeling for six small heterogeneous windmills and agrees with the structural criterion, every polynomial coefficient, and the stated minimum counts. The finite checks support the proof but are not used as an infinite certificate.
+PASS
 
-## Originality
-**PASS.** The closest exact all-function result found for the same invariant is the weak Roman domination polynomial of complete multipartite graphs. It does not cover the present family when every blade has size at least two: vertices inside a blade are adjacent while vertices in distinct blades are nonadjacent, which is incompatible with complete multipartite nonadjacency classes. Searches also covered friendship-graph, generalized-windmill, block-graph, and join-of-cliques aliases.
+For graph K1 vee (disjoint clique blades B_i), after any one-unit move the positive support dominates iff the center is positive OR, when center zero, every blade contains a positive vertex. Splitting by original center label yields exact exhaustive cases: center 2 permits any labels on blades; center 1 permits at most one entirely zero blade (an empty blade must be defended by center, after which other blades must remain nonempty); center 0 requires every blade nonempty and is sufficient because donor moves within any blade retain support there, while a donor to zero center renders whole graph dominated. Therefore with T=1+x+x², Ai=T^{mi}-1, M=Σmi, W=x²T^M+(1+x)ΠAi+xΣ_i Π_{j!=i}Aj. At x=1 total count 3^M+2Π(3^{mi}-1)+Σ_iΠ_{j!=i}(3^{mj}-1); min weight 2, with (m1+1)(m2+1) minimizers for r=2, unique center-2 minimizer for r>=3. An independently implemented literal zero-vertex move/dominating support enumerator matched full polynomial and minima for (2,2),(2,3),(3,3),(2,2,2),(2,2,3). It is a finite consistency check; symbolic case proof covers all r>=2 and mi>=2.
 
-The closest same-object prior finding is a Roman domination polynomial for generalized windmills. Roman domination is strictly stronger: the present center-label-one case allows weak Roman functions with no label \(2\), so that polynomial cannot imply the claimed weak Roman enumerator. Other earlier windmill findings concern different domination or resolving/forcing predicates.
+## originality
 
-The 2011 weak Roman paper on trees and split graphs was available through abstract and bibliographic records but not readable full text through the available access route. Its advertised scope does not contain the claimed windmills or an all-function enumerator, but this remains a residual literature risk rather than negative full-text evidence.
+PASS
 
-## Value
-**PASS.** Heterogeneous windmills form a natural cut-vertex family containing friendship graphs and unequal clique windmills. The result gives a complete feasible-function classification and a closed factorized polynomial for every weight. The empty-blade rule exposes a simple but nontrivial transition controlled by the center label, and the minimum layer changes sharply from \((m_1+1)(m_2+1)\) optimal functions for two blades to a unique optimum for at least three blades.
+Earlier weak Roman domination results define/general-bound the invariant; a published Resultary formula for complete multipartite graphs does not specialize, because blades are cliques and separate blades are anticomplete; its complement is different and weak Roman domination is not invariant under complementation. Roman-domination polynomials of generalized windmills count a stricter class (functions with no label 2 in the center-1, one-empty-blade case show separation). Same-object general position and dissociation polynomials count different predicates. The 2011 Pushpam–Mai weak Roman paper is only abstract/bibliographic access, so best-known PASS retains an explicit priority risk, not a whole-document noncoverage assertion.
 
-## Closest literature and limitations
-The foundational 2003 paper supplies the invariant. A 2014 paper gives general bounds and includes a cactus subfamily, relevant to friendship graphs, but not an all-function count. The main access limitation is incomplete full-text inspection of the 2011 split-graph paper; no global uniqueness claim is made.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Heterogeneous windmills (unequal clique blades, universal cut vertex, friendship graph subfamilies) are a natural graph class. The theorem enumerates every feasible weak Roman defense function by weight and exactly its minimum-layer multiplicity, not merely an easy minimum parameter. Distinct center states and allowable empty blades yield a reusable product formula with a real r=2 vs r>=3 extremal transition; there is no inspected preexisting table that mechanistically supplies its coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
