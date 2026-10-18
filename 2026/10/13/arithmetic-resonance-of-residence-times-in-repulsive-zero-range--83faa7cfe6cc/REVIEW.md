@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized product stationary measure is directly checked using the exact zero-range detailed-balance ratios, including entrance and exit. Finite Poisson immigration bounds growth of total particle number and gives nonexplosion. The stationary Little identity is applied to the full, finite positive-mean branch, not to a tip-started trajectory. Completing the square gives a nonnegative Gaussian conditioned on nonnegative occupations; its removed negative tail is summable as depth increases. The rational cyclic average, irrational equidistribution, Fourier Diophantine boundedness, and exponential grid-filter suppression follow from explicit standard arguments. The complete analytic proof establishes unbounded-depth limits; `verify.py` checks finite examples only.
+## correctness
 
-## Originality — PASS, with residual priority uncertainty
-The closest primary article, Majumder–Barma, arXiv:2601.09962v1, supplies the model, product branch profile, and qualitative periodic plateaus. Its full Sections II–VI were inspected. No all-depth arithmetic coefficient classification, exponentially small large-denominator coefficient, or Diophantine \(O(1)\) remainder was identified. Little's stationary identity is established prior theory and is not treated as original. The new coefficient is implied in principle by the source's exact one-site density formula together with additional asymptotic analysis, but is not stated or proved there. Related zero-range-methodology literature was checked at abstract level; implicit or unindexed equivalent consequences remain possible.
+PASS
 
-## Value — PASS
-The primary physical model displays field/repulsion-dependent staircase occupation. The mathematical question is whether those visible plateaus create a macroscopic depth-dependent correction to the time an incoming particle resides in the branch. The theorem fully resolves its stationary grand-canonical version: a universal quadratic leading law hides an arithmetic linear resonance; the rational denominator provides an explicit decay scale and the irrational Diophantine regime admits an order-one error. This is a structural transport classification, not an arbitrary finite parameter computation. The conclusion does not describe the separate tip-started escape observable.
+From actual site rates verify local detailed balance x_k=z exp(kh), λ=z exp(h/2), and the reversible product occupation weights; Little’s stationary Palm entrance identity gives λT=sum_k ρ_k. Completing the square yields exact unconstrained integer Gaussian mean t_k+ψ_u(t_k), with a summable O((1+t_k)e^{-b t_k²}) one-sided truncation tail, so constant+o(1) follows. Periodic rational rotations give R_q and bounded periodic deviation; irrational equidistribution gives o(L), Diophantine small-divisor bound plus analytic Fourier exponential coefficients gives uniform O(1), and q-grid Fourier selection gives exp(-σq). Independent direct numerical lattice sums at u=8,c=1/4 show q=1 coefficient -0.13322511983779, q=3 +0.00095804041357, q=2 zero, and irrational √2 Cesàro residual approx 1.4e-5 at L=4000. Only exact stated fixed-reservoir tagged-entrant observable is proved, not remote-tip exit times or random-backbone dynamics.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The initiating Majumder–Barma paper already establishes repulsive biased zero-range stationary product and site-density plateaus, and Little’s relation is classical. No inspected source provides exact entry-Palm subleading rational/irrational residence coefficient, denominator exponential suppression or Diophantine bounded remainder; these rely on a separate theta-series/rotation analysis. This is best-of-knowledge only.
+
+## value
+
+PASS
+
+Subleading residence-time behavior in a physically motivated repulsive zero-range branch has a genuine denominator-sensitive discontinuous arithmetic coefficient despite universal quadratic growth. Rational/irrational dichotomy, Diophantine remainder and suppression quantify what the source called population plateaus; explicit fixed-fugacity Palm modeling prevents speculative extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
