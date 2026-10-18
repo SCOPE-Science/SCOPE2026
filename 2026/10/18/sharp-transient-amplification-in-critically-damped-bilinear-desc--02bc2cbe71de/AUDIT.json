@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Exact DGDA update reduces to B=(1/2-i,1/2;1/2,1/2) and conjugate on every equal-singular-value bilinear mode. N=B-(1-i)I/2 has rank one, \\(N^2=0\\) and singular norm one, yielding \\(B^k\\) and a closed 2x2 singular value formula. The explicit comparison at k=0..3 plus a decreasing upper bound for k>=4 proves the unique global maximum. Synchronized state propagation gives the actual-variable 9/4 peak. The 209-check Python verifier agrees with direct real 4x4 and complex 2x2 powers; it is secondary to the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus/2026/2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57/RESULT.md: the affine pencil (1-lambda)I+lambda J_n is minimized for lambda=(n+1)/(2n+1), and a scaled q-numerical range spectral-set threshold is obtained.",
+        "published-finding corpus/2026/2026/9/9/SCOPE008/RESULT.md: certified peaks of continuous-time exp(t(-I+2N)) for larger nilpotent blocks, not the discrete DGDA matrix.",
+        "arXiv:2403.09090v1, Secs. III-IV and Appendix B: DGDA bilinear step and asymptotic convergence; no all-horizon norm law or discrete peak is asserted in the inspected text."
+      ],
+      "reasoning": "The affine-Jordan norm theorem is about minimizing the complex coefficient of an affine nilpotent pencil and characterizing q-spectral sets; it does not give a DGDA-to-pencil identification or a discrete all-horizon amplification maximum. The continuous-time high-order Jordan example concerns exp(tT), dimensions 8-16 and different matrices. The original DGDA convergence theorem bounds a slower geometric rate without providing the sharp finite-time gain. No inspected theorem implies the complete algorithm-specific claim.",
+      "searches": [
+        "non-normal transient growth eigenvalue collision in augmented gradient descent ascent rho one half eta inverse singular value",
+        "exact finite-time operator norm dissipative gradient descent ascent scalar bilinear norm transient",
+        "dissipative gradient descent ascent polynomial prefactor transient peak best-conditioned bilinear singular value",
+        "published-finding corpus id 2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57",
+        "published-finding corpus id 2026/9/9/SCOPE008"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2403.09090",
+      "https://arxiv.org/pdf/2403.09090",
+      "https://arxiv.org/abs/2208.03085",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-critical-damping-ratio-for-scalar-least-squares-primal-dual-line--f8268fe426bc",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/9/SCOPE008"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2403.09090v1, Secs. III-IV and Appendix B: DGDA bilinear step and asymptotic convergence; no all-horizon norm law or discrete peak is asserted in the inspected text.",
+        "arXiv:2208.03085v2, introductory convergence and optimal-ratio statements: OGDA is a different two-step method, not the DGDA augmented map.",
+        "published-finding corpus/2026/2026/10/4/SCOPE-critical-damping-ratio-for-scalar-least-squares-primal-dual-line--f8268fe426bc/RESULT.md and SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208/RESULT.md: critically coalescing eigenvalues in distinct PDHG/PDAL update operators, optimizing spectral radii, not DGDA power norms.",
+        "published-finding corpus/2026/2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57/RESULT.md: the affine pencil (1-lambda)I+lambda J_n is minimized for lambda=(n+1)/(2n+1), and a scaled q-numerical range spectral-set threshold is obtained."
+      ],
+      "reasoning": "Spectral radius 1/sqrt(2) or a convergence estimate O(r^k) does not itself imply the exact 2^{-k}(1+k^2+k sqrt(k^2+2)) norm, its sharp peak or the synchronized-variable amplification. Other algorithms with repeated roots have different eigenvector geometry and associated singular norms. The binomial nilpotent expansion is classical; the DGDA-specific reduced normal form plus global finite-horizon norm optimization is the claimed increment.",
+      "searches": [
+        "DGDA bilinear game critical exceptional point semisimple eigenvalue polynomial prefactor k squared convergence",
+        "dissipative gradient descent ascent polynomial prefactor transient peak best-conditioned bilinear singular value",
+        "published-finding corpus id 2026/10/4/SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208",
+        "arXiv:2208.03085v2 OGDA spectral convergence",
+        "arXiv:2403.09090v1 Sections III-IV, Appendix B"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2403.09090v1, Secs. III-IV and Appendix B: DGDA bilinear step and asymptotic convergence; no all-horizon norm law or discrete peak is asserted in the inspected text.",
+        "published-finding corpus/2026/2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57/RESULT.md: the affine pencil (1-lambda)I+lambda J_n is minimized for lambda=(n+1)/(2n+1), and a scaled q-numerical range spectral-set threshold is obtained.",
+        "published-finding corpus/2026/2026/9/9/SCOPE008/RESULT.md: certified peaks of continuous-time exp(t(-I+2N)) for larger nilpotent blocks, not the discrete DGDA matrix."
+      ],
+      "reasoning": "The same assertion can be formulated as a Jordan exceptional point at \\(\\lambda=(1-i)/2\\) for a two-block complex DGDA mode, or as a sharp all-horizon H-infinity-style transient in a real 4x4 update. The original source proves spectral convergence and standard Jordan literature explains generic powers; the inspected results do not identify the DGDA-specific sharp integer peak and synchronized-variable amplification. Generic Jordan identities are acknowledged prior art, not claimed new.",
+      "searches": [
+        "dissipative gradient descent ascent critical damping Jordan block defective eigenvalues optimal stepsize bilinear saddle point transient amplification",
+        "DGDA bilinear game critical exceptional point semisimple eigenvalue polynomial prefactor k squared convergence",
+        "matrix [[one-half minus imaginary,one-half],[one-half,one-half]] Jordan transient bilinear min-max",
+        "\"dissipative gradient descent ascent\" \"Jordan\" 2024 2025",
+        "\"dissipative gradient descent ascent\" \"defective\" eigenvalues",
+        "arXiv:2403.09090v1 Sec. IV, Appendix B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2403.09090v1, Secs. III-IV and Appendix B: DGDA bilinear step and asymptotic convergence; no all-horizon norm law or discrete peak is asserted in the inspected text.",
+        "published-finding corpus/2026/2026/10/4/SCOPE-critical-damping-ratio-for-scalar-least-squares-primal-dual-line--f8268fe426bc/RESULT.md and SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208/RESULT.md: critically coalescing eigenvalues in distinct PDHG/PDAL update operators, optimizing spectral radii, not DGDA power norms."
+      ],
+      "reasoning": "The original DGDA tables compare asymptotic convergence factors rather than finite k Euclidean induced norms or transient maxima. Published primal-dual tables classify PDHG/PDAL spectral radii for different transfer matrices and cannot be directly substituted into this DGDA recursion. No matching precomputed exact DGDA finite-power table emerged.",
+      "searches": [
+        "dissipative gradient descent ascent critical damping Jordan block defective eigenvalues optimal stepsize bilinear saddle point transient amplification",
+        "exact finite-time operator norm dissipative gradient descent ascent scalar bilinear norm transient",
+        "Zheng Loizou You Mallada dissipative GDA bilinear 2403.09090 spectral decay finite steps",
+        "arXiv:2403.09090v1 bilinear linear convergence Table I and Section IV",
+        "published-finding corpus id 2026/10/4/SCOPE-critical-damping-ratio-for-scalar-least-squares-primal-dual-line--f8268fe426bc"
+      ]
+    },
+    "rationale": "Statement-level comparisons of the original DGDA paper, OGDA analysis and published critical-damping/Jordan/transient results show different results or strictly weaker convergence bounds, not the algorithm-specific exact finite-horizon gain and peak. Generic nilpotent formulas are acknowledged as prior art. Incomplete indexing and alternative-state similarity are residual risks.",
+    "residual_risks": [
+      "No literature search proves uniqueness; an unpublished/unindexed result or alternate DGDA coordinates might give an equivalent theorem.",
+      "The two-by-two nilpotent norm is classical and is explicitly not offered as independently novel.",
+      "Nonnormal finite-time amplification is known generically; the incremental claim is the exact DGDA-specific global integer optimization and synchronized original-variable spike."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and analyzes algorithm and asymptotic convergence, not the exact Euclidean k-step operator gain or its integer maximum",
+        "evidence": "arXiv:2403.09090v1, Secs. III-IV and Appendix B: DGDA bilinear step and asymptotic convergence; no all-horizon norm law or discrete peak is asserted in the inspected text.",
+        "identifier_or_url": "https://arxiv.org/pdf/2403.09090",
+        "material_read": "10-page accessible primary PDF: Section III update equation (6), Section IV bilinear theorem, Appendix B eigenvalue proof and surrounding conclusions; arXiv abstract/submission metadata",
+        "method": "Read searchable PDF passages and page images, reconstructed scalar singular-value transfer matrix",
+        "title": "Dissipative Gradient Descent Ascent Method: A Control Theory Inspired Algorithm for Min-max Optimization",
+        "trigger": "Exact original DGDA update, recommended bilinear parameters and possibly dominating stability analysis"
+      },
+      {
+        "assessment": "OGDA two-step recurrence distinct from DGDA state-augmented damping; no logical coverage",
+        "evidence": "arXiv:2208.03085v2, introductory convergence and optimal-ratio statements: OGDA is a different two-step method, not the DGDA augmented map.",
+        "identifier_or_url": "https://arxiv.org/abs/2208.03085",
+        "material_read": "Primary accessible full text: introduction, recurrence definitions and relevant zero-sum spectral/rate discussion",
+        "method": "Compared recurrence/state dimension and claimed convergence quantities",
+        "title": "Optimistic Gradient Descent Ascent in Zero-Sum and General-Sum Bilinear Games",
+        "trigger": "Alternative bilinear gradient method with spectral convergence results"
+      },
+      {
+        "assessment": "Contains generic Jordan norm insights but different parameter optimization/object and no DGDA all-time peak",
+        "evidence": "published-finding corpus/2026/2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57/RESULT.md: the affine pencil (1-lambda)I+lambda J_n is minimized for lambda=(n+1)/(2n+1), and a scaled q-numerical range spectral-set threshold is obtained.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57",
+        "material_read": "Published RESULT.md, Finding, Assumptions, main Proof through global minimization and q-spectral-set transition, Relationship to prior work",
+        "method": "Read source full theorem and key proof, compared coefficient optimization and matrix family against DGDA time powers",
+        "title": "The sharp affine Jordan norm pencil and its scaled q-spectral-set transition",
+        "trigger": "General norm minimization of Jordan matrices could dominate the elementary singular-value computation"
+      },
+      {
+        "assessment": "Different problem (scalar least squares) and transfer operator; optimizes eigenvalue radius, no DGDA finite-power result",
+        "evidence": "published-finding corpus/2026/2026/10/4/SCOPE-critical-damping-ratio-for-scalar-least-squares-primal-dual-line--f8268fe426bc/RESULT.md and SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208/RESULT.md: critically coalescing eigenvalues in distinct PDHG/PDAL update operators, optimizing spectral radii, not DGDA power norms.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-critical-damping-ratio-for-scalar-least-squares-primal-dual-line--f8268fe426bc",
+        "material_read": "Published RESULT.md Finding, assumptions and first proof update equations",
+        "method": "Compared the fixed-step PDAL recurrence to the augmented DGDA block recurrence",
+        "title": "Critical-damping ratio for scalar least-squares primal-dual linesearch",
+        "trigger": "Same repeated-root damping terminology in minimax-related algorithms"
+      },
+      {
+        "assessment": "PDHG extrapolation and proximal ordering are not DGDA; not a covering matrix-power theorem",
+        "evidence": "published-finding corpus/2026/2026/10/4/SCOPE-critical-damping-ratio-for-scalar-least-squares-primal-dual-line--f8268fe426bc/RESULT.md and SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208/RESULT.md: critically coalescing eigenvalues in distinct PDHG/PDAL update operators, optimizing spectral radii, not DGDA power norms.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208",
+        "material_read": "Published RESULT.md Finding, assumptions, displayed 2x2 update and proof introduction",
+        "method": "Directly compared transfer entries and eigenvalue objectives",
+        "title": "Exact fixed-product rate phase diagram for scalar PDHG",
+        "trigger": "Coalescing eigenvalues and minimax algorithmic rates"
+      },
+      {
+        "assessment": "Different dynamical model and matrix sizes; no claim-to-prior implication",
+        "evidence": "published-finding corpus/2026/2026/9/9/SCOPE008/RESULT.md: certified peaks of continuous-time exp(t(-I+2N)) for larger nilpotent blocks, not the discrete DGDA matrix.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/9/SCOPE008",
+        "material_read": "Published RESULT.md context, definitions, result table and evidence introduction",
+        "method": "Compared continuous semigroup exp(tT), large Jordan blocks and certified intervals to exact discrete DGDA",
+        "title": "Certified finite-horizon transient-peak intervals for Hurwitz-stable Jordan matrices",
+        "trigger": "Published directly related generic nonnormal transient amplification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "02bc2cbe-71de-4435-954f-54e40bfa8179",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides a sharp algorithmically motivated finite-budget reliability benchmark for the source-recommended DGDA parameters on perfectly conditioned games. It isolates the distinction between spectral-radius convergence and transient Euclidean error, gives exact sharp peaks in full and synchronized states, and identifies a polynomial prefactor at the critical base that a pure geometric bound cannot absorb. It neither derives a routine step change nor asserts divergence.",
+    "status": "PASS"
+  }
+}
