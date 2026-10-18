@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T02:00:05.901575Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed 4-person (s,i) state recursion e(s,i)=i+Σ_{j≥1} binom(s,j)a_i^j(1−a_i)^(s−j)e(s−j,j), with a_i^S=1−(1−p)^i, a_i^G=g and e(s,0)=0. Independently symbolically derived all E_k polynomials and derivative/factor identities from inspected verification/check.py, including E1S−E1G(p)=3p³(1−p)² and E2S−E2G(p)=2p(1−p)²(1+2p−p²). A(g)=E1G(g) strictly increases by A′=3(1−g)Q4 with degree4 Bernstein coefficients (1,9/4,23/6,5/4,2)>0. A(2p−p²)−E1S(p)=3p(1−p)³P8, P8 has all nine positive listed Bernstein coefficients. Thus unique p<g<2p−p². Ratio B′/A′<2(1+2x−x²)/(3x²), from exact P5 identity and six positive Bernstein coefficients, implies E2S(p)>E2G(g); E3 gap >p(1−p)². Binomial K~Bin(4,q) average gives [3/2 q²(1−q)² ΔE2+q³(1−q) ΔE3]>0. This is isolated one-shot importation, not full epidemic ordering.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General susceptibility-set machinery computes finite final-size distributions but supplies no recorded strict calibrated cross-model sign.",
+          "Primary multi-household results include timing/global contacts unlike one closed-household impulse."
+        ],
+        "reasoning": "Broader exact machinery encompasses the underlying stochastic processes, not the new uniform sign inequality under nonlinear matching of initial-seed expectations.",
+        "searches": [
+          "Ball 2018/2019 Susceptibility Sets and Final Outcome of Collective Reed–Frost Epidemics",
+          "Ball et al 2026 Discrete-Time Household Epidemic Models"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 5230b296b458b02a84771afa29fead5905442481",
+        "Ball et al 2026 DOI 10.1007/s11009-026-10253-2 HTML §§2,3,6",
+        "Ball 2018 DOI 10.1007/s11009-018-9631-6 abstract",
+        "Resultary semantic query Reed-Frost Greenwood matched four-person household response",
+        "Independent SymPy derivation of e(s,i) polynomials, factor identities, Bernstein basis vectors"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-seed branching reproduction R* is from a single newly infected household and does not quantify 2- or 3-seed responses at calibrated nonlinear parameters.",
+          "The prior population-level simulation discussion cannot entail universal closed-household one-pulse ordering for all p,q."
+        ],
+        "reasoning": "The source recursions are used, but proving p<g<2p−p² and both positive E2/E3 gaps takes nontrivial polynomial/derivative positivity.",
+        "searches": [
+          "DOI:10.1007/s11009-026-10253-2 Sections 2.1 2.3 3 6",
+          "DOI:10.1007/s11009-018-9631-6 published Reed–Frost methods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary Ball et al. source defines same daily transmission rules and one-infective household reproductive mean, then numerically compares larger globally coupled epidemic outcomes.",
+          "The current claim fixes exactly 4 and one isolated simultaneous pulse and derives strict all-p and all-q calibration inequalities not stated there."
+        ],
+        "reasoning": "Same household model and same R* terminology are important, but equal E1 and strict E2,E3 inequality do not follow from merely defining transitions or R*. No implication-equivalent result identified in the read portions.",
+        "searches": [
+          "Resultary: Reed Frost versus Greenwood household 4 final size multiple initial seeds same household reproduction number",
+          "Ball Martin Neal Sirl 2026 standard Greenwood household Section 2, 3, 6",
+          "DOI:10.1007/s11009-018-9631-6 Reed–Frost susceptibility sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing numerical examples compare population-level epidemic final sizes, not an exact all-open-square polynomial positivity certificate.",
+          "Independent SymPy produced symbolic E1/E2/E3 and positive Bernstein proofs; not a known lookup-table value."
+        ],
+        "reasoning": "The all-parameter strict inequality is not determined by tabulation or a small numerical witness.",
+        "searches": [
+          "Resultary four-person standard Greenwood one-seed matched two-seed final-size gap",
+          "Ball et al source 2026 numerical household comparisons"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: relevant primary statement/implication comparisons do not cover the precisely stated contribution; no absolute priority certification. Same household model and same R* terminology are important, but equal E1 and strict E2,E3 inequality do not follow from merely defining transitions or R*. No implication-equivalent result identified in the read portions.",
+      "residual_risks": [
+        "The complete general susceptibility-set paper was not inspected, so an equivalent cross-model calibrated comparison elsewhere cannot be excluded.",
+        "The result is NOT a global population final-size ordering and assumes one-day infection and absence of further external arrivals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODELS_NOT_THIS_COMPARISON",
+          "evidence": [
+            "Sections2 define one-day transition kernels; §3 one-seed household reproduction; §6 treats numerics with continued global coupling, not exact four-person simultaneous impulse."
+          ],
+          "identifier_or_url": "DOI:10.1007/s11009-026-10253-2",
+          "material_read": "Primary 2026 open-access article Sections 2.1, 2.3, 3 and 6; actual standard/Greenwood transition laws, R* and numerical comparisons",
+          "method": "Read full HTML of relevant original sections",
+          "title": "Discrete-Time Household Epidemic Models",
+          "trigger": "Same precise two models and reproduction-number calibration"
+        },
+        {
+          "assessment": "METHOD_COVERAGE_PRIMARY_TEXT_INACCESSIBLE",
+          "evidence": [
+            "General formula coverage credited; absence of the exact cross-model sign NOT inferred from inaccessible full paper."
+          ],
+          "identifier_or_url": "DOI:10.1007/s11009-018-9631-6",
+          "material_read": "Abstract/indexed theorem description of general susceptibility-set recursion, not primary full-text",
+          "method": "Checked available abstract and citation",
+          "title": "Susceptibility Sets and the Final Outcome of Collective Reed–Frost Epidemics",
+          "trigger": "Earlier potentially dominating exact final-size method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Comparing mechanistically different household epidemic rules after calibrating the same early household reproduction mean tests whether linear early-growth equivalence controls response to correlated multiple imports. The sharp, all-p four-person inequality with explicit parameter envelope provides a motivated exact counterpoint to global-epidemic numerical studies, not an arbitrary isolated numerical example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md Git blob 5230b296b458b02a84771afa29fead5905442481",
+    "Ball et al 2026 DOI 10.1007/s11009-026-10253-2 HTML §§2,3,6",
+    "Ball 2018 DOI 10.1007/s11009-018-9631-6 abstract",
+    "Resultary semantic query Reed-Frost Greenwood matched four-person household response",
+    "Independent SymPy derivation of e(s,i) polynomials, factor identities, Bernstein basis vectors"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The complete general susceptibility-set paper was not inspected, so an equivalent cross-model calibrated comparison elsewhere cannot be excluded.",
+    "The result is NOT a global population final-size ordering and assumes one-day infection and absence of further external arrivals."
+  ]
+}
