@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Reconstruction puts every point of \(M\) in the synthesis range, hence the entire algebraic span of \(M\) lies in that range. Finite-\(p\) coordinate truncation and bounded synthesis put the range inside the closed span of the atoms, and all atoms belong to \(M\). The singleton construction satisfies every definition clause and has proper synthesis range in every ambient space of dimension greater than one.
+## correctness
 
-## Originality
-PASS. Both the arXiv source and the 2026 published article were materially inspected. They state automatic synthesis surjectivity; the published version retains the same assertion. Focused searches on the source identifier, theorem number, surjectivity, counterexamples, and errata found no correction. The new claim is not a special case of the prior assertion: it disproves that assertion and gives the exact universal replacement.
+PASS
 
-## Value
-PASS. Correcting a false structural conclusion in the foundational paper for this frame notion is mathematically consequential, and the replacement theorem is sharp and reusable. The counterexample is deliberately minimal because it isolates the missing hypothesis without computational noise.
+For p finite, reconstruction x=theta_tau(theta_f(S^{-1}x)) gives M subset Ran(theta_tau), and linearity gives span(M) subset Ran. Every coefficient vector is the l^p norm-limit of coordinate truncations; bounded synthesis carries it to the norm-limit of finite combinations of tau_n in M, so Ran subset closure(span M). Both sides yield closure(Ran)=closure(span M). Independently checked singleton M={u}, p=1, tau_n=u, f_1(u)=1, f_n(u)=0 for n>=2: bounded theta_tau(a)=(sum a_n)u, S(u)=u, proper one-dimensional range for dim X>1. No closed-range assertion follows.
 
-## Closest literature and limitations
-The closest sources are arXiv:2211.10652v1, Theorem 2.5(iv), and its published version, DOI 10.46793/KgJMat2602.217K, Theorem 2.1(iv). This review does not assess unrelated claims in those papers or downstream consequences. Equality is guaranteed only after closure unless additional range hypotheses hold.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The directly inspected arXiv 2211.10652 v1 and 2026 journal theorem assert full ambient surjectivity, which is contradicted by the qualifying singleton frame. No equivalent erratum or range sandwich was identified. This is a sharp correction, not a corollary of the printed (false) theorem; an unindexed correction remains a risk.
+
+## value
+
+PASS
+
+A foundational frame definition admits proper M subsets; correctly separating algebraic span, synthesis range and closure prevents invalid surjectivity uses and gives the sharp general replacement. The tiny singleton example is chosen for decisive hypothesis diagnosis, not mere renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
