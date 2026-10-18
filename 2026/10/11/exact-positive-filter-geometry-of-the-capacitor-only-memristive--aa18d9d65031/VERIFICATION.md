@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-12.md",
+      "INDEPENDENT_AUDIT_2026-10-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The source equation used is the fourth equation of the published dimensionless System (12):
-\[
-\dot u=\alpha d\left(e^{-u/(2n)}\cosh\!\left(\frac{x}{2n}\right)-1\right).
-\]
-For \(R=e^{u/(2n)}\), the identity \(e^{-u/(2n)}=R^{-1}\) and the chain rule give
-\[
-\dot R=\frac{R}{2n}\dot u
-=\frac{\alpha d}{2n}\left(\cosh\!\left(\frac{x}{2n}\right)-R\right).
-\]
-The bundled `verify.py` checks this reduced algebra with exact rational arithmetic for multiple nonzero rational test values and verifies the coefficient \(1/(8n^2)\) in the quadratic lower bound inherited from \(\cosh r\ge1+r^2/2\).
+# Independent mathematical audit
 
-The infinite-past representation and \(u\ge0\) recurrence barrier are proved analytically by variation of constants on bounded complete trajectories. They are not inferred from finite numerical integration. The invariant-measure identity uses stationarity of the smooth observable \(R\) on compact support.
+## correctness
 
-Limits: the check and proof cover the unshifted capacitor-only model with \(n>0\) and \(\alpha d>0\). They do not establish existence of a compact invariant set or boundedness for arbitrary initial data, and they do not cover the source's later offset-boosted variants without re-derivation.
+PASS
+
+For n>0 and alpha*d>0 set R=exp(u/(2n)), kappa=alpha*d/(2n)>0. Exact chain rule on source system (12) gives dot R=kappa(cosh(x/(2n))-R). Variation of constants from s<t and letting s→-infinity along a bounded complete trajectory gives the positive exponential convolution. Its input lies between 1 and cosh(max_K|x|/(2n)) on a compact invariant set K, proving R>=1 (u>=0) and sharp input-range bound. For any compactly supported invariant Borel probability measure, integrate the infinitesimal generator applied to R to obtain E[R]=E[cosh(x/(2n))]>=1+E[x²]/(8n²). Physical equation yields identical conjugacy with exp(rho v0) and kappa_phys=2rho Is0/C0. No assumed boundedness for arbitrary forward orbits and no finite simulation asserted as proof.
+
+## originality
+
+PASS
+
+The original 2022 capacitor-only circuit paper publishes the same nonlinear memory ODE and its equilibrium identity, but the reviewed dynamic consequence is an exact backward-complete positive linear filter, a compact recurrent half-space barrier and stationary-measure identity. Earlier RC emulators have different leakage terms. This is a bounded comparison, not absolute priority.
+
+## value
+
+PASS
+
+For an oscillator studied via bounded periodic/chaotic states, the exact forward/backward-complete memory filter yields an all-compact-invariant-state exclusion region and exact observable relation useful for theoretical phase-space validation and physical-data calibration. These are structural global-in-time restrictions rather than re-evaluations of a static equilibrium.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

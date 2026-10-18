@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T18:16:48.304920Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>0 and alpha*d>0 set R=exp(u/(2n)), kappa=alpha*d/(2n)>0. Exact chain rule on source system (12) gives dot R=kappa(cosh(x/(2n))-R). Variation of constants from s<t and letting s→-infinity along a bounded complete trajectory gives the positive exponential convolution. Its input lies between 1 and cosh(max_K|x|/(2n)) on a compact invariant set K, proving R>=1 (u>=0) and sharp input-range bound. For any compactly supported invariant Borel probability measure, integrate the infinitesimal generator applied to R to obtain E[R]=E[cosh(x/(2n))]>=1+E[x²]/(8n²). Physical equation yields identical conjugacy with exp(rho v0) and kappa_phys=2rho Is0/C0. No assumed boundedness for arbitrary forward orbits and no finite simulation asserted as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2014 diode-bridge state has extra -v_C/(RC) leakage, so exponential conjugacy is not the same stable cosh-driven linear ODE.",
+          "The 2022 source studies fixed points, chaotic trajectories and offset boosting without supplying the all-compact-invariant-state constraint in the accessed sections."
+        ],
+        "reasoning": "Prior different-emulator and qualitative dissipativity results do not, without the exact current scalar ODE, imply the asserted recurrence and stationary identities.",
+        "searches": [
+          "capacitor only diode bridge memristive Colpitts exponential internal state stable cosh filter bounded complete orbits stationary invariant measures",
+          "doi:10.3390/e16126464 equation (2)",
+          "doi:10.1155/2015/249102 generalized memristor RC leakage"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/math10244820; Zhou–You–Liang–Li, Mathematics 10 (2022), 4820",
+        "doi:10.3390/e16126464, Entropy 16 (2014) 6464–6476"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At equilibria cosh(x/(2n))=exp(u/(2n)), but that static equality cannot be substituted into a non-equilibrium trajectory.",
+          "Backward bounded completeness gives convolution with a positive unit-mass kernel; integrating generator w.r.t. invariant measure gives stationary observable equality."
+        ],
+        "reasoning": "The present model ODE logically implies the barrier after nontrivial dynamical steps, but the introducing publication did not explicitly establish these all-orbit/statistical statements in accessible material; the final addition is a motivated structural lemma, not a new circuit model.",
+        "searches": [
+          "doi:10.3390/math10244820 System (12) equilibrium Eq (7)",
+          "capacitor only diode bridge memristive Colpitts exponential internal state stable cosh filter bounded complete orbits stationary invariant measures"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original equation is dot u=alpha d(e^{-u/(2n)}cosh(x/(2n))-1), equivalent by elementary exponential substitution to a stable scalar filter.",
+          "The source’s equilibrium relation describes fixed points only."
+        ],
+        "reasoning": "Coordinate-filter identity is an algebraic reformulation of a known ODE; the assessment of additional originality is specifically the all-bounded-complete recurrence barrier and invariant-measure identity, not ownership of the ODE or chain rule.",
+        "searches": [
+          "capacitor only diode bridge memristive Colpitts exponential internal state stable cosh filter bounded complete orbits stationary invariant measures",
+          "doi:10.3390/math10244820 dimensionless equation (12)",
+          "exponential memristor internal variable cosh filter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The model source publishes equation numbers and equilibrium algebra, not a table of compact recurrence barriers or invariant-measure expectations."
+        ],
+        "reasoning": "No numerical database is the natural object; checked for exact recurrence/filter statements and the primary equation instead. A previous dynamic observation might be unindexed.",
+        "searches": [
+          "capacitor only diode bridge memristive Colpitts exponential internal state stable cosh filter bounded complete orbits stationary invariant measures",
+          "Colpitts 2022 cosh memory stationary invariant measure exact calibration"
+        ]
+      },
+      "rationale": "The original 2022 capacitor-only circuit paper publishes the same nonlinear memory ODE and its equilibrium identity, but the reviewed dynamic consequence is an exact backward-complete positive linear filter, a compact recurrent half-space barrier and stationary-measure identity. Earlier RC emulators have different leakage terms. This is a bounded comparison, not absolute priority.",
+      "residual_risks": [
+        "An unindexed diode-bridge dynamical-systems paper may already use this exponential coordinate or stationarity method.",
+        "Resultary temporarily unavailable; true published overlap not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already states the raw nonlinear scalar equation and static equilibrium identity; does not give in accessed portions the exponential positive filter, all compact-invariant half-space or stationary-measure theorem.",
+          "evidence": [
+            "Fourth equation of system (12): dot u=alpha*d*(exp(-u/(2n))*cosh(x/(2n))-1).",
+            "Physical memory equation dot v0=(2Is0/C0)*(exp(-rho*v0)*cosh(rho*vce)-1); static equilibrium exp(-rho*v0)*cosh(rho*vce)=1."
+          ],
+          "identifier_or_url": "doi:10.3390/math10244820; Zhou–You–Liang–Li, Mathematics 10 (2022), 4820",
+          "material_read": "Publisher-source mathematical equations: physical diode-bridge capacitor equation, dimensionless system (12), equilibrium relation, and model discussion of periodic/chaotic dynamics; available full-text and indexed passages.",
+          "method": "Lawful primary publisher/OA and alternate lawful full-text equation inspection.",
+          "title": "A Memristor-Based Colpitts Oscillator Circuit",
+          "trigger": "Exact capacitor-only Colpitts state equation and physical memory variable."
+        },
+        {
+          "assessment": "Its added -v_C/(RC) term means the simple e^(rho v) conjugacy to stable LINEAR cosh input filter does not follow for that different architecture.",
+          "evidence": [
+            "Equation for capacitor memory includes 2Is exp(-rho v_C) cosh(rho v)/C - 2Is/C - v_C/(RC)."
+          ],
+          "identifier_or_url": "doi:10.3390/e16126464, Entropy 16 (2014) 6464–6476",
+          "material_read": "Open publisher equation for internal capacitor state including an explicit RC leakage term and introductory circuit description.",
+          "method": "Publisher equation-level primary-source inspection, not a whole-paper priority exclusion.",
+          "title": "A Memristive Diode Bridge-Based Canonical Chua’s Circuit",
+          "trigger": "Close diode bridge model with RC memory to test broader or equivalent recurrence mechanism."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an oscillator studied via bounded periodic/chaotic states, the exact forward/backward-complete memory filter yields an all-compact-invariant-state exclusion region and exact observable relation useful for theoretical phase-space validation and physical-data calibration. These are structural global-in-time restrictions rather than re-evaluations of a static equilibrium.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.3390/math10244820; Zhou–You–Liang–Li, Mathematics 10 (2022), 4820",
+    "doi:10.3390/e16126464, Entropy 16 (2014) 6464–6476"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only unmodified capacitor-only source system with positive coefficients; offset-boosted equations require separate analysis.",
+    "Source provides raw equation, so novelty is dynamic consequences, not algebraic substitution alone."
+  ],
+  "residual_risks": [
+    "An unindexed diode-bridge dynamical-systems paper may already use this exponential coordinate or stationarity method.",
+    "Resultary temporarily unavailable; true published overlap not excluded."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Already states the raw nonlinear scalar equation and static equilibrium identity; does not give in accessed portions the exponential positive filter, all compact-invariant half-space or stationary-measure theorem.",
+      "evidence": [
+        "Fourth equation of system (12): dot u=alpha*d*(exp(-u/(2n))*cosh(x/(2n))-1).",
+        "Physical memory equation dot v0=(2Is0/C0)*(exp(-rho*v0)*cosh(rho*vce)-1); static equilibrium exp(-rho*v0)*cosh(rho*vce)=1."
+      ],
+      "identifier_or_url": "doi:10.3390/math10244820; Zhou–You–Liang–Li, Mathematics 10 (2022), 4820",
+      "material_read": "Publisher-source mathematical equations: physical diode-bridge capacitor equation, dimensionless system (12), equilibrium relation, and model discussion of periodic/chaotic dynamics; available full-text and indexed passages.",
+      "method": "Lawful primary publisher/OA and alternate lawful full-text equation inspection.",
+      "title": "A Memristor-Based Colpitts Oscillator Circuit",
+      "trigger": "Exact capacitor-only Colpitts state equation and physical memory variable."
+    },
+    {
+      "assessment": "Its added -v_C/(RC) term means the simple e^(rho v) conjugacy to stable LINEAR cosh input filter does not follow for that different architecture.",
+      "evidence": [
+        "Equation for capacitor memory includes 2Is exp(-rho v_C) cosh(rho v)/C - 2Is/C - v_C/(RC)."
+      ],
+      "identifier_or_url": "doi:10.3390/e16126464, Entropy 16 (2014) 6464–6476",
+      "material_read": "Open publisher equation for internal capacitor state including an explicit RC leakage term and introductory circuit description.",
+      "method": "Publisher equation-level primary-source inspection, not a whole-paper priority exclusion.",
+      "title": "A Memristive Diode Bridge-Based Canonical Chua’s Circuit",
+      "trigger": "Close diode bridge model with RC memory to test broader or equivalent recurrence mechanism."
+    }
+  ]
+}
