@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:09:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 129456e1ebf595b341c64475c4b87ad49f5e0304",
+        "Grudka et al. 2013 arXiv:1210.8317 Theorem 3 maximally-entangled two-vs-two bound",
+        "Independent_checks.py QUBIT_BINARY_CHANNEL_DEGRADATION_EXACT_OK"
+      ],
+      "rationale": "The Schmidt pure-state density has local Bloch vectors (0,0,r) and correlation tensor diag(C,-C,1). With Alice equatorial, p(x)=1/2 and the exact conditional channel is W_C(y|x)=[1+y u+xy C t]/2, u=r b_z, t=a_x b_x-a_y b_y. The Bell comparator channel W_1(y0|x)=[1+x y0 t]/2. For t!=0 comparison of input-conditional means forces any output stochastic map to have affine parameters alpha=u,beta=C, which is feasible precisely when |u|+C<=1; the explicit 2x2 kernel verifies sufficiency. For t=0 the channel is input independent and automatic. Classically degraded output mutual information is <= Bell mutual information; apply Grudka et al. Theorem 3 to each of two pairs to obtain the 2+log2(c prime) upper bound. Physical domain C∈[0,1], lambda∈[0,1] includes separable and Bell boundary (Bell covered without cone), and cone equivalence for C<1 is algebraic. Independent exact rational channel composition tests agree.",
+      "residual_risks": [
+        "Cone is necessary/sufficient for the specified same-measurement binary post-processing when t!=0, but merely sufficient for the conjectured mutual-information inequality.",
+        "No general pure-state arbitrary measurement, mixed-state, POVM or high-dimensional result claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2013 theorem handles all measurements only at C=1; the nonmaximal case is stated as a separate problem.",
+          "Seiler et al. describe general two-qubit mutual-information formulas/Schmidt tensor but do not by themselves give a same-basis stochastic degradation and the two-vs-two implication."
+        ],
+        "reasoning": "A broader formula for probabilities and a narrower Bell-state inequality do not imply the stated necessary-and-sufficient channel postprocessing cone without new kernel construction.",
+        "searches": [
+          "Grudka Horodecki et al. arXiv:1210.8317 Theorem3 and nonmaximal discussion",
+          "Seiler Strohm Schleich arXiv:2005.05675 Schmidt correlation tensor and optimized measurement information",
+          "Resultary two-vs-two complementary correlations search"
+        ]
+      },
+      "checked_sources": [
+        "Grudka et al. 2013 arXiv:1210.8317 Theorem3 full relevant text",
+        "Seiler et al. arXiv:2005.05675 indexed formula description",
+        "Resultary Blackwell/degradation search",
+        "Immutable assigned RESULT.md and artifacts/verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical data processing alone needs an explicit valid kernel, which is not automatic for t!=0 and |u|+C>1.",
+          "The 2013 theorem bounds Bell-state correlations; only after establishing both pairwise garblings can the result be transferred to nonmaximal Schmidt states."
+        ],
+        "reasoning": "The exact kernel and its stochasticity cone are the additional theorem, not just substitution into the known maximally entangled endpoint.",
+        "searches": [
+          "Grudka arXiv:1210.8317 Theorem 3 maximally entangled",
+          "Seiler arXiv:2005.05675 projective measurement formula",
+          "Direct conditional mean comparison alpha=u, beta=C"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grudka et al. prove maximally-entangled two-vs-two theorem; discuss failure of naive unrestricted same-measurement comparison outside Bell setting.",
+          "Candidate identifies exact Blackwell ordering with output kernel bias u and contraction C, on a nonmaximally-entangled sector."
+        ],
+        "reasoning": "Equivalent terms (garbling/degradation/Blackwell order, Schmidt-unbiased/equatorial) have been considered; no matching sector theorem appeared in retrieved named sources, but unindexed variants remain possible.",
+        "searches": [
+          "Resultary: two vs two maximally entangled Grudka nonmaximally entangled Schmidt unbiased Blackwell channel degradation kernel",
+          "Search: binary Blackwell garbling pure Schmidt two qubit equatorial projective mutual information",
+          "arXiv:1210.8317 two vs two nonmaximally entangled uncertainty tradeoff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary results concern unrelated entanglement and channel eigenvalue estimates; no table of exact garbling cones was retrieved.",
+          "The cone is derived for continuum 0<=C<=1 rather than inferred from finitely tabulated measurements."
+        ],
+        "reasoning": "A numerical table cannot establish the iff stochasticity boundary for all physical axes and state parameters; database absence is not a proof of novelty.",
+        "searches": [
+          "Resultary semantic search for two-vs-two qubit nonmaximally entangled Schmidt unbiased channel",
+          "Search: Schmidt concurrence quantum mutual information postprocessing table equatorial measurement"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact binary-degradation cone plus a continuous pure two-qubit sector of a previously open two-vs-two complementary-correlation tradeoff.",
+      "residual_risks": [
+        "An equivalent Blackwell-order statement under binary statistical experiment terminology might be unindexed.",
+        "Seiler et al. complete appendices not reread; uninspected text could bear on originality.",
+        "No proof outside exact degradation cone of the full nonmaximal conjecture."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the nonmaximal Schmidt-unbiased degradation cone; endpoint theorem is an explicit ingredient",
+          "evidence": "Theorem 3 maximally entangled bound and discussion immediately following it",
+          "identifier_or_url": "arXiv:1210.8317v1 / DOI:10.1103/PhysRevA.88.032106",
+          "material_read": "Primary full-text PDF relevant two-vs-two statement, maximally-entangled Theorem 3 and following nonmaximal-state obstruction/discussion; rendered theorem page inspected.",
+          "method": "Lawful arXiv manuscript PDF and page inspection",
+          "title": "Conjectured strong complementary-correlations tradeoff",
+          "trigger": "Identical two-vs-two inequality, basis-overlap c prime"
+        },
+        {
+          "assessment": "Potential formula precursor; does not establish a read and verified exact garbling-cone theorem",
+          "evidence": "Schmidt correlation tensor diag(C,-C,1), fixed-basis mutual-information calculations",
+          "identifier_or_url": "arXiv:2005.05675",
+          "material_read": "Indexed paper description and correlation tensor context; complete full mathematical body not reread in this execution",
+          "method": "Public scholarly bibliographic/excerpt review",
+          "title": "Estimating the privacy of quantum-random numbers",
+          "trigger": "Pure-state Schmidt projective mutual-information formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Grudka et al. 2013 maximally-entangled theorem and nonmaximal discussion",
+        "Exact affine binary-channel factorization in assigned result"
+      ],
+      "rationale": "The explicit physically interpretable Schmidt-axis cone is a precise new sufficient sector for a nontrivial complementary-correlation conjecture, together with a necessary-and-sufficient characterization of the stronger same-measurement channel mechanism. The exact boundary explains where a natural transfer proof works and where that proof mechanism fails, without asserting the conjecture false outside.",
+      "residual_risks": [
+        "A sufficient sector is narrower than the full two-vs-two conjecture; no necessity for the inequality is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality is not an exhaustive historical-priority certification.",
+    "Finite checker tests only stated sampled cases; unrestricted C relies on reconstructed analytic proof.",
+    "Public transport not ready because privacy sanitization/complete recursive Git-tree validation remains missing.",
+    "An equivalent Blackwell-order statement under binary statistical experiment terminology might be unindexed.",
+    "Seiler et al. complete appendices not reread; uninspected text could bear on originality."
+  ],
+  "schema_version": 1
+}

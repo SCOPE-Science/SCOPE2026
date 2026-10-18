@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The joint outcome law follows from the Schmidt-form Bloch tensor. For nonzero equatorial correlation, matching a general binary post-processing to the nonmaximal channel uniquely fixes its affine intercept and slope to \(u\) and \(C\); stochasticity is exactly \(|u|+C\le1\). The explicit kernel reproduces the channel term by term, and classical data processing gives the mutual-information comparison. The final two-vs-two step uses the inspected maximally-entangled theorem from the primary source.
+## correctness
 
-## Originality
-PASS. The primary paper proves the two-vs-two inequality only for maximally entangled states and explicitly discusses failure of the unrestricted same-basis comparison route for nonmaximally entangled states. The closest later pure-qubit measurement analysis supplies the Bloch correlation tensor and an optimized mutual-information formula but does not state this exact same-measurement degradation cone or its two-vs-two consequence. Targeted published-result searches under complementary-correlation, mutual-uncertainty, Schmidt-unbiased, concurrence, and channel-degradation formulations found no implication-equivalent statement.
+PASS
 
-## Value
-PASS. The result isolates a natural state-dependent geometric sector where the proof strategy that fails in general becomes valid in the stronger Blackwell sense, and it gives the exact boundary for that mechanism when the measured equatorial correlation is nonzero. This converts part of an explicitly open nonmaximally-entangled regime into a theorem without pretending to settle the full conjecture.
+The Schmidt pure-state density has local Bloch vectors (0,0,r) and correlation tensor diag(C,-C,1). With Alice equatorial, p(x)=1/2 and the exact conditional channel is W_C(y|x)=[1+y u+xy C t]/2, u=r b_z, t=a_x b_x-a_y b_y. The Bell comparator channel W_1(y0|x)=[1+x y0 t]/2. For t!=0 comparison of input-conditional means forces any output stochastic map to have affine parameters alpha=u,beta=C, which is feasible precisely when |u|+C<=1; the explicit 2x2 kernel verifies sufficiency. For t=0 the channel is input independent and automatic. Classically degraded output mutual information is <= Bell mutual information; apply Grudka et al. Theorem 3 to each of two pairs to obtain the 2+log2(c prime) upper bound. Physical domain C∈[0,1], lambda∈[0,1] includes separable and Bell boundary (Bell covered without cone), and cone equivalence for C<1 is algebraic. Independent exact rational channel composition tests agree.
 
-## Closest literature and limitations
-The closest sources are arXiv:1210.8317v1 and arXiv:2005.05675. The result is restricted to pure two-qubit projective measurements, and its necessity statement concerns degradation rather than the underlying mutual-information inequality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact binary-degradation cone plus a continuous pure two-qubit sector of a previously open two-vs-two complementary-correlation tradeoff.
+
+## value
+
+PASS
+
+The explicit physically interpretable Schmidt-axis cone is a precise new sufficient sector for a nontrivial complementary-correlation conjecture, together with a necessary-and-sufficient characterization of the stronger same-measurement channel mechanism. The exact boundary explains where a natural transfer proof works and where that proof mechanism fails, without asserting the conjecture false outside.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

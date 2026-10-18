@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof reduces the new claim to a binary-channel identity. With Alice Schmidt-unbiased, direct expansion gives \(W_C(y\mid x)=(1+yu+xyCt)/2\). For \(t\ne0\), any binary output post-processing mapping the corresponding Bell channel to \(W_C\) must have affine conditional mean \(u+Cy_0\), so stochasticity is exactly \(|u|+C\le1\). Substitution verifies the kernel identity, and \(C^2+r^2=1\) gives the displayed cone.
+# Independent mathematical audit
 
-`artifacts/verify.py` replays the probability and kernel formulas on deterministic parameter grids and checks the resulting mutual-information inequality. The numerical grid is supplementary and is not used to infer the universal statement.
+## correctness
 
-The final two-vs-two implication additionally uses the maximally-entangled theorem from arXiv:1210.8317v1. The package does not verify that external theorem computationally and does not claim the cone is necessary for the mutual-information inequality itself.
+PASS
+
+The Schmidt pure-state density has local Bloch vectors (0,0,r) and correlation tensor diag(C,-C,1). With Alice equatorial, p(x)=1/2 and the exact conditional channel is W_C(y|x)=[1+y u+xy C t]/2, u=r b_z, t=a_x b_x-a_y b_y. The Bell comparator channel W_1(y0|x)=[1+x y0 t]/2. For t!=0 comparison of input-conditional means forces any output stochastic map to have affine parameters alpha=u,beta=C, which is feasible precisely when |u|+C<=1; the explicit 2x2 kernel verifies sufficiency. For t=0 the channel is input independent and automatic. Classically degraded output mutual information is <= Bell mutual information; apply Grudka et al. Theorem 3 to each of two pairs to obtain the 2+log2(c prime) upper bound. Physical domain C∈[0,1], lambda∈[0,1] includes separable and Bell boundary (Bell covered without cone), and cone equivalence for C<1 is algebraic. Independent exact rational channel composition tests agree.
+
+## originality
+
+PASS
+
+Best-of-knowledge original exact binary-degradation cone plus a continuous pure two-qubit sector of a previously open two-vs-two complementary-correlation tradeoff.
+
+## value
+
+PASS
+
+The explicit physically interpretable Schmidt-axis cone is a precise new sufficient sector for a nontrivial complementary-correlation conjecture, together with a necessary-and-sufficient characterization of the stronger same-measurement channel mechanism. The exact boundary explains where a natural transfer proof works and where that proof mechanism fails, without asserting the conjecture false outside.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
