@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Direct Moreau decomposition proves the piecewise cone projection; differentiation produces a symmetric Jacobian. Exact row sums and Cauchy-Schwarz reduce the global l1/linfty Lipschitz constant to an explicitly maximized scalar function. Strict concavity shows unique optimizer for dimensions 2-4. A=2/3 gives a strict spatial dominance witness in d=2,3,4, while the tangent bound sqrt(1-a^2)<=5/4-3a/4 proves max B_5<=89/40<sqrt5; monotonicity propagates the axis dominance to all d>=5. Generic segment integration proves global upper bound; local derivatives and limiting boundary derivatives prove equality. The 130,484 deterministic finite checks are corroborating, not universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kong et al. derive a general matrix-valued generalized differential, not a theorem of optimal induced l1 or linfty norms.",
+        "Wang and Xiu analyze semismoothness and slices, with an explicit standard derivative; the new extremal row-sum optimization is absent from the inspected portions.",
+        "Outrata-Sun full text unavailable, so not classified as NOT_COVERING."
+      ],
+      "reasoning": "A general derivative formula is a tool from which the claimed constant can be derived after a new global optimization, but does not itself assert or immediately specialize to the exact sharp norm or the dimension transition. The unavailable coderivative paper remains a residual bibliographic risk, not positive coverage.",
+      "searches": [
+        "sharp cross norm stability Lorentz cone metric projection dimensions 2 3 4 5",
+        "SOC projection l1 linfty norm Lipschitz constant nonexpansive",
+        "Kong Tunçel Xiu full text Section 3 generalized Jacobian symmetric cones",
+        "Wang Xiu full text Sections 2.2, 3, 4",
+        "Outrata Sun DOI 10.1007/s11228-008-0092-x OA search"
+      ]
+    },
+    "checked_sources": [
+      "Wang and Xiu (2011), DOI 10.1007/s10957-011-9834-2, material full text",
+      "Kong, Tunçel and Xiu (2009), DOI 10.1007/s11228-009-0113-4, author preprint",
+      "Outrata and Sun (2008), DOI 10.1007/s11228-008-0092-x, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang and Xiu (2011) establish a projection differential, which is rederived directly; the published statements do not give the max row/column sum.",
+        "The direct proof obtains a uniquely maximizing spatial profile and a strict change of the leading coordinate at d=5.",
+        "Outrata and Sun (2008) focus on limiting coderivatives and optimization stability; its full text remained inaccessible."
+      ],
+      "reasoning": "Prior generalized-Jacobian formulas imply differentiability facts, not an already evaluated global constant. The new claim requires optimizing in an additional unit-sphere parameter and the dimension-dependent comparison. Own earlier radial clipping and planar cone estimates concern other projection maps or ambient norms and cannot be specialized to this unweighted Lorentz-cone coordinate norm.",
+      "searches": [
+        "sharp Lipschitz constant second order cone Lorentz cone Euclidean metric projection measured l infinity or l one norm coordinate sensitivity dimension threshold",
+        "sharp cross norm stability Lorentz cone metric projection dimensions 2 3 4 5",
+        "Wang and Xiu equations (10)-(11), Propositions 2.2-2.4",
+        "Kong et al Theorem 3.1, Corollary 3.2",
+        "Outrata-Sun 2008 source and bibliographic abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang and Xiu (2011), eqs. (10)-(11), provide the projection formula and derivative, not row-sum maxima.",
+        "Kong, Tuncel and Xiu (2009), Theorem 3.1, parameterize generalized Jacobians of symmetric-cone projections."
+      ],
+      "reasoning": "Lorentz-cone projection is also positive-part mapping in a rank-two Euclidean Jordan algebra; equality of one/sup coordinate Lipschitz constants follows from symmetric Jacobians. Neither inspected original theorem states the sharp induced coordinate norms or the dimension-five switch. The newly proved nontrivial scalar maximization and rational cutoff inequality are not parameter substitutions into a prior optimal constant.",
+      "searches": [
+        "sharp Lipschitz constant second order cone Lorentz cone Euclidean metric projection measured l infinity or l one norm coordinate sensitivity dimension threshold",
+        "exact sup norm operator norm Jacobian of Euclidean projection onto Lorentz second order cone",
+        "second order cone projection Lipschitz constant infinity norm sup norm exact projection derivative",
+        "Lorentz cone projection operator Lipschitz with respect to max norm row sum Jacobian",
+        "Wang and Xiu DOI 10.1007/s10957-011-9834-2, Section 2.2",
+        "Kong, Tuncel and Xiu DOI 10.1007/s11228-009-0113-4, Theorem 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The returned published-finding corpus records included a Lorentz sequence-space distortion result and a conic-ellipsoid result, concerning different invariants and cones; no directly matching exact Lorentz-projection coordinate norm table was returned.",
+        "The computed values d=2,3,4 are not used as novelty evidence or as proof of all dimensions."
+      ],
+      "reasoning": "The target is a continuous family indexed by arbitrary spatial dimension, not a finite catalog. No identified table records the full exact phase law; failure to find a table alone does not establish novelty.",
+      "searches": [
+        "best approximation metric projection to second order cone from l infinity norm to l infinity norm",
+        "Lorentz cone projection cross norm Lipschitz infinity norm sharp",
+        "sharp cross norm stability Lorentz cone metric projection dimensions 2 3 4 5"
+      ]
+    },
+    "rationale": "The inspected 2011 Lorentz projection and 2009 symmetric-cone Jacobian papers provide formulas for generalized derivatives, but not the induced coordinatewise norm, unique scalar maximizer or exact dimension-five crossover. Earlier own radial ball and planar cone claims cannot specialize to this projection measured in distinct coordinate norms. A same-object 2008 coderivative source remains an explicitly identified access risk.",
+    "residual_risks": [
+      "Uninspected Outrata-Sun (2008) full text could contain a norm corollary, although its verified abstract concerns coderivatives.",
+      "A more general unlocated theorem on coordinate-norm stability of symmetric-cone projections could imply the same constants.",
+      "This is a self-review, not independent validation or a certified literature exhaustiveness claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains exact derivative data but no optimization of unweighted l1/linfty norms or dimension cutoff in inspected material.",
+        "evidence": "Equations (10)-(11) specialize to the same projection and smooth-region Jacobian; conclusion concerns semismoothness of cone slices.",
+        "identifier_or_url": "https://doi.org/10.1007/s10957-011-9834-2",
+        "material_read": "Author-posted full text, introduction, Section 2.2 (equations 9-15), Section 3 theorems and Section 4 conclusion",
+        "method": "Read web-served full-text transcript, compare projections, derivative formulas and statements",
+        "title": "Strong Semismoothness of Projection onto Slices of Second-Order Cone",
+        "trigger": "Same target projection, explicit differential formulas and potential dominating results"
+      },
+      {
+        "assessment": "Generalized-Jacobian structure covers the differentiation input but no evaluated induced coordinate norm or phase classification was located in examined sections.",
+        "evidence": "Page 1 states scope as Clarke Jacobians; Theorem 3.1 is a B-subdifferential description; no sharp coordinate norm theorem is given.",
+        "identifier_or_url": "https://www.math.uwaterloo.ca/~ltuncel/publications/CGJ-SVVA2.pdf",
+        "material_read": "Full 16-page source available; inspected introduction, definitions, Theorem 3.1 and the subsequent comparison/corollary portions, and Section 4",
+        "method": "Inspected PDF extracted mathematical statements and page images",
+        "title": "Clarke Generalized Jacobian of the Projection onto Symmetric Cones",
+        "trigger": "Plausible broader theorem on all symmetric-cone projections"
+      },
+      {
+        "assessment": "No whole-document noncoverage conclusion is drawn. Residual uncertainty remains but no located statement directly compares coordinate norms.",
+        "evidence": "Abstract says it computes Mordukhovich coderivatives for Aubin-property and optimality conditions.",
+        "identifier_or_url": "https://doi.org/10.1007/s11228-008-0092-x",
+        "material_read": "Institutional and publisher abstracts only; original full text not obtained",
+        "method": "Searched open access and arXiv; institutional retrieval unavailable without a manually connected service",
+        "title": "On the Coderivative of the Projection Operator onto the Second-Order Cone",
+        "trigger": "Same geometric projection, plausible dominating variational theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "be0b3016-e8b3-40ae-83d1-e813e83f42d7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural stability constant for Euclidean second-order-cone feasibility projection under worst-case coordinate measurement error is determined exactly in all dimensions, including two norm endpoints, low-dimensional unique optimizers, and the sharp phase switch at spatial dimension five. The need for a global extremal row-sum calculation and a strict uniform dimension cutoff makes the result more than a type check or table lookup; it is relevant to coordinate-perturbed conic calculations. Scope is limited to the standard real unweighted cone.",
+    "status": "PASS"
+  }
+}
