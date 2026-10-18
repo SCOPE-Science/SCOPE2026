@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The lower bound follows from the reflected top face and bottom face, with exact normalization of the horizontal section. The upper bound explicitly constructs every optimal center and checks containment for arbitrary points of every slice. Both the cone and prism endpoints and all equality cases are handled; the prism-center interval does not collapse unless the base has asymmetry one. Independent vertex/facet linear programs confirm 24 finite three-dimensional examples. Risk: finite tests cannot establish the general theorem; the analytical argument must carry that quantifier.
+
+**Originality — PASS, subject to historical uncertainty.** Inspected full-text statements and relevant sections of Brandenberg–von Dichter–González Merino and the examined introductory framework of Pavlov–Telen treat other convex asymmetry and Santaló invariants. The published homothetic-frustum Santaló result is about polar volume, not this negative-homothety ratio and center set. A relevant parallel-opposite hexagon classification treats another restricted class. The identified general literature does not establish the complete interpolation and endpoint jump. Risk: an earlier containment treatment of truncated cones/prismatoids in a monograph may subsume it and would invalidate originality if found.
+
+**Mathematical value — PASS.** This is a complete dimension-independent sharp classification for an arbitrary convex base, not a finite parameter substitution: it identifies both the exact invariant and all minimizing centers, including a discontinuous increase of center-set dimension at the prism boundary. It illuminates which data survive homothetic truncation and supplies a natural counterpart to the known nonlinear Santaló-frustum interpolation. Limitations: the bases must be homothetic and no general prismatoid result is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
