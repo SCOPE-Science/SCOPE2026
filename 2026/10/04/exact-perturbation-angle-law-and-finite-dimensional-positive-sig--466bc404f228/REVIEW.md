@@ -1,15 +1,21 @@
-# Review
-## Correctness
-PASS. Residualizing against \(X_{-j}\) makes the two mirror columns \(a+b\) and \(a-b\). The published scaling gives equal residual norms and hence exact orthogonality. Gaussian OLS therefore yields two independent normal coefficients with explicitly different variances indexed by \(\rho\). The mirror-statistic identity reduces its sign to the product sign. The derivative of the resulting probability reduces to monotonicity of \(H(x)=x[2\Phi(x)-1]/\phi(x)\), whose derivative is strictly positive for \(x>0\). The sphere-coordinate density and moments give the exact Gaussian-perturbation mixture and the \(d^{-1}\) expansion. `verify.py` reproduces the displayed numerical values and derivative signs.
+# Independent mathematical audit
 
-Risk: the result is conditional on the fixed design and uses Gaussian regression errors. The expansion is fixed-\(\lambda\) as \(d\to\infty\).
+## correctness
 
-## Originality
-PASS. The inspected Xing--Zhao--Liu source defines the same OLS Gaussian-mirror pair, statistic, and normalization and proves zero correlation/independence for the mirror coefficients, but does not state the residual-angle parameterization, the exact alternative sign probability, its strict monotonicity in \(|\rho|\), the sphere-mixture loss, or the \(d^{-1}\) coefficient. The later scale-free mirror paper confirms the special finite-sample independence of the original OLS construction but does not give this law. A 2023 comparison studies power empirically rather than deriving this featurewise finite-sample geometry. Targeted published-finding corpus searches found no equivalent result.
+PASS
 
-Risk: the law is derived from classical OLS geometry once the residual angle is introduced, so an equivalent calculation may exist under terminology not captured by the searches.
+Frisch-Waugh-Lovell residualization gives mirror columns u=a+b and v=a-b with u·v=0 and squared norms 2r²(1±rho), proving independent Gaussian coefficient laws. The sign identity |U+V|-|U-V|=2sgn(UV)min(|U|,|V|) gives F_lambda(rho); H(x)=x(2Phi(x)-1)/phi(x) strictly increasing gives derivative negative for 0<rho<1. Isotropic residual Gaussian direction has beta-sphere density; moments E rho²=1/d, E rho⁴=3/[d(d+2)] yield asymptotic A(lambda)/d. Independently checked reported numerical quadratures for d=3,10 and lambda=1,2; these do not establish cross-feature FDR power.
 
-## Value
-PASS. The source deliberately injects Gaussian perturbations and emphasizes power, while the residual dimension can be as small as \(2\) when \(p\) approaches \(n\). The finding isolates a previously unquantified finite-dimensional cost of that random direction: at \(\lambda=1\), the positive-sign gate falls from \(0.7330\) at the orthogonal benchmark to \(0.6839\) when \(d=3\); at \(\lambda=2\) it falls from \(0.9555\) to \(0.8773\). Because every positive-threshold discovery must first pass this sign gate, the exact law provides a natural diagnostic for Gaussian-mirror power and a reproducible benchmark for future perturbation designs without overclaiming whole-procedure optimality.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The parent Gaussian-mirror construction already normalizes equal residual norms and gives independence of the pair under Gaussian errors. It does not by those facts alone imply the analytic angle dependence, strictly decreasing sign gate, exact sphere mixture or 1/d correction without calculation. Resultary nearest semantic records are the target and different Gaussian mirror variants. Primary full papers were not newly available; equivalent angle analyses under different terminology remain a risk.
+
+## value
+
+PASS
+
+The design-dependent residual angle in low-dimensional Gaussian mirrors is intrinsically tied to sign-based rejection gates. An exact monotone loss and dimension-sensitive mixture quantify a finite-sample power-related cost absent from null-sign symmetry alone; the claim carefully avoids claiming the entire FDR procedure power is determined by that gate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

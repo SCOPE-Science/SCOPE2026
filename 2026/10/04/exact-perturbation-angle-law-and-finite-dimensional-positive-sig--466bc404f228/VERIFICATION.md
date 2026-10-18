@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-`verify.py` is a standalone deterministic replay for the formulas in `RESULT.md`.
 
-It checks:
+# Independent mathematical audit
 
-1. the identity \(|u+v|-|u-v|=2\,\operatorname{sgn}(uv)\min(|u|,|v|)\) on a finite rational grid;
-2. strict negativity of the analytic derivative \(F_\lambda'(\rho)\) on a broad deterministic grid with \(\lambda>0\) and \(0<\rho<1\);
-3. the displayed formula for \(F_\lambda''(0)\) against a centered finite-difference calculation;
-4. deterministic Simpson quadrature for \(\Pi_d(\lambda)\), reproducing the reported values for \((\lambda,d)=(1,3),(1,10),(2,3)\);
-5. convergence of \(d[F_\lambda(0)-\Pi_d(\lambda)]\) toward the analytic coefficient \(A(\lambda)\) at a larger residual dimension.
+## correctness
 
-A successful run prints `VERIFY_OK`.
+PASS
 
-The finite grid and numerical quadrature are checks, not proofs of the infinite statements. Strict monotonicity is proved analytically in `RESULT.md`. The sphere-coordinate density and exact moments are used for the asymptotic expansion; the verifier does not establish global FDR control, cross-feature behavior, or validity of any modified perturbation rule.
+Frisch-Waugh-Lovell residualization gives mirror columns u=a+b and v=a-b with u·v=0 and squared norms 2r²(1±rho), proving independent Gaussian coefficient laws. The sign identity |U+V|-|U-V|=2sgn(UV)min(|U|,|V|) gives F_lambda(rho); H(x)=x(2Phi(x)-1)/phi(x) strictly increasing gives derivative negative for 0<rho<1. Isotropic residual Gaussian direction has beta-sphere density; moments E rho²=1/d, E rho⁴=3/[d(d+2)] yield asymptotic A(lambda)/d. Independently checked reported numerical quadratures for d=3,10 and lambda=1,2; these do not establish cross-feature FDR power.
+
+## originality
+
+PASS
+
+The parent Gaussian-mirror construction already normalizes equal residual norms and gives independence of the pair under Gaussian errors. It does not by those facts alone imply the analytic angle dependence, strictly decreasing sign gate, exact sphere mixture or 1/d correction without calculation. Resultary nearest semantic records are the target and different Gaussian mirror variants. Primary full papers were not newly available; equivalent angle analyses under different terminology remain a risk.
+
+## value
+
+PASS
+
+The design-dependent residual angle in low-dimensional Gaussian mirrors is intrinsically tied to sign-based rejection gates. An exact monotone loss and dimension-sensitive mixture quantify a finite-sample power-related cost absent from null-sign symmetry alone; the claim carefully avoids claiming the entire FDR procedure power is determined by that gate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
