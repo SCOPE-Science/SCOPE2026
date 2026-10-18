@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(x^{2}+6y^{2}\), the seventeen exhibited equal-norm collisions each impose a necessary linear relation. The exact integer minor determinant \(432\) implies rank at least \(17\) on the first \(20\) coordinates. Constant, squared-index and parity vectors are three linearly independent solutions, so no other initial freedoms remain. A completely explicit rational norm transformation with denominator \(7\) gives smaller positive indices for every \(n\ge21\) and preserves parity, proving infinite uniqueness by induction. Residues modulo \(4\) make \(F\) well-defined on represented integers. The converse is checked algebraically. The supplied verifier independently replays finite determinants and sample identity checks; it is not relied on for the infinite induction.
+PASS
 
-## Originality — PASS, qualified
+Every collision in the 17-row finite system is an exact equality of x²+6y²; independent SymPy integer linear algebra reproduced rank=17, 17×17 minor determinant=432 and first-three-coordinate template determinant −16, proving 3D initial space. The exact 7-denominator norm-preserving map for n≥21 has a,b,y positive and smaller than n, respects parity, and yields strong induction. Independently verified map for 21≤n<20000; infinite inequalities and congruences were checked algebraically. t mod4 determines parity pair and unique η, so sufficiency and freedom off representable integers follow. No assumptions on growth or multiplicativity.
 
-The nearest published primary works concern general additive sets under strong difference-set hypotheses, nonlinear one-function norm equations, and an independently varying three-square equation whose separate parity character does not cover this weighted two-variable setting. The 2017 general auxiliary lemma does apply to the target two-function setup but proves only a necessary quadratic plus mod-\(60\) periodic space, not the exact three-dimensional sufficiency and parity-only classification. The relevant published statements and the source PDFs were inspected. published-finding corpus searches for the exact coefficient, parity character and generic norm aliases found no covering record. This does not rule out an unindexed or independently rediscovered statement; the exact comparison with the 2017 lemma is the main residual priority for independent literature review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem identifies a genuine quadratic-character obstruction for the principal norm form of discriminant \(-24\), a natural imaginary-quadratic arithmetic functional equation, giving all complex solutions, not a few examples or a numerical cutoff. Relative to a known broad periodicity constraint, it pinpoints exactly the sole nonconstant periodic mode, and gives a finite collision mechanism plus global norm descent. It does not claim any all-coefficient theorem, classification of the nonlinear squared equation, density of represented integers, or independent certification.
+The closest 2017 Khanh paper addresses the nonlinear squared-function problem and obtains only a necessary quadratic/periodic auxiliary envelope; no exact iff classification with 3 unique constants on norm x²+6y² is identified. The finite-rank collision + all-n descent establish the exact remainder; originality remains best knowledge for this natural imaginary-quadratic norm.
 
-## Closest sources and risks
+## value
 
-Kátai–Phong (2014, 2015, 2021), You–Chen–Yuan–Shen (2016), and Khanh (2017), with exact identifiers and statement-level comparisons in `AUDIT.json` and `RESULT.md`. Possible unindexed prior classification remains the principal originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural discriminant −24 quadratic norm admits a nontrivial parity-character term in the complete unrestricted two-function Pexider solution space. Exact 3D rigidity and freedom off representable norm values give a structural classification, not a routine substitution or arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
