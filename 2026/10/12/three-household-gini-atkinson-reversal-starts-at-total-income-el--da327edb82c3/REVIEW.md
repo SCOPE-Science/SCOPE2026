@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For two households at fixed total income, both Gini and the \(\epsilon=1\) Atkinson index are strictly increasing functions of the same absolute income gap. For three sorted households, Gini reduces exactly to a positive multiple of the range, while \(A_1\) is a strictly decreasing function of the product. The packaged exact-arithmetic enumeration contains every positive sorted integer triple through total income eleven and every unordered pair, proving zero strict reversals through total ten and a unique reversal at total eleven. The verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: changing the Atkinson parameter, allowing zero incomes, or changing population weights defines a different ordering problem.
+PASS
 
-## Originality
-**PASS.** Atkinson's original paper already establishes that crossing Lorenz curves permit conflicting inequality rankings, explicitly compares Gini with the equally distributed equivalent-income family, and reports empirical Gini disagreements for \(\epsilon=1\). Generic disagreement is therefore prior art. The accepted claim is only the exact finite structure: two-household nonreversal, the three-household range-product criterion, first weak-order split at total nine, and unique first strict integer reversal at total eleven. Targeted literature and published-result searches did not locate that boundary.
+For sorted three-positive incomes with sum S, G=2(c-a)/(3S) and A_1=1−3(abc)^(1/3)/S; thus strict opposite rankings iff (R_x−R_y)(P_x−P_y)>0. With two incomes of gap d, product=(S²−d²)/4, hence same weak ordering. Independently enumerated every sorted positive integer triple and pair at each S=3,…,11 with integer products and exact rational ranges: no strict reversals for S≤10; S=11 one unordered pair (1,5,5),(2,2,7), products 25<28 while ranges4<5. At S=9 (1,4,4),(2,2,5) tie in range 3, products16 vs20, first weak-order split. Enumeration proves only bounded threshold; the analytic reductions are exact.
 
-Risk: because the finite calculation is elementary once posed, an unindexed teaching exercise or implementation test could contain the same witness.
+## originality
 
-## Value
-**PASS.** Gini and Atkinson are canonical but normatively different inequality summaries. The result identifies the smallest household count and the smallest positive-integer resolution at which their policy-facing inequality judgments can strictly disagree, while also isolating the mechanism: Gini depends only on the three-household range, whereas \(\epsilon=1\) Atkinson depends on the geometric mean. The sharp first layer provides a compact benchmark for explaining and testing index sensitivity.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge original contribution after comparing mathematical implications rather than title matching. Prior foundations make a finite exhaustive approach possible, but no inspected prior statement implies exact S=9,S=11 or uniqueness without new arithmetic case classification. No absolute novelty certification; see specific full-text access risks.
+
+## value
+
+PASS
+
+Canonical normatively distinct measures of inequality produce a sharp, unique smallest positive-integer strict disagreement, separating two-household agreement from genuine third-household rank reversal. The first weak-order split and range-product mechanism are interpretable minimal test cases for metrics; this has relevance beyond a random small integer computation, but does not select a uniquely correct social-welfare ranking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

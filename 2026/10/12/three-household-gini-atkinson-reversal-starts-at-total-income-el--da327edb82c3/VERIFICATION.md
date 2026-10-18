@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,84 +18,25 @@
   "schema_version": 1
 }
 ---
-For two positive household incomes with fixed total \(S\), write their absolute gap as
-\[
-d.
-\]
-Their product is
-\[
-\frac{S^2-d^2}{4},
-\]
-so both Gini inequality and the \(\epsilon=1\) Atkinson index increase with \(d\).
 
-For three sorted incomes
-\[
-a\le b\le c,
-\qquad
-a+b+c=S,
-\]
-the exact ranking quantities are
-\[
-R=c-a
-\]
-for Gini and
-\[
-P=abc
-\]
-with reversed order for Atkinson.
+# Independent mathematical audit
 
-The embedded `verify_gini_atkinson1_boundary.py` enumerates every positive sorted integer triple for
-\[
-3\le S\le11
-\]
-and every unordered pair.
+## correctness
 
-It verifies strict-reversal counts
-\[
-0,0,0,0,0,0,0,0,1.
-\]
+PASS
 
-It verifies the first weak-order split at total
-\[
-S=9
-\]
-for
-\[
-(1,4,4)
-\quad\text{versus}\quad
-(2,2,5),
-\]
-which tie under Gini but have products \(16\) and \(20\).
+For sorted three-positive incomes with sum S, G=2(c-a)/(3S) and A_1=1−3(abc)^(1/3)/S; thus strict opposite rankings iff (R_x−R_y)(P_x−P_y)>0. With two incomes of gap d, product=(S²−d²)/4, hence same weak ordering. Independently enumerated every sorted positive integer triple and pair at each S=3,…,11 with integer products and exact rational ranges: no strict reversals for S≤10; S=11 one unordered pair (1,5,5),(2,2,7), products 25<28 while ranges4<5. At S=9 (1,4,4),(2,2,5) tie in range 3, products16 vs20, first weak-order split. Enumeration proves only bounded threshold; the analytic reductions are exact.
 
-It verifies the unique first strict reversal at total
-\[
-S=11
-\]
-for
-\[
-(1,5,5)
-\quad\text{versus}\quad
-(2,2,7),
-\]
-with Gini values
-\[
-\frac8{33}
-\quad\text{and}\quad
-\frac{10}{33}
-\]
-and products
-\[
-25
-\quad\text{and}\quad
-28.
-\]
+## originality
 
-Run:
+PASS
 
-`python3 verify_gini_atkinson1_boundary.py`
+Best-of-knowledge original contribution after comparing mathematical implications rather than title matching. Prior foundations make a finite exhaustive approach possible, but no inspected prior statement implies exact S=9,S=11 or uniqueness without new arithmetic case classification. No absolute novelty certification; see specific full-text access risks.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The finite enumeration is exhaustive for the stated integer boundary. The two-household equivalence and three-household range-product criterion are proved symbolically in the result text.
+Canonical normatively distinct measures of inequality produce a sharp, unique smallest positive-integer strict disagreement, separating two-household agreement from genuine third-household rank reversal. The first weak-order split and range-product mechanism are interpretable minimal test cases for metrics; this has relevance beyond a random small integer computation, but does not select a uniquely correct social-welfare ranking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
