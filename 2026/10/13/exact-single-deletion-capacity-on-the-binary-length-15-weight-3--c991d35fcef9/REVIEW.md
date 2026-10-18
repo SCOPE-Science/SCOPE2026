@@ -1,11 +1,21 @@
-# Scientific review: binary length-\(15\), weight-\(3\) deletion capacity
+# Independent mathematical audit
 
-**Correctness — PASS.** Every possible input has at least unit weight among its distinct one-deletion descendants, as shown by an exact three-run-type analysis. The weighted output family totals exactly \(37\). The supplied \(37\)-word code is pairwise deletion-unambiguous, verified with direct string removal and independent index-shift representations for all \(455\) possible input words. These establish a rigorous sharp inequality and construction. Limits: only one deletion and the stated composition/length.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The closest primary studies are Cullina–Kulkarni–Kiyavash (ISIT 2012, arXiv:1211.4056), which prove a chromatic number of \(13\) for this weight layer and construct its checksum classes of size \(35\), and Kulkarni–Kiyavash (arXiv:1211.3128), which supplies general LP fractional-transversal methods and unrestricted/constrained upper bounds. The exact maximum \(37\), its attaining code, and the specialized matching dual weight of \(37\) do not follow from the published coloring theorem alone or from the stated generic bound. Sloane's older single-deletion work and possible unindexed code catalogues pose residual coverage risk; this is not a claim of proven global historical uniqueness.
+PASS
 
-**Value — PASS.** The sharp value answers a natural exact deletion-code capacity question at length \(15\), sparse composition \(3\). It isolates a substantive coloring-versus-independent-set gap: all \(13\) classes of the familiar optimal coloring have size \(35\), while a stronger size-\(37\) code exists and is provably best. The dual construction supplies a compact structural reason for optimality beyond a solver output. No extension to other lengths/weights or decoding efficiency is asserted.
+The complete explicit 37-row code_triples.csv was inspected. A separate checker generated the distinct one-deletion descendants from original ordered binary strings, verified pairwise disjoint descendant sets for all 37 words, verified the dual fractional q(y) coverage >=1 for each of the 455 candidate weight-3 input words, and summed all output weights to 37. The analytic run-case upper argument correctly treats three singleton runs, a double plus isolated run, and one triple run; total dual mass (78+26+7)/3=37. Primal construction and dual bound match exactly.
 
-The primary full texts, search aliases, implication comparisons, and residual risks are recorded in `AUDIT.json`. Independent verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cullina–Kulkarni–Kiyavash establish optimal constant-weight deletion code graph colorings, not the independence number; their modified VT classes at this specific n,w have 35 words, while this code has 37. Kulkarni–Kiyavash establish a general fractional transversal method but not the specific optimized q or exact capacity 37. No exact 37-entry table was located by targeted searches; narrow finite historical risk remains.
+
+## value
+
+PASS
+
+A sharp exact one-deletion capacity in the natural constant-composition weight-three layer at length 15 is independently useful and separates chromatic optimality from maximum code size. An explicit 37-word witness with matching all-candidate rational dual certificate settles this finite packing problem nontrivially, without claiming broader census or decoding guarantees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

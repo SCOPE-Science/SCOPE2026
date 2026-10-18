@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Use the exact CSV codeword list `code_triples.csv`, and run `python3 verify.py` in the same directory. The verifier uses the standard library only. It checks:
+## correctness
 
-1. Exactly \(37\) valid distinct triples in the CSV, corresponding to length-\(15\), weight-\(3\) binary words.
-2. Both deletion-output implementations agree for all \(\binom{15}{3}=455\) possible input words.
-3. The \(37\) codewords have pairwise disjoint sets of one-deletion outputs.
-4. The assigned nonnegative output weights sum to \(37\); every one of the \(455\) candidate inputs is covered to weight at least \(1\).
-5. Each of the \(13\) modified-VT checksum cells of this layer has exactly \(35\) words.
+PASS
 
-The expected terminal result begins `VERIFY_OK N=15 W=3 candidates=455 selected=37 dual_weight=37`. The upper bound is also proved structurally by run cases in `RESULT.md`; the finite verifier is additional exact redundancy. No infinite domain is claimed; the exhaustive check covers all \(455\) candidates. No independent validation or audit is claimed.
+The complete explicit 37-row code_triples.csv was inspected. A separate checker generated the distinct one-deletion descendants from original ordered binary strings, verified pairwise disjoint descendant sets for all 37 words, verified the dual fractional q(y) coverage >=1 for each of the 455 candidate weight-3 input words, and summed all output weights to 37. The analytic run-case upper argument correctly treats three singleton runs, a double plus isolated run, and one triple run; total dual mass (78+26+7)/3=37. Primal construction and dual bound match exactly.
+
+## originality
+
+PASS
+
+Cullina–Kulkarni–Kiyavash establish optimal constant-weight deletion code graph colorings, not the independence number; their modified VT classes at this specific n,w have 35 words, while this code has 37. Kulkarni–Kiyavash establish a general fractional transversal method but not the specific optimized q or exact capacity 37. No exact 37-entry table was located by targeted searches; narrow finite historical risk remains.
+
+## value
+
+PASS
+
+A sharp exact one-deletion capacity in the natural constant-composition weight-three layer at length 15 is independently useful and separates chromatic optimality from maximum code size. An explicit 37-word witness with matching all-candidate rational dual certificate settles this finite packing problem nontrivially, without claiming broader census or decoding guarantees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
