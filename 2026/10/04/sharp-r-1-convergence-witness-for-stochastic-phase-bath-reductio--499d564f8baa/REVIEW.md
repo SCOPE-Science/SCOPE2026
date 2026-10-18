@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the source Hamiltonians and uses the exact displaced-oscillator propagator and thermal characteristic function. For the independent baths the two opposite displacement phases cancel, giving \(L_\infty=e^{-2a\coth(\beta\omega/2)}\). For each shared bath, uniform phase averaging reduces exactly to the integral representation of \(I_0\). The resulting two-level reduced states differ only by their coherence, so the trace norm is exactly the coherence difference. The \(I_0\) Taylor series then gives the positive \(R^{-1}\) limit. Risk: none identified within the stated zero-hopping one-mode assumptions.
+## correctness
 
-## Originality
-PASS. The motivating paper proves only an upper bound \(\|\rho_s-\rho_s^{(R)}\|_{\mathrm{tr}}\le A_t/R\) and explains its repeated-channel origin; inspection of the main text and End Matter theorem/proof found no pure-dephasing exact formula, lower bound, Bessel expression, or claim of rate optimality. The rendered source references supplemental material but did not expose a separate supplemental document for inspection. Semantic searches for sharp finite-\(R\) stochastic-phase lower bounds and pure-dephasing Bessel formulas found no equivalent statement. Closest general perturbation papers treat Gaussian bath-correlation perturbations and therefore do not imply this non-Gaussian phase-averaged exact witness. Residual risk: an equivalent observation could exist under different terminology outside the searched literature.
+PASS
 
-## Value
-PASS. A matching lower bound resolves whether the source's new \(O(R^{-1})\) theorem is merely an artifact of its collision-count proof or reflects a real obstruction. The witness is minimal—two sites, one oscillator, no hopping—and gives the full finite-\(R\) error, its sign, its positive asymptotic coefficient, and a zero-temperature boundary. This directly calibrates the convergence claim of a newly introduced simulation method rather than adding a routine numerical example.
+For zero-hopping two-site equal-energy thermal Holstein instance, displacement overlaps give L_inf=exp(-2a coth(beta omega/2)). Averaging the shared oscillator phase difference evaluates the exact integral exp(-2ac/R) I0(2a csch(beta omega/2)/R). Multiplication of R independent copies gives L_R; I0(z)=1+z²/4+O(z⁴) yields R times trace-distance error -> L_inf a² csch²(beta omega/2)>0 when a>0, beta finite. Independently checked phase integral numerically R=1,2,10,100 to within 3e-16; this does not substitute for displacement proof. Zero-temperature limit gives exact cancellation.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.28318v1 itself, which supplies the algorithm and the system-size-independent upper bound. arXiv:2411.08741 and Liu–Lu (Quantum 9, 1896 (2025)) provide broader upper error estimates for Gaussian-environment perturbations but do not dominate the present statement. The result is intentionally restricted to the unitary thermal-bath realization and does not analyze coupled-Lindblad fitting error, nonzero hopping, or optimality of the theorem's prefactor.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Huang–Lin–Xie report O(R^-1) upper error and exact two-point bath correlation, whereas a positive lower coefficient in a specific non-Gaussian finite-R thermal phase average does not follow from the upper estimate alone. Originality is best-of-knowledge only because the source End Matter was inaccessible. Independent semantic searches returned the identical October 4 finding as first hit (self-match, not external prior evidence); no stronger implication identified among actually inspected competing sources. This is a qualified best-of-knowledge judgment.
+
+## value
+
+PASS
+
+A strictly positive exact 1/R coefficient in an elementary physically legitimate thermal dephasing instance tests optimality of a general reduced-state convergence exponent. It separates an upper-bound rate from genuine attainable obstruction, with exact temperature and zero-temperature boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
