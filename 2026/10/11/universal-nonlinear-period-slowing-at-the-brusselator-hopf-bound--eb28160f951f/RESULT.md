@@ -66,7 +66,7 @@ The underlying two-variable autocatalytic model was published by Prigogine and L
 
 ## Limitations
 
-There is no global uniqueness theorem, no assertion about canard regimes, large-amplitude cycles, period changes along paths with varying \(A\), or dynamics far from Hopf. The 1984 parameter-sensitivity paper and the 1973 Tyson analysis were not available in full text for an exhaustive historical comparison; an equivalent older calculation cannot be excluded. The derivation is a same-model mathematical check, not an independent audit.
+There is no global uniqueness theorem, no assertion about canard regimes, large-amplitude cycles, period changes along paths with varying \(A\), or dynamics far from Hopf. The 1984 parameter-sensitivity paper and the 1973 Tyson analysis were not available in full text for an exhaustive historical comparison; an equivalent older calculation cannot be excluded. The derivation is a self-review, not an independent audit.
 
 ## References
 

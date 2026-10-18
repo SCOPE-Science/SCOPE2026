@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T19:00:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The equilibrium (A,(1+A²+mu)/A) has trace mu, determinant A². Exact invertible w=x-A+y-B/A, p=ẇ=A-x substitution reproduces ẅ+A²w=mu p+2Aw p+(A-A⁻¹-mu/A)p²-wp²-p³. Fresh SymPy algebra independently checked the identity, W2=(A-A⁻¹)/2+(A-A⁻¹)cos2τ/6+sin2τ/3, and BOTH third-order Fourier resonances: kappa=(A²+2)/4>0, nu=-(4A⁴-7A²+4)/(24A). For fixed A>0 this is a nondegenerate transverse supercritical Hopf, stable small cycle; analytic Hopf/LS theorem supplies existence, phase uniqueness and O_A(mu²), not the symbolic test alone. T=2π/Ω yields the stated coefficient; 4A⁴-7A²+4=4(A²-7/8)²+15/16>0. No assertion outside sufficiently small positive mu or uniform A limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Larter et al. abstract explicitly concerns parameter gradients of period, but does not supply formula (4A⁴-7A²+4)/(6A²(A²+2)) or prove strict positivity for all A."
+        ],
+        "reasoning": "General sensitivity method could compute the coefficient given extra perturbation analysis; without full text it cannot be declared NOT_COVERING nor inferred to imply this explicit local formula.",
+        "searches": [
+          "Brusselator Hopf boundary nonlinear limit cycle period first derivative at B=1+A^2, Poincare Lindstedt amplitude frequency coefficient",
+          "Larter et al., Journal of Chemical Physics 80 (1984) 4120-4128",
+          "Tyson 1973 JCP 58 3919-3930"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md at 9bcbcd118a224983058496df6e6c21855a8d40de and verify_brusselator.py at 1d4c3c2811a49d4ea69f2884fb2bb2245b35db12",
+        "Resultary semantic search: Brusselator Hopf boundary nonlinear limit cycle period first derivative at B=1+A^2, Poincare Lindstedt amplitude frequency coefficient",
+        "doi:10.1063/1.447293 abstract",
+        "doi:10.1063/1.1679748 bibliographic record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original oscillator and existing sensitivity techniques are prior. Claimed derivative requires a sign identity and fixed-A third-order resonance calculation not established by inspected abstracts."
+        ],
+        "reasoning": "No inspected prior theorem was shown to entail the explicit coefficient. This is best-of-knowledge PASS and not a claim of exhaustive historical novelty.",
+        "searches": [
+          "Brusselator Hopf boundary nonlinear limit cycle period first derivative at B=1+A^2, Poincare Lindstedt amplitude frequency coefficient",
+          "DOI:10.1063/1.447293",
+          "DOI:10.1063/1.1679748"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prigogine-Lefever 1968 establishes same two-variable chemical oscillator; Larter et al. analyze Fourier sensitivity of limit cycles including the Brusselator but accessible abstract does not state this A-uniform closed Hopf derivative."
+        ],
+        "reasoning": "Near-Hopf Poincare-Lindstedt coefficient is a parameter-dependent local asymptotic, not identical to general sensitivity formalism, numerical period plots or global parameter sensitivity. Full 1984 source remains an important priority risk.",
+        "searches": [
+          "Brusselator Hopf boundary nonlinear limit cycle period first derivative at B=1+A^2, Poincare Lindstedt amplitude frequency coefficient",
+          "Larter Rabitz Kramer 1984 DOI:10.1063/1.447293 abstract",
+          "Tyson 1973 DOI:10.1063/1.1679748"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest own record and related different Sprott/nilpotent period laws; no exact all-A Brusselator coefficient table identified."
+        ],
+        "reasoning": "The output is an analytic parameter continuum coefficient, not a bounded finite database enumeration; an exact historical table is possible and explicitly retained as risk.",
+        "searches": [
+          "Brusselator Hopf boundary nonlinear limit cycle period first derivative at B=1+A^2, Poincare Lindstedt amplitude frequency coefficient",
+          "Resultary SCOPE published records for Brusselator Hopf period coefficient"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level comparison of original claim, aliases and stronger coverage: No inspected prior theorem was shown to entail the explicit coefficient. This is best-of-knowledge PASS and not a claim of exhaustive historical novelty.",
+      "residual_risks": [
+        "Larter-Rabitz-Kramer (1984) and Tyson (1973) potentially contain equivalent coefficients but full primary texts were inaccessible; do not cite as whole-document not-covering.",
+        "Analytic Hopf theorem is invoked; the symbolic coefficient validation alone does not establish orbit existence, stability, or remainder."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible exact priority; NOT proven not covering",
+          "evidence": "Abstract states Fourier sensitivity coefficients encode period variation; no all-A Hopf formula visible; authorized institutional source reported VPN disconnected.",
+          "identifier_or_url": "doi:10.1063/1.447293",
+          "material_read": "Bibliographic record and publisher abstract only; full paper inaccessible",
+          "method": "Web abstract and institutional-download attempt",
+          "title": "Sensitivity analysis of limit cycles with application to the Brusselator",
+          "trigger": "Direct same model and period parameter derivatives"
+        },
+        {
+          "assessment": "Unresolved earlier local coefficient possibility",
+          "evidence": "1973 publication on nonlinear chemical oscillator studies, exact same coefficient not established from accessible material.",
+          "identifier_or_url": "doi:10.1063/1.1679748",
+          "material_read": "Bibliographic information and descriptions; full text not obtained",
+          "method": "Targeted literature search",
+          "title": "Some further studies of nonlinear oscillations in chemical systems",
+          "trigger": "Earlier Brusselator local oscillation analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact physical-time first derivative of nonlinear oscillation period at the classical Hopf threshold, with a uniform-in-sign all-feed-parameter positivity law, is a motivated dynamical invariant. It distinguishes nonlinear phase drift from the B-independent linear determinant; not merely locating Hopf or plotting periods. Its quantified fixed-A asymptotic has potential use in sensitivity analysis and local oscillator calibration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed A>0 only, local mu↓0+, no large-amplitude/global period monotonicity.",
+    "Institutional literature access: Oxford VPN disconnected for Larter 1984.",
+    "Larter-Rabitz-Kramer (1984) and Tyson (1973) potentially contain equivalent coefficients but full primary texts were inaccessible; do not cite as whole-document not-covering.",
+    "Analytic Hopf theorem is invoked; the symbolic coefficient validation alone does not establish orbit existence, stability, or remainder."
+  ],
+  "schema_version": 1
+}
