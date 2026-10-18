@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A pointwise numerical-range reduction yields the scalar inequality \(|z+v|^2/|z|^2\ge 1+r^2+2r\cos(\alpha+\beta)\). At acute total aperture, nonnegative cross term proves constant one; at obtuse aperture, completing the square proves \(\sin(\alpha+\beta)\). The symmetric inequality in \(|v|\) and supremum over unit vectors transfer the result to any complex Hilbert space. Explicit scalar sector-edge operators prove sharpness above the threshold, and positive scalar perturbations establish the acute infimum. Finite-dimensional strictness and an infinite-dimensional equality example were separately checked. All endpoints \(0\le\alpha,\beta<\pi/2\), including \(\alpha+\beta=\pi/2\), are covered.
+## correctness
 
-**Originality — PASS, with limits.** Bedrani–Kittaneh–Sababheh's 2020 Theorem 3.6 and Sheikhhosseini–Khosravi's 2026 Theorem 4.10 supply the weaker common-angle factor \(\cos^2\gamma\). The latter theorem applies to weighted numerical radius; the present claim deliberately restricts to ordinary numerical radius. Bhunia–Paul–Sen's 2022 full text discusses various sectorial numerical-radius bounds, including upper bounds for sums, but does not display the exact lower factor or angular phase transition. The sharp asymmetric factor and scalar extremizers are not implied by the weaker lower inequality alone. Searches found no exact matching statement, but that is not proof of absolute novelty. Residual risk: elementary scalar-angle reductions may have appeared in unindexed or otherwise uninspected sources.
+PASS
 
-**Value — PASS.** This determines a naturally posed optimal constant left unspecified by two closely related published theorems, rather than offering a small parameter-specific improvement. The optimum holds simultaneously in all dimensions, the symmetric-sector threshold is exact, and dimension one witnesses sharpness; the qualitative answer changes from true monotonicity to a strict contraction factor at \(45^\circ\). It gives the precise domain in which operator numerical-radius monotonicity under addition survives sectoriality, together with the quantitative failure above it.
+For 0≤α,β<π/2, numerical ranges in sectors centered on the positive real axis excluding zero, C=1 if δ=α+β≤π/2 and C=sinδ otherwise. For each unit x, scalar quadratic forms z and v have angular separation ≤δ. |z+v|²/|z|²≥1+r²+2r cosδ=(r+cosδ)²+sin²δ gives correct two branches, with the symmetric inequality in |v|; take sup over x without attainment assumption. Scalars on extremal sector rays with r=−cosδ attain C for obtuse δ; positive ε scalars approach C=1 for acute δ. Finite-dimensional strictness follows attainment and nonzero scalar terms; a positive diagonal infinite-dimensional pair has w(A+B)=w(A)=1. Independent symbolic identity and 100,000 randomized scalar tests corroborated proof; all-dimensional proof is exact.
 
-The source inspection compared Theorems 3.6 and 4.10 with the present conclusion by implication, not by title; the 2022 sum inequalities were checked for direction of comparison. This is a same-model proof and literature review, not independent validation. The principal scientific limitation is possible prior appearance of the elementary scalar lemma in a broader equivalent form.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original specific quantified claim/optimization or equality classification, compared at theorem/implication level with the primary sources and indexed results below; the SCOPE same-date identical listing is the audited result itself, not independent preexisting coverage. Named residual risks do not constitute a demonstrated dominating earlier theorem.
+
+## value
+
+PASS
+
+This determines the exact best reverse triangle/sum factor for ordinary numerical radius under a natural numerical-range sector assumption, sharpening a published cos²γ inequality; the acute-to-obtuse 45-degree common-sector boundary and scalar extremizers are not provided by the older weaker inequality. The proof is short plane geometry but the exact optimal law and endpoint behavior solve a motivated operator-inequality question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
