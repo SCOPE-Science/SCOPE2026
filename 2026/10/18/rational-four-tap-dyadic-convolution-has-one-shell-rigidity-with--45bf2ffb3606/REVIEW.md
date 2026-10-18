@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness: PASS
+The cyclic Fourier diagonalization identifies convolution nullity with zero multipliers. For each dyadic conductor \(2^r\), irreducibility of \(X^{2^{r-1}}+1\) over \(\mathbb Q\) makes one vanishing primitive Fourier multiplier equivalent to equality of opposite residue-class weight totals; this proves the complete nullity formula. With four positive weights, a vanishing high conductor consists of one or two occupied opposite residue pairs. A second lower conductor cannot occur with just one pair, and with two pairs its cancellation forces equal positive pair masses, hence all four weights equal. In the equal-weight case the difference of the two pair representatives has a single dyadic valuation, giving at most one lower conductor. The largest shell sizes, extremizer supports, and realizations follow. Direct factorization of the irrational four-tap polynomial yields exactly three eighth-root zero residues and nullity \(3N/8\) for every \(N=2^k\), \(k\ge3\). Exact rational calculations at 8, 16 and 32 corroborate the proof, and the polynomial was checked symbolically.
+
+## Originality: PASS, with risk
+Lam and Leung (1995, Theorem 3.3) already establish the essential rational prime-power cancellation structure: that is **not** claimed as original. The closest accessible published record `68cf8ce2dd05` classifies four-point indicators with equal coefficients, so its scope covers the equal-weight component but not the unequal positive-rational sharp single-shell conclusion or the irrational counterfamily. The 2002 study of 4-circulant graphs addresses symmetric unweighted adjacency generators, unlike independently located and positive-weighted taps. General Fourier uncertainty results do not assert these exact conductor/equality statements. Available source inspection and semantic searches found no encompassing weighted counterpart, but a hidden earlier treatment of weighted cyclic filters remains a concrete risk; an unavailable full text cannot be certified as non-covering.
+
+## Mathematical value: PASS
+Sparse cyclic convolution invertibility is a natural exact Fourier question. This classification gives an absolute restriction on the number and conductor orders of missing Fourier modes for *all* positive rational four-tap measures on an infinite family, a sharp extremal geometric characterization, and a constructive contrast showing that merely allowing positive irrational weights changes the conductor pattern. The counterexample is not an arbitrary numerical instance: it persists in every dyadic dimension and specifies the complete zero classes. Classical cyclotomic divisibility itself is not counted as a contribution.
+
+## Limits
+No claim for signed rational or general positive-real four-tap nullity bounds; the irrational example only invalidates one-shell and full-conductor-shell conclusions. Old bibliographic treatments of weighted filters could still overlap. No outside referee has verified the claims.
+
+Self-review: passed. Independent audit: not yet performed.
