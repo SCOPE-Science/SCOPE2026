@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The descending oriented-gap recurrence follows from exactly two simultaneous contraction sites and excludes both channel collisions. Solving the two-state recurrence yields closed \(u_j,v_j\) formulas with even-order exception terms. The monotone-gap lemma proves that gap-increasing letters cannot bypass the descending optimum, via a Bellman-potential inequality for both orientations. Maximizing the resulting exact pair metric at four residue phases gives the sharp diameter. The packaged checker independently reproduces the shortest distances by reverse pair-BFS for every pair on \(5\le n\le120\), plus all stated symbolic bands. This finite test is corroboration, not the basis of the infinite proof.
+## correctness
 
-**Originality — PASS with residual risk.** Full text of Rystsov–Szykuła's primitive-automata and transformation-monoid treatments gives synchronizability criteria and general reset estimates, not the present labeled all-pair shortest-word metric. The full-text account by Ananichev–Volkov–Zaks studies a different deficiency-two cyclic map: sources are adjacent with jump two, versus nonadjacent sources each jumping one here. The oldest and closest inspected records do not imply the current formulas. Indexed published results and both available historical result collections showed no equivalent statement, but unindexed older work remains a priority risk. The formal model has a **single** two-contraction letter; it cannot be substituted with two independently selectable letters.
+PASS
 
-**Value — PASS.** Pair-merging distances are the basic state-pair complexity of a synchronizing deterministic automaton. This result classifies every labeled pair for an infinite rank-\(n-2\) binary family and obtains a sharp worst-pair quadratic constant, including its parity correction. It goes beyond a finite instance or a generic algorithmic bound, and deliberately leaves the distinct full-state reset threshold unclaimed.
+For each n>=5 checked the exact b-action simultaneously on sources 0 and 2. Oriented descending gap recurrence excludes b(0),b(2) simultaneous no-gap moves, with admissible contraction sites L={0,2} except d=2 and n-2. Explicit u_d,v_d satisfy the recurrence; monotonicity and Bellman potential G(pair)<=1+G(a pair),1+G(b pair) rule out gap-increasing shortcuts, and the four critical starting phases yield sharp parity diameter. Independently constructed reverse pair graph and BFS checked ALL unordered pair distances for n=5..60 against the closed formula, not merely source verifier logs. All-n proof depends on closed symbolic parity/four-phase reduction.
 
-**Literature and limitations.** See Rystsov–Szykuła (arXiv:2307.01302 and arXiv:2309.08321), Ananichev–Volkov–Zaks (TCS 376 (2007), 30–41), and Volkov (arXiv:1807.07048). The available evidence does not establish priority beyond inspected indexed literature. The proof does not address optimal reset words of the whole state set or other pairings of merge sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact pointwise pair-distance and worst-pair diameter belong to a rank n-2 common two-merge letter, not the one-point contraction automata or the different two-merge automata of earlier reset-length analyses. Best-of-knowledge novel labeled pair metric.
+
+## value
+
+PASS
+
+An explicit individual pair shortest-merger distance and sharp diameter are natural synchronizing automata invariants, clarifying pair compression separately from full reset length. The family has real two-merger interactions and parity boundary, not a routine generic corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

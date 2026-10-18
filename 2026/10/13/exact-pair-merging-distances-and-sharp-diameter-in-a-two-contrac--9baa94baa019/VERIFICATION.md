@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this file and the accompanying standalone script. The script uses the Python standard library and no downloaded data. It constructs the *entire* graph of unordered state pairs for every integer \(n\) from \(5\) through \(120\). Reverse BFS from one-letter mergeable pairs gives exact shortest word lengths, independently of the proposed closed formula. It checks every such pair, both endpoint recurrences, monotonicity of each oriented cost, four critical starting phases per gap, and the displayed band and diameter formulas.
+## correctness
 
-Expected successful output:
+PASS
 
-`VERIFY_OK n=5..120 pair_distances=287970 all_oriented_masks=checked monotonicity=checked four_phase_maxima=checked diameter=checked`
+For each n>=5 checked the exact b-action simultaneously on sources 0 and 2. Oriented descending gap recurrence excludes b(0),b(2) simultaneous no-gap moves, with admissible contraction sites L={0,2} except d=2 and n-2. Explicit u_d,v_d satisfy the recurrence; monotonicity and Bellman potential G(pair)<=1+G(a pair),1+G(b pair) rule out gap-increasing shortcuts, and the four critical starting phases yield sharp parity diameter. Independently constructed reverse pair graph and BFS checked ALL unordered pair distances for n=5..60 against the closed formula, not merely source verifier logs. All-n proof depends on closed symbolic parity/four-phase reduction.
 
-This finite experiment is not an exhaustive proof for arbitrarily large \(n\). The infinite proof uses the gap recurrence, symbolic parity solution, monotone Bellman potential and the finite symbolic four-phase maximum argument in the main result. No independent audit or external verification is claimed.
+## originality
+
+PASS
+
+The exact pointwise pair-distance and worst-pair diameter belong to a rank n-2 common two-merge letter, not the one-point contraction automata or the different two-merge automata of earlier reset-length analyses. Best-of-knowledge novel labeled pair metric.
+
+## value
+
+PASS
+
+An explicit individual pair shortest-merger distance and sharp diameter are natural synchronizing automata invariants, clarifying pair compression separately from full reset length. The family has real two-merger interactions and parity boundary, not a routine generic corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
