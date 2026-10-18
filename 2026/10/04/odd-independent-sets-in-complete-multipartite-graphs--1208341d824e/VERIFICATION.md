@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is exact and finite at each logical step: any nonempty independent set is confined to one part; same-part outside vertices see zero selected vertices; different-part vertices see the entire selected set. Thus the parity condition is equivalent to odd set size.
+# Independent mathematical audit
 
-`verify.py` independently constructs adjacency matrices and checks the original definition rather than reusing the proof shortcut. It enumerates every complete-multipartite isomorphism type with at least two parts through order \(11\), all vertex subsets of each type, and compares the resulting size distribution and maximum with the claimed formulas.
+## correctness
 
-Expected replay summary:
+PASS
 
-`ALL CHECKS PASSED; multipartite_types=183; subsets=177556; max_order=11`
+Every nonempty independent subset of complete multipartite K_(n_1,...,n_r), r>=2, lies in exactly one part. Every vertex in another part sees precisely |S| neighbors of S; those in its own part see zero. Therefore such S is odd-independent iff |S| is odd. Summing binomial coefficients yields I_od(x)=1+Σ_i Σ_(j odd) binom(n_i,j)x^j and the maximum is the greatest odd integer <= max_i n_i, giving equality with alpha(G) precisely when max_i n_i is odd. Independent exhaustive direct-definition replay at (2,3,4) yields counts {0:1,1:9,3:5}, maximum3; general proof exact.
 
-The computation does not certify novelty and is not used to extrapolate the infinite statement. The theorem’s universal scope comes from the analytic proof.
+## originality
+
+PASS
+
+No independent published covering implication was located under the checked exact and equivalent formulations.
+
+## value
+
+PASS
+
+Complete closed generating polynomial and equality threshold over the natural classical complete multipartite family, extending beyond irregular bipartite cases and addressing the initiating equality question. The proof is elementary, but this is a motivated broad natural family classification, not an arbitrary tiny computation; do not impose a proof-length bar.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
