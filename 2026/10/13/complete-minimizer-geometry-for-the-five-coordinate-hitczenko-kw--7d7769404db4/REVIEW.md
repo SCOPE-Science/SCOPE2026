@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-After normalization, the positive one-standard-deviation event is exactly a subset-sum threshold problem. The proof establishes \(\tau\ge\min\{b_3,b_1+b_2\}\) by two explicit square-norm inequalities, forcing at least four positive sign patterns. It then identifies the exact fourth/fifth boundary using the three candidate weights \(b_3\), \(b_4\), and \(b_1+b_2\). The argument covers ties and padded zero coefficients. A finite exact-arithmetic enumeration is included only as a regression check.
+## correctness
 
-## Originality — PASS
-Hu, Lan, and Sun explicitly record \(G_3=G_4=G_5=1/4\) and prove the conjectured lower bound through dimension seven, but their inspected full text does not classify all minimizers for the low-dimensional value. Hollom later proves the unrestricted sharp tail profile, including the global threshold-one value \(7/32\), but the inspected full text does not state the support-size-at-most-five equality geometry. Targeted searches for equality cases, minimizers, support-size formulations, and equivalent subset-sum language found no covering statement. The principal residual risk is an unindexed elementary formulation under Boolean threshold terminology.
+PASS
 
-## Value — PASS
-The result turns a known sharp numerical constant into a complete structural theorem. The minimizer set is described by one explicit coefficient-order gap, while every nonminimizer in the same natural finite-support class jumps to probability at least \(5/16\). Equality classifications of sharp probabilistic inequalities are mathematically useful in their own right and can guide stability and higher-dimensional analyses.
+Normalize nonzero real coefficients to norm one; sign changes and permutations allow 0<=b1<=...<=b5 after zero padding. For each subset J, the corresponding signed sum is s-2w(J), and the two-sided tail probability equals N/16, where N=#{J:w(J)<=(s-1)/2=τ}. Two exact polynomial identities verified symbolically show τ>=min(b3,b1+b2); the four minimal candidate subsets are therefore always admissible. Ordering candidate next weights {b3,b4,b1+b2} as u<=v<=w proves N=4 iff u<=τ<v, including ties and zero coordinates; otherwise at least five subsets qualify, hence tail >=5/16. The pairwise subset-weight comparison covers all other subsets, not just the displayed five. Direct independent exact arithmetic checks on 1286 nonzero nondecreasing integer tuples 0..8 confirmed all 32 sign counts and 261 equality cases, but the real-parameter theorem rests on the inequalities.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Hu–Lan–Sun 2021 gives the known sharp low-dimensional numerical values G3=G4=G5=1/4 and proves a stronger dimension-seven lower bound; that scalar lower bound is NOT novel. Hollom–Portier 2025 proves global bound 7/32 and describes global sharp behavior but does not state an at-most-five-coordinate exact equality locus with a fourth/fifth subset-sum gap. The new characterization is not implied by knowing the numerical infimum or a dimension-free weaker lower bound. An equivalent combinatorial Boolean-threshold lemma from prior inequality literature may remain unindexed; material considered includes full accessible primary texts, not titles alone.
+
+## value
+
+PASS
+
+Classifying every extremal coefficient vector for a sharp Rademacher tail inequality is a motivated structural refinement of a known best constant. The explicit u<=τ<v condition includes all support sizes <=5 and boundary ties, and the discrete non-minimizer jump to 5/16 quantifies a real extremal dichotomy (one additional sign pattern). This is a complete natural small-support extremizer geometry, not merely another proof of G5=1/4.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

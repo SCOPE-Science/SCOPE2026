@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T05:15:15.258327Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize nonzero real coefficients to norm one; sign changes and permutations allow 0<=b1<=...<=b5 after zero padding. For each subset J, the corresponding signed sum is s-2w(J), and the two-sided tail probability equals N/16, where N=#{J:w(J)<=(s-1)/2=τ}. Two exact polynomial identities verified symbolically show τ>=min(b3,b1+b2); the four minimal candidate subsets are therefore always admissible. Ordering candidate next weights {b3,b4,b1+b2} as u<=v<=w proves N=4 iff u<=τ<v, including ties and zero coordinates; otherwise at least five subsets qualify, hence tail >=5/16. The pairwise subset-weight comparison covers all other subsets, not just the displayed five. Direct independent exact arithmetic checks on 1286 nonzero nondecreasing integer tuples 0..8 confirmed all 32 sign counts and 261 equality cases, but the real-parameter theorem rests on the inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hollom–Portier global P(|X|>=1)>=7/32 is a weaker numerical inequality than the natural support<=5 sharp 1/4.",
+          "Hu–Lan–Sun G5=1/4 proof does not state all equality coefficient configurations."
+        ],
+        "reasoning": "Globally sharp 7/32 and numerically sharp G5=1/4 do not dominate equality geometry, even if they cover its tail inequality.",
+        "searches": [
+          "doi:10.1002/rsa.70024",
+          "doi:10.1007/s10255-021-0993-0",
+          "Resultary semantic: Rademacher signs P absolute sum at least standard deviation five nonzero coefficients minimizer equality characterization threshold subset sums"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/346424247_Some_Explorations_on_Two_Conjectures_About_Rademacher_Sequences",
+        "https://onlinelibrary.wiley.com/doi/10.1002/rsa.70024",
+        "Resultary semantic: Rademacher signs P absolute sum at least standard deviation five nonzero coefficients minimizer equality characterization threshold subset sums"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar value and full-dimensional infimum are quantified over coefficients, but provide no localization of the infimum-attaining set.",
+          "At-most-five exact count N=4 imposes distinct subset ordering conditions not stated in the two primary theorems."
+        ],
+        "reasoning": "The submitted gap theorem is not obtained by parameter substitution into the earlier scalar inequalities; it requires analysis of the fourth and fifth admissible sign patterns.",
+        "searches": [
+          "Hu Lan Sun 2021 Section 1 and 3",
+          "Hollom Portier 2025 Section 4",
+          "Boolean subset-sum equality geometry Rademacher five"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tail count equals twice the subset family {J:Σ_{j∈J} b_j≤τ} divided by 32.",
+          "Known Rademacher constant G5 is a scalar infimum; it does not encode the u,τ,v geometry."
+        ],
+        "reasoning": "Compared sign-vector, Boolean subset-sum threshold, support-padded and anti-concentration statements; exact iff geometry is stronger than lower bound.",
+        "searches": [
+          "Resultary semantic: Rademacher signs P absolute sum at least standard deviation five nonzero coefficients minimizer equality characterization threshold subset sums",
+          "five variable Rademacher sums equality probability at least norm quarter exact extremizers",
+          "doi:10.1007/s10255-021-0993-0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Public paper tables give scalar G3=G4=G5=1/4, no exact semialgebraic minimizer list.",
+          "Resultary indexed results on Walsh moments and finite Rademacher Sidon constants treat different functionals."
+        ],
+        "reasoning": "No exact prior equality table was located; this is bounded negative evidence only.",
+        "searches": [
+          "Rademacher signs P absolute sum at least standard deviation five nonzero coefficients minimizer equality characterization threshold subset sums",
+          "Hitczenko Kwapien five sign coefficient extremizers",
+          "Hu Lan Sun 2021 full text"
+        ]
+      },
+      "rationale": "Hu–Lan–Sun 2021 gives the known sharp low-dimensional numerical values G3=G4=G5=1/4 and proves a stronger dimension-seven lower bound; that scalar lower bound is NOT novel. Hollom–Portier 2025 proves global bound 7/32 and describes global sharp behavior but does not state an at-most-five-coordinate exact equality locus with a fourth/fifth subset-sum gap. The new characterization is not implied by knowing the numerical infimum or a dimension-free weaker lower bound. An equivalent combinatorial Boolean-threshold lemma from prior inequality literature may remain unindexed; material considered includes full accessible primary texts, not titles alone.",
+      "residual_risks": [
+        "An equivalent Boolean subset-sum extremizer lemma under another vocabulary may precede the work.",
+        "This is a sharply delimited at-most-five-support result; no claim about six or arbitrary many nonzero coefficients.",
+        "The strict threshold >||a|| is a different probability and can have different minimizers; not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains already-known G3=G4=G5=1/4; does not explicitly classify all minimizer tuples by u<=τ<v.",
+          "evidence": [
+            "Introduction lines 193–220 list exact low-dimensional values, proof focus dimension seven."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/346424247_Some_Explorations_on_Two_Conjectures_About_Rademacher_Sequences ; arXiv:1910.11312",
+          "material_read": "Full author-uploaded article text: introduction G_n, Section 3 proof of upper dimension bound, conclusion",
+          "method": "Read publicly available full text and searched n<=5 and equality contexts",
+          "title": "Some Explorations on Two Conjectures About Rademacher Sequences",
+          "trigger": "Same low-support sharp G3–G5 problem"
+        },
+        {
+          "assessment": "Global threshold-one bound 7/32 and six-coordinate equality neighborhoods do not determine exact all-five-support 1/4 equality geometry.",
+          "evidence": [
+            "Theorem 4.1, Section 4 equality commentary, threshold profile Section 5."
+          ],
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/rsa.70024",
+          "material_read": "Complete publicly open 2025 journal HTML including Theorem 4.1, equality discussion and Section 5",
+          "method": "Read formal theorem and relevant proof/equality sections, distinguishing weak/strict tails",
+          "title": "Tight Anti-Concentration of Rademacher Sums",
+          "trigger": "Dominating unrestricted global Rademacher tail theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifying every extremal coefficient vector for a sharp Rademacher tail inequality is a motivated structural refinement of a known best constant. The explicit u<=τ<v condition includes all support sizes <=5 and boundary ties, and the discrete non-minimizer jump to 5/16 quantifies a real extremal dichotomy (one additional sign pattern). This is a complete natural small-support extremizer geometry, not merely another proof of G5=1/4.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.researchgate.net/publication/346424247_Some_Explorations_on_Two_Conjectures_About_Rademacher_Sequences",
+    "https://onlinelibrary.wiley.com/doi/10.1002/rsa.70024",
+    "Resultary semantic: Rademacher signs P absolute sum at least standard deviation five nonzero coefficients minimizer equality characterization threshold subset sums"
+  ],
+  "disposition": "passed",
+  "limitations": "Only real Rademacher sums with 1 to 5 nonzero coefficients and the non-strict one-standard-deviation tail; the next possible probability after 1/4 is 5/16 by finite sign-lattice quantization.",
+  "residual_risks": [
+    "An equivalent Boolean subset-sum extremizer lemma under another vocabulary may precede the work.",
+    "This is a sharply delimited at-most-five-support result; no claim about six or arbitrary many nonzero coefficients.",
+    "The strict threshold >||a|| is a different probability and can have different minimizers; not covered."
+  ],
+  "schema_version": 1
+}
