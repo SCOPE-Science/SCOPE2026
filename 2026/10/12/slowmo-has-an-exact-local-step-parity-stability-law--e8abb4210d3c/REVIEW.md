@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source SlowMo equations reduce exactly to a second-order scalar recurrence after the tau-step SGD block is composed. The complete Jury criterion gives the necessary-and-sufficient condition \(0<\alpha(1-q)<2(1+\beta)\). For \(\alpha=1\), parity of \(\tau\) then yields the displayed exact thresholds and boundary eigenvalues.
+PASS
 
-Risk: outer-state stability does not bound the intermediate fast iterates inside a locally unstable block.
+The source fast SGD block on f=lambda*x^2/2 gives q=(1-s)^tau, s=gamma*lambda. Eliminate the source slow buffer from u_{t+1}=beta u_t+(1-q)x_t/gamma and x_{t+1}=x_t-alpha*gamma u_{t+1}; the exact recurrence is x_{t+1}=[1+beta-alpha(1-q)]x_t-beta*x_{t-1}. For 0<=beta<1 the three quadratic Jury inequalities reduce exactly to 0<alpha(1-q)<2(1+beta). For alpha=1, even tau gives 0<s<2, odd tau gives 0<s<1+(1+2beta)^(1/tau), the latter strictly beyond 2 iff beta>0. At s=2 even tau root is +1; at odd upper boundary root is -1. Independently computed eigenvalues for (tau,beta,s)=(3,0.5,2.2), stable complex modulus sqrt(.5), and (2,.5,2.2), unstable root 1.634; analytic Jury, not sampling, establishes all tau.
 
-## Originality
+## originality
 
-PASS. The defining SlowMo paper contains the nested update and empirical hyperparameter analysis but no fixed-quadratic Schur region or parity law. The beta-zero slice is related to Lookahead and is treated as prior context. The positive-slow-momentum odd-period rescue interval is not implied by that slice, and focused published-record searches did not locate an equivalent SlowMo result.
+PASS
 
-Residual risk: an equivalent scalar calculation may exist in unindexed distributed-optimization notes.
+Source SlowMo algorithm plus general Jury theory must be applied to the nontrivial nested synchronization multiplier; published Lookahead parity relates only to beta=0 and differing alpha, while the new beta>0, alpha=1 rescue is not supplied by that special case. No directly equivalent SlowMo region located; risk of unindexed scalar stability notes.
 
-## Value
+## value
 
-PASS. The local-step count is a core communication parameter in SlowMo. The theorem gives a sharp structural distinction between odd and even synchronization periods and identifies exactly when persistent slow momentum can stabilize a fast SGD step that is individually unstable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Local-step count controls communication frequency in SlowMo; its parity creates an exact, nonobvious qualitative difference under slow momentum. The result identifies a mathematically precise regime where individually unstable inner SGD steps become stable when synchronized, and boundary eigenmodes are explicit. Narrow scalar deterministic scope and possible high transient inner magnitude are fully stated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

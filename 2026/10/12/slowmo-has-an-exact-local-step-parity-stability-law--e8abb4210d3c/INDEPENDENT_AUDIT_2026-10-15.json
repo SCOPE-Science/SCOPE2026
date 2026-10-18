@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T15:12:07.972170Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/12/slowmo-has-an-exact-local-step-parity-stability-law--e8abb4210d3c/RESULT.md @08d52e0ca9780bbcf5255fd2b538ab4a4ea5774d",
+        "2026/10/12/slowmo-has-an-exact-local-step-parity-stability-law--e8abb4210d3c/verify.py"
+      ],
+      "rationale": "The source fast SGD block on f=lambda*x^2/2 gives q=(1-s)^tau, s=gamma*lambda. Eliminate the source slow buffer from u_{t+1}=beta u_t+(1-q)x_t/gamma and x_{t+1}=x_t-alpha*gamma u_{t+1}; the exact recurrence is x_{t+1}=[1+beta-alpha(1-q)]x_t-beta*x_{t-1}. For 0<=beta<1 the three quadratic Jury inequalities reduce exactly to 0<alpha(1-q)<2(1+beta). For alpha=1, even tau gives 0<s<2, odd tau gives 0<s<1+(1+2beta)^(1/tau), the latter strictly beyond 2 iff beta>0. At s=2 even tau root is +1; at odd upper boundary root is -1. Independently computed eigenvalues for (tau,beta,s)=(3,0.5,2.2), stable complex modulus sqrt(.5), and (2,.5,2.2), unstable root 1.634; analytic Jury, not sampling, establishes all tau.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SlowMo defining paper addresses nonconvex diminishing-step convergence and empirical scheduling, not all fixed quadratic Schur thresholds.",
+          "Lookahead has no persistent slow-momentum state and at alpha=1 has odd upper boundary s=2."
+        ],
+        "reasoning": "Neither convergence in stochastic/diminishing regime nor an alpha-interpolation Lookahead condition dominates a necessary-sufficient fixed-parameter SlowMo beta>0 threshold.",
+        "searches": [
+          "arXiv:1910.00643 full primary Algorithm 1 and theory",
+          "Resultary published 2026/10/4 Lookahead parity result",
+          "arXiv:1907.08610"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1910.00643",
+        "https://arxiv.org/abs/1907.08610",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-parity-stability-without-minimax-acceleration-in-lookahead-sgd-q--35cbb349a324",
+        "Resultary semantic search: Resultary: SlowMo local SGD quadratic stability parity synchronization steps momentum Schur Jury q=(1-gamma lambda)^tau",
+        "Pinned assigned Git package, 2026/10/12/slowmo-has-an-exact-local-step-parity-stability-law--e8abb4210d3c/RESULT.md @08d52e0ca9780bbcf5255fd2b538ab4a4ea5774d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "SlowMo u recurrence differs from Lookahead by beta u_t, giving second-order outer dynamics.",
+          "For beta=0 and alpha=1 the claimed above-2 rescue interval collapses."
+        ],
+        "reasoning": "The beta=0 prior result cannot imply positive-beta rescue: strict inequality 1+(1+2beta)^(1/tau)>2 is a new state-dependent implication. One must eliminate SlowMo's slow buffer and apply the Jury inequalities.",
+        "searches": [
+          "arXiv:1910.00643 Algorithm 1",
+          "arXiv:1907.08610 Lookahead",
+          "Resultary Lookahead parity record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang et al. source Algorithm 1 supplies slow momentum update and normalized displacement.",
+          "Resultary 2026/10/4 Lookahead-SGD result: parity and above2 stabilization with interpolation, no persistent beta state."
+        ],
+        "reasoning": "At beta=0 SlowMo reduces to the alpha-weighted Lookahead recurrence; that case is prior context. The positive-beta, alpha=1 stability frontier differs and cannot be inferred from beta=0 results alone.",
+        "searches": [
+          "Resultary: SlowMo local SGD quadratic stability parity synchronization steps momentum Schur Jury q=(1-gamma lambda)^tau",
+          "Resultary: Parity stability without minimax acceleration in Lookahead-SGD quadratics",
+          "arXiv:1910.00643"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Boundary roots from Jury: even tau s=2 yields +1; odd tau s=1+(1+2beta)^(1/tau) yields -1.",
+          "Published Resultary Lookahead record only covers different optimizer state."
+        ],
+        "reasoning": "No inspected stability tables give simultaneous alpha,beta,tau SlowMo condition. General 2x2 Jury formula is textbook technique, but it is not a precomputed table for this nested update.",
+        "searches": [
+          "Resultary: SlowMo local SGD quadratic stability parity synchronization steps momentum Schur Jury q=(1-gamma lambda)^tau",
+          "SlowMo scalar quadratic exact spectral stability boundary table tau beta alpha"
+        ]
+      },
+      "rationale": "Source SlowMo algorithm plus general Jury theory must be applied to the nontrivial nested synchronization multiplier; published Lookahead parity relates only to beta=0 and differing alpha, while the new beta>0, alpha=1 rescue is not supplied by that special case. No directly equivalent SlowMo region located; risk of unindexed scalar stability notes.",
+      "residual_risks": [
+        "General scalar heavy-ball Jury substitution is elementary; mathematical value rests on the motivated parity/rescue phenomenon rather than technical depth.",
+        "Equivalent SlowMo spectral calculation could occur in unindexed distributed-optimization notes.",
+        "Outer stability does not control large inner iterates; no stochastic worker theorem claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equations agree with source, no exact scalar local-step parity Schur classification found in read material",
+          "evidence": [
+            "Slow buffer beta u + normalized displacement; outer -alpha gamma u update."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.00643",
+          "material_read": "Full primary PDF source Algorithm 1/updates and convergence theorem/empirical discussion; page 2 image inspected",
+          "method": "PDF text and screenshot of actual update",
+          "title": "SlowMo: Improving Communication-Efficient Distributed SGD with Slow Momentum",
+          "trigger": "Defines exact algorithm under test"
+        },
+        {
+          "assessment": "Lookahead interpolates fast steps without persistent momentum state, so only beta=0 comparison warranted",
+          "evidence": [
+            "Lookahead x_new=(1-alpha)x_old+alpha x_fast; SlowMo beta=0 reduces to this."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.08610",
+          "material_read": "Abstract and cited source reduction, plus published Resultary Lookahead parity statement; complete paper not reread this execution",
+          "method": "Abstract/context comparison and related mathematical record",
+          "title": "Lookahead Optimizer: k steps forward, 1 step back",
+          "trigger": "SlowMo beta=0 single-node specialization"
+        },
+        {
+          "assessment": "Lookahead odd tau can stabilize inner steps with interpolation, but is not positive-beta SlowMo stability",
+          "evidence": [
+            "Published summary: unique alpha=1 robust minimax and parity effects without slow momentum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-parity-stability-without-minimax-acceleration-in-lookahead-sgd-q--35cbb349a324",
+          "material_read": "Resultary semantic record's title and summary; full RESULT not retrieved",
+          "method": "Published-record semantic retrieval",
+          "title": "Parity stability without minimax acceleration in Lookahead-SGD quadratics",
+          "trigger": "Potential prior parity formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/12/slowmo-has-an-exact-local-step-parity-stability-law--e8abb4210d3c/RESULT.md",
+        "https://arxiv.org/abs/1910.00643",
+        "https://arxiv.org/abs/1907.08610",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-parity-stability-without-minimax-acceleration-in-lookahead-sgd-q--35cbb349a324"
+      ],
+      "rationale": "Local-step count controls communication frequency in SlowMo; its parity creates an exact, nonobvious qualitative difference under slow momentum. The result identifies a mathematically precise regime where individually unstable inner SGD steps become stable when synchronized, and boundary eigenmodes are explicit. Narrow scalar deterministic scope and possible high transient inner magnitude are fully stated.",
+      "residual_risks": [
+        "General scalar heavy-ball Jury substitution is elementary; mathematical value rests on the motivated parity/rescue phenomenon rather than technical depth."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General scalar heavy-ball Jury substitution is elementary; mathematical value rests on the motivated parity/rescue phenomenon rather than technical depth.",
+    "Equivalent SlowMo spectral calculation could occur in unindexed distributed-optimization notes.",
+    "Outer stability does not control large inner iterates; no stochastic worker theorem claimed.",
+    "Source METADATA.json and AUDIT.json contain public-inappropriate operational scope_run_id; the scientific verdict is complete but publication is withheld.",
+    "No external certification or expert/Lean verification is asserted; VERIFY_OK is not O or V evidence."
+  ],
+  "schema_version": 1
+}
