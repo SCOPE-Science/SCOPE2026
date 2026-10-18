@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two load-bearing parts.
+# Independent mathematical audit
 
-First, for a finite \(\mathcal J\)-eventually-different family
-\[
-\mathcal E=\{f_0,\ldots,f_{k-1}\},
-\]
-the simultaneous pairwise-distinct set
-\[
-B=\bigcap_{i<j<k}\{n:f_i(n)\ne f_j(n)\}
-\]
-lies in \(\mathcal J^*\). Thus \(F(n)\ge k\) throughout a co-\(\mathcal J\) set.
+## correctness
 
-For necessity, Lemma 4.23 of arXiv:2610.02350v1 converts FSP into \(\mathcal U^*\)-maximality for an ultrafilter \(\mathcal U\supseteq\mathcal J^*\). If \(\{n:F(n)=k\}\notin\mathcal U\), then on the \(\mathcal U\)-large set where the \(f_i\) are pairwise distinct and \(F(n)\ne k\), there is an extra coordinate value. Choosing that extra value pointwise produces a function with no \(\mathcal U\)-large equality set against any \(f_i\), a contradiction.
+PASS
 
-For sufficiency, if \(\{n:F(n)=k\}\in\mathcal J^+\), extend \(\mathcal J^*\) together with that fiber to an ultrafilter. On the large subset where the \(f_i\) are pairwise distinct, the \(k\) members exhaust every coordinate value. Any test function therefore agrees pointwise with one of them, and finite-union primeness of the ultrafilter makes one equality set large. Lemma 4.23 then gives FSP.
+Define B as coordinates at which all k members are pairwise distinct; each equality set is J-small, hence B is J*-large and B subset G_k. With He–Luo–Zhang Lemma 4.23, FSP iff U*-maximal for an ultrafilter U extending J*. Necessity: if C_k misses U, on U-large B\C_k there is a spare coordinate value (F>k, including infinity), giving h with no U-large agreement with any family member. Sufficiency: if C_k is J-positive, extend J* with C_k to U; on B∩C_k the k coordinate values exhaust F(n), and finite-union ultrafilter primeness makes any h agree on a U-large set with one member. The independent k-family existence condition G_k in J* follows by coordinatewise constant witnesses on G_k. k=1 and infinite F(n) covered; alternating Fin witness satisfies strict separation.
 
-Second, a \(k\)-member \(\mathcal J\)-eventually-different family exists exactly when
-\[
-\{n:F(n)\ge k\}\in\mathcal J^*.
-\]
-Necessity follows from pairwise distinctness on \(B\). Sufficiency is witnessed by the \(k\) coordinate constants on that co-\(\mathcal J\) set, extended by \(0\) elsewhere.
+## originality
 
-Combining the two proves the exact existence criterion. The alternating \(\mathrm{Fin}\) example was checked symbolically: the exact \(k\)-fiber is infinite but not cofinite, while the at-least-\(k\) fiber is all of \(\omega\).
+PASS
 
-No finite computation, experimental enumeration, or unproved limit argument is used.
+The exact ideal-positive fiber threshold for finite FSP is an explicit new classification and differs from published finite Van Douwen filter threshold; best-of-knowledge, not priority certification.
+
+## value
+
+PASS
+
+For the natural finite slice of idealized maximal eventually-different families, the theorem determines both the exact FSP existence threshold and its strict separation from Van Douwen maximality for every ideal and countable product. The k-fiber criterion is independently useful for locating maximal families and not a finite experiment or bare notational identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
