@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T06:48:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 71bc40462207b982d2de205bd9a1e4289c98d718; CHECK.py b85b5686d39367d86d7345fb20399a38e6cb4a86; other package blobs, reconstructed frozen Git tree"
+      ],
+      "rationale": "Differentiate the bounded-past exponential convolution to m_dot=lambda(x-m); orthogonal Laplacian diagonalization gives p_u(z)=z^2+(lambda+a*u)z+lambda*u*(a+b). Both coefficients of p_u(z-r) are affine in u; the closed-left-half-plane Hurwitz criterion yields the exact extremal-mode bound between alpha and beta for all intermediate modes. A one-mode discriminant and monotonic-rate analysis places the unique alpha/beta crossing strictly between their critical gains; the positive quadratic root gives a*. At a* and alpha<beta the two endpoint roots are nondefective, so the rate is attained; alpha=beta gives a Jordan t*exp(-R*t) and only the supremum. A bounded continuous past can realize each modal (X0,M0), so sharpness is observable in x. Independently checked 2,500 parameter tuples and interior-mode rates. These samples support, not substitute, the affine Hurwitz argument.",
+      "residual_risks": [
+        "Finite experiments are supplementary; global claim depends on the specific analytic steps in RESULT.md."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pignotti–Wang abstract guarantees exponential convergence in much broader nonlinear/memory settings, not the sharp rate/tuning formula.",
+          "Kempton–Herrmann–di Bernardo vary graph edge weights for delay robustness, not scalar a at fixed L."
+        ],
+        "reasoning": "Existence of some exponential rate does not imply maximal exponent nor optimal parameter; broad hypotheses do not dominate a narrow quantitative optimization. The unavailable Pignotti full proof remains a possible nonobvious overlap.",
+        "searches": [
+          "distributed exponential fading memory Laplacian consensus optimal instantaneous gain",
+          "arXiv:2609.02454v1",
+          "doi:10.1002/rnc.3808",
+          "doi:10.1137/110832574"
+        ]
+      },
+      "checked_sources": [
+        "source RESULT.md 71bc40462207b982d2de205bd9a1e4289c98d718",
+        "arXiv:2609.02454v1",
+        "arXiv:1912.04442",
+        "doi:10.1002/rnc.3808"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exponential decay existence does not give a specific spectral edge min or global maximizer.",
+          "Point delay has different characteristic equation and variable tau; cannot be specialized to an exponential distributed kernel by setting tau."
+        ],
+        "reasoning": "Neither located theorem implies the exact gain balance without new affine-in-eigenvalue and discriminant optimization.",
+        "searches": [
+          "distributed exponential fading memory Laplacian consensus optimal instantaneous gain",
+          "arXiv:2609.02454 exponential consensus Theorems 3.3/3.4 (source citations; abstract inspected)",
+          "arXiv:1912.04442 Section IV primary PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moradian–Kia Section IV explicitly uses z_i(t-tau), discrete point delay and Lambert-W roots; current exact exponential convolution yields a 2x2 quadratic.",
+          "Pignotti–Wang abstract states global exponential consensus but no explicit spectral optimum."
+        ],
+        "reasoning": "Different delay models are not equivalent by symbol renaming; the explicit companion-state polynomial for the exponential kernel is the determinant of the distinction.",
+        "searches": [
+          "distributed exponential fading memory Laplacian consensus optimal instantaneous gain",
+          "arXiv:1912.04442 Section IV",
+          "arXiv:2609.02454v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hit is the assigned record itself; next ranked gradient-tracking optimization concerns another algorithm.",
+          "The theorem is continuous all-connected-graph analytical, not a finite spectral table."
+        ],
+        "reasoning": "No exact closed-form gain record found independently; absence of hits is not novelty proof; comparison relies on actual equation form and prior theorem scope.",
+        "searches": [
+          "distributed exponential fading memory Laplacian consensus optimal instantaneous gain",
+          "\"exponential kernel\" \"optimal gain\" \"consensus\"",
+          "Resultary distributed exponential fading memory Laplacian consensus optimal instantaneous gain"
+        ]
+      },
+      "rationale": "The most closely related September 2026 article establishes existence of exponential consensus for fading memory; its inspected abstract does not claim the exact shared-Laplacian scalar-gain optimizer. Moradian–Kia studies a point-delay split with Lambert-W rather than an exponential-kernel quadratic. No published finding found that dominates the endpoint bottleneck and unique a*. Full recent paper could not be read, retained as significant risk.",
+      "residual_risks": [
+        "The highly relevant Pignotti–Wang primary manuscript was inaccessible beyond its abstract; no whole-document NOT_COVERING claim.",
+        "An equivalent distributed-memory optimal-decay control theorem under semigroup or transfer-function notation may exist.",
+        "The optimal exponent at a repeated root is a supremum not necessarily attained; this critical qualifier must be preserved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POTENTIAL_BROADER_PRIOR_REMAINS",
+          "evidence": [
+            "Abstract claims unconditional global exponential consensus with/without instantaneous force; no quantitative sharp optimizer specified in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.02454",
+          "material_read": "Original arXiv abstract and bibliographic record; full paper inaccessible via arXiv, lawful alternate and authenticated institutional retrieval",
+          "method": "Read original abstract and accessible descriptors; explicitly not full-text NOT_COVERING",
+          "title": "Exponential Consensus and Flocking in Multi-Agent Systems with Infinite Fading Memory",
+          "trigger": "same general fading-memory consensus"
+        },
+        {
+          "assessment": "DIFFERENT_DISCRETE_POINT_DELAY",
+          "evidence": [
+            "Section IV has x(t-tau), admissible delay bands and tau-dependent rightmost roots, unlike convolution m_dot=lambda(x-m)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.04442",
+          "material_read": "Original PDF page 4 (one-index), Section IV, equations (11),(17),(18), theorem IV.1 and model description; not all eleven pages",
+          "method": "Primary arXiv PDF text and rendered page inspection",
+          "title": "A Study on Accelerating Average Consensus Algorithms Using Delayed Feedback",
+          "trigger": "similar consensus rate optimization and Laplacian spectrum"
+        },
+        {
+          "assessment": "DIFFERENT_OPTIMIZATION_VARIABLE",
+          "evidence": [
+            "Graph edge-weight design/delay robustness instead of fixed graph scalar current gain."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rnc.3808",
+          "material_read": "Article abstract/published summary; full content not obtained fresh this execution",
+          "method": "Primary citation and accessible summary",
+          "title": "Distributed optimisation and control of graph Laplacian eigenvalues for robust consensus via an adaptive multilayer strategy",
+          "trigger": "edge-spectrum consensus optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "source RESULT.md 71bc40462207b982d2de205bd9a1e4289c98d718",
+        "arXiv:2609.02454v1",
+        "arXiv:1912.04442",
+        "doi:10.1002/rnc.3808"
+      ],
+      "rationale": "A whole-graph rate-design theorem reduces every positive Laplacian mode to only its extremal two and gives a closed-form unique optimal instantaneous gain, with a genuine overcoupling penalty and repeated-root exception; directly motivates consensus rate tuning, not a routine single small instance.",
+      "residual_risks": [
+        "The highly relevant Pignotti–Wang primary manuscript was inaccessible beyond its abstract; no whole-document NOT_COVERING claim.",
+        "An equivalent distributed-memory optimal-decay control theorem under semigroup or transfer-function notation may exist.",
+        "The optimal exponent at a repeated root is a supremum not necessarily attained; this critical qualifier must be preserved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a fixed connected undirected Laplacian L and common exponential convolution (lambda,b>0,a>=0), the exact spectral consensus exponent is min of alpha/beta mode rates; the unique optimal a has the stated quadratic-radical formula, with repeated-root supremal caveat if alpha=beta.",
+  "limitations": [
+    "The highly relevant Pignotti–Wang primary manuscript was inaccessible beyond its abstract; no whole-document NOT_COVERING claim.",
+    "An equivalent distributed-memory optimal-decay control theorem under semigroup or transfer-function notation may exist.",
+    "The optimal exponent at a repeated root is a supremum not necessarily attained; this critical qualifier must be preserved."
+  ],
+  "schema_version": 1
+}
