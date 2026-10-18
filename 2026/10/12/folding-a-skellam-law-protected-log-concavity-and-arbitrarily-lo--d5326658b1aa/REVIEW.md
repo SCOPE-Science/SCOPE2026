@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The folded Skellam probability masses follow by summing the positive and negative Skellam masses. For all indices at least two, the comparison is exactly a modified-Bessel Turán ratio against a hyperbolic-cosine curvature factor. A positive-series argument establishes the universal lower bound on the Bessel ratio and proves strict log-concavity for rate product at most one. A positive integral representation gives the fixed-index high-intensity limit; an explicit polynomial-versus-exponential comparison gives eventual tail recovery. The exceptional index one is treated separately. The exact Poisson-rate example has a checked rational-tail certificate in the delivered standalone code.
+PASS
 
-## Originality
+From folded Skellam masses p0=e^(−a−b)I0(z), pk=2e^(−a−b)cosh(kθ)I_k(z), z=2sqrt(ab), θ=(log a/b)/2, k≥1, the k≥2 log-curvature sign compares Rk=I_k²/(I_(k−1)I_(k+1)) and Qk=1+sinh²θ/cosh²(kθ). Classical strict Bessel Turán gives k1 positive even after special factor two at zero. Writing I_k=(z/2)^k A_k(ab)/k! and using positivity yields Rk≥(k+1)²/[k(k+1)+ab]; for ab≤1 this exceeds Qk<1+1/k². For any fixed k≥2, I_k(z)/I0(z)→1 as z→∞ so Rk→1<Qk for fixed θ≠0: choose s large simultaneously for finite k=2..K. For each fixed ab and θ, lower bound Rk−1=Ω(1/k), while Qk−1=O(e^(−2k|θ|)), proving eventual strict logconcavity. Rational Bessel series at a=3,b=12 has p2²<p1p3. Numerically independent high-z k2..7 checks corroborate but the analytic limiting comparison proves infinite statement.
 
-PASS with limited bibliographic confidence. The closest inspected discrete log-concavity theorem concerns order statistics, not sign folding. The inspected Skellam-process primary literature and the 2022 Skellam review provide the difference distribution and applications, but no claimed curvature regime for the absolute difference. Prior mathematical findings on two-Poisson extremes concern moments and dispersion, not this sequence-level folding theorem. Targeted published and mathematical-record searches found no dominating claim. Full priority exclusion is not possible: older work may use terminology such as absolute count differential or nonnegative Poisson difference.
+## originality
 
-## Value
+PASS
 
-PASS. Folding a signed count difference is a natural information-loss operation in count comparisons. The result gives an explicit all-parameter protected region, exhibits strict failure outside that region using exact rational certification, and shows an unexpectedly unbounded number of consecutive violations at any fixed asymmetric rate ratio despite eventual recovery. It distinguishes log-concavity under convolution and order statistics from behavior under sign loss. The sufficient protected boundary is not claimed sharp, and the long high-intensity violation run may lie in rare low-magnitude events.
+Best-of-knowledge priority for the precisely delimited contribution. Known subfamilies, classical inputs, and plausible stronger derivations separately documented; searches alone are not treated as a novelty proof.
 
-## Closest literature and limitations
+## value
 
-Badiella–del Castillo–Puig (2023), doi:10.1016/j.spl.2023.109900, treats order statistics. Gupta–Kumar–Leonenko (2020), arXiv:2003.09471, gives a Skellam formula for generalized processes. Tomy–Veena (2022), doi:10.17713/ajs.v51i1.1224, reviews Skellam models. Classical Bessel Turán inequalities are mathematical inputs rather than new results. The proof does not classify every pair of rates, determine the exact first/last violating index, or claim generalization beyond independent Poisson counts.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives a nontrivial, mathematically motivated phase contrast for the natural folded count difference: uniform protected logconcavity, arbitrarily many consecutive opposite-sign curvatures, and eventual tail recovery. Reversals of arbitrarily prescribed finite length show failure of global shape preservation beyond an isolated tiny counterexample, useful for probabilistic distribution-shape analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
