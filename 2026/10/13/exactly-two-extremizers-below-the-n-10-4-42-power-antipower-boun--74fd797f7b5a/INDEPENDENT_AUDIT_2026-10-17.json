@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T12:52:48.496945Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 0a39f2e90c69e0ab7a4659114f66e7c1d5cf1f77",
+        "Frozen verify.py Git blob 2b23a0a811d2429b2a15efb023d2ca6fce7eb2ce",
+        "Independent fresh exhaustive prefix BFS through length 42 (41,879 total prefix survivals, exactly two at 41 and zero at 42)",
+        "Riasat Waterloo 2019 thesis Appendix A N(10,4)=42 and Appendix B one lexicographically least longest word"
+      ],
+      "rationale": "The forbidden-factor conditions are hereditary under taking factors. On appending one bit, any new forbidden factor must be a suffix. For each suffix length m, either verify 10 equal contiguous blocks or 4 distinct contiguous blocks, so prefix BFS is exhaustive. A freshly coded, separate independent suffix-check implementation enumerated all lengths 0 through 42: survivor counts at 32..42 equal (40,34,30,26,18,14,10,6,4,2,0) and at 41 returns exactly the two displayed strings. Inspected source verify.py implements an additional every-factor rescanning engine and compares every complete level, and its certificate states the same exact strings. Complement and reversal checks hold by direct comparison. Thus this is a finite exhaustive proof, not inference from Riasat threshold alone.",
+      "residual_risks": [
+        "Enumerative classification is for a single finite boundary (k=10,r=4); no all-k structural theorem follows.",
+        "Source double-engine is not algorithmically independent in every detail, but independent new prefix implementation reproduced exact final levels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riasat thesis Chapter 3 bounds and table classify scalar minimal length only, and Appendix B gives one extremizer; Fleischer--Riasat--Shallit gives k>=11 behavior and bounds.",
+          "Pure 4-antipower avoidance counts, e.g. OEIS A275061, have different forbidden patterns."
+        ],
+        "reasoning": "Knowledge that no length-42 word exists and at least one length-41 word exists does not establish the number or symmetries of all length-41 words.",
+        "searches": [
+          "https://uwspace.uwaterloo.ca/bitstreams/27ce1606-9bf2-4c7b-9f40-2ad7bf01738a/download",
+          "https://arxiv.org/abs/1912.08147",
+          "Resultary published semantic search (20 ranked hits): binary k power r antipower N(10,4)=42 41 length extremizers count palindromes"
+        ]
+      },
+      "checked_sources": [
+        "https://uwspace.uwaterloo.ca/bitstreams/27ce1606-9bf2-4c7b-9f40-2ad7bf01738a/download",
+        "https://arxiv.org/abs/1912.08147",
+        "https://oeis.org/A275061"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Thesis specifies one output word, not all maximizing words or palindrome symmetry.",
+          "Later theorem N(k,4)=4k for 11<=k<=30 excludes k=10, where published value is 42>40."
+        ],
+        "reasoning": "The presented pair and exhaustiveness are additional finite data, not a corollary of merely knowing N=42; full 41-step prefix enumeration is required.",
+        "searches": [
+          "Riasat Appendix B lexicographically least avoiding word program",
+          "Fleischer--Riasat--Shallit 2019 arXiv:1912.08147v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Waterloo Appendix A row k=10,r=4 explicitly tabulates 42. Appendix B program instructions explicitly output the lexicographically least longest word, not all longest words.",
+          "The independent prefix BFS produces the full maximal antichain of exactly two length-41 avoiders."
+        ],
+        "reasoning": "Aliases include longest (10,4)-free binary words, sharp equality words for unavoidability length, and complete extremal language at n=41. No inspected published enumeration of the whole set was found.",
+        "searches": [
+          "Resultary published semantic search (20 ranked hits): binary k power r antipower N(10,4)=42 41 length extremizers count palindromes",
+          "Riasat 2019 Masters thesis Powers and Anti-Powers in Binary Words Appendices A B",
+          "Fleischer Riasat Shallit 1912.08147"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact threshold 42 explicitly known in Riasat Appendix A, not original and not claimed as such.",
+          "OEIS count for avoiding only 4-antipowers includes words containing a 10-power, so cannot supply the simultaneous avoidance count."
+        ],
+        "reasoning": "A pre-existing exact scalar table and a weaker-class count do not logically determine the 2-word equality layer; code in the thesis could be modified to compute it, but that is not a published enumeration.",
+        "searches": [
+          "Riasat Appendix A N(10,4)=42",
+          "OEIS A275061 binary words avoiding four antipowers",
+          "Resultary:binary k power r antipower N(10,4)=42 41 length extremizers count palindromes"
+        ]
+      },
+      "rationale": "The Waterloo thesis establishes N(10,4)=42 and outputs one lexicographically least longest avoider, not the complete two-word equality layer or palindrome/complement classification. The exact threshold is credited as prior; the newly classified equality set is the claim assessed.",
+      "residual_risks": [
+        "Thesis Appendix B code or subsequent unpublished computations may already implicitly enumerate the pair; lack of an indexed publication is not proof of unique priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original source tabulates threshold and prescribes lexicographically least extremizer only; complete length-41 set not stated",
+          "evidence": [
+            "Appendix A row k=10 r=4 value 42; Appendix B says output lexicographically least longest binary avoiding word"
+          ],
+          "identifier_or_url": "https://uwspace.uwaterloo.ca/bitstreams/27ce1606-9bf2-4c7b-9f40-2ad7bf01738a/download",
+          "material_read": "Complete 44-page PDF, Chapter 3, Appendix A page 41 (PDF p40) k10,r4=42, Appendix B page 42 (PDF p41) instructions and C++ search purpose",
+          "method": "Read PDF extracted text and visual screenshots of exact table and code appendix",
+          "title": "Powers and Anti-Powers in Binary Words",
+          "trigger": "Same exact threshold N(10,4)=42; possible existing equality census"
+        },
+        {
+          "assessment": "k=10 is outside reported 11<=k<=30 exact regime; no source-supported full k=10 extremizer count",
+          "evidence": [
+            "Paper identifies N(k,4)=4k for 11<=k<=30, not the preceding k=10 exception"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.08147",
+          "material_read": "ArXiv abstract and theorem-level publicly surfaced descriptions; not a complete full-text inspection",
+          "method": "Read public preprint summary and mathematical parameter statements",
+          "title": "New Bounds on Antipowers in Words",
+          "trigger": "Follow-up exact k>=11 theorem and potential equality characterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Riasat thesis Appendix A and B",
+        "Independent exhaustive 0..42 prefix enumeration"
+      ],
+      "rationale": "A complete equality classification immediately below an independently published exact Ramsey-type unavoidability threshold is a natural exact finite extremal object. The exceptional k=10 case lies just before the k>=11 4k pattern, and two complementary palindromic maximizers give nontrivial rigidity information unavailable from N(10,4)=42 alone. Modest finite fact, not falsely presented as a general theorem or broad breakthrough.",
+      "residual_risks": [
+        "Narrow one-parameter extremal layer, with limited implications for general N(k,r) and conjecture at k>=11."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "At the already-known binary k-power/r-antipower threshold N(10,4)=42, there are exactly two length-41 binary words avoiding both 10-powers and 4-antipowers: 00101010101010101010001010101010101010100 and its bitwise complement 11010101010101010101110101010101010101011. Both are palindromes; no length-42 avoider exists.",
+  "limitations": [
+    "Best-of-knowledge originality, with explicit source inspections, mathematical comparisons and residual risks; no independent external attestation or formal mechanized proof claimed.",
+    "The science is privately assessed but publication is withheld because unchanged package metadata contain internal operational provenance identifiers; no GitHub write, research import or publication."
+  ],
+  "schema_version": 1
+}
