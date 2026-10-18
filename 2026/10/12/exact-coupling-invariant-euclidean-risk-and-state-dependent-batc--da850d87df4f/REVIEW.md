@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(0<\rho<1\), both diagonal Hessian blocks have eigenvalues \(1\pm\rho\). The balance constraints force three opposite-pair probabilities, and conditioning on pairwise selections gives the exact closed recurrences for \(u_k\) and \(z_k\) displayed in `RESULT.md`. Their explicit solution reconstructs all quantifiers and boundary cases, and direct substitution yields the objective ratio and statewise optimizer reversal. The standalone exact-arithmetic verifier passed 1024 checks across finite sample-path enumerations and inequalities; only the analytical recurrences prove the infinite-horizon statement.
+PASS
 
-## Originality — PASS, with qualified priority risk
+For H=diag(Bρ,Bρ), Bρ=[[1,ρ],[ρ,1]] and 0<ρ<1, four equal coordinate marginals and exactly two sampled indices imply opposite-edge equalities p12=p34=α/2, p13=p24=β/2, p14=p23=γ/2 with α+β+γ=1. For each coupled pair the four marginal update cases have probabilities α/2,α/2,(1−α)/2,(1−α)/2; using simultaneous pre-update gradients, conditional summation gives u_{k+1}=r u_k, z_{k+1}=α r z_k−ρ(1−α)u_k/2, r=(1+ρ²)/2. Solving gives E||x_k||²=r^k u0 and Ef=r^k[(1−ρ²)/(2(1+ρ²))u0+α^k(ρz0+ρ²u0/(1+ρ²))], k≥0 including α=0 with α^0=1. The sign of C is exactly the endpoint sampler criterion at all k≥1; first constant ± initial eigenmodes reverse preference. x0=(1,1,1,1) has ratio (1+ρ²)/(1−ρ), unbounded as ρ↑1 despite both rates r<1. A fresh rational full-state enumeration over α in {0,1/3,1}, ρ=2/5, three starts and k through 3 matched formulas; recurrence proves all horizons.
 
-Primary motivating source Hanzely–Richtárik (2018), arXiv:1809.09354v1, analyzes arbitrary minibatch coordinate descent and ESO-based rate bounds, and Qu–Richtárik (2014), arXiv:1412.8063v1, develops arbitrary-sampling ESO. Their inspected sections do not give the same exact all-horizon law or starting-state-optimal coupling. Xie–Yang (2026), arXiv:2610.04685v1, uses *exact sampled-block solves*, a different update. Public one-coordinate probability optimization and deterministic Jacobi results were read and compared at the statement level; neither dominates this fixed-size-two initial-state criterion. Nine semantic searches found no equivalent indexed claim, but older unindexed batch-design or stochastic-Jacobi work remains a genuine priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-With all inclusion marginals, batch size, diagonal scaling, starting quadratic, and expected Euclidean MSE fixed, joint dependence alone induces opposite objective-optimal extreme designs for aligned versus anti-aligned starts. The contrast is unbounded as \(\rho\) approaches one despite a common exact geometric mean-square rate. This supplies an exact minimal-size comparative benchmark for sampling design rather than a tiny numerical improvement or unmotivated enumeration.
+At claim/implication level, no inspected prior source states or entails the precise final result; closest frameworks, partial results and source gaps are explicitly distinguished. No failed search is treated as proof of absolute priority.
 
-## Limitations and evidence
+## value
 
-Scope: four-dimensional pair-coupled SPD quadratic, exact gradient arithmetic, simultaneous pre-update coordinate steps, fixed iid-in-time size-two balanced subsets, arbitrary deterministic start. No statement for exact sampled-block minimization, asynchronous updates, nonlinear objectives, arbitrary Hessians, finite-precision cost, or superiority of the asymptotic exponent. Independent audit has not been performed. Source statements and bibliographic details appear in `RESULT.md`; computational replay command and limits appear in `VERIFICATION.md`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Same per-coordinate sampling budget and identical expected squared Euclidean risk do NOT determine expected objective even on a natural SPD block-coupled quadratic; the exact optimizer depends on initial eigenmode and has an arbitrarily large prefactor gap. This makes a structurally interpretable counterexample to naive marginal-only sampling prescriptions and separates two fundamental loss metrics without falsely claiming accelerated asymptotic rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

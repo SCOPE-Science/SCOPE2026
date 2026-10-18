@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T05:06:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For H=diag(Bρ,Bρ), Bρ=[[1,ρ],[ρ,1]] and 0<ρ<1, four equal coordinate marginals and exactly two sampled indices imply opposite-edge equalities p12=p34=α/2, p13=p24=β/2, p14=p23=γ/2 with α+β+γ=1. For each coupled pair the four marginal update cases have probabilities α/2,α/2,(1−α)/2,(1−α)/2; using simultaneous pre-update gradients, conditional summation gives u_{k+1}=r u_k, z_{k+1}=α r z_k−ρ(1−α)u_k/2, r=(1+ρ²)/2. Solving gives E||x_k||²=r^k u0 and Ef=r^k[(1−ρ²)/(2(1+ρ²))u0+α^k(ρz0+ρ²u0/(1+ρ²))], k≥0 including α=0 with α^0=1. The sign of C is exactly the endpoint sampler criterion at all k≥1; first constant ± initial eigenmodes reverse preference. x0=(1,1,1,1) has ratio (1+ρ²)/(1−ρ), unbounded as ρ↑1 despite both rates r<1. A fresh rational full-state enumeration over α in {0,1/3,1}, ρ=2/5, three starts and k through 3 matched formulas; recurrence proves all horizons.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General minibatch expected-separable-overapproximation uses P∘M≼Diag(p∘v) and yields an upper rate estimate. Xie--Yang uses exact block minimization, not simultaneous pre-update coordinate gradients."
+        ],
+        "reasoning": "Specialization of the checked inequality or exact-block theorems does not itself imply the per-time identity, exact α-dependent prefactor or initial-eigenmode reversal for the different update operator.",
+        "searches": [
+          "Hanzely Richtárik AISTATS 2019 Sections 1-3/appendix (PDF)",
+          "arXiv:1412.8063 Qu Richtárik ESO",
+          "arXiv:2610.04685 Xie Yang sampled exact block solves"
+        ]
+      },
+      "checked_sources": [
+        "Hanzely--Richtárik AISTATS 2019 PMLR 89 full PDF",
+        "arXiv:1412.8063 ESO theory",
+        "Resultary 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "Resultary targeted batch moment query",
+        "Resultary actual semantic query: randomized minibatch coordinate descent balanced two-index sampling exact second moment objective pair-coupled SPD quadratic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published arbitrary-sampling bounds are not equalities for arbitrary fixed state; source propositions make no statement of invariance of Euclidean error across joint laws. Exact block solve and deterministic Jacobi findings use distinct operators."
+        ],
+        "reasoning": "The identity is not a formal quantitative corollary of the inspected prior theorems; it requires the coupled-pair transition calculation. Cross-field unindexed equivalent random-matrix example remains a priority risk.",
+        "searches": [
+          "arXiv:1809.09354v1 and PMLR 89/hanzely19a full PDF",
+          "arXiv:1412.8063",
+          "Resultary: randomized minibatch coordinate descent balanced two-index sampling exact second moment objective pair-coupled SPD quadratic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Paper Eq (5) is same simultaneous component-gradient update primitive; the sampling formalism uses joint matrix P_{ij}. It proves ESO convergence bounds, not this explicit two-moment identity."
+        ],
+        "reasoning": "The method/notation are pre-existing; the mathematical claim is an exact four-dimensional conditional-moment identity and statewise law, not relabelling the general update.",
+        "searches": [
+          "arXiv:1809.09354v1 Hanzely--Richtárik arbitrary sampling minibatch update Eq 5",
+          "Resultary: randomized minibatch coordinate descent balanced two-index sampling exact second moment objective pair-coupled SPD quadratic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hanzely--Richtárik optimize worst-case rate bounds; Resultary 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 solves iid SINGLE-coordinate worst-case rate objective."
+        ],
+        "reasoning": "There is no relevant precomputed table of same two-index law/all-horizon expectation; the published one-coordinate optimum optimizes a distinct family and objective.",
+        "searches": [
+          "AISTATS PMLR 89 hanzely19a numerical results and theorem statements",
+          "Resultary: inverse-positive SPD optimal coordinate sampling"
+        ]
+      },
+      "rationale": "At claim/implication level, no inspected prior source states or entails the precise final result; closest frameworks, partial results and source gaps are explicitly distinguished. No failed search is treated as proof of absolute priority.",
+      "residual_risks": [
+        "Unindexed exact moment calculations in stochastic matrix products or Jacobi methods may imply the same four-coordinate example.",
+        "Identities depend critically on simultaneous pre-update steps and fixed independent-in-time balanced size-two batches.",
+        "Unbounded ratio is a prefactor comparison for ρ→1, not a faster exponent for any fixed ρ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies algorithm and sufficient ESO rate framework; no exact invariant Euclidean norm/all-k α-dependent expected objective described",
+          "evidence": "Eq 5 simultaneous coordinate update; Eq 7 ESO inequality; rate bound 8.",
+          "identifier_or_url": "arXiv:1809.09354v1; https://proceedings.mlr.press/v89/hanzely19a/hanzely19a.pdf",
+          "material_read": "Nine-page OA PMLR PDF; read introduction, Eq (5) update, arbitrary sampling P_ij/ESO Eq (7), rate theorem discussion, numerical comparisons, and related appendix context",
+          "method": "OA primary full PDF, text extraction and rendered page 1",
+          "title": "Accelerated Coordinate Descent with Arbitrary Sampling and Best Rates for Minibatches",
+          "trigger": "Same simultaneous minibatch gradient update and arbitrary pair probabilities"
+        },
+        {
+          "assessment": "General matrix upper bounds do not state this exact conditional recurrence",
+          "evidence": "Joint-inclusion matrix and ESO estimates.",
+          "identifier_or_url": "arXiv:1412.8063",
+          "material_read": "Accessible abstract and mathematical ESO framework/main statements, not a complete page-by-page manuscript read",
+          "method": "OA paper metadata and targeted theorem inspection",
+          "title": "Coordinate Descent with Arbitrary Sampling II: Expected Separable Overapproximation",
+          "trigger": "Closest general joint-probability calculus"
+        },
+        {
+          "assessment": "Only one sampled coordinate iid, worst-case energy contraction, not fixed-size-two statewise prefactor",
+          "evidence": "Optimal iid p proportional to C^{-1}1 for inverse-positive Hessian.",
+          "identifier_or_url": "Resultary:2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+          "material_read": "Resultary full title, statement summary, target family and comparator",
+          "method": "Semantic research index result",
+          "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+          "trigger": "Potentially stronger optimal sampling published finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Same per-coordinate sampling budget and identical expected squared Euclidean risk do NOT determine expected objective even on a natural SPD block-coupled quadratic; the exact optimizer depends on initial eigenmode and has an arbitrarily large prefactor gap. This makes a structurally interpretable counterexample to naive marginal-only sampling prescriptions and separates two fundamental loss metrics without falsely claiming accelerated asymptotic rate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Unindexed exact moment calculations in stochastic matrix products or Jacobi methods may imply the same four-coordinate example.",
+    "Identities depend critically on simultaneous pre-update steps and fixed independent-in-time balanced size-two batches.",
+    "Unbounded ratio is a prefactor comparison for ρ→1, not a faster exponent for any fixed ρ."
+  ]
+}
