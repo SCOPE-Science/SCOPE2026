@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The exact thirteen integer coefficients agree with binomial counts; the standalone checker rigorously certifies all twelve simple root disks by rational Rouché bounds. Exact interval coefficient enclosures prove strictly positive 2/5/5 factors. Exhaustive subset DP, optimistically including inconclusive factor-sign cases, proves no product of nonnegative real polynomials of degree <=4. Rouché and conjugation justify the complete real-factor list. Checker replay verified.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tang and Tang Theorems 4.3–4.4 handle one-over-k and two-thirds rounding, not three-fifths.",
+        "Liggett Section 3 P6 upper bound is strictly weaker than the new P5 upper bound."
+      ],
+      "reasoning": "The published general P_j formulation is posed as a conjecture; Liggett provides example-specific weaker bounds. Neither dominates the exact P5 conclusion.",
+      "searches": [
+        "Conjecture 4.5 Tang Tang Poisson binomial distributions Old New: floor(3 X / 5) for X sum of independent Bernoulli variables need not decompose as independent variables supported on {0,1,2,3}; polynomial factorization into nonnegative coefficient factors of degree at most 3; counterexample binomial 21 1/2",
+        "Thomas Liggett approximating multiples strong Rayleigh random variables B(21,1/2) P_5 polynomial P_4 not P_5 exact factorization",
+        "\"3X/5\" \"P_5\" \"Liggett\"",
+        "\"P_5\" \"P_6\" \"Rayleigh\" 21"
+      ]
+    },
+    "checked_sources": [
+      "https://celebratio.org/Liggett_T/article/858/",
+      "https://www.columbia.edu/~wt2319/PB.pdf",
+      "https://arxiv.org/abs/1908.10024",
+      "Semantic scholarly-claim search results for exact parameters and polynomial decomposition aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liggett: Y not P4, Y in P6.",
+        "Here: explicit all-positive 2+5+5 factorization gives Y in P5, establishing the exact minimum."
+      ],
+      "reasoning": "P6 membership does not entail P5; P4 failure plus the newly certified P5 membership determines the index exactly. The new lower-bound certificate independently reproduces P4 failure without treating a numerical search as proof.",
+      "searches": [
+        "strong Rayleigh distribution rational fractions floor(jX/k) Poisson multinomial conjecture j=3 k=5 counterexample quadratic factors nonnegative coefficients",
+        "Binomial(21, 1/2) rounded 3/5 minimum Poisson multinomial order P5 degree five positive generating polynomial factorization Liggett 2021 four roots pairs exact",
+        "Thomas Liggett approximating multiples strong Rayleigh random variables B(21,1/2) P_5 polynomial P_4 not P_5 exact factorization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liggett defines P_j as PGF factorization; P5 is equivalent to a sum of independent variables each in {0,...,5}.",
+        "The exact polynomial has degree 12 and is grouped as 2+5+5."
+      ],
+      "reasoning": "Searched both bounded-summand and nonnegative polynomial factorization formulations. The closest prior construction proves P6, which does not imply P5.",
+      "searches": [
+        "Binomial(21, 1/2) rounded 3/5 minimum Poisson multinomial order P5 degree five positive generating polynomial factorization Liggett 2021 four roots pairs exact",
+        "floor(3 X / 5) X Binomial 21 fair smallest independent bounded summands degree 5 factorization, beyond Liggett P6 P4 obstruction",
+        "\"Bin(21\" \"P5\" \"strong Rayleigh\" Liggett",
+        "\"floor(3X/5)\" \"P5\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The directly relevant 21-trial example is explicitly printed in Liggett Section 3; it is **not** being relabeled as a newly discovered counterexample.",
+        "No explicit P5 factor decomposition in inspected literature or returned mathematical research records."
+      ],
+      "reasoning": "Checked direct parameter and coefficient-polynomial aliases. Existing example and P4/P6 bracket are acknowledged; new work is exact intermediate P5 constructive classification only.",
+      "searches": [
+        "binomial random variable X with n=21 and p=1/2 floor(3X/5) generating polynomial irreducible quadratic roots right half plane and no decomposition into independent {0,1,2,3} valued variables",
+        "floor(3 X / 5) X Binomial 21 fair smallest independent bounded summands degree 5 factorization, beyond Liggett P6 P4 obstruction",
+        "\"Bin(21\" \"P5\" \"strong Rayleigh\" Liggett",
+        "\"floor(3X/5)\" \"P5\""
+      ]
+    },
+    "rationale": "The motivating Tang–Tang paper asks general factorization questions. Liggett 2021 independently proves the same 21-trial distribution is not P4 and is P6, but his complete accessible discussion contains no P5 construction; neither published statement implies the precise index. Targeted mathematical-claim index and literature queries found no equivalent P5 factorization; unindexed work remains possible.",
+    "residual_risks": [
+      "An unindexed follow-up or unretrieved supplemental note could contain the same P5 factorization.",
+      "The scope is deliberately one canonical distribution and not any wider binomial parameter classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes P4 failure and P6 construction but no P5 grouping, no conclusion exact minimum five.",
+        "evidence": [
+          "Section 3 paragraph on n=21: not P4; P6 because a specific degree-six factor has positive coefficients.",
+          "Section 1 definition: P_j means factorization into positive polynomials of degree at most j."
+        ],
+        "identifier_or_url": "https://celebratio.org/Liggett_T/article/858/",
+        "material_read": "Complete accessible HTML, with concentrated sequential examination of introduction, definitions P_j, and Sections 2–4, including the n=21 example and its P4/P6 statements.",
+        "method": "Compared mathematical implications of the displayed factor matching and the exact 21-trial example.",
+        "title": "Approximating multiples of strong Rayleigh random variables",
+        "trigger": "The exact same fair 21-trial, three-fifths-rounded binomial and bounded summand index appear in the primary paper."
+      },
+      {
+        "assessment": "Provides degree-one/two results and general P_j conjecture; not the specific fifth-degree factorization or minimality of the 21-trial law.",
+        "evidence": [
+          "Printed page 115, Conjecture 4.5: bounded independent summands for floored rational multiples.",
+          "Printed pages 114–115, Theorem 4.4 treats two-thirds rounding, which does not cover three-fifths."
+        ],
+        "identifier_or_url": "https://www.columbia.edu/~wt2319/PB.pdf",
+        "material_read": "Complete accessible 12-page 2023 PDF; Section 4 and printed page 115 examined in text and page image.",
+        "method": "Compared Theorems 4.3/4.4 and Conjecture 4.5 with exact degree-five local classification.",
+        "title": "The Poisson Binomial Distribution—Old & New",
+        "trigger": "Original paper motivating rational-multiple decompositions; verified MSC/date through arXiv:1908.10024 (Aug 27 2019)."
+      },
+      {
+        "assessment": "Confirms first public date 2019-08-27; no P5 classification of the explicit n=21 case.",
+        "evidence": [
+          "ArXiv v1 submission date Tue, Aug 27, 2019 04:38:23 UTC."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.10024",
+        "material_read": "ArXiv abstract, submission history and 2019 preprint discussion of Conjecture 4.8 (the original numbering).",
+        "method": "Submission metadata and theorem/claim-level comparison to published version.",
+        "title": "The Poisson binomial distribution -- Old & New (2019 preprint)",
+        "trigger": "Verify earliest publicly available motivating source date and unabridged preprint."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "54851161-5441-416c-9f97-a7cb59696a55",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 21-trial distribution is the explicit central obstruction in Liggett’s strong-Rayleigh rational rounding analysis, for which he published P4 failure and P6 membership. The exact smallest admissible independent-summand alphabet was undetermined. Closing it to 5 gives a natural complete classification of a canonical example and an explicit positive 2/5/5 convolution, rather than an arbitrary finite invariant.",
+    "status": "PASS"
+  }
+}
