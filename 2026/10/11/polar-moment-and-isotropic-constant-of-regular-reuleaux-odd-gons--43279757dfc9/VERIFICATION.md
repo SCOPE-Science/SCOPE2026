@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-13.md",
+      "INDEPENDENT_AUDIT_2026-10-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For width \(1\), put
-\[
-t=\frac{\pi}{2n},
-\qquad
-R=\frac1{2\cos t}.
-\]
-One Reuleaux circular segment is a unit sector of half-angle \(t\) minus the triangle joining the arc center to the two arc endpoints.
+# Independent mathematical audit
 
-The verifier reconstructs exactly:
-\[
-\operatorname{area}(S)=t,
-\qquad
-\int_S\|y\|_2^2\,dy=\frac t2,
-\qquad
-\int_S y_1\,dy=\frac{2\sin t}{3},
-\]
-and the corresponding triangle moments used in `RESULT.md`.
+## correctness
 
-After translating the segment to an arc center at \((-R,0)\), it adds the exact polar moment of one radial triangle of the generating regular polygon and simplifies the \(n\)-fold sum to
-\[
-\frac1{16}
-\left[
-2\pi(3+\tan^2t)
--
-n\tan t(11+\tan^2t)
-\right].
-\]
+PASS
 
-The script separately checks the area formula, the covariance normalization, and the expansions of the raw moment and squared isotropic constant.
+For width one, generating odd n-gon circumradius R=(2cos(π/2n))^{−1}. Each curved piece is a unit circular sector of half-angle t minus its isosceles triangle; exact sector moments are area t, first coordinate 2sin(t)/3, polar moment t/2, and the triangle formulas from barycentric integration. Translate each sector-minus-triangle piece from arc center at (−R,0), adding R² area and −2R first moment, and sum with n identical radial generating-polygon triangles. Algebra reduces to J=[2π(3+tan²t)−n tan t(11+tan²t)]/16; area=(π−n tan t)/2. Dihedral symmetry yields covariance J/(2A)I, L²=J/(2A²). I independently recomputed the n^{−2}, n^{−4} coefficients by SymPy exact series; J=π/32−π³/(192n²)+π⁵/(2560n⁴)+..., L²=1/(4π)+π³/(180n⁴)+..., confirming the cancellation. Restoring w scales J by w⁴ and A by w².
 
-A numerical radial integration is included only as a regression test. It is not used as proof of the all-\(n\) statement.
+## originality
+
+PASS
+
+The natural all-odd-order Reuleaux moment formula and quartic cancellation are not stated or immediately implied by the inspected Jin–Guo regular-family asymmetry treatment or the 2014 exact *triangle* inertia calculation. That calculation uses the same sector decomposition and says methodology could extend to pentagons, a significant obvious-method risk but no pentagon/heptagon/all-order formula or isotropic asymptotic is given.
+
+## value
+
+PASS
+
+Centroidal polar second moment and affine-isotropic constant are natural mechanical and convex-geometric invariants of the canonical regular constant-width approximants to a circle; the all-odd-order exact formula and unexpected cancellation of the quadratic defect under normalization give more than a table extension or n=3 recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

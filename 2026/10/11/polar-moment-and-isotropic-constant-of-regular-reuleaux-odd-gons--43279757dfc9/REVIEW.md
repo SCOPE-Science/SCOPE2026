@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The regular Reuleaux odd-gon is decomposed exactly into its generating regular polygon and congruent circular segments. Sector area, first moment, and polar second moment are elementary polar integrals; the removed triangle moments follow from barycentric integration. Translating each segment moment from its arc center to the dihedral center gives the exact parallel-axis cross term. Adding the regular-polygon contribution and simplifying yields the displayed formula. Rotational symmetry then forces scalar covariance, and the isotropic-constant identity follows from its definition. The bundled symbolic checker independently reconstructs every moment used in the proof and verifies the asymptotic cancellation.
+## correctness
 
-## Originality
-**PASS, with an explicit unindexed-mechanics residual risk.** The closest regular-Reuleaux full text was materially inspected where it defines the general odd-order geometry and states the known all-\(n\) area formula; searchable full text contains no occurrence of “moment” or “inertia”. A 2014 engineering source was materially inspected and does compute polar inertia, but only for the Reuleaux triangle. The new claim excludes that special case and gives one formula for every odd order \(n\ge5\), plus the affine-normalized isotropic consequence. Searches under polar moment, second moment of area, covariance, isotropic constant, pentagon/heptagon aliases, and the exact trigonometric parameter found no implication-equivalent family theorem.
+PASS
 
-## Value
-**PASS.** Regular Reuleaux polygons are the canonical finite-arc approximants to the disk within constant-width geometry and are used as symmetric extremizers throughout the classical literature. Polar moment is a natural mechanical and probabilistic invariant, while the isotropic constant is its affine-normalized convex-geometric counterpart. The exact family formula therefore connects two standard viewpoints and exposes a non-obvious cancellation: second-order raw-moment error becomes fourth-order isotropic error.
+For width one, generating odd n-gon circumradius R=(2cos(π/2n))^{−1}. Each curved piece is a unit circular sector of half-angle t minus its isosceles triangle; exact sector moments are area t, first coordinate 2sin(t)/3, polar moment t/2, and the triangle formulas from barycentric integration. Translate each sector-minus-triangle piece from arc center at (−R,0), adding R² area and −2R first moment, and sum with n identical radial generating-polygon triangles. Algebra reduces to J=[2π(3+tan²t)−n tan t(11+tan²t)]/16; area=(π−n tan t)/2. Dihedral symmetry yields covariance J/(2A)I, L²=J/(2A²). I independently recomputed the n^{−2}, n^{−4} coefficients by SymPy exact series; J=π/32−π³/(192n²)+π⁵/(2560n⁴)+..., L²=1/(4π)+π³/(180n⁴)+..., confirming the cancellation. Restoring w scales J by w⁴ and A by w².
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The natural all-odd-order Reuleaux moment formula and quartic cancellation are not stated or immediately implied by the inspected Jin–Guo regular-family asymmetry treatment or the 2014 exact *triangle* inertia calculation. That calculation uses the same sector decomposition and says methodology could extend to pentagons, a significant obvious-method risk but no pentagon/heptagon/all-order formula or isotropic asymptotic is given.
+
+## value
+
+PASS
+
+Centroidal polar second moment and affine-isotropic constant are natural mechanical and convex-geometric invariants of the canonical regular constant-width approximants to a circle; the all-odd-order exact formula and unexpected cancellation of the quadratic defect under normalization give more than a table extension or n=3 recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

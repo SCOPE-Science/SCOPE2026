@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T08:13:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For width one, generating odd n-gon circumradius R=(2cos(π/2n))^{−1}. Each curved piece is a unit circular sector of half-angle t minus its isosceles triangle; exact sector moments are area t, first coordinate 2sin(t)/3, polar moment t/2, and the triangle formulas from barycentric integration. Translate each sector-minus-triangle piece from arc center at (−R,0), adding R² area and −2R first moment, and sum with n identical radial generating-polygon triangles. Algebra reduces to J=[2π(3+tan²t)−n tan t(11+tan²t)]/16; area=(π−n tan t)/2. Dihedral symmetry yields covariance J/(2A)I, L²=J/(2A²). I independently recomputed the n^{−2}, n^{−4} coefficients by SymPy exact series; J=π/32−π³/(192n²)+π⁵/(2560n⁴)+..., L²=1/(4π)+π³/(180n⁴)+..., confirming the cancellation. Restoring w scales J by w⁴ and A by w².",
+      "risks": [
+        "Numerical radial integration in the package is supplementary only; no extrapolation from a finite set of n.",
+        "Area and some second-moment techniques are known for n=3; the claim explicitly starts n≥5."
+      ],
+      "sources": [
+        "Git RESULT.md SHA 5d1eddd9e3f3ac2cb30631073724dca6521de7d0",
+        "Git verify.py SHA 60d0d7df2fd57588ca44dcf338d4fea84f92c88f",
+        "independent exact SymPy series"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jin–Guo 2010 complete accessible author-uploaded p176–182 proves Minkowski asymmetry of general regular Reuleaux odd-gons; its §3 is about support ratios, not second moments.",
+          "Razumov et al 2014 p54 says the method could be extended to a five-corner section but supplies its formula only for the triangle."
+        ],
+        "reasoning": "The predecessor covers the object family with a different invariant, and another predecessor covers the invariant only for n=3; neither implies the all-n normalized formula.",
+        "searches": [
+          "https://www.researchgate.net/publication/265626512_On_the_asymmetry_for_convex_domains_of_constant_width",
+          "https://www.metaljournal.com.ua/assets/Archive/en/MMI3/10.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.4208/cmr.v26.n2.p176",
+        "https://www.researchgate.net/publication/265626512_On_the_asymmetry_for_convex_domains_of_constant_width",
+        "https://www.metaljournal.com.ua/assets/Archive/en/MMI3/10.pdf",
+        "https://doi.org/10.1007/s13366-016-0318-2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2010 p178–180 Prop3.1 fixes asymmetry 1/(2cos t−1), not ∫|x|².",
+          "2014 p53 equation(9) provides J_3 via sector decomposition and p54 explicitly states a possible five-corner adaptation without computing it."
+        ],
+        "reasoning": "No mathematical implication from asymmetry and known area uniquely determines J_n; triangle inertia plus suggestion to extend method does not already state all-n exact family plus quartic normalized asymptotic.",
+        "searches": [
+          "Jin Guo 2010 DOI 10.4208/cmr.v26.n2.p176",
+          "Razumov Gladyshkin Kassikhin Pykhtin Skripkina 2014 Reuleaux triangle polar moment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The polar second moment equals planar area inertia about the centroid; L²=J/(2A²).",
+          "Razumov et al 2014 evaluate the triangle polar moment with the same sector-minus-triangle method."
+        ],
+        "reasoning": "A triangle formula alone does not algebraically determine all n≥5 under the varying t geometry; recognized prior n=3 special case is excluded.",
+        "searches": [
+          "regular Reuleaux pentagon heptagon polar area moment of inertia isotropic constant tan(pi/2n)",
+          "second moment of area Reuleaux polygon five seven corners"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-object published Estermann and Kovner–Besicovitch Reuleaux invariants found under distinct record identifiers; assigned self-hit not novelty evidence.",
+          "No matching inertia table for n≥5 in the returned records."
+        ],
+        "reasoning": "The other regular-Reuleaux invariants use area/support geometry and are not the centroidal second moment, even at matching n.",
+        "searches": [
+          "Resultary: regular Reuleaux pentagon heptagon polar area moment of inertia isotropic constant tan(pi/2n)",
+          "Resultary: regular Reuleaux pentagon polar moment centroid 2014 2020 isotropic"
+        ]
+      },
+      "rationale": "The natural all-odd-order Reuleaux moment formula and quartic cancellation are not stated or immediately implied by the inspected Jin–Guo regular-family asymmetry treatment or the 2014 exact *triangle* inertia calculation. That calculation uses the same sector decomposition and says methodology could extend to pentagons, a significant obvious-method risk but no pentagon/heptagon/all-order formula or isotropic asymptotic is given.",
+      "residual_risks": [
+        "An unindexed older engineering/inertia source may contain an equivalent all-odd-order formula.",
+        "The 2014 triangle moment paper explicitly suggests adapting its method to five-corner profiles; all-n integration could be considered a routine extension, though the quartic affine-normalization cancellation is not supplied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_DIFFERENT_INVARIANT",
+          "evidence": [
+            "Only Minkowski asymmetry/support geometry is evaluated, no polar moment/covariance."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/265626512_On_the_asymmetry_for_convex_domains_of_constant_width",
+          "material_read": "Author-uploaded complete seven-page text, especially §3 Prop3.1 on exact asymmetry and §4; checked moment/inertia occurrences",
+          "method": "OA full-text HTML transcription",
+          "title": "On the Asymmetry for Convex Domains of Constant Width",
+          "trigger": "same regular Reuleaux odd polygon geometry, possible all-n formula"
+        },
+        {
+          "assessment": "SPECIAL_CASE_AND_METHOD_ONLY",
+          "evidence": [
+            "n=3 numerical moment ~0.04619D⁴; no all-n family or L² asymptotic."
+          ],
+          "identifier_or_url": "https://www.metaljournal.com.ua/assets/Archive/en/MMI3/10.pdf",
+          "material_read": "All five PDF pages, especially p53 Eq(9) polar moment of Reuleaux triangle and p54 suggestion for five-cornered method",
+          "method": "lawful open PDF text and p53 screenshot of source equations",
+          "title": "Stress calculation of moment transmitting roll with profile on the base of Reuleaux triangle",
+          "trigger": "exact moment of same shape n=3 and method extension"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": [
+            "Asymmetry result, not moment formula."
+          ],
+          "identifier_or_url": "https://www.global-sci.com/cmr/article/view/8655",
+          "material_read": "Article abstract/metadata, issue and author/title verification",
+          "method": "publisher HTML",
+          "title": "On the Asymmetry for Convex Domains of Constant Width",
+          "trigger": "publisher metadata and publication lineage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Centroidal polar second moment and affine-isotropic constant are natural mechanical and convex-geometric invariants of the canonical regular constant-width approximants to a circle; the all-odd-order exact formula and unexpected cancellation of the quadratic defect under normalization give more than a table extension or n=3 recomputation.",
+      "risks": [
+        "No extremum over irregular Reuleaux polygons or monotonicity theorem is claimed."
+      ],
+      "sources": [
+        "2010 Jin–Guo geometry",
+        "2014 Reuleaux triangle inertia",
+        "Git RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Numerical radial integration in the package is supplementary only; no extrapolation from a finite set of n.",
+    "Area and some second-moment techniques are known for n=3; the claim explicitly starts n≥5.",
+    "An unindexed older engineering/inertia source may contain an equivalent all-odd-order formula.",
+    "The 2014 triangle moment paper explicitly suggests adapting its method to five-corner profiles; all-n integration could be considered a routine extension, though the quartic affine-normalization cancellation is not supplied.",
+    "No extremum over irregular Reuleaux polygons or monotonicity theorem is claimed."
+  ]
+}
