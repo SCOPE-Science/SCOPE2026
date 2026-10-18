@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T16:57:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The incidence-kernel cycle code of r internally disjoint length-ell paths has block-constant bits and even block parity, dimension r-1 and minimum distance 2ell (r even >=4, ell>=2). Given ambient block weights w_i, minimize sum min(w_i,ell-w_i), adding the smallest majority-flip penalty exactly when all blocks are non-tied and preferred block-parity is odd. This yields the displayed even-ell and odd-ell U_t/B polynomial identities by parity-pairing in every deviation class. For even ell=2s all-tie words alone reach radius rs (count C(2s,s)^r and 2^(r-1) nearest codewords); for odd ell=2s+1 the odd-parity zero-deviation words alone reach rs+1 (count 2^(r-1) C(2s+1,s)^r and r nearest codewords). The strict comparison uses r>=4; there is no unjustified inference from small r. An independently implemented brute min-distance count matched every ambient vector for (r,ell)=(4,2),(4,3),(4,4),(6,2), including deep-hole multiplicities; this is finite corroboration, not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Solé–Zaslavsky abstract relates graph cycle code covering radius to minimum T-joins; BCH radius three is another code family."
+        ],
+        "reasoning": "A covering-radius theorem is a scalar maximum, not normally a full ambient enumerator or exact nearest-codeword multiplicities. Full Sole–Zaslavsky text unavailable; residual risk explicitly retained.",
+        "searches": [
+          "Solé–Zaslavsky 1993 DOI:10.1016/0166-218X(93)90140-J",
+          "Resultary: covering radius three for two extended two weight BCH families"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob 62732e6a3582c42146f92efc06dbdcb04885db89 and verify.py blob 9b504de674d806d6f4597281a81571acd28110b3",
+        "arXiv:2610.04617v1 Section 3.2",
+        "DOI:10.1016/0166-218X(93)90140-J abstract",
+        "arXiv:2608.26457 abstract",
+        "Resultary matching aliases searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known dimension r-1/minimum distance 2ell and general min-T-join radius reductions cannot alone determine each F coefficient and deep-hole tie cardinality. Codeword weight enumerators are not ambient distance enumerators in general."
+        ],
+        "reasoning": "The submitted implication from parity-block majority decoding supplies additional data; it does not follow merely by specializing the cited general parameter formulas.",
+        "searches": [
+          "Barbosa–Marquezino–La Guardia arXiv:2610.04617v1",
+          "Solé–Zaslavsky Discrete Appl Math 45 (1993)",
+          "Ribeiro–Cardell arXiv:2608.26457"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Code equals length-r even-parity bit code with each coordinate repeated ell times; its ambient shell count is also a coset-leader distance distribution. Barbosa et al. build the same two-book-graph 2-sum but give parameters, not the displayed whole-shell distribution in the read section."
+        ],
+        "reasoning": "Equivalent code representations were compared via incidence equations. Construction equivalence alone does not imply published shell enumeration.",
+        "searches": [
+          "Resultary: binary multi-theta graph cycle code ambient distance distribution covering radius deep holes repeated even parity blocks",
+          "Resultary: coset leader distribution ambient distance enumerator repeated parity check multi theta graph cycles covering radius",
+          "Barbosa et al. arXiv:2610.04617 §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The construction records four (r,ell) examples with code parameters, whereas the claimed formulas count every ambient word for all even r and all ell. The only Resultary retrieved exact spectrum closest was a different BCH family."
+        ],
+        "reasoning": "No actual indexed same-code complete distance table was located; failed search is not proof of absence.",
+        "searches": [
+          "Resultary: coset leader distribution ambient distance enumerator repeated parity check multi theta graph cycles covering radius",
+          "Barbosa arXiv:2610.04617 §3.2 four worked examples"
+        ]
+      },
+      "rationale": "The matching multi-theta code in Barbosa–Marquezino–La Guardia Section 3.2 supplies the construction, dimensions, minimum distances and four examples, but the material read does not supply an ambient coset-leader distance polynomial or nearest-codeword tie counts. Solé–Zaslavsky establish covering-radius relationships for general graph cycle codes (abstract read); a general radius bound does not automatically imply every ambient shell and extremal multiplicity. Ribeiro–Cardell concerns ordinary weight enumerators of single-parity-check product codes, mathematically different from distances of all ambient words to repeated whole-block even-parity codes. Best-of-knowledge originality PASS, with important risk from the unavailable 1993 full text and other possible coset-spectrum aliases.",
+      "residual_risks": [
+        "Solé–Zaslavsky 1993 full text inaccessible; possible covered covering-radius special case or equivalent coset-shell calculation is not excluded.",
+        "Unindexed equivalent repeated parity-check coset leader distributions cannot be ruled out.",
+        "Finite independent checks include four (r,ell) parameter pairs; infinite validity relies on majority/parity argument, not enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_CODE_CONSTRUCTION_NOT_COMPLETE_SHELL",
+          "evidence": "Section 3.2 describes the repeated block parity-code parameters; the ambient-distance polynomial and deep-hole tie multiplicities are not present in material read.",
+          "identifier_or_url": "https://arxiv.org/html/2610.04617v1",
+          "material_read": "Full available HTML, construction definitions and mathematical Section 3.2, its generator and four examples",
+          "method": "Read HTML and compared code coordinates and theorem scope",
+          "title": "New Methods for Constructing Classical and Quantum Codes from Graphs and Matroids",
+          "trigger": "Exactly same graph 2-sum code family"
+        },
+        {
+          "assessment": "PLAUSIBLE_PARTIAL_OVERLAP_NOT_EXCLUDED",
+          "evidence": "Abstract reports minimum T-join connection, radius bounds and cases of equality. It cannot establish whole-document absence of the precise repeated-path shell theorem.",
+          "identifier_or_url": "https://doi.org/10.1016/0166-218X(93)90140-J",
+          "material_read": "Bibliographic record and complete accessible abstract only; body not obtained",
+          "method": "Read indexed abstract",
+          "title": "The covering radius of the cycle code of a graph",
+          "trigger": "General theorem possibly covering radius of this graph"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Ordinary product-code word weights, not all ambient Hamming distances to this whole-block cycle code.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.26457",
+          "material_read": "Abstract and source scope, not whole paper",
+          "method": "Read abstract and compare object and invariant",
+          "title": "Weight Distributions of Single Parity-Check Product Codes via Character Sums",
+          "trigger": "Potential parity code enumerators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural ambient distance distribution and deep-hole tie multiplicities control nearest-neighbor decoding and coset geometry of a concrete graph-cycle code introduced in the source literature. A complete closed form for all shell coefficients at all equal path lengths is a motivated exact invariant, not the already known code parameters or a routine rewriting of its codeword weight enumerator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equal-length multi-theta binary codes with r even>=4, ell>=2 only; no classification of arbitrary graphic cycle codes.",
+    "Full record tree object verified, not a full independent repository-root ancestry rehash.",
+    "Solé–Zaslavsky 1993 full text inaccessible; possible covered covering-radius special case or equivalent coset-shell calculation is not excluded.",
+    "Unindexed equivalent repeated parity-check coset leader distributions cannot be ruled out.",
+    "Finite independent checks include four (r,ell) parameter pairs; infinite validity relies on majority/parity argument, not enumeration.",
+    "Public METADATA.json and AUDIT.json include confidential operational metadata; publication plan intentionally withheld pending complete private sanitization.",
+    "Historical ledger gaps and defects are preserved; only this new review was validated."
+  ],
+  "schema_version": 1
+}
