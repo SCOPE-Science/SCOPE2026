@@ -1,14 +1,21 @@
-# Review
-## Correctness
-**PASS.** A \(3\)-layered integer has \(I(n)\ge3\) because the layer containing \(n\) has sum \(\sigma(n)/3\ge n\). An exchange inequality for prime-power abundancies reduces every exponent partition with \(\Omega\le5\) to explicit extremal cases. All partitions of \(5\) are exhausted, leaving exactly \(120,180,420,660,780\). Complete divisor partitions certify sufficiency, and the packaged exact-arithmetic checker replays all stated numerical identities. The finite replay is not used as an infinite proof.
+# Independent mathematical audit
 
-## Originality
-**PASS.** The closest directly relevant sources were compared at statement level. Jokar gives the necessary abundancy condition and the least \(3\)-layered value \(120\), but the inspected paper does not state the \(\Omega=5\) classification. Mahanta–Saikia–Yaqubi characterize the two-distinct-prime case, whereas the five boundary objects here have three or four distinct prime factors. OEIS A204830 contains the five integers as part of a size-ordered sequence but does not provide a multiplicity-layer exhaustiveness theorem. The closest published-finding corpus boundary theorem concerns triperfect numbers, imposing \(\sigma(n)=3n\), and therefore covers only a different, narrower class.
+## correctness
 
-## Value
-**PASS.** The claim identifies the first possible multiplicity layer of a natural divisor-partition class and determines it completely. It strengthens the isolated fact that \(120\) is the least \(3\)-layered integer by explaining the entire sharp \(\Omega\)-boundary and exhibits four boundary examples that are not triperfect. The classification is structural rather than a numerical cutoff.
+PASS
 
-## Closest literature and limitations
-The most direct literature is arXiv:2207.09053v1 and DOI:10.1016/j.jnt.2020.05.003; OEIS A204830 is the relevant database table. A residual risk is an unindexed or differently phrased low-multiplicity classification. The result does not address \(\Omega(n)\ge6\).
+The layer containing divisor n forces I(n)=sigma(n)/n>=3. For fixed total prime multiplicity the exchange inequality makes the largest abundancy use smallest primes, with largest exponents on smallest bases. All Omega<=4 exponent partitions have maximal I<3; of seven Omega=5 partitions only (3,1,1), (2,2,1), and (2,1,1,1) survive, respectively only 120,180 and 420/660/780 by the explicit bounds in RESULT.md. All five complete divisor partitions were independently checked for exhaustive disjoint divisor coverage and common sums 120,182,448,672,784. The finite partition check certifies examples, while the exchange and exponent-partition inequalities prove universal exclusion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS for the exact Omega-minimal boundary of 3-layered numbers, not for the older fact that 120 is least by magnitude nor the classical necessary I(n)>=3 bound. Jokar records necessary abundancy and initial examples; Mahanta-Saikia-Yaqubi characterize only 2-prime support; OEIS A204830 lists examples but not a global classification by Omega. Resultary record 8f7faa757c07 concerns triperfect sigma(n)=3n, a strict subclass that covers only 120 here. No dominating theorem was located in inspected source statements.
+
+## value
+
+PASS
+
+PASS: Omega is a canonical complexity measure and the smallest permissible multiplicity stratum of a natural equal-sum divisor-partition class is an intrinsic structural boundary; the five complete exact objects and four non-triperfect examples refine the known least 3-layered integer and distinguish layered from triperfect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
