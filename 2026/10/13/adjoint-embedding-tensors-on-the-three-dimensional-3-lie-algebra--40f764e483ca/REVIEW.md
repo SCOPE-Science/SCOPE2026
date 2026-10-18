@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Writing the bracket as a determinant times \(e_1\) reduces the embedding-tensor identity to one volume-form equation. Rank at most one is automatic; rank two is equivalent to killing \(e_1\); and invertibility forces a scalar map by substituting \(z=Tw\) and using nondegeneracy of the volume form. The finite-field counts are exact standard rank counts. The packaged checker verifies the Fundamental Identity and exhaustively replays the full classification over \(\mathbf F_2\) and \(\mathbf F_3\).
+PASS
 
-## Originality
+Bracket equals det(x,y,z)e1; multilinearity reduces the embedding equation to det(T)det(x,y,z)e1=det(Tx,Ty,z)Te1. For rank <=1 both sides vanish. For rank 2 one can choose Tx,Ty independent, hence Te1 must vanish, which suffices. For rank 3, substituting z=Tw and using nondegenerate determinant forces T=scalar identity, and conversely scalar maps satisfy equation. Rank-count formula counts ordered independent columns 2,3 for rank 2. Direct independent exhaustive maps over F2 and F3 respectively gave (1,49,42,1) and (1,338,624,2), total 93/965; these only corroborate the all-field rank proof. Extension-field polynomial yields zeta by the standard exponential generating formula. Characteristic two is covered by alternating determinant algebra; classification is for this chosen model, not all such algebras.
 
-PASS. The primary paper develops general embedding-tensor theory but does not classify the three-dimensional adjoint problem. The closest complete same-object classification is for adjoint \(\mathcal O\)-operators, whose equation has three cyclic terms rather than one; the identity map separates the notions outside characteristic \(2\). A later three-dimensional 3-Leibniz Rota–Baxter example has a different multiplication and identity. Targeted semantic and web searches found no covering embedding-tensor classification or finite-field table.
+## originality
 
-## Value
+PASS
 
-PASS. The algebra is the canonical smallest nontrivial complex \(3\)-Lie algebra. A complete rank classification on this model gives a natural benchmark for the recently introduced embedding-tensor theory, and the exact finite-field distribution and sharp comparison with \(\mathcal O\)-operators provide structural information rather than a routine parameter slice.
+The full rank classification is for the one-term adjoint embedding tensor identity. Hu–Hou–Song–Zhou give its general framework and nonclassified examples. Cheng–Kang–Lü compute adjoint O-operators on the same complex algebra, but their defining equation has two extra cyclic terms, and even the identity map separates the two concepts in characteristic !=2. The searched published results do not imply the one-term rank census or its point counts.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This determines the entire rank-stratified moduli set of a canonical nontrivial three-dimensional 3-Lie model, including finite-field point polynomial and zeta. The one-term versus cyclic-three-term distinction is mathematically meaningful and cannot be inferred from existing O-operator tables. Such full small-dimensional classifications are natural test cases for deformation, representation, and arithmetic questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

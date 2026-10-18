@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,48 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` constructs the alternating bracket
-\[
-[e_1,e_2,e_3]=e_1
-\]
-over prime fields.
 
-It first verifies the \(3\)-Lie Fundamental Identity on every ordered basis quintuple.
+# Independent mathematical audit
 
-For a general \(3\times3\) matrix \(T\), it tests the adjoint embedding-tensor identity
-\[
-[Tx,Ty,Tz]=T([Tx,Ty,z])
-\]
-on every ordered basis triple.
+## correctness
 
-It exhaustively checks every matrix over
-\[
-\mathbf F_2
-\qquad\text{and}\qquad
-\mathbf F_3
-\]
-against the rank-theoretic criterion from `RESULT.md`.
+PASS
 
-The totals are
-\[
-93
-\qquad\text{and}\qquad
-965,
-\]
-with rank profiles
-\[
-(1,49,42,1)
-\]
-and
-\[
-(1,338,624,2).
-\]
+Bracket equals det(x,y,z)e1; multilinearity reduces the embedding equation to det(T)det(x,y,z)e1=det(Tx,Ty,z)Te1. For rank <=1 both sides vanish. For rank 2 one can choose Tx,Ty independent, hence Te1 must vanish, which suffices. For rank 3, substituting z=Tw and using nondegenerate determinant forces T=scalar identity, and conversely scalar maps satisfy equation. Rank-count formula counts ordered independent columns 2,3 for rank 2. Direct independent exhaustive maps over F2 and F3 respectively gave (1,49,42,1) and (1,338,624,2), total 93/965; these only corroborate the all-field rank proof. Extension-field polynomial yields zeta by the standard exponential generating formula. Characteristic two is covered by alternating determinant algebra; classification is for this chosen model, not all such algebras.
 
-The checker also verifies the closed counting and rank formulas for
-\[
-q=2,3,5,7.
-\]
+## originality
 
-It returns `VERIFY_OK`.
+PASS
 
-Finite exhaustive checks are replay evidence. The arbitrary-field result follows from the volume-form proof in `RESULT.md`.
+The full rank classification is for the one-term adjoint embedding tensor identity. Hu–Hou–Song–Zhou give its general framework and nonclassified examples. Cheng–Kang–Lü compute adjoint O-operators on the same complex algebra, but their defining equation has two extra cyclic terms, and even the identity map separates the two concepts in characteristic !=2. The searched published results do not imply the one-term rank census or its point counts.
+
+## value
+
+PASS
+
+This determines the entire rank-stratified moduli set of a canonical nontrivial three-dimensional 3-Lie model, including finite-field point polynomial and zeta. The one-term versus cyclic-three-term distinction is mathematically meaningful and cannot be inferred from existing O-operator tables. Such full small-dimensional classifications are natural test cases for deformation, representation, and arithmetic questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
