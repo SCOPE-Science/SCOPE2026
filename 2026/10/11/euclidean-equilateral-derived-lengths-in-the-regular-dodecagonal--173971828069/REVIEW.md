@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The regular dodecagonal norm is written as the maximum of twelve signed facet functionals. Every unit equilateral pair belongs to a face of the compact polytope defined by the three unit-ball constraints. The exact \(\mathbb Q(\sqrt3)\) checker exhausts all \(12^3\) tight-facet triples, obtains \(168\) nonempty presentations, and verifies that they are points or segments. At every endpoint both derived norms equal \(\sqrt3\). On every segment, common signed output facets give the lower bound \(\sqrt3\) throughout, while convexity gives the matching upper bound. Hence the continuum pointwise statement follows, and \(G_L=6\).
+## correctness
 
-## Originality
-PASS. Searches used the defining \(G_L\) notation, the explicit regular-dodecagon and regular-\(12\)-gon aliases, the exact value \(6\), and the stronger pointwise formulation. The defining full text was inspected and contains no regular-dodecagon calculation. The closest exact same-invariant public result is for the regular octagon. Regular-\(4n\) equilateral-perimeter literature was also checked because it includes the dodecagon, but its triangle class and objective do not imply the two derived \(G_L\) lengths.
+PASS
 
-## Value
-PASS. Chen, Liu and Li show that Hilbert spaces have \(G_L=6\) because every admissible pair has both derived lengths \(\sqrt3\). The regular dodecagon is a canonical non-Hilbert polyhedral plane, yet it has exactly that stronger pointwise behavior for every admissible pair. This identifies a natural and nontrivial limitation of the invariant rather than merely tabulating another value.
+The norm is the maximum of 12 signed real linear facets. For each of x,y,x−y some facet is tight; imposing three facet equalities gives all candidates as faces of P⊂R4 defined by the three unit-ball constraints. The supplied exact quadratic-field checker has 1728 triples, 168 feasible presentations (144 point faces, 24 segments), and 24 distinct admissible endpoints. An independent implementation enumerated all 4-row intersections (468 feasible bases and 132 distinct vertices of P), isolated 24 equilateral endpoints, and independently clipped all triple-lines (168 feasible, 144 points, 24 segments). All 24 points give both output norms sqrt3 to 2.5e−15 numerical tolerance; each segment admits a common attaining signed output facet at both ends. Affine evaluation proves the lower bound on each entire segment, and norm convexity the upper bound, establishing the continuum theorem (not an interpolation guess). The package Q(sqrt3) rational code supplies exact signs and counts; numerical independent replay is corroborative. The explicitly supplied witness x=(sqrt3−1,sqrt3−1), y=(1,sqrt3−2) also satisfies all five norm conditions.
 
-## Closest literature and limitations
-The primary source is arXiv:2112.05922v1, first public on 11 December 2021, with primary MSC 46B20. Its journal version is Symmetry 14 (2022), 72. A 2025 paper on equilateral-triangle perimeters in normed planes and a later regular-\(4n\) perimeter result are scientifically adjacent but do not compute \(G_L\). The present result does not classify all polygonal norms with \(G_L=6\), and bibliographic search cannot prove absolute novelty.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The pointwise two-output rigidity for a genuine non-Hilbert regular dodecagonal norm is not implied by the defining paper’s one-way Hilbert computation or by results for a different polygon norm. Exact same-norm alias remains a live priority risk.
+
+## value
+
+PASS
+
+The unit equilateral-triangle G_L constant is a natural Banach-plane invariant. An entire non-Hilbert regular dodecagonal plane unexpectedly reproduces both Hilbertian derived lengths on every admissible pair, furnishing a structurally meaningful boundary to any Hilbert-characterization converse. Exact continuum rigidity from a finite facet certificate is nontrivial and independently reusable, rather than a routine Hilbert-space substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

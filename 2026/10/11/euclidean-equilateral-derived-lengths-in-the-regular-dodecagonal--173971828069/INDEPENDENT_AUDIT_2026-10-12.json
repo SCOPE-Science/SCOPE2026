@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T01:06:14.909266Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob 60f44818614a81e293a71308d9e281aaf34d9deb",
+        "frozen Q(sqrt(3))-arithmetic verify.py blob 055b736fac2abbc33ba247a13ec53f0745952ca3",
+        "Chen, Liu and Li, arXiv:2112.05922, Proposition 3.6",
+        "independent face/vertex enumeration with 36 inequality rows, 1728 triple presentations"
+      ],
+      "rationale": "The norm is the maximum of 12 signed real linear facets. For each of x,y,x−y some facet is tight; imposing three facet equalities gives all candidates as faces of P⊂R4 defined by the three unit-ball constraints. The supplied exact quadratic-field checker has 1728 triples, 168 feasible presentations (144 point faces, 24 segments), and 24 distinct admissible endpoints. An independent implementation enumerated all 4-row intersections (468 feasible bases and 132 distinct vertices of P), isolated 24 equilateral endpoints, and independently clipped all triple-lines (168 feasible, 144 points, 24 segments). All 24 points give both output norms sqrt3 to 2.5e−15 numerical tolerance; each segment admits a common attaining signed output facet at both ends. Affine evaluation proves the lower bound on each entire segment, and norm convexity the upper bound, establishing the continuum theorem (not an interpolation guess). The package Q(sqrt3) rational code supplies exact signs and counts; numerical independent replay is corroborative. The explicitly supplied witness x=(sqrt3−1,sqrt3−1), y=(1,sqrt3−2) also satisfies all five norm conditions.",
+      "residual_risks": [
+        "Only this regular twelve-facet normalization and its linear isometric copies, not all polygonal norms.",
+        "Independent floating-point polyhedral replay is not itself a certificate for exact irrational identities; bundled rational arithmetic and facet-affine argument supply that link."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining paper gives universal 9/2≤G_L≤8 and Hilbert G_L=6.",
+          "The more general inequality leaves output norms undetermined in dodecagonal planes."
+        ],
+        "reasoning": "Universal bounds and Hilbert special case are weaker and cannot dominate a non-Hilbert equality holding pointwise on every admissible pair.",
+        "searches": [
+          "\"Inscribed triangles\" \"dodecagon\" G_L",
+          "regular dodecagonal norm inscribed equilateral triangles G_L derived lengths sqrt3 Chen Liu Li"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob 60f44818614a81e293a71308d9e281aaf34d9deb",
+        "frozen Q(sqrt(3))-arithmetic verify.py blob 055b736fac2abbc33ba247a13ec53f0745952ca3",
+        "Chen, Liu and Li, arXiv:2112.05922, Proposition 3.6",
+        "independent face/vertex enumeration with 36 inequality rows, 1728 triple presentations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "G_L=6 for every Hilbert space (Proposition 3.6 of the 2021 arXiv text).",
+          "Flat polygon sides prove N12 is non-inner-product; prior implication Hilbert⇒6 cannot be reversed."
+        ],
+        "reasoning": "The result supplies a non-Hilbert example with stronger two-derived-length identity, so it is not a corollary of the Hilbert calculation or of generic bounds.",
+        "searches": [
+          "regular dodecagonal norm inscribed equilateral triangles G_L derived lengths sqrt3 Chen Liu Li",
+          "Chen Liu Li inner product G_L=6 converse"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Liu–Li G_L is the supremum of squared lengths of x+y and 2x−y over equilateral unit pairs.",
+          "The full defining PDF proves G_L=6 for inner-product spaces, while a regular dodecagonal plane is not Hilbert; equal supremum does not imply pointwise rigidity."
+        ],
+        "reasoning": "Alternative formulations: regular 12-gon Banach plane / cyclotomic facet norm / equilateral derived lengths / isosceles parallelogram law at norm-equilateral triples. No equivalent all-pairs 12-gon statement located in read primary.",
+        "searches": [
+          "regular dodecagonal norm inscribed equilateral triangles G_L derived lengths sqrt3 Chen Liu Li",
+          "\"G_L\" \"regular 12-gon\" \"equilateral\"",
+          "arXiv:2112.05922"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A previously described octagonal-norm calculation concerns a different unit ball.",
+          "Direct exact enumeration of the displayed 12-gon, not lookup in a preexisting table, yields all-pairs equality."
+        ],
+        "reasoning": "An octagon table entry (even if indexed under same constant) has no implication for a regular dodecagon; no source/table furnishing the 12-gon value was inspected.",
+        "searches": [
+          "\"regular octagonal\" \"G_L\"",
+          "regular dodecagonal norm inscribed equilateral triangles G_L derived lengths sqrt3 Chen Liu Li"
+        ]
+      },
+      "rationale": "The pointwise two-output rigidity for a genuine non-Hilbert regular dodecagonal norm is not implied by the defining paper’s one-way Hilbert computation or by results for a different polygon norm. Exact same-norm alias remains a live priority risk.",
+      "residual_risks": [
+        "Undiscovered equivalent theorem for the same dodecagonal plane under another constant/normalization.",
+        "Resultary request returned temporary error (search_completed=false), not a no-match result.",
+        "Related 2025 polygonal triangle-perimeter full text not fully inspected; different stated objective."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: inner-product G_L=6 does not imply its converse, and no regular-dodecagonal all-pairs calculation is given.",
+          "evidence": [
+            "Proposition 3.6 gives the inner-product-space G_L=6 conclusion.",
+            "The same paper studies ℓ∞ and ℓp examples rather than the displayed norm with 12 supporting facets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.05922",
+          "material_read": "Full-text arXiv paper: definition, general inequalities, Proposition 3.6, example norms and specific comparisons.",
+          "method": "Read actual public PDF at arXiv and compared its defining and Hilbert-space results with the pointwise 12-gon claim.",
+          "title": "Inscribed Triangles in the Unit Sphere and a New Class of Geometric Constants",
+          "trigger": "Introduces the same G_L invariant and its Hilbertian value."
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE; potential residual full-text priority risk remains.",
+          "evidence": [
+            "Perimeter objective does not itself determine both N(x+y) and N(2x−y) for every equilateral norm pair."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00009-024-02795-6",
+          "material_read": "Bibliographic/title-level and available descriptions concerning perimeter of inscribed triangles; not a full-text entire-document inspection.",
+          "method": "Compared its named perimeter invariant and unit-sphere triangle assumptions with the two G_L derived lengths.",
+          "title": "Perimeter of Triangles Inscribed in the Unit Ball of Normed Planes",
+          "trigger": "Related regular-polygon norm geometries with a different equilateral-triangle objective."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md blob 60f44818614a81e293a71308d9e281aaf34d9deb",
+        "frozen Q(sqrt(3))-arithmetic verify.py blob 055b736fac2abbc33ba247a13ec53f0745952ca3",
+        "Chen, Liu and Li, arXiv:2112.05922, Proposition 3.6",
+        "independent face/vertex enumeration with 36 inequality rows, 1728 triple presentations"
+      ],
+      "rationale": "The unit equilateral-triangle G_L constant is a natural Banach-plane invariant. An entire non-Hilbert regular dodecagonal plane unexpectedly reproduces both Hilbertian derived lengths on every admissible pair, furnishing a structurally meaningful boundary to any Hilbert-characterization converse. Exact continuum rigidity from a finite facet certificate is nontrivial and independently reusable, rather than a routine Hilbert-space substitution.",
+      "residual_risks": [
+        "Does not classify the entire family of regular 2n-gon norms or all norms with G_L=6."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the specified regular-dodecagonal norm N12, every unit-equilateral pair N(x)=N(y)=N(x−y)=1 has N(x+y)=N(2x−y)=sqrt(3); consequently G_L=6.",
+  "limitations": [
+    "No classification of all regular polygon normed planes.",
+    "Published same-object under different normalization remains a priority risk.",
+    "Temporarily unavailable Resultary search was not treated as a novelty-negative result.",
+    "All source Git tree SHAs verified against Git REST trees with truncated=false; all seven package blobs inspected by content or metadata; independent mathematical checks do not supply formal Lean or expert attestation."
+  ],
+  "schema_version": 1
+}
