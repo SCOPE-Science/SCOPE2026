@@ -1,15 +1,21 @@
-# Review: Finite-resultant correction for coprime values of homogeneous binary forms
+# Independent mathematical audit
 
-## Correctness
-PASS. For every prime \(p\nmid R\), the defining property of the homogeneous resultant excludes a common projective zero, so the only simultaneous affine zero modulo \(p\) is \((0,0)\). This proves the key reduction from common value divisibility to coordinate primitivity away from the finite resultant-prime set. Homogeneity makes the remaining local conditions invariant under multiplication by any \(d\) coprime to \(R\). Chinese remainder counting and Möbius inversion then give the stated main term; the floor and local-box errors sum to \(O(X\log X)\). Two exact finite examples independently check the local counts and Möbius reconstruction.
+## correctness
 
-## Originality
-PASS. The closest current source, arXiv:2609.28284v1, gives an error-term Ekedahl--Poonen formula under its positivity property. Its general Theorem 1 can exploit the bound \(N_p\le1\) when positivity holds, but it does not remove positivity or state the finite resultant correction for arbitrary homogeneous binary forms. Bodin--Dèbes Theorem 1.5 supplies the general density formula without this quantitative error, while its resultant discussion is for one-variable values. Searches for the homogeneous-binary/resultant formulation and its \(O(X\log X)\) error did not locate a statement implying the claim. The residual risk is that this elementary reduction may have appeared in classical literature under different terminology.
+PASS
 
-## Value
-PASS. This is a natural structural class, not an arbitrary parameter slice: homogeneity and the resultant are exactly what force every nonexceptional common prime divisor to be a coordinate divisor. The result turns an infinite local product into a finite computable correction, removes a sign/positivity restriction from the motivating quantitative theorem in this class, and gives a reusable error-term count for indefinite as well as positive forms.
+For integral homogeneous binary F,G with nonzero homogeneous resultant R, modulo every p not dividing R there is no common nonzero affine zero: otherwise it would be a common projective root. Thus simultaneous p divisibility for a primitive integer coordinate pair occurs only at primes dividing R. Homogeneity also forces all value pairs from nonprimitive coordinates to share their coordinate prime. CRT gives beta=prod_{p|R}(1-N_p/p^2), with B(Y)=beta Y^2+O_{F,G}(Y+1) for local exclusions. Mobius inversion restricted to d coprime to rad(R) yields main constant beta prod_{p not |R}(1-p^-2) and O_{F,G}(X log X) via harmonic errors. Checked F=X^2-Y^2,G=X^2-4Y^2 at p3 N3=5, and F=X^2+Y^2,G=X^2-Y^2 at p2 N2=2; an independent exact pointwise grid count at N=11,29,37 matched the local/primitive condition for both. The finite checks corroborate but do not prove the universal resultant argument.
 
-## Closest literature and limitations
-The quantitative comparison is with arXiv:2609.28284v1, Theorem 1 and Corollary 2. The broader density comparison is Bodin--Dèbes, DOI:10.1007/s11856-023-2530-8, Theorem 1.5. The theorem is fixed-form and binary-homogeneous; no coefficient-uniformity or nonhomogeneous analogue is asserted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bodin--Debes provides density for general coprime polynomial values; the new theorem adds an O(X log X) error and explicit finite correction for binary homogeneous forms without positivity. The 2026 Toth abstract describes a quantitative Ekedahl--Poonen formula subject to general properties; same-model notes attribute a positivity condition, but primary full text was inaccessible this turn and that precise difference remains a disclosed risk. Search found no independent exact table, alias or stronger matching quantitative implication.
+
+## value
+
+PASS
+
+The resultant prime support reduces an infinite local density to finitely many residue counts while homogeneity makes effective O(X log X) summation possible even for indefinite forms. This naturally motivated class and unconditional explicit correction are useful for lattice-point counts and practical gcd-value densities, beyond merely reproducing a known leading constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
