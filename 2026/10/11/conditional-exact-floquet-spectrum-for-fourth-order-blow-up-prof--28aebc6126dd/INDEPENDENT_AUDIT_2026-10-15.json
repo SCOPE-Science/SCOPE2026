@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T00:40:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": "P_q(D), L_w and VERIFICATION.md at Git tree 72d1e23fd611f613ed940ea3f06e783b48ca08f8; independent SymPy polynomial assertions /mnt/data/scope09_independent_checks_20261015.py; 2015 primary Theorem 4.17",
+      "rationale": "For P_q(z)=product_(j=0)^3(z-eta+j), differentiation gives periodic w' in ker L and scaling yields e^t(w'-eta w) in ker L; the last identity follows from P(D+1)(D-eta)=P(D)(D-eta+4) and 4+(q-1)eta=0. This was independently checked as a polynomial identity. The reflection P(z)=P(-sigma-z), sigma=3-2eta, was also independently verified, so L*=exp(sigma t)L exp(-sigma t). Adjoint monodromy inversion forces multiplier involution mu -> exp(-sigma T)/mu. Applying it to distinct 1 and exp(T) produces exp(-sigma T) and exp(-(sigma+1)T), exhausting order four with no overlaps for q>1,T>0. No numerical orbit computation is used to infer the universal claim.",
+      "residual_risks": [
+        "No periodic orbit existence or uniqueness for every q>1 is proved; exact spectral identity is conditional.",
+        "Parameter limits q downarrow 1 are singular and excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matsue Theorem 4.13 supplies the phase/scaling multipliers 1 and exp(T) for a distinguished invariant bundle; its quotient multiplier analysis does not fix the remaining two.",
+          "Resultary planar balance profile applies only in dimension two, unlike this scalar fourth-order equation (four-dimensional phase space)."
+        ],
+        "reasoning": "The prior general correspondence lacks the source-specific polynomial adjoint reflection, and the planar result cannot dominate a four-dimensional Floquet statement.",
+        "searches": [
+          "fourth order blowup periodic profile exact Floquet multipliers adjoint symmetry 0 1 -sigma -sigma-1 D'Ambrosio Lessard Pugliese Matsue",
+          "Resultary: planar periodic balance profiles automatically generate type-I oscillatory blow-up",
+          "Matsue (2026), arXiv:2610.05354v1"
+        ]
+      },
+      "checked_sources": [
+        "D'Ambrosio, Lessard and Pugliese (2015), https://doi.org/10.1016/j.na.2014.12.026",
+        "Matsue (2026), arXiv:2610.05354v1",
+        "Resultary self record 2026/10/11/...--28aebc6126dd",
+        "Resultary planar related record 2026/10/11/...--849c44b10231"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2015 Theorem 4.17 establishes a special validated orbit and stable/unstable dimensions; Conjecture 1 is explicitly open.",
+          "Matsue Theorem 4.13 gives phase/scaling directions and §5.3 numerical agreement."
+        ],
+        "reasoning": "The new conditional theorem does not prove existence, and previous rigorous cubic interval bounds do not entail the exact general-q exponents. The operator reflection is an extra independently checked premise.",
+        "searches": [
+          "D'Ambrosio, Lessard and Pugliese (2015), https://doi.org/10.1016/j.na.2014.12.026",
+          "Matsue (2026), arXiv:2610.05354v1",
+          "fourth order blowup periodic profile exact Floquet multipliers adjoint symmetry 0 1 -sigma -sigma-1 D'Ambrosio Lessard Pugliese Matsue"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2015 Conjecture 1 labels general-q values open; 2015 Remark 6.2 says numerical evidence; Matsue §5.3 supplies cubic numerical values."
+        ],
+        "reasoning": "An exact conditional all-q adjoint-symmetric spectrum is not equivalent to existence-plus-numerical conjecture or a pair of distinguished directions.",
+        "searches": [
+          "fourth order blowup periodic profile exact Floquet multipliers adjoint symmetry 0 1 -sigma -sigma-1 D'Ambrosio Lessard Pugliese Matsue",
+          "web: fourth order blow-up profile Floquet exponents reciprocal pairing adjoint periodic orbit",
+          "D'Ambrosio, Lessard and Pugliese (2015), https://doi.org/10.1016/j.na.2014.12.026",
+          "Matsue (2026), arXiv:2610.05354v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "D'Ambrosio et al. Figure 7 reports numerical evidence for exponents; Theorem 4.17 is an interval proof of cubic hyperbolicity.",
+          "Matsue §5.3 reports approximate cubic Floquet multipliers."
+        ],
+        "reasoning": "Values tabulated numerically or conjectured algebraically do not constitute a theorem of exact identity for every periodic w and q>1.",
+        "searches": [
+          "fourth order blowup periodic profile exact Floquet multipliers adjoint symmetry 0 1 -sigma -sigma-1 D'Ambrosio Lessard Pugliese Matsue",
+          "D'Ambrosio, Lessard and Pugliese (2015), https://doi.org/10.1016/j.na.2014.12.026",
+          "Matsue (2026), arXiv:2610.05354v1"
+        ]
+      },
+      "rationale": "The 2015 primary paper conjectures the general-q values and only computer-certifies hyperbolicity and numerical enclosures near q=3; Matsue (2026) proves two distinguished multipliers but computes other multipliers numerically. Their results do not include or imply the exponential-adjoint operator identity, which supplies the previously missing two exact multipliers for any existing profile. Best-of-knowledge originality is conditional on searched works, not an independence certificate.",
+      "residual_risks": [
+        "Unindexed prior use of the reflection P(z)=P(-sigma-z) or a recent revision after arXiv v1 may state the exact conditional formula.",
+        "The theorem addresses linearized spectra only, not profile existence/basin geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING a proof of exact general-q conditional spectrum",
+          "evidence": "Theorem 4.17 states rigorous cubic hyperbolicity; Conjecture 1 says open general-q formulas and §6 supplies numerical agreement, not adjoint reflection.",
+          "identifier_or_url": "doi:10.1016/j.na.2014.12.026; lawful author-hosted PDF https://drive.google.com/file/d/1-4oqXsWOMY1l3ua431JaxCAJXnhEDc-N/view",
+          "material_read": "Primary full-text: abstract; auxiliary equation/parameter results; §4.3 Theorem 4.17 proof setup and interval computational method; §6 Conjecture 1, Figures 6-7, Remark 6.2, with whole-document adjoint keyword check",
+          "method": "Author-hosted searchable PDF, full-text section inspection",
+          "title": "Blow-up profile for solutions of a fourth order nonlinear equation",
+          "trigger": "Focal prior numerical conjecture for these exact exponents"
+        },
+        {
+          "assessment": "NOT_COVERING remaining two exact multipliers",
+          "evidence": "Theorem 4.13 gives 1, exp(T); suspension-bridge §5.3 describes numerical exponents near 0,-7,-8 and notes agreement with previous computation.",
+          "identifier_or_url": "arXiv:2610.05354v1",
+          "material_read": "Full-text HTML Theorem 4.13, quotient correspondence §4.2–4.4, §5.3 Lemma 5.5, equations 5.9–5.10 and reported multipliers",
+          "method": "Open full-text HTML and targeted mathematical reading",
+          "title": "On Algebraic-Dynamical Correspondence of Oscillatory Blow-Up Solutions for ODEs",
+          "trigger": "Recent primary focal source sharing same balance equation and multipliers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "D'Ambrosio, Lessard and Pugliese (2015), https://doi.org/10.1016/j.na.2014.12.026",
+        "Matsue (2026), arXiv:2610.05354v1"
+      ],
+      "rationale": "The exact spectrum gives the spectral half of a published explicit conjecture conditional on profile existence; it replaces orbit-specific Floquet numerics with an all-q algebraic law and determines the hyperbolic index. This is a nonstandard structural identity, not a numerical precision upgrade.",
+      "residual_risks": [
+        "No construction of a periodic profile for every q or global blow-up classification follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Conditional on a nonconstant T-periodic solution w of P_q(D)w+|w|^{q-1}w=0, q>1, eta=-4/(q-1), all Floquet exponents (on a common logarithm branch) are 0,1,-(3q+5)/(q-1),-4(q+1)/(q-1); the corresponding four multipliers are distinct.",
+  "limitations": [
+    "Conditional on nonconstant periodic profile, q>1; no existence, uniqueness, basin or lower-order-perturbation theorem.",
+    "Literature search is not exhaustive and no external certification is asserted."
+  ],
+  "schema_version": 1
+}

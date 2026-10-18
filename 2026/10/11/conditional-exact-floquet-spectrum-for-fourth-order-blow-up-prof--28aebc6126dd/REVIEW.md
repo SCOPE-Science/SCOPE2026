@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the auxiliary operator, produces the phase and scaling Floquet modes explicitly, and proves the remaining multiplier pair through the formal-adjoint reflection. The four resulting multipliers are distinct for \(q>1\), so the complete multiplicity count is fixed. No experiment is used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The recent focal source supplies the distinguished phase/scaling structure and gives the cubic stable exponents numerically. The 2015 predecessor rigorously encloses the cubic spectrum and states the general-q exponent formulas as Conjecture 1 with numerical support. Targeted searches over exact-conjecture, adjoint-pairing, reciprocal-spectrum, and suspension-bridge formulations found no prior implication-equivalent proof. The new step is the identity \(L_w^*=e^{\sigma t}L_we^{-\sigma t}\), which converts generic adjoint reciprocity into a self-pairing of the same Floquet spectrum.
+PASS
 
-## Value
-PASS. Conditional on periodic-orbit existence, the full Floquet spectrum no longer requires numerical eigenvalue validation and the hyperbolic index is automatic. This settles a natural structural part of the earlier conjecture while leaving its genuinely separate existence problem open.
+For P_q(z)=product_(j=0)^3(z-eta+j), differentiation gives periodic w' in ker L and scaling yields e^t(w'-eta w) in ker L; the last identity follows from P(D+1)(D-eta)=P(D)(D-eta+4) and 4+(q-1)eta=0. This was independently checked as a polynomial identity. The reflection P(z)=P(-sigma-z), sigma=3-2eta, was also independently verified, so L*=exp(sigma t)L exp(-sigma t). Adjoint monodromy inversion forces multiplier involution mu -> exp(-sigma T)/mu. Applying it to distinct 1 and exp(T) produces exp(-sigma T) and exp(-(sigma+1)T), exhausting order four with no overlaps for q>1,T>0. No numerical orbit computation is used to infer the universal claim.
 
-## Closest literature and limitations
-Closest are Matsue, arXiv:2610.05354v1, Theorem 4.13 and Section 5.3, and D'Ambrosio--Lessard--Pugliese, DOI 10.1016/j.na.2014.12.026, Theorem 4.17 and Conjecture 1. The result does not prove periodic-orbit existence for every \(q>1\), uniqueness, basin geometry, or robustness under arbitrary lower-order perturbations. Residual originality risk is an equivalent adjoint-symmetry observation under different notation in unindexed older literature.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2015 primary paper conjectures the general-q values and only computer-certifies hyperbolicity and numerical enclosures near q=3; Matsue (2026) proves two distinguished multipliers but computes other multipliers numerically. Their results do not include or imply the exponential-adjoint operator identity, which supplies the previously missing two exact multipliers for any existing profile. Best-of-knowledge originality is conditional on searched works, not an independence certificate.
+
+## value
+
+PASS
+
+The exact spectrum gives the spectral half of a published explicit conjecture conditional on profile existence; it replaces orbit-specific Floquet numerics with an all-q algebraic law and determines the hyperbolic index. This is a nonstandard structural identity, not a numerical precision upgrade.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
