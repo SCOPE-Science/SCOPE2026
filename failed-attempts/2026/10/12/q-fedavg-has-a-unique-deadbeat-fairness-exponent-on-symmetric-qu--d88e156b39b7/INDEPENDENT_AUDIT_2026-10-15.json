@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T02:16:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claimed equality to the actual Li et al. q-FedAvg algorithm is false whenever curvature a != 1. Original Algorithm 1 (source PDF page 5, source page index 4) defines UNscaled Delta_w=x-bar_x and h_i=(q/L) F_i^(q-1)*Delta_w_i^2+F_i^q, whereas the package verifier sets Delta_w_i=L(x-bar_x), then uses h_i=q F_i^(q-1)*Delta_w_i^2+L F_i^q. With eta=1/a, L=a, exact client update bar_x_i=+/-b makes the real Delta_w_i=x-/+b, not a(x-/+b). Algebra gives the REAL source map T_src(x)=x-[sum_i d_i |d_i|^(2q)]/[(1+2q/a^2) sum_i|d_i|^(2q)], d_i=x-b,x+b, while RESULT states denominator factor (1+2q). At a=2,b=1,q=1/2,x=1/2, client losses are 1/4 and 9/4, source numerator=2, denominator=5/2, so x_new=1/2-4/5=-3/10, not 0. Thus unique one-round deadbeat q=1/2 for every a>0 is false; the claimed Newton equivalence and cubic local convergence are also false (true linear derivative is 1-(1+2q)/(1+2q/a^2), nonzero for a != 1). This is a falsifying admissible explicit counterexample, not a numerical approximation or verifier timeout.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://openreview.net/references/pdf?id=SkQaQ5FoS Algorithm 1 and Section 3.3 are distinct from q-FedSGD Hessian bound"
+        ],
+        "reasoning": "General formula for the q-FFL Hessian is a known source expression but source q-FedAvg uses local model differences rather than gradients. The broader source does not imply package Newton equivalence.",
+        "searches": [
+          "q-FedAvg q-FFL Newton equivalence scalar quadratic",
+          "source Algorithm 1 server normalization"
+        ]
+      },
+      "checked_sources": [
+        "https://openreview.net/references/pdf?id=SkQaQ5FoS",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/q-fedavg-has-a-unique-deadbeat-fairness-exponent-on-symmetric-qu--d88e156b39b7/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/q-fedavg-has-a-unique-deadbeat-fairness-exponent-on-symmetric-qu--d88e156b39b7/verify.py",
+        "Resultary semantic query: q-FedAvg symmetric scalar quadratic Newton deadbeat exponent q=1/2 convergence cubic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://openreview.net/references/pdf?id=SkQaQ5FoS Delta_w source normalization differs from package verify.py (Git blob b9e7cf7399b996748ddd62a65d61e7543a1a609b)"
+        ],
+        "reasoning": "An authentic source update on an allowed parameter point gives -3/10 rather than 0, directly contradicting the central implication; standard Newton on the q-FFL objective is not equivalent to this source update for a!=1.",
+        "searches": [
+          "Original q-FedAvg Algorithm 1 vs package RESULT.md and verify.py",
+          "source q-FedSGD differentiation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://openreview.net/references/pdf?id=SkQaQ5FoS Algorithm 1 explicitly defines Delta_w=w-bar_w, delta_i=F_i^q Delta_w, h_i=(q/L)F_i^(q-1)||Delta_w||^2+F_i^q"
+        ],
+        "reasoning": "The package conflates q-FedAvg with a distinct rescaled Newton-like update. Exact equivalence claims must match the actual update map, not method names.",
+        "searches": [
+          "q-FedAvg symmetric scalar quadratic Newton deadbeat exponent q=1/2 convergence cubic",
+          "Li Sanjabi Beirami Smith Algorithm 1 q-FedAvg precise update"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://openreview.net/references/pdf?id=SkQaQ5FoS already specifies the exact algorithm",
+          "Resultary retrieved other scalar optimization dynamics, no equivalent claimed deadbeat fact"
+        ],
+        "reasoning": "No valid exact source-algorithm deadbeat table or classification was established; the package tests a changed implementation.",
+        "searches": [
+          "Resultary q-FedAvg symmetric scalar quadratic Newton deadbeat exponent q=1/2 convergence cubic",
+          "scalar quadratic source q-FedAvg formula"
+        ]
+      },
+      "rationale": "The main claimed dynamical phenomenon is not a true statement about the source algorithm; no new correct theorem as stated survives to be assessed as an original mathematical result. Independent model-code novelty is irrelevant to validity.",
+      "residual_risks": [
+        "Different normalized q-FedAvg conventions may have interesting special dynamics, but this is not the printed source algorithm under the stated a,L,eta.",
+        "Source version/version drift could change a convention, but the specific inspected defining original paper and cited source are explicit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_CONTRADICTION",
+          "evidence": "Algorithm 1 uses Delta_w=w-bar_w and q/L coefficient; code scales Delta_w by L and changes coefficient of both terms.",
+          "identifier_or_url": "https://openreview.net/references/pdf?id=SkQaQ5FoS",
+          "material_read": "Full PDF Section 3.3 and Algorithm 1 p4",
+          "method": "Source PDF text and rendered page 4 formula; independently evaluated rational counterexample",
+          "title": "Fair Resource Allocation in Federated Learning",
+          "trigger": "Source method q-FedAvg vs claimed exact Newton identification"
+        },
+        {
+          "assessment": "REPRODUCES_WRONG_ALGORITHM",
+          "evidence": "delta_w=L*(x-local); h=q F^(q-1) delta_w^2+L F^q, not source Algorithm 1.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/q-fedavg-has-a-unique-deadbeat-fairness-exponent-on-symmetric-qu--d88e156b39b7/verify.py",
+          "material_read": "Full verify.py at immutable blob b9e7cf7399b996748ddd62a65d61e7543a1a609b",
+          "method": "GitHub immutable blob inspection",
+          "title": "q-FedAvg packaged code",
+          "trigger": "Determine source transcription"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Identifying exact communication-round dynamics is a motivated question, but this final claim asserts a source-algorithm exact Newton identification that fails for a=2, so the advertised unique fairness-exponent deadbeat and cubic phenomenon do not constitute a valid mathematical finding. A different rescaled algorithm with a=1 could be studied separately; that does not salvage the false universal a>0 claim.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://openreview.net/references/pdf?id=SkQaQ5FoS",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/q-fedavg-has-a-unique-deadbeat-fairness-exponent-on-symmetric-qu--d88e156b39b7/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/a7f06178efe0f614c062d1d573fb692b831692a4/2026/10/12/q-fedavg-has-a-unique-deadbeat-fairness-exponent-on-symmetric-qu--d88e156b39b7/verify.py",
+    "Resultary semantic query: q-FedAvg symmetric scalar quadratic Newton deadbeat exponent q=1/2 convergence cubic"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Falsifying counterexample occurs within all stated hypotheses: a=2, b=1, x=1/2 inside (-b,b), q=1/2, eta=1/a, L=a.",
+    "Publication and corrections withheld; preserve original whole source package with no edits."
+  ],
+  "schema_version": 1
+}
