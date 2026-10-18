@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the definition to two exact indexwise conditions using the complete distance table of the crown graph. The size threshold and the complete classification of three-vertex sets follow by exhausting the possible bipartition occupancies, and the coefficient formula follows from an explicit count. The boundary case \(n=3\) remains valid because matched opposite-side vertices have distance \(3\) and distinct same-side vertices have distance \(2\). The included verifier independently reconstructs graph distances and checks every subset for \(3\le n\le9\).
+## correctness
 
-## Originality
-PASS with residual indexing risk. The foundational full text defines disjunctive total domination, gives general bounds and cycle results, and has no searchable occurrence of “crown” or “complete bipartite.” The later join/corona/composition paper states different graph operations, and the shadow-distance paper studies a derived construction rather than crown graphs themselves. Searches under crown, matching-deleted biclique, direct-product, and bipartite-Kneser aliases found no source implying the all-set criterion or polynomial. The already covered scalar consequence for \(\operatorname{Cr}_3\cong C_6\) is explicitly excluded from the originality basis.
+PASS
 
-## Value
-PASS. Crown graphs form a canonical highly symmetric matching-deleted biclique, and disjunctive total domination is a natural relaxation of total domination motivated by redundancy. The theorem gives a complete structural classification, not an isolated numerical value: the property becomes automatic at cardinality \(4\), while the entire nontrivial boundary is captured by a clean triple condition. This yields the full enumerator and exact minimum-set multiplicity in closed form.
+For n>=3, N(a_i)={b_j:j!=i}, N_2(a_i)={a_j:j!=i}, and reciprocally for b_i; matching opposites a_i,b_i are at distance 3. Thus every vertex satisfies precisely the two stated I,J alternatives. If |S|>=4, either both sides contain >=2 vertices or a side has >=3, ensuring the criterion; sets of size <=2 fail. Valid size-3 sets are the two one-sided 3-subsets or mixed 2+1 subsets with unmatched singleton index. Their total is 2*C(n,3)+2*n*C(n-1,2)=4*n*(n-1)*(n-2)/3. Every larger subset contributes C(2n,k), proving the entire enumerator and minimum 3. Independently implemented all vertex-distance cases and subsets n=3..6; the finite checks are corroborative, while the partition proof handles every n>=3.
 
-The closest literature supplies the parameter, broad bounds, cycles, graph-operation results, and related constructed families, but not this all-set crown classification. A residual risk remains that an equivalent result is hidden under poorly indexed direct-product terminology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original all-set cardinality polynomial for the naturally parameterized crown graph. The foundational paper defines the same DTD-set but gives general bounds and certain cycle cases; the crown n=3=C6 minimum-number consequence is not claimed new. Distinct crown domination polynomials with different selected-neighborhood predicates do not imply DTD-set enumeration.
+
+## value
+
+PASS
+
+The exact full distribution and classification of disjunctive-total-dominating subsets of K_{n,n} minus its perfect matching is a naturally motivated invariant: the count distinguishes families with the same minimum domination number and is a reusable benchmark for counting DTD sets, not a random graph parameter slice. Includes a nontrivial size-three index obstruction, not only gamma=3.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
