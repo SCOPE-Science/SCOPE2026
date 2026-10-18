@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The primary source gives all six facet functions and their normals. Normalizing them by Euclidean length turns the inscribed-ball problem into six linear clearance inequalities. The three upper/slanted inequalities are monotone decreasing in the center coordinates because \(d,\Delta_A,\Delta_b\ge0\). Therefore any feasible center at radius \(\rho\) can be pushed to \((\rho,\rho,\rho)\), reducing feasibility to exactly three scalar barriers. The minimum barrier is attained, and the uncollapsed shifted-facet system gives every incenter.
+## correctness
 
-## Originality
-PASS. The open-access primary full text was inspected at the prismatoid definition, Proposition 3.2, Notation 3.2, and the staged-tree interpretation. It contains no inradius, Chebyshev-center, largest-inscribed-ball, or Euclidean-radius theorem. Candidate-specific published-result and literature searches covered the exact family names and equivalent metric formulations without locating a covering result. No same-object metric finding was located in the checked prior work records.
+PASS
 
-## Value
-PASS. These prismatoids are the central three-dimensional examples in a newly introduced family of polytopes with rational linear precision. The result works uniformly over the full positive six-facet parameter family and gives more than a single radius: it identifies the exact three competing geometric barriers and the entire incenter polyhedron. That provides a natural Euclidean counterpart to the source's Horn-matrix and primitive-collection analysis.
+Reconstructed the six halfspaces s>=0,t>=0,v>=0, Al-s-dt-Delta_A v>=0, bl-t-Delta_b v>=0, l-v>=0 with normal lengths 1,1,1,N_A,N_b,1. A radius rho ball is feasible only if all shifted facet margins hold. Since d,Delta_A,Delta_b>=0 and coordinate lower bounds require s,t,v>=rho, pushing to (rho,rho,rho) can only improve all three upper clearances. Feasibility reduces exactly to 2rho<=l, (1+Delta_b+N_b)rho<=bl, (1+d+Delta_A+N_A)rho<=Al. Gives the claimed min of three normalized barriers and the complete all-incenter six-inequality description. Verified allowed d=0 and equality/tie cases logically; an independent scipy linprog implementation sampled 250 integer parameter cases with zero observed discrepancy. Sampling corroborates, does not prove the all-integer symbolic theorem.
 
-## Closest literature and limitations
-The closest source supplies the exact H-description and normal vectors, but uses them for rational linear precision, Horn pairs, primitive collections, and staged-tree models. The theorem is realization-specific, excludes collapsed-facet degenerations from its literal tangency statement, and does not address enclosing spheres or higher-dimensional staged-tree polytopes.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison against directly inspected mathematical texts supports originality of the precise claim, not the source construction or standard lemmas. Each comparison and reading limit is distinguished; inaccessible work is recorded as risk, not proof of uniqueness. Resultary semantic search failed internally and supplies no negative evidence.
+
+## value
+
+PASS
+
+The exact Euclidean Chebyshev radius and complete center locus form a natural geometric metric invariant of a published nontrivial family of lattice prismatoids, with three distinct contact regimes and ties. The proof identifies why six facets collapse to three active normalized barriers and gives exact parameter-dependent centers; the invariant is not supplied by rational linear precision itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

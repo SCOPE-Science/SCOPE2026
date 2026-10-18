@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T22:18:28.063000Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the six halfspaces s>=0,t>=0,v>=0, Al-s-dt-Delta_A v>=0, bl-t-Delta_b v>=0, l-v>=0 with normal lengths 1,1,1,N_A,N_b,1. A radius rho ball is feasible only if all shifted facet margins hold. Since d,Delta_A,Delta_b>=0 and coordinate lower bounds require s,t,v>=rho, pushing to (rho,rho,rho) can only improve all three upper clearances. Feasibility reduces exactly to 2rho<=l, (1+Delta_b+N_b)rho<=bl, (1+d+Delta_A+N_A)rho<=Al. Gives the claimed min of three normalized barriers and the complete all-incenter six-inequality description. Verified allowed d=0 and equality/tie cases logically; an independent scipy linprog implementation sampled 250 integer parameter cases with zero observed discrepancy. Sampling corroborates, does not prove the all-integer symbolic theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source halfspace proof plus focused Euclidean-inradius/Chebyshev-center query."
+        ],
+        "reasoning": "A generic Chebyshev-center LP or monotone H-polytope feasibility theorem provides a general method and might imply diagonal feasibility once specialized, but no identified source gives the exact three closed barriers for these parameter constraints or full optimal-center set.",
+        "searches": [
+          "Resultary semantic query (internal error, no results): rational linear precision prismatoid trapezoid Newton polytope Euclidean inradius Chebyshev center six facets Davies Duarte Portakal Sorea",
+          "Source inspection: https://arxiv.org/abs/2109.08151",
+          "Focused arXiv / published literature search with claim terminology and aliases"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md blob e0e087581bb3290b696b4ae36f9da76462dcafdf, assigned tree 0038594e0714d27c5cb5aea70f839d4488937218",
+        "Git verify.py blob 84279eaf5172179d588f53bdb25c03b91e2f7608, source finite LP method",
+        "Davies–Duarte–Portakal–Sorea, arXiv:2109.08151, Prop 3.2 and Notation 3.2",
+        "Independent scipy LP check for 250 positive-integer configurations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Davies et al. 2023 primary facet description; six normal magnitudes read in paper."
+        ],
+        "reasoning": "Knowing six facet inequalities does permit a straightforward LP, but it does not state the three-barrier formula or all incenters; the proof adds a uniform coordinate-monotone reduction and explicit sharp closed form. It is not affine-invariant.",
+        "searches": [
+          "Resultary semantic query (internal error, no results): rational linear precision prismatoid trapezoid Newton polytope Euclidean inradius Chebyshev center six facets Davies Duarte Portakal Sorea",
+          "Source inspection: https://arxiv.org/abs/2109.08151",
+          "Focused arXiv / published literature search with claim terminology and aliases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Davies et al., arXiv:2109.08151, Proposition 3.2 and Notation 3.2."
+        ],
+        "reasoning": "Trapezoidal Newton polytope and staged-tree rational-linear-precision prismatoid use the same six facets as source; their Horn-pair and normal-fan results concern algebraic structure, not Euclidean norm of the six facet normals or the incenter set.",
+        "searches": [
+          "Resultary semantic query (internal error, no results): rational linear precision prismatoid trapezoid Newton polytope Euclidean inradius Chebyshev center six facets Davies Duarte Portakal Sorea",
+          "Source inspection: https://arxiv.org/abs/2109.08151",
+          "Focused arXiv / published literature search with claim terminology and aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Davies et al. Prop 3.2, Notation 3.2, source Git RESULT.md."
+        ],
+        "reasoning": "The existing source facets are an exact H-table rather than an inradius table; normal magnitudes sqrt(1+d^2+Delta_A^2) and sqrt(1+Delta_b^2) change the optimization.",
+        "searches": [
+          "Resultary semantic query (internal error, no results): rational linear precision prismatoid trapezoid Newton polytope Euclidean inradius Chebyshev center six facets Davies Duarte Portakal Sorea",
+          "Source inspection: https://arxiv.org/abs/2109.08151",
+          "Focused arXiv / published literature search with claim terminology and aliases"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level comparison against directly inspected mathematical texts supports originality of the precise claim, not the source construction or standard lemmas. Each comparison and reading limit is distinguished; inaccessible work is recorded as risk, not proof of uniqueness. Resultary semantic search failed internally and supplies no negative evidence.",
+      "residual_risks": [
+        "A general theorem on Chebyshev centers for coordinate-monotone H-polytopes could contain this as an easy formal corollary; precise published coverage not identified.",
+        "Euclidean realization-specific; does not cover degenerate/facet-collapsing parameter limits or affine-invariant radii.",
+        "Resultary query errored; not a negative novelty certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source establishes six linear facet margins and normals for rational-linear-precision study; no explicit Euclidean inradius or all-incenter theorem in the inspected material",
+          "evidence": [
+            "Proposition 3.2 and Notation 3.2 six facet-distance forms and normals."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.08151",
+          "material_read": "Open-access full Springer HTML mathematical text, Proposition 3.2 and Notation 3.2",
+          "method": "Read full-text relevant section and six defining inequalities",
+          "title": "Families of Polytopes with Rational Linear Precision in Higher Dimensions",
+          "trigger": "Identical prismatoids, normals, facet functions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact Euclidean Chebyshev radius and complete center locus form a natural geometric metric invariant of a published nontrivial family of lattice prismatoids, with three distinct contact regimes and ties. The proof identifies why six facets collapse to three active normalized barriers and gives exact parameter-dependent centers; the invariant is not supplied by rational linear precision itself.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md blob e0e087581bb3290b696b4ae36f9da76462dcafdf, assigned tree 0038594e0714d27c5cb5aea70f839d4488937218",
+    "Git verify.py blob 84279eaf5172179d588f53bdb25c03b91e2f7608, source finite LP method",
+    "Davies–Duarte–Portakal–Sorea, arXiv:2109.08151, Prop 3.2 and Notation 3.2",
+    "Independent scipy LP check for 250 positive-integer configurations"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general theorem on Chebyshev centers for coordinate-monotone H-polytopes could contain this as an easy formal corollary; precise published coverage not identified.",
+    "Euclidean realization-specific; does not cover degenerate/facet-collapsing parameter limits or affine-invariant radii.",
+    "Resultary query errored; not a negative novelty certificate."
+  ],
+  "schema_version": 1
+}
