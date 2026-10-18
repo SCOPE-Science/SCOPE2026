@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The partial transpose is reconstructed into two positive singleton entries and three independent \(2\times2\) Hermitian blocks. Their negative eigenvalues give the displayed exact formula for negativity. For fixed middle weight \(y\), strict convexity of the two endpoint contributions forces \(x=z\) at any minimizer; the middle contribution cannot decrease under that symmetrization. The remaining scalar function is strictly decreasing up to \(y=1/3\) and strictly increasing afterwards, yielding the unique uniform minimizer and exact value \((\sqrt5-1)/6\). The inertia at equality follows directly from the three blocks. The packaged exact checker reproduces the matrix and special-point spectrum.
+## correctness
 
-## Originality
-PASS. Walgate--Scott concern dimensions and genericity of completely entangled subspaces. Johnston proves the maximal NPT-subspace dimension and supplies an explicit construction, but does not minimize trace-norm negativity on this diagonal simplex. Rana proves the universal negative-eigenvalue count bound, not a negativity floor. Chen--Đoković give block constructions realizing prescribed negative-eigenvalue counts; their statements do not optimize the sum of negative eigenvalue magnitudes on the three-generator \(2\times4\) simplex. Candidate-specific semantic literature searches and exact-expression searches found no statement implying the unique uniform minimizer or the value \((\sqrt5-1)/6\). Residual risk remains from obscure or poorly indexed notes.
+PASS
 
-## Value
-PASS. A defining feature of an NPT subspace is qualitative: every supported state is non-PPT. The exact minimum here gives a quantitative robustness floor on the natural diagonal simplex of the first three-generator qubit–qudit case. It also locates the least-negative state on a nontrivial spectral boundary: the minimizing partial transpose has two negative eigenvalues and one zero even though three negatives are attainable in \(2\times4\). This distinguishes “how NPT” the state is from negative-eigenvalue count and provides an exact benchmark for later higher-dimensional minimization.
+For ρ=x|ψ₀⟩⟨ψ₀|+y|ψ₁⟩⟨ψ₁|+z|ψ₂⟩⟨ψ₂| on the entire closed x+y+z=1 simplex, with ψ_i=(|0,i+1⟩−|1,i⟩)/√2, direct 8×8 qubit partial transpose splits into singleton x/2,z/2 and B₀=(1/2)[[0,−x],[−x,y]], B₁=(1/2)[[x,−y],[−y,z]], B₂=(1/2)[[y,−z],[−z,0]]. Sum of negative eigenvalue magnitudes gives the source exact formula; strict convexity in x,z for fixed y>0 forces x=z=(1−y)/2; y=0 has N=1/2. The reduced F(y)=(√(y²+(1−y)²)−y)/2+max(0,(3y−1)/4) decreases to y=1/3 and increases afterwards, yielding unique x=y=z=1/3 and (√5−1)/6; B₁ at optimum has zero eigenvalue and inertia (5,1,2). Independent full PT spectral checks on 861 sampled triples agree, but global theorem rests on convexity and derivative positivity, which was independently checked algebraically.
 
-## Closest literature and limitations
-The closest structural source is Johnston's maximal-NPT-subspace construction; Chen--Đoković and Rana are closest on partial-transpose inertia. None of the inspected sources states this trace-norm minimization. The theorem is restricted to diagonal mixtures of three fixed generators and does not address coherent supported states or higher-dimensional analogues.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Johnston’s canonical 2×4 NPT-subspace construction and Rana’s universal negative-eigenvalue count bound are prior; neither controls trace norm/least sum of negative eigenvalues on this probability simplex. Chen–Đoković construct families with prescribed PT inertia; not equivalent to the quantitative minimum and unique optimizer. No matched Resultary finding of the exact sqrt5 minimax among these same three adjacent antisymmetric generators surfaced. Originality remains bounded by possible obscure quantum negativity optimization reports.
+
+## value
+
+PASS
+
+The canonical maximal-NPT 2×4 subspace is a natural geometry object, and minimal negativity quantifies robustness of entanglement on its diagonal-state simplex, beyond existence of NPT or inertia bounds. The unique uniform minimizer unexpectedly lies on an inertia boundary, explicitly distinguishing trace magnitude from maximal negative-eigenvalue count. The result is self-contained and quantitatively useful despite finite dimensionality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

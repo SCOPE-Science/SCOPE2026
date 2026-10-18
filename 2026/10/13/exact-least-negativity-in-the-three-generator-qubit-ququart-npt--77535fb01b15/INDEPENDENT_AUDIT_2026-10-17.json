@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T15:16:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For ρ=x|ψ₀⟩⟨ψ₀|+y|ψ₁⟩⟨ψ₁|+z|ψ₂⟩⟨ψ₂| on the entire closed x+y+z=1 simplex, with ψ_i=(|0,i+1⟩−|1,i⟩)/√2, direct 8×8 qubit partial transpose splits into singleton x/2,z/2 and B₀=(1/2)[[0,−x],[−x,y]], B₁=(1/2)[[x,−y],[−y,z]], B₂=(1/2)[[y,−z],[−z,0]]. Sum of negative eigenvalue magnitudes gives the source exact formula; strict convexity in x,z for fixed y>0 forces x=z=(1−y)/2; y=0 has N=1/2. The reduced F(y)=(√(y²+(1−y)²)−y)/2+max(0,(3y−1)/4) decreases to y=1/3 and increases afterwards, yielding unique x=y=z=1/3 and (√5−1)/6; B₁ at optimum has zero eigenvalue and inertia (5,1,2). Independent full PT spectral checks on 861 sampled triples agree, but global theorem rests on convexity and derivative positivity, which was independently checked algebraically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnston guarantees non-PPT for all states supported on the maximal 3D 2×4 subspace, but gives no quantitative trace-norm lower bound for its diagonal simplex.",
+          "Rana bounds number of negative PT eigenvalues by 3, not their magnitudes; the candidate optimum has 2 negatives."
+        ],
+        "reasoning": "Dimension and inertia theorems do not imply uniqueness of a trace-norm minimizing mixed state or its exact positive negativity.",
+        "searches": [
+          "Resultary query: 2 x 4 negative partial transpose subspace nearest neighbor antisymmetric rank 3 minimal negativity simplex",
+          "arXiv:1305.0257",
+          "arXiv:1304.6775",
+          "arXiv:1210.0111"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1305.0257",
+        "arXiv:1304.6775",
+        "arXiv:1210.0111",
+        "Resultary mathematical published semantic search: 2 x 4 negative partial transpose subspace nearest neighbor antisymmetric rank 3 minimal negativity simplex"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Qualitative NPT-subspace support and global negative-eigenvalue upper count do not establish the quantitative lower bound of (√5−1)/6 on the closed simplex.",
+          "The strict convexity reduction and one-dimensional minimization are new comparisons absent in accessible primary theorem statements."
+        ],
+        "reasoning": "Prior implies every simplex state has some negative eigenvalue, but supplies no uniform optimal magnitude, uniformity of minimizer, or inertia-boundary phenomenon.",
+        "searches": [
+          "Resultary query: 2 x 4 negative partial transpose subspace nearest neighbor antisymmetric rank 3 minimal negativity simplex",
+          "arXiv:1305.0257",
+          "arXiv:1304.6775",
+          "arXiv:1210.0111"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Johnston’s nearest-neighbor antisymmetric basis matches candidate geometry, but gives a qualitative NPT support guarantee.",
+          "Negativity is trace norm of PT minus one over two, not merely the number of negative eigenvalues."
+        ],
+        "reasoning": "Searches addressed trace distance/trace norm, mixture of adjacent antisymmetric two-qubit excitations, and NPT-subspace spectral aliases; no covering exact minimization was identified.",
+        "searches": [
+          "Resultary query: 2 x 4 negative partial transpose subspace nearest neighbor antisymmetric rank 3 minimal negativity simplex",
+          "arXiv:1305.0257",
+          "arXiv:1304.6775",
+          "arXiv:1210.0111"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact number (√5−1)/6 and (5,1,2) inertia were not found in the retrieved published semantic matches.",
+          "Simple diagonal uniform mixture has two negative PT blocks with exact eigenvalues, analytically checked."
+        ],
+        "reasoning": "No prior tabulation identified for this finite simplex minimum; unsuccessful search is not proof of novelty.",
+        "searches": [
+          "Resultary query: 2 x 4 negative partial transpose subspace nearest neighbor antisymmetric rank 3 minimal negativity simplex",
+          "arXiv:1305.0257",
+          "arXiv:1304.6775",
+          "arXiv:1210.0111"
+        ]
+      },
+      "rationale": "Johnston’s canonical 2×4 NPT-subspace construction and Rana’s universal negative-eigenvalue count bound are prior; neither controls trace norm/least sum of negative eigenvalues on this probability simplex. Chen–Đoković construct families with prescribed PT inertia; not equivalent to the quantitative minimum and unique optimizer. No matched Resultary finding of the exact sqrt5 minimax among these same three adjacent antisymmetric generators surfaced. Originality remains bounded by possible obscure quantum negativity optimization reports.",
+      "residual_risks": [
+        "Other highly relevant full text (Chen–Đoković Example 29) was not independently read in full this execution; implicit prior coverage remains a risk.",
+        "The claim does not bound coherent mixtures throughout the three-dimensional subspace, only the diagonal simplex."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides existence and maximal dimension, not negativity minimax",
+          "evidence": "Constructs (m−1)(n−1)-dimensional NPT subspace using nearest-neighbor antisymmetric span.",
+          "identifier_or_url": "arXiv:1305.0257",
+          "material_read": "Primary open-access PDF theorem/construction and 2×4 specialization, focusing initial theorem/construction passages",
+          "method": "Accessible arXiv PDF and construction comparison",
+          "title": "Non-positive-partial-transpose subspaces can be as large as any entangled subspace",
+          "trigger": "Direct 2×4 canonical nearest-neighbor NPT spanning vectors"
+        },
+        {
+          "assessment": "Count bound is strictly different from trace-norm minimization",
+          "evidence": "At most (m−1)(n−1) negative eigenvalues; no lower bound on negativity.",
+          "identifier_or_url": "arXiv:1304.6775",
+          "material_read": "Primary arXiv theorem/abstract and dimension-bound statement",
+          "method": "Open-access arXiv mathematical claim comparison",
+          "title": "Negative eigenvalues of partial transposition of arbitrary bipartite states",
+          "trigger": "Global bound on negative PT eigenvalue counts"
+        },
+        {
+          "assessment": "Potentially related inertia constructions, no demonstrated full covering implication",
+          "evidence": "Inertia-pattern statements do not by themselves determine minimum negative eigenvalue sum.",
+          "identifier_or_url": "arXiv:1210.0111",
+          "material_read": "Primary metadata/abstract and identified Example 29 statement from reviewed mathematical literature, without claiming complete-paper coverage in this execution",
+          "method": "Accessible primary metadata and targeted mathematical comparison",
+          "title": "Qubit-qudit states with positive partial transpose",
+          "trigger": "Potential same 2×N partial transpose block structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical maximal-NPT 2×4 subspace is a natural geometry object, and minimal negativity quantifies robustness of entanglement on its diagonal-state simplex, beyond existence of NPT or inertia bounds. The unique uniform minimizer unexpectedly lies on an inertia boundary, explicitly distinguishing trace magnitude from maximal negative-eigenvalue count. The result is self-contained and quantitatively useful despite finite dimensionality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1305.0257",
+    "arXiv:1304.6775",
+    "arXiv:1210.0111",
+    "Resultary mathematical published semantic search: 2 x 4 negative partial transpose subspace nearest neighbor antisymmetric rank 3 minimal negativity simplex"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Other highly relevant full text (Chen–Đoković Example 29) was not independently read in full this execution; implicit prior coverage remains a risk.",
+    "The claim does not bound coherent mixtures throughout the three-dimensional subspace, only the diagonal simplex."
+  ],
+  "residual_risks": [
+    "Other highly relevant full text (Chen–Đoković Example 29) was not independently read in full this execution; implicit prior coverage remains a risk.",
+    "The claim does not bound coherent mixtures throughout the three-dimensional subspace, only the diagonal simplex."
+  ],
+  "schema_version": 1
+}
