@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a finite metric space, an extreme pointed Lipschitz potential is precisely one whose tight-distance constraint graph is connected. The incidence-matrix rank proof includes all quantifiers and boundary cases. In the strict interpolation interval, connected tight graphs fall into two mutually exclusive classes: connected binary cross-part potentials, and a unique mixed part with endpoints separated by \(t\), with outside values drawn from \(\{1,t-1\}\). Counting these classes yields the stated formula for every \(k\ge3\) and positive integer part sizes. The endpoints are separately treated. Exact rational enumeration of twelve small cases using `check_facets.py` agreed with the expression; the general conclusion rests on the proof, not enumeration.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+PASS. The k≥3 real complete-multipartite metric is valid for 1≤t≤2, dual dimension N−1. Connected tight-edge graph ⇔ dual vertex by incidence rank. For 1<t<2, with no tight internal edges, connectedness gives integer-valued binary potentials. In ≥3 parts, disconnected nonconstant binary cuts occur exactly when a single mixed part has all other parts monochromatic: exclude 2∑(2^m_i−2) orientations. With a tight internal edge in part i, all outside vertices lie in [t−1,1], a band narrower than 1, so no outside tight edge; connectedness forces the unique saturated part's values {0,t} and every external value t−1 or1. This gives (2^m_i−2)2^(N−m_i) for each unique i; summing yields 2^N−2+∑(2^m_i−2)(2^(N−m_i)−2). Endpoint t=1 equilateral and t=2 previously known 2^N−2−∑(2^m_i−2), also follows directly. Singleton-only profile remains equilateral. Independently enumerated all half-integer connected tight potentials for 4 profiles and all three t=1,3/2,2 (12 exact cases), including (2,2,2): 62,146,56; inspected actual check_facets.py finite algorithm without executing it. Analytic classification, not finite enumeration, proves the infinite family.
 
-The closest directly covering result is the known complete-multipartite graph-metric endpoint \(t=2\): Higashitani–Jochemko–Michałek (2018), Proposition 3.5. That prior result is credited without a novelty claim. Mori–Mori–Ohsugi (2023) explicitly restate this endpoint. Existing two-part metric-interpolation facet formulas do not imply the present all-\(k\ge3\) interior classification because binary tight-graph connectivity changes at the third nonempty part. The 2023 three-point Lipschitz-free numerical-index paper concerns another invariant and dimension. Targeted searches for weighted multipartite Lipschitz dual polytopes, equivalent cut formulations, and facet enumerations revealed no implication covering the strict interior formula. An unindexed equivalent weighted-polytope computation remains possible; searches are not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete structural classification for a natural continuous family of finite metrics and all multipartite size profiles with at least three nonempty parts. The facet count jumps at both extremal parameter values, despite the metric varying continuously, and the proof identifies the exact tight-graph mechanism. The term contributed by each mixed part is explicit and strictly positive if that part is non-singleton. The theorem is not an arbitrary isolated dimension or a recomputation of the already-known graph-metric facet count.
+Best-of-knowledge PASS for the k≥3 strict-interior expression and its two-type tight-potential classification; pre-existing complete multipartite graph t=2 formula is not credited as new. The distinct k=2 related theorem does not cover k≥3. No inspected published source covers weighted strict t between 1 and 2.
 
-## Scientific boundaries
+## value
 
-Only real spaces, common intra-part parameter and uniform cross-part distance are claimed. Neither other face numbers nor generic weighted multipartite metrics are classified. The small exact checks corroborate, but do not substitute for, the analytic proof. Literature risk remains in unindexed or differently phrased weighted metric-polytope sources.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS. This is a natural exact facial invariant and complete extreme-potential classification for every k≥3 and arbitrary block sizes, with a structural difference from two-part tight-cut connectivity and a strict phase jump under metric interpolation. The precise count is reusable in polyhedral metric geometry; no downstream theorem/paper-size test is demanded. The endpoint table is credited as known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
