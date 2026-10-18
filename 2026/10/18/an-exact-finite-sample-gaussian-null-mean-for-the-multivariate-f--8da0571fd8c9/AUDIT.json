@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The exact statistic (4) and Theorem 2.1 in arXiv:2007.02596 are matched with divisor-n covariance and theoretical Gaussian CF. Centered Gaussian data give Gram nP for Haar rank-d projection in 1^perp. The fixed-coordinate and difference leverage Z are Beta(d/2,(n-d-1)/2), or identically one if n=d+1. Conditional rotational invariance plus trace P=d gives E[Q|Z]=(d-Z)/(n-2), hence E[Y_i^T Y_j|Z]=(d-(n+1)Z)/2; substituting diagonal and cross terms proves all three formula terms. At n=d+1, P=I-11^T/n makes T deterministic. Packaged verify.py passes 101 beta integral, boundary, and Monte Carlo comparisons; these finite tests do not establish the universal theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dörr–Ebner–Henze, DOI 10.1111/sjos.12477, derives an asymptotic analysis for a different harmonic-oscillator statistic.",
+        "Classical Gaussian sample Stiefel geometry supplies beta leverage laws but no inspected statement evaluates the finite-n mean of this specific Fourier–Stein test."
+      ],
+      "reasoning": "A different test statistic and a limiting covariance operator do not imply this particular finite-sample null mean. Standard Haar beta geometry is properly credited as a crucial ingredient rather than presented as novel.",
+      "searches": [
+        "\"Testing normality in any dimension by Fourier methods\" \"expected value\" \"hypergeometric\"",
+        "\"Testing multivariate normality by zeros of the harmonic oscillator\" hypergeometric expectation",
+        "published-finding corpus: Studentized Gaussian residual Gram matrix beta projection multivariate normality test finite sample first moment confluent hypergeometric formula"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2007.02596 (v1 posted 2020-07-06)",
+      "doi:10.1002/cjs.11670 (journal version)",
+      "doi:10.1111/sjos.12477 (related normality test)",
+      "published-finding corpus query 1: Exact finite-sample Gaussian null expectation of multivariate Fourier Stein normality test statistic T_n,a by Ebner Henze Strieder using beta hypergeometric and Haar Stiefel projections",
+      "published-finding corpus query 2: Normality goodness of fit Gaussian-weighted empirical characteristic function PDE statistic analytic unbiased mean under null finite n sample studentized and hypergeometric function",
+      "published-finding corpus query 3: Studentized Gaussian residual Gram matrix beta projection multivariate normality test finite sample first moment confluent hypergeometric formula"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original finite-data statistic formula is known, but its expectation involves joint Gaussian-whitened residual geometry.",
+        "The new conditional projection identity evaluates weighted Y_i^T Y_j, and M_1 hypergeometric terms yield a closed form.",
+        "The source limiting-null mean cannot furnish finite-n corrections without such additional evaluation."
+      ],
+      "reasoning": "The theorem does not claim the original statistic, the Haar-beta marginal, or its asymptotic-null mean as new. Its new conclusion is an explicit universal finite-n expectation and the minimal-sample degeneracy. Neither is stated in the two inspected primary papers; nonetheless related historical exact moment calculations could reduce novelty.",
+      "searches": [
+        "Primary full text arxiv:2007.02596: Theorems 2.1 and 3.3, Sections 5 and 7",
+        "Related full text DOI:10.1111/sjos.12477: Methods and Theorems 2–3",
+        "published-finding corpus: Exact finite-sample Gaussian null expectation of multivariate Fourier Stein normality test statistic T_n,a by Ebner Henze Strieder using beta hypergeometric and Haar Stiefel projections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ebner–Henze–Strieder arXiv:2007.02596, Section 3 Theorem 3.3 states E[T_infinity,a], not E_0[T_n,a]; Section 2 Theorem 2.1 defines the finite-n statistic.",
+        "No direct formula found in named-result searches; search absence is not proof of historical novelty."
+      ],
+      "reasoning": "The target quantity is the exact expectation at a fixed finite n. A Gaussian asymptotic limit or its expectation does not determine the finite-n expectation, as shown by the explicit n=5 example.",
+      "searches": [
+        "Exact finite-sample Gaussian null expectation of multivariate Fourier Stein normality test statistic T_n,a by Ebner Henze Strieder using beta hypergeometric and Haar Stiefel projections",
+        "Normality goodness of fit Gaussian-weighted empirical characteristic function PDE statistic analytic unbiased mean under null finite n sample studentized and hypergeometric function",
+        "\"Testing normality in any dimension by Fourier methods\" \"expectation\" \"finite\" \"null\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The main source Table 5 gives Monte Carlo critical values, whereas Theorem 3.3 and Table 1 concern moments of T_infinity,a.",
+        "published-finding corpus closest entries include 2026/10/4/SCOPE-a-finite-sample-tail-obstruction-for-gaussian-linear-cross-hsic--8abbab3b5ed1 (different kernel independence test) and 2026/10/4/SCOPE-exact-gaussian-size-law-and-alignment-phase-for-reduced-adjustme--05f4fc06f902 (different Gaussian CRT)."
+      ],
+      "reasoning": "No inspected table or indexed finding gives an exact finite-n Fourier–Stein null first moment. The named database results concern materially distinct statistics, not the same statistic with renamed parameters.",
+      "searches": [
+        "published-finding corpus: Exact finite-sample Gaussian null expectation of multivariate Fourier Stein normality test statistic T_n,a by Ebner Henze Strieder using beta hypergeometric and Haar Stiefel projections",
+        "published-finding corpus: Normality goodness of fit Gaussian-weighted empirical characteristic function PDE statistic analytic unbiased mean under null finite n sample studentized and hypergeometric function",
+        "published-finding corpus: Studentized Gaussian residual Gram matrix beta projection multivariate normality test finite sample first moment confluent hypergeometric formula",
+        "arXiv:2007.02596 section 5 Table 5 and Theorem 3.3",
+        "Web: \"T_{n,a}\" \"exact expectation\" Ebner Henze Strieder"
+      ]
+    },
+    "rationale": "The arXiv v1 2007.02596, Theorem 2.1 gives the exact statistic and Theorem 3.3 computes E[T_infinity,a], not E_0[T_n,a]. Sections 5 and 7 use finite-sample Monte Carlo calibration without a finite-n null mean. Its published 2021/2022 version likewise distinguishes these results. The earlier DOI 10.1111/sjos.12477 is a different normality statistic. The new exact finite-n calibration evaluates two nontrivial Haar-projection moments, including a conditional cross-product. Targeted published-finding corpus and literature queries below did not identify direct or stronger coverage. Unsearched theses/alternate expressions remain a residual historical risk.",
+    "residual_risks": [
+      "A general theorem on Haar-Stiefel polynomial-exponential integrals might have been applied to this exact statistic in an unsearched source.",
+      "Finite-sample first moments might be reported in older multivariate normality-test theses under alternate notation.",
+      "Database semantic search results and absence of matching text do not constitute exhaustive priority verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known finite-data statistic and limiting null mean, but no exact finite-sample Gaussian null expectation in the inspected relevant original result and appendix passages",
+        "evidence": [
+          "arXiv:2007.02596 v1 pp.1–3 Theorem 2.1",
+          "arXiv:2007.02596 v1 Section 3 Theorem 3.3",
+          "arXiv:2007.02596 v1 Section 5 and Section 7"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.02596",
+        "material_read": "Title/classification and definitions pages 1–3; Theorem 2.1 on page 3; Section 3 Theorem 3.3 and limiting mean on page 6; finite-sample simulations section 5 and summary/open problems in section 7; relevant appendix positioning",
+        "method": "Full-text PDF text and selected page image",
+        "title": "Testing normality in any dimension by Fourier methods in a multivariate Stein equation (arXiv v1)",
+        "trigger": "Exact same test statistic, hypotheses, and finite-sample algebra; decisive source"
+      },
+      {
+        "assessment": "Same distinction between finite-data representation and limiting-null expectation; no equivalent finite-n mean in examined relevant sections",
+        "evidence": [
+          "DOI:10.1002/cjs.11670 Theorem 2",
+          "DOI:10.1002/cjs.11670 Theorem 7 and Section 5"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/cjs.11670",
+        "material_read": "Open access article sections 1–3, finite-data formula Theorem 2, limiting-null distribution, results overview and numerical calibration",
+        "method": "Publisher full-text HTML",
+        "title": "Testing normality in any dimension by Fourier methods in a multivariate Stein equation (published version)",
+        "trigger": "Check potential stronger journal-version coverage of the same source"
+      },
+      {
+        "assessment": "Different Fourier/harmonic-oscillator test statistic and asymptotic questions, not this exact null first moment",
+        "evidence": [
+          "DOI:10.1111/sjos.12477 Section 2",
+          "DOI:10.1111/sjos.12477 Section 3"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/sjos.12477",
+        "material_read": "Open-access HTML introduction, methods, Theorems 2–3, asymptotic description",
+        "method": "Publisher full-text HTML",
+        "title": "Testing multivariate normality by zeros of the harmonic oscillator in characteristic function spaces",
+        "trigger": "Closest earlier Fourier normality goodness-of-fit comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8da0571f-d8c9-4174-a9e3-d6195390392d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite Gaussian-null centering is a natural missing calibration quantity for the specific Fourier–Stein normality test. The source provides a limiting-null mean and simulation-based finite critical values, not a finite-n exact mean; at n=5,d=2,a=1 the exact value 1.45826184 differs by about 17.5% from the limiting 1.76714587. The analytic Haar-projection reduction yields the entire parameter family and the deterministic n=d+1 boundary, while making no unjustified claim about exact quantiles or full distributions.",
+    "status": "PASS"
+  }
+}
