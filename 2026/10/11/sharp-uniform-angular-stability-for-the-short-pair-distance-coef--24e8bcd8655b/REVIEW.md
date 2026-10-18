@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Fixed-fan support-line perturbations give an exact quadratic covariogram; explicit angular integrals give the quartic coefficient. The sharp coefficient follows from a rigorously monotone curvature quotient and Jensen's inequality. A centrally symmetric even-sided construction shows optimality of the dimension-free variance factor. The included Python verification independently checks finite intersection-area cases and normalization; it is not the proof of the universal assertion.
+## correctness
 
-**Originality — PASS, subject to historical overlap risk.** Wang's manuscript gives the perimeter correction but not the next polygonal coefficient or the angle-rigidity theorem. The primary full texts of the earlier general polygon-distance algorithms were inspected and supply procedures for calculating entire distributions, which may implicitly determine any individual coefficient, but they do not state the global sharp angular variance law and equality classification. Related published reduced-polygon and tangential-quadrilateral stability bounds concern different functionals. One historical convex-polygon distance source was not fully accessible; possible differently named prior formulations remain a risk.
+PASS
 
-**Value — PASS.** The quartic short-distance coefficient recovers an angle-only geometric invariant beyond the already known perimeter term. The inequality solves a natural complete extremal problem over all convex polygons with a prescribed number of vertices and quantitatively constrains their angle vectors; the optimal uniform rigidity constant requires an all-sided limiting construction. The result is restricted to the local polynomial regime, rather than an asserted global probability ordering.
+For sufficiently small translations the polygon support-normal fan persists; the intersection area is exactly quadratic in inward offsets d_i(u)=(-n_i·u)_+. Integrating directional positive-cosine first/second/adjacent products gives linear coefficient −2Lr³/3 and quartic coefficient Σ[1+(π−α_i)cot α_i]r⁴/8, then r=ρ√(A/π) yields the dimensionless formula. The angle function f(a)=1+(π−a)cot a satisfies f″(a)=2(sin β−β cos β)/sin³β>2/3, so strict Jensen on f(a)−a²/3 with Σα=(N−2)π gives equality only equiangular. A centrally symmetric N=2m turning-angle family with four ±ε deviations and ε=1/(5N) sends the excess/Σdeviation² ratio to 1/(24π²). The independent square check yields C4=1/(2π²), and symbolic derivative confirms the strict-curvature formula.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected original Wang article gives perimeter correction only; older arbitrary-polygon frameworks imply coefficient computability but not a reported optimal all-sided angular stability/equality theorem. Current Resultary hit is the self record. Public literature comparison supports best-of-knowledge noncoverage with explicit Baltzis access risk.
+
+## value
+
+PASS
+
+The next local coefficient beyond the perimeter term isolates angle geometry, a natural stochastic geometric invariant of convex polygons. The proof determines its complete N-vertex minimizing class, a quantitative squared-angle rigidity inequality and the strongest possible side-count-uniform coefficient. These are meaningful structural extremal results independent of any downstream theorem and not recomputation of a shape table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
