@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is verified by finite exact algebra; no numerical integration, asymptotic extrapolation, or parameter fitting is used.
+# Independent mathematical audit
 
-For the unit-control check, the source values \(c=1/2\), \(\lambda=1/40000\), \(\omega=3/1000\), and \(\theta=3/200\) give \(A=\omega/\theta=1/5\). With \(S=100\) and \(I=10\), exact arithmetic yields
-\[
-\frac{\lambda SI}{1+cA}=\frac1{44},\qquad
-\frac{\lambda SI}{1+A}=\frac1{48},\qquad
-\frac1{44}-\frac1{48}=\frac1{528}>0.
-\]
+## correctness
 
-For the transfer-balance check, with \(r_1=1/500\), \(r_2=23/1000\), \(r_3=1/50\), \(A=1/5\), \(I=10\), \(Q=5\), \(H=2\), and \(u_1=1/2\),
-\[
-A(r_1I+r_2Q+r_3H)=\frac7{200},
-\]
-and the spurious human-population source equals \(7/400\).
+PASS
 
-The bundled `verifier.py` reproduces those fractions and uses symbolic coefficient bookkeeping to verify that the repaired Hamiltonian derivative is
-\[
-B_1u_1+(\xi_6-\xi_3)r_1AI+(\xi_6-\xi_4)r_2AQ+(\xi_6-\xi_5)r_3AH.
-\]
+Checked the complete 28-page primary AIMS PDF directly, especially printed uncontrolled Eq(1) on page5 and controlled Eq(16) on page15: source incidence lambda*S*I/(1+c*A) becomes lambda*S*I/(1+A), so setting all ui=1 fails to reproduce Eq(1) when c!=1 and ASI>0. Summing all six human compartments in Eq(16) cancels every proper internal transfer except (1-u1)*A*(r1I+r2Q+r3H), yielding Ndot=Pi-dN-delta*(I+Q+H)+(1-u1)*flux. Independent Fraction arithmetic verifies original 1/44 vs 1/48 incidence and defect 7/400. Repairing recovered gain by u1 changes Hamiltonian derivative to B1 u1+(xi6-xi3)r1AI+(xi6-xi4)r2AQ+(xi6-xi5)r3AH, hence stated projected optimality law under paper’s quadratic 1/2 B1 u1². The correction is to the repaired MODEL, not to the printed original Hamiltonian.
 
-The verification does not establish a complete repaired optimal-control solution or infer authorial intent.
+## originality
+
+PASS
+
+Direct full-PDF comparison of uncontrolled system, controlled system and Hamiltonian found exactly the mismatches, with no published correction in the observed search. Earlier awareness/treatment models and generic internal transfer conservation illustrate the algebra but do not compare this 2026 model’s two vector fields or entail the source-specific costate correction. Resultary returned adjacent Pontryagin/model error records but not a dominating correction of this exact source.
+
+## value
+
+PASS
+
+Two independent control-model inconsistencies affect the actual optimization problem: intervention values at one do not return the uncontrolled baseline, and recovery produces artificial population growth. The minimal consistent model has a different stationarity law; this changes interpretation and reproducibility of the published numerical optimal-control claims, beyond a cheap dimensional typo.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

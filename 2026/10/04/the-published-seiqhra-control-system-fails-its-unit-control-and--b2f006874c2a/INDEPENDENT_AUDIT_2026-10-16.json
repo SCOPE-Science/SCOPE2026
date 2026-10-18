@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T10:54:38.047229Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the complete 28-page primary AIMS PDF directly, especially printed uncontrolled Eq(1) on page5 and controlled Eq(16) on page15: source incidence lambda*S*I/(1+c*A) becomes lambda*S*I/(1+A), so setting all ui=1 fails to reproduce Eq(1) when c!=1 and ASI>0. Summing all six human compartments in Eq(16) cancels every proper internal transfer except (1-u1)*A*(r1I+r2Q+r3H), yielding Ndot=Pi-dN-delta*(I+Q+H)+(1-u1)*flux. Independent Fraction arithmetic verifies original 1/44 vs 1/48 incidence and defect 7/400. Repairing recovered gain by u1 changes Hamiltonian derivative to B1 u1+(xi6-xi3)r1AI+(xi6-xi4)r2AQ+(xi6-xi5)r3AH, hence stated projected optimality law under paper’s quadratic 1/2 B1 u1². The correction is to the repaired MODEL, not to the printed original Hamiltonian.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier treatment model balances infected losses and recovered gains with one control; broad Pontryagin theory differentiates the Hamiltonian in all costates."
+        ],
+        "reasoning": "These are general principles rather than a statement about the 2026 printed equations; they do not logically imply the exact multi-failure model comparison without reading that source.",
+        "searches": [
+          "Aldawsari Al Basir SEIQHRA optimal control incidence denominator 1+cA recovery mismatch Pontryagin stationarity",
+          "doi:10.3390/axioms12060608 awareness treatment recovered control"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.2026315",
+        "doi:10.3390/axioms12060608",
+        "Resultary query: Aldawsari Al Basir SEIQHRA optimal control incidence denominator 1+cA recovery mismatch Pontryagin stationarity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source control Eq(16) has +A*recovery_flux unscaled versus -u1*A*recovery_flux losses; the printed Eq(18) therefore lacks xi6.",
+          "2023 comparator’s balanced flow illustrates what consistency would require, but is not a correction of 2026 equations."
+        ],
+        "reasoning": "The mathematical inference from the full printed vector field to exact inconsistency and corrected stationarity is not given by the comparator; it is a model-specific diagnosis.",
+        "searches": [
+          "Aldawsari Al Basir SEIQHRA optimal control incidence denominator 1+cA recovery mismatch Pontryagin stationarity",
+          "doi:10.3934/math.2026315",
+          "doi:10.3390/axioms12060608"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Publisher PDF original Eq(1) displays denominator 1+cA; Eq(16) and Hamiltonian display denominator 1+A and uncontrolled recovered gain."
+        ],
+        "reasoning": "Equivalent tests formulated as unit-control reduction, internal flow conservation and missing terminal-compartment costate. No such exact combined correction located.",
+        "searches": [
+          "Aldawsari Al Basir SEIQHRA optimal control incidence denominator 1+cA recovery mismatch Pontryagin stationarity",
+          "10.3934/math.2026315 Eq1 Eq16 u1 recovered xi6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary surfaced this exact record and other papers on unrelated controlled SQEIAR, SEIAR and optimality errors; no same-model correction in observed results."
+        ],
+        "reasoning": "No exact database/table result contains both vector fields or repaired xi6 stationarity. The source Table1 merely supplies a rational witness.",
+        "searches": [
+          "Aldawsari Al Basir SEIQHRA optimal control incidence denominator 1+cA recovery mismatch Pontryagin stationarity",
+          "Resultary SEIQHRA incidence denominator recovery control"
+        ]
+      },
+      "rationale": "Direct full-PDF comparison of uncontrolled system, controlled system and Hamiltonian found exactly the mismatches, with no published correction in the observed search. Earlier awareness/treatment models and generic internal transfer conservation illustrate the algebra but do not compare this 2026 model’s two vector fields or entail the source-specific costate correction. Resultary returned adjacent Pontryagin/model error records but not a dominating correction of this exact source.",
+      "residual_risks": [
+        "No full repaired adjoint boundary-value system or new optimal solution was established.",
+        "Any deliberate redefinition of the awareness variable would require concomitant changes of other A-dependent terms, not present in the printed Eq(16)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_SOURCE; both consistency defects are present as printed",
+          "evidence": "Source pages: Eq(1) has 1+cA; Eq(16) 1+A and unscaled R gain; Eq(18) omits xi6.",
+          "identifier_or_url": "doi:10.3934/math.2026315",
+          "material_read": "Full open-access 28-page AIMS PDF; page5 original Eq1, page15 Eq16 and cost, page16 Hamiltonian and Eq18, adjacent adjoint discussion",
+          "method": "Read PDF extracted text and visually inspected original pages4,14,15 (zero-index), independently summed flow and differentiated Hamiltonian",
+          "title": "Dynamics of an SEIQHR-based mathematical model for infectious disease with awareness-driven optimal control",
+          "trigger": "Exact seven-state primary model and original optimality assertion"
+        },
+        {
+          "assessment": "No same source correction found among observed hits",
+          "evidence": "Other records concern SQEIAR or other models, not the controlled SEIQHRA equation pair.",
+          "identifier_or_url": "Resultary query: Aldawsari Al Basir SEIQHRA optimal control incidence denominator 1+cA recovery mismatch Pontryagin stationarity",
+          "material_read": "Ranked published-record summaries including adjacent SQEIAR Pontryagin errors",
+          "method": "Compared equations/compartment model, not titles alone",
+          "title": "Resultary control-model correction semantic search",
+          "trigger": "Prior equivalent source-specific correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two independent control-model inconsistencies affect the actual optimization problem: intervention values at one do not return the uncontrolled baseline, and recovery produces artificial population growth. The minimal consistent model has a different stationarity law; this changes interpretation and reproducibility of the published numerical optimal-control claims, beyond a cheap dimensional typo.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only printed controlled-system consistency and first-order stationarity under explicitly repaired recovery flow; no claim about original uncontrolled system’s stability.",
+    "No full repaired adjoint boundary-value system or new optimal solution was established.",
+    "Any deliberate redefinition of the awareness variable would require concomitant changes of other A-dependent terms, not present in the printed Eq(16)."
+  ],
+  "schema_version": 1
+}
