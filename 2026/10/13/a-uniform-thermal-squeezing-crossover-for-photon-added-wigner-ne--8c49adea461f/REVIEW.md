@@ -1,15 +1,21 @@
-# Scientific assessment: uniform thermal–squeezing crossover
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes the one-mode, one-photon-addition operation and a Wigner normalization with vacuum density \(\pi^{-1}e^{-(x^2+p^2)}\). Differentiating the squeezed thermal Gaussian with Weyl/Bopp correspondences gives the normalized signed density in equation (1). Its Gaussian moments integrate exactly to one. Rescaling the negative ellipse yields the positive, finite identity (2), then a uniform comparison of angular averages proves a *relative*, not merely pointwise, error bounded by the explicit factor \(12(e^{-4r}+t e^{-2r}+t^2)\). The limit profile is strictly positive, so division causes no unaddressed zero denominator. Endpoints follow by dominated convergence with the integration domains explicitly rescaled; the fixed-squeezing limit requires a separate argument. A strict positive-integrand comparison proves sharp monotonicity of the large-squeezing envelope. Finite numerical checks independently integrate the ellipse with and without its Bessel reduction and check asymptotics; they are not used as infinite proofs.
+## correctness
 
-## Originality — PASS, with specific limitations
-Kenfack and Życzkowski introduce the negative-volume measure. Xu–Hu–Fan and Hu–Zhang derive photon-added squeezed thermal Wigner functions and discuss negativity under loss. The closest source, Hertz–De Bièvre (arXiv:2204.06358, Section VI A and Appendix E), already derives the same model's Wigner polynomial, the negative ellipse and an exact integral for the large-squeezing limit at **fixed temperature**, and gives a small-thermal-noise approximation. These are credited without claiming an independent rederivation as novelty. The assessed distinction is a *path-uniform joint high-temperature and large-squeezing asymptotic with explicit relative error and crossover function*, together with its nontrivial exact high-temperature coefficient and sharp strong-squeezing envelope. Those statements were not present in the inspected primary sections. They depend on analyzing noncommuting limits of an established integrand; this dependency is acknowledged. A stronger or equivalent unlocated asymptotic remains a priority risk; no independent novelty determination is claimed.
+PASS
 
-## Value — PASS
-Negative Wigner volume quantifies a nonclassical optical resource, while the earlier binary pointwise-negativity criterion remains positive at every finite temperature. The theorem measures the quantitative suppression of that resource: quadratic high-temperature decay for bounded squeezing becomes cubic for squeezing above the logarithmic scale, and a continuous explicit transition describes every joint large-squeezing path. The exact cubic prefactor differs from extrapolating the known low-thermal-noise coefficient. The uniform relative estimate prevents ambiguous order-of-limits interpretation. This is a motivated asymptotic classification, not a new state definition, an arbitrary parameter slice, or a finite-precision table.
+PASS: Inspected pinned RESULT.md (blob 92af740b...) and reconstructed the normalized photon-added squeezed-thermal Wigner polynomial with gamma=cosh(2r), purity t=(1-q)/(1+q), and negative ellipse. Gaussian normalization and positive denominator (gamma+t) were checked. Ellipse rescaling with s=t exp(2r), z=t exp(-2r), sz=t^2 leads to the exact angular integral J(s,z) and path-uniform relative bound 12(exp(-4r)+t exp(-2r)+t^2); the positive lower bound for J(s,0) prevents division by a vanishing profile. Dominated convergence yields G(s)~1/s and G(infty)=kappa, a separate fixed-r argument gives N~t^2/(2cosh(2r)), and the pointwise monotone positive disk integral proves F(t)/t^3 decreases strictly. Independently evaluated the Gaussian ellipse integral (not the repository checker): kappa=0.23096817781411702; F(1)=0.21306131942526688; for (t,r)=(0.05,3), exact N=3.3218096750e-5 vs profile 3.3238050558e-5; at (0.01,4), N=2.5447933854e-7 vs profile 2.5448418359e-7; errors fall below stated bound. Numerical cases corroborate, do not prove infinite uniformity. The continuum proof's endpoint/large-s restrictions and exact normalization were inspected.
 
-## Closest literature and residual limitations
-The strongest overlap is Hertz–De Bièvre's fixed-temperature negative-volume integral, which can serve as an alternative starting point for the limiting analysis; an exact antecedent of the double-scaling theorem has not been located by the targeted published-finding corpus and literature searches. Remaining risks are unindexed derivations elsewhere, alternative parametrizations of thermal purity and squeezing, and the fact that the general published Wigner formula already determines all finite-parameter values. The analytic result assumes an ideal single optical mode and does not address photon-loss evolution, higher photon addition, nonthermal input states or experiment-specific errors.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Hertz–De Bièvre already give the same model's finite-temperature Wigner polynomial and a fixed-temperature strong-squeezing negativity integral, and earlier Xu–Hu–Fan/Hu–Zhang study photon-added squeezed thermal states. These are not new. The assessed point is the uniform two-parameter singular crossover with explicit global relative estimate, a Bessel limiting profile, precise cubic coefficient and monotone envelope. The inspected primary full-text relevant sections/appendix do not state this joint path-uniform result. Named-source and Resultary searches found no theorem implying it; risk of an alternative derivation from the published fixed-temperature integral remains.
+
+## value
+
+PASS
+
+PASS: Wigner negative volume measures a quantitative nonclassical optical resource, unlike binary Wigner-negativity existence. The sharp uniform crossover distinguishes quadratic purity decay for bounded squeeze from cubic decay when squeeze outpaces log(1/t), resolves order-of-limits ambiguity, and supplies a reusable uniform error rather than selected simulations. Restriction to ideal one-mode single-photon-addition states is stated; no multimode or loss claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
