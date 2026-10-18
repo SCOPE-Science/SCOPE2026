@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source allows redundant fusion frame systems with uniform positive local bounds. Two copies of \(\mathbb C\), local singleton frames \(1/\sqrt2\) and \(\sqrt{3/2}\), and unit weights have \(S_V=S_{v\varphi}=2I\). Their local defect \(M=\operatorname{diag}(1/2,-1/2)\) is nonzero on the analysis range \(\operatorname{span}\{(1,1)\}\), so the asserted restriction conclusion is false. The exact corrected criterion is \(P_RM|_R=0\), derived from the source's operator identity; all operator products are bounded and well-typed. The finite-dimensional classification follows from positive definite frame-operator realizability.
+## correctness
 
-## Originality
-PASS. The published theorem, exact source, equivalent compression and cancellation formulations, local-to-global background and indexed scientific results were compared at implication level. Related weaving and relay-dual records concern different claims and do not imply the correction. The 2014 construction paper has incompletely accessible full text, so possible prior coverage there remains a stated risk.
+PASS
 
-## Value
-PASS. Equality of aggregate frame operators is used to compare centralized and distributed frame behavior. The counterexample shows that the global equality cannot certify the local Parseval property for a redundant fusion system. The repaired compression condition identifies the correct observable invariant, and the \((m-1)d^2\)-parameter family quantifies substantial local non-identifiability.
+At actual RESULT.md blob 1fae2c..., the scalar H=C example has V_1=V_2=H and weights 1, local singleton vectors 1/√2 and √(3/2). Thus S_1=½I, S_2=3/2 I, global S_{vφ}=2I=S_V, while C_Vz=(z,z), M=diag(½,−½), M C_Vz=(z/2,−z/2)≠0. Its compression on span(1,1) is zero because that vector maps into span(1,−1). Polarization gives exactly C_V* M C_V=0 iff P_RM|_R=0. Self-adjointness alone does not force M|_R=0. For repeated whole H=C^d, the necessary/sufficient constraint Σv_i²(S_i−I)=0 and positive definiteness are exact; solve one matrix from the others, giving real dimension (m−1)d² and a realizable open convex region by taking frames S_i^{1/2}e_j. These are exact operator calculations, not verifier claims.
 
-## Closest literature and limitations
-Köhldorfer--Balazs themselves prove the defining operator identity and the valid fusion-Riesz-basis special case. Casazza--Kutyniok--Li establish the surrounding fusion-frame-system framework, while Leng studies finite-dimensional construction without a checked theorem-specific correction.
+## originality
 
-Only Corollary 4.12(1) is contradicted; sign conditions can preserve other implications. The classification is for repeated full subspaces with finite dimension, not arbitrary fusion configurations. Potential unindexed prior remarks are not ruled out.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The targeted primary Springer article actually prints the problematic implication after invoking only self-adjointness of a block-diagonal operator, and supplies the frame-operator identity but not its compression-level repair. Related frame literature treats direct sums and uniform local bounds; separate contemporaneous counterexamples to other controlled-fusion assertions do not address this specific Corollary 4.12(1). Thus this is a source-specific demonstrable correction, with finite-dimensional moduli quantifying the missing cancellation freedom.
+
+## value
+
+PASS
+
+Correcting a false theorem about distributed fusion-frame processing protects inference from aggregate global frame operators to local Parsevalness, where redundant systems are a principal use case. A minimal exact counterexample, correct compression criterion and full repeated-block classification provide a reusable structural insight, not merely a cheap zero-check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

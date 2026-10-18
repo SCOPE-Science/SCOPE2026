@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-14.md",
+      "INDEPENDENT_AUDIT_2026-10-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,53 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-With \(H=V_1=V_2=\mathbb C\) and \(v_1=v_2=1\), the two local singleton frames are
-\[
-\varphi^{(1)}=\{2^{-1/2}\},\qquad
-\varphi^{(2)}=\{\sqrt{3/2}\}.
-\]
-Their local operators satisfy
-\[
-S_1=\tfrac12 I,\qquad S_2=\tfrac32 I.
-\]
-The common local lower/upper bounds \(1/2\) and \(3/2\) are valid for both blocks. The fusion and global energies are
-\[
-\sum_i v_i^2\|P_{V_i}z\|^2=2|z|^2,
-\qquad
-\sum_i\sum_j|\langle z,v_i\varphi^{(i)}_j\rangle|^2=(\tfrac12+\tfrac32)|z|^2=2|z|^2.
-\]
-Thus \(S_V=S_{v\varphi}=2I\). The analysis operator and its closed range are
-\[
-C_Vz=(z,z),\qquad R=\operatorname{span}\{(1,1)\}.
-\]
-The local defect and compression are
-\[
-M=\begin{pmatrix}\tfrac12&0\\0&-\tfrac12\end{pmatrix},
-\qquad
-P_R=\tfrac12\begin{pmatrix}1&1\\1&1\end{pmatrix}.
-\]
-Direct multiplication yields
-\[
-P_RMP_R=0,\qquad MC_Vz=(z/2,-z/2)\ne0\text{ for }z\ne0.
-\]
-Therefore the zero-compression conclusion holds while the published zero-restriction conclusion fails.
+# Independent mathematical audit
 
-For the general criterion, the source proves
-\[
-S_V-S_{v\varphi}=C_V^*MC_V.
-\]
-Since \(C_V\) is onto \(R\), this difference is zero exactly when
-\[
-\langle Mr,s\rangle=0\quad(r,s\in R),
-\]
-which is exactly \(P_RM|_R=0\). This proof does not infer vanishing from self-adjointness alone.
+## correctness
 
-For \(V_i=H=\mathbb C^d\), the equality reduces exactly to
-\[
-\sum_i v_i^2(S_i-I_d)=0.
-\]
-The positive definite operators \(S_i=I_d+T_i\) all arise from \(\{S_i^{1/2}e_k\}_{k=1}^d\), and the last deviation is uniquely forced by the first \(m-1\). The ambient real dimension is therefore \((m-1)d^2\); strict positive definiteness gives a nonempty relatively open convex set.
+PASS
 
-The primary open journal PDF was inspected at the complete target corollary and proof, with both relevant pages visually checked, and the corresponding preprint text was compared. No numerical approximation or finite enumeration is used in the proof.
+At actual RESULT.md blob 1fae2c..., the scalar H=C example has V_1=V_2=H and weights 1, local singleton vectors 1/√2 and √(3/2). Thus S_1=½I, S_2=3/2 I, global S_{vφ}=2I=S_V, while C_Vz=(z,z), M=diag(½,−½), M C_Vz=(z/2,−z/2)≠0. Its compression on span(1,1) is zero because that vector maps into span(1,−1). Polarization gives exactly C_V* M C_V=0 iff P_RM|_R=0. Self-adjointness alone does not force M|_R=0. For repeated whole H=C^d, the necessary/sufficient constraint Σv_i²(S_i−I)=0 and positive definiteness are exact; solve one matrix from the others, giving real dimension (m−1)d² and a realizable open convex region by taking frames S_i^{1/2}e_j. These are exact operator calculations, not verifier claims.
+
+## originality
+
+PASS
+
+The targeted primary Springer article actually prints the problematic implication after invoking only self-adjointness of a block-diagonal operator, and supplies the frame-operator identity but not its compression-level repair. Related frame literature treats direct sums and uniform local bounds; separate contemporaneous counterexamples to other controlled-fusion assertions do not address this specific Corollary 4.12(1). Thus this is a source-specific demonstrable correction, with finite-dimensional moduli quantifying the missing cancellation freedom.
+
+## value
+
+PASS
+
+Correcting a false theorem about distributed fusion-frame processing protects inference from aggregate global frame operators to local Parsevalness, where redundant systems are a principal use case. A minimal exact counterexample, correct compression criterion and full repeated-block classification provide a reusable structural insight, not merely a cheap zero-check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

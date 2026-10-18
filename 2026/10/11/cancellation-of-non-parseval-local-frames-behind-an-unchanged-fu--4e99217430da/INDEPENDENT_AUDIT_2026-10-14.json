@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T22:39:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 1fae2c11980a47b84bebc6c214dad0cb64aa3d2b",
+        "Köhldorfer–Balazs 2023 DOI:10.1007/s43670-023-00049-7 Corollary 4.12 and proof"
+      ],
+      "rationale": "At actual RESULT.md blob 1fae2c..., the scalar H=C example has V_1=V_2=H and weights 1, local singleton vectors 1/√2 and √(3/2). Thus S_1=½I, S_2=3/2 I, global S_{vφ}=2I=S_V, while C_Vz=(z,z), M=diag(½,−½), M C_Vz=(z/2,−z/2)≠0. Its compression on span(1,1) is zero because that vector maps into span(1,−1). Polarization gives exactly C_V* M C_V=0 iff P_RM|_R=0. Self-adjointness alone does not force M|_R=0. For repeated whole H=C^d, the necessary/sufficient constraint Σv_i²(S_i−I)=0 and positive definiteness are exact; solve one matrix from the others, giving real dimension (m−1)d² and a realizable open convex region by taking frames S_i^{1/2}e_j. These are exact operator calculations, not verifier claims.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source derives the correct operator identity and then argues from a self-adjoint zero quadratic form to local zero.",
+          "Fusion-Riesz basis subcase has R equal the full coefficient space and is not refuted by the example."
+        ],
+        "reasoning": "The printed stronger conclusion is actually false; no general conditional theorem under the original hypotheses covers the corrected compression and dimension classification. One-sign defects are a genuine additional sufficient hypothesis.",
+        "searches": [
+          "Köhldorfer–Balazs 2023 Springer open article, Corollaries 4.10–4.12",
+          "Resultary search: fusion frame systems equality fusion operator global frame operator local frames Parseval block diagonal defect cancellation Corollary 4.12"
+        ]
+      },
+      "checked_sources": [
+        "Köhldorfer–Balazs DOI:10.1007/s43670-023-00049-7",
+        "Resultary semantic search fusion frame systems equality fusion operator global frame operator local frames Parseval block diagonal defect cancellation Corollary 4.12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The printed proof uses only M=M* and C_V*MC_V=0 to infer MC_V=0; M=diag(½,−½), C_Vz=(z,z) disproves exactly that step."
+        ],
+        "reasoning": "The primary paper provides the identity from which the compression criterion follows, but its claimed stronger consequence is contradicted. The new correction therefore is not implied as a published true statement by that corollary.",
+        "searches": [
+          "DOI:10.1007/s43670-023-00049-7 proof of Corollary 4.12",
+          "Resultary search: fusion frame systems equality fusion operator global frame operator local frames Parseval block diagonal defect cancellation Corollary 4.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same relation S_V−S_{vφ}=C_V*MC_V is in the original source, with R=ran(C_V) and M=⊕(I−S_i)."
+        ],
+        "reasoning": "The exact logical equivalent is zero compression P_RM|_R, or M R⊂R^⊥, rather than annihilation of R; this dual range/compression formulation is not equivalent to the source’s incorrect stronger assertion.",
+        "searches": [
+          "Resultary search: fusion frame systems equality fusion operator global frame operator local frames Parseval block diagonal defect cancellation Corollary 4.12",
+          "Köhldorfer–Balazs 2023 Corollary 4.12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The counterexample uses scalar singleton operators ½ and 3/2, not finite measurement/data tables; the family of self-adjoint operators has continuously varying dimension (m−1)d²."
+        ],
+        "reasoning": "No exact tabulation covers the continuum classification or substitutes for the matrix identity; recomputing known fusion examples would not yield the diagnosis.",
+        "searches": [
+          "Resultary search: fusion frame systems equality fusion operator global frame operator local frames Parseval block diagonal defect cancellation Corollary 4.12",
+          "Köhldorfer–Balazs 2023 full text"
+        ]
+      },
+      "rationale": "The targeted primary Springer article actually prints the problematic implication after invoking only self-adjointness of a block-diagonal operator, and supplies the frame-operator identity but not its compression-level repair. Related frame literature treats direct sums and uniform local bounds; separate contemporaneous counterexamples to other controlled-fusion assertions do not address this specific Corollary 4.12(1). Thus this is a source-specific demonstrable correction, with finite-dimensional moduli quantifying the missing cancellation freedom.",
+      "residual_risks": [
+        "An author-issued later theorem-specific correction not located in the checked routes could independently precede this diagnosis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_COROLLARY_CONTRADICTED",
+          "evidence": "Source identity S_V−S_{vφ}=C_V*MC_V is correct; the implication self-adjoint zero compression→zero action on range is false, as shown by explicit 2×2 diagonal M.",
+          "identifier_or_url": "DOI:10.1007/s43670-023-00049-7",
+          "material_read": "Open publisher full-text material covering fusion-frame-system operators, Corollaries 4.10–4.12 and the displayed proof of Corollary 4.12, especially the self-adjointness inference.",
+          "method": "Springer primary HTML and rendered journal page views",
+          "title": "On the relation of the frame-related operators of fusion frame systems",
+          "trigger": "Original Corollary 4.12(1) challenged by counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Köhldorfer–Balazs 2023 Corollary 4.12",
+        "Fusion-frame setting of distributed local reconstruction"
+      ],
+      "rationale": "Correcting a false theorem about distributed fusion-frame processing protects inference from aggregate global frame operators to local Parsevalness, where redundant systems are a principal use case. A minimal exact counterexample, correct compression criterion and full repeated-block classification provide a reusable structural insight, not merely a cheap zero-check.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Equality of fusion and global frame operators means the compression P_R(⊕(I−S_i))|_R vanishes, not the whole defect on R. A two-block one-dimensional non-Parseval example contradicts Köhldorfer–Balazs Corollary 4.12(1); repeated full-space blocks admit a dimension (m−1)d² open convex family of cancelling positive local frame operators.",
+  "limitations": [
+    "Refutes only the unqualified claim in part (1); fusion Riesz bases and appropriate one-sided conditions remain valid.",
+    "The (m−1)d² dimension counts local self-adjoint frame operators, not individual frame vector parameterizations.",
+    "Does not claim all sufficient sign/invariant-range hypotheses are necessary."
+  ],
+  "schema_version": 1
+}
