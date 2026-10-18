@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The degree-based first-force proof confines each optimal 3-set to a 3-column end strip for all n>=5. Restriction to the 5-column prefix is necessary for any long-grid success; a complete 84-case local test yields exactly thirteen left seeds. Each has a <=5-round history filling all first three columns before touching the fourth; column sweeps extend to every n>=5. A separate exact intersection-graph check yields 24 edges, radius 3, diameter 5 for each of two disconnected components. Independent set-based and bit-mask verifiers replay exact n=3..10 counts. Finite computations alone are not used for the infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chilakamarri et al., arXiv:1105.1492, Theorem 3.1 gives Z(P_s square P_t)=s when s<=t and a propagation-time computation, without enumerating every minimum initial set.",
+        "Geneson et al., arXiv:2009.00220, Examples 3.1 and Proposition 3.2 construct other disconnected exchange graphs by appending leaves; the present 3-by-n grid has no degree-one vertices.",
+        "Alishahi-Rezaei-Sani-Sharifi 2020 characterizes graphs of maximum degree at most three with zero forcing number three, whereas the interior center-row vertices of P_3 square P_n (n>=3) have degree four."
+      ],
+      "reasoning": "A stronger theorem about these graphs and their exchanges would imply this result; no inspected source has that stronger scope. Known exact cardinality and general disconnectedness do not determine the actual minimum-set collection, 13-state component or threshold.",
+      "searches": [
+        "arxiv:1105.1492, sections 1 and 3, Cartesian product and grid",
+        "arxiv:2009.00220, sections 2–5, disconnected zero forcing graph and constructed families",
+        "Web: Maximum nullity and zero forcing number on graphs with maximum degree at most three (2020)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1105.1492, first posted 2011-05-08",
+      "arxiv:2009.00220, first posted 2020-09-01",
+      "arxiv:1410.4191, first posted 2014-10-15",
+      "doi:10.1016/j.dam.2020.03.027 (abstract and scope)",
+      "published-finding corpus: 3-row grid, 26-minimum-set, token-jump and aliases semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knowing Z(P_3 square P_n)=3 does not imply the 26 triples: the number and layout of optimum sets and their pairwise intersections are independent questions.",
+        "Proposition 2.7 of arXiv:2009.00220 is about disjoint union of *base graphs*, not a Cartesian product of paths; Proposition 3.2 adds leaves to make disconnectedness, while here all vertices have degree at least two."
+      ],
+      "reasoning": "Neither the minimum-size result nor general exchange-graph constructions dominates the new localized classification or 13-state diameter formula. Checked source implications, not merely different wording.",
+      "searches": [
+        "arxiv:1105.1492 Theorem 3.1 (optimal size)",
+        "arxiv:2009.00220 Propositions 2.7, 3.2, 4.5 (exchange graphs)",
+        "published-finding corpus: Zero forcing graph for ladder graphs P_2 Cartesian P_n minimum zero forcing sets classification token-jump reconfiguration connectivity diameter",
+        "published-finding corpus: zero forcing graph 3-row rectangular grid paths P3 square Pn vertex exchange 26 vertices two 13 vertex components stabilization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Geneson-Haas-Hogben arXiv:2009.00220, Sec. 1, identifies the exchange adjacency as changing one chosen vertex, equivalent to intersection size |B|-1. The paper gives paths, cycles, complete graphs and appended-leaf examples, not 3-row grids.",
+        "Closest published-finding corpus semantic hits in the precise query were unrelated 3×n grid matching-complex results 2026/10/11/SCOPE-orthogonal-reflection-lefschetz-formulas-for-3-times-n-grid-matc--c1da8c8f4653 and zero-forcing polynomial of fan graphs 2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283."
+      ],
+      "reasoning": "Aliases zero-forcing graph, minimum-basis graph, token jumping, Cartesian 3-by-n grid and exchange graph were compared by the identical solution family and adjacency relation, not just names. No precise covering claim was identified.",
+      "searches": [
+        "published-finding corpus: zero forcing graph 3-row rectangular grid paths P3 square Pn vertex exchange 26 vertices two 13 vertex components stabilization",
+        "Web: \"zero forcing graph\" \"grid graphs\" reconfiguration",
+        "Web: \"minimum zero forcing sets\" \"P_3\" \"P_n\" \"grid\" counting",
+        "arxiv:2009.00220 (zero forcing graph/token-jumping equivalence)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved zero-forcing table supplied the 26 optimal triples or the 13-vertex exchange component. published-finding corpus hit 2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283 treats a fan, not a Cartesian grid.",
+        "The 2011 exact grid table is about forcing cardinality and iteration index; it does not enumerate minimum configurations."
+      ],
+      "reasoning": "The exact object, 26 count, two 13-components, and n=5 transition were queried, including both word and Cartesian-product forms. Hits on other grid invariants such as matching-complex Lefschetz numbers cannot imply the configuration census.",
+      "searches": [
+        "published-finding corpus: minimum zero forcing sets 3 by n Cartesian rectangular grid P3 □ Pn exactly 26 for n>=5 13 at either endpoint 2 disconnected reconfiguration components",
+        "published-finding corpus: zero forcing sets and reconfiguration graphs grid graphs three rows enumerations and exact diameter",
+        "Web: \"minimum zero forcing sets\" \"P_3\" \"P_n\" \"grid\" counting",
+        "Web: \"zero forcing graph\" \"grid\" \"P_3\" \"P_n\""
+      ]
+    },
+    "rationale": "Inspected Chilakamarri et al. arXiv:1105.1492 proves the grid minimum cardinality and iteration-index formulas, but not the 26-minimum-set classification or exchange graph. Inspected Geneson-Haas-Hogben arXiv:2009.00220 gives the exact token-jump definition, examples and structural theorems but no three-row Cartesian rectangular grid classification; full-text search returned no occurrences of ladder or grid. Targeted external and published-finding corpus semantic searches for the exact parameters and aliases found no implication/covering result. Novelty is best-knowledge only, not a uniqueness certification.",
+    "residual_risks": [
+      "Unindexed preprints, theses, textbooks or tables might contain an equivalent classification; negative search cannot establish global publication priority.",
+      "A 2020 subcubic theorem was compared via abstract scope only; its exact full text was not inspected, although its stated degree hypothesis excludes the target family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers optimum size Z=3 and timing, not the complete minimum-set exchange graph",
+        "evidence": [
+          "arXiv 1105.1492, Section 3, Theorem 3.1: grid minimum size and iteration index."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1105.1492",
+        "material_read": "Abstract, introduction, foundational definitions, section 3 and the grid theorem statement and argument",
+        "method": "Accessible arXiv HTML read and term-based navigation for Cartesian product and grid",
+        "title": "Iteration Index of a Zero Forcing Set in a Graph",
+        "trigger": "Primary 2011 Cartesian-product grid zero-forcing theorem"
+      },
+      {
+        "assessment": "Defines precisely the same reconfiguration move but the inspected examples and constructions do not cover rectangular three-row grids",
+        "evidence": [
+          "arXiv 2009.00220, Section 2.1: paths/cycles/cliques; Section 3: leaf-appended disconnected examples.",
+          "Full-text keyword searches grid and ladder yielded no matches."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2009.00220",
+        "material_read": "Abstract, sections 1–4 including the definition, examples 2.2–2.4, Proposition 2.7 and Section 3 constructions, plus full-document searches for grid/ladder",
+        "method": "Accessible PDF text and visual inspection of page 3 and relevant propositions",
+        "title": "Reconfiguration graphs of zero forcing sets",
+        "trigger": "Directly relevant zero-forcing exchange graph literature"
+      },
+      {
+        "assessment": "Discusses time efficiency of minimum forcing sets rather than counting all grid minima or exchange components",
+        "evidence": [
+          "arXiv 1410.4191, Section 1: definitions and propagation-time questions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.4191",
+        "material_read": "Abstract, introduction and definitions of forcing closure/propagation time",
+        "method": "Accessible arXiv text read, topic navigation",
+        "title": "Propagation time for zero forcing on a graph",
+        "trigger": "Earlier independent propagation and effective-forcing literature"
+      },
+      {
+        "assessment": "Its maximum-degree-at-most-three hypothesis fails for the target 3×n grids (which have degree-four interior vertices).",
+        "evidence": [
+          "Alishahi, Rezaei-Sani, Sharifi (2020), abstract: classification is restricted to maximum degree at most three."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2020.03.027",
+        "material_read": "Accessible abstract and scope statement; full text not inspected",
+        "method": "Bibliographic abstract and theorem-scope comparison",
+        "title": "Maximum nullity and zero forcing number on graphs with maximum degree at most three",
+        "trigger": "Potentially dominating theorem for Z=3"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "691903f7-5394-4d14-8f2f-0bed103d5f61",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The discovery supplies a sharp reconfiguration connectivity threshold for an infinite, natural Cartesian grid family, with an explicit optimum-state classification and the full invariant 13-vertex component. Under a no-extra-sensor exchange rule, the end-local rigidity identifies precisely why relocating an optimum initial forcing set between opposite ends is impossible once n>=5. This is structural and not a numerical isolated census; its exact nature invites comparisons with wider strips or variants, without claiming those results.",
+    "status": "PASS"
+  }
+}
