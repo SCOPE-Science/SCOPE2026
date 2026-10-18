@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact truncated-bivariate-normal second moments are integrated by parts, then propagated along the Gaussian autoregressive Markov chain using conditional second moments. Summation produces the finite-sample covariance for every \(n\ge2\), \(-1<\rho<1\), real \(a\) and \(\sigma>0\). A positive monotone integral gives uniqueness of the threshold and both limiting statements. Independent quadrature comparisons and seeded simulations corroborate calculations without replacing proof. The boundary \(\rho=0\) and two signs of \(\rho\) have been checked separately.
+## correctness
 
-**Originality — PASS, subject to residual historical risk.** Kratz (arXiv:math/0612577) develops continuous Gaussian crossing literature, not the displayed finite discrete crossing–quadratic-energy covariance. Sinn–Keller (doi:10.1137/S0040585X97984991) addresses covariances of crossing counts; complete text was inaccessible, so indirect consequences remain possible. Di Bernardino–León–Tchumatchenko (doi:10.1186/2190-8567-4-22) studies correlations between continuous-time level-crossing signals. The zero-threshold crossing/energy special case is expressly excluded from the novelty assessment. Targeted searches found no published equivalent for the all-level sharp sign classification, but negative searches cannot prove unique priority.
+PASS
 
-**Value — PASS.** Level-upcrossing frequency and empirical quadratic energy are natural, distinct descriptors of stationary Gaussian time series. The theorem yields a complete dependence sign map and a sharp universal threshold stable under changes in the sample length, quantifying when a high-level excursion event is positively or negatively associated with total signal energy. It is not just a sign calculation at a manually chosen parameter.
+For n>=2, sigma>0 and -1<rho<1, standardize Y=X/sigma. Integrating the two bivariate Gaussian second-Hermite moments on {Y_i<=a<Y_{i+1}} gives L+R=phi(a){a(1+rho^2)(2Phi(h)-1)-2rho*sqrt(1-rho^2)*phi(h)}, h=a(1-rho)/sqrt(1-rho^2). The Gaussian Markov property propagates conditional centered squared moments by rho^(2 lag). Summing both directions across edges yields exactly sigma^2 phi(a)/(1-rho^2)*sum_{r=1}^{n-1}(1-rho^(2r)) times the bracket; the prefactor is positive. J(z)=(2Phi(z)-1)/(2phi(z)) increases strictly for z>0; a(1+rho^2)J(h)=rho*sqrt(1-rho^2) has one positive root for rho>0. J(h)>=h proves a_*^2<=rho(1+rho)/(1+rho^2) and the stated rho endpoint limits. At rho=0 the sign vanishes only a=0, and rho<0 the bracket is positive. Independent SciPy integration of the two truncated moments for six (a,rho) settings agreed with the closed pair expression to <1e-10; roots .1748628628 (rho=.03), .5273696943 (.25), .8737458924 (.7), .9827045844 (.95) obey the bound. The experiments corroborate but do not prove the continuous parameter theorem.
 
-**Residual risks.** Hidden reformulations via Hermite-chaos projections or a general level-crossing generating functional may reproduce the result; historical comparison is non-exhaustive. No extension beyond the specified Gaussian autoregression is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct exact finite-discrete AR(1) upcrossing-count versus uncentered quadratic-energy covariance profile and sharp sign transition for arbitrary standardized level. Kratz gives Gaussian level crossing moments and Wiener-chaos framework, Sinn–Keller studies count/count zero crossings, and Di Bernardino–León–Tchumatchenko studies continuous-time cross-signal crossing correlations. The zero-level crossing/energy observation is explicitly prior; the nonzero threshold and sample-length independent sign map are the assessed addition. General Hermite projections might imply the calculation indirectly, and Sinn–Keller full text remained inaccessible via authorized routes.
+
+## value
+
+PASS
+
+Counts of high-level upward transitions and accumulated squared magnitude are natural paired descriptors of correlated Gaussian discrete time series. The exact sign map gives the unique universal normalized crossover a_*(rho) independent of sample length and marginal scale, a substantive complete structural classification beyond one parameter case or a simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

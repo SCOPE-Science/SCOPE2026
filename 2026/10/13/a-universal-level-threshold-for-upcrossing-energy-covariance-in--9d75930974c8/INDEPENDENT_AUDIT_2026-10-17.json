@@ -1,0 +1,47 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T02:57:38.205684Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2, sigma>0 and -1<rho<1, standardize Y=X/sigma. Integrating the two bivariate Gaussian second-Hermite moments on {Y_i<=a<Y_{i+1}} gives L+R=phi(a){a(1+rho^2)(2Phi(h)-1)-2rho*sqrt(1-rho^2)*phi(h)}, h=a(1-rho)/sqrt(1-rho^2). The Gaussian Markov property propagates conditional centered squared moments by rho^(2 lag). Summing both directions across edges yields exactly sigma^2 phi(a)/(1-rho^2)*sum_{r=1}^{n-1}(1-rho^(2r)) times the bracket; the prefactor is positive. J(z)=(2Phi(z)-1)/(2phi(z)) increases strictly for z>0; a(1+rho^2)J(h)=rho*sqrt(1-rho^2) has one positive root for rho>0. J(h)>=h proves a_*^2<=rho(1+rho)/(1+rho^2) and the stated rho endpoint limits. At rho=0 the sign vanishes only a=0, and rho<0 the bracket is positive. Independent SciPy integration of the two truncated moments for six (a,rho) settings agreed with the closed pair expression to <1e-10; roots .1748628628 (rho=.03), .5273696943 (.25), .8737458924 (.7), .9827045844 (.95) obey the bound. The experiments corroborate but do not prove the continuous parameter theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "arxiv:math/0612577",
+        "doi:10.1137/S0040585X97984991",
+        "doi:10.1186/2190-8567-4-22",
+        "Git frozen RESULT.md 163d30e3d088a8df6415385018c583523914b70d"
+      ],
+      "rationale": "Best-of-knowledge distinct exact finite-discrete AR(1) upcrossing-count versus uncentered quadratic-energy covariance profile and sharp sign transition for arbitrary standardized level. Kratz gives Gaussian level crossing moments and Wiener-chaos framework, Sinn–Keller studies count/count zero crossings, and Di Bernardino–León–Tchumatchenko studies continuous-time cross-signal crossing correlations. The zero-level crossing/energy observation is explicitly prior; the nonzero threshold and sample-length independent sign map are the assessed addition. General Hermite projections might imply the calculation indirectly, and Sinn–Keller full text remained inaccessible via authorized routes.",
+      "residual_risks": [
+        "A general Gaussian-chaos second-Hermite projection of threshold indicators might imply the formula under another vocabulary.",
+        "Sinn and Keller 2011 primary full text unavailable; Oxford authorized access returned vpn_disconnected and was not bypassed.",
+        "No extension is claimed to continuous-time processes, centered sample variance, non-Gaussian or nonstationary models."
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counts of high-level upward transitions and accumulated squared magnitude are natural paired descriptors of correlated Gaussian discrete time series. The exact sign map gives the unique universal normalized crossover a_*(rho) independent of sample length and marginal scale, a substantive complete structural classification beyond one parameter case or a simulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:math/0612577",
+    "doi:10.1137/S0040585X97984991",
+    "doi:10.1186/2190-8567-4-22",
+    "Git frozen RESULT.md 163d30e3d088a8df6415385018c583523914b70d"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general Gaussian-chaos second-Hermite projection of threshold indicators might imply the formula under another vocabulary.",
+    "Sinn and Keller 2011 primary full text unavailable; Oxford authorized access returned vpn_disconnected and was not bypassed.",
+    "No extension is claimed to continuous-time processes, centered sample variance, non-Gaussian or nonstationary models."
+  ],
+  "residual_risks": [
+    "A general Gaussian-chaos second-Hermite projection of threshold indicators might imply the formula under another vocabulary.",
+    "Sinn and Keller 2011 primary full text unavailable; Oxford authorized access returned vpn_disconnected and was not bypassed.",
+    "No extension is claimed to continuous-time processes, centered sample variance, non-Gaussian or nonstationary models."
+  ],
+  "schema_version": 1
+}
