@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T07:10:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For crown Cr_n=K_{n,n} with matching ai-bi removed, n>=4, every selected vertex has required internal degree h=ceil((n-1)/2). Selecting index sets I,J on the two shores, a=|I|,b=|J|,c=|I∩J| gives internal degrees b-1_{i∈J} for ai and a-1_{j∈I} for bj. Thus feasibility exactly c=0 with a,b>=h or c>0 with a,b>=h+1. These selections induce connected graphs for n>=4 (complete bipartite or missing a matching with sufficiently large shore sizes). Enumerating disjoint residuals gives even n=2m polynomial Q_n(x)^2+C(n,m)x^(2m), where Q_n=Σ_{k=m+1}^n C(n,k)x^k; odd n=2m+1 polynomial Q_n(x)^2+(m+1)C(n,m)x^(2m)+2C(n,m)x^(2m+1). Minimum exponent is n even, n-1 odd, with coefficients C(n,n/2) and ((n+1)/2)C(n,(n-1)/2). Read actual artifacts/verify_strong_alliance_crown.py and wrote separate adjacency/connectivity enumeration for all 2^(2n) subsets n=4..8; coefficients and minimum counts matched. C6=n3 is correctly excluded, which has distinct connectivity boundary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ibrahim defines a generally richer bivariate polynomial but gives explicit class formulas for K_n,m, wheel, books, others rather than K_n,n-M; SCOPE complete multipartite formula applies to K_n,m but crown is not complete multipartite."
+        ],
+        "reasoning": "The broader invariant could yield the polynomial only if a crown-specific bivariate formula were available; a general definition and exact K_n,m formula do not mathematically imply its deletion variant without further counting.",
+        "searches": [
+          "Ibrahim defensive alliance polynomial Prop 30 complete bipartite",
+          "Carballosa and collaborators alliance polynomial regular graphs",
+          "Resultary SCOPE strong alliance complete multipartite graphs cf4980ea579a"
+        ]
+      },
+      "checked_sources": [
+        "Carballosa et al., arXiv:1507.08654, full PDF Theorem 3.3",
+        "Ibrahim, arXiv:1811.10089, full 23-page primary PDF Proposition 30",
+        "Carballosa et al., alliance polynomial of regular graphs, arXiv:1506.06041, related exact index polynomial",
+        "Resultary SCOPE cf4980ea579a complete multipartite polynomial (search result summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete-bipartite supports only a,b; crown n>=4 supports also overlap c, and disjoint boundary cases yield parity-specific lower-degree terms."
+        ],
+        "reasoning": "Existing K_n,n result does not entail polynomial under deleting the matching via ordinary substitution. Need new overlap classification and connectivity proof. Equivalence under alternative defensive alliance terminology remains historical risk.",
+        "searches": [
+          "Carballosa 2015 theorem strong alliance polynomial K_n,m",
+          "Ibrahim 2018 Prop 30 complete bipartite graphs",
+          "Resultary SCOPE cf4980ea579a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carballosa complete bipartite polynomial has no forbidden pairs; crown selection depends on c=|I∩J|, a fundamentally different support case. Ibrahim more general bivariate invariant can extract strong alliance coefficients but its listed families do not include crowns."
+        ],
+        "reasoning": "Tested aliases perfect-matching-deleted complete bipartite, crown, bipartite K(n,n)-M, strong defensive alliance polynomial, and coefficient extraction from bivariate da(G;x,y). The objects and precise family specialization are not supplied by inspected prior theorems.",
+        "searches": [
+          "strong defensive alliance crown graph K_n,n minus matching polynomial Resultary query",
+          "Carballosa arXiv:1507.08654 full PDF",
+          "Ibrahim arXiv:1811.10089 full PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No crown polynomial table identified; independently checked coefficients n4 31 total, n5 306, n6 504, n7 4306, n8 8719; check n3=C6 exception."
+        ],
+        "reasoning": "Finite coefficients are not accepted as new just because absent from a table; full parametrized all-size polynomial is supported by direct partition argument.",
+        "searches": [
+          "crown graph strong alliance polynomial exact coefficients searches",
+          "Resultary SCOPE complete multipartite exact polynomial",
+          "Carballosa full text no crown occurrence"
+        ]
+      },
+      "rationale": "Carballosa et al. primary 2015/2016 strong alliance polynomial supplies complete bipartite K_n,m but not this matching-deleted crown, whose feasibility depends on overlap I∩J. Ibrahim 2018 bivariate defensive alliance polynomial is a genuine stronger invariant in principle; inspected its full article, including Prop.30 on complete bipartite graphs and graph-class table, and found no crown specialization. Resultary complete multipartite polynomial cannot simply be specialized because crown is not complete multipartite (for n>=3). Therefore best-of-knowledge novelty of the parity-sensitive all-coefficient crown enumerator survives, subject to possible older equivalent terminology.",
+      "residual_risks": [
+        "An older crown/complete-bipartite-minus-1-factor strong alliance enumeration may be indexed only under cohesive sets or signed defensive alliances.",
+        "General bivariate alliance polynomial definitions alone do not prove absence of a prior crown coefficient specialization.",
+        "n=3 is genuinely excluded because connectivity breaks some threshold-allowed supports."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives K_n,m polynomial; no all-coefficient crown n>=4 formula in the inspected complete article",
+          "evidence": "Theorem 3.3 gives full K_n,m case; removed matching imposes additional intersection obstruction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.08654",
+          "material_read": "Full accessible arXiv PDF (10 pages), Theorem 3.3 complete bipartite graph; read text and visually inspected theorem page",
+          "method": "Primary PDF read and source comparisons",
+          "title": "Computing the strong alliance polynomial of a graph",
+          "trigger": "Foundational same polynomial and complete bipartite comparison"
+        },
+        {
+          "assessment": "Bivariate polynomial is more general in definition, but its explicit complete bipartite formula is not a crown graph calculation; no matching-deleted family found in reviewed material",
+          "evidence": "Proposition 30 for K_n,m; Section 4 list includes book, wheel, friend graphs, no crown.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.10089",
+          "material_read": "Full accessible 23-page primary PDF, introductory relation to strong polynomial and Section 4 graph families; inspected Proposition 30 and surrounding calculations on pp.9-10",
+          "method": "PDF text search and visual pages; compared actual graph family list",
+          "title": "Defensive alliance polynomial",
+          "trigger": "Plausible dominating bivariate invariant"
+        },
+        {
+          "assessment": "Complete multipartite theorem cannot simply apply to crown after matching deletion; no full-document absence assertion",
+          "evidence": "Complete multipartite requires each nonadjacent pair to share a part, violated by Cr_n matching-deleted structure.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-strong-alliance-polynomial-of-complete-multipartite-graphs--cf4980ea579a",
+          "material_read": "Search result scientific theorem summary; entire source not fetched",
+          "method": "Resultary semantic match and structural graph-family comparison",
+          "title": "Strong alliance polynomial of complete multipartite graphs",
+          "trigger": "Strongest nearby indexed previously published family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A perfect-matching deletion is a canonical minimal perturbation of K_n,n that profoundly changes alliance minima and counts, with opposite parity behavior and explicit all-cardinality polynomial. A complete classification of all strong defensive alliance subsets on this natural family is useful beyond a scalar domination number. It is not merely a known complete-bipartite substitution because the matching-index overlap matters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Applies to n>=4 crown graphs with connected strong defensive alliances; does not give full bivariate defensive alliance index polynomial.",
+    "Exhaustive subset checker only through n=8, analytical proof is for all n>=4."
+  ],
+  "schema_version": 1
+}
