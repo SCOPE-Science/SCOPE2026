@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the finite chain-product endomorphism census
 
-The attached standalone Python 3 file `verify_bi_godel.py` uses only the standard library. Invoke `python3 verify_bi_godel.py`. It constructs finite disjoint unions of chains, enumerates every set map on at most six dual points, and checks isotonicity and *both* upward/downward bounded-morphism conditions. It independently calculates the predicted weighted support histogram, inclusion-exclusion endomorphism histogram, and idempotent histogram. A separate small-case check constructs the upset algebras explicitly and tests preservation of Heyting implication and co-Heyting subtraction, then tests algebraic image cardinalities.
+# Independent mathematical audit
 
-Observed output:
+## correctness
 
-```text
-VERIFY_OK length_vectors 63 candidate_maps 1545157 valid_endomorphisms 57970 direct_bi_Heyting_cases 15 direct_algebra_maps 2165
-CASE (1, 2) total 2 ranks {2: 1, 6: 1} retractions {2: 1, 6: 1}
-CASE (2, 3, 3) total 16 ranks {3: 4, 12: 10, 48: 2} retractions {3: 4, 12: 6, 48: 1}
-CASE (1, 1, 2) total 12 ranks {2: 2, 4: 6, 6: 2, 12: 2} retractions {2: 2, 4: 2, 6: 2, 12: 1}
-CASE (2, 2, 2) total 27 ranks {3: 3, 9: 18, 27: 6} retractions {3: 3, 9: 6, 27: 1}
-CASE (1, 2, 3) total 8 ranks {2: 1, 6: 5, 8: 1, 24: 1} retractions {2: 1, 6: 3, 8: 1, 24: 1}
-```
+PASS
 
-All checks passed for those finite cases. Tests do not independently certify the proof for unbounded inputs. No independent scientific validation has been conducted.
+The dual of a bounded chain C_{a_i+1} is an a_i-point chain; the dual of the product is their disjoint union. Full bi-Heyting homomorphisms are precisely inverses of maps satisfying both the upward and downward bounded-morphism identities. An isotone map sends each source chain into one connected target chain; the two lifting conditions force a surjection onto its entire target component. Conversely every isotone chain-surjection satisfies both liftings. Ordered positive fiber compositions give w_ij=binom(a_i-1,a_j-1). Independent source-component choices prove the product cardinality. Inclusion-exclusion over missed targets gives E_J. Idempotence forces identity on occupied components and unrestricted maps from unoccupied ones, giving I_J. Any shortest-length source demands a shortest-length target; for sufficiency keep all occupied targets fixed and map remaining sources onto such a shortest target. The algebraic image has cardinality product_{j in J}(a_j+1), since it is the upset algebra of the full dual image. This proves the two polynomials, equal-length Stirling specialization and positivity cutoff for all k>=1, a_i>=1; supports yielding the same numeric cardinality aggregate coefficients. Independently enumerated all 31 ordered length vectors with sum<=5 and 3970 valid dual self-morphisms, agreeing with support and idempotent counts. Source script independently checked larger finite domains but is not relied on for the infinite proof.
+
+## originality
+
+PASS
+
+The finite bi-Esakia duality and connected component surjectivity are prior mathematical machinery and not new results; Martins--Moraschini and Tasiou provide that framework. Fresh catalogue and broader literature queries located nearby chain/coforest and monadic results but no earlier heterogeneous weighted endomorphism/retraction support and algebra-image rank census. Tasiou's accessible full article studies profiniteness/simple chain factors, not enumerative support polynomials. A new exact natural family-wide census survives at best-of-knowledge, subject to equivalent monotone-surjection semigroup literature.
+
+## value
+
+PASS
+
+Finite products of bi-Gödel chains are canonical models of finite co-forest bi-Heyting algebras. An exact two-variable distinction between endomorphism and retract image-size distributions is a natural structural invariant with concrete algebraic uses, and simultaneous support feasibility for both map types is a non-obvious common spectrum. Heterogeneous multiplicities and collisions of cardinalities are not elementary Boolean function counting; the formulas solve a natural complete classification rather than an arbitrary small slice. They do not claim a new duality theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

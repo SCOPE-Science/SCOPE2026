@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full algebraic signature is fixed. Finite bi-Esakia duality and its upward/downward lifting clauses are explicitly formulated in the proof. Each dual source-chain image must be a whole target chain, yielding \(w_{ij}=\binom{a_i-1}{a_j-1}\) when \(a_i\ge a_j\). Inclusion-exclusion establishes exact target support counts; idempotence forces identity on occupied target components. Every support meeting the minimal chain length is constructively realized by an idempotent. Algebra-image size follows from separation of all upsets on the union of occupied chains. Explicit code checks 63 small structures, with direct residual preservation in 15 structures. Computation corroborates but does not replace the general proof.
+PASS
 
-## Originality — PASS, subject to historical-priority limitations
+The dual of a bounded chain C_{a_i+1} is an a_i-point chain; the dual of the product is their disjoint union. Full bi-Heyting homomorphisms are precisely inverses of maps satisfying both the upward and downward bounded-morphism identities. An isotone map sends each source chain into one connected target chain; the two lifting conditions force a surjection onto its entire target component. Conversely every isotone chain-surjection satisfies both liftings. Ordered positive fiber compositions give w_ij=binom(a_i-1,a_j-1). Independent source-component choices prove the product cardinality. Inclusion-exclusion over missed targets gives E_J. Idempotence forces identity on occupied components and unrestricted maps from unoccupied ones, giving I_J. Any shortest-length source demands a shortest-length target; for sufficiency keep all occupied targets fixed and map remaining sources onto such a shortest target. The algebraic image has cardinality product_{j in J}(a_j+1), since it is the upset algebra of the full dual image. This proves the two polynomials, equal-length Stirling specialization and positivity cutoff for all k>=1, a_i>=1; supports yielding the same numeric cardinality aggregate coefficients. Independently enumerated all 31 ordered length vectors with sum<=5 and 3970 valid dual self-morphisms, agreeing with support and idempotent counts. Source script independently checked larger finite domains but is not relied on for the infinite proof.
 
-Martins–Moraschini (arXiv:2409.14998v1, Sections 2.5–2.6) supplies the known duality and lifting conditions and uses them for logical decidability, not exact endomorphism, support, and retraction cardinality polynomials. Tasiou (2025, Definition 2.8, Proposition 3.11 and Theorem 3.13) gives the connected-simple/product framework, not this weighted heterogeneously sized chain census. Relevant existing research on **Heyting-only** chain-product idempotents allows terminal-segment images and therefore does not imply the new **full bi-Heyting** counts. Publicly accessible text searches and a semantic mathematical-results search found no stated identical formula. Priority is not conclusively proven: a direct semigroup-theoretic enumeration of the same weighted surjection system might exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result completely determines a natural finite-algebra endomorphism monoid's cardinality, its rank-refined operation census, and the counts of idempotent retractions for **arbitrary heterogeneous chains**, with a sharp support criterion. Knowing merely that finite connected dual components are simple does not determine the componentwise weights or the refined image-size multiplicities. The equality of attainable image-rank spectra for all endomorphisms and retractions is a structural consequence requiring the shortest-component argument; the formulas distinguish rank multiplicities even when product cardinalities collide. These are exact natural invariants for a basic, literature-motivated class of bi-Gödel algebras.
+The finite bi-Esakia duality and connected component surjectivity are prior mathematical machinery and not new results; Martins--Moraschini and Tasiou provide that framework. Fresh catalogue and broader literature queries located nearby chain/coforest and monadic results but no earlier heterogeneous weighted endomorphism/retraction support and algebra-image rank census. Tasiou's accessible full article studies profiniteness/simple chain factors, not enumerative support polynomials. A new exact natural family-wide census survives at best-of-knowledge, subject to equivalent monotone-surjection semigroup literature.
 
-## Residual risks and limits
+## value
 
-The underlying duality and connected-component surjectivity are established literature, not proposed contributions. The originality claim is limited to the combined heterogeneous weighted rank and retraction census. Pre-existing enumerations in algebraic semigroup literature cannot be ruled out. The theorem does not address branching dual components or infinite algebras.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite products of bi-Gödel chains are canonical models of finite co-forest bi-Heyting algebras. An exact two-variable distinction between endomorphism and retract image-size distributions is a natural structural invariant with concrete algebraic uses, and simultaneous support feasibility for both map types is a non-obvious common spectrum. Heterogeneous multiplicities and collisions of cardinalities are not elementary Boolean function counting; the formulas solve a natural complete classification rather than an arbitrary small slice. They do not claim a new duality theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
