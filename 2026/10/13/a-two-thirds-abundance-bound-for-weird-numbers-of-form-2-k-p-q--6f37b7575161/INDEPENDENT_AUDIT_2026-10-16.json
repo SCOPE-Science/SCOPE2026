@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T21:14:09.022472Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=1, p<q distinct odd primes, M=2^(k+1)-1, x=p-M even, a=sigma(2^k p q)-2^(k+1)pq=M(M+1)-x(q-M). Iannucci gives M<a and M<p<2M. If a=r+sp+tq with 0<=r,s,t<=M then the binary proper-divisor blocks form a subset of proper divisors summing to a and hence a complement representing n, contradicting weirdness. First lemma: if q<=2M, write q=p+d even d and split M(d+1) by p. Quotient u obeys d/2<=u<=d, and the replacement of T copies p by q adjusts remainder to [0,M], giving a forbidden representation; hence q>2M. Second lemma: x residues (a-tq) mod p for t=0..x-1 must avoid [0,M], but at most x-1 residue classes lie outside, whenever a>=(x-1)q; contradiction; hence a<(x-1)q. If x>=M/3, q>2M yields a<(2/3)M^2+M; if x<M/3, the residue lemma gives q>M(p+1)/(2x-1) and a<.5 M(M+x+1)<(2/3)M^2+M. All inequalities strict. Independent exact finite no-representation classification matches first six weird-number counts 1,1,5,3,10,23; bounded test is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The conjectured one-third bound would imply this but is not proved in Iannucci.",
+          "Melfi studies conditional constructions of weird numbers, not a universal bound on all such primes.",
+          "The 2026 three-quarter result is weaker for each M>0."
+        ],
+        "reasoning": "The new proven inequality is not mathematically implied by these proven statements; stronger conjectures do not count as coverage.",
+        "searches": [
+          "Iannucci arXiv:1504.02761v1 Conjecture and Theorem",
+          "Melfi 2015 On conditional infiniteness of primitive weird numbers",
+          "Resultary three-quarter weird abundance bound 2026"
+        ]
+      },
+      "checked_sources": [
+        "D. E. Iannucci, On primitive weird numbers of the form 2^k p q, arXiv:1504.02761v1",
+        "Resultary/2026/2026/10/4/SCOPE-a-uniform-three-quarter-abundance-bound-for-weird-numbers-of-for--b810d8b66c9f/RESULT.md",
+        "G. Melfi, JNT 147 (2015), DOI 10.1016/j.jnt.2014.07.024 (limited)",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For M>0, (2/3)M²+M<(3/4)M²+M.",
+          "New proof establishes both q>2M and a<(x-1)q, enabling different parameter split."
+        ],
+        "reasoning": "The old three-quarter theorem cannot imply the strictly stronger universal coefficient. The conjectural one-third formula has no proved implication. New proof uses stronger exclusions beyond previously certified statements.",
+        "searches": [
+          "Resultary/2026 three-quarter theorem proof",
+          "Iannucci 2015 conjecture 1/3 and M<p<2M"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D. E. Iannucci, On primitive weird numbers of the form 2^k p q, arXiv:1504.02761v1: necessary conditions and a conjectured upper bound (M+1)(M+2)/3.",
+          "Resultary/2026/2026/10/4/SCOPE-a-uniform-three-quarter-abundance-bound-for-weird-numbers-of-for--b810d8b66c9f/RESULT.md: established a<(3/4)M^2+M, strictly weaker than a<(2/3)M^2+M."
+        ],
+        "reasoning": "Equivalent excess notation sigma(n)-2n, abundance, semiperfect obstruction and xy=(p-M)(q-M) were compared. No previously proved universal two-thirds bound identified.",
+        "searches": [
+          "weird numbers 2^k p q abundance upper bound two thirds M squared residue packing Iannucci",
+          "weird semiperfect abundance coefficient 2/3 two prime odd factors 2^k",
+          "Resultary semantic search: weird numbers 2^k p q abundance upper bound two thirds M squared residue packing Iannucci"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior finite candidate tables can contain examples below two-thirds but do not prove a uniform all-k inequality.",
+          "The result treats all k>=1 rather than recomputing a bounded weird-number table."
+        ],
+        "reasoning": "No numerical database/table alone proves the universal upper bound; independently reproduced the first six finite weird counts as consistency checks.",
+        "searches": [
+          "Iannucci 2015 candidate k=1..8 weird counts",
+          "Resultary semantic search for 2/3 bound and exact abundance table"
+        ]
+      },
+      "rationale": "Iannucci proves the starting criteria and conjectures a much stronger one-third-scale bound; the closest published Resultary theorem establishes only the weaker three-quarter coefficient. This work is not merely a parameter renaming: q>2M and stronger residue packing are used to cross the two-thirds threshold. The prime-gap/intermediate statements and Iannucci base identity are not claimed as novel.",
+      "residual_risks": [
+        "Unindexed earlier argument or unpublished stronger bound could cover the two-thirds constant.",
+        "Exhaustive small-k finite tests do not establish the universal bound.",
+        "No claimed existence/infinitude theorem and no proof of the conjectured one-third bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source provides premises, stronger conjecture but no proved two-thirds universal theorem",
+          "evidence": "M<p<2M, a>M, a=M(M+1)-(p-M)(q-M), conjectured a<(M+1)(M+2)/3.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.02761",
+          "material_read": "Complete accessible primary preprint, necessary inequalities, divisibility/subset-sum criterion and conjecture passage",
+          "method": "Read full arXiv PDF and rendered page with stated conjecture",
+          "title": "On primitive weird numbers of the form 2^k p q",
+          "trigger": "Exact same family and conjectured bound"
+        },
+        {
+          "assessment": "Genuinely weaker coefficient 3/4; proof uses similar but not sufficient residue packing",
+          "evidence": "Resultary theorem a<3M²/4+M; compares xy>M²/4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-uniform-three-quarter-abundance-bound-for-weird-numbers-of-for--b810d8b66c9f",
+          "material_read": "Complete RESULT.md theorem, case split, forbidden representation and proof read",
+          "method": "GitHub published scientific source full text",
+          "title": "A uniform three-quarter abundance bound for weird numbers of form 2^k p q",
+          "trigger": "Closest published bound in identical family"
+        },
+        {
+          "assessment": "Construction scope not shown to imply universal 2/3 bound; limited read remains risk",
+          "evidence": "Melfi 2015 treats conditional infiniteness constructions.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jnt.2014.07.024",
+          "material_read": "Available bibliographic abstract and statement scope, not full article",
+          "method": "Web bibliographic search",
+          "title": "On the conditional infiniteness of primitive weird numbers",
+          "trigger": "Possible stronger sufficient families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform improvement from 3/4 to 2/3 of the quadratic abundance coefficient across every exponent and prime pair closes a positive portion of the gap to a longstanding explicit one-third-scale conjecture. The proof supplies nontrivial exclusion and residue-packing lemmas; the quantitative gain is mathematically motivated, not an arbitrary small finite example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "D. E. Iannucci, On primitive weird numbers of the form 2^k p q, arXiv:1504.02761v1",
+    "Resultary/2026/2026/10/4/SCOPE-a-uniform-three-quarter-abundance-bound-for-weird-numbers-of-for--b810d8b66c9f/RESULT.md",
+    "G. Melfi, JNT 147 (2015), DOI 10.1016/j.jnt.2014.07.024 (limited)",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Unindexed earlier argument or unpublished stronger bound could cover the two-thirds constant.",
+    "Exhaustive small-k finite tests do not establish the universal bound.",
+    "No claimed existence/infinitude theorem and no proof of the conjectured one-third bound."
+  ],
+  "schema_version": 1
+}
