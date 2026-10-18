@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T07:53:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob 0c6f91405688f7541645a1064a373c805504d861",
+        "verify.py blob f38840aed448aa239dda701ee39c86c17a350159",
+        "independent 1278 rose WL checks"
+      ],
+      "rationale": "In any rose of t≥2 cycles, the degree-2t center separates in round one. Round-r positions on a length-L petal have identical colors iff their unordered clipped pairs {min(i,r),min(L−i,r)} coincide, hence within a petal last split floor(L/2). Comparing unequal lengths L<M, adjacent-to-center positions agree through round L−1 and split at L; none survive beyond. Over all unequal pairs maximum shorter length is the second-largest distinct petal length λ_{s−1}, independent of multiplicities. If all equal, only the longest-half term matters. Permutations of equal-length petals and reflections give the precise automorphism orbits, identical to stable classes. Independent ordinary WL over 1278 multisets of 2..5 petals, lengths 3..10, agreed with formula.",
+      "residual_risks": [
+        "Simple petals meeting only at center; no other vertex identifications.",
+        "This is an all-t theorem via clipped pair induction; finite census only corroborates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "He–van Dam, Laplacian spectral characterization of roses, arXiv:1607.05466 gives spectral results for arbitrary k-rose graphs.",
+          "Krebs–Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175 general WL universal-cover theory.",
+          "Arvind–Köbler–Rattan–Verbitsky, Graph Isomorphism, Color Refinement, and Compactness, arXiv:1502.01255 general refinability terminology/structural features."
+        ],
+        "reasoning": "Spectral determination of rose parameters does not imply color-refinement **iteration number**; general 1-WL characterizations allow computing it but do not state the exact maximum of two lengths. The general orbit claim may be known from broader amenability, and is not relied upon as the sole novel contribution.",
+        "searches": [
+          "arXiv:1607.05466",
+          "arXiv:1407.3175",
+          "arXiv:1502.01255",
+          "Resultary semantic query \"Exact color refinement depth of rose graphs\" (top 150 results)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query \"Exact color refinement depth of rose graphs\" (top 150 results)",
+        "Resultary semantic query \"Exact color refinement depth infinity graph\" (top 150 results)",
+        "He–van Dam, Laplacian spectral characterization of roses, arXiv:1607.05466",
+        "Krebs–Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175",
+        "Arvind–Köbler–Rattan–Verbitsky, Graph Isomorphism, Color Refinement, and Compactness, arXiv:1502.01255",
+        "Kiefer–McKay, The Iteration Number of Colour Refinement, arXiv:2005.10182 / DOI:10.4230/LIPIcs.ICALP.2020.73"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "He–van Dam, Laplacian spectral characterization of roses, arXiv:1607.05466 spectral methods do not compute WL times.",
+          "Krebs–Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175 yields conceptual neighborhood propagation, but no supplied petal-length cutoff.",
+          "The concurrently assigned infinity result covers t=2 only, not t arbitrarily large."
+        ],
+        "reasoning": "The spectral theorem and 2-petal formula do not imply the arbitrary-multiset second-largest distinct length law without further argument. Conversely the all-rose theorem does imply the infinity special case; concurrent overlap is reported.",
+        "searches": [
+          "arXiv:1607.05466",
+          "arXiv:1407.3175",
+          "Resultary semantic query \"Exact color refinement depth infinity graph\" (top 150 results)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "He–van Dam, Laplacian spectral characterization of roses, arXiv:1607.05466 defines k-rose as cycles sharing one center and studies Laplacian spectra.",
+          "Wang–Huang–Belardo–Li Marzi, On the spectral characterizations of infinity-graphs, institutional handle 11570/1903053 treats t=2 as an infinity graph.",
+          "The same-batch infinity theorem exactly matches t=2 when substituting s≤2."
+        ],
+        "reasoning": "Rose, bouquet, petal, and infinity t=2 terminology compared. The exact all-t formula includes arbitrary multiplicities and a second-largest-distinct bottleneck, not simply a new name for the two-petal case.",
+        "searches": [
+          "Resultary semantic query \"Exact color refinement depth of rose graphs\" (top 150 results)",
+          "Resultary query \"rose graph bouquet cycles color refinement stabilization number maximum second largest distinct cycle length orbit partition\"",
+          "web: \"bouquet of cycles 1-WL iteration depth\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search (150 hits) contained no matching whole-rose depth table.",
+          "Source verifier covers 2,992 finite tuples, independently checked 1,278, but neither constitutes external prior literature."
+        ],
+        "reasoning": "No previous published exact general-rose table located; unindexed cases and exact classifications remain a residual risk.",
+        "searches": [
+          "Resultary semantic query \"Exact color refinement depth of rose graphs\" (top 150 results)",
+          "web: \"rose bouquet cycle Weisfeiler Leman number rounds table\""
+        ]
+      },
+      "rationale": "Best-of-knowledge all-petal depth formula with dependence only on largest and second-largest distinct lengths, including arbitrary multiplicity, and orbit recovery. The 2-petal infinity theorem in the present batch is a special case; no Resultary previously published exact all-t rose WL theorem was identified. Known rose literature studied spectral characterization, not this quantitative 1-WL invariant.",
+      "residual_risks": [
+        "Broader refinability characterizations might already imply the orbit portion; original value is exact depth law.",
+        "No claim that all unindexed rose-family work has been searched.",
+        "Two-petal special case is also reviewed in the same assignment and is not independently prior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies Laplacian spectral rose determination; no explicit 1-WL depth theorem identified.",
+          "evidence": [
+            "title and definitions of k-rose graph",
+            "search for color-refinement expression returned no matching passage"
+          ],
+          "identifier_or_url": "arXiv:1607.05466",
+          "material_read": "Full 11-page arXiv PDF obtained; first page, theorem framing and text searched for color-refinement terminology.",
+          "method": "arXiv full primary PDF plus text search",
+          "title": "Laplacian spectral characterization of roses",
+          "trigger": "Exact arbitrary-k rose family is the closest structural primary source"
+        },
+        {
+          "assessment": "Provides general mechanism not an exact all-rose length formula.",
+          "evidence": [
+            "universal-cover characterization of iterative colors"
+          ],
+          "identifier_or_url": "arXiv:1407.3175",
+          "material_read": "Read abstract and relevant universal-cover/depth principle.",
+          "method": "arXiv primary text",
+          "title": "Universal covers, color refinement, and two-variable counting logic",
+          "trigger": "General WL depth source"
+        },
+        {
+          "assessment": "General extremal bound does not provide equality for every rose length tuple.",
+          "evidence": [
+            "general iteration number results"
+          ],
+          "identifier_or_url": "arXiv:2005.10182",
+          "material_read": "Full PDF obtained and key general bounds/abstract inspected; searched for named families.",
+          "method": "full PDF textual search",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "Plausible general upper bound implying finite depth"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "He–van Dam, Laplacian spectral characterization of roses, arXiv:1607.05466",
+        "Krebs–Verbitsky, Universal covers, color refinement, and two-variable counting logic, arXiv:1407.3175",
+        "Kiefer–McKay, The Iteration Number of Colour Refinement, arXiv:2005.10182 / DOI:10.4230/LIPIcs.ICALP.2020.73"
+      ],
+      "rationale": "A uniform all-parameter stabilization-depth and orbit theorem for graphs with an arbitrary number of petals is a structural result, not merely a numerical test. The reduction of a multiset of arbitrary cycle lengths to its two dominant distinct scales is mathematically informative and supplies a natural exact benchmark of 1-WL symmetry resolution. The unbounded-petal extension survives beyond the known two-cycle subfamily.",
+      "residual_risks": [
+        "All equal petals and repeated petal lengths are essential boundary cases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For t≥2 cycles C_{L_i} (L_i≥3) meeting at one common vertex, with distinct lengths λ1<...<λs, stabilization depth is floor(λs/2) for s=1, otherwise max(floor(λs/2),λ_{s−1}); stable WL colors equal rose automorphism orbits.",
+  "limitations": [
+    "Simple undirected roses only, t≥2; excludes nonuniform input coloring and general cactus graphs.",
+    "Potential prior coverage of orbit statement separate from exact depth novelty."
+  ],
+  "schema_version": 1
+}

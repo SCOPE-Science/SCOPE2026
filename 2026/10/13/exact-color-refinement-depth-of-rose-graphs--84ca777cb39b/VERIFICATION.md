@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is uniform for every rose graph with at least two petals. The attached `verify.py` independently constructs rose graphs and implements ordinary color refinement.
 
-It checks every nondecreasing petal-length tuple with two through five petals and every length from \(3\) through \(12\). For each tuple it verifies both the exact stabilization-depth formula and equality of the stable partition with the explicit automorphism-orbit partition.
+# Independent mathematical audit
 
-The checker returns:
+## correctness
 
-`VERIFY_OK depth_checks=2992 orbit_checks=2992 petals=2..5 lengths=3..12`
+PASS
 
-These finite checks are corroborative only. They do not replace the all-parameter clipped-distance proof in `RESULT.md`.
+In any rose of t≥2 cycles, the degree-2t center separates in round one. Round-r positions on a length-L petal have identical colors iff their unordered clipped pairs {min(i,r),min(L−i,r)} coincide, hence within a petal last split floor(L/2). Comparing unequal lengths L<M, adjacent-to-center positions agree through round L−1 and split at L; none survive beyond. Over all unequal pairs maximum shorter length is the second-largest distinct petal length λ_{s−1}, independent of multiplicities. If all equal, only the longest-half term matters. Permutations of equal-length petals and reflections give the precise automorphism orbits, identical to stable classes. Independent ordinary WL over 1278 multisets of 2..5 petals, lengths 3..10, agreed with formula.
+
+## originality
+
+PASS
+
+Best-of-knowledge all-petal depth formula with dependence only on largest and second-largest distinct lengths, including arbitrary multiplicity, and orbit recovery. The 2-petal infinity theorem in the present batch is a special case; no Resultary previously published exact all-t rose WL theorem was identified. Known rose literature studied spectral characterization, not this quantitative 1-WL invariant.
+
+## value
+
+PASS
+
+A uniform all-parameter stabilization-depth and orbit theorem for graphs with an arbitrary number of petals is a structural result, not merely a numerical test. The reduction of a multiset of arbitrary cycle lengths to its two dominant distinct scales is mathematically informative and supplies a natural exact benchmark of 1-WL symmetry resolution. The unbounded-petal extension survives beyond the known two-cycle subfamily.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

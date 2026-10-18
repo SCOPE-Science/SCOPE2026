@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The unique degree-\(2t\) center separates in round \(1\). On every petal, a position is governed by its unordered pair of distances to the center clipped at the current round. This yields the exact within-petal stabilization threshold \(\lfloor L/2\rfloor\). For two distinct lengths \(L<M\), endpoint-adjacent positions remain merged through round \(L-1\) and split in round \(L\); no cross-length collision survives later because the fully visible endpoint-distance sum identifies the shorter length. Maximizing over all pairs gives the second-largest distinct petal length, while the longest petal contributes its half-length term. The explicit stable classes coincide with the obvious reflection-and-equal-petal automorphism orbits. A direct checker verifies 2,992 petal-length tuples.
+## correctness
 
-## Originality
-PASS with residual priority risk. published-finding corpus searches for rose graphs with color refinement, Weisfeiler--Leman, stabilization depth, refinability, and orbit partitions returned no matching result. The inspected arbitrary-\(k\) rose paper studies spectral characterization and contains no color-refinement discussion. Krebs--Verbitsky supplies only the general refinement/universal-cover framework. The existing two-petal infinity-graph result is a strict special case; it does not itself state the arbitrary-petal maximum rule or its reduction to the second-largest distinct length. A broad structural theorem on refinable graphs may subsume the orbit statement, so originality is assigned to the exact depth formula rather than to refinability alone.
+PASS
 
-## Value
-PASS. Rose graphs are a standard named multicyclic family studied for structural and spectral invariants. The theorem gives a closed exact iteration law for the entire family, including arbitrary petal multiplicities, and shows that all simultaneous cross-petal interactions reduce to one statistic: the second-largest distinct length. This is a natural complete classification of a standard refinement invariant rather than a finite table or arbitrary slice.
+In any rose of t≥2 cycles, the degree-2t center separates in round one. Round-r positions on a length-L petal have identical colors iff their unordered clipped pairs {min(i,r),min(L−i,r)} coincide, hence within a petal last split floor(L/2). Comparing unequal lengths L<M, adjacent-to-center positions agree through round L−1 and split at L; none survive beyond. Over all unequal pairs maximum shorter length is the second-largest distinct petal length λ_{s−1}, independent of multiplicities. If all equal, only the longest-half term matters. Permutations of equal-length petals and reflections give the precise automorphism orbits, identical to stable classes. Independent ordinary WL over 1278 multisets of 2..5 petals, lengths 3..10, agreed with formula.
 
-## Closest literature and limitations
-The closest object-specific source is He--van Dam, arXiv:1607.05466, which defines and studies arbitrary \(k\)-rose graphs spectrally. The closest methodological source is Krebs--Verbitsky, arXiv:1407.3175. Arvind--Köbler--Rattan--Verbitsky gives the surrounding refinability terminology and structural theory. No inspected source states the exact rose stabilization formula. General cactus graphs and higher-dimensional refinement are not covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge all-petal depth formula with dependence only on largest and second-largest distinct lengths, including arbitrary multiplicity, and orbit recovery. The 2-petal infinity theorem in the present batch is a special case; no Resultary previously published exact all-t rose WL theorem was identified. Known rose literature studied spectral characterization, not this quantitative 1-WL invariant.
+
+## value
+
+PASS
+
+A uniform all-parameter stabilization-depth and orbit theorem for graphs with an arbitrary number of petals is a structural result, not merely a numerical test. The reduction of a multiset of arbitrary cycle lengths to its two dominant distinct scales is mathematically informative and supplies a natural exact benchmark of 1-WL symmetry resolution. The unbounded-petal extension survives beyond the known two-cycle subfamily.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
