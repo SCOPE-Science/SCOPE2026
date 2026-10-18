@@ -1,33 +1,21 @@
-# Review of Strict Baernstein monotonicity and quantitative binomial rigidity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For simple unit-circle zeros, the primary source represents the centered polar term as a Dirichlet integral with strictly positive kernel
-\[
-\operatorname{Re}H_a>0.
-\]
-If the polar factor \(q=p-zp'/n\) is nonconstant, then \((q^a)'\) is nonzero on some compact disk inside \(\mathbb D\). The source's root-splitting approximants converge locally there, their Blaschke factors stay in a fixed compact subdisk by Schwarz's lemma, and the Dirichlet integrals therefore have a uniform positive lower bound. Continuity of moments and exponent derivatives transfers strict positivity of the entropy difference to arbitrary boundary multiplicities.
+PASS
 
-The condition that \(q\) be constant is exactly the condition that every intermediate coefficient vanish, hence that the normalized polynomial be \(1+z^n\). This proves strictness for every positive exponent and complete equality rigidity after undoing normalization.
+In the fully read Zhang primary arXiv proof q=p−zp′/n is disk zero-free, B=q*/q satisfies |B(z)|≤|z|, positive kernel Dirichlet identity and root splitting. On a fixed compact disk where (q^{r/2})′≠0, strictness survives multiple-zero approximation. For 0<r≤2 the source radial kernel is bounded below by W_a(|z|); orthogonality, first nonzero jet c_m=(r/2)(1−m/n)a_m and independently recomputed Σ_{j≥1}1/[j(j+1)(2m+j)] give exact H_{2m} coefficient. Numerically checked this identity for m=1,2,3,4,8; infinite correctness follows from exact partial fractions and source integral, not sampling.
 
-For \(0<r\le2\), the primary source's explicit small-parameter kernel bound is radialized using \(|B(z)|\le|z|\). Orthogonality reduces the estimate to positive Taylor-coefficient terms. Keeping the first nonzero intermediate mode and evaluating the radial integral gives exactly
-\[
-\frac{m(n-m)^2(H_{2m}-1)}{n^3(2m-1)(r+2)}|a_m|^2.
-\]
-The algebraic summation is independently replayed by the packaged checker.
+## originality
 
-## Originality
+PASS
 
-PASS. The October 2026 primary paper states the sharp monotonicity theorem and says the binomial family attains equality; it does not classify all equality cases. Its relative-entropy corollary likewise records attainment, not uniqueness. The May 2026 entropy paper proves binomial rigidity only for the homogeneous entropy problem at exponent two.
+The all-exponent binomial-only equality/strictness statement is ALREADY COVERED by a published Resultary result; no independent novelty is claimed for it. The surviving finding is an explicit stronger, first-nonzero-intermediate-coefficient low-exponent derivative lower bound, extended even to repeated boundary roots (where the earlier quantitative theorem only treats simple roots). This bound is not implied quantitatively by the earlier Harnack-weighted coefficient defect: at the mth mode its factor is 2(2m+1)(H_{2m}−1)/(2m−1) times larger, and the repeated-root range is wider. Best-of-knowledge quantitative novelty only.
 
-Searches over strict norm-ratio monotonicity, complete equality cases, all-exponent entropy equality, binomial rigidity, and quantitative coefficient gaps found no implication-equivalent published theorem. Older multiplier results cover fixed-exponent or endpoint comparisons and do not dominate the all-exponent strictness claim.
+## value
 
-The principal residual risk is that a very recent follow-up to the October preprint may add equality cases before being indexed. No such source was located in the searches performed.
+PASS
 
-## Value
+A concrete positive derivative separation for a sharp quasi-norm inequality improves the previously published all-r qualitative equality theorem. The precise first-jet coefficient and its harmonic-number stability strength may be used in perturbative or near-binomial analysis, including polynomials with multiple boundary zeros. This is a limited but motivated quantitative gap result, not a second discovery of global strictness.
 
-PASS. The new theorem settles the extremizer structure of a newly proved sharp comparison: a sharp constant without a uniqueness statement leaves open whether other unit-circle zero configurations can saturate a pair of norms. The result shows that every non-binomial configuration is strictly separated at every exponent.
-
-The low-exponent derivative estimate adds quantitative rigidity rather than only a yes/no equality classification. It identifies the first nonzero intermediate coefficient as a concrete obstruction to flatness of the norm-ratio curve and gives an explicit harmonic-number constant.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
