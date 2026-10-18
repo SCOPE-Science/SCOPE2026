@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The free-2-convex defining norm is converted exactly, by Hilbert contraction/nuclear-norm duality, into max over ALL edge-probability vectors of tr(sqrt(weighted Laplacian)); no finite truncation is assumed. Graph automorphism averaging follows from operator concavity of square root. Four invariant subspaces yield all positive eigenvalues, and strict scalar concavity together with inequalities at b=2a+1 and b=2a+2 establishes the cutoff for every integer a>=2,b>=1. An analytic pointwise witness distinguishes the compared elements. A separate executable checker verifies 36 exact rational spectra, 13 unrestricted numerical edge-weight optimizations and 15 admissible polar-factor norm witnesses. Numerical tests are not used as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General graph record gives two-sided Laplacian-energy estimates and equality criteria for uniform-edge candidates, not exact two-orbit optimized trace sqrt.",
+        "Fixed-graph Laplacian-energy-like invariant literature analyzes unweighted LEL and Kirchhoff index rather than optimization over edge probabilities."
+      ],
+      "reasoning": "The exact optimizer has positive first-orbit mass for b<=2a+1, and a zero first-orbit mass for b>=2a+2; the general inequalities and fixed-graph energy do not imply this threshold.",
+      "searches": [
+        "complete tripartite graph K_{a,b,c} absolutely p summing norm incidence map ell_2 to ell_infinity spectral trace square root optimal design",
+        "sharp trace square root of weighted graph Laplacian optimal edge distribution complete multipartite graph",
+        "nuclear norm optimal graph edge sampling design trace square root Laplacian complete tripartite K a a b",
+        "exact absolutely 2-summing norm graph edge-difference operator complete multipartite complete tripartite graph Laplacian weighted optimal design free two-convex Banach lattice"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2101.03510v1 (2021 first public version; free p-convex norm formula)",
+      "Chen and Hao, Electronic Journal of Linear Algebra 38 (2022), DOI 10.13001/ela.2022.6383 (fixed-graph Laplacian energy-like invariant)",
+      "Published K_{a,a,b} symmetric-edge-polytope Löwner ellipsoid theorem, 2026/10/11/SCOPE-exact-l-wner-ellipsoid-and-sharp-screening-transition-for-k-a-a--2ec3472028bb (log determinant screening cutoff b>=2a+1)",
+      "Previously determined complete-bipartite two-summing norm (compared as a restricted special case)",
+      "General graph edge-difference two-summing Laplacian bounds (compared as nonexact global bounds)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full published RESULT.md derives F(t)=(2a-2)log(1+t)+log(1+3t)+b log(1-t), and t=0 at b>=2a+1.",
+        "Present FBL norm uses square-root trace and remains strictly larger than the bipartite value at b=2a+1; threshold is b>=2a+2."
+      ],
+      "reasoning": "Determinant maximizing designs optimize a different strictly concave symmetric functional from square-root trace and their distinct cutoff at the very same graph parameters refutes direct equivalence or implication of the new threshold. No covering result found.",
+      "searches": [
+        "2026/10/11/SCOPE-exact-l-wner-ellipsoid-and-sharp-screening-transition-for-k-a-a--2ec3472028bb",
+        "absolute 2-summing norm of graph edge difference operator from Euclidean vertex space to supremum edge space with complete tripartite graph K_{a,a,b}, spectral square root of weighted Laplacian, edge design",
+        "sharp trace square root of weighted graph Laplacian optimal edge distribution complete multipartite graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The free 2-convex lattice norm has an absolutely two-summing edge-difference representation, explicitly compared as one statement.",
+        "The actual source arXiv:2101.03510v1 supplies general norm formula, not this tripartite norm evaluation."
+      ],
+      "reasoning": "The free-lattice and pi_2 formulations coincide by direct Hilbert norm duality; searches therefore covered both and did not confuse their algebraic equivalence with independent novelty.",
+      "searches": [
+        "exact absolutely 2-summing norm graph edge-difference operator complete multipartite complete tripartite graph Laplacian weighted optimal design free two-convex Banach lattice",
+        "absolute 2-summing norm of graph edge difference operator from Euclidean vertex space to supremum edge space with complete tripartite graph K_{a,a,b}, spectral square root of weighted Laplacian, edge design",
+        "FBL^{(2)}[ell_2^n] free two convex Banach lattice lattice supremum of graph edge coordinate differences complete tripartite norms",
+        "arXiv:2101.03510v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest own exact table concerns K_{p,q}, which is precisely the screened branch s=0.",
+        "Published same-graph result computes a different determinant-based geometric invariant with a different integer screening threshold."
+      ],
+      "reasoning": "A bipartite value is a lower comparator and is not an exact computation of the unscreened tripartite regime, which is a strictly larger trace-root objective.",
+      "searches": [
+        "exact absolutely 2-summing norm graph edge-difference operator complete multipartite complete tripartite graph Laplacian weighted optimal design free two-convex Banach lattice",
+        "absolute 2-summing norm of graph edge difference operator from Euclidean vertex space to supremum edge space with complete tripartite graph K_{a,a,b}, spectral square root of weighted Laplacian, edge design",
+        "nuclear norm optimal graph edge sampling design trace square root Laplacian complete tripartite K a a b",
+        "exact absolutely 2-summing norm graph edge-difference operator complete multipartite complete tripartite graph Laplacian weighted optimal design free two-convex Banach lattice"
+      ]
+    },
+    "rationale": "Best-knowledge comparison distinguishes the full free-lattice and operator-ideal statement from a previously known bipartite special family, general nonsharp spectral bounds, fixed-unweighted Laplacian energy-like invariants, and full-text published same-graph Löwner analysis optimizing log determinant. The latter has cutoff b>=2a+1, while this trace-square-root/free-lattice norm screens only at b>=2a+2. Search and primary-text inspection have not identified a stronger covering theorem. Residual unindexed graph-design/2-summing literature risk remains.",
+    "residual_risks": [
+      "An equivalent graph-incidence two-summing computation may exist under nonlinear summing, spectral graph design, Laplacian-energy, or operator-ideal terminology; exact published coverage beyond inspected sources has not been excluded. Independent mathematical and bibliographic validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATION_NOT_COVERING_TRIPARTITE",
+        "evidence": "Provides universal free p-convex norm definition; contains no reported optimized K_{a,a,b} edge norm, cutoff or two-orbit calculation.",
+        "identifier_or_url": "https://arxiv.org/abs/2101.03510",
+        "material_read": "Full accessible arXiv HTML, especially introduction formula (1.1) and Section 6 norm description",
+        "method": "Read primary open-access mathematical text",
+        "title": "Free Banach lattices under convexity conditions",
+        "trigger": "Foundational primary 2021 source; exact FBL p-convex norm and nonlinear p-summing interpretation"
+      },
+      {
+        "assessment": "DISTINCT_OBJECTIVE_AND_CUTOFF",
+        "evidence": "Optimizes log det with threshold b>=2a+1; proposed norm maximizes tr sqrt with distinct threshold b>=2a+2.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-l-wner-ellipsoid-and-sharp-screening-transition-for-k-a-a--2ec3472028bb",
+        "material_read": "Complete published RESULT.md including exact statement, eigenvalues, proof and prior comparisons",
+        "method": "Fetched and read primary published proof text",
+        "title": "Exact Löwner ellipsoid and sharp screening transition for K_{a,a,b} symmetric edge polytopes",
+        "trigger": "Same graph parameters and a possible equivalent edge-weight design"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_OPTIMIZATION",
+        "evidence": "Treats fixed unweighted graph Laplacian spectra and Kirchhoff index; does not compute optimized weighted graph edge-probability traces or FBL norms.",
+        "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/view/6383",
+        "material_read": "Full accessible journal PDF reviewed for definition and scope; abstract and equation comparison",
+        "method": "Read accessible primary research and inspected PDF",
+        "title": "Remarks on Comparison between the Laplacian energy-like invariant and the Kirchhoff index",
+        "trigger": "Alias tr sqrt Laplacian known as graph Laplacian-energy-like invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9bddcd86-cf8d-4a1e-bddd-7b1288c9aa6f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The explicit graph-edge lattice supremum is a natural operator-ideal/free-lattice invariant. The theorem solves an infinite integer family with a nontrivial positive-weight optimum, an exact sharp one-integer screening transition, and equality of norms for strictly pointwise-different lattice elements. The cutoff differs from the known same-graph determinant design, distinguishing two genuine spectral geometric mechanisms. Beyond finite computations and beyond a routine restatement of the bipartite formula.",
+    "status": "PASS"
+  }
+}
