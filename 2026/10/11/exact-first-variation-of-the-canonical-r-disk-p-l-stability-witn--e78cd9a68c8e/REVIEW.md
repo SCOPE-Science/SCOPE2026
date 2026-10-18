@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. In coordinates adapted to the unchanged boundary arc, the regular \(r\)-disk triangle has side chord \(s=\frac12(\sqrt{4r^2-(r-w)^2}-\sqrt3(r-w))\). Continuing the arc by chord distance \(x\) gives an exact rotated-radius displacement, hence exact formulas for the two changed chords and for the Euclidean vertex-triangle area increment. Adding the three minor circular-segment areas gives the exact deficit. Differentiation yields \(L(r,w)\), and \(L>0\) follows because \(0<\arcsin u\le\pi/6\). The diameter identity for this same canonical family is stated in the lead source; combined with \(|\operatorname{diam}A-\operatorname{diam}B|\le2d_H(A,B)\), it gives the displayed necessary lower bound for every local Hausdorff stability constant. The verifier is a finite consistency check, not the proof.
+## correctness
 
-## Originality
-PASS. The lead paper arXiv:2606.02882v1 constructs the same deformation and proves only an existential linear comparison \(\varepsilon<c_5x\) in its optimality argument. Its Section 5 uses an upper sector bound plus a circular-segment difference and does not state the exact finite-\(x\) deficit, the exact slope \(L(r,w)\), or the explicit path-wise lower bound \(c/(2L)\). The precursor arXiv:2602.19300 proves the isominwidth theorem but not this stability calculation. Lucardesi--Zucco treats the ordinary convex limit, not finite \(r\). Targeted semantic searches over exact-area, first-variation, canonical-perturbation, and finite-\(r\) Hausdorff-constant formulations found no equivalent or stronger statement.
+PASS
 
-## Value
-PASS. The deformation is not an arbitrary slice: it is the canonical witness used by the recent stability theorem to prove that linear order is sharp. Replacing its existential comparison constant by an exact area law and first-order efficiency gives a quantitative obstruction that every finite-\(r\) Hausdorff stability constant must respect. The endpoint values connect the Reuleaux case and the classical Pál limit, so the coefficient also provides a natural calibration for future attempts to determine optimal constants.
+PASS for the uniquely determined u=s/(2r) interpretation (RESULT has a recoverable nu/u glyph drift): independently reconstruct the circle coordinates, chord lengths a,b, determinant area increment and circular segment function J_r. Symbolic differentiation gives exact deficit slope L, positive on 0<u≤1/2. The initial diameter is s and the deformed diameter a(x) as verified in original source Section 5; |diam A−diam B|≤2d_H yields c/(2L) bound. At r=w c=√3/2,u=1/2; as r→∞ u∼w/(√3r), giving limits as claimed. Bounded numerical samples support but do not prove general statement.
 
-The main limitation is that the lower bound is path-wise and is not claimed to equal the globally optimal finite-\(r\) constant. Hyperbolic and spherical analogues are not included, and an unindexed duplicate computation cannot be ruled out completely.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best knowledge): The full text of the actual same deformation Fodor–Sagmeister arXiv:2606.02882v1 §5 has only ε<c5 x for unspecified c5 and a sharpness-of-order proof. Prior r-ball isominwidth paper supplies minimizer, and ordinary Pál stability covers r=∞, neither states nor mathematically forces the exact finite-r area slope or explicit parameter curve c/(2L). The new expression requires independent circle-segment differentiation, not a title or parameter match. The Resultary self-hit was excluded as independent antecedence; no stronger covering statement identified in primary comparisons.
+
+## value
+
+PASS
+
+PASS: For a canonical extremal path used by the published stability theorem, the exact local deficit per displacement calibrates a necessary coefficient in any uniform Hausdorff stability inequality. This matters to sharp-constant research at every finite r/w, with independent endpoint comparison to Reuleaux and classical Pál regimes. It is not a claim of globally optimal constant; a single motivated path-bound is an independently useful strict quantitative invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
