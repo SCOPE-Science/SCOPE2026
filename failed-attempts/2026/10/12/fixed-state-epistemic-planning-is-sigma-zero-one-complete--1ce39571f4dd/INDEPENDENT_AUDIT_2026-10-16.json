@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T18:54:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at Git blob eff0209f74f711864358836a6d374e197ff27445",
+        "Achilleos arXiv:2604.22736 Section 3.1–3.3 and Theorem 3.19",
+        "Post 1946 PCP recursive-enumerability completeness"
+      ],
+      "rationale": "With the finite pointed initial model s_I, ten-atom vocabulary and goal Phi_G fixed, Achilleos Section 3 constructs for each binary-PCP instance B only a varying finite action library Act_B consisting of add_i events plus three fixed verification actions. Theorem 3.19 gives B has a match iff a finite plan reaches Phi_G. The full construction has no postconditions and event preconditions of modal depth at most one. Since finite action words and finite product updates can be enumerated and effectively checked, membership in Sigma^0_1 holds. Binary PCP is many-one complete via effective injective prefix coding, proving equality. Fixed does not mean the number/size of actions is bounded. Checked the source theorem and quantifier localization, not just the abstract.",
+      "residual_risks": [
+        "Depends on the precise finite designated-point semantics and source event construction; no independent reimplementation of PCP event models."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Achilleos Theorem 3.19 proves a PCP-to-plan many-one reduction within the identical restricted family. The 2018 work fixes actions instead and varies initial states."
+        ],
+        "reasoning": "The primary construction is stronger in explicit detail and already implies the claimed restricted many-one hardness; the complementary 2018 setting is not independently covering.",
+        "searches": [
+          "Achilleos Theorem 3.19 undecidability plan existence single agent K modal depth one",
+          "Lê Cong Pinchinat Schwarzentruber Small Undecidable Problems in Epistemic Planning IJCAI 2018"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.22736 Sections 3.1–3.3 and Theorem 3.19",
+        "DOI:10.24963/ijcai.2018/664",
+        "Resultary semantic search for fixed-state action-only epistemic planning"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original PCP many-one map B -> (s_I,Act_B,Phi_G) has constant first and third coordinates and fixed proposition set. Finite-plan enumeration is a routine upper semi-decision procedure."
+        ],
+        "reasoning": "Without changing the construction, Theorem 3.19 yields Sigma^0_1-hardness on precisely the input action library; trivial membership supplies completeness. This is decisive coverage, not failed-search inference.",
+        "searches": [
+          "arXiv:2604.22736 Thm 3.19 construction add_i nxt_stg rmv_0 rmv_1",
+          "arXiv:2604.22736 Section 3 fixed s_I Phi_G"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source defines s_I and the ten-letter vocabulary before taking PCP-dependent add_i actions; the final Phi_G is a fixed formula."
+        ],
+        "reasoning": "The source reduction is the same fixed-state/fixed-goal, action-only-input problem, not a merely related model.",
+        "searches": [
+          "Resultary: epistemic planning one agent K fixed initial state fixed goal action models modal depth 1 postcondition-free PCP reduction Achilleos",
+          "arXiv:2604.22736 Sections 3.1–3.3 fixed components"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a computability-classification theorem, not a finite numerical database. The primary original paper itself contains exact model, event actions and final goal."
+        ],
+        "reasoning": "No OEIS-like table applies. Exact-instance data already appear as the pinned universal source construction.",
+        "searches": [
+          "Resultary semantic same fixed-goal fixed-initial epistemic planning action set PCP",
+          "arXiv:2604.22736 fixed goal Phi_G initial s_I"
+        ]
+      },
+      "rationale": "Achilleos 2026 already gives a fully specified many-one PCP reduction with exactly the fixed initial state, fixed goal, fixed vocabulary and only actions varying. The new theorem is a direct corollary of the original reduction plus the elementary enumeration upper bound, even though the source paper advertises only undecidability in its abstract. The user standard treats corollaries of stronger work as prior coverage regardless of wording.",
+      "residual_risks": [
+        "No fresh finite-event-model simulator was executed; correctness relies on checking source reduction statements and effective enumerability. The scientific rejection is prior coverage, not an access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS",
+          "evidence": [
+            "Fixed initial state s_I and goal Phi_G do not mention PCP input B; only add_i vary. Theorem 3.19 states B has PCP match iff the task has a plan."
+          ],
+          "identifier_or_url": "arXiv:2604.22736 / https://arxiv.org/pdf/2604.22736",
+          "material_read": "PDF Section 3.1 fixed proposition vocabulary/model, Section 3.2 action family, Section 3.3 fixed goal and Theorem 3.19, checked extracted text and the displayed reduction on page image",
+          "method": "Read primary PDF theorem and construction passages",
+          "title": "An Undecidability Proof for the Plan Existence Problem",
+          "trigger": "Exact original reduction cited in submitted work"
+        },
+        {
+          "assessment": "DIFFERENT_INPUT_LOCATION",
+          "evidence": [
+            "Two-agent S5 and initial-state-varying instance differs; this does not negate direct coverage by Achilleos."
+          ],
+          "identifier_or_url": "DOI:10.24963/ijcai.2018/664",
+          "material_read": "Abstract/statement of complementary fixed-action/varying-initial-state regime",
+          "method": "Read accessible abstract and recorded theorem scope, no full-article noncoverage claim",
+          "title": "Small Undecidable Problems in Epistemic Planning",
+          "trigger": "Potential fixed-parameter predecessor"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Achilleos arXiv:2604.22736 Theorem 3.19",
+        "IJCAI 2018 parameter-fixed comparison"
+      ],
+      "rationale": "The question which input parameter carries undecidability is intrinsically significant, but in this exact formulation the answer is already visibly encoded in Achilleos Section 3. The only added step is the standard r.e. upper bound obtained by enumerating finite plans. No independent new boundary, restriction, certificate or mathematically motivated unknown invariant survives. Thus it is a textbook corollary/explicit restatement, not a new valuable mathematical contribution.",
+      "residual_risks": [
+        "A differently restricted planning variant could be valuable, but none is proved in the frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Actions vary in cardinality and finite size; no S5 or negative-introspection claim.",
+    "Publication requires privacy-safe metadata replacement; not staged."
+  ],
+  "schema_version": 1
+}
