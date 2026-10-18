@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two prior stationary balances were re-derived symbolically from the displayed vector field. The new identity \(\int xz\,d\mu=-\int y^2\,d\mu\) follows from the exact Lie derivative of \(xy\). Cauchy–Schwarz gives the first inequality, and the second follows algebraically. Equality forces \(z=-Tx\); tangency of that constraint gives \(R(1-x^2)y=0\), and invariance then leaves only the origin atom.
+## correctness
 
-## Originality
-PASS. The closest same-object published finding, identifier `2026/9/20/SCOPE-moore-spiegel-balance-laws-and-period-floor--8ed8e017fb90`, proves the balance laws and only the weaker \(R>T>0\) excursion \(|x|>\sqrt{1-T/R}\). Targeted statement-level searches for a unit barrier, weighted moment inequality, and equivalent formulations found no stronger same-object result. The 1997 full text was inspected and discusses bifurcations, periodic orbits, chaotic averages, and synchronization, not this invariant-measure inequality.
+PASS
 
-## Value
-PASS. The result upgrades a parameter-dependent excursion threshold to a universal \(|x|>1\) barrier over the entire physical quadrant \(T,R>0\). This is a structural restriction on every nontrivial periodic, chaotic, or mixed compact recurrent statistical state, with a sharp equality classification.
+C: Prior balance-generating polynomials F,G have exact Lie derivatives y²−Tx² and z²+(R−T)y²−Rx²y²; independent symbolic expansion confirmed. Invariance of xy yields ∫xz=−∫y². Cauchy–Schwarz and ∫y²=T∫x² imply ∫z²≥T∫y² for T>0. Substitute in second balance and divide by R>0. Equality forces z=−Tx µ-a.e.; invariant support is flow invariant, and L(z+Tx)|_{z=−Tx}=R(1−x²)y. The only orbit trapped in z+Tx=(1−x²)y=0 is origin, giving strictness for any other µ. Positivity of weighted (x²−1)y² forces mass at |x|>1,y≠0. Compact support legitimizes all polynomial averaged derivatives; no claim of existence for each T,R.
 
-The closest literature limitation is that later or poorly indexed work might contain an equivalent averaged inequality. No such statement was found in the inspected same-object sources or published-finding searches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+O: Complete published same-ODE prior yields exact balances and only weaker parameter-dependent threshold for R>T. The additional xy stationarity covariance and equality rigidity are not part of its theorem; the strict universal barrier is not a consequence of its stated excursion conclusion. Bibliographic search left old full manuscript inaccessible.
+
+## value
+
+PASS
+
+V: A universal and strict geometric threshold for all nontrivial compact recurrent statistical states, independent of both physical parameters, is a meaningful strengthening of the previously known damping-sign boundary and applies even where that earlier support argument cannot be used. This is a necessary recurrence obstruction, not a rebranding of an existing numerical observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
