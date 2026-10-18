@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:01:33.447027Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the full positive SIRS system, f(I)>=f(0)>0, strict log drift threshold, and covariance PSD hypotheses. Total N has uniformly bounded second moment since quadratic variation density <=QN^2 and Q<2mu, yielding boundary/martingale strong laws. The balance equations bound average susceptible population by Lambda/mu and force exponential I extinction. Positive recovered variation of constants and the same-noise linear susceptible X yield exponentially decaying R and S-X; local Lipschitz f^{-1} makes the nonlinear incidence error time-integrable. Affine X has ergodic mean m, moment q and X_t/sqrt(t)->0 in probability. Integration of dX gives an exact log I martingale decomposition with bracket slope v_rho. The continuous martingale CLT and strong law prove both limits; correlation minimization is an exact completed-square identity. Edge cases a=0 or b=0 and rho=±1 are included, not critical lambda=0 or Q>=2mu. Direct independent symbolic rationals rechecked the moments and variance floor; no simulation is offered as infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 varying-infectivity epidemic FCLT is a large-population approximation, not this fixed-noise infinite-time asymptotic.",
+          "Classical martingale CLT and inverse-gamma diffusion moments supply tools but do not establish the nonlinear coupling."
+        ],
+        "reasoning": "Nearby general classifications and broad results were tested for a sufficient mathematical implication; generic methods alone do not constitute the submitted explicit theorem.",
+        "searches": [
+          "Resultary semantic search: stochastic SIRS extinction logarithmic infection central limit theorem correlated Brownian noise inverse gamma variance floor"
+        ]
+      },
+      "checked_sources": [
+        "Huang, Du, Liang, AIMS Mathematics 11 (2026), DOI:10.3934/math.2026278, Theorem 3.2, Remark 3.2 and Section 3.4",
+        "Resultary 2026/10/4: Extinction has a nondegenerate susceptible boundary law, not point convergence (f842fd6897d6)",
+        "Zhao, Jiang, Mao, Gray, DCDS-B 20 (2015), DOI:10.3934/dcdsb.2015.20.1277",
+        "Zotsa-Ngoufack, arXiv:2311.02260"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An upper bound on log I/t and an inverse-gamma boundary law separately do not yield the required integrable incidence difference or joint log fluctuation CLT."
+        ],
+        "reasoning": "Prior statements were compared with the submitted quantifiers, algebraic object, parameters and target statistic; risk is documented without presuming that failed search proves novelty.",
+        "searches": [
+          "Resultary semantic search: stochastic SIRS extinction logarithmic infection central limit theorem correlated Brownian noise inverse gamma variance floor"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang–Du–Liang Theorem 3.2 has only an upper log exponent, not a centered central limit law.",
+          "Published same-model susceptible boundary-law result isolates X but does not state variance of log I."
+        ],
+        "reasoning": "Equivalent aliases, familiar reductions and the same-object prior theorem were evaluated by mathematical implication, not just matching titles.",
+        "searches": [
+          "Resultary semantic search: stochastic SIRS extinction logarithmic infection central limit theorem correlated Brownian noise inverse gamma variance floor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact Gaussian log-infection covariance/floor table found in compared same-source paper; its endemic sensitivity covariance is at positive stationarity, not at disease extinction."
+        ],
+        "reasoning": "Existing published tables and same-parameter findings were distinguished from the exact claimed invariant and from independent computations.",
+        "searches": [
+          "Resultary semantic search: stochastic SIRS extinction logarithmic infection central limit theorem correlated Brownian noise inverse gamma variance floor"
+        ]
+      },
+      "rationale": "The stochastic epidemic source provides an extinction upper exponent and sensitivity about a positive endemic equilibrium; these do not imply an exact time-asymptotic log-extinction CLT. The result published on the same source about a nondegenerate boundary susceptible law identifies X’s inverse-gamma stationary behavior but not the infection fluctuation variance/correlation floor. Related SIRS and stochastic epidemic fluctuation papers address varying population, many-particle limits or extinction times. The exact claimed process-level limit remained uncovered in inspected statements; unpublished or unindexed stochastic boundary CLTs remain a genuine risk.",
+      "residual_risks": [
+        "Older unindexed diffusion CLTs near extinction might contain an equivalent fixed-noise logarithmic limit.",
+        "Huang et al. claim disease-free susceptible point convergence under positive multiplicative noise, known to be false; current proof instead couples to a fluctuating boundary diffusion.",
+        "Martingale and pathwise moment arguments were mathematically reconstructed, not independently formalized."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BASELINE_ONLY: an upper logarithmic exponent bound and endemic Gaussian sensitivity, not an extinction-log martingale CLT.",
+          "evidence": [
+            "Theorem 3.2 states limsup (log I)/t <= negative and also asserts susceptible point convergence; correlated-noise discussion concerns threshold."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/3/PDF/math-11-03-278.pdf",
+          "material_read": "Publisher open full 24-page PDF, especially Model (1.3), Theorem 3.2 p.6725 and Remark 3.2/sensitivity section; direct page-image reading of theorem and equations.",
+          "method": "Publisher PDF text and visual inspection",
+          "title": "Dynamics and stochastic sensitivity technique of a stochastic SIRS epidemic model",
+          "trigger": "Same Itô SIRS system, threshold and claimed correction"
+        },
+        {
+          "assessment": "RELATED_NOT_IDENTICAL based on available summary; do not claim full work excluded.",
+          "evidence": [
+            "The published finding reports boundary susceptible inverse-gamma law and nonconvergence to a point, not a log-infective CLT in the available summary."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-extinction-has-a-nondegenerate-susceptible-boundary-law-not-poin--f842fd6897d6",
+          "material_read": "Published title, indexed scientific summary and explicit inverse-gamma mean/variance; not entire record proof.",
+          "method": "Resultary semantic record inspection",
+          "title": "Extinction has a nondegenerate susceptible boundary law, not point convergence",
+          "trigger": "Same motivating stochastic SIRS model and boundary diffusion"
+        },
+        {
+          "assessment": "DISTINCT_SCALING_LIMIT; residual that a broader theorem may be expressed elsewhere.",
+          "evidence": [
+            "This model sends population size to infinity, while the reviewed theorem sends time to infinity for a fixed environmental-noise diffusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.02260",
+          "material_read": "ArXiv description/abstract and stated growing-population limit; full proof not inspected in this run.",
+          "method": "ArXiv abstract and scope comparison",
+          "title": "Functional Central Limit Theorems for Epidemic Models with Varying Infectivity and Waning Immunity",
+          "trigger": "Potential equivalent epidemic Gaussian limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The strict extinction criterion predicts sign, not the distribution of long-time log-infection uncertainty. A closed variance with a sharp attainable correlation floor distinguishes first-order threshold robustness from second-order extinction risk and gives a motivated stochastic-epidemic asymptotic rather than a normalization check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Huang, Du, Liang, AIMS Mathematics 11 (2026), DOI:10.3934/math.2026278, Theorem 3.2, Remark 3.2 and Section 3.4",
+    "Resultary 2026/10/4: Extinction has a nondegenerate susceptible boundary law, not point convergence (f842fd6897d6)",
+    "Zhao, Jiang, Mao, Gray, DCDS-B 20 (2015), DOI:10.3934/dcdsb.2015.20.1277",
+    "Zotsa-Ngoufack, arXiv:2311.02260"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older unindexed diffusion CLTs near extinction might contain an equivalent fixed-noise logarithmic limit.",
+    "Huang et al. claim disease-free susceptible point convergence under positive multiplicative noise, known to be false; current proof instead couples to a fluctuating boundary diffusion.",
+    "Martingale and pathwise moment arguments were mathematically reconstructed, not independently formalized."
+  ]
+}
