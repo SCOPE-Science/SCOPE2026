@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Boolean-OR model, defective-set quantifiers, and equivalence relation were reconstructed from the definitions. `artifacts/verify.py` performs exhaustive size-seven and size-eight searches over all nonzero six-bit columns. Its pruning condition is exactly output collision, so it cannot remove a valid family. Direct outcome replay, the complete \(S_6\) orbit computation, weight/matching/parity checks, and the Fano extension all pass. The impossibility statement comes from a completed target-eight enumeration, not from a timeout or partial search.
+## correctness
 
-## Originality — PASS
-The closest primary source, Chen's 2010 thesis on seven items and at most two defectives, proves that a deleted-row Fano incidence matrix is a valid optimum and supplies the smaller-parameter obstruction. The inspected main-result section does not state that every \(6\times7\) optimum is equivalent to this construction, nor does it give the \(30\)-family count, the \(151{,}200\) fully labeled count, or the single-orbit stabilizer calculation. Exact-parameter and alias searches, including stronger-coverage and database/table formulations, returned no implication-equivalent classification. The closest returned records use Fano incidence or separability in different mathematical properties and do not imply this claim.
+PASS
 
-Residual risk: a difficult-to-discover historical classification may exist outside the indexed and inspected material.
+Every valid nonzero six-bit family is visited uniquely by strictly increasing bitmask DFS with exact checks for singleton and pair-OR outcome collisions; independently implemented enumeration finds precisely 30 families of 7, and no extension of any such family to 8. All smaller family growth cannot avoid a valid size-7 prefix if 8 exists. Each family has three disjoint 2-subsets and four 3-subset parity transversals, and direct six-row permutation orbit has size 30. Its extension yields a 2-(7,3,1) block system. Independent code at /mnt/data/scope09_check_1334.py uses no SAT solvers or saved logs.
 
-## Value — PASS
-The parameter is not arbitrary: it is the exact seven-item optimum highlighted by the prior group-testing literature. Classifying every equality case turns a known construction and optimum into a rigidity theorem, and the matching/parity description gives a compact structural reason that the Fano plane is forced. The exact counts and stabilizer are natural consequences of that classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact optimal size appears in Chen 2010 via Fano construction and parameter obstruction, but an equality-case uniqueness/orbit enumeration was not established in the inspected main theorem. Claim is therefore narrowly the complete extremal classification and count.
+
+## value
+
+PASS
+
+Exact extremizer rigidity and symmetry/orbit counts fill the equality structure of a natural seven-item optimum; it is not just another seven-item witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

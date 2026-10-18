@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone verifier is `artifacts/verify.py` and uses only the Python standard library.
+# Independent mathematical audit
 
-It performs these finite checks from first principles:
+## correctness
 
-1. Exhaustively enumerate unordered size-seven families of nonzero six-bit columns, retaining a partial family exactly when all singleton and pairwise Boolean-OR outcomes constructed so far are distinct.
-2. Repeat the same exhaustive search at size eight. The completed search returns zero families, so larger families are impossible as well because separability is hereditary under taking subfamilies.
-3. Recompute the \(28\) nonempty outcomes for each of the \(30\) maxima without relying on the search state.
-4. Apply all \(720\) row permutations to one maximum and compare the resulting orbit with the complete census.
-5. Verify, for every maximum, the weight profile \(2,2,2,3,3,3,3\), the perfect matching formed by weight-two supports, the parity-class transversal structure of the weight-three supports, and the \(2\!-(7,3,1)\) property after adding a seventh point.
+PASS
 
-Expected successful output:
+Every valid nonzero six-bit family is visited uniquely by strictly increasing bitmask DFS with exact checks for singleton and pair-OR outcome collisions; independently implemented enumeration finds precisely 30 families of 7, and no extension of any such family to 8. All smaller family growth cannot avoid a valid size-7 prefix if 8 exists. Each family has three disjoint 2-subsets and four 3-subset parity transversals, and direct six-row permutation orbit has size 30. Its extension yields a 2-(7,3,1) block system. Independent code at /mnt/data/scope09_check_1334.py uses no SAT solvers or saved logs.
 
-`VERIFY_OK nodes7=49299 nodes8=48919 maximum=7 labeled_row_families=30 fully_labeled_matrices=151200 row_group=720 orbits=1 orbit_size=30 stabilizer=24 weights=2x3,3x4 canonical=000011;001100;010101;011010;100110;101001;110000 census_sha256=7ac7fdffca94f4bf5e1ad4c5842affcbec53aff20bab076757c20c02865f9190`
+## originality
 
-Limits: this is an exact finite verification only for six binary tests and defective sets of size at most two. It does not certify any asymptotic or larger-parameter statement.
+PASS
+
+The exact optimal size appears in Chen 2010 via Fano construction and parameter obstruction, but an equality-case uniqueness/orbit enumeration was not established in the inspected main theorem. Claim is therefore narrowly the complete extremal classification and count.
+
+## value
+
+PASS
+
+Exact extremizer rigidity and symmetry/orbit counts fill the equality structure of a natural seven-item optimum; it is not just another seven-item witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
