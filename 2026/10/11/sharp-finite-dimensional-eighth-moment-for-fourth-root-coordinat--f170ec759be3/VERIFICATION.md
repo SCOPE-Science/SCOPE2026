@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof rests on the exact identity
-\[
-\|F\|_8^8=24S^4-72S^2Q+18Q^2+64SR-34U+|T|^2
-\]
-and the strict smoothing bound
-\[
-144-76A-192u+60u^2+16t\ge12.
-\]
-These establish the universal statement.
+# Independent mathematical audit
 
-The bundled `verify.py` performs finite corroboration: it checks the identity on five exact integer-coefficient cases and the equality family for \(2\le n\le6\). Its expected terminal line is:
+## correctness
 
-`VERIFY_OK identity_cases=5 extremizers=5 max_states=4096`
+PASS
 
-Finite enumeration is not an exhaustive proof for arbitrary \(n\).
+Expansion of F^4 conjugate(F)^4 retains either matched multi-indices or a four-copy transfer between coordinates. Direct character orthogonality gives 24S^4-72S²Q+18Q²+64SR-34U+|sum a_j^4|². The phase bound |sum a_j^4|²<=Q² is sharp exactly at aligned fourth powers. With sum |a_j|²=1, strict pairwise smoothing has derivative dPhi/d(xy)=144-76A-192u+60u²+16xy >=12 using A<= (1-u)². Therefore all moduli equal. Independently enumerated all 4^n group points for n=2,3,4 with nontrivial complex coefficients and matched expansion numerically to rounding; symbolic differentiation reproduced the smoothing derivative. Universal n follows from algebra, not enumeration.
+
+## originality
+
+PASS
+
+Finite-order quartic resonance adds |sum a_j^4|² beyond the continuous-Steinhaus moment and fixes coefficient phases. Bourgain-Lewko gives generic Sidonicity/psi2 results, not this exact finite n fourth-root L8 maximizer. Classical optimal Khintchine frameworks may contain equivalent probabilistic inequalities; their full comparison remains limited.
+
+## value
+
+PASS
+
+The discrete fourth-root alphabet first differs from Steinhaus variables at moment eight. The exact sharp finite-dimensional Λ(8) constant and phase-rigid extremizers characterize that natural torsion transition and are useful to compare complex Khintchine systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
