@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Chen et al. Corollary 5.4 supplies the exact full-dimensional original-coordinate halfspaces. The integer bidiagonal transform reduces them to suffix-normal box bounds and oriented unit-normal path inequalities. The Chebyshev LP has upper bounds from every directed path with endpoint weights sqrt(n-i+1), and a direct longest-path potential attains the maximum-run barrier, establishing both directions for all n>=2. Equality enforces all claimed active constraints; separate extremal-word and affine-unimodular arguments verify the sharp range and Ehrhart pair. An independently constructed scipy HiGHS LP checked all 1,023 orientation words through n=10, including 36,868 shifted inequalities; 72 paired binary vertices were also tested. Finite tests corroborate but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The signed order-polytope theorem 2026/10/11/SCOPE-a-longest-signed-path-gives-the-exact-euclidean-inradius-of-ever--bd0fdb1bb195 is a longest-path result for root normals of lengths 1 and sqrt(2), as confirmed in its complete RESULT.md.",
+        "The marked order-polytope theorem 2026/10/11/SCOPE-marked-chains-give-the-exact-euclidean-inradius-of-regular-marke--07f2c6322025 uses marked chain edge normals of lengths 1 and sqrt(2) in standard free-coordinate metric.",
+        "The original delta-matroid source proves an H-presentation and combinatorial triangulation, not Chebyshev radii."
+      ],
+      "reasoning": "Abstract difference-constraint feasibility is a standard technique, but these existing geometric theorems neither apply to the nonorthogonal metric transfer nor contain a theorem identifying all maximal constant runs with weighted suffix endpoints for all 2^(n-1) linked toric intervals. No known covering metric result was located.",
+      "searches": [
+        "published-finding corpus: Euclidean inradius of type C Gale interval alcoved lattice path delta matroid polytope 2023",
+        "published-finding corpus: Euclidean inradius of 0-1 polytope with prefix sum inequalities bounded by one and adjacent monotone paths",
+        "Published full RESULT: 2026/10/11/SCOPE-a-longest-signed-path-gives-the-exact-euclidean-inradius-of-ever--bd0fdb1bb195",
+        "Published full RESULT: 2026/10/11/SCOPE-marked-chains-give-the-exact-euclidean-inradius-of-regular-marke--07f2c6322025"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.15441v1; full accessible source sections 1, 4, 5, 6",
+      "2026/10/11/SCOPE-rank-alone-determines-the-euclidean-inradius-of-generalized-snak--596405e4967f; full RESULT.md",
+      "2026/10/11/SCOPE-a-longest-signed-path-gives-the-exact-euclidean-inradius-of-ever--bd0fdb1bb195; full RESULT.md",
+      "2026/10/11/SCOPE-marked-chains-give-the-exact-euclidean-inradius-of-regular-marke--07f2c6322025; full RESULT.md",
+      "2026/10/11/SCOPE-cyclic-interval-barriers-determine-the-euclidean-inradius-of-eve--2320ec59e2e4; indexed summary and object comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen et al., Theorem A + Corollary 5.4 provide the sufficient exact inequalities; they do not compute a maximum ball or its metric normal lengths.",
+        "The generalized snake order-polytope result is word-independent in a different coordinate space; the present result varies with runs and has an Ehrhart-equivalent unequal-radius pair.",
+        "The chainlink barrier result treats cyclic interval constraints of a different polytope with different source parameters."
+      ],
+      "reasoning": "Having an H-presentation makes a new metric LP solvable but does not state or logically imply the closed formula without the longest-path reduction, endpoint-weight calculation, and global extremal analysis. Other results cannot directly transfer Euclidean radii through arbitrary unimodular maps. These checks were by mathematical claims and implications, not title-only comparison.",
+      "searches": [
+        "Primary arXiv full HTML: arxiv:2311.15441v1 (Theorem A, Corollary 5.4, Sections 4–6; document find for inradius, Euclidean, radius)",
+        "Published full RESULT: 2026/10/11/SCOPE-rank-alone-determines-the-euclidean-inradius-of-generalized-snak--596405e4967f",
+        "Published full RESULT: 2026/10/11/SCOPE-a-longest-signed-path-gives-the-exact-euclidean-inradius-of-ever--bd0fdb1bb195",
+        "Published full RESULT: 2026/10/11/SCOPE-marked-chains-give-the-exact-euclidean-inradius-of-regular-marke--07f2c6322025",
+        "published-finding corpus closest chainlink title: 2026/10/11/SCOPE-cyclic-interval-barriers-determine-the-euclidean-inradius-of-eve--2320ec59e2e4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen et al., arXiv:2311.15441v1, Corollary 5.4 identifies canonical suffix constraints and Proposition 5.3 the same linked-snake family.",
+        "Published generalized snake order-polytope radius statement (2026/10/11/SCOPE-rank-alone-determines-the-euclidean-inradius-of-generalized-snak--596405e4967f) uses standard Euclidean coordinates of a different poset polytope and has a word-independent value."
+      ],
+      "reasoning": "The same word snake is insufficient for equivalence: the present object is an incidence-coordinate type-C delta-matroid polytope; the earlier generalized snake result treats standard order polytopes of a different poset family. The conjugating integer transformation is not orthogonal, and the Euclidean normal lengths here are sqrt(n-i+1), not the unit and sqrt(2) weights of standard order-polytopes.",
+      "searches": [
+        "published-finding corpus: linked symmetric snake path delta matroid polytope Euclidean inradius suffix interval alternating ascent set maximal constant runs",
+        "published-finding corpus: metric inradius of unimodular image of zigzag order polytope difference matrix",
+        "Web: \"symmetric snake path\" \"inradius\" polytope"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary source arXiv:2311.15441v1 gives volume through ascent-set permutation counts rather than Euclidean metric tables.",
+        "The relevant published indexed results returned unrelated or different-realization inradius claims; no matched value-table entry was identified."
+      ],
+      "reasoning": "There is no asserted exhaustive database. The inspected primary paper and accessible indexed records do not list the complete weighted-run radius table. A failed query is not a proof of novelty; the evidence is the mathematical nonimplication from the nearest actual statements.",
+      "searches": [
+        "published-finding corpus: complete exact inball radius of 0-1 toric interval delta matroid snake feasible polytope",
+        "published-finding corpus: lattice path delta matroid linked toric interval Euclidean inradius max constant ascent run",
+        "Web: \"Lattice Path Delta Matroids\" \"inradius\" \"snake\" -merriam"
+      ]
+    },
+    "rationale": "The original linked-snake paper states suffix facets, linked-toric classification, triangulations and volumes, not the metric run obstruction. Full published mathematical comparisons distinguish generalized snake order polytopes, signed order polytopes, and marked order polytopes by their defining objects and facet-normal metrics. Neither the accessible primary theorem nor the compared published claims implies the sqrt-suffix weighted run classification, its sharp word-dependent extrema, or the explicit Ehrhart-equivalent unequal-radius pair. Residual risk remains for an unindexed geometric reformulation.",
+    "residual_risks": [
+      "Unindexed or older publications could contain the same exact weighted-run metric formula under different terminology.",
+      "The generic longest-path feasibility method is standard; originality here is limited to the specific full linked-snake metric classification and its consequences.",
+      "The compared chainlink record was not inspected in full; its identified cyclic-chainlink object and parameters differ, but inaccessible variants remain possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source gives original inequalities and combinatorial structure but not the weighted Euclidean inradius.",
+        "evidence": [
+          "Theorem 4.2 identifies P(delta[S,T]) by cube and suffix inequalities.",
+          "Proposition 5.3 and Corollary 5.4 specialize to T=S union {n} and all suffix widths exactly 1.",
+          "Theorem B establishes ascent-set indexed triangulation, not a Chebyshev-radius theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.15441v1",
+        "material_read": "Introduction and source Theorem A; Sections 4.1-4.3 and 5.1-5.4 (especially Proposition 5.3, Corollary 5.4, Proposition 5.5, and triangulation/volume statement), with whole-page text searches for inradius, Euclidean, radius.",
+        "method": "Read accessible primary arXiv HTML and inspect the displayed definitions and proofs; compare claimed Euclidean inball invariant with source conclusions.",
+        "title": "Lattice Path Delta Matroids",
+        "trigger": "Exact same full-dimensional linked toric/symmetric snake family."
+      },
+      {
+        "assessment": "NOT_COVERING: general snake order posets in standard Euclidean order coordinates, not linked type-C delta-matroid polytopes in incidence coordinates.",
+        "evidence": [
+          "Prior exact formula depends only on rank and has unit/sqrt(2) normal lengths; present formula depends on oriented run endpoints and sqrt-suffix normals."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-rank-alone-determines-the-euclidean-inradius-of-generalized-snak--596405e4967f/RESULT.md",
+        "material_read": "Complete published RESULT.md, including hypotheses, proof, metric/limitations, and references.",
+        "method": "Read full public published result via repository file access, compare defining polytopes and isometry requirements.",
+        "title": "Rank alone determines the Euclidean inradius of generalized snake order polytopes",
+        "trigger": "Snake and Euclidean inradius in the closest published record."
+      },
+      {
+        "assessment": "NOT_COVERING: signed order-polytope coordinates use type-B root normals; not this nonorthogonally transformed suffix-normal metric.",
+        "evidence": [
+          "Published weights are 1 and sqrt(2), with antipodally doubled signed-root paths."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-a-longest-signed-path-gives-the-exact-euclidean-inradius-of-ever--bd0fdb1bb195/RESULT.md",
+        "material_read": "Complete published RESULT.md including full facet normal definitions and longest-path proof.",
+        "method": "Read public published proof and compare normal systems and parameters.",
+        "title": "A longest signed path gives the exact Euclidean inradius of every signed order polytope",
+        "trigger": "Potential stronger generic signed difference-constraint inradius theorem."
+      },
+      {
+        "assessment": "NOT_COVERING: normal weights 1/sqrt(2) and marking differences differ from linked toric interval suffix normals.",
+        "evidence": [
+          "Published marked-chain weights are 2+(k-2)sqrt(2); this result has sqrt(n-i+1)+sqrt(n-j+1)+distance."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-marked-chains-give-the-exact-euclidean-inradius-of-regular-marke--07f2c6322025/RESULT.md",
+        "material_read": "Complete published RESULT.md including marked regularity, metric normals and proof.",
+        "method": "Read published result and check applicability to original metric and facet systems.",
+        "title": "Marked chains give the exact Euclidean inradius of regular marked order polytopes",
+        "trigger": "Potential covering weighted critical-path theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "75cb431a-b5d4-4481-968a-89f8fa9af0ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The linked symmetric snake family is a natural complete 2^(n-1)-parameter subfamily of a newly studied type-C matroid-polytope construction. The theorem replaces continuous Euclidean inball optimization by a run maximum computable in linear time, gives every center and a constructive attaining center, shows sharp n^-1 versus n^-1/2 inradius scales, and gives an infinite explicit unimodular/Ehrhart-equivalent but nonisometric pair. None of these conclusions is merely a parameter substitution into the cited standard-coordinate poset results. No broad downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
