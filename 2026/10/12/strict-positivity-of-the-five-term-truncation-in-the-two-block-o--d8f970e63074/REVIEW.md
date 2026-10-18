@@ -1,15 +1,21 @@
-# Self-review — five-term truncated positivity
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite product identity \(P_{10}S_5=H/(1-q^{5040})^{10}\) is exact. Two distinct exact integer polynomial constructions independently calculate all \(50412\) coefficients of \(H\), showing nonnegative coefficients with zero indices exactly \(0,1,2,26,30\). The denominator has nonnegative coefficients. The additional positive \(q^{21}\) term in \(P/P_{10}\) covers both exceptional positive-index zeros. Initial signed-partition coefficients also agree with the checker. Infinite positivity follows from an algebraic identity plus an exhaustive finite polynomial certificate, not from an observed long prefix.
+## correctness
 
-## Originality — PASS, with residual risk
-Merca's September 2026 first paper explicitly states the family of truncated positivity assertions as Conjecture 1 and proves only positivity of the infinite correction. The later same-author follow-up discusses congruences and dyadic identities; its full text was not accessible for direct comparison. Searches against related older truncated-theta literature and indexed research records found no equivalent or stronger statement implying \(N=5\) positivity. Earlier related work on the coefficient sequence itself does not give positivity for its five-term truncation.
+PASS
 
-## Value — PASS
-The result settles the first nontrivial length of an explicitly formulated conjecture, including the strict positivity of every infinite coefficient beyond the initial zero range. The exact finite numerator certificate and the two missing coefficient repairs offer a mathematically motivated proof architecture; no general conjecture resolution is claimed.
+For L=lcm(2,4,...,20)=5040 and P10 the first ten positive Euler factors, exact polynomial identity P10(q)S5(q)=H(q)/(1-q^5040)^10 follows from finite geometric sums. Independently multiplied the ten odd factors and ten bounded even geometric factors, using a separate exact integer recurrence, and checked every one of 50412 coefficients of H: none negative, zeros exactly {0,1,2,26,30}. Since every H_{r+5040}>0 for residues 0<=r<5040, all P10S5 coefficients n>=5040 are strictly positive. For n<5040, only 26 and 30 remain; the omitted positive Euler tail contributes a q^21 term and P10S5 coefficients 5=1 and 9=3, proving b(26),b(30)>0. This is an all-index algebraic proof with a fully exhausted finite polynomial certificate, not finite sampling of P(q)S5(q).
 
-## Limitations and verification status
-The result covers only \(N=5\). The signed-series and rational-function algebra are human-checkable, but full positivity of the degree-\(50411\) numerator relies on exact replay of the included standard-library checker. The work has not been independently audited; residual unindexed-literature overlap remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full original 2026 two-block odd partition paper explicitly labels truncated coefficient positivity as Conjecture 1 for N≡1,2 mod4; its positivity Corollary 1.2 is for the infinite series and does not imply truncated N=5 coefficients. The signed S5 polynomial is a specific first nontrivial length left by the conjecture; independent complete polynomial arithmetic now proves it. Later dyadic/congruence work has a different conclusion. Resultary query and targeted text searches found no equivalent earlier finite certificate, with the ordinary risk of undiscovered specialized notes.
+
+## value
+
+PASS
+
+This establishes the first genuinely nontrivial length N=5 of an explicitly proposed q-series positivity conjecture for every coefficient index n, with strictness. The rational denominator transforms an infinite assertion into an exact finite degree-50411 positivity certificate, and the positive infinite Euler tail fills two exceptional coefficients; both features may inform later truncations. No false extrapolation to all N or arbitrary cutoffs is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

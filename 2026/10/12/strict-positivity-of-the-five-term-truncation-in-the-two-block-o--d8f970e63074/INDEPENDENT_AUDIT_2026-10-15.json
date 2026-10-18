@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T06:13:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For L=lcm(2,4,...,20)=5040 and P10 the first ten positive Euler factors, exact polynomial identity P10(q)S5(q)=H(q)/(1-q^5040)^10 follows from finite geometric sums. Independently multiplied the ten odd factors and ten bounded even geometric factors, using a separate exact integer recurrence, and checked every one of 50412 coefficients of H: none negative, zeros exactly {0,1,2,26,30}. Since every H_{r+5040}>0 for residues 0<=r<5040, all P10S5 coefficients n>=5040 are strictly positive. For n<5040, only 26 and 30 remain; the omitted positive Euler tail contributes a q^21 term and P10S5 coefficients 5=1 and 9=3, proving b(26),b(30)>0. This is an all-index algebraic proof with a fully exhausted finite polynomial certificate, not finite sampling of P(q)S5(q).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A full sum’s positivity is not a stronger theorem on all partial sums; the N5 finite positivity result does not follow."
+        ],
+        "reasoning": "Merca proves positivity of the full infinite correction series A=P*S∞ but this does not imply positivity of P*S5, since omitted alternating coefficients can affect signs.",
+        "searches": [
+          "Merca 2026 Corollary 1.2 and Conjecture 1, Theorem 1.3",
+          "Resultary query: two-block odd partition function Merca Conjecture 1 five-term truncation positivity N=5"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s11139-026-01426-1",
+        "https://arxiv.org/abs/2610.05020",
+        "Resultary semantic query: two-block odd partition function Merca Conjecture 1 five-term truncation positivity N=5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "N=5 all-index positivity is a new finite-length special-case resolution rather than an immediate known corollary."
+        ],
+        "reasoning": "The published Conjecture 1 includes N=5 as an unproved case, and neither its proven infinite coefficient positivity nor later congruence statements entail it. The finite Euler factorization delivers the missing implication.",
+        "searches": [
+          "Merca 2026 Conjecture 1; Corollary 1.2; arXiv:2610.05020 subject summary",
+          "Resultary query: two-block odd partition function Merca Conjecture 1 five-term truncation positivity N=5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Signed partition and POD product expansions are equivalent descriptions; neither supplies an already proved positive S5 truncation."
+        ],
+        "reasoning": "Compared coefficient positivity of truncated theta correction times odd-distinct/even-unrestricted partitions; the same N=5 assertion is Conjecture 1 specialized, not a known theorem.",
+        "searches": [
+          "Merca Theorem 1.3 and Conjecture 1, https://link.springer.com/article/10.1007/s11139-026-01426-1; Resultary N5 query",
+          "Resultary query: two-block odd partition function Merca Conjecture 1 five-term truncation positivity N=5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A finite initial sequence is insufficient for infinity; the rational denominator identity plus complete H vector yields a proof."
+        ],
+        "reasoning": "Classical POD/OEIS coefficient tables may contain initial terms but do not certify the all-degree truncation; the exact H vector of degree 50411 was recomputed anew, not lifted from known tables.",
+        "searches": [
+          "Merca 2026 Theorem 1.3; Resultary query for N=5 truncated coefficient positivity",
+          "Resultary query: two-block odd partition function Merca Conjecture 1 five-term truncation positivity N=5"
+        ]
+      },
+      "rationale": "The full original 2026 two-block odd partition paper explicitly labels truncated coefficient positivity as Conjecture 1 for N≡1,2 mod4; its positivity Corollary 1.2 is for the infinite series and does not imply truncated N=5 coefficients. The signed S5 polynomial is a specific first nontrivial length left by the conjecture; independent complete polynomial arithmetic now proves it. Later dyadic/congruence work has a different conclusion. Resultary query and targeted text searches found no equivalent earlier finite certificate, with the ordinary risk of undiscovered specialized notes.",
+      "residual_risks": [
+        "An unpublished solution of the N=5 truncation could precede this record.",
+        "Proof relies essentially on exact certificate; future import should preserve all scientific files and reproducible computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conjecture 1 explicitly leaves truncated N congruent to 1,2 modulo 4 positivity open; theorem for full infinite correction series cannot imply finite N=5 positivity",
+          "evidence": [
+            "Conjecture 1 (text around lines 141–147) states nonnegative partial-series coefficients",
+            "Corollary 1.2 concerns full infinite series A(q), not five-term truncation"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11139-026-01426-1",
+          "material_read": "Complete accessible publisher HTML: Sections 1-5 including Theorem 1.3, Corollary 1.2, Conjecture 1 and proof/concluding remarks",
+          "method": "Compare positive infinite series versus coefficientwise positivity of N=5 partial sum",
+          "title": "The two-block odd partition function",
+          "trigger": "Exact underlying partition function and Conjecture 1 for truncated N"
+        },
+        {
+          "assessment": "Reported dyadic theta congruences do not in themselves imply an all-degree N=5 positive coefficient result",
+          "evidence": [
+            "Source concerns theta-weighted divisibility and dyadic behavior; no N=5 truncation theorem identified"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.05020",
+          "material_read": "Available publication abstract and mathematical topic description; complete paper not independently read",
+          "method": "Compare described congruences versus exact positivity of five-term truncation",
+          "title": "Dyadic Structure of the Two-Block Odd Partition Function and Theta-Weighted Congruences",
+          "trigger": "Same object and newer source title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This establishes the first genuinely nontrivial length N=5 of an explicitly proposed q-series positivity conjecture for every coefficient index n, with strictness. The rational denominator transforms an infinite assertion into an exact finite degree-50411 positivity certificate, and the positive infinite Euler tail fills two exceptional coefficients; both features may inform later truncations. No false extrapolation to all N or arbitrary cutoffs is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unpublished solution of the N=5 truncation could precede this record.",
+    "Proof relies essentially on exact certificate; future import should preserve all scientific files and reproducible computations."
+  ]
+}
