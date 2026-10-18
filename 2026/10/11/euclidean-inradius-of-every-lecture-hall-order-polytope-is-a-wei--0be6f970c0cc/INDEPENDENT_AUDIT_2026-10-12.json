@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-12",
+  "audited_at_utc": "2026-10-12T01:06:14.909287Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob e65085437324d4c53c0adff7d4b2c160fa099e43",
+        "frozen verify.py blob 9402a9e360c36e3dab2b3ea500a713369a147d",
+        "Olsen, Polyhedral Geometry for Lecture Hall Partitions, arXiv:1808.06131",
+        "Brändén–Solus, Some Algebraic Properties of Lecture Hall Polytopes, arXiv:1911.12459",
+        "Stanley, Two Poset Polytopes (1986) standard order-polytope facets"
+      ],
+      "rationale": "The irredundant facets after diagonal coordinate change y_i=x_i/s_i are x_i≥0 for minimal elements, x_i≤s_i for maximal elements, and x_i/s_i≤x_j/s_j for covers. The cover unnormalized normal is s_j e_i−s_i e_j, whose normalized slack exactly equals (y_j−y_i)/sqrt(1/s_i²+1/s_j²); source and sink slacks are y_i/(1/s_i) and (1−y_i)/(1/s_i). A radius-r ball satisfies precisely the augmented-DAG difference inequalities. Summing any bottom-to-top path gives 1≥r∑w, so r≤1/L. Defining longest prefixes d_− and y_i=r*d_−(i) at r=1/L satisfies all lower boundary/cover inequalities, and maximal-element upper slacks follow from d_−(i)+w(i,top)≤L; reverse suffixes produce a second center. Every center is sandwiched between r*d_−(i) and 1−r*d_+(i). Equality of both bounds for every vertex exactly characterizes uniqueness; if one strict, two constructed centers differ. n=1, antichains, unequal weights and chains all conform to proof; s=1 yields 1/[2+(h−1)sqrt2], chain yields stated reciprocal sum. Bundled five small DAG examples check DP but arbitrary-poset proof is symbolic.",
+      "residual_risks": [
+        "Canonical Euclidean realization is essential; diagonal affine map does not preserve lengths.",
+        "No nonnatural/open order-polytope variants or arbitrary norms covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The special case s=(1,...,1) depends only on poset height and yields reciprocal 2+(h−1)sqrt2.",
+          "Brändén–Solus prove IDP for all weighted lecture-hall order polytopes, a different invariant."
+        ],
+        "reasoning": "Unweighted order-polytope value is covered already, but diagonal s-scaling is not an isometry; different cover edges acquire distinct Euclidean weights, so prior height formula does not imply weighted value.",
+        "searches": [
+          "\"order polytope\" \"inradius\" \"height\"",
+          "lecture hall order polytope Euclidean inradius longest weighted chain Chebyshev centers"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob e65085437324d4c53c0adff7d4b2c160fa099e43",
+        "frozen verify.py blob 9402a9e360c36e3dab2b3ea500a713369a147d",
+        "Olsen, Polyhedral Geometry for Lecture Hall Partitions, arXiv:1808.06131",
+        "Brändén–Solus, Some Algebraic Properties of Lecture Hall Polytopes, arXiv:1911.12459",
+        "Stanley, Two Poset Polytopes (1986) standard order-polytope facets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Olsen 2019 survey describes same objects and affine relation to ordinary order polytopes.",
+          "Brändén–Solus IDP theorem does not imply an inradius or center uniqueness criterion."
+        ],
+        "reasoning": "Neither algebraic result is stronger in the metric dimension. The unweighted formula is a strict special case, and a general Euclidean difference-constraint theorem is the principal remaining possible dominating implication.",
+        "searches": [
+          "arXiv:1808.06131 lecture hall order polytope",
+          "lecture hall order polytope Euclidean inradius longest weighted chain Chebyshev centers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Olsen defines the s-lecture-hall order polytope and naturally labeled posets.",
+          "Weighted longest-path inequalities are an equivalent potential/difference-constraint formulation whose specific normal weights are not present in inspected sources."
+        ],
+        "reasoning": "Equivalent formulations involve weighted critical paths, largest feasible slack for a difference-constrained potential, and Euclidean halfspace Chebyshev center; a general such theorem might imply the result but no concrete prior source was identified.",
+        "searches": [
+          "lecture hall order polytope Euclidean inradius longest weighted chain Chebyshev centers",
+          "\"lecture hall order polytope\" \"inradius\" weighted"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The chain specialization is an exact weighted sum involving each neighboring pair s_i,s_{i+1}, not a known fixed scalar table.",
+          "No table of every positive integer s sequence is present in either primary lecture-hall paper consulted."
+        ],
+        "reasoning": "Finite polytope combinatorics/tabulations cannot mechanically determine the continuum-weighted metric formula without normal-length calculation; existing lattice enumerations address another invariant.",
+        "searches": [
+          "lecture hall order polytope Euclidean inradius longest weighted chain Chebyshev centers",
+          "\"s-lecture hall simplex\" Euclidean inradius"
+        ]
+      },
+      "rationale": "Primary same-family literature develops Ehrhart/IDP rather than metric inradius. The explicit weighted critical-path radius, all-center inequalities, two extremal centers and iff uniqueness characterization are not supplied by an unweighted height formula. A generic difference-constraint Chebyshev-center theorem may cover the argument and remains an explicit priority risk.",
+      "residual_risks": [
+        "An unindexed general theorem for Chebyshev centers of difference-constraint/order polytopes could subsume the weighted DP solution.",
+        "Resultary semantic search attempted, returned temporarily_unavailable/search_completed=false.",
+        "No general novelty certificate is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the explicit Euclidean inradius, full Chebyshev-center inequalities or critical-path uniqueness test in inspected material.",
+          "evidence": [
+            "Diagonal s-scaling is intrinsic to definition but not orthogonal in the ambient Euclidean metric.",
+            "Survey results emphasize lattice/combinatorial invariants, not metric ball radius."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1808.06131",
+          "material_read": "Full open arXiv paper, including definition and geometric/lattice invariant survey sections.",
+          "method": "Inspected definitions, claimed main geometrical results and named themes concerning Ehrhart, triangulations and Gorenstein/level structure.",
+          "title": "Polyhedral Geometry for Lecture Hall Partitions",
+          "trigger": "Survey defines lecture-hall order polytope family and its classical/s-lecture-hall chain specializations."
+        },
+        {
+          "assessment": "NOT_COVERING: integer decomposition and related algebraic properties are not Euclidean Chebyshev-center data.",
+          "evidence": [
+            "The result applies to all s-lecture-hall order polytopes but studies lattice decomposition, not weighted facet-normal lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.12459",
+          "material_read": "Open arXiv full PDF inspected for definitions, main theorem and proofs about integer decomposition property.",
+          "method": "Compared full family scope against metric invariant: IDP theorem does not determine Euclidean inradius or centers.",
+          "title": "Some Algebraic Properties of Lecture Hall Polytopes",
+          "trigger": "Main primary result for all s-lecture-hall order polytopes, possible stronger family theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md blob e65085437324d4c53c0adff7d4b2c160fa099e43",
+        "frozen verify.py blob 9402a9e360c36e3dab2b3ea500a713369a147d",
+        "Olsen, Polyhedral Geometry for Lecture Hall Partitions, arXiv:1808.06131",
+        "Brändén–Solus, Some Algebraic Properties of Lecture Hall Polytopes, arXiv:1911.12459",
+        "Stanley, Two Poset Polytopes (1986) standard order-polytope facets"
+      ],
+      "rationale": "Determines the natural standard-Euclidean inradius for every s-lecture-hall order polytope, a widely studied generalization, by an explicit O(n+|covers|) weighted longest-path computation. It additionally gives all centers, explicit lower and upper extremal centers, and a sharp graph-theoretic uniqueness criterion. The exact weight coupling s_i,s_j is metric information not inherited from ordinary order-polytope Ehrhart/IDP results, giving a practically reusable natural structural theorem.",
+      "residual_risks": [
+        "Optimization proof is elementary once exact facet normals are known; scientific interest rests on application to this family and full center structure, not a new algorithmic paradigm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every nonempty naturally labeled poset P and positive lecture-hall weights s, the standard Euclidean inradius of O(P,s) equals the reciprocal of the maximum augmented-Hasse path weight with source/sink weights 1/s_i and cover weights sqrt(s_i^-2+s_j^-2); prefix/suffix longest paths give explicit incenters and uniqueness iff every element lies on a maximum-weight path.",
+  "limitations": [
+    "Naturally labeled, s_i>0, canonical Euclidean coordinates only.",
+    "General order-polytope difference-constraint result could dominate under alias.",
+    "Temporarily unavailable Resultary search was not treated as a novelty-negative result.",
+    "All source Git tree SHAs verified against Git REST trees with truncated=false; all seven package blobs inspected by content or metadata; independent mathematical checks do not supply formal Lean or expert attestation."
+  ],
+  "schema_version": 1
+}
