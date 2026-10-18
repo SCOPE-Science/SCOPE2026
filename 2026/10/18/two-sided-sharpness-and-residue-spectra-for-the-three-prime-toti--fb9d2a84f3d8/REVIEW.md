@@ -1,0 +1,11 @@
+# Scientific review: sharpness and residue spectra for the three-prime totient discrepancy
+
+**Correctness: PASS.** The fixed-support formula follows from a partition into odd representative blocks, two disjoint exclusions of the two forbidden classes modulo the new prime, and multiplicativity of Schemmel's function. The exact finite residue counts and both numerical witnesses have been independently recomputed from the defining gcd tests, with the complete finite boundary certificates checked; Dirichlet's theorem supplies infinitely many primes in each coprime residue class, and the fixed-modulus prime number theorem supplies the proportions. Neither finite enumeration nor machine checks are treated as a proof of prime infinitude.
+
+**Originality: PASS, with residual risk.** Renshaw's 2026 paper proves a three-prime discrepancy upper bound but does not state the sharpness classes, their positive-density distribution, or the fixed-support residue law. The published two-prime Corollary 6 addresses two distinct prime factors and does not establish the existence or distribution of three-prime extremizers. Searches for exact aliases, an implied sharper formula, finite tables, and the proposed progression parameters yielded no source covering the combined theorem. Classical CRT and prime-distribution tools are acknowledged. Residual risk: the arithmetic identity could have been derived implicitly from generalized totient character sums or unpublished computations; database nonmatches do not prove novelty.
+
+**Mathematical value: PASS.** Sharpness is a natural unresolved qualification to a published uniform three-prime error bound. Showing equality at both endpoints on prime progressions demonstrates that no smaller universal constant can replace six even for squarefree inputs. The full residue spectra and smallest fixed-support witnesses give a structural classification of how extremality arises and reproducible distributions beyond isolated examples.
+
+**Scientific limitations.** The proof does not classify all three-prime squarefree integers, higher prime support, or the least full integer attaining either sign. The classical prime-density inputs are not independently reproved. Independent scientific validation has not been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
