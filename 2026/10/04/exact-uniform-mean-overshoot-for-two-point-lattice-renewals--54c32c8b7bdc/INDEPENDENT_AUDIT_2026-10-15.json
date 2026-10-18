@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T16:53:04.402064Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For t=b+u, b integer and 0<=u<1, crossing index is unchanged and R_t=R_b-u; only integer boundaries need maximizing. For integer 0<=b<m, conditioning on first long jump after j unit jumps gives e_b=sum_{j=0}^b p q^j(m+j-b)+q^{b+1}=m-b+q/p-q^{b+1}(m+q/p). Consecutive difference e_b-e_{b-1}=mu q^b-1, mu=q+pm, forces a unique or adjacent tied maximum at k=floor(log mu/(-log q)). Derivative of mu q^{m-1} in p proves k<=m-2. For b>=m, e_b=q e_{b-1}+p e_{b-m}; convexity prevents any later higher or tied maximum because the initial maximizers lie at one point or adjacent positions. Rare-long-jump scaling p=lambda/m gives (1/m)sup e_b ->1-log(1+lambda)/lambda, strictly less than lambda/(1+lambda) by (1+lambda)log(1+lambda)>lambda. Independent rational recurrence stress tests checked 715 parameter cases; infinite result is from induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lorden establishes E R_t<=E X²/E X under iid positive increments, with extensions and alternative proofs by Carlsson–Nerman and Chang."
+        ],
+        "reasoning": "These statements do not determine the sharp family-specific constant or maximize over t; the exact value is strictly smaller in the rare-long-jump regime.",
+        "searches": [
+          "Resultary search: exact supremum mean overshoot two point lattice renewals increments 1 m Lorden",
+          "DOI:10.1214/aoms/1177697092 (Lorden 1970)",
+          "DOI:10.2307/1427260 (Carlsson–Nerman 1986)",
+          "DOI:10.1214/aoap/1177004913 (Chang 1994)"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1214/aoms/1177697092 (Lorden 1970)",
+        "DOI:10.2307/1427260 (Carlsson–Nerman 1986)",
+        "DOI:10.1214/aoap/1177004913 (Chang 1994)",
+        "DOI:10.1016/j.orl.2012.11.011",
+        "Resultary search: exact supremum mean overshoot two point lattice renewals increments 1 m Lorden",
+        "Resultary pairwise-independent Lorden counterexample"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pairwise-independent counterexample removes iid assumptions, while the claim preserves independence and optimizes exact E R_t. Lorden and Chang provide upper bounds, not the conditional recursion e_b=q e_{b-1}+p e_{b-m} and its sharp peak."
+        ],
+        "reasoning": "No inspected prior theorem dominates the exact argmax; even inserting E X²/E X into Lorden cannot produce equality because the family constant differs.",
+        "searches": [
+          "DOI:10.1214/aoms/1177697092 (Lorden 1970)",
+          "DOI:10.2307/1427260 (Carlsson–Nerman 1986)",
+          "DOI:10.1214/aoap/1177004913 (Chang 1994)",
+          "Resultary search: exact supremum mean overshoot two point lattice renewals increments 1 m Lorden",
+          "Resultary 2026-09-20 pairwise independent Lorden counterexample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The desired E R_t is a forward-recurrence residual lifetime for deterministic t, not stationary residual-age correlation. The exact formula includes maximizer t=floor(theta), not just a generic limit."
+        ],
+        "reasoning": "Searching excess-life, residual-life and overshoot aliases did not identify the same finite-boundary optimal law; no negative proof of all literature is claimed.",
+        "searches": [
+          "Resultary search: exact supremum mean overshoot two point lattice renewals increments 1 m Lorden",
+          "two point lattice renewal forward recurrence excess life sharp uniform expected overshoot",
+          "renewal residual life two-point increments boundary maximum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact formula for all m,p with the discrete maximizer k was returned by the semantic-index search; its top match was the assessed result."
+        ],
+        "reasoning": "This result is a closed expression for an entire natural two-point family, not a copied scalar entry of a previously inspected table.",
+        "searches": [
+          "Resultary search: exact supremum mean overshoot two point lattice renewals increments 1 m Lorden",
+          "Lorden sharp constants two-point lattice random variable {1,m} tabulated",
+          "renewal overshoot m p finite argmax lookup"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the classical Lorden and Carlsson–Nerman works give uniform moment inequalities, not an exact supremum/argmax for {1,m}; nearest Resultary records concern pairwise-dependent counterexamples and different stationary statistics. Older lattice-renewal literature remains a genuine alias risk.",
+      "residual_risks": [
+        "Older lattice-renewal primary texts were not all accessible in full; a differently named exact two-point residual-life envelope might predate the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bound applies but does not directly determine the exact {1,m} maximizer",
+          "evidence": "Uniform upper bound E X² / E X.",
+          "identifier_or_url": "DOI:10.2307/1427260 (Carlsson–Nerman 1986)",
+          "material_read": "Classical inequality and proof structure described in assigned proof and public bibliographic record; original two-page full text not freshly read this run",
+          "method": "Publisher DOI bibliographic comparison and assigned source references",
+          "title": "An Alternative Proof of Lorden’s Renewal Inequality",
+          "trigger": "Nearest distribution-free uniform overshoot inequality"
+        },
+        {
+          "assessment": "Plausible broader source not fully ruled out; residual risk retained",
+          "evidence": "The named Lorden inequality is E R_t<=E X²/E X, versus derived strict family-specific value.",
+          "identifier_or_url": "DOI:10.1214/aoms/1177697092 (Lorden 1970)",
+          "material_read": "Publisher bibliographic description/abstract and cited inequality only, not full paper",
+          "method": "Primary DOI abstract/search record; restricted full text",
+          "title": "On Excess over the Boundary",
+          "trigger": "Original uniform mean-overshoot theorem"
+        },
+        {
+          "assessment": "Possible historical overlap not excluded from abstract alone",
+          "evidence": "Inequalities rather than displayed exact {1,m} argmax in available material.",
+          "identifier_or_url": "DOI:10.1214/aoap/1177004913 (Chang 1994)",
+          "material_read": "Published title, abstract/bibliographic material, not full primary text",
+          "method": "Publisher indexed metadata",
+          "title": "Inequalities for the Overshoot",
+          "trigger": "Later primary inequalities with potentially stronger coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: An exact sharp uniform renewal overshoot in the canonical {1,m} nontrivial lattice family and full maximizing boundary classification are natural refinements of Lorden’s general moment envelope. The rare-jump asymptotics quantifies a nontrivial persistent strict gap relevant to renewal/inventory tail bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older lattice-renewal primary texts were not all accessible in full; a differently named exact two-point residual-life envelope might predate the claim."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The finite checker is an independent replay of the
-algebraic identities and recurrence, not a certificate for the infinite
-statement.
+# Independent mathematical audit
 
-`verify_two_point_overshoot.py` uses exact rational arithmetic. For each tested
-rational \(p\) and integer \(m\), it:
+## correctness
 
-1. evaluates the initial overshoot expectation directly from the first-long-jump
-   decomposition;
-2. compares it with the closed form;
-3. checks the exact difference identity
-   \[
-   e_b-e_{b-1}=\mu q^b-1;
-   \]
-4. locates the maximizing index using exact rational inequalities;
-5. generates later values from
-   \[
-   e_b=q e_{b-1}+p e_{b-m};
-   \]
-6. checks that the recurrence never exceeds the theorem's initial maximum over
-   the replay window.
+PASS
 
-The infinite extension is justified separately by the convex-combination
-maximum principle in the written proof. The checker therefore does not infer an
-infinite theorem from finite enumeration.
+PASS: For t=b+u, b integer and 0<=u<1, crossing index is unchanged and R_t=R_b-u; only integer boundaries need maximizing. For integer 0<=b<m, conditioning on first long jump after j unit jumps gives e_b=sum_{j=0}^b p q^j(m+j-b)+q^{b+1}=m-b+q/p-q^{b+1}(m+q/p). Consecutive difference e_b-e_{b-1}=mu q^b-1, mu=q+pm, forces a unique or adjacent tied maximum at k=floor(log mu/(-log q)). Derivative of mu q^{m-1} in p proves k<=m-2. For b>=m, e_b=q e_{b-1}+p e_{b-m}; convexity prevents any later higher or tied maximum because the initial maximizers lie at one point or adjacent positions. Rare-long-jump scaling p=lambda/m gives (1/m)sup e_b ->1-log(1+lambda)/lambda, strictly less than lambda/(1+lambda) by (1+lambda)log(1+lambda)>lambda. Independent rational recurrence stress tests checked 715 parameter cases; infinite result is from induction.
 
-Originality was assessed by statement-level comparison with classical renewal
-inequalities and the closest retrieved public results. Independent audit has
-not been performed.
+## originality
 
-Exact-rational replay result: `VERIFY_OK cases=4560`.
+PASS
+
+Best-of-knowledge PASS: the classical Lorden and Carlsson–Nerman works give uniform moment inequalities, not an exact supremum/argmax for {1,m}; nearest Resultary records concern pairwise-dependent counterexamples and different stationary statistics. Older lattice-renewal literature remains a genuine alias risk.
+
+## value
+
+PASS
+
+PASS: An exact sharp uniform renewal overshoot in the canonical {1,m} nontrivial lattice family and full maximizing boundary classification are natural refinements of Lorden’s general moment envelope. The rare-jump asymptotics quantifies a nontrivial persistent strict gap relevant to renewal/inventory tail bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
