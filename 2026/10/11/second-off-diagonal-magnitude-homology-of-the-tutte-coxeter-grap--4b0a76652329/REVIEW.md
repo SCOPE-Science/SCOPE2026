@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The verifier reconstructs the Tutte–Coxeter graph as the incidence graph of the symplectic generalized quadrangle \(\mathrm{GQ}(2,2)\), rather than loading an asserted adjacency table. It then exhaustively processes every ordered endpoint pair. For distance \(1\), the localized degree-\((2,3,4)\) chain dimensions are \((8,36,56)\) and the two boundary ranks are \((8,28)\), giving zero homology in degree \(3\). For distance \(3\), they are \((14,45,40)\) and \((14,27)\), giving rank \(4\). Same-side length-\(5\) chains vanish by bipartite parity. The program checks \(\partial_3\partial_4=0\) for every block and uses exact bitwise elimination, so the global rank \(360\cdot4=1440\) follows without probabilistic or floating-point steps. It also independently enumerates \(90\) eight-cycles and verifies four through the unique three-edge geodesic for every ordered distance-\(3\) pair.
+## correctness
 
-## Originality
-PASS. Exact searches under the Tutte–Coxeter, Tutte 8-cage, generalized-quadrangle, endpoint-localized, and \(\operatorname{MH}_{3,5}\) formulations returned no covering published finding. The closest checked magnitude-homology result for incidence geometry is the finite-projective-plane bidegree-\((3,4)\) formula, which has different objects, girth, and bidegree and does not imply the present calculation. The full text of Asao–Hiraoka–Kanazawa was inspected around its girth-vanishing theorem and algebraic-Morse setup; it provides the sharp near-diagonal vanishing framework but does not state this graph-specific endpoint profile or the total rank \(1440\).
+PASS
 
-## Value
-PASS. The Tutte–Coxeter graph is the unique \((3,8)\)-cage and the incidence graph of \(\mathrm{GQ}(2,2)\), so it is a canonical extremal girth-eight object. The calculation sits exactly at the boundary where the published girth theorem ceases to force the second off-diagonal to vanish. The nonzero local rank is also geometrically aligned with the four eight-cycles through each unique distance-three geodesic. This makes the result a motivated boundary benchmark rather than an arbitrary finite table entry.
+A fresh independent finite construction used all 15 nonzero vectors of F2^4 as points and 15 maximal isotropic triples as lines under the symplectic form, giving 30 degree-three graph vertices, 45 edges, and bipartite distances d=1 or 3 for 450 opposite-side ordered endpoint pairs. Independently enumerating ALL length-five localized chains of degrees k=2,3,4 and computing F2 boundary-column ranks gave d=1 profile (C2,C3,C4,r3,r4,β)=(8,36,56,8,28,0), 90 blocks; d=3 profile (14,45,40,14,27,4), 360 blocks. The chain condition was checked in the inspected verifier; independent rank totals (5760,19440,19440,5760,12240,1440) agree exactly. Bipartite parity excludes same-side length-five chains. This is an exhaustive finite proof for the stated graph and bidegree, not a general infinite theorem. The 90 eight-cycle and four-containing-geodesic counts were checked in source certificate; geodesic uniqueness follows from girth≥8.
 
-## Closest literature and limitations
-The closest general source is Asao–Hiraoka–Kanazawa, which proves girth-controlled near-diagonal vanishing but does not compute this boundary graph. Hepworth–Willerton supplies the underlying graph magnitude-homology theory. The Dynamic Cage Survey identifies the Tutte–Coxeter graph as the order-30 \((3,8)\)-cage and the incidence graph of the generalized quadrangle of order two. The result here is only over \(\mathbb F_2\) and only in bidegree \((3,5)\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for a natural exact localized F2 magnitude homology value of the unique (3,8)-cage. Asao–Hiraoka–Kanazawa prove a girth-controlled vanishing range; at girth eight their inequality does not force the bidegree (3,5) value. Published Heawood/Fano incidence-graph magnitude calculations have different graphs and bidegrees. No prior exact (3,5) Tutte–Coxeter rank or endpoint table found.
+
+## value
+
+PASS
+
+The unique (3,8)-cage is a canonical finite graph at the first girth boundary where the second magnitude off-diagonal need not vanish. An exact complete localized homology profile and global dimension are natural usable invariants for researchers testing girth-bound sharpness. The result is neither an arbitrary slice nor known-table recomputation in inspected sources; a finite computation can be intrinsically valuable without a universal theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
