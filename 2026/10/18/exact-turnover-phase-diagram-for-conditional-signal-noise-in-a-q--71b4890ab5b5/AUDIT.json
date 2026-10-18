@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For every x_*>0, B,p,alpha,kappa>0, q>=0 and Delta=p*kappa-alpha*q>0, the model Jacobian has negative trace and positive determinant at every r>0, hence its stationary Gaussian covariance is unique. Exact symbolic solution of the three independent Lyapunov equations yields s,t,u; s>0 and the Schur complement yields the displayed V(r). Setting rho=q/B and eta=alpha*q/(kappa*p) reduces V-1 to a scalar rational function. Its derivative numerator factors as (1-rho)^2(1-eta)-(z+rho)^2, which proves every monotone and unimodal regime without finite sampling. Reference equilibrium root is bracketed by exact rational polynomial signs; the standalone symbolic and high-precision checker reproduces r_star and Vmax. No assertion extends the stationary Gaussian result to the full extinction-prone jump process.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Thomas, Straube and Grima (2012), DOI 10.1186/1752-0509-6-39, general slow-scale LNA and stochastic-reduction methodology.",
+        "Oyarzún, Lugagne and Stan (2015), DOI 10.1021/sb400126a, gene-circuit metabolic feedback noise propagation, distinct kinetic network."
+      ],
+      "reasoning": "General Gaussian covariance and fast-slow reduction theory can compute stationary covariances but the accessible sources do not supply or state the model-specific sharp all-turnover peak/boundary. The metabolic noise results involve different negative-feedback reactions and noise statistics, not the conditional signal fluctuation with shared rate scaling of production and removal. General broad coverage remains a documented risk.",
+      "searches": [
+        "linear noise approximation gene expression feedback signal turnover conditional noise peak unique optimum time scale",
+        "Oyarzun Lugagne Stan 2015 Noise Propagation in Synthetic Gene Circuits for Metabolic Control stationary variance feedback",
+        "slow scale linear noise approximation conditional covariance biochemical timescale separation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.39946v1 (full accessible HTML inspected)",
+      "doi:10.1186/1752-0509-6-39 (abstract and extracted sections)",
+      "doi:10.1021/sb400126a (indexed sections, incomplete publisher access)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ayala and Zimmer, arXiv:2609.39946v1, original stochastic model, stable positive equilibrium, stationary linear-noise covariance equation and conditional covariance samples.",
+        "Thomas et al. (2012) broad reduction framework; Oyarzún et al. (2015) distinct metabolic feedback network."
+      ],
+      "reasoning": "The primary work logically gives the starting OU covariance matrix characterization and could be combined with standard algebra to derive the new formula, but it does not itself state or prove the nonmonotone boundary/optimal rate. The proposed claim is stronger than the source's finite parameter observations; it does not contradict them. Other cited works have no demonstrated implication of the exact four-channel all-parameter turnover optimizer. The unexplored reach of general OU theory is retained as residual priority risk, not denied.",
+      "searches": [
+        "Ayala Zimmer Computing Extinction Barriers in a Quorum-Sensing Reaction Network arxiv 2609.39946 stationary covariance conditional variance turnover",
+        "quorum-sensing four-channel cell-signal reaction network stationary Gaussian conditional signal variance nonmonotone finite signal turnover unique maximizer",
+        "stationary Ornstein Uhlenbeck covariance quorum sensing peak rate r alpha kappa"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ayala and Zimmer (2026), arXiv:2609.39946v1, Gaussian fluctuations: stationary covariance is defined by a 2x2 Lyapunov equation; three illustrative conditional variance values.",
+        "Same starting Lyapunov equation but no cited explicit equivalent exact all-r derivative classification was identified."
+      ],
+      "reasoning": "Equivalent formulations might appear as a stationary OU Schur complement, signal partial variance, signal fluctuation amplification factor, or a noise-versus-turnover optimum. Unlike a bare Lyapunov existence equation, the claim asserts a rational function valid for all positive turnover rates and a necessary and sufficient peak criterion for every stable positive equilibrium. A generic 2x2 formula implies it only after specializing the four reaction intensities, simplifying the Schur complement and analyzing its derivative; method overlap is explicitly acknowledged.",
+      "searches": [
+        "quorum-sensing four-channel cell-signal reaction network stationary Gaussian conditional signal variance nonmonotone finite signal turnover unique maximizer",
+        "unique interior maximum of conditional signal Gaussian variance normalized Poisson stationary Lyapunov covariance feedback",
+        "Ayala Zimmer 2609.39946 conditional covariance Schur complement turnover maximizer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary arXiv:2609.39946v1 quotes conditional variance ratios approximately 1.88 at r=0.5, 2.01 at r=1, and 1.02 at r=256, rather than an exact rate optimum.",
+        "New exact model specialization gives r_star=1.122837273492... and Vmax=2.014648952177..., with analytic uniqueness and rational equilibrium isolation."
+      ],
+      "reasoning": "The source's finite sampled values are not a database of exact optima or a complete turnover classification. The new result reproduces those points and proves analytically what happens for all r>0; finite samples by themselves neither identify a unique maximum nor rule out other peaks.",
+      "searches": [
+        "Ayala Zimmer 2609.39946 r=0.5 r=1 r=256 conditional variance ratio Gaussian fluctuation",
+        "Ayala Zimmer 2026 0.5 1 256 Gaussian conditional variance ratio quorum sensing"
+      ]
+    },
+    "rationale": "Primary arXiv work introduces precisely the four reactions and reports an OU stationary covariance by a general Lyapunov equation, as well as sampled conditional noise ratios, but does not state the solved full-turnover Schur ratio, amplified-versus-suppressed Gaussian noise boundary q=B, exact unique-interior-peak criterion, or peak location. The broader slow-scale LNA and metabolic feedback-noise studies use general techniques or a distinct model. The new claim is a precise model-specific quantitative classification; standard Gaussian conditioning, Lyapunov analysis, and optimization are not claimed novel. Prior coverage may exist as an unstated corollary or generalized formula; accessible primary text and actual research searches were compared and do not decisively cover the final exact statement.",
+    "residual_risks": [
+      "A prior general two-dimensional stationary OU covariance or biochemical noise theorem could subsume the peak classification as an unstated corollary.",
+      "The complete publisher-hosted full text of Oyarzún et al. was inaccessible, so its entire discussion of optimization could not be excluded.",
+      "The primary paper's matrix Lyapunov starting result makes the algebra an extension rather than an independent framework; mathematical value rests on the sharp all-parameter noise-peak classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original network and matrix Lyapunov equation explicitly cover the starting model and method; illustrative ratios at three rates are reported. No displayed closed-form scalar conditional variance or parameter-uniform unique turnover peak identified in inspected text. The Lyapunov equation could yield the new statement after nontrivial algebra and optimization, so priority beyond inspected text is qualified.",
+        "evidence": [
+          "arxiv:2609.39946v1, Gaussian fluctuations and stationary covariance Lyapunov equation, conditional variance comparisons at turnover rates 0.5, 1, 256."
+        ],
+        "identifier_or_url": "arxiv:2609.39946v1; https://arxiv.t3mt.com/html/2609.39946v1",
+        "material_read": "Accessible full HTML, particularly reaction channel definitions, deterministic coexistence equilibrium, Gaussian/Lyapunov fluctuation section and conclusion; searched within full document for conditional variance, turnover and optimum.",
+        "method": "Read displayed model and analysis, checked whether the exact parameter-uniform Schur ratio, turnover derivative classification, and optimizing rate were stated or implied by an explicit formula.",
+        "title": "Computing Extinction Barriers in a Quorum-Sensing Reaction Network",
+        "trigger": "Identical four-channel reaction network and reported conditional stationary Gaussian variance at selected turnover values."
+      },
+      {
+        "assessment": "General stochastic reduction and Lyapunov methods are prior art; accessible evidence does not display the specific all-turnover sign and peak classification. Full-text comparison residual risk retained.",
+        "evidence": [
+          "Thomas, Straube and Grima, BMC Systems Biology 6:39 (2012), DOI 10.1186/1752-0509-6-39."
+        ],
+        "identifier_or_url": "doi:10.1186/1752-0509-6-39",
+        "material_read": "Available abstract and extracted methods/discussion passages describing the slow-scale linear noise approximation and timescale separation, not a complete publisher PDF.",
+        "method": "Compared the scope of general reduced covariance formulas with the present exactly specified non-reduced two-variable OU model and globally optimized turnover-dependent conditional variance.",
+        "title": "The slow-scale linear noise approximation: an accurate, reduced stochastic description of biochemical networks under timescale separation conditions",
+        "trigger": "Potential broader biochemical stationary Gaussian covariance and elimination theory."
+      },
+      {
+        "assessment": "Related evidence concerns metabolic feedback noise attenuation/amplification, not the stated four-channel quorum-sensing turnover phase diagram. Incomplete full-text access is an explicit originality risk.",
+        "evidence": [
+          "Oyarzún, Lugagne and Stan, ACS Synthetic Biology 4:116–125 (2015), DOI 10.1021/sb400126a."
+        ],
+        "identifier_or_url": "doi:10.1021/sb400126a",
+        "material_read": "Search-indexed article sections and abstracts; direct publisher full text returned access denial, so no complete publisher-document inspection claimed.",
+        "method": "Compared reaction structure (metabolic gene circuit and negative feedback), response statistic, and tuned parameter with the positive quorum-sensing cell-signal model and conditional Gaussian Schur complement.",
+        "title": "Noise Propagation in Synthetic Gene Circuits for Metabolic Control",
+        "trigger": "Potential broad theorem on nonmonotonic dependence of stationary biochemical noise on signal kinetics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "71b4890a-b5b5-4b52-b012-80ec487cda7f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating primary research explicitly studies conditional stationary signal-noise ratios as turnover changes and gives three illustrative rates; those points cannot establish whether an interior maximum is unique or determine its optimal tuning. The theorem classifies all stable positive equilibria into above- or below-Poisson conditional-noise regimes and gives a sharp necessary/sufficient peak criterion and exact maximizing timescale. The model-specific signal-noise resonance is a natural quantitative invariant for assessing turnover experiments and checking Gaussian approximations; it is more than a gratuitous parameter substitution or tabular recomputation. Its utility and limitations are explicit; nothing is claimed about extinction optimization or finite-N stationary laws.",
+    "status": "PASS"
+  }
+}
