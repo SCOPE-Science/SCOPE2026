@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T11:13:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With y_i=x_i-xbar, A=sum W_i y_i and B=sum W_i y_i^2, the random centered weighted mean is A and the random weighted variance is B-A^2. Uniform Dirichlet monomial moments E(prod W_i^r_i)=prod(r_i!)/(N)_r give EAB=p3/[N(N+1)], EA^3=2p3/[N(N+1)(N+2)] and the required degree-four moments. Subtraction yields Cov(M,V)=N mu3/[(N+1)(N+2)] and Var(V)=N[((N+1)^2 mu4-(N^2-3)mu2^2)]/[(N+1)^2(N+2)(N+3)]. Checked center-translation invariance and the N=2/nonconstant or constant-data boundaries; claimed correlation only with nondegenerate denominators. Independent exact-fraction index-sum checks across 15 datasets N=2..6 support but do not replace general algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Dirichlet factorial identity evaluates any polynomial functional, but the classic bootstrap primary literature does not explicitly give the centered nonlinear joint formula in the inspected material.",
+          "Cheng provides asymptotic moment consistency for M-estimators with exchangeable weights; it is not a finite weighted-variance posterior covariance theorem."
+        ],
+        "reasoning": "A general moment calculus is a proof ingredient, not a previously stated complete evaluated special-function result; however automatic implication from standard formulas is the principal priority risk.",
+        "searches": [
+          "Donald Rubin The Bayesian Bootstrap 1981 DOI:10.1214/aos/1176345338",
+          "Cheng arXiv:1109.4204 §2.2 Example 1",
+          "Bayesian bootstrap Dirichlet weights exact covariance weighted mean weighted variance third central moment posterior"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1214/aos/1176345338 (Rubin 1981 original; page 131 direct)",
+        "arXiv:1109.4204v2 (Cheng primary full text)",
+        "Resultary search: Bayesian bootstrap Dirichlet weights exact covariance weighted mean weighted variance third central moment posterior"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rubin page 131 specifies the n−1 uniforms and Dirichlet gaps and works out posterior weighted means. Cheng page 4 explicitly connects normalized exponential weights to Bayesian bootstrap; main theorem concerns asymptotic semiparametric moment consistency."
+        ],
+        "reasoning": "The old mathematical statements define random weights and broad convergence, but do not provide the signed skewness covariance and complete weighted-variance posterior uncertainty as finished identities.",
+        "searches": [
+          "Rubin 1981 The Bayesian Bootstrap original pages 131–134",
+          "Cheng Moment Consistency arXiv:1109.4204 pages 1–4",
+          "Bayesian bootstrap Dirichlet weights exact covariance weighted mean weighted variance third central moment posterior"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rubin gives simplex weights and the posterior weighted mean, while Cheng identifies normalized exponential weights with the Bayesian bootstrap. Neither inspected relevant theorem states the displayed Cov(M,V) or Var(V)."
+        ],
+        "reasoning": "The equivalent normalized exponential, uniform-Dirichlet and Bayesian-bootstrap formulations were compared using the actual nonlinear V=B-A², not just title matches.",
+        "searches": [
+          "Bayesian bootstrap Dirichlet weights exact covariance weighted mean weighted variance third central moment posterior",
+          "Bayesian bootstrap weighted mean weighted variance covariance sample skewness exact",
+          "Dirichlet random weights weighted population variance variance formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact-number lookup is involved: the result is an all-N fixed-data identity. Read supporting implementation material describes weighted variance as a statistic but not a posterior joint formula."
+        ],
+        "reasoning": "Numerical bootstrap examples or software output cannot substitute for or directly cover the finite symbolic covariance law.",
+        "searches": [
+          "Bayesian bootstrap Dirichlet weights exact covariance weighted mean weighted variance third central moment posterior",
+          "weighted Dirichlet mean variance empirical fourth moment formula",
+          "Bayesian bootstrap R package variance and mean joint uncertainty"
+        ]
+      },
+      "rationale": "Rubin 1981 defines Dirichlet Bayesian-bootstrap weights and illustrates the weighted mean; the inspected primary pages do not give the finite joint covariance and nonlinear weighted-variance uncertainty formula. Cheng 2014 treats asymptotic moment consistency for exchangeably weighted estimators, not these conditional fixed-data closed forms. A short derivation from standard Dirichlet moments remains plausible prior implicit coverage, recorded as a risk, but no searched directly equivalent statement was found.",
+      "residual_risks": [
+        "Very short algebra from Dirichlet factorial moments may be a known exercise or an unindexed older published formula.",
+        "Rubin 1981 original pages 132–133 not individually rendered in this run; no claim of complete-original-paper absence based on snippets.",
+        "Correlation requires positive Var(M), Var(V), and asymptotic correlation assumes limiting mu4>mu2²."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_WEIGHTED_MEAN_NO_VISIBLE_JOINT_FORMULA_WITH_INTERIOR_READING_LIMIT",
+          "evidence": "Page 131 constructs uniform Dirichlet gaps and evaluates posterior weighted mean with probability weights g_i; no covariance with nonlinear weighted variance on pages actually read.",
+          "identifier_or_url": "DOI:10.1214/aos/1176345338",
+          "material_read": "Original five-page 1981 paper obtained as lawful digitized PDF; directly inspected pages 131 and 134; pages 132–133 could not be rendered reliably due temporary 429.",
+          "method": "Scispace hosted digitized primary PDF page-image inspection at https://scispace.com/pdf/the-bayesian-bootstrap-1starnibum.pdf",
+          "title": "The Bayesian Bootstrap",
+          "trigger": "Foundational article defining exactly the random weights and weighted-statistic model"
+        },
+        {
+          "assessment": "ASYMPTOTIC_NOT_EXACT_JOINT_POSTERIOR_LAW",
+          "evidence": "Page 4 identifies normalized Exp(1) weights as Bayesian bootstrap, whereas article develops asymptotic semiparametric moment estimates rather than finite fixed-data weighted-variance moments.",
+          "identifier_or_url": "arXiv:1109.4204v2",
+          "material_read": "Complete 25-page text accessed; read abstract, §2.2 Example 1 and weighting conditions, main consistency formulation and its distinction from distributional convergence.",
+          "method": "Open arXiv PDF https://arxiv.org/pdf/1109.4204",
+          "title": "Moment Consistency of the Exchangeably Weighted Bootstrap for Semiparametric M-Estimation",
+          "trigger": "Closest broad moment-theory article explicitly including Bayesian bootstrap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Weighted mean and weighted variance are jointly reported natural posterior functionals; the finite conditional joint covariance tells whether their uncertainty is positively or negatively coupled, with sign determined exactly by empirical skewness, and the fourth-moment variance formula permits joint uncertainty calculations without repeated Monte Carlo. It is more than a parameter renaming or a preexisting table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1214/aos/1176345338 (Rubin 1981 original; page 131 direct)",
+    "arXiv:1109.4204v2 (Cheng primary full text)",
+    "Resultary search: Bayesian bootstrap Dirichlet weights exact covariance weighted mean weighted variance third central moment posterior"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Very short algebra from Dirichlet factorial moments may be a known exercise or an unindexed older published formula.",
+    "Rubin 1981 original pages 132–133 not individually rendered in this run; no claim of complete-original-paper absence based on snippets.",
+    "Correlation requires positive Var(M), Var(V), and asymptotic correlation assumes limiting mu4>mu2²."
+  ],
+  "residual_risks": [
+    "Very short algebra from Dirichlet factorial moments may be a known exercise or an unindexed older published formula.",
+    "Rubin 1981 original pages 132–133 not individually rendered in this run; no claim of complete-original-paper absence based on snippets.",
+    "Correlation requires positive Var(M), Var(V), and asymptotic correlation assumes limiting mu4>mu2²."
+  ],
+  "schema_version": 1
+}
