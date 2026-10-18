@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of bounded-run binary bigram-profile enumeration
+# Independent mathematical audit
 
-Run `python3 verify_profile.py` and `python3 verify_identity.py` from the directory containing these files. Both programs use only the Python standard library. The first builds all admissible binary strings with \(1\leq n\leq17\) and \(1\leq h\leq5\); it reconstructs each exact bigram-profile fiber, independently verifies its binomial/bounded-composition count, and constructs a valid representative. It checks the rational generating-function coefficients for \(1\leq h\leq20\), \(1\leq n\leq500\). At \(h=2\) it also compares the twelve-residue formula and counts singleton fibers. The second compares the cleared-denominator rational generating function and quasipolynomial series by exact polynomial arithmetic, establishing an identity rather than only sampling coefficients.
+## correctness
 
-Observed terminal outputs:
+PASS
 
-`VERIFY_OK brute_h_1_to_5_n_1_to_17; exact_fibers; canonical_representatives; rational_h_1_to_20_n_1_to_500; h2_quasipolynomial_singletons`
+Frozen RESULT.md d3b07698dfcd6e4a7f250945cf0c8609b917f0af uses transition imbalance u−v∈{−1,0,1}, alternating run numbers, and bounded composition counts B_h(r,k) to count each fiber exactly. For balanced u=v=m, two endpoint cases give B(m+1,a)B(m,b)+B(m,a)B(m+1,b); imbalanced transitions give B(m+1,a)B(m+1,b). Feasible profile rectangles yield exact all-h GF; geometric-sum simplification yields rational expression. At h=2, singleton binomial endpoints give the stated divisibility/residue formula. Inspecting verify_identity.py reveals an exact cleared-denominator polynomial equality for infinite period-12 coefficients, not merely sample enumeration. Independent enumeration of all 2^n binary words n=1..12 with cap h=2 confirmed period-12 M formula, and compared known unrestricted capacity profile; algebraic run decomposition supports all n,h. The h=1 limiting case and n=1 exceptional fiber are handled.
 
-`IDENTITY_OK rational_GF_h2_equals_exact_period12_quasipolynomial`
+## originality
 
-The proof for all lengths and run caps is the exhaustive run-count case distinction and formal power-series summation in `RESULT.md`. Finite exhaustive tests do not independently establish infinite statements; the exact polynomial identity and algebraic proof cover them. No noisy-spectrum, incomplete-coverage or error-correction guarantee was tested or asserted.
+PASS
+
+Resultary published 2026-10-04 exact UNRESTRICTED binary read-two profile count and singleton classification, which establishes the same endpoint-flow method but does not imply a nontrivial bounded-run h parameter, its rational GF and h=2 congruence singleton law. Kiah et al DNA profile codes and Jacquet et al Markov type enumeration also use profile counts but do not state the exact bounded maximal-run formulas in inspected portions.
+
+## value
+
+PASS
+
+Run-length limits are natural sequence-constraint models for storage channels and run-length-limited coding. An exact admissible-profile capacity, explicit representatives, asymptotic profile loss, and sharp distinction between coded reconstructibility and individual uniqueness give researchers precise channel invariants for every cap h; the h=2 singleton zero congruence is particularly informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

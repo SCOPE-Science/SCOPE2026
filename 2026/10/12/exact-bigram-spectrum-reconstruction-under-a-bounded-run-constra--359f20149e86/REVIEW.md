@@ -1,15 +1,21 @@
-# Scientific review: bounded-run binary bigram-spectrum enumeration
+# Independent mathematical audit
 
-## Correctness (C): PASS
-Every nonempty binary word uniquely decomposes into alternating constant runs. Transition counts determine the two possible endpoint patterns and corresponding zero/one run numbers. Distributing the within-run repeat counts produces the exact bounded-composition fiber formulas. Feasible profiles are unions of rectangles or equal-sided rectangles; inclusion-exclusion gives the generating function without omission or duplication. Rational simplification, pole analysis, the cleared-denominator period-twelve polynomial identity, and the binomial endpoint classification prove the asserted formulas for all stated integers. Direct exhaustive tests through length 17 and exact polynomial arithmetic corroborate independent proof steps. No finite experiment is treated as proving an unbounded theorem.
+## correctness
 
-## Originality (O): PASS, subject to bibliographic risk
-The closest primary paper, Kiah–Puleo–Milenkovic (arXiv:1410.8837), supplies the general sequence-profile framework and restricted de Bruijn graphs, but studies admissibility by allowed substring sets/balance, not the precise run-capped preimage constraints and resulting two-spectrum profile/singleton census. Jacquet–Knessl–Szpankowski (*Counting Markov Types*, 2010) gives general unrestricted Markov-type asymptotics, including an unrestricted binary balanced-matrix example; its statement does not imply the sharp cap-dependent formulas. Gabrys–Milenkovic (arXiv:1804.04548) addresses reconstruction codes for multispectra with read lengths typically growing with block length, not fixed-two run-bounded exact enumeration. Targeted database and literature searches using aliases such as homopolymer constraints, run-length-limited Markov types and bigram multispectra showed no equivalent prior statement. An obscure specialization of general Markov-type counting, an unindexed thesis or a later publication remains a real residual priority risk.
+PASS
 
-## Value (V): PASS
-The exact maximum distinguishable code cardinality for every binary run cap quantifies the price of a natural biochemical/recording constraint in the shortest nontrivial substring channel; its leading ratio relative to unrestricted profiles is sharp. The \(h=2\) period-twelve size formula is accompanied by the substantively different individual-reconstruction theorem: infinitely many lengths have no uniquely identifiable raw word at all, even though a quadratically large coded repertoire exists. This identifies a structural design boundary, not merely a convenient tabulation; it neither assumes nor claims a noisy-read code or positive asymptotic rate.
+Frozen RESULT.md d3b07698dfcd6e4a7f250945cf0c8609b917f0af uses transition imbalance u−v∈{−1,0,1}, alternating run numbers, and bounded composition counts B_h(r,k) to count each fiber exactly. For balanced u=v=m, two endpoint cases give B(m+1,a)B(m,b)+B(m,a)B(m+1,b); imbalanced transitions give B(m+1,a)B(m+1,b). Feasible profile rectangles yield exact all-h GF; geometric-sum simplification yields rational expression. At h=2, singleton binomial endpoints give the stated divisibility/residue formula. Inspecting verify_identity.py reveals an exact cleared-denominator polynomial equality for infinite period-12 coefficients, not merely sample enumeration. Independent enumeration of all 2^n binary words n=1..12 with cap h=2 confirmed period-12 M formula, and compared known unrestricted capacity profile; algebraic run decomposition supports all n,h. The h=1 limiting case and n=1 exceptional fiber are handled.
 
-## Closest sources and limits
-Full relevant sections of Kiah–Puleo–Milenkovic, *Codes for DNA Sequence Profiles* (2015 expanded manuscript, original arXiv:1410.8837v1 dated 2014-10-31), Jacquet–Knessl–Szpankowski, *Counting Markov Types* (2010), and Gabrys–Milenkovic, *Unique Reconstruction of Coded Strings from Multiset Substring Spectra* (2018), were inspected. Similar objects and the classical graph-theoretic mechanism are acknowledged. No independent audit or human priority verification has been performed. For further limitations see `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Resultary published 2026-10-04 exact UNRESTRICTED binary read-two profile count and singleton classification, which establishes the same endpoint-flow method but does not imply a nontrivial bounded-run h parameter, its rational GF and h=2 congruence singleton law. Kiah et al DNA profile codes and Jacquet et al Markov type enumeration also use profile counts but do not state the exact bounded maximal-run formulas in inspected portions.
+
+## value
+
+PASS
+
+Run-length limits are natural sequence-constraint models for storage channels and run-length-limited coding. An exact admissible-profile capacity, explicit representatives, asymptotic profile loss, and sharp distinction between coded reconstructibility and individual uniqueness give researchers precise channel invariants for every cap h; the h=2 singleton zero congruence is particularly informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

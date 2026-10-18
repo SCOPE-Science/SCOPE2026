@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T11:49:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frozen RESULT.md d3b07698dfcd6e4a7f250945cf0c8609b917f0af uses transition imbalance u−v∈{−1,0,1}, alternating run numbers, and bounded composition counts B_h(r,k) to count each fiber exactly. For balanced u=v=m, two endpoint cases give B(m+1,a)B(m,b)+B(m,a)B(m+1,b); imbalanced transitions give B(m+1,a)B(m+1,b). Feasible profile rectangles yield exact all-h GF; geometric-sum simplification yields rational expression. At h=2, singleton binomial endpoints give the stated divisibility/residue formula. Inspecting verify_identity.py reveals an exact cleared-denominator polynomial equality for infinite period-12 coefficients, not merely sample enumeration. Independent enumeration of all 2^n binary words n=1..12 with cap h=2 confirmed period-12 M formula, and compared known unrestricted capacity profile; algebraic run decomposition supports all n,h. The h=1 limiting case and n=1 exceptional fiber are handled.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiah et al analyze profile-based reconstruction and restricted de Bruijn graphs, with restrictions on substring types rather than max-run lengths",
+          "Jacquet et al derive Markov type counts often cyclic/balanced"
+        ],
+        "reasoning": "Neither general framework produces an implication-equivalent bounded-run all-h rational GF, period12 h=2 formula, and exact unique-fiber census without new run-capacity counting.",
+        "searches": [
+          "arXiv:1410.8837 Codes for DNA Sequence Profiles",
+          "Jacquet--Knessl--Szpankowski Counting Markov Types OA",
+          "arXiv:1804.04548 coded string reconstruction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/2026 exact binary two-multispectrum published RESULT.md 2026-10-04",
+        "arXiv:1410.8837, Codes for DNA Sequence Profiles",
+        "Jacquet--Knessl--Szpankowski, Counting Markov Types OA PDF",
+        "arXiv:1804.04548, coded substring multispectra"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior unrestricted result establishes N≈3n²/4; bounded-run record gives leading fraction (h−1)^2/[h(h+1)]",
+          "Known Euler-trail/run decomposition is credited as prior combinatorics"
+        ],
+        "reasoning": "Restriction of unrestricted result is not immediate: removing long runs can eliminate entire profiles and change class cardinalities, requiring bounded compositions and inclusion-exclusion rectangles. Prior method provides a template, not the exact new enumerations.",
+        "searches": [
+          "Resultary/2026 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71, full RESULT",
+          "arXiv:1410.8837",
+          "Counting Markov Types full OA manuscript"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published unrestricted read-length-two Q_2m=3m²−m+2 and Q_2m+1=3m²+2m+2 with unrestricted singleton words",
+          "Submitted bounded-run profiles further require each maximal constant run≤h"
+        ],
+        "reasoning": "Same bigram observational channel but a strict constrained input space changes feasible profiles and fibers. The unrestricted count cannot be substituted into the h-limited enumeration; exact h-dependent factors are genuinely additional.",
+        "searches": [
+          "bounded run binary strings bigram multispectrum Markov types exact generating function unique reconstruction",
+          "Resultary/2026 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71 RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Unrestricted published profile table has different coefficients and singleton classes",
+          "Exact h=2 period12 vector c=(48,1,44,33,16,17,60,1,32,33,28,17) checks all residue classes"
+        ],
+        "reasoning": "No known table directly lists this constrained h=2 profile sequence and unique preimages in the inspected literature; exact h2 quasi-polynomial is established by clearing denominators in package.",
+        "searches": [
+          "bounded run binary strings bigram multispectrum Markov types exact generating function unique reconstruction",
+          "Resultary exact binary two-multispectrum prior entry",
+          "bounded composition binary bigram RLL Markov table"
+        ]
+      },
+      "rationale": "Resultary published 2026-10-04 exact UNRESTRICTED binary read-two profile count and singleton classification, which establishes the same endpoint-flow method but does not imply a nontrivial bounded-run h parameter, its rational GF and h=2 congruence singleton law. Kiah et al DNA profile codes and Jacquet et al Markov type enumeration also use profile counts but do not state the exact bounded maximal-run formulas in inspected portions.",
+      "residual_risks": [
+        "Older length-limited or run-constrained Markov type literature may contain equivalent formulas under different terminology",
+        "No claims of positive code rate or noisy/incomplete read reconstruction; mathematical profile capacities are polynomial"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_UNRESTRICTED_CASE_NOT_BOUNDED_RUN",
+          "evidence": "Has no maximal run parameter h; Q_n unrestricted and singleton classes differ materially from h2 capped counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71/RESULT.md",
+          "material_read": "Full published RESULT.md, assumptions, run proof, exact Q_n formulas, singleton classification and limitations",
+          "method": "GitHub repository blob read through authorized read-only connector",
+          "title": "Exact binary two-multispectrum code size and singleton classification",
+          "trigger": "Exact same observed bigram multiset; strongest related published result"
+        },
+        {
+          "assessment": "RELATED_GENERAL_FRAMEWORK",
+          "evidence": "Studies profile codes with substring exclusions/constraints; inspected material does not give maximal constant-run constrained exact h-dependent formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.8837",
+          "material_read": "Full 31-page PDF opened, intro, basic profile definitions, finite-state/de-Bruijn code material and relevant enumeration descriptions",
+          "method": "open-access arXiv PDF with text and page image",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Primary sequence-profile coding framework"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_BOUNDARY_CONDITIONS",
+          "evidence": "Counts types in Markov frequency frameworks, particularly balanced/cyclic arrays; no precise bounded-run linear-word period12 census identified.",
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/aofa10.pdf",
+          "material_read": "Open-access primary PDF, definitions, cyclic/balanced Markov frequency matrix example and asymptotic framework",
+          "method": "author-hosted PDF with text and relevant page image",
+          "title": "Counting Markov Types",
+          "trigger": "Potential general dominating enumeration"
+        },
+        {
+          "assessment": "POTENTIALLY_RELEVANT_PARTIAL",
+          "evidence": "General reconstruction-coded strings results concern broader windows and code constructions; no whole-document noncoverage claim.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.04548",
+          "material_read": "Abstract and introduction/public mathematical problem statement; not a full document inspection",
+          "method": "public arXiv entry and available exposition",
+          "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+          "trigger": "Same observation name and general code notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Run-length limits are natural sequence-constraint models for storage channels and run-length-limited coding. An exact admissible-profile capacity, explicit representatives, asymptotic profile loss, and sharp distinction between coded reconstructibility and individual uniqueness give researchers precise channel invariants for every cap h; the h=2 singleton zero congruence is particularly informative.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For binary length-n strings with runs≤h, full adjacent-pair multispectrum has exact bounded-composition fiber formula, rational GF for distinct profiles and maximum code size, quadratic asymptotics, and at h=2 a period-12 exact capacity and complete singleton-word count including zero for n≡1 mod6.",
+  "limitations": [
+    "Binary alphabet, complete multiplicity-preserving, noiseless linear bigram spectrum and finite fixed run cap",
+    "Numerical enumeration n≤12 is evidence only; all-n bounds rest on run decompositions and exact rational identity."
+  ],
+  "schema_version": 1
+}
