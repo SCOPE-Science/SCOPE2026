@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T02:16:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For G=K_1 join union_i K_{k_i}, k_i>=2 and at least two cliques, vertices within a peripheral clique are true twins; at most one may be outside any outer-multiset resolving set. An omitted peripheral x_i then has exactly k_i-1+epsilon distance-1 landmarks (epsilon=1 if center selected); thus two omitted peripheral vertices collide iff clique orders match. If the center is omitted, its all-distance-1 signature differs from peripheral omissions, which see a selected distance-2 vertex from another clique because each k_j>=2. Choices for each distinct size q are select all q*m_q or omit exactly one of q*m_q: the product enumerator (1+z) z^{K-d} prod_q (z+m_q*q), dimension K-d and basis count prod_q m_q*q follow. Independent exact BFS-distance subset enumeration reproduces all subsets for sizes (2,2),(2,3),(2,3,4),(3,3,4).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier arbitrary complete-multipartite theorem allows repeated and unequal part sizes, and proves the same all-set omission rule, d dimension and exact basis counts.",
+          "The 2025 join paper separately gives uniform windmill scalar value only."
+        ],
+        "reasoning": "The earlier general multipartite theorem dominates the new variable-size windmill classification after a one-step explicit complement/adjunction map, even though it has a different graph title.",
+        "searches": [
+          "Published Resultary 2026/9/18 SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd full RESULT.md",
+          "Pervaiz Simanjuntak Saputro DOI:10.19184/ijc.2025.9.2.1 Theorem 2.3"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd/RESULT.md",
+        "doi:10.19184/ijc.2025.9.2.1",
+        "arXiv:1902.03017",
+        "Resultary semantic search for heterogeneous windmill and outer multiset dimension"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In prior H=K_(k_1,...,k_r), a resolving subset on the K peripherals omits <=1 from any part, and omitted parts have pairwise distinct orders. In G, those are exactly the conditions on peripheral S because distances invert 1<->2. Selecting c adds one common distance 1; omitting c causes no new collision since any omitted peripheral vertex has a selected distance-2 vertex in another nontrivial clique. Thus all G resolving sets equal S and S union {c} for every prior H resolving set S."
+        ],
+        "reasoning": "This constructive one-to-two bijection immediately yields the all-set polynomial and all dimension/basis statements, so the original claim is a corollary of prior knowledge, not novel by changing graph family names.",
+        "searches": [
+          "Direct comparison of current frozen RESULT.md 0106e74b727f7038a0a41ee126ac7c085e11ea78 to earlier published RESULT.md 2a8db4da9044803481173e38fc8f857effd20c9e",
+          "Primary foundational arXiv:1902.03017 and uniform join DOI:10.19184/ijc.2025.9.2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a complete multipartite H with parts size k_i, peripheral distance multisets for omitted vertices contain 2^(k_i-1) and 1^(|S|-k_i+1); the windmill G has exactly the 1/2-swapped version, with optional selected center contributing one common 1.",
+          "Both therefore have identical peripheral omitted-vertex collision partitions."
+        ],
+        "reasoning": "Complement-of-blades plus cone changes the graph name but not the complete resolving-set classification; it is an elementary distance-label duality on peripheral vertices.",
+        "searches": [
+          "Resultary outer multiset dimension heterogenous windmill unequal clique orders generating polynomial",
+          "Published Resultary 2026/9/18 complete-multipartite outer multiset classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior exact general formula for complement size k is e_k((c_q q)_q), so its full size polynomial is z^{K-d} prod_q (z+c_q q).",
+          "The windmill polynomial is precisely (1+z) times this earlier exact enumerator."
+        ],
+        "reasoning": "The new enumerator is an immediate consequence of an earlier exact all-cardinality formula, not an unknown table cell.",
+        "searches": [
+          "Published Resultary complete multipartite exact formulas and elementary-symmetric profile",
+          "Current independent small graph BFS subset count"
+        ]
+      },
+      "rationale": "Direct dominating earlier published Resultary theorem/explicit constructive prior implication; not merely unavailable literature.",
+      "residual_risks": [
+        "An earlier graph-theoretic treatment of variable-size clique bouquets might also cover it; no such additional prior is needed to show it is an immediate corollary of the published multipartite theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOMINATING_IMPLICATION",
+          "evidence": "Earlier 2026-09-18 theorem already gives all peripheral omission configurations and size polynomial; (1+z) center factor follows mechanically.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd/RESULT.md",
+          "material_read": "Complete published RESULT.md incl statement for any part sizes, complete resolving-set characterization, e_k size coefficients, proof and limitations",
+          "method": "GitHub connector fetched primary Git blob 2a8db4da9044803481173e38fc8f857effd20c9e",
+          "title": "Outer multiset dimension of arbitrary complete multipartite graphs",
+          "trigger": "Exact disjoint-clique complement duality and repeated unequal part sizes"
+        },
+        {
+          "assessment": "COVERS_UNIFORM_SUBCASE",
+          "evidence": "Uniform K1 join rKk scalar value rk-1 is prior; new heterogeneous conclusion is additionally dominated by 2026-09-18 result.",
+          "identifier_or_url": "doi:10.19184/ijc.2025.9.2.1",
+          "material_read": "Accessible published paper record and title plus assigned package discussion of Theorem 2.3; whole paper not independently read in this run",
+          "method": "Published source record and crosschecked references",
+          "title": "Outer Multiset Dimension of Joined Graphs",
+          "trigger": "Published uniform windmill theorem"
+        },
+        {
+          "assessment": "FOUNDATIONAL",
+          "evidence": "Defines parameter and studies balanced cases; not decisive for rejection compared with published 2026-09-18 result.",
+          "identifier_or_url": "arXiv:1902.03017",
+          "material_read": "Full open-access PDF inspected at definitions and multipartite proposition",
+          "method": "Open-access PDF page inspection",
+          "title": "Distance-based vertex identification in graphs: the outer multiset dimension",
+          "trigger": "Foundational twin-class tools"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An earlier complete-multipartite outer-multiset theorem already classifies all resolving sets by identical omitted-part-size conditions, gives exact minimum, basis count, and cardinality profile. Switching peripheral distances 1 and 2 and adjoining a universal center gives the windmill theorem with the automatic factor 1+z. This is a direct elementary transformation of the stronger prior structural result, not a separately motivated unsolved boundary or new natural invariant.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd/RESULT.md",
+    "doi:10.19184/ijc.2025.9.2.1",
+    "arXiv:1902.03017",
+    "Resultary semantic search for heterogeneous windmill and outer multiset dimension"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "An earlier graph-theoretic treatment of variable-size clique bouquets might also cover it; no such additional prior is needed to show it is an immediate corollary of the published multipartite theorem.",
+    "Public source metadata contains operational provenance; publication is withheld pending authorized sanitization.",
+    "Finite checker executions are bounded; general theorems rest on reconstructed symbolic arguments and clear assumptions."
+  ],
+  "schema_version": 1
+}
