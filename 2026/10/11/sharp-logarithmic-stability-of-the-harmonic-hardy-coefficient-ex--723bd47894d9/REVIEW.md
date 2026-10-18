@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Poisson inversion converts the two coefficient phases to a single cosine weight. The exact defect controls the weighted boundary-square deviation. The explicit cosine pushforward law gives the upper modulus. For sharpness, the unimodular phase family has an exact coefficient cancellation, a second-order logarithmic deficit asymptotic, and a phase-uniform lower bound obtained by pairing reflected boundary points; both comparison phases are optimized. The standalone consistency checker passed nine cases. Its finite numerical output is not treated as proof of universal quantifiers.
+## correctness
 
-**Originality — PASS.** The 2012 paper of Chen, Ponnusamy and Wang establishes the sharp constant and its equality cases. The 2026 paper of Chen, Huang, Jin and Li treats sharp harmonic Hardy coefficient constants for finite exponent and recalls the endpoint. The previously published finite-exponent cosine-power extremizer classification concerns exact equality and Fourier support, not the endpoint \(L^1\) deficit modulus. Searches for endpoint stability, cosine-sign near-extremizers and logarithmic Fourier-coefficient deficits did not reveal an implication of the present rate. The possibility of unindexed quantitative Fourier-stability results remains a residual originality risk.
+PASS
 
-**Value — PASS.** The sharp coefficient bound alone does not quantify how close a nearly extremal harmonic map must be to its discontinuous extremizer boundary trace. The theorem supplies the order of this stability modulus and shows why the weight's simple zeros force the logarithmic loss. This is a motivated structural quantitative complement to the sharp coefficient theorem, not a routine restatement of its constant.
+Bounded harmonic functions admit essentially bounded radial trace F. Phases that maximize the two opposite Fourier coefficients form a cosine sign trace G, giving the exact identity Delta_n=2∫|cos(nt−tau)|(1−Re(F conj(G)))dσ, hence ∫w|F−G|²≤Delta_n. The cosine arcsine density yields σ(w<s)≤s and ∫_{w≥s}1/w≤(2/pi)log(2/s); Cauchy–Schwarz with s=sqrt(Delta_n) yields d_n≤5sqrt(Delta_n log(e/Delta_n)), with trivial bound covering larger deficits. Equality Delta=0 enforces F=G a.e. For the explicit unimodular F_{n,eta}=sgn(cos nt)exp(i sgn(sin nt)min(1,eta/|cos nt|)), the two opposite n-th coefficients are real and equal; Taylor expansion gives Delta=(2/pi)eta² log(1/eta)+O(eta²). The reflection-pair comparison for shifted-sign phases, plus the regime |tau|>sqrt(eta), gives d_n∼eta log(1/eta) in order. Thus the claimed rate is sharp for every fixed integer n. Analytic proof, not nine finite tests, establishes all quantifiers.
 
-Limitations: bounded harmonic functions only; boundary \(L^1\) only; no best numerical leading constant. Primary sources include arXiv:2609.33159v1 (2026-09-27) and DOI:10.5186/aasfm.2012.3707. The review is not independent.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: published sharp 4/pi coefficients and exact sign-cosine extremizers do not supply an L1 deficit-to-extremizer estimate; finite-p optimal coefficients and the separate h1 atomic endpoint rigidity work concern different spaces/metrics. The logarithmic optimal stability order is not an implication of those theorems. Searches for aliases and dominating moduli found no prior theorem with this exact implication; nonindexed endpoint Fourier stability remains a residual risk.
+
+## value
+
+PASS
+
+PASS: quantifies how boundary traces of normalized bounded harmonic maps must approach the unique coefficient extremizers; logarithmic loss is shown necessary, resolving a nontrivial infinite-dimensional stability question beyond reproducing the known coefficient constant. Useful as exact endpoint stability modulus with sharp order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
