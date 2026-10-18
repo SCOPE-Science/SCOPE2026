@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "audited_at_utc": "2026-10-14T22:51:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given length r=2m−1 and n vertices, precisely n−1 labels are the unique forward edges E_{s,s+1}, leaving r−n+1 loop labels. If any vertex carries three loops, two label positions have the same odd/even parity. Exchanging these equal matrix units yields a distinct parity-preserving permutation with unchanged nonzero identity-order product, contradicting isolation. Hence at most two loops per vertex, r−n+1≤2n and 2m≤3n, or n≥ceil(2m/3). In Arhancet §7.1, v_k=1+floor(k/3), F_k=E_{v_{k−1},v_k}, k=1..2m−1 gives n=ceil(2m/3) and the proof establishes that the chosen Fourier coefficient/(1,n) entry has only identity parity-compatible ordering. Boundary n=1 and small m covered by the count; no claim about global minimal complete-contractivity level. The argument is exact, not dependent on truncated enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arhancet §7.1 opening says N_m is sufficient and no global optimality is claimed.",
+          "Le Merdy–Ricard–Roydor Schatten 2-contractivity is ambient-specific and uses other structure."
+        ],
+        "reasoning": "The stronger global contractivity theorem does not imply lower size necessity for a combinatorial loop-chain encoding; Schatten levels do not provide a smaller parity-isolating loop-chain.",
+        "searches": [
+          "parity isolating loop-chain matrix unit paths optimal n≥ceil(2m/3) finite complete contractivity L2m Arhancet"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.03375v1 Section 7.1",
+        "Le Merdy–Ricard–Roydor Trans. AMS 361 (2009) 849–887 bibliographic",
+        "Resultary/2026 parity path-chain and exact loop-chain query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arhancet constructs N_m loop-chain with two loops then a forward step, proves identity uniqueness, and states only sufficient matrix level."
+        ],
+        "reasoning": "Existence at N_m alone yields upper bound on required architecture size; to establish the new lower bound one must invoke parity-preserving transposition for every possible encoding and count loops. That universal necessity is not a theorem in the inspected focal source.",
+        "searches": [
+          "parity isolating loop-chain matrix unit paths optimal n≥ceil(2m/3) finite complete contractivity L2m Arhancet"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arhancet proof of Theorem 7.1 defines v_k=1+floor(k/3) and a single example, whereas target asserts necessity over EVERY parity-isolating loop-chain of same type."
+        ],
+        "reasoning": "Same matrix-unit machinery but inverted quantifier (exists encoding attaining N_m versus all such encodings have n≥N_m) makes the proposed bound a genuine converse within an explicitly defined architecture, not source restatement.",
+        "searches": [
+          "parity isolating loop-chain matrix unit paths optimal n≥ceil(2m/3) finite complete contractivity L2m Arhancet"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest result is target loop-chain; parity path-chain homological finding concerns different digraph complex.",
+          "No exhaustive external table of parity-isolating loop-chain minimal n identified."
+        ],
+        "reasoning": "An existing table with same conditions would cover, but the observed similarly named combinatorial results use different objects and invariants.",
+        "searches": [
+          "parity isolating loop-chain matrix unit paths optimal n≥ceil(2m/3) finite complete contractivity L2m Arhancet"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Arhancet arXiv:2610.03375v1 Theorem 7.1 supplies sufficiency at N_m and its specific matrix-unit construction, expressly without claiming global N_m optimality, but does not quantify universally over all parity-isolating loop-chain encodings or prove the corresponding necessity. The pigeonhole converse is a new restricted-architecture statement; earlier Schatten 2-contractivity concerns different representations and does not contradict it. Search of Resultary and the focal paper found no identical architecture-wide lower bound. Easy-observation folklore risk remains.",
+      "residual_risks": [
+        "The parity pigeonhole observation is elementary and might be folklore or implicit in another account of matrix-unit Fourier isolation.",
+        "Value is strictly architecture-specific; does not establish any global optimal matrix contractivity level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONSTRUCTION_KNOWN_NEW_RESTRICTED_CONVERSE",
+          "evidence": "Sets N_m=ceil(2m/3), v_k=floor(k/3)+1; explicitly says not claiming global optimality and does not assert universal loop-chain minimality.",
+          "identifier_or_url": "https://arxiv.org/html/2610.03375v1",
+          "material_read": "Full public arXiv HTML focal Section 7 pp. 2102–2190, Theorem 7.1, chosen matrix units, torus Fourier terms and unique parity-surviving path",
+          "method": "Primary full-text HTML reading",
+          "title": "A modular theory of contractive projections on Banach spaces with applications to noncommutative Lp-spaces",
+          "trigger": "Source of exact F_k construction and potential prior optimality"
+        },
+        {
+          "assessment": "AMBIENT_SPECIFIC_NOT_COMPARABLE",
+          "evidence": "Schatten case 2-level sufficiency is not a parity-isolating loop-chain counterexample; no global level claim made.",
+          "identifier_or_url": "Le Merdy–Ricard–Roydor, Transactions of the American Mathematical Society 361 (2009), 849–887",
+          "material_read": "Bibliographic theorem scope and citation from Arhancet; full external article not independently read",
+          "method": "Focal paper discussion and bibliographic check",
+          "title": "Completely 1-complemented subspaces of Schatten spaces",
+          "trigger": "Potential smaller level sufficiency at non-Hilbert exponents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS with a narrow but natural motivation: proving the precise combinatorial resource cost of the explicit Fourier/matrix-unit extraction technique identifies why its sharp construction cannot be compressed by repacking the same path/loops; this can guide genuinely different approaches to reducing contractivity matrix levels. The bound is not promoted to a general operator-algebra level theorem, and its elementary pigeonhole proof is transparently acknowledged.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Scientific scope exactly as specified in RESULT.md; The parity pigeonhole observation is elementary and might be folklore or implicit in another account of matrix-unit Fourier isolation.; Value is strictly architecture-specific; does not establish any global optimal matrix contractivity level.",
+  "schema_version": 1
+}

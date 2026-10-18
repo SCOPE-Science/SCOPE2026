@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof reduces the final claim to an exact count. A loop-chain in \(\mathrm M_n\) has \(n-1\) required forward labels. Parity isolation permits at most two loop labels at any vertex, because three loops force a same-parity pair and swapping that pair leaves the matrix-unit product unchanged. Thus \(2m-1-(n-1)\le2n\), giving \(n\ge\lceil2m/3\rceil\). The focal construction reaches equality and its full-text proof supplies the needed parity-isolation property.
+PASS
 
-## Originality
+Given length r=2m−1 and n vertices, precisely n−1 labels are the unique forward edges E_{s,s+1}, leaving r−n+1 loop labels. If any vertex carries three loops, two label positions have the same odd/even parity. Exchanging these equal matrix units yields a distinct parity-preserving permutation with unchanged nonzero identity-order product, contradicting isolation. Hence at most two loops per vertex, r−n+1≤2n and 2m≤3n, or n≥ceil(2m/3). In Arhancet §7.1, v_k=1+floor(k/3), F_k=E_{v_{k−1},v_k}, k=1..2m−1 gives n=ceil(2m/3) and the proof establishes that the chosen Fourier coefficient/(1,n) entry has only identity parity-compatible ordering. Boundary n=1 and small m covered by the count; no claim about global minimal complete-contractivity level. The argument is exact, not dependent on truncated enumeration.
 
-**PASS.** The focal source was compared at statement and proof level. It states the finite level, constructs the loop-chain encoding, and explicitly says that the level is not claimed globally optimal, but it does not state the converse lower bound for all encodings of that same type. Eight published-finding corpus queries and targeted web searches covered the source identifier, the exact level, parity-preserving reorderings, matrix-unit paths, loop-chain aliases, and method-optimality language. No implication-equivalent record was found. The closest path-chain published-finding corpus hit concerns a different homological digraph problem.
+## originality
 
-Residual risk remains that this elementary combinatorial observation may exist as folklore or under unrelated path-ordering terminology.
+PASS
 
-## Value
+Best-of-knowledge PASS: Arhancet arXiv:2610.03375v1 Theorem 7.1 supplies sufficiency at N_m and its specific matrix-unit construction, expressly without claiming global N_m optimality, but does not quantify universally over all parity-isolating loop-chain encodings or prove the corresponding necessity. The pigeonhole converse is a new restricted-architecture statement; earlier Schatten 2-contractivity concerns different representations and does not contradict it. Search of Resultary and the focal paper found no identical architecture-wide lower bound. Easy-observation folklore risk remains.
 
-**PASS.** The lower bound answers a natural methodological question raised by the source's explicit non-optimality caveat. It proves that the source's \(2/3\) matrix-size ratio cannot be improved by simply packing more loop factors into the same single-entry path extraction. Any improvement of the finite level must use a genuinely different encoding or argument. The claim is therefore a sharp structural limitation of the motivating proof mechanism.
+## value
 
-The special Schatten-space level-\(2\) theorem is not in conflict: it shows only that other structures can do better in a narrower ambient setting.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS with a narrow but natural motivation: proving the precise combinatorial resource cost of the explicit Fourier/matrix-unit extraction technique identifies why its sharp construction cannot be compressed by repacking the same path/loops; this can guide genuinely different approaches to reducing contractivity matrix levels. The bound is not promoted to a general operator-algebra level theorem, and its elementary pigeonhole proof is transparently acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
