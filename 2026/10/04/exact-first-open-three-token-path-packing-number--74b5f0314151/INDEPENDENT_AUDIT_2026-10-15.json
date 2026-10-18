@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T08:54:40.660009Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the path P_13 and three indistinguishable tokens, each vertex is an increasing triple 1≤i<j<k≤13. Adjacent token movement preserving order gives exact shortest-path metric d((i,j,k),(i',j',k'))=|i-i'|+|j-j'|+|k-k'|: every move changes one rank coordinate by 1, and ordered monotone routing realizes that sum. A graph packing corresponds to selecting triples at distance at least 3; equivalently an independent set in the distance≤2 conflict graph. Independently enumerated all C(13,3)=286 triples and all 2255 conflicting unordered pairs, built the binary integer optimization with x_u+x_v≤1 for every conflict and 0≤x_u≤1 integer. An entirely separately written SciPy/HiGHS model terminated with optimal objective 52, dual bound 52 and 0 reported MIP gap in 10.74 seconds, and extracted 52 pairwise distance≥3 codewords; the source contains its own explicit independent 52-element witness and complete verifier, also inspected. Thus finite n=13 exactness is supported by both a concrete lower witness and a complete finite optimization of the defined graph, not extrapolation from small n or a timeout. Solver arithmetic/tolerance is a residual computational-certification qualification, not a claim of a symbolic general n upper-bound proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ndjatchi et al. (2024), On the packing number of 3-token graph of the path graph P_n, AIMS Mathematics 9(5):11644-11659, DOI 10.3934/math.2024571 obtains exact values only n≤12 and lower/upper estimates for larger n, including n=13.",
+          "Gomez Soto, Leanos, Rios-Castro and Rivera (2018), The packing number of the double vertex graph of the path graph, Discrete Applied Mathematics 247:327-340, arXiv:1711.03682 resolves weight TWO for arbitrary path length, not weight THREE."
+        ],
+        "reasoning": "No parameter-uniform weight-three theorem supplying n=13 was found. Weight-two generality does not dominate weight-three specificity.",
+        "searches": [
+          "\"On the packing number of 3-token graph of the path graph\" 50 54 13",
+          "The packing number of the double vertex graph of the path graph arxiv 1711.03682"
+        ]
+      },
+      "checked_sources": [
+        "Ndjatchi et al. (2024), On the packing number of 3-token graph of the path graph P_n, AIMS Mathematics 9(5):11644-11659, DOI 10.3934/math.2024571",
+        "Gomez Soto, Leanos, Rios-Castro and Rivera (2018), The packing number of the double vertex graph of the path graph, Discrete Applied Mathematics 247:327-340, arXiv:1711.03682",
+        "OEIS A085684, constant-weight single-adjacent-transposition code triangle; last displayed row before n=13",
+        "OEIS A085680, weight-two adjacent-transposition codes only",
+        "Resultary token packing F_3(P_13) semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ndjatchi et al. (2024), On the packing number of 3-token graph of the path graph P_n, AIMS Mathematics 9(5):11644-11659, DOI 10.3934/math.2024571 establishes 50≤ρ(F3(P13))≤54, which mathematically does NOT force 52.",
+          "Gomez Soto, Leanos, Rios-Castro and Rivera (2018), The packing number of the double vertex graph of the path graph, Discrete Applied Mathematics 247:327-340, arXiv:1711.03682 k=2 exact formula has no implication that fixes k=3; OEIS A085684, constant-weight single-adjacent-transposition code triangle; last displayed row before n=13 smaller rows do not logically fix a new row."
+        ],
+        "reasoning": "The final n=13 optimum genuinely closes a published gap; it is not a renamed corollary of prior k=2 formula or listed n≤12 census.",
+        "searches": [
+          "\"On the packing number of 3-token graph\" lower bound upper bound 13",
+          "OEIS A085684 T(n,k) weight k adjacent transposition",
+          "Gómez Soto Leaños Ríos-Castro Rivera 2018 double vertex packing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ndjatchi et al. (2024), On the packing number of 3-token graph of the path graph P_n, AIMS Mathematics 9(5):11644-11659, DOI 10.3934/math.2024571 explicitly identifies F_3(P_n) packing with constant-weight-3 single-adjacent-transposition-correcting binary codes.",
+          "OEIS A085684, constant-weight single-adjacent-transposition code triangle; last displayed row before n=13 gives matching coding formulation as triangular sequence T(n,k), but no n=13 k=3 value."
+        ],
+        "reasoning": "The packing, error-correcting code, and maximum independent set in the graph square are equivalent formulations and were searched/compared, not judged separate novelty claims.",
+        "searches": [
+          "token graph F3(P13) packing number 52 exact length 13 weight 3 adjacent transposition",
+          "\"Ndjatchi\" \"F_3(P_13)\" \"54\" \"50\"",
+          "\"On the packing number of 3-token graph of the path graph\" pdf full text downloadable"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ndjatchi et al. (2024), On the packing number of 3-token graph of the path graph P_n, AIMS Mathematics 9(5):11644-11659, DOI 10.3934/math.2024571 table for n=13 lists lower 50 and upper 54, explicitly leaving 52 undetermined.",
+          "OEIS A085684, constant-weight single-adjacent-transposition code triangle; last displayed row before n=13 displays the triangle only to shorter n; OEIS A085680, weight-two adjacent-transposition codes only is specifically k=2.",
+          "Resultary first hit repeats the target itself, not an independent published table."
+        ],
+        "reasoning": "No known independent table includes T(13,3)=52 in checked materials. The original source's n=13 bounds leave four units of uncertainty.",
+        "searches": [
+          "https://oeis.org/A085684",
+          "https://oeis.org/A085680",
+          "Resultary: token graph F3(P13) packing number 52 exact length 13 weight 3 adjacent transposition"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the first open value ρ(F_3(P_13))=52, rather than the known weight-two code problem or known n≤12 weight-three table. The direct 2024 source states exact weight-three n≤12 and lower/upper bounds 50 and 54 for n=13; this exact value is NOT in the table. Related OEIS A085684 lists the constant-weight triangle only for smaller n, while A085680 is weight two and cannot imply weight-three length 13. Exhaustive exact computational result has a meaningful published open boundary even though it is finite.",
+      "residual_risks": [
+        "A newer or unindexed post-2024 independent computation could already report 52 under a related adjacent-transposition code name.",
+        "HiGHS complete binary optimization reports gap zero, but no independent exact rational dual or algebraic upper-bound certificate was exported; solver/implementation trust should be stated.",
+        "Only n=13 is proved; there is no claimed formula for n≥14, optimizer uniqueness or classification of all extremal codes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact n=13 remained bracketed 50 to 54; finding 52 is not already given in these tables.",
+          "evidence": [
+            "Ndjatchi et al. (2024), On the packing number of 3-token graph of the path graph P_n, AIMS Mathematics 9(5):11644-11659, DOI 10.3934/math.2024571",
+            "Introduction and n=13 Tables 3-4"
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2024571",
+          "material_read": "Open-access primary article full HTML indexed including introductory graph/code definitions, earlier exact n≤12 values, Tables 3/4 n≥13 lower/upper estimates and concluding scope; publisher page also read.",
+          "method": "Read original full-text indexed mathematical sections and tables and independent publisher abstract.",
+          "title": "Ndjatchi et al. (2024), On the packing number of 3-token graph of the path graph P_n, AIMS Mathematics 9(5):11644-11659, DOI 10.3934/math.2024571",
+          "trigger": "Direct same-invariant original results and most likely dominating table"
+        },
+        {
+          "assessment": "Weight 2 model is different and not direct coverage of weight 3; no whole-document exclusion is asserted.",
+          "evidence": [
+            "Gomez Soto, Leanos, Rios-Castro and Rivera (2018), The packing number of the double vertex graph of the path graph, Discrete Applied Mathematics 247:327-340, arXiv:1711.03682",
+            "arxiv 1711.03682 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.03682",
+          "material_read": "Primary arXiv record title and abstract and bibliographic details read, identifying double-vertex (k=2) graph solved for all n; mathematical body not inspected.",
+          "method": "Read OA arXiv record and 2024 source references.",
+          "title": "Gomez Soto, Leanos, Rios-Castro and Rivera (2018), The packing number of the double vertex graph of the path graph, Discrete Applied Mathematics 247:327-340, arXiv:1711.03682",
+          "trigger": "Earlier broad path-token code theorem that might imply claim"
+        },
+        {
+          "assessment": "No displayed n=13,k=3 exact value; database provides names and prior smaller examples.",
+          "evidence": [
+            "OEIS A085684, constant-weight single-adjacent-transposition code triangle; last displayed row before n=13",
+            "definition, displayed triangle and crossrefs"
+          ],
+          "identifier_or_url": "https://oeis.org/A085684",
+          "material_read": "Current database definition, displayed finite triangle rows, cross-reference to k=2 sequence and update date read.",
+          "method": "Open OEIS official sequence page.",
+          "title": "OEIS A085684, constant-weight single-adjacent-transposition code triangle; last displayed row before n=13",
+          "trigger": "Natural exact database for constant-weight coding triangles"
+        },
+        {
+          "assessment": "Only weight 2 and hence does not settle 3-token length 13.",
+          "evidence": [
+            "OEIS A085680, weight-two adjacent-transposition codes only",
+            "description and comments"
+          ],
+          "identifier_or_url": "https://oeis.org/A085680",
+          "material_read": "Sequence description, formula discussion and crossrefs read.",
+          "method": "Open OEIS official sequence page.",
+          "title": "OEIS A085680, weight-two adjacent-transposition codes only",
+          "trigger": "Alternative coding alias for weight-two solved problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Length 13 is exactly the FIRST uncomputed three-token path packing case following a published exhaustive n≤12 census; direct 2024 bounds 50 and 54 make its exact value a natural unknown structural graph invariant, not an arbitrary parameter. Closing that four-unit published gap has standalone coding-theoretic and extremal graph value even without an asymptotic formula or a general classifying theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite n=13 graph only: no upper bound for arbitrary length or weight.",
+    "The upper bound is a reproducible mixed-integer computational result, not a stand-alone formal proof certificate; explicit 52-word witness verifies the lower side.",
+    "Public metadata/review/verification files contain operational provenance; independent scientific PASS does not authorize their publication."
+  ],
+  "schema_version": 1
+}
