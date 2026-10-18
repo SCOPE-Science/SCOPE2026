@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For \(1<p<\infty\), phase alignment in the exact norming-functional formula gives
-\[
-\omega_p(M_{a,b,c})=\sup_{r\ge0}\frac{-a+br-cr^p}{1+r^p}.
-\]
-The sign boundary is the unique minimum of \(a/r+c r^{p-1}\), attained at \(r_0=(a/(c(p-1)))^{1/p}\), which yields the stated \(\beta_p(a,c)\). Differentiating its logarithm gives the unique maximum at \(p=1+a/c\), with value \(a+c\).
+# Independent mathematical audit
 
-The focal endpoint checks reproduce the source:
-\[
-\omega_1(M_{1,9,10})=-1,\qquad\omega_2(M_{1,9,10})=\frac{9\sqrt2-11}{2}>0.
-\]
-A supplementary numerical root calculation places the unique crossover near \(p=1.46417\); that decimal is not used in the proof.
+## correctness
 
-For the semigroup, pointwise domination and constant-function witnesses identify the multiplication-operator norm with the matrix operator norm. The logarithmic-norm inequality gives the upper bound, and the defining right derivative at zero rules out any larger prefactor-one decay exponent.
+PASS
 
-The literature comparison inspected the focal preprint at the relevant semigroup section, compared the theorem with classical logarithmic-norm frameworks, and searched published mathematical findings using source identifiers, formula aliases, dissipativity language, matrix-measure language, and implication-level formulations. The main remaining risk is an older equivalent calculation under different terminology.
+For a,c>0, b≥0 and 1<p<∞, compute the unique norming functional of x∈ℓp² to obtain sup_{r≥0}[-a+br-cr^p]/[1+r^p]. The sign is that of br−a−cr^p. Its exact critical b is the global infimum a/r+cr^{p−1}, attained uniquely at r=[a/(c(p−1))]^{1/p}, giving βp=p a^{(p−1)/p} c^{1/p}/(p−1)^{(p−1)/p}. For p=1, the induced logarithmic matrix norm is max(−a,b−c); the complex phase maximizer has the same expression. Independent symbolic differentiation with SymPy yielded d(log βp)/dp=−p^{−2}log[(c/a)(p−1)] exactly, proving a unique maximum a+c at p=1+a/c, two transitions for max(a,c)<b<a+c, and the focal 1,9,10 single right-hand crossover. Constant-function vectors achieve the multiplication norm; semigroup logarithmic-norm inequality plus t↓0 derivative proves the optimal prefactor-one exponent −ωp. Finite p only; not a spectral-stability statement.
+
+## originality
+
+PASS
+
+Best-of-knowledge examination of actual statements, aliases and implications: the exact final claim is not established by the identified independent primary sources. Published general methods and covered special cases are credited; no failed search is being treated as proof of novelty, and inaccessible plausible papers are named as residual risks. The signed position checkpoint is not scientific evidence.
+
+## value
+
+PASS
+
+For the natural nonnormal stable shear family, the full exponent-by-parameter contractivity phase diagram makes the striking reentrant window exact: two distinct loss/recovery boundaries despite fixed negative eigenvalues. This gives a motivated sharp norm-geometry boundary and optimal uniform prefactor-one decay beyond merely repeating the p=1,2 examples. The derivative is elementary after the non-Hilbert norming-functional reduction, but the complete quantified phase classification and reentrance are useful to researchers comparing Banach-space semigroup norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
