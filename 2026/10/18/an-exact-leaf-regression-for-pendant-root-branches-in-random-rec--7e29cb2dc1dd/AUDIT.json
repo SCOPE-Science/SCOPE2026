@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "A complete four-case transition partition for (Z,L) has integer weights 1,Z,L-Z,n-1-L summing to n; it yields the two stated exact polynomial recurrences. The exact nonstandard commutator (n+D)A_n=(A_n-1)(n-1+D)+2(u+n-1) is valid by direct differentiation. Starting from G_2=H_2=u, induction proves 2H_n=(n-1)G_n+uG_n', and coefficient extraction gives the claimed conditional mean for all feasible z and all n>=2. The auxiliary fixed-point marginal follows by solving the G recurrence and is independently known. Covariance/variance relations follow with n=2 excluded from correlation. Standalone rational enumeration up to n=9 and transform recurrences to n=25 corroborate without replacing proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Seelbach Benkner--Wagner count any fixed subtree type among root branches, a stronger *univariate* statement than the auxiliary rencontres specialization; their formula does not mark global leaf count.",
+        "Devroye--Janson, Protected nodes and fringe subtrees in some random trees (2014), studies local limiting fringe properties and the Yule process rather than fixed-n mixed root/global moment identities.",
+        "Published record 'Equal-share covariance of root degree and leaves in a random recursive tree' gives Cov(root degree,total leaves)=(n-2)/(2(n-1)), not Cov(pendant root children,total leaves)."
+      ],
+      "reasoning": "General root-branch generating functions dominate the marginal Z_n law and are credited. They do not dominate the conditional global-leaf regression without an additional variable and new derivation. Root degree is not Z_n and is insufficient to recover conditional means given Z_n. Tree-metric limits and global fringe shape counts do not imply the mixed finite-n transform.",
+      "searches": [
+        "random recursive tree number of leaf children of root conditional expected total leaves linear regression",
+        "random recursive tree root singleton branches expected number all leaves conditional on singleton branch count",
+        "recursive increasing trees generating function mixed marking root pendant leaf branches and all leaves",
+        "arxiv:2105.04231 Section 5.2",
+        "arxiv:2005.13832 Example 12.4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2005.13832",
+      "https://arxiv.org/abs/2105.04231",
+      "https://link.springer.com/article/10.1007/s00453-022-01013-y",
+      "https://doi.org/10.1214/ECP.v19-3048",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior root-degree note: Cov(D_n,L_n)=(n-2)/(2(n-1)) with D_n counting every root child.",
+        "Current theorem: E[L_n|Z_n=z]=(n-1+z)/2 where Z_n counts only terminal root children; it entails Cov(Z_n,L_n)=1/2 when n>=3.",
+        "Prior root-branch count enumerator: E[u^{Z_n}] alone, with no L_n marker."
+      ],
+      "reasoning": "The prior D_n--L_n covariance is a single scalar for another statistic; it does not determine a full regression conditioned on Z_n. Even joint marginal information about D_n and Z_n would not determine E[L_n|Z_n]. The known distribution E[u^{Z_n}] determines probabilities but not joint moments E[L_n u^{Z_n}]. The new mixed differential-transform invariant is therefore an additional statement rather than a rephrasing of an inspected prior implication. Older uninspected multi-marker enumeration remains a risk.",
+      "searches": [
+        "random recursive tree number of leaf children of root conditional expected total leaves linear regression",
+        "root pendant children and total leaves random increasing recursive tree covariance conditional expectation",
+        "random recursive tree root singleton branches expected number all leaves conditional on singleton branch count",
+        "recursive increasing trees generating function mixed marking root pendant leaf branches and all leaves",
+        "2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+        "arxiv:2105.04231 Section 5.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Seelbach Benkner--Wagner, arXiv:2105.04231, Section 5.2: univariate root-branch count generating function, specialized to a singleton tree, recovers the encounters/fixed-point law of root pendant children.",
+        "Janson, arXiv:2005.13832, Example 12.4: limits for tree distances, not mixed root-pendant/total-leaf regression."
+      ],
+      "reasoning": "Aliases considered include root singleton branches, leaf children of the root, size-one root fringe subtrees, terminal root children, and fixed points of a random permutation. The marginal law is already implied and explicitly excluded from the novelty claim. The conditional mean of the total number of leaves is a distinct joint quantity that is not determined by the marginal. None of the inspected named source sections supplies the identity 2E[L u^Z]=(n-1)E[u^Z]+u(d/du)E[u^Z].",
+      "searches": [
+        "random recursive tree number of leaf children of root conditional expected total leaves linear regression",
+        "root pendant children and total leaves random increasing recursive tree covariance conditional expectation",
+        "uniform recursive tree number of root children with no descendants conditional total leaf count equals (n-1+z)/2",
+        "random recursive tree pendant children root rencontres fixed points joint global leaves regression",
+        "random recursive tree root leaf child fixed points rencontres distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact rencontres probability mass function is a classical table/law and is included only as background.",
+        "published-finding corpus semantic comparisons returned root-degree/leaf covariance and root-attachment/path-length findings rather than the stated conditional formula."
+      ],
+      "reasoning": "The asserted formula holds symbolically at every n and every feasible z. Small-tree enumeration or a fixed-point distribution table alone does not encode the mixed conditional means. No exact matching mixed table or parameterized formula was identified in these actual searches; this negative search result is not by itself a novelty proof.",
+      "searches": [
+        "uniform recursive tree number of root children with no descendants conditional total leaf count equals (n-1+z)/2",
+        "random recursive tree pendant children root rencontres fixed points joint global leaves regression",
+        "random recursive tree root children and leaves joint distribution",
+        "web search: random recursive tree root branches size one rencontres polynomial"
+      ]
+    },
+    "rationale": "The new all-n local/global conditional mean is not entailed by the marginal root-singleton distribution (already fully covered by Seelbach Benkner--Wagner), root-degree/leaf covariance, or tree-metric limits. The exact joint transform was independently derived and checked. No inspected claim states or implies this conditional regression. A classical unexamined refined tree/permutation enumeration remains a substantive historical-priority risk; PASS is a documented best-knowledge assessment, not global uniqueness certification.",
+    "residual_risks": [
+      "Known arbitrary-root-branch enumeration covers the marginal Z_n law and might permit an implicit (unstated) mixed extension when combined with older leaf-marking methods; no explicit equivalent joint identity was identified.",
+      "Older recursive-tree/permutation Eulerian refinements and bivariate generating functions were not exhaustively obtainable or examined. Historical priority of the conditional identity requires independent literature assessment.",
+      "Two closest indexed prior mathematical records were compared from indexed summaries, not full primary text; their visible mathematical claims concern distinct variables."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the exact conditional mean: proves rescaled global tree-metric limits, not pendant-root/global-leaf mixing",
+        "evidence": [
+          "Example 12.4 gives the 1/log n metric scaling for random recursive trees and a deterministic limit Upsilon_1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.13832",
+        "material_read": "Abstract, introduction, Example 12.4 and contextual logarithmic-tree discussion, including the statement of its recursive-tree distance scaling",
+        "method": "Accessible arXiv full HTML text, mathematical comparison of object and quantifiers",
+        "title": "Tree limits and limits of random trees",
+        "trigger": "Verified probability-primary middle-cohort recursive-tree literature; test whether its distance-limit theorem also yields root-conditioned leaf statistics"
+      },
+      {
+        "assessment": "COVERS auxiliary marginal law for root singleton branches (s=1, c_S=1); does NOT state mixed total-leaf marking or its exact conditional linear regression",
+        "evidence": [
+          "Section 5.2 equation Y'(x,u)=exp((u-1)c_S x^s)/(1-x) marks counts of a fixed root branch type; its singleton specialization yields E[u^{Z_n}]=sum_{r=0}^{n-1}(u-1)^r/r!.",
+          "Main results concern number of distinct fringe subtrees, not conditional E[all leaves | singleton root branches]."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.04231",
+        "material_read": "ArXiv full-text HTML: abstract, principal theorem statements and conclusion, with detailed examination of the complete Section 5.2 root-branch counting derivation; the lawful journal full-text Section 5.2 was also compared",
+        "method": "Accessible preprint full text and lawful open-access journal HTML; mathematical implication comparison of marking variables",
+        "title": "Distinct Fringe Subtrees in Random Trees",
+        "trigger": "Strong direct coverage candidate: exact generating function for an arbitrary root branch type could subsume the root-pendant law"
+      },
+      {
+        "assessment": "Related local-limit/Poisson results; no finite-n conditional regression between root pendant children and all leaves located",
+        "evidence": [
+          "2014 electronic probability article analyzes local fringe and protected-node statistics rather than the all-n mixed transform."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/ECP.v19-3048",
+        "material_read": "Primary openly accessible article, discussion of Poisson-aged Yule root-child counts and protected-node / fringe probability comparisons",
+        "method": "Lawful journal full text/PDF inspection of relevant mathematical formulas",
+        "title": "Protected nodes and fringe subtrees in some random trees",
+        "trigger": "Potential prior coverage of root degree-one/terminal-branch Poisson laws and local fringe statistics"
+      },
+      {
+        "assessment": "Different covariate: root degree counts all children while current Z counts only root children that remain leaves; the stated covariance does not imply current conditional regression",
+        "evidence": [
+          "The previously published formula is Cov(D_n,L_n)=(n-2)/(2(n-1)); its conditioning statistic D_n differs from Z_n."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+        "material_read": "Indexed abstract and full mathematical summary with covariance formula; underlying full text not accessible in this inspection",
+        "method": "Published-record semantic search and statement-to-statement implication analysis",
+        "title": "Equal-share covariance of root degree and leaves in a random recursive tree",
+        "trigger": "Strongest same-model previously published covariance finding; test whether it implies the new formula"
+      },
+      {
+        "assessment": "Deals with tree path lengths, not leaf-child counts or conditional total leaves",
+        "evidence": [
+          "The summary's local covariance concerns the total path length and root attachment indicators."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+        "material_read": "Indexed published abstract and mathematical summary only",
+        "method": "Semantic claim implication comparison",
+        "title": "Root attachments have an exact negative path-length profile in random recursive trees",
+        "trigger": "Another root-local exact regression result in the same random-tree model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7e29cb2d-c1dd-4b80-b187-c153e207bc1d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The invariant is an exact structural local-to-global regression valid for every tree size and every attainable local count, offering finite-sample conditional prediction from a natural root-fringe motif. It proves a universal slope one-half, yields a fixed covariance and vanishing correlation, and is stronger than a univariate limiting Poisson law or a single unconditional covariance. It is motivated by the literature on random recursive root branches and global leaf statistics rather than chosen as an arbitrary narrow numerical case.",
+    "status": "PASS"
+  }
+}
