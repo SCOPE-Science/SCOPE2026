@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T04:20:48.013297Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From G_a(y)=(1-e^{-e^y})^a, inversion gives Q_a(u)=log[-log(1-u^(1/a))]. Differentiating gives Q'_a(u)=Phi(u^(1/a))/(u*(-log u)), Phi(t)=t*(-log t)/[(1-t)*(-log(1-t))]. The derivative sign is strictly negative because 1-(1-t)/(-log t)-t/(-log(1-t))<0 by both strict log inequalities, so every quantile-gap is strictly contracted whenever b>a>0, 0<u<v<1. Correct tail estimates ensure all variances finite. Couple two iid uniform variables and apply Var(Z)=E[(Q(U)-Q(V))²]/2 for strict variance decrease. The integer-shape family equals log maxima of iid Exp(1), so the decreasing alternating-sum coefficient follows from Doumas Eq(15). Independent interior numerical derivative-sign samples corroborated but do not prove all quantiles.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shekari et al 2025 fixed-size heterogeneous vs homogeneous gamma–Gompertz maxima; Lando–Bertoli-Barsotti arXiv:2006.02302 SSD comparisons"
+        ],
+        "reasoning": "General sample-size comparisons of order statistics and maxima under dispersive/SSD orders: Fixed-size heterogeneous comparisons and second-order dominance do not imply shrinking quantile increments as sample size increases for log-Exponential maxima.",
+        "searches": [
+          "Resultary semantic search: variance log maxima iid exponential sample size strictly decreases dispersive order Doumas 2026",
+          "arXiv:2603.11129v1 (Doumas)",
+          "DOI:10.1007/s00362-005-0285-4 (Jeon–Kochar–Park)",
+          "DOI:10.1186/s13660-025-03290-x (Shekari et al.)",
+          "arXiv:2006.02302 (Lando–Bertoli-Barsotti)"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2603.11129",
+        "https://doi.org/10.1007/s00362-005-0285-4",
+        "https://doi.org/10.1186/s13660-025-03290-x",
+        "https://arxiv.org/abs/2006.02302",
+        "Resultary semantic query: variance log maxima iid exponential sample size strictly decreases dispersive order Doumas 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Doumas arXiv:2603.11129v1 final paragraph expressly asks monotonicity; RESULT.md Phi derivative negative"
+        ],
+        "reasoning": "Does positivity plus vanishing limit from Doumas entail strictly decreasing variance?: No: positive sequences tending to zero can oscillate. New uniform derivative sign supplies the actual monotone implication, and proves stronger real-parameter dispersive order.",
+        "searches": [
+          "Resultary semantic search: variance log maxima iid exponential sample size strictly decreases dispersive order Doumas 2026",
+          "arXiv:2603.11129v1 (Doumas)",
+          "DOI:10.1007/s00362-005-0285-4 (Jeon–Kochar–Park)",
+          "DOI:10.1186/s13660-025-03290-x (Shekari et al.)",
+          "arXiv:2006.02302 (Lando–Bertoli-Barsotti)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Doumas 2026 arXiv:2603.11129v1 Eq15; Jeon–Kochar–Park 2006 general dispersive order"
+        ],
+        "reasoning": "Log-max-Exp quantile formula, spacing stochastic orders, exponential order statistics: Doumas's same log maximum equals the assessed law for integer shape. General dispersive-order vocabulary is a tool, but does not state the cross-shape derivative inequality.",
+        "searches": [
+          "Resultary semantic search: variance log maxima iid exponential sample size strictly decreases dispersive order Doumas 2026",
+          "arXiv:2603.11129v1 (Doumas)",
+          "DOI:10.1007/s00362-005-0285-4 (Jeon–Kochar–Park)",
+          "DOI:10.1186/s13660-025-03290-x (Shekari et al.)",
+          "arXiv:2006.02302 (Lando–Bertoli-Barsotti)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Doumas arXiv:2603.11129v1 Eq(15) and final open question; Resultary semantic query on variance log maxima Exp"
+        ],
+        "reasoning": "Exact table/sequence π²/6+n w_n-n²c_n² monotonicity: Source gives positivity and convergence, not strictly decreasing sequence; no stronger matching table/order theorem found in displayed results.",
+        "searches": [
+          "Resultary semantic search: variance log maxima iid exponential sample size strictly decreases dispersive order Doumas 2026",
+          "arXiv:2603.11129v1 (Doumas)",
+          "DOI:10.1007/s00362-005-0285-4 (Jeon–Kochar–Park)",
+          "DOI:10.1186/s13660-025-03290-x (Shekari et al.)",
+          "arXiv:2006.02302 (Lando–Bertoli-Barsotti)"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Doumas arXiv:2603.11129v1 identifies the SAME Var(log max Exp) alternating-sum coefficient, proves positivity and convergence to 0, and explicitly leaves strict monotonicity open. The direct derivative-order proof is strictly stronger than a variance inequality. General dispersive-order frameworks and comparisons of fixed-size gamma–Gompertz extrema do not imply the cross-sample-size log-Exp quantile-gap order on inspection. Risk of a broad unindexed order-statistics contraction theorem remains.",
+      "residual_risks": [
+        "Real-shape power CDF and iid exponential log maxima only; no quantitative rate or general parent law.",
+        "Generic dispersive-order literature may contain unindexed analogous parameter contraction.",
+        "Grid-based derivative checks are only illustrative; global sign proof is analytic."
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Solves the precise strictly decreasing variance problem explicitly left by Doumas, for all n, and obtains the genuinely stronger every-quantile-gap dispersive contraction for real-shape parameters. This is a motivated distributional order theorem rather than an exercise in parameter substitution or numerical trend fitting.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2603.11129",
+    "https://doi.org/10.1007/s00362-005-0285-4",
+    "https://doi.org/10.1186/s13660-025-03290-x",
+    "https://arxiv.org/abs/2006.02302",
+    "Resultary semantic query: variance log maxima iid exponential sample size strictly decreases dispersive order Doumas 2026"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Real-shape power CDF and iid exponential log maxima only; no quantitative rate or general parent law.",
+    "Generic dispersive-order literature may contain unindexed analogous parameter contraction.",
+    "Grid-based derivative checks are only illustrative; global sign proof is analytic."
+  ],
+  "residual_risks": [
+    "Real-shape power CDF and iid exponential log maxima only; no quantitative rate or general parent law.",
+    "Generic dispersive-order literature may contain unindexed analogous parameter contraction.",
+    "Grid-based derivative checks are only illustrative; global sign proof is analytic."
+  ],
+  "schema_version": 1
+}

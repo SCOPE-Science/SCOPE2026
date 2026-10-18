@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has precise quantifiers: every real shape pair \(b>a>0\), every \(0<u<v<1\), and all integer \(n\ge1\). Direct inversion gives the quantile, while differentiation reduces monotonicity of its derivative to a strictly negative one-variable logarithmic derivative. The last inequality follows from strict instances of \(\log x<x-1\). The quantile formula and the tail bounds ensure moments exist, and the two-copy variance identity proves the strictly decreasing variance for all parameters; a finite test is not used for the infinite quantifiers. The identity linking the variance to Doumas's alternating sums is independently visible in [1, Eq. (15)].
+## correctness
 
-## Originality — PASS
-[1] explicitly states at the end that decreasing values of the same coefficient remain an open question; its proof establishes only positivity and limit zero. The new quantile-gap order is not a restatement of that positivity, and it directly implies the precise missing monotonicity. General dispersive-order surveys [2], extreme-order comparison work [3] and SSD order-statistic results [4] provide tools and adjacent comparisons, not the same log-exponential sequence or its quantile derivative inequality. Targeted published mathematical-record searches on log exponential maxima, strict variance monotonicity, dispersive ordering and alternating binomial sums found no directly covering result. The possibility of an unindexed general sample-size comparison theorem remains a real priority risk.
+PASS
 
-## Value — PASS
-The source [1] explicitly motivates the problem as an open question in the sharp variance coefficient for parallel coupon-collection times. The theorem settles the entire integer sequence at once, with no guessed finite threshold, and strengthens the conclusion to strict contraction of every quantile gap. This is a natural distributional resolution, not a computationally chosen example or a minor adjustment of a numerical bound.
+From G_a(y)=(1-e^{-e^y})^a, inversion gives Q_a(u)=log[-log(1-u^(1/a))]. Differentiating gives Q'_a(u)=Phi(u^(1/a))/(u*(-log u)), Phi(t)=t*(-log t)/[(1-t)*(-log(1-t))]. The derivative sign is strictly negative because 1-(1-t)/(-log t)-t/(-log(1-t))<0 by both strict log inequalities, so every quantile-gap is strictly contracted whenever b>a>0, 0<u<v<1. Correct tail estimates ensure all variances finite. Couple two iid uniform variables and apply Var(Z)=E[(Q(U)-Q(V))²]/2 for strict variance decrease. The integer-shape family equals log maxima of iid Exp(1), so the decreasing alternating-sum coefficient follows from Doumas Eq(15). Independent interior numerical derivative-sign samples corroborated but do not prove all quantiles.
 
-## Sources and remaining limits
-[1] A. V. Doumas, arXiv:2603.11129v1, full HTML, Sections 1–2, Eq. (15), final open question. [2] Jeon–Kochar–Park, Statistical Papers 47 (2006), abstract and introductory description of dispersive order. [3] Shekari et al., Journal of Inequalities and Applications (2025), Sections 2 and 4 and references. [4] Lando–Bertoli-Barsotti, arXiv:2006.02302, introduction and Corollary 11. Strict separation is proved only for the specified log-exponential law, and no quantitative rate is claimed. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Doumas arXiv:2603.11129v1 identifies the SAME Var(log max Exp) alternating-sum coefficient, proves positivity and convergence to 0, and explicitly leaves strict monotonicity open. The direct derivative-order proof is strictly stronger than a variance inequality. General dispersive-order frameworks and comparisons of fixed-size gamma–Gompertz extrema do not imply the cross-sample-size log-Exp quantile-gap order on inspection. Risk of a broad unindexed order-statistics contraction theorem remains.
+
+## value
+
+PASS
+
+PASS: Solves the precise strictly decreasing variance problem explicitly left by Doumas, for all n, and obtains the genuinely stronger every-quantile-gap dispersive contraction for real-shape parameters. This is a motivated distributional order theorem rather than an exercise in parameter substitution or numerical trend fitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
