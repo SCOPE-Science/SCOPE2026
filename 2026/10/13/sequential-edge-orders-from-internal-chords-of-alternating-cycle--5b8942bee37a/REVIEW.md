@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A constructive proof fixes an alternating two-colour cycle factor, selects one matching chord on each cycle, and uses an explicit insertion position for each remaining matching edge. The selected root has red in the middle; all other vertices have red first or last. Adjacent nonroot vertices on the factor have opposite relative two-colour order, and red matching edges join middle to first or last to first. All graph edges are covered. A standalone checker verifies all allowed one-cycle matchings on lengths \(4,6,8,10,12\), additional multi-cycle profiles, and the prescribed Möbius family. Finite tests support but do not replace the universal proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest paper, Gorzkowska and Kwaśny, *Distinguishing adjacent vertices by ordering edges* (arXiv:2609.11832), leaves degree-three fixed-colouring cases unresolved. Its palette theorem and degree-at-least-six theorem do not imply the claim. A published bipartite ordering criterion overlaps the bipartite subcases but does not reach the explicit nonbipartite cubic family. Comparisons of indexed results, equivalent formulations and related published statements revealed no stronger covering theorem. An unindexed or independently developed equivalent argument remains possible.
+PASS
 
-## Value — PASS
-This is a genuine infinite, constructive positive case of a named open conjecture for fixed proper edge colourings. Its hypothesis is natural for the complementary perfect matching of a two-colour cycle factor, covers nonbipartite \(3\)-connected cubic graphs, and permits a linear-time construction. It does not claim to settle all cubic graphs.
+In a proper three-edge-coloured cubic graph, B/H form disjoint even cycles and R a perfect matching. In each factor cycle the selected internal R chord supplies a root v0; order e1,...,eℓ from B at v0, insert root R just after e1, and every other internal R chord from indices i<j (with j≥i+2) just after e_{i+1}. Every nonroot R is strictly before or strictly after both of its cycle edges, while the root word is B,R,H; red cross-cycle edges between ordered cycle blocks give first/last positions. Along nonroot B/H edges the relative B/H order alternates by vertex parity; edges incident to roots and all red edges are distinguished by R position. Every edge type is exhausted, and gap buckets give O(V+E) construction. The finite verifier is corroboration only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The originating 2026 sequential-ordering conjecture leaves degree-three fixed-colouring graphs open; the earlier full published bipartite block theorem covers cubic bipartite graphs but cannot imply the explicit nonbipartite Möbius-ladder family. The internal-red-chord constructive sufficient condition is a specific previously uncovered subfamily.
+
+## value
+
+PASS
+
+A linear-time constructive sufficient criterion for a natural fixed-colouring cubic subclass addresses a documented open degree-three regime. It gives infinitely many nonbipartite examples, beyond earlier bipartite theorems, and the proof supplies a reusable cycle-chord ordering mechanism rather than an arbitrary finite subcase.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

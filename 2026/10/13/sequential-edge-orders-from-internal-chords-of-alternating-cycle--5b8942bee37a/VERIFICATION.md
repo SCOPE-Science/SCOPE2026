@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The construction was checked symbolically by distinguishing the root, the two parity classes of nonroot vertices, root chords, other internal chords and inter-cycle red edges. Each red matching edge is scheduled once and each scheduled gap lies strictly between the required incident two-colour edges. This gives an infinite proof independent of experiments.
+## correctness
 
-Run `python3 verify_sequential_chords.py`. The supplied `verify_sequential_chords_output.txt` contains the captured output ending in `VERIFICATION_OK`. The script enumerates all admissible one-cycle chord matchings for five even cycle lengths, verifies randomly chosen multi-cycle chord/matching configurations, and directly checks the antipodal-matching family for the first 25 parameters. The pseudorandom generator is seeded. These finite checks do not establish originality or independently validate the universal theorem. The result assumes a fixed proper three-colour edge colouring and a chord on every alternating factor cycle.
+PASS
+
+In a proper three-edge-coloured cubic graph, B/H form disjoint even cycles and R a perfect matching. In each factor cycle the selected internal R chord supplies a root v0; order e1,...,eℓ from B at v0, insert root R just after e1, and every other internal R chord from indices i<j (with j≥i+2) just after e_{i+1}. Every nonroot R is strictly before or strictly after both of its cycle edges, while the root word is B,R,H; red cross-cycle edges between ordered cycle blocks give first/last positions. Along nonroot B/H edges the relative B/H order alternates by vertex parity; edges incident to roots and all red edges are distinguished by R position. Every edge type is exhausted, and gap buckets give O(V+E) construction. The finite verifier is corroboration only.
+
+## originality
+
+PASS
+
+The originating 2026 sequential-ordering conjecture leaves degree-three fixed-colouring graphs open; the earlier full published bipartite block theorem covers cubic bipartite graphs but cannot imply the explicit nonbipartite Möbius-ladder family. The internal-red-chord constructive sufficient condition is a specific previously uncovered subfamily.
+
+## value
+
+PASS
+
+A linear-time constructive sufficient criterion for a natural fixed-colouring cubic subclass addresses a documented open degree-three regime. It gives infinitely many nonbipartite examples, beyond earlier bipartite theorems, and the proof supplies a reusable cycle-chord ordering mechanism rather than an arbitrary finite subcase.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
