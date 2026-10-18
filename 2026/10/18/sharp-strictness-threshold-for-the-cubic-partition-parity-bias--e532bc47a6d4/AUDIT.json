@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Formal 2-adic factor cancellation turns the signed cubic partition series into a distinct-weight subset generating product. Exhaustive exact bitset recurrence covers every index 124..373 using ten specified weights and enumerates all 23 missing indices below 124 using the eight smaller weights. Adding the allowable weight 250 extends coverage to 623; successive odd cubes from 343 extend it indefinitely by a proved positive overlap margin 2v^3-(v+2)^3 for v>=9. Two independent algorithms agree for coefficients 0..2048. Finite experiments are only supporting checks; no unproved infinite computation is relied on.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ciolan Theorem 2 gives eventual strict inequalities for every fixed exponent; Theorem 3 proves nonnegativity. Neither supplies an explicit threshold for exponent 3.",
+        "Earlier concrete sharp cutoff results on square and fourth-power parts concern different permitted weights, so do not imply any cubic threshold."
+      ],
+      "reasoning": "The strongest directly applicable general theorem is eventual strictness without an effective cubic cutoff. Our specific 124 and precise equality set do not follow as corollaries from its quantifiers. The different exponent cutoffs are methodologically related, not mathematically covering.",
+      "searches": [
+        "arXiv:2002.05682 section 3 theorem 3",
+        "arXiv:2002.05682 section 7 eventual strict positivity",
+        "sharp positivity cutoff cubic partitions into cubes even odd number of parts 124 Ciolan 2020",
+        "For partitions into cubes 1^3 2^3 3^3, the difference between even and odd number of parts has sign (-1)^n and is strictly nonzero for every n >= 124, with last equality n = 123; exact zero indices"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2002.05682 original arXiv v1 published 2020-02-13; v2 full primary PDF read",
+      "OEIS:A292560 first 2017-09-19 and coefficient table through 20000",
+      "OEIS:A339368 (2020)",
+      "OEIS:A339369 (2020)",
+      "Scientific claim comparisons to accessible earlier cubic/square/fourth-power research statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ciolan establishes nonnegativity and eventual strict positivity and acknowledges possible small equality cases; the paper does not identify the cubic last zero.",
+        "The exact finite OEIS data show no further zero up to index 20000 but leave all larger indices outside the table."
+      ],
+      "reasoning": "The new claim is strictly more precise than eventual positivity: it determines the least uniform bound and all equality indices by a constructive infinite proof. It does not re-claim general nonnegativity or first computations as novel.",
+      "searches": [
+        "Ciolan A. 2020 arXiv:2002.05682 exact zero set for k=3",
+        "OEIS:A292560",
+        "parity partitions into third powers strict threshold 124",
+        "For partitions into cubes 1^3 2^3 3^3, the difference between even and odd number of parts has sign (-1)^n and is strictly nonzero for every n >= 124, with last equality n = 123; exact zero indices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ciolan arXiv:2002.05682 Sec. 2 identifies the signed generating product; Sec. 3 proves its nonnegative coefficients generally. OEIS A292560 gives the alternating coefficients but no infinite sharp cutoff statement.",
+        "The zero-set formulation and strict threshold formulation are equivalent given global nonnegativity and 123 being the maximal zero."
+      ],
+      "reasoning": "The theorem is equivalent to global zero classification for the signed cubic partition generating series, and to strict positivity for n>=124 together with equality at 123. No matching infinite threshold statement was identified among inspected works.",
+      "searches": [
+        "sharp positivity cutoff cubic partitions into cubes even odd number of parts 124 Ciolan 2020",
+        "exact equality cases partitions into third powers Ciolan 3 124",
+        "For partitions into cubes 1^3 2^3 3^3, the difference between even and odd number of parts has sign (-1)^n and is strictly nonzero for every n >= 124, with last equality n = 123; exact zero indices",
+        "OEIS:A292560",
+        "OEIS:A339368",
+        "OEIS:A339369"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The OEIS A292560 entry explicitly identifies the signed cube generating function and has a tabulation of coefficients at indices 0 through 20000. In that finite range the listed zeros agree with indices 8..15,24..26,40..42,67..69,94..96,121..123.",
+        "The A339368 and A339369 entries separately tabulate parity-split cubic partition counts."
+      ],
+      "reasoning": "A finite table can certify only entries it lists; it cannot rule out zero coefficients beyond 20000. The exact infinite cutoff proved here is therefore not subsumed by the known table, but its finite values are not new.",
+      "searches": [
+        "partitions into cubes parity difference zero set 8 24 40 67 94 121 coefficient",
+        "OEIS parity of partitions into cubes even odd number parts cubic powers exact zeros",
+        "OEIS:A292560/b292560.txt",
+        "OEIS:A339368",
+        "OEIS:A339369"
+      ]
+    },
+    "rationale": "Ciolan 2020 proves only general nonnegativity and eventual strictness, not the sharp cubic cutoff. The 2017 OEIS database table is finite, and other power-exponent cutoffs do not imply the cubic cutoff. Actual alias and implication searches identified no equivalent proof; residual unindexed-source risk is acknowledged.",
+    "residual_risks": [
+      "An unindexed earlier infinite proof of the cubic 124 cutoff may exist.",
+      "The coefficient table already contains all finite zero locations; the new contribution is the global proof, not the tabulation.",
+      "The method resembles constructive interval-coverage methods for other power exponents, although those theorems do not imply this cubic classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PROVES_GENERAL_NONNEGATIVITY_AND_EVENTUAL_POSITIVITY_NOT_SHARP_CUBIC_124",
+        "evidence": [
+          "Equations (7)-(10) and Theorems 2-3; end of Section 7 explicitly allows small equalities."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2002.05682",
+        "material_read": "Full abstract and introduction, the generating function construction in Section 2, the combinatorial proof and factorization in Section 3, conclusion of asymptotics in Section 7 and open questions in Section 8",
+        "method": "Readable primary PDF text plus rendered page image",
+        "title": "Equidistribution and inequalities for partitions into powers",
+        "trigger": "Direct principal theorem on parity of cube partitions"
+      },
+      {
+        "assessment": "FINITE_VALUES_COVERED_NO_INFINITE_CUTOFF_PROOF",
+        "evidence": [
+          "OEIS A292560 terms include zeros through index 123, nonzero at 124; the table only gives a finite set of indices."
+        ],
+        "identifier_or_url": "https://oeis.org/A292560",
+        "material_read": "Entry definition, coefficient list, formulas, links and table covering indices 0 through 20000; inspected tabular rows for small zeros and 124",
+        "method": "Full entry and publicly linked coefficient table",
+        "title": "OEIS A292560: reciprocal cube factors",
+        "trigger": "Same exact signed partition generating function"
+      },
+      {
+        "assessment": "MARGINAL_PARITY_TABLES_NOT_GLOBAL_CUTOFF",
+        "evidence": [
+          "Definitions and generating functions identify even-minus-odd partition difference."
+        ],
+        "identifier_or_url": "https://oeis.org/A339368 and https://oeis.org/A339369",
+        "material_read": "Entries including definitions, initial terms, product formulas and cross-reference A292560",
+        "method": "Web-page entry inspection",
+        "title": "OEIS A339368 and A339369: even and odd cube-part partitions",
+        "trigger": "Aliases for same parity difference"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e532bc47-a6d4-49df-802b-0c999f2e4b35",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp cutoff for the first nontrivial odd exponent is a natural exact invariant left unspecified by the general 2020 partition-inequality theorem. Establishing the full equality set and proving no later equalities converts ineffective eventual positivity and finite tables into an unconditional optimal boundary. The cubic digit-weight mechanism requires its own finite certificate and infinite overlap proof; the statement is neither a restatement of generic nonnegativity nor a known-table recomputation.",
+    "status": "PASS"
+  }
+}
