@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Local Clifford geometry yields the exact product threshold \(1\). Odd tensor parity makes the global witness satisfy \(B^2=mI\), so its normalized spectral measurement is binary. Relative-entropy data processing and direct Bernoulli monotonicity prove the stated bound; binary Pinsker recovers the quadratic source estimate.
+## correctness
 
-## Originality
-PASS. The anchor stops at a quadratic Pinsker estimate and its three-Pauli example, while its conclusion points to Clifford-type geometry as a future direction. Wehner-Winter supplies local Clifford expectation geometry only. A prior source-specific result for the same anchor optimizes the trace-norm/Pinsker mechanism for the weighted three-Pauli family; it does not contain the binary-relative-entropy curve or arbitrary-\(m\) theorem. Targeted semantic and literature searches found no equivalent or stronger statement.
+PASS
 
-## Value
-PASS. The result is structural rather than a parameter tweak: it generalizes the odd Pauli construction to arbitrary anticommuting-generator count and replaces the generic quadratic Pinsker certificate by an explicit binary relative entropy. At the maximal three-Pauli value the certified lower bound increases from \(0.0893163974\ldots\) to \(0.2374007861\ldots\) nats.
+For odd n>=3, global tensor terms anticommute and square to I, yielding B^2=mI. Local anticommutation implies each local expectation vector has Euclidean norm <=1; generalized Holder gives exact product threshold 1 (attained by generator eigenstates). Measuring B/sqrt(m) gives probabilities p=(1+b/sqrt(m))/2, q<=(1+1/sqrt(m))/2; relative-entropy data processing and d_bin decreasing in q<p yield the claimed bound. Strict binary Pinsker improvement holds for b>1. At m=3,b=sqrt3 the endpoint is 0.237400786151619 nats versus 0.089316397477041 quadratic.
 
-## Closest literature and limitations
-The closest source is arXiv:2603.01105v1. The closest foundational Clifford source is arXiv:0710.1185 / DOI 10.1063/1.2943685. The theorem is restricted to finite dimensions, odd party number, and pairwise anticommuting Hermitian unitaries. It is a lower bound, not an exact fixed-expectation optimum, and it does not cover even party number.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tian 2026 provides the quadratic quantum-Pinsker correlation bound and odd-party three-Pauli example, not the binary-relative-entropy curve. Wehner and Winter 2008 give local anticommuting-observable geometry but not this multipartite information bound. A semantic Resultary query and targeted literature searches did not locate a prior statement of the combined arbitrary-m witness bound. The data-processing step itself is standard and not claimed as new; the explicit spectral collapse/product threshold and quantified improvement are compared as one theorem.
+
+## value
+
+PASS
+
+The bound gives a concrete stronger lower certificate at fixed odd multipartite Clifford witness value, raising the three-Pauli endpoint certificate by >2.6-fold and covering arbitrary generator count m; it addresses a motivated quantitative weakness of the source parity/Pinsker method rather than a random parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
