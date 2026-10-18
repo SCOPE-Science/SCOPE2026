@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-Run `python3 checks/verify_sunlet.py` from the package root using Python 3 and its standard library. The program has two separate finite tests: all \(3^n\) core assignments with direct feasible-leaf minimization for \(3\le n\le12\), and all \(3^{2n}\) full core-and-leaf assignments for \(3\le n\le6\). The recorded standard output in `checks/verification_output.txt` ends with `ALL CHECKS PASSED`.
+# Independent mathematical audit
 
-For \(n=3,4,5,6,7,8,9,10,11,12\), the checked minimum-weight counts are \(6,32,20,12,140,64,24,480,176,48\), respectively. Each agrees with the analytical formula. The independent complete-label loop does not rely on the structural gap theorem; the core-only loop derives best leaf labels directly from adjacency requirements. Enumeration checks only these finite orders. The proof in `RESULT.md` establishes the result for all integer \(n\ge3\).
+## correctness
 
-A scientific literature comparison was made against the scalar corona-product theorems and the recent Italian-domination counting paper; all independently performed audits remain unperformed.
+PASS
+
+For all n>=3 the Italian constraints imply each core/leaf pair weighs at least one; pairs of weight one are exactly (0,1), and indices of excess pairs dominate C_n. Equality forces a size-ceil(n/3) dominating core set and each excess pair to weigh two. Its active indices carry (1,1)/(2,0) while inactive excess pairs carry (0,2), with each unselected vertex requiring at least one active adjacent selected index. Cycle gaps are 1,2,3; deficit 3*ceil(n/3)-n is 0,1,2 and yields the exact count: n=3q:3*2^q; n=3q+1:n(q+3)2^q; n=3q+2:n2^(q+1). Explicit n=4 special case counts 32 and n=3 counts 6. Independent direct core-label optimization and full finite label checks corroborate the theorem but do not prove the infinite count.
+
+## originality
+
+PASS
+
+Detailed implication comparison to primary prior work, using all four separate originality checks. No identified prior theorem or table implies the exact newly stated invariant; findings are best-of-knowledge with residual risks.
+
+## value
+
+PASS
+
+Sunlet graphs are canonical one-leaf coronas, and the least-weight coefficient of the Italian-domination polynomial is a natural enumerative invariant not fixed by the previously known minimum weight. The gap classification resolves the exact multiplicities of all optimal labelings, with explicit boundary treatment, making the result reusable for extremal Italian-domination enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

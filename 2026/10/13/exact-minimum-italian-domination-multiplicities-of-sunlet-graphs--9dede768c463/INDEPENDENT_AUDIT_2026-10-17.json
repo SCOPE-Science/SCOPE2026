@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T09:12:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/13/exact-minimum-italian-domination-multiplicities-of-sunlet-graphs--9dede768c463/RESULT.md",
+        "2026/10/13/exact-minimum-italian-domination-multiplicities-of-sunlet-graphs--9dede768c463/checks/verify_sunlet.py"
+      ],
+      "rationale": "For all n>=3 the Italian constraints imply each core/leaf pair weighs at least one; pairs of weight one are exactly (0,1), and indices of excess pairs dominate C_n. Equality forces a size-ceil(n/3) dominating core set and each excess pair to weigh two. Its active indices carry (1,1)/(2,0) while inactive excess pairs carry (0,2), with each unselected vertex requiring at least one active adjacent selected index. Cycle gaps are 1,2,3; deficit 3*ceil(n/3)-n is 0,1,2 and yields the exact count: n=3q:3*2^q; n=3q+1:n(q+3)2^q; n=3q+2:n2^(q+1). Explicit n=4 special case counts 32 and n=3 counts 6. Independent direct core-label optimization and full finite label checks corroborate the theorem but do not prove the infinite count.",
+      "residual_risks": [
+        "Finite validation is not a proof for unbounded parameter ranges."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior general corona/rooted-product theorems imply minimum weight n+ceil(n/3)."
+        ],
+        "reasoning": "A stronger theorem about the minimum scalar does not imply the number of minimizing labelings. The new formula is not a renaming of that scalar result.",
+        "searches": [
+          "arXiv:1701.01416 Theorem 3.2",
+          "arXiv:2006.02124 Corollary 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Shao & Zhao, Counting Weight-k Italian Dominating Sets on Trees and Cycles, arXiv:2610.00108v1",
+        "Alizadeh et al., Roman {2}-domination in graphs and graph products, arXiv:1701.01416, Theorem 3.2",
+        "Hernández-Ortiz et al., Italian domination in rooted product graphs, arXiv:2006.02124, Corollary 3.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum weight established, not exact count or active-gap optimizer classification."
+        ],
+        "reasoning": "The new theorem strictly refines known gamma by enumerating its coefficient; scalar domination data is insufficient to recover it.",
+        "searches": [
+          "arXiv:1701.01416",
+          "arXiv:2006.02124",
+          "arXiv:2610.00108v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Italian = Roman {2}-domination; sunlet = corona C_n⊙K1; source counts ordinary trees/cycles."
+        ],
+        "reasoning": "These aliases change vocabulary but do not turn the prior plain-cycle polynomial into the leaf-corona minimum multiplicity.",
+        "searches": [
+          "Resultary semantic query: Italian domination polynomial sunlet graph C_n corona K1 coefficient number minimum Roman 2 domination optimal functions 3*2^q",
+          "arXiv:2610.00108v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026 counting preprint has explicit tree/cycle results; no sunlet optimum coefficient 3*2^q, etc., in the inspected tables."
+        ],
+        "reasoning": "Exact labeled multiplicity formula was not located in inspected public tables; searches do not certify absolute novelty.",
+        "searches": [
+          "Resultary semantic query: Italian domination polynomial sunlet graph C_n corona K1 coefficient number minimum Roman 2 domination optimal functions 3*2^q",
+          "arXiv:2610.00108v1 tables"
+        ]
+      },
+      "rationale": "Detailed implication comparison to primary prior work, using all four separate originality checks. No identified prior theorem or table implies the exact newly stated invariant; findings are best-of-knowledge with residual risks.",
+      "residual_risks": [
+        "An unindexed sunlet/coefficient enumeration under Roman-{2}-domination terminology could preempt the multiplicity; unsuccessful searches are not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the sunlet coefficient in inspected results.",
+          "evidence": "It develops path/tree/plain-cycle counting; no sunlet or full corona enumeration result found.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00108",
+          "material_read": "Author preprint 31-page full PDF: abstract, results for trees and cycles, structure and explicit search for sunlet/corona.",
+          "method": "Primary PDF text and page inspection.",
+          "title": "Shao and Zhao, Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+          "trigger": "Same Italian domination counting polynomial; plausible dominating theorem."
+        },
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE.",
+          "evidence": "It implies γ_I(U_n) but supplies no counted optimizer multiplicities in the checked material.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.01416",
+          "material_read": "Referenced Theorem 3.2 and its minimum-weight statement as reported in pinned proof.",
+          "method": "Referenced theorem comparison; not a claim to have read entire primary paper.",
+          "title": "Alizadeh et al., Roman {2}-domination in graphs and graph products",
+          "trigger": "Exactly the earlier corona scalar theorem."
+        },
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE.",
+          "evidence": "The rooted-product minimum is known and not the coefficient enumerator.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.02124",
+          "material_read": "Corollary 3.1 scalar minimum statement used in pinned proof.",
+          "method": "Targeted theorem comparison and bibliographic review.",
+          "title": "Hernández-Ortiz, Montejano and Rodríguez-Velázquez, Italian domination in rooted product graphs",
+          "trigger": "Same graph as rooted product C_n∘K2."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Shao & Zhao, Counting Weight-k Italian Dominating Sets on Trees and Cycles, arXiv:2610.00108v1",
+        "Alizadeh et al., Roman {2}-domination in graphs and graph products, arXiv:1701.01416, Theorem 3.2",
+        "Hernández-Ortiz et al., Italian domination in rooted product graphs, arXiv:2006.02124, Corollary 3.1"
+      ],
+      "rationale": "Sunlet graphs are canonical one-leaf coronas, and the least-weight coefficient of the Italian-domination polynomial is a natural enumerative invariant not fixed by the previously known minimum weight. The gap classification resolves the exact multiplicities of all optimal labelings, with explicit boundary treatment, making the result reusable for extremal Italian-domination enumeration.",
+      "residual_risks": [
+        "An unindexed sunlet/coefficient enumeration under Roman-{2}-domination terminology could preempt the multiplicity; unsuccessful searches are not proof of priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only minimum-weight coefficient of ordinary sunlet C_n⊙K1, n>=3; no complete polynomial or arbitrary corona family."
+  ]
+}
