@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Independent uniform parent choices give the conditional telescoping probabilities \\(\\prod_{j=1}^r(i_j-j)/(n-j)\\); exhaustive and rational checks confirm this exact identity. Each joint probability is bounded by the product of leaf marginals. Fixed-order factorial sums on every compact label window converge to powers of the integral of (1-e^{-f})x, with a uniformly summable exponential majorant. Thus the exact finite Laplace expansions converge to the PPP Laplace functional, implying the whole point-process and fixed-rank Gamma limits. All sizes, boundary conventions and quantifiers are specified; finite checks are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dobrow and Smythe (1996), sections 2–3, investigate binary-search comparisons and internode distances, not early-leaf sets.",
+        "Mahmoud and Smythe (1991) abstract restricts to leaf counts within subtrees of fixed-root label; DOI:10.1214/aoap/1177005874.",
+        "Lodewijks (2022), arXiv:2204.09032, develops joint degrees/depths for fixed numbers of labels and different regimes."
+      ],
+      "reasoning": "No inspected theorem controls simultaneous zero-outdegree events among order-square-root-n earliest labels. A general Poisson-approximation method can be adapted but is not itself prior statement-level coverage, and fixed-dimensional typical-degree limits do not imply a rare-label point process.",
+      "searches": [
+        "\"Poisson approximations for functionals of random trees\" Dobrow Smythe 1996 abstract",
+        "\"On the degree distribution of the nodes in increasing trees\"",
+        "\"On the distribution of leaves in rooted subtrees of recursive trees\"",
+        "joint degree depth random recursive trees labeled vertices arxiv 2204.09032"
+      ]
+    },
+    "checked_sources": [
+      "Kuba and Panholzer, Journal of Combinatorial Theory Series A 114 (2007), 597–618, DOI:10.1016/j.jcta.2006.08.003.",
+      "Janson, Random Structures & Algorithms 26 (2005), 69–83, DOI:10.1002/rsa.20046 (publisher statement).",
+      "Dobrow and Smythe, Random Structures & Algorithms 9 (1996), 79–92 (relevant full text read).",
+      "Mahmoud and Smythe, Annals of Applied Probability 1 (1991), 406–418 (abstract inspected).",
+      "Lodewijks, arXiv:2204.09032 (relevant theorem sections inspected)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "One-label distribution in Kuba–Panholzer: exact law of degree of vertex j; no joint law over sqrt(n) vertices.",
+        "Dobrow–Smythe Poisson theorems address search-comparison and internode-distance counts.",
+        "The exact conditional joint leaf probability \\(\\prod_j(i_j-j)/(n-j)\\) and its Laplace-functional consequence appear as additional arguments here."
+      ],
+      "reasoning": "Knowing \\(\\Pr(I_{n,i}=1)=(i-1)/(n-1)\\) does not determine a point process: dependency must be controlled. Gaussian global leaf counts likewise do not determine the extreme age process. Their combination cannot imply this exact joint rare-event limit without additional combinatorics.",
+      "searches": [
+        "Janson DOI 10.1002/rsa.20046 leaf outdegree profile",
+        "Kuba Panholzer DOI 10.1016/j.jcta.2006.08.003 node j degree",
+        "Dobrow Smythe 1996 Poisson increasing tree functionals",
+        "Mahmoud Smythe 1991 leaf counts rooted subtree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kuba and Panholzer (2007), Theorems 1–4: outdegree of a prescribed label, DOI:10.1016/j.jcta.2006.08.003.",
+        "Janson (2005), abstract: total outdegree-profile fluctuations, DOI:10.1002/rsa.20046."
+      ],
+      "reasoning": "The smallest terminal-vertex label, earliest surviving leaf birth time, and ranked early degree-zero vertices are equivalent descriptions of the asserted Poisson process; the search covered these aliases. A marginal leaf probability or Gaussian one-vertex degree approximation at index much smaller than n does not supply their joint point-process limit.",
+      "searches": [
+        "random recursive tree oldest leaf label Rayleigh limit first leaf early label sqrt n",
+        "random recursive tree leaf birth-time point process Poisson intensity x dx",
+        "joint leaf indicators uniform random recursive trees product labels i_j-j",
+        "\"smallest label of a leaf\" \"recursive tree\"",
+        "\"oldest leaf\" \"random recursive tree\" Rayleigh"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kuba–Panholzer (2007) tables and theorems contain single-node degree distributions rather than an early-leaf multivariate table.",
+        "Janson (2005) concerns counts aggregated by degree class."
+      ],
+      "reasoning": "The claim is a weak limit of a growing-dimensional labeled configuration, not a fixed-n numerical invariant found in a known table. No inspected database entry reproduces the full joint indicator law or its Poisson limit.",
+      "searches": [
+        "\"random recursive tree\" \"oldest leaf\" limit",
+        "\"recursive tree\" \"leaf\" \"Poisson process\" labels",
+        "\"terminal vertex\" \"recursive tree\" index"
+      ]
+    },
+    "rationale": "The complete joint oldest-leaf label point process and its early-label rare-event factorial intensities are not established in the specifically compared statements. Kuba-Panholzer proves one-label degree laws; Janson describes global leaf-count asymptotics; fixed-root subtree leaf counts and Poisson approximations of unrelated tree statistics do not imply the present process without a new joint rare-event analysis. Previously recorded related leaf-count results concern other observables. Hidden older coverage remains a risk.",
+    "residual_risks": [
+      "A historical exact joint-degree generating function or uninspected appendix might imply the leaf joint probability and point-process limit without using its present terminology.",
+      "The Janson 2005 and Mahmoud–Smythe 1991 full texts were not completely accessible; no claim of their global noncoverage is made.",
+      "Literature and search coverage does not independently certify historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Single-node degree formulas but no oldest-leaf point process or growing-index set joint leaf law in the inspected results.",
+        "evidence": [
+          "Theorem 2 distinguishes j=o(n), j proportional to n, and n-j=o(n) for ONE vertex degree.",
+          "Abstract states probability and all factorial moments for the outdegree of node j."
+        ],
+        "identifier_or_url": "https://www.dmg.tuwien.ac.at/kuba/nodedegree3.pdf",
+        "material_read": "Primary author manuscript abstract/introduction, model, exact-degree and limiting-degree theorem statements and organization, with relevant theorem pages visually inspected.",
+        "method": "Read 17-page primary PDF by page text and viewed theorem pages; assessed statements about a single labeled vertex.",
+        "title": "On the degree distribution of the nodes in increasing trees",
+        "trigger": "Highly relevant specified-label leaf probability and asymptotic degree regimes"
+      },
+      {
+        "assessment": "Describes global outdegree profile asymptotic normality; complete text not assessed, so no whole-paper noncoverage certification.",
+        "evidence": [
+          "Publisher abstract: asymptotic normality, degree-class covariance and evolving degree counts.",
+          "First public version of record 16 November 2004."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20046",
+        "material_read": "Publisher abstract and result description; full author PDF retrieval failed.",
+        "method": "Compared publisher description, claims, publication history and accessible source summary.",
+        "title": "Asymptotic degree distribution in random recursive trees",
+        "trigger": "Classical global leaf-count asymptotics may dominate apparent new limit"
+      },
+      {
+        "assessment": "Studies binary search comparisons and increasing-tree distances, not sets of zero-outdegree vertices ordered by birth label.",
+        "evidence": [
+          "Abstract explicitly identifies (i) comparisons in binary search trees and (ii) internode distances in increasing trees.",
+          "Section 3.1 Theorems 5–7 address parent/descendant and internode-distance distributions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/(SICI)1098-2418(199608/09)9:1/2<79::AID-RSA5>3.0.CO;2-8",
+        "material_read": "Author-identical accessible text, abstract, Sections 2 and 3 and Theorems 1–7, with detailed object definitions.",
+        "method": "Read a text rendering of the paper and compared the variables modeled in both applications.",
+        "title": "Poisson approximations for functionals of random trees",
+        "trigger": "Possible universal prior Poisson result over random-tree indicators"
+      },
+      {
+        "assessment": "Addresses leaf count inside descendant subtree rooted at a fixed label k, not globally earliest surviving leaf label process; inaccessible full text remains a priority risk.",
+        "evidence": [
+          "Abstract explicitly fixes k and studies size, leaf count, and internal nodes in that rooted subtree."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aoap/1177005874",
+        "material_read": "Full published abstract and defined statistic; full article was not read.",
+        "method": "Inspected author-provided abstract and bibliographic description.",
+        "title": "On the distribution of leaves in rooted subtrees of recursive trees",
+        "trigger": "Same tree model and leaves with label k"
+      },
+      {
+        "assessment": "Fixed-dimensional degree/depth results and high-degree regimes, not the number of simultaneous rare early leaves or the Poisson intensity x dx.",
+        "evidence": [
+          "Theorem 2.6 controls fixed-dimensional joint degree/depth behavior, not a growing early-label point process."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.09032",
+        "material_read": "Full-text opening, introduction, joint-degree theorem statements and related sections from pages 1–7.",
+        "method": "Read accessible arXiv primary PDF pages and compare number of sampled labels and scaling.",
+        "title": "Joint degree and depth distributions of vertices in random recursive trees",
+        "trigger": "Potential multi-vertex law covering early leaf labels"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0a1a1c4b-bf35-4b27-8f6c-3de698243c53",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The oldest surviving leaves form a natural extremal observable in a model with asymptotically n/2 total leaves. The theorem identifies its nontrivial square-root survival scale, provides all fixed-rank joint order statistics and a structural rare-event Poisson process, while preserving the exact weak finite-size dependence.",
+    "status": "PASS"
+  }
+}
