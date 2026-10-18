@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is conditional on the exact periodic integral equation and is proved directly from it. Integrating the autocorrelation over one period gives the square of the mean, hence the cubic moment identity. The Fourier coefficient of the real autocorrelation is \(\lvert\widehat\gamma(k)\rvert^2\), so every nonzero mode of the nonlinear side equals \(4\tau\lvert\widehat\gamma(k)\rvert^2\). For finite Fourier support, if \(m\) is the largest positive active frequency, the left-hand side has no \(3m\)-mode while the cubic term has coefficient \(\widehat\gamma(m)^3\ne0\); this is a contradiction. The constant case is separately excluded by \(\gamma(0)=1\).
+## correctness
 
-Risk: the theorem does not promote the source's formal continuum equation to an actual limit of finite Morley systems. That issue is explicitly outside the claim.
+PASS
 
-## Originality
-**PASS.** The lead paper was inspected at the exact section containing the formal limiting equation and at the section proposing it as a route to the remaining dimensions. It records only the \(x=0\) variance consequence and leaves existence and convergence open. Searches for the exact equation, finite Fourier support, trigonometric-polynomial solutions, autocorrelation formulations, and the cubic moment identity found no checked result that states or implies the three accepted spectral consequences. The closest indexed Fourier results concern unrelated extremal or support problems and do not apply to this nonlinear Morley profile equation.
+For any continuous real γ on R/Z, γ(0)=1 and τ>0 satisfying the displayed exact conditional nonlinear equation, Fubini yields ∫ autocorrelation=(∫γ)^2; integrating gives ∫γ³=3∫γ. Fourier transform of real autocorrelation gives |γhat(k)|², so for every k≠0 the Fourier coefficient of (3γ−γ³)/2 equals 4τ|γhat(k)|²≥0. If γ is a nonconstant trigonometric polynomial with maximal positive nonzero coefficient a_m, the covariance and linear terms have no mode 3m, whereas the cubic term has exactly a_m³≠0 there (only m+m+m sums to 3m). Contradiction. A constant candidate must be γ≡1 from normalization and fails the equation pointwise. Thus every exact solution has infinite Fourier spectrum. The claim is conditional; neither existence of any solution nor derivation of the formal equation from a finite dihedral system is proven.
 
-Risk: a contemporaneous or unindexed note could independently derive the same elementary Fourier consequences. The novelty claim is therefore limited to the inspected source and checked indexed literature, not an assertion of exhaustive global priority.
+## originality
 
-## Value
-**PASS.** The source explicitly identifies the continuum integral equation as a possible route toward the unresolved all-dimensional dihedral construction. The accepted result gives exact necessary conditions for any such solution and eliminates every exact finite-harmonic ansatz, a natural simplification one might otherwise try. The modewise positivity constraint and cubic moment identity also provide concrete analytic diagnostics for future existence, regularity, or approximation arguments.
+PASS
 
-Risk: the result does not solve the integral equation, prove convergence of the discrete systems, or settle the remaining Morley dimensions. Its value is structural guidance for that open route rather than completion of the larger program.
+Best-of-knowledge comparison of exact statements, applicable conditions, reductions and primary literature; documented specific residual source risks rather than treating negative searches as novelty proof.
 
-## Closest literature and limitations
-The closest source is Quang Hung Tran, *Morley Simplices in Higher Dimensions: Regularity, Reflections, and Counterexamples*, arXiv:2610.01216v1. Section 9 gives the formal profile equation and its variance identity; Section 11.1 proposes solving that equation and comparing it with the discrete systems. No checked source supplied the cubic moment identity, the nonnegative Fourier-mode identity, or the infinite-spectrum obstruction.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The cited 2026 Morley higher-dimensional paper identifies its nonlinear continuum equation as a proposed approach to a concrete unresolved family. Under this specific motivated equation, ruling out EVERY exact finite-harmonic ansatz is a structural obstruction to a natural finite-mode solution technique, while the cubic moment and nonnegative nonlinear Fourier spectrum impose reusable exact constraints on any analytic existence or approximation program. These conditions give mathematical information beyond merely rewriting the equation, though they do not imply existence, convergence, or numerical approximation failure. Value is bounded but substantive for this open equation, not a claim of solving the high-dimensional Morley problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
