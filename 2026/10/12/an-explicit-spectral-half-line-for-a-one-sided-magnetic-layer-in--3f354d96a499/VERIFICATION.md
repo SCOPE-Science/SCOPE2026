@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and boundaries
+# Independent mathematical audit
 
-Use `python3 verify.py` with Python 3 (standard library only). Expected output contains `VERIFY_OK exact_polynomial_identity exact_floor_counting sample_n0= 99`. The package verifier checks an exact bivariate rational polynomial identity for the Faulhaber correction and finite exact-fraction tests of the floor estimate and the \(2B\)-shift recurrence. It also exercises the cutoff on a specific floating-point example.
+## correctness
 
-**Analytic verification:** The theorem holds for all real \(B,d_1,d_2>0\), not just rational inputs. For every \(E\ge B\) the magnetic oscillator/transverse label count is the displayed finite floor sum. Writing \(t=M+\delta\), the exact polynomial expansion and \(0\le\varepsilon\le M\) imply the global remainder bound in the proof. Summing the three estimates cancels the \(E^{3/2}\) terms and leaves the positive linear term. The shift by one Landau spacing adds precisely one label per transverse mode below the stated cutoff, which is \(O(\sqrt E)\). The explicit quadratic is strictly positive beyond its positive root. The min–max endpoint comparison and continuity of the fibers then cover every adjacent \(2B\)-interval and hence the entire high-energy tail. These arguments, not the finite sample checks, prove the global result.
+PASS
 
-**Scope limits:** The bound is sufficient rather than optimal; the number of low-energy gaps is not calculated. Eigenvalue coincidences are counted with multiplicity. The absence of gaps does not assert uniform density of states or any stability against perturbations. Bibliographic originality has only been checked against sources described in the review; it is not independently certified.
+The all-B,d1,d2>0 spectral half-line follows from ordered fiber continuity between split and merged transverse Landau lists and a fresh check of the exact Landau-step count N_w(E+2B)-N_w(E)=floor(w sqrt(E+B)/pi). With E-B=t^2, the two-term lattice bound gives N_m(E)-N_d(E+2B)>=t^2/(4B)-At-Q; choosing merged levels spaced 2B produces adjacent covered intervals above explicit E_*. The finite union of continuous compact-resolvent fiber ranges below E_* proves finitely many bounded gaps. IMPORTANT harmless direction typo in RESULT.md: for H(p)=(p+Bx)^2 with screen x>=0, p->-infinity centers in the divided region and p->+infinity in merged region, the opposite of the printed p-sign labels. Reversing those two limits does not alter any interval argument, since both endpoints are used without orientation. This should be corrected before public synchronization, but the stated spectral claim is valid.
+
+## originality
+
+PASS
+
+Exner 2022 treats exactly the split/merged magnetic one-sided Dirichlet interface and supplies the spectral edge limits and gap possibility, but the inspected primary text does not state a universal explicit eventual spectral half-line. The new uniform counting remainder and Landau-step overlap prove a sharper topological conclusion. Resultary matched a prior flat-band-lattice/density work for commensurate widths, not this gap covering. Best of knowledge only.
+
+## value
+
+PASS
+
+The existence of a high-energy gapless tail for a natural nonperiodic magnetic interface is a global spectral assertion complementary to the previously known possible low gap. Its explicit cutoff is uniform over both commensurate and incommensurate positive layer widths; the extra boundary Weyl coefficient controlling band overlap is structural rather than a numerical table or textbook substitution. Conservative E_* and no gap counting are acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

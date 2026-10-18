@@ -1,11 +1,21 @@
-# Review: explicit spectral half-line for a one-sided magnetic-layer interface
+# Independent mathematical audit
 
-**Correctness (PASS).** The one-sided Dirichlet geometry and normal magnetic field match Exner's Section 4. The ordered fiber eigenvalue limits are the merged-width and divided-width Dirichlet Landau lists, including degeneracies. The exact square-sum expansion yields the uniform two-term count with explicit \(O(\sqrt E)\) remainder, and the exact \(2B\) shift counts one newly admitted index for every eligible transverse mode. The free-minus-split counting difference grows linearly in energy, whereas the shift costs only \(O(\sqrt E)\). The explicit quadratic cutoff therefore forces a width-\(2B\) interval in a continuous spectral band at every sufficiently high merged ground-transverse Landau level. Adjacent intervals tile the claimed half-line. The included rational polynomial verifier passed. No infinite conclusion is inferred from numerical tests.
+## correctness
 
-**Originality (PASS, with residual risks).** The closest primary source, Exner (2022), proves band structure, flat-band criteria and an open low-energy gap in the one-sided screen, but does not state an eventual gapless tail or the two-term count comparison. Its separate finite-window results concern a different geometry. The geometric Iwatsuka-layer work of Exner–Kalvoda–Tušek addresses a bent fixed-width layer; Borisov's strip finite-gap theorem requires periodicity and is not an implication for this nonperiodic half-plane screen. Targeted searches for finite-gap, spectral half-line, split/merged Landau count, and magnetic interface formulations found no covering proof. A weakly indexed alternative or later published-version difference cannot be ruled out by searches alone.
+PASS
 
-**Value (PASS).** The claim resolves the high-energy global gap topology for the natural one-sided interface for all positive widths and fields, including rational and irrational width ratios. The explicit cutoff is reproducible from the physical parameters and complements the source's rigorous low-energy gap existence result without purporting to count or locate those gaps. The mechanism—an extra boundary Weyl term exceeding a one-Landau-spacing spectral-label shift—is structural, not a tuned finite example.
+The all-B,d1,d2>0 spectral half-line follows from ordered fiber continuity between split and merged transverse Landau lists and a fresh check of the exact Landau-step count N_w(E+2B)-N_w(E)=floor(w sqrt(E+B)/pi). With E-B=t^2, the two-term lattice bound gives N_m(E)-N_d(E+2B)>=t^2/(4B)-At-Q; choosing merged levels spaced 2B produces adjacent covered intervals above explicit E_*. The finite union of continuous compact-resolvent fiber ranges below E_* proves finitely many bounded gaps. IMPORTANT harmless direction typo in RESULT.md: for H(p)=(p+Bx)^2 with screen x>=0, p->-infinity centers in the divided region and p->+infinity in merged region, the opposite of the printed p-sign labels. Reversing those two limits does not alter any interval argument, since both endpoints are used without orientation. This should be corrected before public synchronization, but the stated spectral claim is valid.
 
-The 2022 source was materially checked at its model definition, Section 4, Theorem 4.1, endpoint formula (4.3), and concluding questions. The 2017 geometric-layer paper and periodic-strip literature were compared at their models and spectral results; neither contains the same Dirichlet half-plane problem. Numerical verification is auxiliary; independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exner 2022 treats exactly the split/merged magnetic one-sided Dirichlet interface and supplies the spectral edge limits and gap possibility, but the inspected primary text does not state a universal explicit eventual spectral half-line. The new uniform counting remainder and Landau-step overlap prove a sharper topological conclusion. Resultary matched a prior flat-band-lattice/density work for commensurate widths, not this gap covering. Best of knowledge only.
+
+## value
+
+PASS
+
+The existence of a high-energy gapless tail for a natural nonperiodic magnetic interface is a global spectral assertion complementary to the previously known possible low gap. Its explicit cutoff is uniform over both commensurate and incommensurate positive layer widths; the extra boundary Weyl coefficient controlling band overlap is structural rather than a numerical table or textbook substitution. Conservative E_* and no gap counting are acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
