@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T16:50:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md @ 9fc49d46df83e2020ccc034fe9f19dfc4cf2cc64",
+        "Frozen verify.py @ 6d9e4c61110dceac6e736878ff012b441487f457",
+        "Chen et al arXiv:2302.06675 original Lion Program 1"
+      ],
+      "rationale": "The β2 momentum recurrence with constant new gradient is affine geometric: m_{n−1}=G[(1+r)β2^(n−1)−r]; substitution in the β1 pre-sign interpolation yields c_n exactly. Because β2∈(0,1), c_n>0 iff β2^(n−1)>r/[β1(1+r)], giving the strict ceiling count and immediate threshold r=β1/(1−β1), with equality c1=0. Applying the same count to m proves N+≤Nm. Independent direct step-by-step recurrence replay with defaults yielded N+=59, Nm=69 and threshold 9, and inspected the actual source verify.py (including an exact-power boundary test). No claim is made for feedback gradients determined by an objective, weight decay, or noisy signals.",
+      "residual_risks": [
+        "A persistent reversal of an externally prescribed gradient is a stylized impulse-response test, not a proved closed-loop optimizer convergence delay.",
+        "Floating-point evaluation of a logarithmic ceiling near exact boundaries requires care; mathematical strict inequality controls equality cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original Lion Program 1 supplies both recurrence coefficients and defaults, so general linear-EMA mathematics is foundational prior knowledge.",
+          "Lyapunov convergence studies and signSGD do not state a fixed-gradient-reversal step-response threshold."
+        ],
+        "reasoning": "Acknowledges the stronger general algorithm definition and avoids claiming discovery of geometric-series filtering; the distinct quantitative latency law is a targeted nontrivial operational boundary not stated as a prior theorem.",
+        "searches": [
+          "arXiv:2302.06675v1/v4 Lion original",
+          "arXiv:2310.05898v1 Lion Lyapunov",
+          "arXiv:1802.04434 signSGD"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.06675v1/v4 primary HTML and Program 1",
+        "arXiv:2310.05898v1 relevant primary discussion",
+        "arXiv:1802.04434 relevant method",
+        "Resultary Lion reversal and two-cycle searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Program 1 plus a standard first-order affine recurrence algebraically permits the derivation, but neither primary paper states exact forced reversal latency.",
+          "The split β1/β2 is essential: sign-driving and stored-momentum reversal clocks differ, with a quantitative 10-step gap at defaults."
+        ],
+        "reasoning": "The exact law is a new explicit analytic consequence of the known update rule, not a separate algorithm. It does not follow from a previously stated sign-latency theorem, but its elementary derivation is a material originality/value caveat.",
+        "searches": [
+          "Chen et al arXiv:2302.06675 Program 1",
+          "Lion Secretly Solves Constrained Optimization arXiv:2310.05898",
+          "Resultary Lion period-two fixed-step dynamics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alternative names include step response of a two-coefficient exponential filter, sign memory lag, reversal latency and sign-driving momentum crossing.",
+          "Resultary returns scalar Lion two-cycle/chattering stability records, different from externally imposed permanent gradient reversal."
+        ],
+        "reasoning": "Compared the exact forcing assumptions and output sign timing; the closest known closed-loop cycles have different input sequences and do not imply the stated finite stale-sign count.",
+        "searches": [
+          "Resultary Lion optimizer gradient reversal sign momentum stale latency beta1 beta2",
+          "arXiv:2302.06675 Program 1",
+          "Lion step response persistent opposite gradient delay"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary records treat stable periodic orbits of parameter-feedback dynamics, not a prescribed step reversal and exact 59/69 step delay.",
+          "No inspected source tabulates the strict stale-sign length at defaults or r>9 immediate flip threshold."
+        ],
+        "reasoning": "Counts are explicit consequences of the source recurrence, but existing numerical algorithm tables are not the same invariant. Search absence alone is not treated as novelty proof.",
+        "searches": [
+          "Resultary scalar Lion exact stable two-cycle and rate plateau",
+          "Resultary exact chattering band constant step Lion",
+          "arXiv:2302.06675 defaults .9 .99 momentum sign",
+          "Lion 59 stale updates equal-magnitude reversal"
+        ]
+      },
+      "rationale": "The original Lion algorithm necessarily defines the two-coefficient recurrence, and solving a scalar EMA is elementary; this priority is fully credited. But the exact gradient-reversal response, dual sign-clock latency, default 59/69 counts and 9-fold strict threshold were not observed in the original algorithm paper, Lyapunov follow-up, or targeted published records. It is an explicit motivated diagnostic consequence rather than an invention of the Lion recurrence.",
+      "residual_risks": [
+        "Scalar EMA step response is textbook algebra; an existing signal-processing description could include the same formula without using Lion terminology.",
+        "A 59-step lag is not evidence of poor optimizer performance on any actual feedback-dependent objective or nonzero weight decay."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LION_RECURRENT_DEFINITION_KNOWN_NO_EXACT_STEP_RESPONSE",
+          "evidence": "Defines β1-pre-sign interpolation and β2 persistent momentum with defaults .9/.99; no theorem for persistent reversal with exact count 59 or 9-fold threshold was found in read sections.",
+          "identifier_or_url": "arXiv:2302.06675v1 and v4",
+          "material_read": "Primary full arXiv HTML inspected with Program 1/optimizer definition, β defaults, theoretical and experimental limitations",
+          "method": "primary full-text HTML inspection",
+          "title": "Symbolic Discovery of Optimization Algorithms",
+          "trigger": "Original definition of Lion update signs, distinct momenta, defaults and possible discussion of reversal lag"
+        },
+        {
+          "assessment": "CONVERGENCE_CONTEXT_NOT_EXTERNAL_STEP_INPUT_LATENCY",
+          "evidence": "Focuses on Lyapunov/constrained-optimization dynamics, not the closed form for an externally imposed constant reversed gradient.",
+          "identifier_or_url": "arXiv:2310.05898v1",
+          "material_read": "Accessible abstract and method/theorem discussion consulted, not a claim to have exhausted all derivations",
+          "method": "relevant primary source inspection",
+          "title": "Lion Secretly Solves Constrained Optimization: As Lyapunov Predicts",
+          "trigger": "General Lion convergence or stationarity theorem potentially dominating step-response"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_MOMENTUM_RULE",
+          "evidence": "Basic signSGD does not have Lion’s two distinct β1 and β2 memory coefficients.",
+          "identifier_or_url": "arXiv:1802.04434v1",
+          "material_read": "Relevant update-rule and sign interpretation compared; full independent paper-wide comparison not claimed",
+          "method": "relevant primary source comparison",
+          "title": "signSGD: Compressed Optimisation for Non-Convex Problems",
+          "trigger": "Closest one-gradient sign optimization baseline"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Primary Lion Program 1 and official defaults arXiv:2302.06675",
+        "Exact closed recurrence and counts in frozen RESULT.md"
+      ],
+      "rationale": "Lion’s two distinct momentum coefficients have a concrete, potentially surprising operational implication: after an externally forced equal-amplitude sign reversal, the default update keeps the old sign for 59 iterations and its underlying moment keeps that sign for 69. The exact ninefold immediate-flip threshold and analytic log-ceiling phase boundary are a motivated precision diagnostic for optimizer memory, offering a reproducible test to distinguish two time scales. It is a narrow but natural quantitative boundary, not a generic convergence claim.",
+      "residual_risks": [
+        "Its general mathematical derivation is short elementary EMA algebra and interpretation must remain a diagnostic for forced signals, not a new convergence theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For zero-decay, one-coordinate Lion after momentum equilibrium m0=G>0 and a permanent externally prescribed gradient reversal g=−rG, the sign-driving sequence is c_n=G[β1(1+r)β2^(n−1)−r] and the exact stale-sign and momentum-positive step counts are the stated log-ceiling laws. At Lion defaults β1=.9,β2=.99 and r=1 there are 59 strictly stale updates versus 69 positive old-momentum steps, and immediate strict sign reversal requires r>9.",
+  "limitations": [
+    "One coordinate, zero weight decay, m0 already at positive steady state, constant externally prescribed negative gradient, strict sign(0)=0."
+  ],
+  "schema_version": 1
+}
