@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,29 +19,24 @@
 }
 ---
 
-The reset rule and model equations were checked directly against arXiv:2609.32842v1. A reset is counted only when \(h=\theta-v\) changes sign; the post-reset state is \(v^+=0\), \(\theta^+=\theta^-+\Delta\). The source's Proposition 4.14 and Conjecture 4.16 were inspected directly in the primary PDF.
+# Independent mathematical audit
 
-For constant input \(I(t)\equiv I_0\), put \(V=v_{\mathrm{rest}}+I_0\). On a reset-free leg beginning at \((u,q)\) with \(u<V\), direct substitution verifies
-\[
-\Theta_{u,q}(v)
-=
-\left(\frac{V-v}{V-u}\right)^{1/\tau}q
-+
-\frac{(V-v)^{1/\tau}}{\tau}
-\int_u^v f(s)(V-s)^{-1-1/\tau}\,ds.
-\]
-Differentiating this expression recovers
-\[
-\frac{d\Theta}{dv}=\frac{f(v)-\Theta}{\tau(V-v)}.
-\]
-Thus two legs with the same starting voltage and thresholds \(q_1>q_0\) satisfy
-\[
-\Theta_{u,q_1}(v)-\Theta_{u,q_0}(v)
-=
-\left(\frac{V-v}{V-u}\right)^{1/\tau}(q_1-q_0)>0
-\]
-for every finite \(v<V\).
+## correctness
 
-Because the lower leg remains on the subthreshold side until its first sign-changing zero, the higher leg cannot reset earlier in voltage. If both reset, the higher leg resets at strictly larger voltage. If the lower leg never resets, neither can the higher leg. At a reset voltage \(r\), the next state is exactly \((0,r+\Delta)\), so the reset-voltage order becomes the initial-threshold order for the next leg. Constant forcing removes absolute-time dependence, allowing induction over all subsequent resets.
+PASS
 
-The proof establishes only the constant-input, \(v_0<V\) case. No numerical experiment, truncated enumeration, or simulation is used to infer an infinite-time statement. The general periodically forced conjecture remains unproved here.
+With V=v_rest+I0 and 0<=u<V, v(t) increases to V. Solving dTheta/dv+(Theta-f(v))/(tau(V-v))=0 yields a homogeneous difference D(v)=((V-v)/(V-u))^(1/tau)(q1-q0)>0. Before a lower leg first positive-to-negative threshold crossing, the higher leg remains above it, so its kth crossing (if any) has strictly larger voltage; if the lower leg never resets, the higher cannot. After each reset both restart at voltage 0, with thresholds ordered by r+Delta. Because I0 is constant, absolute times disappear, so the argument inducts across arbitrarily many finite spikes. Independently differentiated the integrating factor and verified the homogeneous ODE symbolically; grazing contacts are excluded. No claim extends to phase-dependent periodic forcing.
+
+## originality
+
+PASS
+
+The most directly relevant 2026 preprint is publicly indexed and its abstract was read; arXiv full PDF/HTML access failed and institutional full-text access reported disconnected. Its authors reportedly conjecture finite-count monotonicity under general periodic forcing; that detailed conjecture numbering is not independently verified from primary full text in this run. The independent autonomous event-map proof gives a plausible non-implied constant-drive subfamily beyond the known abstract, but priority uncertainty is material and explicitly retained. Inaccessible paper alone does not force originality FAIL.
+
+## value
+
+PASS
+
+A monotone spike-count comparison in a nonlinear hybrid dynamical system is a motivated qualitative fact about reset ordering; it proves an autonomous subfamily asserted to be open in the original source and distinguishes time-dependent phase obstructions. The extension from no-spike to arbitrary finite spike count is mathematically meaningful, subject to material full-source originality risk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T03:19:42.108580Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With V=v_rest+I0 and 0<=u<V, v(t) increases to V. Solving dTheta/dv+(Theta-f(v))/(tau(V-v))=0 yields a homogeneous difference D(v)=((V-v)/(V-u))^(1/tau)(q1-q0)>0. Before a lower leg first positive-to-negative threshold crossing, the higher leg remains above it, so its kth crossing (if any) has strictly larger voltage; if the lower leg never resets, the higher cannot. After each reset both restart at voltage 0, with thresholds ordered by r+Delta. Because I0 is constant, absolute times disappear, so the argument inducts across arbitrarily many finite spikes. Independently differentiated the integrating factor and verified the homogeneous ODE symbolically; grazing contacts are excluded. No claim extends to phase-dependent periodic forcing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meng–Huguet–Rinzel 2012 abstract studies Type III excitability, reduced models and stimulus sensitivity, not the precise ordered reset-voltage theorem.",
+          "The 2026 paper could in full contain a broad event ordering that subsumes this special case; access prevented determining this, recorded as residual risk."
+        ],
+        "reasoning": "No accessible stronger claim has been established; failure to read alone is not a scientific disproof nor a novelty certificate.",
+        "searches": [
+          "arXiv:2609.32842 abstract",
+          "doi:10.3934/dcds.2012.32.2729",
+          "web: threshold increment spike count constant current comparison"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.32842 abstract/metadata; full text inaccessible",
+        "PubMed PMID:23667306 and doi:10.3934/dcds.2012.32.2729 abstracts",
+        "Resultary q=Resultary: Meng Huguet Rinzel MHR dynamic threshold hybrid neuron spike count initial threshold constant drive monotonicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The candidate proof compares g_{u,q}(v) at fixed voltage; after a reset, v=0 and threshold=r+Delta, permitting induction only for autonomous input.",
+          "Available prior abstracts describe period-forcing and Type III phasic behavior but do not assert ordered kth reset voltages for distinct initial thresholds."
+        ],
+        "reasoning": "The zero-spike-to-finite-spike extension asserted in the package cannot be independently verified against unavailable Conjecture 4.16 full text; best-of-knowledge originality has an explicit material comparison risk.",
+        "searches": [
+          "arXiv:2609.32842 abstract",
+          "doi:10.3934/dcds.2012.32.2729",
+          "Resultary q=Resultary: Meng Huguet Rinzel MHR dynamic threshold hybrid neuron spike count initial threshold constant drive monotonicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The candidate is equivalently monotonicity of the autonomous post-reset event map with respect to threshold on the section v=0, plus ordered reset voltage.",
+          "The 2026 preprint abstract treats periodically forced dynamics and reset mechanisms, without specifying this constant-drive theorem; full proof/Conjecture 4.16 could not be independently read."
+        ],
+        "reasoning": "Alias searches included hybrid event maps and adaptive integrate-and-fire reset ordering; no decisive equivalence found.",
+        "searches": [
+          "Resultary: Meng Huguet Rinzel MHR dynamic threshold hybrid neuron spike count initial threshold constant drive monotonicity",
+          "arXiv:2609.32842 abstract and metadata",
+          "web: constant current adaptive threshold initial threshold reset spike monotonicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary hit is the candidate itself; other neural findings involve different Hindmarsh–Rose, Rulkov or FitzHugh–Nagumo systems.",
+          "No exact source table of initial threshold to count for this reset system was located."
+        ],
+        "reasoning": "Natural invariant is order of reset counts, not a finite numerical database; this check is inapplicable beyond possible exact finite parameter tables, which were searched without a matching source.",
+        "searches": [
+          "Resultary: Meng Huguet Rinzel MHR dynamic threshold hybrid neuron spike count initial threshold constant drive monotonicity",
+          "Resultary: MHR constant drive reset count ordered initial threshold",
+          "web: 2609.32842 proposition conjecture"
+        ]
+      },
+      "rationale": "The most directly relevant 2026 preprint is publicly indexed and its abstract was read; arXiv full PDF/HTML access failed and institutional full-text access reported disconnected. Its authors reportedly conjecture finite-count monotonicity under general periodic forcing; that detailed conjecture numbering is not independently verified from primary full text in this run. The independent autonomous event-map proof gives a plausible non-implied constant-drive subfamily beyond the known abstract, but priority uncertainty is material and explicitly retained. Inaccessible paper alone does not force originality FAIL.",
+      "residual_risks": [
+        "HIGH: directly relevant 2026 preprint full text could contain a covering proof or different reset hypotheses; claim-vs-Conjecture-4.16 comparison unverified in this run.",
+        "Generic threshold monotonicity in autonomous hybrid models may have earlier aliases; bounded search only.",
+        "Oxford VPN disconnected; no authentication bypass or human-verification claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POTENTIALLY_DIRECT_SOURCE_INACCESSIBLE",
+          "evidence": [
+            "Abstract says model is non-autonomous with periodic current, unique reset-free periodic orbit, invariant polygons; it does not itself state count monotonicity. Do not infer full text NOT_COVERING."
+          ],
+          "identifier_or_url": "arXiv:2609.32842v1",
+          "material_read": "Only title/authors/date, abstract on periodically forced dynamic-threshold hybrid neuron and resets could be read; arXiv PDF/HTML returned DisabledError and Oxford reported vpn_disconnected",
+          "method": "arXiv abstract via web; arXiv full-text attempt; authorized Oxford failed",
+          "title": "Subthreshold oscillations and spiking in hybrid neuron models with a dynamic threshold",
+          "trigger": "same hybrid neuron model and claimed Conjecture 4.16"
+        },
+        {
+          "assessment": "MODEL_CONTEXT_ONLY",
+          "evidence": [
+            "Paper concerns reduced phasic Type-III excitability and response to inputs; accessible abstract does not contain a universal initial-threshold reset-count theorem."
+          ],
+          "identifier_or_url": "doi:10.3934/dcds.2012.32.2729 / Meng–Huguet–Rinzel (2012)",
+          "material_read": "PubMed and publisher abstracts; full article not accessible through browsed channels",
+          "method": "public abstracts and metadata",
+          "title": "Type III excitability, slope sensitivity and coincidence detection",
+          "trigger": "foundational MHR model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A monotone spike-count comparison in a nonlinear hybrid dynamical system is a motivated qualitative fact about reset ordering; it proves an autonomous subfamily asserted to be open in the original source and distinguishes time-dependent phase obstructions. The extension from no-spike to arbitrary finite spike count is mathematically meaningful, subject to material full-source originality risk.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Constant I0>=0 only, initial 0<=v0<V, tau>1, q1>q0>v0, finite lower reset count; crossing reset convention.",
+    "Original directly relevant preprint full text and Conjecture 4.16 wording inaccessible; substantial residual originality risk, no claim of complete comparison."
+  ],
+  "schema_version": 1
+}

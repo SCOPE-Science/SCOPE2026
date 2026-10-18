@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. On a reset-free leg under constant drive, \(v\) increases strictly from any \(u<V\), so it can parameterize the threshold equation. The integrating-factor solution shows that increasing the leg's initial threshold shifts \(\theta(v)\) upward by the strictly positive factor \(((V-v)/(V-u))^{1/\tau}\) times the initial threshold increment. Therefore a higher-threshold leg cannot have its first sign-changing threshold crossing at a smaller voltage. A reset at voltage \(r\) maps to \((0,r+\Delta)\), and constant forcing makes the next leg independent of absolute time. Induction gives strict ordering of corresponding reset voltages and the claimed finite spike-count monotonicity. Grazing contacts are handled according to the source definition and are not counted. No finite simulation is used as an infinite-time proof.
+## correctness
 
-## Originality
-PASS. The motivating source proves only the zero-reset comparison in Proposition 4.14 and then states arbitrary spike-count monotonicity as Conjecture 4.16. The new argument is not a renaming of that proposition: it introduces an order on reset voltages and uses autonomy to propagate it through successive resets. Searches using the exact conjecture, the MHR model name, dynamic-threshold and adaptive-threshold aliases, constant-current terminology, reset-count/event-map formulations, prior published-claim records and a published-finding index found no implication-equivalent result. The 2012 model-origin paper was inspected through publisher material and detailed indexed excerpts; a complete repository PDF was not accessible, so an older equivalent result remains an explicit residual risk rather than being ruled out by assertion.
+PASS
 
-## Value
-PASS. Constant current is the canonical tonic-drive regime for Type III excitability. Proving the full finite-count ordering there settles a natural, explicitly posed subproblem and identifies the precise mechanism that fails for nonconstant forcing: after a reset, different absolute event times expose trajectories to different forcing phases. The theorem also shows that the source's additional suggested condition \(f(v)>v\) is unnecessary for this autonomous case.
+With V=v_rest+I0 and 0<=u<V, v(t) increases to V. Solving dTheta/dv+(Theta-f(v))/(tau(V-v))=0 yields a homogeneous difference D(v)=((V-v)/(V-u))^(1/tau)(q1-q0)>0. Before a lower leg first positive-to-negative threshold crossing, the higher leg remains above it, so its kth crossing (if any) has strictly larger voltage; if the lower leg never resets, the higher cannot. After each reset both restart at voltage 0, with thresholds ordered by r+Delta. Because I0 is constant, absolute times disappear, so the argument inducts across arbitrarily many finite spikes. Independently differentiated the integrating factor and verified the homogeneous ODE symbolically; grazing contacts are excluded. No claim extends to phase-dependent periodic forcing.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.32842v1 itself: Proposition 4.14 treats only zero resets, while Conjecture 4.16 asks for all counts. Meng--Huguet--Rinzel (2012) supplies the reduced dynamic-threshold model and post-spike threshold increment but no equivalent ordering was located in the material inspected. The accepted theorem does not cover genuinely time-dependent periodic input or initial voltages \(v_0\ge v_{\mathrm{rest}}+I_0\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The most directly relevant 2026 preprint is publicly indexed and its abstract was read; arXiv full PDF/HTML access failed and institutional full-text access reported disconnected. Its authors reportedly conjecture finite-count monotonicity under general periodic forcing; that detailed conjecture numbering is not independently verified from primary full text in this run. The independent autonomous event-map proof gives a plausible non-implied constant-drive subfamily beyond the known abstract, but priority uncertainty is material and explicitly retained. Inaccessible paper alone does not force originality FAIL.
+
+## value
+
+PASS
+
+A monotone spike-count comparison in a nonlinear hybrid dynamical system is a motivated qualitative fact about reset ordering; it proves an autonomous subfamily asserted to be open in the original source and distinguishes time-dependent phase obstructions. The extension from no-spike to arbitrary finite spike count is mathematically meaningful, subject to material full-source originality risk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
