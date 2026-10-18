@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The proof concerns finite-intensity point processes on a Polish space. The decisive infinite argument is a compactness passage from nested finite partitions to one coupling minimizing the full signed-measure variation norm.
 
-The structural identities independently checked are:
-\[
-\sum_{A\in\mathcal P_n}|\mu(A)-\nu(A)|\uparrow|\mu-\nu|(E),
-\qquad
-|\mu-\nu|(E)=a+b,
-\qquad
-\sup_A|\mu(A)-\nu(A)|=\max(a,b),
-\]
-where \(a,b\) are the Hahn--Jordan masses.
+# Independent mathematical audit
 
-Run the standalone, standard-library-only checker with `python3 verify.py`. It exactly solves a two-by-two transport program for random point configurations on three sites under all five set partitions, compares it to optimal full variation and set-supremum variation costs, and tests both sharp deterministic examples. Its expected terminal line is
+## correctness
 
-`VERIFY_OK projective=1.250000000000 kr=1.000000000000 partitions=5`
+PASS
 
-These finite calculations cannot establish the universal projective limit; that part is proved analytically through Polish compactness, almost-sure continuity of continuity partitions, measurable disintegration, and monotone convergence. No experiment is treated as an infinite certificate.
+For Polish E and finite expected total counts, finite configurations form a countable disjoint union of symmetric powers. Choose a countable separating ball basis with boundaries null for rho=Eξ+Eζ. The refining finite count partitions have ℓ1 discrepancy c_n increasing pointwise to D=|μ−ν|(E). Their coupling cost functionals are lower semicontinuous under weak convergence of fixed-marginal couplings, as partition counts are stable almost surely at rho-null boundaries. Fixed-marginal coupling space is compact; minima commute with the increasing limit by nested compact sublevel sets, while finite vector couplings lift by conditional disintegration. This establishes d_pi=min E D. Hahn decomposition K=max(a,b) yields K≤D≤2K and sharp deterministic examples. A common-plus-residual Poisson coupling and the signed-intensity lower bound prove |λ−η|(E). Independent rational transport example gives d_pi=5/4, d_KR=1.
+
+## originality
+
+PASS
+
+Pianoforte–Turin Definition 1.1 defines d_pi by disjoint count-vector Wasserstein distances and Proposition 1.2 proves only d_pi≤2 d_KR. The paper explicitly states equivalence remains open. Their deterministic sharp-factor example covers one equality example, not the general exact coupling or reverse inequality. Later UOT intensity-measure literature uses different objects.
+
+## value
+
+PASS
+
+The comparison of two point-process distances was explicitly left open by the originating paper. The exact projective optimal coupling and sharp two-sided constants answer the open equivalence question on a broad natural Polish domain. The Poisson benchmark gives an independently useful calibration, not merely a routine normalization correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

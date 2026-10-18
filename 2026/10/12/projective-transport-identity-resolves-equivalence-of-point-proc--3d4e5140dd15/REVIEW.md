@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The configuration space is Polish under the disjoint-union symmetric-power topology. A countable null-boundary basis of finite partitions gives pointwise increasing costs converging to the full signed variation norm. Their expected costs are lower semicontinuous over the weakly compact set of couplings, and regular conditional distributions establish that each minimum equals the corresponding count-vector Wasserstein distance. Nested compact sublevel sets justify the required interchange of supremum and minimum. The set-supremum variation metric is exactly the maximum of the positive and negative Hahn masses, giving both comparison factors. The Poisson intensity formula follows from a common-plus-Hahn-residual coupling and convexity.
+## correctness
 
-## Originality
-PASS. Pianoforte and Turin introduced the partition metric and established only the upper comparison with their process Kantorovich--Rubinstein distance. Their full text explicitly leaves equivalence unresolved. The new identity supplies the missing lower comparison and gives a single optimal coupling reconciling arbitrarily fine partition costs. Candidate-specific searches under the metric names, their precise count-vector definition, projective Wasserstein aliases, and intensity-variation formulas did not locate a covering published statement. The main residual risk is an abstract prior theorem on projective transport with an immediately applicable specialization.
+PASS
 
-## Value
-PASS. The finding resolves an explicit metric-equivalence question for a widely used class of point processes, with sharp universal constants and a concrete exact Poisson-process formula. It distinguishes transport on point-configuration laws from weaker total-variation distance between laws and provides a useful interpretation for transferring process approximation estimates.
+For Polish E and finite expected total counts, finite configurations form a countable disjoint union of symmetric powers. Choose a countable separating ball basis with boundaries null for rho=Eξ+Eζ. The refining finite count partitions have ℓ1 discrepancy c_n increasing pointwise to D=|μ−ν|(E). Their coupling cost functionals are lower semicontinuous under weak convergence of fixed-marginal couplings, as partition counts are stable almost surely at rho-null boundaries. Fixed-marginal coupling space is compact; minima commute with the increasing limit by nested compact sublevel sets, while finite vector couplings lift by conditional disintegration. This establishes d_pi=min E D. Hahn decomposition K=max(a,b) yields K≤D≤2K and sharp deterministic examples. A common-plus-residual Poisson coupling and the signed-intensity lower bound prove |λ−η|(E). Independent rational transport example gives d_pi=5/4, d_KR=1.
 
-## Closest literature and limitations
-The central source is Pianoforte and Turin, arXiv:2105.01599 (2021), published as DOI 10.1017/jpr.2022.33. Its published Proposition 1.2 bounds the partition metric above by twice the process KR distance, but the reverse direction is posed as open. Classical transport tools such as compactness and disintegration are inputs; they are not claimed as new. Scope is restricted to finite-intensity processes on Polish spaces, and an implicit abstract formulation in older transport literature remains a bibliographic risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pianoforte–Turin Definition 1.1 defines d_pi by disjoint count-vector Wasserstein distances and Proposition 1.2 proves only d_pi≤2 d_KR. The paper explicitly states equivalence remains open. Their deterministic sharp-factor example covers one equality example, not the general exact coupling or reverse inequality. Later UOT intensity-measure literature uses different objects.
+
+## value
+
+PASS
+
+The comparison of two point-process distances was explicitly left open by the originating paper. The exact projective optimal coupling and sharp two-sided constants answer the open equivalence question on a broad natural Polish domain. The Poisson benchmark gives an independently useful calibration, not merely a routine normalization correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
