@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T23:57:54.779694Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned 2026/10/12/exact-support-size-regression-of-bootstrap-sample-variance--2dd0318005bd/RESULT.md and checker/verify.py read, actual source-tree Git SHA f1dee73ae3a8557423865fdf4023064fd58c4e82",
+        "Original checker.py blob 488013317b30d8f8312deff6debc3e1820df732a read; independent exact-rational n=2..5 checks repeated distinct source profiles."
+      ],
+      "rationale": "For each fixed occupied label set A of size k, conditional bootstrap configurations are uniform surjections. Identifying two draw positions gives same-label probability S(n-1,k)/S(n,k) for Stirling numbers of the second kind; exchangeability makes conditional unbiased bootstrap variance k(1-q)v_A/(k-1), and average over uniform k-subsets has E[v_A]=(k-1)S²/k. Hence E[S*²|K=k]=(1-q)S² for 2<=k<=n, with k=1 directly zero. Centered multinomial multiplicities give Cov(K,S*²)=(1-1/n)^n S²/(n-1) by conditioning on one omitted label; ties counted by source labels, not values. Independent Fraction enumeration of all ordered n^n resamples for n=2..5 and distinct fixed profiles, including tied values, reproduced both conditional and unconditional expressions. Enumeration is corroboration, symbolic argument proves all n>=2.",
+      "residual_risks": [
+        "Finite checks only n<=5; infinite result relies on proof, not enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sequential stopping after k labels changes the sample-size law; Pauly proves empirical-process consistency rather than E[same-size bootstrap variance | K=k]."
+        ],
+        "reasoning": "Broader bootstrap consistency is not a dominating exact conditional moment theorem; its qualitative implications do not deliver the Stirling ratio.",
+        "searches": [
+          "Rao Pathak Koltchinskii 1997 technical report detailed distinct-count/sequential resampling",
+          "Pauly 2012 DOI:10.1080/02331888.2010.543469"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: ordinary bootstrap sample variance conditional on number of distinct resampled observations support size Stirling occupancy conditional variance covariance",
+        "Resultary: Exact bootstrap sample variance conditional distinct occupied support Stirling numbers E[S2* | K=k] covariance K bootstrap variance",
+        "primary bibliography: Rao Pathak Koltchinskii Bootstrap by sequential resampling DOI 10.1016/S0378-3758(97)00041-4",
+        "primary Pauly Consistency of the Subsample Bootstrap empirical process DOI 10.1080/02331888.2010.543469"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowledge of marginal E[K] and Var(K) does not determine Cov(K,S*²); the first-order bootstrap E[S*²] alone does not determine E[S*²|K]."
+        ],
+        "reasoning": "Prior marginal identities neither logically imply the submitted cross-regression nor the data-free covariance without additional coupled-surjection and omitted-label calculations.",
+        "searches": [
+          "Rao Pathak Koltchinskii 1997 mean and variance of distinct support count",
+          "Pauly 2012 sequential/fixed-support bootstrap empirical-process result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original conditional multiplier is 1-S(n-1,k)/S(n,k); classic bootstrapping focuses on random support count or sequential sampling, not the joint conditional variance."
+        ],
+        "reasoning": "Equivalent formulation via occupancy partitions and conditional U-statistic variance was considered; no inspected source states this finite pair of formulas. Original counting derivation remains independently checked.",
+        "searches": [
+          "Resultary: bootstrap distinct-support sample variance covariance Stirling",
+          "Rao Pathak Koltchinskii 1997 DOI:10.1016/S0378-3758(97)00041-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact conditional mean table found in inspected texts. Computation explicitly extends to all n symbolically, not lookup of an n-specific numeric table."
+        ],
+        "reasoning": "Standard Stirling and occupancy tables provide q but do not, without new moment combination, tabulate the submitted conditional variance and covariance.",
+        "searches": [
+          "Resultary: occupancy distinct count covariance unbiased sample variance exact finite table",
+          "Rao Pathak Koltchinskii 1997 full technical report"
+        ]
+      },
+      "rationale": "Rao–Pathak–Koltchinskii address random occupied-support size and sequential resampling, and Pauly studies the fixed-support bootstrap empirical process; neither inspected primary treatment gives an exact support-size conditional unbiased sample-variance multiplier or a data-free mixed covariance. Published Resultary semantic searches of bootstrap distinct-count, occupancy and mixed-variance aliases returned related but nonimplicative occupancy/sampling results. Conditional Stirling factor and covariance are not merely their existing marginal support-count moments. Old survey-sampling formulas under different normalization remain risk; search absence not certainty.",
+      "residual_risks": [
+        "Older occupancy/survey-sampling literature may encode the same identity using block partitions or conditional finite-population variance; no unqualified novelty proof.",
+        "Resample supports are source labels; numerical ties must not be confused with support of distinct values.",
+        "Finite checks only n<=5; infinite result relies on proof, not enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No inspected conditional sample-variance-on-K regression or mixed covariance; exact wording possibly hidden by scanning defects.",
+          "evidence": "Source random support count and stopping scheme differ from finite conditional ordinary-bootstrap variance moment.",
+          "identifier_or_url": "DOI:10.1016/S0378-3758(97)00041-4; https://www.researchgate.net/publication/222497533_Bootstrap_by_sequential_resampling",
+          "material_read": "Substantial available technical report extracted text on support-count expectation/variance, sequential stopping and bootstrap information; scan-derived text is imperfect and absence claims restricted to passages actually readable.",
+          "method": "Opened and searched accessible technical-report representation and relevant sections",
+          "title": "Bootstrap by sequential resampling",
+          "trigger": "Same bootstrap occupancy support motivation"
+        },
+        {
+          "assessment": "Provides conceptual context, not an established implication for exact finite covariance; residual risk for uninspected full text.",
+          "evidence": "Fixed-support empirical process is not the same joint finite covariance for ordinary size-n bootstrap.",
+          "identifier_or_url": "DOI:10.1080/02331888.2010.543469",
+          "material_read": "Published abstract/bibliographic metadata and identified empirical-process consistency focus; no full-length inspection represented.",
+          "method": "Public bibliography/metadata check",
+          "title": "Consistency of the Subsample Bootstrap empirical process",
+          "trigger": "Same resampling support-size motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary semantic search: ordinary bootstrap sample variance conditional on number of distinct resampled observations support size Stirling occupancy conditional variance covariance",
+        "Resultary: Exact bootstrap sample variance conditional distinct occupied support Stirling numbers E[S2* | K=k] covariance K bootstrap variance",
+        "primary bibliography: Rao Pathak Koltchinskii Bootstrap by sequential resampling DOI 10.1016/S0378-3758(97)00041-4"
+      ],
+      "rationale": "K is a standard proxy for the information retained by an ordinary bootstrap replicate, while sample variance is a central bootstrap statistic. Exactly quantifying E[S*²|K] and universal scale-free Cov(K,S*²) for every nonconstant dataset is a motivated finite-sample regression of a natural estimator on a natural occupancy statistic, not an arbitrary parameter slice or a restated K distribution.",
+      "residual_risks": [
+        "Older occupancy/survey-sampling literature may encode the same identity using block partitions or conditional finite-population variance; no unqualified novelty proof.",
+        "Resample supports are source labels; numerical ties must not be confused with support of distinct values."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older occupancy/survey-sampling literature may encode the same identity using block partitions or conditional finite-population variance; no unqualified novelty proof.",
+    "Resample supports are source labels; numerical ties must not be confused with support of distinct values.",
+    "Finite checks only n<=5; infinite result relies on proof, not enumeration."
+  ],
+  "schema_version": 1
+}
