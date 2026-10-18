@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T02:08:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The weak B2 definition uses sums of **distinct unordered pairs**, not repeated-index Sidon sums. At modulus 56, translating any 9-set to contain zero is valid. The independent ascending recursive checker enumerates every 0=a0<a1<...<a8<56, branching exactly when new pair sums x+a_i avoid all prior and among themselves; no prunable prefix could lead to a valid full set if collision exists, and cardinality pruning is exact. It traversed 3,455,863 nodes and found precisely 216 valid zero-containing sets. A separate affine-orbit enumerator forms uS0+t for all 24 units u and 56 translations t, found 1344 distinct sets, exactly 216 containing zero, and compared each normalized set with the census. This proves one full affine orbit, free group action and count 1344. Every asserted classification concerns only finite Z56; this finite exhaustion is the actual complete proof, not sampling.",
+      "risk": "This is not a uniqueness theorem for all composite-DNA codes or for all moduli and set sizes; it proves only weak distinct-pair sums at (k,q)=(9,56).",
+      "sources": [
+        "Frozen RESULT.md blob 48c68304321cbbd8c3b169885631d90a449a3fe2",
+        "Source classify56.cpp 0391e0718b1d72ddac5592ae13dea2021a8e3317 and verify_rigidity.cpp 0990a855ef53e89b9af999b9d98605f0dd51aa52",
+        "Independent full C++ normalized 56-residue search and orbit enumeration"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2007 general Abelian-groups paper says it exhaustively searches groups up to order183 with isomorph rejection, encompassing order56. Only abstract/metadata were readable; whether its complete published data include an orbit count could not be determined."
+        ],
+        "reasoning": "A global isomorph-rejection computation **might** imply the orbit result if its outputs contain all extremal classes; its public abstract states extrema v(k), not an explicit equivalence classification. This is unresolved access-driven priority risk, not a falsely asserted NOT_COVERING full-text result.",
+        "searches": [
+          "weak Sidon set 9 elements cyclic Z56 1344 affine equivalence classes Haanpaa Huima Ostergard",
+          "Haanpää–Huima–Östergård 2004 DOI:10.1016/S0166-218X(03)00273-7",
+          "Haanpää–Östergård 2007 DOI:10.1016/j.jnt.2006.06.007"
+        ]
+      },
+      "checked_sources": [
+        "Haanpää–Huima–Östergård, Discrete Applied Mathematics 138 (2004) 99–106, incomplete text",
+        "Haanpää–Östergård, JNT123 (2007) 144–153, only abstract and bibliography readable",
+        "OEIS A004135 and A260998",
+        "Ye et al. Designs Codes Cryptography93 (2025), full open HTML",
+        "Resultary query weak Sidon set 9 elements cyclic Z56 1344 affine equivalence classes Haanpaa Huima Ostergard"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A single optimum witness and a minimum-modulus table cannot show all optimum sets are affine equivalent; the finite orbit classification is additional. The 2007 manuscript’s isomorph-rejection technique makes a stronger implication plausible but unpublished output details were inaccessible."
+        ],
+        "reasoning": "Novelty depends on full older enumeration output, which is explicitly flagged, not concealed.",
+        "searches": [
+          "weak Sidon set 9 elements cyclic Z56 1344 affine equivalence classes Haanpaa Huima Ostergard",
+          "Haanpää–Huima–Östergård 2004 scanned tables",
+          "Ye et al. 2025 §3.3",
+          "2007 Abelian-groups abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weak B2 sets are the published S2 sets in finite Abelian groups: all sums of two different elements are distinct. This equivalence is exact, unlike the stronger classical Sidon condition allowing equal elements."
+        ],
+        "reasoning": "Same invariant is studied under S2 and weak Sidon names; neither terminological change proves novelty.",
+        "searches": [
+          "weak Sidon set 9 elements cyclic Z56 1344 affine equivalence classes Haanpaa Huima Ostergard",
+          "OEIS A004135 and A260998",
+          "Haanpää–Östergård JNT123 (2007) abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS/scanned tables specify k=9 minimum modulus56 and representative {0,1,2,4,7,13,24,32,42}; no full 216 normalized set count or free orbit statement is present in the material actually read."
+        ],
+        "reasoning": "The optimum and witness are not novel. Their existence does not logically determine the total number or orbit structure.",
+        "searches": [
+          "weak Sidon set 9 elements cyclic Z56 1344 affine equivalence classes Haanpaa Huima Ostergard",
+          "OEIS A004135/a004135.pdf scanned four pages",
+          "OEIS A260998 complete text table",
+          "Haanpää et al. 2004 summary"
+        ]
+      },
+      "rationale": "The modulus optimum 56 and the displayed nine-element example S0 are published in Haanpää–Huima–Östergård (2004), OEIS A004135/A260998, so those are not new. The full affine orbit count/free action is not present in the four accessible scanned source-table pages and is absent from the Ye et al. motivating weak-B2 coding construction. An important newly located Haanpää–Östergård research report (2004) and JNT article (2007) compute exact Abelian-group extremal quantities using backtracking with isomorph rejection over groups up to order 183, including possibly Z56; they are **plausibly covering** but their full PDFs were unavailable. The abstracts describe maximum sizes and v(k), not an explicit theorem enumerating the 1344 cyclic Z56 solutions or single free orbit. Best-of-knowledge PASS with that unusually concrete historical-priority risk; neither downloaded-but-unread nor Oxford VPN failure is treated as noncoverage proof.",
+      "residual_risks": [
+        "HIGHER PRIORITY RISK: Haanpää–Östergård 2007 computes the same weak S2 parameter by isomorph rejection on all groups up to order 183. Its full text/output could already imply unique Z56 orbit; bounded lawful retrieval of hosted 2007 PDF timed out.",
+        "The 2004 Z_n primary article itself is not fully read. Oxford authorized download returned vpn_disconnected (job 96220b55614f911589bcc03a9d5d9c06); access not bypassed.",
+        "No unconditional novelty certification can be made from OEIS tables and abstracts; a prior class census remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected material covers min modulus56 and a canonical witness; does not permit judging whole-document orbit noncoverage",
+          "evidence": [
+            "OEIS A004135 annotated table entry k=9, modulus56 and S0"
+          ],
+          "identifier_or_url": "DOI:10.1016/S0166-218X(03)00273-7",
+          "material_read": "Original abstract and four annotated scanned source-table pages, not complete 8-page article",
+          "method": "Lawful publication abstract and OEIS-linked original table page images",
+          "title": "Sets in Z_n with Distinct Sums of Pairs",
+          "trigger": "exact k=9 cyclic weak B2 optimum"
+        },
+        {
+          "assessment": "Describes exhaustive search with isomorph rejection up to order183; no whole-paper coverage inference was made",
+          "evidence": [
+            "Abstract says v(k) determined through k<=15 by isomorph-rejection search"
+          ],
+          "identifier_or_url": "DOI:10.1016/j.jnt.2006.06.007",
+          "material_read": "Full bibliographic record and abstract; full hosted PDF inaccessible/timeouts",
+          "method": "Public author-publication metadata, DOI abstract and attempted author-hosted lawful PDF",
+          "title": "Sets in Abelian groups with distinct sums of pairs",
+          "trigger": "broader exact-object computation by same author group over groups including order56"
+        },
+        {
+          "assessment": "Introduces weak B_e applications and smaller examples; no identified 9-element Z56 orbit census in the inspected sections",
+          "evidence": [
+            "Definition3.2 differs from strong B_e allowing repeated indices; Example3.2 B={0,1,2,4} mod6"
+          ],
+          "identifier_or_url": "DOI:10.1007/s10623-025-01634-8",
+          "material_read": "Full open-access article HTML including Definition 3.2, construction context and Example 3.2",
+          "method": "Public Springer open-access full text",
+          "title": "More on codes for combinatorial composite DNA",
+          "trigger": "motivating concrete weak B_e construction"
+        },
+        {
+          "assessment": "Confirms 56 is minimal group order for nine distinct-pair-sum elements, does not give 1344 orbit cardinality",
+          "evidence": [
+            "Sequence a(56)=9 and reference to annotated original tables"
+          ],
+          "identifier_or_url": "https://oeis.org/A260998",
+          "material_read": "Full sequence definition, values and source-table/witness links",
+          "method": "OEIS full text",
+          "title": "OEIS A260998",
+          "trigger": "exact database same invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete affine orbit classification of the smallest cyclic nine-label distinct-pair-sum system is a natural finite design invariant: it determines exact equivalence and counts all alternatives beyond the already known minimum modulus and example. This has a plausible role in weak-B2 checksum design, independent of proving uniqueness of complete DNA codes.",
+      "risk": "No general formula for all k or all moduli; historical 2007 isomorph-rejection study could reduce originality and therefore value if full output is covering.",
+      "sources": [
+        "Haanpää et al. original minimum-modulus problem",
+        "Ye et al. 2025 weak-B_e checksum construction",
+        "Independent complete 216 normalized set /1344 orbit enumeration"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "This is not a uniqueness theorem for all composite-DNA codes or for all moduli and set sizes; it proves only weak distinct-pair sums at (k,q)=(9,56).",
+    "No general formula for all k or all moduli; historical 2007 isomorph-rejection study could reduce originality and therefore value if full output is covering.",
+    "HIGHER PRIORITY RISK: Haanpää–Östergård 2007 computes the same weak S2 parameter by isomorph rejection on all groups up to order 183. Its full text/output could already imply unique Z56 orbit; bounded lawful retrieval of hosted 2007 PDF timed out.",
+    "The 2004 Z_n primary article itself is not fully read. Oxford authorized download returned vpn_disconnected (job 96220b55614f911589bcc03a9d5d9c06); access not bypassed.",
+    "No unconditional novelty certification can be made from OEIS tables and abstracts; a prior class census remains possible."
+  ],
+  "schema_version": 1
+}
