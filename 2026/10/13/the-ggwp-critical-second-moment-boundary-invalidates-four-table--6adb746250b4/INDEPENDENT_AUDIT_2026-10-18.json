@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T13:20:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source GGWP Theorem 2.6 has positive survival equivalent P(T>t)~C t^(-1/beta), C>0. The exact tail-integral formula E(T^r)=r∫t^(r-1)P(T>t)dt shows E(T^r) finite iff r<1/beta, with log divergence at equality. Thus at beta=0.5 mean is finite but second moment and variance infinite; no finite population CV, skewness or kurtosis exists. Actual source Table 1 has FOUR parameter rows with beta=0.5 reporting finite variance, CV, skewness and kurtosis; manuscript prose claims all moments there. Source theorem and strict corollary contradict these assertions. An independent high-precision positive-tail constant calculation and boundary integral check corroborate normalization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical positive power-tail integral comparison already covers the general moment-divergence lemma."
+        ],
+        "reasoning": "That general theorem does not by itself identify which GGWP paper/table assertions directly contradict it; model-specific correction is retained contribution.",
+        "searches": [
+          "regular variation moment boundary equality logarithmic divergence Pareto tail"
+        ]
+      },
+      "checked_sources": [
+        "C. Chesneau and I. Sadok, A unified gamma-generated Weibull–Pareto distribution for heavy-tailed and skewed data with applications to medicine, engineering, and environment, AIMS Mathematics 11 (2026), DOI:10.3934/math.2026952"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source theorem itself forces the critical infinite moment; prose and table contradict its own corollary."
+        ],
+        "reasoning": "The result does not claim priority over tail-index theory; identifying and reconciling the published contradiction is a concrete correction.",
+        "searches": [
+          "doi:10.3934/math.2026952 Theorem 2.6",
+          "doi:10.3934/math.2026952 Corollary 2.8",
+          "doi:10.3934/math.2026952 Table 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Critical β=1/r is equivalently equality in the Pareto moment index; β=1/2 gives tail index 2."
+        ],
+        "reasoning": "The precise correction concerns population statistics at critical equality, not sample moments or merely numerical errors.",
+        "searches": [
+          "GGWP 10.3934/math.2026952 moment existence beta=1/2 erratum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Publisher PDF Table 1 contains rows with a=0.64,0.80,1.60,2.80 and b=theta=0.8,beta=0.5."
+        ],
+        "reasoning": "Actual primary Table 1, not secondary snippets or conjectural lookup, resolves exact affected rows; no corrigendum located in targeted search.",
+        "searches": [
+          "gamma-generated Weibull Pareto GGWP beta 0.5 Table 1 variance skewness kurtosis published correction"
+        ]
+      },
+      "rationale": "The generic regular-variation moment criterion is classical and the source already states a strict moment theorem, neither claimed new. The scientific contribution is diagnosing an explicit contradiction in this named 2026 paper and identifying all four invalidated Table 1 rows. Searches for an issued correction did not find one; possible later corrigendum remains a risk.",
+      "residual_risks": [
+        "A later or unindexed journal correction may independently have identified this error.",
+        "No assertion that finite Monte Carlo or truncated quadrature estimators themselves were invalid; only population summaries are addressed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "survival theorem and strict beta<1/2 variance condition prove finite variance entries at beta=0.5 invalid; four rows verified visually",
+          "evidence": [
+            "Theorem 2.6 has tail ∼positive C*t^-1/beta; Corollary 2.8 states variance iff beta<0.5; Table 1 four beta=0.5 rows report finite variance/CV/skewness/kurtosis"
+          ],
+          "identifier_or_url": "doi:10.3934/math.2026952",
+          "material_read": "entire 34-page primary PDF accessed; Theorem 2.6, Corollary 2.8, subsequent paragraph and original Table 1 specifically read and visually inspected",
+          "method": "lawful publisher full PDF, direct page screenshots of theorem and table",
+          "title": "A unified gamma-generated Weibull–Pareto distribution for heavy-tailed and skewed data with applications to medicine, engineering, and environment",
+          "trigger": "exact original empirical table and asymptotic theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The correction identifies incorrect existence claims for 16 reported population descriptive entries in a current applied probability model, not merely a new algebraic restatement: readers must not use finite variance or standardized summaries at the boundary for inference.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "C. Chesneau and I. Sadok, A unified gamma-generated Weibull–Pareto distribution for heavy-tailed and skewed data with applications to medicine, engineering, and environment, AIMS Mathematics 11 (2026), DOI:10.3934/math.2026952"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Four beta=0.5 parameter rows and moment-existence consequences only; remaining table entries not audited.",
+    "No claim about validity of fitted-data likelihood or simulations."
+  ],
+  "residual_risks": [
+    "A later or unindexed journal correction may independently have identified this error.",
+    "No assertion that finite Monte Carlo or truncated quadrature estimators themselves were invalid; only population summaries are addressed."
+  ],
+  "schema_version": 1
+}
