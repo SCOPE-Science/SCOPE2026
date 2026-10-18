@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published quartic equation was reconstructed exactly. The Hessian resultant, absence of points at infinity, residual Gröbner basis, tangent-contact orders, squarefreeness, irreducibility, and discriminant were all checked by exact symbolic arithmetic. The complete divisor statement uses the source's established weights for the three nodes together with independently verified exact locations for the remaining smooth flexes.
+## correctness
 
-## Originality
-PASS. The lead paper gives the three residual smooth weight-one flexes only numerically. Searches by source identifier, exact polynomial, flex/Weierstrass terminology, Hessian/resultant terminology, and Galois/divisor formulations found no covering result. The older general rational-nodal theory does not determine these coordinates, and the original family paper does not compute this divisor.
+PASS
 
-## Value
-PASS. The residual divisor is canonical, not an arbitrary finite computation: it is the remaining part of the canonical Weierstrass zero-cycle on a distinguished cusp fiber of the Kenyon–Smillie Teichmüller curve. The exact cubic removes the numerical approximation from the published census and exposes a nontrivial \(\mathrm S_3\)-Galois orbit.
+At t=1 the exact published quartic F_1 and its homogeneous Hessian give the resultant 729*x^3*(x^3-3x+1)^6*(106x^3+3x^2-6x-2). The source verifies no intersections at infinity and a residual Gröbner basis q(x), 106x^2+23x+19y+3, isolating three smooth flexes; at x=0 tangent contacts are 3 at P0 and 4 at H. Independently recomputed the homogeneous Hessian and factorized resultant in exact SymPy rational arithmetic and checked the cubic discriminant -1026^2 and the mod-5 irreducibility argument. Therefore the residual roots are one degree-three irreducible divisor, with Galois S3 (one real, a complex conjugate pair), and the weight cycle sums to 24. The claim concerns solely this singular quartic over Q, not the general Kenyon–Smillie family.
 
-## Closest literature and limitations
-The closest source is arXiv:2105.11604v2 itself, which has the same fiber and weight census but stops at three-decimal approximations for the final three points. arXiv:1601.02783 gives the universal family, while DOI:10.4153/CMB-1987-041-7 gives general nodal genus-three Weierstrass theory. The result here is specific to \(t=1\) and does not claim a family-wide formula. A residual risk remains for unindexed or unpublished exact computer-algebra calculations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lax's primary published computation identifies this quartic's singular points and flex-weight pattern and reports the three residual weight-one flex coordinates numerically, not with an exact cubic/Galois orbit in the inspected principal computation. The candidate supplies explicit rational elimination, irreducible degree-three divisor and S3 arithmetic refinement. Full-text coverage cannot be excluded in other research or software appendices; the specifically inspected Lax treatment contains only approximations.
+
+## value
+
+PASS
+
+An exact Galois-stable Weierstrass divisor on a named Teichmüller-curve cusp fiber is a natural arithmetic-geometric invariant that upgrades a numerical flex list to reproducible exact coordinates and field of definition. This is narrowly but genuinely useful for comparisons of special fibers and arithmetic of canonical divisors, not an arbitrary slice chosen solely to print a polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
