@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T11:11:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every primitive idempotent of M_n(F_q) is rank-one projection, equivalent bijectively to an antiflag (P,H) with P outside H. For every nonzero e,f, eRf !=0; hence source indecomposability adjacency reduces to ef=fe=0, equivalent to Q subset H and P subset M. Count q^(n-1) nonincident hyperplanes per [n]_q point. A neighbor picks Q in H in [n-1]_q ways then M through P avoiding Q in q^(n-2) ways. For adjacent vertices the line PQ misses H intersect M, yielding [n-2]_q choices of S and q^(n-3) choices of N through PQ but missing S, so lambda=q^(n-3)[n-2]_q, valid at n=3. Edges and triangles follow by double counting; at n=3 lambda=1 implies local matchings and triangles correspond to unique side lines of noncollinear triples. Independent q=2,n=3 construction confirms 28 vertices, degree6, 84 edges, 28 triangles, lambda1. General q prime powers follow from projective incidence counts, not the finite computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cvetko-Vah and Dolzan Theorem 17 studies connectedness and diameter (with orthogonality adjacency as input), not lambda or triangle count.",
+          "Lande et al. 2025 2x2 idempotent/nilpotent transpose graph uses different vertices and edges."
+        ],
+        "reasoning": "The inspected ring-graph general theorem supplies the criterion but does not imply finite-field enumerative parameters without new antiflag counting; different 2x2 graph not a generalization.",
+        "searches": [
+          "rank one primitive idempotent full matrix field orthogonality graph parameters",
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/68577ACF528F18B119EF5CCF3BB69A57/S0004972708000154a.pdf/indecomposability_graphs_of_rings.pdf",
+          "finite geometry antiflag association scheme orthogonal projection graph intersection numbers"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/68577ACF528F18B119EF5CCF3BB69A57/S0004972708000154a.pdf/indecomposability_graphs_of_rings.pdf",
+        "Lande, Khairnar, Gutman (2025), Filomat 39, DOI 10.2298/FIL2522559L, bibliographic/summary",
+        "Resultary query: rank one primitive idempotent full matrix field orthogonality graph parameters"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source says e,f are adjacent iff orthogonal and derives diameter five for full graph M_n(F), not local incidence multiplication.",
+          "Our common-neighbor requires S subset H intersect M, hyperplane N containing PQ avoiding S, a second-order projective count."
+        ],
+        "reasoning": "The adjacency equivalence is credited; extracting a uniform edge-intersection parameter and n=3 triangulation is not stated by the inspected primary result.",
+        "searches": [
+          "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/68577ACF528F18B119EF5CCF3BB69A57/S0004972708000154a.pdf/indecomposability_graphs_of_rings.pdf",
+          "Cvetko Vah Dolzan Theorem 17 primitive orthogonality matrix ring",
+          "orthogonal idempotent graph association scheme"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Idempotent vertices correspond to nonincident point-hyperplane pairs of PG(n-1,q).",
+          "Orthogonal pairs satisfy cross-incidence and have lambda=q^(n-3)[n-2]_q."
+        ],
+        "reasoning": "Compared the theorem also in the natural antiflag orbital graph language; a graph with all cross-incidence edges may have an established different name, a residual caveat rather than evidence of coverage.",
+        "searches": [
+          "rank one primitive idempotent full matrix field orthogonality graph parameters",
+          "antiflag projective graph cross incidence Q in H P in M common neighbors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Symbolic formulas for all prime-power q and n>=3 are established by projective counts.",
+          "Brute graph construction checks one q=2,n=3 case but cannot prove infinite generality."
+        ],
+        "reasoning": "No inspected exact finite graph table independently establishes all symbolic parameters; the computation is validation evidence only.",
+        "searches": [
+          "rank one primitive idempotent full matrix field orthogonality graph parameters",
+          "projective antiflag graph parameters q field n dimension q-analog [n-2]"
+        ]
+      },
+      "rationale": "Full primary 2008 text proves primitive-idempotent adjacency is orthogonality and establishes graph connectivity/diameter, but its statements do not give finite-field vertex degree, adjacency intersection number or triangle/antiflag-triple formula. Search comparisons under ring graph, antiflag incidence, edge regular and projective orthogonality uncovered no dominating finite-parameter theorem; possible orbital-graph equivalent remains residual.",
+      "residual_risks": [
+        "A finite-geometry antiflag association scheme or orbital graph could have identical intersection parameters under different terminology; not located.",
+        "Standalone source checker normalizes vectors over prime fields, not general finite extension fields; proof handles prime powers symbolically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_ENUMERATION",
+          "evidence": "Theorem 17 identifies orthogonality edges and connectivity/diameter but not finite-field degree, adjacent common neighbors, triangles or local matchings.",
+          "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/68577ACF528F18B119EF5CCF3BB69A57/S0004972708000154a.pdf/indecomposability_graphs_of_rings.pdf",
+          "material_read": "Complete freely accessible 9-page primary PDF; definitions §1, Proposition 10, Theorem 17 pp.157–158 and its primitive-orthogonality proof",
+          "method": "Read full extracted primary text and visual pages 153 and 156; confirmed formula claims absent",
+          "title": "Indecomposability Graphs of Rings",
+          "trigger": "Same exact primitive-idempotent graph and matrix ring"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT",
+          "evidence": "Includes nilpotents and transpose-product adjacency in 2x2; not this primitive orthogonality graph for n>=3.",
+          "identifier_or_url": "https://doi.org/10.2298/FIL2522559L",
+          "material_read": "Bibliographic information and summary only",
+          "method": "Targeted source discovery",
+          "title": "The zero-divisor graph of 2x2 matrix ring and its energies",
+          "trigger": "Later related matrix graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The primitive-idempotent graph is a natural structural graph attached to a matrix ring. Exact uniform adjacent common-neighbor multiplicity is an edge-regularity theorem, not a tautological vertex count; it gives the entire edge and triangle census and the rigid local matching / triangle-bijection behavior in dimension three. These properties are useful for finite geometry and ring graph analysis beyond previous connectivity information.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only induced primitive-idempotent graph, n>=3 over finite fields; no higher-rank idempotent assertion.",
+    "Prime-power generality is symbolic projective geometry, not covered by prime-field-only scripts."
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was inspected and replayed from its packaged path.
+# Independent mathematical audit
 
-For prime fields it normalizes nonzero vectors to projective points and covectors to projective hyperplanes. Vertices are exactly nonincident point-hyperplane pairs, and adjacency is imposed by the two cross-incidence equations.
+## correctness
 
-The checker verifies, by direct graph construction, the vertex count, regular degree, common-neighbor count on every edge, edge count, triangle count, and the degree of every induced neighborhood for
-\[
-(n,q)\in\{(3,2),(3,3),(3,5),(4,2),(5,2)\}.
-\]
+PASS
 
-Exact replay output:
+Every primitive idempotent of M_n(F_q) is rank-one projection, equivalent bijectively to an antiflag (P,H) with P outside H. For every nonzero e,f, eRf !=0; hence source indecomposability adjacency reduces to ef=fe=0, equivalent to Q subset H and P subset M. Count q^(n-1) nonincident hyperplanes per [n]_q point. A neighbor picks Q in H in [n-1]_q ways then M through P avoiding Q in q^(n-2) ways. For adjacent vertices the line PQ misses H intersect M, yielding [n-2]_q choices of S and q^(n-3) choices of N through PQ but missing S, so lambda=q^(n-3)[n-2]_q, valid at n=3. Edges and triangles follow by double counting; at n=3 lambda=1 implies local matchings and triangles correspond to unique side lines of noncollinear triples. Independent q=2,n=3 construction confirms 28 vertices, degree6, 84 edges, 28 triangles, lambda1. General q prime powers follow from projective incidence counts, not the finite computation.
 
-```text
-n=3 q=2 N=28 k=6 lambda=1 E=84 T=28
-n=3 q=3 N=117 k=12 lambda=1 E=702 T=234
-n=3 q=5 N=775 k=30 lambda=1 E=11625 T=3875
-n=4 q=2 N=120 k=28 lambda=6 E=1680 T=3360
-n=5 q=2 N=496 k=120 lambda=28 E=29760 T=277760
-VERIFY_OK
-```
+## originality
 
-The finite cases are corroboration only. The arbitrary prime-power theorem is proved by projective incidence counting, so no enumeration is used to infer the infinite family.
+PASS
+
+Full primary 2008 text proves primitive-idempotent adjacency is orthogonality and establishes graph connectivity/diameter, but its statements do not give finite-field vertex degree, adjacency intersection number or triangle/antiflag-triple formula. Search comparisons under ring graph, antiflag incidence, edge regular and projective orthogonality uncovered no dominating finite-parameter theorem; possible orbital-graph equivalent remains residual.
+
+## value
+
+PASS
+
+The primitive-idempotent graph is a natural structural graph attached to a matrix ring. Exact uniform adjacent common-neighbor multiplicity is an edge-regularity theorem, not a tautological vertex count; it gives the entire edge and triangle census and the rigid local matching / triangle-bijection behavior in dimension three. These properties are useful for finite geometry and ring graph analysis beyond previous connectivity information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

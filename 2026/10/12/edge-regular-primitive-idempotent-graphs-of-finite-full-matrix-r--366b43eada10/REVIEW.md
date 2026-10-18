@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A rank-one idempotent is uniquely a projection determined by a projective point \(P\) and a complementary hyperplane \(H\). In a full matrix ring all nonzero corners \(eRf\) are nonzero, so primitive-idempotent adjacency is exactly mutual zero product, which becomes the cross-incidence conditions \(Q\subset H\) and \(P\subset M\). Standard projective counts give the vertex and degree formulas. For an adjacent pair, \(H\cap M\) is disjoint from the projective line \(\langle P,Q\rangle\); choosing a common-neighbor point in \(H\cap M\) and then a hyperplane through \(P,Q\) avoiding that point gives exactly \(q^{n-3}[n-2]_q\) common neighbors. Edge and triangle counts follow by double counting. The packaged checker independently verifies the formulas in five finite cases.
+PASS
 
-## Originality
+Every primitive idempotent of M_n(F_q) is rank-one projection, equivalent bijectively to an antiflag (P,H) with P outside H. For every nonzero e,f, eRf !=0; hence source indecomposability adjacency reduces to ef=fe=0, equivalent to Q subset H and P subset M. Count q^(n-1) nonincident hyperplanes per [n]_q point. A neighbor picks Q in H in [n-1]_q ways then M through P avoiding Q in q^(n-2) ways. For adjacent vertices the line PQ misses H intersect M, yielding [n-2]_q choices of S and q^(n-3) choices of N through PQ but missing S, so lambda=q^(n-3)[n-2]_q, valid at n=3. Edges and triangles follow by double counting; at n=3 lambda=1 implies local matchings and triangles correspond to unique side lines of noncollinear triples. Independent q=2,n=3 construction confirms 28 vertices, degree6, 84 edges, 28 triangles, lambda1. General q prime powers follow from projective incidence counts, not the finite computation.
 
-PASS. The foundational matrix-ring paper proves that primitive idempotents are adjacent exactly when orthogonal and uses this to establish connectivity and diameter, but it does not state the finite-field regularity, common-neighbor, local-graph, edge, or triangle formulas. Searches under the algebraic and projective reformulations, including primitive idempotents, orthogonality, antiflags, cross-incidence, edge-regularity, and common neighbors, did not locate an equivalent theorem. The closest later matrix-idempotent graph paper treats \(2\times2\) matrices with a different vertex set and transpose-based adjacency, so it does not imply this result.
+## originality
 
-## Value
+PASS
 
-PASS. Edge-regularity supplies exact local structure that is invisible from connectivity and diameter alone. The formulas give immediate edge and triangle enumerators for every finite field and dimension, and the \(n=3\) specialization has the particularly rigid property that every neighborhood is a perfect matching and every edge belongs to a unique triangle. The antiflag model also gives a reusable geometric translation for further study of the ring graph.
+Full primary 2008 text proves primitive-idempotent adjacency is orthogonality and establishes graph connectivity/diameter, but its statements do not give finite-field vertex degree, adjacency intersection number or triangle/antiflag-triple formula. Search comparisons under ring graph, antiflag incidence, edge regular and projective orthogonality uncovered no dominating finite-parameter theorem; possible orbital-graph equivalent remains residual.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The primitive-idempotent graph is a natural structural graph attached to a matrix ring. Exact uniform adjacent common-neighbor multiplicity is an edge-regularity theorem, not a tautological vertex count; it gives the entire edge and triangle census and the rigid local matching / triangle-bijection behavior in dimension three. These properties are useful for finite geometry and ring graph analysis beyond previous connectivity information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
