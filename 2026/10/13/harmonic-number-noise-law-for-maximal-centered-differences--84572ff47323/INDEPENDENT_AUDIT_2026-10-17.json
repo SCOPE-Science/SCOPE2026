@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T19:55:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each m>=1 and h>0, differentiation of degree-2m equispaced Lagrange cardinal polynomials yields weights alpha_{m,j}=(-1)^(j+1)(m!)^2/[j(m-j)!(m+j)!] on paired +/-jh nodes. The beta-integral identity a_{m,j}=binom(m,j)*int_0^1 t^m(1-t)^(j-1)dt gives sum_j a_{m,j}=H_m/2 after substituting s=1-t. Therefore the l_infinity sampled-input norm is exactly 2sum|alpha|/h=H_m/h; aligned signs independently attain it. Independently reconstructed exact rational weights and every polynomial moment through degree 2m for m=1..20, all passed. This is not a stochastic-noise, nonuniform-grid, or floating-point-weight computation result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fornberg 1988 supplies recursions on arbitrarily spaced nodes; Sadiq–Viswanath 2011 supplies efficient weight algorithms and discusses stability of computation."
+        ],
+        "reasoning": "These general methods produce coefficients but do not evaluate the exact all-m operator norm as a stated theorem in the accessible inspected material; full Fornberg text was unavailable and is explicitly a residual risk.",
+        "searches": [
+          "centered maximal finite difference first derivative noise amplification l infinity coefficient absolute sum harmonic number H_m",
+          "Fornberg 1988 generation of finite difference formulas arbitrarily spaced grids pdf full text"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1102.3203",
+        "DOI:10.1090/S0025-5718-1988-0935077-0",
+        "Resultary 2026/10/4/SCOPE-sharp-monotonicity-defect-of-every-high-order-centered-first-der--6f1025c59a32"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Interpolation weights and exact polynomial differentiation are known. The checked paper analyses numerical instability of forming weights, a different map from arbitrary bounded data perturbations to the derivative estimate."
+        ],
+        "reasoning": "The standard formula implies the result after the nontrivial beta-integral summation, not through an already inspected stronger closed norm theorem. Priority remains provisional because older differentiation-condition-number sources were not exhaustively read.",
+        "searches": [
+          "https://arxiv.org/pdf/1102.3203",
+          "DOI:10.1090/S0025-5718-1988-0935077-0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sadiq–Viswanath arXiv:1102.3203 concerns generated weights and algorithmic stability; Resultary record 2026/10/4/SCOPE-sharp-monotonicity-defect-of-every-high-order-centered-first-der--6f1025c59a32 quantifies a monotone-input defect, not the all-sign l-infinity noise norm."
+        ],
+        "reasoning": "H_m/h equals the l1 absolute coefficient sum for the centered first-derivative functional; this is distinct from the sign-restricted monotone-data defect and from algorithmic stability of computing weights. A broader older-conditioning identity is a residual risk.",
+        "searches": [
+          "centered maximal finite difference first derivative noise amplification l infinity coefficient absolute sum harmonic number H_m",
+          "finite differences \"harmonic numbers\" \"first derivative\" coefficients sum",
+          "Resultary: Sharp monotonicity defect of every high-order centered first derivative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary highest semantically related hit is a different sharp monotonicity defect; bibliographic tables in Fornberg cover finitely many small stencils, not an all-m H_m identity."
+        ],
+        "reasoning": "A finite tabulation cannot cover an all-order formula. No matching Resultary record found, which is not a novelty proof.",
+        "searches": [
+          "centered maximal finite difference first derivative noise amplification l infinity coefficient absolute sum harmonic number H_m",
+          "Resultary: centered maximal finite difference first derivative noise amplification l infinity coefficient absolute sum harmonic number H_m"
+        ]
+      },
+      "rationale": "The prior complete available Sadiq–Viswanath source gives finite-difference weight algorithms and stability of coefficient computation, while the closest Resultary hit concerns monotone-data behavior. Neither inspected material directly states the sharp all-order H_m/h sampled-noise operator norm. Fornberg original PDF inaccessible this execution; older conditioning formulas remain the explicit priority risk.",
+      "residual_risks": [
+        "Fornberg 1988 full original PDF was not accessible from the attempted publisher URL; an equivalent all-order conditioning identity could appear there or older numerical differentiation literature.",
+        "Resultary semantic hits do not establish global historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The primary focus is generating differentiation weights and numerical stability of their computation, not the closed evaluated l-infinity sampled-data norm H_m/h.",
+          "evidence": "The introduction explicitly distinguishes finite-difference weights from algorithmic numerical stability; no exact all-order absolute-stencil-coefficient sum was found in the relevant mathematical discussion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1102.3203",
+          "material_read": "Read the interpolation-weight definition, Sections 1 and numerical-stability discussion, weight algorithms, and conclusions of the accessible complete 23-page arXiv text; mathematical content relevant to perturbation norm was compared.",
+          "method": "arXiv full-text PDF, readable sections and PDF search",
+          "title": "Finite Difference Weights, Spectral Differentiation, and Superconvergence",
+          "trigger": "Closest accessible primary paper on computing arbitrary finite-difference weights and stability."
+        },
+        {
+          "assessment": "Weight-recursion and tabulated coefficients are established prior work; the full paper remains a priority risk, not a basis for asserting global noncoverage.",
+          "evidence": "Published abstract specifies recursions for arbitrary derivative and accuracy and equispaced coefficient tables; full text access blocked.",
+          "identifier_or_url": "DOI:10.1090/S0025-5718-1988-0935077-0",
+          "material_read": "Bibliographic abstract and secondary primary-paper descriptions; attempted publisher PDF returned forbidden, so the complete original was NOT read on this run.",
+          "method": "journal abstract, metadata, attempted AMS full PDF",
+          "title": "Generation of finite difference formulas on arbitrarily spaced grids",
+          "trigger": "Original centered weight recurrence and finite-difference tables."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp, exact all-order robustness invariant for a canonical maximal-order differentiation stencil. It quantifies the log m data-noise tradeoff independently of coefficient-generation algorithms, including matching extremizers; this is mathematically useful rather than merely a few numerical cases.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1102.3203",
+    "DOI:10.1090/S0025-5718-1988-0935077-0",
+    "Resultary 2026/10/4/SCOPE-sharp-monotonicity-defect-of-every-high-order-centered-first-der--6f1025c59a32"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Deterministic independent per-sample perturbations only; cannot infer RMS variance, nonuniform or one-sided stencils, floating point stability, or higher-derivative norms."
+  ],
+  "residual_risks": [
+    "Fornberg 1988 full original PDF was not accessible from the attempted publisher URL; an equivalent all-order conditioning identity could appear there or older numerical differentiation literature.",
+    "Resultary semantic hits do not establish global historical priority."
+  ],
+  "schema_version": 1
+}

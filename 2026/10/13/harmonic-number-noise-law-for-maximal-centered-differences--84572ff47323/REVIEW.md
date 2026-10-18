@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the centered weights from Lagrange interpolation, evaluates their complete absolute sum for every \(m\ge1\) by an exact beta-integral identity, and obtains the operator norm by finite-dimensional \(\ell_\infty\)-duality. A sign-matched perturbation proves sharpness. The exact-rational replay is supplementary rather than an extrapolation from finite cases.
+## correctness
 
-## Originality
-PASS, with residual risk. Full-text inspection of Fornberg's weight-generation paper and Sadiq–Viswanath's weight/superconvergence paper found the standard coefficient framework and numerical-stability discussions but not the exact harmonic-number data-perturbation norm. Published-finding-index searches using coefficient-norm, harmonic-number, condition-number, and noise-amplification aliases found no implication-equivalent statement. The main risk is older numerical-differentiation conditioning literature using different terminology.
+PASS
 
-## Value
-PASS. The result evaluates a natural robustness invariant of a canonical high-order differentiation family. It gives a sharp worst-case error budget and a simple all-order law showing precisely how formal-order growth trades against bounded sample perturbations.
+For each m>=1 and h>0, differentiation of degree-2m equispaced Lagrange cardinal polynomials yields weights alpha_{m,j}=(-1)^(j+1)(m!)^2/[j(m-j)!(m+j)!] on paired +/-jh nodes. The beta-integral identity a_{m,j}=binom(m,j)*int_0^1 t^m(1-t)^(j-1)dt gives sum_j a_{m,j}=H_m/2 after substituting s=1-t. Therefore the l_infinity sampled-input norm is exactly 2sum|alpha|/h=H_m/h; aligned signs independently attain it. Independently reconstructed exact rational weights and every polynomial moment through degree 2m for m=1..20, all passed. This is not a stochastic-noise, nonuniform-grid, or floating-point-weight computation result.
 
-## Closest literature and limitations
-Fornberg (1988) supplies general finite-difference weight recursions and centered equispaced tables. Sadiq and Viswanath analyze finite-difference weight computation, spectral differentiation, and superconvergence. Neither inspected source states the claimed \(H_m/h\) sample-noise norm. The finding is restricted to centered equispaced first-derivative formulas and deterministic componentwise perturbations; stochastic RMS behavior, weight-generation roundoff, nonuniform grids, boundaries, and higher derivatives are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior complete available Sadiq–Viswanath source gives finite-difference weight algorithms and stability of coefficient computation, while the closest Resultary hit concerns monotone-data behavior. Neither inspected material directly states the sharp all-order H_m/h sampled-noise operator norm. Fornberg original PDF inaccessible this execution; older conditioning formulas remain the explicit priority risk.
+
+## value
+
+PASS
+
+This is a sharp, exact all-order robustness invariant for a canonical maximal-order differentiation stencil. It quantifies the log m data-noise tradeoff independently of coefficient-generation algorithms, including matching extremizers; this is mathematically useful rather than merely a few numerical cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
