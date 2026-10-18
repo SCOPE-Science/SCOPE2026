@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Additive-character orthogonality reduces the fourth output norm to an exactly normalized two-fold convolution energy. In odd characteristic, midpoint–difference coordinates diagonalize the Gold exponent: the polynomial pair sum depends on the difference only through a single power. The nonzero fibers are multiplicative root-of-unity orbits, and the exact complex variance identity yields the two nonnegative deficit components without dropping any terms. The arithmetic gcd dichotomy and the equality condition follow, and constants attain the norm. A separate real-Fourier argument proves that the integral phase-relation lattice has rank \(q-1\) in the nonplanar regime, hence its projective phase group is finite. The accompanying checker covers nine field/exponent cases, including nonprime fields; this is corroboration rather than a universal proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+Independent reconstruction: with odd p and (s,h)=(a+b,a−b), a^e+b^e=(s^e+h^e)/2 by Frobenius, so for fixed s nonzero collision fibers are multiplicative orbits of H={ζ:ζ^e=1} of cardinality g. Two-dimensional additive-character orthogonality yields ||Tf||_{L⁴(prob)}⁴=∑|R_f(s,y)|², no residual q factor. The exact pairwise variance identity g∑|z|²−|∑z|²=∑_{unordered pairs}|z_i−z_j|² gives ||Tf||⁴=gS²−(g−1)∑|f|⁴−orbit_deficit, and scalar Cauchy ∑|f|⁴≥S²/q gives sharp g−(g−1)/q with constant f equality. Equality iff nonzero f has constant positive modulus and phase-product invariance along H orbits. Euclidean gcd for gcd(p^k+1,p^m−1) gives g=2 when m/d odd, p^d+1 when m/d even; when g=2 phase conditions automatic. For g>2, Fourier-in-x of real infinitesimal phase relations forces any nonzero character β to satisfy trace(βζy)=±trace(βy) for all y, impossible unless ζ=±1 because union of two proper F_p subspaces cannot exhaust F. Thus real solution space is constants and projective compact phase group is finite; quadratic trace(αt^(p^d+1)) supplies nonlinear finite members. Independently constructed F₉ using α²=−1 over F₃: exponents e=4,10,28 give respective g=4,2,4, collision cardinalities (9 singleton+18 quadruple), (9 singleton+36 pairs), (9 singleton+18 quadruple) and exact constant-amplitude norms 11/3,17/9,11/3, as predicted. These finite counts corroborate, not prove, universal theorem.
 
-Mockenhaupt–Tao supply the framework, while González-Riquelme–Oliveira e Silva give sharp inequalities on different finite-field varieties and at different stated exponents. Beierle–Felke discuss the previously known odd-characteristic Gold planarity criterion, not the nonplanar fourth-moment optimizer relation or deficit. The closest identified public quartic-graph energy abstract concerns fields with characteristic different from three when its displayed congruence cases apply; this does not cover the Gold exponent-four examples over fields of characteristic three. An inaccessible full text and possible older coding-theoretic reformulations remain concrete priority risks, but no inspected directly covering result was identified. The new claim is the sharp weighted fourth moment, explicit arithmetic jump, necessary-and-sufficient phase equation and complete deficit identity, not the known planarity criterion.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact operator norm detects the known planar/nonplanar division for an infinite natural class of Dembowski–Ostrom curves, and the nonplanar branch exhibits a larger sharp constant and nontrivial phase-orbit constraints. The positive deficit identity gives both exact equality information and quantitative amplitude control, while the quadratic-trace construction proves that nonplanar optimizer geometry is not simply character rigidity. These form a connected structural endpoint result rather than arbitrary small-field enumeration.
+Best-of-knowledge sharp L²→L⁴ Gold-graph operator fourth moment, exact orbit deficit and projective phase rank dichotomy are not in the inspected earlier odd-characteristic planarity results or recent other-surface sharp-extension theorem. Binary Gold graph results are in characteristic 2 and do not imply these p-odd midpoint/orbit formulas. The older planarity arithmetic is expressly not claimed new. Residual unknown equivalent additive-energy coding-theory formulations remain possible.
 
-## Boundaries and comparisons
+## value
 
-The phase relation is equivalent to maximality but does not parametrically enumerate the nonplanar phase group. The computations do not imply a universal theorem; the analytic proof does. Literature priority is not certified beyond the examined sources and comparisons.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+A sharp weighted Fourier extension constant, exact nonnegative deficit and topological dichotomy of all optimizer phases solve a natural restriction/equality problem across complete arithmetic subfamilies. The nonplanar finite-vs-torus jump and nonlinear optimizers go beyond a routine gcd count or normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
