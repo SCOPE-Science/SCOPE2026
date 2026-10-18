@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Two repeated points force their affine joining line monochromatic. At q>=3 any two intersecting monochromatic lines would force the entire plane monochromatic: through an outside point choose one of >=4 directions excluding the 2 line directions and the direction through their intersection. Every other repeated pair therefore sits on a monochromatic line of a single parallel class; distinct selected lines cannot share a colour because a transversal would be a forbidden intersecting monochromatic line. Conversely any selection of parallel lines with distinct colours and singleton remaining points obeys the condition. Distinct partitions and coefficient counts follow bijectively, including q=2 exception. Standard-library checker exhausts 14 partitions at order 2 and 21147 partitions at order 3 (29 valid), verifies constructive patterns at orders 4,5,7. No unproved extrapolation from finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Piehowski Section 4.1 has wide-path hypothesis |e intersection f|>=2 on successive edges, whereas affine distinct lines meet in 0 or 1 point.",
+        "Piehowski Section 3 uniform-edge lower estimate supplies only Lean>=q, not all optimal/nonoptimal colourings.",
+        "Projective incidence designs have no disjoint parallel lines and cannot contain k>=2 chosen parallel-line patterns."
+      ],
+      "reasoning": "The broad known bound is sharp numerically but does not imply the nontrivial partition structure. The wide-path result is inapplicable. General projective-plane classifications are not stronger coverage because the affine objects and possible parallel monochromatic lines differ.",
+      "searches": [
+        "The Lean Number of a Hypergraph Piehowski July 2026 projective affine plane result",
+        "Steiner 2-design monochromatic or rainbow line partition complete classification",
+        "lean coloring of affine planes, affine geometries, parallel line monochromatic rainbow hypergraph coloring, chromatic spectrum"
+      ]
+    },
+    "checked_sources": [
+      "Piehowski arXiv:2607.14015v1 full text (15 Jul 2026); definitions and sections 3-4.",
+      "Tuza, Mixed hypergraphs and beyond, available full-text survey (2019).",
+      "Relevant published mathematical records on finite affine-plane incidences and hypergraph chromatic spectra; no exact covering claim found."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The q-uniform lower bound already gives Lean>=q; selecting all lines of a parallel class proves equality, so that scalar part alone is not novel.",
+        "Neither compared text implies that every repeat class is a whole affine line in a common parallel class, with independently chosen disjoint lines.",
+        "The theorem implies an all-coefficient named-palette polynomial and q(q-2) gaps beyond the scalar lower bound."
+      ],
+      "reasoning": "Exact implication check: lower bound + one construction covers the lean number only. The complete structural classification and exact spectrum rely on excluding intersecting monochromatic lines and cross-line colour repetitions; the sources do not establish these steps. Distinct mixed-hypergraph constraints do not dominate the result.",
+      "searches": [
+        "arxiv:2607.14015 Piehowski uniform hypergraph Lemma 3.1 wide-path connected",
+        "Tuza Mixed hypergraphs and beyond line-coloring spectra",
+        "monochromatic or rainbow every affine line q points classification distinct parallel monochromatic lines"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Piehowski arXiv:2607.14015 defines exactly the same local rainbow-or-monochrome condition but no affine-plane count.",
+        "Tuza survey describes colorings with the opposite local constraints.",
+        "Published-record searches for affine-plane line colourings did not surface the same statement."
+      ],
+      "reasoning": "Equivalent terminology includes bilean incidence-graph colourings and edge-coloring partitions of Steiner 2-designs. The direct source only transfers the definition; the survey treats different admissible patterns. No implied full affine-plane spectrum or enumerator was found.",
+      "searches": [
+        "lean coloring finite affine plane of order q line hypergraph exact spectrum counts q colors",
+        "monochromatic or rainbow every affine line q points classification distinct parallel monochromatic lines",
+        "lean coloring of projective planes complete classification singleton non-singleton line"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record queries found nearby affine incidence topology and coding records, but no lean-colouring table on affine planes.",
+        "The primary source contains sample lean colourings for knots and links, not affine-plane enumerators."
+      ],
+      "reasoning": "No exact polynomial or spectrum table was identified; searches not proof of uniqueness, and unindexed sources remain possible.",
+      "searches": [
+        "hypergraph lean coloring line hypergraphs affine plane AG(2,q) monochrome rainbow enumeration",
+        "lean coloring finite affine plane of order q line hypergraph exact spectrum counts q colors",
+        "lean coloring of affine planes monochromatic rainbow line hypergraph published record"
+      ]
+    },
+    "rationale": "Direct comparison with the July 2026 defining primary full text isolates the q-uniform scalar lower bound, not the line-partition classification, spectrum or full polynomial. The survey of mixed hypergraphs imposes different local constraints. Searches of public scientific records and semantically similar named statements identified no dominating affine-plane result. Residual risk of unindexed equivalent work remains.",
+    "residual_risks": [
+      "There may be equivalent work under anti-Ramsey, line-partition, or design-colouring terminology that is not indexed or readily accessible.",
+      "Full priority search is not an independent bibliographic audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING of affine-plane classification. General uniform lower bound q and wide-path-connected criterion do not classify colorings here; affine lines have intersection size at most one.",
+        "evidence": [
+          "Definition uses at least two colours and each edge either rainbow or monochromatic (full text lines 76-92).",
+          "Section 3 provides general q-uniform bounds (lines 682-715); Section 4 defines wide-path connectivity as successive line intersections of size at least two (lines 722-800).",
+          "No occurrences of the term affine in the accessible 1879-line transcription."
+        ],
+        "identifier_or_url": "arxiv:2607.14015; https://www.researchgate.net/publication/410158181_The_Lean_Number_of_a_Hypergraph",
+        "material_read": "Full-text public transcription, definition and introduction, sections 2-4, including Lemma 3.1, Corollary 3.0.2, Definition 4.1, Lemma 4.1, and 2-section discussion; examined entire transcribed text for affine-plane and projective-plane references.",
+        "method": "Read primary full text and compare hypotheses and conclusions, not just abstract.",
+        "title": "The Lean Number of a Hypergraph",
+        "trigger": "Direct defining source and possible covering bounds for q-uniform affine-line hypergraphs."
+      },
+      {
+        "assessment": "NOT_COVERING. C-colouring forbids rainbow edges and bi-hypergraph/WORM variants forbid both extremes; lean colouring instead allows monochromatic or rainbow and forbids intermediate patterns.",
+        "evidence": [
+          "Survey introduction distinguishes proper, C-, and bi-colouring (around lines 165-205).",
+          "Chromatic-spectrum gaps and WORM variants concern a different family of permissible edge patterns."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/334329458_Mixed_hypergraphs_and_beyond",
+        "material_read": "Accessible full-text survey introduction, C-colouring/bi-hypergraph definitions and its chromatic-spectrum / WORM-colouring discussions; compared forbidden edge patterns.",
+        "method": "Direct examination of definitions and theorem scopes in primary text.",
+        "title": "Mixed hypergraphs and beyond",
+        "trigger": "Possible equivalent formulation via mixed hypergraphs, anti-Ramsey and chromatic-spectrum gaps."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d7d2f7c0-a1ae-4d58-ac8f-9aaed5f7b92d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A recently defined invariant is classified at the level of every admissible color partition on every affine plane, even non-Desarguesian. Parallel-class rigidity produces an explicit named-palette polynomial and a family with q(q-2) absent chromatic counts. This is substantive structural information absent from the basic, easily constructed equality Lean=q, and contrasts affine parallelism with pairwise-intersecting projective designs.",
+    "status": "PASS"
+  }
+}
