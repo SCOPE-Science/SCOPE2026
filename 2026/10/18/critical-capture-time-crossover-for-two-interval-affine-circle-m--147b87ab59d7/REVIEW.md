@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+For every fixed \(0<c<b<1\), \(0<\lambda<1\), \(1-b<\lambda(1-c)\), and \(\kappa<(1-\lambda)/(b-c)\), sufficiently small positive \(\delta\) satisfies the originating map's admissibility requirements. The branch formulas give the exact exterior recurrence \(u_{j+1}=s_\delta u_j-\Delta_\delta\) and preimage thresholds \(h_{\delta,n}=\Delta_\delta\sum_{j=1}^{n-1}s_\delta^{-j}\). Their spacing establishes the survivor measure and microscopic uniform landing location for complete cells, with only one terminal truncated cell. The strict inequality \(1-\kappa(1-c)>0\) gives a finite uniform capture horizon. A uniform Riemann-sum approximation and invertible limit profile establish the sharp \(O(\delta)\) coupling; the mass initially in \([0,c)\) gives the matching \(c\delta\) Wasserstein lower bound. The left exterior has a uniformly bounded capture time by affine contraction. Exact Fraction tests reproduce initial segments and undershoot identities; finite tests supplement but do not replace the analytical proof.
+
+## Originality — PASS, subject to priority uncertainty
+
+The primary article Gaivão–Laurent–Nogueira (arXiv:2212.10944, Lemma 4.1, Sections 5–8) proves eventual entrance into \(J=[c,b)\), then analyzes rotation and recurrent dynamics, including conjugacy on \(J\). It does not, in the inspected full article, quantify the exterior entrance-time cells, normalized landing undershoot, near-identity truncated-exponential crossover, or optimal \(W_1\) rate. The older Laurent–Nogueira normalized map works on the trapped interval, and its exterior entry process is not present in its stated setting; only its abstract and relation through the primary paper were inspected. Several semantic research-record searches using the author names, exact survivor-sum formula, entrance-law aliases, and independent undershoot returned related but materially different systems. The closest record on a large-hysteresis return map concerns a nonlinear square-root escape recurrence, not this affine capture process. These comparisons support but do not certify the absence of an unlocated equivalent result. Uninspected full text of an earlier related paper and generic near-identity Euler-limit literature remain residual priority risks.
+
+## Value — PASS
+
+At the limiting \(\delta=0\) map the right exterior is fixed pointwise, whereas every sufficiently small \(\delta>0\) produces finite capture; the divergent first-entry time therefore measures a natural singular transition. The exact finite-parameter survivor strata and independent microscopic landing undershoot are dynamical information erased by restricting the map to its absorbing interval. The parameter \(\kappa\) exhibits a meaningful increasing-exponential / uniform / decreasing-exponential crossover, while the matching \(\Theta(\delta)\) error bound quantifies finite-scale accuracy. The result complements qualitative trapping and rotation-number theory and is not merely a renamed fixed-point or routine census.
+
+## Closest sources and limitations
+
+Primary: J. P. Gaivão, M. Laurent, A. Nogueira, *Rotation number of 2-interval piecewise affine maps*, arXiv:2212.10944; DOI 10.1007/s00010-024-01064-2 (full-text Sections 2, 4–8 inspected). Earlier: M. Laurent and A. Nogueira, *Dynamics of 2-interval piecewise affine maps and Hecke–Mahler series*, DOI 10.3934/jmd.2021002 (abstract and connection via the primary article inspected). Related: J. P. Gaivão and A. Nogueira, *Dynamics of piecewise increasing contractions*, DOI 10.1112/blms.12577 (abstract inspected). Fixed-parameter laws are for uniform initial Lebesgue data, not arbitrary sampling; results do not concern invariant statistics inside the absorbing interval. The candidate has not received an independent expert audit.
+
+Self-review: passed. Independent audit: not yet performed.
