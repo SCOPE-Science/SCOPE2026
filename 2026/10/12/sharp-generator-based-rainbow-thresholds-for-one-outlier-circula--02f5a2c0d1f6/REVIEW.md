@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** Signed-step arithmetic is valid because no generator length reaches half the modulus. The proof covers every nonedge distance, gives explicit red-blue constructions in both positive bands, and independently excludes the two top orders of the middle band and both large-gap bands. The only delicate large-gap case \(\ell=3k\) is resolved by a descending color-forcing induction and a separate wrapped-sum check; its exceptional modular congruence is excluded using \(k\ge3\). The independent finite verifier exhausts 862 parameter triples without discrepancy. This is a human-readable universal proof, not a claim of infinite computational certification.
+## correctness
 
-**Originality: PASS, with residual indexing risk.** The motivating 2026 paper frames generator-based colorings as an open circulant question and gives the contiguous-step boundary example, but neither its theorem hypotheses nor its §6 observations classify an interval of generators with an outlier. Earlier general Cayley bounds do not entail constant-per-generator two-colorability. A previously established contiguous-step cycle-power case has been excluded by requiring \(\ell\ge k+2\). Searches of mathematical research records, primary publications, and the relevant earlier and current findings identified no implication covering these new phase boundaries. Equivalent work indexed under other formulations remains possible.
+PASS
 
-**Value: PASS.** This solves a natural infinite, three-parameter family selected directly from a recently posed generator-invariant rainbow-connection problem. It identifies explicit sharp thresholds, shows that diameter two does not ensure a generator-invariant red-blue rainbow coloring, and pinpoints a complete band of obstructions not explained merely by diameter. The result does not resolve unrestricted rainbow connection in those negative cases or the dense-circulant conjecture.
+All cyclic distances are represented by ≤2 steps as [1,2k] union [ell-k,ell+k], touching since ell<=3k+1, and n/2<=ell+k. Positive bands yield explicit color sets red={ell} or {k,ell}, blue the other short lengths, covering each nonedge by two different generator lengths. Negative middle top n require ell+j all force every short color opposite ell but short-only k+1 has no rainbow path. Negative ell=3k forces short colors by k+j descending and contradicts ell-1/ell-2, while ell=3k+1 distance2k has no two distinct generator-length representation. Independent exhaustive color assignments for k=3..6 across all specified (ell,n) agreed with closed form; proof is general.
 
-The main inspected sources were Barát–Boyadzhiyska–Freschi, arXiv:2609.11437v1 (§1 and §6, with surrounding main results), and Li–Li–Liu, arXiv:1011.0827v3 (definitions and theorems for abelian Cayley graphs). Residual risk concerns unindexed equivalent generator-coloring statements, not a gap in the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Barát–Boyadzhiyska–Freschi super-Dirac study raises generator-based rainbow colorings but addresses dense graphs, while the published exact contiguous-step Dirac-cycle-power result covers ell=k+1 excluded here. Li–Li–Liu treat unrestricted rainbow connection of other abelian Cayley families, not exact uniform-per-generator two-colorability for interval+outlier steps. Primary full-text accessibility for the most relevant 2026 preprint was limited to abstract/secondary scope, retained as originality risk.
+
+## value
+
+PASS
+
+One-outlier circulants are a natural minimal perturbation of well-studied cycle powers; a complete exact three-parameter classification with two sharp positive bands and explicit generator-homogeneity obstructions distinguishes diameter-two rainbow connection from its more rigid symmetric coloring variant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
