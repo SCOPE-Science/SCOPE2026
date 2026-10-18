@@ -1,76 +1,21 @@
-# Review of Three-regime boundary defect of weighted Bergman kernel norms
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. With
-\[
-\beta=\alpha+2,
-\qquad
-c=(p-1)\beta,
-\qquad
-a=(\beta+c)/2,
-\qquad
-d=(\beta-c)/2,
-\]
-direct integration gives
-\[
-\|K_z\|_{p,\alpha}^p
-=
-{}_2F_1(a,a;\beta;|z|^2).
-\]
-Euler's transformation therefore gives the exact normalized profile
-\[
-(1-|z|^2)^c\|K_z\|_{p,\alpha}^p
-=
-{}_2F_1(d,d;\beta;|z|^2).
-\]
+PASS
 
-Gauss' formula yields the boundary constant. If
-\[
-c>1,
-\]
-the transformed hypergeometric function has a finite derivative at the boundary, whose exact value gives the linear term. If
-\[
-0<c<1,
-\]
-the connection formula shows that the nonanalytic branch
-\[
-(1-|z|^2)^c
-\]
-dominates the ordinary linear term. At
-\[
-c=1,
-\]
-the derivative becomes zero-balanced and grows logarithmically, producing the
-\[
-s\log(1/s)
-\]
-term after integration. Taking the positive
-\[
-p
-\]
-th root gives the stated coefficients. The case
-\[
-p=2
-\]
-reduces identically to
-\[
-{}_2F_1(0,0;\beta;x)=1.
-\]
+PASS. For fixed alpha>-1 and 1<p<infinity, beta=alpha+2, a=p beta/2, c=(p-1)beta>0, d=(2-p)beta/2, the normalized radial moments are (n!)/(beta)_n; hence ||K_z||_p^p=2F1(a,a;beta;r^2). Euler transformation gives s^c||K_z||_p^p=2F1(d,d;beta;1-s). Gauss formula yields C=Gamma(beta)Gamma(c)/Gamma(a)^2 and L=C^(1/p). At 0<c<1, connection formula contributes D/C s^c where D=Gamma(beta)Gamma(-c)/Gamma(d)^2<0; at c>1 the finite derivative is C d^2/(c-1), giving -d^2 s/[p(c-1)]; at c=1 the zero-balanced derivative integrates to -d^2 s log(1/s)/p; p=2 has d=0 and exact constant 1. Independent high-precision samples across subcritical, critical, supercritical, and Hilbert parameters reproduced coefficients as s decreased. No uniformity as parameters vary with s is claimed. The theorem is a fixed-parameter analytic result, not extrapolation from numerical tests.
 
-## Originality
+## originality
 
-PASS. The recent lead source gives the two-sided kernel norm estimate and uses normalized kernels in its compactness theorem. The earlier sharp Forelli--Rudin paper gives the exact leading constant through a sharp global bound and its boundary behavior. Neither inspected source states the first normalized boundary defect or the transition in that defect at
-\[
-(p-1)(\alpha+2)=1.
-\]
+PASS
 
-Targeted searches included the lead source identifier, the exact weighted-kernel normalization, second-order Forelli--Rudin terminology, hypergeometric boundary corrections, and the critical relation. The closest published-finding results concern unrelated endpoint kernel norms or other logarithmic phase transitions and do not imply this weighted Bergman statement.
+Best-of-knowledge PASS after exact-object and logical-implication comparison. The strongest exact-object weighted Bergman norm source gives only two-sided Forelli–Rudin bounds and sharp leading boundary constant. Classical 2F1 connection identities imply coefficients after a substantial specialization, but the particular parameter-threshold normalized Bergman norm theorem is not formulated as a prior theorem in inspected exact-object work. A general special-function reference could mechanistically imply the computation; this substantially limits claimed novelty: new formulation is operator-relevant boundary regime law, not a new 2F1 identity. An indexed-search miss alone is not treated as novelty proof.
 
-## Value
+## value
 
-PASS. The recent operator theorem uses normalized weighted Bergman kernels as its test family for weak convergence and the Berezin-transform compactness criterion. Its Lemma 8 leaves a finite gap between the elementary lower normalization and the sharp upper constant.
+PASS
 
-The new result resolves the boundary approach at the first nontrivial order and shows that the regularity of that normalization changes qualitatively across a natural exponent curve. The critical logarithm is not visible in the source inequalities or in the leading sharp Forelli--Rudin constant. This is a structural fact about the exact kernel test family rather than a numerical refinement of an arbitrary parameter slice.
+PASS. After stripping a known leading singularity from the canonical weighted Bergman reproducing kernel Lp norm, the first surviving term has three genuinely distinct boundary regularity regimes separated by (p-1)(alpha+2)=1, with exact constants and Hilbert cancellation. This supplies mathematically usable normalization error and boundary smoothness data in the same setting used by contemporary operator boundedness/compactness arguments; it is more than a renamed textbook identity, although connection formulas are classical. No downstream essential-norm theorem or parameter-uniform statement is claimed.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
