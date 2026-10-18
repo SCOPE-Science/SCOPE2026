@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reconstructs the full Picard lattice of the twelve-fold blow-up and every vertical generator from the source's resolved fiber data. Exact determinantal divisors give Smith factors \(1^{\times12},12\), hence \(\operatorname{Pic}(C)\cong\mathbf Z\oplus\mathbf Z/12\mathbf Z\). The final exceptional class intersects a fiber once, so it is a section and the degree-zero part is \(J(k(t))\cong\mathbf Z/12\mathbf Z\). The checker uses exact integer arithmetic and verifies the full set of maximal minors.
+## correctness
 
-## Originality
-**PASS.** The initiating full text was checked at the pencil, base-point resolution, singular-fiber descriptions, and global fibration. It contains no Mordell–Weil-group computation. Focused searches for the exact characteristic-\(5\) example, torsion order, Picard/vertical quotient, and Saito–Nguyen aliases found no covering statement. Classical higher-genus Mordell–Weil sources give rank/lattice context but the checked statements do not evaluate this new integral quotient. The directly related 1995 texts were not fully accessible and are retained as a residual risk rather than treated as negative evidence.
+PASS
 
-## Value
-**PASS.** The exact Mordell–Weil group is a natural arithmetic invariant of the newly constructed extremal four-singular-fiber fibration. Exact torsion \(12\) is strictly finer than the rank-zero consequence of general rank formulas and reflects a nontrivial index in the vertical-divisor lattice.
+Sun–Xu’s explicitly resolved F_3 pencil in characteristic 5 has 12 blowups and Picard rank 14. The fiber F=2C_0+6Γ−Σe, the t=0 strict transforms A,B and ten E_{a,i}=e_{a,i}−e_{a,i+1} (1≤i≤5), and the t=∞ component C_0 generate the 13-dimensional vertical subgroup. Independent SymPy determinantal computation on its complete 14×13 integer matrix yields rank13, maximal minors [0,24,−12,12,−12,12,−12,12,−12,12,−12,12,−12,12], gcd12. Inspected bundled verify.py identifies a 12×12 determinant ±1, hence SNF 1^12,12. Restriction from regular S to smooth generic C has vertical kernel, Pic(C)=Z⊕Z/12; horizontal final exceptional meets F once, supplying rational section and degree split, so J(k(t))=Z/12. This is an integral full-lattice computation, not rank-only inference; valid only for specified characteristic-5 fibration.
 
-The result is limited to the explicit characteristic-\(5\) Sun–Xu surface; it does not assert the same group for the characteristic-zero pencil or other reductions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sun–Xu’s section 5 supplies full fiber geometry but not this precise MW torsion group. Earlier Saito/Nguyen constructions of related pencils and general Shioda/Gong–Xu rank methods do not state the characteristic-5 integral SNF nor force order12 from rank zero. Resultary returned no corresponding exact torsion statement. Literature priority risk persists for the older pencil papers, some full text unavailable.
+
+## value
+
+PASS
+
+The full Mordell–Weil group is a central arithmetic invariant of the newly explicit four-singular-fiber genus-two surface. Determining its exact torsion order 12 via an unsaturated vertical lattice is information not supplied by general rank formulas and naturally useful in comparing reductions and fibration arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
