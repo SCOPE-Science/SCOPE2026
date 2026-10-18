@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Laplacian block-squaring and eigenspace decomposition yield four exactly necessary/sufficient Markov positivity inequalities and the three SLEM values. The equioscillation sign-variation proof gives unique unconstrained optimum, including the equal-part degeneracy. A high-degree-diagonal active-constraint perturbation argument certifies strict global optimality and uniqueness beyond q=p^2/(p-2). Algebra at the boundary and asymptotic comparison are exact. Standalone independent linear programming, rational arithmetic and Laplacian matrix checker completed 14,188 assertions, which corroborate but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd–Diaconis–Parrilo–Xiao, arxiv:0709.0955v1, Section 3.1.2 gives an exact one-hop transition probability alpha=min(1/q,2/(q+2p)) on K_{p,q}.",
+        "Boyd–Diaconis–Xiao, SIAM Review 46 (2004), imposes support on original graph edges and studies symmetric stochastic one-hop kernels; its general SDP can represent a two-hop support relaxation but not the exact two-coefficient polynomial restriction without added constraints."
+      ],
+      "reasoning": "The two-hop squared graph of K_{p,q} is complete, so the unrestricted stochastic-kernel problem is solved by uniform averaging with SLEM zero. This more permissive result does not imply the optimum among quadratic polynomials of the original Laplacian. The one-hop graph result also does not contain the two-hop within-part transitions.",
+      "searches": [
+        "arxiv:0709.0955v1 Sections 3.1.2 and 5.3.1",
+        "DOI:10.1137/S0036144503423264 fastest mixing Markov chain",
+        "\"stochastic polynomial Laplacian filter Chebyshev positivity constraints Markov matrix complete bipartite\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1503.01269v1 (primary, first posted 2015-03-04)",
+      "arxiv:0709.0955v1 (2007-09-06)",
+      "DOI:10.1137/S0036144503423264 (Boyd–Diaconis–Xiao, 2004)",
+      "Published mathematical-result semantic searches on polynomial Markov filters and bicliques"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of Apers–Sarlette entails the unconstrained equioscillation branch but does not enforce nonnegative entries; their discussion of negative weights and possible stability limitations confirms that their feasibility is different.",
+        "The published one-hop biclique formula has no within-part movement and cannot produce the present positive qβ, pβ probabilities for two-hop transitions.",
+        "The new branch at (p-2)q>p^2 is characterized by an active diagonal constraint; an explicit perturbation certificate proves global optimality and uniqueness."
+      ],
+      "reasoning": "Known unconstrained results imply the first formula only when it happens to be feasible. They do not imply a new constrained optimum when it is infeasible, nor the exact positivity phase boundary and factor-comparison asymptotics. An undiscovered general Markov-polynomial theorem could still subsume the calculation.",
+      "searches": [
+        "arxiv:1503.01269v1 Theorem 1 and Section 2.1 K(l,m) discussion",
+        "arxiv:0709.0955v1 Section 3.1.2 K(m,n)",
+        "\"nonnegative\" \"polynomial\" \"Laplacian\" \"fastest mixing\" filtering"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Apers–Sarlette, arxiv:1503.01269v1, Section 2 Theorem 1 computes an optimal unconstrained quadratic polynomial; its Section 1 footnote explicitly drops the nonnegative Markov constraint.",
+        "For a biclique with (p-2)q>p^2, that unconstrained polynomial has negative diagonal 1-2q(2p-1)/[p(p+3q)] on the high-degree part, hence is not an equivalent feasible answer."
+      ],
+      "reasoning": "Unconstrained spectral minimax matches only the first branch. Equality of polynomial representations does not imply equivalence of problems once entrywise nonnegativity of the combined operator is enforced. No source inspected supplies the saturated branch.",
+      "searches": [
+        "\"second order polynomial filtering consensus complete bipartite nonnegative stochastic SLEM Chebyshev two-hop\"",
+        "arxiv:1503.01269v1 Sections 1-4",
+        "\"quadratic polynomial\" \"complete bipartite\" \"mixing\" \"stochastic\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "These searches returned no exact matching classification of a completed nonnegative quadratic filter on an unweighted K_{p,q}.",
+        "A nearby published result concerning stagewise-safe two-step Richardson iterations optimizes Euclidean nonexpansiveness over a positive-definite interval, not Markov nonnegativity on a biclique.",
+        "The primary source arxiv:1503.01269v1 formulates unconstrained second-order polynomial filtering, and arxiv:0709.0955v1 analyzes one-hop stochastic edge kernels."
+      ],
+      "reasoning": "No located database/table value, indexed research claim, or published exact formula implies the Markov-constrained positive-kernel phase transition. The absence of a returned hit does not prove originality; this is a bounded search with a disclosed indexing risk.",
+      "searches": [
+        "\"Optimal SLEM of polynomial transition kernel I-alpha L+beta L squared entrywise nonnegative complete bipartite\"",
+        "\"fastest mixing Markov chain complete bipartite graph Kmn second order Laplacian filter threshold q p^2/(p-2)\"",
+        "\"two-hop polynomial mixing Markov complete bipartite unbalanced zero diagonal threshold\"",
+        "arxiv:1503.01269v1 Section 2.1; arxiv:0709.0955v1 Section 3.1.2"
+      ]
+    },
+    "rationale": "The known unconstrained quadratic spectral minimax and standard one-hop fastest-mixing results are treated as prior art. Their feasibility sets do not contain the entrywise-nonnegative completed quadratic-filter constraint analyzed here. The new all-biclique holding-probability threshold, uniqueness of the saturated branch and quantified separation from two individually stochastic Euler factors are not asserted by the inspected primary texts. Searches found no equivalent statement; incomplete indexing remains a residual originality risk.",
+    "residual_risks": [
+      "The literature index and local publication searches are not exhaustive, and a differently worded constrained-polynomial special case could exist.",
+      "The prior unconstrained branch is established prior art and is explicitly not presented as an independent novelty.",
+      "The requirement that the combined polynomial kernel be nonnegative allows signed intermediate evaluations; the result should not be interpreted as a stagewise-positive algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unconstrained quadratic minimax is covered. Explicit entrywise Markov positivity constraint and its sharp saturated biclique branch not found in read material.",
+        "evidence": [
+          "Theorem 1 determines unrestricted degree-two minimax using spectral clusters.",
+          "Section 1 footnote says the Markov nonnegativity constraint is dropped.",
+          "Section 2.1 mentions K(l,m) with three positive eigenvalues; Section 3 discusses a different optimization over graph weights."
+        ],
+        "identifier_or_url": "arxiv:1503.01269v1 | https://arxiv.org/pdf/1503.01269",
+        "material_read": "ArXiv text pages 1–6, 8–12, references; Sections 1, 2, 2.1, 3, 4, 5, including Theorem 1, K(l,m) discussion and stated dropped Markov nonnegativity constraint.",
+        "method": "Read lawful arXiv PDF extracted text and inspected representative page images, checked exact object and admissibility conditions.",
+        "title": "Accelerating Consensus by Spectral Clustering and Polynomial Filters",
+        "trigger": "Nearest full-text source on second-order spectral polynomial filtering and complete bipartite graphs"
+      },
+      {
+        "assessment": "Does not subsume restricted quadratic two-hop stochastic kernels; transitions are supported on the original graph rather than its distance-two closure.",
+        "evidence": [
+          "Section 3.1.2 formula gives alpha=min(1/n,2/(n+2m)) for one-hop K(m,n).",
+          "The stated kernel has only across-part off-diagonal transitions."
+        ],
+        "identifier_or_url": "arxiv:0709.0955v1 | https://arxiv.org/html/0709.0955v1",
+        "material_read": "Full open arXiv HTML mathematical presentation; inspected Sections 1.1, 3.1.2 and 5.3.1 for model, constraints and explicit K(m,n) result.",
+        "method": "Read accessible HTML full text, including formulas for complete bipartite Laplacian eigenvalues and one-hop optimal probabilities.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Potential stronger exact biclique classification under symmetry"
+      },
+      {
+        "assessment": "Supplies general FMMC formulation and context; its one-hop edge-support constraint differs from the degree-two polynomial family.",
+        "evidence": [
+          "Its optimization chooses a symmetric stochastic matrix supported on the input graph edges.",
+          "MSC includes 90C22; DOI and original publication date appear on paper first page."
+        ],
+        "identifier_or_url": "DOI:10.1137/S0036144503423264 | https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Primary paper front matter, introduction and model/objective, and available cited summary of its graph-support SDP formulation.",
+        "method": "Opened author-hosted PDF and inspected first page image and core problem definition.",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Original semidefinite formulation might dominate constrained problem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "203d7ad9-04b3-4fff-9974-450774775749",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The constrained polynomial kernel is a natural Markov-valid two-hop filter. The theorem explains a sharp graph-imbalance transition from unconstrained Chebyshev-style oscillation to saturated zero-holding probabilities, for all K_{p,q} with p,q>=2, with a closed-form globally unique optimizer. Its nonfactorizable performance is quantitatively meaningful: at fixed p>=3 and growing q the filter SLEM tends below 1/2 while every pair of individually stochastic one-hop steps has SLEM tending to one. It is not just re-solving an already tabulated small instance.",
+    "status": "PASS"
+  }
+}
