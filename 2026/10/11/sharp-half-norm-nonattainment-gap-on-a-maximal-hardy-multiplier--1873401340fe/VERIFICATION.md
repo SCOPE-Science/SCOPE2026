@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-All findings follow from analytic identities, not a finite experimental extrapolation. Normalized Szegő kernels at a boundary point are weakly null, and their squared boundary moduli form an approximate identity. This gives \(\lVert M_f\rVert=\max_{\mathbb T}|f|\) and \(m(M_f)=\min_{\mathbb T}|f|\) for every disk-algebra symbol. Nonzero Hardy functions have nonvanishing boundary values almost everywhere, so either extremum can be attained only for constant boundary modulus. Finite-dimensional kernel localization in distinct boundary directions yields the Bernstein lower bounds, and weak-null compactness yields the other three widths for every finite \(n\).
+# Independent mathematical audit
 
-Explicit sharpness witness: \(f(z)=(1-z)/2\), \(g(z)=1/2\). Then \(f(1)=0\), \(\lVert M_f\rVert=1\), \(M_g\) is norm attaining, and \(\lVert M_f-M_g\rVert=1/2\); the universal lower bound shows that this is the exact distance. No software or third-party certificate is needed for these identities.
+## correctness
 
-Checks were confined to the disk algebra and its Hardy multipliers. No external independent audit or full coverage of unindexed prior literature is asserted.
+PASS
+
+PASS: Normalized Szego kernels give operator norm max boundary |f| and minimum modulus min boundary |f| and are weak-null at boundary. Every nonzero H2 function is nonzero a.e.; attainment of either extremum forces |f| constant on boundary, hence scalar finite Blaschke product by disk algebra inner-function argument. Boundary evaluation kernel is closed codim-one ideal and max NA-free complex linear subspace. At zero ζ, |f−g|(ζ)≥t while at max η distance≥|M−t| for norm-attaining g of constant modulus t; minimizing max≥M/2, equality f=(1−z)/2,g=1/2. Weak-null kernels prove approx/Gelfand/Kolmogorov widths; n boundary-localized nearly orthogonal kernels show Bernstein number M, all n≥1. H2 reflexive weak compactness forces quasi norm attainment equivalent to ordinary for this target. Quantifier all H2 dimensions and boundary points, no false full-operator algebra gap claim.
+
+## originality
+
+PASS
+
+PASS best of knowledge for full ideal-specific half-gap plus four exact widths: Ramesh–Sequeira already covers absolute Toeplitz attainment/constant modulus, and published phase-chirp work gives (M−m)/2 for distance to absolutely minimum-attaining Toeplitz class (not same analytic NA target). Dantas et al. supply NA-free subspaces in different Banach geometries. No examined source establishes this exact simultaneous maximal analytic ideal and four flat s-numbers; basic symbol classification alone is prior-related, not a standalone novelty claim.
+
+## value
+
+PASS
+
+PASS with scope qualification: The simultaneous sharp half-norm robust separation on a natural codimension-one closed operator ideal, failure of both extrema, nonclosed range and four uniform approximation-width profiles expose a concrete mismatch between several structural operator invariants. The 1/2 lower-bound proof alone is elementary; its position in the complete ideal/width picture is the motivated contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
