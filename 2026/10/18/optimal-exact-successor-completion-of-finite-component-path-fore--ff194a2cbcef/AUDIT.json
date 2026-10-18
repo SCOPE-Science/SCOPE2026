@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "In every completion the prescribed path components are convex, since inserting another vertex between two same-component vertices would interrupt a prescribed immediate edge along their finite connecting path. Consecutive blocks contribute one new edge exactly when the left has a maximum (finite or reverse ray) and the right has a minimum (finite or forward ray). For successive finite components with no double-ray between, any intervening forward/reverse-ray word creates at least one such bad transition; each double-ray lies in at most one finite gap. This gives the lower bound max(0,f-z-1). The canonical ordering of forward rays, finite blocks interleaved with double rays, and reverse rays attains it. With infinitely many components, a dense component-index order gives zero. Exhaustive symbolic checker compares brute permutation minima, independent DP, and construction for 714 multisets/349524 words. Neither finite checks nor logs are used to prove the all-size assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.09758v1 (Michaliszyn–Witkowski, 2026), §2 Lemma 2.2 and proof; §5.1 and §7 supplies zero defect for infinitely many countable components, already credited.",
+        "arxiv:1604.05843 (Zeume–Harwath, 2016), §2.1 and §6 explicitly restricts to finite nonempty structures.",
+        "2026/10/4/SCOPE-endpoint-normal-form-for-expansive-relations-between-finite-stri--03b1c1fd9c86 concerns expansive relations between distinct finite strict chains, not immediate successor representation."
+      ],
+      "reasoning": "Potential stronger coverage would need a theorem optimizing missing successor edges for finitely many path components, including rays and two-way infinite paths. The original density lemma covers only infinitely many components; the finite-only order-invariance paper covers only the elementary f-component, z=0 case. Neither implies the finite-component ray/double-ray boundary without the new endpoint argument.",
+      "searches": [
+        "two-variable logic several exact successor relations dense completion finite components infinite path obstruction",
+        "linear order adjacency graph completion number finite path blocks minus bi-infinite blocks",
+        "finite component obstruction to dense completion successor digraph with rays omega omega-star double rays and finite paths"
+      ]
+    },
+    "checked_sources": [
+      "Michaliszyn–Witkowski, arXiv:2610.09758v1, relevant arXiv HTML sections (full relevant dense-completion proof and finite-model discussion inspected).",
+      "Zeume–Harwath, arXiv:1604.05843, relevant arXiv HTML sections (finite semantics, definitions and invariance compared).",
+      "published-finding corpus published result metadata: 2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112.",
+      "published-finding corpus published result metadata: 2026/10/4/SCOPE-endpoint-normal-form-for-expansive-relations-between-finite-stri--03b1c1fd9c86.",
+      "Previously published mathematical results on finite directed successor cycles, modal depth, and finite path quantifier rank, compared by objects, parameters and logical implication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.09758v1 (Michaliszyn–Witkowski, 2026), §2 Lemma 2.2 and proof; §5.1 and §7 proves countable infinite-component exact completion and uses it for its certificate construction.",
+        "arxiv:1604.05843 (Zeume–Harwath, 2016), §2.1 and §6 models finite linear orders whose induced successor is a single spanning path.",
+        "The proven finite-component bound distinguishes graphs with the same finite-path count but different double-ray count; for instance f=3,z=1 forces one edge, while f=2,z=1 forces none."
+      ],
+      "reasoning": "Lemma 2.2 directly implies the infinite-component clause, which is acknowledged as prior work rather than claimed new. For a finite set of vertices, the predecessor finite-model setting gives the f-1 joining cost, a covered limiting case. Neither result supplies or dominates the finite-component general formula for infinite ray and double-ray components. The theorem is therefore assessed on its finite-component classification and sharp repair cost.",
+      "searches": [
+        "\"immediate successor\" \"finite components\" \"linear order\" graph",
+        "arxiv:2610.09758v1: find \"minimum number\"",
+        "arxiv:2610.09758v1: find \"infinitely many components\"",
+        "arxiv:1604.05843: find \"successor relation\"",
+        "arxiv:1604.05843: find \"infinite\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.09758v1 (Michaliszyn–Witkowski, 2026), §2 Lemma 2.2 and proof; §5.1 and §7 states the infinite-component dense-completion lemma; it does not state a finite-component minimum-defect formula.",
+        "arxiv:1604.05843 (Zeume–Harwath, 2016), §2.1 and §6 defines successor on finite ordered structures.",
+        "2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112 published summary concerns finite directed paths at bounded quantifier rank."
+      ],
+      "reasoning": "The possible alias is representability as an adjacency/jump graph of a chain or completion of a path forest. The inspected exact-successor lemma assumes infinitely many components and gives no finite-component formula. The elementary finite-spanning-path specialization cannot imply the count-sensitive distinction between one-way rays and bi-infinite components. Search absence is not a novelty certificate.",
+      "searches": [
+        "countable linear order exact successor relation finite number of path components; characterize isolated finite paths and bi-infinite components; least edges added completion",
+        "adjacency graph linear orders graph of immediate successors characterization countable paths finite components",
+        "\"exact successor relation\" \"connected components\" \"linear order\" finite",
+        "\"successor graph\" \"linear order\" components omega Z"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest 2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112: finite-path FO quantifier-rank classifications.",
+        "published-finding corpus nearest 2026/10/4/SCOPE-endpoint-normal-form-for-expansive-relations-between-finite-stri--03b1c1fd9c86: interval endpoints of expansive finite-chain relations.",
+        "Accessible preceding claim 681c1e6f-350f-413b-aa99-1772ffeadce2: FO2 equivalence of successor cycles, not acyclic path-forest completion.",
+        "Final exact-formula and equivalence queries again returned the finite-path quantifier-rank record, not the finite-component completion theorem."
+      ],
+      "reasoning": "Actual semantic database queries for exact-successor, path forest, finite component, endpoint, and repair-cost aliases returned adjacent topics, not an exact table or theorem for this invariant. A shared motivating arXiv identifier in earlier material is not overlapping mathematical coverage: a directed cycle cannot be contained in the successor relation of a linear order. Unindexed material remains a possible priority risk.",
+      "searches": [
+        "minimum forced adjacency edges extending a functional inverse-functional acyclic relation to the exact successor relation of a total linear order finite number path components finite and bi-infinite Z",
+        "representability of countable directed path forests as successor relation of a linear order with scattered order finite components",
+        "linear order adjacency graph completion number finite path blocks minus bi-infinite blocks",
+        "sharp minimum additional immediate-successor pairs for directed graph consisting of f finite paths and z two-way infinite paths equals max(0,f-z-1)",
+        "functional inverse-functional directed path forest is successor graph of linear order iff finite components do not exceed double rays plus one"
+      ]
+    },
+    "rationale": "The motivating paper explicitly handles exact successor realizability with infinitely many components by dense ordering, whereas this claim computes the sharp missing finite-component repair invariant, allowing finite paths, one-way rays, reverse rays, and double rays. A 2016 predecessor treats finite ordered structures only. Several actual published-finding corpus and external literature searches identified related path-logic or chain-relation results but no claim equating the finite-component minimum forced successor additions with max(0,f-z-1). The overlap of an earlier finite successor-cycle FO2 claim using the same recent source was compared at the level of objects and implications: cycles have no linear-order successor realization. Historical priority is not independently established.",
+    "residual_risks": [
+      "An older order-theory or adjacency-graph text may state an equivalent path-forest successor-completion formula under different terminology; no exhaustive historical bibliographic clearance is claimed.",
+      "published-finding corpus nearest hits were compared by their published summaries, not all full appendices; none was treated as full-text proof of noncoverage.",
+      "The mathematical result is a single-successor structural fact; it does not claim a new FO2 complexity bound or a simultaneous-multi-successor decision procedure."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicitly gives dense completion for infinitely many countable components, not the sharp finite-component defect. Its finite-model adjacency disagreement is between two already spanning successor paths rather than completion of one possibly infinite path forest.",
+        "evidence": "§2 Lemma 2.2 constructs a rationally indexed order for infinitely many components; §5.1 explicitly ensures this hypothesis; §7 uses single finite spanning paths and compares their disagreements.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.09758",
+        "material_read": "Accessible original arXiv HTML: introductory setup; §2 paths and exact successors including Lemma 2.2 and proof; §5 matching and infinite-component use; §7 finite models and adjacency disagreement; concluding discussion.",
+        "method": "Direct reading of arXiv HTML sections and cross-section searches for dense completion, finite components and minimum number.",
+        "title": "Two-Variable Logic with Arbitrarily Many Successor Relations",
+        "trigger": "Same exact-successor relation objects and a dense-completion lemma; essential originality comparison."
+      },
+      {
+        "assessment": "Restricts the relevant semantic structures to finite domains. It covers only the obvious finite-path extension boundary, not finitely many possibly infinite components.",
+        "evidence": "§2.1 states all structures are finite nonempty and defines induced successor; §6 concerns invariance decidability.",
+        "identifier_or_url": "https://arxiv.org/abs/1604.05843",
+        "material_read": "Accessible arXiv HTML: introduction and main scope; §2.1 definitions of finite ordered structures and induced successors; §6 order- and successor-invariance statements.",
+        "method": "Direct reading of arXiv HTML with searches for successor relations, paths and infinite models.",
+        "title": "Order-Invariance of Two-Variable Logic is Decidable",
+        "trigger": "Historical study of successor predicates induced by linear orders."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ff194a2c-bcef-44d1-a7e3-75c30df20428",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 exact-successor paper makes the ability to turn a path forest into a genuine successor relation a structural prerequisite for infinite FO2 models; it supplies a dense-completion method only when infinitely many components exist. The new formula gives the complete complementary finite-component obstruction, the exact minimum repair cost, and a natural sharp boundary: one bi-infinite path can separate two finite blocks, whereas arbitrarily many one-way rays alone cannot bridge the second finite block. This is a motivated universal structural classification rather than an arbitrary finite parameter test, and makes no unsupported downstream claims.",
+    "status": "PASS"
+  }
+}
