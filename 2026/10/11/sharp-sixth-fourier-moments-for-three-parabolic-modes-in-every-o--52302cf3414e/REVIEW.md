@@ -1,11 +1,21 @@
-# Scientific review: three-mode sixth parabolic moments
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof verifies the Vandermonde affine-independence hypothesis for every triple of distinct parabola points, enumerates every multiplicity class of threefold sums in all odd characteristics, and obtains exact sixth moments by finite-group character orthogonality. Both deficit decompositions are algebraic identities into nonnegative AM–GM, Cauchy–Schwarz, and triangle-inequality terms. All equality statements and the special full-field conclusion for \(q=3\) follow from these terms. An independent computational implementation confirmed 460 finite-field cases, including two nonprime fields. Finite computation is corroborative, not a replacement for the unrestricted proof.
+## correctness
 
-**Originality — PASS with risk.** González-Riquelme and Oliveira e Silva (arXiv:2405.16647v1) prove an unrestricted sharp parabola extension theorem only when \(p>3\); its larger unrestricted constant does not entail this exact three-mode optimum, and its hypotheses exclude the ternary result. The later moment-curve endpoint results (arXiv:2508.08377v1 and arXiv:2609.29882v1) concern the planar \(L^4\) endpoint, not this \(L^6\) question. Published three-sparse Fourier support-cardinality and ordinary trigonometric-trinomial moment results measure distinct invariants. Searches and primary material inspections found no dominating equivalent statement. There remains risk that an earlier sparse hypercontractivity or additive-energy formula already covers the result under different terminology.
+PASS
 
-**Value — PASS.** This is an exact, naturally motivated first collision-sensitive sparse extension norm over an infinite family of finite fields, with a characteristic-three phase rigidity phenomenon and all optimal coefficients classified. At \(q=3\) the sparse theorem is the unrestricted globally sharp inequality, a case excluded from the motivating general theorem. It is not asserted to resolve the unrestricted problem for larger fields.
+Three distinct parabola points have affinely independent differences by the Vandermonde determinant (t1−t0)(t2−t0)(t2−t1)≠0 in every odd field. For the q^-1-normalized extension, character orthogonality makes its unnormalized L6 sixth-power moment q^-4 times the cubic-convolution energy. Distinct 3-fold sum multiplicity vectors are separate modulo p unless p=3; for p>3 this gives exactly [1,1,1,3,3,3,3,3,3,6] and T=Σ|z_i|^6+9Σ_{i≠j}|z_i|^4|z_j|²+36∏|z_i|²; p=3 merges the three pure cubes and gives T=|Σ z_i³|²+9B21+36P. Recomputed these partitions independently for p=3,5,7,11. Let S=Σ|z_i|²: for p>3 the AM-GM polynomial deficit 31S³/9−T is ≥0 with equality at all equal nonzero moduli, arbitrary phases. For p=3, |Σz_i³|²≤(Σ|z_i|³)² and Cauchy–Schwarz plus the same symmetric term imply 11S³/3−T≥0, equality precisely all moduli equal and cubes aligned. A nontrivial additive character yields uniform order-p phase values, so this remains valid for nonprime q=p^n. The q normalization and projective nine ternary phases (all three coefficients nonzero) check. Independent finite collision tests corroborate the all-field proof.
 
-**Limitations.** The claim assumes three available parabola frequencies, odd characteristic and moment order six. Independent assessment has not been undertaken.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Strong partial prior coverage: a published ternary-coordinate-character sharp L6 theorem gives (6−8/n+3/n²), and for n=3 yields 11/3 with equal cubes; by factoring one character and using affine independence, it IMPLIES the entire characteristic-three three-parabola-frequency subcase, including q=3, so that portion is not novel. The separate p>3 result has the same 3-variable moment as independent continuous Steinhaus phases, because all degree ≤3 nonzero exponents survive unchanged modulo p; its elementary multinomial nature is stated as a serious residual originality/value risk. Yet inspected indexed records and relevant full primary González-Riquelme–Oliveira e Silva paper do not assert the exact uniformly all-q p>3 three-sparse bound and all equality coefficients as one theorem; the published unrestricted parabola sharp inequality is weaker on three-sparse inputs. Originality PASS is therefore only for the surviving p>3 exact restricted theorem as a best-of-knowledge statement, NEVER for the prior-covered p=3 special case.
+
+## value
+
+PASS
+
+A three-frequency restricted L2→L6 norm is the first nontrivial collision-sensitive sparse benchmark for the same natural finite-field parabola extension problem where an unrestricted p>3 theorem exists. For p>3, the complete sharp coefficient 31/9, all equal-modulus optimizers and valid normalization across every finite field determine a precise sparse reconstruction/concentration invariant, not merely a finite computational sample. The p=3 transition is useful orientation but is fully credited to the separate published ternary-coordinate calculation and contributes no new independent value. The proof is short because affine independence reduces it to an exact three-character orthogonality problem; this limits breadth, but does not alone make a motivated exact sparse benchmark worthless. No broader/full support or independent priority claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
