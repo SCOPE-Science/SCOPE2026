@@ -1,34 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Segre hyperplane class is
-\[
-H=h_1+\cdots+h_r.
-\]
-Its top self-intersection is the multinomial coefficient
-\[
-D(\mathbf a)=\frac{N!}{\prod_i a_i!},
-\]
-while multiplicativity gives
-\[
-E(\mathbf a)=\prod_i(a_i+1).
-\]
-For the quotient \(R=D/E\), increasing one coordinate gives the exact factor
-\[
-\frac{N+1}{a_j+2}
-=
-1+\frac{\sum_{i\ne j}a_i-1}{a_j+2}.
-\]
-This is strict for every coordinate when \(r\ge3\), and the two-factor flat direction is completely explicit. The low-dimensional base cases therefore prove the full classification.
+## correctness
 
-The bundled checker independently enumerates a broad finite grid and verifies the ratio identity. Finite computation is regression evidence only.
+PASS
 
-## Originality
-PASS. The inspected archival Segre papers treat the same product varieties but focus on secants and identifiability. Targeted searches in degree-versus-Euler, multinomial-versus-cell-count, and equality-case language did not locate the complete classification or either equality product. Nearby Segre results concern different invariants such as dual, coisotropic, hyperdeterminant, or Euclidean-distance degrees.
+At the pinned RESULT.md, the Segre hyperplane class H=sum h_i has intersection number N!/prod(a_i!), while the CW-cell decomposition of each complex projective factor gives chi=prod(a_i+1). Dividing yields the exact coordinate-ratio (N+1)/(a_j+2). For r>=3 every increment strictly raises the quotient; for r=2, (1,b) stays at 1/2, (2,b) gives (b+2)/6, and every pair with both entries >=3 is >=R(3,3)=5/4. With r=3 the base (1,1,1) gives 3/4 and (1,1,2) gives 1; for r>=4 r!/2^r >1. Therefore equality is only (2,4) or (1,1,2), and the stated strict cases exhaust all positive-dimensional factors. Independent exact integer enumeration of sorted tuples r<=5, dimensions 1..6 returned these same equality tuples.
 
-Residual risk remains because the comparison is elementary once the standard closed formulas are juxtaposed.
+## originality
 
-## Value
-PASS. Degree and Euler characteristic are canonical enumerative and topological measures of the same standard embedding. The theorem classifies their ordering over the entire Segre family, isolates exactly two equality formats, and explains all transitions by one monotone coordinate law rather than a finite census.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two classical closed invariant formulas are prior knowledge. The assessed final claim is the complete sign/equality partition, not either formula. A targeted Resultary query and primary Segre-geometry comparisons identified secants, dual degrees, hyperdeterminants and identifiability rather than a theorem implying the complete primal degree-versus-topological-Euler phase diagram. This is a best-of-knowledge judgment rather than proof of absolute priority.
+
+## value
+
+PASS
+
+Degree and topological Euler characteristic are independent canonical invariants of the natural Segre product family; identifying precisely when either dominates and classifying two isolated equalities makes the multidimensional parameter comparison complete. The coordinate-growth lemma explains the rigidity, beyond simply listing factorial evaluations. The result is elementary and not a general theorem for arbitrary polarizations, but a natural full invariant comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

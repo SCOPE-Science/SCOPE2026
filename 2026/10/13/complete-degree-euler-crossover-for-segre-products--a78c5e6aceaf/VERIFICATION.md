@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-For
-\[
-X_{\mathbf a}
-=
-\mathbb P^{a_1}\times\cdots\times\mathbb P^{a_r},
-\qquad
-N=\sum_i a_i,
-\]
-the checker evaluates
-\[
-D(\mathbf a)=\frac{N!}{\prod_i a_i!}
-\]
-and
-\[
-E(\mathbf a)=\prod_i(a_i+1).
-\]
 
-It independently checks
-\[
-\frac{D(\mathbf a+\mathbf e_j)/E(\mathbf a+\mathbf e_j)}
-{D(\mathbf a)/E(\mathbf a)}
-=
-\frac{N+1}{a_j+2}
-\]
-using exact integer arithmetic after cross multiplication.
+# Independent mathematical audit
 
-It also enumerates unordered dimension tuples in a finite test box and verifies the complete below/equal/above classification.
+## correctness
 
-Finite checks are regression evidence only. The all-parameter theorem follows from the exact coordinate-growth identity and the symbolic base cases.
+PASS
+
+At the pinned RESULT.md, the Segre hyperplane class H=sum h_i has intersection number N!/prod(a_i!), while the CW-cell decomposition of each complex projective factor gives chi=prod(a_i+1). Dividing yields the exact coordinate-ratio (N+1)/(a_j+2). For r>=3 every increment strictly raises the quotient; for r=2, (1,b) stays at 1/2, (2,b) gives (b+2)/6, and every pair with both entries >=3 is >=R(3,3)=5/4. With r=3 the base (1,1,1) gives 3/4 and (1,1,2) gives 1; for r>=4 r!/2^r >1. Therefore equality is only (2,4) or (1,1,2), and the stated strict cases exhaust all positive-dimensional factors. Independent exact integer enumeration of sorted tuples r<=5, dimensions 1..6 returned these same equality tuples.
+
+## originality
+
+PASS
+
+The two classical closed invariant formulas are prior knowledge. The assessed final claim is the complete sign/equality partition, not either formula. A targeted Resultary query and primary Segre-geometry comparisons identified secants, dual degrees, hyperdeterminants and identifiability rather than a theorem implying the complete primal degree-versus-topological-Euler phase diagram. This is a best-of-knowledge judgment rather than proof of absolute priority.
+
+## value
+
+PASS
+
+Degree and topological Euler characteristic are independent canonical invariants of the natural Segre product family; identifying precisely when either dominates and classifying two isolated equalities makes the multidimensional parameter comparison complete. The coordinate-growth lemma explains the rigidity, beyond simply listing factorial evaluations. The result is elementary and not a general theorem for arbitrary polarizations, but a natural full invariant comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
