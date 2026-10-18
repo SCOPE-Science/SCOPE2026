@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-The bundled checker `artifacts/verify.py` reconstructs the multiplication and verifies the anti-flexible identity on every basis triple.
 
-For
-\[
-N=\begin{pmatrix}a&b\\c&d\end{pmatrix},
-\]
-it reconstructs the Nijenhuis torsion and verifies the complete criterion
-\[
-b=0,\qquad c(a-d)=0.
-\]
+# Independent mathematical audit
 
-It exhaustively checks every \(2\times2\) matrix over
-\[
-\mathbf F_2,\quad\mathbf F_3,\quad\mathbf F_5,\quad\mathbf F_7.
-\]
-The totals are
-\[
-6,\quad15,\quad45,\quad91,
-\]
-with rank profiles
-\[
-(1,3,2),\quad(1,6,8),\quad(1,12,32),\quad(1,18,72).
-\]
+## correctness
 
-It separately verifies that the automorphism group is trivial and that the weight-zero Rota--Baxter operators are exactly \(cE_{21}\).
+PASS
 
-The checker returns `VERIFY_OK`.
+Direct bilinear torsion calculation on basis pairs for N=[[a,b],[c,d]] gives T(e1,e1)=(bc,c(d-a)), T(e1,e2)=T(e2,e1)=(0,-bc), T(e2,e2)=(b^2,0). Over any field b=0 and c(a-d)=0; two affine planes meet in scalar line, |Nij(Fq)|=2q²-q and ranks (1,3(q-1),2(q-1)^2); product has unique left unit e2 fixing automorphisms, and RB0=cE21. Independent symbolic torsion computed with SymPy. Claims are not inferred from bundled VERIFY_OK.
 
-Finite enumeration is replay evidence. The arbitrary-field classification is proved in `RESULT.md`.
+## originality
+
+PASS
+
+Dassoundo supplies the Example 1.3 family, general Nijenhuis identity and the square-zero RB relation (Prop 4.9); no full c(a-d)=0 locus, finite-field profile or trivial automorphism result for this specialization in the inspected sections. Substantive best-of-knowledge originality, not merely absence of identical wording.
+
+## value
+
+PASS
+
+A foundational, canonically normalized anti-flexible example receives a full operator-moduli classification, geometric two-plane decomposition, field counts, rank profile and strict RB sublocus. Though low-dimensional and computed by short equations, the exact stratification is a reusable natural example distinguishing related operator theories.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source specialization is independently anti-flexible. Direct expansion gives exactly \(b=0\) and \(c(a-d)=0\). The automorphism proof is characteristic-free, and the finite-field/rank formulas follow by exact inclusion--exclusion. The bundled checker independently verifies all claims over four finite fields.
+PASS
 
-## Originality
+Direct bilinear torsion calculation on basis pairs for N=[[a,b],[c,d]] gives T(e1,e1)=(bc,c(d-a)), T(e1,e2)=T(e2,e1)=(0,-bc), T(e2,e2)=(b^2,0). Over any field b=0 and c(a-d)=0; two affine planes meet in scalar line, |Nij(Fq)|=2q²-q and ranks (1,3(q-1),2(q-1)^2); product has unique left unit e2 fixing automorphisms, and RB0=cE21. Independent symbolic torsion computed with SymPy. Claims are not inferred from bundled VERIFY_OK.
 
-PASS. The primary paper contains Example 1.3 and the general Nijenhuis definition but no worked classification on that example. Its square-zero comparison covers only the Rota--Baxter line. Targeted anti-flexible, center-symmetric, exact-equation, and numerical searches found no covering theorem. A differently indexed calculation remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. This is a natural minimal specialization of the first explicit anti-flexible family in the foundational Nijenhuis paper. The two-plane Nijenhuis variety versus one-line Rota--Baxter sublocus gives a clear structural comparison, and exact finite-field ranks make the example reusable.
+Dassoundo supplies the Example 1.3 family, general Nijenhuis identity and the square-zero RB relation (Prop 4.9); no full c(a-d)=0 locus, finite-field profile or trivial automorphism result for this specialization in the inspected sections. Substantive best-of-knowledge originality, not merely absence of identical wording.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A foundational, canonically normalized anti-flexible example receives a full operator-moduli classification, geometric two-plane decomposition, field counts, rank profile and strict RB sublocus. Though low-dimensional and computed by short equations, the exact stratification is a reusable natural example distinguishing related operator theories.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
