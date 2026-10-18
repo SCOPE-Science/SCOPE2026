@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T00:14:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For complete multipartite r>=3, a dominating set with support one must take an entire part; with >=2 supported parts it automatically dominates. For any selected vertex in V_i, outside neighbors consist of all omitted vertices outside that part, count B_S+sum_{h in S\\{i}}y_h. Hence the inequalities are necessary and sufficient for every selected set; binomial choices of omissions yield exactly the claimed full cardinality polynomial. With K=k-B_S and total omissions Y, feasibility requires y_i>=max(0,Y-K) with caps n_i-1; the three upper bounds on Y by sum caps, K+min cap, and floor(sK/(s-1)) are also sufficient by an integer interval allocation argument. Thus minimum size at fixed support equals N-B_S-Y_S. Independent direct adjacency/neighbor checks agreed with support formula on 2920 graph-subset instances. Universal conclusion follows the counting/allocation proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 2026-10-04 proves for all complete multipartite r>=2 gamma=N-k-T_k(G), subsuming submitted global minimum and balanced cases.",
+          "Initiating 2026 paper proves the bipartite scalar formula but not all multipartite size distribution."
+        ],
+        "reasoning": "Stronger prior scalar optimization preempts scalar-minimum novelty; neither prior result determines the family of all admissible dominating sets nor binomial coefficients of L_k(G;x), so substantive unpreempted enumeration survives.",
+        "searches": [
+          "2026/10/4/SCOPE-exact-k-limited-domination-of-complete-multipartite-graphs--1c4ae0b1465b",
+          "Božović Radić Kovijanić-Vukićević Tepeh On k-limited domination in graphs DOI 10.1007/s40314-026-03902-2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen multipartite RESULT.md/artifacts/verify.py/SLOGAN.txt/AUDIT.json at assigned commit",
+        "Resultary 2026-10-04 exact complete-multipartite k-limited scalar theorem, entire RESULT.md",
+        "Božović et al. DOI:10.1007/s40314-026-03902-2 full primary article",
+        "Resultary searches for (0,k)-pitchfork and competing multipartite polynomials",
+        "Independent direct subset enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026-10-04 scalar theorem gamma=N-k-T_k(G) is obtained by maximizing omitted load, which discards the number and sizes of feasible subsets. It explicitly disclaims enumerating the minimizers.",
+          "The submitted support inequalities and binomial sums reconstruct ALL D, not only the maximizing load."
+        ],
+        "reasoning": "Scalar minimization does not imply each coefficient without a new selection-count proof, so acceptance is limited to this substantive stronger enumeration.",
+        "searches": [
+          "Full RESULT.md 2026-10-04 Exact k-limited domination of complete multipartite graphs",
+          "On k-limited domination in graphs Proposition 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Božović et al. identifies k-limited domination with (0,k)-pitchfork domination and studies paths/stars/cliques/bipartite graphs.",
+          "2026-10-04 published Resultary result on the SAME multipartite k-limited domination covers the scalar gamma, but explicitly does not supply all-set enumeration."
+        ],
+        "reasoning": "The invariant is correctly matched across alternate pitchfork terminology. The new final claim must be evaluated as an all-set characterization and polynomial, excluding any originality for the global numerical minimum already implied by the broader scalar theorem.",
+        "searches": [
+          "\"k-limited domination\" \"complete multipartite\"",
+          "\"(0,k) pitchfork\" complete multipartite domination",
+          "Resultary k-limited domination complete multipartite graphs pitchfork domination (0,k) cardinality polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest full primary Resultary theorem explicitly says it does not address enumeration of all minimum sets; its result is an order-statistic minimum, not a generating function.",
+          "No all-support k-limited dominating polynomial table was located; nearby limited-packing and certified-domination polynomials concern other properties."
+        ],
+        "reasoning": "Unknown exact all-set polynomial is a legitimate natural invariant, unlike recomputing the already-known gamma. The local binomial enumerator gives coefficients even where scalar minimum is already known.",
+        "searches": [
+          "\"complete multipartite\" \"k-limited\" enumerator polynomial all subsets",
+          "Resultary exact k-limited domination complete multipartite all minimum sets counts"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality limited to the specifically unpreempted structural/classification content. Scalar minimization does not imply each coefficient without a new selection-count proof, so acceptance is limited to this substantive stronger enumeration.",
+      "residual_risks": [
+        "The global scalar gamma minimum is definitively previously covered, and must not be promoted as novel.",
+        "Unindexed older pitchfork literature could contain the all-set equivalent.",
+        "The formula sums over support subsets; no polynomial-time or simplified single-statistic enumeration is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers submitted scalar global minimum implication but not all-set characterization/cardinality polynomial",
+          "evidence": "2026-10-04 formula gamma=N-k-T_k(G); limitations: not enumeration of all minimum sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-k-limited-domination-of-complete-multipartite-graphs--1c4ae0b1465b",
+          "material_read": "Entire RESULT.md: full theorem gamma=N-k-T_k(G), proof lower/upper bound and limitations including explicit exclusion of all minimum-set enumeration",
+          "method": "Fetched full RESULT.md from Resultary/2026 GitHub, blob 8ae5eae33be1f7f239f28ff2450160425e11ef1f",
+          "title": "Exact k-limited domination of complete multipartite graphs",
+          "trigger": "Decisive same-invariant exact scalar prior"
+        },
+        {
+          "assessment": "Covers bipartite scalar result, not r>=3 all-set polynomial",
+          "evidence": "Božović et al., DOI 10.1007/s40314-026-03902-2, Proposition 1.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s40314-026-03902-2",
+          "material_read": "Accessible full Springer article including definition, Proposition 1 cases, k-limited vs (0,k) pitchfork observation, and family discussion",
+          "method": "Opened full legal OA Springer HTML and read relevant statement and definitions",
+          "title": "On k-limited domination in graphs",
+          "trigger": "Originating parameter, exact K_{m,n} result and terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete cardinality enumerator for all feasible k-limited dominating subsets across arbitrary multipartite part-size profiles is a natural rich invariant, more than the already published scalar minimum. It counts every size and every support and gives a local feasibility criterion useful for enumeration/sampling. The fixed-support minimum is a derived useful secondary formula; **the scalar global optimum itself is prior-covered and not credited as new**.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen multipartite RESULT.md/artifacts/verify.py/SLOGAN.txt/AUDIT.json at assigned commit",
+    "Resultary 2026-10-04 exact complete-multipartite k-limited scalar theorem, entire RESULT.md",
+    "Božović et al. DOI:10.1007/s40314-026-03902-2 full primary article",
+    "Resultary searches for (0,k)-pitchfork and competing multipartite polynomials",
+    "Independent direct subset enumeration"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The global scalar gamma minimum is definitively previously covered, and must not be promoted as novel.",
+    "Unindexed older pitchfork literature could contain the all-set equivalent.",
+    "The formula sums over support subsets; no polynomial-time or simplified single-statistic enumeration is claimed."
+  ],
+  "schema_version": 1
+}

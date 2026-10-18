@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof begins from the exact domination criterion for complete multipartite graphs. For an occupied part \(V_i\), every selected vertex has precisely the omitted vertices outside \(V_i\) as outside neighbors, so the \(k\)-limited condition is exactly one linear inequality per occupied part. This yields the all-set classification and coefficient formula directly.
+PASS
 
-For a fixed support, the maximum omitted total is bounded by total per-part capacity, the smallest capacity, and the summed pairwise inequalities. The proof shows these three bounds are jointly sufficient by constructing an integer allocation above the common lower bound. Exhaustive direct checking through total order nine agrees with the classification, every polynomial coefficient, and the support minimum.
+For complete multipartite r>=3, a dominating set with support one must take an entire part; with >=2 supported parts it automatically dominates. For any selected vertex in V_i, outside neighbors consist of all omitted vertices outside that part, count B_S+sum_{h in S\{i}}y_h. Hence the inequalities are necessary and sufficient for every selected set; binomial choices of omissions yield exactly the claimed full cardinality polynomial. With K=k-B_S and total omissions Y, feasibility requires y_i>=max(0,Y-K) with caps n_i-1; the three upper bounds on Y by sum caps, K+min cap, and floor(sK/(s-1)) are also sufficient by an integer interval allocation argument. Thus minimum size at fixed support equals N-B_S-Y_S. Independent direct adjacency/neighbor checks agreed with support formula on 2920 graph-subset instances. Universal conclusion follows the counting/allocation proof.
 
-## Originality
+## originality
 
-PASS. The initiating paper gives the complete-bipartite minimum explicitly; that case is treated as prior work and excluded from the novelty scope. Its accessible full text contains no complete-multipartite theorem. Searches included \(k\)-limited domination, limited domination, complete multipartite aliases, exact/all-set/polynomial formulations, and the equivalent \((0,k)\)-pitchfork terminology.
+PASS
 
-The closest exact database result is for \(k\)-limited packing of complete multipartite graphs, which imposes a different neighborhood condition. Recent follow-up work on \(k\)-limited domination treats complexity and Sierpiński graphs rather than this family.
+Best-of-knowledge originality limited to the specifically unpreempted structural/classification content. Scalar minimization does not imply each coefficient without a new selection-count proof, so acceptance is limited to this substantive stronger enumeration.
 
-Residual risk remains from older pitchfork terminology and concurrent work.
+## value
 
-## Value
+PASS
 
-PASS. The result classifies every feasible set rather than only the minimum. The exact enumerator and the support-by-support omission maximum expose the full capacity geometry on a canonical dense graph class and strictly extend the known two-part scalar calculation.
+A complete cardinality enumerator for all feasible k-limited dominating subsets across arbitrary multipartite part-size profiles is a natural rich invariant, more than the already published scalar minimum. It counts every size and every support and gives a local feasibility criterion useful for enumeration/sampling. The fixed-support minimum is a derived useful secondary formula; **the scalar global optimum itself is prior-covered and not credited as new**.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
