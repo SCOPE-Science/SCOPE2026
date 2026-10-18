@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof starts from the published Lyons–Zumbrun homogeneous-derivative identity, independently reduces the Frobenius norm to a radial axis by orthogonal covariance, classifies exactly which multi-indices survive there, and sums their squared multinomial weights. The coefficient sum is evaluated by the standard central-binomial generating function. The origin is covered by smooth extension and continuity. The \(n=2\) and \(n=3\) specializations agree with the displayed formulas in the focal paper. Finite symbolic checks were used only as sanity checks.
+PASS
 
-## Originality
+PASS. Rebuilt the all-order tensor calculation from the Lyons–Zumbrun homogeneous derivative identity. Orthogonal covariance permits evaluation at re_1. Every odd transverse derivative vanishes; even exponents (a,2m_2,...,2m_d), sum m_j=q, contribute product (2m_j-1)!! times (D^qg)^(a). Ordered indices contribute n!/alpha!, and the central-binomial generating function [z^q](1-z)^(-(d-1)/2) gives exactly binom(n,2q)(2q-1)!! product_{k<q}(d-1+2k). Verified the coefficient identity independently with exact Fraction arithmetic for dimensions 2,3,5,8 and orders n=1..8; finite checks are merely corroborative. Smooth radiality extends the formula through r=0.
 
-PASS. The focal paper explicitly asks whether the Lyons–Zumbrun identity can be used to prove its Theorem 1. The 1994 paper gives the needed component formula but not the Frobenius summation. Ostermann's radial Sobolev work also uses the derivative expansion but proves norm-equivalence statements rather than this exact identity. Searches over the named open problem, radial tensor aliases, axis formulas, double-factorial coefficients, isotropic tensors, and central-binomial/Pochhammer forms found no implication-equivalent prior statement.
+## originality
 
-Residual risk: an older equivalent derivation may be hidden in isotropic-tensor literature under different terminology, and very recent work may not yet be indexed.
+PASS
 
-## Value
+PASS best of knowledge with material-access limitation. The Mihula–Vybíral paper already proves the same Frobenius FORMULA; originality here is the different Lyons–Zumbrun-based proof of their expressly posed first method question, not the result formula itself. The 1994 componentwise identity and Ostermann’s radial Sobolev work do not, as located, sum exact squared tensor weights using axis parity and a Pochhammer convolution. Full focal PDF could not be independently obtained: the open abstract/index and source proof were read, and the uncertainty is retained.
 
-PASS. This is a direct solution of an explicit current open problem. The argument also reveals why the coefficient
-\[
-\prod_{k=0}^{q-1}(d-1+2k)
-\]
-appears: it is the coefficient of \(z^q\) in \((1-z)^{-(d-1)/2}\) after the surviving transverse derivative components are grouped. That structural explanation is useful beyond merely reproducing the known theorem.
+## value
 
-Closest literature: Mihula–Vybíral, arXiv:2608.20941v1; Lyons–Zumbrun, DOI 10.1090/S0002-9939-1994-1227524-9; Ostermann, arXiv:2209.02286v2.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS. An explicitly stated open proof-method question is a mathematically motivated gap. The direct multi-index axis classification plus a closed generating-function evaluation explains coefficients and bypasses the focal paper’s induction; it is useful as an alternate structural derivation, without claiming a new Frobenius formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

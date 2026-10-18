@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,35 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The critical starting identity was checked against the Lyons–Zumbrun theorem and against formula (3) reproduced in the focal source. The focal paper's Theorem 1 and its first open problem were inspected directly.
+# Independent mathematical audit
 
-For a multi-index \(\alpha=(a,2m_2,\ldots,2m_d)\), write \(q=m_2+\cdots+m_d\). Expanding the \(k\)-th Laplacian shows that only \(k=q+\ell\) can survive on \(re_1\), and the surviving coefficient factors as
-\[
-\left(\prod_{i=2}^d(2m_i-1)!!\right)
-\frac{a!}{2^\ell\ell!(a-2\ell)!}.
-\]
-The remaining finite sum is the one-dimensional Lyons–Zumbrun expansion for \((D^qg)^{(a)}\). A transverse odd exponent leaves an odd residual power and therefore vanishes at the axis.
+## correctness
 
-The Frobenius sum counts an unordered multi-index with multiplicity \(n!/\alpha!\). The resulting coefficient is
-\[
-\frac{n!}{(n-2q)!}
-\sum_{m_2+\cdots+m_d=q}
-\prod_{i=2}^d
-\frac{1}{4^{m_i}}\binom{2m_i}{m_i}.
-\]
-Using
-\[
-\sum_{m\ge0}\frac{1}{4^m}\binom{2m}{m}z^m=(1-z)^{-1/2}
-\]
-gives
-\[
-\frac{n!}{(n-2q)!}
-\frac{\prod_{k=0}^{q-1}(d-1+2k)}{2^q q!},
-\]
-which is algebraically identical to the stated \(\alpha^d_{n,q}\).
+PASS
 
-Exact symbolic sanity checks of this coefficient identity were run for \(1\le n\le8\) and \(2\le d\le6\), and polynomial radial examples were differentiated directly for several low orders. These checks are not used to justify the all-order result.
+PASS. Rebuilt the all-order tensor calculation from the Lyons–Zumbrun homogeneous derivative identity. Orthogonal covariance permits evaluation at re_1. Every odd transverse derivative vanishes; even exponents (a,2m_2,...,2m_d), sum m_j=q, contribute product (2m_j-1)!! times (D^qg)^(a). Ordered indices contribute n!/alpha!, and the central-binomial generating function [z^q](1-z)^(-(d-1)/2) gives exactly binom(n,2q)(2q-1)!! product_{k<q}(d-1+2k). Verified the coefficient identity independently with exact Fraction arithmetic for dimensions 2,3,5,8 and orders n=1..8; finite checks are merely corroborative. Smooth radiality extends the formula through r=0.
 
-The proof is limited to smooth Euclidean radial functions and the Frobenius tensor norm. It does not claim a spectral theory for higher-order tensors or a non-Euclidean analogue.
+## originality
+
+PASS
+
+PASS best of knowledge with material-access limitation. The Mihula–Vybíral paper already proves the same Frobenius FORMULA; originality here is the different Lyons–Zumbrun-based proof of their expressly posed first method question, not the result formula itself. The 1994 componentwise identity and Ostermann’s radial Sobolev work do not, as located, sum exact squared tensor weights using axis parity and a Pochhammer convolution. Full focal PDF could not be independently obtained: the open abstract/index and source proof were read, and the uncertainty is retained.
+
+## value
+
+PASS
+
+PASS. An explicitly stated open proof-method question is a mathematically motivated gap. The direct multi-index axis classification plus a closed generating-function evaluation explains coefficients and bypasses the focal paper’s induction; it is useful as an alternate structural derivation, without claiming a new Frobenius formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
