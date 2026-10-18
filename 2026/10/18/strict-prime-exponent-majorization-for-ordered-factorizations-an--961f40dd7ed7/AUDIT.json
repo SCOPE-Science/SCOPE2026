@@ -1,0 +1,168 @@
+{
+  "correctness": {
+    "rationale": "All definitions and quantifiers are explicit for integer exponent vectors with k>=2 and 2<=j,m<=k. Inclusion-exclusion independently derives c_j; selecting two prime coordinates produces a sum of products of complete symmetric polynomials with coefficients that are nonnegative combinations of Schur polynomials. The adjacent-exponent coefficient difference is exactly the Schur coefficient for shape (L-b-1,b+1), and an admissible outsider assignment plus degree profile dominated by that shape ensures strictly positive Kostka multiplicity at every j. This is an infinite proof, not a finite enumeration inference. A deterministic injective prime-support split with a second unused allocation proves the cross-support strictness. All positive Stirling coefficients are a published identity. Exact code independently checks 16422 transfers and 169910 inequalities for each of the two count families; brute exponent-matrix checks ensure the formulas are implemented correctly. Boundary cases k=r and r=1, nonunit factors, and m>k are stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2307.16691v1, Theorem 1 concerns the total ordered factorization function via an absolutely convergent positive series of divisor counts; it can suggest total-count monotonicity but does not imply each c_j inequality.",
+        "arXiv:2609.38567v2, Theorem 4 counts maximal (prime-only) factorizations by a multinomial coefficient, providing at most the top-length case, not all lengths.",
+        "DOI:10.61091/um125-03, Theorem 1.5 enumerates m-part multifactorizations for a fixed integer and does not compare prime-exponent profiles."
+      ],
+      "reasoning": "A stronger result would establish coefficientwise prime-exponent monotonicity or a universal Schur-dominance theorem for slot-surjective multiset distributions. Source proofs yield base counting identities, not this order. The top-length multinomial case and total K(n) estimates cover different, strictly weaker projections.",
+      "searches": [
+        "Exponent balancing transfers, nontrivial divisor functions c_j(n), sum-system counting positive Stirling transform, Schur polynomials, exact extremizers",
+        "Extremal number of sum systems among integers with fixed total prime factor multiplicity Ω, prime powers minimal squarefree maximal balanced exponent vector",
+        "\"ordered factorizations\" \"Schur polynomial\" prime",
+        "\"sum systems\" \"ordered factorisations\" \"extremal\"",
+        "\"Multifactorisations and divisor functions\" 2025 Law Lettington Schmidt c_j"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.13864v1",
+      "arXiv:2609.38567v2",
+      "DOI:10.61091/um125-03",
+      "Integers:20(2020)A61",
+      "arXiv:2307.16691v1",
+      "arXiv:1806.00651v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.13864v1, Theorem 5.1 and Remark 5.2: N_m = m! sum_{j=m}^Ω S(j-1,m-1)c_j; positive transform is prior, and not invertible in a way that supplies strict adjacent-profile comparisons.",
+        "arXiv:2609.38567v2, Theorems 3 and 4: sum-system path coloring and prime-only maximal factorization formula; prime-only case is j=Ω, not 2<=j<=Ω.",
+        "arXiv:1806.00651v1, Lemma 2 and Sections 3–5: divisorial inclusion-exclusion and ratio identities, not all-length comparison.",
+        "arXiv:2307.16691v1, Theorems 1 and 2: total K(n), not individual c_j; a positive sum of c_j being monotone cannot imply its individual summands are monotone."
+      ],
+      "reasoning": "Precisely separating implications: the older explicit c_j formula holds for both profiles but has alternating terms, so termwise comparison of its divisor products fails to prove the claimed difference. Monotonicity of c_Ω under a multinomial formula addresses only the last length. Monotonicity of total K does not entail coefficientwise monotonicity. The new proof establishes every difference positively by a two-variable Schur coefficient and uses an already-known strictly positive Stirling transform for N_m.",
+      "searches": [
+        "Simultaneous strict majorization / Schur concavity of ordered factorization counts c_j(n) and m-part sum-system counts N_m(n) at fixed Ω(n) and ω(n), balancing prime exponent vector, minimizer spike maximizer balanced",
+        "Exponent balancing transfers, nontrivial divisor functions c_j(n), sum-system counting positive Stirling transform, Schur polynomials, exact extremizers",
+        "For all positive integers with prescribed total Ω(n)=k, ordered nontrivial factorization numbers c_j(n) and number of m-part sum systems N_m(n) are strictly Schur-concave in the vector of prime exponents. Every Robin Hood balancing transfer raises all counts, unique extremal exponent partitions.",
+        "\"On c-polynomial factorisations\" Hylock Lettington Schmidt 2026",
+        "\"Some properties and applications of non-trivial divisor functions\" Hill Huxley Lettington Schmidt majorization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.13864v1, §3 Definition 3.1 and §5 Theorem 5.1 give coefficient and sum-system transforms without exponent-vector comparisons.",
+        "arXiv:1806.00651v1, §§3–5 supply the arithmetic inclusion-exclusion/ratio formulas; the compared sections do not assert prime-profile order.",
+        "arXiv:2609.38567v2, §3 Theorem 3 gives the m-part factorization enumeration and §4 its prime/squarefree restrictions, with no all-length majorization."
+      ],
+      "reasoning": "The related aliases are Schur concavity under Robin Hood transfers, monotonicity under exponent smoothing, and coefficientwise dominance of nontrivial factorization polynomials. All are equivalent to the exact inequalities asserted; none was located as a stated theorem in inspected sources. Their formulas alone have alternating terms or concern a fixed exponent profile, so a strict comparison does not follow immediately.",
+      "searches": [
+        "Simultaneous strict majorization / Schur concavity of ordered factorization counts c_j(n) and m-part sum-system counts N_m(n) at fixed Ω(n) and ω(n), balancing prime exponent vector, minimizer spike maximizer balanced",
+        "Majorization inequality for positive ordered multiplicative factorization counts c_j(p_1^{a_1}... p_r^{a_r}) and weighted m-part additive sum system counts Huxley Lettington Schmidt.",
+        "\"ordered factorizations\" \"majorization\" prime exponents",
+        "\"ordered multiplicative partitions\" \"Schur-concave\"",
+        "\"non-trivial divisor function\" \"majorization\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved balanced-exponent comparison concerns a weighted coefficient inequality for a different object; it makes no statement about ordered factorization lengths or sum systems.",
+        "The closest retrieved Schur-concavity comparison concerns a product-profile block scale, neither a divisor-function coefficient nor an ordered sum-system count.",
+        "Reconstruction of exponent vectors from fixed-length divisor-function data would not imply a strict comparison between two different exponent vectors."
+      ],
+      "reasoning": "No exact value table, record, or earlier mathematical claim recovered from the specified searches determines the strict inequalities. A negative database search cannot establish uniqueness; it only narrows the checked overlap. A fingerprint inversion theorem and generic balanced-composition extremizers do not imply the claim.",
+      "searches": [
+        "Simultaneous strict majorization / Schur concavity of ordered factorization counts c_j(n) and m-part sum-system counts N_m(n) at fixed Ω(n) and ω(n), balancing prime exponent vector, minimizer spike maximizer balanced",
+        "Exponent balancing transfers, nontrivial divisor functions c_j(n), sum-system counting positive Stirling transform, Schur polynomials, exact extremizers",
+        "For all positive integers with prescribed total Ω(n)=k, ordered nontrivial factorization numbers c_j(n) and number of m-part sum systems N_m(n) are strictly Schur-concave in the vector of prime exponents. Every Robin Hood balancing transfer raises all counts, unique extremal exponent partitions.",
+        "\"number of ordered factorizations\" \"Schur-concave\"",
+        "\"prime exponent\" \"Schur-concavity\" \"factorizations\""
+      ]
+    },
+    "rationale": "The latest motivating paper defines the nontrivial divisor-function polynomials and positive Stirling transform but proves neither prime-exponent balancing inequalities nor all-length simultaneous extremizers. Other primary papers provide ordered-factorization formulas, colorings, or total-function results, which do not imply strict inequalities for every individual length. The new Schur-coefficient positivity argument gives the missing strictness for all lengths, and the published transform propagates it to each positive part count. Relevant mathematical-result queries and accessible prior mathematical claims disclosed no covering result; residual risks and inaccessible foundational work are stated.",
+    "residual_risks": [
+      "A different published symmetric-function/occupancy theorem may implicitly contain the same strict surjective-allocation majorization without the vocabulary used in the searches.",
+      "An earlier unindexed or inaccessible proof could establish the same all-length inequalities.",
+      "The theorem uses classical Pieri and Young/Kostka positivity, so its novelty is the natural strict arithmetic application and complete simultaneous extremal classification, not those representation-theoretic tools."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: gives arithmetic definitions and positive transforms but not cross-profile strict majorization",
+        "evidence": [
+          "Theorem 5.1 states the pointwise identity of balanced-divisor and c_j sum-system expansions; Remark 5.2 has all-positive coefficients.",
+          "Theorem 3.3 links P(n,x-1) and Q(n,x), with no exponent-vector comparison."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.13864v1",
+        "material_read": "Full accessible HTML, sections 1–5, especially Definition 3.1, Theorems 3.3, 5.1, 5.3, and references",
+        "method": "Read mathematical statements and proofs; compared assumptions, c_j coefficients, positive Stirling weights, and the new exponent transfer",
+        "title": "On Divisor Function Polynomials and Dirichlet Series",
+        "trigger": "Exact motivating 2026 paper with c_j and ordered sum systems"
+      },
+      {
+        "assessment": "NOT_COVERING: provides sum-system enumeration and top-length prime-only multinomial special case",
+        "evidence": [
+          "Theorem 3 gives sum of Stirling weights times c_L(n).",
+          "Theorem 4 counts the prime-factor-only maximal factorization case; no all-length exponent-balancing inequalities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.38567",
+        "material_read": "Accessible manuscript text, introduction and sections 2–4 including Theorems 2–5 and references to 2026 transform",
+        "method": "Compared chromatic path-coloring and constrained prime-only counts with all-length order",
+        "title": "On c-polynomial factorisations",
+        "trigger": "Same authors and exact joint ordered factorization/coloring objects"
+      },
+      {
+        "assessment": "NOT_COVERING: enumeration and set-system invariances, not exponent-profile extrema",
+        "evidence": [
+          "Example 1.3 computes N_2(12)=14 as a consistency benchmark.",
+          "MacMahon formula for c_j uses alternating binomial terms; conclusion discusses structure and sums, not exponent majorization."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/um/volume%20125/multifactorisations-and-divisor-functions.pdf",
+        "material_read": "Introduction, 12 example, MacMahon c_j formula on PDF pages 0–2; concluding section on page 16; theorem references",
+        "method": "Inspected PDF text and selected actual page renderings",
+        "title": "Multifactorisations and divisor functions",
+        "trigger": "Foundational source for N_m and c_j explicitly referenced by motivating paper"
+      },
+      {
+        "assessment": "NOT_COVERING: deals with fixed dimensions and convolution counts; does not compare exponent-vector shapes",
+        "evidence": [
+          "Section 2 defines c_j as ordered nontrivial divisor function.",
+          "Theorem 4 counts sum systems for fixed cardinality tuples via associated divisor functions."
+        ],
+        "identifier_or_url": "https://orca.cardiff.ac.uk/id/eprint/133889/8/u61.pdf",
+        "material_read": "Abstract, introduction, definitions and section 2 on pages 0–4; theorems on pages 7–11; selected full PDF page renderings",
+        "method": "Compared the exact n-tuple joint-factorization count, c_j definitions, and relevant formulae",
+        "title": "Divisor functions and the number of sum systems",
+        "trigger": "Earlier primary treatment of all ordered m-part sum systems"
+      },
+      {
+        "assessment": "NOT_COVERING: lengthwise formulas and ratios, no strict Schur-concavity across profiles",
+        "evidence": [
+          "Lemma 2 is the weak-factorization product of binomial coefficients.",
+          "Section 5 gives ratios c_j/d_j and hypergeometric expressions, not balancing comparisons."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1806.00651v1",
+        "material_read": "HTML introduction, sections 2–5 and relevant section 6 formulas",
+        "method": "Compared Lemma 2, c_j formulas, ratio inequalities, and representative applications",
+        "title": "Some Properties and Applications of Non-trivial Divisor Functions",
+        "trigger": "Earlier primary nontrivial-divisor formulas and inequalities"
+      },
+      {
+        "assessment": "NOT_COVERING: total K(n) may inherit balance improvement but individual c_j strictness is not asserted",
+        "evidence": [
+          "Theorem 1 writes K(n) via a positive infinite sum of products of binomial coefficients.",
+          "Theorem 2 gives a finite expansion for the sum over all lengths."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.16691v1",
+        "material_read": "Full accessible HTML including Theorems 1–2, proofs and section 5",
+        "method": "Compared positive divisor-count series for total K(n) with individual lengthwise inequalities",
+        "title": "Number of ordered factorizations and recursive divisors",
+        "trigger": "Potential broader dominance via total ordered factorizations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "961f40dd-7ed7-4f75-bca9-425deaccbd58",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 literature asks for computable divisor-function and sum-system counts and supplies an exact Stirling transform; a natural missing extremal question is which integer prime-exponent signatures maximize or minimize every such count at fixed Ω and fixed ω. The result gives one transfer operation that strictly improves every coefficient and every m-part sum-system count at once, with unique exact endpoint classifications, including variable support. This is stronger than total ordered-factorization monotonicity, the top-length multinomial optimization, or a routine known-table recomputation. The proof uses an actual strict Schur-coefficient witness instead of inferring positivity from an alternating formula. The precise arithmetic extremizers can be substituted in the explicit formulas for further values; the contribution is a motivated structural comparison principle, not an unsupported downstream conjecture.",
+    "status": "PASS"
+  }
+}
