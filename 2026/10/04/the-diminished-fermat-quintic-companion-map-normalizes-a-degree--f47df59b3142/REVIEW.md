@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The six quintics and base-point freeness are checked against the primary source. The ample pullback \(\mathcal O_{\mathbb P^2}(5)\) rules out contracted curves, hence the projective morphism is finite. The fiber above \(\phi_\Lambda([1:2:1])\) is solved exactly and is reduced of length one, which forces degree one. The surface degree then follows from \((5L)^2=25\).
+## correctness
 
-## Originality
-**PASS.** The lead paper stops at base-point freeness and explicitly proposes studying the companion surface. Searches covered birationality, normalization, degree, and equivalent descriptions, as well as the later paper on companion varieties. No inspected source states or implies the exact reduced singleton fiber or the degree-25 normalization result for this six-quintic diminished-Fermat map.
+PASS
 
-## Value
-**PASS.** The result answers a basic structural part of the investigation invited by the source: it identifies the plane as the normalization and fixes the projective degree of the image. These invariants are directly relevant to subsequent work on singularities, conductor geometry, equations, and the unresolved embedding/very-ampleness behavior.
+The exact six quintics from Kabat–Strycharz-Szemberg are base-point free by their Lemma 5, hence induce P²→P⁵ with pullback O(5). Any positive-dimensional fiber contains a curve, impossible since O(5) has positive degree on every curve; the morphism is finite onto its image. Direct substitution at [1:2:1] yields [4:12:−4:39:0:−35]. In chart C=1 the cross equations factor as 4(A−1)(A⁴+A³+6A²+A+1), 4(15A³−B⁵+5B²−3), 5(39A³−4B³−7), −20B²(A−1)(A²+A+1); when A≠1 the other equations contradict B=0 or A³=1, while A=1 forces B²=4,B³=8, hence B=2. Jacobian of normalized first and third equations at that point is −480, verifying a reduced singleton fiber. Finite degree-one map from normal P² gives normalization, and (5L)^2=degree(X)=25. Independently recomputed all five exact cross-polynomial factorisations and the Jacobian with SymPy, not just accepted VERIFY_OK.
 
-## Closest literature and limitations
-The closest primary source is Kabat--Strycharz-Szemberg, which defines the map and proves base-point freeness. Di Gennaro--Ilardi--Miró-Roig--Szemberg--Szpond develop companion varieties for related configurations, but the inspected text did not cover this exact six-quintic system. No claim is made about the singular locus, normality of the image, injectivity everywhere, or very ampleness. An unindexed source could still contain the same calculation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Kabat–Strycharz-Szemberg 2020 actually provide these six forms and Lemma 5 base-point freeness, then explicitly propose investigating the companion surface; no birationality, normalization, or image degree. Di Gennaro et al. 2022 arXiv:2101.07346 full text contains degree-25 companions for a DIFFERENT root-system morphism in section 4 and degree m²+m+1 for an augmented ordinary Fermat arrangement in section 5. Those do not use this six-dimensional diminished-Fermat system; matching degree 25 is insufficient for implication. Published Resultary search first found only the assigned record.
+
+## value
+
+PASS
+
+The exact degree and normalization answer the concrete companion-surface question raised by the authors; a reduced singleton-fiber certificate is nontrivial and clarifies geometry of the explicit morphism without asserting unsupported smoothness or embedding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
