@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Proposition 7.4 gives the exact two-distance rule needed to identify extension coordinates with proper colorings of the Cayley graph on \(\mathbb F_2^6\). The proof classifies maximum independent sets as the \(64\) translates of \(T\), converts fiber partitions to maximum cliques, and uses the parity embedding plus the Fano-plane characterization to show that every maximum clique is an affine coset of one of the \(30\) special three-spaces. The source equivalence is broad enough to realize message translations and the coordinate permutations acting transitively on those direction spaces. The bundled verifier exhaustively checks all finite graph, partition, and distance-profile statements and returns `VERIFY_OK`.
+PASS
 
-## Originality
+The actual source distance rule converts extension fibers to maximum cocliques of Cayley Gamma on F_2^6 whose edges are exactly weight-3 or 4 differences. With T={0,e_1,...,e_6,1}, 28 pair differences uniquely encode K8 edges; pairwise intersecting edge families show all independence maxima (size 8) are translates T+a. An eight-symbol proper coloring must comprise exactly eight such cocliques. Translational parameters form eight-cliques; embedding into even binary words of length seven and complementing the corresponding weight-four supports forces the Fano 2-(7,3,1) design and hence a 3-flat. Alderson Lemma7.2 counts 30 direction spaces; 8 cosets each give 240 partitions. S6 permutations and translations yield one broad-isometry orbit. Independent exact F2 bit arithmetic reconstructed 30 directions, 240 distinct 8-flats and fiber partitions and checked the T difference property. Every word has 35 former distance-24 neighbors (become 25), 7 same-fiber old distance-30 neighbors (remain 30) and 21 others (become 31).
 
-PASS. The primary 2026 paper constructs one extension and classifies the \(30\) eligible linear direction spaces, but it does not classify all extension colorings, count the \(240\) affine-coset partitions, or prove a single equivalence orbit. The known strongly regular graph identification and spectrum were treated as prior art rather than as part of the originality claim. Focused searches over the source title/arXiv identifier, exact graph parameters, extension/coloring/coclique aliases, and the numerical counts found no statement implying the finalized theorem. Residual risk remains that an unindexed graph-theory classification contains an equivalent optimal-coloring result.
+## originality
 
-## Value
+PASS
 
-PASS. The motivating paper uses this code specifically as a counterexample to a maximality assertion because it admits a nonadditive extension. Determining every possible one-coordinate extension, proving that all of them are equivalent, and fixing their common distance distribution resolves the natural structural question behind that counterexample rather than merely recomputing a standard parameter.
+Alderson Proposition 7.6 provides one extension and Lemma 7.2 the 30 direction spaces, so those building blocks are prior; the inspected paper does not give all 8-colorings/partitions or exact equivalence and labeling census. The 64-vertex (64,35,18,20) graph and its eigenvalues are known from graph theory; these are not claimed as novel. The extension classification is an additional implication requiring coclique classification and Fano geometry.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A one-coordinate extension classification resolves a natural maximality question for the cited concrete additive-code counterexample. Counts and complete orbit structure distinguish many labeled encodings from one Hamming-equivalence class; not merely recomputing the graph spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
