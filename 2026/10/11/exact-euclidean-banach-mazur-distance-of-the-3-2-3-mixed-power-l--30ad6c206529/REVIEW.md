@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Coordinate-sign averaging covers every positive-definite quadratic pullback. The diagonal problem is reduced to \(F_r(t)=r t^{4/3}+(1-t)^{2/3}\), whose critical points and endpoint values are explicit. The three possible contact orderings are exhaustive, and the distortion is strictly monotone on either side of the unique transition \(m_c(u)=r\). The transition is equivalent to \(z^3+z^2+z-1=0\). A nonzero cross term strictly worsens the maximum while an axis point preserves the comparison minimum.
+## correctness
 
-## Originality
-PASS. Searches covered Musielak--Orlicz, Nakano, mixed-power, anisotropic-superellipse, optimal-ellipse, and same-exponent formulations. The closest same-exponent published result is a different quadrant-dependent Day--James norm. The closest broad exact-distance result uses a different globally mixed norm. The primary archival Musielak--Orlicz source defines the class but studies equilateral dimension. General planar distance-ellipsoid theory supplies uniqueness but not this exact value.
+PASS
 
-## Value
-PASS. The \((3/2,3)\) pair is the canonical Hölder-conjugate two-coordinate example crossing the Hilbert exponent. The exact anisotropic optimum exhibits a contact transition absent from the superquadratic regime and supplies an algebraic benchmark for variable-exponent finite-dimensional geometry.
+Four sign symmetries reduce arbitrary Euclidean pullbacks to r x²+y². With t=|x|^(3/2), its full sphere profile is F_r(t)=r t^(4/3)+(1-t)^(2/3). The exact stationary equation t(1-t)=1/(8r³) has no roots for r<2^(-1/3), or two roots u,1-u otherwise, and extrema m_c=(2-u)/(2(1-u)^(1/3)), M_c=(1+u)/(2u^(1/3)). Endpoint and critical contacts give three monotonic regimes; the minimum occurs when m_c(u)=r, giving u=z³, z³+z²+z-1=0 and d_BM²=(1+z³)(1-z³)^(1/3). A nonzero cross term worsens one signed maximizing value while an axis minimum remains, proving uniqueness. Numerical minimax/cubic residual cross-checks are supplementary.
 
-## Closest literature and limitations
-Kobos, arXiv:1305.6288, is the archival class-defining source. Grundbacher, DOI 10.1112/mtk.70062, is a general distance-ellipsoid comparison. The result is limited to two dimensions and the exponent pair \((3/2,3)\); it does not assert a full phase diagram for all \(1<p<2<q\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original specific claim after object/implication comparisons against accessible primary texts; unavailable Resultary is explicitly NOT a negative search or originality proof. This is an absolute unit ball with coordinatewise different exponents, not the nonabsolute quadrant Day–James (3/2,3) nor the globally mixed norm (||z||_p²+lambda||z||_q²)^(1/2) cited in the source audit. The same exponent numbers do not make those normed planes linearly equivalent. Published SCOPE comparison records quoted in frozen source distinguish strictly superquadratic/boundary exponent regimes, a Day–James plane with the same two numbers, and a globally mixed quadratic sum. Their defining balls and hypotheses differ; none of the statements cited directly implies the current anisotropic optimum, but inaccessible exact source records remain a risk.
+
+## value
+
+PASS
+
+The Hölder-conjugate 3/2 and 3 exponents straddle Hilbert p=2, producing an anisotropic contact transition absent when both exponents exceed 2. An exact algebraic distance and unique ellipse for this canonical Musielak–Orlicz test object are potentially useful independent invariants, even without a global mixed-exponent phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
