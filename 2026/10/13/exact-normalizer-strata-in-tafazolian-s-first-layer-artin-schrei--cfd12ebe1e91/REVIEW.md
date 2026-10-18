@@ -1,32 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Tafazolian's Corollary 1.8 identifies the normalizer quotient with the stabilizer of the Artin--Schreier plane under
-\[
-D_\lambda(a,b)=(\lambda^{-1}a,\lambda b),
-\qquad
-J(a,b)=(b,a).
-\]
-For the first normal form, preservation forces \(\lambda^2=1\), so the quotient is exactly \(C_2\times C_2\).
+## correctness
 
-For the second normal form, with \(r=a/b\), the matrix of \(D_\lambda\) in the natural \(\mathbf F_p\)-basis is
-\[
-\begin{pmatrix}
-c&d/r\\
-rd&c
-\end{pmatrix},
-\qquad
-c=\frac{\lambda+\lambda^{-1}}2,\quad
-d=\frac{\lambda^{-1}-\lambda}2.
-\]
-A symmetry beyond \(\lambda=\pm1\) forces \(r^2\in\mathbf F_p\). On that locus the diagonal stabilizer is the norm-one subgroup of \(\mathbf F_{p^2}^*\), cyclic of order \(p+1\); the branch-swap involution acts by inversion, so the quotient is dihedral of order \(2(p+1)\). Multiplication by \(|S|=p^2\) gives the stated normalizer orders.
+PASS
 
-## Originality
-PASS. The initiating paper gives the two normal forms, the stabilizer interpretation of the normalizer, and a universal Klein-four subgroup, but it does not state the exact stabilizer stratification. Its relevant remark stops at the lower bound \(4p^2\) and finiteness information in the second normal form. Targeted searches for the exact orders, the dihedral quotient, the square-class criterion, and the norm-one formulation found no covering statement. The inspected older ordinary-curve literature treats bounds and special families rather than this rank-two first-layer moduli problem.
+Tafazolian Theorem 1.7 gives first-layer rank-2 Fp plane and S=Cp²; Cor.1.8 N_Aut(S)/S=Stab_{k* rtimes C2}(V). In form V=A(1,1), diagonals D_lambda preserve iff lambda²=1 and J fixes V, giving Klein four, normalizer 4p². For V=Fp a(1,1) ⊕ Fp b(1,-1) and r=a/b not Fp, D_lambda acts in this basis as [[c,d/r],[rd,c]], c=(lambda+lambda^-1)/2, d=(lambda^-1-lambda)/2. Stabilizing iff c,rd,d/r in Fp. d !=0 forces r² in Fp; when absent only lambda±1 and Klein four. If delta=r² in Fp, delta nonsquare, lambda=c-ur with c,u in Fp, c²-delta u²=1: cyclic norm-one subgroup Fp²* of order p+1. J inverts it, yielding dihedral group of order 2(p+1) and normalizer 2p²(p+1). Covers every odd p and both forms, not full Aut(X).
 
-## Value
-PASS. The finding completes a natural invariant emphasized by the source and turns the two first-layer normal forms into an exact automorphism-normalizer stratification. In particular, it identifies a genuine enhanced-symmetry locus where the normalizer jumps from the universal minimum \(4p^2\) to \(2p^2(p+1)\), with a conceptual norm-one-torus explanation.
+## originality
 
-The result concerns the normalizer of the distinguished Sylow \(p\)-subgroup, not necessarily the full automorphism group.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full initiating Tafazolian preprint Theorem 1.7/Cor.1.8 explicitly gives stabilizer interpretation and Remark 9.4 lower bound 4p², not the exact pointwise strata and jump criterion r² in Fp. Older Korchmaros–Montanucci automorphism work covers related curves, not this first-layer rank-2 normalizer stratification. The computation is short and might be unindexed, but no checked stronger theorem derives exact orders as stated.
+
+## value
+
+PASS
+
+The main primary paper singles out normalizer size and universal lower bound; finding exact generic versus exceptional symmetry is a natural, complete parameter stratification of its first admissible family. The norm-one torus identifies the geometry of the p+1 jump for all odd p, valuable to automorphism-group and moduli classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
