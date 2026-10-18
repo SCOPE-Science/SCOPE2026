@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-For the NTPN density,
-\[
-f(x)
-=
-C^{-1}q(x)(2\pi)^{-1/2}
-e^{-(x^2+\lambda^2)/2}
-\cosh(\lambda x),
-\]
-the Rényi integral is
-\[
-C^{-\gamma}(2\pi)^{-\gamma/2}e^{-\gamma\lambda^2/2}
-\int_{\mathbb R}
-q(x)^\gamma e^{-\gamma x^2/2}
-\cosh(\lambda x)^\gamma\,dx.
-\]
-If
-\[
-Z_\gamma\sim N(0,1/\gamma),
-\]
-this equals
-\[
-C^{-\gamma}(2\pi)^{-\gamma/2}e^{-\gamma\lambda^2/2}
-\sqrt{\frac{2\pi}{\gamma}}\,
-\mathbb E\!\left[
-q(Z_\gamma)^\gamma
-\cosh(\lambda Z_\gamma)^\gamma
-\right].
-\]
 
-The expectation is finite because a polynomial times
-\[
-\exp\!\left(-\frac{\gamma x^2}{2}+\gamma\lambda|x|\right)
-\]
-is integrable for every \(\gamma>0\).
+# Independent mathematical audit
 
-The bundled checker evaluates direct quadrature and the Gaussian-expectation representation independently at noninteger orders and verifies the standard-normal formula. These are consistency checks; the proof of the domain correction is algebraic.
+## correctness
+
+PASS
+
+From f=C^-1 (2pi)^-1/2 e^{-(x^2+lambda^2)/2}q(x) cosh(lambda x), power gamma and complete Gaussian normalization yield the displayed E[q(Z_gamma)^gamma cosh(lambda Z_gamma)^gamma] times C^-gamma(2pi)^-gamma/2 exp(-gamma lambda²/2) sqrt(2pi/gamma). Bound q(x)^gamma by C(1+|x|)^{2gamma}, cosh(lambda x)^gamma by exp(gamma lambda |x|), giving integrability for every gamma>0. Finite multinomial and binomial expansions are valid only at integer exponents; positive noninteger gamma require generalized infinite series. Independent gamma=1/2 standard-normal integration gives H=1.612085713764618. This does not assert integer coefficients are all correct or address gamma->1.
+
+## originality
+
+PASS
+
+The primary 2026 theorem asserts all gamma>0 except one but derives a finite expansion requiring positive integer powers. The corrected general expectation follows by direct change of Gaussian measure and is not a formula already stated as the needed corrigendum; other skew-family Rényi formulas do not specifically correct NTPN.
+
+## value
+
+PASS
+
+A genuine all-real-order domain error in a published entropy theorem undermines use at noninteger sensitivity parameters. The correction identifies precisely which claimed formula is invalid and supplies a mathematically sound evaluable replacement, while preserving the integer-order plotted example. Simple algebra is substantively motivated here by fixing a faulty published mathematical assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

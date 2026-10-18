@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Substituting the published NTPN density into the Rényi integral gives a Gaussian-weighted integral. Reweighting by \(N(0,1/\gamma)\) produces the exact expectation formula. Gaussian domination proves finiteness for every real \(\gamma>0\). The finite multinomial and binomial steps in the source require integer exponent, so they cannot establish the stated noninteger orders. A standalone checker matches direct quadrature, the corrected expectation formula, and the standard-normal closed form.
+## correctness
 
-## Originality
-PASS. The target theorem and proof were inspected in the full open-access PDF and on the rendered equation page. Five focused published-result searches and targeted exact-source searches covered NTPN, the DOI, Rényi order, multinomial/binomial expansions, and correction aliases. No model-specific correction was located. Related bimodal-skew literature retains an integral at arbitrary order, and another generated-distribution entropy paper uses an infinite generalized-binomial series; neither covers the NTPN theorem.
+PASS
 
-Residual risk remains from an unindexed author note or a general entropy reference phrased without the NTPN model name.
+From f=C^-1 (2pi)^-1/2 e^{-(x^2+lambda^2)/2}q(x) cosh(lambda x), power gamma and complete Gaussian normalization yield the displayed E[q(Z_gamma)^gamma cosh(lambda Z_gamma)^gamma] times C^-gamma(2pi)^-gamma/2 exp(-gamma lambda²/2) sqrt(2pi/gamma). Bound q(x)^gamma by C(1+|x|)^{2gamma}, cosh(lambda x)^gamma by exp(gamma lambda |x|), giving integrability for every gamma>0. Finite multinomial and binomial expansions are valid only at integer exponents; positive noninteger gamma require generalized infinite series. Independent gamma=1/2 standard-normal integration gives H=1.612085713764618. This does not assert integer coefficients are all correct or address gamma->1.
 
-## Value
-PASS. Rényi entropy is a headline analytical property of the new model, and noninteger orders are part of its standard definition. The finding repairs the theorem's stated domain without denying entropy existence, provides a valid all-real-order representation, and preserves the source's \(\gamma=2\) contour.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2026 theorem asserts all gamma>0 except one but derives a finite expansion requiring positive integer powers. The corrected general expectation follows by direct change of Gaussian measure and is not a formula already stated as the needed corrigendum; other skew-family Rényi formulas do not specifically correct NTPN.
+
+## value
+
+PASS
+
+A genuine all-real-order domain error in a published entropy theorem undermines use at noninteger sensitivity parameters. The correction identifies precisely which claimed formula is invalid and supplies a mathematically sound evaluable replacement, while preserving the integer-order plotted example. Simple algebra is substantively motivated here by fixing a faulty published mathematical assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
