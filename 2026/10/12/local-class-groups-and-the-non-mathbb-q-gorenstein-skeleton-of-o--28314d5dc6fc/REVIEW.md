@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise hypotheses are \(m\ge3\), \(n=2m+1\), normal projective stable-set toric variety over \(\mathbb C\). Mahjoub's cycle inequalities give exactly \(2n+1\) primitive facet normals. At an independent-set vertex of size \(k\), the \(n\) chosen zero/edge normals have unimodular determinant, producing a torsion-free local class group of rank \(k+\mathbf1_{k=m}\). The integral character taking values \(-1\) on these normals yields canonical residual \(m-2\) on the odd facet, primitive and non-torsion at maximal independent sets. The face-normal relation \(w=\sum v_{2j-1}-u_0\), together with a primitive minor, establishes the same nonzero infinite-order canonical obstruction at generic points of every stated component. Miyazaki's published non-Gorenstein support theorem gives the reverse inclusion of the non-\(\mathbb Q\)-Gorenstein locus. All component vertices, lattice-basis differences, scheme-theoretic intersections, and cyclic compositions are proved explicitly. The attached exact checker verified the primitive bases, active facets, and incidence counts for six odd cycle sizes, but finite checks are not the infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Miyazaki, *Non-Gorenstein locus and almost Gorenstein property...*, arXiv:2205.01409v1, Theorem 3.4, **already** gives the non-Gorenstein *support* of the affine Ehrhart cone as a union of face primes; this is an acknowledged prerequisite, not the claimed contribution. Mahjoub (1988) proves the underlying facets. Matsuda--Ohsugi--Shibata (arXiv:1603.01850v1) gives normality from a squarefree initial ideal. Hibi--Tsuchiya (arXiv:1912.01212) treats global Hilbert/Gorenstein behavior. The additional content assessed here is the proof that failure of \(\mathbb Q\)-Cartierness has exactly that support, with the explicit primitive canonical class in every generic transverse class group, all torus-fixed local ranks and canonical classes, and linear projective component geometry with exact pairwise intersections. No searched result established this conjunction or its stronger implication, but a broader or differently phrased toric computation may still subsume it. In particular, a failure of search is not treated as a proof of novelty.
+PASS
 
-## Value — PASS
-The distinction between Gorenstein and merely \(\mathbb Q\)-Gorenstein is a structural birational singularity invariant, not a wording variant. The exact obstruction \((m-2)g\) proves an infinite-order canonical class along each non-Gorenstein component, while the linear components and their pairwise incidence describe the geometry of the bad locus across an unbounded family. The result refines a substantial existing classification rather than repeating a known table. No broad downstream theorem is asserted, and higher intersections/analytic classification remain outside scope.
+The irredundant facet normals are u_i=e_i, v_i=-e_i-e_(i+1), w=-sum e_i. At vertex p_S (independent, |S|=k), active u-rays for i not in S and 2k active edge v-rays, plus w iff k=m. The n rays {u_i:i not in S} ∪ {v_s:s in S} are unimodular (triangular minor ±1), so Cl(local) is free of rank k+1_(k=m). The integral character h=(-1 outside S,2 on S) pairs -1 with active u,v, and pairs 1-m with w at k=m, hence K=(m-2)[D_odd] primitive and zero when k<m. For face F_0, the m+1 maximal independent sets avoiding 0 have successive indicator differences e_(2r+1)-e_(2r+2), yielding a unimodular m-simplex and Z_0≅P^m linearly. Its generic normal cone has rays u0, the m alternate v-rays and w=sum(v)-u0, giving free local Cl rank one and K coefficient m-2, non-Q-Cartier. Miyazaki Thm 3.4 supplies known non-Gorenstein support; the generic non-Q-Cartier loci force equality. Face monomial ideals yield scheme-theoretic pair intersection corresponding to F_i∩F_j, a simplex with q or m-q+1 retained vertices. Independently enumerated all 29 independent sets of C7 and face intersections counts [1,3,2,2,3,1], agreeing with formulas. Source finite verification read, not used as proof in unbounded m.
 
-## Sources and limitations
-Primary materials inspected include Mahjoub's short full paper (1988); Matsuda--Ohsugi--Shibata's 2016 arXiv full paper, including the cycle normality implication; and Miyazaki's 2022 full paper, especially the face-prime definition and Theorem 3.4. Hibi--Tsuchiya's 2019/2020 open article was compared for subject matter. Toric divisor-class machinery is standard. The remaining risk is an equivalent specialization hidden in wider literature. The checker does not independently certify the general result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Miyazaki 2022 already gives the set-theoretic non-Gorenstein locus of the affine Ehrhart ring, and toric local-divisor sequences are standard; no priority claim is made for either. The added scheme intersections, exact local class groups and primitive non-Q-Gorenstein discrepancy, linear P^m components and fixed-point rank spectrum are not the support theorem and are not stated in the inspected primary text.
+
+## value
+
+PASS
+
+Refines the singular-locus picture from a union of abstract orbit closures to explicit projective geometry, pairwise intersection incidence and local canonical-class obstructions. These local invariants measure precisely why the components fail Q-Gorenstein and can be used in toric birational/singularity calculations; it is a motivated natural complete classification, not an arbitrary fixed small cycle table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
