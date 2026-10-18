@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone Python/SymPy checker `verification/verify.py` reconstructs the infected comparison matrix \(Q=D^{-1}C\) from the equations and verifies exactly
-\[
-\det(zI-Q)=z(z^2-\mathcal R_0).
-\]
-For a fully rational instance it verifies \(\mathcal R_0=1/24\), the positivity of \((I-Q)^{-1}{\bf1}\), the strict supersolution identity, and the negative classical-order eigenvalue condition.
+# Independent mathematical audit
 
-The general infinite-dimensional-in-time statements are analytic. In particular, the scalar resolvent identities and the asymptotic
-\[
-E_\nu(-at^\nu)\sim\frac{t^{-\nu}}{a\Gamma(1-\nu)}
-\]
-for \(0<\nu<1\) yield nonnegative kernels of mass \(1/a\) and nonintegrable homogeneous time tails. The proof then uses a vector limsup inequality and Tonelli's theorem to propagate divergence through the source network. This establishes the all-time statements for **every** admissible real order tuple, not by extrapolation of simulations or by a finite search.
+## correctness
 
-The exact positive-rate witness uses
-\[
-(b,d,\beta,\sigma,p,\theta,\kappa,r_I,r_A,r_T)
-=(2,1,1/5,1,1/2,1/2,1/2,1/2,1/2,1/2),
-\]
-initial state \((2,1,0,0,0,0)\), and unequal orders \((3/4,1/2,2/3,3/5,4/5,7/10)\). It belongs strictly to the verified subcritical regime and has a nonzero exposed infection seed. No independent audit has been performed.
+PASS
+
+From the six source Caputo equations and 0<=S/N<=1, incidence g<=beta(I+theta A). The nonnegative infected linear Volterra majorant uses D=diag(sigma+d,kappa+r_I+d,r_A+d) and C coupling E to I/A. Exact determinant det(zI-D^-1 C)=z(z²-R0), hence R0<1 yields positive (I-Q)^-1 and a constant supersolution. Nonnegative fractional scalar kernels k_(nu,a) of mass 1/a and homogeneous Mittag-Leffler h_(nu,a)->0 imply the bounded majorant has limsup L<=D^-1 C L, forcing L=0 and all infected coordinates to zero for any real orders (0,1). Stable T,R,S resolvents prove global convergence, boundedness, and disease-free Lyapunov stability. Any nonzero infected-path seed contributes a positive multiple of nonintegrable h(t)~ t^-nu/(a Gamma(1-nu)); Tonelli transfer along E->I,A->g->E and I->T with kappa>0 forces all five ordinary-time integrals infinite even though coordinates vanish. With all orders 1, Hurwitz Metzler linear upper bound gives integrability. Exact independently checked symbolic characteristic polynomial and rational R0=1/24 example.
+
+## originality
+
+PASS
+
+Best-of-knowledge implication comparison of assigned exact claim against primary literature and semantic Resultary search. Compared same six-compartment model and next-generation R0, not title alone; equal-order global stability does not directly cover unequal-order model or imply infinite ordinary-time integrals. The prior source’s local/rational stability and a related single-order global theorem do not imply global attraction for all real unequal-order tuples; even attraction alone cannot imply integrability and indeed homogeneous scalar power tails violate it.
+
+## value
+
+PASS
+
+The same six-compartment unequal-order fractional epidemic model has a natural gap between asymptotic eradication and cumulative lifetime burden, which standard reproduction-number stability does not quantify. Showing coexistence of global clearance with nonintegrable literal occupancy and treatment incidence across all five compartments for arbitrary incommensurate orders is a meaningful qualitative distinction important when interpreting idealized fractional memory models; no claim about physical count forecasts is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
