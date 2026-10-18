@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The oriented chain-map proof is algebraically complete for every n>=2 and 1<=r<=n-1: a fixed simplex has e transpose pairs and d diagonal singleton orbits, contributing (-1)^(d+e+1); summing permitted diagonal choices gives (1-1)^u and annihilates every graph having degree below the cap. Precisely the labeled simple r-regular graphs remain, each with nr/2 edges. Hopf trace on the augmented chain complex justifies the empty-face minus sign. The Betti lower bound follows from trace absolute values; the two-regular EGF from labeled cycle components; the extremal orientation uses explicitly Singh Theorem 1.2 and the dimension parity. The standalone checker directly enumerates oriented fixed faces for every cap n=2..4 and independently enumerates regular graphs, with all six cases in agreement; an independent cycle recursion matches simple-graph counts to n=6. The computations are cross-checks only. No unproved claim about homology concentration away from r=n-1 is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reiner and Roberts, DOI:10.1023/A:1008728115910, Theorem 3.3 (rational S_n x S_n homology representation)",
+        "Public mathematical record 9305780d4d4c, Equivariant top homology of balanced complete-bipartite Morse complexes (distinct Morse-field complex; indexed summary only)"
+      ],
+      "reasoning": "Reiner–Roberts Theorem 3.3 covers rational graded S_n x S_n modules for general multiplicities, a much broader nonequivariant/normal-subgroup result than the present finite examples, but leaves an extra C2 factor swap unspecified. Extensions from S_n x S_n to its semidirect product can have different involution signs on swap-stable constituents. The indexed balanced bipartite Morse result concerns acyclic discrete Morse matchings, not the r-matching simplicial complex of graph edges. No inspected stronger theorem forces the all-r transpose character.",
+      "searches": [
+        "equivariant top homology rational character S4 cross S4 two matching complex K4,4 (maximum degree two)",
+        "action of row column permutations and transpose on homology of 2 matching complex complete bipartite K4,4",
+        "r regular graph enumeration as Lefschetz trace of coordinate transpose on higher chessboard complexes with multiplicities"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2006.13632",
+      "DOI:10.1023/A:1008728115910",
+      "public record 915eed6b65e5, full RESULT.md",
+      "public record 9305780d4d4c, indexed summary only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Anurag Singh, arXiv:2006.13632, Theorem 1.2 and introductory survey, first posted 2020-06-24",
+        "Reiner and Roberts, DOI:10.1023/A:1008728115910, Theorem 3.3 (rational S_n x S_n homology representation)",
+        "Public mathematical record 915eed6b65e5, The two-matching complex of K_(4,4) is a wedge of fifteen five-spheres; full RESULT.md inspected",
+        "Public mathematical record 9305780d4d4c, Equivariant top homology of balanced complete-bipartite Morse complexes (distinct Morse-field complex; indexed summary only)"
+      ],
+      "reasoning": "Singh Theorem 1.2 implies the existence of one integral orientation sign but cannot distinguish +1 from -1 for the natural swap. Reiner–Roberts separately determines the S_n x S_n action; since transpose lies outside that subgroup, its character is not formally determined by restriction. The K4,4 wedge result neither constrains the swap trace uniquely nor supplies its regular-graph interpretation. General Lefschetz theory converts a fixed-simplex signed sum to a homology trace, but the sharp cancellation to r-regular simple graphs, and the consequent all-parameter lower bound, require the new combinatorial argument.",
+      "searches": [
+        "top homology transpose degree sphere M_(n-1)(K_n,n) n choose two sign",
+        "transpose swapping bipartition in bounded-degree matching complex M_r(K_n,n), reduced Lefschetz number regular graph count",
+        "transpose involution on higher chessboard complexes counts labeled regular graphs signed reduced Lefschetz number for all n and r"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Anurag Singh, arXiv:2006.13632, Theorem 1.2 and introductory survey, first posted 2020-06-24",
+        "Reiner and Roberts, DOI:10.1023/A:1008728115910, Theorem 3.3 (rational S_n x S_n homology representation)",
+        "Public mathematical record 915eed6b65e5, The two-matching complex of K_(4,4) is a wedge of fifteen five-spheres; full RESULT.md inspected"
+      ],
+      "reasoning": "The bounded-degree chessboard formulation is exactly the r-matching complex of K_(n,n) with paired bipartition labels. Equivalent statements might use transpose on 0-1 matrices, signed fixed-simplex Euler characters, or simple regular-graph counts. Primary source comparisons did not present the same transposition Lefschetz formula. Non-equivariant Betti or homotopy statements do not by themselves determine this action.",
+      "searches": [
+        "transpose involution on higher chessboard complexes counts labeled regular graphs signed reduced Lefschetz number for all n and r",
+        "symmetric zero-one matrices, r regular undirected graphs, and Lefschetz homology transpose higher matching complexes",
+        "transpose swapping bipartition in bounded-degree matching complex M_r(K_n,n), reduced Lefschetz number regular graph count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical record 915eed6b65e5, The two-matching complex of K_(4,4) is a wedge of fifteen five-spheres; full RESULT.md inspected",
+        "Anurag Singh, arXiv:2006.13632, Theorem 1.2 and introductory survey, first posted 2020-06-24"
+      ],
+      "reasoning": "The exact K4,4 two-matching homotopy result has 15 spheres of degree five; it does not record the transposition trace. Our formula predicts trace +3 on H5 there. The new assertion is an infinite-parameter functional identity, not a recomputation of that finite table. Singh fixes the extremal Betti rank one, but no tabulation of transpose degrees was found in inspected material.",
+      "searches": [
+        "homotopy type integral homology of 2-matching complex of complete bipartite graph K4,4 higher matching maximum vertex degree two",
+        "top homology transpose degree sphere M_(n-1)(K_n,n) n choose two sign",
+        "symmetry quotient rational Betti 2-matching K4,4"
+      ]
+    },
+    "rationale": "No inspected primary theorem or relevant indexed public finding supplies the factor-swapping reduced Lefschetz character for all n and degree caps. Singh supplies the nonequivariant extremal homotopy sphere, and Reiner–Roberts supplies the rational representation under the normal subgroup of separate row/column relabelings; neither specifies the action of the extra transpose generator. The exact small M2(K4,4) paper likewise establishes only a nonequivariant wedge of spheres. Closest similarly equivariant results concern a mathematically distinct graph Morse complex or matching complexes of rectangular grids. The general regular-graph cancellation identity therefore adds information not implied by the compared conclusions. This is a best-knowledge originality judgment, not proof of globally unique publication.",
+    "residual_risks": [
+      "An unindexed equivariant generalized-chessboard result or a differently named fixed-point formula may already contain the regular-graph identity.",
+      "Only the stated parts of the primary PDFs were materially compared; unrelated appendices or other literature could contain an equivalent result.",
+      "The similar balanced-bipartite Morse-complex index record was not read in full, but its reported object is distinct."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same higher matching complex; establishes the homotopy type of the r=n−1 case but does not give the factor-interchange Lefschetz character. The orientation corollary explicitly uses this prior theorem.",
+        "evidence": [
+          "Theorem 1.2, arXiv:2006.13632",
+          "Introduction discusses Reiner–Roberts Theorem 3.3 for rational homology"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2006.13632",
+        "material_read": "Abstract, introductory literature discussion, formal definition, Theorem 1.2 statement and relevant reference context on PDF pages 1–3",
+        "method": "Lawful open-access arXiv preprint full-text reading, including PDF page inspection",
+        "title": "Higher matching complexes of complete graphs and complete bipartite graphs",
+        "trigger": "exact defining object and extremal homotopy theorem"
+      },
+      {
+        "assessment": "Covers full rational S_n×S_n action under independent row/column relabelings; does not state factor-swapping transpose generator character, which is not inferred from that subgroup restriction.",
+        "evidence": [
+          "Reiner–Roberts Theorem 3.3 (2000)",
+          "Separate symmetric-group action, not wreath extension"
+        ],
+        "identifier_or_url": "DOI:10.1023/A:1008728115910",
+        "material_read": "Author-hosted full-text PDF, abstract and Theorem 3.3 with surrounding homology module formulation",
+        "method": "Open-access author copy, theorem/section and page-image examination",
+        "title": "Minimal Resolutions and the Homology of Matching and Chessboard Complexes",
+        "trigger": "possible dominating rational representation theorem for generalized chessboard complexes"
+      },
+      {
+        "assessment": "Proves nonequivariant integral homotopy equivalence to a 15-fold wedge of five-spheres. Its limitations explicitly exclude an S4×S4 character, and it has no transpose Lefschetz formula.",
+        "evidence": [
+          "RESULT.md of public record 915eed6b65e5"
+        ],
+        "identifier_or_url": "public record 915eed6b65e5",
+        "material_read": "Full publicly available RESULT.md, including finding, assumptions, proof, relationship to prior work, limitations and references",
+        "method": "Read public published result file through read-only repository access",
+        "title": "The two-matching complex of K_(4,4) is a wedge of fifteen five-spheres",
+        "trigger": "same graph and degree cap, potentially equivalent theorem"
+      },
+      {
+        "assessment": "Concerns simplicial complexes of discrete Morse fields, which are not bounded-degree edge-subset complexes. Its summary alone is not used to claim whole-document absence.",
+        "evidence": [
+          "Indexed summary explicitly identifies ordinary Morse-matching complex and 5103-sphere homotopy type"
+        ],
+        "identifier_or_url": "public record 9305780d4d4c",
+        "material_read": "Indexed scientific title and summary only; complete paper not inspected",
+        "method": "Semantic publication-index comparison, followed by object-definition check against its reported abstract",
+        "title": "Equivariant top homology of balanced complete-bipartite Morse complexes",
+        "trigger": "similar balanced graph, factor-swap action and topological representation title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "81286192-a6c0-4119-8d3b-66f9f83afe90",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This natural bipartite factor-interchange symmetry is missing from standard nonequivariant higher matching homotopy results and from the independently acting row/column representation. The all-n, all-r formula links a topological homology character to labeled r-regular graph enumeration (including the nontrivial cycle-decomposition EGF for r=2), gives unconditional lower bounds on unknown total Betti numbers, and determines a previously unspecified sign on an infinite family of integral homotopy spheres. The precise invariant is independently motivated by the full automorphism group and potentially useful even when graded homology is not known. It is not an arbitrary finite census, cosmetic corollary, or routine renaming of a published theorem.",
+    "status": "PASS"
+  }
+}
