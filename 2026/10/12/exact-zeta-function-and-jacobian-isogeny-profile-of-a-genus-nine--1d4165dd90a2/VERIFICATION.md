@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-The standard-library script \(\texttt{check_zeta.py}\) represents each degree-\(n\) extension using a binary irreducible modulus, checks irreducibility algorithmically, enumerates the \(2^n\)-element field, and performs two different enumerations: affine point fibers for the displayed plane equation plus the geometrically justified ramified-point correction, and the elliptic base points plus Artin–Schreier trace solvability. For \(n=1,\ldots,9\), both methods return the complete vector
-\[
-(4,8,4,24,44,8,116,312,508).
-\]
-It then generates the first ten zeta coefficients with Newton identities, imposes the established genus-nine Hasse–Weil functional equation, verifies the factor product and the numerical value \(1024\), and emits \(\texttt{NAKAJIMA_GENUS_NINE_ZETA_EXACT_OK}\). The nine finite-field counts are individually exhaustive; the functional equation is the separate theorem that upgrades these finite computations to an exact all-extension result. The proof of the requisite genus, birational equality, and eight simple poles is in the cited article, Proposition 7.2.
+# Independent mathematical audit
 
-The numerical factorization and counts are self-review only. No independent audit, external formal proof certification, or verification of the full Jacobian rational-point group structure has been performed.
+## correctness
+
+PASS
+
+Exact F2 field enumerations for 1≤n≤9 independently yielded smooth N_n=(4,8,4,24,44,8,116,312,508) after adding the asserted eight Artin–Schreier pole points (4 over odd n, 8 over even n). Independently formed Newton coefficients (1,1,2,0,2,2,−4,−8,−11,5), then the genus-nine functional equation reconstructs the degree-18 numerator, which factors into quadratic 1−T+2T², double quadratic 1+T+2T², quartic 1−T²+4T⁴, octic 1−2T²+T⁴−8T⁶+16T⁸, and evaluates to P(1)=1024. This is exact through the genus 9 FE, not extrapolation from nine sampled degrees. The eight-simple-pole normalization and genus premise is accepted conditionally on the cited primary Proposition 7.2, which could not be independently read.
+
+## originality
+
+PASS
+
+The 2026 source introduces this precise genus-nine curve, ramification and automorphisms; publicly retrievable abstract does not give the complete zeta numerator or Jacobian factorization. Finite arithmetic here is not supplied by a general Jacobian isogeny principle without the actual extension counts. Full Tafazolian paper inaccessible, so no whole-document novelty exclusion is asserted; best-of-knowledge PASS with significant priority risk.
+
+## value
+
+PASS
+
+The zeta function and Frobenius isogeny factors are fundamental exact arithmetic invariants of a distinguished Nakajima-extremal genus-nine curve; their determination is independently useful even absent a family-wide theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

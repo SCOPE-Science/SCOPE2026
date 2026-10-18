@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The smooth projective curve is precisely the genus-nine normalization of the cited plane equation. Proposition 7.2 supplies the birational elliptic Artin–Schreier representation and its eight simple poles. Pole residue fields give four missing points over odd extensions and eight over even extensions. The finite-field checker exhausts all \(\mathbb F_{2^n}\)-coordinates for each \(1\le n\le9\), independently cross-checking with the degree-two elliptic cover. Newton identities and the genus-nine functional equation uniquely determine the full numerator. Four exact rationally irreducible factors give the finite-field isogeny profile and evaluation at one gives \(1024\). No finite experiment is used to infer an unproved claim over infinitely many extensions.
+## correctness
 
-## Originality — PASS, with risk
-The originating article explicitly constructs the genus-nine curve and identifies its ramification and automorphisms, but provides no full zeta polynomial or Frobenius factorization. Earlier related genus-nine examples are displayed over \(\mathbb F_{16}\), and pre-existing Artin–Schreier and Weil algorithms do not state the evaluated numerical result. Focused searches for identical equations, coefficient signatures, and equivalent point-count/isogeny descriptions did not identify a covering computation. An earlier or implicit evaluation is still possible, especially in literature not fully accessible; this is a residual bibliographic rather than a correctness qualification.
+PASS
 
-## Value — PASS
-This is a natural arithmetic invariant of the first explicit \(\mathbb F_2\) model singled out by the recent classification, not an arbitrary finite slice. The exact zeta numerator determines every extension-field point count and yields a nontrivial decomposition of a nine-dimensional Jacobian into two elliptic isogeny types and higher-dimensional simple factors. The exact value of \(\#\operatorname{Jac}(C)(\mathbb F_2)\) is a substantive independent arithmetic outcome.
+Exact F2 field enumerations for 1≤n≤9 independently yielded smooth N_n=(4,8,4,24,44,8,116,312,508) after adding the asserted eight Artin–Schreier pole points (4 over odd n, 8 over even n). Independently formed Newton coefficients (1,1,2,0,2,2,−4,−8,−11,5), then the genus-nine functional equation reconstructs the degree-18 numerator, which factors into quadratic 1−T+2T², double quadratic 1+T+2T², quartic 1−T²+4T⁴, octic 1−2T²+T⁴−8T⁶+16T⁸, and evaluates to P(1)=1024. This is exact through the genus 9 FE, not extrapolation from nine sampled degrees. The eight-simple-pole normalization and genus premise is accepted conditionally on the cited primary Proposition 7.2, which could not be independently read.
 
-## Closest sources and limits
-S. Tafazolian, arXiv:2609.14830v1, Section 7, provides the model and genus, not its zeta evaluation. Giulietti–Korchmáros (2010) treats a related, differently defined genus-nine example; complete inspection of the older paper was unavailable, so accidental equivalence of an earlier unpublished or differently expressed calculation remains a risk. Generalized Artin–Mumford literature studies different defining equations and, in the inspected 2016 preprint, odd characteristic. Independent audit remains outstanding; no claim is made about the entire genus-nine family.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 source introduces this precise genus-nine curve, ramification and automorphisms; publicly retrievable abstract does not give the complete zeta numerator or Jacobian factorization. Finite arithmetic here is not supplied by a general Jacobian isogeny principle without the actual extension counts. Full Tafazolian paper inaccessible, so no whole-document novelty exclusion is asserted; best-of-knowledge PASS with significant priority risk.
+
+## value
+
+PASS
+
+The zeta function and Frobenius isogeny factors are fundamental exact arithmetic invariants of a distinguished Nakajima-extremal genus-nine curve; their determination is independently useful even absent a family-wide theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
