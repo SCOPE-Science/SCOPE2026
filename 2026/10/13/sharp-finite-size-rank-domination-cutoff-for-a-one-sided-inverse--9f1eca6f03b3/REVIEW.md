@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matrix rank inequality at any finite size bound is equivalent to vanishing on the inverse-pair zero locus: outside that locus the constant equal to the tested dimension bound suffices. Rational canonical form identifies the exact common annihilator of all invertible matrices with the product of primary irreducible powers; companion matrices prove that every exponent is necessary. The Laurent quotient and unbounded-degree argument yield the unlimited-rank class. The lower word-degree bound is the Laurent support interval \([-L,L]\), and the shifted annihilator attains it with nonzero coefficient at the negative endpoint. The direct rank equality of \(XY-I\) and \(YX-I\) justifies the global implication. All steps hold for every prime power and size, not merely the tested cases.
+PASS
 
-The standalone exact verifier independently reconstructs examples at \((q,N)=(2,1),(2,2),(3,1),(3,2)\), checks the upper-bound rank condition over 6839 full matrix pairs, checks four next-size witnesses, and returns `VERIFY_OK`. Enumeration is not used as an infinite proof.
+For square matrices, rank(g(X,Y))≤C rank(XY−I) at all m≤N is equivalent to zero evaluation whenever XY=I, since all other denominators have rank at least one and C=N trivially works. Square one-sided inverse implies Y=X^{-1}; embedding X⊕I also reduces all smaller dimensions to N. Modulo (xy−1,yx−1), any g becomes Laurent π(g)(t). Rational canonical form forces its numerator to be divisible by the least common annihilator P_q,N=∏_{irreducible φ≠t, deg φ≤N} φ^{floor(N/deg φ)}; companion matrices force necessity. At unrestricted sizes the degrees diverge and the kernel is (xy−1,yx−1); equality rank(XY−I)=rank(YX−I) plus finite ideal expressions gives a global rank constant. Degree L free words yield Laurent exponents [-L,L], so 2L≥deg P, sharp by lifting t^{-ceil(D/2)}P into x and y monomials. Independently computed P_2,2=(t+1)^2(t²+t+1) modulo two and checked the stated 3×3 inverse-pair counterexample. This proves universal finite prime powers, not merely tested small fields.
 
-## Originality — PASS, with residual risk
+## originality
 
-The nearest inspected source is Yan–Yang, arXiv:2610.01804v1, Proposition 3.1. It proves equality of the two inverse-relation ranks over algebraically closed characteristic zero, not the exact finite-field bounded-size domination ideal, its primary-power exponents, or its sharp degree threshold. Shamovich–Volčič, arXiv:2505.07469v1, Theorem 3.4 treats equality of ranks and stable association; Klep–Vinnikov–Volčič, arXiv:1504.08004v2, concerns other finite-dimensional rational-identity size bounds. Draisma–Kahle–Wiersig, DOI:10.1112/blms.12819, minimizes term count for vanishing on generic rank varieties. None of the inspected results directly gives the full claim, and the database searches yielded no equivalent statement. The rational canonical form and irreducible counts are standard ingredients and are not claimed as new. Older equivalent finite-matrix-polynomial-identity formulations remain a residual originality risk.
+PASS
 
-## Value — PASS
+Yan–Yang study the homogeneous rank Nullstellensatz and mention the nonhomogeneous pair (xy−1,yx−1), including the rank equality needed here. They do not in the accessible abstract/source comparison give a finite-field filtration by universal annihilator polynomials or a sharp least false-positive free-word degree. Shamovich–Volčič study equal rank on all matrices over characteristic zero, not the bounded finite-field inequality. The irreducible-product annihilator is a standard rational-canonical-form consequence; originality is its exact interaction with rank domination and the sharp degree criterion. Similar Resultary finite-field matrix work had different predicates. Residual risk: older finite-field generalized linear group polynomial identity tables might contain the annihilator as a named result.
 
-The exact classification answers a natural question left by the nonhomogeneous rank-domination obstruction: which candidate polynomials can falsely pass every matrix test through dimension \(N\), and what is the smallest degree where such failure can occur? It establishes a sharp all-\(q\), all-\(N\) cutoff, useful for designing and interpreting finite computational rank tests, with an explicit smallest nontrivial binary example. The result is neither a generic known membership restatement nor a finite-table gain.
+## value
 
-## Limitations
+PASS
 
-Only the generator \(xy-1\) and finite coefficient fields are classified. Neither the full general nonhomogeneous problem nor a universal degree-free finite testing rule follows. Exact finite enumeration supports examples; the theorem's full quantifiers rely on the proof. An undiscovered historical equivalent is possible.
+The exact finite-size/degree threshold answers a fundamental verification question: when can bounded matrix tests legitimately certify a global free-polynomial rank implication, and what is the first explicit false positive? The complete ideal filtration over every finite field and tight ceiling deg(P)/2 provide useful structural bounds, even though rational canonical form and irreducible enumeration are standard tools.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

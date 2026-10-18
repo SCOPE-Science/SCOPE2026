@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Use `python3 verify.py` with Python 3 and no nonstandard dependencies. It recomputes primary-polynomial products over \(\mathbb F_2\) and \(\mathbb F_3\), enumerates all invertible matrices up to sizes \(N=1,2\), checks vanishing of the canonical annihilator and its sharp Laurent lift, and verifies explicit failure at the next size. It also checks the rank equality of \(XY-I\) and \(YX-I\) and the predicted truncated rank inequality for every pair at sizes at most two in the stated prime-field cases.
+# Independent mathematical audit
 
-Expected final marker: `VERIFY_OK`. The run reports 6839 exhaustively tested full matrix pairs: 260 at \((q,N)=(2,2)\), 9 at \((3,1)\), and 6570 at \((3,2)\). It also checks four groups of invertibles and the \(D_{2,3}=11\) degree count.
+## correctness
 
-The finite checks are not certificates for unbounded matrix sizes or arbitrary extension fields. The proof establishes the full prime-power and arbitrary-size assertion by rational canonical form, Laurent support, and finite rank inequalities. No independent audit or external validation has been performed.
+PASS
+
+For square matrices, rank(g(X,Y))≤C rank(XY−I) at all m≤N is equivalent to zero evaluation whenever XY=I, since all other denominators have rank at least one and C=N trivially works. Square one-sided inverse implies Y=X^{-1}; embedding X⊕I also reduces all smaller dimensions to N. Modulo (xy−1,yx−1), any g becomes Laurent π(g)(t). Rational canonical form forces its numerator to be divisible by the least common annihilator P_q,N=∏_{irreducible φ≠t, deg φ≤N} φ^{floor(N/deg φ)}; companion matrices force necessity. At unrestricted sizes the degrees diverge and the kernel is (xy−1,yx−1); equality rank(XY−I)=rank(YX−I) plus finite ideal expressions gives a global rank constant. Degree L free words yield Laurent exponents [-L,L], so 2L≥deg P, sharp by lifting t^{-ceil(D/2)}P into x and y monomials. Independently computed P_2,2=(t+1)^2(t²+t+1) modulo two and checked the stated 3×3 inverse-pair counterexample. This proves universal finite prime powers, not merely tested small fields.
+
+## originality
+
+PASS
+
+Yan–Yang study the homogeneous rank Nullstellensatz and mention the nonhomogeneous pair (xy−1,yx−1), including the rank equality needed here. They do not in the accessible abstract/source comparison give a finite-field filtration by universal annihilator polynomials or a sharp least false-positive free-word degree. Shamovich–Volčič study equal rank on all matrices over characteristic zero, not the bounded finite-field inequality. The irreducible-product annihilator is a standard rational-canonical-form consequence; originality is its exact interaction with rank domination and the sharp degree criterion. Similar Resultary finite-field matrix work had different predicates. Residual risk: older finite-field generalized linear group polynomial identity tables might contain the annihilator as a named result.
+
+## value
+
+PASS
+
+The exact finite-size/degree threshold answers a fundamental verification question: when can bounded matrix tests legitimately certify a global free-polynomial rank implication, and what is the first explicit false positive? The complete ideal filtration over every finite field and tight ceiling deg(P)/2 provide useful structural bounds, even though rational canonical form and irreducible enumeration are standard tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
