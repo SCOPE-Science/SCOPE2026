@@ -1,45 +1,21 @@
-# Review of Exact two-jet Lu Qi-Keng phase for the canonical ξ-Bergman Gram kernel
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof starts from the Gram definition, so the coefficient conjugations are fixed independently of any shorthand expansion. Differentiating the classical upper-half-plane Bergman kernel gives the exact quadratic factor
-\[
-F_\xi(t)
-=
-|\xi_0|^2
-+2(\overline{\xi_0}\xi_1-\overline{\xi_1}\xi_0)t
--6|\xi_1|^2t^2.
-\]
-For
-\[
-\xi_0\ne0,
-\]
-its two roots have common imaginary part
-\[
-\frac{\operatorname{Im}(\xi_1/\xi_0)}{3|\xi_1/\xi_0|^2}.
-\]
-The reciprocal-difference parameter ranges over the entire lower half-plane, so root location is exactly equivalent to kernel vanishing. The pure first-derivative case has only the auxiliary zero
-\[
-t=0,
-\]
-which is not attainable by a finite kernel pair.
+PASS
 
-## Originality
+From the upper-half-plane Bergman kernel -1/(π(z-conj w)^2), derivative signs fixed by Gram inner-product conjugation give B_ξ=-1/(πu²)F_ξ(1/u) with F=|ξ0|²+2(conj ξ0 ξ1-conj ξ1 ξ0)t-6|ξ1|²t². If ξ0≠0 and a=x+iy=ξ1/ξ0, then F/|ξ0|²=1+4iyt-6|a|²t², whose two roots have imaginary part y/(3|a|²). For u=z-conj w, t=1/u maps H×H ONTO the open lower half-plane (explicit inverse witnesses), hence zeros exist iff y<0. ξ0=0 gives F proportional to t², with t=0 outside the range; a=0 gives constant F. Symbolic independent root calculations for several complex a and explicit inverse witnesses checked critical branches. No extension to higher jets.
 
-PASS. The lead 2026 paper introduces the canonical Gram kernel and proves upper-half-plane Lu Qi-Keng results for single-index sequences and for the factorial sequence. Its primary theorem does not classify the mixed value-plus-first-derivative family.
+## originality
 
-The earlier \(\xi\)-Bergman and functional \(p\)-Bergman literature studies extremal quantities, regularity, singularity exponents, and higher-order relationships rather than this new two-variable Gram-kernel zero problem. Searches under the equivalent formulations of two-coefficient support, first-derivative mixing, projective phase, and lower-half-plane stability found no implication-equivalent statement.
+PASS
 
-The conclusion is not a special case of the source's single-index result: it includes every nontrivial complex mixture and detects an open half-plane of coefficients for which the kernel actually acquires zeros.
+Claim-specific equivalence, implication, stronger-theorem and table checks were performed with actual Resultary/public primary searches. The novel remainder identified is not directly covered by inspected named theorems. This is a best-of-knowledge priority assessment, not exhaustive proof that no older equivalent exists.
 
-## Value
+## value
 
-PASS. Support
-\[
-\{0,1\}
-\]
-is the first finite-support class in which two differential evaluations interact, so it is the natural first nontrivial test of how the newly introduced Gram kernel's zero set depends on the functional rather than on a single derivative order.
+PASS
 
-The classification is complete, invariant under common nonzero rescaling of the sequence, and exhibits a sharp orientation-sensitive phase boundary. It therefore gives a structural benchmark for higher finite-support stability questions rather than an arbitrary parameter slice.
+The first genuinely mixed value/derivative canonical Bergman Gram kernel has a complete projectively invariant Lu Qi-Keng phase boundary separating zeros from zero-freeness. This exact natural two-jet case provides the minimal nontrivial instance of a higher-support stability problem; while its quadratic solution is elementary given the parent kernel, its precise sharp zero-free region and boundary are useful structural information.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
