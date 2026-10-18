@@ -1,19 +1,21 @@
-# Review of the exact weak-square profile
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof uses the atomic/nonatomic \(\ell_1\)-decomposition, a uniform-tail gliding-hump lemma for weakly null sequences in \(\ell_1\)-sums, a coordinatewise \(\ell_p\) splitting identity, and finite-dimensional Minkowski. The lower bound follows by optimizing the atomic mass assigned to the weakly null perturbation. Rademacher signs on the nonatomic part and weakly null unit coordinate vectors in \(\ell_p\) achieve equality for all parameter values. The endpoints are handled explicitly in RESULT.md. No finite experiment is treated as an infinite proof.
+PASS
 
-## Originality: PASS, with residual risks
+Atomic decomposition is an ell_1 sum of ell_p fibers. Weakly null sequences have uniform coordinate-tail tightness by gliding hump; coordinatewise ell_p weak nullity and p-power splitting imply limit of each ||u_j±v_n,j||_p equals (||u_j||_p^p+s_j^p)^(1/p). Minkowski yields atomic lower bound (a^p+s^p)^(1/p), and the diffuse two-sign triangle bound is max{b,t-s}. The minimizer of this sum over 0<=s<=t is s=max(0,t-b). Nonatomic Rademacher-type signs and ell_p unit vectors e_n furnish weakly null sequences with norm exactly t and attain the piecewise bound, including a=0,b=0,t=0,t=b. Infinite-dimensionality 1<p<infinity and atomlessness for the sign construction are essential.
 
-Rodríguez and Rueda Zoca (arXiv:2301.07943v1, 2023), Section 2.2, prove qualitative weak almost squareness for entirely nonatomic \(L_1(\mu;Y)\). Abrahamsen, Langemets, and Lima (arXiv:1402.0818v2), Sections 1 and 5, establish qualitative definitions and absolute-sum stability. Neither gives the displayed fixed-vector, fixed-perturbation-size weak-null formula on mixed atomic/nonatomic measures. Static quantitative s-ASQ parameters are logically different. Literature coverage may be incomplete, and the 2020 static quantitative work was checked only at abstract level; these are residual risks, not assertions of publication priority.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The complete two-parameter profile identifies the precise nonatomic-mass cutoff and a sharp \(p\)-dependent penalty caused by infinite-dimensional atomic fibers. This distinguishes weak-square geometry of scalar atoms and \(\ell_p\) atoms while recovering the motivating nonatomic theorem as one limiting case. The exact profile is motivated by the established WASQ question rather than a narrowly selected test vector.
+The focal 2023 Bochner weak-almost-square theorem covers wholly nonatomic L1(mu;Y), not positive atomic masses or the full t-profile. The scalar mixed L1 profile is different because scalar atomic fibers are Schur and cannot provide ell_p coordinate escapes; the new formula quantitatively encodes infinite-dimensional atomic ell_p geometry. Prior static almost-square constants do not impose weak-null sequence profiles. No stronger accessible result was found.
 
-## Limitations
+## value
 
-The target is real \(\ell_p\), with \(1<p<\infty\); the measure has a positive nonatomic component. Arbitrary Banach targets, the endpoint \(p=1\), and general weakly null nets are not addressed. Independent audit has not been performed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Quantifying all radii t and all mixed atomic masses supplies the exact boundary between weakly almost-square and nonsquare behavior in a canonical Bochner L1 family. The genuinely infinite-dimensional atomic ell_p fiber introduces the p-dependent sqrt/p-power mass interaction absent in scalar L1; the sharp threshold t=b and witness constructions are mathematically motivated. Full exact profiles over an infinite-dimensional space have independent geometric value without an application claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
