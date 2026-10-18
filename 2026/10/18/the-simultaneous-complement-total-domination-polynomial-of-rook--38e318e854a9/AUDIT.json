@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Every step of the infinite theorem has a self-contained combinatorial proof: domination iff all rows or all columns occupied; complement-total iff no row-column cross contains the set; nonoverlapping a>=3 row-obstruction cases and special a=2 case; inclusion-exclusion and explicitly unique deficient intersection crosses for all but 2x2; sharp lower bounds, constructions, and exact classified minima. Exhaustive direct-adjacency tests of 271,904 minimum-sized-or-smaller subsets and 1,435,472 full-cardinality subsets passed. The finite tests are supplementary, not the infinite argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bermudo et al., arXiv:2404.02853, Definition of the mixed parameter and concluding research directions, focus on modular graph products rather than an all-size rook enumerator.",
+        "Dankelmann et al., Discrete Mathematics 306 (2006), available abstract describes factor domination and factor total domination, not this mixed complement-total rook polynomial."
+      ],
+      "reasoning": "The founding article proposes the mixed invariant but does not give rook enumeration. The broad older factor paper remains an inaccessible plausible source, but its abstract does not supply a dominating theorem. The all-cardinality assertion would require its hypotheses and conclusion to imply the cross-free rook count, which was not found.",
+      "searches": [
+        "https://arxiv.org/pdf/2404.02853",
+        "https://doi.org/10.1016/j.disc.2006.04.017",
+        "domination in a graph and total domination in its complement complete graph products"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2404.02853",
+      "https://arxiv.org/abs/2401.00716",
+      "https://doi.org/10.1016/j.disc.2006.04.017",
+      "https://doi.org/10.7151/dmgt.2002",
+      "https://mathworld.wolfram.com/DominationPolynomial.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For \\(3\\le m<n\\), known ordinary rook domination has \\(n^m\\) minimum-size row transversals; the mixed invariant counts \\(n^m-n-mn(n-1)\\) admissible minimum row transversals.",
+        "The elementary cross obstruction is absent from the ordinary rook theorem and additional work proves the new exclusion count and the all-size correction.",
+        "Bermudo et al., 2024, propose the mixed parameter but do not derive its rook polynomial."
+      ],
+      "reasoning": "The prior ordinary cardinality polynomial strictly counts a superset and does not give the exact cross-contained subsets without new reasoning. The founding mixed parameter work gives neither this family classification nor the needed all-size enumerator; no inspected stronger statement subsumes the claim.",
+      "searches": [
+        "https://arxiv.org/pdf/2404.02853",
+        "https://arxiv.org/pdf/2401.00716",
+        "\"simultaneous domination\" \"complement\" \"rook graph\"",
+        "\"SDCTD\" \"rook\" domination"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rook graph is the line graph of the complete bipartite graph, hence equivalent to nonattacking row-column occupancy language.",
+        "For a selected rook set, complement-total domination means it is not contained in any row-column cross; this is strictly stronger than ordinary domination.",
+        "Full-text check of arXiv:2401.00716 yields the ordinary rook polynomial only."
+      ],
+      "reasoning": "The placement and line-graph descriptions were included in searches. Unlike standard global domination (ordinary domination in both graphs), the mixed condition demands complement-neighbors for selected vertices too. No searched equivalence with a pre-existing full count was identified.",
+      "searches": [
+        "\"simultaneously dominating\" \"complement total\" \"rook\"",
+        "\"SDCTD\" \"Cartesian product\" complete graphs",
+        "\"global total domination\" \"rook graph\" Cartesian",
+        "simultaneous domination of complete bipartite line graph and its complement minimum placements all cardinality counts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mertens, arXiv:2401.00716, Theorem and enumerative tables give ordinary domination, not complement-total domination.",
+        "OEIS total-domination data for rook graphs concern total domination in the original rook graph, rather than its complement."
+      ],
+      "reasoning": "A known table of ordinary dominating sets permits coefficientwise comparisons but does not enforce the new open-neighborhood complement condition. A table of total dominating rook placements is a different parameter, so neither is an exact table of the mixed invariant.",
+      "searches": [
+        "https://arxiv.org/pdf/2401.00716",
+        "Stephan Mertens 2024 Domination Polynomial of the Rook Graph ordinary generating polynomial",
+        "\"SDCTD\" \"rook\" domination",
+        "OEIS:A384117"
+      ]
+    },
+    "rationale": "The original 2024 parameter introduction discusses modular graph products; the 2024 full-text rook domination paper studies only ordinary domination. Explicit row-column cross obstructions and the complete mixed polynomial, including minimum multiplicities, are not implied by those results; a bounded search found no identified stronger covering result. Unindexed and inaccessible literature remain residual risks.",
+    "residual_risks": [
+      "Unindexed or differently named results may already contain the mixed rook-graph cardinality polynomial.",
+      "The full texts of two plausible older broad simultaneous/complement-parameter articles were not accessible; their abstracts were compared only.",
+      "Neither independent scientific review nor external validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines new mixed parameter; no exact all-cardinality rook polynomial or minimizer count found",
+        "evidence": [
+          "arXiv:2404.02853 (2024), introduction and concluding discussion describe the mixed parameter as independently interesting; the results focus on modular product bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.02853",
+        "material_read": "Full text: opening definition, parameter discussion, theorem statements, concluding sections and research directions",
+        "method": "Inspected accessible arXiv primary paper text and page images",
+        "title": "Domination number of modular product graphs",
+        "trigger": "Exact origin and closest definition of simultaneous domination and complement total domination"
+      },
+      {
+        "assessment": "Counts ordinary rook domination only, not simultaneous complement-total domination",
+        "evidence": [
+          "arXiv:2401.00716 (2024), main theorem enumerates placements dominating rook-board squares."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2401.00716",
+        "material_read": "Full primary text: definitions, main polynomial theorem, computations and tables",
+        "method": "Inspected accessible arXiv PDF text and page images",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Possible exact prior rook domination enumerator"
+      },
+      {
+        "assessment": "No decisive covering implication in accessible material; residual access risk acknowledged",
+        "evidence": [
+          "Dankelmann–Henning–Goddard–Laskar (2006), abstract treats factor domination and factor total domination."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2006.04.017",
+        "material_read": "Accessible abstract and bibliographic record; full text not obtained",
+        "method": "Read abstract and compared described objects/quantifiers",
+        "title": "Simultaneous graph parameters: Factor domination and factor total domination",
+        "trigger": "Broader simultaneous-domination work potentially implying the mixed invariant"
+      },
+      {
+        "assessment": "Known relation results do not in the accessible abstract establish a rook enumerator; residual access risk acknowledged",
+        "evidence": [
+          "Desormeaux–Haynes–Henning (2018), stated scope on domination parameters of graph and complement."
+        ],
+        "identifier_or_url": "https://doi.org/10.7151/dmgt.2002",
+        "material_read": "Accessible bibliographic abstract only; publisher full text inaccessible in this check",
+        "method": "Read abstract and compared to exact mixed all-cardinality statement",
+        "title": "Domination parameters of a graph and its complement",
+        "trigger": "General complement-domination bounds might imply rook case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "38e318e8-54a9-4634-ae45-9b126c2d279a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recently introduced mixed domination invariant has natural unresolved exact families; the two-dimensional rook graph is a canonical product of complete graphs. A complete all-cardinality polynomial and full optimizer classification add new structural cross exclusions beyond the known ordinary rook domination polynomial. The m=2 boundary and exact multiplicity formulas have natural combinatorial meaning and are applicable without numerical computation.",
+    "status": "PASS"
+  }
+}
