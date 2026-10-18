@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,76 +19,24 @@
 }
 ---
 
-Let
-\[
-A=F'(0)
-=
-[u_1\ \cdots\ u_k\ B]
-\]
-for an origin-preserving holomorphic map
-\[
-F:\Delta^k\times\mathbb B^m\to\mathbb B^{k+m}.
-\]
-The line Schwarz lemma gives
-\[
-\|A(z,w)\|_2
-\le
-\max\{\|z\|_\infty,\|w\|_2\}.
-\]
+# Independent mathematical audit
 
-For every unit vector \(v\in\mathbb C^m\), averaging
-\[
-\left\|
-\sum_{j=1}^k\varepsilon_j u_j+\eta Bv
-\right\|_2^2
-\le1
-\]
-over independent unit phases gives exactly
-\[
-\sum_{j=1}^k\|u_j\|_2^2+\|Bv\|_2^2\le1.
-\]
-Thus, with
-\[
-s=\sum_{j=1}^k\|u_j\|_2^2,
-\]
-\[
-\|B\|_{\mathrm{op}}^2\le1-s.
-\]
+## correctness
 
-Hadamard and AM-GM then give
-\[
-|\det A|^2
-\le
-\left(\frac{s}{k}\right)^k(1-s)^m.
-\]
-Differentiating the logarithm shows that the unique interior maximizer is
-\[
-s=\frac{k}{k+m},
-\]
-and substitution gives
-\[
-|\det A|^2
-\le
-\frac{m^m}{(k+m)^{k+m}}.
-\]
+PASS
 
-The linear map
-\[
-L(z,w)
-=
-(k+m)^{-1/2}
-(z_1,\ldots,z_k,\sqrt m\,w)
-\]
-maps the whole product into the Euclidean unit ball and has determinant squared exactly equal to the upper bound.
+For Ω=Δ^k×B^m, k,m≥1, d=k+m, the balanced Minkowski functional is max(‖z‖∞,‖w‖2). Restricting every origin-preserving holomorphic Ω→B^d map to complex lines gives derivative contraction A. Writing A=[u1…uk B], exact independent-unit-phase averaging of the squared Euclidean norm of ∑ε_j u_j+η Bv (unit v∈C^m) yields ∑‖u_j‖²+‖Bv‖²≤1, hence ‖B‖op²≤1−s. Hadamard and AM-GM prove |det A|²≤(s/k)^k(1−s)^m with unique maximizer s=k/(k+m) and value m^m/(k+m)^(k+m). The explicit diagonal linear map L(z,w)=(z,√m w)/√(k+m) is a valid strict map and attains equality. Since B^d⊂Ω⊂Δ^d, Kobayashi–Eisenman monotonicity and the normalized endpoint values both 1 imply kΩ(0)=1. Independently checked k=m=1→1/4 and k=1,m=2→4/27, and exact asymptotics e^(−k)m^(−k) for fixed k. All quantifiers and endpoint domain cases are as stated.
 
-Finally,
-\[
-\mathbb B^{k+m}
-\subset
-\Delta^k\times\mathbb B^m
-\subset
-\Delta^{k+m}
-\]
-and the exact endpoint Kobayashi–Eisenman values are both \(1\), so the mixed-product value is \(1\) as well.
+## originality
 
-Every step is exact. No sampled determinant optimization, finite enumeration, or asymptotic extrapolation is used as proof.
+PASS
+
+Read the complete full-text primary localization paper by Jaiswal–Kar (arXiv:2606.01773), including its product model and exact k_{Δ×B^n}(0)=1 plus pure-polydisc q=d^{-d}. It does not state or imply an exact mixed-product c/q determinant optimum; product inclusions alone bound k but not c. General convex-domain estimates of Kar 2024 do not provide the sharp parameterized mixed-product formula in the material checked. Resultary searches exposed the current claim and unrelated volume/model constants, no dominating exact q formula. Acceptance remains best-of-knowledge with older invariant-volume literature risk.
+
+## value
+
+PASS
+
+The mixed polydisc–ball is the precise scaling model used in contemporary Eisenman localization. Its exact Carathéodory quotient is a natural invariant missing from the source model analysis; the formula gives all k,m and sharp asymptotics, not just a restatement of known K factor. Although finite-dimensional determinant inequalities yield an elementary proof, the independently useful exact benchmark is motivated and not a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
