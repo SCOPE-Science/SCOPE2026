@@ -1,0 +1,15 @@
+# Scientific review: shortest cube-matching homology carriers
+
+## Correctness — PASS
+The twelve cube edges and all matching simplices are reconstructed from binary coordinates, yielding face vector \((12,42,44,9)\). Exact boundary ranks \((11,31,9)\) and thirty-one unit Smith factors of the middle boundary establish the low-dimensional chain structure. Enumeration of all induced edge subsets proves the first nonzero mod-two second homology occurs on eight vertices and identifies precisely six such supports. A displayed sequence of four valid free-face collapses produces a connected, closed, Euler-characteristic-two surface for one carrier; cube symmetry transports this certificate to all six. The \(44\)-by-\(13\) combined boundary-and-carrier matrix has rank thirteen and thirteen unit Smith factors, proving *integral* spanning rather than rational spanning alone. Signed simplex Lefschetz traces are checked for all forty-eight automorphisms, with the stated irreducible character decomposition. The package's exact verifier confirms these steps.
+
+## Originality — PASS, with residual risk
+Braun and Hough's complete available preprint arXiv:1606.01204v1 investigates planar two-row grids and generalized line-graph families; its symmetry question concerns a different family. The closest directly matching public result, *The cube matching complex is \(\bigvee^4 S^2\)* (`79d70fe8b67e`), was inspected in its complete RESULT statement and proof; it establishes the same complex's abstract homotopy type, **not** its minimum induced supports, integral carrier lattice, or complete automorphism character. Additional mathematical-record searches for perfect-matching-complement supports and antipodal representation aliases did not locate a theorem implying the combined result. There remains the possibility of an unindexed or differently named equivalent calculation; this is not a claim of proven publication priority.
+
+## Mathematical value — PASS
+The cube is a canonical three-dimensional Cartesian power of an edge, and its matching complex already has four top-dimensional homology generators. The sharp six-carrier classification explains precisely *where* these homology classes first arise on induced subcomplexes, the unit Smith certificate shows that a subset of four genuinely generates the full integral lattice, and the antipodal/label-permutation representation distinguishes classes unseen by the Betti numbers. This is a natural local-to-global topological invariant and a meaningful symmetry refinement of the known homotopy type, not merely a rank recomputation.
+
+## Limitations
+No theorem is asserted for higher-dimensional cubes. The group-module splitting is rational, and matching of existing publications is relative to accessible records and full texts. The exact integral carrier-spanning statement is independently reproduced from the local package, but no independent mathematical audit has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
