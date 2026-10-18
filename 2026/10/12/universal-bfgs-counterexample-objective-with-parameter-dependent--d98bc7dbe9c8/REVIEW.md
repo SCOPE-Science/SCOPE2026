@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source was inspected at the exact points used by the construction: the affine ratio map spans from below \(6\delta\) to above \(1-6\delta\); the global interpolant is constant outside its tube, is bounded below by \(f_\infty-2\delta\), and has Hessian bounded by \(K/\delta^2\); every designed step is a first local minimizer with exact endpoint orthogonality.
+PASS
 
-For a target \(q\in(0,1)\), the choice
-\[
-\delta=\min\left\{\frac1{20},\frac q{12},\frac{1-q}{12}\right\}
-\]
-places \(q\) strictly inside the source's realizable ratio interval. Spatial scaling by \(1/\delta\) makes the Hessian bound uniform while leaving the normalized decrease ratio unchanged and retaining a fixed positive gradient norm on that copy. Summable heading deviations put each tube inside a finite-width strip, so recursive transverse translations make countably many copies disjoint and locally finite. The common-start obstruction follows directly from the first Goldstein interval.
+PASS: Starting from Diao smooth tubular counterexamples (exterior-constant, lower bounded by -2delta relative to exterior and Hessian norm <=K/delta²), choose a rational dense family of line-search ratios q and delta=min(1/20,q/12,(1-q)/12), allowing exactly q between source interpolation endpoint ratios. Horizontal scale b=1/delta makes uniform Hessian bound K and leaves each orbit gradient norm delta>0; translating each narrow tube along a direction perpendicular to common limiting step heading yields mutually disjoint locally finite strips. The sum F is C-infinity, bounded below >=-1/10, has globally K-Lipschitz gradient, and for every c1<c2 admits q in (c1,c2) with Goldstein/Armijo/Wolfe first-local-minimum steps. Fixed common first step cannot meet Goldstein intervals of all c1<c2 because normalized R is one real number. The argument is analytic infinite construction, NOT established by finite verifier alone.
 
-## Originality
+## originality
 
-PASS. The primary source explicitly leaves a single parameter-independent objective as an open question. Searches using the source identifier and aliases for universal objectives, parameter-dependent starts, dense ratios, disjoint gluing, and the Goldstein first-step obstruction did not locate an equivalent result. A related DFP paper uses disjoint smooth supports, but for a different fixed-regime interpolation and without the dense-ratio or uniform-rescaling argument.
+PASS
 
-A residual risk is that an extremely recent solution may not yet be indexed. The result avoids overstating the source's ambiguous wording by separating the two natural initialization quantifier orders.
+PASS best-of-knowledge: Diao arXiv:2609.09686 constructs a DIFFERENT objective for each parameter pair and explicitly poses whether one universal objective exists; his tubular exterior constancy and curvature bounds enable, but do not state, countable dense assembly with parameter-dependent initializations. Other quasi-Newton counterexamples cover distinct methods/quantifiers. Universal F and common-start obstruction are distinct from the prior parameter-by-parameter statements.
 
-## Value
+## value
 
-PASS. The result directly addresses the source's stated universal-versus-parameter-specific gap. The positive construction turns the full uncountable parameter triangle into one objective with a uniform gradient-Lipschitz constant, while the negative clause shows why a common-start version cannot coexist with simultaneous Goldstein requirements. This is a structural clarification and construction, not a routine parameter substitution.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Resolves Diao’s explicit quantifier problem under parameter-dependent starts via a genuine global smooth gluing lemma, and sharply rules out the common-start formulation under simultaneous Goldstein. Clarifies a method-independent line-search impossibility with a motivated boundary; not just renaming a parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
