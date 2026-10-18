@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-16",
+  "audited_at_utc": "2026-10-16T19:12:39.380070Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For scalar A=e1 and Gaussian sketch rows, W=chi-square_l/l has density proportional to w^{l/2-1}e^{-lw/2}. Since M(w)=1-eta/w behaves as -eta/w near zero, E|M(W)|^r is finite if and only if r<l/2, including strict boundary divergence. Conditioning on the finite run partition of k iterations gives independent blocks with exponent q*r_i. The all-retention event has positive probability (1-p)^{k-1} for every 0<p<1, yielding cutoff l>2qk, while p=1 gives cutoff l>2q; deterministic B-block refresh gives l>2q min(B,k). Independent symbolic inverse-chi-square moments at eta=(l-4)/l give E M^2=2/(l-2), so i.i.d. second moment is its kth power; l=6,k=2 retained block demands fourth inverse moment and diverges. The state-independent positive-probability reset chain is ergodic with chi-square invariant law; integrable logarithm plus Jensen yields the same strictly negative a.s. exponent for all p>0 and periodic schemes. This is an exact analytical proof, not inference from a finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lacotte–Pilanci Theorem 4.1 provides the complete i.i.d. second moment; stochastic Hessian averaging assumes a different oracle/aggregated Hessian."
+        ],
+        "reasoning": "These general sketching frameworks do not establish this exact unclipped shared-preconditioner moment cutoff, although standard renewal/gamma moment lemmas are antecedents.",
+        "searches": [
+          "Faster Least Squares Optimization 1911.02675 Section 4 inverse moments",
+          "Hessian averaging in stochastic Newton methods Gaussian sketches 2023"
+        ]
+      },
+      "checked_sources": [
+        "Lacotte–Pilanci arxiv:1911.02675 full original source",
+        "Pilanci–Wainwright JMLR 17 (2016), 14-460 original IHS reference",
+        "Wang–Ouyang–Xu PMLR 162 (2022) v162/wang22t",
+        "Resultary semantic query for reuse/chi-square moments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.1 proof takes independence of each S_t explicitly; the nested sequentially correlated sketch algorithm of Wang et al. is different."
+        ],
+        "reasoning": "Independence is exactly the premise that fails when p<1, so the known product expectation cannot imply the new divergent moments; the extension requires explicit run-length conditioning and ergodic argument.",
+        "searches": [
+          "arxiv:1911.02675 Theorem 4.1 IID refreshed",
+          "PMLR v162 wang22t iterative double sketching"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lacotte–Pilanci Theorem 4.1 treats independently refreshed sketches; their fixed case maintains a single sketch, not a Bernoulli run partition."
+        ],
+        "reasoning": "The scalar exact gamma-tail integral yields a new joint (k,p,l,q) discontinuity for 0<p<1. A fixed conditioned preconditioner can hide unconditional divergence, so an i.i.d. estimate is not a distributional equivalence.",
+        "searches": [
+          "iterative Hessian sketch reused Gaussian sketch Bernoulli refresh inverse chi-square heavy tailed moment divergence almost sure convergence",
+          "\"Gaussian sketch\" \"reuse\" \"moments\" \"infinite\" \"Hessian\" iterative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inverse-chi-square negative-moment table gives l>2r for W^-r, but no retrieved source tabulated the Bernoulli run-probability moment frontier."
+        ],
+        "reasoning": "The gamma moment identity is classical and credited; the exact reuse-policy classification is not a known numeric table lookup. Searches do not prove exhaustive novelty.",
+        "searches": [
+          "iterative Hessian sketch reused Gaussian sketch Bernoulli refresh inverse chi-square heavy tailed moment divergence almost sure convergence",
+          "inverse Wishart reused preconditioner moments Bernoulli sketch"
+        ]
+      },
+      "rationale": "PASS best of knowledge: the i.i.d. fresh-sketch mean-square formula and optimal step belong to Lacotte–Pilanci 2019/2021 and are explicitly excluded from novelty. Their full Section 4 Theorem 4.1 requires i.i.d. sketches; it does not imply the all-retention rare-event heavy-tail cutoff for a Bernoulli-persistent sketch, the p-independent almost-sure exponent, or the bounded reuse threshold. Conditional fixed-sketch high-probability arguments are different from unconditional moments over shared inverse chi-square multipliers.",
+      "residual_risks": [
+        "Unindexed inverse-Wishart correlated-preconditioner or renewal-theory formulation might already imply a special scalar cutoff.",
+        "No conclusion for matrix-valued noncommuting sketches, robust inverse clipping or floating-point implementations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 4.1 proves i.i.d. rate; does not give Bernoulli retention or p-independent a.s. exponent",
+          "evidence": "Theorem 4.1 Eq.(4.1)–(4.2) and proof explicitly uses independence",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.02675",
+          "material_read": "26-page primary PDF, Introduction, §§3–4 and Theorem 4.1 p.11 with proof p.12, fixed vs iid assumptions",
+          "method": "arXiv full text with PDF page-image inspection",
+          "title": "Faster Least Squares Optimization",
+          "trigger": "same scalar Gaussian IHS update and optimal i.i.d. mean-square result"
+        },
+        {
+          "assessment": "Related double sketch gradient/Hessian design with sequentially related embeddings, not the claimed Bernoulli single Hessian retention model; partial-paper priority caveat retained",
+          "evidence": "PMLR 162 (2022), p.22935–22963",
+          "identifier_or_url": "https://proceedings.mlr.press/v162/wang22t.html",
+          "material_read": "29-page primary PMLR PDF, abstract and related-work setting, sketch-embedding Theorem 4.1 and appendix proof; not all 29 pages",
+          "method": "primary PMLR PDF primary theorem/appendix and published abstract examination",
+          "title": "Iterative Double Sketching for Faster Least-Squares Optimization",
+          "trigger": "correlated or sequentially related sketch antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sketch reuse is a natural practical performance choice. The sharp threshold says that even a tiny chance of keeping a bad inverse sketch for a long run eventually destroys finite expected error moments, while typical sample paths contract at unchanged exponential rate. The deterministic refresh-cap B offers a mathematically precise safeguard. This sharp moment-versus-a.s. distinction is a motivated structural boundary even in the deliberately simple rank-one setting.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Lacotte–Pilanci arxiv:1911.02675 full original source",
+    "Pilanci–Wainwright JMLR 17 (2016), 14-460 original IHS reference",
+    "Wang–Ouyang–Xu PMLR 162 (2022) v162/wang22t",
+    "Resultary semantic query for reuse/chi-square moments"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Unindexed inverse-Wishart correlated-preconditioner or renewal-theory formulation might already imply a special scalar cutoff.",
+    "No conclusion for matrix-valued noncommuting sketches, robust inverse clipping or floating-point implementations."
+  ],
+  "schema_version": 1
+}
