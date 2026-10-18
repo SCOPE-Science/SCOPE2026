@@ -1,24 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Conditioning on \(T=t\) gives
-\[
-\Pr(X_\lambda<t)=1-e^{-\lambda t}
-\]
-and
-\[
-\operatorname{E}(t-X_\lambda)_+
-=
-t-\frac{1-e^{-\lambda t}}{\lambda}.
-\]
-After conditioning the lifetime law on \(T>0\), the positive-mass probability cancels from numerator and denominator. Dominated convergence gives the positive conditional mean as the high-rate limit, and the remaining algebra recovers the conditional Laplace transform. Laplace-transform uniqueness proves identification. The packaged checker verifies the reconstruction and exact zero-inflation invariance.
+## correctness
 
-## Originality
-PASS. The primary 2026 article develops inference and sensitivity analysis for the exponential-inspection profile but does not derive this inversion. The closest random-age MRL theory paper gives general representations and stochastic comparisons rather than profile identification. Classical ordinary-MRL characterization concerns a different deterministic-age function. Focused database and literature searches found no covering theorem.
+PASS
 
-Residual risk remains that a very recent or unindexed source independently contains the same inversion.
+For independent X_lambda~Exp(lambda) and T>=0, P(T>X)=E[1-exp(-lambda T)] and E(T-X)_+=E T-E[1-exp(-lambda T)]/lambda, by conditioning and direct integration. If p=P(T>0), H=law(T|T>0), mu+=E_H T, and L_H is its Laplace transform, cancellation gives r_T=mu+/(1-L_H)-1/lambda. Since H puts no mass at 0, dominated convergence gives L_H(lambda)->0 as lambda->infty and r_T(lambda)->mu+. Consequently L_H(lambda)=1-mu+/(r_T(lambda)+1/lambda); Laplace uniqueness yields equality of positive conditional laws iff all profile values coincide. A delta_0 mixture only multiplies numerator and denominator by the same positive factor. The finite two-point illustration, including mu+=3.1, is corroborative. Assumes finite positive mean and all lambda>0; finite-rate samples do not identify arbitrary laws.
 
-## Value
-PASS. The result converts a sensitivity curve into a complete information statement: among positive lifetimes the full curve determines the entire law, while on nonnegative lifetimes it is blind exactly to the atom at zero. This is a natural structural property of the source's central rate-indexed object and directly clarifies both population and complete-data interpretation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Manshi (AIMS Mathematics 2026) develops the latent exponential-inspection sensitivity estimator and its population functional; the accessible publisher article displays abstract and references, not the complete 45-page full text or a theorem on profile injectivity. The empirical identity is a specialization of its exponential inspection algebra, but the sharp equivalence relation across all nonnegative lifetime laws and its atom-at-zero blind spot were not found in accessible source material. Asadi--Berred (2025) treats random-age residual-life comparisons, rather than Laplace inversion of the full rate-indexed profile. Laplace transform uniqueness itself is classical, credited as an ingredient. Because the primary full paper is not readable, prior implication coverage remains an explicit substantial risk; O is a bounded best-of-knowledge judgment only.
+
+## value
+
+PASS
+
+The full inspection-rate curve has a natural identifiability question in latent monitoring: which parts of the lifetime distribution are in principle recoverable? The answer identifies precisely the positive conditional distribution and a sharp nonidentifiable zero atom, including an empirical invariance. This structural characterization is independently useful for experiment design and avoids overstating identification from finite rates or right-censored data; it is not merely a normalization-sign check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
