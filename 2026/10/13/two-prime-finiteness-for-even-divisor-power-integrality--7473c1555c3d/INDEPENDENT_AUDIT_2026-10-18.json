@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-18",
+  "audited_at_utc": "2026-10-18T16:13:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Multiplicativity of σ_k gives σ_k(2^ap^b)=S_{k,a}·Σ_{j=0}^b p^{kj}, with S odd and the p-geometric factor ≡1 mod p. For even k, p^k≡1 mod8 and LTE/factorization yields v₂(Σ_{j=0}^b p^{kj})=v₂(b+1); hence divisibility iff 2^a|(b+1) and p^b|S. Then b≥2^a−1; if a≥2k, elementary 2^a−1≥k(a+1) and p≥3 imply p^b≥3^{2^a−1}>2^{k(a+1)}>S_{k,a}, contradiction. So a≤2k−1, making the sieve finite. At k=2, a≥2 impossible by size; a=1 forces S=5 and (p,b)=(5,1), yielding n=10. Independent exact divisibility/valuation and factorization tests for k=2,4 (solutions 10,34) corroborate the proof, not the entire infinite family by computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai–Chen–Zhang arXiv:1310.0898 proves finiteness for fixed multiplier B in σ₂(n)−n²=Bn and refers to infinitely many even solutions of n|σ_k(n).",
+          "Luca–Ferdinands 2006 short note only bibliographic/theorem references accessed, not full text."
+        ],
+        "reasoning": "Unrestricted infinitely many even solutions do not contradict a two-prime finite subclass. Multiplier-fixed finiteness does not bound solutions where the quotient changes with n. Full note may contain a related local observation.",
+        "searches": [
+          "divisibility n divides sigma_k n for n=2^a p^b even k finiteness bound",
+          "Cai Chen Zhang Perfect numbers Fibonacci primes sigma2 multiplier finite 2013",
+          "Luca Ferdinands Problem 11090 Sometimes n divides sigma_k(n) 2006"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1310.0898",
+        "https://oeis.org/A046762",
+        "https://www.jstor.org/stable/27641939"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior unlimited-prime-support and fixed-multiplier statements do not include a≤2k−1 for n=2^a p^b.",
+          "New proof combines 2-adic valuation v₂(b+1) and exponential growth p^b≥3^{2^a−1} versus S_{k,a}<2^{k(a+1)}."
+        ],
+        "reasoning": "These are elementary ingredients, but a two-prime effective finite classification is not an immediate corollary of the compared broader statements. An unlocated earlier theorem with the same local criterion would cover it, retained as risk.",
+        "searches": [
+          "Cai Chen Zhang 2013 Perfect numbers Fibonacci primes fixed B theorem",
+          "OEIS A046762 full sequence",
+          "Luca Ferdinands 2006 Problem 11090"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact condition n|σ_k(n) is not equivalent to k-harmonic means or σ_k(n)−n^k=Bn at fixed B.",
+          "Resultary published 2026/9/20/SCOPE-proper-k-harmonic-even-two-prime-obstruction--cdf948b46a1e treats k-harmonic condition, not this integrality criterion."
+        ],
+        "reasoning": "Prime-support notation resembles other divisor classifications, but the arithmetic congruence is different; fixed multiplier results cannot be specialized to a varying quotient B.",
+        "searches": [
+          "divisibility n divides sigma_k n for n=2^a p^b even k finiteness bound",
+          "divisor power sum k-harmonic two prime support 2^a p^b distinction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A046762 contains n=10 and other solutions including n=60 with three prime supports; it does not state the all-even-k local sieve.",
+          "Full k=2 two-prime sieve gives unique 10 and independent k=4 sieve gives 34."
+        ],
+        "reasoning": "Known sequence entry 10 is not the novel theorem by itself; value and novelty reside in the uniform k-even effective finiteness/prime-support classification and its proof. A finite list alone would not imply a general bound.",
+        "searches": [
+          "OEIS A046762 n divides sigma_2 n",
+          "divisibility n divides sigma_k n for n=2^a p^b even k finiteness bound"
+        ]
+      },
+      "rationale": "Classical multiplicative-function identities and LTE receive no novelty credit. OEIS A046762 lists k=2 examples including 10 but not the across-all-even-k two-prime finite classification. Luca–Ferdinands (2006) gives infinitely many even solutions without the two-prime restriction; Cai–Chen–Zhang (2013) treats fixed-multiplier σ₂ equations and some σ₃ prime-support cases. These do not logically imply uniform finiteness for n=2^a p^b when multiplier varies. Best-of-knowledge PASS with full short 2006 note unavailable and possibility of known two-prime arithmetic lemma.",
+      "residual_risks": [
+        "The 2006 Luca–Ferdinands note was not accessible in full; a short direct two-prime lemma could overlap.",
+        "k=2 solution 10 already appears in OEIS and is not separately claimed as an original discovered integer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different fixed-multiplier/odd-exponent results; does not directly imply target finite family.",
+          "evidence": "Cai, Chen and Zhang (2013), arXiv:1310.0898.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.0898",
+          "material_read": "Accessible primary full arXiv paper; read relevant σ₂ and σ₃ statements, Lemma 5 and 2006 citation, rendered relevant PDF page.",
+          "method": "Compared fixed-B equation and prime supports to n|σ_k(n) for n=2^a p^b.",
+          "title": "Perfect numbers and Fibonacci primes",
+          "trigger": "Nearest general σ_k divisibility and fixed multiplier literature."
+        },
+        {
+          "assessment": "Contains k=2 example 10 but not a theorem for all even k or an all-a bound.",
+          "evidence": "OEIS A046762, historical entry dated 1999.",
+          "identifier_or_url": "https://oeis.org/A046762",
+          "material_read": "Accessible sequence entries, definition and historical attribution.",
+          "method": "Compared listed n=10 and n=60 with two-prime-support restriction and theorem quantifiers.",
+          "title": "A046762: Numbers whose squared-divisor sum is divisible by the number",
+          "trigger": "Exact database/table of k=2 solutions may have already recorded output."
+        },
+        {
+          "assessment": "Supports existence of infinitely many even n with unrestricted support, does not resolve exact two-support comparison.",
+          "evidence": "Luca and Ferdinands (2006), American Mathematical Monthly 113, 372–373.",
+          "identifier_or_url": "https://www.jstor.org/stable/27641939",
+          "material_read": "Complete article unavailable; theorem described in Cai–Chen–Zhang Lemma 5 and bibliographic entry.",
+          "method": "Inspected secondary primary-paper citation and tried targeted search for lawful full text.",
+          "title": "Problem 11090: Sometimes n divides sigma_k(n)",
+          "trigger": "Possible direct general construction/prime-support counterexample."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The integrality condition n|σ_k(n) is a classical arithmetic question and the restriction to two distinct prime factors isolates a natural minimal-support obstruction to unrestricted infinitude. Explicit valuation and size arguments yield an effective finite decision procedure for every even k and determine its first nontrivial instance exactly; not simply reproducing OEIS values.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1310.0898",
+    "https://oeis.org/A046762",
+    "https://www.jstor.org/stable/27641939"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only even k≥2 and exactly prime supports 2 and odd p; no uniform complexity or larger-support classification.",
+    "The bound a≤2k−1 is effective but not asserted best possible."
+  ],
+  "residual_risks": [
+    "The 2006 Luca–Ferdinands note was not accessible in full; a short direct two-prime lemma could overlap.",
+    "k=2 solution 10 already appears in OEIS and is not separately claimed as an original discovered integer."
+  ],
+  "schema_version": 1
+}
