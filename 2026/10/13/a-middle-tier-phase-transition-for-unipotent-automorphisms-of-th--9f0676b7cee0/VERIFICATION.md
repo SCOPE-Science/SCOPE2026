@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-17.md",
+      "INDEPENDENT_AUDIT_2026-10-17.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The proof is symbolic for every \(a,b\ge2\) and \(c\ge1\). The finite exact-arithmetic regression script `check_chain_roots.py` constructs all primitive coordinate rays and maximal-chain rays, enumerates the integer box \(\{-1,0,1\}^{a+b+c}\) for eleven triples, and compares the resulting root sets to the theorem. It separately computes the nonzero Lie root brackets and their lower central series. Run `python3 check_chain_roots.py`; the expected console text is in `check_output.txt`. Both artifacts are included.
+## correctness
 
-The eleven cases comprise six with one middle element and five with two or three middle elements, totaling \(30{,}861\) tested vectors. Bounded enumeration is a check of the exact formula, not an exhaustive computation of every character in the infinite lattice. Exhaustiveness is furnished by the facet-inequality proof in RESULT.md. Group classification also uses the standard Demazure theorem on complete toric automorphisms.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The irredundant chain-polytope facets x_z>=0 and Σ_(i,j,k) x_i+x_j+x_k<=1 supply precisely coordinate rays e_z and triple rays -(e_i+e_j+e_k). The Demazure distinguished-ray inequalities force coordinate -epsilon_z roots; if the singled-out middle layer consists of one q, subsets in exactly one outer layer also give roots -epsilon_q+Σ_I epsilon_i or Σ_J epsilon_j, counting shared empty subset once. Every triple ray has another triple containing each coordinate (a,b>=2), excluding triple-distinguished roots. Standard toric Demazure theory gives torus dimension d plus these root groups. Direct derivation commutators delete subset elements and prove F⋊H=G_a^(2^a+2^b-1)⋊G_a^(a+b), class max(a,b)+1 (not inferred from root count alone). Independently enumerated all integer characters in [-1,1]^5 and [-1,1]^6 for (a,b,c)=(2,2,1),(2,2,2), finding exactly 11 and 6 roots; infinite exhaustion rests on ray inequalities.
+
+## originality
+
+PASS
+
+Nill, Bruns--Gubeladze and Stanley give general Demazure roots/toric automorphisms/poset-polytope facts; their general results make this family computable but do not state this explicit middle-tier phase transition. The finding concerns the chain-polytope normal fan, not the order-polytope (Hibi) toric model. Similar terms named Demazure modules/marked chain polytopes are distinct structures, not covering the automorphism group here.
+
+## value
+
+PASS
+
+For a natural family of toric varieties of three-level ordinal-sum posets, the exact connected automorphism group, exponential versus linear growth of root group count and unbounded versus class-one unipotent nilpotency across c=1→2 give a meaningful structural classification. The nilpotency class and precise semidirect decomposition are useful invariants absent from general algorithmic root definitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
