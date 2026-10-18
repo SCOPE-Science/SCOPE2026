@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For a binary table with true margins \(P,Q\), predicted margins \(R,S\), and determinant \(\Delta=TP\,TN-FP\,FN\), the exact identities \(M=\Delta/\sqrt{PQRS}\) and \(\kappa=2\Delta/(PS+QR)\) reconstruct both statistics. The witness has common \(N=12\), common \(P=4\), all cells positive, and common \(\Delta=4\); direct substitution gives \(2/17>1/10\) for kappa but \(1/\sqrt{70}<1/8\) for MCC. Exhaustive exact enumeration proves that no positive-score strict reversal occurs for \(N\le11\), and that exactly two complement-related reversals occur at \(N=12\). The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the theorem excludes zero-cell and negative-association tables; those are different finite domains.
+PASS
 
-## Originality
-**PASS.** The closest primary comparison, Chicco–Warrens–Jurman, studies the mathematical relation between MCC and kappa, proves the pointwise extremeness relation, and reports that positive values are generally concordant while emphasizing negative-regime discordance. The checked full text does not state a fixed-prevalence positive-score ranking reversal, a minimum sample size, or a complete first layer. Exact-table and alias searches likewise did not locate the twelve-case boundary.
+Binary table (TP,FP,FN,TN) all strictly positive and TP*TN>FP*FN, same N and same actual prevalence P across compared classifiers. Writing Q=N-P,R=TP+FP,S=N-R,Delta=TP*TN-FP*FN gives MCC=Delta/sqrt(PQRS) and kappa=2Delta/(PS+QR). These exact formulas were rederived; positive signs make squared MCC comparisons order-preserving. Complete independent enumeration of positive-Delta tables and all unordered pairs by N,P from N=4 through 12 used integer cross-products for squared MCC and exact rational kappa: no weak disagreement for N<=9, 4 weak-only differences at N10, none at N11, and exactly 2 strict reversals (class-complements) at N12. Through N11, 382 eligible pairs checked. N10 P3: A=(1,1,2,6),B=(2,3,1,4), MCC ties 1/sqrt21, kappas 4/19>1/5. N12 P4: (2,3,2,5) kappa2/17 MCC1/sqrt70 vs (3,5,1,3) kappa1/10 MCC1/8: strictly opposite. Finite exhaustion is valid because claim quantifies only 4<=N<=12 for minimal boundary.
 
-Risk: a small numerical pair could occur in unindexed instructional or software material without a minimality result.
+## originality
 
-## Value
-**PASS.** The result isolates a subtle failure exactly where the closest comparison literature suggests practical concordance: both scores are positive, all four cells are populated, and true prevalence is held fixed. The witness also has equal cross-product determinant, showing that predicted-margin treatment alone can reverse model preference. This gives a compact diagnostic for the distinction between two widely used balanced binary-classification summaries.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Primary published comparison identifies metric properties and large discrepancies (especially negatively associated confusion matrices), but does not derive sharp first positive-association fixed-prevalence ordinal reversal and equality classification at N=12. Targeted Resultary search encountered generic correlation floors and unrelated confusion-matrix Markov fibers, not this threshold. Exact numbers and search failures alone do not guarantee novelty, but statement and restrictions differ substantively from background metrics.
+
+## value
+
+PASS
+
+Sharp minimal data-set size and precise weak-versus-strict onset for two widely used classification measures under scientifically meaningful nondegenerate positive-association/fixed-prevalence constraints. Demonstrates pointwise metric closeness does not guarantee ordinal classifier ranking; exact small-model boundary is useful as a methodological counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

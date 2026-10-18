@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-17",
+  "audited_at_utc": "2026-10-17T01:11:02.752246Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Binary table (TP,FP,FN,TN) all strictly positive and TP*TN>FP*FN, same N and same actual prevalence P across compared classifiers. Writing Q=N-P,R=TP+FP,S=N-R,Delta=TP*TN-FP*FN gives MCC=Delta/sqrt(PQRS) and kappa=2Delta/(PS+QR). These exact formulas were rederived; positive signs make squared MCC comparisons order-preserving. Complete independent enumeration of positive-Delta tables and all unordered pairs by N,P from N=4 through 12 used integer cross-products for squared MCC and exact rational kappa: no weak disagreement for N<=9, 4 weak-only differences at N10, none at N11, and exactly 2 strict reversals (class-complements) at N12. Through N11, 382 eligible pairs checked. N10 P3: A=(1,1,2,6),B=(2,3,1,4), MCC ties 1/sqrt21, kappas 4/19>1/5. N12 P4: (2,3,2,5) kappa2/17 MCC1/sqrt70 vs (3,5,1,3) kappa1/10 MCC1/8: strictly opposite. Finite exhaustion is valid because claim quantifies only 4<=N<=12 for minimal boundary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chicco–Warrens–Jurman 2021 discusses MCC/kappa comparison, pointwise inequality and empirical differences"
+        ],
+        "reasoning": "A pointwise inequality |kappa|<=|MCC| is not an order-preservation theorem; comparing two tables with differing predicted margins requires different denominators. Its examples do not imply the first fixed-prevalence positive-score strict reversal.",
+        "searches": [
+          "smallest strictly positive MCC Cohen kappa opposite rankings binary confusion matrices fixed prevalence twelve cases"
+        ]
+      },
+      "checked_sources": [
+        "Chicco, Warrens, Jurman, IEEE Access 2021 DOI:10.1109/ACCESS.2021.3084050 full PDF",
+        "Matthews 1975 and Cohen 1960 original metric definition citations",
+        "Resultary semantic query: smallest strictly positive MCC Cohen kappa opposite rankings binary confusion matrices fixed prevalence twelve cases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "MCC and kappa formulas from their classical definitions; comparison literature contains score-scale inequalities"
+        ],
+        "reasoning": "Score definitions imply each table’s scores, not the global exhaustive smallest N across all common true-prevalence pairs. Independent integer enumeration is the essential additional finite classification.",
+        "searches": [
+          "smallest strictly positive MCC Cohen kappa opposite rankings binary confusion matrices fixed prevalence twelve cases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MCC vs Cohen kappa order relations for classifiers with fixed actual positive prevalence, strictly positive 2x2 cells and positive association, including tie-splitting vs strict reversal"
+        ],
+        "reasoning": "Search and primary review found metric comparisons but not an equivalent minimal-case classification. Fixed predicted margins make the two scores proportional, so unrestricted comparison examples are not equivalent.",
+        "searches": [
+          "smallest strictly positive MCC Cohen kappa opposite rankings binary confusion matrices fixed prevalence twelve cases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search hits 2026/9/8/SCOPE057 finite 3x3/3x4 Markov fibers, and SCOPE-sharp-correlation-floor-for-two-increasing-codings-of-one-ordina--975f072affe2, both different tables/invariants"
+        ],
+        "reasoning": "No directly covering table found, but unindexed statistics teaching examples may contain a 12-case witness.",
+        "searches": [
+          "smallest strictly positive MCC Cohen kappa opposite rankings binary confusion matrices fixed prevalence twelve cases"
+        ]
+      },
+      "rationale": "Primary published comparison identifies metric properties and large discrepancies (especially negatively associated confusion matrices), but does not derive sharp first positive-association fixed-prevalence ordinal reversal and equality classification at N=12. Targeted Resultary search encountered generic correlation floors and unrelated confusion-matrix Markov fibers, not this threshold. Exact numbers and search failures alone do not guarantee novelty, but statement and restrictions differ substantively from background metrics.",
+      "residual_risks": [
+        "One or both twelve-case witnesses may be recorded in unindexed educational datasets without stating sharpness.",
+        "All conclusions rely on fixed true prevalence and strictly positive positive-determinant cells, not general binary-classifier agreement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports metric motivations and known pointwise comparisons, but inspected analysis does not classify all pairs by smallest N and common actual prevalence.",
+          "evidence": [
+            "DOI:10.1109/ACCESS.2021.3084050",
+            "Web source turn188320view0, pages turn188320view2"
+          ],
+          "identifier_or_url": "DOI:10.1109/ACCESS.2021.3084050",
+          "material_read": "Publicly accessible complete PDF, especially definitions, positive/negative association comparisons and worked examples in pages 5 and 8–9.",
+          "method": "Full PDF opened, relevant pages inspected; formula implications compared with new sharp positive fixed-prevalence question.",
+          "title": "The Matthews correlation coefficient (MCC) is more informative than Cohen’s kappa and Brier score in binary classification assessment",
+          "trigger": "Direct modern comparative primary study of the identical two statistics"
+        },
+        {
+          "assessment": "Definition/origin reference only, no minimal ordinal counterexample claims inferred.",
+          "evidence": [
+            "Matthews 1975, DOI 10.1016/0005-2795(75)90109-9"
+          ],
+          "identifier_or_url": "DOI:10.1016/0005-2795(75)90109-9",
+          "material_read": "Bibliographic publication identity, not original article in full.",
+          "method": "Bibliographic check via source reference and primary comparison article.",
+          "title": "Comparison of the predicted and observed secondary structure of T4 phage lysozyme",
+          "trigger": "Classical introduction of the Matthews correlation coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp minimal data-set size and precise weak-versus-strict onset for two widely used classification measures under scientifically meaningful nondegenerate positive-association/fixed-prevalence constraints. Demonstrates pointwise metric closeness does not guarantee ordinal classifier ranking; exact small-model boundary is useful as a methodological counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classification only at common N/P, all four counts>0, Delta>0",
+    "Complete finite enumeration is exhaustive for N<=12 only and is not a theorem for all larger N"
+  ],
+  "schema_version": 1
+}
