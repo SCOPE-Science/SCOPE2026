@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The explicit recurrence and binomial-generating-function identity give dyadic shifts of exact valuations. These show that the subsequence \(F_{6t}\) attains every residue divisible by eight and the subsequence \(L_{6t+3}\) attains every residue congruent to four modulo eight. Congruence classification and fixed witnesses then prove both claimed sumset identities and sharpness for all \(m\ge3\). The stand-alone verifier checks exponents 3–12, while the proof is uniform and infinite.
+
+**Originality — PASS, with residual risk.** The accessible full-text HTML of Shen–Xu's eligible 2026 manuscript was examined in its theorems, recurrence parity subsection and relevant local calculations; appendix headings were also inspected. It addresses five recurrence terms plus primes, not a two/three-even-term residue-image classification. Park et al. (2020) study unrestricted-length representations; Southwick (2014) and OEIS A066853/A066981 address single-sequence residue completeness/counts. Published-result searches and accessible prior claims yielded no equivalent or stronger theorem. A classical implicit derivation from more detailed modular distribution results remains possible.
+
+**Mathematical value — PASS.** Local admissibility at powers of two is a natural ingredient in mixed additive-recurrence problems. The result identifies a persistent exact missing quarter of even residue classes for two mixed summands and the sharp transition to full local coverage with a third summand, uniformly in an unbounded modulus. The two explicit 2-adic permutation lemmas explain the structure rather than merely giving a finite table. This does not by itself improve an asymptotic prime-representation theorem.
+
+**Sources and limits.** Main source: Shen–Xu, arXiv:2610.12291v1 (2026-10-08). Comparators: Park et al., Symmetry 12 (2020), 1625; Southwick, arXiv:1402.0598; OEIS A066853 and A066981. Residual uncertainty concerns unindexed literature and possible derivations from older exact distribution results. The main source was available as full HTML and relevant sections were examined; the Southwick abstract was read, not its complete PDF. No independent validation was performed.
+
+Self-review: passed. Independent audit: not yet performed.
