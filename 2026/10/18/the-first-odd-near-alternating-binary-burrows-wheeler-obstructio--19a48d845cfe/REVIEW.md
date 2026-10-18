@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** A standard single-cycle BWT criterion, parity of binary transitions, and a bijective encoding by equal-adjacency positions reduce the entire finite claim to \(48\) candidate words for the upper bound at length \(49\), one candidate per position for each earlier odd length, and \(\binom{48}{3}=17296\) candidates for the sharp extremizer count. The standalone checker reconstructs each permutation from two independent descriptions and directly recomputes the BWT for all accepted candidates. Periodic necklaces have too few runs to change the extremum. The complete code and recorded output are included. The result does not extrapolate from finite samples.
+
+**Originality — PASS within the checked literature.** The full text of Fici–Gabory–Romana–Sciortino (2025 preprint; CPM 2026) establishes the nonbinary no-clustering constructions and the binary fully-unclustered Artin correspondence, but not the parity-ceiling first failure among odd lengths or this exact length-\(49\) count. The inspected Mantaci–Restivo–Rosone–Sciortino–Versari (2017) full-text postprint covers the fully-unclustered criterion and clustering ratios, not the stated odd-length extremum. Available indexed mathematical results were compared on implication; none established the binary length-49 result. Unindexed or differently formulated extremal BWT tables remain a risk, so this assessment is not independent certification.
+
+**Value — PASS.** Binary BWT images are the exceptional alphabet in recent work on maximal run counts. The result identifies the first finite odd length where the natural parity ceiling actually fails and completely counts the sharp extremizers; it is a motivated and reproducible boundary phenomenon, not an arbitrary example or an incremental search record. The statement is finite and does not resolve the open infinite-length behavior.
+
+Self-review: passed. Independent audit: not yet performed.
