@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs every quantifier in the degree-one definition. For a fixed cointegral basis, every chain extension is parameterized by one vector \(z\), and conversely every such vector assignment extends to edges pathwise because the graph-cycle condition is exactly that the three path coefficients sum to zero. The weighted one-center formula is exact in dimension two because \(\ell^1_2\) is linearly isometric to \(\ell^\infty_2\), where pairwise intersection of the three axis-aligned boxes implies common intersection coordinatewise. Cointegrality is then equivalent to independent integer coordinate columns for the two integral homology generators. The integral lower bound and the three unimodular witnesses close the optimization. The bundled exact-arithmetic checker reproduces these reductions on a substantial finite range but is not substituted for the universal proof.
+## correctness
 
-## Originality
-PASS. Hofmann--Löh define the invariant and treat a one-cycle example, but the inspected paper contains no theta, cactus, graph, or girth formula. Targeted statement, alias, weighted-projection, and cycle-space searches found no result implying the claimed expression. The closest prior result is the reciprocal-girth formula for cactus graphs; theta graphs violate the cactus edge-disjoint-cycle hypothesis, and the present formula can be strictly larger than reciprocal girth. A nearby Banach-space literature studies projection constants for Laakso and diamond graph cycle spaces, but with a different normed-space invariant and no implication to the cointegral-basis optimization here.
+PASS
 
-## Value
-PASS. Three-path theta graphs are the first natural rank-two family in which simple cycles overlap. The exact formula isolates the additional obstruction caused by overlap and gives a sharp transition between reciprocal-girth behavior and a larger value. The equilateral case doubles the reciprocal-girth scale, so the calculation marks a concrete boundary of the cactus phenomenon rather than merely renaming or substituting parameters in the earlier result.
+Let p_i denote three oriented branch-to-branch path sums of lengths a<=b<=c. A chain extension on cycles forces q_i=z+x,z+y,z in rank-two homology. For fixed cointegral basis B, distributing each q_i equally along the path is optimal and turns ||s|| into inf_z max(||z+x||/a,||z+y||/b,||z||/c). The dimension-two isometry (u,v)->(u+v,u-v) maps l1 balls to l_infty boxes, where triple intersection is equivalent to pairwise intersection, giving max(||x-y||/(a+b),||x||/(a+c),||y||/(b+c)). Cointegral bases correspond to independent integral coordinate columns u,v. All ||u||1,||v||1,||u-v||1>=1, at least one >=2, and unimodular witnesses put 2 on the largest denominator b+c. Therefore exactly max(1/(a+b),2/(b+c)); rational witness/centers suffice for every subfield F⊂R. Independently tested 120 sorted length triples through length 8 and rational optimization. The infinite statement follows from the integer lower bound, not finite cases.
 
-## Closest literature and limitations
-The defining source is Hofmann--Löh, arXiv:2610.02987v1, Definition 7.1 and Example 7.13. Dilworth--Kutzarova--Ostrovskii, arXiv:2007.07949, is a nearby cycle-space projection reference but concerns projection constants in Lipschitz/transportation-cost spaces. The theorem here is limited to degree one on three-path theta graphs. An unindexed independent calculation or a hidden specialization of a broader theorem remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Hofmann–Löh first define algebraic gnarledness and compute one circle (Example 7.13), but their full arXiv text has no three-path theta classification. A published cactus-graph reciprocal-girth formula assumes edge-disjoint cycles; theta graphs share paths and are not cactus. This formula has a genuine second b+c scale and equilateral theta G=2/g rather than 1/g. General graph cycle-space projection constants use nonidentical invariant definitions; no stronger covering relation identified.
+
+## value
+
+PASS
+
+Theta is the smallest natural rank-two graph with overlapping simple cycles, supplying a sharp boundary and phase transition beyond the cactus reciprocal-girth rule. The exact formula answers a motivated new chain-extension norm question for a standard graph family and can guide later series-parallel classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
