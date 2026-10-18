@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For all even bases b>=2 and positive d dividing b-1, n=d(b+1), congruences b=1 (mod d) and b=-1 (mod b+1) force d|s_b(N) and exclude odd sums 1<=s_b(N)<b+1. The 2d-one block A is n-divisible and has digit sum 2d. The five-digit block B=b^4+d*b^2+(d-1)*b+(b-1) is n-divisible and has digit sum b-1+2d. Coprimality gcd(d,b+1)=1 holds because b is even. Arbitrary concatenation attains all even positive multiples of d and all odd multiples greater than b-1. The omitted odd multiples d,3d,...,b-1 are therefore exactly the gaps. The Python finite-state verifier proves bounded-sum reachability for all lengths for 28 tested parameter pairs, not the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2002.02731, Theorems 3–4, finite-state reachability and digit-sum increase by b-1",
+        "arXiv:2303.13017, Theorems 1–3"
+      ],
+      "reasoning": "The 2020 general attainability equivalence gives a decision method for fixed parameters, and the increment-by-(b-1) result gives sparse subsequences once one witness is known, but neither implies the full uniform missing set without the new exact congruence plus two-witness argument. The 2023 cofiniteness theorem covers only eventual behavior when gcd=1, whereas here gcd(b-1,n)=d can exceed 1. The 2023 Theorem 2 does cover the even branch, a substantive partial overlap explicitly recognized; it does not settle the odd branch.",
+      "searches": [
+        "Digit sums of multiples of b+1 and d(b+1) where d divides b-1, complete attainable digit sum semigroup, missing odd values below b",
+        "sum-of-digits spectrum multiples of b+1, smallest odd digit sum, exact classification all even digit sums and odd above b",
+        "modular digit automata reachability full spectrum digit sums of multiples of divisor of b squared minus one",
+        "\"digit sum\" \"multiples\" \"b+1\" \"odd\" \"even\" base"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2303.13017",
+      "https://arxiv.org/abs/2002.02731",
+      "https://oeis.org/A283742",
+      "https://oeis.org/A216995"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2303.13017, Example 4 proves 3 is absent for b=10,n=33",
+        "arXiv:2303.13017, Question 2 requests complete Out sets",
+        "arXiv:2002.02731, Theorem 4 adds b-1 to realized sums"
+      ],
+      "reasoning": "Theorem 2 of the 2023 paper already provides every even multiple of d because n=d(b+1) has base-b digits d,d and digit sum 2d. Its Example 4 excludes 3 for modulus 33 but does not exclude 9 or prove all odd multiples d above b-1 occur; the new five-digit witness B supplies that entire missing implication. The general 2020 increment-by-(b-1) result also lacks this sharp odd threshold.",
+      "searches": [
+        "Out(s_b,n) n=33 b=10 precisely 3 9 missing, Frobenius digit sum arc set divisibility by 33",
+        "exact attainable digit sums of multiples of b squared minus one, b plus one, even b and d divides b minus one; missing odd multiples of d up to b minus one",
+        "Phunphayap Noppakaew Pongsriiam digit sum directed graph Question 2 exact Out 10 33 exceptions 3 9 and every other multiple of 3",
+        "\"Phunphayap\" \"Noppakaew\" \"Question 2\" digit sum multiples graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2303.13017, definition of Out(s_b,n) and Example 4",
+        "arXiv:2303.13017, Question 2",
+        "OEIS A283742"
+      ],
+      "reasoning": "Compared the same statement written as the image of the digit-sum map on multiples, as the out-neighborhood in a digit-sum-directed graph, and as residue/sum reachability of a digit automaton. The source identifies one excluded value for modulus 33, not the full image, and no matching formula appeared among inspected records.",
+      "searches": [
+        "Out(s_b,n) n=33 b=10 precisely 3 9 missing, Frobenius digit sum arc set divisibility by 33",
+        "Phunphayap Noppakaew Pongsriiam digit sum directed graph Question 2 exact Out 10 33 exceptions 3 9 and every other multiple of 3",
+        "site:oeis.org \"sum of digits\" \"multiples of 33\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A283742 enumerates integers divisible by 11 with digit sum 11",
+        "OEIS A216995 enumerates multiples of 11 with digit sums divisible by 11"
+      ],
+      "reasoning": "Both checked tables concern restricted decimal integer sequences and neither states the set of every attainable digit sum for every divisor d(b+1) of b squared minus one. The first lists instances of the odd boundary, not a covering theorem.",
+      "searches": [
+        "site:oeis.org \"multiples of 11\" \"digit sum\"",
+        "site:oeis.org \"sum of digits\" \"multiples of 33\""
+      ]
+    },
+    "rationale": "The originating 2023 paper proves a congruence restriction and (for decimal modulus 33) only excludes digit sum 3, then asks in Question 2 for complete output sets in strict cases. The new statement gives the entire decimal modulus-33 spectrum and all even-base moduli d(b+1), d|b-1. The earlier generic automata/digit-splitting theorem and the relevant OEIS tables do not assert the infinite uniform missing-set formula. Actual mathematical-record and literature queries found no equivalent, but a gap in indexing remains a risk. In this family the originating Theorem 2 already covers all even multiples of d, since the starting modulus itself has digit sum 2d; the new material is the exact odd branch and the resulting full image.",
+    "residual_risks": [
+      "An unindexed paper, older recreational mathematics solution, or unpublished result might already contain the same closed-form output spectrum. Mathematical-record search alone cannot prove global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_STATE_NEW_FORMULA",
+        "evidence": [
+          "Theorem 1 gives congruence and cofiniteness only",
+          "Theorem 2 gives every multiple of the digit sum of n, covering all even multiples of d in this family",
+          "Example 4 excludes only target 3 for b=10,n=33",
+          "Question 2 asks for exact determination in strict cases"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.13017",
+        "material_read": "Full sections 1–3, including definition, Theorems 1–3, Examples 4–5 and Questions 1–4; PDF pages 5 and 10 also visually inspected",
+        "method": "Full-text arXiv HTML plus original PDF text and rendered pages",
+        "title": "Directed graphs of integers with arcs determined by an arithmetic function",
+        "trigger": "Same exact digit-sum out-neighborhood object and explicit decimal modulus 33 example"
+      },
+      {
+        "assessment": "GENERAL_METHOD_NOT_UNIFORM_EXACT_SPECTRUM",
+        "evidence": [
+          "Theorem 3 equates realizability with distinct-power congruences",
+          "Theorem 4 gives realization of sums t+r(b-1) after seed t",
+          "No explicit all-base family d(b+1) or sharp missing-set formula in inspected material"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2002.02731",
+        "material_read": "Full text of introductory definitions, Section 2 Theorems 3–4, Section 3 Theorem 5, and finite-state algorithm descriptions",
+        "method": "Public arXiv HTML full text",
+        "title": "Computational Aspects of Sturdy and Flimsy Numbers",
+        "trigger": "Plausible stronger general digit-sum reachability theorem"
+      },
+      {
+        "assessment": "EXAMPLES_ONLY",
+        "evidence": [
+          "Lists integers such as 209 and 308, not the global spectrum as d and b vary"
+        ],
+        "identifier_or_url": "https://oeis.org/A283742",
+        "material_read": "Sequence title, initial terms, comments, references and related sequences",
+        "method": "Public OEIS full sequence page",
+        "title": "OEIS A283742: Numbers with digit sum 11 that are multiples of 11",
+        "trigger": "Potential exact-sequence coverage at the smallest odd boundary in base ten"
+      },
+      {
+        "assessment": "DIFFERENT_PROPERTY",
+        "evidence": [
+          "Filters integers by one digit-sum divisibility property, not attainable sums of all multiples"
+        ],
+        "identifier_or_url": "https://oeis.org/A216995",
+        "material_read": "Sequence title, initial terms, examples, references and code",
+        "method": "Public OEIS full sequence page",
+        "title": "OEIS A216995: Multiples of 11 whose digit sum is a multiple of 11",
+        "trigger": "Related digit-sum restriction at modulus 11"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a0db430d-1708-4e33-86ef-49f431a87da6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2023 originating source explicitly asks for complete image sets in the strict-congruence case (Question 2) and names decimal modulus 33 as a motivating example. The theorem solves that entire example and a two-parameter infinite family distinguished intrinsically as divisors of b^2-1 containing b+1; it gives a uniform sharp hole list, an exact count of holes and their largest element independent of d. The result is a motivated natural complete classification, not an arbitrary fixed small computation. It makes no unsupported assertion about unrelated moduli.",
+    "status": "PASS"
+  }
+}
