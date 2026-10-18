@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The Fourier-state generator and its symmetric resolvent give an exact rational time correlation. For D>0, Parseval summability plus the translational diffusion spectral gap allow the covariance integral and locally uniform complex continuation. The Stieltjes poles are distinct for D>0, v>0; their residues recover each power. Subtraction of N+1 readings eliminates D0 and gives an invertible Cauchy matrix. An N-reading nullspace perturbation inside a positive parameter region proves minimality. The attached symbolic verifier and numerical quadratures check essential finite-dimensional identities without claiming to prove infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "van Ginkel, van Gisbergen and Redig (2021), arXiv:2101.09046, Theorem 3.1: general diffusion Green--Kubo resolvent and circle examples.",
+        "Patel et al. (2026), arXiv:2607.25902v1: transport of interacting active/passive particles."
+      ],
+      "reasoning": "General forward diffusivity implies the first resolvent step but by itself does not assert the finitely sampled, baseline-free inverse identification, a minimum probe count, or the exact loss of identifiability in singular limits. Classical rational interpolation is acknowledged as mathematical background, and implicit coverage remains a risk.",
+      "searches": [
+        "passive tracer forced by periodic function of freely moving telegraph run and tumble active particle with translational diffusion exact effective diffusivity Fourier Green Kubo",
+        "diffusivity spectroscopy run and tumble Fourier reconstruct potential force spectrum"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.25902v1",
+      "arxiv:2101.09046",
+      "arxiv:2408.16643",
+      "Pietrangeli et al. (2024), Optimal run-and-tumble in slit-like confinement"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2101.09046 supports the underlying covariance-resolvent method; the present inverse map requires resolving the mode-specific poles B_n and subtracting readings to eliminate D_0.",
+        "arXiv:2607.25902v1 studies an interacting model and approximate strong-driving free-motion simplification, without stated minimal-probe identification."
+      ],
+      "reasoning": "The Cauchy proof follows from the special explicit mode dispersions and the free-driver semigroup, and the minimal N+1 claim additionally needs a dimension/nullspace lower bound. These are not mere restatements of nonmonotone forward transport; general inverse-transform results may nevertheless subsume the mathematical method.",
+      "searches": [
+        "Transport spectroscopy: recovering Fourier force power spectrum from effective diffusivity at several run-and-tumble reversal rates; Stieltjes-transform residues and Cauchy matrix reconstruction",
+        "passive tracer diffusivity tumble rate optimization nonmonotonic two wavelength periodic force, exact threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.25902v1 analyzes diffusivity in an interacting active/passive pair, using a free-driver approximation, not force-power inversion.",
+        "arXiv:2101.09046 derives general resolvent expressions for run-and-tumble diffusion."
+      ],
+      "reasoning": "Fourier amplitudes and force phases must not be conflated. The claim identifies only absolute-square Fourier coefficients through a parameter-dependent Stieltjes transform, not the unknown force shape. No equivalent statement was located in the inspected relevant sources.",
+      "searches": [
+        "Transport spectroscopy: recovering Fourier force power spectrum from effective diffusivity at several run-and-tumble reversal rates; Stieltjes-transform residues and Cauchy matrix reconstruction",
+        "Exact injected tracer effective diffusion in periodic field driven by Brownian telegraph noise, complete monotonicity in tumbling rate and inverse identification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2607.25902v1 reports forward transport formulas, not a tabulation of inverse modal force powers.",
+        "The identified prior Green--Kubo study arXiv:2101.09046 does not provide an N+1-rate inversion table for the specified exogenous model."
+      ],
+      "reasoning": "No exact database of modal powers or an inversion recipe with the stated sampling sharpness was found in the relevant inspected articles. This absence does not prove universal novelty.",
+      "searches": [
+        "Non-monotonic diffusion from nonequilibrium driving Patel Sarkar Basu Chaudhuri 2607.25902 Fourier propagator, force spectrum reconstruction",
+        "Transport spectroscopy: recovering Fourier force power spectrum from effective diffusivity at several run-and-tumble reversal rates; Stieltjes-transform residues and Cauchy matrix reconstruction"
+      ]
+    },
+    "rationale": "The forward Green--Kubo-resolvent method is known. The assessed extension identifies every harmonic power from a tumbling-rate transport observable, proves a sharp N+1 measurement threshold with unknown thermal baseline, and exhibits exact propulsion/noise identifiability boundaries. The motivating interacting-particle article analyzes effective diffusion but does not state this inverse result. Broad abstract inversion theory might imply aspects; no directly dominating source was identified in inspected material.",
+    "residual_risks": [
+      "Abstract inverse-Stieltjes or Cauchy-matrix identifiability literature may subsume the rational reconstruction; no global novelty guarantee.",
+      "The motivating interacting particle system is distinct; one-way-coupled model identity must not be extrapolated.",
+      "Finite-sample algebraic uniqueness does not imply stable estimation with noisy measurements or large harmonic count."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant forward model, no finite-rate force-spectrum inverse theorem found in examined material.",
+        "evidence": [
+          "The paper focuses on diffusivity nonmonotonicity under active and passive nonequilibrium driving."
+        ],
+        "identifier_or_url": "arxiv:2607.25902v1",
+        "material_read": "Model equations on a ring, the active run-and-tumble driver, strong-drive/free-relative-coordinate transport approximation, Fourier propagator discussion, and appendicial calculation.",
+        "method": "Available full-text article and appendix examined in their relevant model and diffusion sections.",
+        "title": "Non-monotonic diffusion from nonequilibrium driving",
+        "trigger": "Closest 2026 active/passive particle diffusion model."
+      },
+      {
+        "assessment": "Broad forward Green--Kubo representation is known prior art; force-power tomography from finite reversal-rate samples not stated in examined theorem or examples.",
+        "evidence": [
+          "General L2 Markov-resolvent diffusion tool."
+        ],
+        "identifier_or_url": "arxiv:2101.09046",
+        "material_read": "Theorem 3.1 on diffusion and reversible/irreversible process, Green--Kubo resolvent and Brownian circle forcing example.",
+        "method": "Accessible article full-text theorem and examples inspected.",
+        "title": "Run-and-Tumble Motion: The Role of Reversibility",
+        "trigger": "Potentially dominating general rigorous diffusivity/resolvent theorem."
+      },
+      {
+        "assessment": "Different geometry and observable; no force-harmonic inversion.",
+        "evidence": [
+          "Confinement-swimming optimization rather than free driver force-spectrum recovery."
+        ],
+        "identifier_or_url": "2024 article, Pietrangeli, Ybert, Cottin-Bizonne, Detcheverry",
+        "material_read": "Slit confinement setup and optimization of run-and-tumble persistence, selected mechanism and results sections.",
+        "method": "Accessible full-text sections inspected.",
+        "title": "Optimal run-and-tumble in slit-like confinement",
+        "trigger": "Relevant tuning reversal frequency to optimize transport."
+      },
+      {
+        "assessment": "Switching transport theory, no matching periodic-force inverse theorem identified in inspected portions.",
+        "evidence": [
+          "Intermittent active-motion diffusion, not identification of unknown Fourier force power."
+        ],
+        "identifier_or_url": "arxiv:2408.16643",
+        "material_read": "General switching setup and effective diffusion relations, including intermittent active/passive phases.",
+        "method": "Accessible article main model and formulas inspected.",
+        "title": "Dynamics of switching processes: general results and applications in intermittent active motion",
+        "trigger": "Broader switching-diffusion transport formulas."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "13e6ecfe-4092-4080-82cb-fb593df63858",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Reconstructing unknown periodic-force harmonic power from diffusion-versus-tumbling measurements is a natural inverse transport question. The exact sharp number of measurements, infinite-band uniqueness, non-identifiability when propulsion or driver Brownian noise vanishes, and monotone-response consistency law give precise experiment-design and mechanistic discriminants rather than merely an isolated forward diffusivity formula. The conclusion is confined to a physically defined exogenous driver and does not assert experimental noise robustness.",
+    "status": "PASS"
+  }
+}
