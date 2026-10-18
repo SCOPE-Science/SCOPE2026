@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The stationary vector construction and synchronous Poisson-reset contraction reconstruct the precise radial Markov semigroup. The characteristic product is integrable in three dimensions; Fourier inversion supplies the positive cubic coefficient. Two separate dominated-convergence arguments, including an integrable characteristic-function bound uniformly as the contraction approaches one, establish both sharp endpoint constants. The second-moment generator calculation independently excludes a scalar sum of independent Erlang distances. Executable numeric checks corroborate but do not certify the infinite-dimensional limits.
+
+**Originality — PASS, qualified.** Kolb--Wübker (2026), Proposition 10, identifies the model while its Corollary 11 and Lemma 12 assert a scalar perpetuity and super-polynomial near-origin decay incompatible with the true Bessel radial semigroup. Grzywny et al. (2024/2026), Theorem A and Proposition 2.22, already cover smooth stationary densities for fixed contraction in arbitrary dimension. Thus the fixed-parameter cubic exponent, existence, smoothness and general Fourier construction are not claimed as original. The two explicit limiting constants as the *conditioning-induced reset rate and contraction vary together* are not contained in the inspected fixed-parameter statements or their space-time convergence regimes; Targeted mathematical-record and primary-literature queries identified no matching endpoint law. A stronger general parameter-uniform result could subsume these limits, and priority requires independent verification.
+
+**Value — PASS.** The parameter-dependent near-boundary mass is a directly motivated invariant of the positive-conditioned resetting process. Its sharp endpoints quantify two competing degeneration mechanisms and imply a nontrivial interior maximizer, while demonstrating why the published super-polynomial near-origin assertion cannot describe this stationary Bessel law. This is more than the normalization or moment check alone.
+
+The positive result covers only the order of limits stated in RESULT.md. It does not establish a unique maximizer, joint double limits, or broader implications for quasistationary statements.
+
+Self-review: passed. Independent audit: not yet performed.
