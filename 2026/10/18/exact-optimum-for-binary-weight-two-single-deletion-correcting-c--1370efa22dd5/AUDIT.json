@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The proof partitions codewords into adjacent-one loops and separated-one pairs. Each uses respectively one or two distinct singleton-one deletion outputs, yielding ell+2e<=n-1. Consecutive loop positions are forbidden by an explicit common output obtained by deleting zeros, so ell<=ceil((n-1)/2). These inequalities give the claimed upper bound. Explicit even adjacent pairs and period-four separated pairs attain it, with all singleton and double-one descendants separated by parity, gap, and nonoverlapping first-one positions. The corner n=2 and all larger integers are included. A separate runnable checker confirms direct disjointness n=2..96 and exact optimum n=2..8. Finite checks supplement, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "En Gad first submitted 2026-09-16 and proves a redundancy existence bound for unrestricted codes correcting t>=2 deletions, not the fixed-weight-two exact optimum for one deletion.",
+        "Sloane presents the general descendant graph and VT constructions without stating the present extremal constant-weight formula in the examined text."
+      ],
+      "reasoning": "A general code existence result does not determine its optimum after restriction to an exact composition class. The code size without a weight restriction also fails to give this sharp conditional maximum. The only exact same-weight primary source encountered studies adjacent transpositions, whose implication does not transfer.",
+      "searches": [
+        "arXiv:2609.19493 introduction and theorem 1.1",
+        "arXiv:math/0207197 §2 and §6",
+        "\"constant weight\" \"single deletion correcting\" \"weight 2\"",
+        "\"constant weight two\" \"deletion correcting\" code"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.19493 (first v1 2026-09-16)",
+      "arXiv:math/0207197",
+      "doi:10.1016/j.dam.2018.03.085",
+      "published result 2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c (summary only)",
+      "arXiv:2609.21395 (indexed title/abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sloane establishes the general definition and discusses VT codes, not a characterization of optimal weight-two subcodes.",
+        "Gómez Soto et al. prove packing for single adjacent transposition; deleting any coordinate is a stricter and different equivalence relation.",
+        "En Gad works with t>=2 and redundancy over the unrestricted binary space."
+      ],
+      "reasoning": "The new claim is the exact all-n maximum among weight-two one-deletion codes and an attaining construction. It is not an immediate parameter substitution of the unrestricted optimum, the transposition packing theorem, or a t>=2 asymptotic existence bound.",
+      "searches": [
+        "arXiv:math/0207197 Definition 1.1 and §2",
+        "doi:10.1016/j.dam.2018.03.085 abstract and §1.1",
+        "arXiv:2609.19493 Theorem 1.1",
+        "binary words of Hamming weight 2 length n correcting one deletion exact maximum n-1-floor((n+1)/4) via adjacent pair and spaced pair construction",
+        "constant weight two single deletion correcting codes extremal size deletion ball independent sets loop matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sloane 2002 treats unrestricted binary single-deletion codes, not an explicit exact weight-two-only maximum in the examined sections.",
+        "Gómez Soto et al. 2018 solves weight-two adjacent TRANSPOSITION correction, a different channel; its asymptotic quadratic optimal size is incompatible with the linear-size deletion problem."
+      ],
+      "reasoning": "Synonyms checked included constant-weight-two one-deletion codes, length n fixed-weight deletion ball packings, Levenshtein-conflict independent sets, and restricted VT classes. Same Hamming weight alone does not equate transposition balls with deletion balls; codewords have distinct-length descendant constraints.",
+      "searches": [
+        "binary words of Hamming weight 2 length n correcting one deletion exact maximum n-1-floor((n+1)/4) via adjacent pair and spaced pair construction",
+        "constant weight two single deletion correcting codes extremal size deletion ball independent sets loop matching",
+        "weight-2 Levenshtein distance 2 one deletion correcting constrained codes exact graph maximum independent set",
+        "arXiv:math/0207197 §1--2",
+        "doi:10.1016/j.dam.2018.03.085 §1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published finding 2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c counts unrestricted length-six codes of size 10; the present restricted maximum at n=6 is 4.",
+        "OEIS A085680 records a different adjacent-transposition channel and its initial growth is quadratic; the present result is linear."
+      ],
+      "reasoning": "Searches for the exact floor formula, corresponding sequence, and the natural weighted-channel aliases did not surface a matching table or exact classification. Lack of a hit does not establish exhaustive novelty.",
+      "searches": [
+        "published findings query: binary words of Hamming weight 2 length n correcting one deletion exact maximum n-1-floor((n+1)/4) via adjacent pair and spaced pair construction",
+        "published findings query: constant weight two single deletion correcting codes extremal size deletion ball independent sets loop matching",
+        "published findings query: weight-2 Levenshtein distance 2 one deletion correcting constrained codes exact graph maximum independent set",
+        "Sloane 2002 Table 1 and unrestricted length profile",
+        "OEIS A085680 from Gómez Soto et al."
+      ]
+    },
+    "rationale": "Targeted exact-source and synonym searches of a searchable published research index and external literature, plus material inspection of the most plausible open primary works, found no equivalent or dominating statement. Crucially, the exact weight-two transposition theorem is a different metric and the new 2026 t>=2 redundancy result is neither an exact nor composition-specific t=1 result. Residual older-inaccessible and unindexed-priority risks are recorded; absence of search matches alone is not used as proof.",
+    "residual_risks": [
+      "Older insertion/deletion coding dissertation by P. A. H. Bours (1994) could not be accessed in full and could contain a specialized formula.",
+      "Unindexed or differently worded historical fixed-weight deletion bounds might imply or duplicate the claimed exact formula.",
+      "The search index gives summaries; uninspected results are not deemed full-text cleared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different: unrestricted asymptotic existence for t>=2, not an exact weight-two t=1 theorem",
+        "evidence": "Initial submitted 2026-09-16 23:24:08 UTC; Theorem 1.1 states t>=2 and redundancy optimization.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.19493",
+        "material_read": "Public arXiv HTML full-text introduction, theorem 1.1, structural overview and related-work organization",
+        "method": "Direct primary full-text inspection",
+        "title": "Polynomially larger deletion codes by linear hashing of substring counts",
+        "trigger": "Recent literature and first public source date for deletion-correcting codes"
+      },
+      {
+        "assessment": "The observed general definitions, unrestricted optima, and VT results do not supply the exact weight-two-only extremal theorem",
+        "evidence": "PDF pp.1--4; Definition 1.1, unrestricted code sizes 1--8 and Section 2 VT syndromes; constant-weight citations concern separate constructions.",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0207197",
+        "material_read": "PDF abstract, Definitions 1.1, Sections 1--2 and discussion of constant-weight codes and references in the publicly parsed paper",
+        "method": "Direct primary PDF content inspection",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Defining predecessor on single deletion and unrestricted optimum; plausible older coverage"
+      },
+      {
+        "assessment": "The full work solves single adjacent TRANSPOSITION packing, which is not correction of an arbitrary deletion; explicit model differs",
+        "evidence": "Abstract and page 328 §1.1 equate A085680 with adjacency transpositions, not deletion descendants.",
+        "identifier_or_url": "https://matematicas.reduaz.mx/~jmgomez/jmgomezweb/Publications_files/7-PackingGraph2018.pdf",
+        "material_read": "Full 16-page OA paper made available; abstract, introduction, §1.1 and §1.2 were materially compared to the present claim",
+        "method": "Direct primary PDF inspection",
+        "title": "The packing number of the double vertex graph of the path graph",
+        "trigger": "Same exact weight two, superficially very close title and coding-theoretic metric"
+      },
+      {
+        "assessment": "Not cleared; inaccessible potentially relevant historical source remains priority risk",
+        "evidence": "1994 PAH Bours thesis, 165 pages; PDF fetch denied by host.",
+        "identifier_or_url": "https://research.tue.nl/files/2495185/418412.pdf",
+        "material_read": "Bibliographic/search metadata and partial indexed description only; PDF fetch returned 403, not read",
+        "method": "Bounded lawful OA access attempt",
+        "title": "Codes for correcting insertion and deletion errors",
+        "trigger": "Broad older dissertation could potentially contain specialized constant-composition deletion codes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1370efa2-2dd5-4642-9924-1918f83ca4d7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Single deletion is the foundational synchronization-error channel; fixing Hamming weight two isolates a natural and useful constant-composition subproblem whose exact cardinality is not supplied by ordinary unrestricted deletion-code optima. The theorem solves this infinite extremal family uniformly, identifies the additional adjacent-loop obstruction missed by basic shadow counting, and provides a regular explicit optimal code. Its 3n/4-scale answer and two-type mechanism are substantive structural information rather than a tabular finite increment.",
+    "status": "PASS"
+  }
+}
