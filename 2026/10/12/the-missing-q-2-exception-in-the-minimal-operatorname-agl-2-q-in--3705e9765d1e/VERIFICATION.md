@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The verification script `verification/verify.py` uses exact polynomial arithmetic in characteristic \(2\).
+## correctness
 
-It checks the exact \(q=2\) quotient division, the resulting quartic, the three homogeneous partial derivatives, the values at every derivative-critical projective point, the factorization at \(\lambda=1\) modulo \(\alpha^2+\alpha+1\), and smoothness of both conic factors.
+PASS
 
-A fresh replay with SymPy \(1.14.0\) produced:
+The quotient N/D is verified polynomially over F2 and equals x^4+y^4+x²y²+x²y+x²+xy²+xy+y²+1. The homogenized derivative ideal has exactly seven possible projective zeros: three at infinity where F=1 and four affine F2 points where F=1+lambda. Thus for lambda !=1 the curve is smooth and geometrically irreducible (projective reducible components intersect). At lambda=1, F=(U+alpha V)(U+alpha² V) for U=X(X+Z), V=Y(Y+Z), alpha²+alpha+1=0; factors are smooth and their gradients independent at all four intersections. Independently reproduced the F2 polynomial quotient and three characteristic-2 derivatives in SymPy; the geometric proof, not 7-point enumeration alone, justifies all algebraic parameters.
 
-`VERIFY_OK q=2_exception=lambda=1 factors=2_smooth_F4_conics smooth_else=all_lambda_ne_1`
+## originality
 
-The script does not use finite sampling to prove a universal statement. The proof that the derivative common-zero locus is exhausted uses the factorized derivative equations: for \(Z=0\) there are exactly three projective solutions, and for \(Z\ne0\) normalization to \(Z=1\) forces \(X,Y\in\mathbb F_2\).
+PASS
 
-The remaining limitation is bibliographic rather than computational: absence of a located correction does not prove that no informal or poorly indexed correction exists.
+An explicit characteristic-two exception refines the primary published Theorem 4.5, which states its displayed family without excluding lambda=1; the source Theorem 4.9 applies to a distinct point-stabilizer pencil. The explicit F4-conic factorization and transverse intersections are not implied by the general statement, and a Resultary quartic-Cremona record concerns another problem.
+
+## value
+
+PASS
+
+The smallest admissible field is an intrinsic boundary of a published classification, and finding a singular reducible pencil member with exact conic components repairs a mathematically consequential geometric assertion rather than a cosmetic parameter change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
