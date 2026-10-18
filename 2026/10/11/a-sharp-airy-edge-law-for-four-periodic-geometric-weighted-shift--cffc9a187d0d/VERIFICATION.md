@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-11.md",
+      "INDEPENDENT_AUDIT_2026-10-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the Airy-edge asymptotic
+# Independent mathematical audit
 
-The attached `VERIFY.py` is executable with `python3 VERIFY.py` using only the Python standard library. Successful execution prints `GEOMETRIC_FOUR_PERIODIC_AIRY_EDGE_EXACT_IDENTITIES_OK`.
+## correctness
 
-It verifies the following **exact rational** identities at several rational periodic profiles and damping parameters, including the undamped boundary and nontrivial modulated cases: \(2Lm_n=c_{n-1}+c_n\); the Bloch eigenvector equation; \(2/(S\bar m)=2st/[L(s+t)D]\); the entire finite-support ground-state form, including its endpoint term; and equality for inverse-conductance cell interpolation. In particular, the program checks \(\alpha=1/2\) for \(s=t=1\) and \(\alpha=8/21\) for \(s=5/2,t=1\).
+PASS
 
-The claimed limit concerns infinite-dimensional compact operators and all positive real \(s,t\). Its proof relies on analytical rescaling, tightness, weak lower semicontinuity, matching cellwise recovery, and the ordinary half-line Airy eigenvalue. The finite exact checks do **not** certify those infinite steps; they only guard their algebraic premises and normalizations. The preprint family and mathematical comparisons are cited in `RESULT.md`. The source's open finite-parameter polynomial-root questions remain outside this theorem.
+Phase rotation sends a positive weighted unilateral shift T to e^{iθ}T unitarily, so its numerical radius is the top eigenvalue of compact nonnegative Jacobi J=(T+T*)/2. The exact positive four-periodic ground state φ=(1,r,r,1) with r=(s-t+sqrt((s-t)^2+4))/2 and upper edge L=(r+t)/2 gives a quadratic-form identity with nonnegative gradient, a boundary penalty t v0²/2, and a confining potential. Cell resistance S=2/r+1/(sr²)+1/t, mean mass (1+r²)/2, and the Cauchy equality establish α=4/[(1+r²)S]=2st/[L(s+t)sqrt((s-t)^2+4)]. With ε=-log(q) and h=ε^{1/3}, kinetic and linear confining energy balance at order h². The proof’s compactness/tightness, four-site interpolation, Dirichlet boundary from the positive penalty, weak-liminf and exact resistance-minimizing recovery lead to the half-line operator -α d²/dx²+Lx, whose ground eigenvalue is a_Ai α^{1/3}L^{2/3}. Thus (L-w(T))/(-log q)^{2/3} tends to that exact constant for fixed s,t>0. The bundled exact-rational code verifies the discrete identity and coefficient; independent bounded finite-section behavior was consistent, but neither substitutes for the infinite variational proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The introducing four-periodic shift paper supplies finite-q numerical-radius bounds and determinant recurrences, whereas its accessible statement does not give this Airy edge law or explicit cell-homogenized stiffness. The unmodulated geometric case and general discrete Airy/WKB theory are substantial background and may contain a stronger framework, but the explicit four-periodic coefficient and half-line boundary matching are not known to be direct consequences of a specific inspected theorem. The exact recent source full text was not obtained, so a source-overlap risk remains. Resultary was temporarily unavailable, and no blank search establishes novelty.
+
+## value
+
+PASS
+
+The singular q↑1 numerical-radius boundary for the exact new four-periodic shift family is a natural and substantial invariant. It supplies a sharp noninteger 2/3 exponent and explicit parameter-dependent effective-mass coefficient, not merely a finite table or unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
