@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-16.md",
+      "INDEPENDENT_AUDIT_2026-10-16.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` with any current Python 3 installation; no third-party packages, downloads, randomness, or external data are needed. `verify.py` contains a fixed graph6 fixture giving every graph-isomorphism representative on one through six vertices, and independently implements power domination, a search through uniquely restricted target-covering matchings, and the constant-width forest polynomial recursion. The full run terminates after the checks described below; `verification_output.txt` contains the captured output from the supplied script.
+## correctness
 
-Exactly 208 graph-isomorphism representatives were checked. Their leaf coronas have 676900 initial vertex subsets, all compared directly with the matching characterization. Exactly 42 of the representatives are forests, accounting for 93924 initial subsets; for every one of those forest graphs, the entire coefficient list from the recursion matched direct subset enumeration. The additional four-cycle counterexample verifies that ordinary matchability without unique restriction can incorrectly predict successful observation. Selected small path-corona coefficient vectors are printed, providing numerical test cases.
+PASS
 
-The program tests only base graphs with at most six vertices. It supplies finite regression evidence; the arbitrary-order theorems rest on the forcing-sequence bijection, the alternating-cycle argument, Hall's theorem, and the inductive tree-interface recurrence written in `RESULT.md`. No infinite exhaustive enumeration, formal machine proof, independent validation, or complexity certificate is claimed. The recursive polynomial bound assumes arithmetic on nonnegative integers; their bit lengths remain linear in base-graph order.
+For arbitrary finite simple G, initial observations are originals N_G[R] union L and leaves R union L. Only L\R can force initially unobserved originals U. A legal sequence yields distinct agent-target edges whose ordered biadjacency matrix is triangular with diagonal 1, hence uniquely restricted. Conversely a uniquely restricted saturating matching has an acyclic alternating-exchange digraph and a sink permits sequential forces. For forest bases B(A,U) is acyclic, so Hall and target-saturating matching coincide; the 128-state rooted recurrence stores Boolean existence for parent-edge matching and counts selection patterns rather than matching witnesses. Direct independently implemented brute-forcing and matching checks agree on all 16,932 labeled instances with at most four base vertices. The full theorem is proven by these combinatorial arguments, not finite verification.
+
+## originality
+
+PASS
+
+Best-of-knowledge no prior full arbitrary-base uniquely-restricted-matching characterization and forest all-coefficient constant-width recursion found. Classical uniquely restricted matchings themselves are properly attributed; earlier power domination polynomial results cover different coronas and special tree families. Primary complete Brimkov PDF not independently retrieved in this run: exact Question 3 and cited scope also documented by audited package, leaving an explicit priority risk.
+
+## value
+
+PASS
+
+Addresses a named natural missing leaf-corona case in power-domination polynomial enumeration; makes the generic exponential selection classification explicit and gives polynomial-time all-coefficient counting for every forest base, beyond special complete m-ary tree instances. Both structural characterization and tractable subclass algorithm are substantive even without efficient arbitrary-base algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

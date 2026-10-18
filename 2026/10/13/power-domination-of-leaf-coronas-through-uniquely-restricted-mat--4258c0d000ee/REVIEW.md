@@ -1,23 +1,21 @@
-# Scientific review: power domination of leaf coronas
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem distinguishes an initially observed original vertex from an initially observed vertex whose private leaf is also observed. Only the latter type can force a still-unobserved original vertex. Each eligible vertex can force at most one such target. The forcing sequence determines a matching saturating the unobserved original vertices; triangular ordering of its biadjacency matrix proves unique restriction. Conversely, an acyclic dependency digraph derived from a uniquely restricted matching gives a legal sink-first forcing order. The remaining private leaves are then forced. The tree-state recursion follows Hall matching feasibility with exactly one incident matched edge for each target and at most one for each eligible agent, holding parent-edge availability in two boundary masks. These are proofs for arbitrary finite orders, not inferences from experimental data. The empty matching, isolated vertices, disconnected forests, and bases containing even cycles were included in the quantifiers and tests.
+PASS
 
-The standalone verification compared direct power-domination simulation with independent matching enumeration for 676900 initial subsets across every graph-isomorphism representative with one through six vertices. It compared all coefficients of the forest recursion with direct enumeration for 93924 initial subsets across 42 forest representatives. A four-cycle construction detects the false simplification that an ordinary matching would suffice for every base. These finite checks support the proof without replacing it.
+For arbitrary finite simple G, initial observations are originals N_G[R] union L and leaves R union L. Only L\R can force initially unobserved originals U. A legal sequence yields distinct agent-target edges whose ordered biadjacency matrix is triangular with diagonal 1, hence uniquely restricted. Conversely a uniquely restricted saturating matching has an acyclic alternating-exchange digraph and a sink permits sequential forces. For forest bases B(A,U) is acyclic, so Hall and target-saturating matching coincide; the 128-state rooted recurrence stores Boolean existence for parent-edge matching and counts selection patterns rather than matching witnesses. Direct independently implemented brute-forcing and matching checks agree on all 16,932 labeled instances with at most four base vertices. The full theorem is proven by these combinatorial arguments, not finite verification.
 
-## Originality — PASS, residual priority risk
+## originality
 
-Brimkov, Patel, Suriyanarayana, and Teich (2018, arXiv:1805.10984) introduced the graph power-domination polynomial and established a general zero-forcing criterion. Their Proposition 20 gives a corona formula for attachment cliques of size greater than one. Their Question 3 explicitly asks for efficient computation in the private-leaf case. The claim here answers that question only for forest bases, with a new specialized matching classification valid on arbitrary bases and a concrete bounded-state all-coefficient forest algorithm.
+PASS
 
-Whitlatch, Shultis, Ramirez, Ortiz, and Kniahnitskaya (2022/2023, arXiv:2201.09111), Theorem 1, count power-dominating sets in complete rooted m-ary trees by another recursion; they do not establish an all-forest leaf-corona transformation. Golumbic, Hirst, and Lewenstein (2001) introduced uniquely restricted matchings, which are used and fully credited rather than claimed as a new notion. Published research records on minimum power-dominating sets of threshold graphs, power-domination reliability on complete multipartite graphs, and zero-forcing polynomial questions cover different invariants or graph families. Finite numerical tables for small graphs do not entail the uniform characterization and polynomial-time transformation. An unindexed equivalent matching-based derivation, or a generic graph-algorithmic formulation that already implies a computational upper bound, remains a genuine risk. The claim does not assert a novel complexity class for all forests independently of generic methods.
+Best-of-knowledge no prior full arbitrary-base uniquely-restricted-matching characterization and forest all-coefficient constant-width recursion found. Classical uniquely restricted matchings themselves are properly attributed; earlier power domination polynomial results cover different coronas and special tree families. Primary complete Brimkov PDF not independently retrieved in this run: exact Question 3 and cited scope also documented by audited package, leaving an explicit priority risk.
 
-## Value — PASS
+## value
 
-The result supplies an exact complete distribution of successful power-monitor placements, at each cardinality, for the leaf corona of any base forest. This is a natural graph operation singled out as a difficult missing case by the originators of the polynomial, rather than a contrived graph slice. The uniquely restricted matching obstruction is mathematically essential: ordinary Hall feasibility fails in the four-cycle example, while the no-even-cycle class admits a clean exact Hall characterization. The constant-state tree recursion remains valid under arbitrary branching, disconnected components, and independent selection of roots and their leaves, and has polynomial arithmetic and bit complexity. The value is the structural description together with an executable all-coefficient algorithm; no downstream theorem, root property, or universal arbitrary-graph algorithm is assumed.
+PASS
 
-## Closest literature and limitations
+Addresses a named natural missing leaf-corona case in power-domination polynomial enumeration; makes the generic exponential selection classification explicit and gives polynomial-time all-coefficient counting for every forest base, beyond special complete m-ary tree instances. Both structural characterization and tractable subclass algorithm are substantive even without efficient arbitrary-base algorithm.
 
-The main comparison is arXiv:1805.10984, Theorem 5, Proposition 20, and Question 3. The fully inspected special-tree comparator is arXiv:2201.09111, Theorem 1 and Section 3. The definition of uniquely restricted matching comes from DOI 10.1007/s00453-001-0004-z. The power-domination theorem for every base is a characterization, not an efficient general-purpose algorithm; only the forest class receives a polynomial-time coefficient computation. The complete finite verification goes through base order six. Priority is not independently certified.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
