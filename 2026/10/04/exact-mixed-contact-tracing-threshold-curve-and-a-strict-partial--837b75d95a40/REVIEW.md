@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Starting from the source's four-equation threshold system, the proof introduces only algebraic abbreviations and solves two linear equations in the products \\(c_pz\\) and \\(c_tz^2\\). Direct symbolic substitution annihilates all four source equations. The endpoint values simplify exactly to the source's pure pairwise and pure triplewise critical formulas. The chord identity is an exact rational identity, and the positivity domain is tied to the source's own condition \\(q>q_{\\min}^t\\).
+## correctness
 
-Risk retained: the result inherits the modeling approximation of the source's moment closure and fast-variable threshold construction; it is not a theorem for the exact finite stochastic network.
+PASS
 
-## Originality
-PASS. The motivating article derives the two pure thresholds analytically but presents the simultaneous pairwise/triplewise case through a numerical final-size map and describes only a slight reinforcement relative to the line connecting pure thresholds. The inspected earlier literature covers pairwise contact tracing, generic fast-variable threshold methodology, or a different partial-adherence SIS model. No inspected source states or implies the exact mixed parameterization together with the strict partial-compliance chord inequality and the full-compliance equality case.
+Independently eliminated the four source fast-variable critical equations via P=c_p z and T=c_t z²: κP+κδT=R0−1, B=P+κT, R0y=1+B, and z=[1−(1−q)(B+1)/R0]/(a+R0). Solving P,T yields the stated unique t∈[0,1] nonnegative parameterization. In SymPy exact identities κP+κδT=A and P+κT=B vanish, and the normalized chord identity simplifies exactly to 1. Solving z(1)=0 yields qmin=2(R0−1)/(nR0−2); q>qmin gives positive z on branch. For q<1, z(1)<z(0) and strict interior synergy; q=1 gives equality. Restricted to closure threshold, not stochastic process. RESULT.md contains duplicated Finding header and literal doubled LaTeX backslashes; this is a public-text rendering defect, not a failure of the reconstructed algebra.
 
-Closest literature: de Meijere et al. (2026), especially Eq. (3.7), Eqs. (3.8) and (3.12), and Fig. 5(b); Eames--Keeling (2003); Barnard et al. (2019); de Meijere--Castellano (2023).
+## originality
 
-Residual risk: the motivating article describes its threshold framework broadly as a full analytical characterization and its combined case as a mapped contribution. The full text was therefore inspected specifically at the combined-intervention section and appendices: it gives explicit algebra only for the two pure axes and uses a numerical heatmap for the mixed case. A mathematically equivalent parameterization could exist in literature under different notation despite the targeted searches; none was found in the inspected sources.
+PASS
 
-## Value
-PASS. The source explicitly highlights combined pairwise and triplewise tracing and uses a straight-line benchmark to interpret a numerical reinforcement. The exact curve converts that observation into a parameter-wide theorem, identifies the mechanism as partial compliance, and shows that the effect disappears exactly at full compliance. This directly clarifies the control geometry of the paper's central combined-intervention question rather than adding an arbitrary parameter slice.
+De Meijere et al provide pure pairwise/triplewise critical levels and numerical mixed threshold comparison in Figure 5, but in the inspected full article do not give this rational analytic parameterization or exact compliance dichotomy; precursor pairwise and fast-correlation papers lack this pair-plus-triple parameter pair. Best-of-knowledge PASS with risk of implicit appendix derivations.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Complete analytic mixed-intervention threshold locus and strict/full-compliance boundary directly resolve an unexplained numerical reinforcement in a motivated epidemic closure; it is a parameterized structural identity rather than arbitrary numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
