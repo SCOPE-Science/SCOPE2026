@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T07:52:17.584586Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Prime-square exclusion follows from gcd(p,p²+p+1)=1 and p²+p+1>p−1. For p<q, p=2 forces q+1|4, hence q=3. For odd p,q, set m=(q+1)/2|p(p−1). If p∤m then m=p−1 and integrality forces p+1|15, impossible as even≥4. If p|m, put m=pa and p−1=ab: exact rearrangement gives ab+2 | b−4a−6. The positive and zero cases fail (zero gives composite q), and with 4a+6−b=t(ab+2), cases t≥3,1 give even p or composite q; t=2 forces b=2 and q=p²−p−1. Substituting that prime q gives integer ratio q(p−2). Independently generated prime factorizations and checked 210035 Ω=2 integers up to 10^6; exactly 13 hits 6,15,95,287,1199,4607,23519,28799,101567,223199,296207,352799,903167 obey the formula. Infinite proof does not depend on finite sieve.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Koninck–Luca investigate σ(φ(n))/φ(σ(n)), with different composite argument and asymptotic statistics.",
+          "The OEIS sequence definition supplies membership values but no theorem classifying all possible primes p and q in the two-factor layer."
+        ],
+        "reasoning": "General divisor-sum/totient estimates do not imply this prime-polynomial equivalence or exclude prime squares without additional divisibility proof.",
+        "searches": [
+          "sigma(n) divides n phi(n) semiprime pq q=p^2-p-1 prime square",
+          "doi:10.4064/cm108-1-4"
+        ]
+      },
+      "checked_sources": [
+        "https://oeis.org/A066995",
+        "https://oeis.org/A011775",
+        "doi:10.4064/cm108-1-4",
+        "Resultary query: sigma(n) divides n phi(n) semiprime pq q=p^2-p-1 prime square"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finite initial terms or a membership testing program do not logically force q=p²−p−1 for every prime pair.",
+          "The composition quotient paper has a different target and would require a fresh divisor-branch argument to derive this classification."
+        ],
+        "reasoning": "No checked prior theorem dominates the exact Ω=2 all-prime statement; arithmetic deduction is not a mere parameter substitution from existing tables.",
+        "searches": [
+          "sigma(n) divides n phi(n) semiprime pq q=p^2-p-1 prime square",
+          "https://oeis.org/A066995",
+          "doi:10.4064/cm108-1-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A066995 is by definition the same set {n:σ(n)|nφ(n)}.",
+          "A011775 reverses the outer relation, {n:n|φ(n)σ(n)}, and is not equivalent."
+        ],
+        "reasoning": "Compared the exact divisibility direction and the Ω(n)=2 layer, rather than merely matching occurrences of sigma and totient.",
+        "searches": [
+          "sigma(n) divides n phi(n) semiprime pq q=p^2-p-1 prime square",
+          "https://oeis.org/A066995",
+          "https://oeis.org/A011775"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A066995 includes 6,15,95,287,1199,... but also higher-Ω members such as 28 and 84.",
+          "The entry does not display an exhaustive parametric Ω=2 criterion or resolve the unbounded primality branch."
+        ],
+        "reasoning": "Overlap of tested initial values is not coverage of an infinite layer classification; the database provides concrete known examples and a strong residual-priority check.",
+        "searches": [
+          "https://oeis.org/A066995",
+          "https://oeis.org/A011775"
+        ]
+      },
+      "rationale": "OEIS A066995 is the exact divisibility sequence, but is a list/program rather than a structural two-prime layer classification. A011775 reverses the divisibility and cannot imply this restriction. De Koninck–Luca study composition σ(φ(n))/φ(σ(n)), not σ(n)|nφ(n). No accessible stronger published classification was found through actual semantic and arithmetic searches; unindexed elementary number theory remains a residual risk.",
+      "residual_risks": [
+        "An unindexed elementary problem solution may already classify the Ω=2 subfamily of A066995.",
+        "Infinitude of primes p with p²−p−1 prime is unknown and explicitly not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE of terms, NOT_COVERING parametric two-factor classification in material read",
+          "evidence": "Sequence includes 6,15,95,287, but its displayed material supplies no q=p²−p−1 theorem.",
+          "identifier_or_url": "https://oeis.org/A066995",
+          "material_read": "OEIS entry definition, initial sequence and formulas/program pointers",
+          "method": "database HTML",
+          "title": "A066995 — Numbers k such that sigma(k) divides k*phi(k)",
+          "trigger": "Exact same global divisibility relation"
+        },
+        {
+          "assessment": "INAPPLICABLE due to reversed divisor direction",
+          "evidence": "Cannot substitute n|φσ for σ|nφ.",
+          "identifier_or_url": "https://oeis.org/A011775",
+          "material_read": "Entry defining relation and local characterization",
+          "method": "database HTML",
+          "title": "A011775 — Numbers k such that k divides phi(k)*sigma(k)",
+          "trigger": "Close alternate condition with reversed divisibility"
+        },
+        {
+          "assessment": "INDETERMINATE on uninspected full passages; different main invariant",
+          "evidence": "Do not infer document-wide noncoverage from a bibliographic summary.",
+          "identifier_or_url": "https://doi.org/10.4064/cm108-1-4",
+          "material_read": "Bibliographic overview and reported focus on composition quotient H(n), not exhaustive paper inspection this execution",
+          "method": "abstract/statement comparison",
+          "title": "On the composition of the Euler function and the sum of divisors function",
+          "trigger": "Same arithmetic functions in a potentially broader primary study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Ω=2 layer is the first nontrivial prime-factor-complexity slice of a long-indexed arithmetic divisibility sequence. Its exact prime-polynomial characterization and square exclusion are reusable natural arithmetic facts, separating effective membership classification from unresolved primality infinitude.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Ω(n)=2, σ(n)|nφ(n) holds exactly for n=6 or n=pq with odd primes 3≤p<q and q=p²−p−1 prime. No prime square works; quotient for odd solution is q(p−2).",
+  "limitations": [
+    "No claim for Ω≥3, or infinitely many p with p²−p−1 prime.",
+    "Only bibliographic/summary material inspected from De Koninck–Luca in this execution; cannot declare whole text not covering.",
+    "Whole Git directory-tree enumeration unavailable; stored exact assignment guard."
+  ],
+  "schema_version": 1
+}
