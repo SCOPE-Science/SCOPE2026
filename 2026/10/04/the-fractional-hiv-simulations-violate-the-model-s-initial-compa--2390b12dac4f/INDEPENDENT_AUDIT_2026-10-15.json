@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T13:20:10.982581Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any absolutely continuous X and continuous polynomial F, bounded CF kernel gives ||CFD X(t)||→0 as t↓0; thus continuous solution of CFD X=F(X) requires F(X0)=0. Checked original Ahmad et al parameter Table1 and Figures1–3 X0=(100,0,1), and independently computed rational vector (.109,.027,-2). Therefore no AC fractional solution for stated initial data, not a claim for gamma=1. Read source equations (3.4), (4.3), (4.4)–(4.6): (3.4) subtracts Xi(0) inconsistent with Definition 2.2 as printed; (4.3) uses an exponential weighted history unlike unweighted integral in that definition; (4.6) replaces its increment by unweighted newest interval. Splitting weighted integral proves exactly Q(t+h)-Q(t)=(e^-kh-1)Q(t)+∫new exp(-k(t+h-s))Xi(s)ds, with omitted term = -kh Q(t)+O(h²) and counterexample Xi=1. Results concern printed scheme, not arbitrary fractional HIV models.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diethelm et al general theorem implies any incompatible initial data invalid; applying it gives first half of claim as a corollary once source data are inserted.",
+          "General theorem neither inspects Ahmad numerical derivation nor proves dropped order-h memory term in this source."
+        ],
+        "reasoning": "No broader prior correction located that jointly addresses model-specific parameter residual and source equation mismatch. General compatibility itself is explicitly acknowledged as covered.",
+        "searches": [
+          "Resultary semantic search: Caputo Fabrizio HIV model Ahmad Ullah Partohaghighi 2022 incompatible initial condition history numerical recurrence",
+          "arXiv:2006.15237 general compatibility theorem",
+          "Ahmad 2022 full-source Eq.(4.3)–(4.6)"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md Git blob 1c22ec5a99545018987398466a693c037072d54a",
+        "Assigned frozen verify.py Git blob 22b07d4fa5a8cfa7a37749bdfbf4a6b0869c0bd1",
+        "Independently evaluated rational source residual and exact weighted history identity",
+        "https://www.aimspress.com/aimspress-data/math/2022/3/PDF/math-07-03-265.pdf",
+        "https://www.aimspress.com/article/doi/10.3934/math.2022265",
+        "arXiv:2006.15237"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General F(X0)=0 necessity covers the theoretical lemma but does not contain X0=(100,0,1), source numerical parameters, or failure of the (4.3)→(4.6) history subtraction."
+        ],
+        "reasoning": "Substantive new work is exact application and independent history-identity failure; not a novelty claim for an established fractional-calculus theorem.",
+        "searches": [
+          "Resultary semantic search: Caputo Fabrizio HIV model Ahmad Ullah Partohaghighi 2022 incompatible initial condition history numerical recurrence",
+          "Diethelm et al 2020 full HTML",
+          "Ahmad et al 2022 primary text Table1, (3.4),(4.3),(4.6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Diethelm et al proved bounded-kernel derivatives vanish at zero; this general lemma covers only the initial F(X0)=0 implication.",
+          "Original Ahmad et al eqs(3.4),(4.3),(4.6) and Table1 inspected directly; the exact model-specific residual and lost history are not generic restatements."
+        ],
+        "reasoning": "The claim is a concrete counterexample and two incompatible printed integral updates; unlike prior general compatibility observation it identifies equations/data in a particular article.",
+        "searches": [
+          "Resultary semantic search: Caputo Fabrizio HIV model Ahmad Ullah Partohaghighi 2022 incompatible initial condition history numerical recurrence",
+          "Ahmad et al DOI:10.3934/math.2022265 published full text",
+          "Diethelm et al arXiv:2006.15237 / DOI:10.1515/fca-2020-0032"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact hit is same record being audited; other HIV/memory-recursion corrections are to distinct publications.",
+          "AIMS original article Table 1 provides exact values but not its nonzero residual, and no correction table of this source was located."
+        ],
+        "reasoning": "The printed parameter table is primary evidence, not a prior statement of its incompatibility; no indexed pre-existing source-specific erratum found.",
+        "searches": [
+          "Resultary semantic search: Caputo Fabrizio HIV model Ahmad Ullah Partohaghighi 2022 incompatible initial condition history numerical recurrence",
+          "Resultary HIV Caputo–Fabrizio discrepancy semantic query",
+          "title/DOI searches for published erratum or correction"
+        ]
+      },
+      "rationale": "General nonsingular-kernel initial-compatibility restriction is pre-existing Diethelm–Garrappa–Giusti–Stynes 2020 theorem and is explicitly NOT claimed new. The specific exact published HIV-model initial residual and independent error in its equation-to-algorithm history are not supplied by that general theorem and no prior correction to this paper was located.",
+      "residual_risks": [
+        "The paper may have intended a regularized alternative IVP, but that is not the printed derivative initial-value problem.",
+        "The printed 4.2 formula has additional typographical ambiguity; the critique relies only on the directly rendered 4.3–4.6 history identity and Table1 data.",
+        "Established compatibility theorem explicitly not counted as original; novelty limited to source-specific application and independent history mistake."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Printed table and equations match calculation; original 4.6 drops weighted history",
+          "evidence": "https://www.aimspress.com/aimspress-data/math/2022/3/PDF/math-07-03-265.pdf (pp.2,5,8–10); https://www.aimspress.com/article/doi/10.3934/math.2022265",
+          "identifier_or_url": "DOI:10.3934/math.2022265; AIMS Mathematics 7(2022)4778–4792",
+          "material_read": "Publisher open-access full 15-page PDF, with rendered pp.8–9 showing Eq(4.3)–(4.9); targeted read Defs2.1–2.2, model(1.2)/(1.3), Table1, Eq(3.4), Figures1–5; plus author-uploaded full-text extraction",
+          "method": "AIMS publisher primary PDF extracted text and actual rendered formula pages, supplemented by author upload",
+          "title": "Oscillatory and complex behaviour of Caputo-Fabrizio fractional order HIV-1 infection model",
+          "trigger": "exact article challenged"
+        },
+        {
+          "assessment": "General zero-initial-value restriction covered as prior art; no discussion of this source-specific recurrence",
+          "evidence": "https://commons-aws-dev.ii.inc/documents/arXiv:2006.15237",
+          "identifier_or_url": "arXiv:2006.15237; DOI:10.1515/fca-2020-0032",
+          "material_read": "Accessible full HTML; abstract and core initial derivative compatibility discussion inspected",
+          "method": "Full-text HTML from open-access preprint",
+          "title": "Why fractional derivatives with nonsingular kernels should not be used",
+          "trigger": "possible broader prior coverage of compatibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two concrete errors invalidate the inference that plotted fractional paths are trajectories of the stated HIV model; a source-specific exact correction to simulation logic and history-dependent discretization is important for faithful analysis even without broader theorem. Distinguishes γ=1 and possible alternative regularized models.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The paper may have intended a regularized alternative IVP, but that is not the printed derivative initial-value problem.",
+    "The printed 4.2 formula has additional typographical ambiguity; the critique relies only on the directly rendered 4.3–4.6 history identity and Table1 data.",
+    "Established compatibility theorem explicitly not counted as original; novelty limited to source-specific application and independent history mistake."
+  ],
+  "schema_version": 1
+}
