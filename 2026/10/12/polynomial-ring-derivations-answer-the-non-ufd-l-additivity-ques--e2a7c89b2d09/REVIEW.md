@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For every Noetherian non-UFD integral domain \(A\), Hilbert's basis theorem makes \(A[X]\) Noetherian, hence atomic. A nonunique constant factorization in \(A\) remains nonunique in \(A[X]\), because a factorization of a nonzero constant has only constant factors and polynomial units are constant units. The identity companion is completely multiplicative, and the formal product rule makes \(D_X\) L-additive; \(D_X(X)=1\) proves nonzeroness. The \(\mathbb Z[\sqrt{-5}]\) example is independently justified by its norm.
+## correctness
 
-## Originality
-PASS. The focal paper leaves precisely this existence question open. The 2013 and 2024 sources closest in subject study the stronger factorization-normalized arithmetic derivative, whose failure in non-UFDs does not imply failure of arbitrary L-additive functions. Targeted published-finding corpus and web searches found no statement of the polynomial-ring construction or a stronger theorem covering it.
+PASS
 
-## Value
-PASS. The result resolves an explicit published question for an infinite class of examples and identifies the conceptual reason the earlier non-UFD obstruction is not decisive: L-additivity alone is weaker than assigning derivative \(1\) to every chosen irreducible.
+For any Noetherian integral domain A that is not a UFD, Hilbert basis theorem makes J=A[X] Noetherian, so ACCP and atomic. A has two nonassociate irreducible factorizations; in an integral-domain polynomial ring, factors of a nonzero constant have degree zero and units remain constant, so this obstruction persists in A[X]. The ordinary formal derivative D_X satisfies D_X(FG)=D_X(F)G+F D_X(G) with companion h=id completely multiplicative and D_X(X)=1, hence a nonzero L-additive function as defined in original Question 26. For A=Z[sqrt(-5)], norm a²+5b² has no values 2 or 3 and only unit norm 1; 6=2·3=(1+s)(1−s) is the explicit inequivalent irreducible factorization. Thus neither domain restriction, non-UFD property nor nonzero Leibniz derivative is extrapolated from bounded code; all have exact algebraic proofs.
 
-## Closest literature and limitations
-The closest literature is Murashka--Goncharenko--Goncharenko's Question 26, Haukkanen--Mattila--Merikoski--Tossavainen's negative results for the normalized arithmetic derivative, and Emmons--Xiao's later number-field treatment of that stronger obstruction. The result does not classify all non-UFD factorization domains and does not construct a normalized arithmetic derivative on them. Its main originality risk is an unindexed prior observation of the same elementary polynomial-ring idea.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source paper Murashka–Goncharenko–Goncharenko, Journal of Integer Sequences 23 (2020), explicitly poses Question 26 asking whether some non-UFD factorization domain permits a nonzero L-additive function. This direct polynomial-ring answer fits the original h=id Leibniz definition. Haukkanen et al 2013 studied a different arithmetic derivative normalized to assign value 1 to irreducibles; a negative conclusion there does not forbid an ordinary formal derivative. The example is an elementary general derivation observation that could occur in unindexed commutative algebra; targeted Resultary and primary-source searches did not locate the same response. As a precisely published open existence question rather than new general derivation theory, the question-level novelty survives best-of-knowledge comparison.
+
+## value
+
+PASS
+
+Although formal differentiation and Hilbert basis theorem are textbook tools, the assembled example gives a complete affirmative answer to an explicitly published existence question, and sharply separates L-additivity (a Leibniz companion identity) from factorization-normalized arithmetic derivatives. The answer holds for an entire class of Noetherian non-UFD base rings and supplies a concrete witness with complete irreducibility justification. The mathematical value is resolving the actual gap in the chosen definition, not claiming any sophisticated new differentiation mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
