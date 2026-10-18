@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-18.md",
+      "INDEPENDENT_AUDIT_2026-10-18.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite theorem is established by the symbolic proof in `RESULT.md`. The critical checks are:
+# Independent mathematical audit
 
-1. For \(q>1\), \(A=s(b^\ell-1)/q\) is an integer with \(1\le A\le b^\ell-2\), so its fixed-length base-\(b\) block has digit sum at most \(\ell(b-1)-1\).
-2. The exact identity \[s(b^{K\ell}-1)/q=A(1+b^\ell+\cdots+b^{(K-1)\ell})\] creates \(K\) identical blocks without carries.
-3. Subtracting a fixed integer from a word made of positive identical base-\(b^\ell\) blocks changes only boundedly many low blocks; it cannot erase a deficit growing linearly in \(K\).
-4. Symmetry converts the one-sided divisibility conclusion into \(a=c\).
-5. In prime base, removing powers of the base prime preserves digit sums exactly and leaves coprime cores, giving the if-and-only-if classification.
+## correctness
 
-`verify.py` was run from the packaged artifact directory. It returned `VERIFY_OK`. Its finite checks are regression tests, not substitutes for the proof. They cover coprime multiplier pairs in bases \(2\) through \(12\), bounded prime-base classifications for \(p\in\{2,3,5,7,11\}\), and exact repeated-block identities over a deterministic grid.
+PASS
 
-Limits: no exhaustive computation can certify the universal theorem; the proof does. No classification is asserted for arbitrary composite-base multipliers sharing factors with the base.
+Assume a=gq,c=gr with gcd(q,r)=1 and q>1. Choose m divisible by ord_a(b), n_m=(b^m-1)/a, giving S_b(a n_m)=m(b-1). Let ell=ord_q(b), B=b^ell, write r=hq+s (1<=s<q), and A=s(B-1)/q integer in [1,B-2]. For m=K ell, X_K=s(b^m-1)/q has K equal base-B digits A; hence S_b(X_K)=K S_b(A)<=m(b-1)-K. Subtraction of fixed h borrows through at most bounded low blocks since A>0, and the high h*b^m block stays disjoint, so S_b(c n_m)<=m(b-1)-K+O(1), contradiction as K grows. Interchange a,c to prove equality. For prime p strip valuation powers which append zero digits, giving iff p-free cores equal. Repeated block identity checked on exact bounded instances, but proof is symbolic.
+
+## originality
+
+PASS
+
+Pongsriiam 2021 explicitly raises the unrestricted digit-sum quasi-injectivity question, for which b shifts give immediate collisions. Coprime rigidity and complete prime-base modulo-shift classification are not implications of those trivial collisions or the source’s established quasi-injectivity theorems for other arithmetic functions.
+
+## value
+
+PASS
+
+Resolves a precise nontrivial rigidity remainder after removing unavoidable positional degeneracy from a published open-style multiplier question, uniformly in all bases and completely for prime bases. Repeated-block contradiction is a useful exact finite-state digit argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
