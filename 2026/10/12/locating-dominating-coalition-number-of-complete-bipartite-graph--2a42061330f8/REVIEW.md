@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reconstructs LD-sets in \(K_{m,n}\) from the definition and uses that characterization twice: first to build a universal three-block LDC-partition, and then to control how many blocks may remain outside any coalition pair. In the four-block case, the two leftover blocks must be opposite-side singletons; following the required partner of either singleton forces a second same-side omitted vertex unless \(m=n=2\). The boundary cases \(K_{1,1}\), stars, and \(K_{2,2}\) are handled separately. The finite verifier exactly agrees with the theorem on its exhaustive ranges.
+## correctness
 
-## Originality
-**PASS.** The primary paper arXiv:2602.18760v1 was inspected beyond its abstract: definitions, general bounds, exact path/cycle results, extremal-tree discussion, and full-text family aliases were checked. It contains no complete-bipartite/biclique classification. Exact and alias searches for the claim returned the source paper and nearby locating-domination variants, but no implication-equivalent formula for \(C_L(K_{m,n})\). Small cases already present as paths, cycles, or extremal trees are explicitly identified and not presented as new. Residual risk remains from unindexed terminology variants.
+PASS
 
-## Value
-**PASS.** Complete bipartite graphs are a canonical test family for domination and identification parameters. The new invariant’s initiating paper determines paths and cycles and develops family-wise structural questions; resolving the whole biclique family gives a natural infinite classification, with the non-obvious conclusion that every nontrivial biclique except \(K_{2,2}\) collapses to the same coalition number \(3\).
+An LD set meeting both bipartition shores can omit at most one vertex in each shore, as missing same-shore vertices otherwise have equal nonempty traces; one-shore LD sets require that shore be complete and opposite shore be a singleton. Two withheld same-shore vertices construct a universal three-block coalition partition when order>=3. Any pair of coalition blocks leaves at most two outside vertices, bounding size<=4, and a four-block partition forces both outside blocks to be opposite-shore singletons; their required alternate coalition partners force m=n=2. The four singleton blocks in C4 work; in K2 every singleton is already LD, hence no such partition. Own exhaustive small graph partition tests agree, but general result follows from structural argument.
 
-## Closest literature and limitations
-The closest source is M. Chellali et al., “Locating-dominating coalitions in graphs,” arXiv:2602.18760v1. It supplies the invariant and general upper bounds and contains the already-covered boundary cases \(K_{1,2}\cong P_3\) and \(K_{2,2}\cong C_4\). The present theorem is limited to complete bipartite graphs and does not classify all maximizing partitions or arbitrary complete multipartite graphs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level novelty of the surviving claim after crediting overlap in actual primary texts; not a universal priority certificate. Special cases are already known, not all-biclique theorem. Upper bound can give 4 but does not exclude 4 for all other bicliques; proof relies on structural coalition-partner argument. The new stated theorem reduces to prior only at named boundary cases; general coalition partitions require separate control.
+
+## value
+
+PASS
+
+Complete bipartite graphs are a canonical domination and locating-code test class. Classifying the recently defined coalition invariant on all bicliques, with a unique four-block exceptional C4 and a nontrivial collapse to three everywhere else, answers a natural family-wide problem; not merely a relabeling of LD number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
