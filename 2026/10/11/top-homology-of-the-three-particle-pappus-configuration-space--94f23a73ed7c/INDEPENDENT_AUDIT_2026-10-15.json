@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-15",
+  "audited_at_utc": "2026-10-15T00:10:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the Pappus graph directly from the specified LCF list: 18 vertices, 27 edges, degree 3 throughout. Built reduced Świątkowski d3 columns from signed e_plus−e_reference boundaries in weight three, yielding 6528 degree-three columns and 16524 degree-two rows. Fetched the ACTUAL 68KB artifacts/kernel_basis.json and verified all seven integral vectors lie in the exact d3 kernel, with strictly increasing distinct highest nonzero columns 4641,5841,6217,6353,6360,6481,6512 giving integral/rational independence. Independently recomputed rank(d3 mod 3)=6521 by sparse Gaussian elimination on all 6528 columns (27970 pivot reductions, completed). Thus dim_Q ker(d3)=7 by simultaneous upper/lower rank bounds, C4=0, and ker d3⊂free Z^6528 is free; therefore H3(B3(P);Z)=Z^7. Unlike a claimed rank from logs, both certificates were checked from actual package data.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The chain-model theorem applies to any graph but leaves a nontrivial differential rank to compute.",
+          "Heawood and theta graphs are different; their numerical homology results cannot determine B3(P) without a supplied graph-specific reduction."
+        ],
+        "reasoning": "These general theories and nearby solved families do not entail the Pappus rank seven.",
+        "searches": [
+          "Maciążek–Sawicki arXiv:1806.02846 section 4 reduced Świątkowski complex and worked graph families",
+          "Resultary three-particle homology of Heawood graph",
+          "Resultary complete theta-class relations for three-point generalized theta configurations"
+        ]
+      },
+      "checked_sources": [
+        "Maciążek–Sawicki arXiv:1806.02846, graph reduced Świątkowski complex discussion",
+        "Pappus LCF [5,7,-7,7,-7,-5]^3 and source artifacts/kernel_basis.json blob 3a95d5c2...",
+        "Resultary Pappus graph unordered configuration space three points graph braid group third homology rank 7 Swiatkowski"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior model ensures the computed kernel represents H3, but does not specify d3 rank 6521.",
+          "Homology of matching/independence complexes and graph-configuration homology are different functors and do not imply one another here."
+        ],
+        "reasoning": "The new claim follows only after the graph-specific matrix and exact rank sandwich, absent from inspected prior statements.",
+        "searches": [
+          "arXiv:1806.02846 reduced Świątkowski quasi-isomorphism",
+          "Resultary Pappus matching complex and Heawood B3(P) analogues"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary 55-page article has no occurrence of “Pappus” and presents a general homology model, not a rank for that graph.",
+          "Resultary self-entry exactly matches but is the current candidate; no independent exact graph-configuration H3 entry found."
+        ],
+        "reasoning": "Unordered graph braid, graph configuration and reduced Świątkowski formulations all refer to the same B3(P) invariant and were compared at the statement level.",
+        "searches": [
+          "Resultary semantic: Pappus graph unordered configuration space three points graph braid group third homology rank 7 Swiatkowski",
+          "Pappus graph three unordered point configuration homology H3 rank 7",
+          "Pappus graph braid group Świątkowski homology",
+          "Maciążek–Sawicki arXiv:1806.02846 fulltext “Pappus”"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary has separate Pappus matching-complex and independence-complex homology and a self-entry for the assigned claim.",
+          "SageMath LCF definition certifies the graph model only; it is not a B3 homology table."
+        ],
+        "reasoning": "Neither a matching/independence homology table nor the graph catalog gives this configuration-space invariant.",
+        "searches": [
+          "Resultary: Pappus top configuration homology, Pappus matching complex, Pappus independence complex",
+          "PappusGraph SageMath graph-construction reference"
+        ]
+      },
+      "rationale": "Best-of-knowledge: Maciążek–Sawicki gives the Świątkowski graph-configuration model and worked families including wheels, K_{3,3}, K_{2,p}, not the Pappus graph; PDF full search “Pappus” none. Resultary also returns three-particle homology for Heawood, theta and graph matching/independence complexes of Pappus, not a computation of H3 of unordered three points on Pappus. No explicit or stronger published result was found implying the precise rank-seven integral top homology.",
+      "residual_risks": [
+        "A non-indexed Pappus configuration-space computation could exist; neither a generic graph-braid model nor unrelated Pappus simplicial complexes count as covering evidence.",
+        "Independent reimplementation checked top differential and certificate only; it does not compute lower degree groups or cup products."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_VALID, DOES_NOT_COVER_PAPPUS",
+          "evidence": [
+            "The paper explicitly says reduced and unreduced Świątkowski complexes have the same homology; the word Pappus does not occur."
+          ],
+          "identifier_or_url": "arXiv:1806.02846; DOI 10.1007/s00220-019-03583-5",
+          "material_read": "55-page full arXiv PDF, model and reduced-complex discussion around p.22–23, graph-family sections and complete-text search for Pappus",
+          "method": "arXiv PDF full text and page image",
+          "title": "Non-abelian Quantum Statistics on Graphs",
+          "trigger": "Foundational source for reduced Świątkowski chain model and competing graph-configuration computations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Pappus graph is a canonical 18-vertex cubic incidence graph; its three-particle unordered configuration space is a natural graph-braid invariant. An exact integral top Betti number with a replayable independent rank/kernel sandwich supplies a useful datum for topology and quantum statistics on this graph, rather than an arbitrary graph-label computation. No claim is made to the complete homology ring or other particle weights.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A non-indexed Pappus configuration-space computation could exist; neither a generic graph-braid model nor unrelated Pappus simplicial complexes count as covering evidence.",
+    "Independent reimplementation checked top differential and certificate only; it does not compute lower degree groups or cup products."
+  ]
+}

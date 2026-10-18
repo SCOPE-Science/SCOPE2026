@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-15.md",
+      "INDEPENDENT_AUDIT_2026-10-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 artifacts/verify.py` from the package root. The verifier reconstructs the 18-vertex, 27-edge LCF graph, forms the all-vertex-reduced Świątkowski particle-weight-three boundary, and checks the certified kernel vectors.
+# Independent mathematical audit
 
-The decisive proof check is two-sided: rank modulo 3 is 6521, which forces rational rank at least 6521; seven independent integral kernel vectors force rational nullity at least 7 and hence rational rank at most 6521. Therefore the top kernel has rank 7. Because there is no degree-four chain group in particle weight 3 and the integral kernel is a subgroup of a free abelian group, the claimed integral group is free of rank 7.
+## correctness
 
-The verifier also checks the edge count and valencies, the chain-group ranks, the relation `d2*d3=0`, and the degree-three boundary ranks modulo 2, 3, and 5. Finite-field ranks other than modulo 3 are consistency checks, not substitutes for the exact rank sandwich.
+PASS
 
-No claim is made about lower integral homology or torsion outside the top degree.
+Independently reconstructed the Pappus graph directly from the specified LCF list: 18 vertices, 27 edges, degree 3 throughout. Built reduced Świątkowski d3 columns from signed e_plus−e_reference boundaries in weight three, yielding 6528 degree-three columns and 16524 degree-two rows. Fetched the ACTUAL 68KB artifacts/kernel_basis.json and verified all seven integral vectors lie in the exact d3 kernel, with strictly increasing distinct highest nonzero columns 4641,5841,6217,6353,6360,6481,6512 giving integral/rational independence. Independently recomputed rank(d3 mod 3)=6521 by sparse Gaussian elimination on all 6528 columns (27970 pivot reductions, completed). Thus dim_Q ker(d3)=7 by simultaneous upper/lower rank bounds, C4=0, and ker d3⊂free Z^6528 is free; therefore H3(B3(P);Z)=Z^7. Unlike a claimed rank from logs, both certificates were checked from actual package data.
+
+## originality
+
+PASS
+
+Best-of-knowledge: Maciążek–Sawicki gives the Świątkowski graph-configuration model and worked families including wheels, K_{3,3}, K_{2,p}, not the Pappus graph; PDF full search “Pappus” none. Resultary also returns three-particle homology for Heawood, theta and graph matching/independence complexes of Pappus, not a computation of H3 of unordered three points on Pappus. No explicit or stronger published result was found implying the precise rank-seven integral top homology.
+
+## value
+
+PASS
+
+The Pappus graph is a canonical 18-vertex cubic incidence graph; its three-particle unordered configuration space is a natural graph-braid invariant. An exact integral top Betti number with a replayable independent rank/kernel sandwich supplies a useful datum for topology and quantum statistics on this graph, rather than an arbitrary graph-label computation. No claim is made to the complete homology ring or other particle weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
